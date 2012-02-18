@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-01-30 14:03+0200\n"
-"Last-Translator: Herman van Rink <rink@initfour.nl>\n"
+"PO-Revision-Date: 2012-02-17 18:26+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -563,10 +563,9 @@ msgid "Search in database"
 msgstr "Zoeken in de database"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Woord(en) of waarde(s) waarnaar gezocht moet worden (wildcard: \"%\"):"
+msgstr "Woorden of waarden waarnaar gezocht moet worden (wildcard: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
@@ -577,10 +576,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Woorden worden gesplits door een spatiekarakter (\" \")."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "In de tabel(len):"
+msgstr "In de tabellen:"
 
 #: db_search.php:330
 msgid "Inside column:"
@@ -818,22 +816,21 @@ msgid "Values for a new column"
 msgstr "Waarden voor een neiuwe kolom"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Waarden voor kolom \"%s\""
+msgstr "Waarden voor kolom %s"
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Plaats elke waarde in een afzonderlijk veld."
+msgstr "Plaats elke waarde in een afzonderlijk veld"
 
 #: enum_editor.php:123
 #, fuzzy
 #| msgid "+ Add a new value"
 msgid "Add a value"
-msgstr "Nieuwe waarde toevoegen"
+msgstr "Een nieuwe waarde toevoegen"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
@@ -1141,10 +1138,9 @@ msgid "This is not a number!"
 msgstr "Dit is geen cijfer!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
-msgstr "Voeg index toe"
+msgstr "Voeg een index toe"
 
 #: js/messages.php:47
 #, fuzzy
@@ -1206,20 +1202,18 @@ msgid "Edit"
 msgstr "Wijzig"
 
 #: js/messages.php:66 server_status.php:803
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Live traffic grafiek"
+msgstr "Grafiek met huidig dataverkeer"
 
 #: js/messages.php:67 server_status.php:806
 msgid "Live conn./process chart"
 msgstr "Live conn./process grafiek"
 
 #: js/messages.php:68 server_status.php:824
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Query grafiek tonen"
+msgstr "Grafiek van actieve queries"
 
 #: js/messages.php:70
 msgid "Static data"
@@ -1257,10 +1251,9 @@ msgid "KiB received since last refresh"
 msgstr "Onvangen KiB sinds laatste verversing"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Server traffic (in KiB)"
+msgstr "Server verkeer (in KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
@@ -1279,22 +1272,21 @@ msgstr "Connecties / Processen"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr "Vragen sinds laatste verversing"
+msgstr "Questions sinds laatste verversing"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Questions (aantal door de server uitgevoerde opdrachten)"
 
 #: js/messages.php:91 server_status.php:785
 msgid "Query statistics"
-msgstr "Toon statistieken"
+msgstr "Query statistieken"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Opslaan van het configuratiebestand is niet mogelijk"
+msgstr "Configuratie van lokale monitoring is niet geldig"
 
 #: js/messages.php:95
 msgid ""
@@ -1305,104 +1297,96 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Query cache"
+msgstr "Query cache efficiëntie"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Query cache"
+msgstr "Query cache gebruik"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Query cache"
+msgstr "Query cache gebruikt"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr ""
+msgstr "CPU gebruik"
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr ""
+msgstr "Systeem geheugen"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr ""
+msgstr "Systeem wisselbestand"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
 #: server_status.php:1680
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1397
 #: server_status.php:1680
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #: js/messages.php:107
 msgid "Average load"
-msgstr ""
+msgstr "Gemiddelde systeembelasting"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "Total count"
 msgid "Total memory"
-msgstr "Totaal aantal"
+msgstr "Totaal geheugen"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr ""
+msgstr "Gecached geheugen"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Buffer Pool"
+msgstr "Gebufferd geheugen"
 
 #: js/messages.php:111
 msgid "Free memory"
-msgstr ""
+msgstr "Vrij geheugen"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "Gebruikt geheugen"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Totaal"
+msgstr "Totaal wisselbestand"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "Gecached wisselbestand"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "Wisselbestand in gebruik"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Vrije pages"
+msgstr "Vrij wisselbestand"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Doorgestuurde bytes"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Ontvangen"
+msgstr "Ontvangen bytes"
 
 #: js/messages.php:121 server_status.php:1145
 msgid "Connections"
@@ -1416,36 +1400,35 @@ msgstr "B"
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:128 libraries/common.lib.php:1401
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:129 libraries/common.lib.php:1403
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:130 libraries/common.lib.php:1405
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:131 libraries/common.lib.php:1407
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s tabel"
+msgstr "%d tabel(len)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Versies"
+msgstr "Questions"
 
 #: js/messages.php:136 server_status.php:1100
 msgid "Traffic"
@@ -1457,24 +1440,22 @@ msgid "Settings"
 msgstr "Instellingen"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Verwijder database"
+msgstr "Verwijder grafiek"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Titel en labels aanpassen"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Kleef aan raster"
+msgstr "Grafiek toevoegen aan raster"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Gelieve tenminste één variable toe te voegen aan de reeks"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
@@ -1486,35 +1467,35 @@ msgstr "Geen"
 
 #: js/messages.php:144
 msgid "Resume monitor"
-msgstr ""
+msgstr "Monitor heropstarten"
 
 #: js/messages.php:145
 msgid "Pause monitor"
-msgstr ""
+msgstr "Monitor pauzeren"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log en slow_query_log zijn ingeschakeld."
 
 #: js/messages.php:148
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log is ingeschakeld."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log is ingeschakeld."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log en general_log zijn uitgeschakeld."
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output heeft niet TABLE als instelling."
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output is ingesteld op TABLE."
 
 #: js/messages.php:153
 #, php-format
@@ -1523,68 +1504,72 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log is ingeschakeld, maar de server logt enkel queries die langer "
+"duren dan %d seconden. Het is aangeraden om long_query_time in te stellen "
+"op 0-2 seconden, afhankelijk van uw systeem."
 
 #: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time is ingesteld op %d seconde(n)."
 
 #: js/messages.php:155
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Volgende instellingen zullen algemeen toegepast worden en worden gereset tot "
+"de standaardwaarde bij herstart van de server:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Opslaan als bestand"
+msgstr "log_ouput instellen op %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Ingeschakeld"
+msgstr "%s inschakelen"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Uitgeschakeld"
+msgstr "%s uitschakelen"
 
 #. l10n: %d seconds
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time instellen op %dsec"
 
 #: js/messages.php:164
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"U kan deze variabelen niet wijzigen. Gelieve in te loggen als root of neem "
+"contact op met de databasebeheerder."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Beheer uw instellingen"
+msgstr "Instellingen wijzigen"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Overige instellingen"
+msgstr "Huidige instellingen"
 
 #: js/messages.php:168 server_status.php:1645
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "Report titel:"
+msgstr "Grafiek titel"
 
 #. l10n: As in differential values
 #: js/messages.php:170
@@ -1596,29 +1581,28 @@ msgstr "Verschil"
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "Gedeeld door %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Eenheid"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "Uit het trage query logbestand"
 
 #: js/messages.php:175
 msgid "From general log"
-msgstr ""
+msgstr "Uit het algemene logbestand"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Logbestanden worden geladen en geanalyseerd. Dit kan even duren."
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Lees aanvragen"
+msgstr "Aanvraag onderbreken"
 
 #: js/messages.php:178
 msgid ""

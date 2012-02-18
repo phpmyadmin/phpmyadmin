@@ -1,9 +1,11 @@
 <?php
 /**
- * Column types and functions supported by MySQL
+ * Column types and functions supported by Drizzle
  *
  * @package PhpMyAdmin
  */
+
+$auto_column_types = empty($cfg['ColumnTypes']);
 
 // VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
 $cfg['ColumnTypes'] = !empty($cfg['ColumnTypes']) ? $cfg['ColumnTypes'] : array(
@@ -39,11 +41,19 @@ $cfg['ColumnTypes'] = !empty($cfg['ColumnTypes']) ? $cfg['ColumnTypes'] : array(
     'STRING' => array(
         'VARCHAR',
         'TEXT',
+        '-',
         'VARBINARY',
         'BLOB',
+        '-',
         'ENUM',
     ),
 );
+
+if ($auto_column_types && PMA_MYSQL_INT_VERSION >= 20120130) {
+    $cfg['ColumnTypes']['STRING'][] = '-';
+    $cfg['ColumnTypes']['STRING'][] = 'IPV6';
+}
+unset($auto_column_types);
 
 $cfg['AttributeTypes'] = !empty($cfg['AttributeTypes']) ? $cfg['AttributeTypes'] : array(
    '',
@@ -89,6 +99,7 @@ if ($cfg['ShowFunctionFields']) {
             'QUOTE',
             'REVERSE',
             'RTRIM',
+            'SCHEMA',
             'SPACE',
             'TRIM',
             'UNCOMPRESS',
@@ -168,27 +179,6 @@ if ($cfg['ShowFunctionFields']) {
             'WEEKDAY',
             'WEEKOFYEAR',
             'YEARWEEK',
-        ),
-
-        'FUNC_SPATIAL' => array(
-            'GeomFromText',
-            'GeomFromWKB',
-
-            'GeomCollFromText',
-            'LineFromText',
-            'MLineFromText',
-            'PointFromText',
-            'MPointFromText',
-            'PolyFromText',
-            'MPolyFromText',
-
-            'GeomCollFromWKB',
-            'LineFromWKB',
-            'MLineFromWKB',
-            'PointFromWKB',
-            'MPointFromWKB',
-            'PolyFromWKB',
-            'MPolyFromWKB',
         ),
     );
     $cfg_default_restrict_funcs = empty($cfg['RestrictFunctions']);
