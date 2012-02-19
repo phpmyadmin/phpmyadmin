@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 10:33+0200\n"
+"PO-Revision-Date: 2012-02-19 10:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1980,7 +1980,7 @@ msgstr "ක්ෂේත්‍රයට අභිරුචියක් එක් 
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "සංස්කරණය අවලංගු කිරීමට escape ඔබන්න"
 
 #: js/messages.php:345
 msgid ""
