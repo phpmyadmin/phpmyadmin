@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-19 09:32+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -1696,7 +1696,7 @@ msgstr "විමසුම විශ්ලේෂණය"
 
 #: js/messages.php:218
 msgid "Advisor system"
-msgstr ""
+msgstr "උපදේශක පද්ධතිය "
 
 #: js/messages.php:219
 msgid "Possible performance issues"
