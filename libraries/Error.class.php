@@ -152,7 +152,11 @@ class PMA_Error extends PMA_Message
      */
     public function getHash()
     {
-        $backtrace = PMA_isSerializable($this->getBacktrace()) ? serialize($this->getBacktrace()) : '';
+        try {
+            $backtrace = serialize($this->getBacktrace());
+        } catch(Exception $e){
+            $backtrace = '';
+        }
         if (null === $this->_hash) {
             $this->_hash = md5(
                 $this->getNumber() .
