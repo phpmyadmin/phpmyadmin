@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 06:31+0200\n"
+"PO-Revision-Date: 2012-02-19 06:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1637,10 +1637,9 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "ඇතුල් කල පේළි ගණන"
+msgstr "ගොනු කල පේළි ගණන:"
 
 #: js/messages.php:201
 #, fuzzy
