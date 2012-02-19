@@ -814,10 +814,10 @@ msgid "Values for a new column"
 msgstr "නව තීරුවක් සඳහා අගයන්"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "\"%s\" තීරුව සඳහා අගයන්"
+msgstr "%s තීරුව සඳහා අගයන්"
 
 #: enum_editor.php:34 js/messages.php:269
 #, fuzzy
