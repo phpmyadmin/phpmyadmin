@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2011-10-15 13:22+0200\n"
+"PO-Revision-Date: 2012-02-19 10:38+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -806,19 +806,18 @@ msgstr "දත්තගබඩා ලොගය"
 #: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET සංස්කාරකය"
 
 #: enum_editor.php:28 js/messages.php:268
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "\"%s\" තීරුව සඳහා අගයන්"
+msgstr "නව තීරුවක් සඳහා අගයන්"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "\"%s\" තීරුව සඳහා අගයන්"
+msgstr "%s තීරුව සඳහා අගයන්"
 
 #: enum_editor.php:34 js/messages.php:269
 #, fuzzy
@@ -827,10 +826,9 @@ msgid "Enter each value in a separate field"
 msgstr "එක් එක් අගයන් වෙන වෙනම ක්ෂේත්‍ර වලට ඇතුලත් කරන්න."
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "Add a value"
-msgstr "+ නව භාවිතා කරන්නෙක් එක් කරන්න"
+msgstr "අගයක් එක් කරන්න"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
@@ -1089,7 +1087,7 @@ msgstr "This operation could take a long time. Proceed anyway?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "ඔබ බ්ලොබ් repository අක්‍රීය කිරීමටයි සැරසෙන්නේ!"
 
 #: js/messages.php:41
 #, php-format
@@ -1111,16 +1109,15 @@ msgid "Add Index"
 msgstr "සුචිය එක් කරන්න"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "සංස්කරණ ප්‍රකාරය"
+msgstr "සුචිය සංස්කරණය කරන්න"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "%s ක්ෂේත්‍ර(ය) එක් කරන්න"
+msgstr "සුචියට ක්ෂේත්‍ර %d ක් එක් කරන්න"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
@@ -1374,11 +1371,11 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s වගු"
+msgstr "වගු %d"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
@@ -1461,7 +1458,7 @@ msgstr ""
 #: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
 
 #: js/messages.php:155
 msgid ""
@@ -1471,55 +1468,55 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "ප්‍රතිදානය ගොනුවකට සුරකින්න"
+msgstr "log_output %s ට සිටුවන්න"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "සක්‍රිය කරන් ලද"
+msgstr "%s සක්‍රිය කරන්න"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "අක්‍රිය"
+msgstr "%s අක්‍රිය කරන්න"
 
 #. l10n: %d seconds
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time තත්පර %dකට සිටුවන්න"
 
 #: js/messages.php:164
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"ඔබට මෙම විචල්‍යයන් වෙනස් කල නොහැක. කරුණාකර root ලෙස ප්‍රවේශ වන්න. නැතහොත් "
+"දත්ත ගබඩා පරිපාලක විමසන්න."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "සිටුවම් පරිපාලනය"
+msgstr "සිටුවම් වෙනස් කිරීම"
 
 # සිටුවම් = settings. Source: Glossary of Information Technology Terms - ICTA
 #: js/messages.php:166
 #, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "තවත් සිටුවම්"
+msgstr "වර්තමාන සිටුවම්"
 
 #: js/messages.php:168 server_status.php:1645
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "වාර්තා මාතෘකාව:"
+msgstr "ප්‍රස්තාර මාතෘකාව"
 
 #. l10n: As in differential values
 #: js/messages.php:170
@@ -1529,29 +1526,28 @@ msgstr ""
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "%s න් බෙදන ලද"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "ඒකකය "
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "slow log වෙතින් "
 
 #: js/messages.php:175
 msgid "From general log"
-msgstr ""
+msgstr "general log වෙතින්"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "ලොග විශ්ලේෂණය සහ පූරණය කෙරෙමින්. මේ සඳහා මඳ වේලාවක් ගත විය හැක. "
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Read requests"
+msgstr "ඉල්ලීම අවලංගු කරන්න "
 
 #: js/messages.php:178
 msgid ""
@@ -1569,40 +1565,36 @@ msgstr ""
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "ලගු දත්ත පූරණය කරන ලදී. මේ අතරතුර කෙරුණු විමසුම්:"
 
 #: js/messages.php:182
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "දත්තගබඩාව වෙත යන්න"
+msgstr "ලොග වගුව වෙත යන්න"
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "ලොගය විශ්ලේෂණය කෙරුනමුත් මෙම කාල පරාසයට අදාල දත්ත කිසිවක් හමු නොවිණි."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "විශ්ලේෂණය"
+msgstr "විශ්ලේෂණය..."
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "SQL ය පහදන්න"
+msgstr "ප්‍රතිදානය පහදන්න"
 
 #: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1241 sql.php:901
 msgid "Time"
-msgstr "වේලාව"
+msgstr "කාලය"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "මුළු එකතුව"
+msgstr "මුළු කාලය"
 
 #: js/messages.php:190
 #, fuzzy
@@ -1618,48 +1610,43 @@ msgid "Table"
 msgstr "වගුව"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "අක්ෂර කට්ටලය"
+msgstr "ප්‍රස්ථාර"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "ගොනු පෙන්වුම් විකල්ප"
+msgstr "ලොග වගුව සඳහා පෙරහන් විකල්ප"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
 msgid "Filter"
-msgstr "පෙරහන"
+msgstr "පෙරහන්න"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "විමසුම් වචන/regexp මගින් පෙරහන්න:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "WHERE වාක්‍යඛණ්ඩයේ ඇති විචල්‍ය දත්ත මගහැර, විමසුම් කාණ්ඩ කරන්න."
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "ඇතුල් කල පේළි ගණන"
+msgstr "ගොනු කල පේළි ගණන:"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "මුළු එකතුව"
+msgstr "මුළු එකතුව:"
 
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "පූරණය කෙරෙමින්"
+msgstr "ලොගයන් පූරණය කෙරෙමින්"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
@@ -1673,14 +1660,13 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:206
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "ප්‍රතිපූරණය"
+msgstr "පිටුව ප්‍රතිපූරණය කරන්න"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr ""
+msgstr "වෙනස් වූ පේළි:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1703,25 +1689,25 @@ msgstr "ආනයනය"
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "විමසුම යාවත්කාලීන කරන්න"
+msgstr "විමසුම විශ්ලේෂණය"
 
 #: js/messages.php:218
 msgid "Advisor system"
-msgstr ""
+msgstr "උපදේශක පද්ධතිය "
 
 #: js/messages.php:219
 msgid "Possible performance issues"
-msgstr ""
+msgstr "විය හැකි කාර්ය සාධනය ආශ්‍රිත ගැටළු "
 
 #: js/messages.php:220
 msgid "Issue"
-msgstr ""
+msgstr "ගැටළු "
 
 #: js/messages.php:221
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "ලියකියවිලි"
+msgstr "නිර්දේශය"
 
 #: js/messages.php:222
 #, fuzzy
@@ -1730,18 +1716,17 @@ msgid "Rule details"
 msgstr "තොරතුරු..."
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "සත්‍යාපනය"
+msgstr "යුක්තිසාධනය"
 
 #: js/messages.php:224
 msgid "Used variable / formula"
-msgstr ""
+msgstr "භාවිතා කරන ලද විචල්‍යයන් / සූත්‍ර "
 
 #: js/messages.php:225
 msgid "Test"
-msgstr ""
+msgstr "ඇගයීම "
 
 #: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
@@ -1779,7 +1764,7 @@ msgstr "OK"
 
 #: js/messages.php:239
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "මෙම නිවේදනය ඉවත් කිරීමට ක්ලික් කරන්න "
 
 #: js/messages.php:242
 msgid "Renaming Databases"
@@ -1805,7 +1790,7 @@ msgstr "වගුවේ අවම වශයෙන් එක් ක්ෂේත�
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "වගු භාවිතා කරන්න"
+msgstr "වගු ඇතුලත් කරන්න"
 
 #: js/messages.php:252
 msgid "Hide indexes"
@@ -1840,10 +1825,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
 #: js/messages.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a new value"
 msgid "Add %d value(s)"
-msgstr "+ නව භාවිතා කරන්නෙක් එක් කරන්න"
+msgstr "අගයන් %dක් එක් කරන්න"
 
 #: js/messages.php:273
 msgid ""
@@ -1872,7 +1857,7 @@ msgstr "වෙනස් කරන්න"
 #, fuzzy
 #| msgid "SQL execution"
 msgid "Query execution time"
-msgstr "SQL ක්‍රියාත්මක කිරීම"
+msgstr "විමසුම ක්‍රියාත්මක කිරීමේ කාලය "
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -1885,12 +1870,12 @@ msgstr "සුරකින්න"
 #: js/messages.php:287
 #, fuzzy
 msgid "Hide search criteria"
-msgstr "SQL විමසුම"
+msgstr "සෙවුම් නිර්ණායක සඟවන්න "
 
 #: js/messages.php:288
 #, fuzzy
 msgid "Show search criteria"
-msgstr "SQL විමසුම"
+msgstr "සෙවුම් නිර්ණායක පෙන්වන්න  "
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
@@ -1898,11 +1883,11 @@ msgstr "Zoom සෙවීම"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "එක් ලක්ෂ්‍යයකින් දත්ත පේළියක් නියෝජනය කෙරේ."
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "ලක්ෂ්‍යයක් මතින් ගමන් කරන විට එහි ලේබලය පෙන්නුම් කරයි."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
@@ -1936,19 +1921,17 @@ msgstr "තීර එක් කරන්න/ඉවත් කරන්න"
 
 #: js/messages.php:310
 msgid "Select two different columns"
-msgstr ""
+msgstr "එකිනෙකට වෙනස් තීර දෙකක් තෝරන්න"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
+msgstr "විමසුම් ප්‍රථිඵල"
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Data pointer size"
+msgstr "ලක්ෂයට අදාල දත්ත"
 
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
@@ -1960,10 +1943,9 @@ msgid "Copy"
 msgstr "පිටපත් කරන්න"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "තීරයක් එක් කරන්න"
+msgstr "තීරයන් එක් කරන්න"
 
 #: js/messages.php:334
 msgid "Select referenced key"
@@ -1998,23 +1980,24 @@ msgstr "ක්ෂේත්‍රයට අභිරුචියක් එක් 
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "සංස්කරණය අවලංගු කිරීමට escape ඔබන්න"
 
 #: js/messages.php:345
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"ඔබ සංස්කරණය කල දත්ත සුරැකී නැත. දත්ත සුරැකීමෙන් තොරව මෙම පිටුවෙන් ඉවත් වීමට "
+"අවශ්‍යද?   "
 
 #: js/messages.php:346
 msgid "Drag to reorder"
 msgstr ""
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "තේරීමට ක්ලික් කරන්න"
+msgstr "අනුපිළිවෙල අනුව සැකසීමට ක්ලික් කරන්න"
 
 #: js/messages.php:348
 msgid "Click to mark/unmark"
