@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 20:25+0200\n"
+"PO-Revision-Date: 2012-02-19 20:29+0200\n"
 "Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1992,7 +1992,7 @@ msgstr ""
 
 #: js/messages.php:346
 msgid "Drag to reorder"
-msgstr ""
+msgstr "අනුපිලිවෙල නැවත සකස් කිරීමට අදින්න"
 
 #: js/messages.php:347
 #| msgid "Click to select"
