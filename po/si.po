@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 09:56+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2012-02-19 09:57+0200\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -1534,7 +1534,7 @@ msgstr "ඒකකය "
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "slow log වෙතින් "
 
 #: js/messages.php:175
 msgid "From general log"
