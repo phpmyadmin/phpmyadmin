@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 21:09+0200\n"
+"PO-Revision-Date: 2012-02-19 21:13+0200\n"
 "Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2822,7 +2822,7 @@ msgstr ""
 
 #: libraries/common.inc.php:160
 msgid "numeric key detected"
-msgstr ""
+msgstr "සංඛ්‍යාත්මක යතුරක් අනාවරණය වුණි"
 
 #: libraries/common.inc.php:607
 #, fuzzy
