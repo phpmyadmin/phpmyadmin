@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 06:30+0200\n"
+"PO-Revision-Date: 2012-02-19 06:31+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1630,7 +1630,7 @@ msgstr "පෙරහන්න"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "විමසුම් වචන/regexp මගින් පෙරහන්න:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
