@@ -1542,7 +1542,7 @@ msgstr "general log වෙතින්"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "ලොග විශ්ලේෂණය සහ පූරණය කෙරෙමින්. මේ සඳහා මඳ වේලාවක් ගත විය හැක. "
 
 #: js/messages.php:177
 #, fuzzy
