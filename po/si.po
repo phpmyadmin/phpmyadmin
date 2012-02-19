@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-19 09:52+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -1502,10 +1502,9 @@ msgstr ""
 "දත්ත ගබඩා පරිපාලක විමසන්න."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "සිටුවම් පරිපාලනය"
+msgstr "සිටුවම් වෙනස් කිරීම"
 
 # සිටුවම් = settings. Source: Glossary of Information Technology Terms - ICTA
 #: js/messages.php:166
