@@ -2345,7 +2345,7 @@ msgstr "දිනකට "
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "phpMyAdmin භාවිතයට පෙර \"./config\" ඩිරෙක්ටරිය ඉවත් කරන්න!"
 
 #: libraries/Config.class.php:727
 #, php-format
