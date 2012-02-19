@@ -1568,10 +1568,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "ලගු දත්ත පූරණය කරන ලදී. මේ අතරතුර කෙරුණු විමසුම්:"
 
 #: js/messages.php:182
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "දත්තගබඩාව වෙත යන්න"
+msgstr "ලොග වගුව වෙත යන්න"
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
