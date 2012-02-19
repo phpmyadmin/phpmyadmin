@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-19 09:41+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -1722,7 +1722,7 @@ msgstr "තොරතුරු..."
 #, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "සත්‍යාපනය"
+msgstr "යුක්ති සාධනය"
 
 #: js/messages.php:224
 msgid "Used variable / formula"
