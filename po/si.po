@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 06:24+0200\n"
+"PO-Revision-Date: 2012-02-19 06:25+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1591,7 +1591,7 @@ msgstr "ප්‍රතිදානය පහදන්න"
 #: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1241 sql.php:901
 msgid "Time"
-msgstr "වේලාව"
+msgstr "කාලය"
 
 #: js/messages.php:189
 #, fuzzy
