@@ -1526,7 +1526,7 @@ msgstr ""
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "%s න් බෙදන ලද"
 
 #: js/messages.php:172
 msgid "Unit"
