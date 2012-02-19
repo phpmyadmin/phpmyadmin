@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 05:15+0200\n"
+"PO-Revision-Date: 2012-02-19 05:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -826,10 +826,9 @@ msgid "Enter each value in a separate field"
 msgstr "එක් එක් අගයන් වෙන වෙනම ක්ෂේත්‍ර වලට ඇතුලත් කරන්න."
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "Add a value"
-msgstr "+ නව භාවිතා කරන්නෙක් එක් කරන්න"
+msgstr "අගයක් එක් කරන්න"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
