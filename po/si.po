@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-19 09:54+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -1514,10 +1514,9 @@ msgid "Current settings"
 msgstr "වර්තමාන සිටුවම්"
 
 #: js/messages.php:168 server_status.php:1645
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "ප්‍රස්තාර මාතෘකාව:"
+msgstr "ප්‍රස්තාර මාතෘකාව"
 
 #. l10n: As in differential values
 #: js/messages.php:170
