@@ -1498,6 +1498,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"ඔබට මෙම විචල්‍යයන් වෙනස් කල නොහැක. කරුණාකර root ලෙස ප්‍රවේශ වන්න. නැතහොත් "
+"දත්ත ගබඩා පරිපාලක විමසන්න."
 
 #: js/messages.php:165
 #, fuzzy
