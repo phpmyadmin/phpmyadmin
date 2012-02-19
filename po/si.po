@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 10:04+0200\n"
+"PO-Revision-Date: 2012-02-19 10:05+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1616,10 +1616,9 @@ msgstr "ප්‍රස්ථාර"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "ගොනු පෙන්වුම් විකල්ප"
+msgstr "ලොග වගුව සඳහා පෙරහන් විකල්ප"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
