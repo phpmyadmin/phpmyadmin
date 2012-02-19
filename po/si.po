@@ -1929,10 +1929,9 @@ msgid "Query results"
 msgstr "විමසුම් ප්‍රථිඵල"
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Data pointer size"
+msgstr "ලක්ෂයට අදාල දත්ත"
 
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
