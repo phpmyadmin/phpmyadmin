@@ -9663,9 +9663,8 @@ msgid "Refresh rate: "
 msgstr "යාවත්කාලීන කිරීමේ ශ්‍රීඝ‍්‍රතාව:"
 
 #: server_status.php:839 server_variables.php:115
-#, fuzzy
 msgid "Filters"
-msgstr "ක්ෂේත්‍ර"
+msgstr "පෙරහන්"
 
 #: server_status.php:841 server_variables.php:117
 msgid "Containing the word:"
