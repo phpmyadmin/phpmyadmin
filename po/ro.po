@@ -6028,9 +6028,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"Această valoare este interpretată folosind %1$sstrftime%2$s, ca sa puteţi "
+"folosi şiruri de formatare a timpului. În plus, următoarele transformări vor "
+"avea loc: %3$s. Orice alt text va fi păstrat aşa cum este. Vedeţi %4$sFAQ%"
+"5$s pentru detalii."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
