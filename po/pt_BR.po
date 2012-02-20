@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 17:35+0200\n"
+"PO-Revision-Date: 2012-02-20 17:36+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4709,7 +4709,7 @@ msgstr "Tipo de conexão"
 
 #: libraries/config/messages.inc.php:382
 msgid "Control user password"
-msgstr ""
+msgstr "Senha Usuário Controle"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
