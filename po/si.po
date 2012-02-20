@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 19:05+0200\n"
+"PO-Revision-Date: 2012-02-20 19:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -10491,10 +10491,9 @@ msgid "Done rearranging/editing charts"
 msgstr "ප්‍රස්ථාර වෙනස් කර/අනුපිලිවෙල සකස්කර අවසානයි"
 
 #: server_status.php:1572 server_status.php:1643
-#, fuzzy
 #| msgid "Add index"
 msgid "Add chart"
-msgstr "සුචිය එක් කරන්න"
+msgstr "ප්‍රස්ථාර එක් කරන්න"
 
 #: server_status.php:1574
 msgid "Rearrange/edit charts"
