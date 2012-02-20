@@ -4523,6 +4523,10 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Ative se você quiser usar o histórico de consultas baseado em banco de dados "
+"(requer a configuração de armazenamento do phpMyAdmin). Se desativado, "
+"serão utilizadas rotinas JS para exibir o histórico de consultas (que será "
+"perdido se a janela for fechada)."
 
 #: libraries/config/messages.inc.php:340
 msgid "Permanent query history"
