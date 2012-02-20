@@ -2426,7 +2426,7 @@ msgstr "Dimensione font"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Troppi errori, alcuni messaggi non verranno visualizzati."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
