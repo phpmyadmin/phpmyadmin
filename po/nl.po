@@ -1795,7 +1795,7 @@ msgstr "Gebruikte variabele / formule"
 
 #: js/messages.php:225
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
