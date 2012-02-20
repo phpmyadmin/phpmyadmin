@@ -666,7 +666,9 @@ class PMA_Tracker
         $query = trim($query, ' -');
 
         $tokens = explode(" ", $query);
-        $tokens = array_map('strtoupper', $tokens);
+        foreach ($tokens as $key => $value) {
+            $tokens[$key] = strtoupper($value);
+        }
 
         // Parse USE statement, need it for SQL dump imports
         if (substr($query, 0, 4) == 'USE ') {
