@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-19 10:38+0200\n"
-"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
+"PO-Revision-Date: 2012-02-20 07:43+0200\n"
+"Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -844,7 +844,7 @@ msgstr "වැරදි වර්ගය!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr "Selected export type has to be saved in file!"
+msgstr "තෝරාගත් අපනයන වර්ගය ගොනුව තුල සුරැකිය යුතුයි!"
 
 #: export.php:106
 msgid "Bad parameters!"
@@ -853,7 +853,7 @@ msgstr "වැරදි පරාමිතියන්!"
 #: export.php:166 export.php:191 export.php:652
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Insufficient space to save the file %s ගොනුව සේව් කිරීමට ප්‍රමාණවත්."
+msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත් අවකාශ නොමැත."
 
 #: export.php:307
 #, php-format
@@ -865,7 +865,7 @@ msgstr ""
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "The web server does not have permission to save the file %s."
+msgstr "වෙබ් සේවාදායකයට %s ගොනුව සුරැකීමට අවසර නොමැත."
 
 #: export.php:654
 #, php-format
@@ -965,8 +965,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"ඔබ උඩුගත කරන ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා "
+"කරුණාකර %sලියකියවිලි%s බලන්න."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1083,7 +1083,7 @@ msgstr "ප්‍රාථමික මූලය/සුචිය ඉවත් �
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "This operation could take a long time. Proceed anyway?"
+msgstr "මෙම ක්‍රියාදාමය සඳහා දීර්ඝ වේලාවක් ගත වනු ඇත. කෙසේ වුවත් ඉදිරියට යන්න?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -1134,11 +1134,11 @@ msgstr "භාවිත නාමය හිස්ව පවතී!"
 
 #: js/messages.php:57 server_privileges.php:1316 user_password.php:50
 msgid "The password is empty!"
-msgstr "The password is empty!"
+msgstr "මුරපදය හිස්ව පවතී!"
 
 #: js/messages.php:58 server_privileges.php:1314 user_password.php:53
 msgid "The passwords aren't the same!"
-msgstr "The passwords aren't the same!"
+msgstr "මුරපද නොගැලපේ!"
 
 #: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
 #: server_privileges.php:2209 server_privileges.php:2414
@@ -1405,7 +1405,7 @@ msgstr "ජාලකයට ප්‍රස්තාර එක් කරන්න
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "කරුණාකර ශ්‍රේණියට අවම වශයෙන් එක විචල්‍යයක්වත් ඇතුලත් කරන්න"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
@@ -1822,7 +1822,7 @@ msgstr "ඉවත් කෙරෙමින්"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "සුරැකි ශ්‍රිතයක නිර්වචනයෙහි RETURN ප්‍රකාශයක් තිබිය යුතුයි."
 
 #: js/messages.php:270
 #, php-format
@@ -1907,7 +1907,7 @@ msgstr ""
 
 #: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "ප්‍රස්තාරයෙහි විශාලත්වය පහළ දකුණු කොණෙන් ඇදීමෙන් වෙනස් කල හැක."
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
@@ -1992,7 +1992,7 @@ msgstr ""
 
 #: js/messages.php:346
 msgid "Drag to reorder"
-msgstr ""
+msgstr "අනුපිලිවෙල නැවත සකස් කිරීමට අදින්න"
 
 #: js/messages.php:347
 #| msgid "Click to select"
@@ -2001,7 +2001,7 @@ msgstr "අනුපිළිවෙල අනුව සැකසීමට ක්
 
 #: js/messages.php:348
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "සලකුණු කිරීමට/ ඉවත් කිරීමට ක්ලික් කරන්න"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2299,7 +2299,7 @@ msgstr "සති"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
 msgid "calendar-month-year"
-msgstr ""
+msgstr "දින දර්ශන-මාස-වසර "
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
@@ -2341,11 +2341,11 @@ msgstr "පැයකට"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
-msgstr ""
+msgstr "දිනකට "
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "phpMyAdmin භාවිතයට පෙර \"./config\" ඩිරෙක්ටරිය ඉවත් කරන්න!"
 
 #: libraries/Config.class.php:727
 #, php-format
@@ -2362,11 +2362,11 @@ msgstr "ෆොන්ට් එකෙහි ප්‍රමාණය"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "දෝෂ පණිවුඩ ප්‍රමාණය ඉක්මවා ගොස් ඇත, ඇතැමෙක් ප්‍රදර්ශනය නොකෙරේ."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "ගොනුව උඩුගත කරන ලද්දක් නොවේ."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 #, fuzzy
@@ -2414,7 +2414,7 @@ msgstr ""
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "උඩුගත කරන ලද ගොනුව චලනයේදී දෝෂයක් මතු විය."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
@@ -2422,7 +2422,7 @@ msgstr ""
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
-msgstr "No index defined!"
+msgstr "සුචියක් නිර්වචනය කර නැත!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
 #: tbl_structure.php:693 tbl_tracking.php:315
@@ -2520,8 +2520,7 @@ msgstr "නූතන වගු කිසිවක් නොමැත"
 #: libraries/StorageEngine.class.php:203
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
-"There is no detailed status information available for this storage engine."
+msgstr "ගබඩා යන්ත්‍රයෙහි තත්වය පිලිබඳ වැඩිදුර තොරතුරු නැත ."
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
@@ -2650,7 +2649,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
-msgstr "ලොගින් වන්න"
+msgstr "ප්‍රවේශ වන්න"
 
 #: libraries/auth/cookie.auth.lib.php:199
 #: libraries/auth/cookie.auth.lib.php:201
@@ -2823,7 +2822,7 @@ msgstr ""
 
 #: libraries/common.inc.php:160
 msgid "numeric key detected"
-msgstr ""
+msgstr "සංඛ්‍යාත්මක යතුරක් අනාවරණය වුණි"
 
 #: libraries/common.inc.php:607
 #, fuzzy
@@ -2836,6 +2835,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"මෙහි සාමාන්‍ය අරුත වාක්‍ය වින්‍යාස දෝෂයකි, කරුණාකර පහත දැක්වෙන දෝෂ පරීක්ෂා "
+"කර බලන්න."
 
 #: libraries/common.inc.php:615
 #, php-format
