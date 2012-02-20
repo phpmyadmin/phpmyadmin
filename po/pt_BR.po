@@ -4968,7 +4968,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "Esquema PDF: tabela coordenadas"
 
 #: libraries/config/messages.inc.php:431
 msgid ""
