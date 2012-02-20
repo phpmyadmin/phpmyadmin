@@ -2065,10 +2065,14 @@ msgstr ""
 "Clicca sulla freccia<br />per cambiare lo stato di visualizzazzione dei campi"
 
 #: js/messages.php:351
+#, fuzzy
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Questa tabella non contiene una colonna unica. Funzionalità relative alla "
+"modifica, copia ed eliminazione potrebbero non funzionare dopo il "
+"salvataggio."
 
 #: js/messages.php:352
 msgid ""
