@@ -320,7 +320,7 @@ rm -rf config                      # remove not needed directory
         against access by robots as they usually can not do anything good
         there. You can do this using <code>robots.txt</code> file in root of
         your webserver or limit access by web server configuration, see 
-        <a href="#faq1_42">FAQ 1.42</a>.
+        <a href="#faq1_42"><abbr title="Frequently Asked Questions">FAQ</abbr> 1.42</a>.
     </li>
 </ol>
 
@@ -372,8 +372,8 @@ rm -rf config                      # remove not needed directory
 
 <p> If you have upgraded your MySQL server from a version previous to 4.1.2 to
     version 5.x or newer and if you use the phpMyAdmin configuration storage,
-    you should run the SQL script found in
-    <tt>examples/upgrade_tables_mysql_4_1_2+.sql</tt>.</p>
+    you should run the <abbr title="structured query language">SQL</abbr> script
+    found in <tt>examples/upgrade_tables_mysql_4_1_2+.sql</tt>.</p>
 
 <h3 id="authentication_modes">Using authentication modes</h3>
 
@@ -415,8 +415,8 @@ rm -rf config                      # remove not needed directory
         The following example assumes you want to use <tt>pma</tt> as the
         controluser and <tt>pmapass</tt> as the controlpass, but <b>this is
         only an example: use something else in your file!</b> Input these
-        statements from the phpMyAdmin SQL Query window or mysql command&#8211;line
-        client.<br />
+        statements from the phpMyAdmin <abbr title="structured query language">SQL
+        </abbr> Query window or mysql command&#8211;line client.<br />
         Of course you have to replace <tt>localhost</tt> with the webserver's host
         if it's not the same as the MySQL server's one.
 
@@ -778,7 +778,8 @@ since this link provides funding for phpMyAdmin.
                 class="configrule">session name</a> or <a href="#cfg_Servers_SignonScript"
                 class="configrule">script to be executed</a> and <a
                 href="#cfg_Servers_SignonURL" class="configrule">signon
-                URL</a> to use this authentication method.</li>
+                <abbr title="Uniform Resource Locator">URL</abbr></a> to use
+                this authentication method.</li>
         </ul>
 
         Please see the <a href="#setup">install section</a> on &quot;Using authentication modes&quot;
@@ -1356,10 +1357,14 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     is not configured.
     </dd>
     <dt><span id="cfg_Servers_SignonURL">$cfg['Servers'][$i]['SignonURL']</span> string</dt>
-    <dd>URL where user will be redirected to log in for signon authentication method. Should be absolute including protocol.
+    <dd><abbr title="Uniform Resource Locator">URL</abbr> where user will be
+    redirected to log in for signon authentication method. Should be absolute
+    including protocol.
     </dd>
     <dt><span id="cfg_Servers_LogoutURL">$cfg['Servers'][$i]['LogoutURL']</span> string</dt>
-    <dd>URL where user will be redirected after logout (doesn't affect config authentication method). Should be absolute including protocol.
+    <dd><abbr title="Uniform Resource Locator">URL</abbr> where user will be
+    redirected after logout (doesn't affect config authentication method).
+    Should be absolute including protocol.
     </dd>
 
     <dt id="cfg_ServerDefault">$cfg['ServerDefault'] integer</dt>
@@ -1393,11 +1398,12 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Whether or not to show hints (for example, hints when hovering over table headers).</dd>
 
     <dt id="cfg_MaxCharactersInDisplayedSQL">$cfg['MaxCharactersInDisplayedSQL'] integer</dt>
-    <dd>The maximum number of characters when a SQL query is displayed. The
-    default limit of 1000 should be correct to avoid the display of tons
-    of hexadecimal codes that represent BLOBs, but some users have real
-    SQL queries that are longer than 1000 characters. Also, if a query's
-    length exceeds this limit, this query is not saved in the history.</dd>
+    <dd>The maximum number of characters when a <abbr title="structured query language">
+    SQL</abbr> query is displayed. The default limit of 1000 should be correct
+    to avoid the display of tons of hexadecimal codes that represent BLOBs, but
+    some users have real <abbr title="structured query language">SQL</abbr>
+    queries that are longer than 1000 characters. Also, if a query's length
+    exceeds this limit, this query is not saved in the history.</dd>
 
     <dt id="cfg_OBGzip">$cfg['OBGzip'] string/boolean</dt>
     <dd>Defines whether to use GZip output buffering for increased
@@ -1456,8 +1462,9 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         mydatabase&quot; will be rejected. Quite practical for
         <abbr title="Internet service provider">ISP</abbr>'s with many
         customers.<br />
-        Please note that this limitation of SQL queries is not as strict as
-        when using MySQL privileges. This is due to nature of SQL queries
+        Please note that this limitation of <abbr title="structured query language">
+        SQL</abbr> queries is not as strict as when using MySQL privileges. This
+        is due to nature of <abbr title="structured query language">SQL</abbr> queries
         which might be quite complicated. So this choice should be viewed as
         help to avoid accidental dropping rather than strict privilege
         limitation.</dd>
@@ -1580,7 +1587,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines whether or not to display the phpMyAdmin logo at the top of the left frame.
         Defaults to <tt>TRUE</tt>.</dd>
     <dt id="cfg_LeftLogoLink">$cfg['LeftLogoLink'] string</dt>
-    <dd>Enter URL where logo in the navigation frame will point to.
+    <dd>Enter <abbr title="Uniform Resource Locator">URL</abbr> where logo in the navigation frame will point to.
     For use especially with self made theme which changes this.
     The default value for this is <tt>main.php</tt>.</dd>
 
@@ -1890,10 +1897,11 @@ $cfg['TrustedProxies'] =
 
     <dt id="cfg_LinkLengthLimit">$cfg['LinkLengthLimit'] integer</dt>
     <dd>
-    Limit for length of URL in links. When length would be above this limit, it
-    is replaced by form with button.
-    This is required as some web servers (IIS) have problems with long URLs.
-    Default is <code>1000</code>.
+    Limit for length of <abbr title="Uniform Resource Locator">URL</abbr> in links.
+    When length would be above this limit, it is replaced by form with button.
+    This is required as some web servers (<abbr title="Internet Information Services">
+    IIS</abbr>) have problems with long <abbr title="Uniform Resource Locator">
+    URL</abbr>s. Default is <code>1000</code>.
     </dd>
 
     <dt
@@ -3131,7 +3139,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     <li><a href="http://www.hardened-php.net/suhosin/configuration.html#suhosin.post.max_totalname_length">suhosin.post.max_totalname_length</a> should be increased (eg. 8192)</li>
     <li><a href="http://www.hardened-php.net/suhosin/configuration.html#suhosin.get.max_value_length">suhosin.get.max_value_length</a> should be increased (eg. 1024)</li>
     <li><a href="http://www.hardened-php.net/suhosin/configuration.html#suhosin.sql.bailout_on_error">suhosin.sql.bailout_on_error</a> needs to be disabled (the default)</li>
-    <li><a href="http://www.hardened-php.net/suhosin/configuration.html#logging_configuration">suhosin.log.*</a> should not include SQL, otherwise you get big slowdown</li>
+    <li><a href="http://www.hardened-php.net/suhosin/configuration.html#logging_configuration">suhosin.log.*</a> should not include <abbr title="structured query language">SQL</abbr>, otherwise you get big slowdown</li>
 </ul>
 
     <p>
@@ -3220,7 +3228,8 @@ RewriteRule .* - [F]
 <p> Edit your <i>config.inc.php</i> file and ensure there is nothing
     (I.E. no blank lines, no spaces, no characters...) neither before the
     <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
-    tag at the end. We also got a report from a user under IIS, that used
+    tag at the end. We also got a report from a user under
+    <abbr title="Internet Information Services">IIS</abbr>, that used
     a zipped distribution kit: the file <tt>libraries/Config.class.php</tt>
     contained an end-of-line character (hex 0A) at the end; removing this character
     cleared his errors.</p>
@@ -3568,9 +3577,13 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 <!-- Begin: CSV import limitations -->
 
 <h4 id="faq3_18">
-    <a href="#faq3_18">3.18 When I import a CSV file that contains multiple tables, they are lumped together into a single table.</a></h4>
+    <a href="#faq3_18">3.18 When I import a <abbr title="comma separated values">
+    CSV</abbr> file that contains multiple tables, they are lumped together into
+    a single table.</a></h4>
 <p>
-    There is no reliable way to differentiate tables in CSV format. For the time being, you will have to break apart CSV files containing multiple tables.
+    There is no reliable way to differentiate tables in <abbr title="comma separated values">
+    CSV</abbr> format. For the time being, you will have to break apart
+    <abbr title="comma separated values">CSV</abbr> files containing multiple tables.
 </p>
 
 <!-- End: CSV import limitations -->
