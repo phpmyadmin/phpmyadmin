@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 16:19+0200\n"
+"PO-Revision-Date: 2012-02-20 16:20+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1746,6 +1746,9 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Opbouwen van het raster met grafieken aan de hand van de geimporteerde "
+"configuratie is mislukt. Standaard configuratie wordt gebruikt in de "
+"plaats..."
 
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
