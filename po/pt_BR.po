@@ -1941,10 +1941,9 @@ msgid "Query results"
 msgstr "Resultado(s) da(s) consulta(s)"
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Tamanho do ponteiro de dados"
+msgstr "Conteúdo do ponteiro de dados"
 
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
