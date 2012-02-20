@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 16:13+0200\n"
+"PO-Revision-Date: 2012-02-20 16:14+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1714,7 +1714,7 @@ msgstr "Logs worden geladen"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Verversen van monitor mislukt"
 
 #: js/messages.php:205
 msgid ""
