@@ -11982,7 +11982,7 @@ msgstr "Lengte van de rij"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Grootte van de rij "
+msgstr "Grootte van de rij"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
