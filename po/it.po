@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-13 00:03+0200\n"
+"PO-Revision-Date: 2012-02-20 11:54+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1441,10 +1441,9 @@ msgid "Remove chart"
 msgstr "Rimuovi il diagramma"
 
 #: js/messages.php:139
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Modifica titoli ed etichette"
+msgstr "Modifica titolo ed etichette"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
@@ -1572,14 +1571,14 @@ msgid "Differential"
 msgstr "Differenziali"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Diviso per %s:"
+msgstr "Diviso per %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Unità"
 
 #: js/messages.php:174
 msgid "From slow log"
@@ -1596,13 +1595,11 @@ msgstr ""
 "richiedere del tempo."
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Richieste di lettura"
+msgstr "Annulla la richiesta"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid ""
 #| "olumns shows the amount of identical queries that are grouped ether. ever "
 #| "only the SQL Text is being compared, thus the queries er attributes h as "
@@ -1614,7 +1611,7 @@ msgid ""
 msgstr ""
 "Questo campo mostra il numero di query identiche raggruppate. Tuttavia il "
 "raggruppamento è fatto in base al testo che costituisce la query SQL, quindi "
-"altri attributi, come lo 'start time', potrebbero essere diversi."
+"altri attributi, come lo start time, potrebbero essere diversi."
 
 #: js/messages.php:179
 msgid ""
@@ -1635,24 +1632,22 @@ msgid "Jump to Log table"
 msgstr "Vai alla tabella di Log"
 
 #: js/messages.php:183
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Il log é stato analizzato, nessun dato é stato trovato per questo intervallo "
-"di tempo."
+"Il log é stato analizzato, ma nessun dato é stato trovato per questo "
+"intervallo di tempo."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analizza"
+msgstr "Analisi in corso..."
 
 #: js/messages.php:186
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Spiega SQL"
+msgstr "Spiega output"
 
 #: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1241 sql.php:901
@@ -1660,10 +1655,9 @@ msgid "Time"
 msgstr "Tempo"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "Totale:"
+msgstr "Tempo totale:"
 
 #: js/messages.php:190
 #, fuzzy
@@ -1679,9 +1673,8 @@ msgid "Table"
 msgstr "Tabella"
 
 #: js/messages.php:192
-#, fuzzy
 msgid "Chart"
-msgstr "Set di caratteri"
+msgstr "Grafico"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1740,12 +1733,11 @@ msgid "Affected rows:"
 msgstr "Righe coinvolte:"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"La lettura del file di configurazione é fallita. Non sembra essere codice "
-"JSON valido"
+"L'analisi del file di configurazione é fallita. Non sembra essere codice "
+"JSON valido."
 
 #: js/messages.php:211
 msgid ""
@@ -1767,10 +1759,9 @@ msgid "Analyse Query"
 msgstr "Analizza la Query"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor system"
-msgstr "Applica un divisore"
+msgstr "Advisor"
 
 #: js/messages.php:219
 msgid "Possible performance issues"
@@ -1953,8 +1944,9 @@ msgid "Each point represents a data row."
 msgstr "Ogni punto rappresenta una riga dei dati."
 
 #: js/messages.php:295
+#, fuzzy
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Passando il mouse su un punto mostrerà la sua etichetta."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
@@ -1983,6 +1975,7 @@ msgstr ""
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
 msgstr ""
+"Le stringhe verranno convertite a numeri interi per tracciare il grafico"
 
 #: js/messages.php:309
 msgid "Select two columns"
@@ -1993,10 +1986,9 @@ msgid "Select two different columns"
 msgstr "Seleziona due campi diversi"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operazioni sui risultati della query"
+msgstr "Risultati della query"
 
 #: js/messages.php:312
 msgid "Data point content"
@@ -2073,10 +2065,14 @@ msgstr ""
 "Clicca sulla freccia<br />per cambiare lo stato di visualizzazzione dei campi"
 
 #: js/messages.php:351
+#, fuzzy
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Questa tabella non contiene una colonna unica. Funzionalità relative alla "
+"modifica, copia ed eliminazione potrebbero non funzionare dopo il "
+"salvataggio."
 
 #: js/messages.php:352
 msgid ""
@@ -2363,7 +2359,7 @@ msgstr "Sett"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
@@ -2389,6 +2385,8 @@ msgstr "Secondo"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Formattazione della stringa non riuscita per regola '%s'. PHP ha prodotto il "
+"seguente errore: %s"
 
 #: libraries/Advisor.class.php:326 server_status.php:952
 msgid "per second"
@@ -2405,7 +2403,7 @@ msgstr "all'ora"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
-msgstr ""
+msgstr "al giorno"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
@@ -2414,7 +2412,7 @@ msgstr "Rimuovi la cartella \"./config\" prima di utilizzare phpMyAdmin!"
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "File di configurazione esistente (%s) non è leggibile."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
@@ -2428,7 +2426,7 @@ msgstr "Dimensione font"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Troppi errori, alcuni messaggi non verranno visualizzati."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
