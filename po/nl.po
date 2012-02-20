@@ -12912,10 +12912,9 @@ msgid "Rate of reading next table row"
 msgstr "Waar de tabelrij links getoond worden"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Waar de tabelrij links getoond worden"
+msgstr "Frequentie van lezen van volgende tabelrij is hoog."
 
 #: po/advisory_rules.php:142
 msgid ""
