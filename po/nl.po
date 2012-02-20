@@ -1791,7 +1791,7 @@ msgstr "Rechtvaardiging"
 
 #: js/messages.php:224
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Gebruikte variabele / formule"
 
 #: js/messages.php:225
 msgid "Test"
