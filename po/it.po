@@ -1733,12 +1733,11 @@ msgid "Affected rows:"
 msgstr "Righe coinvolte:"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"La lettura del file di configurazione é fallita. Non sembra essere codice "
-"JSON valido"
+"L'analisi del file di configurazione é fallita. Non sembra essere codice "
+"JSON valido."
 
 #: js/messages.php:211
 msgid ""
