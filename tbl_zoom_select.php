@@ -55,6 +55,75 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
     PMA_ajaxResponse(null, true, $extra_data);
 }
 
+/**
+ * Handle AJAX request for changing field information(value,collation,operators,field values)
+ * in input form
+ * @var post_params Object containing parameters for the POST request
+ */
+
+if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true) {
+    $extra_data = array();
+    $field = $_REQUEST['field'];
+    if($field == 'pma_null') {
+        $extra_data['field_type'] = '';
+        $extra_data['field_collation'] = '';
+        $extra_data['field_operators'] = '';
+        PMA_ajaxResponse(NULL, true, $extra_data);
+    }
+
+
+    // Gets the list and number of fields
+    list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($_REQUEST['db'],$_REQUEST['table']);
+
+    $foreigners = PMA_getForeigners($db, $table);
+    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+    $key = array_search($field,$fields_list);
+    $extra_data['field_type'] = $fields_type[$key];
+    $extra_data['field_collation'] = $fields_collation[$key];
+    
+    // HTML for operators 
+    $html = '<select name="zoomFunc[]">';
+    if (strncasecmp($fields_type[$key], 'enum', 4) == 0) {
+        foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
+            $html .= "\n" . '                        '
+            . '<option value="' . htmlspecialchars($fc) . '">'
+            . htmlspecialchars($fc) . '</option>';
+        }
+    } elseif (preg_match('@char|blob|text|set@i', $fields_type[$key])) {
+    foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
+        $html .= "\n" . '                        '
+            . '<option value="' . htmlspecialchars($fc) . '">'
+            . htmlspecialchars($fc) . '</option>';
+        }
+    } else {
+    foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
+        $html .= "\n" . '                        '
+            . '<option value="' .  htmlspecialchars($fc) . '">'
+            . htmlspecialchars($fc) . '</option>';
+    }
+    } // end if... else...
+
+    if ($fields_null[$key]) {
+        foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
+        $html .= "\n" . '                        '
+                . '<option value="' .  htmlspecialchars($fc) . '">'
+        . htmlspecialchars($fc) . '</option>';
+    }
+    }
+    $html .= '</select>';
+    $extra_data['field_operators'] = $html;
+
+    // retrieve keys into foreign fields, if any
+    // check also foreigners even if relwork is FALSE (to get
+    // foreign keys from innodb)
+    $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
+
+    // HTML for field values
+    $html = PMA_getForeignFields_Values($foreigners, $foreignData, $field, array($_REQUEST['it'] => $fields_type[$key]), $_REQUEST['it'] ,$_REQUEST['db'], $_REQUEST['table'], $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '');
+    $extra_data['field_value'] = $html;
+    PMA_ajaxResponse(NULL, true, $extra_data);
+}
+
 $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
 /**
  * Not selection yet required -> displays the selection form
@@ -133,7 +202,7 @@ if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
 <fieldset id="inputSection">
 
 <legend><?php echo __('Do a "query by example" (wildcard: "%") for two different columns') ?></legend>
-<table class="data">
+<table class="data" id="tabId">
 <?php echo PMA_tbl_setTableHeader();?>
 <tbody>
 <?php
@@ -162,98 +231,15 @@ for ($i = 0; $i < 4; $i++) {
         }
     } ?>
         </select></th>
-        <td><?php if (isset($tbl_fields_type[$i])) echo $tbl_fields_type[$i]; ?></td>
-        <td><?php if (isset($tbl_fields_collation[$i])) echo $tbl_fields_collation[$i]; ?></td>
-        <td>
-    <?php
-    if (isset($inputs) && $inputs[$i] != 'pma_null') { ?>
-        <select name="zoomFunc[]">
-        <?php
-        if (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
-            foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
-                if (isset($zoomFunc[$i]) && $zoomFunc[$i] == htmlspecialchars($fc)) {
-                    echo "\n" . '                        '
-                    . '<option value="' . htmlspecialchars($fc) . '" selected="selected">'
-                    . htmlspecialchars($fc) . '</option>';
-                } else {
-                    echo "\n" . '                        '
-                    . '<option value="' . htmlspecialchars($fc) . '">'
-                    . htmlspecialchars($fc) . '</option>';
-                }
-            }
-        } elseif (preg_match('@char|blob|text|set@i', $tbl_fields_type[$i])) {
-            foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
-                if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
-                    echo "\n" . '                        '
-                    . '<option value="' . htmlspecialchars($fc) . '" selected="selected">'
-                    . htmlspecialchars($fc) . '</option>';
-                } else {
-                    echo "\n" . '                        '
-                    . '<option value="' . htmlspecialchars($fc) . '">'
-                    . htmlspecialchars($fc) . '</option>';
-                }
-            }
-        } else {
-            foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
-                if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
-                    echo "\n" . '                        '
-                    . '<option value="' .  htmlspecialchars($fc) . '" selected="selected">'
-                    . htmlspecialchars($fc) . '</option>';
-                } else {
-                    echo "\n" . '                        '
-                    . '<option value="' .  htmlspecialchars($fc) . '">'
-                    . htmlspecialchars($fc) . '</option>';
-                }
-            }
-        } // end if... else...
-
-        if ($tbl_fields_null[$i]) {
-            foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
-                if (isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc) {
-                    echo "\n" . '                        '
-                    . '<option value="' .  htmlspecialchars($fc) . '" selected="selected">'
-                    . htmlspecialchars($fc) . '</option>';
-                } else {
-                    echo "\n" . '                        '
-                    . '<option value="' .  htmlspecialchars($fc) . '">'
-                    . htmlspecialchars($fc) . '</option>';
-                }
-            }
-        }
-        ?>
-        </select>
-        </td>
-        <td>
-        <?php
-        $field = $inputs[$i];
-
-        $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-        if (isset($fields)) {
-            echo PMA_getForeignFields_Values(
-                $foreigners, $foreignData, $field, $tbl_fields_type, $i, $db,
-                $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $fields
-            );
-        } else {
-            echo PMA_getForeignFields_Values(
-                $foreigners, $foreignData, $field, $tbl_fields_type, $i, $db,
-                $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], ''
-            );
-        }
-    } else { ?>
-
-        </td><td></td>
-
-        <?php
-    } ?>
-
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr><td>
-      <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
-        value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
-      <input type="hidden" name="collations[<?php echo $i; ?>]"
-        value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
+      <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>" />
+      <input type="hidden" name="collations[<?php echo $i;?>]" id="collations_<?php echo $i; ?>" />
     </td></tr>
-
     <?php
 }//end for
 ?>
