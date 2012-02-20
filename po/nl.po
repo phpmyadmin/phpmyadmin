@@ -1764,7 +1764,7 @@ msgstr "Analyseer Query"
 
 #: js/messages.php:218
 msgid "Advisor system"
-msgstr ""
+msgstr "Adviessysteem"
 
 #: js/messages.php:219
 msgid "Possible performance issues"
