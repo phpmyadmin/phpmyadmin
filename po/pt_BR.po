@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-20 17:06+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1664,7 +1664,6 @@ msgid "Monitor refresh failed"
 msgstr "Atualização do monitor falhou."
 
 #: js/messages.php:205
-#, fuzzy
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -1672,7 +1671,7 @@ msgid ""
 msgstr ""
 "Ao pedir novos dados do gráfico o servidor retornou uma resposta inválida. "
 "Provavelmente foi porque sua sessão expirou. Atualizando a página e "
-"reinserindo as suas credenciais deve ajudar."
+"reinserindo as suas credenciais deve resolver."
 
 #: js/messages.php:206
 msgid "Reload page"
