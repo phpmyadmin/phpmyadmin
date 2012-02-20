@@ -2787,10 +2787,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd."
 
 #: libraries/auth/signon.auth.lib.php:88
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Configuratie authenticatie"
+msgstr "Signon authenticatie script kon niet gevonden worden:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
