@@ -1772,7 +1772,7 @@ msgstr "Mogelijke performantieproblemen"
 
 #: js/messages.php:220
 msgid "Issue"
-msgstr ""
+msgstr "Probleem"
 
 #: js/messages.php:221
 #, fuzzy
