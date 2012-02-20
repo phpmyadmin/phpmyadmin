@@ -6301,7 +6301,7 @@ msgstr "Afişează conţinut binar"
 
 #: libraries/display_tbl.lib.php:677
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Afişează conţinut BLOB"
 
 #: libraries/display_tbl.lib.php:687
 #, fuzzy
