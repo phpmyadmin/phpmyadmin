@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 19:16+0200\n"
+"PO-Revision-Date: 2012-02-20 19:21+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4126,7 +4126,7 @@ msgstr "අර්ධ ආනයනය: විමසුම් නොසලකා �
 
 #: libraries/config/messages.inc.php:263
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "බිංදුව අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
+msgstr "ශුන්‍ය අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
 
 #: libraries/config/messages.inc.php:266
 msgid "Initial state for sliders"
