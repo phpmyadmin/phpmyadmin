@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 15:31+0200\n"
+"PO-Revision-Date: 2012-02-20 15:53+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -932,10 +932,9 @@ msgid "Add a point"
 msgstr "Voeg een punt toe"
 
 #: gis_data_editor.php:220 js/messages.php:321
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Regels beëindigd door"
+msgstr "Lijnstuk definitie"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
