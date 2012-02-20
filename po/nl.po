@@ -171,7 +171,7 @@ msgstr "Type"
 #: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
 #: tbl_tracking.php:326 tbl_zoom_select.php:434
 msgid "Null"
-msgstr "Null"
+msgstr "Leeg"
 
 #: db_datadict.php:166 db_structure.php:538 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:397 libraries/export/odt.php:309
