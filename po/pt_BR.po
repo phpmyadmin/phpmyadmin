@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 18:05+0200\n"
+"PO-Revision-Date: 2012-02-20 18:06+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4979,10 +4979,9 @@ msgstr ""
 "suporte; sugestão: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "Exibindo comentários da coluna"
+msgstr "Exibir colunas da tabela"
 
 #: libraries/config/messages.inc.php:433
 msgid ""
