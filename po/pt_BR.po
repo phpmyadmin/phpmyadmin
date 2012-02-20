@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-01-27 17:14+0200\n"
+"PO-Revision-Date: 2012-01-27 17:15+0200\n"
 "Last-Translator: V4g_Br4Ck3r <vag_bracker@hotmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1534,10 +1534,10 @@ msgid "Differential"
 msgstr "Diferencial"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Dividido por %s:"
+msgstr "Dividido por %s"
 
 #: js/messages.php:172
 msgid "Unit"
