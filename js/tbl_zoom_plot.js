@@ -197,10 +197,10 @@ $(document).ready(function() {
             'it' : 0,
             'token' : window.parent.token,
         },function(data) {
-            $('#tabId tr:eq(1) td:eq(0)').html(data.field_type);
-            $('#tabId tr:eq(1) td:eq(1)').html(data.field_collation);
-            $('#tabId tr:eq(1) td:eq(2)').html(data.field_operators);
-            $('#tabId tr:eq(1) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId tr:eq(1) td:eq(0)').html(data.field_type);
+            $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
+            $('#tableFieldsId tr:eq(1) td:eq(2)').html(data.field_operators);
+            $('#tableFieldsId tr:eq(1) td:eq(3)').html(data.field_value);
 	    xLabel = $('#tableid_0').val();
 	    $('#types_0').val(data.field_type);
 	    $('#collations_0').val(data.field_collations);
@@ -218,10 +218,10 @@ $(document).ready(function() {
             'it' : 1,
             'token' : window.parent.token,
         },function(data) {
-            $('#tabId tr:eq(3) td:eq(0)').html(data.field_type);
-            $('#tabId tr:eq(3) td:eq(1)').html(data.field_collation);
-            $('#tabId tr:eq(3) td:eq(2)').html(data.field_operators);
-            $('#tabId tr:eq(3) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId tr:eq(3) td:eq(0)').html(data.field_type);
+            $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
+            $('#tableFieldsId tr:eq(3) td:eq(2)').html(data.field_operators);
+            $('#tableFieldsId tr:eq(3) td:eq(3)').html(data.field_value);
 	    yLabel = $('#tableid_1').val();
 	    $('#types_1').val(data.field_type);
 	    $('#collations_1').val(data.field_collations);
@@ -239,10 +239,10 @@ $(document).ready(function() {
             'it' : 2,
             'token' : window.parent.token,
         },function(data) {
-            $('#tabId tr:eq(6) td:eq(0)').html(data.field_type);
-            $('#tabId tr:eq(6) td:eq(1)').html(data.field_collation);
-            $('#tabId tr:eq(6) td:eq(2)').html(data.field_operators);
-            $('#tabId tr:eq(6) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId tr:eq(6) td:eq(0)').html(data.field_type);
+            $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
+            $('#tableFieldsId tr:eq(6) td:eq(2)').html(data.field_operators);
+            $('#tableFieldsId tr:eq(6) td:eq(3)').html(data.field_value);
 	    $('#types_2').val(data.field_type);
 	    $('#collations_2').val(data.field_collations);
         });
@@ -259,10 +259,10 @@ $(document).ready(function() {
             'it' : 3,
             'token' : window.parent.token,
         },function(data) {
-            $('#tabId tr:eq(8) td:eq(0)').html(data.field_type);
-            $('#tabId tr:eq(8) td:eq(1)').html(data.field_collation);
-            $('#tabId tr:eq(8) td:eq(2)').html(data.field_operators);
-            $('#tabId tr:eq(8) td:eq(3)').html(data.field_value);
+            $('#tableFieldsId tr:eq(8) td:eq(0)').html(data.field_type);
+            $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
+            $('#tableFieldsId tr:eq(8) td:eq(2)').html(data.field_operators);
+            $('#tableFieldsId tr:eq(8) td:eq(3)').html(data.field_value);
 	    $('#types_3').val(data.field_type);
 	    $('#collations_3').val(data.field_collations);
         });

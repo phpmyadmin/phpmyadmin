@@ -202,7 +202,7 @@ if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
 <fieldset id="inputSection">
 
 <legend><?php echo __('Do a "query by example" (wildcard: "%") for two different columns') ?></legend>
-<table class="data" id="tabId">
+<table class="data" id="tableFieldsId">
 <?php echo PMA_tbl_setTableHeader();?>
 <tbody>
 <?php
