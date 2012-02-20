@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 18:52+0200\n"
+"PO-Revision-Date: 2012-02-20 18:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -10480,10 +10480,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "The number of threads that are not sleeping."
 
 #: server_status.php:1551
-#, fuzzy
 #| msgid "Startup"
 msgid "Start Monitor"
-msgstr "ඇරඹුම්"
+msgstr "අධීක්ෂණය අරඹන්න"
 
 #: server_status.php:1560
 msgid "Instructions/Setup"
