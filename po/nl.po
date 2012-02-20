@@ -1698,10 +1698,9 @@ msgstr ""
 "worden genegeerd"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Aantal ingevoegde rijen"
+msgstr "Aantal gegroepeerde rijen:"
 
 #: js/messages.php:201
 #, fuzzy
