@@ -6131,9 +6131,9 @@ msgid "Importing into the database \"%s\""
 msgstr "Se importă în baza de date \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Nu sînt baze de date"
+msgstr "Se importă în tabela \"%s\""
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
