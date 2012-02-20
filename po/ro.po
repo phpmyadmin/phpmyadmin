@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 19:23+0200\n"
+"PO-Revision-Date: 2012-02-20 19:24+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6121,10 +6121,9 @@ msgstr ""
 "detalii despre upload."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Nu pot face conexiunea catre serverul MySQL"
+msgstr "Se importă pe server-ul curent"
 
 #: libraries/display_import.lib.php:131
 #, fuzzy, php-format
