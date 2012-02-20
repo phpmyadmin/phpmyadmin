@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 19:10+0200\n"
+"PO-Revision-Date: 2012-02-20 19:12+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9694,10 +9694,9 @@ msgid "Run analyzer"
 msgstr "විශ්ලේශකය ක්‍රියාත්මක කරවන්න"
 
 #: server_status.php:902
-#, fuzzy
 #| msgid "Functions"
 msgid "Instructions"
-msgstr "ශ්‍රිත"
+msgstr "උපදෙස්"
 
 #: server_status.php:909
 msgid ""
