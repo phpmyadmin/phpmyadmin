@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 19:18+0200\n"
+"PO-Revision-Date: 2012-02-20 19:22+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6110,7 +6110,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Fişierul este procesat, vă rugăm să aveţi răbdare."
 
 #: libraries/display_import.lib.php:98
 msgid ""
