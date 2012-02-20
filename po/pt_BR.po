@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 18:14+0200\n"
+"PO-Revision-Date: 2012-02-20 18:15+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5090,7 +5090,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:452
 msgid "Verbose check"
-msgstr ""
+msgstr "Verificação Verborrágica"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
