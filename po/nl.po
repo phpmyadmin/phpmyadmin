@@ -6936,10 +6936,9 @@ msgid "Stand-in structure for view"
 msgstr "Stand-in structuur voor view"
 
 #: libraries/export/sql.php:1112
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Maakt het lezen van data mogelijk."
+msgstr "Fout bij het lezen van data:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
