@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 17:46+0200\n"
+"PO-Revision-Date: 2012-02-20 17:48+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4821,10 +4821,9 @@ msgstr ""
 "armazenadas, os registros mais antigos são automaticamente removidas"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Número máximo de tabelas exibidas na lista de tabelas"
+msgstr "Número máximo de tabelas das preferências para armazenar"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
