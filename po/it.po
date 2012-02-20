@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 11:43+0200\n"
+"PO-Revision-Date: 2012-02-20 11:44+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1600,7 +1600,6 @@ msgid "Cancel request"
 msgstr "Annulla la richiesta"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid ""
 #| "olumns shows the amount of identical queries that are grouped ether. ever "
 #| "only the SQL Text is being compared, thus the queries er attributes h as "
@@ -1612,7 +1611,7 @@ msgid ""
 msgstr ""
 "Questo campo mostra il numero di query identiche raggruppate. Tuttavia il "
 "raggruppamento è fatto in base al testo che costituisce la query SQL, quindi "
-"altri attributi, come lo 'start time', potrebbero essere diversi."
+"altri attributi, come lo start time, potrebbero essere diversi."
 
 #: js/messages.php:179
 msgid ""
