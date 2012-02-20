@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 18:54+0200\n"
+"PO-Revision-Date: 2012-02-20 18:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9658,10 +9658,9 @@ msgid "Advisor"
 msgstr "උපදේශකය"
 
 #: server_status.php:798 server_status.php:820
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "අලුත් කරන්න"
+msgstr "යාවත්කාලීන කිරීමේ ශ්‍රීඝ‍්‍රතාව:"
 
 #: server_status.php:839 server_variables.php:115
 #, fuzzy
