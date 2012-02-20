@@ -4606,7 +4606,7 @@ msgstr "Salvar todas a células editadas de uma vez"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Diretório / Pasta onde a exportação será salva no Servidor"
 
 #: libraries/config/messages.inc.php:361
 #, fuzzy
