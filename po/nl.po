@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 15:24+0200\n"
+"PO-Revision-Date: 2012-02-20 15:26+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1888,10 +1888,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
 #: js/messages.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a new value"
 msgid "Add %d value(s)"
-msgstr "+ Een nieuwe waarde toevoegen"
+msgstr "%d nieuwe waarde(n) toevoegen"
 
 #: js/messages.php:273
 msgid ""
