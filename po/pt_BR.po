@@ -4697,7 +4697,7 @@ msgstr "Conexão compactada ao servidor MySQL"
 
 #: libraries/config/messages.inc.php:379
 msgid "Compress connection"
-msgstr ""
+msgstr "Conexão compactada"
 
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
