@@ -9703,8 +9703,8 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... verwijder de oude van de gebruikerstabellen en vernieuw de privileges "
-"achteraf."
+"... verwijder de oude van de gebruikerstabellen en vernieuw de rechten "
+"nadien."
 
 #: server_privileges.php:2215
 msgid "Database for user"
