@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 17:40+0200\n"
+"PO-Revision-Date: 2012-02-20 17:41+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4754,9 +4754,8 @@ msgstr ""
 "[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 msgid "Designer table"
-msgstr "Desfragmentar tabela"
+msgstr "tabela de Desenho"
 
 #: libraries/config/messages.inc.php:391
 msgid ""
