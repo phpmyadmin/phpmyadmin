@@ -5085,6 +5085,8 @@ msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr ""
+"Desabilitar se você sabe que suas tabelas pma_* estão atualizadas. Isto "
+"previne verificações de compatibilidade e incrementa a performance"
 
 #: libraries/config/messages.inc.php:452
 msgid "Verbose check"
