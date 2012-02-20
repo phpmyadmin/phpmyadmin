@@ -4932,6 +4932,8 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+"Veja [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipos de "
+"autenticação [/a] para exemplo"
 
 #: libraries/config/messages.inc.php:423
 msgid "Signon session name"
