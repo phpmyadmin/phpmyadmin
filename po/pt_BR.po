@@ -4175,7 +4175,7 @@ msgstr "Nâo usar AUTO_INCREMENT para valores zero"
 
 #: libraries/config/messages.inc.php:266
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Estado inicial dos sliders"
 
 #: libraries/config/messages.inc.php:267
 msgid "How many rows can be inserted at one time"
