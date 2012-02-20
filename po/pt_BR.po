@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 18:10+0200\n"
+"PO-Revision-Date: 2012-02-20 18:11+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5036,10 +5036,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "Define a lista de comandos que a auto-criação use para novas versões."
 
 #: libraries/config/messages.inc.php:442
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Comandos"
+msgstr "Comandos a rastrear"
 
 #: libraries/config/messages.inc.php:443
 msgid ""
