@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 16:04+0200\n"
+"PO-Revision-Date: 2012-02-20 16:05+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1630,10 +1630,9 @@ msgstr ""
 "Log gegevens werden geladen. Aantal uitgevoerde queries in deze periode :"
 
 #: js/messages.php:182
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Ga naar database"
+msgstr "Ga naar Log tabel"
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
