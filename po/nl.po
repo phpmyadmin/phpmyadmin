@@ -13057,10 +13057,10 @@ msgid "Max %% MyISAM key buffer ever used"
 msgstr "Sorteer buffer grootte"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Sorteer buffer grootte"
+msgstr "MyISAM sleutel buffer (index cache) %% is laag."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
