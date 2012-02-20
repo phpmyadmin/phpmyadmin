@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-20 17:08+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1735,7 +1735,7 @@ msgstr "Detalhes da regra"
 #, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Razão"
+msgstr "Justificação"
 
 #: js/messages.php:224
 msgid "Used variable / formula"
