@@ -4945,7 +4945,7 @@ msgstr "URL de Signon"
 
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "Socket (TCP) no qual o MYSQL está ouvindo, deixe em branco para padrão"
 
 #: libraries/config/messages.inc.php:426
 msgid "Server socket"
