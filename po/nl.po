@@ -1703,10 +1703,9 @@ msgid "Sum of grouped rows:"
 msgstr "Aantal gegroepeerde rijen:"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Totaal"
+msgstr "Totaal:"
 
 #: js/messages.php:203
 #, fuzzy
