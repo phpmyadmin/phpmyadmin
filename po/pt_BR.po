@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 17:53+0200\n"
+"PO-Revision-Date: 2012-02-20 17:54+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4858,7 +4858,7 @@ msgstr "Deixe em branco se não usar config auth"
 
 #: libraries/config/messages.inc.php:409
 msgid "Password for config auth"
-msgstr ""
+msgstr "Senha para config auth"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
