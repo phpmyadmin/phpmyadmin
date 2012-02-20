@@ -6313,8 +6313,9 @@ msgid "Well Known Text"
 msgstr "Text Bine Cunoscut"
 
 #: libraries/display_tbl.lib.php:695
+#, fuzzy
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binar Bine Cunoscut"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
