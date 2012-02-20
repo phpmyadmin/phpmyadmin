@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 07:09+0200\n"
+"PO-Revision-Date: 2012-02-20 07:21+0200\n"
 "Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1083,7 +1083,7 @@ msgstr "ප්‍රාථමික මූලය/සුචිය ඉවත් �
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "This operation could take a long time. Proceed anyway?"
+msgstr "මෙම ක්‍රියාදාමය සඳහා දීර්ඝ වේලාවක් ගත වනු ඇත. කෙසේ වුවත් ඉදිරියට යන්න?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
