@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 17:19+0200\n"
+"PO-Revision-Date: 2012-02-20 17:22+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4585,6 +4585,7 @@ msgstr "Lembrar classificação da tabela"
 #: libraries/config/messages.inc.php:354
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Repetir cabeçalhos a cada X celulas, [kbd]0[/kbd] desativa esta configuração"
 
 #: libraries/config/messages.inc.php:355
 #, fuzzy
