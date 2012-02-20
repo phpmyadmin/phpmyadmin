@@ -4988,6 +4988,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
+"Deixe em branco se não houver tabelas persistentes UI nas preferências entre "
+"sessões, sugestão:  [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
