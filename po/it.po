@@ -1632,12 +1632,11 @@ msgid "Jump to Log table"
 msgstr "Vai alla tabella di Log"
 
 #: js/messages.php:183
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Il log é stato analizzato, nessun dato é stato trovato per questo intervallo "
-"di tempo."
+"Il log é stato analizzato, ma nessun dato é stato trovato per questo "
+"intervallo di tempo."
 
 #: js/messages.php:185
 #, fuzzy
