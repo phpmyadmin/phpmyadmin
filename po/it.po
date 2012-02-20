@@ -2412,7 +2412,7 @@ msgstr "Rimuovi la cartella \"./config\" prima di utilizzare phpMyAdmin!"
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "File di configurazione esistente (%s) non è leggibile."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
