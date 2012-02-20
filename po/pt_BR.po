@@ -4622,7 +4622,7 @@ msgstr "Pedido de autorização do Servidor"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Deixe em branco para padrão"
 
 #: libraries/config/messages.inc.php:365
 #, fuzzy
