@@ -2369,7 +2369,7 @@ msgstr "Tamanho da fonte"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Muitas mensagens de erro, algumas não exibidas."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
