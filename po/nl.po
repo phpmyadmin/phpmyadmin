@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-17 18:26+0200\n"
+"PO-Revision-Date: 2012-02-20 15:20+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -841,10 +841,9 @@ msgstr ""
 "Kopiëer en plak de samengevoegde gegevens in het \"Lengte/Waarden\" veld"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Verkeerd type!"
+msgstr "Slecht type!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
