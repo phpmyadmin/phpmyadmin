@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 17:26+0200\n"
+"PO-Revision-Date: 2012-02-20 17:27+0200\n"
 "Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4625,9 +4625,8 @@ msgid "Leave blank for defaults"
 msgstr "Deixe em branco para padrão"
 
 #: libraries/config/messages.inc.php:365
-#, fuzzy
 msgid "Host authorization rules"
-msgstr "Falha na autenticação de hardware"
+msgstr "Regras de autorização do servidor"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
