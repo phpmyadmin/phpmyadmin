@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 16:36+0200\n"
+"PO-Revision-Date: 2012-02-20 16:37+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -8065,10 +8065,9 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "Geen tabellen gevonden in de database"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Er zijn geen bestanden om te uploaden"
+msgstr "Er zijn geen events om weer te geven."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
