@@ -4546,7 +4546,7 @@ msgstr "Exibir Aba quando abrir uma nova janela de consulta"
 
 #: libraries/config/messages.inc.php:345
 msgid "Default query window tab"
-msgstr ""
+msgstr "Aba padrão da janela de consulta"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
