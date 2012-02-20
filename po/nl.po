@@ -10903,10 +10903,9 @@ msgid "Chart columns"
 msgstr "Textarea kolommen"
 
 #: server_status.php:1599
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Fouten beheer:"
+msgstr "Grafiekschikking"
 
 #: server_status.php:1599
 msgid ""
