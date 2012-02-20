@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 19:24+0200\n"
+"PO-Revision-Date: 2012-02-20 19:26+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6128,7 +6128,7 @@ msgstr "Se importă pe server-ul curent"
 #: libraries/display_import.lib.php:131
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Se importă baza de date \"%s\""
+msgstr "Se importă în baza de date \"%s\""
 
 #: libraries/display_import.lib.php:133
 #, fuzzy, php-format
