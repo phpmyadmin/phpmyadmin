@@ -4868,7 +4868,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "Esquema tabelas em Páginas PDF"
 
 #: libraries/config/messages.inc.php:412
 msgid ""
