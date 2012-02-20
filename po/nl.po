@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 16:07+0200\n"
+"PO-Revision-Date: 2012-02-20 16:08+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1646,10 +1646,9 @@ msgid "Analyzing..."
 msgstr "Gegevens worden geanalyseerd..."
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Verklaar SQL"
+msgstr "Verklaar resultaat"
 
 #: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1241 sql.php:901
