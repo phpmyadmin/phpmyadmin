@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 16:25+0200\n"
+"PO-Revision-Date: 2012-02-20 16:26+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2575,10 +2575,9 @@ msgstr[0] "%1$d rij toegevoegd."
 msgstr[1] "%1$d rijen toegevoegd."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Maakt het lezen van data mogelijk."
+msgstr "Fout bij het aanmaken van de PDF."
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
