@@ -4614,7 +4614,7 @@ msgstr "Diretório onde será Salvo"
 
 #: libraries/config/messages.inc.php:362
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Deixe em branco se não usado"
 
 #: libraries/config/messages.inc.php:363
 #, fuzzy
