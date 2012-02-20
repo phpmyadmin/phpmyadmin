@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-20 17:03+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: gilberto dos santos alves <gsavix@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1623,9 +1623,8 @@ msgid "Table"
 msgstr "Tabela"
 
 #: js/messages.php:192
-#, fuzzy
 msgid "Chart"
-msgstr "Conjuntos de caracteres"
+msgstr "Conjunto de caracteres"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
