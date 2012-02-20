@@ -1641,10 +1641,9 @@ msgstr ""
 "tijdspanne."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analyseer"
+msgstr "Gegevens worden geanalyseerd..."
 
 #: js/messages.php:186
 #, fuzzy
