@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 19:07+0200\n"
+"PO-Revision-Date: 2012-02-20 19:08+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -10521,10 +10521,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1600
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "පෙරනිමි අගය ප්‍රතිස්ථාපනය කරන්න"
+msgstr "පෙරනිමි අගයන් පිහිටුවන්න"
 
 #: server_status.php:1604
 msgid "Monitor Instructions"
