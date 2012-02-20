@@ -1722,6 +1722,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Bij het opvragen van nieuwe grafiekgegevens gaf de server ongeldige data. "
+"Dit is waarschijnlijk omdat je sessie afgelopen is. Verversen van de pagina "
+"en opnieuw inloggen zou dit probleem moeten oplossen."
 
 #: js/messages.php:206
 #, fuzzy
