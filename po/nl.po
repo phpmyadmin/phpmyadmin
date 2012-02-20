@@ -10027,10 +10027,9 @@ msgid "Filters"
 msgstr "Filter"
 
 #: server_status.php:841 server_variables.php:117
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Wijzig het wachtwoord niet"
+msgstr "Bevat het woord:"
 
 #: server_status.php:846
 #, fuzzy
