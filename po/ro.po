@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 14:54+0200\n"
+"PO-Revision-Date: 2012-02-21 14:58+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6655,11 +6655,13 @@ msgstr ""
 "inițializarea tabelei pbms_metadata_header când se creează o bază de date."
 
 #: libraries/engines/pbms.lib.php:94
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
+"Documentația și mai multe informații despre PBMS pot fi găsite la %sThe "
+"PrimeBase Media Streaming home page%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 #, fuzzy
