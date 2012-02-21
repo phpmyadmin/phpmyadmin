@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 18:05+0200\n"
+"PO-Revision-Date: 2012-02-21 18:09+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1925,10 +1925,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "තීර එක් කරන්න/ඉවත් කරන්න"
+msgstr "තීර දෙකක් තෝරන්න"
 
 #: js/messages.php:310
 msgid "Select two different columns"
