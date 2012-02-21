@@ -1879,9 +1879,8 @@ msgid "Save"
 msgstr "සුරකින්න"
 
 #: js/messages.php:287
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "සෙවුම් නිර්ණායක සඟවන්න "
+msgstr "සෙවුම් නිර්ණායක සඟවන්න"
 
 #: js/messages.php:288
 #, fuzzy
