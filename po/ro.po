@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 15:00+0200\n"
+"PO-Revision-Date: 2012-02-21 15:02+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6696,14 +6696,16 @@ msgid "Record cache size"
 msgstr "Dimensiune cache înregistrare"
 
 #: libraries/engines/pbxt.lib.php:28
+#, fuzzy
 msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"This is the amount of memory allocated to the record cache used to cache "
-"table data. The default value is 32MB. This memory is used to cache changes "
-"to the handle data (.xtd) and row pointer (.xtr) files."
+"Aceasta este memoria alocată cache-ului pentru înregistrări folosit pentru a "
+"cache-ui date tabelare. Valoarea default este 32MB. Memoria alocată aici "
+"este folosită pentru cache-uirea schimbărilor la datele de manipulare (.xtd) "
+"și fișierele row pointer (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
