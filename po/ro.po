@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-14 14:13+0200\n"
+"PO-Revision-Date: 2012-02-20 19:31+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6028,13 +6028,14 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is."
+"Această valoare este interpretată folosind %1$sstrftime%2$s, ca sa puteţi "
+"folosi şiruri de formatare a timpului. În plus, următoarele transformări vor "
+"avea loc: %3$s. Orice alt text va fi păstrat aşa cum este. Vedeţi %4$sFAQ%"
+"5$s pentru detalii."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
-msgstr ""
+msgstr "folosiţi pentru viitoare exportări"
 
 #: libraries/display_export.lib.php:276 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
@@ -6089,6 +6090,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Faceţi scroll în jos pentru a completa opţiunile pentru formatul selectat şi "
+"ignoraţi opţiunile pentru alte formate."
 
 #: libraries/display_export.lib.php:342 libraries/display_import.lib.php:260
 #, fuzzy
@@ -6101,32 +6104,36 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"Fişierul care este uploadat este probabil mai mare decât mărimea maximă "
+"permisă sau acesta este un bug cunoscut in browser-ele bazate pe webkit "
+"(Safari, Google Chrome, Arora etc.)"
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Fişierul este procesat, vă rugăm să aveţi răbdare."
 
 #: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Vă rugăm să aveţi răbdare, fişierul este uploadat. Nu sunt disponibile "
+"detalii despre upload."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Nu pot face conexiunea catre serverul MySQL"
+msgstr "Se importă pe server-ul curent"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Nu sînt baze de date"
+msgstr "Se importă în baza de date \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Nu sînt baze de date"
+msgstr "Se importă în tabela \"%s\""
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
@@ -6137,13 +6144,15 @@ msgstr "Fișier de importat"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Fişierul poate fi comprimat (%s) sau necomprimat."
 
 #: libraries/display_import.lib.php:158
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Numele unui fişier comprimat trebuie să se termine în "
+"<b>.[format].[compresie]</b>. Exemplu: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -6241,7 +6250,7 @@ msgstr "vertical"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Capete de tabel la fiecare %s rânduri"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
@@ -6288,25 +6297,25 @@ msgstr "Relational display field"
 
 #: libraries/display_tbl.lib.php:675
 msgid "Show binary contents"
-msgstr ""
+msgstr "Afişează conţinut binar"
 
 #: libraries/display_tbl.lib.php:677
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Afişează conţinut BLOB"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformare navigator"
+msgstr "Ascunde transformarea browser-ului"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr ""
+msgstr "Text Bine Cunoscut"
 
 #: libraries/display_tbl.lib.php:695
+#, fuzzy
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binar Bine Cunoscut"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"

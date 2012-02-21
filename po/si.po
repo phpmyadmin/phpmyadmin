@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 07:43+0200\n"
-"Last-Translator: modz <modisha.jay@gmail.com>\n"
+"PO-Revision-Date: 2012-02-21 02:57+0200\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -446,7 +446,7 @@ msgstr "නිර්ණායක"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr "Ins"
+msgstr "ඇතුල්"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
@@ -454,7 +454,7 @@ msgstr "සහ"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr "Del"
+msgstr "ඉවත්"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
@@ -512,7 +512,7 @@ msgstr "හරියටම වාක්‍යාංශය"
 
 #: db_search.php:46 db_search.php:289
 msgid "as regular expression"
-msgstr "as regular expression"
+msgstr "regular expression ලෙස"
 
 #: db_search.php:209
 #, php-format
@@ -570,7 +570,7 @@ msgstr "සොයන්න:"
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
-msgstr "Words are separated by a space character (\" \")."
+msgstr "වචන වෙන් කෙරෙන්නේ හිස් තැනකිනි(\" \")."
 
 #: db_search.php:300
 msgid "Inside tables:"
@@ -638,7 +638,7 @@ msgstr "එකතුව"
 #: db_structure.php:532 libraries/StorageEngine.class.php:338
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s is the default storage engine on this MySQL server."
+msgstr "%s මෙම සේවාදායකයේ පෙරනිමි ගබඩා යන්ත්‍රයයි."
 
 #: db_structure.php:561 db_structure.php:578 db_structure.php:579
 #: libraries/display_tbl.lib.php:2498 libraries/display_tbl.lib.php:2503
@@ -662,7 +662,7 @@ msgstr "කතිර කොටුගත කිරීම ඉවත් කරන�
 
 #: db_structure.php:573
 msgid "Check tables having overhead"
-msgstr "Check tables having overhead"
+msgstr "පිරිවැයක් සහිත වගු පරීක්ෂා කරන්න"
 
 #: db_structure.php:581 libraries/common.lib.php:3353
 #: libraries/common.lib.php:3354 libraries/config/messages.inc.php:166
@@ -820,10 +820,9 @@ msgid "Values for column %s"
 msgstr "%s තීරුව සඳහා අගයන්"
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "එක් එක් අගයන් වෙන වෙනම ක්ෂේත්‍ර වලට ඇතුලත් කරන්න."
+msgstr "එක් එක් අගයන් වෙන වෙනම ක්ෂේත්‍ර වලට ඇතුලත් කරන්න"
 
 #: enum_editor.php:123
 #| msgid "+ Add a new value"
@@ -860,7 +859,8 @@ msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත�
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"File %s already exists on server, change filename or check overwrite option."
+"%s ගොනුව මේ වන විටත් සේවාදායකයෙහි පවතී, ගොනු නාමය වෙනස් කරන්න නැතහොත් ඉක්මවා "
+"ලිවීමේ හැකියාව සලකා බලන්න."
 
 #: export.php:311 export.php:315
 #, php-format
@@ -933,7 +933,7 @@ msgstr "ඇතුලත කවය"
 
 #: gis_data_editor.php:252
 msgid "Add a linestring"
-msgstr "රේඛාවක් එක් කරන්න "
+msgstr "රේඛාවක් එක් කරන්න"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
 msgid "Add an inner ring"
@@ -1401,7 +1401,7 @@ msgstr "මාතෘකාව සහ ලේබල සංස්කරණය ක�
 
 #: js/messages.php:140
 msgid "Add chart to grid"
-msgstr "ජාලකයට ප්‍රස්තාර එක් කරන්න "
+msgstr "ජාලකයට ප්‍රස්තාර එක් කරන්න"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
@@ -1650,7 +1650,7 @@ msgstr "ලොගයන් පූරණය කෙරෙමින්"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "අධීක්ෂකය යාවත්කාලින කිරීම අසමත් විය"
 
 #: js/messages.php:205
 msgid ""
@@ -4127,7 +4127,7 @@ msgstr "අර්ධ ආනයනය: විමසුම් නොසලකා �
 
 #: libraries/config/messages.inc.php:263
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "බිංදුව අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
+msgstr "ශුන්‍ය අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
 
 #: libraries/config/messages.inc.php:266
 msgid "Initial state for sliders"
@@ -4325,7 +4325,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:309 libraries/config/messages.inc.php:314
 #: libraries/config/messages.inc.php:341
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "භාවිතා කරන්නන්ට වැඩි අගයක් සිටුවිය නොහැක"
 
 #: libraries/config/messages.inc.php:310
 msgid "Maximum number of databases displayed in left frame and database list"
@@ -5067,10 +5067,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "විමසුම් කවුළුව සඟවන්න"
+msgstr "විමසුම් කවුළුව රඳවාගන්න"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -7898,10 +7897,9 @@ msgid "Current Server"
 msgstr "වත්මන් සේවාදායකය"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "භාවිතා කරන්නා"
+msgstr "භාවිතා කරන්නන්"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
@@ -7932,9 +7930,8 @@ msgid "Engines"
 msgstr "යන්ත්‍රයන්"
 
 #: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
-#, fuzzy
 msgid "Source database"
-msgstr "දත්තගබඩාවේ සොයන්න"
+msgstr "මූලාශ්‍ර දත්ත ගබඩාව"
 
 #: libraries/server_synchronize.lib.php:1303
 #: libraries/server_synchronize.lib.php:1311
@@ -7951,9 +7948,8 @@ msgid "Difference"
 msgstr ""
 
 #: libraries/server_synchronize.lib.php:1309 server_synchronize.php:1188
-#, fuzzy
 msgid "Target database"
-msgstr "දත්තගබඩාවේ සොයන්න"
+msgstr "ඉලක්කගත දත්ත ගබඩාව"
 
 #: libraries/server_synchronize.lib.php:1344
 #: libraries/server_synchronize.lib.php:1353
@@ -9653,22 +9649,20 @@ msgstr "සියලුම තත්ත්ව විචල්‍යයන්"
 
 #: server_status.php:787
 msgid "Monitor"
-msgstr ""
+msgstr "අධීක්ෂකය"
 
 #: server_status.php:788
 msgid "Advisor"
 msgstr "උපදේශකය"
 
 #: server_status.php:798 server_status.php:820
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "අලුත් කරන්න"
+msgstr "යාවත්කාලීන කිරීමේ ශ්‍රීඝ‍්‍රතාව:"
 
 #: server_status.php:839 server_variables.php:115
-#, fuzzy
 msgid "Filters"
-msgstr "ක්ෂේත්‍ර"
+msgstr "පෙරහන්"
 
 #: server_status.php:841 server_variables.php:117
 msgid "Containing the word:"
@@ -9693,16 +9687,14 @@ msgid "Related links:"
 msgstr "Relations"
 
 #: server_status.php:901
-#, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "විමසුම් වර්ගය"
+msgstr "විශ්ලේශකය ක්‍රියාත්මක කරවන්න"
 
 #: server_status.php:902
-#, fuzzy
 #| msgid "Functions"
 msgid "Instructions"
-msgstr "ශ්‍රිත"
+msgstr "උපදෙස්"
 
 #: server_status.php:909
 msgid ""
@@ -9750,13 +9742,13 @@ msgstr ""
 #: server_status.php:1049
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "ආරම්භයේ සිට ජාලය හරහා ගමන් ගත් දත්ත ප්‍රමාණය: %s"
 
 #: server_status.php:1058
-#, fuzzy, php-format
+#, php-format
 #| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "මෙම MySQL සේවාදායකය %s තිස්සේ  ක්‍රියාත්මකයි. මෙය ඇරඹුයේ %s."
+msgstr "මෙම MySQL සේවාදායකය %1$s තිස්සේ ක්‍රියාත්මකයි. මෙය ඇරඹුයේ %2$s."
 
 #: server_status.php:1069
 msgid ""
@@ -10482,10 +10474,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "The number of threads that are not sleeping."
 
 #: server_status.php:1551
-#, fuzzy
 #| msgid "Startup"
 msgid "Start Monitor"
-msgstr "ඇරඹුම්"
+msgstr "අධීක්ෂණය අරඹන්න"
 
 #: server_status.php:1560
 msgid "Instructions/Setup"
@@ -10493,28 +10484,25 @@ msgstr "උපදෙස්/පිහිටුවීම"
 
 #: server_status.php:1565
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "ප්‍රස්ථාර වෙනස් කර/අනුපිලිවෙල සකස්කර අවසානයි"
 
 #: server_status.php:1572 server_status.php:1643
-#, fuzzy
 #| msgid "Add index"
 msgid "Add chart"
-msgstr "සුචිය එක් කරන්න"
+msgstr "ප්‍රස්ථාර එක් කරන්න"
 
 #: server_status.php:1574
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "ප්‍රස්ථාර වෙනස් කිරීම/අනුපිලිවෙල සකස් කිරීම"
 
 #: server_status.php:1578
-#, fuzzy
 msgid "Refresh rate"
-msgstr "අලුත් කරන්න"
+msgstr "යාවත්කාලීන කිරීමේ ශ්‍රීඝ‍්‍රතාව"
 
 #: server_status.php:1583
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "ක්ෂේත්‍ර තීර එක් කරන්න/ඉවත් කරන්න"
+msgstr "ප්‍රස්ථාරයේ තීර"
 
 #: server_status.php:1599
 #, fuzzy
@@ -10529,14 +10517,13 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1600
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "පෙරනිමි අගය ප්‍රතිස්ථාපනය කරන්න"
+msgstr "පෙරනිමි අගයන් පිහිටුවන්න"
 
 #: server_status.php:1604
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "අධීක්ෂකය පිලිබඳ උපදෙස්"
 
 #: server_status.php:1605
 msgid ""
