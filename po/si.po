@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 02:39+0200\n"
+"PO-Revision-Date: 2012-02-21 02:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -638,7 +638,7 @@ msgstr "එකතුව"
 #: db_structure.php:532 libraries/StorageEngine.class.php:338
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s is the default storage engine on this MySQL server."
+msgstr "%s මෙම සේවාදායකයේ පෙරනිමි ගබඩා යන්ත්‍රයයි."
 
 #: db_structure.php:561 db_structure.php:578 db_structure.php:579
 #: libraries/display_tbl.lib.php:2498 libraries/display_tbl.lib.php:2503
