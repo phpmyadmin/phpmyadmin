@@ -3048,7 +3048,7 @@ msgstr "&quot;%s&quot; දත්තගබඩාව වෙත යන්න ."
 #: libraries/common.lib.php:2576
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "%s විශේෂාංගයෙහි හඳුනාගත් දෝෂයක් ඇත, %s බලන්න "
 
 #: libraries/common.lib.php:2750
 #, fuzzy
