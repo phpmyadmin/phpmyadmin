@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 14:50+0200\n"
+"PO-Revision-Date: 2012-02-21 14:52+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6629,8 +6629,9 @@ msgstr ""
 "considera valoarea in bytes."
 
 #: libraries/engines/pbms.lib.php:55
+#, fuzzy
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Valoarea maximă keep alive"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
