@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 19:31+0200\n"
+"PO-Revision-Date: 2012-02-21 15:00+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6563,30 +6563,30 @@ msgid "Garbage Threshold"
 msgstr "Prag gunoi"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| " percentage of garbage in a data log file before it is compacted. This a "
 #| "value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"The percentage of garbage in a data log file before it is compacted. This is "
-"a value between 1 and 99. The default is 50."
+"Procentul de gunoi dintr-un fișier din repository înainte să fie comprimat."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
-#, fuzzy
 msgid "Port"
-msgstr "Sortare"
+msgstr "Port"
 
 #: libraries/engines/pbms.lib.php:36
 msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
 msgstr ""
+"Portul pentru comunicațiile PBMS bazate pe stream. Setarea acestei valoari "
+"la 0 va dezactiva comunicarea HTTP cu daemon-ul."
 
 #: libraries/engines/pbms.lib.php:40
+#, fuzzy
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Prag Repository"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
@@ -6594,16 +6594,23 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Mărimea maximă a unui fișier BLOB din repository. Puteți folosi KB, MB sau "
+"GB pentru a indica unitatea valorii. Dacă nu specificați nicio unitate, se "
+"va considera valoarea in bytes."
 
 #: libraries/engines/pbms.lib.php:45
+#, fuzzy
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Timeout Blob temporar"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"Timeout-ul, în secunde, pentru BLOB-uri temporare. Datele BLOB uploadate "
+"sunt șterse după acest interval, mai puțin dacă sunt referite printr-o "
+"intrare în baza de date. "
 
 #: libraries/engines/pbms.lib.php:50
 #, fuzzy
@@ -6617,33 +6624,44 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Mărimea maximă a unui fișier log BLOB temporar. Puteți folosi KB, MB sau GB "
+"pentru a indica unitatea valorii. Dacă nu specificați nicio unitate, se va "
+"considera valoarea in bytes."
 
 #: libraries/engines/pbms.lib.php:55
+#, fuzzy
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Valoarea maximă keep alive"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Timeout-ul pentru conexiune inactivă cu flag-ul keep-alive setat. După acest "
+"timp, conexiunea va fi închisă. Timeout-ul este exprimat in milisecunde "
+"(1/1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Headere Metadata"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"Un simbol \":\" delimitează lista headerelor metadata ce vor fi folosite la "
+"inițializarea tabelei pbms_metadata_header când se creează o bază de date."
 
 #: libraries/engines/pbms.lib.php:94
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
+"Documentația și mai multe informații despre PBMS pot fi găsite la %sThe "
+"PrimeBase Media Streaming home page%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 #, fuzzy
@@ -6652,12 +6670,13 @@ msgid "Related Links"
 msgstr "Legături"
 
 #: libraries/engines/pbms.lib.php:98
+#, fuzzy
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
+msgstr "Blogul de media streaming PrimeBase de Barry Leslie"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "Pagina principală PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
@@ -6668,8 +6687,9 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"This is the amount of memory allocated to the index cache. Default value is "
-"32MB. The memory allocated here is used only for caching index pages."
+"Aceasta este memoria alocată cache-ului pentru index. Valoarea default este "
+"32MB. Memoria alocată aici este folosită doar pentru cache-uirea paginilor "
+"index."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
