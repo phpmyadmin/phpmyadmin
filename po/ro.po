@@ -6594,6 +6594,9 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Mărimea maximă a unui fișier BLOB din repository. Puteți folosi KB, MB sau "
+"GB pentru a indica unitatea valorii. Dacă nu specificați nicio unitate, se "
+"va considera valoarea in bytes."
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
