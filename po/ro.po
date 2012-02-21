@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 14:46+0200\n"
+"PO-Revision-Date: 2012-02-21 14:47+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6584,8 +6584,9 @@ msgstr ""
 "la 0 va dezactiva comunicarea HTTP cu daemon-ul."
 
 #: libraries/engines/pbms.lib.php:40
+#, fuzzy
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Prag Repository"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
