@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 14:48+0200\n"
+"PO-Revision-Date: 2012-02-21 14:49+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6608,6 +6608,9 @@ msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"Timeout-ul, în secunde, pentru BLOB-uri temporare. Datele BLOB uploadate "
+"sunt șterse după acest interval, mai puțin dacă sunt referite printr-o "
+"intrare în baza de date. "
 
 #: libraries/engines/pbms.lib.php:50
 #, fuzzy
