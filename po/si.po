@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 17:27+0200\n"
+"PO-Revision-Date: 2012-02-21 17:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1468,6 +1468,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"පහත සිටුවම් සැමට බලපැවැත්වෙන ලෙස යෙදෙන අතර සේවාදායකය නැවත ආරම්භයේදී පෙරනිමි "
+"අගයන් වෙත ප්‍රතිසැකසේ:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
