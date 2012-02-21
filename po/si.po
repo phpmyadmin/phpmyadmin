@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 02:44+0200\n"
+"PO-Revision-Date: 2012-02-21 02:52+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -662,7 +662,7 @@ msgstr "කතිර කොටුගත කිරීම ඉවත් කරන�
 
 #: db_structure.php:573
 msgid "Check tables having overhead"
-msgstr "Check tables having overhead"
+msgstr "පිරිවැයක් සහිත වගු පරීක්ෂා කරන්න"
 
 #: db_structure.php:581 libraries/common.lib.php:3353
 #: libraries/common.lib.php:3354 libraries/config/messages.inc.php:166
