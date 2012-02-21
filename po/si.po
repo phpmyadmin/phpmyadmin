@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 17:56+0200\n"
+"PO-Revision-Date: 2012-02-21 18:01+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1866,10 +1866,9 @@ msgid "Change"
 msgstr "වෙනස් කරන්න"
 
 #: js/messages.php:281
-#, fuzzy
 #| msgid "SQL execution"
 msgid "Query execution time"
-msgstr "විමසුම ක්‍රියාත්මක කිරීමේ කාලය "
+msgstr "විමසුම ක්‍රියාත්මක කිරීමේ කාලය"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
