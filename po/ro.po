@@ -6563,13 +6563,12 @@ msgid "Garbage Threshold"
 msgstr "Prag gunoi"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| " percentage of garbage in a data log file before it is compacted. This a "
 #| "value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"Procentul de gunoi dintr-un fisier din repository inainte sa fi comprimat."
+"Procentul de gunoi dintr-un fișier din repository înainte să fie comprimat."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
