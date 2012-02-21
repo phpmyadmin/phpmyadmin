@@ -512,7 +512,7 @@ msgstr "හරියටම වාක්‍යාංශය"
 
 #: db_search.php:46 db_search.php:289
 msgid "as regular expression"
-msgstr "as regular expression"
+msgstr "regular expression ලෙස"
 
 #: db_search.php:209
 #, php-format
