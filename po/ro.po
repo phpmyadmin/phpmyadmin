@@ -6687,8 +6687,9 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"This is the amount of memory allocated to the index cache. Default value is "
-"32MB. The memory allocated here is used only for caching index pages."
+"Aceasta este memoria alocată cache-ului pentru index. Valoarea default este "
+"32MB. Memoria alocată aici este folosită doar pentru cache-uirea paginilor "
+"index."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
