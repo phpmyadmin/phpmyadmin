@@ -1900,7 +1900,7 @@ msgstr "ලක්ෂ්‍යයක් මතින් ගමන් කරන �
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "ප්‍රස්ථාරය ලොකු/කුඩා කර බැලීමට මූසිකයේ රෝදය භාවිතා කරන්න."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
