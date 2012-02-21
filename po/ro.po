@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 15:10+0200\n"
+"PO-Revision-Date: 2012-02-21 15:11+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6758,7 +6758,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
-msgstr "Data log threshold"
+msgstr "Prag pentru jurnalul de date"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid ""
