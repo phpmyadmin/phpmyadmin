@@ -6569,8 +6569,7 @@ msgstr "Prag gunoi"
 #| "value between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"The percentage of garbage in a data log file before it is compacted. This is "
-"a value between 1 and 99. The default is 50."
+"Procentul de gunoi dintr-un fisier din repository inainte sa fi comprimat."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
