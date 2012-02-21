@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 02:56+0200\n"
+"PO-Revision-Date: 2012-02-21 02:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7897,10 +7897,9 @@ msgid "Current Server"
 msgstr "වත්මන් සේවාදායකය"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "භාවිතා කරන්නා"
+msgstr "භාවිතා කරන්නන්"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
