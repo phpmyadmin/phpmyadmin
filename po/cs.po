@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 10:58+0200\n"
+"PO-Revision-Date: 2012-02-22 16:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12778,7 +12778,7 @@ msgstr "Povolte vyrovnávací paměť vláken nastavením {thread_cache_size} > 
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr "Velikost vyrovnávací paměti vláken je nastavena na 0."
+msgstr "Velikost vyrovnávací paměti vláken je nastavena na 0"
 
 #: po/advisory_rules.php:210
 #, php-format
