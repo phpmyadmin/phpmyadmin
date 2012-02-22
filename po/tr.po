@@ -4770,8 +4770,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
-"Veritabanında depolanan tablo tercihlerinin sayısını sınırlandırır, en eski "
-"kayıtlar otomatik olarak kaldırılır."
+"Veritabanında saklanan tablo tercihlerinin sayısını sınırlandırır, en eski "
+"kayıtlar otomatik olarak kaldırılır"
 
 #: libraries/config/messages.inc.php:403
 msgid "Maximal number of table preferences to store"
