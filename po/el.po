@@ -1439,7 +1439,7 @@ msgstr "Το general_log είναι ενεργοποιημένο."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr "Το slow_query_log είναι ενεργοποιημένα."
+msgstr "Το slow_query_log είναι ενεργοποιημένο."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
