@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-06 12:18+0200\n"
+"PO-Revision-Date: 2012-02-22 13:37+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1112,10 +1112,9 @@ msgid "This is not a number!"
 msgstr "Αυτό δεν είναι αριθμός!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
-msgstr "Προσθήκη ευρετηρίου"
+msgstr "Προσθήκη Ευρετηρίου"
 
 #: js/messages.php:47
 msgid "Edit Index"
@@ -1440,7 +1439,7 @@ msgstr "Το general_log είναι ενεργοποιημένο."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr "Το slow_query_log είναι ενεργοποιημένα."
+msgstr "Το slow_query_log είναι ενεργοποιημένο."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
@@ -5188,11 +5187,10 @@ msgid "Show SQL queries"
 msgstr "Εμφάνιση ερωτημάτων SQL"
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
-"Ορίζεται αν το ερώτημα πρέπει να παραμείνει στην οθόνη μετά την υποβολή"
+"Ορίζεται αν το ερώτημα πρέπει να παραμείνει στην οθόνη μετά την υποβολή του"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 msgid "Retain query box"
@@ -12065,10 +12063,11 @@ msgid "Create version"
 msgstr "Δημιουργία έκδοσης"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
+msgstr ""
+"Εκτέλεσε ένα «επερώτημα ανά παράδειγμα» (χαρακτήρας μπαλαντέρ «%») για δύο "
+"διαφρετικές στήλες"
 
 #: tbl_zoom_select.php:145
 msgid "Additional search criteria"
@@ -12221,6 +12220,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Έχετε ένα αργό ρυθμό ερωτημάτων των %s aνά ώρα, πρέπει να έχετε λιγότερο από "
+"1%% ανά ώρα."
 
 #: po/advisory_rules.php:25
 msgid "Long query time"
@@ -12231,12 +12232,17 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"Το long_query_time ορίστηκε στα 10 δευτερόλεπτα ή περισσότεραs, έτσι μόνο "
+"αργά ερωτήματα που κρατούν περισσότερο από 10 δευτερόλεπτα καταγράφονται."
 
 #: po/advisory_rules.php:27
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Προτείνεται να ορίσετε το {long_query_time} σε μια μικρότερη τιμή, που "
+"εξαρτάται από το περιβάλλον σας. Συνήθως προτείνεται μια τιμή μεταξύ 1-5 "
+"δευτερολέπτων."
 
 #: po/advisory_rules.php:28
 #, php-format

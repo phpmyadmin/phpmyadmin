@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 02:57+0200\n"
-"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
+"PO-Revision-Date: 2012-02-21 18:48+0200\n"
+"Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -1454,6 +1454,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log සක්‍රීයමුත් සේවාදායකය ලොග ගත කරන්නේ තත්පර %dට වඩා ගතවන "
+"විමසුම් පමණි. ඔබගේ පද්ධතියද සලකා long_query_time අගය තත්පර 0-2 අතර අගයකට "
+"සිටුවීම සුදුසුය.  "
 
 #: js/messages.php:154
 #, php-format
@@ -1465,6 +1468,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"පහත සිටුවම් සැමට බලපැවැත්වෙන ලෙස යෙදෙන අතර සේවාදායකය නැවත ආරම්භයේදී පෙරනිමි "
+"අගයන් වෙත ප්‍රතිසැකසේ:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
@@ -1658,6 +1663,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"ප්‍රස්ථාර සඳහා නව දත්ත ලබාගැනීමේදී සේවාදායකය නොවලංගු ප්‍රතිචාරයක් ලබාදුනි. "
+"මෙය බොහෝදුරට ඔබගේ සැසිය කල් ඉකුත්වීමෙන් සිදුවිය හැක. පිටුව ප්‍රතිපූරණය කර "
+"ලොගින් වීම සලකා බලන්න."
 
 #: js/messages.php:206
 #| msgid "Reload"
@@ -1671,12 +1679,16 @@ msgstr "වෙනස් වූ පේළි:"
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"Config ගොනුව විග්‍රහ කිරීම අසමත් විය. ගොනුවෙහි වලංගු JSON කේත ඇත්දැයි "
+"පරීක්ෂා කරන්න."
 
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"අනයනිත වින්‍යාස සමඟින් ප්‍රස්ථාර ජාලය ගොඩනැගීම අසමත් විය. පෙරනිමි වින්‍යාස "
+"වෙත මාරු වෙමින්..."
 
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
@@ -1854,10 +1866,9 @@ msgid "Change"
 msgstr "වෙනස් කරන්න"
 
 #: js/messages.php:281
-#, fuzzy
 #| msgid "SQL execution"
 msgid "Query execution time"
-msgstr "විමසුම ක්‍රියාත්මක කිරීමේ කාලය "
+msgstr "විමසුම ක්‍රියාත්මක කිරීමේ කාලය"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -1868,14 +1879,12 @@ msgid "Save"
 msgstr "සුරකින්න"
 
 #: js/messages.php:287
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "සෙවුම් නිර්ණායක සඟවන්න "
+msgstr "සෙවුම් නිර්ණායක සඟවන්න"
 
 #: js/messages.php:288
-#, fuzzy
 msgid "Show search criteria"
-msgstr "සෙවුම් නිර්ණායක පෙන්වන්න  "
+msgstr "සෙවුම් නිර්ණායක පෙන්වන්න"
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
@@ -1891,11 +1900,11 @@ msgstr "ලක්ෂ්‍යයක් මතින් ගමන් කරන �
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "ප්‍රස්ථාරය ලොකු/කුඩා කර බැලීමට මූසිකයේ රෝදය භාවිතා කරන්න."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "ප්‍රස්ථාරය මත එහා මෙහා යාමට මූසිකය භාවිතා කර අදින්න."
 
 #: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
@@ -1904,6 +1913,8 @@ msgstr ""
 #: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"පේළියක දත්ත පරීකෂා කිරීමට හා සමහරක් දත්ත වෙනස් කිරීමට ලක්ෂ්‍යයක් මත ක්ලික් "
+"කරන්න."
 
 #: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -1914,10 +1925,9 @@ msgid "Strings are converted into integer for plotting"
 msgstr ""
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "තීර එක් කරන්න/ඉවත් කරන්න"
+msgstr "තීර දෙකක් තෝරන්න"
 
 #: js/messages.php:310
 msgid "Select two different columns"
@@ -2012,16 +2022,19 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් "
+"කිරීමට, මකා දැමීමට අදාළ ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
 #: js/messages.php:352
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"අන්තර්ගත දත්ත මත ක්ලික් කිරීමෙන් ඔබට<br />බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල "
+"හැක."
 
 #: js/messages.php:353
-#, fuzzy
 msgid "Go to link"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "සබැඳීම වෙත යන්න"
 
 #: js/messages.php:356
 msgid "Generate password"
@@ -2350,11 +2363,12 @@ msgstr "phpMyAdmin භාවිතයට පෙර \"./config\" ඩිරෙක�
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "වත්මන් වින්‍යාස ගොනුව (%s) කියවිය නොහැක."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"වින්‍යාස ගොනුව සඳහා වැරදි අවසර සිටුවා ඇත. සැමටම ඊට ලිවිය හැකි නොවිය යුතුය!"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
@@ -2418,7 +2432,7 @@ msgstr "උඩුගත කරන ලද ගොනුව චලනයේදී �
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "උඩුගත කරන ලද ගොනුව කියවීමට නොහැක."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
@@ -2500,10 +2514,9 @@ msgstr[0] "පේළි %1$d ක් ඇතුල් කෙරුනි."
 msgstr[1] "පේළි %1$d ක් ඇතුල් කෙරුනි."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Allows reading data."
+msgstr "PDF සැදීමේදී දෝෂ:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2538,10 +2551,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "This MySQL server does not support the %s storage engine."
 
 #: libraries/Table.class.php:329
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "උපතත්වයන් පෙන්වන්න"
+msgstr "වගු තත්වය සඳහා නොහඳුනන අගයක්:"
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
@@ -2645,7 +2657,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "mcrypt හි Blowfish භාවිතා කිරීම අසමත් විය!"
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
@@ -2713,7 +2725,7 @@ msgstr ""
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "%s ගොනුවෙහි යතුරු කිසිවක් අඩංගු නොවේ"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:156
 #: libraries/auth/swekey/swekey.auth.lib.php:176
@@ -2825,10 +2837,9 @@ msgid "numeric key detected"
 msgstr "සංඛ්‍යාත්මක යතුරක් අනාවරණය වුණි"
 
 #: libraries/common.inc.php:607
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "වින්‍යාස සුරැකීම අසමත් විය"
+msgstr "වින්‍යාස ගොනුව කියවීමට අසමත් විය"
 
 #: libraries/common.inc.php:608
 msgid ""
@@ -2993,18 +3004,16 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "දින %s, පැය %s, මිනිත්තු %s සහ තප්පර %s"
 
 #: libraries/common.lib.php:2071
-#, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "නෛත්‍යක"
+msgstr "නොමැති පරාමිතිය:"
 
 #: libraries/common.lib.php:2454 libraries/common.lib.php:2457
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
-msgstr "Begin"
+msgstr "ඇරඹුම"
 
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
@@ -3026,11 +3035,10 @@ msgstr "මීලඟ"
 
 #: libraries/common.lib.php:2486 libraries/common.lib.php:2489
 #: libraries/display_tbl.lib.php:390
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "අවසානය‍"
+msgstr "අවසන"
 
 #: libraries/common.lib.php:2556
 #, php-format
@@ -3040,7 +3048,7 @@ msgstr "&quot;%s&quot; දත්තගබඩාව වෙත යන්න ."
 #: libraries/common.lib.php:2576
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "%s විශේෂාංගයෙහි හඳුනාගත් දෝෂයක් ඇත, %s බලන්න "
 
 #: libraries/common.lib.php:2750
 #, fuzzy

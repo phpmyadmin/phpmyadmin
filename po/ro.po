@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 15:00+0200\n"
+"PO-Revision-Date: 2012-02-21 15:11+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6696,14 +6696,16 @@ msgid "Record cache size"
 msgstr "Dimensiune cache înregistrare"
 
 #: libraries/engines/pbxt.lib.php:28
+#, fuzzy
 msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"This is the amount of memory allocated to the record cache used to cache "
-"table data. The default value is 32MB. This memory is used to cache changes "
-"to the handle data (.xtd) and row pointer (.xtr) files."
+"Aceasta este memoria alocată cache-ului pentru înregistrări folosit pentru a "
+"cache-ui date tabelare. Valoarea default este 32MB. Memoria alocată aici "
+"este folosită pentru cache-uirea schimbărilor la datele de manipulare (.xtd) "
+"și fișierele row pointer (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
@@ -6726,8 +6728,8 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
-"The size of a transaction log before rollover, and a new log is created. The "
-"default value is 16MB."
+"Dimensiunea unui log de tranzacții înainte de rollover și un nou log este "
+"creat. Valoarea implicită este de 16MB. "
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"
@@ -6738,12 +6740,13 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
-"The size of the global transaction log buffer (the engine allocates 2 "
-"buffers of this size). The default is 1MB."
+"Dimensiunea tamponului global pentru jurnale de tranzacţii (engine-ul alocă "
+"2 tampoane de această dimensiune).Implicit este de 1MB."
 
 #: libraries/engines/pbxt.lib.php:47
+#, fuzzy
 msgid "Checkpoint frequency"
-msgstr "Checkpoint frequency"
+msgstr "Frecvența punctelor de control"
 
 #: libraries/engines/pbxt.lib.php:48
 msgid ""
@@ -6755,7 +6758,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
-msgstr "Data log threshold"
+msgstr "Prag pentru jurnalul de date"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid ""
@@ -6764,10 +6767,10 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
-"The maximum size of a data log file. The default value is 64MB. PBXT can "
-"create a maximum of 32000 data logs, which are used by all tables. So the "
-"value of this variable can be increased to increase the total amount of data "
-"that can be stored in the database."
+"Mărimea maximă a unui fișier jurnal de date. Valoarea implicită este 64MB. "
+"PBXT poate crea maxim 32000 de jurnale de date, care sunt folosite de toate "
+"tabelele. Prin urmare, valoarea acestei variabile poate fi marită pentru a "
+"mări cantitatea totală de date care pot fi stocate în baza de date."
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
