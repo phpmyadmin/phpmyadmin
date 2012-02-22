@@ -12834,7 +12834,7 @@ msgid ""
 "launch"
 msgstr ""
 "Nastavte slow_launch_time na 1s nebo 2s pro správné počítání vláken, která "
-"pomalu nabíhají."
+"pomalu nabíhají"
 
 #: po/advisory_rules.php:223
 #, php-format
