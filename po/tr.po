@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 16:48+0200\n"
+"PO-Revision-Date: 2012-02-22 16:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9043,7 +9043,7 @@ msgstr "Varolan tabloların yapısının değiştirilmesine izin verir."
 #: server_privileges.php:36 server_privileges.php:303
 #: server_privileges.php:636
 msgid "Allows altering and dropping stored routines."
-msgstr "Depolanan yordamların değiştirilmesine ve kaldırılmasına izin verir."
+msgstr "Saklanan yordamların değiştirilmesine ve kaldırılmasına izin verir."
 
 #: server_privileges.php:37 server_privileges.php:213
 #: server_privileges.php:629
