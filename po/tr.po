@@ -11146,7 +11146,7 @@ msgid ""
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Eğer tanımlama bilgisi kimlik doğrulaması kullanılıyorsa ve %sOturum açma "
-"tanımlama bilgisi depolama%s değeri 0 değilse, %sOturum açma tanımlama "
+"tanımlama bilgisi depolaması%s değeri 0 değilse, %sOturum açma tanımlama "
 "bilgisi geçerliliği%s eşit ya da daha az değere ayarlanmak zorundadır."
 
 #: setup/lib/index.lib.php:290
