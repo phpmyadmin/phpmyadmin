@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 15:46+0200\n"
+"PO-Revision-Date: 2012-02-22 15:47+0200\n"
 "Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1103,7 +1103,6 @@ msgid "This is not a number!"
 msgstr "මෙය අංකයක් නොවේ!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "සුචිය එක් කරන්න"
@@ -1513,7 +1512,6 @@ msgstr "සිටුවම් වෙනස් කිරීම"
 
 # සිටුවම් = settings. Source: Glossary of Information Technology Terms - ICTA
 #: js/messages.php:166
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
 msgstr "වර්තමාන සිටුවම්"
@@ -1608,7 +1606,6 @@ msgid "Profiling results"
 msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -1698,7 +1695,6 @@ msgid "Import"
 msgstr "ආනයනය"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "විමසුම විශ්ලේෂණය"
@@ -1716,7 +1712,6 @@ msgid "Issue"
 msgstr "ගැටළු "
 
 #: js/messages.php:221
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "නිර්දේශය"
@@ -1799,7 +1794,6 @@ msgid "Table must have at least one column"
 msgstr "වගුවේ අවම වශයෙන් එක් ක්ෂේත්‍රයක්වත් තිබිය යුතුයි"
 
 #: js/messages.php:251
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "වගු ඇතුලත් කරන්න"
@@ -2076,14 +2070,12 @@ msgid "Done"
 msgstr "තෝරන්න"
 
 #: js/messages.php:390
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "පෙර"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2233,7 +2225,6 @@ msgstr "සෙනසුරාදා"
 
 #. l10n: Short week day name
 #: js/messages.php:451
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2316,7 +2307,6 @@ msgstr "දින දර්ශන-මාස-වසර "
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
@@ -2383,7 +2373,6 @@ msgid "File was not an uploaded file."
 msgstr "ගොනුව උඩුගත කරන ලද්දක් නොවේ."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "ගොනුව උඩුගත කිරීමේදී දෝෂයක් ඇති විය."
@@ -3018,7 +3007,6 @@ msgstr "ඇරඹුම"
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -3027,7 +3015,6 @@ msgstr "පෙර"
 #: libraries/common.lib.php:2485 libraries/common.lib.php:2488
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
