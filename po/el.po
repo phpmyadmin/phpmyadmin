@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 13:30+0200\n"
+"PO-Revision-Date: 2012-02-22 13:32+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12240,6 +12240,9 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Προτείνεται να ορίσετε το {long_query_time} σε μια μικρότερη τιμή, που "
+"εξαρτάται από το περιβάλλον σας. Συνήθως προτείνεται μια τιμή μεταξύ 1-5 "
+"δευτερολέπτων."
 
 #: po/advisory_rules.php:28
 #, php-format
