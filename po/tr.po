@@ -10590,7 +10590,7 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
-"Çizelgelerin ayarlanması tarayıcının yerel deposunda depolanır. Eğer karışık "
+"Çizelgelerin ayarlanması tarayıcının yerel deposunda saklanır. Eğer karışık "
 "ayarlamalarınız varsa, bunu dışa aktarmak isteyebilirsiniz."
 
 #: server_status.php:1600
