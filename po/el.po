@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 13:37+0200\n"
+"PO-Revision-Date: 2012-02-22 13:38+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1610,7 +1610,6 @@ msgid "Profiling results"
 msgstr "Αποτελέμσατα προφίλ"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -5562,7 +5561,6 @@ msgid "possible deep recursion attack"
 msgstr "πιθανή βαθειά ανάδρομή επίθεση"
 
 #: libraries/database_interface.lib.php:1813
-#, fuzzy
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
@@ -7780,7 +7778,6 @@ msgid "Trigger name"
 msgstr "Όνομα ενέργειας"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
@@ -11335,7 +11332,6 @@ msgstr ""
 "αυτό το σύστημα."
 
 #: setup/lib/index.lib.php:324
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
@@ -11473,28 +11469,24 @@ msgid "Bar"
 msgstr "Μπάρα"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Στήλη"
 
 #: tbl_chart.php:93
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Γραμμή"
 
 #: tbl_chart.php:95
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Καμπύλη γραμμή"
 
 #: tbl_chart.php:97
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
@@ -11743,7 +11735,6 @@ msgid "Check referential integrity:"
 msgstr "Έλεγχος ακεραιότητας συσχετίσεων:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
 msgstr "Εμφάνιση πινάκων"
