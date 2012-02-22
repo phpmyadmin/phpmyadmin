@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-13 21:05+0200\n"
+"PO-Revision-Date: 2012-02-19 19:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9915,7 +9915,7 @@ msgstr "Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayıs
 #: server_status.php:1306
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr "MySQL sunucusuna bağlantı girişimi (başarılı ya da değil) sayısı."
+msgstr "MySQL sunucusuna bağlantı girişimi (başarılı ya da değil) sayısıdır."
 
 #: server_status.php:1307
 msgid ""
