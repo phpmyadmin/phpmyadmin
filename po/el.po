@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-22 13:37+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -1431,7 +1431,7 @@ msgstr "Παύση εποπτείας"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr "general_log και το slow_query_log είναι ενεργοποιημένα."
+msgstr "Το general_log και το slow_query_log είναι ενεργοποιημένα."
 
 #: js/messages.php:148
 msgid "general_log is enabled."
