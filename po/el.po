@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-06 12:18+0200\n"
+"PO-Revision-Date: 2012-02-22 13:27+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5187,11 +5187,10 @@ msgid "Show SQL queries"
 msgstr "Εμφάνιση ερωτημάτων SQL"
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
-"Ορίζεται αν το ερώτημα πρέπει να παραμείνει στην οθόνη μετά την υποβολή"
+"Ορίζεται αν το ερώτημα πρέπει να παραμείνει στην οθόνη μετά την υποβολή του"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 msgid "Retain query box"
