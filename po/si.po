@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 18:49+0200\n"
-"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
+"PO-Revision-Date: 2012-02-22 15:31+0200\n"
+"Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -13010,7 +13010,7 @@ msgstr "උපරිම සමගාමී සම්බන්ධතා"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "concurret_insert 1ට සිටුවා සක්‍රීය කරන්න"
 
 #: po/advisory_rules.php:272
 msgid ""
