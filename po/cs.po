@@ -13064,8 +13064,8 @@ msgstr ""
 "pečlivě zvažte spotřebu paměti ostatními službami a podle toho nastavte tuto "
 "hodnotu. Pokud ji nastavíte příliš velkou, váš systém začne využívat "
 "odkládací paměť, což výrazně zhorší jeho celkový výkon. Více informací "
-"naleznete v <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">tomto článku</a>."
+"naleznete v <a href=\"http://www.mysqlperformanceblog.com/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\">tomto článku</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
