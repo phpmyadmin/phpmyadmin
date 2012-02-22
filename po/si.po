@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 15:45+0200\n"
+"PO-Revision-Date: 2012-02-22 15:46+0200\n"
 "Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -12941,7 +12941,7 @@ msgstr ""
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "උපරිම InnoDB ලොග විශාලත්වය "
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
