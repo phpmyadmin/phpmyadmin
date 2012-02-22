@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 16:51+0200\n"
+"PO-Revision-Date: 2012-02-22 16:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11744,7 +11744,7 @@ msgstr "Tablonun Başına"
 #: tbl_structure.php:666
 #, php-format
 msgid "After %s"
-msgstr "%s sonrasına"
+msgstr "%s Sonrasına"
 
 #: tbl_structure.php:703
 #, php-format
