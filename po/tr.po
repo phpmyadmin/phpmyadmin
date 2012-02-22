@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 16:45+0200\n"
+"PO-Revision-Date: 2012-02-22 16:46+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4301,7 +4301,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie store"
-msgstr "Oturum açma tanımlama bilgisi depolama"
+msgstr "Oturum açma tanımlama bilgisi saklama"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
