@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-21 18:48+0200\n"
+"PO-Revision-Date: 2012-02-22 15:46+0200\n"
 "Last-Translator: modz <modisha.jay@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -12890,27 +12890,25 @@ msgstr ""
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB අක්‍රීයද?"
 
 #: po/advisory_rules.php:251
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "නූතන වගු සුරැකීම අසමත් විය"
+msgstr "ඔබ InnoDB සක්‍රීය කර නැත."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "සාමාන්‍යයෙන් වගු එන්ජිම සඳහා වඩාත් සුදුසු InnoDB වේ."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: po/advisory_rules.php:255
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Buffer pool size"
+msgstr "InnoDB ලොග විශාලත්වය"
 
 #: po/advisory_rules.php:256
 #, fuzzy
@@ -12943,7 +12941,7 @@ msgstr ""
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "උපරිම InnoDB ලොග විශාලත්වය "
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
@@ -13010,7 +13008,7 @@ msgstr "උපරිම සමගාමී සම්බන්ධතා"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "concurret_insert 1ට සිටුවා සක්‍රීය කරන්න"
 
 #: po/advisory_rules.php:272
 msgid ""
@@ -13021,7 +13019,7 @@ msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "වගු ලයිස්තුවේ උපරිම ලෙස පෙන්විය යුතු වගු ගණන"

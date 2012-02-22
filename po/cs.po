@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-02 15:07+0200\n"
+"PO-Revision-Date: 2012-02-22 16:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12575,7 +12575,7 @@ msgstr ""
 "Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
 "(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Více se "
 "můžete dozvědět v <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
-"temporary-tables.html\">dokumentaci MySQL</a>."
+"temporary-tables.html\">dokumentaci MySQL</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12778,7 +12778,7 @@ msgstr "Povolte vyrovnávací paměť vláken nastavením {thread_cache_size} > 
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr "Velikost vyrovnávací paměti vláken je nastavena na 0."
+msgstr "Velikost vyrovnávací paměti vláken je nastavena na 0"
 
 #: po/advisory_rules.php:210
 #, php-format
@@ -12834,7 +12834,7 @@ msgid ""
 "launch"
 msgstr ""
 "Nastavte slow_launch_time na 1s nebo 2s pro správné počítání vláken, která "
-"pomalu nabíhají."
+"pomalu nabíhají"
 
 #: po/advisory_rules.php:223
 #, php-format
@@ -12984,9 +12984,9 @@ msgstr ""
 "uvědomte si, že tato hodnota nemůže být přímo změněna. Musí být ukončen "
 "server, odstraněny záznamy Inno DB a až poté změněna hodnota v my.cnf a "
 "znovu spuštěn server. Poté zkontrolujte chybové záznamy MySQL, jestli "
-"všechno proběhlo v pořádku. Více viz <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">zápisek v blogu</a>."
+"všechno proběhlo v pořádku. Více viz <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">zápisek v blogu</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13021,14 +13021,14 @@ msgstr ""
 "Obvykle je dostačující mít nastavené innodb_log_file_size na 25%% velikosti "
 "{innodb_buffer_pool_size}. Příliš velká innodb_log_file_size zpomaluje "
 "obnovení databáze v případě jejího pádu nebo problémů s hardware. Více "
-"informací naleznete v <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">tomto článku</a>. "
-"Prosím uvědomte si, že tato hodnota nemůže být přímo změněna. Musí být "
-"ukončen server, odstraněny záznamy Inno DB a až poté změněna hodnota v my."
-"cnf a znovu spuštěn server. Poté zkontrolujte chybové záznamy MySQL, jestli "
-"všechno proběhlo v pořádku. Více viz <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">zápisek v blogu</a>."
+"informací naleznete v <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">tomto článku</a>. Prosím uvědomte si, že tato hodnota "
+"nemůže být přímo změněna. Musí být ukončen server, odstraněny záznamy Inno "
+"DB a až poté změněna hodnota v my.cnf a znovu spuštěn server. Poté "
+"zkontrolujte chybové záznamy MySQL, jestli všechno proběhlo v pořádku. Více "
+"viz <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01"
+"/increase-innodblogfilesize-proper-way.html\">zápisek v blogu</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13064,8 +13064,8 @@ msgstr ""
 "pečlivě zvažte spotřebu paměti ostatními službami a podle toho nastavte tuto "
 "hodnotu. Pokud ji nastavíte příliš velkou, váš systém začne využívat "
 "odkládací paměť, což výrazně zhorší jeho celkový výkon. Více informací "
-"naleznete v <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">tomto článku</a>."
+"naleznete v <a href=\"http://www.mysqlperformanceblog.com/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\">tomto článku</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
@@ -13095,8 +13095,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Nastavením {concurrent_insert} na 1 omezíte blokování mezi čtením a zápisem "
-"pro jednotlivé tabulky. Podrobněji je toto popsáno v <a href=\"http://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">dokumentaci MySQL</a>."
+"pro jednotlivé tabulky. Podrobněji je toto popsáno v <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">dokumentaci MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
