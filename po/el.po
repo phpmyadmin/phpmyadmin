@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 13:27+0200\n"
+"PO-Revision-Date: 2012-02-22 13:28+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12063,10 +12063,11 @@ msgid "Create version"
 msgstr "Δημιουργία έκδοσης"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμα» (χαρακτήρας μπαλαντέρ «%»)"
+msgstr ""
+"Εκτέλεσε ένα «επερώτημα ανά παράδειγμα» (χαρακτήρας μπαλαντέρ «%») για δύο "
+"διαφρετικές στήλες"
 
 #: tbl_zoom_select.php:145
 msgid "Additional search criteria"
