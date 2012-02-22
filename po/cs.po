@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-02 15:07+0200\n"
+"PO-Revision-Date: 2012-02-20 10:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -12575,7 +12575,7 @@ msgstr ""
 "Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
 "(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Více se "
 "můžete dozvědět v <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
-"temporary-tables.html\">dokumentaci MySQL</a>."
+"temporary-tables.html\">dokumentaci MySQL</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
