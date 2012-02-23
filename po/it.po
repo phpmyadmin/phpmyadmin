@@ -9224,7 +9224,7 @@ msgstr "Versione"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Autore"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
