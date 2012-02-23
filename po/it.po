@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-23 13:53+0200\n"
+"PO-Revision-Date: 2012-02-23 13:54+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -8470,10 +8470,9 @@ msgid "Table Search"
 msgstr "Ricerca nella Tabella"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Inserisci"
+msgstr "Modifica/Inserisci"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
