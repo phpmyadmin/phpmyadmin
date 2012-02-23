@@ -6956,8 +6956,9 @@ msgid "No data found for GIS visualization."
 msgstr "Nessun data trovato per la visualizzazione GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
+#, fuzzy
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "Tentativo di sovrascrivere GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:57
 msgid "SQL result"
