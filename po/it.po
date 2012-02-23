@@ -8674,7 +8674,7 @@ msgstr "Server del Database"
 
 #: main.php:172
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #: main.php:173
 #, fuzzy
