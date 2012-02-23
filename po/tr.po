@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-13 21:05+0200\n"
+"PO-Revision-Date: 2012-02-22 17:03+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3989,7 +3989,7 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 "Eğer SQL Onaylayıcı hizmetini kullanmak isterseniz, [strong]tüm SQL "
-"ifadelerinin istatistiksel amaç için isimsiz olarak depolanacağının[/strong] "
+"ifadelerinin istatistiksel amaç için isimsiz olarak saklanacağının[/strong] "
 "farkında olmalısınız.[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
 "Onaylayıcı[/a], Telif Hakkı 2002 Upright Database Technology. Tüm hakları "
 "saklıdır.[/em]"
@@ -4295,13 +4295,13 @@ msgid ""
 "recommended for non-trusted environments."
 msgstr ""
 "Oturum açma tanımlama bilgisinin ne kadar (saniye olarak) tarayıcıda "
-"depolanacağını tanımlar. Varsayılan 0 değeri anlamı sadece var olan oturum "
+"saklanacağını tanımlar. Varsayılan 0 değeri anlamı sadece var olan oturum "
 "için tutulacağıdır, ve tarayıcı penceresini kapatır kapatmaz silinecektir. "
 "Bu güvenli olmayan ortamlar için önerilir."
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie store"
-msgstr "Oturum açma tanımlama bilgisi depolama"
+msgstr "Oturum açma tanımlama bilgisi saklama"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -4770,12 +4770,12 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
-"Veritabanında depolanan tablo tercihlerinin sayısını sınırlandırır, en eski "
-"kayıtlar otomatik olarak kaldırılır."
+"Veritabanında saklanan tablo tercihlerinin sayısını sınırlandırır, en eski "
+"kayıtlar otomatik olarak kaldırılır"
 
 #: libraries/config/messages.inc.php:403
 msgid "Maximal number of table preferences to store"
-msgstr "Depolamak için en fazla tablo tercihleri sayısıdır"
+msgstr "Saklamak için en fazla tablo tercihleri sayısıdır"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
@@ -6417,7 +6417,7 @@ msgid ""
 msgstr ""
 "Veri günlük dosyasının en fazla boyutu. Varsayılan değer 64MB'tır. PBXT tüm "
 "tablolar tarafından kullanılan en fazla 32000 veri günlüğü oluşturabilir. Bu "
-"yüzden veritabanında depolanabilir toplam veri miktarını arttırmak için bu "
+"yüzden veritabanında saklanabilir toplam veri miktarını arttırmak için bu "
 "değişkenin değeri arttırılabilir."
 
 #: libraries/engines/pbxt.lib.php:57
@@ -7406,7 +7406,7 @@ msgid ""
 "table are used instead."
 msgstr ""
 "Anamakine tablosu kullanıldığında bu alan yoksayılır ve yerine Anamakine "
-"tablosunda depolanan değerler kullanılır."
+"tablosunda saklanan değerler kullanılır."
 
 #: libraries/replication_gui.lib.php:366
 msgid "Generate Password"
@@ -8582,9 +8582,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği oturum açma "
-"tanımlama bilgisi depolamadan düşük, bundan dolayı oturum açmanızın süresi "
-"phpMyAdmin içinde yapılandırılmadıkça dolacaktır."
+"phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği, oturum açma "
+"tanımlama bilgisi depolamasından düşük, bundan dolayı oturum açmanızın "
+"süresi phpMyAdmin içinde yapılandırılmadıkça dolacaktır."
 
 #: main.php:308
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -9043,7 +9043,7 @@ msgstr "Varolan tabloların yapısının değiştirilmesine izin verir."
 #: server_privileges.php:36 server_privileges.php:303
 #: server_privileges.php:636
 msgid "Allows altering and dropping stored routines."
-msgstr "Depolanan yordamların değiştirilmesine ve kaldırılmasına izin verir."
+msgstr "Saklanan yordamların değiştirilmesine ve kaldırılmasına izin verir."
 
 #: server_privileges.php:37 server_privileges.php:213
 #: server_privileges.php:629
@@ -9053,7 +9053,7 @@ msgstr "Yeni veritabanları ve tabloların oluşturulmasına izin verir."
 #: server_privileges.php:38 server_privileges.php:299
 #: server_privileges.php:635
 msgid "Allows creating stored routines."
-msgstr "Depolanan yordamların oluşturulmasına izin verir."
+msgstr "Saklanan yordamların oluşturulmasına izin verir."
 
 #: server_privileges.php:39 server_privileges.php:629
 msgid "Allows creating new tables."
@@ -9099,7 +9099,7 @@ msgstr "Olay zamanlayıcısı için olayları ayarlamaya izin verir"
 #: server_privileges.php:47 server_privileges.php:311
 #: server_privileges.php:637
 msgid "Allows executing stored routines."
-msgstr "Depolanan yordamların yürütülmesine izin verir."
+msgstr "Saklanan yordamların yürütülmesine izin verir."
 
 #: server_privileges.php:48 server_privileges.php:233
 #: server_privileges.php:624
@@ -9891,12 +9891,12 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
-"Bağlantı uygun bir şekilde kapatılmadan sonlanmış istemcinin durdurulmuş "
-"bağlantılarının sayısı."
+"Bağlantıyı uygun bir şekilde kapatmadan sonlanmış istemcinin durdurulmuş "
+"bağlantılarının sayısıdır."
 
 #: server_status.php:1303
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "MySQL sunucusuna bağlanmak için başarısız girişim sayısı."
+msgstr "MySQL sunucusuna bağlanmak için başarısız girişim sayısıdır."
 
 #: server_status.php:1304
 msgid ""
@@ -9904,18 +9904,18 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayısıdır ama "
-"binlog_cache_size değerini aştı ve işlemdeki ifadeleri depolamak için geçici "
-"dosya kullandı."
+"Geçici binari günlüğü önbelleğinde kullanılan ama binlog_cache_size değerini "
+"aşmış ve işlemdeki ifadeleri saklamak için geçici dosya kullanmış "
+"işlemlerin sayısıdır."
 
 #: server_status.php:1305
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayısı."
+msgstr "Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayısıdır."
 
 #: server_status.php:1306
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr "MySQL sunucusuna bağlantı girişimi (başarılı ya da değil) sayısı."
+msgstr "MySQL sunucusuna bağlantı girişimi (başarılı ya da değil) sayısıdır."
 
 #: server_status.php:1307
 msgid ""
@@ -10590,7 +10590,7 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
-"Çizelgelerin ayarlanması tarayıcının yerel deposunda depolanır. Eğer karışık "
+"Çizelgelerin ayarlanması tarayıcının yerel deposunda saklanır. Eğer karışık "
 "ayarlamalarınız varsa, bunu dışa aktarmak isteyebilirsiniz."
 
 #: server_status.php:1600
@@ -11146,7 +11146,7 @@ msgid ""
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Eğer tanımlama bilgisi kimlik doğrulaması kullanılıyorsa ve %sOturum açma "
-"tanımlama bilgisi depolama%s değeri 0 değilse, %sOturum açma tanımlama "
+"tanımlama bilgisi depolaması%s değeri 0 değilse, %sOturum açma tanımlama "
 "bilgisi geçerliliği%s eşit ya da daha az değere ayarlanmak zorundadır."
 
 #: setup/lib/index.lib.php:290
@@ -11744,7 +11744,7 @@ msgstr "Tablonun Başına"
 #: tbl_structure.php:666
 #, php-format
 msgid "After %s"
-msgstr "%s sonrasına"
+msgstr "%s Şunun Sonrasına"
 
 #: tbl_structure.php:703
 #, php-format
