@@ -9972,10 +9972,9 @@ msgid "Run analyzer"
 msgstr "Tipo di query"
 
 #: server_status.php:902
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "Introduzione"
+msgstr "Introduzioni"
 
 #: server_status.php:909
 msgid ""
