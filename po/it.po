@@ -8654,10 +8654,9 @@ msgid "General Settings"
 msgstr "Impostazioni Generali"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Collation della connessione di MySQL"
+msgstr "Collation della connessione del server"
 
 #: main.php:124
 msgid "Appearance Settings"
