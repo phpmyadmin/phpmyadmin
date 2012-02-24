@@ -2410,7 +2410,7 @@ msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่�
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "สิทธิสำหรับไฟล์ตั้งค่าไม่ถูกต้อง ที่ถูกต้องจะต้องแก้ไขได้เฉพาะ root"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
