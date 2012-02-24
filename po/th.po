@@ -1172,10 +1172,9 @@ msgid "Edit"
 msgstr "แก้ไข"
 
 #: js/messages.php:66 server_status.php:803
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "ตัวเลือกเซิร์ฟเวอร์"
+msgstr "กราฟสถิติสถานะการใช้ปัจจุบัน"
 
 #: js/messages.php:67 server_status.php:806
 msgid "Live conn./process chart"
