@@ -1538,7 +1538,7 @@ msgstr "ชื่อการแสดงผล"
 #. l10n: As in differential values
 #: js/messages.php:170
 msgid "Differential"
-msgstr ""
+msgstr "ค่าที่ต่าง"
 
 #: js/messages.php:171
 #, php-format
