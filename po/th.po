@@ -2448,7 +2448,7 @@ msgstr "ไม่พบแฟ้มชั่วคราว"
 
 #: libraries/File.class.php:290
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "ไม่สามารถเขียนไฟล์ลงดิสได้"
 
 #: libraries/File.class.php:293
 msgid "File upload stopped by extension."
