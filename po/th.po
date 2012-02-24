@@ -787,7 +787,7 @@ msgstr "รายงานผลการติดตาม"
 
 #: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
 msgid "Structure snapshot"
-msgstr "โครงสร้างแบบคร่าวๆ"
+msgstr "เก็บโครงสร้างไว้"
 
 #: db_tracking.php:183
 msgid "Untracked tables"
