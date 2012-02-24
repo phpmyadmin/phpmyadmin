@@ -1537,7 +1537,7 @@ msgstr "ඒකකය"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr "slow log වෙතින් "
+msgstr "slow log වෙතින්"
 
 #: js/messages.php:175
 msgid "From general log"
