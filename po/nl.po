@@ -1951,7 +1951,7 @@ msgstr "Zoeken door in te zoomen"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Ieder punt stelt een gegevens rij voor."
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
