@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 19:13+0200\n"
+"PO-Revision-Date: 2012-02-24 19:14+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -2554,10 +2554,9 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d ระเบียนถูกเพิ่ม"
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "อนุญาตให้อ่านข้อมูลได้."
+msgstr "เกิดข้อผิดพลาดขณะสร้าง PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
