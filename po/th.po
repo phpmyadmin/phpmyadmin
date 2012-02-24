@@ -2540,12 +2540,11 @@ msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d ระเบียนได้รับผล"
 
 #: libraries/Message.class.php:257
-#, fuzzy, php-format
+#, php-format
 #| msgid "No rows selected"
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "ยังไม่ได้เลือกแถว"
-msgstr[1] "ยังไม่ได้เลือกแถว"
+msgstr[0] "%1$d ระเบียนถูกลบ"
 
 #: libraries/Message.class.php:273
 #, fuzzy, php-format
