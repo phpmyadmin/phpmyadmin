@@ -2244,7 +2244,8 @@ msgstr "Kliki andmepunktil, et vaadata ja vajadusel muuta andmete rida."
 
 #: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr "Diagrammi suurust saab muuta, kui lohistada seda alumist paremat nurkapidi"
+msgstr ""
+"Diagrammi suurust saab muuta, kui lohistada seda alumist paremat nurkapidi."
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
