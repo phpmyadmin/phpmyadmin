@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 18:28+0200\n"
+"PO-Revision-Date: 2012-02-24 18:29+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -1346,7 +1346,7 @@ msgstr "จำนวน Swap ที่ว่าง"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "ข้อมูล Byte ที่ส่ง"
 
 #: js/messages.php:120
 #, fuzzy
