@@ -1531,10 +1531,9 @@ msgid "Current settings"
 msgstr "ค่าที่ถูกตั้งปัจจุบัน"
 
 #: js/messages.php:168 server_status.php:1645
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart Title"
-msgstr "นำเข้าไฟล์"
+msgstr "ชื่อการแสดงผล"
 
 #. l10n: As in differential values
 #: js/messages.php:170
