@@ -2009,6 +2009,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"คุณได้ทำการแก้ไขข้อมูลบางอย่าง แต่ยังไม่ได้บันทึก "
+"คุณแน่ใจว่าจะออกจากหน้านี้โดยยังไม่บันทึก?"
 
 #: js/messages.php:346
 msgid "Drag to reorder"
