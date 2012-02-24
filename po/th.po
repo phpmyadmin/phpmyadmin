@@ -1764,7 +1764,7 @@ msgstr "กำลังประมวลผล"
 
 #: js/messages.php:235 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "การประมวลผลผิดพลาด"
 
 #: js/messages.php:236
 msgid "Dropping Column"
