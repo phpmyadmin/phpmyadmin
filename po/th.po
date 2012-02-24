@@ -2137,10 +2137,9 @@ msgid "June"
 msgstr "มิถุนายน"
 
 #: js/messages.php:407
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
-msgstr "ก.ค."
+msgstr "กรกฎาคม"
 
 #: js/messages.php:408
 #, fuzzy
