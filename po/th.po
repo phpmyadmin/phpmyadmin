@@ -2606,7 +2606,7 @@ msgstr "ชื่อตารางไม่ถูกต้อง"
 #: libraries/Table.class.php:1165
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "มีข้อผิดพลาดจากเปลี่ยนชื่อตาราง %1$s เป็น %2$s"
 
 #: libraries/Table.class.php:1252
 #, php-format
