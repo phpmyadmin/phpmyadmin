@@ -12604,9 +12604,8 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy
 msgid "Rate of open files"
-msgstr "ชุดอักขระของไฟล์ (character set):"
+msgstr ""
 
 #: po/advisory_rules.php:191
 msgid "The rate of opening files is high."
