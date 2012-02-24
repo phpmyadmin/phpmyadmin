@@ -1782,7 +1782,7 @@ msgstr "ตกลง"
 
 #: js/messages.php:239
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "กดเพื่อยกเลิกการเตือนนี้"
 
 #: js/messages.php:242
 #, fuzzy
