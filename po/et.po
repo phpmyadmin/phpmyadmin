@@ -11580,7 +11580,9 @@ msgstr "Aeglase päringu logimine on keelatud."
 
 #: po/advisory_rules.php:32
 msgid "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will help troubleshooting badly performing queries."
-msgstr "Luba aeglase päringu logimine, määrates {log_slow_queries} väärtuseks  'ON'. See aitab lahendada halvasti sooritatud päringute probleeme."
+msgstr ""
+"Luba aeglase päringu logimine, määrates {log_slow_queries} väärtuseks 'ON'. "
+"See aitab lahendada halvasti sooritatud päringute probleeme."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
