@@ -8522,7 +8522,9 @@ msgstr "Sinu PHP MySQL'i teegi versioon %s erineb sinu MySQL serveri versioonist
 #: main.php:380
 #, php-format
 msgid "Server running with Suhosin. Please refer to %sdocumentation%s for possible issues."
-msgstr "Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe %sdokumentatsioonist%s"
+msgstr ""
+"Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe %"
+"sdokumentatsioonist%s."
 
 #: navigation.php:182
 #: server_databases.php:284
