@@ -1226,7 +1226,7 @@ msgstr "การจราจรของเครื่องแม่ข่า
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "การเชื่อมต่อ จากครั้งล่าสุด"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1235
 msgid "Processes"
