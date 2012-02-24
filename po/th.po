@@ -1149,9 +1149,8 @@ msgid "Add user"
 msgstr "เพิ่มผู้ใช้"
 
 #: js/messages.php:60
-#, fuzzy
 msgid "Reloading Privileges"
-msgstr "สิทธิแบบโกลบอล"
+msgstr "รีเฟรชสิทธิใหม่"
 
 #: js/messages.php:61
 #, fuzzy
