@@ -8724,7 +8724,7 @@ msgstr "Seos on kustutatud"
 
 #: pmd_save_pos.php:45
 msgid "Error saving coordinates for Designer."
-msgstr "Kujundaja jaoks koordinaatide salvestamisel esines viga"
+msgstr "Kujundaja jaoks koordinaatide salvestamisel esines viga."
 
 #: pmd_save_pos.php:53
 msgid "Modifications have been saved"
