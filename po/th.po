@@ -888,7 +888,7 @@ msgstr "ใช้ OpenStreetMaps เป็นชั้นพื้นฐาน"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:323
 #: libraries/display_tbl.lib.php:693
