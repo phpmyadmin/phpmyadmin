@@ -949,9 +949,8 @@ msgid "Polygon"
 msgstr "รูปหลายเหลี่ยม"
 
 #: gis_data_editor.php:306 js/messages.php:328
-#, fuzzy
 msgid "Add a polygon"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่มรูปหลายเหลี่ยม"
 
 #: gis_data_editor.php:310
 #, fuzzy
