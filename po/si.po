@@ -2944,7 +2944,7 @@ msgstr "SQL ය පහදන්න"
 
 #: libraries/common.lib.php:1172
 msgid "Skip Explain SQL"
-msgstr "SQL ය පහදා දීමෙන් ඉවත් වන්න "
+msgstr "SQL ය පහදා දීමෙන් ඉවත් වන්න"
 
 #: libraries/common.lib.php:1207
 msgid "Without PHP Code"
