@@ -2048,7 +2048,7 @@ msgstr "Voeg een optie toe voor komom "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Druk op ESC om het bewerken te annuleren"
 
 #: js/messages.php:345
 msgid ""
