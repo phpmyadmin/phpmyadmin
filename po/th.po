@@ -1547,7 +1547,7 @@ msgstr "ถูกหารด้วย %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "หน่วย"
 
 #: js/messages.php:174
 msgid "From slow log"
