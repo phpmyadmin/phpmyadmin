@@ -1181,9 +1181,8 @@ msgid "Live conn./process chart"
 msgstr "โปรเซสที่ทำงานอยู่"
 
 #: js/messages.php:68 server_status.php:824
-#, fuzzy
 msgid "Live query chart"
-msgstr "คำค้น SQL"
+msgstr "คำสั่ง SQL ปัจจุบัน"
 
 #: js/messages.php:70
 msgid "Static data"
