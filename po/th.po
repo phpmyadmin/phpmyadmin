@@ -1814,10 +1814,9 @@ msgid "Insert Table"
 msgstr "เพิ่มตาราง"
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "Add new field"
 msgid "Hide indexes"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "ซ่อนดัชนี"
 
 #: js/messages.php:253
 #, fuzzy
