@@ -1262,7 +1262,7 @@ msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව"
 
 #: js/messages.php:98
 msgid "Query cache usage"
-msgstr "විමසුම් කෑෂ් භාවිතය "
+msgstr "විමසුම් කෑෂ් භාවිතය"
 
 #: js/messages.php:99
 msgid "Query cache used"
