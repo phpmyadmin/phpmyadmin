@@ -1334,7 +1334,7 @@ msgstr "จำนวน Swap"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "จำนวน Swap ที่ถูกใช้"
 
 #: js/messages.php:116
 msgid "Used Swap"
