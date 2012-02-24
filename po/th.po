@@ -1551,7 +1551,7 @@ msgstr "หน่วย"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "จาก slow log"
 
 #: js/messages.php:175
 msgid "From general log"
