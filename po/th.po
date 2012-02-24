@@ -1313,7 +1313,7 @@ msgstr "จำนวนหน่วยความจำรวม"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr ""
+msgstr "จำนวนหน่วยความจำที่ถูกใช้"
 
 #: js/messages.php:110
 msgid "Buffered memory"
