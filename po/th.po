@@ -1622,11 +1622,10 @@ msgid "Profiling results"
 msgstr "ผลลัพธ์"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "ตาราง "
+msgstr "ตาราง"
 
 #: js/messages.php:192
 #, fuzzy
