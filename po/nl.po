@@ -2072,7 +2072,7 @@ msgstr "Klik om te markeren/demarkeren"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Klik op het pijltje<br />om de zichtbaarheid van de kolom te wijzigen"
 
 #: js/messages.php:351
 msgid ""
