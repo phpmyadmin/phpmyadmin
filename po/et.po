@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:52+0200\n"
+"PO-Revision-Date: 2012-02-24 18:53+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -2307,7 +2307,7 @@ msgstr "Sa ei ole muudatusi salvestanud. Kui sa neid ei salvesta, siis need läh
 
 #: js/messages.php:341
 msgid "Add an option for column "
-msgstr "Vali veerule valik"
+msgstr "Vali veerule valik "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
