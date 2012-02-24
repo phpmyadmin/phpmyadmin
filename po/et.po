@@ -8121,7 +8121,7 @@ msgstr "Asenda samanimelise järjehoidjaga"
 
 #: libraries/sql_query_form.lib.php:329
 msgid "Do not overwrite this query from outside the window"
-msgstr "Ära muuda seda päringut väljaspool akent."
+msgstr "Ära muuda seda päringut väljaspool akent"
 
 #: libraries/sql_query_form.lib.php:336
 msgid "Delimiter"
