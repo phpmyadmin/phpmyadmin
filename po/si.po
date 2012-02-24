@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 21:17+0200\n"
+"PO-Revision-Date: 2012-02-24 21:19+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2715,7 +2715,7 @@ msgstr "වැරදි භාවිත නාමය/මුරපදය. පි�
 
 #: libraries/auth/signon.auth.lib.php:88
 msgid "Can not find signon authentication script:"
-msgstr ""
+msgstr "signon සත්‍යාපන ස්ක්‍රිප්ටය සොයාගත නොහැක:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
