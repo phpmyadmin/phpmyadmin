@@ -1717,7 +1717,7 @@ msgstr "แนะนำระบบ"
 
 #: js/messages.php:219
 msgid "Possible performance issues"
-msgstr ""
+msgstr "ปัญหาเรื่องสมรรถนะ"
 
 #: js/messages.php:220
 msgid "Issue"
