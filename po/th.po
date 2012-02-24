@@ -1910,7 +1910,7 @@ msgstr "แต่ละจุดแสดงข้อมูลระเบีย
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "นำตัวชี้วางเพื่อแสดงคำกำกับ"
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
