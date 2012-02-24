@@ -1595,7 +1595,7 @@ msgstr "ข้ามไปยังตารางเก็บประวัต
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "ประวัติถูกวิเคราะห์แล้ว แต่ไม่มีข้อมูลในช่วงนี้"
 
 #: js/messages.php:185
 msgid "Analyzing..."
