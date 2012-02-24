@@ -1667,7 +1667,7 @@ msgstr "กำลังเรียกดูประวัติ"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "ไม่สามารถรีเฟรซหน้าจอได้"
 
 #: js/messages.php:205
 msgid ""
