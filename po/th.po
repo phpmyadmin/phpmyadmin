@@ -1829,9 +1829,8 @@ msgid "Searching"
 msgstr "กำลังค้นหา"
 
 #: js/messages.php:257
-#, fuzzy
 msgid "Hide search results"
-msgstr "คำค้น SQL"
+msgstr "ซ่อนผลคำสั่ง SQL"
 
 #: js/messages.php:258
 #, fuzzy
