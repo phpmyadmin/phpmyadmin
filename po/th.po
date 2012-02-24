@@ -1338,7 +1338,7 @@ msgstr "จำนวน Swap ที่ถูกใช้"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "จำนวน Swap ที่ใช้ไป"
 
 #: js/messages.php:117
 msgid "Free Swap"
