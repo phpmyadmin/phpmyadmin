@@ -2444,7 +2444,7 @@ msgstr "ไฟล์ที่ถูกอัพโหลดมาไม่คร
 
 #: libraries/File.class.php:287
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "ไม่พบแฟ้มชั่วคราว"
 
 #: libraries/File.class.php:290
 msgid "Failed to write file to disk."
