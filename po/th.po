@@ -1768,7 +1768,7 @@ msgstr "การประมวลผลผิดพลาด"
 
 #: js/messages.php:236
 msgid "Dropping Column"
-msgstr ""
+msgstr "ทิ้งสดมส์"
 
 #: js/messages.php:237
 msgid "Adding Primary Key"
