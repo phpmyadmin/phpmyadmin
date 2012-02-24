@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 19:12+0200\n"
+"PO-Revision-Date: 2012-02-24 19:13+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -2537,7 +2537,7 @@ msgstr "ผิดพลาด"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
+msgstr[0] "%1$d ระเบียนได้รับผล"
 
 #: libraries/Message.class.php:257
 #, fuzzy, php-format
