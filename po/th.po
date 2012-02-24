@@ -1559,7 +1559,7 @@ msgstr "จากประวัติทั่วไป"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "กำลังวิเคราะห์และตรวจประวัติ จะใช้เวลาพอสมควร"
 
 #: js/messages.php:177
 msgid "Cancel request"
