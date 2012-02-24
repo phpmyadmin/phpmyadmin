@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:15+0200\n"
+"PO-Revision-Date: 2012-02-24 18:20+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -1397,7 +1397,7 @@ msgstr "Oled KUSTUTAMAS kogu andmebaasi!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr "Oled HÄVITAMAS kogu tabelit!"
+msgstr "Oled KUSTUTAMAS kogu tabelit!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
