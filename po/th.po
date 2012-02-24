@@ -1964,7 +1964,7 @@ msgstr "ข้าม"
 
 #: js/messages.php:316 libraries/display_tbl.lib.php:1391
 msgid "Copy"
-msgstr ""
+msgstr "คัดลอก"
 
 #: js/messages.php:331
 #, fuzzy
