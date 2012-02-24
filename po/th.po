@@ -1696,6 +1696,8 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"การสร้างตารางแสดงผลล้มเหลว เป็นเพราะการตั้งค่า "
+"โปรดล้างค่ากลับไปเป็นการตั้งค่าแบบเริ่มแรก"
 
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
