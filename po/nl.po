@@ -2910,7 +2910,7 @@ msgstr "mogelijk misbruik"
 
 #: libraries/common.inc.php:160
 msgid "numeric key detected"
-msgstr ""
+msgstr "numerieke toets gedetecteerd"
 
 #: libraries/common.inc.php:607
 #, fuzzy
