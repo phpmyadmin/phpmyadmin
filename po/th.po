@@ -1930,7 +1930,7 @@ msgstr "คลิก จุดข้อมูล เพื่อดูหรื�
 
 #: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "ขนาดจุดสามารถเปลี่ยนได้ที่ขวาล่าง"
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
