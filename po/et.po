@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:46+0200\n"
+"PO-Revision-Date: 2012-02-24 18:51+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -1963,7 +1963,7 @@ msgstr "Filter"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr "Filtreeri päringuid sõna/reg.avaldise alusel"
+msgstr "Filtreeri päringuid sõna/reg.avaldise alusel:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
