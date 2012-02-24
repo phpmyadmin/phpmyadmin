@@ -2018,7 +2018,7 @@ msgstr "ลากเพื่อเปลี่ยนลำดับ"
 
 #: js/messages.php:347
 msgid "Click to sort"
-msgstr ""
+msgstr "กดเพื่อเรียงลำดับ"
 
 #: js/messages.php:348
 msgid "Click to mark/unmark"
