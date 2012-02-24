@@ -2256,7 +2256,7 @@ msgstr "วันศุกร์"
 
 #: js/messages.php:447
 msgid "Saturday"
-msgstr ""
+msgstr "วันเสาร์"
 
 #. l10n: Short week day name
 #: js/messages.php:451
