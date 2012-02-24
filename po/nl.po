@@ -2089,10 +2089,9 @@ msgid ""
 msgstr "U kan de meeste kolommen bewerken<br />door op de inhoud te klikken."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Ga naar view"
+msgstr "Ga naar de link"
 
 #: js/messages.php:356
 msgid "Generate password"
