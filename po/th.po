@@ -1065,7 +1065,7 @@ msgstr "คุณแน่ใจที่ต้องการจะ "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:339
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "คุณกำลังจะทำลายฐาข้อมูลทั้งหมด!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
