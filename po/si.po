@@ -4191,7 +4191,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:280
 msgid "Use light version"
-msgstr "සැහැල්ලු අනුවාදය භාවිත කරන්න."
+msgstr "සැහැල්ලු අනුවාදය භාවිත කරන්න"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
