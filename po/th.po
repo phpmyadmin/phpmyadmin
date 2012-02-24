@@ -2132,10 +2132,9 @@ msgid "May"
 msgstr "พฤษภาคม"
 
 #: js/messages.php:406
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
-msgstr "มิ.ย."
+msgstr "มิถุนายน"
 
 #: js/messages.php:407
 #, fuzzy
