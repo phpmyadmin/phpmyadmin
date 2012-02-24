@@ -1338,7 +1338,7 @@ msgstr "යැවුණු බයිට ගණන"
 
 #: js/messages.php:120
 msgid "Bytes received"
-msgstr "ලැබුණු බයිට ගණන "
+msgstr "ලැබුණු බයිට ගණන"
 
 #: js/messages.php:121 server_status.php:1145
 msgid "Connections"
