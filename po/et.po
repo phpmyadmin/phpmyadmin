@@ -2228,7 +2228,7 @@ msgstr "Kursori üleliigutamisel näitab punkt selle nime."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr "Kasuta diagrammi suurendamiseks või vähendamiseks hiire kerimisnuppu"
+msgstr "Kasuta diagrammi suurendamiseks või vähendamiseks hiire kerimisnuppu."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
