@@ -8347,7 +8347,9 @@ msgstr "Näitab pilti ja linki. Veerg sisaldab faili nime. Esimene valik on URL'
 
 #: libraries/transformations/text_plain__link.inc.php:10
 msgid "Displays a link; the column contains the filename. The first option is a URL prefix like \"http://www.example.com/\". The second option is a title for the link."
-msgstr "Näitab linki. Veerg sisaldab faili nime. Esimene valik on URL'i eesliide, nt  \"http://www.example.com/\". Teine valik on lingi pealkiri."
+msgstr ""
+"Näitab linki. Veerg sisaldab faili nime. Esimene valik on URL'i eesliide, nt "
+"\"http://www.example.com/\". Teine valik on lingi pealkiri."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid "Converts an (IPv4) Internet network address into a string in Internet standard dotted format."
