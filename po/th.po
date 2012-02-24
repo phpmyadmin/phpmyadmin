@@ -2380,7 +2380,7 @@ msgstr "วินาที"
 #: libraries/Advisor.class.php:168
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
-msgstr ""
+msgstr "ไม่สามารถที่จะจัดอักษรตามกฎ '%s'. PHP มีปัญหาที่: %s"
 
 #: libraries/Advisor.class.php:326 server_status.php:952
 msgid "per second"
