@@ -2436,7 +2436,7 @@ msgstr "ไฟล์ที่อัพโหลดขนาดเกินที
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
+msgstr "จำนวนไฟล์ที่อัพโหลดเกินจำนวนสูงสุดที่กำหนด"
 
 #: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
