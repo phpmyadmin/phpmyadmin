@@ -1416,7 +1416,7 @@ msgstr "แก้ไขหัวข้อและคำกำกับ"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
-msgstr ""
+msgstr "เพิ่มแสดงผลไปในตารางข้อมูล"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
