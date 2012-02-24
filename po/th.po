@@ -1731,7 +1731,7 @@ msgstr "เอกสารอ้างอิง"
 
 #: js/messages.php:222
 msgid "Rule details"
-msgstr ""
+msgstr "กฎเกณฑ์ต่างๆ"
 
 #: js/messages.php:223
 #, fuzzy
