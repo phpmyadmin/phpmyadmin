@@ -7263,10 +7263,10 @@ msgstr "මුරපදය උත්පාදනය කරන්න"
 #: libraries/rte/rte_routines.lib.php:1254
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "පහත විමසුම් ක්‍රියාත්මක කරන ලදි:"
+msgstr "පහත විමසුම් අසමත් විය: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
