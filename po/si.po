@@ -5266,7 +5266,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:522
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr "phpMyAdmin ප්‍රධාන පිටුවේ නවතම අනුවාදය සඳහා පරීක්ෂාව සක්‍රීය කරන්න "
+msgstr "phpMyAdmin ප්‍රධාන පිටුවේ නවතම අනුවාදය සඳහා පරීක්ෂාව සක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
