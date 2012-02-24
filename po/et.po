@@ -9563,7 +9563,7 @@ msgstr "Lõimud"
 
 #: server_status.php:593
 msgid "Temporary data"
-msgstr "Ajutised andmed "
+msgstr "Ajutised andmed"
 
 #: server_status.php:594
 msgid "Delayed inserts"
