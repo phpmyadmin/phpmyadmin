@@ -1541,7 +1541,7 @@ msgstr "Geteilt durch %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Einheit"
 
 # Eigenname der MySQL-Funktion
 #: js/messages.php:174
