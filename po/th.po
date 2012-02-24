@@ -1444,7 +1444,7 @@ msgstr "general_log และ slow_query_log ถูกเปิดไว้แ�
 
 #: js/messages.php:148
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log ถูกเปิดไว้"
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
