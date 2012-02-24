@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:31+0200\n"
+"PO-Revision-Date: 2012-02-24 18:32+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -3717,7 +3717,10 @@ msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid "Defines which type of editing controls should be used for CHAR and VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/kbd] - allows newlines in columns"
-msgstr "Määrab ära, milliseid muutmise tüüpe saab CHAR ja VARCHAR veergude jaoks kasutada. [kbd]input[/kbd] - lubab piirata sisendi pikkust, [kbd]textarea[/kbd] - lubab veergudel kasutada uusi ridu (newlines)"
+msgstr ""
+"Määrab ära, milliseid muutmise tüüpe saab CHAR ja VARCHAR veergude jaoks "
+"kasutada. [kbd]input[/kbd] - lubab piirata sisendi pikkust, "
+"[kbd]textarea[/kbd] - lubab veergudes kasutada uusi ridu (newlines)"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
