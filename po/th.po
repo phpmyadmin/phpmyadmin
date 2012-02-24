@@ -1406,10 +1406,9 @@ msgid "Settings"
 msgstr "การตั้งค่า"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "เอาฐานข้อมูลออก"
+msgstr "เอาการแสดงผลออก"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
