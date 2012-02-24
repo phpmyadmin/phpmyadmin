@@ -1460,7 +1460,7 @@ msgstr "log_output ไม่ได้ถูกตั้งกับตารา�
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output ถูกตั้งกับตาราง"
 
 #: js/messages.php:153
 #, php-format
