@@ -2422,7 +2422,7 @@ msgstr "มีข้อความผิดพลาดจำนวนมาก
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "ไฟล์ไม่ได้ถูกอัพโหลด"
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 msgid "Unknown error while uploading."
