@@ -1906,7 +1906,7 @@ msgstr "ค้นหาแบบ Zoom"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "แต่ละจุดแสดงข้อมูลระเบียน"
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
