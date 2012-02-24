@@ -5409,10 +5409,9 @@ msgid ""
 msgstr "(or the local MySQL server's socket is not correctly configured)"
 
 #: libraries/database_interface.lib.php:1816
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "සේවාදායකය ප්‍රතිචාර නොදක්වයි"
+msgstr "සේවාදායකය ප්‍රතිචාර නොදක්වයි."
 
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
