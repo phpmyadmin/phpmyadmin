@@ -2962,7 +2962,7 @@ msgstr "අලුත් කරන්න"
 
 #: libraries/common.lib.php:1240
 msgid "Skip Validate SQL"
-msgstr "Skip Validate SQL"
+msgstr "SQL සත්‍යාපනයෙන් ඉවත් වන්න"
 
 #: libraries/common.lib.php:1243 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
