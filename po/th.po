@@ -1111,10 +1111,9 @@ msgid "Add Index"
 msgstr "เพิ่ม Index ใหม่"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Index"
 msgid "Edit Index"
-msgstr "ดัชนี"
+msgstr "แก้ไขดัชนี"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, fuzzy, php-format
