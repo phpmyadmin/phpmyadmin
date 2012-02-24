@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 18:01+0200\n"
+"PO-Revision-Date: 2012-02-24 18:02+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -870,7 +870,7 @@ msgstr "บันทึกไฟล์ %s ไม่ได้ เพราะเ�
 #: export.php:654
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "ข้อมูลที่ส่งออกถูกบันทึกไว้ในไฟล์ %s"
 
 #: file_echo.php:21
 #, fuzzy
