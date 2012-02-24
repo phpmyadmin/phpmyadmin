@@ -1246,7 +1246,7 @@ msgstr "คำถามจากครั้งล่าสุด"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "คำสั่ง (คำสั่งที่รันโดยเครื่องแม่ข่าย)"
 
 #: js/messages.php:91 server_status.php:785
 #, fuzzy
