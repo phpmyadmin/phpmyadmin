@@ -946,7 +946,7 @@ msgstr "เพิ่มด้านใน"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
-msgstr ""
+msgstr "รูปหลายเหลี่ยม"
 
 #: gis_data_editor.php:306 js/messages.php:328
 #, fuzzy
