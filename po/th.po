@@ -2401,7 +2401,7 @@ msgstr "ต่อวัน"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "ลบแฟ้ม \"./config\" เพื่อเริ่มใช้งาน phpMyAdmin!"
 
 #: libraries/Config.class.php:727
 #, php-format
