@@ -9624,7 +9624,7 @@ msgstr "Kontrollsüsteem"
 #: server_status.php:798
 #: server_status.php:820
 msgid "Refresh rate: "
-msgstr "Värskendamissagedus:"
+msgstr "Värskendamissagedus: "
 
 #: server_status.php:839
 #: server_variables.php:115
