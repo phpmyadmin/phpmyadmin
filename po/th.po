@@ -2365,7 +2365,7 @@ msgstr "ไม่มี"
 
 #: js/messages.php:495
 msgid "Hour"
-msgstr ""
+msgstr "ชั่วโมง"
 
 #: js/messages.php:496
 #, fuzzy
