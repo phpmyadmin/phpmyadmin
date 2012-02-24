@@ -1833,9 +1833,8 @@ msgid "Hide search results"
 msgstr "ซ่อนผลคำสั่ง SQL"
 
 #: js/messages.php:258
-#, fuzzy
 msgid "Show search results"
-msgstr "คำค้น SQL"
+msgstr "แสดงผลคำค้น SQL"
 
 #: js/messages.php:259
 #, fuzzy
