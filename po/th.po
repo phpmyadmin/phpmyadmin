@@ -1249,9 +1249,8 @@ msgid "Questions (executed statements by the server)"
 msgstr "คำสั่ง (คำสั่งที่รันโดยเครื่องแม่ข่าย)"
 
 #: js/messages.php:91 server_status.php:785
-#, fuzzy
 msgid "Query statistics"
-msgstr "สถิติของแถว"
+msgstr "สถิติของคำสั่ง"
 
 #: js/messages.php:94
 msgid "Local monitor configuration incompatible"
