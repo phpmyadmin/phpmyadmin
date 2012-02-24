@@ -11798,7 +11798,9 @@ msgstr "Võid suurendada {query_cache_size} väärtust, kuid siiski pea meeles, 
 #: po/advisory_rules.php:98
 #, php-format
 msgid "The ratio of removed queries to inserted queries is %s%%. The lower this value is, the better (This rules firing limit: 0.1%%)"
-msgstr "Kustutatud päringute hulk võrreldes lisatud päringutega on %s%%. Madalam väärtus on parem (teadaande limiit: 0,1%%)"
+msgstr ""
+"Kustutatud päringute hulk võrreldes lisatud päringutega on %s%%. Madalam "
+"väärtus on parem (teadaande limiit: 0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
