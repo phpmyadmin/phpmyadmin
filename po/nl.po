@@ -2014,10 +2014,9 @@ msgid "Copy"
 msgstr "Kopiëren"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Voeg kolom toe"
+msgstr "Voeg kolommen toe"
 
 #: js/messages.php:334
 msgid "Select referenced key"
