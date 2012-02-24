@@ -2079,9 +2079,8 @@ msgid ", latest stable version:"
 msgstr ", รุ่นเสถียรล่าสุด:"
 
 #: js/messages.php:367
-#, fuzzy
 msgid "up to date"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ปัจจุบัน"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:386
