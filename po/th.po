@@ -1859,7 +1859,7 @@ msgstr "เพิ่มค่า %d"
 #: js/messages.php:273
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "เตือน: ถ้าไฟล์มีหลายตาราง จะถูกรวมเป็นหนึ่ง"
 
 #: js/messages.php:276
 #, fuzzy
