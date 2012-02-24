@@ -2227,10 +2227,9 @@ msgid "Dec"
 msgstr "ธ.ค."
 
 #: js/messages.php:441
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "อา."
+msgstr "อาทิตย์"
 
 #: js/messages.php:442
 #, fuzzy
