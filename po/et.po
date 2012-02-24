@@ -9348,7 +9348,8 @@ msgstr "... tühista eelmise kõik aktiivsed õigused ja seejärel kustuta see."
 
 #: server_privileges.php:2192
 msgid "... delete the old one from the user tables and reload the privileges afterwards."
-msgstr " ... kustuta eelmine kasutajate tabelit ja seejärel lae õigused uuesti."
+msgstr ""
+" ... kustuta eelmine kasutajate tabelist ja seejärel lae õigused uuesti."
 
 #: server_privileges.php:2215
 msgid "Database for user"
