@@ -9454,7 +9454,9 @@ msgstr "Palun vali andmebaasid:"
 
 #: server_replication.php:226
 msgid "Now, add the following lines at the end of [mysqld] section in your my.cnf and please restart the MySQL server afterwards."
-msgstr "Nüüd lisa järgnevad read oma my.cnf faili [mysqld] sektsiooni lõppu ja peale seda palun taaskäivita MySQL server. "
+msgstr ""
+"Nüüd lisa järgnevad read oma my.cnf faili [mysqld] sektsiooni lõppu ja peale "
+"seda palun taaskäivita MySQL server."
 
 #: server_replication.php:228
 msgid "Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informing you, that this server <b>is</b> configured as master"
