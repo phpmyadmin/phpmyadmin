@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 17:58+0200\n"
+"PO-Revision-Date: 2012-02-24 17:59+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -714,10 +714,9 @@ msgid "Replace table prefix"
 msgstr "แทนที่คำนำไปยังตาราง"
 
 #: db_structure.php:605 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "เขียนทับด้วยข้อมูลจากไฟล์"
+msgstr "คัดลอกคำนำไปยังตาราง"
 
 #: db_structure.php:642 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
