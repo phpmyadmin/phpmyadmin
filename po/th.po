@@ -2589,7 +2589,7 @@ msgstr "%s ถูกปิดบน MySQL Server"
 #: libraries/StorageEngine.class.php:348
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "MySQL ไม่รองรับ %s"
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
