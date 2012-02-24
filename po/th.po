@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 18:33+0200\n"
+"PO-Revision-Date: 2012-02-24 18:34+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -1476,7 +1476,7 @@ msgstr ""
 #: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
 
 #: js/messages.php:155
 msgid ""
