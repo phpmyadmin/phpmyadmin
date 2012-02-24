@@ -9719,7 +9719,9 @@ msgstr "See MySQL server töötab <b>paljundamisel</b> <b>alluvana</b>."
 
 #: server_status.php:1076
 msgid "For further information about replication status on the server, please visit the <a href=#replication>replication section</a>."
-msgstr "Kui soovid lugeda rohkem teavet paljundamise staatuse kohta serveris, siis palun vaata <a href=\"#replication\">paljundamise sektsiooni</a>."
+msgstr ""
+"Kui soovid lugeda rohkem teavet paljundamise staatuse kohta serveris, siis "
+"palun vaata <a href=#replication>paljundamise sektsiooni</a>."
 
 #: server_status.php:1085
 msgid "Replication status"
