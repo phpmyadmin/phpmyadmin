@@ -2601,7 +2601,7 @@ msgstr "ชื่อฐานข้อมูลไม่ถูกต้อง"
 
 #: libraries/Table.class.php:1134 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "ชื่อตารางไม่ถูกต้อง"
 
 #: libraries/Table.class.php:1165
 #, php-format
