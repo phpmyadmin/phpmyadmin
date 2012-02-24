@@ -12083,10 +12083,9 @@ msgid "Query cache disabled"
 msgstr "หน่วยความจำของชุดคำสั่ง ถูกปิดอยู่"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "เซิร์ฟเวอร์ดังกล่าวไม่ตอบสนอง"
+msgstr "หน่วยความจำของชุดคำสั่ง ไม่ได้ถูกเปิดไว้"
 
 #: po/advisory_rules.php:72
 msgid ""
