@@ -2418,7 +2418,7 @@ msgstr "ขนาดตัวอักษร"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "มีข้อความผิดพลาดจำนวนมาก บางส่วนจึงซ่อนไว้ไม่แสดง"
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
