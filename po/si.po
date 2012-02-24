@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 21:31+0200\n"
+"PO-Revision-Date: 2012-02-24 21:38+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1633,7 +1633,7 @@ msgstr "විමසුම් වචන/regexp මගින් පෙරහන�
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "WHERE වාක්‍යඛණ්ඩයේ ඇති විචල්‍ය දත්ත මගහැර, විමසුම් කාණ්ඩ කරන්න."
+msgstr "WHERE වාක්‍යඛණ්ඩයේ ඇති විචල්‍ය දත්ත මගහැර, විමසුම් කාණ්ඩ කරන්න"
 
 #: js/messages.php:200
 #| msgid "Number of inserted rows"
