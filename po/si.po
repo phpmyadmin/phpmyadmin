@@ -1334,7 +1334,7 @@ msgstr "නිදහස් swap"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr "යැවුණු බයිට ගණන "
+msgstr "යැවුණු බයිට ගණන"
 
 #: js/messages.php:120
 msgid "Bytes received"
