@@ -2406,7 +2406,7 @@ msgstr "ลบแฟ้ม \"./config\" เพื่อเริ่มใช้�
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่านได้"
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
