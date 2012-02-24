@@ -2426,6 +2426,8 @@ msgstr "Het bestaande configuratiebestand (%s) is niet leesbaar."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Verkeerde rechten ingesteld op het configuratiebestand, dit mag niet "
+"leesbaar zijn voor iedereen!"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
