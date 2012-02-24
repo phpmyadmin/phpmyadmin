@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 17:29+0200\n"
+"PO-Revision-Date: 2012-02-24 17:30+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1963,7 +1963,7 @@ msgstr "Gebruik het muiswiel om in of uit te zoomen."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Klik en sleep met de muis om te navigeren."
 
 #: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
