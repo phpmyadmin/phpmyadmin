@@ -1076,10 +1076,9 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "คุณกำลังจะลบข้อมูลในตารางทั้งหมด!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "อนุญาตให้เพิ่ม และแทนที่ ข้อมูล"
+msgstr "กำลังลบข้อมูลติดตามตาราง"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
