@@ -2250,10 +2250,9 @@ msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
 #: js/messages.php:446
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "ศ."
+msgstr "วันศุกร์"
 
 #: js/messages.php:447
 msgid "Saturday"
