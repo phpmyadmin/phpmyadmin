@@ -2909,7 +2909,9 @@ msgstr "Tabeli UI eelistusi ei saanud salvestada"
 #: libraries/Table.class.php:1407
 #, php-format
 msgid "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
-msgstr "Tabeli UI eelistuste puhastamine ebaõnnestus (vaata  $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+msgstr ""
+"Tabeli UI eelistuste puhastamine ebaõnnestus (vaata "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1533
 #, php-format
