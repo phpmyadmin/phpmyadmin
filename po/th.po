@@ -1116,9 +1116,9 @@ msgid "Edit Index"
 msgstr "แก้ไขดัชนี"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d column(s) to index"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "ทำดัชนีใน สดมส์นี้ %d"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
