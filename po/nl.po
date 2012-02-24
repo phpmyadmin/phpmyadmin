@@ -2000,10 +2000,9 @@ msgid "Query results"
 msgstr "Query resultaat"
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Data pointer formaat"
+msgstr "Inhoud gegevenspunt "
 
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
