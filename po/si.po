@@ -1226,7 +1226,7 @@ msgstr "ක්‍රියාවලි"
 
 #: js/messages.php:85
 msgid "Connections / Processes"
-msgstr "සම්බන්ධතා / ක්‍රියාවලි "
+msgstr "සම්බන්ධතා / ක්‍රියාවලි"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
