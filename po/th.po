@@ -2022,7 +2022,7 @@ msgstr "กดเพื่อเรียงลำดับ"
 
 #: js/messages.php:348
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "กดเพื่อมาร์ก หรือยกเลิกการมาร์ก"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
