@@ -1001,6 +1001,10 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ "
+"หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ กรุณาแก้ไขไฟล์ตั้งค่าของ PHP "
+"ดูเอกสารเพิ่มเติมได้ที่ [a@./Documentation.html#faq1_16@Documentation]FAQ "
+"1.16[/a]"
 
 #: import.php:366
 msgid ""
