@@ -2039,7 +2039,7 @@ msgstr ""
 #: js/messages.php:352
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
-msgstr ""
+msgstr "คุณสามารถแก้ไขสดมภ์<br />โดยเลือกไปที่ข้อมูลนั้นๆ"
 
 #: js/messages.php:353
 msgid "Go to link"
