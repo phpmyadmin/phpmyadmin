@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:57+0200\n"
+"PO-Revision-Date: 2012-02-24 18:59+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -595,7 +595,7 @@ msgstr "Pead valima vähemalt ühe veeru, mida näidata"
 #: db_qbe.php:186
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Mine %svisuaalsele loojale%s"
+msgstr "Mine %sgraafilisele loojale%s"
 
 #: db_qbe.php:222
 #: libraries/db_structure.lib.php:90
