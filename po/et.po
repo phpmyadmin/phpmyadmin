@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:59+0200\n"
+"PO-Revision-Date: 2012-02-24 19:01+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -11502,7 +11502,7 @@ msgstr "Tööaeg on alla ühe päeva"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "Tööaeg on alla ühe päeva, jõudluse häälestamine ei pruugi olla täpne."
+msgstr "Tööaeg on alla 1 päeva, jõudluse häälestamine ei pruugi olla täpne."
 
 #: po/advisory_rules.php:7
 msgid "To have more accurate averages it is recommended to let the server run for longer than a day before running this analyzer"
