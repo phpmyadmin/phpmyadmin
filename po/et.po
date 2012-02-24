@@ -3024,7 +3024,7 @@ msgstr "Paroolita sisselogimine on seadistuses keelatud (vaata AllowNoPassword)"
 #: libraries/auth/signon.auth.lib.php:239
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr "%s sekundi jooksul aktiivsust polnud. Palun logi uuesti sisse."
+msgstr "%s sekundi jooksul aktiivsust polnud. Palun logi uuesti sisse"
 
 #: libraries/auth/cookie.auth.lib.php:582
 #: libraries/auth/cookie.auth.lib.php:584
