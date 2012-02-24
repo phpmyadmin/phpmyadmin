@@ -8691,7 +8691,7 @@ msgstr "Loo leht ja ekspordi sellele"
 
 #: pmd_pdf.php:107
 msgid "New page name: "
-msgstr "Uue lehe nimi:"
+msgstr "Uue lehe nimi: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
