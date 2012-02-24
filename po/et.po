@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:29+0200\n"
+"PO-Revision-Date: 2012-02-24 18:31+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -2893,7 +2893,7 @@ msgstr "Vigane tabeli nimi"
 #: libraries/Table.class.php:1165
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr "%1$s tabelile uue nime (%2$s) andmisel esines viga"
+msgstr "Esines viga %1$s tabeli ümbernimetamisel nimeks %2$s"
 
 #: libraries/Table.class.php:1252
 #, php-format
