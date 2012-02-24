@@ -2506,7 +2506,7 @@ msgstr "หมายเหตุ"
 
 #: libraries/Index.class.php:474
 msgid "The primary key has been dropped"
-msgstr "โยนไพรมารีคีย์ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนคีย์หลักทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/Index.class.php:478
 #, php-format
