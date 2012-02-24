@@ -1967,7 +1967,7 @@ msgstr "Klik en sleep met de muis om te navigeren."
 
 #: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Klik herstel zoom om terug te keren naar de beginpositie."
 
 #: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
