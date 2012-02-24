@@ -1959,7 +1959,7 @@ msgstr "Beweeg over een punt om het label te tonen."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Gebruik het muiswiel om in of uit te zoomen."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
