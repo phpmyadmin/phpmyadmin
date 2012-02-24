@@ -1396,7 +1396,7 @@ msgstr "ප්‍රස්තාරය ඉවත් කරන්න"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr "මාතෘකාව සහ ලේබල සංස්කරණය කරන්න "
+msgstr "මාතෘකාව සහ ලේබල සංස්කරණය කරන්න"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
