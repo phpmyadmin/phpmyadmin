@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:43+0200\n"
+"PO-Revision-Date: 2012-02-24 18:46+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -6730,7 +6730,9 @@ msgstr "kaasa veeru nimed igasse <code>INSERT</code> käsku <br /> &nbsp; &nbsp;
 
 #: libraries/export/sql.php:275
 msgid "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
-msgstr "lisa mitu rida igasse <code>INSERT</code> käsku<br /> &nbsp; &nbsp; &nbsp; Näide: <code>INSERT INTO tabeli_nimi VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+msgstr ""
+"lisa mitu rida igas <code>INSERT</code> käsus<br /> &nbsp; &nbsp; &nbsp; "
+"Näide: <code>INSERT INTO tabeli_nimi VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:276
 msgid "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
