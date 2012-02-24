@@ -1804,10 +1804,9 @@ msgid "Changing Charset"
 msgstr "กำลังเปลี่ยนชุดตัวอักษร"
 
 #: js/messages.php:246
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
-msgstr "ต้องเลือกให้แสดงอย่างน้อยหนึ่งคอลัมน์"
+msgstr "ตารางต้องอย่างน้อยหนึ่งคอลัมน์"
 
 #: js/messages.php:251
 #, fuzzy
