@@ -1073,7 +1073,7 @@ msgstr "คุณกำลังจะทำลายตารางทั้ง
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr ""
+msgstr "คุณกำลังจะลบข้อมูลในตารางทั้งหมด!"
 
 #: js/messages.php:35
 #, fuzzy
