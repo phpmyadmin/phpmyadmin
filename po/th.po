@@ -2430,7 +2430,7 @@ msgstr "มีปัญหาที่ไม่ทราบสาเหตุเ
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "ไฟล์ที่อัพโหลดขนาดเกินที่กำหนด"
 
 #: libraries/File.class.php:281
 msgid ""
