@@ -1772,7 +1772,7 @@ msgstr "ทิ้งสดมส์"
 
 #: js/messages.php:237
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "เพิ่มคีย์หลัก"
 
 #: js/messages.php:238 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
