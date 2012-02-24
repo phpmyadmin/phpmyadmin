@@ -2567,10 +2567,9 @@ msgid "Recent tables"
 msgstr "ตารางล่าสุด"
 
 #: libraries/RecentTable.class.php:149
-#, fuzzy
 #| msgid "Tracked tables"
 msgid "There are no recent tables"
-msgstr "ตารางที่ถูกติดตาม"
+msgstr "ไม่มีตารางล่าสุด"
 
 #: libraries/StorageEngine.class.php:203
 msgid ""
