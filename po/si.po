@@ -8210,7 +8210,7 @@ msgstr "වගුව තුල සෙවීම"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 msgid "Edit/Insert"
-msgstr "සංස්කරණය/ඇතුල් කරන්න "
+msgstr "සංස්කරණය/ඇතුල් කරන්න"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 #, fuzzy
