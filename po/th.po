@@ -1213,7 +1213,7 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB ได้ถูกส่งจากครั้งล่าสุด"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
