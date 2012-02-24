@@ -1346,7 +1346,7 @@ msgstr "จำนวน Swap ที่ว่าง"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr "ข้อมูล Byte ที่ส่ง"
+msgstr "Byte ที่ส่ง"
 
 #: js/messages.php:120
 #| msgid "Received"
