@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:28+0200\n"
+"PO-Revision-Date: 2012-02-24 18:29+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -11874,7 +11874,14 @@ msgstr "Esimese indeksi sissekande lugemiste hulk on kõrge."
 
 #: po/advisory_rules.php:132
 msgid "This usually indicates frequent full index scans. Full index scans are faster than table scans but require lots of CPU cycles in big tables, if those tables that have or had high volumes of UPDATEs and DELETEs, running 'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index scans. Other than that full index scans can only be reduced by rewriting queries."
-msgstr "Tavaliselt tähendab see sagedasi terve indeksi kontrolle. Terve indeksi kontrollid on küll kiiremad, kui tabeli kontrollid, kuid see nõuab suurtes tabelites väga palju protsessori tsükleid. Kui käivitada 'OPTIMIZE TABLE' nendes tabelites, milles kasutatakse palju UPDATE ja DELETE käske, siis võib see vähendada terve indeksi kontrollide hulka ja/või suurendada kiirust. Muul juhul saab terve indeksi kontrolle vähendada ainult päringute ümberkirjutamise abiga."
+msgstr ""
+"Tavaliselt tähendab see sagedasi terve indeksi kontrolle. Terve indeksi "
+"kontrollid on küll kiiremad, kui tabeli kontrollid, kuid see nõuab suurtes "
+"tabelites väga palju CPU tsükleid. Kui käivitada 'OPTIMIZE TABLE' nendes "
+"tabelites, milles kasutatakse palju UPDATE ja DELETE käske, siis võib see "
+"vähendada terve indeksi kontrollide hulka ja/või suurendada kiirust. Muul "
+"juhul saab terve indeksi kontrolle vähendada ainult päringute "
+"ümberkirjutamise abiga."
 
 #: po/advisory_rules.php:133
 #, php-format
