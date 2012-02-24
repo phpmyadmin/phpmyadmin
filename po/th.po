@@ -1652,10 +1652,9 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "กลุ่มคำสั่ง ไม่สนใจตัวแปรใน WHERE"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
-msgstr "ระเบียนต่อหน้า"
+msgstr "ผลรวมระเบียนต่อหน้า"
 
 #: js/messages.php:201
 #, fuzzy
