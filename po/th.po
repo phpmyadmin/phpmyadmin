@@ -1892,9 +1892,8 @@ msgid "Save"
 msgstr "บันทึก"
 
 #: js/messages.php:287
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "คำค้น SQL"
+msgstr "ซ่อนหลักในการค้นหา"
 
 #: js/messages.php:288
 #, fuzzy
