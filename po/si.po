@@ -2303,7 +2303,7 @@ msgstr "සති"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
 msgid "calendar-month-year"
-msgstr "දින දර්ශන-මාස-වසර "
+msgstr "දින දර්ශන-මාස-වසර"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
