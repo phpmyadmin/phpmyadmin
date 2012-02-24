@@ -11344,7 +11344,7 @@ msgstr "Jälgimise andmete töötlus on edukalt kustutatud"
 
 #: tbl_tracking.php:417
 msgid "Tracking statements"
-msgstr "Jälgimise käsud:"
+msgstr "Jälgimise käsud"
 
 #: tbl_tracking.php:433
 #: tbl_tracking.php:561
