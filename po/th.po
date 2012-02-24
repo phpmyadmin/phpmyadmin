@@ -1977,7 +1977,7 @@ msgstr "เลือกคีย์อ้างอิง"
 
 #: js/messages.php:335
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "เลือกคีย์นอก"
 
 #: js/messages.php:336
 msgid "Please select the primary key or a unique key"
