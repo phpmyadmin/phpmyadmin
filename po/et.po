@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 19:02+0200\n"
+"PO-Revision-Date: 2012-02-24 20:09+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -6201,7 +6201,8 @@ msgstr "Automaatse laiendamise suurendamine"
 
 #: libraries/engines/innodb.lib.php:28
 msgid " The increment size for extending the size of an autoextending tablespace when it becomes full."
-msgstr "Tabeliruumi täitumisel selle suurendamine antud suurendamise mahu võrra."
+msgstr ""
+" Tabeliruumi täitumisel selle suurendamine antud suurendamise mahu võrra."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
