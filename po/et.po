@@ -6610,7 +6610,7 @@ msgstr "Näita kommentaare"
 #: libraries/export/odt.php:49
 #: libraries/export/sql.php:63
 msgid "Display MIME types"
-msgstr "Näita  MIME-tüüpe"
+msgstr "Näita MIME-tüüpe"
 
 #: libraries/export/latex.php:132
 #: libraries/export/sql.php:482
