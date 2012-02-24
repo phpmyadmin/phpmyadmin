@@ -1849,7 +1849,7 @@ msgstr "กำลังลบ %s"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "ฟังก์ชั่นภายในจะต้องมีค่า RETURN!"
 
 #: js/messages.php:270
 #, fuzzy, php-format
