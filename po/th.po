@@ -1689,7 +1689,7 @@ msgstr "ระเบียนที่มีผล:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
+msgstr "การ parsing ไฟล์ตั้งค่าล้มเหลว สาเหตุมาจาก JSON"
 
 #: js/messages.php:211
 msgid ""
