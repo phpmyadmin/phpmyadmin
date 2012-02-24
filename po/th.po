@@ -1795,9 +1795,8 @@ msgid "Reload Database"
 msgstr "รีเฟรซฐานข้อมูล"
 
 #: js/messages.php:244
-#, fuzzy
 msgid "Copying Database"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr "กำลังคัดลอกฐานข้อมูล"
 
 #: js/messages.php:245
 #, fuzzy
