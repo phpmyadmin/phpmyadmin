@@ -1729,7 +1729,7 @@ msgstr "යුක්තිසාධනය"
 
 #: js/messages.php:224
 msgid "Used variable / formula"
-msgstr "භාවිතා කරන ලද විචල්‍යයන් / සූත්‍ර "
+msgstr "භාවිතා කරන ලද විචල්‍යයන් / සූත්‍ර"
 
 #: js/messages.php:225
 msgid "Test"
