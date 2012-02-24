@@ -2579,7 +2579,7 @@ msgstr ""
 #: libraries/StorageEngine.class.php:341
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%s มีอยู่บน MySQL Server"
 
 #: libraries/StorageEngine.class.php:344
 #, php-format
