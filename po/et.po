@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:38+0200\n"
+"PO-Revision-Date: 2012-02-24 18:40+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -2798,7 +2798,9 @@ msgstr "%s indeks on kustutatud"
 #: libraries/Index.class.php:573
 #, php-format
 msgid "The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed."
-msgstr "%1$s ja  %2$s indeksid tunduvad olema võrdsed ja üks neist tõenäoliselt kustutatakse."
+msgstr ""
+"%1$s ja %2$s indeksid tunduvad olema võrdsed ja üks neist tõenäoliselt "
+"kustutatakse."
 
 #: libraries/List_Database.class.php:379
 #: libraries/config/messages.inc.php:179
