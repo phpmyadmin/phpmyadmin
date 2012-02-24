@@ -1771,7 +1771,7 @@ msgstr "OK"
 
 #: js/messages.php:239
 msgid "Click to dismiss this notification"
-msgstr "මෙම නිවේදනය ඉවත් කිරීමට ක්ලික් කරන්න "
+msgstr "මෙම නිවේදනය ඉවත් කිරීමට ක්ලික් කරන්න"
 
 #: js/messages.php:242
 msgid "Renaming Databases"
