@@ -1890,6 +1890,7 @@ msgstr "Verwijderen"
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"De definitie van een opgeslagen functie moet een RETURN statement bevatten!"
 
 #: js/messages.php:270
 #, php-format
