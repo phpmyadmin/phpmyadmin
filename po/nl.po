@@ -2394,6 +2394,8 @@ msgstr "Seconde"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Formateren van tekenreeks voor regel '%s' is mislukt. PHP gaf de volgende "
+"foutmelding : %s"
 
 #: libraries/Advisor.class.php:326 server_status.php:952
 msgid "per second"
