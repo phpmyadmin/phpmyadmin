@@ -1662,9 +1662,8 @@ msgid "Total:"
 msgstr "รวม:"
 
 #: js/messages.php:203
-#, fuzzy
 msgid "Loading logs"
-msgstr "โลคอล"
+msgstr "กำลังเรียกดูประวัติ"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
