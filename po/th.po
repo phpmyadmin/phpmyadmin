@@ -1922,7 +1922,7 @@ msgstr "คลิกและลากเมาส์เพื่อพล็อ
 
 #: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "คลิก ล้างค่า เพื่อกลับไปขนาดเริ่มต้น"
 
 #: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
