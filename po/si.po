@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 21:29+0200\n"
+"PO-Revision-Date: 2012-02-24 21:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3044,10 +3044,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s විශේෂාංගයෙහි හඳුනාගත් දෝෂයක් ඇත, %s බලන්න "
 
 #: libraries/common.lib.php:2750
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "තේරීමට ක්ලික් කරන්න"
+msgstr "මාරු කිරීමට ක්ලික් කරන්න"
 
 #: libraries/common.lib.php:3124 libraries/common.lib.php:3131
 #: libraries/common.lib.php:3346 libraries/config/setup.forms.php:296
