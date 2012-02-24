@@ -12141,9 +12141,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "ชนิดคำค้น"
+msgstr "การใช้งาน หน่วยความจำของชุดคำสั่ง"
 
 #: po/advisory_rules.php:86
 #, php-format
