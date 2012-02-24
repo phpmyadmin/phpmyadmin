@@ -2061,10 +2061,9 @@ msgid "Change Password"
 msgstr "เปลี่ยนรหัสผ่าน"
 
 #: js/messages.php:361 tbl_structure.php:465
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "จ."
+msgstr "เพิ่มเติม"
 
 #: js/messages.php:364 setup/lib/index.lib.php:173
 #, php-format
