@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:41+0200\n"
+"PO-Revision-Date: 2012-02-24 18:42+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -9769,7 +9769,11 @@ msgstr "Ühenduste hulk, mis üritas (edukalt või mitte) ühendada MySQL server
 
 #: server_status.php:1307
 msgid "The number of temporary tables on disk created automatically by the server while executing statements. If Created_tmp_disk_tables is big, you may want to increase the tmp_table_size  value to cause temporary tables to be memory-based instead of disk-based."
-msgstr "Näita MIME-tüüpe"
+msgstr ""
+"Ajutiste tabelite hulk kettal, mis on loodud automaatselt serveri poolt "
+"käskude täitmise ajal. Kui Created_tmp_disk_tables on suur, siis võid "
+"suurendada tmp_table_size väärtust, et ajutised tabelid oleksid mälupõhised, "
+"mitte kettapõhised."
 
 #: server_status.php:1308
 msgid "How many temporary files mysqld has created."
