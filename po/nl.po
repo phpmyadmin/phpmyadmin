@@ -1992,7 +1992,7 @@ msgstr "Selecteer twee kolommen"
 
 #: js/messages.php:310
 msgid "Select two different columns"
-msgstr ""
+msgstr "Selecteer twee verschillende kolommen"
 
 #: js/messages.php:311
 #, fuzzy
