@@ -1943,7 +1943,7 @@ msgstr "เพิ่มสองสดมภ์"
 
 #: js/messages.php:310
 msgid "Select two different columns"
-msgstr ""
+msgstr "เลือกสองสดมภ์ใดๆ"
 
 #: js/messages.php:311
 #, fuzzy
