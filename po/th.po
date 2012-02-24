@@ -1563,7 +1563,7 @@ msgstr "กำลังวิเคราะห์และตรวจประ
 
 #: js/messages.php:177
 msgid "Cancel request"
-msgstr ""
+msgstr "ยกเลิกคำร้อง"
 
 #: js/messages.php:178
 msgid ""
