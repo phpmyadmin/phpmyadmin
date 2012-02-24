@@ -2161,7 +2161,7 @@ msgstr "พฤศจิกายน"
 
 #: js/messages.php:412
 msgid "December"
-msgstr ""
+msgstr "ธันวาคม"
 
 #. l10n: Short month name
 #: js/messages.php:416 libraries/common.lib.php:1606
