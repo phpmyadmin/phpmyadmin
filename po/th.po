@@ -2491,7 +2491,7 @@ msgstr "เอกลักษณ์"
 
 #: libraries/Index.class.php:443 tbl_tracking.php:322
 msgid "Packed"
-msgstr ""
+msgstr "กลุ่ม"
 
 #: libraries/Index.class.php:445 tbl_tracking.php:324
 msgid "Cardinality"
