@@ -11981,7 +11981,7 @@ msgstr "เลือกตาราง"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "รุ่น MySQL ต่ำกว่า 5.1"
 
 #: po/advisory_rules.php:37
 msgid ""
