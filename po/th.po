@@ -1095,7 +1095,7 @@ msgstr "คุณกำลังจะปิด BLOB Repository!"
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "คุณแน่ใจที่ปิด BLOB อ้างอิงของทั้งฐานข้อมูล %s?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
