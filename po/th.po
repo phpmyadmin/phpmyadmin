@@ -2084,10 +2084,9 @@ msgstr "ปัจจุบัน"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:386
-#, fuzzy
 #| msgid "None"
 msgid "Done"
-msgstr "ไม่มี"
+msgstr "จบ"
 
 #: js/messages.php:390
 #, fuzzy
