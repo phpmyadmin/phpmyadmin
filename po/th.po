@@ -12582,9 +12582,8 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:185
-#, fuzzy
 msgid "Percentage of used open files limit"
-msgstr "ชุดอักขระของไฟล์ (character set):"
+msgstr ""
 
 #: po/advisory_rules.php:186
 msgid ""
