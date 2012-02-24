@@ -1837,10 +1837,9 @@ msgid "Show search results"
 msgstr "แสดงผลคำค้น SQL"
 
 #: js/messages.php:259
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "เปิดดู"
+msgstr "กำลังเปิด"
 
 #: js/messages.php:260
 #, fuzzy
