@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 20:10+0200\n"
+"PO-Revision-Date: 2012-02-24 20:11+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -9348,8 +9348,7 @@ msgstr "... tühista eelmise kõik aktiivsed õigused ja seejärel kustuta see."
 
 #: server_privileges.php:2192
 msgid "... delete the old one from the user tables and reload the privileges afterwards."
-msgstr ""
-" ... kustuta eelmine kasutajate tabelist ja seejärel lae õigused uuesti."
+msgstr "... kustuta eelmine kasutajate tabelist ja seejärel lae õigused uuesti."
 
 #: server_privileges.php:2215
 msgid "Database for user"
