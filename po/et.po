@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:37+0200\n"
+"PO-Revision-Date: 2012-02-24 18:38+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -1803,7 +1803,7 @@ msgstr "slow_query_log on lubatud."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
-msgstr "slow_query_log ja  general_log on keelatud."
+msgstr "slow_query_log ja general_log on keelatud."
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
