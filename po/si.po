@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 21:23+0200\n"
+"PO-Revision-Date: 2012-02-24 21:25+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2880,7 +2880,7 @@ msgstr "වින්‍යසයන්හි වලංගු නැති සත
 #: libraries/common.inc.php:960
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "You should upgrade to %s %s or later."
+msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
 #: libraries/common.lib.php:195
 #, php-format
