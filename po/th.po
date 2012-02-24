@@ -1174,7 +1174,7 @@ msgstr "แก้ไข"
 #: js/messages.php:66 server_status.php:803
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "กราฟสถิติสถานะการใช้ปัจจุบัน"
+msgstr "สถานะการใช้ปัจจุบัน"
 
 #: js/messages.php:67 server_status.php:806
 msgid "Live conn./process chart"
