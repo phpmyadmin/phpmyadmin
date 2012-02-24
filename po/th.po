@@ -1824,10 +1824,9 @@ msgid "Show indexes"
 msgstr "แสดงดัชนี"
 
 #: js/messages.php:256
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "ค้นหา"
+msgstr "กำลังค้นหา"
 
 #: js/messages.php:257
 #, fuzzy
