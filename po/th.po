@@ -1186,7 +1186,7 @@ msgstr "คำสั่ง SQL ปัจจุบัน"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "ข้อมูลคงที่"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
