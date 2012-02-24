@@ -873,9 +873,8 @@ msgid "Dump has been saved to file %s."
 msgstr "ข้อมูลที่ส่งออกถูกบันทึกไว้ในไฟล์ %s"
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "ไม่มีตาราง"
+msgstr "ประเภทที่ส่งออกไม่ถูกต้อง!"
 
 #: gis_data_editor.php:84
 #, fuzzy, php-format
