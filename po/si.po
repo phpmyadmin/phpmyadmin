@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 15:47+0200\n"
-"Last-Translator: modz <modisha.jay@gmail.com>\n"
+"PO-Revision-Date: 2012-02-24 20:59+0200\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -2532,7 +2532,7 @@ msgstr "මෙම MySQL සේවාදායකයේ %s ඇත."
 #: libraries/StorageEngine.class.php:344
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "%s has been disabled for this MySQL server."
+msgstr "මෙම MySQL සේවාදායකයේ %s අක්‍රීය කර ඇත."
 
 #: libraries/StorageEngine.class.php:348
 #, php-format
