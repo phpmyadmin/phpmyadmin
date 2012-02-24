@@ -1254,7 +1254,7 @@ msgstr "สถิติของคำสั่ง"
 
 #: js/messages.php:94
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "การตั้งค่าติดตามภายในเครื่องไม่เข้ากัน"
 
 #: js/messages.php:95
 msgid ""
