@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:54+0200\n"
+"PO-Revision-Date: 2012-02-24 18:57+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -474,7 +474,7 @@ msgstr "Lisa AUTO_INCREMENT väärtus"
 #: db_operations.php:512
 #: tbl_operations.php:571
 msgid "Add constraints"
-msgstr "Lisa piirangud"
+msgstr "Lisa piiranguid"
 
 #: db_operations.php:525
 msgid "Switch to copied database"
