@@ -1799,10 +1799,9 @@ msgid "Copying Database"
 msgstr "กำลังคัดลอกฐานข้อมูล"
 
 #: js/messages.php:245
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "ชุดตัวอักษร"
+msgstr "กำลังเปลี่ยนชุดตัวอักษร"
 
 #: js/messages.php:246
 #, fuzzy
