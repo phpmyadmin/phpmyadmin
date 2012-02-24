@@ -11956,9 +11956,8 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: po/advisory_rules.php:30
-#, fuzzy
 msgid "Slow query logging"
-msgstr "คำค้น SQL"
+msgstr "Slow query logging"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
