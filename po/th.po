@@ -1317,7 +1317,7 @@ msgstr "จำนวนหน่วยความจำที่ถูกใช
 
 #: js/messages.php:110
 msgid "Buffered memory"
-msgstr ""
+msgstr "จำนวนหน่วยความจำที่จอง"
 
 #: js/messages.php:111
 msgid "Free memory"
