@@ -960,7 +960,7 @@ msgstr "เพิ่มเรขาคณิต"
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
-msgstr ""
+msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชั่น และวางลงในข้อความช่อง \"ค่า\""
 
 #: import.php:57
 #, fuzzy, php-format
