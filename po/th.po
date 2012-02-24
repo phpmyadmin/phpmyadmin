@@ -12079,9 +12079,8 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:70
-#, fuzzy
 msgid "Query cache disabled"
-msgstr "ชนิดคำค้น"
+msgstr "หน่วยความจำของชุดคำสั่ง ถูกปิดอยู่"
 
 #: po/advisory_rules.php:71
 #, fuzzy
