@@ -2563,9 +2563,8 @@ msgid "Could not save recent table"
 msgstr "ไม่สามารถบันทึกตารางล่าสุด"
 
 #: libraries/RecentTable.class.php:142
-#, fuzzy
 msgid "Recent tables"
-msgstr "ไม่มีตาราง"
+msgstr "ตารางล่าสุด"
 
 #: libraries/RecentTable.class.php:149
 #, fuzzy
