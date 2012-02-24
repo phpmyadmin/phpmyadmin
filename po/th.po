@@ -1055,7 +1055,7 @@ msgstr "เบราเซอร์ที่<b>ใช้เฟรมได้</b
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:253
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
+msgstr "คำสั่ง \"ทิ้งฐานข้อมูล\" ถูกปิดไว้"
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:354
 msgid "Do you really want to "
