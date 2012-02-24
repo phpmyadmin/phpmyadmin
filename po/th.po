@@ -2026,7 +2026,7 @@ msgstr "กดเพื่อมาร์ก หรือยกเลิกก�
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "กดเพื่อเลือก <br />เพื่อดูสดมภ์"
 
 #: js/messages.php:351
 msgid ""
