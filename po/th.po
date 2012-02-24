@@ -2104,10 +2104,9 @@ msgstr "ต่อไป"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:398
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "รวม"
+msgstr "วันนี้"
 
 #: js/messages.php:401
 #, fuzzy
