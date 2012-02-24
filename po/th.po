@@ -12123,9 +12123,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 msgid "Query cache efficiency (%%)"
-msgstr "ชนิดคำค้น"
+msgstr "ประสิทธิภาพของ หน่วยความจำของชุดคำสั่ง (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
