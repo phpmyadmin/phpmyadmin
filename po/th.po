@@ -1307,10 +1307,9 @@ msgid "Average load"
 msgstr "เฉลี่ยการทำงาน"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "รวม"
+msgstr "จำนวนหน่วยความจำรวม"
 
 #: js/messages.php:109
 msgid "Cached memory"
