@@ -1790,10 +1790,9 @@ msgid "Renaming Databases"
 msgstr "กำลังเปลี่ยนชื่อฐานข้อมูล"
 
 #: js/messages.php:243
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr "รีเฟรซฐานข้อมูล"
 
 #: js/messages.php:244
 #, fuzzy
