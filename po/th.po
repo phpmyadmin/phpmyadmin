@@ -2452,7 +2452,7 @@ msgstr "ไม่สามารถเขียนไฟล์ลงดิสไ
 
 #: libraries/File.class.php:293
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "ไม่รองรับไฟล์ประเภทนี้"
 
 #: libraries/File.class.php:296
 msgid "Unknown error in file upload."
