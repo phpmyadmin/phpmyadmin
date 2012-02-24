@@ -1709,7 +1709,7 @@ msgstr "විය හැකි කාර්ය සාධනය ආශ්‍ර�
 
 #: js/messages.php:220
 msgid "Issue"
-msgstr "ගැටළු "
+msgstr "ගැටළු"
 
 #: js/messages.php:221
 #| msgid "Documentation"
