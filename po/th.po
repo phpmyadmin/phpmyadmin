@@ -2593,7 +2593,7 @@ msgstr "MySQL ไม่รองรับ %s"
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr ""
+msgstr "ไม่ทราบสถานะตาราง: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
