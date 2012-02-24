@@ -5818,7 +5818,7 @@ msgstr "සිරස්"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr "ශීර්ෂක, පේළි %s කට වරක් "
+msgstr "ශීර්ෂක, පේළි %s කට වරක්"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
