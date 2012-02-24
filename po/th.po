@@ -1543,7 +1543,7 @@ msgstr "ค่าที่ต่าง"
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "ถูกหารด้วย %s"
 
 #: js/messages.php:172
 msgid "Unit"
