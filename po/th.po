@@ -1896,9 +1896,8 @@ msgid "Hide search criteria"
 msgstr "ซ่อนหลักในการค้นหา"
 
 #: js/messages.php:288
-#, fuzzy
 msgid "Show search criteria"
-msgstr "คำค้น SQL"
+msgstr "แสดงหลักการค้นหา"
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
 #, fuzzy
