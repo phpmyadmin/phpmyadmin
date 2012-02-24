@@ -2522,7 +2522,7 @@ msgstr "නූතන වගු කිසිවක් නොමැත"
 #: libraries/StorageEngine.class.php:203
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "ගබඩා යන්ත්‍රයෙහි තත්වය පිලිබඳ වැඩිදුර තොරතුරු නැත ."
+msgstr "ගබඩා යන්ත්‍රයෙහි තත්වය පිලිබඳ වැඩිදුර තොරතුරු නැත."
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
