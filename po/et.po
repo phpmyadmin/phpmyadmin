@@ -791,7 +791,7 @@ msgstr "Otsi andmebaasist"
 
 #: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Sõnad või väärtused, mida otsida  (metamärk: \"%\"):"
+msgstr "Sõnad või väärtused, mida otsida (metamärk: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
