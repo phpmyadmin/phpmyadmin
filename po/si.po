@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 21:07+0200\n"
+"PO-Revision-Date: 2012-02-24 21:10+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2593,7 +2593,7 @@ msgstr "No valid image path for theme %s found!"
 
 #: libraries/Theme.class.php:352
 msgid "No preview available."
-msgstr "No preview available."
+msgstr "පූර්වදර්ශනයක් නොමැත."
 
 #: libraries/Theme.class.php:355
 msgid "take it"
