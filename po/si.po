@@ -1705,7 +1705,7 @@ msgstr "උපදේශක පද්ධතිය"
 
 #: js/messages.php:219
 msgid "Possible performance issues"
-msgstr "විය හැකි කාර්ය සාධනය ආශ්‍රිත ගැටළු "
+msgstr "විය හැකි කාර්ය සාධනය ආශ්‍රිත ගැටළු"
 
 #: js/messages.php:220
 msgid "Issue"
