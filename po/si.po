@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 21:27+0200\n"
+"PO-Revision-Date: 2012-02-24 21:28+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2945,7 +2945,7 @@ msgstr "SQL ය පහදන්න"
 
 #: libraries/common.lib.php:1172
 msgid "Skip Explain SQL"
-msgstr "Skip Explain SQL"
+msgstr "SQL ය පහදා දීමෙන් ඉවත් වන්න "
 
 #: libraries/common.lib.php:1207
 msgid "Without PHP Code"
