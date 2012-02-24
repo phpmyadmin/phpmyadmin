@@ -12171,9 +12171,8 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:90
-#, fuzzy
 msgid "Query cache fragmentation"
-msgstr "ชนิดคำค้น"
+msgstr ""
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
