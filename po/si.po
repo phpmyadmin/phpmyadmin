@@ -1192,7 +1192,7 @@ msgstr "මුළු එකතුව"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:603 server_status.php:1022
 msgid "Other"
-msgstr "අනෙකුත් "
+msgstr "අනෙකුත්"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1449
