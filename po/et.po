@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:27+0200\n"
+"PO-Revision-Date: 2012-02-24 18:28+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -8135,7 +8135,16 @@ msgstr "Tundub, et sinu SQL päringus on viga. MySQL serveri viga näidatakse al
 
 #: libraries/sqlparser.lib.php:175
 msgid "There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:"
-msgstr "Võimalik, et leidsid vea SQL parseris. Palun vaata oma päring põhjalikult üle ja veendu, et jutumärgid on õiged ning vastavuses. Põhjuseks võib veel olla, et laed üles binaarset faili väljaspool tsiteeritud tekstiala. Samuti võid proovida oma päring sooritada MySQLi käsureal.  MySQL serveri viga näidatakse allpool ja kui seal on midagi, siis peaks see aitama sul probleemi diagnoosida. Kui sul on ikka probleeme või kui parser ei suuda päringut sooritada ka käsurealt, siis vähenda SQL päring üksikuks päringuks, mis probleeme tekitab ja saada allolevas VEA sektsioonis vea raport koos andmetega:"
+msgstr ""
+"Võimalik, et leidsid vea SQL parseris. Palun vaata oma päring põhjalikult "
+"üle ja veendu, et jutumärgid on õiged ning vastavuses. Põhjuseks võib veel "
+"olla, et laed üles binaarset faili väljaspool tsiteeritud tekstiala. Samuti "
+"võid proovida oma päring sooritada MySQLi käsureal. MySQL serveri viga "
+"näidatakse allpool ja kui seal on midagi, siis peaks see aitama sul "
+"probleemi diagnoosida. Kui sul on ikka probleeme või kui parser ei suuda "
+"päringut sooritada ka käsurealt, siis vähenda SQL päring üksikuks päringuks, "
+"mis probleeme tekitab ja saada allolevas VEA sektsioonis vea raport koos "
+"andmetega:"
 
 #: libraries/sqlparser.lib.php:177
 msgid "BEGIN CUT"
