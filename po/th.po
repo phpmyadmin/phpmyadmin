@@ -358,7 +358,7 @@ msgstr "แก้ไข หรือส่งออก รีเลชันแ�
 #: server_privileges.php:1897 server_privileges.php:2166
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
-msgstr "ตาราง "
+msgstr "ตาราง"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
