@@ -6892,7 +6892,7 @@ msgstr "Kui faili ridades sisalduvad andmed pole samas järjekorras, nagu need o
 
 #: libraries/import/csv.php:42
 msgid "Column names: "
-msgstr "Veeru nimed:"
+msgstr "Veeru nimed: "
 
 #: libraries/import/csv.php:62
 #: libraries/import/csv.php:75
