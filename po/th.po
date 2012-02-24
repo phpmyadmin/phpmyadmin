@@ -1342,7 +1342,7 @@ msgstr "จำนวน Swap ที่ใช้ไป"
 
 #: js/messages.php:117
 msgid "Free Swap"
-msgstr ""
+msgstr "จำนวน Swap ที่ว่าง"
 
 #: js/messages.php:119
 msgid "Bytes sent"
