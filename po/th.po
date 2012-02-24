@@ -2574,7 +2574,7 @@ msgstr "ไม่มีตารางล่าสุด"
 #: libraries/StorageEngine.class.php:203
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
+msgstr "ไม่มีข้อมูลเกี่ยวกับรูปแบบฐานข้อมูลนี้"
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
