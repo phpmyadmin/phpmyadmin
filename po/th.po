@@ -1981,7 +1981,7 @@ msgstr "เลือกคีย์นอก"
 
 #: js/messages.php:336
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "กรุณาเลือกคีย์หลักหรือคียเดี่ยว"
 
 #: js/messages.php:337 pmd_general.php:77 tbl_relation.php:541
 #, fuzzy
