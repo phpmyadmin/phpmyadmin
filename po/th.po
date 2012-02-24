@@ -1325,7 +1325,7 @@ msgstr "หน่วยความจำว่าง"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "หน่วยความจำที่ใช้ไป"
 
 #: js/messages.php:114
 #, fuzzy
