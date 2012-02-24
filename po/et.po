@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:51+0200\n"
+"PO-Revision-Date: 2012-02-24 18:52+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -5201,7 +5201,8 @@ msgstr "Lisa DROP TABLE"
 
 #: libraries/config/messages.inc.php:439
 msgid "Whether a DROP VIEW IF EXISTS statement will be added as first line to the log when creating a view."
-msgstr "Kas vaate loomisel lisatakse logi esimese reana DROP VIEW IF EXISTS käsk"
+msgstr ""
+"Kas vaate loomisel lisatakse logi esimese reana DROP VIEW IF EXISTS käsk."
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP VIEW"
