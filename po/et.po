@@ -9228,7 +9228,7 @@ msgstr "Lisasid uue kasutaja."
 #: server_privileges.php:1273
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "Uuendasid %s õigusi"
+msgstr "Uuendasid %s õigusi."
 
 #: server_privileges.php:1295
 #, php-format
