@@ -1707,10 +1707,9 @@ msgid "Import"
 msgstr "นำเข้า"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "ปรับปรุงคำค้น"
+msgstr "วิเคราะห์คำสั่ง"
 
 #: js/messages.php:218
 msgid "Advisor system"
