@@ -1517,6 +1517,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"คุณไม่สามารถเปลี่ยนแปลงค่านี้ได้ กรุณาเข้าใช้งานเป็น root "
+"หรือติดต่อผู้ดูแลระบบ"
 
 #: js/messages.php:165
 #, fuzzy
