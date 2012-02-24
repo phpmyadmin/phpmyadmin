@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-01-31 11:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:14+0200\n"
+"PO-Revision-Date: 2012-02-24 18:15+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -1387,7 +1387,7 @@ msgstr "\"DROP DATABASE\" käsud on keelatud."
 #: libraries/mult_submits.inc.php:280
 #: sql.php:350
 msgid "Do you really want to "
-msgstr "Kas tõesti tahad"
+msgstr "Kas tõesti tahad "
 
 #: js/messages.php:31
 #: libraries/mult_submits.inc.php:280
