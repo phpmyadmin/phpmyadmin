@@ -2046,10 +2046,9 @@ msgid "Go to link"
 msgstr "ไปที่หน้า"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
-msgstr "เปลี่ยนรหัสผ่าน"
+msgstr "สร้างรหัสอัตโนมัติ"
 
 #: js/messages.php:357 libraries/replication_gui.lib.php:369
 #, fuzzy
