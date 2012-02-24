@@ -1641,7 +1641,7 @@ msgstr "ตัวเลือกรองประวัติตาราง"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
 msgid "Filter"
-msgstr ""
+msgstr "ตัวกรอง"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
