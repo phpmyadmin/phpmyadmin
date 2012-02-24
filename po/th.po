@@ -745,7 +745,7 @@ msgstr "เวอร์ชั่นล่าสุด"
 
 #: db_tracking.php:88 tbl_tracking.php:651
 msgid "Created"
-msgstr "สร้าง"
+msgstr "ถูกสร้าง"
 
 #: db_tracking.php:89 tbl_tracking.php:652
 msgid "Updated"
