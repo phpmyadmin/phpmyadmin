@@ -2243,7 +2243,7 @@ msgstr "วันอังคาร"
 
 #: js/messages.php:444
 msgid "Wednesday"
-msgstr ""
+msgstr "วันพุธ"
 
 #: js/messages.php:445
 msgid "Thursday"
