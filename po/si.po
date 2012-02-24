@@ -1171,7 +1171,7 @@ msgstr "සජීවී දත්ත හුවමාරු ප්‍රස්ත
 
 #: js/messages.php:67 server_status.php:806
 msgid "Live conn./process chart"
-msgstr "සජීවී සබඳතා/ක්‍රියාවලි ප්‍රස්තාරය  "
+msgstr "සජීවී සබඳතා/ක්‍රියාවලි ප්‍රස්තාරය"
 
 #: js/messages.php:68 server_status.php:824
 msgid "Live query chart"
