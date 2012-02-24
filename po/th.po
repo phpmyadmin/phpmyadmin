@@ -1440,7 +1440,7 @@ msgstr "หยุดการแสดงผล"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr "general_log และ slow_query_log ถูกเปิดไว้แล้ว"
+msgstr "general_log และ slow_query_log ถูกเปิดไว้"
 
 #: js/messages.php:148
 msgid "general_log is enabled."
