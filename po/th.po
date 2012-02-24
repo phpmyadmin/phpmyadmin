@@ -1271,9 +1271,8 @@ msgid "Query cache efficiency"
 msgstr "ประสิทธิภาพคำสั่ง"
 
 #: js/messages.php:98
-#, fuzzy
 msgid "Query cache usage"
-msgstr "ชนิดคำค้น"
+msgstr "คำสั่งที่ถูกรันบนหน่วยความจำ"
 
 #: js/messages.php:99
 #, fuzzy
