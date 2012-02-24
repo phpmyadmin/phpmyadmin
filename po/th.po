@@ -933,7 +933,7 @@ msgstr "ด้านนอก"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
 msgid "Inner Ring"
-msgstr ""
+msgstr "ด้านใน"
 
 #: gis_data_editor.php:252
 #, fuzzy
