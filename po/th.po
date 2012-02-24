@@ -11992,7 +11992,7 @@ msgstr ""
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
 msgid "Current version: %s"
-msgstr "รุ่นที่ใช้:"
+msgstr "รุ่นที่ใช้: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #, fuzzy
