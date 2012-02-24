@@ -1926,7 +1926,7 @@ msgstr "คลิก ล้างค่า เพื่อกลับไปข�
 
 #: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "คลิก จุดข้อมูล เพื่อดูหรือแก้ไขแถวข้อมูล"
 
 #: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
