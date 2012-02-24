@@ -6761,7 +6761,7 @@ msgstr "Piirangud tabelile"
 
 #: libraries/export/sql.php:963
 msgid "MIME TYPES FOR TABLE"
-msgstr "MIME-TÜÜBID TABELILE"
+msgstr "MIME TYPES FOR TABLE"
 
 #: libraries/export/sql.php:975
 msgid "RELATIONS FOR TABLE"
