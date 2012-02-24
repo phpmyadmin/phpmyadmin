@@ -2560,7 +2560,7 @@ msgstr "เกิดข้อผิดพลาดขณะสร้าง PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
-msgstr ""
+msgstr "ไม่สามารถบันทึกตารางล่าสุด"
 
 #: libraries/RecentTable.class.php:142
 #, fuzzy
