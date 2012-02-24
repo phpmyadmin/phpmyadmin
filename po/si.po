@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 21:40+0200\n"
+"PO-Revision-Date: 2012-02-24 21:41+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6499,10 +6499,9 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:45
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "හෙඩිමට වෙනත් විස්තර එක් කරන්න (\\n පේළි වි‍භේදනය)"
+msgstr "හෙඩිමට වෙනත් විස්තර එක් කරන්න (\\n පේළි වි‍භේදනය):"
 
 #: libraries/export/sql.php:50
 msgid ""
