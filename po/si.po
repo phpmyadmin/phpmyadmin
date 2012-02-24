@@ -2854,7 +2854,7 @@ msgid ""
 "configuration file!"
 msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> සඳහා අගය ඔබගේ වින්‍යාස ගොනුවේ අඩංගු විය "
-"යුතුමය."
+"යුතුමය!"
 
 #: libraries/common.inc.php:650
 #, php-format
