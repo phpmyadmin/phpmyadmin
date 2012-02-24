@@ -1349,10 +1349,9 @@ msgid "Bytes sent"
 msgstr "ข้อมูล Byte ที่ส่ง"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "ได้รับ"
+msgstr "Byte ที่รับ"
 
 #: js/messages.php:121 server_status.php:1145
 msgid "Connections"
