@@ -1602,10 +1602,9 @@ msgid "Analyzing..."
 msgstr "กำลังวิเคราะห์..."
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "อธิบาย SQL"
+msgstr "อธิบายผลคำสั่ง"
 
 #: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1241 sql.php:901
