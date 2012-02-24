@@ -1758,10 +1758,9 @@ msgid "Loading"
 msgstr "กำลังเรียกดูข้อมูล"
 
 #: js/messages.php:234
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "โพรเซส"
+msgstr "กำลังประมวลผล"
 
 #: js/messages.php:235 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
