@@ -1483,6 +1483,7 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"การตั้งค่านี้ถูกนำไปใช้ทั้งหมด และจะคืนค่ากลับเมื่อเริ่มเครื่องใหม่อีกครั้ง"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
