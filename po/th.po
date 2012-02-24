@@ -1412,7 +1412,7 @@ msgstr "เอาการแสดงผลออก"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "แก้ไขหัวข้อและคำกำกับ"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
