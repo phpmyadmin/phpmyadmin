@@ -1679,10 +1679,9 @@ msgstr ""
 "น่าจะเกิดจากที่หมดเวลาเซสชั่นของท่าน กรุณายืนยันตัวตนใหม่อีกครั้ง"
 
 #: js/messages.php:206
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload page"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr "รีเฟรซหน้า"
 
 #: js/messages.php:208
 msgid "Affected rows:"
