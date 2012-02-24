@@ -2882,7 +2882,7 @@ msgstr "See MySQL server ei toeta %s varundusmootorit."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "tundmatu tabeli staatus:"
+msgstr "tundmatu tabeli staatus: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
