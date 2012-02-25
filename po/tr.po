@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-22 17:03+0200\n"
+"PO-Revision-Date: 2012-02-22 17:05+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -13023,7 +13023,8 @@ msgid ""
 msgstr ""
 "İstemciler genellikle bağlantıları MySQL'e düzgün bir şekilde "
 "yaklaşmadıklarında durdurulurlar. Bu ağ sorunlarından veya kodun veritabanı "
-"işleyicisine düzgün bir şekilde yaklaşmadığından dolayı olabilir."
+"işleyicisine düzgün bir şekilde yaklaşmadığından dolayı olabilir. Ağınızı ve "
+"kodunuzu kontrol edin."
 
 #: po/advisory_rules.php:243
 #, php-format
