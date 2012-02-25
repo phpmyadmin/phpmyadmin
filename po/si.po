@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-25 07:16+0200\n"
+"PO-Revision-Date: 2012-02-25 07:26+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3887,7 +3887,7 @@ msgstr ""
 #: libraries/navigation_header.inc.php:82
 #: libraries/navigation_header.inc.php:85
 msgid "Query window"
-msgstr "Query window"
+msgstr "විමසුම් කවුළුව"
 
 #: libraries/config/messages.inc.php:197
 msgid "Customize query window options"
