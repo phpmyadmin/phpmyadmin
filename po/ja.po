@@ -1798,7 +1798,7 @@ msgstr "表示中"
 
 #: js/messages.php:260
 msgid "Deleting"
-msgstr "削除中"
+msgstr "削除しています"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
