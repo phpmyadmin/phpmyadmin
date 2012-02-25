@@ -1073,7 +1073,7 @@ msgstr "テーブルを完全に空にしようとしています!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr "追跡データの削除しています"
+msgstr "追跡データを削除しています"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
