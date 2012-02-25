@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-25 03:24+0200\n"
+"PO-Revision-Date: 2012-02-25 03:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1758,7 +1758,7 @@ msgstr "データベースの再読み込み中"
 
 #: js/messages.php:244
 msgid "Copying Database"
-msgstr "データベースをコピー中"
+msgstr "データベースをコピーしています"
 
 #: js/messages.php:245
 msgid "Changing Charset"
