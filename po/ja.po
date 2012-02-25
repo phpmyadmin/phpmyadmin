@@ -1762,7 +1762,7 @@ msgstr "データベースをコピーしています"
 
 #: js/messages.php:245
 msgid "Changing Charset"
-msgstr "文字セットの変更中"
+msgstr "文字セットを変更しています"
 
 #: js/messages.php:246
 msgid "Table must have at least one column"
