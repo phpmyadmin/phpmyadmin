@@ -80,16 +80,18 @@ function PMA_langCheck()
         }
     }
 
-    // try to findout user's language by checking its HTTP_ACCEPT_LANGUAGE variable
-    if (PMA_getenv('HTTP_ACCEPT_LANGUAGE')) {
-        foreach (explode(',', PMA_getenv('HTTP_ACCEPT_LANGUAGE')) as $lang) {
+    // try to find out user's language by checking its HTTP_ACCEPT_LANGUAGE variable; prevent XSS
+    $accepted_languages = PMA_getenv('HTTP_ACCEPT_LANGUAGE');
+    if ($accepted_languages && false === strpos($accepted_languages, '<')) {
+        foreach (explode(',', $accepted_languages) as $lang) {
             if (PMA_langDetect($lang, 1)) {
                 return true;
             }
         }
     }
+    unset($accepted_languages);
 
-    // try to findout user's language by checking its HTTP_USER_AGENT variable
+    // try to find out user's language by checking its HTTP_USER_AGENT variable
     if (PMA_langDetect(PMA_getenv('HTTP_USER_AGENT'), 2)) {
         return true;
     }
@@ -104,7 +106,7 @@ function PMA_langCheck()
 
 /**
  * checks given lang and sets it if valid
- * returns true on success, otherwise flase
+ * returns true on success, otherwise false
  *
  * @param string  $lang   language to set
  * @return  bool    success

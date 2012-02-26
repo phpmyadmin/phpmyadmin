@@ -453,9 +453,9 @@ function PMA_checkPageValidity(&$page, $whitelist)
 }
 
 /**
- * trys to find the value for the given environment vriable name
+ * tries to find the value for the given environment vriable name
  *
- * searchs in $_SERVER, $_ENV than trys getenv() and apache_getenv()
+ * searches in $_SERVER, $_ENV then tries getenv() and apache_getenv()
  * in this order
  *
  * @param string  $var_name   variable name

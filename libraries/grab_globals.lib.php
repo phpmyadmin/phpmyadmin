@@ -88,7 +88,7 @@ if (! empty($_POST)) {
 /**
  * globalize some environment variables
  */
-$server_vars = array('HTTP_ACCEPT_LANGUAGE', 'HTTP_AUTHORIZATION');
+$server_vars = array('HTTP_AUTHORIZATION');
 foreach ($server_vars as $current) {
     // it's not important HOW we detect html tags
     // it's more important to prevent XSS
