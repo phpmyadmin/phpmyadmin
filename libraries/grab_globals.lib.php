@@ -85,18 +85,6 @@ if (! empty($_GET)) {
 if (! empty($_POST)) {
     PMA_recursive_extract($_POST, $GLOBALS);
 }
-
-if (! empty($_FILES)) {
-    $_valid_variables = preg_replace($GLOBALS['_import_blacklist'], '', array_keys($_FILES));
-    foreach ($_valid_variables as $name) {
-        if (strlen($name) != 0) {
-            $$name = $_FILES[$name]['tmp_name'];
-            ${$name . '_name'} = $_FILES[$name]['name'];
-        }
-    }
-    unset($name, $value);
-}
-
 /**
  * globalize some environment variables
  */
