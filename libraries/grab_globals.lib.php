@@ -85,22 +85,6 @@ if (! empty($_GET)) {
 if (! empty($_POST)) {
     PMA_recursive_extract($_POST, $GLOBALS);
 }
-/**
- * globalize some environment variables
- */
-$server_vars = array('HTTP_AUTHORIZATION');
-foreach ($server_vars as $current) {
-    // it's not important HOW we detect html tags
-    // it's more important to prevent XSS
-    // so it's not important if we result in an invalid string,
-    // it's even better than a XSS capable string
-    if (PMA_getenv($current) && false === strpos(PMA_getenv($current), '<')) {
-        $$current = PMA_getenv($current);
-    // already imported by register_globals?
-    } elseif (! isset($$current) || false !== strpos($$current, '<')) {
-        $$current = '';
-    }
-}
-unset($server_vars, $current, $_import_blacklist);
+unset($_import_blacklist);
 
 ?>
