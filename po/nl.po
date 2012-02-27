@@ -7912,7 +7912,7 @@ msgstr "Functie"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "De verwijderde trigger kon niet hersteld worden."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
