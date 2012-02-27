@@ -3464,7 +3464,7 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
-"Definieert de minimal grootte voor invoervelden die gegenereerd worden voor "
+"Definieert de minimale grootte voor invoervelden die gegenereerd worden voor "
 "CHAR en VARCHAR kolommen"
 
 #: libraries/config/messages.inc.php:35
