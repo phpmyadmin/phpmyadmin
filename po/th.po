@@ -1380,7 +1380,7 @@ msgstr "เอกซะไบต์"
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s ตาราง"
+msgstr "%d ตาราง"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
