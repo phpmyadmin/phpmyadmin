@@ -10081,10 +10081,10 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:937
-#, fuzzy, php-format
+#, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
-msgstr "Aanpassen beginpagina"
+msgstr "Questions sinds opstart : %s"
 
 #: server_status.php:973 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
