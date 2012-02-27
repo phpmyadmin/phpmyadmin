@@ -6136,7 +6136,7 @@ msgstr "Goed bekende tekst"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Goed gekende binaire waarde"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
