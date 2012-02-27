@@ -6967,7 +6967,7 @@ msgstr "Geen gegevens beschikbaar voor GIS visualisatie."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "poging om GLOBALS te overschrijven"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:57
 msgid "SQL result"
