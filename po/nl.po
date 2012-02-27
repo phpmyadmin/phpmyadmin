@@ -7032,10 +7032,10 @@ msgid "Structure of %s"
 msgstr "Structuur van %s"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Ga naar view"
+msgstr "Ga naar view: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
