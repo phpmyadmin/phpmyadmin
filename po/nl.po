@@ -3495,7 +3495,7 @@ msgstr "CHAR tekstgebied kolommen"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr "Aantal regels voor CHAR/VARCHAR textareas"
+msgstr "Aantal regels voor CHAR/VARCHAR tekstgebieden"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
