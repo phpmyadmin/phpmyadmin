@@ -7627,6 +7627,8 @@ msgstr "Gebeurtenis %1$s werd aangemaakt."
 #: libraries/rte/rte_triggers.lib.php:114
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
+"<b>Een of meer fouten zijn opgetreden tijdens het uitvoeren van uw "
+"vraag:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
 #, fuzzy
