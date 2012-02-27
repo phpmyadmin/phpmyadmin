@@ -7670,7 +7670,7 @@ msgstr "Uitvoeren om"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute every"
-msgstr ""
+msgstr "Uitvoeren iedere"
 
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
