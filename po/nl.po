@@ -2578,7 +2578,7 @@ msgstr[1] "%1$d rijen toegevoegd."
 #: libraries/PDF.class.php:81
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Fout bij het aanmaken van de PDF."
+msgstr "Fout bij het aanmaken van de PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
