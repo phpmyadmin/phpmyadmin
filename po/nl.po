@@ -8028,10 +8028,9 @@ msgid "There are no triggers to display."
 msgstr "Er zijn geen triggers om weer te gegeven."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "Een server toevoegen"
+msgstr "Event toevoegen"
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
