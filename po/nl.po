@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-27 18:50+0200\n"
+"PO-Revision-Date: 2012-02-27 18:51+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6035,10 +6035,9 @@ msgid "Language"
 msgstr "Taal"
 
 #: libraries/display_tbl.lib.php:406
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Opslag directory"
+msgstr "Sla aangepaste gegevens op"
 
 #: libraries/display_tbl.lib.php:412
 msgid "Restore column order"
