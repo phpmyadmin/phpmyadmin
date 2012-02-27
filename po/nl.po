@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-27 19:15+0200\n"
+"PO-Revision-Date: 2012-02-27 19:16+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -13012,10 +13012,10 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Sorteer buffer grootte"
+msgstr "Max %% MyISAM key buffer ooit gebrui!kt"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
