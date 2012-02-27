@@ -5251,10 +5251,9 @@ msgid "Show function fields"
 msgstr "Toon functie velden"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Waar de tabelrij links getoond worden"
+msgstr "Of een hint getoond wordt of niet"
 
 #: libraries/config/messages.inc.php:467
 #, fuzzy
