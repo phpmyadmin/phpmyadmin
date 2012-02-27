@@ -7937,11 +7937,10 @@ msgid "Trigger name"
 msgstr "Triggernaam"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "Tijd"
+msgstr "Tijdstip"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
