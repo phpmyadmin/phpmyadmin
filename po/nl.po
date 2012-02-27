@@ -7631,10 +7631,9 @@ msgstr ""
 "vraag:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Wijzig server"
+msgstr "Gebeurtenis bewerken"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1276
