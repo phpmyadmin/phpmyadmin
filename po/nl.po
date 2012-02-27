@@ -10146,7 +10146,7 @@ msgid ""
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "Kijk voor meer informatie over de replicatiestatus op deze server in de <a "
-"href=#replication>replicatiestatus sectie</a>."
+"href=\"#replication\">replicatiestatus sectie</a>."
 
 #: server_status.php:1085
 msgid "Replication status"
