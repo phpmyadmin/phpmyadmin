@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-27 18:10+0200\n"
+"PO-Revision-Date: 2012-02-27 18:11+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3470,7 +3470,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:35
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Minimale grootte voor invoerveld"
+msgstr "Minimale grootte voor een invoerveld"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
