@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-27 19:30+0200\n"
+"PO-Revision-Date: 2012-02-27 19:31+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6961,10 +6961,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Open nieuw phpMyAdmin scherm"
 
 #: libraries/gis_visualization.lib.php:134
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Geen gegeven beschikbaar voor de grafiek."
+msgstr "Geen gegevens beschikbaar voor GIS visualisatie."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
