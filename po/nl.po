@@ -3487,7 +3487,7 @@ msgstr "Maximale grootte voor een invoerveld"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr "Aantal kolommen voor CHAR/VARCHAR textareas"
+msgstr "Aantal kolommen voor CHAR/VARCHAR tekstgebieden"
 
 #: libraries/config/messages.inc.php:39
 msgid "CHAR textarea columns"
