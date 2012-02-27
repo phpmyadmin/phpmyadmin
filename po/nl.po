@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-20 17:00+0200\n"
+"PO-Revision-Date: 2012-02-24 18:20+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -938,11 +938,12 @@ msgstr "Lijnstuk definitie"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
-msgstr "Buitenste Ring"
+msgstr "Aangeschreven cirkel"
 
+# https://nl.wikipedia.org/wiki/Ingeschreven_cirkel
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
 msgid "Inner Ring"
-msgstr "Binnenste Ring"
+msgstr "Ingeschreven cirkel"
 
 #: gis_data_editor.php:252
 #| msgid "Add a new User"
@@ -950,10 +951,9 @@ msgid "Add a linestring"
 msgstr "Voeg een lijnstuk toe"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Voeg een binnenste ring toe"
+msgstr "Voeg een ingeschreven cirkel toe"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
@@ -1831,7 +1831,7 @@ msgstr "Correct"
 
 #: js/messages.php:239
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Klik om deze melding te sluiten"
 
 #: js/messages.php:242
 msgid "Renaming Databases"
@@ -1858,16 +1858,14 @@ msgid "Insert Table"
 msgstr "Tabel toevoegen"
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Voeg index toe"
+msgstr "Verberg indexen"
 
 #: js/messages.php:253
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Toon raster"
+msgstr "Indexen tonen"
 
 #: js/messages.php:256
 msgid "Searching"
@@ -1892,6 +1890,7 @@ msgstr "Verwijderen"
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"De definitie van een opgeslagen functie moet een RETURN statement bevatten!"
 
 #: js/messages.php:270
 #, php-format
@@ -1925,10 +1924,9 @@ msgid "Change"
 msgstr "Veranderen"
 
 #: js/messages.php:281
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Maximale uitvoertijd"
+msgstr "Query uitvoertijd"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -1947,64 +1945,64 @@ msgid "Show search criteria"
 msgstr "Toon zoek-criteria"
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Zoeken"
+msgstr "Zoeken door in te zoomen"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Ieder punt stelt een gegevens rij voor."
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Beweeg over een punt om het label te tonen."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Gebruik het muiswiel om in of uit te zoomen."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
-msgstr ""
+msgstr "Klik en sleep met de muis om te navigeren."
 
 #: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
-msgstr ""
+msgstr "Klik herstel zoom om terug te keren naar de beginpositie."
 
 #: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Klik een gegevens punt aan om dit te bekijken en om eventueel de data te "
+"bewerken."
 
 #: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"De weergave kan herschaald worden door het langs de hoek rechtsonder te "
+"slepen."
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Tekenreeksen worden omgezet naar integers voor weergave"
 
 #: js/messages.php:309
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Toevoegen/Verwijderen kolommen"
+msgstr "Selecteer twee kolommen"
 
 #: js/messages.php:310
 msgid "Select two different columns"
-msgstr ""
+msgstr "Selecteer twee verschillende kolommen"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Query resultaat bewerkingen"
+msgstr "Query resultaat"
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Data pointer formaat"
+msgstr "Inhoud gegevenspunt "
 
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
@@ -2016,10 +2014,9 @@ msgid "Copy"
 msgstr "Kopiëren"
 
 #: js/messages.php:331
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Voeg kolom toe"
+msgstr "Voeg kolommen toe"
 
 #: js/messages.php:334
 msgid "Select referenced key"
@@ -2051,17 +2048,19 @@ msgstr "Voeg een optie toe voor komom "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Druk op ESC om het bewerken te annuleren"
 
 #: js/messages.php:345
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"U heeft gegevens bewerkt en deze werden nog niet opgeslagen. Bent u zeker "
+"dat u deze pagina wil verlaten alvorens de wijzigingen op te slaan?"
 
 #: js/messages.php:346
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Sleep om te herschikken"
 
 #: js/messages.php:347
 msgid "Click to sort"
@@ -2073,24 +2072,26 @@ msgstr "Klik om te markeren/demarkeren"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Klik op het pijltje<br />om de zichtbaarheid van de kolom te wijzigen"
 
 #: js/messages.php:351
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Deze tabel bevat geen unieke kolom. Functies zoals rasterbewerkingen, "
+"checkboxen, Bewerken, Kopiëren en Verwijderen, werken mogelijk niet na "
+"opslaan."
 
 #: js/messages.php:352
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
-msgstr ""
+msgstr "U kan de meeste kolommen bewerken<br />door op de inhoud te klikken."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Ga naar view"
+msgstr "Ga naar de link"
 
 #: js/messages.php:356
 msgid "Generate password"
@@ -2368,15 +2369,14 @@ msgstr "Week"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
 msgid "calendar-month-year"
-msgstr ""
+msgstr "kalender-maand-jaar"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Geen"
+msgstr "geen"
 
 #: js/messages.php:495
 msgid "Hour"
@@ -2394,6 +2394,8 @@ msgstr "Seconde"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Formateren van tekenreeks voor regel '%s' is mislukt. PHP gaf de volgende "
+"foutmelding : %s"
 
 #: libraries/Advisor.class.php:326 server_status.php:952
 msgid "per second"
@@ -2410,20 +2412,22 @@ msgstr "per uur"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
-msgstr ""
+msgstr "per dag"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Verwijder de \"./config\" folder alvorens phpMyAdmin te gebruiken!"
 
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Het bestaande configuratiebestand (%s) is niet leesbaar."
 
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Verkeerde rechten ingesteld op het configuratiebestand, dit mag niet "
+"leesbaar zijn voor iedereen!"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
@@ -2431,11 +2435,11 @@ msgstr "Lettertypegrootte"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Er zijn teveel foutmeldingen, sommige worden niet weergegeven."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Bestand is geen geupload bestand."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 #, fuzzy
@@ -2487,11 +2491,11 @@ msgstr ""
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Fout bij het verplaatsen van het geuploade bestand."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Het geuploade bestand kan niet gelezen (verplaatst) worden."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
@@ -2646,6 +2650,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Opkuisen van tabel UI instellingen is mislukt (zie "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1533
 #, php-format
@@ -2654,6 +2660,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"UI eigenschap \"%s\" kan niet opgeslagen worden. De gedane wijzigingen zullen "
+"verdwijnen na verversen van deze pagina. Gelieve na te kijken of de tabel "
+"structuur gewijzigd werd."
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -2685,7 +2694,7 @@ msgstr "Thema pad niet gevonden voor thema %s!"
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "Thema"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
@@ -2720,7 +2729,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Gebruik van Blowfish van mcrypt is niet gelukt!"
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
@@ -2821,10 +2830,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS BLOB info ophalen mislukt:"
 
 #: libraries/blobstreaming.lib.php:373
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "ophalen van BLOB Content-type mislukt"
+msgstr "ophalen door PBMS van BLOB Content-type mislukt"
 
 #: libraries/blobstreaming.lib.php:401
 msgid "View image"
@@ -2898,23 +2906,24 @@ msgstr "Controleer privileges"
 
 #: libraries/common.inc.php:151
 msgid "possible exploit"
-msgstr ""
+msgstr "mogelijk misbruik"
 
 #: libraries/common.inc.php:160
 msgid "numeric key detected"
-msgstr ""
+msgstr "numerieke toets gedetecteerd"
 
 #: libraries/common.inc.php:607
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "Opslaan van het configuratiebestand is niet mogelijk"
+msgstr "Lezen van het configuratiebestand is niet gelukt"
 
 #: libraries/common.inc.php:608
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Dit betekent meestal dat er een syntaxfout in zit, gelieve de foutmeldingen "
+"hieronder te bekijken."
 
 # 'kon niet vanuit "%1$s" geladen worden' is juister.
 #: libraries/common.inc.php:615
@@ -3123,10 +3132,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "De %s functionaliteit heeft last van een bekend probleem, zie %s"
 
 #: libraries/common.lib.php:2750
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Klik om te selecteren"
+msgstr "Klik om te wisselen"
 
 #: libraries/common.lib.php:3124 libraries/common.lib.php:3131
 #: libraries/common.lib.php:3346 libraries/config/setup.forms.php:296
@@ -3182,7 +3190,7 @@ msgstr "Er zijn geen bestanden om te uploaden"
 
 #: libraries/common.lib.php:3355 libraries/common.lib.php:3356
 msgid "Execute"
-msgstr ""
+msgstr "Voer uit"
 
 #: libraries/common.lib.php:3831
 msgid "Print"

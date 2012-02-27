@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-17 12:20+0200\n"
+"PO-Revision-Date: 2012-02-25 04:18+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1073,11 +1073,11 @@ msgstr "テーブルを完全に空にしようとしています!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr "追跡データの削除中"
+msgstr "追跡データを削除しています"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr "主キー/インデックスの削除中"
+msgstr "主キー／インデックスを削除しています"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1732,11 +1732,11 @@ msgstr "要求処理中でのエラー"
 
 #: js/messages.php:236
 msgid "Dropping Column"
-msgstr "カラムを削除中"
+msgstr "カラムを削除しています"
 
 #: js/messages.php:237
 msgid "Adding Primary Key"
-msgstr "主キーの追加中"
+msgstr "主キーを追加しています"
 
 #: js/messages.php:238 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
@@ -1758,11 +1758,11 @@ msgstr "データベースの再読み込み中"
 
 #: js/messages.php:244
 msgid "Copying Database"
-msgstr "データベースをコピー中"
+msgstr "データベースをコピーしています"
 
 #: js/messages.php:245
 msgid "Changing Charset"
-msgstr "文字セットの変更中"
+msgstr "文字セットを変更しています"
 
 #: js/messages.php:246
 msgid "Table must have at least one column"
@@ -1782,7 +1782,7 @@ msgstr "インデックスを表示する"
 
 #: js/messages.php:256
 msgid "Searching"
-msgstr "検索中"
+msgstr "検索しています"
 
 #: js/messages.php:257
 msgid "Hide search results"
@@ -1798,7 +1798,7 @@ msgstr "表示中"
 
 #: js/messages.php:260
 msgid "Deleting"
-msgstr "削除中"
+msgstr "削除しています"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -2815,9 +2815,7 @@ msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> はかならず設定ファイルで設定する必要がありま"
-"す!"
+msgstr "<tt>$cfg['PmaAbsoluteUri']</tt> は<b>必ず</b>設定ファイルに設定しなければなりません！"
 
 #: libraries/common.inc.php:650
 #, php-format
@@ -8451,7 +8449,7 @@ msgstr "phpMyAdmin オフィシャルサイト"
 
 #: main.php:243
 msgid "Contribute"
-msgstr "貢献するには"
+msgstr "phpMyAdmin に協力するには"
 
 #: main.php:244
 msgid "Get support"
