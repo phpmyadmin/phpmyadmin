@@ -5289,7 +5289,7 @@ msgstr "Toon SQL-queries"
 #: libraries/config/messages.inc.php:473
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr ""
+msgstr "Bepaalt of het query veld op het scherm moet blijven na invoer"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 #, fuzzy
