@@ -8046,7 +8046,7 @@ msgstr "gebeurtenis"
 #: libraries/rte/rte_words.lib.php:46
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "U heeft niet voldoende rechten om een event aan te maken"
+msgstr "U heeft niet voldoende rechten om een gebeurtenis aan te maken"
 
 #: libraries/rte/rte_words.lib.php:47
 #, fuzzy, php-format
