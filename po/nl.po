@@ -8036,7 +8036,7 @@ msgstr "Gebeurtenis toevoegen"
 #, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Exporteer event %s"
+msgstr "Exporteer gebeurtenis %s"
 
 #: libraries/rte/rte_words.lib.php:45
 #, fuzzy
