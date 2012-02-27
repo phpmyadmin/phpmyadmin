@@ -8030,7 +8030,7 @@ msgstr "Er zijn geen triggers om weer te gegeven."
 #: libraries/rte/rte_words.lib.php:42
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "Event toevoegen"
+msgstr "Gebeurtenis toevoegen"
 
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
