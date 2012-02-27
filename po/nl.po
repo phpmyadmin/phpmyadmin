@@ -8003,10 +8003,9 @@ msgid "There are no routines to display."
 msgstr "Er zijn geen routines om weer te geven."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "Een server toevoegen"
+msgstr "Een trigger toevoegen"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
