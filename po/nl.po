@@ -5657,7 +5657,7 @@ msgstr "De %s extensie ontbreekt. Gelieve uw PHP configuratie te controleren."
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "mogelijke diepe recursieaanval"
 
 #: libraries/database_interface.lib.php:1813
 #| msgid " the local MySQL server's socket is not correctly configured)"
