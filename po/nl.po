@@ -7124,7 +7124,9 @@ msgstr "ESRI vorm bestand"
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr "Er was een fout bij het importeren van het ESRI vorm bestand: \"%s\"."
+msgstr ""
+"Er is een fout opgetreden bij het importeren van het ESRI vorm bestand: \"%"
+"s\"."
 
 #: libraries/import/shp.php:336
 msgid ""
