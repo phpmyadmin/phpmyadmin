@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-24 18:20+0200\n"
+"PO-Revision-Date: 2012-02-27 19:40+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -851,7 +851,6 @@ msgstr ""
 "Het geselecteerde export type dient als een bestand te worden opgeslagen!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Bad parameters!"
 msgstr "Verkeerde parameters!"
@@ -880,7 +879,6 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump is bewaard als %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
 msgstr "Ongeldig export type"
@@ -936,6 +934,7 @@ msgstr "Voeg een punt toe"
 msgid "Linestring"
 msgstr "Lijnstuk definitie"
 
+# https://nl.wikipedia.org/wiki/Aangeschreven_cirkel
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
 msgstr "Aangeschreven cirkel"
@@ -1138,10 +1137,9 @@ msgid "Add Index"
 msgstr "Voeg een index toe"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Wijzig Index"
+msgstr " Index bewerken"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
@@ -2002,7 +2000,7 @@ msgstr "Query resultaat"
 #: js/messages.php:312
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Inhoud gegevenspunt "
+msgstr "Inhoud gegevenspunt"
 
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
@@ -2290,7 +2288,6 @@ msgstr "zaterdag"
 
 #. l10n: Short week day name
 #: js/messages.php:451
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2442,7 +2439,6 @@ msgid "File was not an uploaded file."
 msgstr "Bestand is geen geupload bestand."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Onbekende fout bij het uploaden."
@@ -2581,7 +2577,7 @@ msgstr[1] "%1$d rijen toegevoegd."
 #: libraries/PDF.class.php:81
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Fout bij het aanmaken van de PDF."
+msgstr "Fout bij het aanmaken van de PDF:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -3467,40 +3463,42 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definieert de minimale grootte voor invoervelden die gegenereerd worden voor "
+"CHAR en VARCHAR kolommen"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Tekstvelden aanpassen"
+msgstr "Minimale grootte voor een invoerveld"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definieert de maximale grootte voor invoervelden die gegenereerd worden voor "
+"CHAR en VARCHAR kolommen"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Maximum grootte voor tijdelijke sorteer bestanden"
+msgstr "Maximale grootte voor een invoerveld"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr "Aantal kolommen voor CHAR/VARCHAR textareas"
+msgstr "Aantal kolommen voor CHAR/VARCHAR tekstgebieden"
 
 #: libraries/config/messages.inc.php:39
 msgid "CHAR textarea columns"
-msgstr "CHAR textarea kolommen"
+msgstr "CHAR tekstgebied kolommen"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr "Aantal regels voor CHAR/VARCHAR textareas"
+msgstr "Aantal regels voor CHAR/VARCHAR tekstgebieden"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
-msgstr "CHAR textarea regels"
+msgstr "CHAR tekstgebied regels"
 
 #: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
@@ -3529,12 +3527,12 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Of er een waarschuwing(&quot;Weet u jet zeker...&quot;) moet worden getoond "
-"op het moment dat u gegevens gaat verwijderen"
+"Of er een waarschuwing(&quot;Weet u zeker...&quot;) moet worden getoond op "
+"het moment dat u gegevens gaat verwijderen"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
-msgstr "Bevestig 'DROP'-queries"
+msgstr "Bevestig DROP-queries"
 
 #: libraries/config/messages.inc.php:48
 msgid "Debug SQL"
@@ -3597,12 +3595,13 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Schakel arbeidsintensieve onderhoudstaken voor tabellen uit, zoals "
+"optimaliseren of herstellen van geselecteerde tabellen van een databank."
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Tabelonderhoud"
+msgstr "Schakel onderhoud op meerdere tabellen uit"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
@@ -4520,14 +4519,13 @@ msgid "Memory limit"
 msgstr "Geheugen limiet"
 
 #: libraries/config/messages.inc.php:321
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Dit zijn Bewerken, Inline bewerken, Kopieer en Delete links"
+msgstr "Dit zijn Bewerken, Kopieer en Delete links"
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
-msgstr "Waar de tabelrij links getoond worden"
+msgstr "Waar de tabelregel links getoond worden"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
@@ -4683,7 +4681,7 @@ msgstr "Toon helpknop"
 
 #: libraries/config/messages.inc.php:359
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Sla alle wijzigingen aan cellen tegelijk op"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
@@ -4808,12 +4806,14 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Een alternatieve machine voor de configuratieopslag; laat leeg om de reeds "
+"gedefinieerde machine te gebruiken"
 
 #: libraries/config/messages.inc.php:386
 #, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Controle gebruiker"
+msgstr "Controle machine"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -4895,12 +4895,13 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
+"Beperkt het aantal tabelvoorkeuren die opgeslagen zijn in de database, de "
+"oudste worden automatisch verwijderd"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Het maximum aantal tabellen dat wordt getoond in de tabellen lijst"
+msgstr "Het maximum aantal tabelvoorkeuren die opgeslagen worden"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
@@ -5147,7 +5148,6 @@ msgid "Automatically create versions"
 msgstr "Automatisch versies aanmaken"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "blank for no user preferences storage in database, suggested: d]_config[/"
 #| "kbd]"
@@ -5155,8 +5155,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen gebruikers instellingen op te slaan, voorgesteld: "
-"[kbd]pma_config[/kbd]"
+"Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan, suggestie: "
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -5222,12 +5222,13 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Bepaalt of de optie weergaverichting getoond wordt bij het bekijken van een "
+"tabel"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Standaard weergave richting"
+msgstr "Toon weergaverichting"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
@@ -5249,16 +5250,14 @@ msgid "Show function fields"
 msgstr "Toon functie velden"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Whether to show hint or not"
-msgstr "Waar de tabelrij links getoond worden"
+msgstr "Of een hint getoond wordt of niet"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "Toon raster"
+msgstr "Toon hint"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5289,13 +5288,12 @@ msgstr "Toon SQL-queries"
 #: libraries/config/messages.inc.php:473
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr ""
+msgstr "Bepaalt of het query veld op het scherm moet blijven na invoer"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "SQL-query veld verbergen"
+msgstr "Query veld behouden"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -5604,17 +5602,16 @@ msgstr "Open Document Tekst"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Drizzle verbindingsbibliotheek kon niet geïnitialiseerd worden"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Er kan geen verbinding worden gemaakt met de server"
+msgstr "Er kan geen verbinding worden gemaakt met de Drizzle server"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
-msgstr "Er kan geen verbinding worden gemaakt met de server"
+msgstr "Er kan geen verbinding worden gemaakt met de MySQL server"
 
 #: libraries/config/validate.lib.php:254
 msgid "Empty username while using config authentication method"
@@ -5659,7 +5656,7 @@ msgstr "De %s extensie ontbreekt. Gelieve uw PHP configuratie te controleren."
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "mogelijke diepe recursieaanval"
 
 #: libraries/database_interface.lib.php:1813
 #| msgid " the local MySQL server's socket is not correctly configured)"
@@ -5667,7 +5664,7 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
-"De server reageert niet (of de socket van de MySQL-server is niet juist "
+"De server reageert niet (of de socket van de server is niet juist "
 "ingesteld)."
 
 #: libraries/database_interface.lib.php:1816
@@ -5677,7 +5674,7 @@ msgstr "De server reageert niet."
 
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Gelieve de rechten na te kijken op de folder met de database."
 
 #: libraries/database_interface.lib.php:1828
 msgid "Details..."
@@ -6037,10 +6034,9 @@ msgid "Language"
 msgstr "Taal"
 
 #: libraries/display_tbl.lib.php:406
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Opslag directory"
+msgstr "Sla aangepaste gegevens op"
 
 #: libraries/display_tbl.lib.php:412
 msgid "Restore column order"
@@ -6052,10 +6048,9 @@ msgid "%d is not valid row number."
 msgstr "%d is geen geldig rij-nummer."
 
 #: libraries/display_tbl.lib.php:428
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Tekstveld regels"
+msgstr "Eerste regel"
 
 #: libraries/display_tbl.lib.php:430
 #| msgid "Number of rows:"
@@ -6063,10 +6058,9 @@ msgid "Number of rows"
 msgstr "Aantal rijen"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Meer"
+msgstr "Modus"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal"
@@ -6083,7 +6077,7 @@ msgstr "verticaal"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Hoofdingen iedere %s regels"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
@@ -6131,22 +6125,21 @@ msgid "Show BLOB contents"
 msgstr "Toon BLOB inhoud"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Browser transformaties"
+msgstr "Browser transformaties verbergen"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr ""
+msgstr "Goed bekende tekst"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Goed gekende binaire waarde"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
-msgstr "De rij is verwijderd"
+msgstr "De regel werd verwijderd"
 
 #: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2473
 #: server_status.php:1264
@@ -6184,7 +6177,7 @@ msgstr "Grafiek weergeven"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "GIS gegevens visualiseren"
 
 #: libraries/display_tbl.lib.php:2701
 msgid "Create view"
@@ -6826,7 +6819,6 @@ msgid "Add statements:"
 msgstr "Statements toevoegen:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "e table and field names with backquotes <i>(Protects field and le names "
 #| "med with special characters or keywords)</i>"
@@ -6834,8 +6826,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Voeg aanhalingstekens toe aan tabel- en veldnamen <i>(Beschermt tabel- en "
-"veldnamen die speciale tekens en sleutelwoorden bevatten)</i>"
+"Voeg aanhalingstekens toe aan tabel- en kolomnamen <i>(Beschermt tabel- en "
+"kolomnamen die speciale tekens en sleutelwoorden bevatten)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6969,14 +6961,13 @@ msgid "Open new phpMyAdmin window"
 msgstr "Open nieuw phpMyAdmin scherm"
 
 #: libraries/gis_visualization.lib.php:134
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Geen gegeven beschikbaar voor de grafiek."
+msgstr "Geen gegevens beschikbaar voor GIS visualisatie."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "poging om GLOBALS te overschrijven"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:57
 msgid "SQL result"
@@ -7014,34 +7005,34 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Klik op de \"Structuur\"-koppeling om de structuur aan te passen"
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Ga naar database"
+msgstr "Ga naar database : %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Ontbrekende data voor %s"
+msgstr "Wijzig instellingen voor %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Ga naar tabel"
+msgstr "Ga naar tabel: %s"
 
 #: libraries/import.lib.php:1130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Alleen structuur"
+msgstr "Structuur van %s"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Ga naar view"
+msgstr "Ga naar view: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -7128,23 +7119,27 @@ msgstr ""
 
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI vorm bestand"
 
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
+"Er is een fout opgetreden bij het importeren van het ESRI vorm bestand: \"%"
+"s\"."
 
 #: libraries/import/shp.php:336
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"U probeerde een ongeldig bestand te importeren, of het geimporteerde bestand "
+"bevat ongeldige gegevens"
 
 #: libraries/import/shp.php:338
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Spatial extensie ondersteunt ESRI type \"%s\" niet."
 
 #: libraries/import/shp.php:376
 #| msgid "This page does not contain any tables!"
@@ -7609,12 +7604,12 @@ msgstr "De volgende query is mislukt: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "Herstellen van de verwijderde gebeurtenis is mislukt."
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:267
 #: libraries/rte/rte_triggers.lib.php:90
 msgid "The backed up query was:"
-msgstr ""
+msgstr "De gebackupte query was:"
 
 #: libraries/rte/rte_events.lib.php:121
 #, php-format
@@ -7623,30 +7618,30 @@ msgid "Event %1$s has been modified."
 msgstr "Evenement %1$s werd gewijzigd."
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "Tabel %1$s is aangemaakt."
+msgstr "Gebeurtenis %1$s werd aangemaakt."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_triggers.lib.php:114
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
+"<b>Een of meer fouten zijn opgetreden tijdens het uitvoeren van uw "
+"opdracht:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Wijzig server"
+msgstr "Gebeurtenis bewerken"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1276
 #: libraries/rte/rte_routines.lib.php:1312
 #: libraries/rte/rte_triggers.lib.php:187
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Fout tijdens het verwerken van de opdracht"
+msgstr "Fout tijdens het uitvoeren van de opdracht"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
 #: libraries/rte/rte_triggers.lib.php:302
@@ -7655,35 +7650,33 @@ msgid "Details"
 msgstr "Details"
 
 #: libraries/rte/rte_events.lib.php:374
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Gebeurtenis type"
+msgstr "Gebeurtenis naam"
 
 #: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
 msgid "Event type"
 msgstr "Gebeurtenis type"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Veranderen"
+msgstr "Veranderen naar %s"
 
 #: libraries/rte/rte_events.lib.php:422
 msgid "Execute at"
-msgstr ""
+msgstr "Uitvoeren om"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute every"
-msgstr ""
+msgstr "Uitvoeren iedere"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Startup"
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "Beginpagina"
+msgstr "Begin"
 
 #: libraries/rte/rte_events.lib.php:457
 #, fuzzy
@@ -7694,16 +7687,14 @@ msgstr "Einde"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:354
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Beschrijving"
+msgstr "Definitie"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "volledige invoegingen"
+msgstr "Na afloop behouden"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
@@ -7903,14 +7894,13 @@ msgstr "Resultaten van uitgevoerde routine %s"
 #: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_routines.lib.php:1306
 msgid "Execute routine"
-msgstr ""
+msgstr "Routine uitvoeren"
 
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/rte/rte_routines.lib.php:1362
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Routines"
+msgstr "Routine parameters"
 
 #: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
@@ -7919,7 +7909,7 @@ msgstr "Functie"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "De verwijderde trigger kon niet hersteld worden."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
@@ -7928,69 +7918,63 @@ msgid "Trigger %1$s has been modified."
 msgstr "Trigger %1$s werd gewijzigd."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Tabel %1$s is aangemaakt."
+msgstr "Trigger %1$s werd aangemaakt."
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Edit trigger"
-msgstr "Een server toevoegen"
+msgstr "Trigger bewerken"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Triggers"
+msgstr "Triggernaam"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "Tijd"
+msgstr "Tijdstip"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "U moet een triggernaam ingeven"
 
 #: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
-msgstr ""
+msgstr "U moet een geldig tijdstip voor de trigger ingeven"
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
-msgstr ""
+msgstr "U moet een geldig event voor de trigger ingeven"
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
-msgstr "Ongeldige tabel naam"
+msgstr "U moet een geldige tabelnaam ingeven"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "U moet een trigger definitie ingeven."
 
 #: libraries/rte/rte_words.lib.php:18
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Voeg index toe"
+msgstr "Voeg routine toe"
 
 #: libraries/rte/rte_words.lib.php:20
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Export standaarden"
+msgstr "Exporteer routine %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Routines"
+msgstr "routine"
 
 #: libraries/rte/rte_words.lib.php:22
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -7998,10 +7982,10 @@ msgid "You do not have the necessary privileges to create a routine"
 msgstr "U heeft niet voldoende rechten om een routine aan te maken"
 
 #: libraries/rte/rte_words.lib.php:23
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Geen tabellen gevonden in de database"
+msgstr "Geen routine met naam %1$s gevonden in database %2$s"
 
 #: libraries/rte/rte_words.lib.php:24
 #| msgid "There are no files to upload"
@@ -8009,22 +7993,20 @@ msgid "There are no routines to display."
 msgstr "Er zijn geen routines om weer te geven."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "Een server toevoegen"
+msgstr "Een trigger toevoegen"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Exporteer inhoud"
+msgstr "Exporteer trigger %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Triggers"
+msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:34
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -8032,10 +8014,10 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "U heeft niet voldoende rechten om een trigger aan te maken"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Geen tabellen gevonden in de database"
+msgstr "Geen trigger met naam %1$s gevonden in database %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 #| msgid "There are no files to upload"
@@ -8043,38 +8025,36 @@ msgid "There are no triggers to display."
 msgstr "Er zijn geen triggers om weer te gegeven."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "Een server toevoegen"
+msgstr "Gebeurtenis toevoegen"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Exporteer inhoud"
+msgstr "Exporteer gebeurtenis %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Gebeurtenis"
+msgstr "gebeurtenis"
 
 #: libraries/rte/rte_words.lib.php:46
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "U heeft niet voldoende rechten om een event aan te maken"
+msgstr "U heeft niet voldoende rechten om een gebeurtenis aan te maken"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Geen tabellen gevonden in de database"
+msgstr "Geen gebeurtenis met naam %1$s gevonden in database %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Er zijn geen events om weer te geven."
+msgstr "Er zijn geen gebeurtenissen om weer te geven."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
@@ -10098,10 +10078,10 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:937
-#, fuzzy, php-format
+#, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
-msgstr "Aanpassen beginpagina"
+msgstr "Questions sinds opstart : %s"
 
 #: server_status.php:973 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
@@ -10118,10 +10098,10 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: server_status.php:1058
-#, fuzzy, php-format
+#, php-format
 #| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Deze MySQL-server draait inmiddels %s. Hij is gestart op %s."
+msgstr "Deze MySQL-server draait inmiddels %1$s. Deze is gestart op %2$s."
 
 #: server_status.php:1069
 msgid ""
@@ -10152,7 +10132,7 @@ msgid ""
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "Kijk voor meer informatie over de replicatiestatus op deze server in de <a "
-"href=#replication>replicatiestatus sectie</a>."
+"href=\"#replication\">replicatiestatus sectie</a>."
 
 #: server_status.php:1085
 msgid "Replication status"
@@ -11064,20 +11044,20 @@ msgid "Query analyzer"
 msgstr "Query-type"
 
 #: server_status.php:1771
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Seconde"
-msgstr[1] "Seconde"
+msgstr[0] "%d seconde"
+msgstr[1] "%d seconden"
 
 #: server_status.php:1773
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "Minuut"
-msgstr[1] "Minuut"
+msgstr[0] "%d minuut"
+msgstr[1] "%d minuten"
 
 #: server_synchronize.php:99
 msgid "Could not connect to the source"
@@ -11769,10 +11749,9 @@ msgid "Label column"
 msgstr "Textarea kolommen"
 
 #: tbl_gis_visualization.php:138
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- geen -"
+msgstr "-- Geen --"
 
 #: tbl_gis_visualization.php:151
 #, fuzzy
@@ -12370,10 +12349,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "Versies"
+msgstr "Questions onder de 1000"
 
 #: po/advisory_rules.php:11
 msgid ""
@@ -12388,10 +12366,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Huidige verbinding"
+msgstr "Huidige aantal Questions: %s"
 
 #: po/advisory_rules.php:15
 #, fuzzy
@@ -12493,10 +12471,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Versie aanmaken"
+msgstr "Huidige versie: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #, fuzzy
@@ -12985,11 +12963,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s tabel"
+msgstr "Tijdelijke schijf ratio"
 
 #: po/advisory_rules.php:157
 msgid ""
@@ -13030,10 +13007,10 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Sorteer buffer grootte"
+msgstr "Max %% MyISAM key buffer ooit gebrui!kt"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
@@ -13049,11 +13026,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Sorteer buffer grootte"
+msgstr ""
+"max %% MyISAM key buffer ooit gebruikt: %s%%, deze waarde moet groter zijn "
+"dan 95%%"
 
 #: po/advisory_rules.php:170
 #, fuzzy
@@ -13149,10 +13128,10 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Nieuwe tabel aanmaken in database %s"
+msgstr "Onmiddellijke tabelgrendels %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #, fuzzy
@@ -13464,14 +13443,13 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "Max. gelijktijdige verbindingen"
+msgstr "MyISAM gelijktijdige invoeren"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Activeer concurrent_insert door het waarde 1 te geven"
 
 #: po/advisory_rules.php:272
 msgid ""

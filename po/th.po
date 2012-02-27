@@ -236,7 +236,6 @@ msgstr "ไม่"
 #: server_privileges.php:2067 server_privileges.php:2373 sql.php:359
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
-#, fuzzy
 msgid "Yes"
 msgstr "ใช่"
 
@@ -530,7 +529,7 @@ msgid "Browse"
 msgstr "เปิดดู"
 
 #: db_search.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "ลบตรงกับที่ตาราง %s  หรือไม่?"
@@ -807,7 +806,6 @@ msgid "ENUM/SET editor"
 msgstr "ตัวแก้ไข ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:268
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "ค่าสำหรับคอลัมน์ใหม่"
@@ -818,7 +816,6 @@ msgid "Values for column %s"
 msgstr "ค่าสำหรับคอลัมน์ \"%s\""
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "ป้อนค่าในช่องต่างๆ"
@@ -832,12 +829,10 @@ msgid "Output"
 msgstr "ส่งออก"
 
 #: enum_editor.php:130
-#, fuzzy
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "คัดลอกและวางค่า joined ในฟิลด์ \"ความยาว/ค่า\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
 msgstr "ประเภทไม่ถูกต้อง!"
@@ -877,7 +872,7 @@ msgid "Invalid export type"
 msgstr "ประเภทที่ส่งออกไม่ถูกต้อง!"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "ค่าสำหรับคอลัมน์ \"%s\""
@@ -1153,7 +1148,6 @@ msgid "Reloading Privileges"
 msgstr "รีเฟรชสิทธิใหม่"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "ถอนผู้ใช้ที่เลือก"
@@ -1233,7 +1227,6 @@ msgid "Processes"
 msgstr "โพรเซส"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "การเชื่อมต่อ"
@@ -1383,11 +1376,11 @@ msgid "EiB"
 msgstr "เอกซะไบต์"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s ตาราง"
+msgstr "%d ตาราง"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
@@ -1724,7 +1717,6 @@ msgid "Issue"
 msgstr "ปัญหา"
 
 #: js/messages.php:221
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "เอกสารอ้างอิง"
@@ -1734,7 +1726,6 @@ msgid "Rule details"
 msgstr "กฎเกณฑ์ต่างๆ"
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
 msgstr "เอกสารอ้างอิง"
@@ -1842,7 +1833,6 @@ msgid "Browsing"
 msgstr "กำลังเปิด"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "กำลังลบ %s"
@@ -1946,13 +1936,11 @@ msgid "Select two different columns"
 msgstr "เลือกสองสดมภ์ใดๆ"
 
 #: js/messages.php:311
-#, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
 msgstr "ผลลัพธ์ SQL"
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
 msgstr "สารบัญ"
@@ -1967,7 +1955,6 @@ msgid "Copy"
 msgstr "คัดลอก"
 
 #: js/messages.php:331
-#, fuzzy
 msgid "Add columns"
 msgstr "เพิ่มฟิลด์ใหม่"
 
@@ -1984,7 +1971,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "กรุณาเลือกคีย์หลักหรือคียเดี่ยว"
 
 #: js/messages.php:337 pmd_general.php:77 tbl_relation.php:541
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "เลือกฟิลด์ที่ต้องการแสดง"
@@ -2055,7 +2041,6 @@ msgid "Generate"
 msgstr "สร้างอัตโนมัติ"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "เปลี่ยนรหัสผ่าน"
@@ -2089,14 +2074,12 @@ msgid "Done"
 msgstr "จบ"
 
 #: js/messages.php:390
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "ก่อนหน้า"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2185,7 +2168,6 @@ msgstr "เม.ย."
 
 #. l10n: Short month name
 #: js/messages.php:424 libraries/common.lib.php:1614
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -2298,49 +2280,42 @@ msgstr "ส."
 
 #. l10n: Minimal week day name
 #: js/messages.php:467
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "อา."
 
 #. l10n: Minimal week day name
 #: js/messages.php:469
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "จ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:471
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "อ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:473
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "พ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:475
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "พฤ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:477
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "ศ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:479
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "ส."
@@ -2357,7 +2332,6 @@ msgstr "ปฎิทินแบบ เดือน/ปี"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
@@ -2500,7 +2474,6 @@ msgstr "เอกเทศ"
 #: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
 #: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
 #: tbl_tracking.php:327
-#, fuzzy
 msgid "Comment"
 msgstr "หมายเหตุ"
 
