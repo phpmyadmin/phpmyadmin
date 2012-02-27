@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-27 18:40+0200\n"
+"PO-Revision-Date: 2012-02-27 18:41+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -5292,10 +5292,9 @@ msgid ""
 msgstr "Bepaalt of het query veld op het scherm moet blijven na invoer"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "SQL-query veld verbergen"
+msgstr "Query veld behouden"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
