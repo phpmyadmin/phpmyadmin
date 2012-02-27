@@ -3596,6 +3596,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Schakel arbeidsintensieve onderhoudstaken voor tabellen uit, zoals "
+"optimaliseren of herstellen van geselecteerde tabellen van een databank."
 
 #: libraries/config/messages.inc.php:63
 #, fuzzy
