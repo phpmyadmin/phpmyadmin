@@ -3481,10 +3481,9 @@ msgstr ""
 "CHAR en VARCHAR kolommen"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Maximum grootte voor een invoerveld"
+msgstr "Maximale grootte voor een invoerveld"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
