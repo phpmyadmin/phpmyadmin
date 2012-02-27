@@ -7955,10 +7955,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "U moet een geldig event voor de trigger ingeven"
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
-msgstr "Ongeldige tabel naam"
+msgstr "U moet een geldige tabelnaam ingeven"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
