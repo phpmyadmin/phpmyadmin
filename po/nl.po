@@ -11752,10 +11752,9 @@ msgid "Label column"
 msgstr "Textarea kolommen"
 
 #: tbl_gis_visualization.php:138
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- geen -"
+msgstr "-- Geen --"
 
 #: tbl_gis_visualization.php:151
 #, fuzzy
