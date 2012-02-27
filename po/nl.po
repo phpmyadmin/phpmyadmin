@@ -6078,7 +6078,7 @@ msgstr "verticaal"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Hoofdingen iedere %s regels"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
