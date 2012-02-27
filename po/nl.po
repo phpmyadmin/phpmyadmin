@@ -7628,7 +7628,7 @@ msgstr "Gebeurtenis %1$s werd aangemaakt."
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 "<b>Een of meer fouten zijn opgetreden tijdens het uitvoeren van uw "
-"vraag:</b>"
+"opdracht:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
 #| msgid "Edit server"
