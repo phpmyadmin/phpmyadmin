@@ -3484,7 +3484,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Maximum grootte voor tijdelijke sorteer bestanden"
+msgstr "Maximum grootte voor een invoerveld"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
