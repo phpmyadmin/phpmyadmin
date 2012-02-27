@@ -7901,10 +7901,9 @@ msgstr "Routine uitvoeren"
 
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/rte/rte_routines.lib.php:1362
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Routines"
+msgstr "Routine parameters"
 
 #: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
