@@ -7014,10 +7014,10 @@ msgid "Go to database: %s"
 msgstr "Ga naar database : %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Ontbrekende data voor %s"
+msgstr "Wijzig instellingen voor %s"
 
 #: libraries/import.lib.php:1127
 #, php-format
