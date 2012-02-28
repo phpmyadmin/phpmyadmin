@@ -1579,7 +1579,7 @@ msgstr "Diferencial"
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "Dividit per %s"
 
 #: js/messages.php:172
 msgid "Unit"
