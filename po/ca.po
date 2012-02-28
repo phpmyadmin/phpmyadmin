@@ -1349,10 +1349,9 @@ msgid "Cached memory"
 msgstr "Memòria al cau"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Grup de memòries intermitges"
+msgstr "Memòries intermitges"
 
 #: js/messages.php:111
 msgid "Free memory"
