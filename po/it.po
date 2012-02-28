@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-28 18:32+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1086,7 +1086,7 @@ msgstr "Vuoi veramente "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:339
 msgid "You are about to DESTROY a complete database!"
-msgstr "Si sta per DISTRUGGERE COMPLETAMENTE un intero database!"
+msgstr "Stai per DISTRUGGERE COMPLETAMENTE un intera banca dati!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
