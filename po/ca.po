@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-28 11:11+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -818,10 +818,9 @@ msgid "ENUM/SET editor"
 msgstr "editor de ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:268
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Valors per la columna \"%s\""
+msgstr "Valors per la nova columna"
 
 #: enum_editor.php:30 js/messages.php:267
 #, fuzzy, php-format
