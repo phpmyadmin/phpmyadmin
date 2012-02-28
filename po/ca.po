@@ -1241,7 +1241,7 @@ msgstr ","
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB enviats des de la darrera actualització"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
