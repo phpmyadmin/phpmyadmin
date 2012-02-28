@@ -1595,7 +1595,7 @@ msgstr "Del registre general"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analitzant i carregant registres. Pot tardar."
 
 #: js/messages.php:177
 #, fuzzy
