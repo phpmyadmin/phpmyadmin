@@ -1340,10 +1340,9 @@ msgid "Average load"
 msgstr "Mitjana de càrrega"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
-msgstr "Comptador de l'arxiu de registre"
+msgstr "Memòria total"
 
 #: js/messages.php:109
 msgid "Cached memory"
