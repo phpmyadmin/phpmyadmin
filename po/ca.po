@@ -1321,7 +1321,7 @@ msgstr "Memòria del sistema"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr ""
+msgstr "Intercanvi del sistema"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
