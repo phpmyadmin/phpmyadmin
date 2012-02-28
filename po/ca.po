@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-28 11:20+0200\n"
+"PO-Revision-Date: 2012-02-28 11:21+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1151,10 +1151,9 @@ msgstr "Afegeix %d columna(es) a l'index"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Comptador de l'arxiu de registre"
+msgstr "Quantitat total"
 
 #: js/messages.php:55
 msgid "The host name is empty!"
