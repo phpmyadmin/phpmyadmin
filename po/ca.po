@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-28 16:01+0200\n"
+"PO-Revision-Date: 2012-02-28 16:03+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1625,6 +1625,8 @@ msgstr ""
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"S'han carregat les dades del registre. Consultes executades en aquest "
+"període de temps:"
 
 #: js/messages.php:182
 #, fuzzy
