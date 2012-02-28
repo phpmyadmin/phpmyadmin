@@ -1381,7 +1381,7 @@ msgstr "Intercanvi lliure"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes enviats"
 
 #: js/messages.php:120
 #, fuzzy
