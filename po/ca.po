@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-28 11:11+0200\n"
+"PO-Revision-Date: 2012-02-28 11:12+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -829,10 +829,9 @@ msgid "Values for column %s"
 msgstr "Valors per la columna %s"
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Entra cada valor en camps separats."
+msgstr "Entra cada valor en un camp separat."
 
 #: enum_editor.php:123
 #, fuzzy
