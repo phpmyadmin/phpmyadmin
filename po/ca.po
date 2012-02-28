@@ -1710,7 +1710,7 @@ msgstr "Carregant els registres"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Ha fallat l'actualització de la monitorització"
 
 #: js/messages.php:205
 msgid ""
