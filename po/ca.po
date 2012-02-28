@@ -1208,10 +1208,9 @@ msgid "Live conn./process chart"
 msgstr "Gràfic de conexions/processos en viu"
 
 #: js/messages.php:68 server_status.php:824
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Mostrar gràfic de consultes"
+msgstr "Gràfic de consultes en viu"
 
 #: js/messages.php:70
 msgid "Static data"
