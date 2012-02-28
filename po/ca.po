@@ -1372,7 +1372,7 @@ msgstr "Intercanvi en cau"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "Intercanvi utilitzat"
 
 #: js/messages.php:117
 #, fuzzy
