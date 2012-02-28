@@ -1704,10 +1704,9 @@ msgid "Total:"
 msgstr "Total:"
 
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Carregar"
+msgstr "Carregant els registres"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
