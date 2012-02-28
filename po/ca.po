@@ -1636,6 +1636,7 @@ msgstr "Saltar a la taula del registre"
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Registre analitzat, però no s'han trobat dades en aquest periode de temps."
 
 #: js/messages.php:185
 #, fuzzy
