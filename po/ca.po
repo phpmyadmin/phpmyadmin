@@ -1583,7 +1583,7 @@ msgstr "Dividit per %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Unitat"
 
 #: js/messages.php:174
 msgid "From slow log"
