@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-28 13:29+0200\n"
+"PO-Revision-Date: 2012-02-28 15:42+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -565,10 +565,9 @@ msgid "Search in database"
 msgstr "Cerca a la base de dades"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Paraula(es) o valor(s) a cercar (comodí: \"%\"):"
+msgstr "Paraules o valors a cercar (comodí: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
