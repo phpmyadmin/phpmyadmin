@@ -1302,10 +1302,9 @@ msgid "Query cache efficiency"
 msgstr "Eficiència del cau de consultes"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Memòria cau de consultes"
+msgstr "Ús de la memòria cau de consultes"
 
 #: js/messages.php:99
 #, fuzzy
