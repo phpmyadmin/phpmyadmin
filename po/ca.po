@@ -1313,7 +1313,7 @@ msgstr "Memòria cau de consultes utilitzada"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Ús de la CPU del sistema"
 
 #: js/messages.php:102
 msgid "System memory"
