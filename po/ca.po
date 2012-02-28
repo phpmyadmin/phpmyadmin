@@ -1355,7 +1355,7 @@ msgstr "Memòries intermitges"
 
 #: js/messages.php:111
 msgid "Free memory"
-msgstr ""
+msgstr "Memòria lliure"
 
 #: js/messages.php:112
 msgid "Used memory"
