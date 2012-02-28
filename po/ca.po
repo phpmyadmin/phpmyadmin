@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-28 16:17+0200\n"
+"PO-Revision-Date: 2012-02-28 16:18+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1683,7 +1683,7 @@ msgstr "Opcions de filtres per a la taula del registre"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
 msgid "Filter"
-msgstr "Filtre"
+msgstr "Filtrar"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
