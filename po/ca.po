@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-02-28 11:13+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -860,7 +860,7 @@ msgstr "El tipus d'exportació triat s'ha de desar en un arxiu!"
 #, fuzzy
 #| msgid "Add index"
 msgid "Bad parameters!"
-msgstr "Afegir índex"
+msgstr "Paràmetres incorrectes!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
