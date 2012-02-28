@@ -1199,10 +1199,9 @@ msgid "Edit"
 msgstr "Edita"
 
 #: js/messages.php:66 server_status.php:803
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Elecció de Servidor"
+msgstr "Gràfic de tràfic en viu"
 
 #: js/messages.php:67 server_status.php:806
 msgid "Live conn./process chart"
