@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-28 11:15+0200\n"
+"PO-Revision-Date: 2012-02-28 11:16+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -949,10 +949,9 @@ msgid "Inner Ring"
 msgstr "Cercle interior"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Afegeix un usuari nou"
+msgstr "Afegeix una cadena de línies"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
 #, fuzzy
