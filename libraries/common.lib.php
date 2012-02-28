@@ -914,7 +914,7 @@ function PMA_removeBackquote($a_name)
     if (strlen($a_name) && $a_name !== '*') {
         $a_name = str_replace('``', '`', $a_name);
         // remove ` from beginning and end
-        return substr($a_name, 1, strlen($a_name)-2);
+        return substr($a_name, 1, strlen($a_name) - 2);
     } else {
         return $a_name;
     }
