@@ -1552,6 +1552,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"No pots canviar aquestes variables. Inicia la sessió com a root o contacta "
+"amb el teu administrador de bases de dades."
 
 #: js/messages.php:165
 #, fuzzy
