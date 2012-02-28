@@ -1568,7 +1568,7 @@ msgstr "Configuracions actuals"
 #: js/messages.php:168 server_status.php:1645
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "Títol del gràfic:"
+msgstr "Títol del gràfic"
 
 #. l10n: As in differential values
 #: js/messages.php:170
