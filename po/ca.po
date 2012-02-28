@@ -1375,10 +1375,9 @@ msgid "Used Swap"
 msgstr "Intercanvi utilitzat"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Pàgines lliures"
+msgstr "Intercanvi lliure"
 
 #: js/messages.php:119
 msgid "Bytes sent"
