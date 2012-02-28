@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-28 11:27+0200\n"
+"PO-Revision-Date: 2012-02-28 11:28+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1297,10 +1297,9 @@ msgstr ""
 "your configuration to default in the <i>Settings</i> menu."
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Memòria cau de consultes"
+msgstr "Eficiència del cau de consultes"
 
 #: js/messages.php:98
 #, fuzzy
