@@ -1471,7 +1471,7 @@ msgstr "Reempren la monitorització"
 
 #: js/messages.php:145
 msgid "Pause monitor"
-msgstr ""
+msgstr "Pausa la monitorització"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
