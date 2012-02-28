@@ -1608,6 +1608,10 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Aquesta columna mostra la quantitat de consultes idèntiques que foren "
+"agrupades. Però només la pròpia  consulta SQL s'utilitza com a criteri "
+"d'agrupació, donat que la resta d'atributos de les consultes pot diferir, "
+"com el temps d'inici.."
 
 #: js/messages.php:179
 msgid ""
