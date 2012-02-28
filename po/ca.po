@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-28 13:23+0200\n"
+"PO-Revision-Date: 2012-02-28 13:24+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1384,10 +1384,9 @@ msgid "Bytes sent"
 msgstr "Bytes enviats"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Rebut"
+msgstr "Bytes rebuts"
 
 #: js/messages.php:121 server_status.php:1145
 msgid "Connections"
