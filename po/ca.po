@@ -1280,10 +1280,9 @@ msgid "Query statistics"
 msgstr "Consulta d'estadístiques"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "No es pot desar la configuració"
+msgstr "Configuració local de la monitorització incompatible"
 
 #: js/messages.php:95
 msgid ""
