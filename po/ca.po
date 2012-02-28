@@ -1561,10 +1561,9 @@ msgid "Change settings"
 msgstr "Canviar configuracions"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Més paràmetres"
+msgstr "Configuracions actuals"
 
 #: js/messages.php:168 server_status.php:1645
 #, fuzzy
