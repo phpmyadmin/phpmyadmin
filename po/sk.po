@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-29 10:56+0200\n"
+"PO-Revision-Date: 2012-02-29 10:57+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -464,7 +464,7 @@ msgstr "Zmazať"
 #: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
 #: tbl_select.php:196
 msgid "Or"
-msgstr "alebo"
+msgstr "Alebo"
 
 #: db_qbe.php:529
 msgid "Modify"
