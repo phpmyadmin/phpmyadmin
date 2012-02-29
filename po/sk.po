@@ -1521,10 +1521,10 @@ msgid "Differential"
 msgstr "Rozdiely"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Delené %s:"
+msgstr "Vydelené s %s"
 
 #: js/messages.php:172
 msgid "Unit"
