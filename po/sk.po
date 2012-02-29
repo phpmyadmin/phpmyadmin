@@ -8593,10 +8593,9 @@ msgid "No databases"
 msgstr "Žiadne databázy"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "filtrovať tabuľky podľa mena"
+msgstr "Filtrovať tabuľky podľa mena"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
