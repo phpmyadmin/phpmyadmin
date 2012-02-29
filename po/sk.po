@@ -12006,10 +12006,9 @@ msgid "Slow query logging"
 msgstr "Zobrazit vyhľadávacie pole"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log je povolený."
+msgstr "slow_query_log je vypnutý."
 
 #: po/advisory_rules.php:32
 msgid ""
