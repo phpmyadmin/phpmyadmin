@@ -4400,7 +4400,7 @@ msgstr "Navigašná lišta s ikonami"
 
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr "Použiť medzipamäť pre GZip výstup pre zvýšenie rýchlosti HTTP prenosu"
+msgstr "použiť medzipamäť pre GZip výstup pre zvýšenie rýchlosti HTTP prenosu"
 
 #: libraries/config/messages.inc.php:328
 msgid "GZip output buffering"
