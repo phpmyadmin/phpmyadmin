@@ -7762,10 +7762,9 @@ msgid "Export of event %s"
 msgstr "Exportovať udalosť %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Udalosť"
+msgstr "udalosť"
 
 #: libraries/rte/rte_words.lib.php:46
 #, fuzzy
