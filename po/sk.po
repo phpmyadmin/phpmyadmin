@@ -8472,7 +8472,7 @@ msgstr "Použiť odľahčenú verziu"
 
 #: main.php:213
 msgid "PHP extension"
-msgstr "rozšírenie PHP"
+msgstr "Rozšírenie PHP"
 
 #: main.php:221
 msgid "Show PHP information"
