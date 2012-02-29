@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-29 10:37+0200\n"
+"PO-Revision-Date: 2012-02-29 10:38+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1953,7 +1953,7 @@ msgstr "Pridať voľbu pre stĺpec "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Klávesou ESC ukončíte upravovanie"
 
 #: js/messages.php:345
 msgid ""
