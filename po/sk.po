@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-29 11:00+0200\n"
+"PO-Revision-Date: 2012-02-29 11:01+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -7923,7 +7923,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:507
 msgid "Toggle scratchboard"
-msgstr "zobraziť grafický návrh"
+msgstr "Zobraziť grafický návrh"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:478
