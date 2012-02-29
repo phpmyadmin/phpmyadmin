@@ -7657,10 +7657,9 @@ msgid "Edit trigger"
 msgstr "Pridať nového používateľa"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
-msgstr "meno servera"
+msgstr "Meno spúšťača"
 
 #: libraries/rte/rte_triggers.lib.php:326
 #, fuzzy
