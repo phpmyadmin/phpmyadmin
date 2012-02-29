@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-29 10:34+0200\n"
+"PO-Revision-Date: 2012-02-29 10:35+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1872,7 +1872,7 @@ msgstr "Pohybom myši nad bodom zobrazíte jeho názov."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Použite koliesko myši na priblíženie alebo oddialenie grafu."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
