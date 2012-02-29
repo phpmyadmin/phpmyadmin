@@ -11939,10 +11939,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Súčasné pripojenie"
+msgstr "Aktuálny počet dopytov: %s"
 
 #: po/advisory_rules.php:15
 #, fuzzy
