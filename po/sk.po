@@ -6875,10 +6875,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:376
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data"
-msgstr "Súbor %s neobsahuje ID kľúč"
+msgstr "Nahraný súbor neobsahuje žiadne dáta"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
