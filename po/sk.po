@@ -3126,7 +3126,7 @@ msgstr "úplné vloženia"
 
 #: libraries/config.values.php:124
 msgid "extended inserts"
-msgstr "Rozšírené vkladania"
+msgstr "rozšírené vkladania"
 
 #: libraries/config.values.php:125
 msgid "both of the above"
