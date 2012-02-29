@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-29 10:36+0200\n"
+"PO-Revision-Date: 2012-02-29 10:37+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1892,7 +1892,7 @@ msgstr "Graf môžete zvúčšiť potiahnutím za pravý dolný roh."
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Reťazce boli pre vykreslenie prevedené na čísla"
 
 #: js/messages.php:309
 msgid "Select two columns"
