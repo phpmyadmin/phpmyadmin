@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-29 10:57+0200\n"
+"PO-Revision-Date: 2012-02-29 10:58+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -2256,7 +2256,7 @@ msgstr "So"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:481
 msgid "Wk"
-msgstr "týž"
+msgstr "Týž"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
