@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-29 11:02+0200\n"
+"PO-Revision-Date: 2012-02-29 11:03+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -11583,7 +11583,7 @@ msgstr "Pridať vyhľadávacie parametre (obsah dopytu po \"where\" príkaze):"
 
 #: tbl_select.php:203
 msgid "Number of rows per page"
-msgstr "záznamov na stránku"
+msgstr "Záznamov na stránku"
 
 #: tbl_select.php:209
 msgid "Display order:"
