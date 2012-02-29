@@ -7732,9 +7732,8 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 msgid "trigger"
-msgstr "Pridať nového používateľa"
+msgstr "spúšťač"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
