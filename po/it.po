@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-23 13:56+0200\n"
-"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
+"PO-Revision-Date: 2012-02-28 18:33+0200\n"
+"Last-Translator: any anonymous user <>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1007,7 +1007,7 @@ msgid ""
 msgstr ""
 "Stai cercando di importare un file con un tipo di compressione (%s) non "
 "supportato. Il supporto per questo tipo di compressione potrebbe non essere "
-"ancora stato implementato oppure è disabilitato nelle configurazioni."
+"ancora stato implementato oppure è disabilitato nella tua configurazioni."
 
 #: import.php:349
 msgid ""
@@ -1086,15 +1086,15 @@ msgstr "Vuoi veramente "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:339
 msgid "You are about to DESTROY a complete database!"
-msgstr "Si sta per DISTRUGGERE COMPLETAMENTE un intero database!"
+msgstr "Stai per DISTRUGGERE COMPLETAMENTE un intera base di dati!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr "Si sta per DISTRUGGERE COMPLETAMENTE un intera tabella!"
+msgstr "Stai per DISTRUGGERE COMPLETAMENTE un intera tabella!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Si sta per DISTRUGGERE COMPLETAMENTE il contenuto della tabella!"
+msgstr "Stai per TRONCARE COMPLETAMENTE il contenuto della tabella!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"

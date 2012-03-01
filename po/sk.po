@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2011-12-28 00:12+0200\n"
+"PO-Revision-Date: 2012-02-29 11:04+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -464,7 +464,7 @@ msgstr "Zmazať"
 #: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
 #: tbl_select.php:196
 msgid "Or"
-msgstr "alebo"
+msgstr "Alebo"
 
 #: db_qbe.php:529
 msgid "Modify"
@@ -1521,18 +1521,18 @@ msgid "Differential"
 msgstr "Rozdiely"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Delené %s:"
+msgstr "Vydelené s %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Jednotka"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr "Z záznamu pomalých dopytov"
+msgstr "Zo záznamu pomalých dopytov"
 
 #: js/messages.php:175
 msgid "From general log"
@@ -1552,6 +1552,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Tento stĺpec ukazuje počet rovnakých dopytov, ktoré sú zoskupené dohromady. "
+"Kritériom na zoskupenie bol len samotný SQL dopyt, takže ostatné atribúty "
+"dopytov, ako je napr. čas spustenia, sa môžu líšiť."
 
 #: js/messages.php:179
 msgid ""
@@ -1559,6 +1562,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Keďže bolo zvolené zoskupovanie INSERT dopytov, sú aj INSERT dopyty do "
+"rovnakej tabuľky zoskupované, bez ohľadu na vkladané dáta."
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1658,12 +1663,16 @@ msgstr "Ovplyvnené záznamy:"
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"Zlyhalo spracovanie konfiguračného súboru. Pravdepodobne neobsahuje platný "
+"JSON kód."
 
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Nepodarilo sa vytvoriť graf z importovanej konfigurácie. Používam východzie "
+"nastavenia..."
 
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
@@ -1859,11 +1868,11 @@ msgstr "Každý bod reprezentuje riadok dát."
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Pohybom myši nad bodom zobrazíte jeho názov."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Použite koliesko myši na priblíženie alebo oddialenie grafu."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
@@ -1879,11 +1888,11 @@ msgstr ""
 
 #: js/messages.php:305
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "Graf môžete zvúčšiť potiahnutím za pravý dolný roh."
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Reťazce boli pre vykreslenie prevedené na čísla"
 
 #: js/messages.php:309
 msgid "Select two columns"
@@ -1944,7 +1953,7 @@ msgstr "Pridať voľbu pre stĺpec "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Klávesou ESC ukončíte upravovanie"
 
 #: js/messages.php:345
 msgid ""
@@ -1977,7 +1986,7 @@ msgstr ""
 #: js/messages.php:352
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
-msgstr ""
+msgstr "Väčšinu stĺpcov môžete upraviť>br />kliknutím na ich obsah."
 
 #: js/messages.php:353
 msgid "Go to link"
@@ -2247,7 +2256,7 @@ msgstr "So"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:481
 msgid "Wk"
-msgstr "týž"
+msgstr "Týž"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
@@ -2256,11 +2265,10 @@ msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Žiadny"
+msgstr "žiadny"
 
 #: js/messages.php:495
 msgid "Hour"
@@ -2371,11 +2379,11 @@ msgstr ""
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Chyba pri presúvaní nahraného súboru."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Nahraný súbor sa nedá prečítať (presunúť)."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
@@ -3118,7 +3126,7 @@ msgstr "úplné vloženia"
 
 #: libraries/config.values.php:124
 msgid "extended inserts"
-msgstr "Rozšírené vkladania"
+msgstr "rozšírené vkladania"
 
 #: libraries/config.values.php:125
 msgid "both of the above"
@@ -4350,7 +4358,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:318
 msgid "mcrypt warning"
-msgstr "Varovanie o mcrypte"
+msgstr "varovanie o mcrypte"
 
 #: libraries/config/messages.inc.php:319
 msgid ""
@@ -4392,7 +4400,7 @@ msgstr "Navigašná lišta s ikonami"
 
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr "Použiť medzipamäť pre GZip výstup pre zvýšenie rýchlosti HTTP prenosu"
+msgstr "použiť medzipamäť pre GZip výstup pre zvýšenie rýchlosti HTTP prenosu"
 
 #: libraries/config/messages.inc.php:328
 msgid "GZip output buffering"
@@ -6709,7 +6717,7 @@ msgstr ""
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:57
 msgid "SQL result"
-msgstr "výsledok SQL"
+msgstr "Výsledok SQL dopytu"
 
 #: libraries/header_printview.inc.php:62
 msgid "Generated by"
@@ -6743,10 +6751,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Upraviť štruktúru kliknutím na odkaz \"Štruktúra\""
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Prejsť do databázy"
+msgstr "Prejsť do databázy: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, fuzzy, php-format
@@ -6755,22 +6763,22 @@ msgid "Edit settings for %s"
 msgstr "Chýba hodnota pre %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Prejsť do tabuľky"
+msgstr "Prejsť na tabuľku: %s"
 
 #: libraries/import.lib.php:1130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Iba štruktúru"
+msgstr "Štruktúra %s"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Prejsť na Prejsť na pohľad"
+msgstr "Prejsť na pohľad: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -6866,10 +6874,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:376
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data"
-msgstr "Súbor %s neobsahuje ID kľúč"
+msgstr "Nahraný súbor neobsahuje žiadne dáta"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -7376,10 +7383,10 @@ msgid "Event type"
 msgstr "Typ udalosti"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Zmeniť"
+msgstr "Zmeniť na %s"
 
 #: libraries/rte/rte_events.lib.php:422
 #, fuzzy
@@ -7415,10 +7422,9 @@ msgid "Definition"
 msgstr "Popis"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "úplné vloženia"
+msgstr "Zachovať pri ukončení"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
@@ -7651,10 +7657,9 @@ msgid "Edit trigger"
 msgstr "Pridať nového používateľa"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
-msgstr "meno servera"
+msgstr "Meno spúšťača"
 
 #: libraries/rte/rte_triggers.lib.php:326
 #, fuzzy
@@ -7697,10 +7702,9 @@ msgid "Export of routine %s"
 msgstr "Export rutiny %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Add index"
 msgid "routine"
-msgstr "Pridať index"
+msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:22
 #, fuzzy
@@ -7728,9 +7732,8 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 msgid "trigger"
-msgstr "Pridať nového používateľa"
+msgstr "spúšťač"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
@@ -7759,10 +7762,9 @@ msgid "Export of event %s"
 msgstr "Exportovať udalosť %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Udalosť"
+msgstr "udalosť"
 
 #: libraries/rte/rte_words.lib.php:46
 #, fuzzy
@@ -7921,7 +7923,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:507
 msgid "Toggle scratchboard"
-msgstr "zobraziť grafický návrh"
+msgstr "Zobraziť grafický návrh"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:478
@@ -8470,7 +8472,7 @@ msgstr "Použiť odľahčenú verziu"
 
 #: main.php:213
 msgid "PHP extension"
-msgstr "rozšírenie PHP"
+msgstr "Rozšírenie PHP"
 
 #: main.php:221
 msgid "Show PHP information"
@@ -8591,10 +8593,9 @@ msgid "No databases"
 msgstr "Žiadne databázy"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "filtrovať tabuľky podľa mena"
+msgstr "Filtrovať tabuľky podľa mena"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
@@ -8982,10 +8983,9 @@ msgid "License"
 msgstr "Licencia"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Vypnuté"
+msgstr "vypnuté"
 
 #: server_privileges.php:34 server_privileges.php:369
 msgid "Includes all privileges except GRANT."
@@ -9593,7 +9593,8 @@ msgstr "Vlákno %s bol úspešne zabité."
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "Neporadilo za zabiť vlákno %s. Jeho beh bol pravdepodobne už ukončený."
+msgstr ""
+"Neporadilo za ukončiť vlákno %s. Jeho beh bol pravdepodobne už ukončený."
 
 #: server_status.php:589
 msgid "Handler"
@@ -9741,10 +9742,10 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:937
-#, fuzzy, php-format
+#, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
-msgstr "Prispôsobenie úvodnej stránky"
+msgstr "Dopytov od spustenia: %s"
 
 #: server_status.php:973 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
@@ -9763,7 +9764,7 @@ msgstr ""
 #: server_status.php:1058
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Tento server beží %1s. Bol spustený %2s."
+msgstr "Tento MySQL server beží %1$s. Bol spustený %2$s."
 
 #: server_status.php:1069
 msgid ""
@@ -10619,10 +10620,9 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1671
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Chybné meno tabuľky"
+msgstr "alebo zadajte meno premennej:"
 
 #: server_status.php:1675
 msgid "Display as differential value"
@@ -11583,7 +11583,7 @@ msgstr "Pridať vyhľadávacie parametre (obsah dopytu po \"where\" príkaze):"
 
 #: tbl_select.php:203
 msgid "Number of rows per page"
-msgstr "záznamov na stránku"
+msgstr "Záznamov na stránku"
 
 #: tbl_select.php:209
 msgid "Display order:"
@@ -11931,10 +11931,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Súčasné pripojenie"
+msgstr "Aktuálny počet dopytov: %s"
 
 #: po/advisory_rules.php:15
 #, fuzzy
@@ -12006,10 +12006,9 @@ msgid "Slow query logging"
 msgstr "Zobrazit vyhľadávacie pole"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log je povolený."
+msgstr "slow_query_log je vypnutý."
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -12038,10 +12037,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Vytvoriť verziu"
+msgstr "Aktuálna verzia: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #, fuzzy
@@ -12181,10 +12180,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache"
 msgid "Query cache efficiency (%%)"
-msgstr "Vyrovnávacia pamäť príkazov"
+msgstr "Úspešnosť vyrovnávacej pamäte príkazov (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12577,16 +12576,16 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "Maximálne využitie (%%) vyrovnávacej pamäte MyISAM pre kľúče"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Veľkosť zoraďovacej pamäte"
+msgstr "Využitie MyISAM vyrovnávacej pamäte kľúčov je nízke %%."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12696,10 +12695,10 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Vytvoriť novú tabuľku v databáze %s"
+msgstr "Okamžite získané zámky tabuľky %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 #, fuzzy
@@ -12958,7 +12957,7 @@ msgstr ""
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Veľkosť záznamového súboru je príliš veľká."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13014,10 +13013,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "max. súčasných pripojení"
+msgstr "Súčasných vkladaní do MyISAM"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"

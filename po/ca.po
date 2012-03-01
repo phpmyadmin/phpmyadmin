@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2011-02-23 09:57+0200\n"
+"PO-Revision-Date: 2012-02-28 16:20+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -416,7 +416,7 @@ msgstr "Has de triar al menys una columna per mostrar"
 #, fuzzy, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "constructor visual"
+msgstr "Canviar al %sconstructor visual%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1003
@@ -565,10 +565,9 @@ msgid "Search in database"
 msgstr "Cerca a la base de dades"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Paraula(es) o valor(s) a cercar (comodí: \"%\"):"
+msgstr "Paraules o valors a cercar (comodí: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
@@ -579,10 +578,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Paraules separades per un espai (\" \")."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Dins la/les taula(es):"
+msgstr "Dins les taules:"
 
 #: db_search.php:330
 msgid "Inside column:"
@@ -716,22 +714,19 @@ msgid "Analyze table"
 msgstr "Analitza la taula"
 
 #: db_structure.php:601
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Vés a la taula"
+msgstr "Afegeix un prefix a la taula"
 
 #: db_structure.php:603 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Canviar les dades de la taula per l'arxiu "
+msgstr "Canvia el prefix de la taula"
 
 #: db_structure.php:605 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Canviar les dades de la taula per l'arxiu "
+msgstr "Copia la taula amb prefix "
 
 #: db_structure.php:642 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
@@ -819,31 +814,28 @@ msgstr "Registre de la base de dades"
 #: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "editor de ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:268
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Valors per la columna \"%s\""
+msgstr "Valors per la nova columna"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Valors per la columna \"%s\""
+msgstr "Valors per la columna %s"
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Entra cada valor en camps separats."
+msgstr "Entra cada valor en un camp separat."
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "Add a value"
-msgstr "+ Afegir un nou valor"
+msgstr "Afegir un valor"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
@@ -857,7 +849,7 @@ msgstr "Còpia i enganxa els valors junts dins del camp \"Longitud/Valors\" "
 #, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Tipus de barra"
+msgstr "Tipus incorrecte!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -867,7 +859,7 @@ msgstr "El tipus d'exportació triat s'ha de desar en un arxiu!"
 #, fuzzy
 #| msgid "Add index"
 msgid "Bad parameters!"
-msgstr "Afegir índex"
+msgstr "Paràmetres incorrectes!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -893,104 +885,99 @@ msgid "Dump has been saved to file %s."
 msgstr "El bolcat s'ha desat amb el nom d'arxiu %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Tipus d'exportació"
+msgstr "Tipus d'exportació incorrecte"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Valors per la columna \"%s\""
+msgstr "Valor per la columna \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Utilitzar OpenStreetMaps com a capa base"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:323
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: gis_data_editor.php:172 js/messages.php:319
 msgid "Point"
-msgstr ""
+msgstr "Punt"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:317
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:318
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:320
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:326
-#, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
-msgstr "Afegir índex"
+msgstr "Afegir un punt"
 
 #: gis_data_editor.php:220 js/messages.php:321
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Línies acabades amb"
+msgstr "Cadena de línies"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
-msgstr ""
+msgstr "Cercle exterior"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
 msgid "Inner Ring"
-msgstr ""
+msgstr "Cercle interior"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Afegeix un usuari nou"
+msgstr "Afegeix una cadena de línies"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Afegeix un usuari nou"
+msgstr "Afegeix un cercle interior"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
-msgstr ""
+msgstr "Polígon"
 
 #: gis_data_editor.php:306 js/messages.php:328
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Afegeix columna(es)"
+msgstr "Afegeix un polígon"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "Afegir un nou servidor"
+msgstr "Afegir geometria"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Tria «GeomFromText» de la columna \"Funció\" i enganxa la cadena següent al "
+"camp \"Valor\""
 
 #: import.php:57
 #, php-format
@@ -1039,6 +1026,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"No es pot convertir el joc de caracters de l'arxivu sense la biblioteca "
+"corresponent"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1102,16 +1091,14 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Ets a punt de DESTRUIR completament una base de dades!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Ets a punt de DESTRUIR completament una base de dades!"
+msgstr "Ets a punt de DESTRUIR completament una taula sencera!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Ets a punt de DESTRUIR completament una base de dades!"
+msgstr "Ets a punt de TRUNCAR completament una taula sencera!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
@@ -1151,23 +1138,21 @@ msgid "Add Index"
 msgstr "Afegir índex"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Mode d'edició"
+msgstr "Editar índex"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Afegeix %s columna(es)"
+msgstr "Afegeix %d columna(es) a l'index"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Comptador de l'arxiu de registre"
+msgstr "Quantitat total"
 
 #: js/messages.php:55
 msgid "The host name is empty!"
@@ -1187,10 +1172,9 @@ msgstr "Les contrasenyes no coincideixen!"
 
 #: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
 #: server_privileges.php:2209 server_privileges.php:2414
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Qualsevol usuari"
+msgstr "Afegirl usuari"
 
 #: js/messages.php:60
 msgid "Reloading Privileges"
@@ -1214,24 +1198,22 @@ msgid "Edit"
 msgstr "Edita"
 
 #: js/messages.php:66 server_status.php:803
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Elecció de Servidor"
+msgstr "Gràfic de tràfic en viu"
 
 #: js/messages.php:67 server_status.php:806
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Gràfic de conexions/processos en viu"
 
 #: js/messages.php:68 server_status.php:824
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Mostrar gràfic de consultes"
+msgstr "Gràfic de consultes en viu"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Dades estàtiques"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
@@ -1244,7 +1226,7 @@ msgstr "Total"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:603 server_status.php:1022
 msgid "Other"
-msgstr ""
+msgstr "Altre"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1449
@@ -1258,51 +1240,48 @@ msgstr ","
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB enviats des de la darrera actualització"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB rebuts des de la darrera actualització"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Elecció de Servidor"
+msgstr "Tràfic del servidor (en KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Connexions des de la darrera actualització"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1235
 msgid "Processes"
 msgstr "Processos"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Connexions"
+msgstr "Connexions / Processos"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Consultes des de la darrera actualització"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Consultes (sentències executades pel servidor)"
 
 #: js/messages.php:91 server_status.php:785
 msgid "Query statistics"
 msgstr "Consulta d'estadístiques"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "No es pot desar la configuració"
+msgstr "Configuració local de la monitorització incompatible"
 
 #: js/messages.php:95
 msgid ""
@@ -1311,36 +1290,37 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"The chart arrangement configuration in your browsers local storage is not "
+"compatible anymore to the newer version of the monitor dialog. It is very "
+"likely that your current configuration will not work anymore. Please reset "
+"your configuration to default in the <i>Settings</i> menu."
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Memòria cau de consultes"
+msgstr "Eficiència del cau de consultes"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Memòria cau de consultes"
+msgstr "Ús de la memòria cau de consultes"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Memòria cau de consultes"
+msgstr "Memòria cau de consultes utilitzada"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Ús de la CPU del sistema"
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr ""
+msgstr "Memòria del sistema"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr ""
+msgstr "Intercanvi del sistema"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
@@ -1356,61 +1336,56 @@ msgstr "KB"
 
 #: js/messages.php:107
 msgid "Average load"
-msgstr ""
+msgstr "Mitjana de càrrega"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
-msgstr "Comptador de l'arxiu de registre"
+msgstr "Memòria total"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr ""
+msgstr "Memòria al cau"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Grup de memòries intermitges"
+msgstr "Memòries intermitges"
 
 #: js/messages.php:111
 msgid "Free memory"
-msgstr ""
+msgstr "Memòria lliure"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "Memòria utilitzada"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total"
+msgstr "Intercanvi Total"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "Intercanvi en cau"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "Intercanvi utilitzat"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Pàgines lliures"
+msgstr "Intercanvi lliure"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes enviats"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Rebut"
+msgstr "Bytes rebuts"
 
 #: js/messages.php:121 server_status.php:1145
 msgid "Connections"
@@ -1442,18 +1417,17 @@ msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s taula"
+msgstr "%d taula(es)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Versions"
+msgstr "Consultes"
 
 #: js/messages.php:136 server_status.php:1100
 msgid "Traffic"
@@ -1465,24 +1439,22 @@ msgid "Settings"
 msgstr "Configuració"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Elimina la base de dades"
+msgstr "Elimina el gràfic"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Edita títol i etiquetes"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Alinia a la graella"
+msgstr "Afegeix gràfic a a la graella"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Afegeix al menys una variable a la serie"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
@@ -1494,35 +1466,35 @@ msgstr "Res"
 
 #: js/messages.php:144
 msgid "Resume monitor"
-msgstr ""
+msgstr "Reempren la monitorització"
 
 #: js/messages.php:145
 msgid "Pause monitor"
-msgstr ""
+msgstr "Pausa la monitorització"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "«general_log» i «slow_query_log» estàn actius."
 
 #: js/messages.php:148
 msgid "general_log is enabled."
-msgstr ""
+msgstr "«general_log» està actiu."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "«slow_query_log» està actiu."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "«slow_query_log» i «general_log» estàn desactivats."
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "«log_output» no està definit com a TABLE."
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "«log_output» està definit com a TABLE."
 
 #: js/messages.php:153
 #, php-format
@@ -1531,102 +1503,104 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"«slow_query_log» actiu, però el servidor només registra consultas que tardin "
+"més de %d segons. És recomenable configurar «long_query_time» entre 0 i 2 "
+"segons depenent del sistema."
 
 #: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "«long_query_time» està configurat a %d segon(s)."
 
 #: js/messages.php:155
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Les següents configuracions s'aplicaràn globalment i tornaràn als seus "
+"valors predeterminats en reiniciar el servidor:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Desa la sortida com a arxiu"
+msgstr "Configurar «log_output» a %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Activat"
+msgstr "Activar %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Desactivat"
+msgstr "Desactivar %s"
 
 #. l10n: %d seconds
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Definir «long_query_time» a %ds"
 
 #: js/messages.php:164
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"No pots canviar aquestes variables. Inicia la sessió com a root o contacta "
+"amb el teu administrador de bases de dades."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Gestiona els teus paràmetres"
+msgstr "Canviar configuracions"
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Més paràmetres"
+msgstr "Configuracions actuals"
 
 #: js/messages.php:168 server_status.php:1645
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "Títol de llistat:"
+msgstr "Títol del gràfic"
 
 #. l10n: As in differential values
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Diferència"
+msgstr "Diferencial"
 
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "Dividit per %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Unitat"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "Del registre de consultes lentes"
 
 #: js/messages.php:175
 msgid "From general log"
-msgstr ""
+msgstr "Del registre general"
 
 #: js/messages.php:176
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analitzant i carregant registres. Pot tardar."
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Peticions de lectura"
+msgstr "Cancel.lar petició"
 
 #: js/messages.php:178
 msgid ""
@@ -1634,6 +1608,10 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Aquesta columna mostra la quantitat de consultes idèntiques que foren "
+"agrupades. Però només la pròpia  consulta SQL s'utilitza com a criteri "
+"d'agrupació, donat que la resta d'atributos de les consultes pot diferir, "
+"com el temps d'inici.."
 
 #: js/messages.php:179
 msgid ""
@@ -1641,32 +1619,34 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Donat que s'ha triat agrupar consultes INSERT, les consultes INSERT a la "
+"mateixa taula també s'han agrupat, sense importar les dades afegides."
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"S'han carregat les dades del registre. Consultes executades en aquest "
+"període de temps:"
 
 #: js/messages.php:182
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Vés a la base de dades"
+msgstr "Saltar a la taula del registre"
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Registre analitzat, però no s'han trobat dades en aquest periode de temps."
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analitza"
+msgstr "Analitzant..."
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Explica SQL"
+msgstr "Explicar sortida"
 
 #: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1241 sql.php:901
@@ -1674,16 +1654,14 @@ msgid "Time"
 msgstr "Temps"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "Total"
+msgstr "Temps total:"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Perfils"
+msgstr "Perfilant resultats"
 
 #: js/messages.php:191
 #, fuzzy
@@ -1693,51 +1671,46 @@ msgid "Table"
 msgstr "Taula"
 
 #: js/messages.php:192
-#, fuzzy
 msgid "Chart"
-msgstr "Jocs de caràcters"
+msgstr "Gràfic"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Opcions de visualització de les taules"
+msgstr "Opcions de filtres per a la taula del registre"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
 msgid "Filter"
-msgstr "Filtre"
+msgstr "Filtrar"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtrar consultes per paraula/expresió regular:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Agrupar consultes, ignorant dades variables en clàusules WHERE"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Nombre de files a inserir"
+msgstr "Suma de files agrupades:"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Total"
+msgstr "Total:"
 
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Carregar"
+msgstr "Carregant els registres"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Ha fallat l'actualització de la monitorització"
 
 #: js/messages.php:205
 msgid ""
