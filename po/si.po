@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-01 18:32+0200\n"
+"PO-Revision-Date: 2012-03-01 18:33+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4195,7 +4195,7 @@ msgstr "සැහැල්ලු අනුවාදය භාවිත කරන
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "වගු ගසෙහි උපරිම මට්ටම් ගණන"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates tables into different tree levels"
