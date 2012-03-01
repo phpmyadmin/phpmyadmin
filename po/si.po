@@ -4207,7 +4207,7 @@ msgstr "වගු ගසෙහි වෙන්කරණය"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "යාත්‍රණ රාමුවේ දැක්වෙන ලාංඡනය සබැඳිය යුතු URL"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
