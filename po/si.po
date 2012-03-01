@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-01 18:52+0200\n"
+"PO-Revision-Date: 2012-03-01 18:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4240,10 +4240,9 @@ msgstr ""
 "මෑතදී භාවිතා කල වගු ලයිස්තුවේ පෙන්විය යුතු වගු ගණන; අක්‍රීය කිරීමට 0 යොදන්න"
 
 #: libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "අවධානය අක්‍රීය වගු"
+msgstr "මෑතදී භාවිතා කල වගු"
 
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
