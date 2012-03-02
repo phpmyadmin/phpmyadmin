@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-02 15:35+0200\n"
+"PO-Revision-Date: 2012-03-02 15:36+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -13034,7 +13034,7 @@ msgstr ""
 #, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "Το long_query_time έχει οριστεί σε %s."
+msgstr "Το long_query_time έχει οριστεί σε %s"
 
 #: po/advisory_rules.php:225
 #, fuzzy
