@@ -3468,7 +3468,7 @@ msgstr "Προεπιλεγμένη καρτέλα πίνακα"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
-msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά ως προεπιλογή"
+msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά HEX ως προεπιλογή"
 
 #: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:679
 msgid "Show binary contents as HEX"
