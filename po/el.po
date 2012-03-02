@@ -10751,7 +10751,7 @@ msgstr ""
 
 #: server_status.php:1623
 msgid "Using the monitor:"
-msgstr "Χρήση της εποπτείας"
+msgstr "Χρήση της εποπτείας:"
 
 #: server_status.php:1625
 msgid ""
