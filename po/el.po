@@ -10779,7 +10779,7 @@ msgstr ""
 
 #: server_status.php:1634
 msgid "Please note:"
-msgstr "Σημειώστε"
+msgstr "Σημειώστε:"
 
 #: server_status.php:1636
 msgid ""
