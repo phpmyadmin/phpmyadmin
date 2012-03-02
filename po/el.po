@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
 "PO-Revision-Date: 2012-03-02 15:20+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -12421,10 +12421,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "Απόδοση λανθάνουσας μνήμης ερωτήματος (%)"
+msgstr "Απόδοση λανθάνουσας μνήμης ερωτήματος (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
