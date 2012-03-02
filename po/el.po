@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-02 15:22+0200\n"
+"PO-Revision-Date: 2012-03-02 15:23+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12566,10 +12566,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Επιτρέπει τη δημιουργία προσωρινών πινάκων."
+msgstr "Ποσοστό ταξινομήσεων που δημιουργούν προσωρινούς πίνακες"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
 #, fuzzy
