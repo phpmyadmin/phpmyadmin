@@ -11767,7 +11767,7 @@ msgstr "Μέγεθος γραμμής"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Μέγεθος εγγραφής "
+msgstr "Μέγεθος εγγραφής"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
