@@ -8140,7 +8140,7 @@ msgstr "Διαχωριστικό"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Επανεμφάνιση αυτού του ερώτηματος εδώ "
+msgstr "Επανεμφάνιση αυτού του ερώτηματος εδώ"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
