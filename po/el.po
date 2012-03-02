@@ -12628,10 +12628,9 @@ msgid "Rate of joins without indexes"
 msgstr "Βαθμός ενώσεων χωρίς ευρετήρια"
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Δεν υπάρχουν ρουτίνες για εμφάνιση."
+msgstr "Υπάρχουν πολλές ενώσεις χωρίς ευρετήρια."
 
 #: po/advisory_rules.php:127
 msgid ""
