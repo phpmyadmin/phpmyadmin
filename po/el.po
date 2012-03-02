@@ -12251,7 +12251,7 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Ενεργοποίηση της αργής καταγραφής ερωτήματος ορίζοντας το log_slow_queries} "
+"Ενεργοποίηση της αργής καταγραφής ερωτήματος ορίζοντας το {log_slow_queries} "
 "σε «ΕΝΕΡΓΟ». Αυτό θα βοηθήσει στη κακή εκτέλεση ερωτημάτων."
 
 #: po/advisory_rules.php:33
