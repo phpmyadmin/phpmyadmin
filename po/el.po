@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-02 15:29+0200\n"
+"PO-Revision-Date: 2012-03-02 15:30+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12812,10 +12812,12 @@ msgid "Max %% MyISAM key buffer ever used"
 msgstr "Μέγεθος buffer ταξινόμησης"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Μέγεθος buffer ταξινόμησης"
+msgstr ""
+"Το buffer κλειδιού MyISAM (λανθάνουσα ευρετηρίου) %% που χρησιμοποιείτε "
+"είναι χαμηλό."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
