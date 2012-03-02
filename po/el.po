@@ -9488,8 +9488,8 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... διαγραφή του παλιού χρήστη από τους πίνακες χρηστών και επαναφόρτωση "
-"των δικαιωμάτων."
+"... διαγραφή του παλιού χρήστη από τους πίνακες χρηστών και επαναφόρτωση των "
+"δικαιωμάτων."
 
 #: server_privileges.php:2215
 msgid "Database for user"
