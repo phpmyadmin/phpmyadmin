@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-02 15:36+0200\n"
+"PO-Revision-Date: 2012-03-02 15:37+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9310,7 +9310,7 @@ msgstr "Δικαιώματα πινάκων"
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1704
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Σημείωση: Τα ονόματα δικαιωμάτων της MySQL εκφράζονται στα Αγγλικά "
+msgstr "Σημείωση: Τα ονόματα δικαιωμάτων της MySQL εκφράζονται στα Αγγλικά"
 
 #: server_privileges.php:614
 msgid "Administration"
