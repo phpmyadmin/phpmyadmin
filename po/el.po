@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-02 15:08+0200\n"
+"PO-Revision-Date: 2012-03-02 15:09+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12312,6 +12312,8 @@ msgstr "Διανομή"
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Η έκδοση έχει προέλθει από τον κώδικα κια όχι από το επίσημο εκτελέσιμο της "
+"MySQL."
 
 #: po/advisory_rules.php:52
 msgid ""
