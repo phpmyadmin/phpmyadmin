@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-02 15:33+0200\n"
+"PO-Revision-Date: 2012-03-02 15:34+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12692,10 +12692,9 @@ msgid "Rate of reading next table row"
 msgstr "Που να προβάλονται οι σύνδεσμοι γραμμής πίνακα"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Που να προβάλονται οι σύνδεσμοι γραμμής πίνακα"
+msgstr "Ο βαθμός ανάγνωσης της επόμενης εγγραφής του πίνακα είναι υψηλός."
 
 #: po/advisory_rules.php:142
 msgid ""
