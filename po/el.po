@@ -11403,8 +11403,7 @@ msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς"
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
-" Εξαιτίας του μεγέθος του,<br /> αυτό το πεδίο ίσως να μη μπορεί να "
-"διορθωθεί "
+"Εξαιτίας του μεγέθος του,<br /> αυτό το πεδίο ίσως να μη μπορεί να διορθωθεί"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
