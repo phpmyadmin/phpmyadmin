@@ -12607,7 +12607,7 @@ msgstr "Ταξινόμηση εγγραφών"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Ταξινομούνται πολλές εγγραφές."
 
 #: po/advisory_rules.php:122
 msgid ""
