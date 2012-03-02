@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-02 15:34+0200\n"
+"PO-Revision-Date: 2012-03-02 15:35+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12975,10 +12975,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Η παρακολούθηση δεν είναι ενεργοποιημένη."
+msgstr "Βαθμός πατήματος λανθάνουσας μνήμης νήματος %%"
 
 #: po/advisory_rules.php:211
 #, fuzzy
