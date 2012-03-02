@@ -100,7 +100,7 @@ class PMA_Error_Handler
     public function handleError($errno, $errstr, $errfile, $errline)
     {
         // create error object
-        $error = new PMA_Error($errno, $errstr, $errfile, $errline);
+        $error = new PMA_Error($errno, htmlspecialchars($errstr), $errfile, $errline);
 
         // do not repeat errors
         $this->_errors[$error->getHash()] = $error;
