@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-25 07:35+0200\n"
+"PO-Revision-Date: 2012-03-01 18:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4161,33 +4161,33 @@ msgid "Display servers selection"
 msgstr "සේවාදායක තේරීම පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:274
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
-msgstr "The number of tables that are open."
+msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු වගු ගණන"
 
 #: libraries/config/messages.inc.php:275
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වීමේදී එක් එක් මට්ටම් වෙන කරන සලකුණ"
 
 #: libraries/config/messages.inc.php:276
-#, fuzzy
 msgid "Database tree separator"
-msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
+msgstr "දත්තගබඩා ගසෙහි වෙන්කරණය"
 
 #: libraries/config/messages.inc.php:277
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"සැහැල්ලු ප්‍රකාරය පමණි; දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වන්න (පහත සඳහන් "
+"වෙන්කරණය මත තීරණය වේ)"
 
 #: libraries/config/messages.inc.php:278
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:279
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "සියලු දත්ත ගබඩා එකවර පෙන්වීමට මෙය අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:280
 msgid "Use light version"
@@ -4195,33 +4195,35 @@ msgstr "සැහැල්ලු අනුවාදය භාවිත කරන
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "වගු ගසෙහි උපරිම මට්ටම් ගණන"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "වගු ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වීමේදී එක් එක් මට්ටම් වෙන කරන සලකුණ"
 
 #: libraries/config/messages.inc.php:283
 msgid "Table tree separator"
-msgstr ""
+msgstr "වගු ගසෙහි වෙන්කරණය"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "යාත්‍රණ රාමුවේ දැක්වෙන ලාංඡනය සබැඳිය යුතු URL"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
-msgstr ""
+msgstr "ලාංඡනය හා සබැඳි URL"
 
 #: libraries/config/messages.inc.php:286
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"සබැඳි පිටුව ප්‍රධාන කවුළුව ([kbd]main[/kbd]) තුල හෝ නව කවුළුවක් "
+"([kbd]new[/kbd]) තුල විවෘත කරන්න"
 
 #: libraries/config/messages.inc.php:287
 msgid "Logo link target"
-msgstr ""
+msgstr "ලාංඡනයේ සබැඳුම"
 
 #: libraries/config/messages.inc.php:288
 msgid "Highlight server under the mouse cursor"
@@ -4232,16 +4234,15 @@ msgid "Enable highlighting"
 msgstr ""
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "වගු ලයිස්තුවේ උපරිම ලෙස පෙන්විය යුතු වගු ගණන"
+msgstr ""
+"මෑතදී භාවිතා කල වගු ලයිස්තුවේ පෙන්විය යුතු වගු ගණන; අක්‍රීය කිරීමට 0 යොදන්න"
 
 #: libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "අවධානය අක්‍රීය වගු"
+msgstr "මෑතදී භාවිතා කල වගු"
 
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
