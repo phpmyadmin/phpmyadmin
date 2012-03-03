@@ -35,6 +35,67 @@ if (! $is_superuser) {
 }
 
 /**
+ * Sets globals from $_REQUEST
+ */
+if (isset($_REQUEST['hostname'])) {
+    $GLOBALS['hostname'] = $_REQUEST['hostname'];
+}
+if (isset($_REQUEST['mr_adduser'])) {
+    $GLOBALS['mr_adduser'] = $_REQUEST['mr_adduser'];
+}
+if (isset($_REQUEST['mr_configure'])) {
+    $GLOBALS['mr_configure'] = $_REQUEST['mr_configure'];
+}
+if (isset($_REQUEST['pma_pw'])) {
+    $GLOBALS['pma_pw'] = $_REQUEST['pma_pw'];
+}
+if (isset($_REQUEST['port'])) {
+    $GLOBALS['port'] = $_REQUEST['port'];
+}
+if (isset($_REQUEST['repl_clear_scr'])) {
+    $GLOBALS['repl_clear_scr'] = $_REQUEST['repl_clear_scr'];
+}
+if (isset($_REQUEST['repl_data'])) {
+    $GLOBALS['repl_data'] = $_REQUEST['repl_data'];
+}
+if (isset($_REQUEST['sl_configure'])) {
+    $GLOBALS['sl_configure'] = $_REQUEST['sl_configure'];
+}
+if (isset($_REQUEST['sl_sync'])) {
+    $GLOBALS['sl_sync'] = $_REQUEST['sl_sync'];
+}
+if (isset($_REQUEST['slave_changemaster'])) {
+    $GLOBALS['slave_changemaster'] = $_REQUEST['slave_changemaster'];
+}
+if (isset($_REQUEST['sr_skip_errors_count'])) {
+    $GLOBALS['sr_skip_errors_count'] = $_REQUEST['sr_skip_errors_count'];
+}
+if (isset($_REQUEST['sr_slave_action'])) {
+    $GLOBALS['sr_slave_action'] = $_REQUEST['sr_slave_action'];
+}
+if (isset($_REQUEST['sr_slave_control_parm'])) {
+    $GLOBALS['sr_slave_control_parm'] = $_REQUEST['sr_slave_control_parm'];
+}
+if (isset($_REQUEST['sr_slave_server_control'])) {
+    $GLOBALS['sr_slave_server_control'] = $_REQUEST['sr_slave_server_control'];
+}
+if (isset($_REQUEST['sr_slave_skip_error'])) {
+    $GLOBALS['sr_slave_skip_error'] = $_REQUEST['sr_slave_skip_error'];
+}
+if (isset($_REQUEST['sr_take_action'])) {
+    $GLOBALS['sr_take_action'] = $_REQUEST['sr_take_action'];
+}
+if (isset($_REQUEST['url_params'])) {
+    $GLOBALS['url_params'] = $_REQUEST['url_params'];
+}
+if (isset($_REQUEST['username'])) {
+    $GLOBALS['username'] = $_REQUEST['username'];
+}
+if (isset($_REQUEST[''])) {
+    $GLOBALS[''] = $_REQUEST[''];
+}
+
+/**
  * Handling control requests
  */
 if (isset($GLOBALS['sr_take_action'])) {
