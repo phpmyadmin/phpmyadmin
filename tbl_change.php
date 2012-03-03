@@ -152,8 +152,9 @@ require_once './libraries/tbl_links.inc.php';
  * @todo should be handled by class Table
  */
 $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
-        0, 1);
+    'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+    0, 1
+);
 $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 unset($show_create_table);
 
@@ -177,7 +178,8 @@ if (isset($where_clause)) {
     $where_clauses      = array();
 
     foreach ($where_clause_array as $key_id => $where_clause) {
-        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';';
+        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+                                 . ' WHERE ' . $where_clause . ';';
         $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
@@ -190,7 +192,8 @@ if (isset($where_clause)) {
             include './libraries/footer.inc.php';
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
-            list($unique_condition, $tmp_clause_is_unique) = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
+            list($unique_condition, $tmp_clause_is_unique)
+                = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
             if (! empty($unique_condition)) {
                 $found_unique_key = true;
             }
@@ -201,7 +204,11 @@ if (isset($where_clause)) {
 } else {
     // no primary key given, just load first row - but what happens if table is empty?
     $insert_mode = true;
-    $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
+    $result = PMA_DBI_query(
+        'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;',
+        null,
+        PMA_DBI_QUERY_STORE
+    );
     $rows = array_fill(0, $cfg['InsertRows'], false);
 }
 
@@ -287,13 +294,25 @@ if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
     echo __('Show');
 }
 if (! $cfg['ShowFunctionFields']) {
-    $this_url_params = array_merge($url_params,
-        array('ShowFunctionFields' => 1, 'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'], 'goto' => 'sql.php'));
+    $this_url_params = array_merge(
+        $url_params,
+        array(
+            'ShowFunctionFields' => 1,
+            'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'],
+            'goto' => 'sql.php'
+        )
+    );
     echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . __('Function') . '</a>' . "\n";
 }
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    $this_other_url_params = array_merge($url_params,
-        array('ShowFieldTypesInDataEditView' => 1, 'ShowFunctionFields' => $cfg['ShowFunctionFields'], 'goto' => 'sql.php'));
+    $this_other_url_params = array_merge(
+        $url_params,
+        array(
+            'ShowFieldTypesInDataEditView' => 1,
+            'ShowFunctionFields' => $cfg['ShowFunctionFields'],
+            'goto' => 'sql.php'
+        )
+    );
     echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . __('Type') . '</a>' . "\n";
 }
 
@@ -318,15 +337,27 @@ foreach ($rows as $row_id => $vrow) {
             <th><?php echo __('Column'); ?></th>
 
  <?php
-     if ($cfg['ShowFieldTypesInDataEditView']) {
-        $this_url_params = array_merge($url_params,
-            array('ShowFieldTypesInDataEditView' => 0, 'ShowFunctionFields' => $cfg['ShowFunctionFields'], 'goto' => 'sql.php'));
+    if ($cfg['ShowFieldTypesInDataEditView']) {
+        $this_url_params = array_merge(
+            $url_params,
+            array(
+                'ShowFieldTypesInDataEditView' => 0,
+                'ShowFunctionFields' => $cfg['ShowFunctionFields'],
+                'goto' => 'sql.php'
+            )
+        );
         echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
     }
 
     if ($cfg['ShowFunctionFields']) {
-        $this_url_params = array_merge($url_params,
-            array('ShowFunctionFields' => 0, 'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'], 'goto' => 'sql.php'));
+        $this_url_params = array_merge(
+            $url_params,
+            array(
+                'ShowFunctionFields' => 0,
+                'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'],
+                'goto' => 'sql.php'
+            )
+        );
         echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Function') . '</a></th>' . "\n";
     }
 ?>
@@ -370,9 +401,10 @@ foreach ($rows as $row_id => $vrow) {
             // to have an empty default value for DATETIME)
             // then, the "if" after this one will work
             if ($table_fields[$i]['Type'] == 'datetime'
-             && ! isset($table_fields[$i]['Default'])
-             && isset($table_fields[$i]['Null'])
-             && $table_fields[$i]['Null'] == 'YES') {
+                && ! isset($table_fields[$i]['Default'])
+                && isset($table_fields[$i]['Null'])
+                && $table_fields[$i]['Null'] == 'YES'
+            ) {
                 $table_fields[$i]['Default'] = null;
             }
 
@@ -393,7 +425,8 @@ foreach ($rows as $row_id => $vrow) {
             // If check to ensure types such as "enum('one','two','binary',..)" or
             // "enum('one','two','varbinary',..)" are not categorized as binary.
             if (stripos($table_fields[$i]['Type'], 'binary') === 0
-            || stripos($table_fields[$i]['Type'], 'varbinary') === 0) {
+                || stripos($table_fields[$i]['Type'], 'varbinary') === 0
+            ) {
                 $table_fields[$i]['is_binary'] = stristr($table_fields[$i]['Type'], 'binary');
             } else {
                 $table_fields[$i]['is_binary'] = false;
@@ -402,9 +435,10 @@ foreach ($rows as $row_id => $vrow) {
             // If check to ensure types such as "enum('one','two','blob',..)" or
             // "enum('one','two','tinyblob',..)" etc. are not categorized as blob.
             if (stripos($table_fields[$i]['Type'], 'blob') === 0
-            || stripos($table_fields[$i]['Type'], 'tinyblob') === 0
-            || stripos($table_fields[$i]['Type'], 'mediumblob') === 0
-            || stripos($table_fields[$i]['Type'], 'longblob') === 0) {
+                || stripos($table_fields[$i]['Type'], 'tinyblob') === 0
+                || stripos($table_fields[$i]['Type'], 'mediumblob') === 0
+                || stripos($table_fields[$i]['Type'], 'longblob') === 0
+            ) {
                 $table_fields[$i]['is_blob']   = stristr($table_fields[$i]['Type'], 'blob');
             } else {
                 $table_fields[$i]['is_blob'] = false;
@@ -413,7 +447,8 @@ foreach ($rows as $row_id => $vrow) {
             // If check to ensure types such as "enum('one','two','char',..)" or
             // "enum('one','two','varchar',..)" are not categorized as char.
             if (stripos($table_fields[$i]['Type'], 'char') === 0
-            || stripos($table_fields[$i]['Type'], 'varchar') === 0) {
+                || stripos($table_fields[$i]['Type'], 'varchar') === 0
+            ) {
                 $table_fields[$i]['is_char']   = stristr($table_fields[$i]['Type'], 'char');
             } else {
                 $table_fields[$i]['is_char'] = false;
@@ -421,27 +456,27 @@ foreach ($rows as $row_id => $vrow) {
 
             $table_fields[$i]['first_timestamp'] = false;
             switch ($table_fields[$i]['True_Type']) {
-                case 'set':
-                    $table_fields[$i]['pma_type'] = 'set';
-                    $table_fields[$i]['wrap']  = '';
-                    break;
-                case 'enum':
-                    $table_fields[$i]['pma_type'] = 'enum';
-                    $table_fields[$i]['wrap']  = '';
-                    break;
-                case 'timestamp':
-                    if (!$timestamp_seen) {   // can only occur once per table
-                        $timestamp_seen  = 1;
-                        $table_fields[$i]['first_timestamp'] = true;
-                    }
-                    $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
-                    $table_fields[$i]['wrap']  = ' nowrap="nowrap"';
-                    break;
+            case 'set':
+                $table_fields[$i]['pma_type'] = 'set';
+                $table_fields[$i]['wrap']  = '';
+                break;
+            case 'enum':
+                $table_fields[$i]['pma_type'] = 'enum';
+                $table_fields[$i]['wrap']  = '';
+                break;
+            case 'timestamp':
+                if (!$timestamp_seen) {   // can only occur once per table
+                    $timestamp_seen  = 1;
+                    $table_fields[$i]['first_timestamp'] = true;
+                }
+                $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
+                $table_fields[$i]['wrap']  = ' nowrap="nowrap"';
+                break;
 
-                default:
-                    $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
-                    $table_fields[$i]['wrap']  = ' nowrap="nowrap"';
-                    break;
+            default:
+                $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
+                $table_fields[$i]['wrap']  = ' nowrap="nowrap"';
+                break;
             }
         }
         $field = $table_fields[$i];
@@ -455,16 +490,18 @@ foreach ($rows as $row_id => $vrow) {
             }
         }
         //Call validation when the form submited...
-        $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('". PMA_escapeJsString($field['Field_md5']) . "', '"
+        $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('"
+            . PMA_escapeJsString($field['Field_md5']) . "', '"
             . PMA_escapeJsString($jsvkey) . "','".$field['pma_type']."')\"";
 
         // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
         $field_name_appendix =  $vkey . '[' . $field['Field_md5'] . ']';
 
         if ($field['Type'] == 'datetime'
-         && ! isset($field['Default'])
-         && ! is_null($field['Default'])
-         && ($insert_mode || ! isset($vrow[$field['Field']]))) {
+            && ! isset($field['Default'])
+            && ! is_null($field['Default'])
+            && ($insert_mode || ! isset($vrow[$field['Field']]))
+        ) {
             // INSERT case or
             // UPDATE case with an NULL value
             $vrow[$field['Field']] = date('Y-m-d H:i:s', time());
@@ -495,7 +532,9 @@ foreach ($rows as $row_id => $vrow) {
                 $special_chars   = '';
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value($vrow[$field['Field']], $extracted_fieldspec['spec_in_brackets']);
+                $special_chars = PMA_printable_bit_value(
+                    $vrow[$field['Field']], $extracted_fieldspec['spec_in_brackets']
+                );
             } elseif (in_array($field['True_Type'], $gis_data_types)) {
                 // Convert gis data to Well Know Text format
                 $vrow[$field['Field']] = PMA_asWKT($vrow[$field['Field']], true);
@@ -512,7 +551,8 @@ foreach ($rows as $row_id => $vrow) {
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);
 
-            //We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column
+                //We need to duplicate the first \n or otherwise we will lose
+                //the first newline entered in a VARCHAR or TEXT column
                 $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
 
                 $data            = $vrow[$field['Field']];
@@ -549,7 +589,10 @@ foreach ($rows as $row_id => $vrow) {
             $backup_field  = '';
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
-            if (($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) && $_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
+            if (($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary']))
+                && $_SESSION['tmp_user_values']['display_binary_as_hex']
+                && $cfg['ShowFunctionFields']
+            ) {
                 $field['display_binary_as_hex'] = true;
             }
         }
@@ -568,19 +611,23 @@ foreach ($rows as $row_id => $vrow) {
         //       binary
         if ($cfg['ShowFunctionFields']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
-             || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
+                || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
+            ) {
                 echo '        <td align="center">' . __('Binary') . '</td>' . "\n";
-            } elseif (strstr($field['True_Type'], 'enum') || strstr($field['True_Type'], 'set') || in_array($field['pma_type'], $no_support_types)) {
+            } elseif (strstr($field['True_Type'], 'enum')
+                || strstr($field['True_Type'], 'set')
+                || in_array($field['pma_type'], $no_support_types)
+            ) {
                 echo '        <td align="center">--</td>' . "\n";
             } else {
                 ?>
-            <td>
-                <select name="funcs<?php echo $field_name_appendix; ?>" <?php echo $unnullify_trigger; ?> tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
-<?php
-    echo PMA_getFunctionsForField($field, $insert_mode);
-?>
-                </select>
-            </td>
+                <td>
+                    <select name="funcs<?php echo $field_name_appendix; ?>" <?php echo $unnullify_trigger; ?> tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
+                <?php
+                echo PMA_getFunctionsForField($field, $insert_mode);
+                ?>
+                    </select>
+                </td>
                 <?php
             }
         } // end if ($cfg['ShowFunctionFields'])
@@ -623,9 +670,12 @@ foreach ($rows as $row_id => $vrow) {
                 $nullify_code = '5';
             }
             // to be able to generate calls to nullify() in jQuery
-            echo '<input type="hidden" class="nullify_code" name="nullify_code' . $field_name_appendix . '" value="' . $nullify_code . '" />';
-            echo '<input type="hidden" class="hashed_field" name="hashed_field' . $field_name_appendix . '" value="' .  $field['Field_md5'] . '" />';
-            echo '<input type="hidden" class="multi_edit" name="multi_edit' . $field_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
+            echo '<input type="hidden" class="nullify_code" name="nullify_code'
+                . $field_name_appendix . '" value="' . $nullify_code . '" />';
+            echo '<input type="hidden" class="hashed_field" name="hashed_field'
+                . $field_name_appendix . '" value="' .  $field['Field_md5'] . '" />';
+            echo '<input type="hidden" class="multi_edit" name="multi_edit'
+                . $field_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
         }
         echo '        </td>' . "\n";
 
@@ -733,10 +783,11 @@ foreach ($rows as $row_id => $vrow) {
                     echo '                ';
                     echo '<option value="' . $enum_value['html'] . '"';
                     if ($data == $enum_value['plain']
-                     || ($data == ''
-                      && (! isset($where_clause) || $field['Null'] != 'YES')
-                      && isset($field['Default'])
-                      && $enum_value['plain'] == $field['Default'])) {
+                        || ($data == ''
+                            && (! isset($where_clause) || $field['Null'] != 'YES')
+                            && isset($field['Default'])
+                            && $enum_value['plain'] == $field['Default'])
+                    ) {
                         echo ' selected="selected"';
                     }
                     echo '>' . $enum_value['html'] . '</option>' . "\n";
@@ -755,10 +806,11 @@ foreach ($rows as $row_id => $vrow) {
                     echo ' id="field_' . ($idindex) . '_3_'  . $j . '"';
                     echo $unnullify_trigger;
                     if ($data == $enum_value['plain']
-                     || ($data == ''
-                      && (! isset($where_clause) || $field['Null'] != 'YES')
-                      && isset($field['Default'])
-                      && $enum_value['plain'] == $field['Default'])) {
+                        || ($data == ''
+                            && (! isset($where_clause) || $field['Null'] != 'YES')
+                            && isset($field['Default'])
+                            && $enum_value['plain'] == $field['Default'])
+                    ) {
                         echo ' checked="checked"';
                     }
                     echo ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
@@ -867,7 +919,7 @@ foreach ($rows as $row_id => $vrow) {
 
                 $this_field_max_size = $max_upload_size; // from PHP max
                 if ($this_field_max_size > $max_field_sizes[$field['pma_type']]) {
-                   $this_field_max_size = $max_field_sizes[$field['pma_type']];
+                    $this_field_max_size = $max_field_sizes[$field['pma_type']];
                 }
                 echo PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
                 // do not generate here the MAX_FILE_SIZE, because we should
@@ -897,11 +949,11 @@ foreach ($rows as $row_id => $vrow) {
             if ($field['is_char']) {
                 $fieldsize = $extracted_fieldspec['spec_in_brackets'];
             } else {
-            /**
-             * This case happens for example for INT or DATE columns;
-             * in these situations, the value returned in $field['len']
-             * seems appropriate.
-             */
+                /**
+                 * This case happens for example for INT or DATE columns;
+                 * in these situations, the value returned in $field['len']
+                 * seems appropriate.
+                 */
                 $fieldsize = $field['len'];
             }
             $fieldsize = min(max($fieldsize, $cfg['MinSizeForInputField']), $cfg['MaxSizeForInputField']);
@@ -1036,7 +1088,7 @@ if (isset($where_clause)) {
     // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
     if ($found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause)) {
         ?>
-    <option value="edit_next" <?php echo ($after_insert == 'edit_next' ? 'selected="selected"' : ''); ?>><?php echo __('Edit next row'); ?></option>
+        <option value="edit_next" <?php echo ($after_insert == 'edit_next' ? 'selected="selected"' : ''); ?>><?php echo __('Edit next row'); ?></option>
         <?php
     }
 }

@@ -82,11 +82,11 @@ if (false !== $possibly_uploaded_val) {
         // when in UPDATE mode, do not alter field's contents. When in INSERT
         // mode, insert empty field because no values were submitted. If protected
         // blobs where set, insert original fields content.
-            if (! empty($prot_row[$me_fields_name[$key]])) {
-                $val = '0x' . bin2hex($prot_row[$me_fields_name[$key]]);
-            } else {
-                $val = '';
-            }
+        if (! empty($prot_row[$me_fields_name[$key]])) {
+            $val = '0x' . bin2hex($prot_row[$me_fields_name[$key]]);
+        } else {
+            $val = '';
+        }
     } elseif ($type == 'bit') {
         $val = preg_replace('/[^01]/', '0', $val);
         $val = "b'" . PMA_sqlAddSlashes($val) . "'";
@@ -97,8 +97,7 @@ if (false !== $possibly_uploaded_val) {
     // Was the Null checkbox checked for this field?
     // (if there is a value, we ignore the Null checkbox: this could
     // be possible if Javascript is disabled in the browser)
-    if (! empty($me_fields_null[$key])
-     && ($val == "''" || $val == '')) {
+    if (! empty($me_fields_null[$key]) && ($val == "''" || $val == '')) {
         $val = 'NULL';
     }
 

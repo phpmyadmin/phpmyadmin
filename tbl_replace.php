@@ -41,7 +41,10 @@ $GLOBALS['js_include'][] = 'makegrid.js';
 // Needed for generation of Inline Edit anchors
 $GLOBALS['js_include'][] = 'sql.js';
 
-if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $_REQUEST['insert_rows'] != $cfg['InsertRows']) {
+if (isset($_REQUEST['insert_rows'])
+    && is_numeric($_REQUEST['insert_rows'])
+    && $_REQUEST['insert_rows'] != $cfg['InsertRows']
+) {
     $cfg['InsertRows'] = $_REQUEST['insert_rows'];
     $GLOBALS['js_include'][] = 'tbl_change.js';
     include_once './libraries/header.inc.php';
@@ -50,7 +53,8 @@ if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $
 }
 
 if (isset($_REQUEST['after_insert'])
- && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'edit_next'))) {
+    && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'edit_next'))
+) {
     $url_params['after_insert'] = $_REQUEST['after_insert'];
     //$GLOBALS['goto'] = 'tbl_change.php';
     $goto_include = 'tbl_change.php';
@@ -113,8 +117,10 @@ if (isset($_REQUEST['where_clause'])) {
     // we were editing something => use the WHERE clause
     $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
     $using_key  = true;
-    $is_insert  = ($_REQUEST['submit_type'] == 'insert') || ($_REQUEST['submit_type'] == 'showinsert') || ($_REQUEST['submit_type'] == 'insertignore');
-    $is_insertignore  = ($_REQUEST['submit_type'] == 'insertignore');
+    $is_insert  = $_REQUEST['submit_type'] == 'insert'
+                  || $_REQUEST['submit_type'] == 'showinsert'
+                  || $_REQUEST['submit_type'] == 'insertignore';
+    $is_insertignore  = $_REQUEST['submit_type'] == 'insertignore';
 } else {
     // new row => use indexes
     $loop_array = array();
@@ -219,7 +225,10 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
     // Fetch the current values of a row to use in case we have a protected field
     // @todo possibly move to ./libraries/tbl_replace_fields.inc.php
-    if ($is_insert && $using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($where_clause)) {
+    if ($is_insert
+        && $using_key && isset($me_fields_type)
+        && is_array($me_fields_type) && isset($where_clause)
+    ) {
         $prot_row = PMA_DBI_fetch_single_row('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';');
     }
 
@@ -289,7 +298,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
             // (field had the null checkbox before the update
             //  field still has the null checkbox)
             if (empty($me_fields_null_prev[$key])
-             || empty($me_fields_null[$key])) {
+                || empty($me_fields_null[$key])
+            ) {
                  $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
             }
         }
@@ -301,7 +311,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
         } else {
             // build update query
             $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
-                . ' SET ' . implode(', ', $query_values) . ' WHERE ' . $where_clause . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
+                . ' SET ' . implode(', ', $query_values)
+                . ' WHERE ' . $where_clause . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
 
         }
     }
@@ -476,9 +487,8 @@ if ($GLOBALS['is_ajax_request'] == true) {
                     'table' => $map[$rel_field]['foreign_table'],
                     'pos'   => '0',
                     'sql_query' => 'SELECT * FROM '
-                                        . PMA_backquote($map[$rel_field]['foreign_db']) . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
-                                        . $where_comparison
+                        . PMA_backquote($map[$rel_field]['foreign_db']) . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
+                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field']) . $where_comparison
                 );
                 $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
 
@@ -530,7 +540,9 @@ if ($GLOBALS['is_ajax_request'] == true) {
 
                         if (function_exists('PMA_transformation_' . $transformfunction_name)) {
                             $transform_function = 'PMA_transformation_' . $transformfunction_name;
-                            $transform_options  = PMA_transformation_getOptions((isset($transformation['transformation_options']) ? $transformation['transformation_options'] : ''));
+                            $transform_options  = PMA_transformation_getOptions(
+                                isset($transformation['transformation_options']) ? $transformation['transformation_options'] : ''
+                            );
                             $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
                         }
                     }
