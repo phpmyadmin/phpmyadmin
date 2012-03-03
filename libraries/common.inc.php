@@ -282,8 +282,9 @@ if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
  * check timezone setting
  * this could produce an E_STRICT - but only once,
  * if not done here it will produce E_STRICT on every date/time function
+ * (starting with PHP 5.3, this code can produce E_WARNING rather than
+ *  E_STRICT)
  *
- * @todo need to decide how we should handle this (without @)
  */
 date_default_timezone_set(@date_default_timezone_get());
 
