@@ -23,7 +23,9 @@ $GLOBALS['js_include'][] = 'gis_data_editor.js';
 $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
 $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
-
+if (isset($_REQUEST['printview'])) {
+    $GLOBALS['printview'] = $_REQUEST['printview'];
+}
 
 if (isset($_SESSION['profiling'])) {
     $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
