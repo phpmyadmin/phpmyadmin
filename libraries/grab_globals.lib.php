@@ -78,9 +78,9 @@ $_import_blacklist = array(
     //'/^PMA_.*$/i',      // other PMA variables
 );
 
-if (! empty($_GET)) {
-    PMA_recursive_extract($_GET, $GLOBALS);
-}
+//if (! empty($_GET)) {
+//    PMA_recursive_extract($_GET, $GLOBALS);
+//}
 
 if (! empty($_POST)) {
     PMA_recursive_extract($_POST, $GLOBALS);
