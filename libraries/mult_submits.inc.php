@@ -8,6 +8,18 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+if (isset($_REQUEST['table_type'])) {
+    $GLOBALS['table_type'] = $_REQUEST['table_type'];
+}
+
+if (isset($_REQUEST['selected_fld'])) {
+    $GLOBALS['selected_fld'] = $_REQUEST['selected_fld'];
+}
+
+if (isset($_REQUEST['submit_mult'])) {
+    $GLOBALS['submit_mult'] = $_REQUEST['submit_mult'];
+}
+
 /**
  * Prepares the work and runs some other scripts if required
  */
