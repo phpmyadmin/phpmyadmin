@@ -12,6 +12,10 @@
 require_once './libraries/common.inc.php';
 //require_once './libraries/display_import_functions.lib.php';
 
+if (isset($_REQUEST['show_as_php'])) {
+    $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
+}
+
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;
 $_SESSION['Import_message']['go_back_url'] = null;
