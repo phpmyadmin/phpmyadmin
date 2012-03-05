@@ -10001,10 +10001,9 @@ msgid "Containing the word:"
 msgstr "Bevat het woord:"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Toon open tabellen"
+msgstr "Enkel belangrijke waarden tonen"
 
 #: server_status.php:850
 msgid "Filter by category..."
