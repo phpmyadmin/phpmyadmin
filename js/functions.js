@@ -1057,6 +1057,12 @@ function pdfPaperSize(format, axis)
  */
 $(document).ready(function(){
     $(".inline_edit_sql").live('click', function(){
+        if ($('#sql_query_edit').length) {
+            // An inline query editor is already open,
+            // we don't want another copy of it
+            return false;
+        }
+
         var $form = $(this).prev();
         var sql_query  = $form.find("input[name='sql_query']").val();
         var $inner_sql = $(this).parent().prev().find('.inner_sql');
