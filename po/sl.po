@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-05 12:31+0200\n"
+"PO-Revision-Date: 2012-03-05 12:36+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2468,10 +2468,10 @@ msgstr[3] "Spremenil sem %1$d vrstic."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Izbrisana je %1$d vrstica."
-msgstr[1] "Izbrisani sta %1$d vrstici."
-msgstr[2] "Izbrisane so %1$d vrstice."
-msgstr[3] "Izbrisanih je %1$d vrstic."
+msgstr[0] "Izbrisal sem %1$d vrstico."
+msgstr[1] "Izbrisal sem %1$d vrstici."
+msgstr[2] "Izbrisal sem %1$d vrstice."
+msgstr[3] "Izbrisal sem %1$d vrstic."
 
 #: libraries/Message.class.php:273
 #, php-format
