@@ -9992,9 +9992,8 @@ msgid "Refresh rate: "
 msgstr "Vernieuwingsfrequentie: "
 
 #: server_status.php:839 server_variables.php:115
-#, fuzzy
 msgid "Filters"
-msgstr "Filter"
+msgstr "Filters"
 
 #: server_status.php:841 server_variables.php:117
 #| msgid "Do not change the password"
