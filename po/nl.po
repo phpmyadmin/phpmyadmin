@@ -9254,7 +9254,7 @@ msgstr "Begin"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Plug-in"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
