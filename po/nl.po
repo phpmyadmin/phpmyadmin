@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-05 21:26+0200\n"
+"PO-Revision-Date: 2012-03-05 21:27+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7822,10 +7822,9 @@ msgid "Return type"
 msgstr "Teruggeef type"
 
 #: libraries/rte/rte_routines.lib.php:892
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Lengte/Waardes*"
+msgstr "Lengte/waarden teruggeven"
 
 #: libraries/rte/rte_routines.lib.php:898
 #, fuzzy
