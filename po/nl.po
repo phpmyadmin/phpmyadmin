@@ -7756,6 +7756,10 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"U gebruikt de verlopen 'mysql' uitbreiding, die niet in staat is om met "
+"meerdere queries om te gaan. <b>De uitvoering van sommige opgeslagen "
+"routines kan falen!</b> Gelieve de verbeterde 'mysqli' uitbreiding te "
+"gebruiken om problemen te vermijden."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1005
