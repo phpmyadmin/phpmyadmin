@@ -7872,7 +7872,7 @@ msgstr "Gelieve een geldig teruggeeftype op te geven voor de routine."
 
 #: libraries/rte/rte_routines.lib.php:1120
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Gelieve een routinedefinitie op te geven."
 
 #: libraries/rte/rte_routines.lib.php:1210
 #, php-format
