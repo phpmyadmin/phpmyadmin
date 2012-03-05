@@ -7719,7 +7719,7 @@ msgstr "Gelieve een geldige uitvoeringstijd in te geven voor de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "Gelieve een geldig type in te geven voor de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:572
 msgid "You must provide an event definition."
