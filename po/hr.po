@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-25 21:32+0100\n"
+"PO-Revision-Date: 2012-03-03 09:52+0100\n"
 "Last-Translator: Nikola Vojković <vojka@xnet.hr>\n"
 "Language-Team: croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -1454,16 +1454,14 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "UNIŠTIT ĆETE CJELOKUPNU BAZU PODATAKA!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "UNIŠTIT ĆETE CJELOKUPNU BAZU PODATAKA!"
+msgstr "UNIŠTITI ĆETE CJELOKUPNU TABLICU"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "UNIŠTIT ĆETE CJELOKUPNU BAZU PODATAKA!"
+msgstr "ISPRAZNITI ĆETE CJELOKUPNU TABLICU!"
 
 #: js/messages.php:35
 #, fuzzy
@@ -2370,7 +2368,7 @@ msgstr "Promijeni"
 
 #: js/messages.php:281
 msgid "Query execution time"
-msgstr ""
+msgstr "Vrijeme izvršavanja upita"
 
 #: js/messages.php:284
 #: libraries/config/FormDisplay.tpl.php:355
@@ -3323,11 +3321,11 @@ msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:195
 msgid "Authenticating..."
-msgstr ""
+msgstr "Autentifikacija..."
 
 #: libraries/blobstreaming.lib.php:272
 msgid "PBMS error"
-msgstr ""
+msgstr "PBMS greška"
 
 #: libraries/blobstreaming.lib.php:306
 #, fuzzy
@@ -3770,7 +3768,7 @@ msgstr "Oboje"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nigdje"
 
 #: libraries/config.values.php:47
 msgid "Left"
@@ -3854,16 +3852,16 @@ msgstr "Proširena umetanja"
 
 #: libraries/config.values.php:125
 msgid "both of the above"
-msgstr ""
+msgstr "oboje navedeno"
 
 #: libraries/config.values.php:126
 msgid "neither of the above"
-msgstr ""
+msgstr "ništa od navedenog"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:438
 msgid "Not a positive number"
-msgstr ""
+msgstr "Nije pozitivan broj"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:450
@@ -3873,14 +3871,14 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:426
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Netočan broj porta"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:547
 #: libraries/config/validate.lib.php:378
 #: libraries/config/validate.lib.php:465
 msgid "Incorrect value"
-msgstr ""
+msgstr "Netočna vrijednost"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:479
@@ -3904,7 +3902,7 @@ msgstr "Varijabla"
 #: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" requires %s extension"
 
 #: libraries/config/FormDisplay.class.php:727
 #, php-format
@@ -3942,12 +3940,12 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Postavi vrijednost %s"
 
 #: libraries/config/FormDisplay.tpl.php:279
 #: libraries/config/messages.inc.php:358
 msgid "Restore default value"
-msgstr ""
+msgstr "Vrati zadanu vrijednost"
 
 #: libraries/config/FormDisplay.tpl.php:295
 msgid "Allow users to customize this value"
@@ -4082,7 +4080,7 @@ msgstr ""
 #: setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:167
 msgid "Configuration file"
-msgstr ""
+msgstr "Konfiguracijska datoteka"
 
 #: libraries/config/messages.inc.php:46
 msgid "Whether a warning (&quot;Are your really sure...&quot;) should be displayed when you're about to lose data"
@@ -4181,7 +4179,7 @@ msgstr "Osobine prikaza"
 
 #: libraries/config/messages.inc.php:67
 msgid "Gather errors"
-msgstr ""
+msgstr "Skupi greške"
 
 #: libraries/config/messages.inc.php:68
 msgid "Show icons for warning, error and information messages"
@@ -4687,7 +4685,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:206
 msgid "Configuration storage"
-msgstr ""
+msgstr "Pohrana konfiguracije"
 
 #: libraries/config/messages.inc.php:207
 msgid "Configure phpMyAdmin configuration storage to gain access to additional features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration storage[/a] in documentation"
@@ -4717,7 +4715,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize main frame"
-msgstr ""
+msgstr "Postavi glavni okvir"
 
 #: libraries/config/messages.inc.php:215
 #: libraries/config/messages.inc.php:220
@@ -4798,7 +4796,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:235
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:236
 msgid "Extra parameters for iconv"
@@ -4904,7 +4902,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:270
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Prikaži logo u lijevom okviru"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display logo"
@@ -5017,7 +5015,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:297
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "Izbriši svve kolačiće na odlasku"
 
 #: libraries/config/messages.inc.php:298
 msgid "Define whether the previous login should be recalled or not in cookie authentication mode"
@@ -5324,7 +5322,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:373
 #: setup/frames/index.inc.php:128
 msgid "Authentication type"
-msgstr ""
+msgstr "Tip autentifikacije"
 
 #: libraries/config/messages.inc.php:374
 msgid "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5332,7 +5330,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
-msgstr ""
+msgstr "Zabilježi tablicu"
 
 #: libraries/config/messages.inc.php:376
 msgid "Leave blank for no column comments/mime types, suggested: [kbd]pma_column_info[/kbd]"
@@ -6109,7 +6107,7 @@ msgstr "Baza podataka izgleda praznom!"
 #: libraries/relation.lib.php:144
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
-msgstr ""
+msgstr "Praćenje"
 
 #: libraries/db_links.inc.php:70
 msgid "Query"
@@ -7576,7 +7574,7 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:270
 msgid "Add prefix"
-msgstr ""
+msgstr "Dodaj prefiks"
 
 #: libraries/mult_submits.inc.php:482
 #: tbl_replace.php:356
@@ -7868,7 +7866,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:148
 msgid "User preferences"
-msgstr ""
+msgstr "Korisničke postavke"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
@@ -9669,7 +9667,7 @@ msgstr "Prikaži ispis (shemu) baza podataka"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Moduli"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -11226,7 +11224,7 @@ msgstr "Struktura za pregledavanje"
 #: server_synchronize.php:443
 #: server_synchronize.php:915
 msgid "Add column(s)"
-msgstr ""
+msgstr "Dodaj stupac/stupce"
 
 #: server_synchronize.php:444
 #: server_synchronize.php:916
@@ -11246,7 +11244,7 @@ msgstr "Ukloni indeks(e)"
 #: server_synchronize.php:447
 #: server_synchronize.php:919
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Primjeni indeks/indekse"
 
 #: server_synchronize.php:448
 #: server_synchronize.php:920
@@ -11386,7 +11384,7 @@ msgstr "Web poslužitelj"
 
 #: setup/frames/index.inc.php:187
 msgid "Default language"
-msgstr ""
+msgstr "Zadani jezik"
 
 #: setup/frames/index.inc.php:197
 msgid "let the user choose"
@@ -11699,7 +11697,7 @@ msgstr "Nazivi stupaca"
 #: tbl_chart.php:93
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Linija"
 
 #: tbl_chart.php:95
 #, fuzzy
@@ -11938,7 +11936,7 @@ msgstr "Izbacivanje podataka za tablicu"
 
 #: tbl_operations.php:714
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Isprazni tablicu (TRUNCATE)"
 
 #: tbl_operations.php:736
 #, fuzzy
