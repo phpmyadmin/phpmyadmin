@@ -7808,10 +7808,9 @@ msgid "Length/Values"
 msgstr "Lengte/Waarden"
 
 #: libraries/rte/rte_routines.lib.php:877
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "Voeg voorvoegsel toe"
+msgstr "Voeg parameter toe"
 
 #: libraries/rte/rte_routines.lib.php:881
 #, fuzzy
