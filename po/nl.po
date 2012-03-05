@@ -7819,7 +7819,7 @@ msgstr "Verwijder laatste parameter"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
-msgstr "Retour type"
+msgstr "Teruggeef type"
 
 #: libraries/rte/rte_routines.lib.php:892
 #, fuzzy
