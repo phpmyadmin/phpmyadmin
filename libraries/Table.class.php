@@ -415,6 +415,11 @@ class PMA_Table
             }
             break;
         case 'NULL' :
+            //If user uncheck null checkbox and not change default value null,
+            //default value will be ignored.
+            if ($null !== false && $null != 'NULL') {
+                break;
+            }
         case 'CURRENT_TIMESTAMP' :
             $query .= ' DEFAULT ' . $default_type;
             break;
