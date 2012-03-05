@@ -8515,10 +8515,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Zoeken"
+msgstr "In de tabel zoeken"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 #, fuzzy
