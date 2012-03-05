@@ -10010,10 +10010,9 @@ msgid "Filter by category..."
 msgstr "Filteren op categorie..."
 
 #: server_status.php:864
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "Toon open tabellen"
+msgstr "Toon niet opgemaakte waarden"
 
 #: server_status.php:868
 #| msgid "Related Links"
