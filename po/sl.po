@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-05 12:37+0200\n"
+"PO-Revision-Date: 2012-03-05 12:38+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -8882,7 +8882,7 @@ msgstr "Uvozi datoteke"
 
 #: querywindow.php:80
 msgid "All"
-msgstr "Vse/Vsi"
+msgstr "Vse"
 
 #: schema_edit.php:38 schema_edit.php:44 schema_edit.php:50 schema_edit.php:55
 #, php-format
