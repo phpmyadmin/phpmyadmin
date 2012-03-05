@@ -2459,10 +2459,10 @@ msgstr "Napaka"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Spremenjena je %1$d vrstica."
-msgstr[1] "Spremenjeni sta %1$d vrstici."
-msgstr[2] "Spremenjene so %1$d vrstice."
-msgstr[3] "Spremenjenih je %1$d vrstic."
+msgstr[0] "Spremenil sem %1$d vrstico."
+msgstr[1] "Spremenil sem %1$d vrstici."
+msgstr[2] "Spremenil sem %1$d vrstice."
+msgstr[3] "Spremenil sem %1$d vrstic."
 
 #: libraries/Message.class.php:257
 #, php-format
