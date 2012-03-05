@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-05 12:30+0200\n"
+"PO-Revision-Date: 2012-03-05 12:31+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6614,9 +6614,7 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Dodatna prilagojena pripomba v glavi (\n"
-" prelomi vrstice):"
+msgstr "Dodatna prilagojena pripomba v glavi (\\n prelomi vrstice):"
 
 #: libraries/export/sql.php:50
 msgid ""
