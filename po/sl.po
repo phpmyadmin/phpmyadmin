@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-05 12:44+0200\n"
+"PO-Revision-Date: 2012-03-05 12:45+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9850,7 +9850,7 @@ msgstr "Poslano"
 
 #: server_status.php:1152
 msgid "max. concurrent connections"
-msgstr "Največ sočasnih povezav"
+msgstr "največ sočasnih povezav"
 
 #: server_status.php:1159
 msgid "Failed attempts"
