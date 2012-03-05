@@ -7833,7 +7833,7 @@ msgstr "Teruggeef opties"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
-msgstr ""
+msgstr "Is vast bepaald"
 
 #: libraries/rte/rte_routines.lib.php:938
 #, fuzzy
