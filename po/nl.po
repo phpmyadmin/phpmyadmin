@@ -7735,7 +7735,7 @@ msgstr "UIT"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "AAN"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
