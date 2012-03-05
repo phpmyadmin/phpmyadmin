@@ -7805,7 +7805,7 @@ msgstr "Richting"
 
 #: libraries/rte/rte_routines.lib.php:862 libraries/tbl_properties.inc.php:98
 msgid "Length/Values"
-msgstr "Lengte/Waardes*"
+msgstr "Lengte/Waarden"
 
 #: libraries/rte/rte_routines.lib.php:877
 #, fuzzy
