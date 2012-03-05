@@ -8713,10 +8713,9 @@ msgid "More settings"
 msgstr "Overige instellingen"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Database voor gebruiker"
+msgstr "Database server"
 
 #: main.php:172
 msgid "Software"
