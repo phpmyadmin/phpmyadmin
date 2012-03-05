@@ -7796,7 +7796,7 @@ msgstr "Routinenaam"
 
 #: libraries/rte/rte_routines.lib.php:854
 msgid "Parameters"
-msgstr ""
+msgstr "Parameters"
 
 #: libraries/rte/rte_routines.lib.php:859
 #, fuzzy
