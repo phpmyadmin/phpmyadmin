@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-05 20:55+0200\n"
+"PO-Revision-Date: 2012-03-05 20:57+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6986,10 +6986,9 @@ msgid ""
 msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
 
 #: libraries/import.lib.php:1101
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "De inhoud van een structuur bekijken door er op te klikken"
+msgstr "Bekijk de inhoud van een structuur door op de naam te klikken"
 
 #: libraries/import.lib.php:1102
 msgid ""
