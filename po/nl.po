@@ -7846,7 +7846,7 @@ msgstr "SQL gegevens toegang"
 
 #: libraries/rte/rte_routines.lib.php:1010
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Gelieve een routinenaam in te geven"
 
 #: libraries/rte/rte_routines.lib.php:1036
 #, php-format
