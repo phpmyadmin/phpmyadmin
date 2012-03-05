@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-02-27 19:40+0200\n"
+"PO-Revision-Date: 2012-03-05 20:55+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -959,10 +959,9 @@ msgid "Polygon"
 msgstr "Polygoon"
 
 #: gis_data_editor.php:306 js/messages.php:328
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Voeg een polygoon toe"
+msgstr "Voeg een veelhoek toe"
 
 #: gis_data_editor.php:310
 #| msgid "Add a new server"
