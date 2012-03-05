@@ -7739,7 +7739,7 @@ msgstr "AAN"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Status van de gebeurtenis scheduler"
 
 #: libraries/rte/rte_list.lib.php:54
 #, fuzzy
