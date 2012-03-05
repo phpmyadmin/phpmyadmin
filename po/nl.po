@@ -7859,6 +7859,8 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"Gelieve een lengte/waarden op te geven voor routineparameters van het type "
+"ENUM, SET, VARCHAR en VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1066
 msgid "You must provide a name and a type for each routine parameter."
