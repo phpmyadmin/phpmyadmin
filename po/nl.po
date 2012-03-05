@@ -9980,7 +9980,7 @@ msgstr "alle status variabelen"
 
 #: server_status.php:787
 msgid "Monitor"
-msgstr ""
+msgstr "Opvolgen"
 
 #: server_status.php:788
 msgid "Advisor"
