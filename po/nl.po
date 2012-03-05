@@ -7706,7 +7706,7 @@ msgstr "De naam moet het formaat \"gebruikersnaam@computernaam\" hebben"
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
-msgstr ""
+msgstr "Gelieve een naam van een gebeurtenis in te geven"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
