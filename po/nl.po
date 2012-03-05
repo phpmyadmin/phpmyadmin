@@ -9262,7 +9262,7 @@ msgstr "Module"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "Bibliotheek"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
 msgid "Version"
