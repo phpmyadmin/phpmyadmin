@@ -7878,8 +7878,8 @@ msgstr "Gelieve een routinedefinitie op te geven."
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d regel beïnvloed door het laatste statement in de procedure"
+msgstr[1] "%d regels beïnvloed door het laatste statement in de procedure"
 
 #: libraries/rte/rte_routines.lib.php:1226
 #, php-format
