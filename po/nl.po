@@ -7813,10 +7813,9 @@ msgid "Add parameter"
 msgstr "Voeg parameter toe"
 
 #: libraries/rte/rte_routines.lib.php:881
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Verwijder database"
+msgstr "Verwijder laatste parameter"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
