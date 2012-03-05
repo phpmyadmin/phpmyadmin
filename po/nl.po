@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-05 21:16+0200\n"
+"PO-Revision-Date: 2012-03-05 21:17+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7723,7 +7723,7 @@ msgstr "Gelieve een geldig type in te geven voor de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:572
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "Gelieve een definitie voor de gebeurtenis in te geven."
 
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2411
 msgid "New"
