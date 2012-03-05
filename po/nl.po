@@ -10025,10 +10025,9 @@ msgid "Run analyzer"
 msgstr "Analyse uitvoeren"
 
 #: server_status.php:902
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "Inleiding"
+msgstr "Richtlijnen"
 
 #: server_status.php:909
 msgid ""
