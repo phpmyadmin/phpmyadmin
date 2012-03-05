@@ -8520,10 +8520,9 @@ msgid "Table Search"
 msgstr "In de tabel zoeken"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Invoegen"
+msgstr "Aanpassen/Invoegen"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
