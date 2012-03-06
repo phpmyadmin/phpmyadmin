@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-01-24 23:36+0200\n"
+"PO-Revision-Date: 2012-03-05 12:45+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.1.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -370,7 +370,7 @@ msgstr "Tabela"
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:882
 msgid "Rows"
-msgstr "vrstic"
+msgstr "Vrstic"
 
 #: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:214
 msgid "Size"
@@ -2459,28 +2459,28 @@ msgstr "Napaka"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Spremenjena je %1$d vrstica."
-msgstr[1] "Spremenjeni sta %1$d vrstici."
-msgstr[2] "Spremenjene so %1$d vrstice."
-msgstr[3] "Spremenjenih je %1$d vrstic."
+msgstr[0] "Spremenil sem %1$d vrstico."
+msgstr[1] "Spremenil sem %1$d vrstici."
+msgstr[2] "Spremenil sem %1$d vrstice."
+msgstr[3] "Spremenil sem %1$d vrstic."
 
 #: libraries/Message.class.php:257
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Izbrisana je %1$d vrstica."
-msgstr[1] "Izbrisani sta %1$d vrstici."
-msgstr[2] "Izbrisane so %1$d vrstice."
-msgstr[3] "Izbrisanih je %1$d vrstic."
+msgstr[0] "Izbrisal sem %1$d vrstico."
+msgstr[1] "Izbrisal sem %1$d vrstici."
+msgstr[2] "Izbrisal sem %1$d vrstice."
+msgstr[3] "Izbrisal sem %1$d vrstic."
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Vstavljena je %1$d vrstica."
-msgstr[1] "Vstavljeni sta %1$d vrstici."
-msgstr[2] "Vstavljene so %1$d vrstice."
-msgstr[3] "Vstavljenih je %1$d vrstic."
+msgstr[0] "Vstavil sem %1$d vrstico."
+msgstr[1] "Vstavil sem %1$d vrstici."
+msgstr[2] "Vstavil sem %1$d vrstice."
+msgstr[3] "Vstavil sem %1$d vrstic."
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
@@ -3224,7 +3224,7 @@ msgstr "največ %s"
 
 #: libraries/config/FormDisplay.tpl.php:141 main.php:239
 msgid "Wiki"
-msgstr "wiki"
+msgstr "Wiki"
 
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
@@ -3755,7 +3755,7 @@ msgstr "Prilagodite privzete možnosti"
 #: libraries/config/user_preferences.forms.php:214 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
-msgstr "CSV-podatki"
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:162
 msgid "Developer"
@@ -6614,9 +6614,7 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Dodatna prilagojena pripomba v glavi (\n"
-" prelomi vrstice):"
+msgstr "Dodatna prilagojena pripomba v glavi (\\n prelomi vrstice):"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -8884,7 +8882,7 @@ msgstr "Uvozi datoteke"
 
 #: querywindow.php:80
 msgid "All"
-msgstr "Vse/Vsi"
+msgstr "Vse"
 
 #: schema_edit.php:38 schema_edit.php:44 schema_edit.php:50 schema_edit.php:55
 #, php-format
@@ -9187,7 +9185,7 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 "Omogoča priklaplanje tudi če je že doseženo največje dovoljeno število "
-"priklopov; Potrebno za večino administrativnih nalog kot sta postavljanje "
+"priklopov; potrebno za večino administrativnih nalog kot sta postavljanje "
 "globalnih spremenljivk in ukinjanje procesov drugih uporabnikov."
 
 #: server_privileges.php:67 server_privileges.php:281
@@ -9852,7 +9850,7 @@ msgstr "Poslano"
 
 #: server_status.php:1152
 msgid "max. concurrent connections"
-msgstr "Največ sočasnih povezav"
+msgstr "največ sočasnih povezav"
 
 #: server_status.php:1159
 msgid "Failed attempts"
@@ -10619,7 +10617,7 @@ msgid ""
 "chart using the cog icon on each respective chart."
 msgstr ""
 "Vaš brskalnik bo osveževal vse prikazane grafikone v rednih razmikih. Pod "
-"'Nastavitve'  lahko dodate grafikone in spremenite pogostost osveževanja ali "
+"'Nastavitve' lahko dodate grafikone in spremenite pogostost osveževanja ali "
 "pa odstranite kateri koli grafikon s klikom na ikono zobnika ob ustreznem "
 "grafikonu."
 
