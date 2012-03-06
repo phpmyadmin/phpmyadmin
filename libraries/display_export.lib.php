@@ -11,6 +11,9 @@ if (! defined('PHPMYADMIN')) {
 // Get relations & co. status
 $cfgRelation = PMA_getRelationsParam();
 
+if (isset($_REQUEST['single_table'])) {
+    $GLOBALS['single_table'] = $_REQUEST['single_table'];
+}
 
 require_once './libraries/file_listing.php';
 require_once './libraries/plugin_interface.lib.php';
