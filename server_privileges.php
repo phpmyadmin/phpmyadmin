@@ -1058,14 +1058,15 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             }
 
             if ($_error || ! PMA_DBI_try_query($real_sql_query)) {
-                $_REQUEST['createdb'] = false;
+                $_REQUEST['createdb-1']
+                = $_REQUEST['createdb-2']
+                = $_REQUEST['createdb-3'] = false;
                 $message = PMA_Message::rawError(PMA_DBI_getError());
             } else {
                 $message = PMA_Message::success(__('You have added a new user.'));
             }
 
-            switch (PMA_ifSetOr($_REQUEST['createdb'], '0')) {
-            case '1' :
+            if (isset($_REQUEST['createdb-1'])) {
                 // Create database with same name and grant all privileges
                 $q = 'CREATE DATABASE IF NOT EXISTS '
                     . PMA_backquote(PMA_sqlAddSlashes($username)) . ';';
@@ -1093,8 +1094,9 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 if (! PMA_DBI_try_query($q)) {
                     $message = PMA_Message::rawError(PMA_DBI_getError());
                 }
-                break;
-            case '2' :
+            }
+
+            if (isset($_REQUEST['createdb-2'])) {
                 // Grant all privileges on wildcard name (username\_%)
                 $q = 'GRANT ALL PRIVILEGES ON '
                     . PMA_backquote(PMA_sqlAddSlashes($username) . '\_%') . '.* TO \''
@@ -1103,8 +1105,9 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 if (! PMA_DBI_try_query($q)) {
                     $message = PMA_Message::rawError(PMA_DBI_getError());
                 }
-                break;
-            case '3' :
+            }
+
+            if (isset($_REQUEST['createdb-3'])) {
                 // Grant all privileges on the specified database to the new user
                 $q = 'GRANT ALL PRIVILEGES ON '
                 . PMA_backquote(PMA_sqlAddSlashes($dbname)) . '.* TO \''
@@ -1113,10 +1116,6 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 if (! PMA_DBI_try_query($q)) {
                     $message = PMA_Message::rawError(PMA_DBI_getError());
                 }
-                break;
-            case '0' :
-            default :
-                break;
             }
         } else {
             if (isset($create_user_real)) {
@@ -2233,27 +2232,16 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     echo '<fieldset id="fieldset_add_user_database">' . "\n"
         . '<legend>' . __('Database for user') . '</legend>' . "\n";
 
-    $default_choice = 0;
-    $choices = array(
-        '0' => _pgettext('Create none database for user', 'None'),
-        '1' => __('Create database with same name and grant all privileges'),
-        '2' => __('Grant all privileges on wildcard name (username\\_%)'));
+    PMA_display_html_checkbox('createdb-1', __('Create database with same name and grant all privileges'), false, false);
+    echo '<br />' . "\n";
+    PMA_display_html_checkbox('createdb-2', __('Grant all privileges on wildcard name (username\\_%)'), false, false);
+    echo '<br />' . "\n";
 
     if (! empty($dbname) ) {
-        $choices['3'] = sprintf(
-            __('Grant all privileges on database &quot;%s&quot;'),
-            htmlspecialchars($dbname)
-        );
-        $default_choice = 3;
+        PMA_display_html_checkbox('createdb-3', sprintf(__('Grant all privileges on database &quot;%s&quot;'), htmlspecialchars($dbname)), true, false);
         echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
+        echo '<br />' . "\n";
     }
-
-    // 4th parameter set to true to add line breaks
-    // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
-    //  since we have some HTML in some labels
-    PMA_display_html_radio('createdb', $choices, $default_choice, true, false);
-    unset($choices);
-    unset($default_choice);
 
     echo '</fieldset>' . "\n";
     PMA_displayPrivTable('*', '*', false);
