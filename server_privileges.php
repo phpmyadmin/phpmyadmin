@@ -9,6 +9,12 @@
  *
  */
 require_once './libraries/common.inc.php';
+if (!defined('ALL_USERS')) {
+    define("ALL_USERS", "All Users");
+}
+if (!defined('ALL_DB')) {
+    define("ALL_DB", "All Databases");
+}
 
 /**
  * Does the common work
@@ -923,6 +929,24 @@ function PMA_displayLoginInformationFields($mode = 'new')
        . '</fieldset>' . "\n";
 } // end of the 'PMA_displayUserAndHostFields()' function
 
+
+/**
+ * Returns all the grants for a certain user on a certain host
+ * Used in the export privileges for all users section
+ *
+ * @param string $user      User name
+ * @param string $host      Host name
+ *
+ * @return string containing all the grants text
+ */
+function PMA_getGrants($user, $host) {
+    $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($user) . "'@'" . PMA_sqlAddSlashes($host) . "'");
+    foreach ($grants as $one_grant) {
+        $response .= $one_grant . ";\n\n";
+    }
+    return $response;
+} // end of the 'PMA_getGrants()' function
+
 /**
  * Changes / copies a user, part I
  */
@@ -1467,6 +1491,14 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
     . PMA_getIcon('b_tblexport.png', __('Export'))
     . '</a>';
 
+$link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
+    . '&amp;username=%s'
+    . '&amp;hostname=%s'
+    . '&amp;initial=%s'
+    . '&amp;export=1">'
+    . PMA_getIcon('b_tblexport.png', __('Export All'))
+    . '</a>';
+
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
  * Flush Privileges, show $message and exit.
@@ -1560,11 +1592,18 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 
 // export user definition
 if (isset($_REQUEST['export'])) {
-    $title = __('User') . ' `' . htmlspecialchars($username) . '`@`' . htmlspecialchars($hostname) . '`';
     $response = '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
-    $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($username) . "'@'" . PMA_sqlAddSlashes($hostname) . "'");
-    foreach ($grants as $one_grant) {
-        $response .= $one_grant . ";\n\n";
+    if (!strcmp(htmlspecialchars($username), ALL_USERS)) {
+        // export privileges for all users
+        $title = __('Privileges for ') . htmlspecialchars($username) . ' @ ' . htmlspecialchars($hostname);
+        foreach ($_SESSION['user_host_pairs'] as $pair) {
+            $response .= PMA_getGrants($pair['user'], $pair['host']);
+            $response .= "\n";
+        }
+    } else {
+        // export privileges for a single user
+        $title = __('User') . ' `' . htmlspecialchars($username) . '`@`' . htmlspecialchars($hostname) . '`';
+        $response .= PMA_getGrants($username, $hostname);
     }
     $response .= '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
@@ -1725,6 +1764,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 echo '        </tr>' . "\n";
                 echo '    </thead>' . "\n";
                 echo '    <tbody>' . "\n";
+
+                $_SESSION['user_host_pairs'] = array();
+                $pair_count = 0;
                 $odd_row = true;
                 $index_checkbox = -1;
                 foreach ($db_rights as $user) {
@@ -1767,11 +1809,17 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                         echo '</td>';
                         echo '</tr>';
                         $odd_row = ! $odd_row;
+                        
+                        $_SESSION['user_host_pairs'][$pair_count]['user'] = $host['User'];
+                        $_SESSION['user_host_pairs'][$pair_count]['host'] = $host['Host'];
+                        $pair_count ++;
                     }
                 }
 
                 unset($user, $host, $odd_row);
                 echo '    </tbody></table>' . "\n"
+                   .'<div>'
+                   .'<div style="float:left;">'
                    .'<img class="selectallarrow"'
                    .' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
                    .' width="38" height="22"'
@@ -1782,7 +1830,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    .'/' . "\n"
                    .'<a href="server_privileges.php?' . $GLOBALS['url_query'] .  '"'
                    .' onclick="if (unMarkAllRows(\'usersForm\')) return false;">'
-                   . __('Uncheck All') . '</a>' . "\n";
+                   . __('Uncheck All') . '</a>' . "\n"
+                   . '</div>'
+                   . '<div style="float:left; padding-left:30px;">';
+                printf($link_export_all, urlencode(ALL_USERS), urlencode(ALL_DB), (isset($initial) ? $initial : ''));
+                echo '</div>'
+                   . '</div>'
+                   . '<div class="clear_both" style="clear:both"></div>'
+                   . '</div>';
 
                 // add/delete user fieldset
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
