@@ -8,16 +8,16 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-if (isset($_REQUEST['table_type'])) {
-    $GLOBALS['table_type'] = $_REQUEST['table_type'];
-}
+$request_params = array(
+    'selected_fld',
+    'submit_mult',
+    'table_type'
+);
 
-if (isset($_REQUEST['selected_fld'])) {
-    $GLOBALS['selected_fld'] = $_REQUEST['selected_fld'];
-}
-
-if (isset($_REQUEST['submit_mult'])) {
-    $GLOBALS['submit_mult'] = $_REQUEST['submit_mult'];
+foreach ($request_params as $one_request_param) {
+    if (isset($_REQUEST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+    }
 }
 
 /**

@@ -28,24 +28,24 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
     $conditional_class = '';
 }
 
-if (isset($_GET['username'])) {
-    $GLOBALS['username'] = $_GET['username'];
+/**
+ * Sets globals from $_GET
+ */
+
+$get_params = array(
+    'checkprivs',
+    'dbname',
+    'hostname',
+    'initial',
+    'tablename',
+    'username'
+);
+foreach ($get_params as $one_get_param) {
+    if (isset($_GET[$one_get_param])) {
+        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
+    }
 }
-if (isset($_GET['hostname'])) {
-    $GLOBALS['hostname'] = $_GET['hostname'];
-}
-if (isset($_GET['dbname'])) {
-    $GLOBALS['dbname'] = $_GET['dbname'];
-}
-if (isset($_GET['tablename'])) {
-    $GLOBALS['tablename'] = $_GET['tablename'];
-}
-if (isset($_GET['checkprivs'])) {
-    $GLOBALS['checkprivs'] = $_GET['checkprivs'];
-}
-if (isset($_GET['initial'])) {
-    $GLOBALS['initial'] = $_GET['initial'];
-}
+
 
 /**
  * Messages are built using the message name
