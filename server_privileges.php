@@ -1829,7 +1829,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '</div>'
                    . '<div class="clear_both" style="clear:both"></div>'
                    . '<div style="float:left; padding-left:10px;">';
-                printf($link_export_all, urlencode(__('All users')), urlencode(__('All databases')), (isset($initial) ? $initial : ''));
+                printf($link_export_all, urlencode(__('All users')), urlencode(__('All hosts')), (isset($initial) ? $initial : ''));
                 echo '</div>'
                    . '</div>'
                    . '<div class="clear_both" style="clear:both"></div>'
