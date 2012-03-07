@@ -1832,7 +1832,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    .' onclick="if (unMarkAllRows(\'usersForm\')) return false;">'
                    . __('Uncheck All') . '</a>' . "\n"
                    . '</div>'
-                   . '<div style="float:left; padding-left:30px;">';
+                   . '<div class="clear_both" style="clear:both"></div>'
+                   . '<div style="float:left; padding-left:10px;">';
                 printf($link_export_all, urlencode(ALL_USERS), urlencode(ALL_DB), (isset($initial) ? $initial : ''));
                 echo '</div>'
                    . '</div>'
