@@ -9,10 +9,10 @@
  *
  */
 require_once './libraries/common.inc.php';
-if (!defined('ALL_USERS')) {
+if (! defined('ALL_USERS')) {
     define("ALL_USERS", "All Users");
 }
-if (!defined('ALL_DB')) {
+if (! defined('ALL_DB')) {
     define("ALL_DB", "All Databases");
 }
 
@@ -1496,7 +1496,7 @@ $link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" hre
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
     . '&amp;export=1">'
-    . PMA_getIcon('b_tblexport.png', __('Export All'))
+    . PMA_getIcon('b_tblexport.png', __('Export all'))
     . '</a>';
 
 /**
@@ -1593,7 +1593,7 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 // export user definition
 if (isset($_REQUEST['export'])) {
     $response = '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
-    if (!strcmp(htmlspecialchars($username), ALL_USERS)) {
+    if (! strcmp(htmlspecialchars($username), ALL_USERS)) {
         // export privileges for all users
         $title = __('Privileges for ') . htmlspecialchars($username) . ' @ ' . htmlspecialchars($hostname);
         foreach ($_SESSION['user_host_pairs'] as $pair) {
