@@ -935,6 +935,7 @@ function PMA_displayLoginInformationFields($mode = 'new')
  */
 function PMA_getGrants($user, $host) {
     $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($user) . "'@'" . PMA_sqlAddSlashes($host) . "'");
+    $response = '';
     foreach ($grants as $one_grant) {
         $response .= $one_grant . ";\n\n";
     }
