@@ -28,6 +28,31 @@ $GLOBALS['js_include'][] = 'gis_data_editor.js';
 $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
 
 $geom_types = PMA_getGISDatatypes();
+
+$post_params = array(
+    'ajax_request',
+    'collations',
+    'db',
+    'distinct',
+    'fields',
+    'func',
+    'max_number_of_fields',
+    'names',
+    'order',
+    'orderField',
+    'param', 
+    'session_max_rows',
+    'table',
+    'types',
+    'where',
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
+
+
 /**
  * Not selection yet required -> displays the selection form
  */
