@@ -1588,7 +1588,7 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 // export user definition
 if (isset($_REQUEST['export'])) {
     $response = '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
-    if (! strcmp(htmlspecialchars($username), __('All users'))) {
+    if (! strcmp($username, __('All users'))) {
         // export privileges for all users
         $title = __('Privileges for ') . htmlspecialchars($username) . ' @ ' . htmlspecialchars($hostname);
         foreach ($_SESSION['user_host_pairs'] as $pair) {
