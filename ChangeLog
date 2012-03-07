@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - Patch #3495284 XML Import - fix message and redirect
 + rfe #3484063 Null checkbox behavior
 + Patch #3497179 Contest-5: Add user: Allow create DB w/same name + grant u_%
++ Patch #3498201 Contest-6: Export all privileges
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
