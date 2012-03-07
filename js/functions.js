@@ -2417,6 +2417,9 @@ $(document).ready(function() {
     $(".default_type").live('change', function() {
         PMA_hideShowDefaultValue($(this));
     });
+    $('.allow_null').live('change', function() {
+        PMA_validateDefaultValue($(this));
+    });
 });
 
 function PMA_verifyColumnsProperties()
@@ -2431,6 +2434,7 @@ function PMA_verifyColumnsProperties()
 
 /**
  * Hides/shows the default value input field, depending on the default type
+ * Ticks the NULL checkbox if NULL is chosen as default value.
  */
 function PMA_hideShowDefaultValue($default_type)
 {
@@ -2438,6 +2442,23 @@ function PMA_hideShowDefaultValue($default_type)
         $default_type.siblings('.default_value').show().focus();
     } else {
         $default_type.siblings('.default_value').hide();
+        if ($default_type.val() == 'NULL') {
+            var $null_checkbox = $default_type.closest('tr').find('.allow_null');
+            $null_checkbox.attr('checked', true);
+        }
+    }
+}
+
+/**
+ * If the column does not allow NULL values, makes sure that default is not NULL
+ */
+function PMA_validateDefaultValue($null_checkbox)
+{
+    if (! $null_checkbox.attr('checked')) {
+        $default = $null_checkbox.closest('tr').find('.default_type');
+        if ($default.val() == 'NULL') {
+            $default.val('NONE');
+        }
     }
 }
 

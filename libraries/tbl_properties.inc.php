@@ -453,7 +453,7 @@ for ($i = 0; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] .= ' checked="checked"';
     }
 
-    $content_cells[$i][$ci] .= ' type="checkbox" value="NULL" />';
+    $content_cells[$i][$ci] .= ' type="checkbox" value="NULL" class="allow_null"/>';
     $ci++;
 
     // column indexes
