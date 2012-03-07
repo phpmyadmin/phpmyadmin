@@ -9,12 +9,6 @@
  *
  */
 require_once './libraries/common.inc.php';
-if (! defined('ALL_USERS')) {
-    define("ALL_USERS", "All Users");
-}
-if (! defined('ALL_DB')) {
-    define("ALL_DB", "All Databases");
-}
 
 /**
  * Does the common work
@@ -1593,7 +1587,7 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 // export user definition
 if (isset($_REQUEST['export'])) {
     $response = '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
-    if (! strcmp(htmlspecialchars($username), ALL_USERS)) {
+    if (! strcmp(htmlspecialchars($username), __('All users'))) {
         // export privileges for all users
         $title = __('Privileges for ') . htmlspecialchars($username) . ' @ ' . htmlspecialchars($hostname);
         foreach ($_SESSION['user_host_pairs'] as $pair) {
@@ -1834,7 +1828,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '</div>'
                    . '<div class="clear_both" style="clear:both"></div>'
                    . '<div style="float:left; padding-left:10px;">';
-                printf($link_export_all, urlencode(ALL_USERS), urlencode(ALL_DB), (isset($initial) ? $initial : ''));
+                printf($link_export_all, urlencode(__('All users')), urlencode(__('All databases')), (isset($initial) ? $initial : ''));
                 echo '</div>'
                    . '</div>'
                    . '<div class="clear_both" style="clear:both"></div>'
