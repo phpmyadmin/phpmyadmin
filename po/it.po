@@ -1316,7 +1316,6 @@ msgid "Buffered memory"
 msgstr "Memoria buffer"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
 msgstr "Memoria libera"
