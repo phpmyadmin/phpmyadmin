@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-08 23:20+0200\n"
+"PO-Revision-Date: 2012-03-08 23:22+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -3746,7 +3746,7 @@ msgstr "Dostosuj tryb przeglądania"
 #: libraries/config/messages.inc.php:191 libraries/config/messages.inc.php:219
 #: libraries/config/messages.inc.php:231
 msgid "Customize default options"
-msgstr "Dostosuj ustawienia domyślne"
+msgstr "Dostosuj domyślne opcje"
 
 #: libraries/config/messages.inc.php:160 libraries/config/setup.forms.php:243
 #: libraries/config/setup.forms.php:316
