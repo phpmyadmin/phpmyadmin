@@ -2463,9 +2463,8 @@ msgid "Debug SQL"
 msgstr "Debug SQL"
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
 msgid "Default display direction"
-msgstr "Opcje eksportu bazy danych"
+msgstr "Domyślne wyświetlanie kierunku"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
