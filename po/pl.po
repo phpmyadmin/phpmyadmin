@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 23:34+0200\n"
+"PO-Revision-Date: 2012-03-08 23:35+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -3607,10 +3607,9 @@ msgstr ""
 "Powtarzanie nagłówków każdej komórki X, [kbd]0[/kbd] wyłącza tę funkcję"
 
 #: libraries/config/messages.inc.php:348
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Liczba wątków naprawiających"
+msgstr "Powtórz nagłówki"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button instead of Documentation text"
