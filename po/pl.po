@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 22:49+0200\n"
+"PO-Revision-Date: 2012-03-08 22:50+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1102,10 +1102,9 @@ msgid "Show query box"
 msgstr "Pokaż okno zapytań"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
-msgstr "Mechanizmy"
+msgstr "Edytuj w wierszu"
 
 #: js/messages.php:89 libraries/Index.class.php:465
 #: libraries/common.lib.php:626 libraries/common.lib.php:1164
