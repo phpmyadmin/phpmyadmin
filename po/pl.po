@@ -5779,7 +5779,7 @@ msgstr "\".bzip\""
 
 #: libraries/display_export.lib.php:323
 msgid "View output as text"
-msgstr "Pokaż wyjście jako tekst"
+msgstr "Pokaż wynik jako tekst"
 
 #: libraries/display_export.lib.php:328 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
