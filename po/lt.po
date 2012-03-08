@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-01-11 17:04+0200\n"
+"PO-Revision-Date: 2012-03-08 15:03+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.1.6\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 0.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -578,10 +578,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Žodžiai atskirti tarpo simboliu („ “)."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Lentelės(ių) viduje:"
+msgstr "Viduje lentelių:"
 
 #: db_search.php:330
 msgid "Inside column:"
@@ -813,14 +812,14 @@ msgstr "Duomenų bazės žurnalas"
 #: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET redaktorius"
 
 #: enum_editor.php:28 js/messages.php:268
 msgid "Values for a new column"
 msgstr "Reikšmės naujajam stulpeliui"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Stulpelio „%s“ reikšmės"
