@@ -12863,10 +12863,9 @@ msgid "Rate of table open"
 msgstr "Βαθμός ανοίγματος πίνακα"
 
 #: po/advisory_rules.php:181
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Ο τρέχων αριθμός των εκκρεμών εγγραφών."
+msgstr "Ο βαθμός των ανοιγμένων πινάκων είναι υψηλός."
 
 #: po/advisory_rules.php:182
 msgid ""
