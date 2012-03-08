@@ -4778,10 +4778,9 @@ msgid "bzipped"
 msgstr "\".bzip\""
 
 #: libraries/display_export.lib.php:321
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Zapisz jako plik"
+msgstr "Pokaż wynik jako tekst"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
