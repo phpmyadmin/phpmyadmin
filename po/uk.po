@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2012-01-09 15:19+0200\n"
 "Last-Translator: oleg-ilnytskyi <ukraine.oleg@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
@@ -9036,16 +9036,10 @@ msgstr "Експорт"
 msgid "Any"
 msgstr "Довільний"
 
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Add user"
-msgid "All users"
-msgstr "Додати користувача"
-
 #: server_privileges.php:1593
 #, fuzzy
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr "Привілеї"
 
 #: server_privileges.php:1617
@@ -9058,12 +9052,6 @@ msgstr "Огляд користувачів"
 #: server_privileges.php:2316
 msgid "Grant"
 msgstr "Grant"
-
-#: server_privileges.php:1832
-#, fuzzy
-#| msgid "Any host"
-msgid "All hosts"
-msgstr "Довільний хост"
 
 #: server_privileges.php:1847
 msgid "Remove selected users"
@@ -12636,6 +12624,14 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлений у 0"
+
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "Додати користувача"
+
+#, fuzzy
+#~ msgid "All hosts"
+#~ msgstr "Довільний хост"
 
 #, fuzzy
 #~ msgid "No blob streaming server configured!"

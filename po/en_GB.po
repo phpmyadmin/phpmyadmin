@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2012-02-08 14:33+0100\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -9094,16 +9094,10 @@ msgstr "Export"
 msgid "Any"
 msgstr "Any"
 
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Add user"
-msgid "All users"
-msgstr "Add user"
-
 #: server_privileges.php:1593
 #, fuzzy
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr "Privileges"
 
 #: server_privileges.php:1617
@@ -9114,12 +9108,6 @@ msgstr "Users overview"
 #: server_privileges.php:2316
 msgid "Grant"
 msgstr "Grant"
-
-#: server_privileges.php:1832
-#, fuzzy
-#| msgid "Any host"
-msgid "All hosts"
-msgstr "Any host"
 
 #: server_privileges.php:1847
 msgid "Remove selected users"
@@ -12942,6 +12930,14 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is set to 0"
+
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "Add user"
+
+#, fuzzy
+#~ msgid "All hosts"
+#~ msgstr "Any host"
 
 #~ msgid "No blob streaming server configured!"
 #~ msgstr "No blob streaming server configured!"

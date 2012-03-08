@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2012-02-26 00:15+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -9167,16 +9167,10 @@ msgstr "Dışa Aktar"
 msgid "Any"
 msgstr "Herhangi"
 
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Add user"
-msgid "All users"
-msgstr "Kullanıcı ekle"
-
 #: server_privileges.php:1593
 #, fuzzy
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr "Yetkiler"
 
 #: server_privileges.php:1617
@@ -9187,12 +9181,6 @@ msgstr "Kullanıcılara genel bakış"
 #: server_privileges.php:2316
 msgid "Grant"
 msgstr "Onaylı"
-
-#: server_privileges.php:1832
-#, fuzzy
-#| msgid "Any host"
-msgid "All hosts"
-msgstr "Herhangi anamakine"
 
 #: server_privileges.php:1847
 msgid "Remove selected users"
@@ -13050,6 +13038,14 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "Kullanıcı ekle"
+
+#, fuzzy
+#~ msgid "All hosts"
+#~ msgstr "Herhangi anamakine"
 
 #~ msgid "No blob streaming server configured!"
 #~ msgstr "Yapılandırılmış blob akış sunucusu yok!"

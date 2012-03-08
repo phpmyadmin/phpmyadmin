@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2012-01-12 11:41+0200\n"
 "Last-Translator: Praveen_Illa <mail2ipn@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -8994,15 +8994,8 @@ msgstr "ఎగుమతి"
 msgid "Any"
 msgstr "ఏదైనను"
 
-# మొదటి అనువాదము
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Any user"
-msgid "All users"
-msgstr "ఏ వాడుకరి ఐనను"
-
 #: server_privileges.php:1593
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr ""
 
 #: server_privileges.php:1617
@@ -9014,10 +9007,6 @@ msgstr "అవలోకనం"
 #: server_privileges.php:1757 server_privileges.php:1968
 #: server_privileges.php:2316
 msgid "Grant"
-msgstr ""
-
-#: server_privileges.php:1832
-msgid "All hosts"
 msgstr ""
 
 #: server_privileges.php:1847
@@ -12526,6 +12515,11 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+# మొదటి అనువాదము
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "ఏ వాడుకరి ఐనను"
 
 # మొదటి అనువాదము
 #, fuzzy

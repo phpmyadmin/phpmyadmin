@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2011-11-06 21:20+0200\n"
 "Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -9907,16 +9907,10 @@ msgstr "Exportar"
 msgid "Any"
 msgstr "Calquera"
 
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Any user"
-msgid "All users"
-msgstr "Calquera usuario"
-
 #: server_privileges.php:1593
 #, fuzzy
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr "Privilexios"
 
 #: server_privileges.php:1617
@@ -9929,12 +9923,6 @@ msgstr "Vista xeral dos usuarios"
 #: server_privileges.php:2316
 msgid "Grant"
 msgstr "Conceder"
-
-#: server_privileges.php:1832
-#, fuzzy
-#| msgid "Any host"
-msgid "All hosts"
-msgstr "Calquera servidor"
 
 #: server_privileges.php:1847
 msgid "Remove selected users"
@@ -13914,6 +13902,14 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "Calquera usuario"
+
+#, fuzzy
+#~ msgid "All hosts"
+#~ msgstr "Calquera servidor"
 
 #~ msgid "No blob streaming server configured!"
 #~ msgstr "Non se configurou ningún servidor de streaming blob!"

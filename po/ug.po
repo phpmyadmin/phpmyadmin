@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2010-08-26 11:59+0200\n"
 "Last-Translator: <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -9102,16 +9102,10 @@ msgstr "چىقىرىش"
 msgid "Any"
 msgstr ""
 
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Add %s"
-msgid "All users"
-msgstr "قوشۇلغىنى %s"
-
 #: server_privileges.php:1593
 #, fuzzy
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr "ھۇقۇقى"
 
 #: server_privileges.php:1617
@@ -9121,10 +9115,6 @@ msgstr ""
 #: server_privileges.php:1757 server_privileges.php:1968
 #: server_privileges.php:2316
 msgid "Grant"
-msgstr ""
-
-#: server_privileges.php:1832
-msgid "All hosts"
 msgstr ""
 
 #: server_privileges.php:1847
@@ -12643,6 +12633,10 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "قوشۇلغىنى %s"
 
 #~ msgid "No blob streaming server configured!"
 #~ msgstr "No blob streaming server configured!"

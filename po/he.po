@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2011-03-02 20:17+0200\n"
 "Last-Translator: <zippoxer@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
@@ -9303,16 +9303,10 @@ msgstr "ייצוא"
 msgid "Any"
 msgstr "כל דבר"
 
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Any user"
-msgid "All users"
-msgstr "כל משתמש"
-
 #: server_privileges.php:1593
 #, fuzzy
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr "הרשאות"
 
 #: server_privileges.php:1617
@@ -9325,12 +9319,6 @@ msgstr "סקירת משתמשים"
 #: server_privileges.php:2316
 msgid "Grant"
 msgstr "הענקה"
-
-#: server_privileges.php:1832
-#, fuzzy
-#| msgid "Any host"
-msgid "All hosts"
-msgstr "כל שרת מארח"
 
 #: server_privileges.php:1847
 msgid "Remove selected users"
@@ -12904,6 +12892,14 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "כל משתמש"
+
+#, fuzzy
+#~ msgid "All hosts"
+#~ msgstr "כל שרת מארח"
 
 #, fuzzy
 #~ msgid "PBMS connection failed:"

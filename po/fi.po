@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2011-11-15 17:19+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -9662,16 +9662,10 @@ msgstr "Vienti"
 msgid "Any"
 msgstr "Mikä tahansa"
 
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Add user"
-msgid "All users"
-msgstr "Lisää käyttäjä"
-
 #: server_privileges.php:1593
 #, fuzzy
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr "Käyttöoikeudet"
 
 #: server_privileges.php:1617
@@ -9684,12 +9678,6 @@ msgstr "Käyttäjien yleiskatsaus"
 #: server_privileges.php:2316
 msgid "Grant"
 msgstr "Valtuudet (GRANT)"
-
-#: server_privileges.php:1832
-#, fuzzy
-#| msgid "Any host"
-msgid "All hosts"
-msgstr "Mikä tahansa palvelin"
 
 #: server_privileges.php:1847
 msgid "Remove selected users"
@@ -13627,6 +13615,14 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "Lisää käyttäjä"
+
+#, fuzzy
+#~ msgid "All hosts"
+#~ msgstr "Mikä tahansa palvelin"
 
 #~ msgid "No blob streaming server configured!"
 #~ msgstr "BLOB-suoratoistopalvelinta ei ole määritelty."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:10+0100\n"
+"POT-Creation-Date: 2012-03-08 17:06+0100\n"
 "PO-Revision-Date: 2011-11-08 23:12+0200\n"
 "Last-Translator: Sulkhani Ninidze <sulxani.ninidze@hotmail.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -9793,16 +9793,10 @@ msgstr "ექსპორტი"
 msgid "Any"
 msgstr "ნებისმიერი"
 
-#: server_privileges.php:1591 server_privileges.php:1832
-#, fuzzy
-#| msgid "Add user"
-msgid "All users"
-msgstr "მომხმარებლის დამატება"
-
 #: server_privileges.php:1593
 #, fuzzy
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for all users"
 msgstr "პრივილეგიები"
 
 #: server_privileges.php:1617
@@ -9815,12 +9809,6 @@ msgstr "მომხმარებლის მიმოხილვა"
 #: server_privileges.php:2316
 msgid "Grant"
 msgstr "Grant"
-
-#: server_privileges.php:1832
-#, fuzzy
-#| msgid "Any host"
-msgid "All hosts"
-msgstr "ნებისმიერი ჰოსტი"
 
 #: server_privileges.php:1847
 msgid "Remove selected users"
@@ -13680,6 +13668,14 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "მომხმარებლის დამატება"
+
+#, fuzzy
+#~ msgid "All hosts"
+#~ msgstr "ნებისმიერი ჰოსტი"
 
 #, fuzzy
 #~ msgid "Failed to fetch headers"
