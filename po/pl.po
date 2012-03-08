@@ -4007,10 +4007,9 @@ msgstr ""
 "Definiuje listę instrukcji automatycznego tworzenia używa nowych wersji."
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Cecha"
+msgstr "Instrukcje do śledzenia"
 
 #: libraries/config/messages.inc.php:427
 msgid ""
