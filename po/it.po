@@ -1469,7 +1469,6 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log é abilitato."
 
 #: js/messages.php:150
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log e general_log sono disabilitati."
