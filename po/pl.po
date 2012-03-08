@@ -6279,8 +6279,9 @@ msgstr ""
 "danych."
 
 #: libraries/engines/pbms.lib.php:50
+#, fuzzy
 msgid "Temp Log Threshold"
-msgstr "Próg dziennika danych."
+msgstr "Próg pliku dziennika"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
