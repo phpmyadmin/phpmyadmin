@@ -1856,7 +1856,7 @@ msgstr "Afegir Taula"
 #, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Afegir índex"
+msgstr "Amagar índex"
 
 #: js/messages.php:253
 #, fuzzy
