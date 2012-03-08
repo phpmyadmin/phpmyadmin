@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 23:01+0200\n"
+"PO-Revision-Date: 2012-03-08 23:04+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -3078,7 +3078,7 @@ msgstr "Własna - jak wyżej, ale bez wyboru szybkiego/włąsnego"
 
 #: libraries/config.values.php:123
 msgid "complete inserts"
-msgstr "kompletne wstawianie"
+msgstr "zakończone dodania"
 
 #: libraries/config.values.php:124
 msgid "extended inserts"
