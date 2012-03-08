@@ -4991,7 +4991,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:442
 msgid "Statements to track"
-msgstr "Sprawozdanie do śledzenia"
+msgstr "Instrukcje do śledzenia"
 
 #: libraries/config/messages.inc.php:443
 msgid ""
