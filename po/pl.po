@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 00:02+0200\n"
+"PO-Revision-Date: 2012-03-09 00:07+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -5819,7 +5819,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Liczba wierszy do pominięcia, począwszy od pierwszego rzędu:"
+msgstr "Liczba wierszy, by pominąć, począwszy od pierwszego wiersza:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
