@@ -1371,7 +1371,6 @@ msgid "Bytes sent"
 msgstr "Byte inviati"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Byte ricevuti"
