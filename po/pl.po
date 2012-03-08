@@ -7801,10 +7801,10 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Nie masz wystarczających uprawnień aby utworzyć wyzwalacz"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Nie znaleziono tabeli w bazie danych"
+msgstr "Nie znaleziono wyzwalacza %1$s w bazie danych %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 #, fuzzy
