@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 23:38+0200\n"
+"PO-Revision-Date: 2012-03-08 23:40+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -4031,10 +4031,9 @@ msgstr ""
 "Nawet mechanizm śledzenia tworzy wersje dla tabel i widoków automatycznie."
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Tryb automatycznej naprawy"
+msgstr "Automatyczne tworzenie wersji"
 
 #: libraries/config/messages.inc.php:431
 #, fuzzy
