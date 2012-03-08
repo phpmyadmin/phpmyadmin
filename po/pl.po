@@ -4955,10 +4955,9 @@ msgid "Options"
 msgstr "Opcje"
 
 #: libraries/display_tbl.lib.php:551 libraries/display_tbl.lib.php:569
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Skrócony tekst"
+msgstr "Częściowe teksty"
 
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:573
 #, fuzzy
