@@ -2241,7 +2241,6 @@ msgstr "Nie"
 
 #. l10n: Minimal week day name
 #: js/messages.php:469
-#, fuzzy
 msgid "Mo"
 msgstr "Pon"
 
