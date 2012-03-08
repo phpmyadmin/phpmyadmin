@@ -13225,10 +13225,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "μέγιστος αριθμός ταυτόχρονων συνδέσεων"
+msgstr "Ταυτόχρονες εισαγωγές MyISAM"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
