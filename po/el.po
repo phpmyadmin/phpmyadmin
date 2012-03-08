@@ -13042,7 +13042,7 @@ msgstr "Το long_query_time έχει οριστεί σε %s"
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Επιμένουσες συνδέσεις"
+msgstr "Ποσοστό χρησιμοποιημένων συνδέσεων"
 
 #: po/advisory_rules.php:226
 msgid ""
