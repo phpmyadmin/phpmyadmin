@@ -2836,7 +2836,7 @@ msgstr ""
 #: libraries/common.inc.php:650
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "Nieprawidłowy indeks serwera: %s"
+msgstr "Niewłaściwy indeks serwera: \"%s\""
 
 #: libraries/common.inc.php:657
 #, php-format
