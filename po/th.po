@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-02-14 16:01+0100\n"
+"POT-Creation-Date: 2012-03-08 16:08+0100\n"
 "PO-Revision-Date: 2012-02-24 19:23+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "แสดงทั้งหมด"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2445
+#: libraries/common.lib.php:2446
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -37,9 +37,9 @@ msgstr ""
 "ไม่สามารถเปลี่ยนแปลงข้อมูลของหน้าต่างเป้าหมายได้ อาจเป็นเพราะว่าคุณปิดหน้าต่างหลัก "
 "หรือสาเหตุจากการตั้งค่าความปลอดภัยให้ป้องกันการเปลี่ยนแปลงข้อมูลข้ามหน้าต่าง"
 
-#: browse_foreigners.php:160 libraries/common.lib.php:3126
-#: libraries/common.lib.php:3133 libraries/common.lib.php:3342
-#: libraries/common.lib.php:3343 libraries/db_links.inc.php:60
+#: browse_foreigners.php:160 libraries/common.lib.php:3127
+#: libraries/common.lib.php:3134 libraries/common.lib.php:3343
+#: libraries/common.lib.php:3344 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "ค้นหา"
@@ -49,8 +49,8 @@ msgstr "ค้นหา"
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:229
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1371
-#: libraries/common.lib.php:2418 libraries/core.lib.php:513
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1372
+#: libraries/common.lib.php:2419 libraries/core.lib.php:513
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -484,7 +484,7 @@ msgstr "ใช้ตาราง"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "คำค้นบนฐานข้อมูล <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1218
+#: db_qbe.php:955 libraries/common.lib.php:1219
 msgid "Submit Query"
 msgstr "ประมวลผลคำค้น"
 
@@ -522,15 +522,14 @@ msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3128
-#: libraries/common.lib.php:3340 libraries/common.lib.php:3341
+#: db_search.php:234 libraries/common.lib.php:3129
+#: libraries/common.lib.php:3341 libraries/common.lib.php:3342
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "เปิดดู"
 
 #: db_search.php:239
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "ลบตรงกับที่ตาราง %s  หรือไม่?"
 
@@ -613,9 +612,7 @@ msgstr "หยุดการติดตามแล้ว"
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr ""
-"การแสดงผลนี้แสดงเพียงจำนวนข้อมูลเท่านี้, ดูข้อมูลเพิ่มเติมได้ที่ %"
-"sdocumentation%s"
+msgstr "การแสดงผลนี้แสดงเพียงจำนวนข้อมูลเท่านี้, ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
 
 #: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -661,8 +658,8 @@ msgstr "ไม่เลือกเลย"
 msgid "Check tables having overhead"
 msgstr "ตรวจสอบตารางที่มี overhead"
 
-#: db_structure.php:581 libraries/common.lib.php:3353
-#: libraries/common.lib.php:3354 libraries/config/messages.inc.php:166
+#: db_structure.php:581 libraries/common.lib.php:3354
+#: libraries/common.lib.php:3355 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -676,14 +673,14 @@ msgstr "ส่งออก"
 msgid "Print view"
 msgstr "แสดง"
 
-#: db_structure.php:587 libraries/common.lib.php:3349
-#: libraries/common.lib.php:3350
+#: db_structure.php:587 libraries/common.lib.php:3350
+#: libraries/common.lib.php:3351
 msgid "Empty"
 msgstr "ลบข้อมูล"
 
 #: db_structure.php:589 db_tracking.php:105 enum_editor.php:116
-#: libraries/Index.class.php:490 libraries/common.lib.php:3347
-#: libraries/common.lib.php:3348 server_databases.php:269
+#: libraries/Index.class.php:490 libraries/common.lib.php:3348
+#: libraries/common.lib.php:3349 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "โยนทิ้ง"
@@ -713,7 +710,6 @@ msgid "Replace table prefix"
 msgstr "แทนที่คำนำไปยังตาราง"
 
 #: db_structure.php:605 libraries/mult_submits.inc.php:251
-#| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "คัดลอกคำนำไปยังตาราง"
 
@@ -806,7 +802,6 @@ msgid "ENUM/SET editor"
 msgstr "ตัวแก้ไข ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:268
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "ค่าสำหรับคอลัมน์ใหม่"
 
@@ -816,7 +811,6 @@ msgid "Values for column %s"
 msgstr "ค่าสำหรับคอลัมน์ \"%s\""
 
 #: enum_editor.php:34 js/messages.php:269
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "ป้อนค่าในช่องต่างๆ"
 
@@ -833,7 +827,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "คัดลอกและวางค่า joined ในฟิลด์ \"ความยาว/ค่า\""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "ประเภทไม่ถูกต้อง!"
 
@@ -842,7 +835,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "ชนิดการส่งออกที่ถูกเลือกต้องถูกบันทึกลงไฟล์"
 
 #: export.php:106
-#| msgid "Add new field"
 msgid "Bad parameters!"
 msgstr "พารามิเตอร์ไม่ถูกต้อง!"
 
@@ -873,7 +865,6 @@ msgstr "ประเภทที่ส่งออกไม่ถูกต้อ
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "ค่าสำหรับคอลัมน์ \"%s\""
 
@@ -912,12 +903,10 @@ msgstr "จุด %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:326
-#| msgid "Add new field"
 msgid "Add a point"
 msgstr "เพิ่มจุด"
 
 #: gis_data_editor.php:220 js/messages.php:321
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "แถวข้อความ"
 
@@ -930,12 +919,10 @@ msgid "Inner Ring"
 msgstr "ด้านใน"
 
 #: gis_data_editor.php:252
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "เพิ่มข้อความ"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "เพิ่มด้านใน"
 
@@ -963,8 +950,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"คุณพยายามที่จะอับโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s "
-"เอกสารช่วยเหลือ เพื่อแก้ไขปัญหาดังกล่าวนี้ "
+"คุณพยายามที่จะอับโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
+"เพื่อแก้ไขปัญหาดังกล่าวนี้ "
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -996,10 +983,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ "
-"หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ กรุณาแก้ไขไฟล์ตั้งค่าของ PHP "
-"ดูเอกสารเพิ่มเติมได้ที่ [a@./Documentation.html#faq1_16@Documentation]FAQ "
-"1.16[/a]"
+"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
+"กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [a@./Documentation."
+"html#faq1_16@Documentation]FAQ 1.16[/a]"
 
 #: import.php:366
 msgid ""
@@ -1031,8 +1017,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin "
-"ไม่สามารถนำเข้าได้ทัน ตามเวลารันสูงสุดที่กำหนดใน PHP"
+"ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin ไม่สามารถนำเข้าได้ทัน "
+"ตามเวลารันสูงสุดที่กำหนดใน PHP"
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1205
@@ -1071,7 +1057,6 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "คุณกำลังจะลบข้อมูลในตารางทั้งหมด!"
 
 #: js/messages.php:35
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "กำลังลบข้อมูลติดตามตาราง"
 
@@ -1101,12 +1086,10 @@ msgid "This is not a number!"
 msgstr "ค่านี้ไม่ใช่ตัวเลข!"
 
 #: js/messages.php:46
-#| msgid "Add new field"
 msgid "Add Index"
 msgstr "เพิ่มดัชนีใหม่"
 
 #: js/messages.php:47
-#| msgid "Index"
 msgid "Edit Index"
 msgstr "แก้ไขดัชนี"
 
@@ -1117,7 +1100,6 @@ msgstr "ทำดัชนีใน สดมส์นี้ %d"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#| msgid "Total"
 msgid "Total count"
 msgstr "จำนวนรวม"
 
@@ -1139,7 +1121,6 @@ msgstr "รหัสผ่านไม่ตรงกัน!"
 
 #: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
 #: server_privileges.php:2209 server_privileges.php:2414
-#| msgid "Any user"
 msgid "Add user"
 msgstr "เพิ่มผู้ใช้"
 
@@ -1148,7 +1129,6 @@ msgid "Reloading Privileges"
 msgstr "รีเฟรชสิทธิใหม่"
 
 #: js/messages.php:61
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "ถอนผู้ใช้ที่เลือก"
 
@@ -1158,15 +1138,14 @@ msgid "Close"
 msgstr "ปิด"
 
 #: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
-#: libraries/common.lib.php:648 libraries/common.lib.php:1194
-#: libraries/common.lib.php:3351 libraries/common.lib.php:3352
+#: libraries/common.lib.php:648 libraries/common.lib.php:1195
+#: libraries/common.lib.php:3352 libraries/common.lib.php:3353
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1390
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
 msgstr "แก้ไข"
 
 #: js/messages.php:66 server_status.php:803
-#| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "สถานะการใช้ปัจจุบัน"
 
@@ -1196,12 +1175,12 @@ msgid "Other"
 msgstr "อื่นๆ"
 
 #. l10n: Thousands separator
-#: js/messages.php:76 libraries/common.lib.php:1449
+#: js/messages.php:76 libraries/common.lib.php:1450
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:78 libraries/common.lib.php:1451
+#: js/messages.php:78 libraries/common.lib.php:1452
 msgid "."
 msgstr "."
 
@@ -1214,7 +1193,6 @@ msgid "KiB received since last refresh"
 msgstr "KiB ได้รับจากครั้งล่าสุด"
 
 #: js/messages.php:82
-#| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
 msgstr "การจราจรของเครื่องแม่ข่าย (KiB)"
 
@@ -1227,7 +1205,6 @@ msgid "Processes"
 msgstr "โพรเซส"
 
 #: js/messages.php:85
-#| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "การเชื่อมต่อ"
 
@@ -1284,13 +1261,13 @@ msgid "System swap"
 msgstr "หน่วยความจำ swap ของระบบ"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
+#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
 #: server_status.php:1680
 msgid "MiB"
 msgstr "เมกกะไบต์"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1397
+#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
 #: server_status.php:1680
 msgid "KiB"
 msgstr "กิโลไบต์"
@@ -1300,7 +1277,6 @@ msgid "Average load"
 msgstr "เฉลี่ยการทำงาน"
 
 #: js/messages.php:108
-#| msgid "Total"
 msgid "Total memory"
 msgstr "จำนวนหน่วยความจำรวม"
 
@@ -1321,7 +1297,6 @@ msgid "Used memory"
 msgstr "หน่วยความจำที่ใช้ไป"
 
 #: js/messages.php:114
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "จำนวน Swap"
 
@@ -1342,7 +1317,6 @@ msgid "Bytes sent"
 msgstr "Byte ที่ส่ง"
 
 #: js/messages.php:120
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "Byte ที่รับ"
 
@@ -1351,40 +1325,37 @@ msgid "Connections"
 msgstr "การเชื่อมต่อ"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:125 libraries/common.lib.php:1395
+#: js/messages.php:125 libraries/common.lib.php:1396
 msgid "B"
 msgstr "ไบต์"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:128 libraries/common.lib.php:1401
+#: js/messages.php:128 libraries/common.lib.php:1402
 msgid "GiB"
 msgstr "กิกะไบต์"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:129 libraries/common.lib.php:1403
+#: js/messages.php:129 libraries/common.lib.php:1404
 msgid "TiB"
 msgstr "เทอราไบต์"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:130 libraries/common.lib.php:1405
+#: js/messages.php:130 libraries/common.lib.php:1406
 msgid "PiB"
 msgstr "เพตตะไบต์"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:131 libraries/common.lib.php:1407
+#: js/messages.php:131 libraries/common.lib.php:1408
 msgid "EiB"
 msgstr "เอกซะไบต์"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d ตาราง"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
-#| msgid "Versions"
 msgid "Questions"
 msgstr "คำถาม"
 
@@ -1394,12 +1365,10 @@ msgstr "การจราจร"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
 #: server_status.php:1555
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "การตั้งค่า"
 
 #: js/messages.php:138
-#| msgid "Remove database"
 msgid "Remove chart"
 msgstr "เอาการแสดงผลออก"
 
@@ -1462,9 +1431,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log ถูกเปิดไว้ แต่ประวัติคำสั่งของเครื่องแม่ข่ายใช้เวลานานกว่า %d "
-"วินาที ขอแนะนำให้ตั้งค่า long_query_time ไว้ที่ 0-2 วินาที "
-"โดยขึ้นอยู่กับระบบของท่าน"
+"slow_query_log ถูกเปิดไว้ แต่ประวัติคำสั่งของเครื่องแม่ข่ายใช้เวลานานกว่า %d วินาที "
+"ขอแนะนำให้ตั้งค่า long_query_time ไว้ที่ 0-2 วินาที โดยขึ้นอยู่กับระบบของท่าน"
 
 #: js/messages.php:154
 #, php-format
@@ -1475,27 +1443,23 @@ msgstr "long_query_time ถูกตั้งไว้ที่ %d วินา�
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr ""
-"การตั้งค่านี้ถูกนำไปใช้ทั้งหมด และจะคืนค่ากลับเมื่อเริ่มเครื่องใหม่อีกครั้ง"
+msgstr "การตั้งค่านี้ถูกนำไปใช้ทั้งหมด และจะคืนค่ากลับเมื่อเริ่มเครื่องใหม่อีกครั้ง"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
 #, php-format
-#| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "ตั้ง log_output เป็น %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
 #, php-format
-#| msgid "Enabled"
 msgid "Enable %s"
 msgstr "เปิดใช้ %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
 #, php-format
-#| msgid "Disable"
 msgid "Disable %s"
 msgstr "ปิดการใช้ %s"
 
@@ -1509,22 +1473,17 @@ msgstr "ตั้ง long_query_time เป็น %ds"
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
-msgstr ""
-"คุณไม่สามารถเปลี่ยนแปลงค่านี้ได้ กรุณาเข้าใช้งานเป็น root "
-"หรือติดต่อผู้ดูแลระบบ"
+msgstr "คุณไม่สามารถเปลี่ยนแปลงค่านี้ได้ กรุณาเข้าใช้งานเป็น root หรือติดต่อผู้ดูแลระบบ"
 
 #: js/messages.php:165
-#| msgid "General relation features"
 msgid "Change settings"
 msgstr "เปลี่ยนการตั้งค่า"
 
 #: js/messages.php:166
-#| msgid "General relation features"
 msgid "Current settings"
 msgstr "ค่าที่ถูกตั้งปัจจุบัน"
 
 #: js/messages.php:168 server_status.php:1645
-#| msgid "Import files"
 msgid "Chart Title"
 msgstr "ชื่อการแสดงผล"
 
@@ -1564,9 +1523,8 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
-"สดมส์นี้แสดงจำนวนคำสั่งที่ถูกจัดกลุ่มเดียวกัน "
-"อย่างไรก็ดีการจัดกลุ่มจัดเพียงคำสั่ง แต่เวลาเริ่ม หรือข้อมูลบางอย่าง "
-"อาจแตกต่างกัน"
+"สดมส์นี้แสดงจำนวนคำสั่งที่ถูกจัดกลุ่มเดียวกัน อย่างไรก็ดีการจัดกลุ่มจัดเพียงคำสั่ง แต่เวลาเริ่ม "
+"หรือข้อมูลบางอย่าง อาจแตกต่างกัน"
 
 #: js/messages.php:179
 msgid ""
@@ -1574,8 +1532,7 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"จากที่กลุ่มคำสั่ง เพิ่มข้อมูล ถูกเลือกหลายอันพร้อมๆกัน "
-"คำลังที่เพิ่มข้อมูลไปในตารางเดียวกัน "
+"จากที่กลุ่มคำสั่ง เพิ่มข้อมูล ถูกเลือกหลายอันพร้อมๆกัน คำลังที่เพิ่มข้อมูลไปในตารางเดียวกัน "
 "จะถูกจับกลุ่มรวมกันโดยไม่สนเรื่องข้อมูลที่จะถูกเพิ่มเข้าไป"
 
 #: js/messages.php:180
@@ -1595,7 +1552,6 @@ msgid "Analyzing..."
 msgstr "กำลังวิเคราะห์..."
 
 #: js/messages.php:186
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "อธิบายผลคำสั่ง"
 
@@ -1605,29 +1561,24 @@ msgid "Time"
 msgstr "เวลา"
 
 #: js/messages.php:189
-#| msgid "Total"
 msgid "Total time:"
 msgstr "เวลารวม:"
 
 #: js/messages.php:190
-#| msgid "SQL result"
 msgid "Profiling results"
 msgstr "ผลลัพธ์"
 
 #: js/messages.php:191
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "ตาราง"
 
 #: js/messages.php:192
-#| msgid "Charset"
 msgid "Chart"
 msgstr "ชุดแสดงผล"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#| msgid "Table options"
 msgid "Log table filter options"
 msgstr "ตัวเลือกรองประวัติตาราง"
 
@@ -1645,12 +1596,10 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "กลุ่มคำสั่ง ไม่สนใจตัวแปรใน WHERE"
 
 #: js/messages.php:200
-#| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
 msgstr "ผลรวมระเบียนต่อหน้า:"
 
 #: js/messages.php:201
-#| msgid "Total"
 msgid "Total:"
 msgstr "รวม:"
 
@@ -1672,7 +1621,6 @@ msgstr ""
 "น่าจะเกิดจากที่หมดเวลาเซสชั่นของท่าน กรุณายืนยันตัวตนใหม่อีกครั้ง"
 
 #: js/messages.php:206
-#| msgid "Rename database to"
 msgid "Reload page"
 msgstr "รีเฟรซหน้า"
 
@@ -1689,8 +1637,7 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
-"การสร้างตารางแสดงผลล้มเหลว เป็นเพราะการตั้งค่า "
-"โปรดล้างค่ากลับไปเป็นการตั้งค่าแบบเริ่มแรก"
+"การสร้างตารางแสดงผลล้มเหลว เป็นเพราะการตั้งค่า โปรดล้างค่ากลับไปเป็นการตั้งค่าแบบเริ่มแรก"
 
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
@@ -1700,7 +1647,6 @@ msgid "Import"
 msgstr "นำเข้า"
 
 #: js/messages.php:214
-#| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "วิเคราะห์คำสั่ง"
 
@@ -1717,7 +1663,6 @@ msgid "Issue"
 msgstr "ปัญหา"
 
 #: js/messages.php:221
-#| msgid "Documentation"
 msgid "Recommendation"
 msgstr "เอกสารอ้างอิง"
 
@@ -1726,7 +1671,6 @@ msgid "Rule details"
 msgstr "กฎเกณฑ์ต่างๆ"
 
 #: js/messages.php:223
-#| msgid "Documentation"
 msgid "Justification"
 msgstr "เอกสารอ้างอิง"
 
@@ -1749,7 +1693,6 @@ msgid "Loading"
 msgstr "กำลังเรียกดูข้อมูล"
 
 #: js/messages.php:234
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "กำลังประมวลผล"
 
@@ -1776,12 +1719,10 @@ msgid "Click to dismiss this notification"
 msgstr "กดเพื่อยกเลิกการเตือนนี้"
 
 #: js/messages.php:242
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "กำลังเปลี่ยนชื่อฐานข้อมูล"
 
 #: js/messages.php:243
-#| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "รีเฟรซฐานข้อมูล"
 
@@ -1790,32 +1731,26 @@ msgid "Copying Database"
 msgstr "กำลังคัดลอกฐานข้อมูล"
 
 #: js/messages.php:245
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "กำลังเปลี่ยนชุดตัวอักษร"
 
 #: js/messages.php:246
-#| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
 msgstr "ตารางต้องอย่างน้อยหนึ่งคอลัมน์"
 
 #: js/messages.php:251
-#| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "เพิ่มตาราง"
 
 #: js/messages.php:252
-#| msgid "Add new field"
 msgid "Hide indexes"
 msgstr "ซ่อนดัชนี"
 
 #: js/messages.php:253
-#| msgid "Show grid"
 msgid "Show indexes"
 msgstr "แสดงดัชนี"
 
 #: js/messages.php:256
-#| msgid "Search"
 msgid "Searching"
 msgstr "กำลังค้นหา"
 
@@ -1828,12 +1763,10 @@ msgid "Show search results"
 msgstr "แสดงผลคำค้น SQL"
 
 #: js/messages.php:259
-#| msgid "Browse"
 msgid "Browsing"
 msgstr "กำลังเปิด"
 
 #: js/messages.php:260
-#| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "กำลังลบ %s"
 
@@ -1863,7 +1796,7 @@ msgstr "แสดงช่องคำค้น SQL"
 msgid "No rows selected"
 msgstr "ยังไม่ได้เลือกแถว"
 
-#: js/messages.php:280 libraries/common.lib.php:2743
+#: js/messages.php:280 libraries/common.lib.php:2744
 #: libraries/display_tbl.lib.php:2507 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
@@ -1890,7 +1823,6 @@ msgid "Show search criteria"
 msgstr "แสดงหลักการค้นหา"
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
-#| msgid "Search"
 msgid "Zoom Search"
 msgstr "ค้นหาแบบ Zoom"
 
@@ -1927,7 +1859,6 @@ msgid "Strings are converted into integer for plotting"
 msgstr "ข้อความจะถูกแปลงเป็นตัวเลขเพื่อทำการพล็อตจุด"
 
 #: js/messages.php:309
-#| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "เพิ่มสองสดมภ์"
 
@@ -1936,12 +1867,10 @@ msgid "Select two different columns"
 msgstr "เลือกสองสดมภ์ใดๆ"
 
 #: js/messages.php:311
-#| msgid "SQL result"
 msgid "Query results"
 msgstr "ผลลัพธ์ SQL"
 
 #: js/messages.php:312
-#| msgid "Table of contents"
 msgid "Data point content"
 msgstr "สารบัญ"
 
@@ -1971,7 +1900,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "กรุณาเลือกคีย์หลักหรือคียเดี่ยว"
 
 #: js/messages.php:337 pmd_general.php:77 tbl_relation.php:541
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "เลือกฟิลด์ที่ต้องการแสดง"
 
@@ -1979,8 +1907,7 @@ msgstr "เลือกฟิลด์ที่ต้องการแสดง
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
-msgstr ""
-"คุณยังไม่ได้บันทึกเลย์เอาท์ที่คุณเลือก ที่ทำไว้จะหายไป ต้องการบันทึกหรือไม่?"
+msgstr "คุณยังไม่ได้บันทึกเลย์เอาท์ที่คุณเลือก ที่ทำไว้จะหายไป ต้องการบันทึกหรือไม่?"
 
 #: js/messages.php:341
 msgid "Add an option for column "
@@ -1994,9 +1921,7 @@ msgstr "กด escape เพื่อยกเลิกการแก้ไข"
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
-msgstr ""
-"คุณได้ทำการแก้ไขข้อมูลบางอย่าง แต่ยังไม่ได้บันทึก "
-"คุณแน่ใจว่าจะออกจากหน้านี้โดยยังไม่บันทึก?"
+msgstr "คุณได้ทำการแก้ไขข้อมูลบางอย่าง แต่ยังไม่ได้บันทึก คุณแน่ใจว่าจะออกจากหน้านี้โดยยังไม่บันทึก?"
 
 #: js/messages.php:346
 msgid "Drag to reorder"
@@ -2019,8 +1944,7 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ "
-"การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
+"ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
 
 #: js/messages.php:352
 msgid ""
@@ -2032,7 +1956,6 @@ msgid "Go to link"
 msgstr "ไปที่หน้า"
 
 #: js/messages.php:356
-#| msgid "Change password"
 msgid "Generate password"
 msgstr "สร้างรหัสอัตโนมัติ"
 
@@ -2041,12 +1964,10 @@ msgid "Generate"
 msgstr "สร้างอัตโนมัติ"
 
 #: js/messages.php:358
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "เปลี่ยนรหัสผ่าน"
 
 #: js/messages.php:361 tbl_structure.php:465
-#| msgid "Mon"
 msgid "More"
 msgstr "เพิ่มเติม"
 
@@ -2055,8 +1976,7 @@ msgstr "เพิ่มเติม"
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
-msgstr ""
-"phpMyAdmin มีรุ่นใหม่แล้ว กรุณาพิจารณาอัพเกรดเป็นรุ่นใหม่ %s โดยออกเมื่อ %s"
+msgstr "phpMyAdmin มีรุ่นใหม่แล้ว กรุณาพิจารณาอัพเกรดเป็นรุ่นใหม่ %s โดยออกเมื่อ %s"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:366
@@ -2069,30 +1989,25 @@ msgstr "ปัจจุบัน"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:386
-#| msgid "None"
 msgid "Done"
 msgstr "จบ"
 
 #: js/messages.php:390
-#| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "ก่อนหน้า"
 
 #: js/messages.php:395
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "ต่อไป"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:398
-#| msgid "Total"
 msgid "Today"
 msgstr "วันนี้"
 
 #: js/messages.php:401
-#| msgid "Binary"
 msgid "January"
 msgstr "มกราคม"
 
@@ -2101,12 +2016,10 @@ msgid "February"
 msgstr "กุมภาพันธ์"
 
 #: js/messages.php:403
-#| msgid "Mar"
 msgid "March"
 msgstr "มีนาคม"
 
 #: js/messages.php:404
-#| msgid "Apr"
 msgid "April"
 msgstr "เมษายน"
 
@@ -2115,17 +2028,14 @@ msgid "May"
 msgstr "พฤษภาคม"
 
 #: js/messages.php:406
-#| msgid "Jun"
 msgid "June"
 msgstr "มิถุนายน"
 
 #: js/messages.php:407
-#| msgid "Jul"
 msgid "July"
 msgstr "กรกฎาคม"
 
 #: js/messages.php:408
-#| msgid "Aug"
 msgid "August"
 msgstr "สิงหาคม"
 
@@ -2134,7 +2044,6 @@ msgid "September"
 msgstr "กันยายน"
 
 #: js/messages.php:410
-#| msgid "Oct"
 msgid "October"
 msgstr "ตุลาคม"
 
@@ -2147,79 +2056,75 @@ msgid "December"
 msgstr "ธันวาคม"
 
 #. l10n: Short month name
-#: js/messages.php:416 libraries/common.lib.php:1606
+#: js/messages.php:416 libraries/common.lib.php:1607
 msgid "Jan"
 msgstr "ม.ค."
 
 #. l10n: Short month name
-#: js/messages.php:418 libraries/common.lib.php:1608
+#: js/messages.php:418 libraries/common.lib.php:1609
 msgid "Feb"
 msgstr "ก.พ."
 
 #. l10n: Short month name
-#: js/messages.php:420 libraries/common.lib.php:1610
+#: js/messages.php:420 libraries/common.lib.php:1611
 msgid "Mar"
 msgstr "มี.ค."
 
 #. l10n: Short month name
-#: js/messages.php:422 libraries/common.lib.php:1612
+#: js/messages.php:422 libraries/common.lib.php:1613
 msgid "Apr"
 msgstr "เม.ย."
 
 #. l10n: Short month name
-#: js/messages.php:424 libraries/common.lib.php:1614
-#| msgid "May"
+#: js/messages.php:424 libraries/common.lib.php:1615
 msgctxt "Short month name"
 msgid "May"
 msgstr "พ.ค."
 
 #. l10n: Short month name
-#: js/messages.php:426 libraries/common.lib.php:1616
+#: js/messages.php:426 libraries/common.lib.php:1617
 msgid "Jun"
 msgstr "มิ.ย."
 
 #. l10n: Short month name
-#: js/messages.php:428 libraries/common.lib.php:1618
+#: js/messages.php:428 libraries/common.lib.php:1619
 msgid "Jul"
 msgstr "ก.ค."
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1620
+#: js/messages.php:430 libraries/common.lib.php:1621
 msgid "Aug"
 msgstr "ส.ค."
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1622
+#: js/messages.php:432 libraries/common.lib.php:1623
 msgid "Sep"
 msgstr "ก.ย."
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1624
+#: js/messages.php:434 libraries/common.lib.php:1625
 msgid "Oct"
 msgstr "ต.ค."
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/common.lib.php:1626
+#: js/messages.php:436 libraries/common.lib.php:1627
 msgid "Nov"
 msgstr "พ.ย."
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/common.lib.php:1628
+#: js/messages.php:438 libraries/common.lib.php:1629
 msgid "Dec"
 msgstr "ธ.ค."
 
 #: js/messages.php:441
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "อาทิตย์"
 
 #: js/messages.php:442
-#| msgid "Mon"
 msgid "Monday"
 msgstr "วันจันทร์"
 
 #: js/messages.php:443
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
@@ -2232,7 +2137,6 @@ msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
 #: js/messages.php:446
-#| msgid "Fri"
 msgid "Friday"
 msgstr "วันศุกร์"
 
@@ -2249,74 +2153,67 @@ msgid "Sun"
 msgstr "อา."
 
 #. l10n: Short week day name
-#: js/messages.php:453 libraries/common.lib.php:1633
+#: js/messages.php:453 libraries/common.lib.php:1634
 msgid "Mon"
 msgstr "จ."
 
 #. l10n: Short week day name
-#: js/messages.php:455 libraries/common.lib.php:1635
+#: js/messages.php:455 libraries/common.lib.php:1636
 msgid "Tue"
 msgstr "อ."
 
 #. l10n: Short week day name
-#: js/messages.php:457 libraries/common.lib.php:1637
+#: js/messages.php:457 libraries/common.lib.php:1638
 msgid "Wed"
 msgstr "พ."
 
 #. l10n: Short week day name
-#: js/messages.php:459 libraries/common.lib.php:1639
+#: js/messages.php:459 libraries/common.lib.php:1640
 msgid "Thu"
 msgstr "พฤ."
 
 #. l10n: Short week day name
-#: js/messages.php:461 libraries/common.lib.php:1641
+#: js/messages.php:461 libraries/common.lib.php:1642
 msgid "Fri"
 msgstr "ศ."
 
 #. l10n: Short week day name
-#: js/messages.php:463 libraries/common.lib.php:1643
+#: js/messages.php:463 libraries/common.lib.php:1644
 msgid "Sat"
 msgstr "ส."
 
 #. l10n: Minimal week day name
 #: js/messages.php:467
-#| msgid "Sun"
 msgid "Su"
 msgstr "อา."
 
 #. l10n: Minimal week day name
 #: js/messages.php:469
-#| msgid "Mon"
 msgid "Mo"
 msgstr "จ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:471
-#| msgid "Tue"
 msgid "Tu"
 msgstr "อ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:473
-#| msgid "Wed"
 msgid "We"
 msgstr "พ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:475
-#| msgid "Thu"
 msgid "Th"
 msgstr "พฤ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:477
-#| msgid "Fri"
 msgid "Fr"
 msgstr "ศ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:479
-#| msgid "Sat"
 msgid "Sa"
 msgstr "ส."
 
@@ -2332,7 +2229,6 @@ msgstr "ปฎิทินแบบ เดือน/ปี"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "ไม่มี"
@@ -2342,12 +2238,10 @@ msgid "Hour"
 msgstr "ชั่วโมง"
 
 #: js/messages.php:496
-#| msgid "in use"
 msgid "Minute"
 msgstr "นาที"
 
 #: js/messages.php:497
-#| msgid "per second"
 msgid "Second"
 msgstr "วินาที"
 
@@ -2437,8 +2331,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"มีข้อผิดพลาดขนาดย้ายไฟล์อัพหลด กรุณาดู "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+"มีข้อผิดพลาดขนาดย้ายไฟล์อัพหลด กรุณาดู [a@./Documentation.html#faq1_11@Documentation]"
+"FAQ 1.11[/a]"
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
@@ -2514,20 +2408,17 @@ msgstr[0] "%1$d ระเบียนได้รับผล"
 
 #: libraries/Message.class.php:257
 #, php-format
-#| msgid "No rows selected"
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d ระเบียนถูกลบ"
 
 #: libraries/Message.class.php:273
 #, php-format
-#| msgid "No rows selected"
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d ระเบียนถูกเพิ่ม"
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "เกิดข้อผิดพลาดขณะสร้าง PDF:"
 
@@ -2540,7 +2431,6 @@ msgid "Recent tables"
 msgstr "ตารางล่าสุด"
 
 #: libraries/RecentTable.class.php:149
-#| msgid "Tracked tables"
 msgid "There are no recent tables"
 msgstr "ไม่มีตารางล่าสุด"
 
@@ -2942,76 +2832,76 @@ msgstr "คำค้น SQL"
 msgid "MySQL said: "
 msgstr "MySQL แสดง: "
 
-#: libraries/common.lib.php:1127
+#: libraries/common.lib.php:1128
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/common.lib.php:1168 libraries/config/messages.inc.php:485
+#: libraries/common.lib.php:1169 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
 msgstr "อธิบาย SQL"
 
-#: libraries/common.lib.php:1172
+#: libraries/common.lib.php:1173
 msgid "Skip Explain SQL"
 msgstr "ไม่ต้องอธิบาย SQL"
 
-#: libraries/common.lib.php:1207
+#: libraries/common.lib.php:1208
 msgid "Without PHP Code"
 msgstr "ไม่เอาโค้ด PHP"
 
-#: libraries/common.lib.php:1210 libraries/config/messages.inc.php:487
+#: libraries/common.lib.php:1211 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "สร้างโค้ด PHP"
 
-#: libraries/common.lib.php:1230 libraries/config/messages.inc.php:486
+#: libraries/common.lib.php:1231 libraries/config/messages.inc.php:486
 #: server_status.php:795 server_status.php:817 server_status.php:836
 msgid "Refresh"
 msgstr "เรียกใหม่"
 
-#: libraries/common.lib.php:1240
+#: libraries/common.lib.php:1241
 msgid "Skip Validate SQL"
 msgstr "ไม่ต้องตรวจสอบ SQL"
 
-#: libraries/common.lib.php:1243 libraries/config/messages.inc.php:489
+#: libraries/common.lib.php:1244 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "ตรวจสอบ SQL"
 
-#: libraries/common.lib.php:1302
+#: libraries/common.lib.php:1303
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1304
+#: libraries/common.lib.php:1305
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr ""
 
-#: libraries/common.lib.php:1370 sql.php:896
+#: libraries/common.lib.php:1371 sql.php:896
 msgid "Profiling"
 msgstr ""
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1631
+#: libraries/common.lib.php:1632
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "อา."
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1647
+#: libraries/common.lib.php:1648
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y  %Rน."
 
-#: libraries/common.lib.php:1980
+#: libraries/common.lib.php:1981
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s วัน, %s ชั่วโมง, %s นาที, %s วินาที"
 
-#: libraries/common.lib.php:2071
+#: libraries/common.lib.php:2072
 #, fuzzy
 #| msgid "Add new field"
 msgid "Missing parameter:"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/common.lib.php:2454 libraries/common.lib.php:2457
+#: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
@@ -3019,7 +2909,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "จุดเริ่มต้น"
 
-#: libraries/common.lib.php:2455 libraries/common.lib.php:2458
+#: libraries/common.lib.php:2456 libraries/common.lib.php:2459
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 #, fuzzy
@@ -3028,7 +2918,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: libraries/common.lib.php:2485 libraries/common.lib.php:2488
+#: libraries/common.lib.php:2486 libraries/common.lib.php:2489
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
 #, fuzzy
@@ -3037,7 +2927,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "ต่อไป"
 
-#: libraries/common.lib.php:2486 libraries/common.lib.php:2489
+#: libraries/common.lib.php:2487 libraries/common.lib.php:2490
 #: libraries/display_tbl.lib.php:390
 #, fuzzy
 #| msgid "End"
@@ -3045,22 +2935,22 @@ msgctxt "Last page"
 msgid "End"
 msgstr "ท้ายสุด"
 
-#: libraries/common.lib.php:2556
+#: libraries/common.lib.php:2557
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "กระโดดไปที่ฐานข้อมูล &quot;%s&quot;."
 
-#: libraries/common.lib.php:2576
+#: libraries/common.lib.php:2577
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/common.lib.php:2750
+#: libraries/common.lib.php:2751
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/common.lib.php:3124 libraries/common.lib.php:3131
-#: libraries/common.lib.php:3346 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3125 libraries/common.lib.php:3132
+#: libraries/common.lib.php:3347 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -3072,7 +2962,7 @@ msgstr ""
 msgid "Structure"
 msgstr "โครงสร้าง"
 
-#: libraries/common.lib.php:3125 libraries/common.lib.php:3132
+#: libraries/common.lib.php:3126 libraries/common.lib.php:3133
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3080,43 +2970,43 @@ msgstr "โครงสร้าง"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3127 libraries/common.lib.php:3344
-#: libraries/common.lib.php:3345 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3128 libraries/common.lib.php:3345
+#: libraries/common.lib.php:3346 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "แทรก"
 
-#: libraries/common.lib.php:3134 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3135 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "กระบวนการ"
 
-#: libraries/common.lib.php:3278 libraries/sql_query_form.lib.php:443
+#: libraries/common.lib.php:3279 libraries/sql_query_form.lib.php:443
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:3297
+#: libraries/common.lib.php:3298
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: libraries/common.lib.php:3318 libraries/sql_query_form.lib.php:452
+#: libraries/common.lib.php:3319 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
 msgid "The directory you set for upload work cannot be reached"
 msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
 
-#: libraries/common.lib.php:3327
+#: libraries/common.lib.php:3328
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:3355 libraries/common.lib.php:3356
+#: libraries/common.lib.php:3356 libraries/common.lib.php:3357
 msgid "Execute"
 msgstr ""
 
-#: libraries/common.lib.php:3831
+#: libraries/common.lib.php:3832
 msgid "Print"
 msgstr "พิมพ์"
 
@@ -11990,7 +11880,6 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr ""
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#| msgid "Description"
 msgid "Distribution"
 msgstr "การกระจาย"
 
@@ -12031,7 +11920,6 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "สถาปัตยกรรม ของ MySQL"
 
@@ -12056,7 +11944,6 @@ msgid "Query cache disabled"
 msgstr "หน่วยความจำของชุดคำสั่ง ถูกปิดอยู่"
 
 #: po/advisory_rules.php:71
-#| msgid "The server is not responding"
 msgid "The query cache is not enabled."
 msgstr "หน่วยความจำของชุดคำสั่ง ไม่ได้ถูกเปิดไว้"
 
