@@ -12830,10 +12830,9 @@ msgstr ""
 "πρέπει να είναι πάνω από 95%%"
 
 #: po/advisory_rules.php:170
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Μέγεθος buffer ταξινόμησης"
+msgstr "Ποσοστό buffer κλειδιού MyISAM που χρησιμοποιήθηκε"
 
 #: po/advisory_rules.php:173
 #, php-format
