@@ -2960,10 +2960,9 @@ msgid "Basic settings"
 msgstr "Ustawienia podstawowe"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
-msgstr "Typ uwierzytelniania"
+msgstr "Uwierzytelnienie"
 
 #: libraries/config/messages.inc.php:198
 #, fuzzy
