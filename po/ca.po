@@ -2100,10 +2100,9 @@ msgid ", latest stable version:"
 msgstr ", darrera versió estable:"
 
 #: js/messages.php:367
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "Vés a la base de dades"
+msgstr "actualitzat"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:386
