@@ -1872,10 +1872,9 @@ msgid "Browsing"
 msgstr "Navegant"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Esborrant %s"
+msgstr "Esborrant"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
