@@ -1403,7 +1403,6 @@ msgstr "Pon"
 
 #. l10n: Minimal week day name
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Wto"
