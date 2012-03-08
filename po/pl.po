@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 00:15+0200\n"
+"PO-Revision-Date: 2012-03-09 00:16+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -6392,7 +6392,7 @@ msgstr "Struktura tabeli @TABLE@"
 #: libraries/export/latex.php:48 libraries/export/odt.php:40
 #: libraries/export/sql.php:142
 msgid "Object creation options"
-msgstr "Opcje tworzenia obiektów"
+msgstr "Opcje tworzenia obiektu"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
 msgid "Table caption (continued)"
