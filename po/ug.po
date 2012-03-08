@@ -12661,7 +12661,6 @@ msgstr ""
 #~ msgstr "سىز ھەقىقەتەن %s ئۈستىدىكى BLOB ئىقتىدارىنى تاقىماقچىمۇ؟"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "ھۆججەت يۈكلەشتە ئېنىقسىز خاتالىق كۆرۈلدى."
 

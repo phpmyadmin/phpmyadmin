@@ -13995,7 +13995,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Failed to write file to disk."
 #~ msgid "Failed to fetch headers"
 #~ msgstr "Faylni diskka yozishdaxatolik yuz berdi."
 
@@ -14009,12 +14008,10 @@ msgstr ""
 #~ "qilmoqchimisiz?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Fayl yuklanayotgan vaqtda noma`lum xatolik yuz berdi."
 
 #, fuzzy
-#~| msgid "Page creation failed"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "Sahifa tuzib bo‘lmadi"
 
@@ -14031,14 +14028,10 @@ msgstr ""
 #~ msgstr "Faylni yuklab olish"
 
 #, fuzzy
-#~| msgid "Garbage threshold"
 #~ msgid "Garbage Threshold"
 #~ msgstr "Axlatlanish ostonasi"
 
 #, fuzzy
-#~| msgid ""
-#~| " percentage of garbage in a data log file before it is compacted. This a "
-#~| "value between 1 and 99. The default is 50."
 #~ msgid ""
 #~ "The percentage of garbage in a repository file before it is compacted."
 #~ msgstr ""
@@ -14046,12 +14039,10 @@ msgstr ""
 #~ "nisbati. Qiymat 1 va 99 orasidabo‘lishi shart. Asl qiymati – 50."
 
 #, fuzzy
-#~| msgid "Log file threshold"
 #~ msgid "Temp Log Threshold"
 #~ msgstr "Jurnal fayli ostonasi"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Yo‘q"

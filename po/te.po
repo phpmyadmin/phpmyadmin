@@ -12529,7 +12529,6 @@ msgstr ""
 
 # మొదటి అనువాదము
 #, fuzzy
-#~| msgid "Page creation failed"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "పుటని సృష్టించుటలో తప్పిదము జరిగినది"
 
@@ -12542,7 +12541,6 @@ msgstr ""
 #~ msgstr "వీడియోను చూపుము"
 
 #, fuzzy
-#~| msgid "No"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "కాదు"

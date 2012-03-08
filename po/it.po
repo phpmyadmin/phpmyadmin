@@ -13238,7 +13238,6 @@ msgstr ""
 #~ msgstr "Impossibile ottenere informazioni su BLOB da parte del PBMS:"
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "il tentativo di ottenere il tipo del contenuto del BLOB é fallito"
 

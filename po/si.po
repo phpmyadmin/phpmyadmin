@@ -12793,7 +12793,6 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ msgid "You are about to DISABLE a BLOB Repository!"
 #~ msgstr "ඔබ බ්ලොබ් repository අක්‍රීය කිරීමටයි සැරසෙන්නේ!"
 
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "ගොනුව උඩුගත කිරීමේදී දෝෂයක් ඇති විය."
 
@@ -12806,7 +12805,6 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ msgid "PBMS get BLOB info failed:"
 #~ msgstr "PBMS BLOB තොරතුරු ලබාගැනීම අසමත් විය:"
 
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "BLOB අන්තර්ගත-ප්‍රකාරය ලබාගැනීම අසමත් විය"
 

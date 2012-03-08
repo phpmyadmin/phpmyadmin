@@ -12398,7 +12398,6 @@ msgstr ""
 #~ "diaz roadennoù %s ?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Fazi dianav en ur bellgargañ ar restr."
 
@@ -12412,7 +12411,6 @@ msgstr ""
 #~ msgstr "C'hwitet eo bet moned PBMS ouzh an titouroù BLOB :"
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "C'hwitet eo bet ar moned ouzh Content-Type ar BLOB"
 

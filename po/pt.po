@@ -12902,7 +12902,6 @@ msgstr "concurrent_insert está definida com o valor 0"
 #~ msgstr "Não foi possível abrir o ficheiro: %s"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Nenhum"

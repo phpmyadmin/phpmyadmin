@@ -12850,12 +12850,10 @@ msgstr ""
 #~ "%s?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Gwall anhysbys wrth lanlwytho ffeil."
 
 #, fuzzy
-#~| msgid "MySQL connection collation"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "Coladiad cysylltiad MySQL"
 
@@ -12872,12 +12870,10 @@ msgstr ""
 #~ msgstr "Lawrlwytho ffeil"
 
 #, fuzzy
-#~| msgid "Log file threshold"
 #~ msgid "Garbage Threshold"
 #~ msgstr "Trothwy'r ffeil log"
 
 #, fuzzy
-#~| msgid "Log file threshold"
 #~ msgid "Temp Log Threshold"
 #~ msgstr "Trothwy'r ffeil log"
 

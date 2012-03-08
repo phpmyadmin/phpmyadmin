@@ -12703,7 +12703,6 @@ msgstr "concurrent_insert ตั้งค่าไว้ที่ 0"
 #~ msgstr "มีปัญหาที่ไม่ทราบสาเหตุเกิดขึ้นขณะอัพโหลด"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "ไม่มี"

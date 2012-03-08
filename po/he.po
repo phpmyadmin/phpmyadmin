@@ -12906,12 +12906,10 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "MySQL connection collation"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "קידוד חיבור MySQL"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "ללא"

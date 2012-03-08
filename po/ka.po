@@ -13682,7 +13682,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Failed to write file to disk."
 #~ msgid "Failed to fetch headers"
 #~ msgstr "Failed to write file to disk."
 
@@ -13695,7 +13694,6 @@ msgstr ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Unknown error in file upload."
 
@@ -13715,14 +13713,10 @@ msgstr ""
 #~ msgstr "ფაილის ჩამოტვირთვა"
 
 #, fuzzy
-#~| msgid "Garbage threshold"
 #~ msgid "Garbage Threshold"
 #~ msgstr "Garbage threshold"
 
 #, fuzzy
-#~| msgid ""
-#~| " percentage of garbage in a data log file before it is compacted. This a "
-#~| "value between 1 and 99. The default is 50."
 #~ msgid ""
 #~ "The percentage of garbage in a repository file before it is compacted."
 #~ msgstr ""
@@ -13730,12 +13724,10 @@ msgstr ""
 #~ "is a value between 1 and 99. The default is 50."
 
 #, fuzzy
-#~| msgid "Log file threshold"
 #~ msgid "Temp Log Threshold"
 #~ msgstr "Log file threshold"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "არაა"

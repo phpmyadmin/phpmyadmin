@@ -13103,12 +13103,10 @@ msgstr ""
 #~ msgstr "Неуспешно отворање на далечински URL"
 
 #, fuzzy
-#~| msgid "MySQL connection collation"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "Колација за MySQL врска"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "нема"

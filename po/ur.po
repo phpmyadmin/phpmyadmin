@@ -12719,7 +12719,6 @@ msgstr ""
 #~ "اثبات کریں کہ آپ تمامBLOB حوالے برائے کوائفیہ کو نااہل کرنا چاہتے ہیں %s?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "اپ لوڈ مسل میں نامعلوم نقص ہے۔"
 
@@ -12733,7 +12732,6 @@ msgstr ""
 #~ msgstr "PBMS حاصل کریں BLOB معلومات ناکام ہوا:"
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "get BLOB Content-Type ناکام ہوا"
 

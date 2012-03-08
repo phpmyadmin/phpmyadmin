@@ -13070,7 +13070,6 @@ msgstr ""
 #~ msgstr "PBMS BLOB infó beszerzése sikertelen:"
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "BLOB Content-Type felismerése sikertelen"
 
@@ -13093,9 +13092,6 @@ msgstr ""
 #~ msgstr "Szemét küszöbértéke"
 
 #, fuzzy
-#~| msgid ""
-#~| "rcentage of garbage in a data log file before it is compacted. This a ue "
-#~| "between 1 and 99. The default is 50."
 #~ msgid ""
 #~ "The percentage of garbage in a repository file before it is compacted."
 #~ msgstr ""
@@ -13103,7 +13099,6 @@ msgstr ""
 #~ "99 közti érték. Alapértelmezés: 50."
 
 #, fuzzy
-#~| msgid "Log file threshold"
 #~ msgid "Temp Log Threshold"
 #~ msgstr "Naplófájl küszöbértéke"
 

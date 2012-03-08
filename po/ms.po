@@ -12794,7 +12794,6 @@ msgstr ""
 #~ msgstr "Gagal untuk membuka URL "
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Tiada"
