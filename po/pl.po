@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 18:22+0200\n"
+"PO-Revision-Date: 2012-03-08 18:23+0200\n"
 "Last-Translator: Piotr Przybylski <piotrprz@gmail.com>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -11176,11 +11176,10 @@ msgid "Spline"
 msgstr "Klin"
 
 #: tbl_chart.php:97
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "PB"
+msgstr "Kołowy"
 
 #: tbl_chart.php:100
 msgid "Stacked"
