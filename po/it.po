@@ -1339,7 +1339,6 @@ msgid "Used Swap"
 msgstr "Swap utilizzata"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Swap libera"
