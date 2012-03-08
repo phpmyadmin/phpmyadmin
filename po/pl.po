@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 23:09+0200\n"
+"PO-Revision-Date: 2012-03-08 23:12+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2604,10 +2604,9 @@ msgstr "Kolumny zawarte w"
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:247 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Pola poprzedzone przez"
+msgstr "Kolumny poprzedzone przez"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
