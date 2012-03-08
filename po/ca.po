@@ -2065,10 +2065,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Vés a la vista"
+msgstr "Vés a l'enllaç"
 
 #: js/messages.php:356
 msgid "Generate password"
