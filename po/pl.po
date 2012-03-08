@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 23:24+0200\n"
+"PO-Revision-Date: 2012-03-08 23:25+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -3860,7 +3860,7 @@ msgstr "Podaj parametry dla połączenia z serwerem"
 
 #: libraries/config/messages.inc.php:206
 msgid "Configuration storage"
-msgstr "Konfiguracja magazynu"
+msgstr "Konfiguracja magazynowania"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
