@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 22:48+0200\n"
+"PO-Revision-Date: 2012-03-08 22:49+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -1076,10 +1076,9 @@ msgid "Copying Database"
 msgstr "Kopiowanie bazy danych"
 
 #: js/messages.php:74
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Kodowanie napisów"
+msgstr "Zmiana kodowania"
 
 #: js/messages.php:75
 msgid "Table must have at least one column"
