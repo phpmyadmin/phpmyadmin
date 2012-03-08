@@ -2557,10 +2557,9 @@ msgid "Could not save recent table"
 msgstr "No es pot desar la taula"
 
 #: libraries/RecentTable.class.php:142
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Comptar les taules"
+msgstr "Taules recents"
 
 #: libraries/RecentTable.class.php:149
 #, fuzzy
