@@ -1862,10 +1862,9 @@ msgid "Hide search results"
 msgstr "Amaga els resultats de cerca"
 
 #: js/messages.php:258
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show search results"
-msgstr "Mostrar criteri de cerca"
+msgstr "Mostrar resultats de cerca"
 
 #: js/messages.php:259
 #, fuzzy
