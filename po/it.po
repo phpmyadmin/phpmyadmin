@@ -1257,7 +1257,6 @@ msgstr ""
 "iniziali nel menù <i>Settings</i>."
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Efficienza della cache delle query"
