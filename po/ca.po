@@ -2110,11 +2110,10 @@ msgid "Done"
 msgstr "Fet"
 
 #: js/messages.php:390
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Anterior"
+msgstr "Mes anterior"
 
 #: js/messages.php:395
 #, fuzzy
