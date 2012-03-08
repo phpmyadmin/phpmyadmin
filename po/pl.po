@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-08 23:44+0200\n"
+"PO-Revision-Date: 2012-03-08 23:45+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -5283,7 +5283,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:500
 msgid "Textarea columns"
-msgstr "Kolumny textarea"
+msgstr "Pole tekstu kolumn"
 
 #: libraries/config/messages.inc.php:501
 msgid ""
