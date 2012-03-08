@@ -3191,10 +3191,9 @@ msgstr ""
 "Importuj procenty jako liczby podzielone przez 100 (zamienia 12.00% na .12)"
 
 #: libraries/config/messages.inc.php:256
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Liczba rekordów (zapytań), które należy z początku pominąć"
+msgstr "Ilość zapytań aby przejść od początku"
 
 #: libraries/config/messages.inc.php:257
 msgid "Partial import: skip queries"
