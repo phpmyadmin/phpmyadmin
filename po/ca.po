@@ -1750,7 +1750,7 @@ msgstr "Importa"
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Actualitza consulta"
+msgstr "Analitzar consulta"
 
 #: js/messages.php:218
 msgid "Advisor system"
