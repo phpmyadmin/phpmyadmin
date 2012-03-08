@@ -1409,7 +1409,6 @@ msgstr "Wto"
 
 #. l10n: Minimal week day name
 #: js/messages.php:219
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Śro"
