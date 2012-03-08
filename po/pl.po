@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 22:54+0200\n"
+"PO-Revision-Date: 2012-03-08 22:55+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -2850,7 +2850,7 @@ msgstr "MySQL zwrócił komunikat: "
 
 #: libraries/common.lib.php:1158
 msgid "Failed to connect to SQL validator!"
-msgstr "Nie udało się połączyć z walidator SQL!"
+msgstr "Nie udało się połączyć z walidatorem SQL!"
 
 #: libraries/common.lib.php:1199 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
