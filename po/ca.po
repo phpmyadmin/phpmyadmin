@@ -1884,7 +1884,7 @@ msgstr "Mostrar resultats de cerca"
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Navega"
+msgstr "Navegant"
 
 #: js/messages.php:260
 #, fuzzy
