@@ -12919,7 +12919,7 @@ msgstr "Βαθμός ανοιχτών αρχείων"
 #, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "Ο αριθμός των εκκρεμών fsyncs στο αρχείο καταγραφής."
+msgstr "Ο βαθμός των ανοιγμένων αρχείων είναι υψηλός."
 
 #: po/advisory_rules.php:193
 #, php-format
