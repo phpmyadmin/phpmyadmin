@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 23:45+0200\n"
+"PO-Revision-Date: 2012-03-08 23:46+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -5356,7 +5356,7 @@ msgstr "Uwierzytelnianie HTTP"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr "Zarejestruj się na uwierzytelnianie"
+msgstr "Zarejestruj się na uwierzytelnianiu"
 
 #: libraries/config/setup.forms.php:251
 #: libraries/config/user_preferences.forms.php:151 libraries/import/ldi.php:35
