@@ -2626,7 +2626,7 @@ msgstr "Aquest servidor MySQL no suporta el motor d'emmagatzematge %s."
 #, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Mostra l'estat d'esclaus"
+msgstr "Estat de taula desconegut"
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
