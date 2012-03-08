@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-02-14 16:01+0100\n"
+"POT-Creation-Date: 2012-03-08 16:10+0100\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
-#: libraries/display_tbl.lib.php:359 server_privileges.php:1677
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
+#: libraries/display_tbl.lib.php:359 server_privileges.php:1729
 msgid "Show all"
 msgstr "Паказаць усе"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2445
+#: libraries/common.lib.php:2476
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
-#: libraries/select_lang.lib.php:489
+#: libraries/select_lang.lib.php:491
 msgid "Page number:"
 msgstr "Старонка:"
 
@@ -37,23 +37,23 @@ msgstr ""
 "акно або налады бясьпекі вашага браўзэра сканфігураныя на блякаваньне "
 "міжваконных ўзаемадзеяньняў"
 
-#: browse_foreigners.php:160 libraries/common.lib.php:3126
-#: libraries/common.lib.php:3133 libraries/common.lib.php:3342
-#: libraries/common.lib.php:3343 libraries/db_links.inc.php:60
+#: browse_foreigners.php:160 libraries/common.lib.php:3157
+#: libraries/common.lib.php:3164 libraries/common.lib.php:3373
+#: libraries/common.lib.php:3374 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Пошук"
 
-#: browse_foreigners.php:163 db_operations.php:378 db_operations.php:418
-#: db_operations.php:528 db_operations.php:555 db_search.php:337
-#: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:229
+#: browse_foreigners.php:163 db_operations.php:375 db_operations.php:415
+#: db_operations.php:525 db_operations.php:552 db_search.php:337
+#: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
+#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1371
-#: libraries/common.lib.php:2418 libraries/core.lib.php:513
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1402
+#: libraries/common.lib.php:2449 libraries/core.lib.php:505
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
-#: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
+#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
@@ -67,16 +67,16 @@ msgstr "Пошук"
 #: libraries/sql_query_form.lib.php:418 libraries/sql_query_form.lib.php:471
 #: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
-#: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:746
-#: server_privileges.php:1788 server_privileges.php:2152
-#: server_privileges.php:2199 server_privileges.php:2242
-#: server_replication.php:233 server_replication.php:316
-#: server_replication.php:347 server_synchronize.php:1309 tbl_change.php:340
-#: tbl_change.php:1073 tbl_change.php:1110 tbl_indexes.php:288
+#: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:765
+#: server_privileges.php:1857 server_privileges.php:2221
+#: server_privileges.php:2268 server_privileges.php:2300
+#: server_replication.php:263 server_replication.php:346
+#: server_replication.php:377 server_synchronize.php:1309 tbl_change.php:371
+#: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
-#: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:235
+#: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:260
 #: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:431
-#: tbl_tracking.php:569 tbl_zoom_select.php:313 view_create.php:181
+#: tbl_tracking.php:569 tbl_zoom_select.php:299 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
 msgstr "Панеслася"
@@ -97,21 +97,6 @@ msgstr "Апісаньне"
 msgid "Use this value"
 msgstr "Выкарыстоўваць гэта значэньне"
 
-#: bs_disp_as_mime_type.php:29 bs_play_media.php:35
-#: libraries/blobstreaming.lib.php:385
-msgid "No blob streaming server configured!"
-msgstr ""
-
-#: bs_disp_as_mime_type.php:35
-#, fuzzy
-#| msgid "Failed to write file to disk."
-msgid "Failed to fetch headers"
-msgstr "Памылка запісу на дыск."
-
-#: bs_disp_as_mime_type.php:41
-msgid "Failed to open remote URL"
-msgstr ""
-
 #: changelog.php:32 license.php:28
 #, php-format
 msgid ""
@@ -124,7 +109,7 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "База дадзеных %1$s створаная."
 
-#: db_datadict.php:49 db_operations.php:370
+#: db_datadict.php:49 db_operations.php:367
 msgid "Database comment: "
 msgstr "Камэнтар да базы дадзеных: "
 
@@ -140,9 +125,9 @@ msgstr "Камэнтар да табліцы"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
-#: tbl_change.php:318 tbl_indexes.php:213 tbl_printview.php:136
+#: tbl_change.php:337 tbl_indexes.php:213 tbl_printview.php:136
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
-#: tbl_zoom_select.php:433
+#: tbl_zoom_select.php:419
 #, fuzzy
 #| msgid "Column names"
 msgid "Column"
@@ -158,7 +143,7 @@ msgstr "Назвы калёнак"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
-#: server_privileges.php:2256 tbl_change.php:297 tbl_change.php:324
+#: server_privileges.php:2314 tbl_change.php:316 tbl_change.php:349
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
 msgid "Type"
@@ -169,13 +154,13 @@ msgstr "Тып"
 #: libraries/export/odt.php:306 libraries/export/texytext.php:230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
-#: libraries/tbl_properties.inc.php:102 tbl_change.php:333
+#: libraries/tbl_properties.inc.php:102 tbl_change.php:364
 #: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:326 tbl_zoom_select.php:434
+#: tbl_tracking.php:326 tbl_zoom_select.php:420
 msgid "Null"
 msgstr "Нуль"
 
-#: db_datadict.php:166 db_structure.php:538 libraries/export/htmlword.php:252
+#: db_datadict.php:166 db_structure.php:526 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:397 libraries/export/odt.php:309
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
@@ -204,40 +189,40 @@ msgstr "Зьвязаная з"
 msgid "Comments"
 msgstr "Камэнтары"
 
-#: db_datadict.php:233 js/messages.php:248 libraries/Index.class.php:349
+#: db_datadict.php:233 js/messages.php:244 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:285
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:297
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
-#: server_privileges.php:1475 server_privileges.php:1485
-#: server_privileges.php:1732 server_privileges.php:1743
-#: server_privileges.php:2064 server_privileges.php:2069
-#: server_privileges.php:2373 sql.php:296 sql.php:360 tbl_printview.php:190
+#: server_privileges.php:1520 server_privileges.php:1530
+#: server_privileges.php:1787 server_privileges.php:1798
+#: server_privileges.php:2133 server_privileges.php:2138
+#: server_privileges.php:2431 sql.php:298 sql.php:362 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:281 tbl_tracking.php:336
 #: tbl_tracking.php:341
 msgid "No"
 msgstr "Не"
 
-#: db_datadict.php:233 js/messages.php:247 libraries/Index.class.php:350
+#: db_datadict.php:233 js/messages.php:243 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:46
-#: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
-#: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
-#: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
-#: libraries/mult_submits.inc.php:275 libraries/mult_submits.inc.php:284
-#: libraries/mult_submits.inc.php:291
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:58
+#: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:99
+#: libraries/mult_submits.inc.php:104 libraries/mult_submits.inc.php:109
+#: libraries/mult_submits.inc.php:114 libraries/mult_submits.inc.php:274
+#: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:296
+#: libraries/mult_submits.inc.php:303
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
-#: server_databases.php:81 server_privileges.php:1473
-#: server_privileges.php:1483 server_privileges.php:1729
-#: server_privileges.php:1743 server_privileges.php:2064
-#: server_privileges.php:2067 server_privileges.php:2373 sql.php:359
+#: server_databases.php:81 server_privileges.php:1518
+#: server_privileges.php:1528 server_privileges.php:1784
+#: server_privileges.php:1798 server_privileges.php:2133
+#: server_privileges.php:2136 server_privileges.php:2431 sql.php:361
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
 msgid "Yes"
@@ -260,81 +245,81 @@ msgstr "Выбраць усё"
 msgid "Unselect All"
 msgstr "Зьняць усе адзнакі"
 
-#: db_operations.php:41 tbl_create.php:22
+#: db_operations.php:38 tbl_create.php:22
 msgid "The database name is empty!"
 msgstr "Імя базы дадзеных не пазначанае!"
 
-#: db_operations.php:280
+#: db_operations.php:277
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "База дадзеных %s была перайменаваная ў %s"
 
-#: db_operations.php:284
+#: db_operations.php:281
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "База дадзеных %s была скапіяваная ў %s"
 
-#: db_operations.php:412
+#: db_operations.php:409
 msgid "Rename database to"
 msgstr "Перайменаваць базу дадзеных у"
 
-#: db_operations.php:438
+#: db_operations.php:435
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
 msgstr "Перайменаваць базу дадзеных у"
 
-#: db_operations.php:450
+#: db_operations.php:447
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "База дадзеных %s была выдаленая."
 
-#: db_operations.php:455
+#: db_operations.php:452
 #, fuzzy
 msgid "Drop the database (DROP)"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: db_operations.php:484
+#: db_operations.php:481
 msgid "Copy database to"
 msgstr "Капіяваць базу дадзеных у"
 
-#: db_operations.php:491 tbl_operations.php:554 tbl_tracking.php:424
+#: db_operations.php:488 tbl_operations.php:554 tbl_tracking.php:424
 msgid "Structure only"
 msgstr "Толькі структуру"
 
-#: db_operations.php:492 tbl_operations.php:555 tbl_tracking.php:426
+#: db_operations.php:489 tbl_operations.php:555 tbl_tracking.php:426
 msgid "Structure and data"
 msgstr "Структуру і дадзеныя"
 
-#: db_operations.php:493 tbl_operations.php:556 tbl_tracking.php:425
+#: db_operations.php:490 tbl_operations.php:556 tbl_tracking.php:425
 msgid "Data only"
 msgstr "Толькі дадзеныя"
 
-#: db_operations.php:501
+#: db_operations.php:498
 msgid "CREATE DATABASE before copying"
 msgstr "выканаць CREATE DATABASE перад капіяваньнем"
 
-#: db_operations.php:504 libraries/config/messages.inc.php:128
+#: db_operations.php:501 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:137 tbl_operations.php:562
 #, php-format
 msgid "Add %s"
 msgstr "Дадаць %s"
 
-#: db_operations.php:508 libraries/config/messages.inc.php:121
+#: db_operations.php:505 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:564
 msgid "Add AUTO_INCREMENT value"
 msgstr "Дадаць значэньне AUTO_INCREMENT"
 
-#: db_operations.php:512 tbl_operations.php:571
+#: db_operations.php:509 tbl_operations.php:571
 msgid "Add constraints"
 msgstr "Дадаць абмежаваньні"
 
-#: db_operations.php:525
+#: db_operations.php:522
 msgid "Switch to copied database"
 msgstr "Перайсьці да скапіяванай базы дадзеных"
 
-#: db_operations.php:548 libraries/Index.class.php:446
+#: db_operations.php:545 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
@@ -344,7 +329,7 @@ msgstr "Перайсьці да скапіяванай базы дадзеных
 msgid "Collation"
 msgstr "Супастаўленьне"
 
-#: db_operations.php:561
+#: db_operations.php:558
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -356,7 +341,7 @@ msgstr ""
 "Дадатковыя магчымасьці работы з зьвязанымі табліцамі былі адключаныя. Каб "
 "высьветліць чаму, націсьніце %sтут%s."
 
-#: db_operations.php:595
+#: db_operations.php:592
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
@@ -367,8 +352,8 @@ msgstr "Рэляцыйная схема"
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1839
-#: server_privileges.php:1897 server_privileges.php:2166
+#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1908
+#: server_privileges.php:1966 server_privileges.php:2235
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
 msgstr "Табліца"
@@ -385,7 +370,7 @@ msgstr "Радкі"
 msgid "Size"
 msgstr "Памер"
 
-#: db_printview.php:159 db_structure.php:490 libraries/export/sql.php:791
+#: db_printview.php:159 db_structure.php:483 libraries/export/sql.php:791
 msgid "in use"
 msgstr "выкарыстоўваецца"
 
@@ -410,7 +395,7 @@ msgstr "Апошняе абнаўленьне"
 msgid "Last check"
 msgstr "Апошняя праверка"
 
-#: db_printview.php:219 db_structure.php:514
+#: db_printview.php:219 db_structure.php:502
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
@@ -437,7 +422,7 @@ msgstr "Парадак"
 #: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:566
 #: libraries/display_tbl.lib.php:959 libraries/display_tbl.lib.php:962
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
-#: tbl_select.php:222
+#: tbl_select.php:247
 msgid "Ascending"
 msgstr "прамы"
 
@@ -445,12 +430,12 @@ msgstr "прамы"
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:571
 #: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:963
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
-#: tbl_select.php:223
+#: tbl_select.php:248
 msgid "Descending"
 msgstr "адваротны"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:427
-#: tbl_change.php:287 tbl_tracking.php:654
+#: tbl_change.php:294 tbl_tracking.php:654
 msgid "Show"
 msgstr "Паказаць"
 
@@ -471,8 +456,8 @@ msgid "Del"
 msgstr "Выдаліць"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
-#: tbl_select.php:196
+#: server_privileges.php:419 tbl_change.php:939 tbl_indexes.php:283
+#: tbl_select.php:221
 msgid "Or"
 msgstr "Або"
 
@@ -505,7 +490,7 @@ msgstr "Выкарыстоўваць табліцы"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-запыт да БД <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1218
+#: db_qbe.php:955 libraries/common.lib.php:1249
 msgid "Submit Query"
 msgstr "Выканаць запыт"
 
@@ -545,8 +530,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s супадзеньняў у табліцы <i>%s</i>"
 msgstr[1] "%s супадзеньняў у табліцы <i>%s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3128
-#: libraries/common.lib.php:3340 libraries/common.lib.php:3341
+#: db_search.php:234 libraries/common.lib.php:3159
+#: libraries/common.lib.php:3371 libraries/common.lib.php:3372
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Прагляд"
@@ -558,7 +543,7 @@ msgid "Delete the matches for the %s table?"
 msgstr "Дамп дадзеных табліцы"
 
 #: db_search.php:239 libraries/display_tbl.lib.php:1426
-#: libraries/display_tbl.lib.php:2473
+#: libraries/display_tbl.lib.php:2467
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
@@ -613,35 +598,35 @@ msgstr "Унутры поля:"
 msgid "No tables found in database"
 msgstr "У базе дадзеных табліц ня выяўлена."
 
-#: db_structure.php:228 libraries/mysql_charsets.lib.php:409
+#: db_structure.php:221 libraries/mysql_charsets.lib.php:409
 #: libraries/mysql_charsets.lib.php:416
 msgid "unknown"
 msgstr "невядома"
 
-#: db_structure.php:315 tbl_operations.php:709
+#: db_structure.php:308 tbl_operations.php:709
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Табліца %s была ачышчаная"
 
-#: db_structure.php:328 tbl_operations.php:728
+#: db_structure.php:321 tbl_operations.php:728
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Выгляд %s быў выдалены"
 
-#: db_structure.php:328 tbl_operations.php:728
+#: db_structure.php:321 tbl_operations.php:728
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Табліца %s была выдаленая"
 
-#: db_structure.php:338 tbl_create.php:281
+#: db_structure.php:331 tbl_create.php:281
 msgid "Tracking is active."
 msgstr ""
 
-#: db_structure.php:343 tbl_create.php:284
+#: db_structure.php:336 tbl_create.php:284
 msgid "Tracking is not active."
 msgstr ""
 
-#: db_structure.php:451 libraries/display_tbl.lib.php:2356
+#: db_structure.php:444 libraries/display_tbl.lib.php:2350
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -650,113 +635,113 @@ msgstr ""
 "Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да "
 "%sдакумэнтацыі%s."
 
-#: db_structure.php:467 db_structure.php:481 libraries/header.inc.php:161
+#: db_structure.php:460 db_structure.php:474 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
 msgid "View"
 msgstr "Выгляд"
 
-#: db_structure.php:521 libraries/db_structure.lib.php:35
+#: db_structure.php:509 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
-#: server_replication.php:162 server_status.php:597
+#: server_replication.php:192 server_status.php:597
 msgid "Replication"
 msgstr "Рэплікацыя"
 
-#: db_structure.php:525
+#: db_structure.php:513
 msgid "Sum"
 msgstr "Усяго"
 
-#: db_structure.php:532 libraries/StorageEngine.class.php:338
+#: db_structure.php:520 libraries/StorageEngine.class.php:338
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 "%s зьяўляецца машынай захаваньня дадзеных па змоўчаньні на гэтым MySQL-"
 "сэрвэры."
 
-#: db_structure.php:561 db_structure.php:578 db_structure.php:579
-#: libraries/display_tbl.lib.php:2498 libraries/display_tbl.lib.php:2503
-#: libraries/mult_submits.inc.php:15 server_databases.php:263
-#: server_databases.php:268 server_privileges.php:1760 tbl_structure.php:557
+#: db_structure.php:549 db_structure.php:566 db_structure.php:567
+#: libraries/display_tbl.lib.php:2492 libraries/display_tbl.lib.php:2497
+#: libraries/mult_submits.inc.php:27 server_databases.php:263
+#: server_databases.php:268 server_privileges.php:1821 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
 msgstr "З адзначанымі:"
 
-#: db_structure.php:564 libraries/display_tbl.lib.php:2493
-#: server_databases.php:265 server_privileges.php:684
-#: server_privileges.php:1763 tbl_structure.php:560
+#: db_structure.php:552 libraries/display_tbl.lib.php:2487
+#: server_databases.php:265 server_privileges.php:703
+#: server_privileges.php:1824 tbl_structure.php:560
 msgid "Check All"
 msgstr "Адзначыць усё"
 
-#: db_structure.php:568 libraries/display_tbl.lib.php:2494
+#: db_structure.php:556 libraries/display_tbl.lib.php:2488
 #: libraries/replication_gui.lib.php:35 server_databases.php:267
-#: server_privileges.php:687 server_privileges.php:1767 tbl_structure.php:564
+#: server_privileges.php:706 server_privileges.php:1828 tbl_structure.php:564
 msgid "Uncheck All"
 msgstr "Зьняць усе адзнакі"
 
-#: db_structure.php:573
+#: db_structure.php:561
 msgid "Check tables having overhead"
 msgstr "Адзначыць тыя, што патрабуюць аптымізацыі"
 
-#: db_structure.php:581 libraries/common.lib.php:3353
-#: libraries/common.lib.php:3354 libraries/config/messages.inc.php:166
-#: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
-#: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
+#: db_structure.php:569 libraries/common.lib.php:3384
+#: libraries/common.lib.php:3385 libraries/config/messages.inc.php:166
+#: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
+#: libraries/display_tbl.lib.php:2510 libraries/display_tbl.lib.php:2651
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1486 server_status.php:1600
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Экспарт"
 
-#: db_structure.php:583 db_structure.php:639
-#: libraries/display_tbl.lib.php:2606 tbl_structure.php:613
+#: db_structure.php:571 db_structure.php:627
+#: libraries/display_tbl.lib.php:2600 tbl_structure.php:613
 msgid "Print view"
 msgstr "Вэрсія для друку"
 
-#: db_structure.php:587 libraries/common.lib.php:3349
-#: libraries/common.lib.php:3350
+#: db_structure.php:575 libraries/common.lib.php:3380
+#: libraries/common.lib.php:3381
 msgid "Empty"
 msgstr "Ачысьціць"
 
-#: db_structure.php:589 db_tracking.php:105 enum_editor.php:116
-#: libraries/Index.class.php:490 libraries/common.lib.php:3347
-#: libraries/common.lib.php:3348 server_databases.php:269
+#: db_structure.php:577 db_tracking.php:105 enum_editor.php:116
+#: libraries/Index.class.php:490 libraries/common.lib.php:3378
+#: libraries/common.lib.php:3379 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "Выдаліць"
 
-#: db_structure.php:591 tbl_operations.php:612
+#: db_structure.php:579 tbl_operations.php:612
 msgid "Check table"
 msgstr "Праверыць табліцу"
 
-#: db_structure.php:594 tbl_operations.php:669 tbl_structure.php:816
+#: db_structure.php:582 tbl_operations.php:669 tbl_structure.php:816
 msgid "Optimize table"
 msgstr "Аптымізаваць табліцу"
 
-#: db_structure.php:596 tbl_operations.php:654
+#: db_structure.php:584 tbl_operations.php:654
 msgid "Repair table"
 msgstr "Рамантаваць табліцу"
 
-#: db_structure.php:599 tbl_operations.php:639
+#: db_structure.php:587 tbl_operations.php:639
 msgid "Analyze table"
 msgstr "Аналізаваць табліцу"
 
-#: db_structure.php:601
+#: db_structure.php:589
 #, fuzzy
 msgid "Add prefix to table"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: db_structure.php:603 libraries/mult_submits.inc.php:251
+#: db_structure.php:591 libraries/mult_submits.inc.php:263
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "Замяніць дадзеныя табліцы дадзенымі з файла"
 
-#: db_structure.php:605 libraries/mult_submits.inc.php:251
+#: db_structure.php:593 libraries/mult_submits.inc.php:263
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Замяніць дадзеныя табліцы дадзенымі з файла"
 
-#: db_structure.php:642 libraries/schema/User_Schema.class.php:423
+#: db_structure.php:630 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
 msgstr "Слоўнік дадзеных"
 
@@ -771,8 +756,8 @@ msgstr "Праверыць табліцу"
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:60 server_databases.php:161
-#: server_privileges.php:1834 server_privileges.php:1897
-#: server_privileges.php:2160 server_status.php:1239
+#: server_privileges.php:1903 server_privileges.php:1966
+#: server_privileges.php:2229 server_status.php:1239
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
@@ -792,17 +777,17 @@ msgstr "Стварыць"
 msgid "Updated"
 msgstr ""
 
-#: db_tracking.php:90 js/messages.php:187 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1242 sql.php:900 tbl_tracking.php:653
+#: server_status.php:1242 sql.php:902 tbl_tracking.php:653
 msgid "Status"
 msgstr "Стан"
 
 #: db_tracking.php:91 libraries/Index.class.php:438
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
-#: server_databases.php:194 server_privileges.php:1706
-#: server_privileges.php:1901 server_privileges.php:2259 tbl_structure.php:211
+#: server_databases.php:194 server_privileges.php:1758
+#: server_privileges.php:1970 server_privileges.php:2317 tbl_structure.php:211
 msgid "Action"
 msgstr "Дзеяньне"
 
@@ -847,22 +832,22 @@ msgstr "Праверыць табліцу"
 msgid "Database Log"
 msgstr "База дадзеных"
 
-#: enum_editor.php:23 js/messages.php:266
+#: enum_editor.php:23 js/messages.php:262
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr ""
 
-#: enum_editor.php:28 js/messages.php:268
+#: enum_editor.php:28 js/messages.php:264
 msgid "Values for a new column"
 msgstr ""
 
-#: enum_editor.php:30 js/messages.php:267
+#: enum_editor.php:30 js/messages.php:263
 #, fuzzy, php-format
 #| msgid "Number of fields"
 msgid "Values for column %s"
 msgstr "Колькасьць палёў"
 
-#: enum_editor.php:34 js/messages.php:269
+#: enum_editor.php:34 js/messages.php:265
 msgid "Enter each value in a separate field"
 msgstr ""
 
@@ -935,49 +920,49 @@ msgstr ""
 msgid "SRID"
 msgstr ""
 
-#: gis_data_editor.php:151 js/messages.php:323
+#: gis_data_editor.php:151 js/messages.php:319
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
 msgstr ""
 
-#: gis_data_editor.php:172 js/messages.php:319
+#: gis_data_editor.php:172 js/messages.php:315
 msgid "Point"
 msgstr ""
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:317
+#: gis_data_editor.php:297 js/messages.php:313
 msgid "X"
 msgstr ""
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:318
+#: gis_data_editor.php:299 js/messages.php:314
 msgid "Y"
 msgstr ""
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:320
+#: js/messages.php:316
 #, php-format
 msgid "Point %d"
 msgstr ""
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:326
+#: js/messages.php:322
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add a point"
 msgstr "Дадаць новае поле"
 
-#: gis_data_editor.php:220 js/messages.php:321
+#: gis_data_editor.php:220 js/messages.php:317
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Радкі падзеленыя"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:321
 msgid "Outer Ring"
 msgstr ""
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:320
 msgid "Inner Ring"
 msgstr ""
 
@@ -987,17 +972,17 @@ msgstr ""
 msgid "Add a linestring"
 msgstr "Дадаць новага карыстальніка"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:323
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Дадаць новага карыстальніка"
 
-#: gis_data_editor.php:266 js/messages.php:322
+#: gis_data_editor.php:266 js/messages.php:318
 msgid "Polygon"
 msgstr ""
 
-#: gis_data_editor.php:306 js/messages.php:328
+#: gis_data_editor.php:306 js/messages.php:324
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
@@ -1014,7 +999,7 @@ msgid ""
 "string into the \"Value\" field"
 msgstr ""
 
-#: import.php:57
+#: import.php:61
 #, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
@@ -1024,22 +1009,22 @@ msgstr ""
 "зьвярніцеся да %sдакумэнтацыі%s для высьвятленьня спосабаў абыйсьці гэтае "
 "абмежаваньне."
 
-#: import.php:170 import.php:419
+#: import.php:174 import.php:426
 msgid "Showing bookmark"
 msgstr "Паказваючы закладку"
 
-#: import.php:180 import.php:415
+#: import.php:184 import.php:422
 msgid "The bookmark has been deleted."
 msgstr "Закладка была выдаленая."
 
-#: import.php:291 import.php:344 libraries/File.class.php:457
-#: libraries/File.class.php:540
+#: import.php:298 import.php:351 libraries/File.class.php:384
+#: libraries/File.class.php:467
 msgid "File could not be read"
 msgstr "Немагчыма прачытаць файл"
 
-#: import.php:299 import.php:308 import.php:327 import.php:336
-#: libraries/File.class.php:610 libraries/File.class.php:618
-#: libraries/File.class.php:634 libraries/File.class.php:642
+#: import.php:306 import.php:315 import.php:334 import.php:343
+#: libraries/File.class.php:537 libraries/File.class.php:545
+#: libraries/File.class.php:561 libraries/File.class.php:569
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1049,7 +1034,7 @@ msgstr ""
 "(%s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
 "канфігурацыі."
 
-#: import.php:349
+#: import.php:356
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -1059,27 +1044,27 @@ msgstr ""
 "загружаны, альбо памер файла перавысіў максымальны памер, вызначаны "
 "канфігурацыяй PHP. Гл. FAQ 1.16."
 
-#: import.php:366
+#: import.php:373
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 
-#: import.php:390 libraries/display_import.lib.php:23
+#: import.php:397 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Немагчыма загрузіць плагіны імпартаваньня, калі ласка, праверце ўсталёўку!"
 
-#: import.php:421 sql.php:935
+#: import.php:428 sql.php:937
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Закладка %s створаная"
 
-#: import.php:427 import.php:433
+#: import.php:434 import.php:440
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Імпартраваньне пасьпяхова завершанае, выканана %d запытаў."
 
-#: import.php:442
+#: import.php:449
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -1087,7 +1072,7 @@ msgstr ""
 "Выйшаў дазволены час выкананьня скрыпта. Калі вы хочаце завершыць "
 "імпартаваньне, калі ласка, загрузіце файл зноў і імпартаваньне ўзнавіцца."
 
-#: import.php:444
+#: import.php:451
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1096,8 +1081,8 @@ msgstr ""
 "звычайна значыць, што phpMyAdmin ня зможа скончыць гэтае імпартаваньня, калі "
 "вы не павялічыце ліміты выкананьня php-скрыптоў."
 
-#: import.php:472 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1205
+#: import.php:479 libraries/Message.class.php:175
+#: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1205
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1112,15 +1097,15 @@ msgstr "Назад"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "Для работы phpMyAdmin патрэбны браўзэр з падтрымкай <b>фрэймаў</b>."
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:253
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:255
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Каманды \"DROP DATABASE\" адключаныя."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:354
+#: js/messages.php:30 libraries/mult_submits.inc.php:292 sql.php:356
 msgid "Do you really want to "
 msgstr "Ці сапраўды вы жадаеце "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:339
+#: js/messages.php:31 libraries/mult_submits.inc.php:292 sql.php:341
 msgid "You are about to DESTROY a complete database!"
 msgstr "Вы зьбіраеце ВЫДАЛІЦЬ базу дадзеных цалкам!"
 
@@ -1151,116 +1136,107 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Гэтая апэрацыя можа заняць шмат часу. Працягваць?"
 
 #: js/messages.php:40
-msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
-
-#: js/messages.php:41
-#, php-format
-msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
-
-#: js/messages.php:44
 msgid "Missing value in the form!"
 msgstr "Не зададзенае значэньне ў форме!"
 
-#: js/messages.php:45
+#: js/messages.php:41
 msgid "This is not a number!"
 msgstr "Гэта ня лік!"
 
-#: js/messages.php:46
+#: js/messages.php:42
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add Index"
 msgstr "Дадаць новае поле"
 
-#: js/messages.php:47
+#: js/messages.php:43
 #, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
 msgstr "Рэдагаваць наступны радок"
 
-#: js/messages.php:48 tbl_indexes.php:293
+#: js/messages.php:44 tbl_indexes.php:293
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
 msgstr "Дадаць %s новыя палі"
 
 #. l10n: Default description for the y-Axis of Charts
-#: js/messages.php:52
+#: js/messages.php:48
 #, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
 msgstr "Колькасьць файлаў логу"
 
-#: js/messages.php:55
+#: js/messages.php:51
 msgid "The host name is empty!"
 msgstr "Пустое імя хосту!"
 
-#: js/messages.php:56
+#: js/messages.php:52
 msgid "The user name is empty!"
 msgstr "Пустое імя карыстальніка!"
 
-#: js/messages.php:57 server_privileges.php:1316 user_password.php:50
+#: js/messages.php:53 server_privileges.php:1353 user_password.php:50
 msgid "The password is empty!"
 msgstr "Пусты пароль!"
 
-#: js/messages.php:58 server_privileges.php:1314 user_password.php:53
+#: js/messages.php:54 server_privileges.php:1351 user_password.php:53
 msgid "The passwords aren't the same!"
 msgstr "Паролі не супадаюць!"
 
-#: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
-#: server_privileges.php:2209 server_privileges.php:2414
+#: js/messages.php:55 server_privileges.php:1842 server_privileges.php:1866
+#: server_privileges.php:2278 server_privileges.php:2472
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user"
 msgstr "Любы карыстальнік"
 
-#: js/messages.php:60
+#: js/messages.php:56
 #, fuzzy
 #| msgid "Reload privileges"
 msgid "Reloading Privileges"
 msgstr "Перазагрузіць прывілеі"
 
-#: js/messages.php:61
+#: js/messages.php:57
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Выдаліць выбраных карыстальнікаў"
 
-#: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
+#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:235
 #: tbl_tracking.php:415
 msgid "Close"
 msgstr ""
 
-#: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
-#: libraries/common.lib.php:648 libraries/common.lib.php:1194
-#: libraries/common.lib.php:3351 libraries/common.lib.php:3352
+#: js/messages.php:61 js/messages.php:274 libraries/Index.class.php:468
+#: libraries/common.lib.php:648 libraries/common.lib.php:1225
+#: libraries/common.lib.php:3382 libraries/common.lib.php:3383
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1390
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
 msgstr "Рэдагаваць"
 
-#: js/messages.php:66 server_status.php:803
+#: js/messages.php:62 server_status.php:803
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "Выбар сэрвэра"
 
-#: js/messages.php:67 server_status.php:806
+#: js/messages.php:63 server_status.php:806
 msgid "Live conn./process chart"
 msgstr ""
 
-#: js/messages.php:68 server_status.php:824
+#: js/messages.php:64 server_status.php:824
 #, fuzzy
 msgid "Live query chart"
 msgstr "SQL-запыт"
 
-#: js/messages.php:70
+#: js/messages.php:66
 msgid "Static data"
 msgstr ""
 
 #. l10n: Total number of queries
-#: js/messages.php:72 libraries/build_html_for_db.lib.php:46
+#: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
 #: server_status.php:1126 server_status.php:1187 tbl_printview.php:310
 #: tbl_structure.php:804
@@ -1268,70 +1244,70 @@ msgid "Total"
 msgstr "Агулам"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:74 server_status.php:603 server_status.php:1022
+#: js/messages.php:70 server_status.php:603 server_status.php:1022
 msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:76 libraries/common.lib.php:1449
+#: js/messages.php:72 libraries/common.lib.php:1480
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:78 libraries/common.lib.php:1451
+#: js/messages.php:74 libraries/common.lib.php:1482
 msgid "."
 msgstr "."
 
-#: js/messages.php:80
+#: js/messages.php:76
 msgid "KiB sent since last refresh"
 msgstr ""
 
-#: js/messages.php:81
+#: js/messages.php:77
 msgid "KiB received since last refresh"
 msgstr ""
 
-#: js/messages.php:82
+#: js/messages.php:78
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
 msgstr "Выбар сэрвэра"
 
-#: js/messages.php:83
+#: js/messages.php:79
 msgid "Connections since last refresh"
 msgstr ""
 
-#: js/messages.php:84 js/messages.php:122 server_status.php:1235
+#: js/messages.php:80 js/messages.php:118 server_status.php:1235
 msgid "Processes"
 msgstr "Працэсы"
 
-#: js/messages.php:85
+#: js/messages.php:81
 #, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "Падлучэньні"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:87
+#: js/messages.php:83
 msgid "Questions since last refresh"
 msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:89
+#: js/messages.php:85
 msgid "Questions (executed statements by the server)"
 msgstr ""
 
-#: js/messages.php:91 server_status.php:785
+#: js/messages.php:87 server_status.php:785
 #, fuzzy
 msgid "Query statistics"
 msgstr "Статыстыка радку"
 
-#: js/messages.php:94
+#: js/messages.php:90
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
-#: js/messages.php:95
+#: js/messages.php:91
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1339,219 +1315,219 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: js/messages.php:97
+#: js/messages.php:93
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Кэш запытаў"
 
-#: js/messages.php:98
+#: js/messages.php:94
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Кэш запытаў"
 
-#: js/messages.php:99
+#: js/messages.php:95
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Кэш запытаў"
 
-#: js/messages.php:101
+#: js/messages.php:97
 msgid "System CPU Usage"
 msgstr ""
 
-#: js/messages.php:102
+#: js/messages.php:98
 msgid "System memory"
 msgstr ""
 
-#: js/messages.php:103
+#: js/messages.php:99
 msgid "System swap"
 msgstr ""
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1399
+#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1430
 #: server_status.php:1680
 msgid "MiB"
 msgstr "МіБ"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1397
+#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1428
 #: server_status.php:1680
 msgid "KiB"
 msgstr "КiБ"
 
-#: js/messages.php:107
+#: js/messages.php:103
 msgid "Average load"
 msgstr ""
 
-#: js/messages.php:108
+#: js/messages.php:104
 #, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
 msgstr "Колькасьць файлаў логу"
 
-#: js/messages.php:109
+#: js/messages.php:105
 msgid "Cached memory"
 msgstr ""
 
-#: js/messages.php:110
+#: js/messages.php:106
 #, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Пул буфэру"
 
-#: js/messages.php:111
+#: js/messages.php:107
 msgid "Free memory"
 msgstr ""
 
-#: js/messages.php:112
+#: js/messages.php:108
 msgid "Used memory"
 msgstr ""
 
-#: js/messages.php:114
+#: js/messages.php:110
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
 msgstr "Агулам"
 
-#: js/messages.php:115
+#: js/messages.php:111
 msgid "Cached Swap"
 msgstr ""
 
-#: js/messages.php:116
+#: js/messages.php:112
 msgid "Used Swap"
 msgstr ""
 
-#: js/messages.php:117
+#: js/messages.php:113
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Вольных старонак"
 
-#: js/messages.php:119
+#: js/messages.php:115
 msgid "Bytes sent"
 msgstr ""
 
-#: js/messages.php:120
+#: js/messages.php:116
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Атрымана"
 
-#: js/messages.php:121 server_status.php:1145
+#: js/messages.php:117 server_status.php:1145
 msgid "Connections"
 msgstr "Падлучэньні"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:125 libraries/common.lib.php:1395
+#: js/messages.php:121 libraries/common.lib.php:1426
 msgid "B"
 msgstr "Б"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:128 libraries/common.lib.php:1401
+#: js/messages.php:124 libraries/common.lib.php:1432
 msgid "GiB"
 msgstr "ГіБ"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:129 libraries/common.lib.php:1403
+#: js/messages.php:125 libraries/common.lib.php:1434
 msgid "TiB"
 msgstr "ТіБ"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:130 libraries/common.lib.php:1405
+#: js/messages.php:126 libraries/common.lib.php:1436
 msgid "PiB"
 msgstr "ПіБ"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:131 libraries/common.lib.php:1407
+#: js/messages.php:127 libraries/common.lib.php:1438
 msgid "EiB"
 msgstr "ЭіБ"
 
-#: js/messages.php:132
+#: js/messages.php:128
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%d table(s)"
 msgstr "%s табліц(ы)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:135
+#: js/messages.php:131
 #, fuzzy
 msgid "Questions"
 msgstr "Пэрсыдзкая"
 
-#: js/messages.php:136 server_status.php:1100
+#: js/messages.php:132 server_status.php:1100
 msgid "Traffic"
 msgstr "Трафік"
 
-#: js/messages.php:137 libraries/server_links.inc.php:73
+#: js/messages.php:133 libraries/server_links.inc.php:73
 #: server_status.php:1555
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
 msgstr "Магчымасьці асноўных сувязяў"
 
-#: js/messages.php:138
+#: js/messages.php:134
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove chart"
 msgstr "Перайменаваць базу дадзеных у"
 
-#: js/messages.php:139
+#: js/messages.php:135
 msgid "Edit title and labels"
 msgstr ""
 
-#: js/messages.php:140
+#: js/messages.php:136
 #, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "Зьвяць зь сеткай"
 
-#: js/messages.php:142
+#: js/messages.php:138
 msgid "Please add at least one variable to the series"
 msgstr ""
 
-#: js/messages.php:143 libraries/display_export.lib.php:308
+#: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2050 server_status.php:1268 server_status.php:1697
-#: tbl_zoom_select.php:151 tbl_zoom_select.php:278
+#: server_privileges.php:2119 server_status.php:1268 server_status.php:1697
+#: tbl_zoom_select.php:220 tbl_zoom_select.php:264
 msgid "None"
 msgstr "Няма"
 
-#: js/messages.php:144
+#: js/messages.php:140
 msgid "Resume monitor"
 msgstr ""
 
-#: js/messages.php:145
+#: js/messages.php:141
 msgid "Pause monitor"
 msgstr ""
 
-#: js/messages.php:147
+#: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: js/messages.php:148
+#: js/messages.php:144
 msgid "general_log is enabled."
 msgstr ""
 
-#: js/messages.php:149
+#: js/messages.php:145
 msgid "slow_query_log is enabled."
 msgstr ""
 
-#: js/messages.php:150
+#: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
-#: js/messages.php:151
+#: js/messages.php:147
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: js/messages.php:152
+#: js/messages.php:148
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: js/messages.php:153
+#: js/messages.php:149
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1559,625 +1535,625 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: js/messages.php:154
+#: js/messages.php:150
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: js/messages.php:155
+#: js/messages.php:151
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:157
+#: js/messages.php:153
 #, fuzzy, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Захаваць як файл"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:159
+#: js/messages.php:155
 #, fuzzy, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Уключана"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:161
+#: js/messages.php:157
 #, fuzzy, php-format
 #| msgid "Disable"
 msgid "Disable %s"
 msgstr "Адключана"
 
 #. l10n: %d seconds
-#: js/messages.php:163
+#: js/messages.php:159
 #, php-format
 msgid "Set long_query_time to %ds"
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:160
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: js/messages.php:165
+#: js/messages.php:161
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
 msgstr "Магчымасьці асноўных сувязяў"
 
-#: js/messages.php:166
+#: js/messages.php:162
 #, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
 msgstr "Магчымасьці асноўных сувязяў"
 
-#: js/messages.php:168 server_status.php:1645
+#: js/messages.php:164 server_status.php:1645
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart Title"
 msgstr "Загаловак справаздачы"
 
 #. l10n: As in differential values
-#: js/messages.php:170
+#: js/messages.php:166
 msgid "Differential"
 msgstr ""
 
-#: js/messages.php:171
+#: js/messages.php:167
 #, php-format
 msgid "Divided by %s"
 msgstr ""
 
-#: js/messages.php:172
+#: js/messages.php:168
 msgid "Unit"
 msgstr ""
 
-#: js/messages.php:174
+#: js/messages.php:170
 msgid "From slow log"
 msgstr ""
 
-#: js/messages.php:175
+#: js/messages.php:171
 msgid "From general log"
 msgstr ""
 
-#: js/messages.php:176
+#: js/messages.php:172
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: js/messages.php:177
+#: js/messages.php:173
 #, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Запыты чытаньня"
 
-#: js/messages.php:178
+#: js/messages.php:174
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:179
+#: js/messages.php:175
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:180
+#: js/messages.php:176
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:182
+#: js/messages.php:178
 #, fuzzy
 msgid "Jump to Log table"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: js/messages.php:183
+#: js/messages.php:179
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: js/messages.php:185
+#: js/messages.php:181
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "Прааналізаваць"
 
-#: js/messages.php:186
+#: js/messages.php:182
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Тлумачыць SQL"
 
-#: js/messages.php:188 js/messages.php:494 libraries/rte/rte_list.lib.php:62
-#: server_status.php:1241 sql.php:901
+#: js/messages.php:184 js/messages.php:490 libraries/rte/rte_list.lib.php:62
+#: server_status.php:1241 sql.php:903
 msgid "Time"
 msgstr "Час"
 
-#: js/messages.php:189
+#: js/messages.php:185
 #, fuzzy
 #| msgid "Total"
 msgid "Total time:"
 msgstr "Агулам"
 
-#: js/messages.php:190
+#: js/messages.php:186
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Прафіляваньне"
 
-#: js/messages.php:191
+#: js/messages.php:187
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Табліца"
 
-#: js/messages.php:192
+#: js/messages.php:188
 #, fuzzy
 #| msgid "Charset"
 msgid "Chart"
 msgstr "Кадыроўка"
 
 #. l10n: A collection of available filters
-#: js/messages.php:195
+#: js/messages.php:191
 #, fuzzy
 msgid "Log table filter options"
 msgstr "Налады экспарту базы дадзеных"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:197
+#: js/messages.php:193
 #, fuzzy
 msgid "Filter"
 msgstr "Файлы"
 
-#: js/messages.php:198
+#: js/messages.php:194
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:199
+#: js/messages.php:195
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:200
+#: js/messages.php:196
 #, fuzzy
 msgid "Sum of grouped rows:"
 msgstr "Колькасьць адсартаваных радкоў."
 
-#: js/messages.php:201
+#: js/messages.php:197
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "Агулам"
 
-#: js/messages.php:203
+#: js/messages.php:199
 #, fuzzy
 msgid "Loading logs"
 msgstr "Лякальны"
 
-#: js/messages.php:204
+#: js/messages.php:200
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:205
+#: js/messages.php:201
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:206
+#: js/messages.php:202
 #, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
 msgstr "Абнавіць"
 
-#: js/messages.php:208
+#: js/messages.php:204
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:210
+#: js/messages.php:206
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:211
+#: js/messages.php:207
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
 
-#: js/messages.php:212 libraries/config/messages.inc.php:172
+#: js/messages.php:208 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1600 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Імрарт"
 
-#: js/messages.php:214
+#: js/messages.php:210
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Абнавіць запыт"
 
-#: js/messages.php:218
+#: js/messages.php:214
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:219
+#: js/messages.php:215
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:220
+#: js/messages.php:216
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:221
+#: js/messages.php:217
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Дакумэнтацыя"
 
-#: js/messages.php:222
+#: js/messages.php:218
 #, fuzzy
 #| msgid "Details..."
 msgid "Rule details"
 msgstr "Падрабязьней..."
 
-#: js/messages.php:223
+#: js/messages.php:219
 #, fuzzy
 msgid "Justification"
 msgstr "Аўтэнтыфікацыя..."
 
-#: js/messages.php:224
+#: js/messages.php:220
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:225
+#: js/messages.php:221
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
+#: js/messages.php:226 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
 #: pmd_general.php:717 pmd_general.php:780 pmd_general.php:811
 msgid "Cancel"
 msgstr "Скасаваць"
 
-#: js/messages.php:233
+#: js/messages.php:229
 #, fuzzy
 msgid "Loading"
 msgstr "Лякальны"
 
-#: js/messages.php:234
+#: js/messages.php:230
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "Працэсы"
 
-#: js/messages.php:235 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:231 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:236
+#: js/messages.php:232
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:237
+#: js/messages.php:233
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:238 libraries/relation.lib.php:80 pmd_general.php:380
+#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:239
+#: js/messages.php:235
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:242
+#: js/messages.php:238
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Перайменаваць базу дадзеных у"
 
-#: js/messages.php:243
+#: js/messages.php:239
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "Перайменаваць базу дадзеных у"
 
-#: js/messages.php:244
+#: js/messages.php:240
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Капіяваць базу дадзеных у"
 
-#: js/messages.php:245
+#: js/messages.php:241
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Кадыроўка"
 
-#: js/messages.php:246
+#: js/messages.php:242
 #, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Табліца мусіць мець прынамсі адно поле."
 
-#: js/messages.php:251
+#: js/messages.php:247
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Выкарыстоўваць табліцы"
 
-#: js/messages.php:252
+#: js/messages.php:248
 #, fuzzy
 #| msgid "Add new field"
 msgid "Hide indexes"
 msgstr "Дадаць новае поле"
 
-#: js/messages.php:253
+#: js/messages.php:249
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
 msgstr "Паказаць сетку"
 
-#: js/messages.php:256
+#: js/messages.php:252
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Пошук"
 
-#: js/messages.php:257
+#: js/messages.php:253
 #, fuzzy
 msgid "Hide search results"
 msgstr "SQL-запыт"
 
-#: js/messages.php:258
+#: js/messages.php:254
 #, fuzzy
 msgid "Show search results"
 msgstr "SQL-запыт"
 
-#: js/messages.php:259
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Прагляд"
 
-#: js/messages.php:260
+#: js/messages.php:256
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "Выдаленьне %s"
 
-#: js/messages.php:263
+#: js/messages.php:259
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:270
+#: js/messages.php:266
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "Дадаць новага карыстальніка"
 
-#: js/messages.php:273
+#: js/messages.php:269
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:276
+#: js/messages.php:272
 #, fuzzy
 msgid "Hide query box"
 msgstr "SQL-запыт"
 
-#: js/messages.php:277
+#: js/messages.php:273
 #, fuzzy
 msgid "Show query box"
 msgstr "SQL-запыт"
 
-#: js/messages.php:279 tbl_row_action.php:28
+#: js/messages.php:275 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "Ніводны радок ня выбраны"
 
-#: js/messages.php:280 libraries/common.lib.php:2743
-#: libraries/display_tbl.lib.php:2507 querywindow.php:87 tbl_structure.php:149
+#: js/messages.php:276 libraries/common.lib.php:2774
+#: libraries/display_tbl.lib.php:2501 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Зьмяніць"
 
-#: js/messages.php:281
+#: js/messages.php:277
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:280 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:229 tbl_change.php:1025
+#: setup/frames/index.inc.php:229 tbl_change.php:1057
 #: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
 msgstr "Захаваць"
 
-#: js/messages.php:287
+#: js/messages.php:283
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL-запыт"
 
-#: js/messages.php:288
+#: js/messages.php:284
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL-запыт"
 
-#: js/messages.php:291 libraries/tbl_select.lib.php:110
+#: js/messages.php:287 libraries/tbl_select.lib.php:110
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "Пошук"
 
-#: js/messages.php:293
+#: js/messages.php:289
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:295
+#: js/messages.php:291
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:297
+#: js/messages.php:293
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
 
-#: js/messages.php:299
+#: js/messages.php:295
 msgid "Click and drag the mouse to navigate the plot."
 msgstr ""
 
-#: js/messages.php:301
+#: js/messages.php:297
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 
-#: js/messages.php:303
+#: js/messages.php:299
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:305
+#: js/messages.php:301
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:307
+#: js/messages.php:303
 msgid "Strings are converted into integer for plotting"
 msgstr ""
 
-#: js/messages.php:309
+#: js/messages.php:305
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "Дадаць/выдаліць калёнку крытэру"
 
-#: js/messages.php:310
+#: js/messages.php:306
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:311
+#: js/messages.php:307
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
 msgstr "Дзеяньні з вынікамі запытаў"
 
-#: js/messages.php:312
+#: js/messages.php:308
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Памер указальніка на дадзеныя"
 
-#: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
+#: js/messages.php:311 tbl_change.php:331 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "Ігнараваць"
 
-#: js/messages.php:316 libraries/display_tbl.lib.php:1391
+#: js/messages.php:312 libraries/display_tbl.lib.php:1391
 msgid "Copy"
 msgstr "Скапіяваць"
 
-#: js/messages.php:331
+#: js/messages.php:327
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
 msgstr "Дадаць %s новыя палі"
 
-#: js/messages.php:334
+#: js/messages.php:330
 msgid "Select referenced key"
 msgstr "Выберыце спасылкавы ключ"
 
-#: js/messages.php:335
+#: js/messages.php:331
 msgid "Select Foreign Key"
 msgstr "Выберыце зьнешні ключ"
 
-#: js/messages.php:336
+#: js/messages.php:332
 msgid "Please select the primary key or a unique key"
 msgstr "Калі ласка, выберыце першасны (PRIMARY) альбо ўнікальны ключ (UNIQUE)"
 
-#: js/messages.php:337 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:333 pmd_general.php:77 tbl_relation.php:541
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Выберыце поле для адлюстраваньня"
 
-#: js/messages.php:338
+#: js/messages.php:334
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:337
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:344
+#: js/messages.php:340
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:345
+#: js/messages.php:341
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:346
+#: js/messages.php:342
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:347
+#: js/messages.php:343
 msgid "Click to sort"
 msgstr ""
 
-#: js/messages.php:348
+#: js/messages.php:344
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:349
+#: js/messages.php:345
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:351
+#: js/messages.php:347
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:352
+#: js/messages.php:348
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:353
+#: js/messages.php:349
 #, fuzzy
 msgid "Go to link"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: js/messages.php:356
+#: js/messages.php:352
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Згенэраваць пароль"
 
-#: js/messages.php:357 libraries/replication_gui.lib.php:369
+#: js/messages.php:353 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "Згенэраваць"
 
-#: js/messages.php:358
+#: js/messages.php:354
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Зьмяніць пароль"
 
-#: js/messages.php:361 tbl_structure.php:465
+#: js/messages.php:357 tbl_structure.php:465
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Пан"
 
-#: js/messages.php:364 setup/lib/index.lib.php:173
+#: js/messages.php:360 setup/lib/index.lib.php:173
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2185,30 +2161,30 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:366
+#: js/messages.php:362
 #, fuzzy
 msgid ", latest stable version:"
 msgstr "Стварыць сувязь"
 
-#: js/messages.php:367
+#: js/messages.php:363
 #, fuzzy
 msgid "up to date"
 msgstr "Базы дадзеных адсутнічаюць"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:386
+#: js/messages.php:382
 #, fuzzy
 msgid "Done"
 msgstr "Дадзеныя"
 
-#: js/messages.php:390
+#: js/messages.php:386
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Папярэдняя старонка"
 
-#: js/messages.php:395
+#: js/messages.php:391
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2216,96 +2192,96 @@ msgid "Next"
 msgstr "Наступная старонка"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:398
+#: js/messages.php:394
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Агулам"
 
-#: js/messages.php:401
+#: js/messages.php:397
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Двайковы"
 
-#: js/messages.php:402
+#: js/messages.php:398
 msgid "February"
 msgstr ""
 
-#: js/messages.php:403
+#: js/messages.php:399
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Сак"
 
-#: js/messages.php:404
+#: js/messages.php:400
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Кра"
 
-#: js/messages.php:405
+#: js/messages.php:401
 msgid "May"
 msgstr "Тра"
 
-#: js/messages.php:406
+#: js/messages.php:402
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Чэр"
 
-#: js/messages.php:407
+#: js/messages.php:403
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Ліп"
 
-#: js/messages.php:408
+#: js/messages.php:404
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Жні"
 
-#: js/messages.php:409
+#: js/messages.php:405
 msgid "September"
 msgstr ""
 
-#: js/messages.php:410
+#: js/messages.php:406
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Кас"
 
-#: js/messages.php:411
+#: js/messages.php:407
 msgid "November"
 msgstr ""
 
-#: js/messages.php:412
+#: js/messages.php:408
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:416 libraries/common.lib.php:1606
+#: js/messages.php:412 libraries/common.lib.php:1637
 msgid "Jan"
 msgstr "Сту"
 
 #. l10n: Short month name
-#: js/messages.php:418 libraries/common.lib.php:1608
+#: js/messages.php:414 libraries/common.lib.php:1639
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name
-#: js/messages.php:420 libraries/common.lib.php:1610
+#: js/messages.php:416 libraries/common.lib.php:1641
 msgid "Mar"
 msgstr "Сак"
 
 #. l10n: Short month name
-#: js/messages.php:422 libraries/common.lib.php:1612
+#: js/messages.php:418 libraries/common.lib.php:1643
 msgid "Apr"
 msgstr "Кра"
 
 #. l10n: Short month name
-#: js/messages.php:424 libraries/common.lib.php:1614
+#: js/messages.php:420 libraries/common.lib.php:1645
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2313,78 +2289,78 @@ msgid "May"
 msgstr "Тра"
 
 #. l10n: Short month name
-#: js/messages.php:426 libraries/common.lib.php:1616
+#: js/messages.php:422 libraries/common.lib.php:1647
 msgid "Jun"
 msgstr "Чэр"
 
 #. l10n: Short month name
-#: js/messages.php:428 libraries/common.lib.php:1618
+#: js/messages.php:424 libraries/common.lib.php:1649
 msgid "Jul"
 msgstr "Ліп"
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1620
+#: js/messages.php:426 libraries/common.lib.php:1651
 msgid "Aug"
 msgstr "Жні"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1622
+#: js/messages.php:428 libraries/common.lib.php:1653
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1624
+#: js/messages.php:430 libraries/common.lib.php:1655
 msgid "Oct"
 msgstr "Кас"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/common.lib.php:1626
+#: js/messages.php:432 libraries/common.lib.php:1657
 msgid "Nov"
 msgstr "Ліс"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/common.lib.php:1628
+#: js/messages.php:434 libraries/common.lib.php:1659
 msgid "Dec"
 msgstr "Сьн"
 
-#: js/messages.php:441
+#: js/messages.php:437
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ндз"
 
-#: js/messages.php:442
+#: js/messages.php:438
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Пан"
 
-#: js/messages.php:443
+#: js/messages.php:439
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Аўт"
 
-#: js/messages.php:444
+#: js/messages.php:440
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:445
+#: js/messages.php:441
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:446
+#: js/messages.php:442
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Пят"
 
-#: js/messages.php:447
+#: js/messages.php:443
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:451
+#: js/messages.php:447
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2392,115 +2368,115 @@ msgid "Sun"
 msgstr "Ндз"
 
 #. l10n: Short week day name
-#: js/messages.php:453 libraries/common.lib.php:1633
+#: js/messages.php:449 libraries/common.lib.php:1664
 msgid "Mon"
 msgstr "Пан"
 
 #. l10n: Short week day name
-#: js/messages.php:455 libraries/common.lib.php:1635
+#: js/messages.php:451 libraries/common.lib.php:1666
 msgid "Tue"
 msgstr "Аўт"
 
 #. l10n: Short week day name
-#: js/messages.php:457 libraries/common.lib.php:1637
+#: js/messages.php:453 libraries/common.lib.php:1668
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name
-#: js/messages.php:459 libraries/common.lib.php:1639
+#: js/messages.php:455 libraries/common.lib.php:1670
 msgid "Thu"
 msgstr "Цач"
 
 #. l10n: Short week day name
-#: js/messages.php:461 libraries/common.lib.php:1641
+#: js/messages.php:457 libraries/common.lib.php:1672
 msgid "Fri"
 msgstr "Пят"
 
 #. l10n: Short week day name
-#: js/messages.php:463 libraries/common.lib.php:1643
+#: js/messages.php:459 libraries/common.lib.php:1674
 msgid "Sat"
 msgstr "Суб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:467
+#: js/messages.php:463
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ндз"
 
 #. l10n: Minimal week day name
-#: js/messages.php:469
+#: js/messages.php:465
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пан"
 
 #. l10n: Minimal week day name
-#: js/messages.php:471
+#: js/messages.php:467
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Аўт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:473
+#: js/messages.php:469
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Сер"
 
 #. l10n: Minimal week day name
-#: js/messages.php:475
+#: js/messages.php:471
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Цач"
 
 #. l10n: Minimal week day name
-#: js/messages.php:477
+#: js/messages.php:473
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пят"
 
 #. l10n: Minimal week day name
-#: js/messages.php:479
+#: js/messages.php:475
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Суб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:481
+#: js/messages.php:477
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:484
+#: js/messages.php:480
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:486
+#: js/messages.php:482
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Няма"
 
-#: js/messages.php:495
+#: js/messages.php:491
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:496
+#: js/messages.php:492
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "выкарыстоўваецца"
 
-#: js/messages.php:497
+#: js/messages.php:493
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2549,23 +2525,17 @@ msgstr "Памер шрыфта"
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: libraries/File.class.php:221
+#: libraries/File.class.php:216
 msgid "File was not an uploaded file."
 msgstr ""
 
-#: libraries/File.class.php:260 libraries/File.class.php:389
-#, fuzzy
-#| msgid "Unknown error in file upload."
-msgid "Unknown error while uploading."
-msgstr "Падчас загрузкі файла адбылася невядомая памылка."
-
-#: libraries/File.class.php:278
+#: libraries/File.class.php:247
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Памер загружанага файла пераўзыходзіць парамэтар upload_max_filesize у php."
 "ini."
 
-#: libraries/File.class.php:281
+#: libraries/File.class.php:250
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -2573,37 +2543,37 @@ msgstr ""
 "Памер загружанага файла пераўзыходзіць парамэтар MAX_FILE_SIZE, які быў "
 "вызначаны ў HTML-форме."
 
-#: libraries/File.class.php:284
+#: libraries/File.class.php:253
 msgid "The uploaded file was only partially uploaded."
 msgstr "Файл быў загружаны толькі часткова."
 
-#: libraries/File.class.php:287
+#: libraries/File.class.php:256
 msgid "Missing a temporary folder."
 msgstr "Адсутнічае часовая тэчка."
 
-#: libraries/File.class.php:290
+#: libraries/File.class.php:259
 msgid "Failed to write file to disk."
 msgstr "Памылка запісу на дыск."
 
-#: libraries/File.class.php:293
+#: libraries/File.class.php:262
 msgid "File upload stopped by extension."
 msgstr "Загрузка файла спыненая пашырэньнем."
 
-#: libraries/File.class.php:296
+#: libraries/File.class.php:265
 msgid "Unknown error in file upload."
 msgstr "Падчас загрузкі файла адбылася невядомая памылка."
 
-#: libraries/File.class.php:496
+#: libraries/File.class.php:423
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr "Памылка перамяшчэньня загружанага файла. Глядзіце разьдзел 1.11 у FAQ"
 
-#: libraries/File.class.php:508
+#: libraries/File.class.php:435
 msgid "Error while moving uploaded file."
 msgstr ""
 
-#: libraries/File.class.php:516
+#: libraries/File.class.php:443
 msgid "Cannot read (moved) upload file."
 msgstr ""
 
@@ -2656,13 +2626,12 @@ msgstr ""
 
 #: libraries/List_Database.class.php:379 libraries/config/messages.inc.php:179
 #: libraries/server_links.inc.php:43 server_databases.php:104
-#: server_privileges.php:1834
+#: server_privileges.php:1903
 msgid "Databases"
 msgstr "Базы дадзеных"
 
-#: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:356
-#: libraries/blobstreaming.lib.php:365 libraries/common.lib.php:614
-#: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:903
+#: libraries/Message.class.php:193 libraries/common.lib.php:614
+#: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:935
 #: tbl_operations.php:229 tbl_relation.php:282 view_operations.php:60
 msgid "Error"
 msgstr "Памылка"
@@ -2740,36 +2709,36 @@ msgstr "Гэты сэрвэр MySQL не падтрымлівае машыну �
 msgid "unknown table status: "
 msgstr "Паказаць стан залежных сэрвэраў"
 
-#: libraries/Table.class.php:1120
+#: libraries/Table.class.php:1125
 msgid "Invalid database"
 msgstr "Няправільная база дадзеных"
 
-#: libraries/Table.class.php:1134 tbl_get_field.php:25
+#: libraries/Table.class.php:1139 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Некарэктнае імя табліцы"
 
-#: libraries/Table.class.php:1165
+#: libraries/Table.class.php:1170
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Памылка перайменаваньня табліцы %1$s у %2$s"
 
-#: libraries/Table.class.php:1252
+#: libraries/Table.class.php:1257
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Табліца %s была перайменаваная ў %s"
 
-#: libraries/Table.class.php:1384
+#: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
 msgstr ""
 
-#: libraries/Table.class.php:1407
+#: libraries/Table.class.php:1412
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1533
+#: libraries/Table.class.php:1538
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -2928,45 +2897,6 @@ msgstr "Дзейны ключ аўтэнтыфікацыі не падключа
 msgid "Authenticating..."
 msgstr "Аўтэнтыфікацыя..."
 
-#: libraries/blobstreaming.lib.php:272
-msgid "PBMS error"
-msgstr ""
-
-#: libraries/blobstreaming.lib.php:306
-#, fuzzy
-#| msgid "MySQL connection collation"
-msgid "PBMS connection failed:"
-msgstr "Супастаўленьне падлучэньня да MySQL"
-
-#: libraries/blobstreaming.lib.php:361
-msgid "PBMS get BLOB info failed:"
-msgstr ""
-
-#: libraries/blobstreaming.lib.php:373
-msgid "PBMS get BLOB Content-Type failed"
-msgstr ""
-
-#: libraries/blobstreaming.lib.php:401
-msgid "View image"
-msgstr ""
-
-#: libraries/blobstreaming.lib.php:408
-msgid "Play audio"
-msgstr ""
-
-#: libraries/blobstreaming.lib.php:417
-msgid "View video"
-msgstr ""
-
-#: libraries/blobstreaming.lib.php:423
-msgid "Download file"
-msgstr ""
-
-#: libraries/blobstreaming.lib.php:494
-#, php-format
-msgid "Could not open file: %s"
-msgstr ""
-
 #: libraries/bookmark.lib.php:73
 msgid "shared"
 msgstr ""
@@ -2985,7 +2915,7 @@ msgstr "Табліц"
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/export/latex.php:212 libraries/export/sql.php:1093
-#: server_privileges.php:614 server_replication.php:314 tbl_printview.php:276
+#: server_privileges.php:633 server_replication.php:344 tbl_printview.php:276
 #: tbl_structure.php:773
 msgid "Data"
 msgstr "Дадзеныя"
@@ -3027,25 +2957,25 @@ msgstr ""
 msgid "numeric key detected"
 msgstr ""
 
-#: libraries/common.inc.php:607
+#: libraries/common.inc.php:604
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
-#: libraries/common.inc.php:608
+#: libraries/common.inc.php:605
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:615
+#: libraries/common.inc.php:612
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
-#: libraries/common.inc.php:620
+#: libraries/common.inc.php:617
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -3053,29 +2983,29 @@ msgstr ""
 "Дырэктыва <tt>$cfg['PmaAbsoluteUri']</tt> ПАВІННА быць вызначаная ў вашым "
 "канфігурацыйным файле!"
 
-#: libraries/common.inc.php:650
+#: libraries/common.inc.php:647
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Некарэктны індэкс сэрвэра: \"%s\""
 
-#: libraries/common.inc.php:657
+#: libraries/common.inc.php:654
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Няправільнае імя хосту для сэрвэра %1$s. Калі ласка, праверце канфігурыцыю."
 
-#: libraries/common.inc.php:666 libraries/config/messages.inc.php:508
+#: libraries/common.inc.php:663 libraries/config/messages.inc.php:508
 #: libraries/header.inc.php:134 main.php:171 server_status.php:784
 #: server_synchronize.php:1257
 msgid "Server"
 msgstr "Сэрвэр"
 
-#: libraries/common.inc.php:845
+#: libraries/common.inc.php:842
 msgid "Invalid authentication method set in configuration:"
 msgstr "У канфігурацыі вызначаны некарэктны мэтад аўтэнтыфікацыі:"
 
-#: libraries/common.inc.php:960
+#: libraries/common.inc.php:957
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Вам трэба абнавіць %s да вэрсіі %s ці пазьнейшай."
@@ -3107,8 +3037,8 @@ msgstr "en"
 #: libraries/common.lib.php:476 libraries/common.lib.php:494
 #: libraries/common.lib.php:498 libraries/common.lib.php:517
 #: libraries/common.lib.php:520 libraries/config/FormDisplay.tpl.php:140
-#: libraries/display_export.lib.php:234 libraries/engines/pbms.lib.php:71
-#: libraries/engines/pbxt.lib.php:106 libraries/navigation_header.inc.php:106
+#: libraries/display_export.lib.php:237 libraries/engines/pbxt.lib.php:106
+#: libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
 #: libraries/sql_query_form.lib.php:392 libraries/sql_query_form.lib.php:395
 #: main.php:238 server_variables.php:129
@@ -3133,78 +3063,78 @@ msgstr "SQL-запыт"
 msgid "MySQL said: "
 msgstr "Адказ MySQL: "
 
-#: libraries/common.lib.php:1127
+#: libraries/common.lib.php:1158
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/common.lib.php:1168 libraries/config/messages.inc.php:485
+#: libraries/common.lib.php:1199 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
 msgstr "Тлумачыць SQL"
 
-#: libraries/common.lib.php:1172
+#: libraries/common.lib.php:1203
 msgid "Skip Explain SQL"
 msgstr "Не тлумачыць SQL"
 
-#: libraries/common.lib.php:1207
+#: libraries/common.lib.php:1238
 msgid "Without PHP Code"
 msgstr "Без PHP-коду"
 
-#: libraries/common.lib.php:1210 libraries/config/messages.inc.php:487
+#: libraries/common.lib.php:1241 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "Стварыць PHP-код"
 
-#: libraries/common.lib.php:1230 libraries/config/messages.inc.php:486
+#: libraries/common.lib.php:1261 libraries/config/messages.inc.php:486
 #: server_status.php:795 server_status.php:817 server_status.php:836
 msgid "Refresh"
 msgstr "Абнавіць"
 
-#: libraries/common.lib.php:1240
+#: libraries/common.lib.php:1271
 msgid "Skip Validate SQL"
 msgstr "Не правяраць SQL"
 
-#: libraries/common.lib.php:1243 libraries/config/messages.inc.php:489
+#: libraries/common.lib.php:1274 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "Праверыць SQL"
 
-#: libraries/common.lib.php:1302
+#: libraries/common.lib.php:1333
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1304
+#: libraries/common.lib.php:1335
 #, fuzzy
 #| msgid "Engines"
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Машыны"
 
-#: libraries/common.lib.php:1370 sql.php:896
+#: libraries/common.lib.php:1401 sql.php:898
 msgid "Profiling"
 msgstr "Прафіляваньне"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1631
+#: libraries/common.lib.php:1662
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Ндз"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1647
+#: libraries/common.lib.php:1678
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y, %H:%M"
 
-#: libraries/common.lib.php:1980
+#: libraries/common.lib.php:2011
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дзён, %s гадзінаў, %s хвілінаў і %s сэкундаў"
 
-#: libraries/common.lib.php:2071
+#: libraries/common.lib.php:2102
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
 msgstr "Працэдуры"
 
-#: libraries/common.lib.php:2454 libraries/common.lib.php:2457
+#: libraries/common.lib.php:2485 libraries/common.lib.php:2488
 #: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
@@ -3212,7 +3142,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Першая старонка"
 
-#: libraries/common.lib.php:2455 libraries/common.lib.php:2458
+#: libraries/common.lib.php:2486 libraries/common.lib.php:2489
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 #, fuzzy
@@ -3221,7 +3151,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Папярэдняя старонка"
 
-#: libraries/common.lib.php:2485 libraries/common.lib.php:2488
+#: libraries/common.lib.php:2516 libraries/common.lib.php:2519
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
 #, fuzzy
@@ -3230,7 +3160,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Наступная старонка"
 
-#: libraries/common.lib.php:2486 libraries/common.lib.php:2489
+#: libraries/common.lib.php:2517 libraries/common.lib.php:2520
 #: libraries/display_tbl.lib.php:390
 #, fuzzy
 #| msgid "End"
@@ -3238,35 +3168,35 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Апошняя старонка"
 
-#: libraries/common.lib.php:2556
+#: libraries/common.lib.php:2587
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Перайсьці да базы дадзеных &quot;%s&quot;."
 
-#: libraries/common.lib.php:2576
+#: libraries/common.lib.php:2607
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Існуе вядомая памылка з выкарыстаньнем парамэтра %s, глядзіце апісаньне на %s"
 
-#: libraries/common.lib.php:2750
+#: libraries/common.lib.php:2781
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/common.lib.php:3124 libraries/common.lib.php:3131
-#: libraries/common.lib.php:3346 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3155 libraries/common.lib.php:3162
+#: libraries/common.lib.php:3377 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
-#: libraries/import.lib.php:1125 libraries/tbl_links.inc.php:61
+#: libraries/import.lib.php:1131 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:591 pmd_general.php:140
-#: server_privileges.php:614 server_replication.php:313 tbl_tracking.php:253
+#: server_privileges.php:633 server_replication.php:343 tbl_tracking.php:253
 msgid "Structure"
 msgstr "Структура"
 
-#: libraries/common.lib.php:3125 libraries/common.lib.php:3132
+#: libraries/common.lib.php:3156 libraries/common.lib.php:3163
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3274,43 +3204,43 @@ msgstr "Структура"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3127 libraries/common.lib.php:3344
-#: libraries/common.lib.php:3345 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3158 libraries/common.lib.php:3375
+#: libraries/common.lib.php:3376 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Уставіць"
 
-#: libraries/common.lib.php:3134 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3165 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Апэрацыі"
 
-#: libraries/common.lib.php:3278 libraries/sql_query_form.lib.php:443
+#: libraries/common.lib.php:3309 libraries/sql_query_form.lib.php:443
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:3297
+#: libraries/common.lib.php:3328
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "тэчка вэб-сэрвэра для загрузкі файлаў"
 
-#: libraries/common.lib.php:3318 libraries/sql_query_form.lib.php:452
-#: tbl_change.php:904
+#: libraries/common.lib.php:3349 libraries/sql_query_form.lib.php:452
+#: tbl_change.php:936
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Немагчыма адкрыць пазначаную вамі тэчку для загрузкі файлаў"
 
-#: libraries/common.lib.php:3327
+#: libraries/common.lib.php:3358
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:3355 libraries/common.lib.php:3356
+#: libraries/common.lib.php:3386 libraries/common.lib.php:3387
 msgid "Execute"
 msgstr ""
 
-#: libraries/common.lib.php:3831
+#: libraries/common.lib.php:3862
 msgid "Print"
 msgstr "Друк"
 
@@ -3493,7 +3423,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:356
 #: libraries/schema/User_Schema.class.php:508 prefs_manage.php:318
-#: prefs_manage.php:323 tbl_change.php:1074
+#: prefs_manage.php:323 tbl_change.php:1106
 msgid "Reset"
 msgstr "Скінуць"
 
@@ -3899,7 +3829,7 @@ msgid "Save on server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:119
-#: libraries/display_export.lib.php:190 libraries/display_export.lib.php:216
+#: libraries/display_export.lib.php:193 libraries/display_export.lib.php:219
 msgid "Overwrite existing file(s)"
 msgstr "Перазапісваць існуючы(я) файл(ы)"
 
@@ -3915,7 +3845,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "Зваротнае двукосьсе ў імёнах табліц і палёў"
 
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:262
-#: libraries/display_export.lib.php:348
+#: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
 msgstr "Рэжым сумяшчальнасьці SQL"
 
@@ -5423,9 +5353,9 @@ msgstr ""
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
-#: libraries/replication_gui.lib.php:355 server_privileges.php:879
-#: server_privileges.php:883 server_privileges.php:894
-#: server_privileges.php:1702 server_synchronize.php:1273
+#: libraries/replication_gui.lib.php:355 server_privileges.php:898
+#: server_privileges.php:902 server_privileges.php:913
+#: server_privileges.php:1754 server_synchronize.php:1273
 msgid "Password"
 msgstr "Пароль"
 
@@ -5702,7 +5632,7 @@ msgstr "en"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/core.lib.php:414
+#: libraries/core.lib.php:406
 msgid "possible deep recursion attack"
 msgstr ""
 
@@ -5746,8 +5676,8 @@ msgstr "Запыт згодна прыкладу"
 msgid "Designer"
 msgstr "Дызайнэр"
 
-#: libraries/db_links.inc.php:92 server_privileges.php:121
-#: server_privileges.php:1898 server_privileges.php:2257
+#: libraries/db_links.inc.php:92 server_privileges.php:140
+#: server_privileges.php:1967 server_privileges.php:2315
 msgid "Privileges"
 msgstr "Прывілеі"
 
@@ -5766,7 +5696,7 @@ msgstr "Падзеі"
 msgid "Triggers"
 msgstr "Трыгеры"
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2228
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2222
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5785,13 +5715,13 @@ msgid "Change password"
 msgstr "Зьмяніць пароль"
 
 #: libraries/display_change_password.lib.php:34
-#: libraries/replication_gui.lib.php:351 server_privileges.php:890
+#: libraries/replication_gui.lib.php:351 server_privileges.php:909
 msgid "No Password"
 msgstr "Без пароля"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:359 libraries/replication_gui.lib.php:362
-#: server_privileges.php:898 server_privileges.php:901
+#: server_privileges.php:917 server_privileges.php:920
 msgid "Re-type"
 msgstr "Пацьверджаньне"
 
@@ -5816,8 +5746,8 @@ msgstr "Стварыць новую базу дадзеных"
 msgid "Create"
 msgstr "Стварыць"
 
-#: libraries/display_create_database.lib.php:43 server_privileges.php:123
-#: server_privileges.php:1587 server_replication.php:33
+#: libraries/display_create_database.lib.php:43 server_privileges.php:142
+#: server_privileges.php:1639 server_replication.php:33
 msgid "No Privileges"
 msgstr "Без прывілеяў"
 
@@ -5840,116 +5770,116 @@ msgstr "Назва"
 msgid "Number of columns"
 msgstr "Колькасьць палёў"
 
-#: libraries/display_export.lib.php:37
+#: libraries/display_export.lib.php:40
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Немагчыма загрузіць плагіны экспартаваньня, калі ласка, праверце ўсталяваныя "
 "файлы!"
 
-#: libraries/display_export.lib.php:82
+#: libraries/display_export.lib.php:85
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
 msgstr "Дазваляе блякаваць табліцы для бягучага патоку."
 
-#: libraries/display_export.lib.php:84
+#: libraries/display_export.lib.php:87
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
 msgstr "Стварыць новую табліцу ў БД %s"
 
-#: libraries/display_export.lib.php:86
+#: libraries/display_export.lib.php:89
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
 msgstr "Стварыць новую табліцу ў БД %s"
 
-#: libraries/display_export.lib.php:92
+#: libraries/display_export.lib.php:95
 #, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
 msgstr "Тып экспарту"
 
-#: libraries/display_export.lib.php:108
+#: libraries/display_export.lib.php:111
 msgid "Quick - display only the minimal options"
 msgstr ""
 
-#: libraries/display_export.lib.php:124
+#: libraries/display_export.lib.php:127
 #, fuzzy
 msgid "Custom - display all possible options"
 msgstr "Налады экспарту базы дадзеных"
 
-#: libraries/display_export.lib.php:132
+#: libraries/display_export.lib.php:135
 #, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
 msgstr "Базы дадзеных"
 
-#: libraries/display_export.lib.php:134
+#: libraries/display_export.lib.php:137
 #, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
 msgstr "Табліц"
 
-#: libraries/display_export.lib.php:144
+#: libraries/display_export.lib.php:147
 #, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
 msgstr "Радкі"
 
-#: libraries/display_export.lib.php:152
+#: libraries/display_export.lib.php:155
 msgid "Dump some row(s)"
 msgstr ""
 
-#: libraries/display_export.lib.php:154
+#: libraries/display_export.lib.php:157
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
 msgstr "Колькасьць палёў"
 
-#: libraries/display_export.lib.php:157
+#: libraries/display_export.lib.php:160
 msgid "Row to begin at:"
 msgstr ""
 
-#: libraries/display_export.lib.php:168
+#: libraries/display_export.lib.php:171
 msgid "Dump all rows"
 msgstr ""
 
-#: libraries/display_export.lib.php:176 libraries/display_export.lib.php:197
+#: libraries/display_export.lib.php:179 libraries/display_export.lib.php:200
 msgid "Output:"
 msgstr ""
 
-#: libraries/display_export.lib.php:183 libraries/display_export.lib.php:209
+#: libraries/display_export.lib.php:186 libraries/display_export.lib.php:212
 #, fuzzy, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Захаваць на сэрвэры ў тэчцы %s"
 
-#: libraries/display_export.lib.php:201
+#: libraries/display_export.lib.php:204
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Захаваць як файл"
 
-#: libraries/display_export.lib.php:222
+#: libraries/display_export.lib.php:225
 #, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
 msgstr "Шаблён назвы файла"
 
-#: libraries/display_export.lib.php:224
+#: libraries/display_export.lib.php:227
 msgid "@SERVER@ will become the server name"
 msgstr ""
 
-#: libraries/display_export.lib.php:226
+#: libraries/display_export.lib.php:229
 msgid ", @DATABASE@ will become the database name"
 msgstr ""
 
-#: libraries/display_export.lib.php:228
+#: libraries/display_export.lib.php:231
 msgid ", @TABLE@ will become the table name"
 msgstr ""
 
-#: libraries/display_export.lib.php:232
+#: libraries/display_export.lib.php:235
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -5964,65 +5894,65 @@ msgstr ""
 "выкарыстоўваць радкі фарматаваньня часу. Апроч гэтага, будуць праведзеныя "
 "наступныя зьмены: %3$s. Астатні тэкст застанецца як ёсьць."
 
-#: libraries/display_export.lib.php:270
+#: libraries/display_export.lib.php:273
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:276 libraries/display_import.lib.php:188
+#: libraries/display_export.lib.php:279 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
 msgid "Character set of the file:"
 msgstr "Кадыроўка файла:"
 
-#: libraries/display_export.lib.php:306
+#: libraries/display_export.lib.php:309
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "Сьціск"
 
-#: libraries/display_export.lib.php:310
+#: libraries/display_export.lib.php:313
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "архіваваны ў zip"
 
-#: libraries/display_export.lib.php:312
+#: libraries/display_export.lib.php:315
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "архіваваны ў gzip"
 
-#: libraries/display_export.lib.php:314
+#: libraries/display_export.lib.php:317
 #, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "сьціскаць у bzip"
 
-#: libraries/display_export.lib.php:323
+#: libraries/display_export.lib.php:326
 #, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
 msgstr "Захаваць як файл"
 
-#: libraries/display_export.lib.php:328 libraries/display_import.lib.php:244
+#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Фармат"
 
-#: libraries/display_export.lib.php:333
+#: libraries/display_export.lib.php:336
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Опцыі пераўтварэньня"
 
-#: libraries/display_export.lib.php:334
+#: libraries/display_export.lib.php:337
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
 
-#: libraries/display_export.lib.php:342 libraries/display_import.lib.php:260
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 #, fuzzy
 msgid "Encoding Conversion:"
 msgstr "Вэрсія кліента MySQL"
@@ -6188,12 +6118,12 @@ msgstr "Сартаваць па ключы"
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
-#: libraries/import.lib.php:1104 libraries/import.lib.php:1125
+#: libraries/import.lib.php:1110 libraries/import.lib.php:1131
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
-#: tbl_select.php:175 tbl_structure.php:858
+#: tbl_select.php:200 tbl_structure.php:858
 msgid "Options"
 msgstr "Налады"
 
@@ -6245,52 +6175,52 @@ msgstr ""
 msgid "The row has been deleted"
 msgstr "Радок быў выдалены"
 
-#: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2473
+#: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2467
 #: server_status.php:1264
 msgid "Kill"
 msgstr "Спыніць"
 
-#: libraries/display_tbl.lib.php:2332
+#: libraries/display_tbl.lib.php:2326
 msgid "in query"
 msgstr "па запыту"
 
-#: libraries/display_tbl.lib.php:2364
+#: libraries/display_tbl.lib.php:2358
 msgid "Showing rows"
 msgstr "Паказаныя запісы"
 
-#: libraries/display_tbl.lib.php:2374
+#: libraries/display_tbl.lib.php:2368
 msgid "total"
 msgstr "усяго"
 
-#: libraries/display_tbl.lib.php:2382 sql.php:734
+#: libraries/display_tbl.lib.php:2376 sql.php:736
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Запыт выконваўся %01.4f сэк"
 
-#: libraries/display_tbl.lib.php:2585
+#: libraries/display_tbl.lib.php:2579
 msgid "Query results operations"
 msgstr "Дзеяньні з вынікамі запытаў"
 
-#: libraries/display_tbl.lib.php:2614
+#: libraries/display_tbl.lib.php:2608
 msgid "Print view (with full texts)"
 msgstr "Вэрсія для друку (з усім тэкстам)"
 
-#: libraries/display_tbl.lib.php:2664 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2658 tbl_chart.php:86
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Паказаць PDF-схему"
 
-#: libraries/display_tbl.lib.php:2680
+#: libraries/display_tbl.lib.php:2674
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2701
+#: libraries/display_tbl.lib.php:2695
 #, fuzzy
 msgid "Create view"
 msgstr "Стварыць сувязь"
 
-#: libraries/display_tbl.lib.php:2808
+#: libraries/display_tbl.lib.php:2802
 msgid "Link not found"
 msgstr "Сувязь ня знойдзеная"
 
@@ -6479,110 +6409,6 @@ msgstr ""
 "Буфэр, які выдзяляецца для сартаваньня індэксаў MyISAM падчас REPAIR TABLE "
 "або падчас стварэньня індэксаў, выкарыстоўваючы CREATE INDEX ці ALTER TABLE."
 
-#: libraries/engines/pbms.lib.php:30
-#, fuzzy
-#| msgid "Garbage threshold"
-msgid "Garbage Threshold"
-msgstr "Парог сьмецьця"
-
-#: libraries/engines/pbms.lib.php:31
-#, fuzzy
-#| msgid ""
-#| " percentage of garbage in a data log file before it is compacted. This a "
-#| "value between 1 and 99. The default is 50."
-msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr ""
-"Адсотак сьмецьця ў файле логу дадзеных перад тым, як ён будзе сьціснуты. "
-"Гэтае значэньне можа знаходзіцца ў межах ад 1 да 99. Значэньне па змоўчаньні "
-"— 50."
-
-#: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
-#: server_synchronize.php:1261
-#, fuzzy
-msgid "Port"
-msgstr "Парадак"
-
-#: libraries/engines/pbms.lib.php:36
-msgid ""
-"The port for the PBMS stream-based communications. Setting this value to 0 "
-"will disable HTTP communication with the daemon."
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:40
-msgid "Repository Threshold"
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:41
-msgid ""
-"The maximum size of a BLOB repository file. You may use Kb, MB or GB to "
-"indicate the unit of the value. A value in bytes is assumed when no unit is "
-"specified."
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:45
-msgid "Temp Blob Timeout"
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:46
-msgid ""
-"The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
-"after this time, unless they are referenced by a record in the database."
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:50
-#, fuzzy
-#| msgid "Log file threshold"
-msgid "Temp Log Threshold"
-msgstr "Парог файла логу"
-
-#: libraries/engines/pbms.lib.php:51
-msgid ""
-"The maximum size of a temporary BLOB log file. You may use Kb, MB or GB to "
-"indicate the unit of the value. A value in bytes is assumed when no unit is "
-"specified."
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:55
-msgid "Max Keep Alive"
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:56
-msgid ""
-"The timeout for inactive connection with the keep-alive flag set. After this "
-"time the connection will be closed. The time-out is in milliseconds (1/1000)."
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:60
-msgid "Metadata Headers"
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:61
-msgid ""
-"A \":\" delimited list of metadata headers to be used to initialize the "
-"pbms_metadata_header table when a database is created."
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:94
-#, php-format
-msgid ""
-"Documentation and further information about PBMS can be found on %sThe "
-"PrimeBase Media Streaming home page%s."
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
-#| msgid "Relations"
-msgid "Related Links"
-msgstr "Сувязі"
-
-#: libraries/engines/pbms.lib.php:98
-msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
-
-#: libraries/engines/pbms.lib.php:99
-msgid "PrimeBase XT Home Page"
-msgstr ""
-
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
 msgstr "Памер кэшу індэксаў"
@@ -6741,12 +6567,14 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
+#: libraries/engines/pbxt.lib.php:127
+#, fuzzy
+#| msgid "Relations"
+msgid "Related Links"
+msgstr "Сувязі"
+
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
-
-#: libraries/engines/pbxt.lib.php:130
-msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
@@ -6861,9 +6689,9 @@ msgstr "Даступныя MIME-тыпы"
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:59
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
-#: libraries/replication_gui.lib.php:335 server_privileges.php:814
-#: server_privileges.php:817 server_privileges.php:873
-#: server_privileges.php:1701 server_privileges.php:2255
+#: libraries/replication_gui.lib.php:335 server_privileges.php:833
+#: server_privileges.php:836 server_privileges.php:892
+#: server_privileges.php:1753 server_privileges.php:2313
 #: server_status.php:1238
 msgid "Host"
 msgstr "Хост"
@@ -7084,50 +6912,50 @@ msgid "Generated by"
 msgstr "Створаны"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
-#: sql.php:730 tbl_change.php:188 tbl_get_field.php:34
+#: sql.php:732 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вярнула пусты вынік (то бок нуль радкоў)."
 
-#: libraries/import.lib.php:1100
+#: libraries/import.lib.php:1106
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1101
+#: libraries/import.lib.php:1107
 msgid "View a structure's contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1102
+#: libraries/import.lib.php:1108
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1103
+#: libraries/import.lib.php:1109
 msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1106
+#: libraries/import.lib.php:1112
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: libraries/import.lib.php:1109 libraries/import.lib.php:1132
+#: libraries/import.lib.php:1115 libraries/import.lib.php:1138
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/import.lib.php:1127
+#: libraries/import.lib.php:1133
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: libraries/import.lib.php:1130
+#: libraries/import.lib.php:1136
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Толькі структуру"
 
-#: libraries/import.lib.php:1136
+#: libraries/import.lib.php:1142
 #, fuzzy, php-format
 #| msgid "Export views"
 msgid "Go to view: %s"
@@ -7257,32 +7085,32 @@ msgstr "Няма"
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:254
+#: libraries/mult_submits.inc.php:266
 #, fuzzy
 #| msgid "Fri"
 msgid "From"
 msgstr "Пят"
 
-#: libraries/mult_submits.inc.php:257
+#: libraries/mult_submits.inc.php:269
 msgid "To"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:275
+#: libraries/mult_submits.inc.php:274 libraries/mult_submits.inc.php:287
 #: libraries/sql_query_form.lib.php:403
 msgid "Submit"
 msgstr "Адправіць"
 
-#: libraries/mult_submits.inc.php:267
+#: libraries/mult_submits.inc.php:279
 msgid "Add table prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:270
+#: libraries/mult_submits.inc.php:282
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add prefix"
 msgstr "Дадаць новае поле"
 
-#: libraries/mult_submits.inc.php:482 tbl_replace.php:356
+#: libraries/mult_submits.inc.php:494 tbl_replace.php:341
 msgid "No change"
 msgstr "Няма зьменаў"
 
@@ -7291,7 +7119,7 @@ msgid "Charset"
 msgstr "Кадыроўка"
 
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
-#: tbl_change.php:572
+#: tbl_change.php:616
 msgid "Binary"
 msgstr "Двайковы"
 
@@ -7538,7 +7366,7 @@ msgstr ""
 msgid "Bookmarked SQL query"
 msgstr "Закладзены SQL-запыт"
 
-#: libraries/relation.lib.php:128 querywindow.php:74 querywindow.php:169
+#: libraries/relation.lib.php:128 querywindow.php:74 querywindow.php:171
 msgid "SQL history"
 msgstr "Гісторыя SQL"
 
@@ -7585,7 +7413,7 @@ msgstr "няма апісаньня"
 msgid "Slave configuration"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:54 server_replication.php:353
+#: libraries/replication_gui.lib.php:54 server_replication.php:383
 msgid "Change or reconfigure master server"
 msgstr ""
 
@@ -7597,11 +7425,16 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
-#: libraries/replication_gui.lib.php:265 server_privileges.php:794
-#: server_privileges.php:797 server_privileges.php:804
+#: libraries/replication_gui.lib.php:265 server_privileges.php:813
+#: server_privileges.php:816 server_privileges.php:823
 #: server_synchronize.php:1269
 msgid "User name"
 msgstr "Імя карыстальніка"
+
+#: libraries/replication_gui.lib.php:70 server_synchronize.php:1261
+#, fuzzy
+msgid "Port"
+msgstr "Парадак"
 
 #: libraries/replication_gui.lib.php:107
 #, fuzzy
@@ -7621,8 +7454,8 @@ msgstr "Зьменная"
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
-#: pmd_general.php:769 server_status.php:1476 tbl_change.php:334
-#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:435
+#: pmd_general.php:769 server_status.php:1476 tbl_change.php:365
+#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:421
 msgid "Value"
 msgstr "Значэньне"
 
@@ -7636,38 +7469,38 @@ msgid ""
 "this list."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:246 server_replication.php:192
+#: libraries/replication_gui.lib.php:246 server_replication.php:222
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:260 server_privileges.php:799
+#: libraries/replication_gui.lib.php:260 server_privileges.php:818
 msgid "Any user"
 msgstr "Любы карыстальнік"
 
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
-#: libraries/replication_gui.lib.php:352 server_privileges.php:800
-#: server_privileges.php:867 server_privileges.php:891
-#: server_privileges.php:2109 server_privileges.php:2139
+#: libraries/replication_gui.lib.php:352 server_privileges.php:819
+#: server_privileges.php:886 server_privileges.php:910
+#: server_privileges.php:2178 server_privileges.php:2208
 msgid "Use text field"
 msgstr "Выкарыстоўваць тэкставае поле"
 
-#: libraries/replication_gui.lib.php:308 server_privileges.php:847
+#: libraries/replication_gui.lib.php:308 server_privileges.php:866
 msgid "Any host"
 msgstr "Любы хост"
 
-#: libraries/replication_gui.lib.php:312 server_privileges.php:851
+#: libraries/replication_gui.lib.php:312 server_privileges.php:870
 msgid "Local"
 msgstr "Лякальны"
 
-#: libraries/replication_gui.lib.php:318 server_privileges.php:856
+#: libraries/replication_gui.lib.php:318 server_privileges.php:875
 msgid "This Host"
 msgstr "Гэты хост"
 
-#: libraries/replication_gui.lib.php:324 server_privileges.php:862
+#: libraries/replication_gui.lib.php:324 server_privileges.php:881
 msgid "Use Host Table"
 msgstr "Выкарыстоўваць табліцу хостаў"
 
-#: libraries/replication_gui.lib.php:337 server_privileges.php:875
+#: libraries/replication_gui.lib.php:337 server_privileges.php:894
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -7817,7 +7650,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2411
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2469
 msgid "New"
 msgstr ""
 
@@ -7994,7 +7827,7 @@ msgid "Routine parameters"
 msgstr "Працэдуры"
 
 #: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
-#: tbl_change.php:292 tbl_change.php:330
+#: tbl_change.php:305 tbl_change.php:361
 msgid "Function"
 msgstr "Функцыя"
 
@@ -8313,12 +8146,12 @@ msgid "Toggle scratchboard"
 msgstr "Паказаць папярэдні прагляд"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:478
+#: libraries/select_lang.lib.php:480
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:495 libraries/select_lang.lib.php:501
-#: libraries/select_lang.lib.php:507
+#: libraries/select_lang.lib.php:497 libraries/select_lang.lib.php:503
+#: libraries/select_lang.lib.php:509
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Невядомая мова: %1$s."
@@ -8345,8 +8178,8 @@ msgstr ""
 msgid "Binary log"
 msgstr "Двайковы лог"
 
-#: libraries/server_links.inc.php:95 server_engines.php:121
-#: server_engines.php:125 server_status.php:645
+#: libraries/server_links.inc.php:95 server_engines.php:107
+#: server_engines.php:111 server_status.php:645
 msgid "Variables"
 msgstr "Зьменныя"
 
@@ -8415,11 +8248,11 @@ msgstr "Каляндар"
 msgid "Columns"
 msgstr "Назвы калёнак"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:975 sql.php:992
+#: libraries/sql_query_form.lib.php:300 sql.php:977 sql.php:994
 msgid "Bookmark this SQL query"
 msgstr "Дадаць гэты SQL-запыт у закладкі"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:986
+#: libraries/sql_query_form.lib.php:307 sql.php:988
 msgid "Let every user access this bookmark"
 msgstr "Даць кожнаму карыстальніку доступ да гэтай закладкі"
 
@@ -8443,7 +8276,7 @@ msgstr "Паказаць гэты запыт зноў "
 msgid "View only"
 msgstr "Толькі прагляд"
 
-#: libraries/sql_query_form.lib.php:455 tbl_change.php:907
+#: libraries/sql_query_form.lib.php:455 tbl_change.php:939
 msgid "web server upload directory"
 msgstr "тэчка вэб-сэрвэра для загрузкі файлаў"
 
@@ -8658,7 +8491,7 @@ msgstr "Апэратар"
 msgid "Table Search"
 msgstr "Пошук"
 
-#: libraries/tbl_select.lib.php:175 tbl_change.php:1000
+#: libraries/tbl_select.lib.php:175 tbl_change.php:1032
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -8918,8 +8751,8 @@ msgstr "Вэрсія сэрвэра"
 msgid "Protocol version"
 msgstr "Вэрсія пратаколу"
 
-#: main.php:179 server_privileges.php:1545 server_privileges.php:1700
-#: server_privileges.php:1824 server_privileges.php:2254
+#: main.php:179 server_privileges.php:1600 server_privileges.php:1752
+#: server_privileges.php:1893 server_privileges.php:2312
 #: server_status.php:1237
 msgid "User"
 msgstr "Карыстальнік"
@@ -9151,7 +8984,7 @@ msgstr "Схаваць/паказаць усе табліцы"
 msgid "Hide/Show Tables with no relation"
 msgstr "Схаваць/паказаць табліцы бяз сувязяў"
 
-#: pmd_general.php:147 tbl_change.php:324 tbl_change.php:330
+#: pmd_general.php:147 tbl_change.php:349 tbl_change.php:361
 msgid "Hide"
 msgstr "Схаваць"
 
@@ -9422,12 +9255,12 @@ msgstr "%s базаў дадзеных былі пасьпяхова выдал�
 msgid "Databases statistics"
 msgstr "Статыстыка базаў дадзеных"
 
-#: server_databases.php:186 server_replication.php:179
-#: server_replication.php:207
+#: server_databases.php:186 server_replication.php:209
+#: server_replication.php:237
 msgid "Master replication"
 msgstr ""
 
-#: server_databases.php:188 server_replication.php:246
+#: server_databases.php:188 server_replication.php:276
 msgid "Slave replication"
 msgstr ""
 
@@ -9490,119 +9323,119 @@ msgstr ""
 msgid "disabled"
 msgstr "Адключана"
 
-#: server_privileges.php:34 server_privileges.php:369
+#: server_privileges.php:53 server_privileges.php:388
 msgid "Includes all privileges except GRANT."
 msgstr "Уключае ўсе прывілеі, апроч GRANT."
 
-#: server_privileges.php:35 server_privileges.php:245
-#: server_privileges.php:630
+#: server_privileges.php:54 server_privileges.php:264
+#: server_privileges.php:649
 msgid "Allows altering the structure of existing tables."
 msgstr "Дазваляе зьмяняць структуру існых табліц."
 
-#: server_privileges.php:36 server_privileges.php:303
-#: server_privileges.php:636
+#: server_privileges.php:55 server_privileges.php:322
+#: server_privileges.php:655
 msgid "Allows altering and dropping stored routines."
 msgstr "Дазваляе зьмяняць і выдаляць праграмы, якія захоўваюцца."
 
-#: server_privileges.php:37 server_privileges.php:213
-#: server_privileges.php:629
+#: server_privileges.php:56 server_privileges.php:232
+#: server_privileges.php:648
 msgid "Allows creating new databases and tables."
 msgstr "Дазваляе ствараць новыя базы дадзеных і табліцы."
 
-#: server_privileges.php:38 server_privileges.php:299
-#: server_privileges.php:635
+#: server_privileges.php:57 server_privileges.php:318
+#: server_privileges.php:654
 msgid "Allows creating stored routines."
 msgstr "Дазваляе ствараць праграмы, якія захоўваюцца."
 
-#: server_privileges.php:39 server_privileges.php:629
+#: server_privileges.php:58 server_privileges.php:648
 msgid "Allows creating new tables."
 msgstr "Дазваляе ствараць новыя табліцы."
 
-#: server_privileges.php:40 server_privileges.php:257
-#: server_privileges.php:633
+#: server_privileges.php:59 server_privileges.php:276
+#: server_privileges.php:652
 msgid "Allows creating temporary tables."
 msgstr "Дазваляе ствараць часовыя табліцы."
 
-#: server_privileges.php:41 server_privileges.php:307
-#: server_privileges.php:669
+#: server_privileges.php:60 server_privileges.php:326
+#: server_privileges.php:688
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Дазваляе ствараць, выдаляць і пераймяноўваць уліковыя запісы карыстальнікаў"
 
-#: server_privileges.php:42 server_privileges.php:273
-#: server_privileges.php:286 server_privileges.php:641
-#: server_privileges.php:645
+#: server_privileges.php:61 server_privileges.php:292
+#: server_privileges.php:305 server_privileges.php:660
+#: server_privileges.php:664
 msgid "Allows creating new views."
 msgstr "Дазваляе ствараць новыя прагляды."
 
-#: server_privileges.php:43 server_privileges.php:209
-#: server_privileges.php:621
+#: server_privileges.php:62 server_privileges.php:228
+#: server_privileges.php:640
 msgid "Allows deleting data."
 msgstr "Дазваляе выдаляць дадзеныя."
 
-#: server_privileges.php:44 server_privileges.php:217
-#: server_privileges.php:632
+#: server_privileges.php:63 server_privileges.php:236
+#: server_privileges.php:651
 msgid "Allows dropping databases and tables."
 msgstr "Дазваляе выдаляць базы дадзеных і табліцы."
 
-#: server_privileges.php:45 server_privileges.php:632
+#: server_privileges.php:64 server_privileges.php:651
 msgid "Allows dropping tables."
 msgstr "Дазваляе выдаляць табліцы."
 
-#: server_privileges.php:46 server_privileges.php:277
-#: server_privileges.php:649
+#: server_privileges.php:65 server_privileges.php:296
+#: server_privileges.php:668
 msgid "Allows to set up events for the event scheduler"
 msgstr "Дазваляе ствараць падзеі ў пляніроўніку падзеяў"
 
-#: server_privileges.php:47 server_privileges.php:311
-#: server_privileges.php:637
+#: server_privileges.php:66 server_privileges.php:330
+#: server_privileges.php:656
 msgid "Allows executing stored routines."
 msgstr "Дазваляе выкананьне праграмаў, якія захоўваюцца."
 
-#: server_privileges.php:48 server_privileges.php:233
-#: server_privileges.php:624
+#: server_privileges.php:67 server_privileges.php:252
+#: server_privileges.php:643
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 "Дазваляе імпартаваць дадзеныя з файлаў і экспартаваць дадзеныя ў файлы."
 
-#: server_privileges.php:49 server_privileges.php:655
+#: server_privileges.php:68 server_privileges.php:674
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Дазваляе дадаваць карыстальнікаў і прывілеі без перазагрузкі табліц "
 "прывілеяў."
 
-#: server_privileges.php:50 server_privileges.php:241
-#: server_privileges.php:631
+#: server_privileges.php:69 server_privileges.php:260
+#: server_privileges.php:650
 msgid "Allows creating and dropping indexes."
 msgstr "Дазваляе ствараць і выдаляць індэксы."
 
-#: server_privileges.php:51 server_privileges.php:201
-#: server_privileges.php:550 server_privileges.php:619
+#: server_privileges.php:70 server_privileges.php:220
+#: server_privileges.php:569 server_privileges.php:638
 msgid "Allows inserting and replacing data."
 msgstr "Дазваляе ўстаўляць і замяняць дадзеныя."
 
-#: server_privileges.php:52 server_privileges.php:261
-#: server_privileges.php:664
+#: server_privileges.php:71 server_privileges.php:280
+#: server_privileges.php:683
 msgid "Allows locking tables for the current thread."
 msgstr "Дазваляе блякаваць табліцы для бягучага патоку."
 
-#: server_privileges.php:53 server_privileges.php:728
-#: server_privileges.php:730
+#: server_privileges.php:72 server_privileges.php:747
+#: server_privileges.php:749
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Абмяжоўвае колькасьць новых злучэньняў, якія карыстальнік можа адкрыць на "
 "працягу гадзіны."
 
-#: server_privileges.php:54 server_privileges.php:716
-#: server_privileges.php:718
+#: server_privileges.php:73 server_privileges.php:735
+#: server_privileges.php:737
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Абмяжоўвае колькасьць запытаў, якія карыстальнік можа адправіць на сэрвэр на "
 "працягу гадзіны."
 
-#: server_privileges.php:55 server_privileges.php:722
-#: server_privileges.php:724
+#: server_privileges.php:74 server_privileges.php:741
+#: server_privileges.php:743
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -9610,59 +9443,59 @@ msgstr ""
 "Абмяжоўвае колькасьць камандаў, зьмяняючых любую табліцу або базу дадзеных, "
 "якія карыстальнік можа выканаць на працягу гадзіны."
 
-#: server_privileges.php:56 server_privileges.php:734
-#: server_privileges.php:736
+#: server_privileges.php:75 server_privileges.php:753
+#: server_privileges.php:755
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Абмяжоўвае колькасьць адначасовых злучэньняў, якія можа мець карыстальнік."
 
-#: server_privileges.php:57 server_privileges.php:229
-#: server_privileges.php:659
+#: server_privileges.php:76 server_privileges.php:248
+#: server_privileges.php:678
 msgid "Allows viewing processes of all users"
 msgstr "Дазваляе праглядаць працэсы ўсіх карыстальнікаў"
 
-#: server_privileges.php:58 server_privileges.php:237
-#: server_privileges.php:560 server_privileges.php:665
+#: server_privileges.php:77 server_privileges.php:256
+#: server_privileges.php:579 server_privileges.php:684
 msgid "Has no effect in this MySQL version."
 msgstr "Не працуе ў гэтай вэрсіі MySQL."
 
-#: server_privileges.php:59 server_privileges.php:221
-#: server_privileges.php:660
+#: server_privileges.php:78 server_privileges.php:240
+#: server_privileges.php:679
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Дазваляе перазагружаць налады сэрвэра і ачышчаць кэш сэрвэра."
 
-#: server_privileges.php:60 server_privileges.php:269
-#: server_privileges.php:667
+#: server_privileges.php:79 server_privileges.php:288
+#: server_privileges.php:686
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Дазваляе карыстальніку пытацца, дзе знаходзяцца slaves / masters."
 
-#: server_privileges.php:61 server_privileges.php:265
-#: server_privileges.php:668
+#: server_privileges.php:80 server_privileges.php:284
+#: server_privileges.php:687
 msgid "Needed for the replication slaves."
 msgstr "Неабходна для рэплікацыі slaves."
 
-#: server_privileges.php:62 server_privileges.php:197
-#: server_privileges.php:545 server_privileges.php:618
+#: server_privileges.php:81 server_privileges.php:216
+#: server_privileges.php:564 server_privileges.php:637
 msgid "Allows reading data."
 msgstr "Дазваляе чытаць дадзеныя."
 
-#: server_privileges.php:63 server_privileges.php:249
-#: server_privileges.php:662
+#: server_privileges.php:82 server_privileges.php:268
+#: server_privileges.php:681
 msgid "Gives access to the complete list of databases."
 msgstr "Дае доступ да поўнага сьпісу базаў дадзеных."
 
-#: server_privileges.php:64 server_privileges.php:290
-#: server_privileges.php:295 server_privileges.php:634
+#: server_privileges.php:83 server_privileges.php:309
+#: server_privileges.php:314 server_privileges.php:653
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Дазваляе выкананьне запытаў SHOW CREATE VIEW."
 
-#: server_privileges.php:65 server_privileges.php:225
-#: server_privileges.php:661
+#: server_privileges.php:84 server_privileges.php:244
+#: server_privileges.php:680
 msgid "Allows shutting down the server."
 msgstr "Дазваляе спыняць сэрвэр."
 
-#: server_privileges.php:66 server_privileges.php:253
-#: server_privileges.php:658
+#: server_privileges.php:85 server_privileges.php:272
+#: server_privileges.php:677
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -9672,154 +9505,178 @@ msgstr ""
 "Патрабуецца для большасьці адміністратыўных апэрацыяў, такіх як вызначэньне "
 "глябальных зьменных або спыненьне патокаў іншых карыстальнікаў."
 
-#: server_privileges.php:67 server_privileges.php:281
-#: server_privileges.php:650
+#: server_privileges.php:86 server_privileges.php:300
+#: server_privileges.php:669
 msgid "Allows creating and dropping triggers"
 msgstr "Дазваляе стварэньне і выдаленьне трыгераў"
 
-#: server_privileges.php:68 server_privileges.php:205
-#: server_privileges.php:555 server_privileges.php:620
+#: server_privileges.php:87 server_privileges.php:224
+#: server_privileges.php:574 server_privileges.php:639
 msgid "Allows changing data."
 msgstr "Дазваляе зьмяняць дадзеныя."
 
-#: server_privileges.php:69 server_privileges.php:363
+#: server_privileges.php:88 server_privileges.php:382
 msgid "No privileges."
 msgstr "Без прывілеяў."
 
-#: server_privileges.php:405 server_privileges.php:406
+#: server_privileges.php:424 server_privileges.php:425
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Няма"
 
-#: server_privileges.php:536 server_privileges.php:681
-#: server_privileges.php:1894 server_privileges.php:1900
+#: server_privileges.php:555 server_privileges.php:700
+#: server_privileges.php:1963 server_privileges.php:1969
 msgid "Table-specific privileges"
 msgstr "Прывілеі, спэцыфічныя для табліцы"
 
-#: server_privileges.php:537 server_privileges.php:689
-#: server_privileges.php:1704
+#: server_privileges.php:556 server_privileges.php:708
+#: server_privileges.php:1756
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Заўвага: імёны прывілеяў MySQL задаюцца па-ангельску "
 
-#: server_privileges.php:614
+#: server_privileges.php:633
 msgid "Administration"
 msgstr "Адміністраваньне"
 
-#: server_privileges.php:678 server_privileges.php:1703
+#: server_privileges.php:697 server_privileges.php:1755
 msgid "Global privileges"
 msgstr "Глябальныя прывілеі"
 
-#: server_privileges.php:680 server_privileges.php:1894
+#: server_privileges.php:699 server_privileges.php:1963
 msgid "Database-specific privileges"
 msgstr "Спэцыфічныя прывілеі базы дадзеных"
 
-#: server_privileges.php:712
+#: server_privileges.php:731
 msgid "Resource limits"
 msgstr "Абмежаваньні рэсурсаў"
 
-#: server_privileges.php:713
+#: server_privileges.php:732
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Заўвага: Пазначэньне гэтых опцыяў як 0 (нуль) здымае абмежаваньне."
 
-#: server_privileges.php:791
+#: server_privileges.php:810
 msgid "Login Information"
 msgstr "Інфармацыя пра ўваход"
 
-#: server_privileges.php:885
+#: server_privileges.php:904
 msgid "Do not change the password"
 msgstr "Не зьмяняць пароль"
 
-#: server_privileges.php:917 server_privileges.php:2397
+#: server_privileges.php:955 server_privileges.php:2455
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Не знойдзены карыстальнік."
 
-#: server_privileges.php:961
+#: server_privileges.php:999
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Карыстальнік %s ужо існуе!"
 
-#: server_privileges.php:1045
+#: server_privileges.php:1085
 msgid "You have added a new user."
 msgstr "Быў дададзены новы карыстальнік."
 
-#: server_privileges.php:1273
+#: server_privileges.php:1310
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Вы зьмянілі прывілеі для  %s."
 
-#: server_privileges.php:1295
+#: server_privileges.php:1332
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Вы анулявалі прывілеі для %s"
 
-#: server_privileges.php:1331
+#: server_privileges.php:1368
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Пароль для %s пасьпяхова зьменены."
 
-#: server_privileges.php:1351
+#: server_privileges.php:1388
 #, php-format
 msgid "Deleting %s"
 msgstr "Выдаленьне %s"
 
-#: server_privileges.php:1365
+#: server_privileges.php:1402
 msgid "No users selected for deleting!"
 msgstr "На выбраныя карыстальнікі для выдаленьня!"
 
-#: server_privileges.php:1368
+#: server_privileges.php:1405
 msgid "Reloading the privileges"
 msgstr "Перазагрузіць прывілеі"
 
-#: server_privileges.php:1386
+#: server_privileges.php:1423
 msgid "The selected users have been deleted successfully."
 msgstr "Выбраныя карыстальнікі былі пасьпяхова выдаленыя."
 
-#: server_privileges.php:1421
+#: server_privileges.php:1458
 msgid "The privileges were reloaded successfully."
 msgstr "Прывілеі былі пасьпяхова перазагружаныя."
 
-#: server_privileges.php:1432 server_privileges.php:1823
+#: server_privileges.php:1469 server_privileges.php:1892
 msgid "Edit Privileges"
 msgstr "Рэдагаваць прывілеі"
 
-#: server_privileges.php:1441
+#: server_privileges.php:1478
 msgid "Revoke"
 msgstr "Ануляваць"
 
-#: server_privileges.php:1468 server_privileges.php:1724
-#: server_privileges.php:2347
+#: server_privileges.php:1494
+#, fuzzy
+#| msgid "Export"
+msgid "Export all"
+msgstr "Экспарт"
+
+#: server_privileges.php:1513 server_privileges.php:1779
+#: server_privileges.php:2405
 msgid "Any"
 msgstr "Любы"
 
-#: server_privileges.php:1565
+#: server_privileges.php:1591 server_privileges.php:1832
+#, fuzzy
+#| msgid "Any user"
+msgid "All users"
+msgstr "Любы карыстальнік"
+
+#: server_privileges.php:1593
+#, fuzzy
+#| msgid "Privileges"
+msgid "Privileges for "
+msgstr "Прывілеі"
+
+#: server_privileges.php:1617
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Карыстальнікі"
 
-#: server_privileges.php:1705 server_privileges.php:1899
-#: server_privileges.php:2258
+#: server_privileges.php:1757 server_privileges.php:1968
+#: server_privileges.php:2316
 msgid "Grant"
 msgstr "Grant"
 
-#: server_privileges.php:1778
+#: server_privileges.php:1832
+#, fuzzy
+#| msgid "Any host"
+msgid "All hosts"
+msgstr "Любы хост"
+
+#: server_privileges.php:1847
 msgid "Remove selected users"
 msgstr "Выдаліць выбраных карыстальнікаў"
 
-#: server_privileges.php:1781
+#: server_privileges.php:1850
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Ануляваць усе актыўныя прывілеі карыстальнікаў і пасьля выдаліць іх."
 
-#: server_privileges.php:1782 server_privileges.php:1783
-#: server_privileges.php:1784
+#: server_privileges.php:1851 server_privileges.php:1852
+#: server_privileges.php:1853
 msgid "Drop the databases that have the same names as the users."
 msgstr "Выдаліць базы дадзеных, якія маюць такія ж імёны як і карыстальнікі."
 
-#: server_privileges.php:1805
+#: server_privileges.php:1874
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9832,50 +9689,50 @@ msgstr ""
 "якія выкарыстоўвае сэрвэр, калі яны былі зьмененыя ўручную. У гэтым выпадку "
 "вам трэба %sперазагрузіць прывілеі%s да таго, як вы працягнеце."
 
-#: server_privileges.php:1858
+#: server_privileges.php:1927
 msgid "The selected user was not found in the privilege table."
 msgstr "Вылучаны карыстальнік ня знойдзены ў табліцы прывілеяў."
 
-#: server_privileges.php:1900
+#: server_privileges.php:1969
 msgid "Column-specific privileges"
 msgstr "Спэцыфічныя прывілеі калёнак"
 
-#: server_privileges.php:2106
+#: server_privileges.php:2175
 msgid "Add privileges on the following database"
 msgstr "Дадаць прывілеі на наступную базу"
 
-#: server_privileges.php:2124
+#: server_privileges.php:2193
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Сымбалі падстаноўкі _ і % мусяць быць экранаванымі сымбалем \\ для іх "
 "літаральнага выкарыстаньня"
 
-#: server_privileges.php:2127
+#: server_privileges.php:2196
 msgid "Add privileges on the following table"
 msgstr "Дадаць прывілеі на наступную табліцу"
 
-#: server_privileges.php:2184
+#: server_privileges.php:2253
 msgid "Change Login Information / Copy User"
 msgstr "Зьмяніць рэгістрацыйную інфармацыю / Капіяваць карыстальніка"
 
-#: server_privileges.php:2187
+#: server_privileges.php:2256
 msgid "Create a new user with the same privileges and ..."
 msgstr "Стварыць новага карыстальніка з такімі ж прывілеямі і ..."
 
-#: server_privileges.php:2189
+#: server_privileges.php:2258
 msgid "... keep the old one."
 msgstr "... пакінуць старога."
 
-#: server_privileges.php:2190
+#: server_privileges.php:2259
 msgid "... delete the old one from the user tables."
 msgstr "... выдаліць старога з табліцы карыстальнікаў."
 
-#: server_privileges.php:2191
+#: server_privileges.php:2260
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr "... ануляваць усе актыўныя прывілеі старога і пасьля выдаліць яго."
 
-#: server_privileges.php:2192
+#: server_privileges.php:2261
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -9883,103 +9740,96 @@ msgstr ""
 " ... выдаліць старога з табліцы карыстальнікаў і пасьля перазагрузіць "
 "прывілеі."
 
-#: server_privileges.php:2215
+#: server_privileges.php:2284
 msgid "Database for user"
 msgstr "База дадзеных для карыстальніка"
 
-#: server_privileges.php:2219
-#, fuzzy
-#| msgid "None"
-msgctxt "Create none database for user"
-msgid "None"
-msgstr "Няма"
-
-#: server_privileges.php:2220
+#: server_privileges.php:2286
 msgid "Create database with same name and grant all privileges"
 msgstr "Стварыць базу дадзеных з такім самым імем і надзяліць усімі прывілеямі"
 
-#: server_privileges.php:2221
+#: server_privileges.php:2288
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 "Надзяліць усімі прывілеямі базы з іменамі па масцы (імя карыстальніка_%)"
 
-#: server_privileges.php:2225
+#: server_privileges.php:2292
 #, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Праверыць прывілеі для базы &quot;%s&quot;."
 
-#: server_privileges.php:2250
+#: server_privileges.php:2308
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Карыстальнікі з правамі доступу да &quot;%s&quot;"
 
-#: server_privileges.php:2359
+#: server_privileges.php:2417
 msgid "global"
 msgstr "глябальны"
 
-#: server_privileges.php:2361
+#: server_privileges.php:2419
 msgid "database-specific"
 msgstr "спэцыфічны для базы дадзеных"
 
-#: server_privileges.php:2363
+#: server_privileges.php:2421
 msgid "wildcard"
 msgstr "шаблён"
 
-#: server_privileges.php:2406
+#: server_privileges.php:2464
 #, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
 msgstr "Выгляд %s быў выдалены"
 
-#: server_replication.php:49
+#: server_replication.php:79
 msgid "Unknown error"
 msgstr ""
 
-#: server_replication.php:56
+#: server_replication.php:86
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
-#: server_replication.php:63
+#: server_replication.php:93
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: server_replication.php:69
+#: server_replication.php:99
 msgid "Unable to change master"
 msgstr ""
 
-#: server_replication.php:72
+#: server_replication.php:102
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
 msgstr "Прывілеі былі пасьпяхова перазагружаныя."
 
-#: server_replication.php:180
+#: server_replication.php:210
 msgid "This server is configured as master in a replication process."
 msgstr ""
 
-#: server_replication.php:182 server_status.php:622
+#: server_replication.php:212 server_status.php:622
 #, fuzzy
 msgid "Show master status"
 msgstr "Паказаць стан залежных сэрвэраў"
 
-#: server_replication.php:185
+#: server_replication.php:215
 msgid "Show connected slaves"
 msgstr ""
 
-#: server_replication.php:208
+#: server_replication.php:238
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
-#: server_replication.php:215
+#: server_replication.php:245
 msgid "Master configuration"
 msgstr ""
 
-#: server_replication.php:216
+#: server_replication.php:246
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -9988,112 +9838,112 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 
-#: server_replication.php:219
+#: server_replication.php:249
 msgid "Replicate all databases; Ignore:"
 msgstr ""
 
-#: server_replication.php:220
+#: server_replication.php:250
 msgid "Ignore all databases; Replicate:"
 msgstr ""
 
-#: server_replication.php:223
+#: server_replication.php:253
 #, fuzzy
 msgid "Please select databases:"
 msgstr "Калі ласка, выберыце базу дадзеных"
 
-#: server_replication.php:226
+#: server_replication.php:256
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
 
-#: server_replication.php:228
+#: server_replication.php:258
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
 
-#: server_replication.php:291
+#: server_replication.php:321
 msgid "Slave SQL Thread not running!"
 msgstr ""
 
-#: server_replication.php:294
+#: server_replication.php:324
 msgid "Slave IO Thread not running!"
 msgstr ""
 
-#: server_replication.php:303
+#: server_replication.php:333
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 
-#: server_replication.php:306
+#: server_replication.php:336
 msgid "See slave status table"
 msgstr ""
 
-#: server_replication.php:309
+#: server_replication.php:339
 msgid "Synchronize databases with master"
 msgstr ""
 
-#: server_replication.php:320
+#: server_replication.php:350
 msgid "Control slave:"
 msgstr ""
 
-#: server_replication.php:323
+#: server_replication.php:353
 #, fuzzy
 msgid "Full start"
 msgstr "Поўнатэкстэкставае"
 
-#: server_replication.php:323
+#: server_replication.php:353
 #, fuzzy
 msgid "Full stop"
 msgstr "Поўнатэкстэкставае"
 
-#: server_replication.php:324
+#: server_replication.php:354
 msgid "Reset slave"
 msgstr ""
 
-#: server_replication.php:326
+#: server_replication.php:356
 #, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
 msgstr "Толькі структуру"
 
-#: server_replication.php:328
+#: server_replication.php:358
 msgid "Stop SQL Thread only"
 msgstr ""
 
-#: server_replication.php:331
+#: server_replication.php:361
 #, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
 msgstr "Толькі структуру"
 
-#: server_replication.php:333
+#: server_replication.php:363
 msgid "Stop IO Thread only"
 msgstr ""
 
-#: server_replication.php:338
+#: server_replication.php:368
 msgid "Error management:"
 msgstr ""
 
-#: server_replication.php:340
+#: server_replication.php:370
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 
-#: server_replication.php:342
+#: server_replication.php:372
 msgid "Skip current error"
 msgstr ""
 
-#: server_replication.php:343
+#: server_replication.php:373
 msgid "Skip next"
 msgstr ""
 
-#: server_replication.php:346
+#: server_replication.php:376
 msgid "errors."
 msgstr ""
 
-#: server_replication.php:361
+#: server_replication.php:391
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -11653,107 +11503,100 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Базы дадзеных адсутнічаюць"
 
-#: sql.php:109 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
+#: sql.php:111 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
+#: tbl_zoom_select.php:127
 msgid "Browse foreign values"
 msgstr "Праглядзець зьнешнія значэньні"
 
-#: sql.php:218
+#: sql.php:220
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:706 tbl_replace.php:412
+#: sql.php:708 tbl_replace.php:397
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID устаўленага радку: %1$d"
 
-#: sql.php:723
+#: sql.php:725
 msgid "Showing as PHP code"
 msgstr "У выглядзе PHP-коду"
 
-#: sql.php:726 tbl_replace.php:386
+#: sql.php:728 tbl_replace.php:371
 msgid "Showing SQL query"
 msgstr "У выглядзе SQL-запыту"
 
-#: sql.php:728
+#: sql.php:730
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Праверыць SQL"
 
-#: sql.php:948
+#: sql.php:950
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Праблемы з індэксамі для табліцы `%s`"
 
-#: sql.php:980
+#: sql.php:982
 msgid "Label"
 msgstr "Метка"
 
-#: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:98
+#: tbl_addfield.php:185 tbl_alter.php:103 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Табліца %1$s была пасьпяхова зьмененая"
 
-#: tbl_change.php:699
+#: tbl_change.php:749
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr "З-за вялікай даўжыні,<br /> гэтае поле ня можа быць адрэдагаванае "
 
-#: tbl_change.php:817
-msgid "Remove BLOB Repository Reference"
-msgstr ""
-
-#: tbl_change.php:821
+#: tbl_change.php:863
 msgid "Binary - do not edit"
 msgstr "Двайковыя дадзеныя — не рэдагуюцца"
 
-#: tbl_change.php:871
-msgid "Upload to BLOB repository"
-msgstr ""
-
-#: tbl_change.php:1029
+#: tbl_change.php:1061
 msgid "Insert as new row"
 msgstr "Уставіць як новы радок"
 
-#: tbl_change.php:1030
+#: tbl_change.php:1062
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1031
+#: tbl_change.php:1063
 #, fuzzy
 msgid "Show insert query"
 msgstr "У выглядзе SQL-запыту"
 
-#: tbl_change.php:1042
+#: tbl_change.php:1074
 msgid "and then"
 msgstr "і пасьля"
 
-#: tbl_change.php:1046
+#: tbl_change.php:1078
 msgid "Go back to previous page"
 msgstr "Перайсьці да папярэдняй старонкі"
 
-#: tbl_change.php:1047
+#: tbl_change.php:1079
 msgid "Insert another new row"
 msgstr "Дадаць яшчэ адзін радок"
 
-#: tbl_change.php:1051
+#: tbl_change.php:1083
 msgid "Go back to this page"
 msgstr "Вярнуцца да гэтай старонкі"
 
-#: tbl_change.php:1059
+#: tbl_change.php:1091
 msgid "Edit next row"
 msgstr "Рэдагаваць наступны радок"
 
-#: tbl_change.php:1070
+#: tbl_change.php:1102
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Выкарыстоўвайце клявішу TAB для перамяшчэньня ад значэньня да значэньня або "
 "CTRL+стрэлкі для перамяшчэньня ў любое іншае месца"
 
-#: tbl_change.php:1108
+#: tbl_change.php:1140
 #, fuzzy, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
@@ -12126,25 +11969,25 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr ""
 
-#: tbl_select.php:84
+#: tbl_select.php:109
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Выканаць \"запыт згодна прыклада\" (сымбаль падстаноўкі: \"%\")"
 
-#: tbl_select.php:178
+#: tbl_select.php:203
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Выбраць палі (прынамсі адно):"
 
-#: tbl_select.php:196
+#: tbl_select.php:221
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Дадаць умовы пошуку (цела для ўмовы \"where\"):"
 
-#: tbl_select.php:203
+#: tbl_select.php:228
 msgid "Number of rows per page"
 msgstr "Колькасьць радкоў на старонку"
 
-#: tbl_select.php:209
+#: tbl_select.php:234
 msgid "Display order:"
 msgstr "Парадак прагляду:"
 
@@ -12400,30 +12243,30 @@ msgstr ""
 msgid "Create version"
 msgstr "Стварыць сувязь"
 
-#: tbl_zoom_select.php:135
+#: tbl_zoom_select.php:204
 #, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Выканаць \"запыт згодна прыклада\" (сымбаль падстаноўкі: \"%\")"
 
-#: tbl_zoom_select.php:145
+#: tbl_zoom_select.php:214
 #, fuzzy
 msgid "Additional search criteria"
 msgstr "SQL-запыт"
 
-#: tbl_zoom_select.php:276
+#: tbl_zoom_select.php:262
 msgid "Use this column to label each point"
 msgstr ""
 
-#: tbl_zoom_select.php:296
+#: tbl_zoom_select.php:282
 msgid "Maximum rows to plot"
 msgstr ""
 
-#: tbl_zoom_select.php:410
+#: tbl_zoom_select.php:396
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: tbl_zoom_select.php:417
+#: tbl_zoom_select.php:403
 #, fuzzy
 msgid "How to use"
 msgstr "Пашырэньне PHP"
@@ -13591,6 +13434,48 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Failed to write file to disk."
+#~ msgid "Failed to fetch headers"
+#~ msgstr "Памылка запісу на дыск."
+
+#, fuzzy
+#~| msgid "Unknown error in file upload."
+#~ msgid "Unknown error while uploading."
+#~ msgstr "Падчас загрузкі файла адбылася невядомая памылка."
+
+#, fuzzy
+#~| msgid "MySQL connection collation"
+#~ msgid "PBMS connection failed:"
+#~ msgstr "Супастаўленьне падлучэньня да MySQL"
+
+#, fuzzy
+#~| msgid "Garbage threshold"
+#~ msgid "Garbage Threshold"
+#~ msgstr "Парог сьмецьця"
+
+#, fuzzy
+#~| msgid ""
+#~| " percentage of garbage in a data log file before it is compacted. This a "
+#~| "value between 1 and 99. The default is 50."
+#~ msgid ""
+#~ "The percentage of garbage in a repository file before it is compacted."
+#~ msgstr ""
+#~ "Адсотак сьмецьця ў файле логу дадзеных перад тым, як ён будзе сьціснуты. "
+#~ "Гэтае значэньне можа знаходзіцца ў межах ад 1 да 99. Значэньне па "
+#~ "змоўчаньні — 50."
+
+#, fuzzy
+#~| msgid "Log file threshold"
+#~ msgid "Temp Log Threshold"
+#~ msgstr "Парог файла логу"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "Create none database for user"
+#~ msgid "None"
+#~ msgstr "Няма"
 
 #~ msgid "Create an index"
 #~ msgstr "Стварыць новы індэкс"
