@@ -6359,7 +6359,7 @@ msgstr "Usuń znaki nowej lini z kolumn"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
-msgstr "Wydanie Excela"
+msgstr "Wydanie Excela:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
