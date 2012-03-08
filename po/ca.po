@@ -2139,7 +2139,7 @@ msgstr "Fet"
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Anterior"
+msgstr "Mes anterior"
 
 #: js/messages.php:395
 #, fuzzy
