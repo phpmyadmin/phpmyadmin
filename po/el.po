@@ -13124,7 +13124,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Μορφή εισαχθέντος αρχείου"
+msgstr "Βαθμός παρατημένων πελατών"
 
 #: po/advisory_rules.php:248
 #, php-format
