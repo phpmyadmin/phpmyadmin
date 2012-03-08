@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 23:40+0200\n"
+"PO-Revision-Date: 2012-03-08 23:44+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -4036,7 +4036,6 @@ msgid "Automatically create versions"
 msgstr "Automatyczne tworzenie wersji"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -4044,8 +4043,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Pozostaw puste, aby nie obsługiwać trybu projektowania. Sugerowana nazwa: "
-"[kbd]pma_designer_coords[/kbd]"
+"Pozostaw puste, dla braku preferencji użytkownika magazynu w bazie. "
+"Zasugerowano: [kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "User preferences storage table"
