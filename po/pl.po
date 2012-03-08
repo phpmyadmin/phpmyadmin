@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-08 18:16+0200\n"
+"PO-Revision-Date: 2012-03-08 18:22+0200\n"
 "Last-Translator: Piotr Przybylski <piotrprz@gmail.com>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -11322,11 +11322,10 @@ msgid "Continue insertion with %s rows"
 msgstr "Kontynuuj wstawianie %s wierszy"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Binarne"
+msgstr "Słupkowy"
 
 #: tbl_chart.php:91
 msgctxt "Chart type"
