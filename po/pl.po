@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-08 23:37+0200\n"
+"PO-Revision-Date: 2012-03-08 23:38+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -4934,7 +4934,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:432
 msgid "Display columns table"
-msgstr "Wyświetl kolumny tabeli"
+msgstr "Wyświetlanie tabeli kolumn"
 
 #: libraries/config/messages.inc.php:433
 msgid ""
