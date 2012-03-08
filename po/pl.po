@@ -3102,7 +3102,7 @@ msgstr "Otwórz"
 
 #: libraries/config.values.php:77
 msgid "Closed"
-msgstr "Zamknięty"
+msgstr "Zamknięte"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
