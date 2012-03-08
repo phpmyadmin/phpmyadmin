@@ -12685,10 +12685,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Που να προβάλονται οι σύνδεσμοι γραμμής πίνακα"
+msgstr "Βαθμός ανάγνωσης επόμενης γραμμής πίνακα"
 
 #: po/advisory_rules.php:141
 #| msgid "Where to show the table row links"
