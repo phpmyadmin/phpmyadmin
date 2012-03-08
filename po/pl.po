@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 23:17+0200\n"
+"PO-Revision-Date: 2012-03-08 23:19+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2715,9 +2715,8 @@ msgid "SQL compatibility mode"
 msgstr "Tryb zgodności SQL"
 
 #: libraries/config/messages.inc.php:120 libraries/export/sql.php:111
-#, fuzzy
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>, ZMIENNA as mojanazwa</code>"
+msgstr "Opcje <code>UTWÓRZ TABELĘ</code>:"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
