@@ -6029,7 +6029,7 @@ msgstr "Podgląd wydruku (z pełnymi tekstami)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:86
 msgid "Display chart"
-msgstr "Wyświetl wykres"
+msgstr "Wyświetlanie wykresu"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
