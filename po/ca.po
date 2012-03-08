@@ -2005,7 +2005,7 @@ msgstr "Resultats de consultes"
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Tamany del punter de dades"
+msgstr "Contingut del punter de dades"
 
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
