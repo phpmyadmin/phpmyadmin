@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-08 18:14+0200\n"
+"PO-Revision-Date: 2012-03-08 18:15+0200\n"
 "Last-Translator: Piotr Przybylski <piotrprz@gmail.com>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -7785,10 +7785,10 @@ msgid "Add trigger"
 msgstr "Dodaj wyzwalacz"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Eksportuj zawartość"
+msgstr "Eksport wyzwalacza %s"
 
 #: libraries/rte/rte_words.lib.php:33
 #, fuzzy
