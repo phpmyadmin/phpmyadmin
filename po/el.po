@@ -12646,7 +12646,7 @@ msgstr "Βαθμός ανάγνωσης πρώτης εισαγωγής ευρε
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Ο βαθμός ανάγνωσης της πρώτης εισαγωγής ευρετηρίου είναι υψηλός."
 
 #: po/advisory_rules.php:132
 msgid ""
