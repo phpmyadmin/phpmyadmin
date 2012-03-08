@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 22:51+0200\n"
+"PO-Revision-Date: 2012-03-08 22:53+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -2725,7 +2725,7 @@ msgstr "Nie zreplikowane"
 
 #: libraries/build_html_for_db.lib.php:137
 msgid "Replicated"
-msgstr "Replikacja"
+msgstr "Replikowane"
 
 #: libraries/build_html_for_db.lib.php:151
 #, php-format
