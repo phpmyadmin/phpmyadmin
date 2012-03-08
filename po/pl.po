@@ -7640,10 +7640,9 @@ msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Nie znaleziono wyzwalacza %1$s w bazie danych %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Brak plików do wysłania"
+msgstr "Brak wyzwalaczy"
 
 #: libraries/rte/rte_words.lib.php:42
 msgid "Add event"
