@@ -1848,10 +1848,9 @@ msgid "Hide indexes"
 msgstr "Amagar índex"
 
 #: js/messages.php:253
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Mostra graella"
+msgstr "Mostra índex"
 
 #: js/messages.php:256
 msgid "Searching"
