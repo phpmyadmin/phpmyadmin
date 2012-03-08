@@ -819,7 +819,7 @@ msgid "Values for a new column"
 msgstr "Reikšmės naujajam stulpeliui"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Stulpelio „%s“ reikšmės"
