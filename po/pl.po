@@ -3874,10 +3874,9 @@ msgstr ""
 "phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:401
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "nazwa bazy danych"
+msgstr "Nazwa bazy danych"
 
 #: libraries/config/messages.inc.php:402
 msgid "Port on which MySQL server is listening, leave empty for default"
