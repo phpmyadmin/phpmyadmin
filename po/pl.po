@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 23:24+0200\n"
+"PO-Revision-Date: 2012-03-08 23:25+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2986,10 +2986,9 @@ msgid "Enter server connection parameters"
 msgstr "Podaj parametry dla połączenia z serwerem"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid "Configuration"
 msgid "Configuration storage"
-msgstr "Konfiguracja"
+msgstr "Konfiguracja magazynowania"
 
 #: libraries/config/messages.inc.php:203
 msgid ""
