@@ -4802,10 +4802,9 @@ msgstr ""
 "innych formatów."
 
 #: libraries/display_export.lib.php:340 libraries/display_import.lib.php:260
-#, fuzzy
 #| msgid "Recoding engine"
 msgid "Encoding Conversion:"
-msgstr "Mechanizm konwersji kodowania napisów"
+msgstr "Kodowanie konwersji:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
