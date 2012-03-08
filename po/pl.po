@@ -5378,7 +5378,7 @@ msgstr "Szybko"
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:170
 msgid "Custom"
-msgstr "Własna"
+msgstr "Dostosuj"
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:190
