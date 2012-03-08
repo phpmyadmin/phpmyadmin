@@ -5595,7 +5595,7 @@ msgstr "Nie udało się załadować modułów eksportu, proszę sprawdzić insta
 
 #: libraries/display_export.lib.php:85
 msgid "Exporting databases from the current server"
-msgstr "Eksportowanie baz danych z bieżącego serwera"
+msgstr "Eksport bazy danych z bieżącego serwera"
 
 #: libraries/display_export.lib.php:87
 #, php-format
