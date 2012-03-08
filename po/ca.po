@@ -2592,7 +2592,7 @@ msgstr "No es pot desar la taula"
 #, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Comptar les taules"
+msgstr "Taules recents"
 
 #: libraries/RecentTable.class.php:149
 #, fuzzy
