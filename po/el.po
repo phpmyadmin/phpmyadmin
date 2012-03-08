@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-02 15:40+0200\n"
+"PO-Revision-Date: 2012-03-08 14:56+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -5057,8 +5057,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη στη βάση δεδομένων, "
-"προτείνεται: [kbd]pma_config[/kbd]"
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: "
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -12492,7 +12492,6 @@ msgid "Query cache low memory prunes"
 msgstr ""
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
@@ -12617,7 +12616,7 @@ msgstr ""
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Μέσος όρος ταξινομημένων εγγραφών: %s"
 
 #: po/advisory_rules.php:125
 #| msgid "There are no routines to display."
@@ -12642,11 +12641,11 @@ msgstr ""
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Βαθμός ανάγνωσης πρώτης εισαγωγής ευρετηρίου"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Ο βαθμός ανάγνωσης της πρώτης εισαγωγής ευρετηρίου είναι υψηλός."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12686,10 +12685,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Που να προβάλονται οι σύνδεσμοι γραμμής πίνακα"
+msgstr "Βαθμός ανάγνωσης επόμενης γραμμής πίνακα"
 
 #: po/advisory_rules.php:141
 #| msgid "Where to show the table row links"
@@ -12730,10 +12728,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "Που να προβάλονται οι σύνδεσμοι γραμμής πίνακα"
+msgstr "Ποσοστό προσωρινών πινάκων στο δίσκο"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
@@ -12784,10 +12781,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:160
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Μέγεθος buffer ταξινόμησης"
+msgstr "Μέγεθος buffer κλειδιού MyISAM"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
@@ -12804,10 +12800,10 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Μέγεθος buffer ταξινόμησης"
+msgstr "Μέγιστο %% buffer κλειδιού MyISAM που χρησιμοποιήθηκε"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
@@ -12825,17 +12821,18 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Μέγεθος buffer ταξινόμησης"
+msgstr ""
+"μέγιστο %% buffer κλειδιού MyISAM που χρησιμοποιήθηκε: %s%%, αυτή η τιμή "
+"πρέπει να είναι πάνω από 95%%"
 
 #: po/advisory_rules.php:170
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Μέγεθος buffer ταξινόμησης"
+msgstr "Ποσοστό buffer κλειδιού MyISAM που χρησιμοποιήθηκε"
 
 #: po/advisory_rules.php:173
 #, php-format
@@ -12861,16 +12858,14 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Δημιουργία πίνακα"
+msgstr "Βαθμός ανοίγματος πίνακα"
 
 #: po/advisory_rules.php:181
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Ο τρέχων αριθμός των εκκρεμών εγγραφών."
+msgstr "Ο βαθμός των ανοιγμένων πινάκων είναι υψηλός."
 
 #: po/advisory_rules.php:182
 msgid ""
@@ -12884,10 +12879,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Μορφή εισαχθέντος αρχείου"
+msgstr "Ποσοστό του ορίου χρησιμοποιημένων ανοιχτών αρχείων"
 
 #: po/advisory_rules.php:186
 msgid ""
@@ -12908,16 +12902,14 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Μορφή εισαχθέντος αρχείου"
+msgstr "Βαθμός ανοιχτών αρχείων"
 
 #: po/advisory_rules.php:191
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "Ο αριθμός των εκκρεμών fsyncs στο αρχείο καταγραφής."
+msgstr "Ο βαθμός των ανοιγμένων αρχείων είναι υψηλός."
 
 #: po/advisory_rules.php:193
 #, php-format
@@ -12925,16 +12917,15 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Δημιουργία νέου πίνακα στη βάση %s"
+msgstr "Άμεσα κλειδώματα πίνακα %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#, fuzzy
 #| msgid " number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "Οι φορές που ένα κλείδωμα πινακα ανακτήθηκε άμεσα."
+msgstr "Πολλά κλειδώματα πίνακα δεν έγιναν αποδεκτά αμέσως."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
@@ -12955,10 +12946,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Λανθάνουσα μνήμη κλειδιού"
+msgstr "Λανθάνουσα μνήμη νήματος"
 
 #: po/advisory_rules.php:206
 msgid ""
@@ -12981,10 +12971,9 @@ msgid "Thread cache hit rate %%"
 msgstr "Βαθμός πατήματος λανθάνουσας μνήμης νήματος %%"
 
 #: po/advisory_rules.php:211
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Η παρακολούθηση δεν είναι ενεργοποιημένη."
+msgstr "Η λανθάνουσα μνήμη νήματος δεν είναι επαρκής."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
@@ -13000,10 +12989,9 @@ msgid "Threads that are slow to launch"
 msgstr ""
 
 #: po/advisory_rules.php:216
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "Ο αριθμός των διεργασιών που δεν είναι σε νάρκη."
+msgstr "Υπάρχουν πολλές διεργασίες που έχουν αργή προσπέλαση."
 
 #: po/advisory_rules.php:217
 msgid ""
@@ -13037,10 +13025,9 @@ msgid "slow_launch_time is set to %s"
 msgstr "Το long_query_time έχει οριστεί σε %s"
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Επιμένουσες συνδέσεις"
+msgstr "Ποσοστό χρησιμοποιημένων συνδέσεων"
 
 #: po/advisory_rules.php:226
 msgid ""
@@ -13062,10 +13049,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Επιμένουσες συνδέσεις"
+msgstr "Ποσοστό παρατημένων συνδέσεων"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
@@ -13085,10 +13071,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Επιμένουσες συνδέσεις"
+msgstr "Βαθμός παρατημένων συνδέσεων"
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -13097,10 +13082,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Μορφή εισαχθέντος αρχείου"
+msgstr "Ποσοστό παρατημένων πελατών"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
@@ -13119,10 +13103,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Μορφή εισαχθέντος αρχείου"
+msgstr "Βαθμός παρατημένων πελατών"
 
 #: po/advisory_rules.php:248
 #, php-format
@@ -13147,18 +13130,18 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: po/advisory_rules.php:255
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Μέγεθος buffer pool"
+msgstr "Μέγεθος καταγραφής InnoDB"
 
 #: po/advisory_rules.php:256
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Ο αριθμός των εγγραφών που έγιναν στο buffer pool της InnoDB."
+msgstr ""
+"Το μέγεθος αρχείου καταγραφής της InnoDB δεν είναι κατάλληλο μέγεθος, σε "
+"σχέση με το InnoDB buffer pool."
 
 #: po/advisory_rules.php:257
 #, php-format
@@ -13209,10 +13192,9 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Μέγεθος buffer pool"
+msgstr "Μέγεθος InnoDB buffer pool"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
@@ -13243,10 +13225,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "μέγιστος αριθμός ταυτόχρονων συνδέσεων"
+msgstr "Ταυτόχρονες εισαγωγές MyISAM"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
