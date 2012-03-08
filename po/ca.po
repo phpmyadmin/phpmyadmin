@@ -1999,7 +1999,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Operacions de resultats de consultes"
+msgstr "Resultats de consultes"
 
 #: js/messages.php:312
 #, fuzzy
