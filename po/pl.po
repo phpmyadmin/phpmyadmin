@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 23:35+0200\n"
+"PO-Revision-Date: 2012-03-08 23:36+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -3632,9 +3632,8 @@ msgid "Leave blank if not used"
 msgstr "Należy pozostawić puste jeśli nie jest używane"
 
 #: libraries/config/messages.inc.php:355
-#, fuzzy
 msgid "Host authorization order"
-msgstr "Typ uwierzytelniania"
+msgstr "Cel upoważnienia hosta"
 
 #: libraries/config/messages.inc.php:356
 msgid "Leave blank for defaults"
