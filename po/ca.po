@@ -2020,7 +2020,7 @@ msgstr "Còpia"
 #, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Afegeix columna(es)"
+msgstr "Afegeix columnes"
 
 #: js/messages.php:334
 msgid "Select referenced key"
