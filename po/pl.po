@@ -4772,7 +4772,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:413
 msgid "Database name"
-msgstr "Nazwa bazu danych"
+msgstr "Nazwa bazy danych"
 
 #: libraries/config/messages.inc.php:414
 msgid "Port on which MySQL server is listening, leave empty for default"
