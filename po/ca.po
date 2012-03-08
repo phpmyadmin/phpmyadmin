@@ -855,7 +855,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "El tipus d'exportació triat s'ha de desar en un arxiu!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Add index"
 msgid "Bad parameters!"
 msgstr "Paràmetres incorrectes!"
