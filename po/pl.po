@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 23:05+0200\n"
+"PO-Revision-Date: 2012-03-08 23:08+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -3433,7 +3433,7 @@ msgstr "Wyświetl błędy"
 
 #: libraries/config/messages.inc.php:67
 msgid "Gather errors"
-msgstr "Zbierz błędy"
+msgstr "Zbieraj błędy"
 
 #: libraries/config/messages.inc.php:68
 msgid "Show icons for warning, error and information messages"
