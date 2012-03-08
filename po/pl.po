@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 22:56+0200\n"
+"PO-Revision-Date: 2012-03-08 23:01+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -2142,10 +2142,10 @@ msgid "Browse your computer:"
 msgstr "Wyszukaj w komputerze"
 
 #: libraries/common.lib.php:2979
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "katalog serwera WWW dla uploadu"
+msgstr "Wybierz katalog serwera WWW dla uploadu <b>%s</b>:"
 
 #: libraries/common.lib.php:2991 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:962
