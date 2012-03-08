@@ -7720,10 +7720,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Tabela %1$s została utworzona."
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit trigger"
-msgstr "Edytuj serwer"
+msgstr "Edytuj wyzwalacz"
 
 #: libraries/rte/rte_triggers.lib.php:305
 #, fuzzy
