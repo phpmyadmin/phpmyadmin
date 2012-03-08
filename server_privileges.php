@@ -1588,9 +1588,9 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 // export user definition
 if (isset($_REQUEST['export'])) {
     $response = '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
-    if (! strcmp($username, __('All users'))) {
+    if ($username == '%') {
         // export privileges for all users
-        $title = __('Privileges for ') . htmlspecialchars($username) . ' @ ' . htmlspecialchars($hostname);
+        $title = __('Privileges for all users');
         foreach ($_SESSION['user_host_pairs'] as $pair) {
             $response .= PMA_getGrants($pair['user'], $pair['host']);
             $response .= "\n";
@@ -1804,7 +1804,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                         echo '</td>';
                         echo '</tr>';
                         $odd_row = ! $odd_row;
-                        
+
                         $_SESSION['user_host_pairs'][$pair_count]['user'] = $host['User'];
                         $_SESSION['user_host_pairs'][$pair_count]['host'] = $host['Host'];
                         $pair_count ++;
@@ -1829,7 +1829,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '</div>'
                    . '<div class="clear_both" style="clear:both"></div>'
                    . '<div style="float:left; padding-left:10px;">';
-                printf($link_export_all, urlencode(__('All users')), urlencode(__('All hosts')), (isset($initial) ? $initial : ''));
+                printf($link_export_all, urlencode('%'), urlencode('%'), (isset($initial) ? $initial : ''));
                 echo '</div>'
                    . '</div>'
                    . '<div class="clear_both" style="clear:both"></div>'
