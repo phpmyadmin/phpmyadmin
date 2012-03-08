@@ -1290,7 +1290,6 @@ msgid "Query cache usage"
 msgstr "Utilizzo della cache delle query"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Cache delle query utilizzata"
