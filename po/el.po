@@ -13082,10 +13082,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Μορφή εισαχθέντος αρχείου"
+msgstr "Ποσοστό παρατημένων πελατών"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
