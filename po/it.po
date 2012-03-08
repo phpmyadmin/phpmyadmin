@@ -1321,7 +1321,6 @@ msgid "Free memory"
 msgstr "Memoria libera"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
 msgstr "Memoria utilizzata"
