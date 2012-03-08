@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 23:47+0200\n"
+"PO-Revision-Date: 2012-03-08 23:48+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -5600,7 +5600,7 @@ msgstr "Eksport bazy danych z bieżącego serwera"
 #: libraries/display_export.lib.php:87
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "Eksportowanie tabel z \"%s\" bazy danych"
+msgstr "Eksportowanie tabeli z bazy \"%s\""
 
 #: libraries/display_export.lib.php:89
 #, php-format
