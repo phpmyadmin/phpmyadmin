@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-08 23:36+0200\n"
+"PO-Revision-Date: 2012-03-08 23:37+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: polish <pl@li.org>\n"
 "Language: pl\n"
@@ -3640,9 +3640,8 @@ msgid "Leave blank for defaults"
 msgstr "Pozostaw puste, aby użyć wartości domyślnych"
 
 #: libraries/config/messages.inc.php:357
-#, fuzzy
 msgid "Host authorization rules"
-msgstr "Uwierzytelnianie sprzętowe nie powiodło się"
+msgstr "Zasady autoryzacji Hosta"
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow logins without a password"
