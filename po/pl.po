@@ -4763,7 +4763,6 @@ msgid "None"
 msgstr "Brak"
 
 #: libraries/display_export.lib.php:308
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "\".zip\""
