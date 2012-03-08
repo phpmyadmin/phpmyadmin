@@ -5711,7 +5711,7 @@ msgstr "\".gzip\""
 
 #: libraries/display_export.lib.php:317
 msgid "bzipped"
-msgstr "bzipped"
+msgstr "\".bzip\""
 
 #: libraries/display_export.lib.php:326
 msgid "View output as text"
