@@ -1900,7 +1900,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "+ Add a new value"
 msgid "Add %d value(s)"
-msgstr "+ Afegir un nou valor"
+msgstr "Afegir %d valors"
 
 #: js/messages.php:273
 msgid ""
