@@ -3127,7 +3127,7 @@ msgstr "Brakuje danych dla %s"
 #: libraries/config/FormDisplay.class.php:708
 #: libraries/config/FormDisplay.class.php:712
 msgid "unavailable"
-msgstr "niedostępne"
+msgstr "niedostępna"
 
 #: libraries/config/FormDisplay.class.php:709
 #: libraries/config/FormDisplay.class.php:713
