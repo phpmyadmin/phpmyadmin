@@ -12772,7 +12772,6 @@ msgstr ""
 #~ msgstr "لايمكن فتح الملف : %s"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "لا شيء"

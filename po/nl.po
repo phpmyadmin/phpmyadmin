@@ -13086,7 +13086,6 @@ msgstr ""
 #~ "U staat op het punt om alle BLOB referenties voor database %s uit te "
 #~ "schakelen. Weet u het zeker?"
 
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Onbekende fout bij het uploaden."
 
@@ -13099,7 +13098,6 @@ msgstr ""
 #~ msgid "PBMS get BLOB info failed:"
 #~ msgstr "PBMS BLOB info ophalen mislukt:"
 
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "ophalen door PBMS van BLOB Content-type mislukt"
 

@@ -12715,7 +12715,6 @@ msgstr ""
 #~ msgstr "دریافت سرصفحه ها مقدور نمی باشد"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "خير"

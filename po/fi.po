@@ -13647,7 +13647,6 @@ msgstr ""
 #~ "%s?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Tuntematon virhe tiedostoa lähetettäessä."
 
@@ -13661,7 +13660,6 @@ msgstr ""
 #~ msgstr "PBMS:n BLOB-tietojen haku epäonnistui:"
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "BLOB Content-Typen haku epäonnistui"
 
@@ -13681,14 +13679,10 @@ msgstr ""
 #~ msgstr "Tiedostoa ei voida avata: %s"
 
 #, fuzzy
-#~| msgid "Garbage threshold"
 #~ msgid "Garbage Threshold"
 #~ msgstr "Roskankeruun kynnysarvo"
 
 #, fuzzy
-#~| msgid ""
-#~| "rcentage of garbage in a data log file before it is compacted. This a ue "
-#~| "between 1 and 99. The default is 50."
 #~ msgid ""
 #~ "The percentage of garbage in a repository file before it is compacted."
 #~ msgstr ""
@@ -13697,12 +13691,10 @@ msgstr ""
 #~ "on 50."
 
 #, fuzzy
-#~| msgid "Log file threshold"
 #~ msgid "Temp Log Threshold"
 #~ msgstr "Lokitiedoston kynnysarvo"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Ei mitään"

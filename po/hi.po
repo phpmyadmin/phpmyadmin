@@ -12805,7 +12805,6 @@ msgstr ""
 #~ msgstr "क्या आप वाकई %s दाताबेस के सारे संदर्भ निष्क्रिय करना चाहते है?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "फ़ाइल अपलोड करने में अज्ञात त्रुटि."
 
@@ -12819,7 +12818,6 @@ msgstr ""
 #~ msgstr "PBMS प्राप्त जानकारी BLOB विफल"
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "प्राप्त BLOB प्रकार विफल"
 
@@ -12851,7 +12849,6 @@ msgstr ""
 #~ msgstr "मेटाडेटा हेडर"
 
 #, fuzzy
-#~| msgid "No"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "यूसर के लिए डेटाबेस न बनाये"

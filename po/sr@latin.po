@@ -13311,7 +13311,6 @@ msgstr ""
 #~ msgstr "Nema konfigurisanih blob streaming servera!"
 
 #, fuzzy
-#~| msgid "Failed to write file to disk."
 #~ msgid "Failed to fetch headers"
 #~ msgstr "Neuspelo upisivanje datoteke na disk."
 
@@ -13319,17 +13318,14 @@ msgstr ""
 #~ msgstr "Neuspelo otvaranje udaljene URL adrese"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Nepoznata greška pri slanju datoteke."
 
 #, fuzzy
-#~| msgid "MySQL connection collation"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "Sortiranje za MySQL vezu"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "nema"

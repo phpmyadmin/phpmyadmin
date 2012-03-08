@@ -13320,17 +13320,14 @@ msgstr ""
 #~ msgstr "Неуспело преузимање заглавља."
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Непозната грешка при слању датотеке."
 
 #, fuzzy
-#~| msgid "MySQL connection collation"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "Сортирање за MySQL везу"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "нема"

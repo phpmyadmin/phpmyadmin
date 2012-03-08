@@ -13934,12 +13934,10 @@ msgstr ""
 #~ "datos %s?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Erro descoñecido ao enviar o ficheiro."
 
 #, fuzzy
-#~| msgid "MySQL connection collation"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "Codificación de caracteres (Collation) da conexión de MySQL"
 
@@ -13956,14 +13954,10 @@ msgstr ""
 #~ msgstr "Descargar o ficheiro"
 
 #, fuzzy
-#~| msgid "Garbage threshold"
 #~ msgid "Garbage Threshold"
 #~ msgstr "Limiar do lixo"
 
 #, fuzzy
-#~| msgid ""
-#~| " percentage of garbage in a data log file before it is compacted. This a "
-#~| "value between 1 and 99. The default is 50."
 #~ msgid ""
 #~ "The percentage of garbage in a repository file before it is compacted."
 #~ msgstr ""
@@ -13971,12 +13965,10 @@ msgstr ""
 #~ "entre 1 e 99. Por omisión é 50."
 
 #, fuzzy
-#~| msgid "Log file threshold"
 #~ msgid "Temp Log Threshold"
 #~ msgstr "Limiar do ficheiro de rexistro"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Ningunha"

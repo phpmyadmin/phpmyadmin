@@ -12982,7 +12982,6 @@ msgstr ""
 #~ msgstr "Uzaqdaki linke qosula bilmedim "
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Heç biri"

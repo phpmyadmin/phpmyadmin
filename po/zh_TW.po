@@ -12876,7 +12876,6 @@ msgstr ""
 #~ msgstr "您確定要在資料庫 %s 上停用 BLOB 功能？"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "上傳檔案時發生未知錯誤"
 
@@ -12890,7 +12889,6 @@ msgstr ""
 #~ msgstr "PBMS 取得 BLOB 資訊失敗："
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "取得 BLOB 內容類型失敗"
 

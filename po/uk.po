@@ -12685,7 +12685,6 @@ msgstr "concurrent_insert встановлений у 0"
 #~ msgstr "Не вдається відкрити файл: %s"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Немає"

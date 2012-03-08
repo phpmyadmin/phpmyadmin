@@ -12365,7 +12365,6 @@ msgstr ""
 #~ msgstr "Неизвестна грешка при качване."
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "неуспешно получаване на типа на BLOB"
 

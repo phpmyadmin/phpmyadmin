@@ -13220,7 +13220,6 @@ msgstr ""
 #~ "Estàs segur de voler desactivar totes les referències BLOB per a la base "
 #~ "de dades %s?"
 
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Error desconegut al pujar l'arxiu."
 
@@ -13234,7 +13233,6 @@ msgstr ""
 #~ msgstr "Ha fallat l'obtenció d'ínformació BLOB per a PBMS:"
 
 #, fuzzy
-#~| msgid "get BLOB Content-Type failed"
 #~ msgid "PBMS get BLOB Content-Type failed"
 #~ msgstr "Ha fallat l'obtenció del Content-Type BLOB"
 

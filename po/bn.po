@@ -13315,12 +13315,10 @@ msgstr ""
 #~ msgstr "হেডার নিয়ে আসতে ব্যর্থ হয়েছে"
 
 #, fuzzy
-#~| msgid "MySQL connection collation"
 #~ msgid "PBMS connection failed:"
 #~ msgstr "MySQL connection collation"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "কোনটিই নয়"

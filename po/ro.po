@@ -13496,7 +13496,6 @@ msgstr ""
 #~ msgstr "Nici un server de streaming aglomerat nu a fost configurat!"
 
 #, fuzzy
-#~| msgid "Failed to write file to disk."
 #~ msgid "Failed to fetch headers"
 #~ msgstr "Eșec la scrierea fișierului pe disc."
 
@@ -13510,7 +13509,6 @@ msgstr ""
 #~ "de date %s?"
 
 #, fuzzy
-#~| msgid "Unknown error in file upload."
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Eroare necunoscută la încărcarea fișierului."
 
@@ -13542,13 +13540,9 @@ msgstr ""
 #~ msgstr "Nu am putut deschide fișierul: %s"
 
 #, fuzzy
-#~| msgid "Garbage threshold"
 #~ msgid "Garbage Threshold"
 #~ msgstr "Prag gunoi"
 
-#~| msgid ""
-#~| " percentage of garbage in a data log file before it is compacted. This a "
-#~| "value between 1 and 99. The default is 50."
 #~ msgid ""
 #~ "The percentage of garbage in a repository file before it is compacted."
 #~ msgstr ""
@@ -13589,7 +13583,6 @@ msgstr ""
 #~ "intrare în baza de date. "
 
 #, fuzzy
-#~| msgid "Log file threshold"
 #~ msgid "Temp Log Threshold"
 #~ msgstr "Prag fișiere-jurnal"
 
@@ -13642,7 +13635,6 @@ msgstr ""
 #~ msgstr "Pagina principală PrimeBase XT"
 
 #, fuzzy
-#~| msgid "None"
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Nici unul(a)"
