@@ -12913,7 +12913,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Μορφή εισαχθέντος αρχείου"
+msgstr "Βαθμός ανοιχτών αρχείων"
 
 #: po/advisory_rules.php:191
 #, fuzzy
