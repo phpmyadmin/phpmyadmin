@@ -4683,10 +4683,9 @@ msgid "Dump some row(s)"
 msgstr "Eksportuj wybrane wiersze"
 
 #: libraries/display_export.lib.php:152
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Liczba pól"
+msgstr "Liczba wierszy:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
