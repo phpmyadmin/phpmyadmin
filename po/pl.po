@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 23:04+0200\n"
+"PO-Revision-Date: 2012-03-08 23:05+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -3082,7 +3082,7 @@ msgstr "zakończone dodania"
 
 #: libraries/config.values.php:124
 msgid "extended inserts"
-msgstr "rozszerzone wstawiania"
+msgstr "rozszerzone dodania"
 
 #: libraries/config.values.php:125
 msgid "both of the above"
