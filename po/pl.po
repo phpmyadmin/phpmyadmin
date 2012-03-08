@@ -4659,10 +4659,9 @@ msgid "Quick - display only the minimal options"
 msgstr "Szybko - wyświetlane są tylko minimalne opcje"
 
 #: libraries/display_export.lib.php:122
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Custom - display all possible options"
-msgstr "Dostosuj domyślne opcje eksportu"
+msgstr "Dostosuj - wyświetli wszystkie możliwe opcje"
 
 #: libraries/display_export.lib.php:130
 #, fuzzy
