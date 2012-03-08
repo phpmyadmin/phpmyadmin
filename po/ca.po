@@ -1780,7 +1780,7 @@ msgstr "Detalls de regles..."
 #, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Autenticació"
+msgstr "Justificació"
 
 #: js/messages.php:224
 msgid "Used variable / formula"
