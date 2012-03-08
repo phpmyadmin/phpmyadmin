@@ -6524,7 +6524,7 @@ msgstr "Linie zakończone z:"
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
 msgid "Replace NULL with:"
-msgstr "Zamiana NULL z:"
+msgstr "Zamiana NULL na:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
