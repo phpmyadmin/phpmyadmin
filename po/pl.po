@@ -7725,10 +7725,9 @@ msgid "Edit trigger"
 msgstr "Edytuj wyzwalacz"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Wyzwalacze"
+msgstr "Nazwa wyzwalacza"
 
 #: libraries/rte/rte_triggers.lib.php:326
 msgctxt "Trigger action time"
