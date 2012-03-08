@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-08 14:35+0200\n"
+"PO-Revision-Date: 2012-03-08 14:36+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1951,7 +1951,7 @@ msgstr "Mostrar criteri de cerca"
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Cerca"
+msgstr "Cerca de zoom"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
