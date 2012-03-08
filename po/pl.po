@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 00:07+0200\n"
+"PO-Revision-Date: 2012-03-09 00:09+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -5899,7 +5899,7 @@ msgstr "Częściowe teksty"
 
 #: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
 msgid "Full texts"
-msgstr "Pełny teksty"
+msgstr "Pełne teksty"
 
 #: libraries/display_tbl.lib.php:667
 msgid "Relational key"
