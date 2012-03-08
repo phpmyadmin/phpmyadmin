@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-08 18:32+0200\n"
+"PO-Revision-Date: 2012-03-08 18:33+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1456,7 +1456,6 @@ msgid "Pause monitor"
 msgstr "Arresta il monitoraggio"
 
 #: js/messages.php:147
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log e slow_query_log sono abilitati."
