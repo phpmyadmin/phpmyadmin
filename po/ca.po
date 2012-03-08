@@ -1716,10 +1716,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:206
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Recarrega"
+msgstr "Recarregar pàgina"
 
 #: js/messages.php:208
 msgid "Affected rows:"
