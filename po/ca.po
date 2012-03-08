@@ -2547,10 +2547,9 @@ msgstr[0] "%1$d fila inserida."
 msgstr[1] "%1$d files inserides."
 
 #: libraries/PDF.class.php:81
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Permet llegir dades."
+msgstr "Error creant PDF:"
 
 #: libraries/RecentTable.class.php:107
 #, fuzzy
