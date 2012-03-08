@@ -6538,7 +6538,7 @@ msgstr "Wydanie Excela:"
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
 #: libraries/export/texytext.php:26 libraries/export/xml.php:73
 msgid "Data dump options"
-msgstr "Opcje zrzutu danych"
+msgstr "Opcje eksportu danych"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
 #: libraries/export/sql.php:1188 libraries/export/texytext.php:109
