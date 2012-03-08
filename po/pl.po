@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-08 23:36+0200\n"
+"PO-Revision-Date: 2012-03-08 23:37+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -4582,7 +4582,7 @@ msgstr "Pozostaw puste, aby użyć wartości domyślnych"
 
 #: libraries/config/messages.inc.php:365
 msgid "Host authorization rules"
-msgstr "Reguły autoryzacji hosta"
+msgstr "Zasady autoryzacji Hosta"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
