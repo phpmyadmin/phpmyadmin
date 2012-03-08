@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-08 14:45+0200\n"
+"PO-Revision-Date: 2012-03-08 14:46+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12858,10 +12858,9 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Δημιουργία πίνακα"
+msgstr "Βαθμός ανοίγματος πίνακα"
 
 #: po/advisory_rules.php:181
 #, fuzzy
