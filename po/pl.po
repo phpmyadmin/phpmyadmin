@@ -460,7 +460,7 @@ msgstr "Zmodyfikuj"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
-msgstr "Dodaj/usuń kryteria rekordów"
+msgstr "Dodaj/usuń kryteria wierszy"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
