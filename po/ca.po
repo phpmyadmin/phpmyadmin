@@ -2562,10 +2562,9 @@ msgid "Recent tables"
 msgstr "Taules recents"
 
 #: libraries/RecentTable.class.php:149
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "No hi ha servidors configurats"
+msgstr "No hi ha taules recents"
 
 #: libraries/StorageEngine.class.php:203
 msgid ""
