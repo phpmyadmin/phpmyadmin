@@ -1415,7 +1415,6 @@ msgstr "Śro"
 
 #. l10n: Minimal week day name
 #: js/messages.php:221
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Czw"
