@@ -3480,10 +3480,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Użyj naturalnego sortowania tabel i baz danych"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Sortowanie tabeli wg"
+msgstr "Naturalny porządek"
 
 #: libraries/config/messages.inc.php:320 libraries/config/messages.inc.php:330
 msgid "Use only icons, only text or both"
