@@ -846,7 +846,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Còpia i enganxa els valors junts dins del camp \"Longitud/Valors\" "
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Tipus incorrecte!"
