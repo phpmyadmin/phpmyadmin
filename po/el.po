@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-02-14 16:01+0100\n"
-"PO-Revision-Date: 2012-03-08 14:48+0200\n"
+"PO-Revision-Date: 2012-03-08 14:49+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12960,7 +12960,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Λανθάνουσα μνήμη κλειδιού"
+msgstr "Λανθάνουσα μνήμη νήματος"
 
 #: po/advisory_rules.php:206
 msgid ""
