@@ -13135,12 +13135,13 @@ msgid "InnoDB log size"
 msgstr "Μέγεθος καταγραφής InnoDB"
 
 #: po/advisory_rules.php:256
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Ο αριθμός των εγγραφών που έγιναν στο buffer pool της InnoDB."
+msgstr ""
+"Το μέγεθος αρχείου καταγραφής της InnoDB δεν είναι κατάλληλο μέγεθος, σε "
+"σχέση με το InnoDB buffer pool."
 
 #: po/advisory_rules.php:257
 #, php-format
