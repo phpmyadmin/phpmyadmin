@@ -840,10 +840,9 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a value"
-msgstr "క్రొత్త వినియోగదారుని చేర్చు"
+msgstr "విలువను చేర్చు"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
