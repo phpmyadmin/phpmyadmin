@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 11:56+0200\n"
+"PO-Revision-Date: 2012-03-09 11:57+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1771,10 +1771,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "函数定义中必须包含 RETURN 语句！"
 
 #: js/messages.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ 添加"
+msgstr "添加 %d 个值"
 
 #: js/messages.php:269
 msgid ""
