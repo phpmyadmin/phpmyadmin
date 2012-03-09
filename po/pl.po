@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 08:12+0200\n"
+"PO-Revision-Date: 2012-03-09 08:14+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12862,6 +12862,8 @@ msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Ustaw slow_launch_time na 1s lub 2s do poprawnego policzenia wątku, które są "
+"wolne, aby uruchomić"
 
 #: po/advisory_rules.php:223
 #, php-format
