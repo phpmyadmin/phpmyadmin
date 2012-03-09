@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 15:22+0200\n"
+"PO-Revision-Date: 2012-03-09 15:27+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12370,6 +12370,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Oznacza to, że dołącza do robienia pełne skanowanie tabeli. Dodawanie "
+"indeksów dla kolumn jest używane w sprzężeniu warunkach znacznie "
+"przyspieszyć tabeli dołącza do"
 
 #: po/advisory_rules.php:128
 #, php-format
