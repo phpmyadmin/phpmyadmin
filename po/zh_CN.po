@@ -8020,10 +8020,9 @@ msgid "General Settings"
 msgstr "常规设置"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL 连接校对"
+msgstr "服务器连接校对"
 
 #: main.php:124
 msgid "Appearance Settings"
