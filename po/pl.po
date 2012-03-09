@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 22:45+0200\n"
+"PO-Revision-Date: 2012-03-09 22:47+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12895,6 +12895,8 @@ msgstr "Wskaźnik oczekiwania blokady tabeli"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Wskaźnik oczekiwania blokady tabeli: %s, wartość ta powinna być mniejsza niż "
+"1 na godzinę"
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
