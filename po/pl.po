@@ -7515,7 +7515,7 @@ msgstr "Po zakończeniu zachować"
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
-msgstr ""
+msgstr "Definiujący"
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
 #: libraries/rte/rte_triggers.lib.php:398
