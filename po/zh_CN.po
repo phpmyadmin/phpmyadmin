@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 12:02+0200\n"
+"PO-Revision-Date: 2012-03-09 12:03+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6443,10 +6443,10 @@ msgid "Edit settings for %s"
 msgstr "编辑 %s 的设置"
 
 #: libraries/import.lib.php:1133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "转到数据表"
+msgstr "转到表: %s"
 
 #: libraries/import.lib.php:1136
 #, php-format
