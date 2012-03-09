@@ -867,10 +867,10 @@ msgid "Invalid export type"
 msgstr "导出类型无效"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "字段“%s”的值"
+msgstr "字段 %s 的值"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
