@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 15:21+0200\n"
+"PO-Revision-Date: 2012-03-09 15:22+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12530,7 +12530,7 @@ msgstr "Sortuj średnie wiersze: %s"
 
 #: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"
-msgstr ""
+msgstr "Stawka dołączania bez indeksów"
 
 #: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
