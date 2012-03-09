@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 02:33+0200\n"
+"PO-Revision-Date: 2012-03-09 02:41+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -816,10 +816,10 @@ msgid "Values for a new column"
 msgstr ""
 
 #: enum_editor.php:30 js/messages.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add/Delete columns"
 msgid "Values for column %s"
-msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+msgstr "%s నిలువు వరుసకు విలువలు"
 
 #: enum_editor.php:34 js/messages.php:265
 msgid "Enter each value in a separate field"
