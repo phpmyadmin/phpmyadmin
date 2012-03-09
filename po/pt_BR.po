@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-09 20:15+0200\n"
+"PO-Revision-Date: 2012-03-09 20:16+0200\n"
 "Last-Translator: João Seabra <johnnyseabra@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5047,9 +5047,8 @@ msgstr ""
 "tabela"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 msgid "Show display direction"
-msgstr "Opções de exportação do Banco de Dados"
+msgstr "Mostrar direção da tela"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
