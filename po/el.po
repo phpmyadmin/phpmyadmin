@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 07:51+0200\n"
+"PO-Revision-Date: 2012-03-09 07:53+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12245,6 +12245,9 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Η λανθάνουσα μνήμη ερωτήματος είναι ενεργοποιήμένη και ο διακομιστής "
+"λαμβάνει %d ερωτήματα ανά δευτερόλεπτο. Αυτός ο κανόνας ενεργοποιείται αν "
+"υπάρχουν περισσότερα από 100 ερωτήματα το δευτερόλεπτο."
 
 #: po/advisory_rules.php:80
 #, php-format
