@@ -8225,10 +8225,9 @@ msgid "Web server"
 msgstr "网站服务器"
 
 #: main.php:209
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "使用简洁版"
+msgstr "数据库客户端版本"
 
 #: main.php:213
 msgid "PHP extension"
