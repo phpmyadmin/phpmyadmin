@@ -1557,7 +1557,7 @@ msgstr "日志已分析，时间段内没有数据。"
 #: js/messages.php:185
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "正在分析。。。\n"
+msgstr "正在分析。。。"
 
 #: js/messages.php:186
 #, fuzzy
