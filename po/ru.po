@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-09 19:39+0200\n"
+"PO-Revision-Date: 2012-03-09 19:40+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9210,10 +9210,9 @@ msgid "Any"
 msgstr "Любой"
 
 #: server_privileges.php:1593
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
-msgstr "Привилегии"
+msgstr "Привилегии всех пользователей"
 
 #: server_privileges.php:1617
 msgid "Users overview"
