@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-01-12 11:41+0200\n"
-"Last-Translator: Praveen_Illa <mail2ipn@gmail.com>\n"
+"PO-Revision-Date: 2012-03-09 02:43+0200\n"
+"Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1729
@@ -131,10 +131,9 @@ msgstr "పట్టిక వ్యాఖ్యలు"
 #: tbl_change.php:337 tbl_indexes.php:213 tbl_printview.php:136
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:419
-#, fuzzy
 #| msgid "Command"
 msgid "Column"
-msgstr "ఆజ్ఞ"
+msgstr "వరుస"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:441
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
@@ -817,10 +816,10 @@ msgid "Values for a new column"
 msgstr ""
 
 #: enum_editor.php:30 js/messages.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add/Delete columns"
 msgid "Values for column %s"
-msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+msgstr "%s నిలువు వరుసకు విలువలు"
 
 #: enum_editor.php:34 js/messages.php:265
 msgid "Enter each value in a separate field"
@@ -828,10 +827,9 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a value"
-msgstr "క్రొత్త వినియోగదారుని చేర్చు"
+msgstr "విలువను చేర్చు"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
@@ -842,10 +840,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "ఎగుమతి రకం"
+msgstr "తప్పు రకం!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -853,10 +850,9 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: export.php:106
-#, fuzzy
 #| msgid "Remove database"
 msgid "Bad parameters!"
-msgstr "డేటాబేస్ తొలగించండి"
+msgstr "చెల్లని పరామితులు!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -880,10 +876,9 @@ msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "ఎగుమతి రకం"
+msgstr "చెల్లని ఎగుమతి రకం"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -926,10 +921,9 @@ msgstr ""
 # మొదటి అనువాదము
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Add a point"
-msgstr "స్పందనలకు చేర్చు"
+msgstr "బిందువును చేర్చు"
 
 #: gis_data_editor.php:220 js/messages.php:317
 msgid "Linestring"

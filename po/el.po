@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-08 14:56+0200\n"
+"PO-Revision-Date: 2012-03-09 08:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12208,10 +12208,15 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"Η λανθάνουσα μνήμη ερωτήματος είναι γνωστό ότι βελτιώνει σημαντικά την "
+"απόδοση, αν ρυθμιστεί σωστά. Ενεργοποιήστε τη ορίζοντας το "
+"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε "
+"«ΟΝ». <b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"Το query_cache_size ορίστηκε σε 0 ή το query_cache_type ορίστηκε σε «OFF»"
 
 #: po/advisory_rules.php:75
 msgid "Query caching method"
@@ -12228,6 +12233,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Χρησιμοποιείτε τη λανθάνουσα μνήμη Ερωτήματος της MySQL σε μια βάση "
+"δεδομένων με μεγάλη κυκλοφορία. Ίσως πρέπει να σκεφτείτε να χρησιμοποιήσετε "
+"το <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> αντί της λανθάνουσας μνήμης Ερωτήματος της "
+"MySQL, ειδικά αν έχετε πολλούς δευτερεύοντες."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12235,6 +12245,9 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Η λανθάνουσα μνήμη ερωτήματος είναι ενεργοποιήμένη και ο διακομιστής "
+"λαμβάνει %d ερωτήματα ανά δευτερόλεπτο. Αυτός ο κανόνας ενεργοποιείται αν "
+"υπάρχουν περισσότερα από 100 ερωτήματα το δευτερόλεπτο."
 
 #: po/advisory_rules.php:80
 #, php-format
@@ -12244,6 +12257,8 @@ msgstr "Απόδοση λανθάνουσας μνήμης ερωτήματος 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"Η λανθάνουσα μνήμη ερωτήματος δεν λειτουργεί σωστά, έχει χαμηλό βαθμό "
+"απόδοσης."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
@@ -12253,6 +12268,8 @@ msgstr "Σκεφτείτε την αύξηση {query_cache_limit}."
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
+"Ο τρέχων βαθμός απόδοσης της λανθάνουσας μνήμης ερωτήματος του %s%% είναι "
+"κάτω από 20%%"
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
@@ -12261,13 +12278,15 @@ msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Λιγότερο από το 80%% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
 
 #: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Αυτό μπορεί να οφείλεται στο ότι το {query_cache_limit} είναι πολύ χαμηλό. Η "
+"εκκαθάριση της λανθάνουσας μνήμης ερωτήματος μπορεί επίσης να βοηθήσει."
 
 #: po/advisory_rules.php:88
 #, php-format
@@ -12275,6 +12294,9 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"Η τρέχουσα αναλογία της ελεύθερης λανθάνουσας μνήμης ερωτήματος προς τη "
+"συνολική λανθάνουσα μνήμη ερωτήματος είναι %s%%. Πρέπει να είναι περισσότερο "
+"από 80%%"
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
@@ -12295,6 +12317,16 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Η έντονη συγκρότηση είναι πιθανόν να αυξήσει (περισσότερο) το "
+"Qcache_lowmem_prunes. Αυτό μπορεί να προκληθεί από πολλούς χαμηλής μνήμης "
+"κλάδους της λανθάνουσας μνήμης ερωτήματος λόγω του γεγονότος ότι το "
+"{query_cache_size} είναι πολύ μικρό. Για μια άμεση αλλά βραχυχρόνια λύση "
+"μπορείτε να εκκαθαρίσετε τη λανθάνουσα μνήμη ερωτήματος (μπορεί να κλειδώσει "
+"τη λανθάνουσα μνήμη ερωτήματος για πολύ χρόνο). Προσαρμόστε προσεκτικά το "
+"{query_cache_min_res_unit} σε μια χαμηλότερη τιμή για να βοηθήσει και αυτό, "
+"π.χ. μπορείτε να το ορίσετε στο μέσο μέγεθος των ερωτημάτων σας στη "
+"λανθάνουσα μνήμη χρησιμοποιώντας αυτή τη φόρμουλα: (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
@@ -12303,10 +12335,13 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Η λανθάνουσα μνήμη έχει συγκροτηθεί κατά %s%%, με 100%% συγκρότηση σημαίνει "
+"ότι η λανθάνουσα μνήμη ερωτήματος είναι μια εναλλακτική μορφή ελεύθερων και "
+"χρησιμοποιημένων μπλοκς. Αυτή η τιμή πρέπει να είναι κάτω από 20%%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Χαμηλής μνήμης κλάδοι λανθάνουσας μνήμης ερωτήματος"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12322,6 +12357,10 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Ίσως θέλετε να αυξήσετε το {query_cache_size}, ωστόσο, έχετε υπόψη σας ότι η "
+"περίσσεια συντήρησης της λανθάνουσας μνήμης είναι πιθανόν να αυξηθεί με το "
+"μέγεθός της, για αυτό κάντε το αυτό με μικρές μεταβολές και δείτε τα "
+"αποτελέσματα."
 
 #: po/advisory_rules.php:98
 #, php-format
@@ -12329,6 +12368,9 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Ο βαθμός απομακρυσμένων ερωτημάτων προς τα εισερχόμενα ερωτήματα είναι %s%%. "
+"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: 0,1"
+"%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12339,17 +12381,22 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"Το μέγεθος λανθάνουσας μνήμης είναι πάνω από 128ΜΒ. Οι μεγάλες λανθάνουσες "
+"μνήμες μπορεί να προκαλέσουν περίσσεια που απαιτείται για τη διατήρηση της "
+"λανθάνουσας μνήμης."
 
 #: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Ανάλογα με το περιβάλλον σας, ίσως αυξηθεί η απόδοσή του μειώνοντας αυτή την "
+"τιμή."
 
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Τρέχον μέγεθος λανθάνουσας μνήμης ερωτήματος: %s"
 
 #: po/advisory_rules.php:105
 msgid "Query cache min result size"
@@ -12359,6 +12406,8 @@ msgstr "Ελάχιστο μέγεθος λανθάνουσας μνήμης ερ
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"Το μέγιστο μέγεθος του συνόλου αποτελεσμάτων στη λανθάνουσα μνήμη ερωτήματος "
+"είναι η προεπιλογή του 1ΜΒ."
 
 #: po/advisory_rules.php:107
 msgid ""
