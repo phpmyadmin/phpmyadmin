@@ -1808,7 +1808,7 @@ msgstr ""
 "A definição de uma função armazenada deve conter uma instrução de RETURN!"
 
 #: js/messages.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "Adicionar %d valor(es)"
