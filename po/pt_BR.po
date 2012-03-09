@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 17:26+0200\n"
-"Last-Translator: johnnyseabra <johnnyseabra@gmail.com>\n"
+"PO-Revision-Date: 2012-03-09 20:09+0200\n"
+"Last-Translator: João Seabra <johnnyseabra@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1610,7 +1610,6 @@ msgid "Total time:"
 msgstr "Tempo total:"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Representação dos resultados"
