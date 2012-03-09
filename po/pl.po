@@ -12724,6 +12724,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Stawka tabel tymczasowych zapisywanych na dysku: %s, wartość ta powinna być "
+"mniejsza niż 1 na godzinę"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
