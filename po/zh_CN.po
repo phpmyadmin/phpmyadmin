@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-01-26 16:13+0200\n"
-"Last-Translator: Vian Zhao <brovian@gmail.com>\n"
+"PO-Revision-Date: 2012-03-09 12:24+0200\n"
+"Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -806,22 +806,20 @@ msgid "Values for a new column"
 msgstr "新字段的值"
 
 #: enum_editor.php:30 js/messages.php:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "字段“%s”的值"
+msgstr "字段 %s 的值"
 
 #: enum_editor.php:34 js/messages.php:269
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "请将每个值分别输入在不同的输入框中。"
+msgstr "请将每个值分别输入"
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ 添加"
+msgstr "添加一个值"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
@@ -869,10 +867,10 @@ msgid "Invalid export type"
 msgstr "导出类型无效"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "字段“%s”的值"
+msgstr "字段 %s 的值"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
@@ -1097,7 +1095,6 @@ msgid "This is not a number!"
 msgstr "这不是一个数字！"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "添加索引"
@@ -1506,10 +1503,10 @@ msgid "Differential"
 msgstr "差异"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "除以 %s:"
+msgstr "除以 %s"
 
 #: js/messages.php:172
 msgid "Unit"
@@ -1558,10 +1555,9 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "日志已分析，时间段内没有数据。"
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "分析"
+msgstr "正在分析。。。\n"
 
 #: js/messages.php:186
 #, fuzzy
@@ -1649,10 +1645,9 @@ msgid "Affected rows:"
 msgstr "影响的行数: "
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码"
+msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码。"
 
 #: js/messages.php:211
 msgid ""
@@ -1798,10 +1793,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "函数定义中必须包含 RETURN 语句！"
 
 #: js/messages.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ 添加"
+msgstr "添加 %d 个值"
 
 #: js/messages.php:273
 msgid ""
@@ -4870,14 +4865,13 @@ msgid "Automatically create versions"
 msgstr "自动创建版本"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "ve blank for no user preferences storage in database, suggested: [kbd]"
 #| "_config[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
-msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma_config[/kbd]"
+msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -4967,10 +4961,9 @@ msgid "Whether to show hint or not"
 msgstr "是否显示提示"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hint"
-msgstr "显示索引"
+msgstr "显示提示"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5298,10 +5291,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "无法连接到 MySQL 服务器"
+msgstr "无法连接到 Drizzle 服务器"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5354,10 +5346,9 @@ msgid ""
 msgstr "服务器无响应(或者本地 MySQL 服务器的套接字没有正确配置)"
 
 #: libraries/database_interface.lib.php:1816
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "服务器没有响应"
+msgstr "服务器没有响应。"
 
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
@@ -5789,10 +5780,9 @@ msgid "Show BLOB contents"
 msgstr "显示 BLOB 内容"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "浏览器转换"
+msgstr "隐藏浏览器转换"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
@@ -6432,15 +6422,13 @@ msgid "Add statements:"
 msgstr "添加语句："
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "lose table and field names with backquotes <i>(Protects field and le "
 #| "names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
-msgstr ""
-"给表名和字段名加上反引号 <i>(保护名称中含有特殊字符或保留字的字段和表)</i>"
+msgstr "给表和字段名加上反引号 <i>(保护名称中含有特殊字符或保留字的字段和表)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6607,10 +6595,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "请通过点击 \"结构\" 链接来编辑结构"
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "转到数据库"
+msgstr "转到数据库: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
@@ -6618,10 +6606,10 @@ msgid "Edit settings for %s"
 msgstr "编辑 %s 的设置"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "转到数据表"
+msgstr "转到表: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
@@ -6629,10 +6617,10 @@ msgid "Structure of %s"
 msgstr "%s 的结构"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "转到视图"
+msgstr "转到视图: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -6732,10 +6720,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:376
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "此页没有包含任何表！"
+msgstr "导入的文件没有任何数据"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -7229,10 +7216,10 @@ msgid "Event type"
 msgstr "事件类型"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "修改"
+msgstr "改为 %s"
 
 #: libraries/rte/rte_events.lib.php:422
 msgid "Execute at"
@@ -7742,7 +7729,6 @@ msgid "Current Server"
 msgstr "当前服务器"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "用户"
@@ -8037,10 +8023,9 @@ msgid "Table Search"
 msgstr "搜索"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "插入"
+msgstr "编辑/插入"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -8194,10 +8179,9 @@ msgid "General Settings"
 msgstr "常规设置"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL 连接校对"
+msgstr "服务器连接校对"
 
 #: main.php:124
 msgid "Appearance Settings"
@@ -8208,20 +8192,18 @@ msgid "More settings"
 msgstr "更多设置"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "用户数据库"
+msgstr "数据库服务器"
 
 #: main.php:172
 msgid "Software"
 msgstr ""
 
 #: main.php:173
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "查看版本"
+msgstr "软件版本"
 
 #: main.php:175
 msgid "Protocol version"
@@ -8234,20 +8216,18 @@ msgid "User"
 msgstr "用户"
 
 #: main.php:184
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "服务器套接字 (socket)"
+msgstr "服务器字符集"
 
 #: main.php:196
 msgid "Web server"
 msgstr "网站服务器"
 
 #: main.php:209
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "使用简洁版"
+msgstr "数据库客户端版本"
 
 #: main.php:213
 msgid "PHP extension"
@@ -8373,10 +8353,9 @@ msgid "No databases"
 msgstr "无数据库"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "请输入部分或完整的表名"
+msgstr "根据表名快速搜索"
 
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
@@ -8756,7 +8735,6 @@ msgid "License"
 msgstr "授权"
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
 msgstr "已禁用"
@@ -9456,10 +9434,9 @@ msgid "Related links:"
 msgstr "相关链接:"
 
 #: server_status.php:901
-#, fuzzy
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "查询分析器"
+msgstr "运行分析器"
 
 #: server_status.php:902
 #, fuzzy
