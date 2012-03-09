@@ -1533,10 +1533,9 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "日志已分析，时间段内没有数据。"
 
 #: js/messages.php:181
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "分析"
+msgstr "正在分析。。。\n"
 
 #: js/messages.php:182
 #, fuzzy
