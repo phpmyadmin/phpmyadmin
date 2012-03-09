@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 16:38+0200\n"
+"PO-Revision-Date: 2012-03-09 17:21+0200\n"
 "Last-Translator: johnnyseabra <johnnyseabra@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1626,10 +1626,9 @@ msgstr "Conjunto de caracteres"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Opções de filtragem da tabela de registro"
+msgstr "Opções de filtro da tabela de log"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
