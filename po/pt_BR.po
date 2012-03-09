@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-09 20:10+0200\n"
+"PO-Revision-Date: 2012-03-09 20:11+0200\n"
 "Last-Translator: João Seabra <johnnyseabra@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3929,6 +3929,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
+"Deixe em branco se não houver [a@http://wiki.phpmyadmin.net/pma/relation"
+"]relation-links[/a] suporte, sugestão: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:405
 #, fuzzy
