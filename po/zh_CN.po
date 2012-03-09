@@ -817,10 +817,9 @@ msgid "Enter each value in a separate field"
 msgstr "请将每个值分别输入"
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
-msgstr "+ 添加"
+msgstr "添加一个值"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
