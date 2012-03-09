@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 12:24+0200\n"
+"PO-Revision-Date: 2012-03-09 15:40+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -986,7 +986,7 @@ msgstr ""
 #: import.php:373
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "没有字符集转换库，无法转换文件字符集"
 
 #: import.php:397 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1654,7 +1654,7 @@ msgstr "可能存在的性能问题"
 
 #: js/messages.php:216
 msgid "Issue"
-msgstr ""
+msgstr "问题"
 
 #: js/messages.php:217
 msgid "Recommendation"
@@ -12410,18 +12410,17 @@ msgstr ""
 #: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "%s%% 的客户端已取消。此值不应高于 2%%"
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "导入文件的格式"
+msgstr "客户端的取消率"
 
 #: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "客户端取消率为 %s，此值应小于 1 每小时"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
@@ -12468,7 +12467,7 @@ msgstr ""
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr ""
+msgstr "您的 InnoDB 日志大小为 InnoDB 缓冲池大小的 %s%%，该值不应低于 20%%"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
@@ -12491,6 +12490,13 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"通常将 innodb_log_file_size 设置为 {innodb_buffer_pool_size} 的 25%% 已经足够。过大的 "
+"innodb_log_file_size 将会严重减慢数据库崩溃后的恢复时间。参见<a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">这篇文章</a>。您首先需要关闭服务器，移除 InnoDB 日志文件，然后在 my.cnf "
+"中设置新的值，最后启动服务器，并检查错误日志确定一切都正常。参见<a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">这篇博客</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -12530,10 +12536,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "最大并发连接数"
+msgstr "MyISAM 并发插入"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"

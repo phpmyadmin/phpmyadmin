@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 11:10+0200\n"
+"PO-Revision-Date: 2012-03-09 15:58+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -10469,6 +10469,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
+"Monitor phpMyAdmin może pomóc w optymalizacji konfiguracji serwera i "
+"wyśledzić czasochłonne zapytania. W tym ostatnim przypadku trzeba będzie "
+"ustawić log_output dla 'TABLE' i albo mają slow_query_log lub general_log "
+"włączone. Należy jednak pamiętać, że general_log produkuje duże ilości "
+"danych i zwiększa obciążenie serwera nawet o 15%"
 
 #: server_status.php:1610
 msgid ""
@@ -10477,6 +10482,10 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"Niestety serwer bazy danych nie obsługuje rejestracji do tabeli, która jest "
+"wymagana do analizy logów bazy danych za pomocą phpMyAdmin. Rejestracja do "
+"tabeli jest obsługiwana przez MySQL 5.1.6 i nowszej. Można nadal używać "
+"funkcji wykresów serwera jednak."
 
 #: server_status.php:1623
 msgid "Using the monitor:"
@@ -10488,6 +10497,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
+"Twoja przeglądarka odświeży wszystkie wyświetlane wykresy w regularnych "
+"odstępach czasu. Możesz dodawać wykresy i zmienić częstotliwość odświeżania "
+"w 'Ustawienia' lub usunąć wykres za pomocą ikony zębatki dla każdego "
+"wykresu."
 
 #: server_status.php:1627
 msgid ""
@@ -10496,6 +10509,10 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"Aby wyświetlić zapytania z dzienników, wybierz odpowiedni przedział czasowy "
+"na każdym wykresie, przytrzymując lewy przycisk myszy i przesuwanie  na "
+"wykresie. Po potwierdzeniu, to załaduje spis pogrupowanych pytań, nie można "
+"kliknąć na wszelkich występujących instrukcji SELECT do dalszych analiz."
 
 #: server_status.php:1634
 msgid "Please note:"
@@ -10508,6 +10525,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"Włączenie general_log może zwiększa obciążenie serwera o 5-15%. Również miej "
+"świadomość, że generowanie statystyk z dzienników jest obciążenie "
+"intensywne zadań, więc wskazane jest, aby wybrać tylko niewielki przedział "
+"czasowy i wyłączyć general_log i opróżnić swoją tabelę raz monitorowania nie "
+"jest wymagane."
 
 #: server_status.php:1648
 msgid "Preset chart"
@@ -12024,7 +12046,7 @@ msgstr "Dokumentacja Drizzle jest na http://docs.drizzle.org/"
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "Ciąg wersji (%s) pasuje do schematu wersjonowania drizzle"
 
 #: po/advisory_rules.php:65
 msgid "MySQL Architecture"
@@ -12178,10 +12200,13 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Pamięć podręczna jest obecnie podzielona przez %s%%, przy 100% rozumieniu "
+"fragmentacji, że zapytanie cache jest zmienny wzór bloków wolnej i "
+"wykorzystanej. Wartość ta powinna być poniżej 20%%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Okrojone zapytania cache niskiej pamięci"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12197,6 +12222,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Może chcesz zwiększyć {query_cache_size}, jednak należy pamiętać, że "
+"obciążenie związane z utrzymaniem cache prawdopodobnie wzrośnie z jego "
+"wielkością, więc to zrób w małych krokach i monitoruj wyniki."
 
 #: po/advisory_rules.php:98
 #, php-format
@@ -12204,6 +12232,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Stosunek usuniętych zapytań do wstawionych zapytań jest %s%%. Im niższa jest "
+"ta wartość, tym lepiej (Ta zasad wypalania limitu: 0,1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12252,6 +12282,15 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Zmiana {query_cache_limit} (zwykle poprzez zwiększenie) może zwiększać "
+"efektywność. Zmienna ta określa maksymalny rozmiar wyniku kwerendy która "
+"powinna być wprowadzona do zapytania pamięci podręcznej. Jeśli istnieje "
+"wiele wyników kwerendy powyżej 1MB, które są dobrze Cacheable (wiele czyta, "
+"mało pisze), a następnie zwiększenie {query_cache_limit} zwiększy "
+"efektywność. O ile w przypadku wielu wyników zapytania będących ponad 1 MB, "
+"które nie są bardzo dobrze Cacheable (często unieważnione z powodu "
+"aktualizacji tabeli) zwiększanie {query_cache_limit} może zmniejszyć "
+"wydajność."
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
@@ -12309,6 +12348,9 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Choć nie ma nic złego z dużą ilością sortowania wierszy, warto upewnić się, "
+"że pytania, które wymagają dużego sortowania używać indeksowanych kolumn w "
+"klauzuli ORDER BY, gdyż spowoduje to znacznie szybsze sortowanie"
 
 #: po/advisory_rules.php:123
 #, php-format
@@ -12317,7 +12359,7 @@ msgstr "Sortuj średnie wiersze: %s"
 
 #: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"
-msgstr ""
+msgstr "Stawka dołączania bez indeksów"
 
 #: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
@@ -12328,19 +12370,24 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Oznacza to, że dołącza do robienia pełne skanowanie tabeli. Dodawanie "
+"indeksów dla kolumn jest używane w sprzężeniu warunkach znacznie "
+"przyspieszyć tabeli dołącza do"
 
 #: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tabela dołącza średnią: %s, wartość ta powinna być mniejsza niż 1 na godzinę"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
 msgstr ""
+"Tabela dołącza średnią: %s, wartość ta powinna być mniejsza niż 1 na godzinę"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Wskaźnik odczytania pierwszego wpisu indeksu jest wysoki."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12351,19 +12398,26 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Zwykle oznacza to częste pełne skanowanie indeksu. Pełne skanowanie indeksu "
+"jest szybsze niż skanowanie tabeli, ale wymaga wiele cykli procesora w "
+"dużych tabelach, jeśli te tabele, które mają lub miały duże ilości "
+"aktualizacji i kasowania, uruchomiono 'OPTIMIZE TABLE\" może zmniejszyć ilość "
+"i/lub przyspieszyć pełne skanowanie indeksu. Innych niż tego pełnego "
+"skanowania indeksu może zostać obniżona o przepisanie zapytania."
 
 #: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Indeks skanuje średnią: %s, wartość ta powinna być mniejsza niż 1 na godzinę"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Stawka czytania stałej pozycji"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Tempo odczytu danych z ustalonej pozycji jest wysokie."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12371,6 +12425,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Oznacza to, że wiele zapytań potrzebują wyników sortowania i/lub wykonać "
+"pełny skan tabeli, w tym połączyć pytania które nie korzystają z indeksów. "
+"Dodaj indeksy w stosownych przypadkach."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12378,34 +12435,40 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Stawka odczytu stałej średniej pozycji: %s, wartość ta powinna być mniejsza "
+"niż 1 na godzinę"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
-msgstr ""
+msgstr "Stawka odczytu następnego wiersza tabeli"
 
 #: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
-msgstr ""
+msgstr "Tempo odczytu kolejnego wiersza tabeli jest wysokie."
 
 #: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Oznacza to, że wiele zapytań robi pełne skanowanie tabeli. Dodaj indeksy w "
+"stosownych przypadkach."
 
 #: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Stawka odczytu następnego wiersza tabeli: %s, wartość ta powinna być "
+"mniejsza niż 1 na godzinę"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size vs. max_heap_table_size"
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size i max_heap_table_size nie są takie same."
 
 #: po/advisory_rules.php:147
 msgid ""
@@ -12414,6 +12477,9 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Jeśli celowo zmieniłeś jedną z następujących wartości: Serwer używa niższą "
+"wartość albo określa maksymalną wielkość w pamięci tabel. Więc jeśli chcesz "
+"zwiększyć w pamięci limitu tabeli trzeba będzie zwiększyć inną wartość."
 
 #: po/advisory_rules.php:148
 #, php-format
@@ -12442,6 +12508,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Zwiększenie {max_heap_table_size} i {tmp_table_size} może pomóc. Jednak "
+"niektóre tabele tymczasowe zawsze są zapisywane na dysku, niezależnie od "
+"wartości tych zmiennych. Aby wyeliminować te trzeba będzie przepisać "
+"zapytania, aby uniknąć tych warunków (w obrębie tabeli tymczasowej: Obecność "
+"kolumny BLOB lub TEXT lub obecności kolumny większego niż 512 bajtów), jak "
+"wspomniano na początku <a href=\"http://www.facebook.com/note.php?note_id=101"
+"50111255065841&comments\">Artykuł wg Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12449,10 +12522,12 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% wszystkich tabel tymczasowych są zapisywane na dysku, wartość ta "
+"powinna być poniżej 25%%"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
-msgstr ""
+msgstr "Szybkość dysku tymczasowego"
 
 #: po/advisory_rules.php:157
 msgid ""
@@ -12464,6 +12539,13 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Zwiększenie {max_heap_table_size} i {tmp_table_size} może pomóc. Jednak "
+"niektóre tabele tymczasowe zawsze są zapisywane na dysku, niezależnie od "
+"wartości tych zmiennych. Aby wyeliminować te trzeba będzie przepisać "
+"zapytania, aby uniknąć tych warunków (w obrębie tabeli tymczasowej: Obecność "
+"kolumny BLOB lub TEXT lub obecności kolumny większej niż 512 bajtów) Jak "
+"wspomniano w <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"temporary-tables.html\">Dokumentacji MySQL</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12471,6 +12553,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Stawka tabel tymczasowych zapisywanych na dysku: %s, wartość ta powinna być "
+"mniejsza niż 1 na godzinę"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12478,22 +12562,24 @@ msgstr "Rozmiar bufora klucza MyISAM"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
+msgstr "Klucz bufora nie jest inicjowany. Brak indeksów MyISAM będą buforowane."
 
 #: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Ustaw {key_buffer_size} w zależności od wielkości indeksów MyISAM. 64M to "
+"dobry początek."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size to 0"
 
 #: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr ""
+msgstr "Maks. bufor klucza %% MyISAM kiedykolwiek"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
@@ -12506,6 +12592,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Być może trzeba zmniejszyć rozmiar {key_buffer_size}, ponownie przeanalizuje "
+"tabele, czy indeksy zostały usunięte, lub zbadać zapytania i oczekiwania "
+"dotyczące tego, co indeksy są używane."
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12515,7 +12604,7 @@ msgstr ""
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
-msgstr ""
+msgstr "Procent MyISAM klucza używanego bufora"
 
 #: po/advisory_rules.php:173
 #, php-format
@@ -12533,7 +12622,7 @@ msgstr ""
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Być może trzeba zwiększyć {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
@@ -12553,6 +12642,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Otwieranie tabel wymaga dysk I/O, która jest kosztowna. Zwiększenie "
+"{table_open_cache} może tego uniknąć."
 
 #: po/advisory_rules.php:183
 #, php-format
