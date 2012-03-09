@@ -8023,10 +8023,9 @@ msgid "Table Search"
 msgstr "搜索"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "插入"
+msgstr "编辑/插入"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
