@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 15:02+0200\n"
+"PO-Revision-Date: 2012-03-09 15:03+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12046,7 +12046,7 @@ msgstr "Dokumentacja Drizzle jest na http://docs.drizzle.org/"
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "Ciąg wersji (%s) pasuje do schematu wersjonowania drizzle"
 
 #: po/advisory_rules.php:65
 msgid "MySQL Architecture"
