@@ -12278,7 +12278,7 @@ msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Λιγότερο από το 80%% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
 
 #: po/advisory_rules.php:87
 msgid ""
