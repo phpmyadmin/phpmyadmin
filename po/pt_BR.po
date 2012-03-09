@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 20:09+0200\n"
+"PO-Revision-Date: 2012-03-09 20:10+0200\n"
 "Last-Translator: João Seabra <johnnyseabra@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4848,16 +4848,14 @@ msgid "PDF schema: pages table"
 msgstr "Esquema tabelas em Páginas PDF"
 
 #: libraries/config/messages.inc.php:412
-#, fuzzy
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
-"Nome do Banco de Dados usado para relações, marcações e configurações PDF. "
-"Veja [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] para informação "
-"completa. Deixe em branco se não houver suporte. Sugestão: [kbd]phpmyadmin[/"
-"kbd]"
+"Banco de Dados usado para relações, marcações e funcionalidades PDF. Veja "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] para informação completa. "
+"Deixe em branco se não houver suporte. Sugestão: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "Database name"
