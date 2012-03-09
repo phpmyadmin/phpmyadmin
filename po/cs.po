@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-08 16:54+0200\n"
+"PO-Revision-Date: 2012-03-09 22:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6994,7 +6994,6 @@ msgid "not OK"
 msgstr "není v pořádku"
 
 #: libraries/relation.lib.php:80
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
