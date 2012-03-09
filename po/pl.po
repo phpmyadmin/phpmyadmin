@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 15:09+0200\n"
+"PO-Revision-Date: 2012-03-09 15:11+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12222,6 +12222,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Może chcesz zwiększyć {query_cache_size}, jednak należy pamiętać, że "
+"obciążenie związane z utrzymaniem cache prawdopodobnie wzrośnie z jego "
+"wielkością, więc to zrób w małych krokach i monitoruj wyniki."
 
 #: po/advisory_rules.php:98
 #, php-format
