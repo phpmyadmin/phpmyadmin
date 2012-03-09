@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 07:55+0200\n"
+"PO-Revision-Date: 2012-03-09 07:57+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12285,6 +12285,8 @@ msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Αυτό μπορεί να οφείλεται στο ότι το {query_cache_limit} είναι πολύ χαμηλό. Η "
+"εκκαθάριση της λανθάνουσας μνήμης ερωτήματος μπορεί επίσης να βοηθήσει."
 
 #: po/advisory_rules.php:88
 #, php-format
