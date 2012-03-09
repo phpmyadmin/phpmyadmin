@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-02-28 18:33+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2012-03-08 18:37+0200\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -813,7 +813,6 @@ msgid "ENUM/SET editor"
 msgstr "Editor di ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:268
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Valori per un nuovo campo"
@@ -828,7 +827,6 @@ msgid "Enter each value in a separate field"
 msgstr "Inserisci ogni valore in un campo separato"
 
 #: enum_editor.php:123
-#, fuzzy
 #| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Aggiungi un valore"
@@ -955,7 +953,6 @@ msgid "Polygon"
 msgstr "Poligono"
 
 #: gis_data_editor.php:306 js/messages.php:328
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
 msgstr "Aggiungi un poligono"
@@ -1283,19 +1280,16 @@ msgstr ""
 "iniziali nel menù <i>Settings</i>."
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Efficienza della cache delle query"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Utilizzo della cache delle query"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Cache delle query utilizzata"
@@ -1329,13 +1323,11 @@ msgid "Average load"
 msgstr "Carico medio"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
 msgstr "Memoria totale"
 
 #: js/messages.php:109
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
 msgstr "Memoria cached"
@@ -1347,19 +1339,16 @@ msgid "Buffered memory"
 msgstr "Memoria buffer"
 
 #: js/messages.php:111
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
 msgstr "Memoria libera"
 
 #: js/messages.php:112
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
 msgstr "Memoria utilizzata"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
 msgstr "Swap totale"
@@ -1373,7 +1362,6 @@ msgid "Used Swap"
 msgstr "Swap utilizzata"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Swap libera"
@@ -1383,7 +1371,6 @@ msgid "Bytes sent"
 msgstr "Byte inviati"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Byte ricevuti"
@@ -1469,7 +1456,6 @@ msgid "Pause monitor"
 msgstr "Arresta il monitoraggio"
 
 #: js/messages.php:147
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log e slow_query_log sono abilitati."
@@ -1483,7 +1469,6 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log é abilitato."
 
 #: js/messages.php:150
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log e general_log sono disabilitati."
@@ -5118,7 +5103,6 @@ msgid "Automatically create versions"
 msgstr "Crea versioni automaticamente"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "blank for no user preferences storage in database, suggested: d]_config[/"
 #| "kbd]"
@@ -5127,7 +5111,7 @@ msgid ""
 "pma_userconfig[/kbd]"
 msgstr ""
 "Lascia vuoto per disabilitare la memorizzazione delle preferenze degli "
-"utenti nel database, consigliato: [kbd]pma_config[/kbd]"
+"utenti nel database, consigliato: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
