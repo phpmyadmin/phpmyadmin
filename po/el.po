@@ -12257,6 +12257,8 @@ msgstr "Απόδοση λανθάνουσας μνήμης ερωτήματος 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"Η λανθάνουσα μνήμη ερωτήματος δεν λειτουργεί σωστά, έχει χαμηλό βαθμό "
+"απόδοσης."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
