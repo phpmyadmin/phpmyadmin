@@ -1721,7 +1721,6 @@ msgid "Recommendation"
 msgstr "Recomendações"
 
 #: js/messages.php:222
-#, fuzzy
 #| msgid "Details"
 msgid "Rule details"
 msgstr "Detalhes da regra"
