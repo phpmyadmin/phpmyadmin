@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 02:41+0200\n"
+"PO-Revision-Date: 2012-03-09 02:42+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -850,10 +850,9 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: export.php:106
-#, fuzzy
 #| msgid "Remove database"
 msgid "Bad parameters!"
-msgstr "డేటాబేస్ తొలగించండి"
+msgstr "చెల్లని పరామితులు!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
