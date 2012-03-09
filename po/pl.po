@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 15:55+0200\n"
+"PO-Revision-Date: 2012-03-09 15:56+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12592,6 +12592,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Być może trzeba zmniejszyć rozmiar {key_buffer_size}, ponownie przeanalizuje "
+"tabele, czy indeksy zostały usunięte, lub zbadać zapytania i oczekiwania "
+"dotyczące tego, co indeksy są używane."
 
 #: po/advisory_rules.php:168
 #, php-format
