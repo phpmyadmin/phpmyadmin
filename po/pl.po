@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-09 22:33+0200\n"
+"PO-Revision-Date: 2012-03-09 22:35+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12644,6 +12644,8 @@ msgstr ""
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Wskaźnik otwartej tabeli: %s, wartość ta powinna być mniejsza niż 10 na "
+"godzinę"
 
 #: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
