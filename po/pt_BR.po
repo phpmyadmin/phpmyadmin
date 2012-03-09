@@ -4719,9 +4719,8 @@ msgid "Hostname where MySQL server is running"
 msgstr "Servidor onde o MYSQL está rodando"
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 msgid "Server hostname"
-msgstr "nome do servidor"
+msgstr "Nome do servidor (hostname)"
 
 #: libraries/config/messages.inc.php:401
 msgid "Logout URL"
