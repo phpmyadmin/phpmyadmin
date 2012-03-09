@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 11:54+0200\n"
+"PO-Revision-Date: 2012-03-09 11:56+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1623,10 +1623,9 @@ msgid "Affected rows:"
 msgstr "影响的行数: "
 
 #: js/messages.php:206
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码"
+msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码。"
 
 #: js/messages.php:207
 msgid ""
