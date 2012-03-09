@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 12:05+0200\n"
+"PO-Revision-Date: 2012-03-09 12:06+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -7864,10 +7864,9 @@ msgid "Table Search"
 msgstr "搜索"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1032
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "插入"
+msgstr "编辑/插入"
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
