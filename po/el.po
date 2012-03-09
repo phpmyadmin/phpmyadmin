@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 08:25+0200\n"
+"PO-Revision-Date: 2012-03-09 08:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12577,6 +12577,8 @@ msgstr "Ελάχιστο μέγεθος λανθάνουσας μνήμης ερ
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"Το μέγιστο μέγεθος του συνόλου αποτελεσμάτων στη λανθάνουσα μνήμη ερωτήματος "
+"είναι η προεπιλογή του 1ΜΒ."
 
 #: po/advisory_rules.php:107
 msgid ""
