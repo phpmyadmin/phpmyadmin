@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 15:53+0200\n"
+"PO-Revision-Date: 2012-03-09 15:55+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12750,7 +12750,7 @@ msgstr "key_buffer_size to 0"
 #: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr ""
+msgstr "Maks. bufor klucza %% MyISAM kiedykolwiek"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
