@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 17:23+0200\n"
+"PO-Revision-Date: 2012-03-09 17:24+0200\n"
 "Last-Translator: johnnyseabra <johnnyseabra@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -4769,7 +4769,6 @@ msgid "Hide databases"
 msgstr "Ocultar bancos de dados"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
