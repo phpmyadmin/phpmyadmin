@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 15:19+0200\n"
+"PO-Revision-Date: 2012-03-09 15:21+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12348,6 +12348,9 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Choć nie ma nic złego z dużą ilością sortowania wierszy, warto upewnić się, "
+"że pytania, które wymagają dużego sortowania używać indeksowanych kolumn w "
+"klauzuli ORDER BY, gdyż spowoduje to znacznie szybsze sortowanie"
 
 #: po/advisory_rules.php:123
 #, php-format
