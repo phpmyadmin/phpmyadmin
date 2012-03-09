@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 07:53+0200\n"
+"PO-Revision-Date: 2012-03-09 07:55+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12439,6 +12439,8 @@ msgstr "Σκεφτείτε την αύξηση {query_cache_limit}."
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
+"Ο τρέχων βαθμός απόδοσης της λανθάνουσας μνήμης ερωτήματος του %s%% είναι "
+"κάτω από 20%%"
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
