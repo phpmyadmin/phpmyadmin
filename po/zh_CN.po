@@ -6432,10 +6432,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "请通过点击 \"结构\" 链接来编辑结构"
 
 #: libraries/import.lib.php:1112
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "转到数据库"
+msgstr "转到数据库: %s"
 
 #: libraries/import.lib.php:1115 libraries/import.lib.php:1138
 #, php-format
