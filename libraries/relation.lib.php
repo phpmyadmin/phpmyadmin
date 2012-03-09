@@ -77,7 +77,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
                    . '</strong></font> [ <a href="Documentation.html#%s" target="documentation">'
                    . __('Documentation') . '</a> ]';
 
-    $messages['ok'] = '<font color="green"><strong>' .  _pgettext('Correctly setup', 'OK') . '</strong></font>';
+    $messages['ok'] = '<font color="green"><strong>' .  _pgettext('Correctly working', 'OK') . '</strong></font>';
     $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
