@@ -12216,6 +12216,7 @@ msgstr ""
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"Το query_cache_size ορίστηκε σε 0 ή το query_cache_type ορίστηκε σε «OFF»"
 
 #: po/advisory_rules.php:75
 msgid "Query caching method"
