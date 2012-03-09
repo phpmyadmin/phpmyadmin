@@ -8192,10 +8192,9 @@ msgid "More settings"
 msgstr "更多设置"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "用户数据库"
+msgstr "数据库服务器"
 
 #: main.php:172
 msgid "Software"
