@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2011-07-24 19:04+0200\n"
 "Last-Translator: <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -1799,9 +1799,9 @@ msgstr "काँलम गिराना"
 msgid "Adding Primary Key"
 msgstr "प्राथमिक कुंजी जोड़"
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "ठीक है"
 
@@ -7007,6 +7007,13 @@ msgstr "इस प्रारूप के कोई विकल्प नह�
 #: libraries/relation.lib.php:76
 msgid "not OK"
 msgstr "ठीक नहीं है"
+
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "ठीक है"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
@@ -12775,6 +12782,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "ठीक है"
 
 #, fuzzy
 #~ msgid "All users"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2012-03-08 15:03+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
@@ -1744,9 +1744,9 @@ msgstr "Šalinamas stulpelis"
 msgid "Adding Primary Key"
 msgstr "Pridedamas pirminis raktas"
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "Gerai"
 
@@ -6981,6 +6981,13 @@ msgstr "Šis formatas neturi nustatymų"
 #: libraries/relation.lib.php:76
 msgid "not OK"
 msgstr "Negerai"
+
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "Gerai"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
@@ -12772,6 +12779,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "Gerai"
 
 #, fuzzy
 #~ msgid "All users"

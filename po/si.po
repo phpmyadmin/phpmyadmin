@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2012-03-01 18:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -1706,9 +1706,9 @@ msgstr "තීරුව හලමින්"
 msgid "Adding Primary Key"
 msgstr "ප්‍රාථමික මූලය එක් කරමින්"
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "OK"
 
@@ -6848,6 +6848,13 @@ msgstr "මෙම ආකෘතියේ ආකෘති-විශේෂී ත�
 #: libraries/relation.lib.php:76
 msgid "not OK"
 msgstr "OK නැත"
+
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "OK"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
@@ -12768,6 +12775,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #, fuzzy
 #~ msgid "All users"

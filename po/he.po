@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2011-03-02 20:17+0200\n"
 "Last-Translator: <zippoxer@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
@@ -1803,9 +1803,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "אישור"
 
@@ -7135,6 +7135,13 @@ msgstr "לתבנית זאת אין אפשרויות"
 #: libraries/relation.lib.php:76
 msgid "not OK"
 msgstr "לא בסדר"
+
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "אישור"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
@@ -12892,6 +12899,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "אישור"
 
 #, fuzzy
 #~ msgid "All users"

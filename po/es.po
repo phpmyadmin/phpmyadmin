@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2012-03-08 19:12+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -1736,9 +1736,9 @@ msgstr "Eliminando Columna"
 msgid "Adding Primary Key"
 msgstr "Añadiendo Clave Primaria"
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "OK"
 
@@ -7140,6 +7140,13 @@ msgstr "Este formato no tiene opciones"
 msgid "not OK"
 msgstr "no recibió el OK"
 
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "OK"
+
 #: libraries/relation.lib.php:81
 msgid "Enabled"
 msgstr "Habilitado"
@@ -9269,7 +9276,6 @@ msgid "Revoke"
 msgstr "Revocar"
 
 #: server_privileges.php:1494
-#| msgid "Export"
 msgid "Export all"
 msgstr "Exportar todo"
 
@@ -9279,7 +9285,6 @@ msgid "Any"
 msgstr "cualquiera"
 
 #: server_privileges.php:1593
-#| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "Privilegios para todos los usuarios"
 
@@ -13260,6 +13265,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #, fuzzy
 #~ msgid "All users"

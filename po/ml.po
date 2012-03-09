@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2011-09-27 08:42+0200\n"
 "Last-Translator: <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
@@ -1673,9 +1673,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr ""
 
@@ -6643,6 +6643,11 @@ msgstr ""
 
 #: libraries/relation.lib.php:76
 msgid "not OK"
+msgstr ""
+
+#: libraries/relation.lib.php:80
+msgctxt "Correctly working"
+msgid "OK"
 msgstr ""
 
 #: libraries/relation.lib.php:81

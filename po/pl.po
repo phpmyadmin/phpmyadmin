@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2012-03-09 15:58+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
@@ -1726,9 +1726,9 @@ msgstr "Usuwanie Kolumny"
 msgid "Adding Primary Key"
 msgstr "Dodawanie klucza głównego"
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "OK"
 
@@ -2016,7 +2016,6 @@ msgid ", latest stable version:"
 msgstr ", ostatnia stabilna wersja:"
 
 #: js/messages.php:363
-#| msgid "Jump to database"
 msgid "up to date"
 msgstr "aktualna"
 
@@ -7062,6 +7061,13 @@ msgstr "Ten format nie ma żadnych opcji"
 msgid "not OK"
 msgstr "nie OK"
 
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "OK"
+
 #: libraries/relation.lib.php:81
 msgid "Enabled"
 msgstr "Włączone"
@@ -7553,12 +7559,10 @@ msgid "Trigger %1$s has been created."
 msgstr "Tabela %1$s została utworzona."
 
 #: libraries/rte/rte_triggers.lib.php:161
-#| msgid "Edit server"
 msgid "Edit trigger"
 msgstr "Edytuj wyzwalacz"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#| msgid "Triggers"
 msgid "Trigger name"
 msgstr "Nazwa wyzwalacza"
 
@@ -7619,28 +7623,23 @@ msgstr "Dodaj wyzwalacz"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
-#| msgid "Export contents"
 msgid "Export of trigger %s"
 msgstr "Eksport wyzwalacza %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#| msgid "Triggers"
 msgid "trigger"
 msgstr "wyzwalacz"
 
 #: libraries/rte/rte_words.lib.php:34
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Nie masz wystarczających uprawnień aby utworzyć wyzwalacz"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
-#| msgid "No tables found in database"
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Nie znaleziono wyzwalacza %1$s w bazie danych %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
-#| msgid "There are no files to upload"
 msgid "There are no triggers to display."
 msgstr "Brak wyzwalaczy"
 
@@ -9171,7 +9170,6 @@ msgid "Revoke"
 msgstr "Cofnij"
 
 #: server_privileges.php:1494
-#| msgid "Export"
 msgid "Export all"
 msgstr "Eksport wszystkiego"
 
@@ -9181,7 +9179,6 @@ msgid "Any"
 msgstr "Dowolny"
 
 #: server_privileges.php:1593
-#| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "Uprawnienia dla wszystkich użytkowników"
 
@@ -10499,8 +10496,7 @@ msgid ""
 msgstr ""
 "Twoja przeglądarka odświeży wszystkie wyświetlane wykresy w regularnych "
 "odstępach czasu. Możesz dodawać wykresy i zmienić częstotliwość odświeżania "
-"w 'Ustawienia' lub usunąć wykres za pomocą ikony zębatki dla każdego "
-"wykresu."
+"w 'Ustawienia' lub usunąć wykres za pomocą ikony zębatki dla każdego wykresu."
 
 #: server_status.php:1627
 msgid ""
@@ -10526,10 +10522,10 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 "Włączenie general_log może zwiększa obciążenie serwera o 5-15%. Również miej "
-"świadomość, że generowanie statystyk z dzienników jest obciążenie "
-"intensywne zadań, więc wskazane jest, aby wybrać tylko niewielki przedział "
-"czasowy i wyłączyć general_log i opróżnić swoją tabelę raz monitorowania nie "
-"jest wymagane."
+"świadomość, że generowanie statystyk z dzienników jest obciążenie intensywne "
+"zadań, więc wskazane jest, aby wybrać tylko niewielki przedział czasowy i "
+"wyłączyć general_log i opróżnić swoją tabelę raz monitorowania nie jest "
+"wymagane."
 
 #: server_status.php:1648
 msgid "Preset chart"
@@ -11175,7 +11171,6 @@ msgid "Continue insertion with %s rows"
 msgstr "Kontynuuj wstawianie %s wierszy"
 
 #: tbl_chart.php:89
-#| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Słupkowy"
@@ -11196,7 +11191,6 @@ msgid "Spline"
 msgstr "Klin"
 
 #: tbl_chart.php:97
-#| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Kołowy"
@@ -12401,8 +12395,8 @@ msgstr ""
 "Zwykle oznacza to częste pełne skanowanie indeksu. Pełne skanowanie indeksu "
 "jest szybsze niż skanowanie tabeli, ale wymaga wiele cykli procesora w "
 "dużych tabelach, jeśli te tabele, które mają lub miały duże ilości "
-"aktualizacji i kasowania, uruchomiono 'OPTIMIZE TABLE\" może zmniejszyć ilość "
-"i/lub przyspieszyć pełne skanowanie indeksu. Innych niż tego pełnego "
+"aktualizacji i kasowania, uruchomiono 'OPTIMIZE TABLE\" może zmniejszyć "
+"ilość i/lub przyspieszyć pełne skanowanie indeksu. Innych niż tego pełnego "
 "skanowania indeksu może zostać obniżona o przepisanie zapytania."
 
 #: po/advisory_rules.php:133
@@ -12513,8 +12507,8 @@ msgstr ""
 "wartości tych zmiennych. Aby wyeliminować te trzeba będzie przepisać "
 "zapytania, aby uniknąć tych warunków (w obrębie tabeli tymczasowej: Obecność "
 "kolumny BLOB lub TEXT lub obecności kolumny większego niż 512 bajtów), jak "
-"wspomniano na początku <a href=\"http://www.facebook.com/note.php?note_id=101"
-"50111255065841&comments\">Artykuł wg Pythian Group</a>"
+"wspomniano na początku <a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Artykuł wg Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12562,7 +12556,8 @@ msgstr "Rozmiar bufora klucza MyISAM"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr "Klucz bufora nie jest inicjowany. Brak indeksów MyISAM będą buforowane."
+msgstr ""
+"Klucz bufora nie jest inicjowany. Brak indeksów MyISAM będą buforowane."
 
 #: po/advisory_rules.php:162
 msgid ""
@@ -12803,8 +12798,7 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
-"Maksymalna ilość zużytych połączeń jest zbliżona do wartości "
-"max_connections."
+"Maksymalna ilość zużytych połączeń jest zbliżona do wartości max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
@@ -13029,6 +13023,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert jest ustawiony na 0"
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #, fuzzy
 #~ msgid "All users"

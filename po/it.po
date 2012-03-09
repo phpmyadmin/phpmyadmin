@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2012-03-08 18:37+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -800,7 +800,6 @@ msgid "ENUM/SET editor"
 msgstr "Editor di ENUM/SET"
 
 #: enum_editor.php:28 js/messages.php:264
-#| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
 msgstr "Valori per un nuovo campo"
 
@@ -814,7 +813,6 @@ msgid "Enter each value in a separate field"
 msgstr "Inserisci ogni valore in un campo separato"
 
 #: enum_editor.php:123
-#| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "Aggiungi un valore"
 
@@ -940,7 +938,6 @@ msgid "Polygon"
 msgstr "Poligono"
 
 #: gis_data_editor.php:306 js/messages.php:324
-#| msgid "Add column"
 msgid "Add a polygon"
 msgstr "Aggiungi un poligono"
 
@@ -1257,17 +1254,14 @@ msgstr ""
 "iniziali nel menù <i>Settings</i>."
 
 #: js/messages.php:93
-#| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Efficienza della cache delle query"
 
 #: js/messages.php:94
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Utilizzo della cache delle query"
 
 #: js/messages.php:95
-#| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Cache delle query utilizzata"
 
@@ -1300,12 +1294,10 @@ msgid "Average load"
 msgstr "Carico medio"
 
 #: js/messages.php:104
-#| msgid "System memory"
 msgid "Total memory"
 msgstr "Memoria totale"
 
 #: js/messages.php:105
-#| msgid "System memory"
 msgid "Cached memory"
 msgstr "Memoria cached"
 
@@ -1316,17 +1308,14 @@ msgid "Buffered memory"
 msgstr "Memoria buffer"
 
 #: js/messages.php:107
-#| msgid "System memory"
 msgid "Free memory"
 msgstr "Memoria libera"
 
 #: js/messages.php:108
-#| msgid "System memory"
 msgid "Used memory"
 msgstr "Memoria utilizzata"
 
 #: js/messages.php:110
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Swap totale"
 
@@ -1339,7 +1328,6 @@ msgid "Used Swap"
 msgstr "Swap utilizzata"
 
 #: js/messages.php:113
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Swap libera"
 
@@ -1348,7 +1336,6 @@ msgid "Bytes sent"
 msgstr "Byte inviati"
 
 #: js/messages.php:116
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "Byte ricevuti"
 
@@ -1433,7 +1420,6 @@ msgid "Pause monitor"
 msgstr "Arresta il monitoraggio"
 
 #: js/messages.php:143
-#| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log e slow_query_log sono abilitati."
 
@@ -1446,7 +1432,6 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log é abilitato."
 
 #: js/messages.php:146
-#| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log e general_log sono disabilitati."
 
@@ -1767,9 +1752,9 @@ msgstr "Eliminazione Campo"
 msgid "Adding Primary Key"
 msgstr "Creazione chiave primaria"
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "OK"
 
@@ -5036,9 +5021,6 @@ msgid "Automatically create versions"
 msgstr "Crea versioni automaticamente"
 
 #: libraries/config/messages.inc.php:447
-#| msgid ""
-#| "blank for no user preferences storage in database, suggested: d]_config[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -7174,6 +7156,13 @@ msgstr "Questo formato non ha opzioni"
 #: libraries/relation.lib.php:76
 msgid "not OK"
 msgstr "non OK"
+
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "OK"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
@@ -13178,6 +13167,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #, fuzzy
 #~ msgid "All users"

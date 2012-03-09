@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2012-03-09 08:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -1730,9 +1730,9 @@ msgstr "Διαγραφή Στήλης"
 msgid "Adding Primary Key"
 msgstr "Προσθήκη Πρωτεύοντος Κλειδιού"
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "Εντάξει"
 
@@ -7101,6 +7101,13 @@ msgstr "Αυτή η μορφή δεν έχει επιλογές"
 msgid "not OK"
 msgstr "άκυρο"
 
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "Εντάξει"
+
 #: libraries/relation.lib.php:81
 msgid "Enabled"
 msgstr "Ενεργοποιημένη"
@@ -12235,9 +12242,9 @@ msgid ""
 msgstr ""
 "Χρησιμοποιείτε τη λανθάνουσα μνήμη Ερωτήματος της MySQL σε μια βάση "
 "δεδομένων με μεγάλη κυκλοφορία. Ίσως πρέπει να σκεφτείτε να χρησιμοποιήσετε "
-"το <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\">memcached</a> αντί της λανθάνουσας μνήμης Ερωτήματος της "
-"MySQL, ειδικά αν έχετε πολλούς δευτερεύοντες."
+"το <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html"
+"\">memcached</a> αντί της λανθάνουσας μνήμης Ερωτήματος της MySQL, ειδικά αν "
+"έχετε πολλούς δευτερεύοντες."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12278,7 +12285,8 @@ msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr "Λιγότερο από το 80%% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
+msgstr ""
+"Λιγότερο από το 80%% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
 
 #: po/advisory_rules.php:87
 msgid ""
@@ -12369,8 +12377,8 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Ο βαθμός απομακρυσμένων ερωτημάτων προς τα εισερχόμενα ερωτήματα είναι %s%%. "
-"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: 0,1"
-"%%)"
+"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: "
+"0,1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -13068,6 +13076,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "Εντάξει"
 
 #, fuzzy
 #~ msgid "All users"

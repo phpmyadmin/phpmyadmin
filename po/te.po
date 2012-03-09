@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2012-03-09 02:43+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -131,7 +131,6 @@ msgstr "పట్టిక వ్యాఖ్యలు"
 #: tbl_change.php:337 tbl_indexes.php:213 tbl_printview.php:136
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:419
-#| msgid "Command"
 msgid "Column"
 msgstr "వరుస"
 
@@ -817,7 +816,6 @@ msgstr ""
 
 #: enum_editor.php:30 js/messages.php:263
 #, php-format
-#| msgid "Add/Delete columns"
 msgid "Values for column %s"
 msgstr "%s నిలువు వరుసకు విలువలు"
 
@@ -827,7 +825,6 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: enum_editor.php:123
-#| msgid "Add a new User"
 msgid "Add a value"
 msgstr "విలువను చేర్చు"
 
@@ -840,7 +837,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "తప్పు రకం!"
 
@@ -850,7 +846,6 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: export.php:106
-#| msgid "Remove database"
 msgid "Bad parameters!"
 msgstr "చెల్లని పరామితులు!"
 
@@ -876,7 +871,6 @@ msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "చెల్లని ఎగుమతి రకం"
 
@@ -921,7 +915,6 @@ msgstr ""
 # మొదటి అనువాదము
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:322
-#| msgid "Add into comments"
 msgid "Add a point"
 msgstr "బిందువును చేర్చు"
 
@@ -1775,9 +1768,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "సరే"
 
@@ -6896,6 +6889,13 @@ msgstr ""
 #: libraries/relation.lib.php:76
 msgid "not OK"
 msgstr ""
+
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "సరే"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
@@ -12509,6 +12509,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "సరే"
 
 # మొదటి అనువాదము
 #, fuzzy

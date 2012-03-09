@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 17:06+0100\n"
+"POT-Creation-Date: 2012-03-09 16:09+0100\n"
 "PO-Revision-Date: 2012-03-09 15:40+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -794,17 +794,14 @@ msgstr "新字段的值"
 
 #: enum_editor.php:30 js/messages.php:263
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "字段 %s 的值"
 
 #: enum_editor.php:34 js/messages.php:265
-#| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "请将每个值分别输入"
 
 #: enum_editor.php:123
-#| msgid "+ Add a value"
 msgid "Add a value"
 msgstr "添加一个值"
 
@@ -855,7 +852,6 @@ msgstr "导出类型无效"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "字段 %s 的值"
 
@@ -1073,7 +1069,6 @@ msgid "This is not a number!"
 msgstr "这不是一个数字！"
 
 #: js/messages.php:42
-#| msgid "Add index"
 msgid "Add Index"
 msgstr "添加索引"
 
@@ -1482,7 +1477,6 @@ msgstr "差异"
 
 #: js/messages.php:167
 #, php-format
-#| msgid "Divided by %s:"
 msgid "Divided by %s"
 msgstr "除以 %s"
 
@@ -1533,7 +1527,6 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "日志已分析，时间段内没有数据。"
 
 #: js/messages.php:181
-#| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "正在分析。。。"
 
@@ -1623,7 +1616,6 @@ msgid "Affected rows:"
 msgstr "影响的行数: "
 
 #: js/messages.php:206
-#| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码。"
 
@@ -1704,9 +1696,9 @@ msgstr "正在删除字段"
 msgid "Adding Primary Key"
 msgstr "正在添加主键"
 
-#: js/messages.php:234 libraries/relation.lib.php:80 pmd_general.php:380
-#: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
-#: pmd_general.php:715 pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
+#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
+#: pmd_general.php:778
 msgid "OK"
 msgstr "确定"
 
@@ -1772,7 +1764,6 @@ msgstr "函数定义中必须包含 RETURN 语句！"
 
 #: js/messages.php:266
 #, php-format
-#| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "添加 %d 个值"
 
@@ -4801,9 +4792,6 @@ msgid "Automatically create versions"
 msgstr "自动创建版本"
 
 #: libraries/config/messages.inc.php:447
-#| msgid ""
-#| "ve blank for no user preferences storage in database, suggested: [kbd]"
-#| "_config[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -4897,7 +4885,6 @@ msgid "Whether to show hint or not"
 msgstr "是否显示提示"
 
 #: libraries/config/messages.inc.php:467
-#| msgid "Show indexes"
 msgid "Show hint"
 msgstr "显示提示"
 
@@ -5227,7 +5214,6 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
 msgstr "无法连接到 Drizzle 服务器"
 
@@ -5282,7 +5268,6 @@ msgid ""
 msgstr "服务器无响应(或者本地 MySQL 服务器的套接字没有正确配置)"
 
 #: libraries/database_interface.lib.php:1816
-#| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "服务器没有响应。"
 
@@ -5716,7 +5701,6 @@ msgid "Show BLOB contents"
 msgstr "显示 BLOB 内容"
 
 #: libraries/display_tbl.lib.php:687
-#| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "隐藏浏览器转换"
 
@@ -6259,13 +6243,11 @@ msgid "Add statements:"
 msgstr "添加语句："
 
 #: libraries/export/sql.php:211
-#| msgid ""
-#| "lose table and field names with backquotes <i>(Protects field and le "
-#| "names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
-msgstr "给表和字段名加上反引号 <i>(保护名称中含有特殊字符或保留字的字段和表)</i>"
+msgstr ""
+"给表和字段名加上反引号 <i>(保护名称中含有特殊字符或保留字的字段和表)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6433,7 +6415,6 @@ msgstr "请通过点击 \"结构\" 链接来编辑结构"
 
 #: libraries/import.lib.php:1112
 #, php-format
-#| msgid "Go to database"
 msgid "Go to database: %s"
 msgstr "转到数据库: %s"
 
@@ -6444,7 +6425,6 @@ msgstr "编辑 %s 的设置"
 
 #: libraries/import.lib.php:1133
 #, php-format
-#| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "转到表: %s"
 
@@ -6455,7 +6435,6 @@ msgstr "%s 的结构"
 
 #: libraries/import.lib.php:1142
 #, php-format
-#| msgid "Go to view"
 msgid "Go to view: %s"
 msgstr "转到视图: %s"
 
@@ -6557,7 +6536,6 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:376
-#| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
 msgstr "导入的文件没有任何数据"
 
@@ -6817,6 +6795,13 @@ msgstr "该格式没有选项"
 msgid "not OK"
 msgstr "错误"
 
+#: libraries/relation.lib.php:80
+#, fuzzy
+#| msgid "OK"
+msgctxt "Correctly working"
+msgid "OK"
+msgstr "确定"
+
 #: libraries/relation.lib.php:81
 msgid "Enabled"
 msgstr "已启用"
@@ -7058,7 +7043,6 @@ msgstr "事件类型"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
 #, php-format
-#| msgid "Change"
 msgid "Change to %s"
 msgstr "改为 %s"
 
@@ -7570,7 +7554,6 @@ msgid "Current Server"
 msgstr "当前服务器"
 
 #: libraries/server_links.inc.php:60
-#| msgid "User"
 msgid "Users"
 msgstr "用户"
 
@@ -7864,7 +7847,6 @@ msgid "Table Search"
 msgstr "搜索"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1032
-#| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "编辑/插入"
 
@@ -8020,7 +8002,6 @@ msgid "General Settings"
 msgstr "常规设置"
 
 #: main.php:109
-#| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "服务器连接校对"
 
@@ -8033,7 +8014,6 @@ msgid "More settings"
 msgstr "更多设置"
 
 #: main.php:169
-#| msgid "Database for user"
 msgid "Database server"
 msgstr "数据库服务器"
 
@@ -8042,7 +8022,6 @@ msgid "Software"
 msgstr ""
 
 #: main.php:173
-#| msgid "Show versions"
 msgid "Software version"
 msgstr "软件版本"
 
@@ -8057,7 +8036,6 @@ msgid "User"
 msgstr "用户"
 
 #: main.php:184
-#| msgid "Server socket"
 msgid "Server charset"
 msgstr "服务器字符集"
 
@@ -8066,7 +8044,6 @@ msgid "Web server"
 msgstr "网站服务器"
 
 #: main.php:209
-#| msgid "Use light version"
 msgid "Database client version"
 msgstr "数据库客户端版本"
 
@@ -8194,7 +8171,6 @@ msgid "No databases"
 msgstr "无数据库"
 
 #: navigation.php:270
-#| msgid "filter tables by name"
 msgid "Filter tables by name"
 msgstr "根据表名快速搜索"
 
@@ -8576,7 +8552,6 @@ msgid "License"
 msgstr "授权"
 
 #: server_plugins.php:182
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "已禁用"
 
@@ -9282,7 +9257,6 @@ msgid "Related links:"
 msgstr "相关链接:"
 
 #: server_status.php:901
-#| msgid "Query analyzer"
 msgid "Run analyzer"
 msgstr "运行分析器"
 
@@ -12413,7 +12387,6 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "%s%% 的客户端已取消。此值不应高于 2%%"
 
 #: po/advisory_rules.php:245
-#| msgid "Format of imported file"
 msgid "Rate of aborted clients"
 msgstr "客户端的取消率"
 
@@ -12490,13 +12463,13 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常将 innodb_log_file_size 设置为 {innodb_buffer_pool_size} 的 25%% 已经足够。过大的 "
-"innodb_log_file_size 将会严重减慢数据库崩溃后的恢复时间。参见<a "
+"通常将 innodb_log_file_size 设置为 {innodb_buffer_pool_size} 的 25%% 已经足"
+"够。过大的 innodb_log_file_size 将会严重减慢数据库崩溃后的恢复时间。参见<a "
 "href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">这篇文章</a>。您首先需要关闭服务器，移除 InnoDB 日志文件，然后在 my.cnf "
-"中设置新的值，最后启动服务器，并检查错误日志确定一切都正常。参见<a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">这篇博客</a>"
+"innodb_log_file_size/\">这篇文章</a>。您首先需要关闭服务器，移除 InnoDB 日志"
+"文件，然后在 my.cnf 中设置新的值，最后启动服务器，并检查错误日志确定一切都正"
+"常。参见<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
+"increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -12536,7 +12509,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM 并发插入"
 
@@ -12554,6 +12526,12 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert(并发插入)被设置为0"
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "确定"
 
 #, fuzzy
 #~ msgid "All users"
