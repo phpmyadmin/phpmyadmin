@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 12:01+0200\n"
+"PO-Revision-Date: 2012-03-09 12:02+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -6422,15 +6422,13 @@ msgid "Add statements:"
 msgstr "添加语句："
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "lose table and field names with backquotes <i>(Protects field and le "
 #| "names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
-msgstr ""
-"给表名和字段名加上反引号 <i>(保护名称中含有特殊字符或保留字的字段和表)</i>"
+msgstr "给表和字段名加上反引号 <i>(保护名称中含有特殊字符或保留字的字段和表)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
