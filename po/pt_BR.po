@@ -4107,7 +4107,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:442
 msgid "Show password change form"
-msgstr ""
+msgstr "Mostrar formulário de mudança de senha"
 
 #: libraries/config/messages.inc.php:443
 msgid "Show create database form"
