@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 08:28+0200\n"
+"PO-Revision-Date: 2012-03-09 11:09+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -6638,7 +6638,7 @@ msgstr "Nie znaleziono danych do wizualizacji GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "Próba nadpisania GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:57
 msgid "SQL result"
