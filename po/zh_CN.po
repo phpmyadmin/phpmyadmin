@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 12:14+0200\n"
+"PO-Revision-Date: 2012-03-09 12:24+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -9282,10 +9282,9 @@ msgid "Related links:"
 msgstr "相关链接:"
 
 #: server_status.php:901
-#, fuzzy
 #| msgid "Query analyzer"
 msgid "Run analyzer"
-msgstr "查询分析器"
+msgstr "运行分析器"
 
 #: server_status.php:902
 #, fuzzy
