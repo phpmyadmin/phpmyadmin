@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 17:06+0100\n"
-"PO-Revision-Date: 2012-03-09 00:16+0200\n"
-"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
+"PO-Revision-Date: 2012-03-09 05:34+0200\n"
+"Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -9171,10 +9171,9 @@ msgid "Revoke"
 msgstr "Cofnij"
 
 #: server_privileges.php:1494
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "Eksport"
+msgstr "Eksport wszystkiego"
 
 #: server_privileges.php:1513 server_privileges.php:1779
 #: server_privileges.php:2405
