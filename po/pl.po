@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 15:42+0200\n"
+"PO-Revision-Date: 2012-03-09 15:43+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12648,6 +12648,9 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Jeśli celowo zmieniłeś jedną z następujących wartości: Serwer używa niższą "
+"wartość albo określa maksymalną wielkość w pamięci tabel. Więc jeśli chcesz "
+"zwiększyć w pamięci limitu tabeli trzeba będzie zwiększyć inną wartość."
 
 #: po/advisory_rules.php:148
 #, php-format
