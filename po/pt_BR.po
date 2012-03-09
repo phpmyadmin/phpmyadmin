@@ -3009,7 +3009,6 @@ msgstr "Início"
 #: libraries/common.lib.php:2456 libraries/common.lib.php:2459
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
