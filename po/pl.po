@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 15:57+0200\n"
+"PO-Revision-Date: 2012-03-09 15:58+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -12813,6 +12813,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Otwieranie tabel wymaga dysk I/O, która jest kosztowna. Zwiększenie "
+"{table_open_cache} może tego uniknąć."
 
 #: po/advisory_rules.php:183
 #, php-format
