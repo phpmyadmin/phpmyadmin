@@ -12961,7 +12961,6 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert väärtuseks on määratud 0"
 
 #, fuzzy
-#~| msgid "OK"
 #~ msgctxt "Correctly setup"
 #~ msgid "OK"
 #~ msgstr "OK"

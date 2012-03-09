@@ -13303,7 +13303,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "OK"
 #~ msgctxt "Correctly setup"
 #~ msgid "OK"
 #~ msgstr "U redu"

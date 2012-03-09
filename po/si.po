@@ -12777,7 +12777,6 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 
 #, fuzzy
-#~| msgid "OK"
 #~ msgctxt "Correctly setup"
 #~ msgid "OK"
 #~ msgstr "OK"
