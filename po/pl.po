@@ -9181,10 +9181,9 @@ msgid "Any"
 msgstr "Dowolny"
 
 #: server_privileges.php:1593
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
-msgstr "Uprawnienia"
+msgstr "Uprawnienia dla wszystkich użytkowników"
 
 #: server_privileges.php:1617
 msgid "Users overview"
