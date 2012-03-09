@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-09 02:42+0200\n"
+"PO-Revision-Date: 2012-03-09 02:43+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
@@ -889,10 +889,9 @@ msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "ఎగుమతి రకం"
+msgstr "చెల్లని ఎగుమతి రకం"
 
 #: gis_data_editor.php:84
 #, php-format
