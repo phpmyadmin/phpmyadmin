@@ -12775,7 +12775,7 @@ msgstr ""
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
-msgstr ""
+msgstr "Procent MyISAM klucza używanego bufora"
 
 #: po/advisory_rules.php:173
 #, php-format
