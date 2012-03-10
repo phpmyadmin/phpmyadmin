@@ -10439,10 +10439,9 @@ msgid ""
 msgstr "此系统目前不支持 %sZip 解压缩%s所必须的 (%s) 函数。"
 
 #: setup/lib/index.lib.php:324
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "如果服务器支持，你应该使用 SSL 连接。"
+msgstr "如果您的数据库服务器支持，您应该使用 SSL 连接。"
 
 #: setup/lib/index.lib.php:337
 msgid "You should use mysqli for performance reasons."
@@ -10461,10 +10460,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "短语密码应包含字母、数字[em]和[/em]特殊字符。"
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "无数据"
+msgstr "无效数据"
 
 #: sql.php:111 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
 #: tbl_zoom_select.php:127
@@ -10558,7 +10556,6 @@ msgid "Continue insertion with %s rows"
 msgstr "继续插入 %s 行"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
@@ -10572,21 +10569,18 @@ msgid "Column"
 msgstr "字段"
 
 #: tbl_chart.php:93
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "折线图"
 
 #: tbl_chart.php:95
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "曲线图"
 
 #: tbl_chart.php:97
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
@@ -10695,10 +10689,9 @@ msgid "Add index"
 msgstr "添加索引"
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "编辑模式"
+msgstr "编辑索引"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
@@ -10835,10 +10828,9 @@ msgid "Check referential integrity:"
 msgstr "检查引用完整性："
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "显示表"
+msgstr "正在显示表"
 
 #: tbl_printview.php:269 tbl_structure.php:764
 msgid "Space usage"
@@ -11174,10 +11166,9 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:403
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "控制用户"
+msgstr "如何使用"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11312,6 +11303,7 @@ msgstr "建议根据您的环境将 {long_query_time} 调短。通常建议设�
 
 #: po/advisory_rules.php:28
 #, php-format, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time 当前被设为 %d 秒。"
@@ -11354,6 +11346,7 @@ msgstr "您应该升级到 MySQL 5.1 或 5.5，以获得新版本的更高性能
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
 msgstr "当前版本：%s"
@@ -11493,6 +11486,7 @@ msgstr ""
 
 #: po/advisory_rules.php:80
 #, php-format, php-format
+#, php-format
 #| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%%)"
 msgstr "查询缓存效率 (%%)"
@@ -11590,10 +11584,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "查询缓存"
+msgstr "查询缓存最大值"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12026,10 +12019,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "键缓存"
+msgstr "线程缓存"
 
 #: po/advisory_rules.php:206
 msgid ""
