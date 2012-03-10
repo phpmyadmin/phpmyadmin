@@ -28,6 +28,20 @@ $goto = 'db_sql.php';
 $back = 'db_sql.php';
 
 /**
+ * Sets globals from $_GET
+ */
+
+$get_params = array(
+    'db_query_force'
+);
+
+foreach ($get_params as $one_get_param) {
+    if (isset($_GET[$one_get_param])) {
+        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
+    }
+}
+
+/**
  * Gets informations about the database and, if it is empty, move to the
  * "db_structure.php" script where table can be created
  */
