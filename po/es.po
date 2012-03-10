@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-08 19:12+0200\n"
+"PO-Revision-Date: 2012-03-10 17:41+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7141,7 +7141,6 @@ msgid "not OK"
 msgstr "no recibió el OK"
 
 #: libraries/relation.lib.php:80
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
