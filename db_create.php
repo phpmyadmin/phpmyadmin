@@ -18,6 +18,19 @@ if (!PMA_DRIZZLE) {
 }
 require './libraries/build_html_for_db.lib.php';
 
+/**
+ * Sets globals from $_POST
+ */
+$post_params = array(
+    'db_collation',
+    'new_db'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
+
 PMA_checkParameters(array('new_db'));
 
 /**
