@@ -1092,7 +1092,6 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 $sql_query .= $q;
                 if (! PMA_DBI_try_query($q)) {
                     $message = PMA_Message::rawError(PMA_DBI_getError());
-                    break;
                 }
 
 
