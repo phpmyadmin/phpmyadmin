@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-11 22:41+0200\n"
+"PO-Revision-Date: 2012-03-11 22:42+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12124,6 +12124,8 @@ msgstr "Unterversion"
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr ""
+"Version kleiner als 5.1.30 (die erste allgemein verfügbare Freigabe von "
+"5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
