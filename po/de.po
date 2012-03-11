@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-11 23:29+0200\n"
+"PO-Revision-Date: 2012-03-11 23:56+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12409,10 +12409,9 @@ msgid "Percentage of sorts that cause temporary tables"
 msgstr "Erlaubt das Erstellen temporärer Tabellen"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Erlaubt das Erstellen temporärer Tabellen."
+msgstr "Zu viele Sortierungen verursachen temporäre Tabellen."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
