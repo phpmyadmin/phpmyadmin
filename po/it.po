@@ -1633,10 +1633,9 @@ msgid "Total time:"
 msgstr "Tempo totale:"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Profiling"
+msgstr "Risultati della profilazione"
 
 #: js/messages.php:191
 #, fuzzy
