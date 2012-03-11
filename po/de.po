@@ -12013,6 +12013,7 @@ msgstr "Prozentsatz langsamer Anfragen"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Es gibt viele langsame Abfragen verglichen mit der Gesamtzahl der Abfragen."
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
