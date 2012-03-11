@@ -12301,7 +12301,7 @@ msgstr "Abfragen-Zwischenspeicher Fragmentierung"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Der Abfragecache ist beträchtlich fragmentiert."
 
 #: po/advisory_rules.php:92
 msgid ""
