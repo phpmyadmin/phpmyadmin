@@ -2367,7 +2367,7 @@ msgstr "Schriftgröße"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Zu viele Fehlermeldungen, einige werden nicht angezeigt."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
