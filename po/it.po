@@ -1612,10 +1612,9 @@ msgstr "Grafico"
 
 #. l10n: A collection of available filters
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Opzioni di visualizzazione tabelle"
+msgstr "Opzioni per il filtro della tabella di log"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:193
