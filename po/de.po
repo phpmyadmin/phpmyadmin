@@ -7892,7 +7892,6 @@ msgid "Current Server"
 msgstr "Aktueller Server"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "Benutzer"
