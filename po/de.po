@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-11 23:56+0200\n"
+"PO-Revision-Date: 2012-03-12 00:47+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12592,6 +12592,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% aller Sortierungen verursachen temporäre Tabellen, dieser Wert sollte "
+"kleiner als 10%% sein."
 
 #: po/advisory_rules.php:115
 #, fuzzy
