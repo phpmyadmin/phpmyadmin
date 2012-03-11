@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-12 00:55+0200\n"
+"PO-Revision-Date: 2012-03-12 00:56+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12648,6 +12648,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Durchschnitt Tabellen-Joins: %s, dieser Wert sollte kleiner als 1 pro Stunde "
+"sein"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
