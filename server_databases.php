@@ -20,6 +20,20 @@ if (!PMA_DRIZZLE) {
 require './libraries/build_html_for_db.lib.php';
 
 /**
+ * Sets globals from $_POST
+ */
+$post_params = array(
+    'mult_btn',
+    'query_type',
+    'selected'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
+
+/**
  * avoids 'undefined index' errors
  */
 if (empty($_REQUEST['sort_by'])) {

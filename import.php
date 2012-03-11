@@ -16,6 +16,23 @@ if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
 }
 
+/**
+ * Sets globals from $_POST
+ */
+$post_params = array(
+    'action_bookmark',
+    'bkm_label',
+    'bookmark_variable',
+    'id_bookmark',
+    'is_js_confirmed',
+    'message_to_show'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
+
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;
 $_SESSION['Import_message']['go_back_url'] = null;
