@@ -12138,6 +12138,7 @@ msgstr ""
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
+"Version kleiner als 5.5.8 (die erste allgemein verfügbare Freigabe von 5.5)."
 
 #: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
