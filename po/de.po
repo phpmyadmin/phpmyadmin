@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-02-24 18:14+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2012-03-11 22:00+0200\n"
+"Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1729
@@ -1591,10 +1591,9 @@ msgid "Total time:"
 msgstr "Gesamt Zeit:"
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Messen"
+msgstr "Messergebnisse"
 
 #: js/messages.php:187
 #, fuzzy
