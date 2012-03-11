@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-11 22:05+0200\n"
+"PO-Revision-Date: 2012-03-11 22:09+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5198,10 +5198,9 @@ msgid ""
 msgstr "Definiert, ob das Abfragefeld nach dem Absenden geöffnet bleiben sollte"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "SQL-Querybox ausblenden"
+msgstr "Abfragefeld weiterhin anzeigen"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
