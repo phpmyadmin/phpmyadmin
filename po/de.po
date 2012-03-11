@@ -11319,7 +11319,6 @@ msgid "Line"
 msgstr "Linie"
 
 #: tbl_chart.php:95
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
