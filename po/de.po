@@ -12436,7 +12436,7 @@ msgstr "Erwägen Sie, {query_cache_limit} zu erhöhen."
 #: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "Die aktuelle Abfragecache-Trefferrate von %s%% ist niedriger als 20%%"
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
