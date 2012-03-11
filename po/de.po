@@ -2305,11 +2305,10 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "keine"
+msgstr "none"
 
 #: js/messages.php:495
 msgid "Hour"
