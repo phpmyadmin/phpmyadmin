@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-11 22:27+0200\n"
+"PO-Revision-Date: 2012-03-11 22:28+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12141,6 +12141,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Um genauere Durchschnittswerte zu haben, wird empfohlen, den Server mehr als "
+"einen Tag laufen zu lassen, bevor dieser Analysierer ausgeführt wird"
 
 #: po/advisory_rules.php:8
 #, php-format
