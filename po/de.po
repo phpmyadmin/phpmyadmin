@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-11 22:47+0200\n"
+"PO-Revision-Date: 2012-03-11 22:48+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12416,6 +12416,9 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Der Abfragecache ist eingeschaltet und der Server empfängt %d Abfragen pro "
+"Sekunde. Diese Regel wird aktiv, wenn es mehr als 100 Abfragen pro Sekunde "
+"gibt."
 
 #: po/advisory_rules.php:80
 #, php-format
