@@ -26,12 +26,12 @@ $GLOBALS['js_include'][] = 'db_operations.js';
 /**
  * Sets globals from $_REQUEST (we're using GET on ajax, POST otherwise)
  */
-$post_params = array(
+$request_params = array(
     'drop_if_exists'
 );
-foreach ($post_params as $one_post_param) {
-    if (isset($_REQUEST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_REQUEST[$one_post_param];
+foreach ($request_params as $one_request_param) {
+    if (isset($_REQUEST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
     }
 }
 
