@@ -7013,7 +7013,7 @@ msgstr "ESRI-Shapedaten"
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Beim Importieren der ESRI-Shapedaten ist ein Fehler aufgetreten: \"%s\"."
 
 #: libraries/import/shp.php:336
 msgid ""
