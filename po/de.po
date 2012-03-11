@@ -3334,7 +3334,6 @@ msgstr ""
 "Lege die maximale Größe der Eingabefelder für CHAR und VARCHAR-Spalten fest"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "Maximale Größe für Eingabefeld"
