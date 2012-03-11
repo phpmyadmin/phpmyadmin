@@ -4227,7 +4227,6 @@ msgid "Use less graphically intense tabs"
 msgstr "Benutze graphisch weniger anspruchsvolle Tabs"
 
 #: libraries/config/messages.inc.php:293
-#, fuzzy
 msgid "Light tabs"
 msgstr "Einfache Tabs"
 
