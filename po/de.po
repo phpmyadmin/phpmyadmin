@@ -12260,7 +12260,7 @@ msgstr "Anfragen-Zwischenspeicher Effizienz (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Abfragecache läuft nicht effizient, er hat eine niedrige Trefferrate."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
