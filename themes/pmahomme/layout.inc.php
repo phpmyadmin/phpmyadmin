@@ -15,38 +15,38 @@
 $GLOBALS['cfg']['NaviWidth']                = 200;
 
 // foreground (text) color for the navi frame
-$GLOBALS['cfg']['NaviColor']                = '#000000';
+$GLOBALS['cfg']['NaviColor']                = '#000';
 
 // background for the navi frame
 $GLOBALS['cfg']['NaviBackground']           = '#D0DCE0';
 
 // foreground (text) color of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerColor']         = '#000000';
+$GLOBALS['cfg']['NaviPointerColor']         = '#000';
 // background of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerBackground']    = '#9999CC';
+$GLOBALS['cfg']['NaviPointerBackground']    = '#99c';
 // text color of the selected database name (when showing the table list)
-$GLOBALS['cfg']['NaviDatabaseNameColor']    = '#0000FF';
+$GLOBALS['cfg']['NaviDatabaseNameColor']    = '#00f';
 
 /**
  * main frame
  */
 // foreground (text) color for the main frame
-$GLOBALS['cfg']['MainColor']                = '#000000';
+$GLOBALS['cfg']['MainColor']                = '#000';
 
 // background for the main frame
 $GLOBALS['cfg']['MainBackground']           = '#F5F5F5';
 
 // foreground (text) color of the pointer in browse mode
-$GLOBALS['cfg']['BrowsePointerColor']       = '#000000';
+$GLOBALS['cfg']['BrowsePointerColor']       = '#000';
 
 // background of the pointer in browse mode
-$GLOBALS['cfg']['BrowsePointerBackground']  = '#CCFFCC';
+$GLOBALS['cfg']['BrowsePointerBackground']  = '#cfc';
 
 // foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerColor']        = '#000000';
+$GLOBALS['cfg']['BrowseMarkerColor']        = '#000';
 
 // background of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerBackground']   = '#FFCC99';
+$GLOBALS['cfg']['BrowseMarkerBackground']   = '#fc9';
 
 /**
  * fonts
@@ -70,7 +70,7 @@ $GLOBALS['cfg']['Border']               = 0;
 // table header and footer color
 $GLOBALS['cfg']['ThBackground']         = '#D3DCE3';
 // table header and footer background
-$GLOBALS['cfg']['ThColor']              = '#000000';
+$GLOBALS['cfg']['ThColor']              = '#000';
 // table data row background
 $GLOBALS['cfg']['BgOne']                = '#E5E5E5';
 // table data row background, alternate
@@ -99,10 +99,10 @@ $GLOBALS['cfg']['SQP']['fmtColor']      = array(
     'digit_float'        => 'aqua',
     'punct'              => 'fuchsia',
     'alpha'              => '',
-    'alpha_columnType'   => '#FF9900',
-    'alpha_columnAttrib' => '#0000FF',
-    'alpha_reservedWord' => '#990099',
-    'alpha_functionName' => '#FF0000',
+    'alpha_columnType'   => '#f90',
+    'alpha_columnAttrib' => '#00f',
+    'alpha_reservedWord' => '#909',
+    'alpha_functionName' => '#f00',
     'alpha_identifier'   => 'black',
     'alpha_charset'      => '#6495ed',
     'alpha_variable'     => '#800000',
@@ -119,10 +119,10 @@ $GLOBALS['cfg']['SQP']['fmtColor']      = array(
  $GLOBALS['cfg']['chartColor'] = array(
     'gradientIntensity'       => 50,
     // The style of the chart title.
-    'titleColor'              => '#000000',
+    'titleColor'              => '#000',
     'titleBgColor'            => '#E5E5E5',
     // Chart border (0 for no border)
-    'border'                  => '#CCCCCC',
+    'border'                  => '#ccc',
     // Chart background color.
     'bgColor'                 => '#FBFBFB',
     // when graph area gradient is used, this is the color of the graph
