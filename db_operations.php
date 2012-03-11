@@ -24,6 +24,18 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'db_operations.js';
 
 /**
+ * Sets globals from $_REQUEST (we're using GET on ajax, POST otherwise)
+ */
+$post_params = array(
+    'drop_if_exists'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_REQUEST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_REQUEST[$one_post_param];
+    }
+}
+
+/**
  * Rename/move or copy database
  */
 if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
