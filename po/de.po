@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-11 22:10+0200\n"
+"PO-Revision-Date: 2012-03-11 22:11+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7008,7 +7008,7 @@ msgstr ""
 
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI-Shapedaten"
 
 #: libraries/import/shp.php:280
 #, php-format
