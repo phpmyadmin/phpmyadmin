@@ -64,7 +64,7 @@ $replaces = array(
 
     // linking files
     '/(\s+)([\\/a-z_0-9\.]+\.(?:php3?|html|pl|js|sh))/i'
-    => '\\1<a href="http://phpmyadmin.git.sourceforge.net/git/gitweb.cgi?p=phpmyadmin/phpmyadmin;a=history;f=\\2;hb=HEAD">\\2</a>',
+    => '\\1<a href="https://github.com/phpmyadmin/phpmyadmin/commits/HEAD/\\2">\\2</a>',
 
     // FAQ entries
     '/FAQ ([0-9]+)\.([0-9a-z]+)/i'
@@ -88,9 +88,9 @@ $replaces = array(
 
     // Highlight releases (with links)
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.0 (\([0-9-]+\))/'
-    => '<a name="\\1_\\2_\\3"></a><a href="http://phpmyadmin.git.sourceforge.net/git/gitweb.cgi?p=phpmyadmin/phpmyadmin;a=shortlog;h=refs/tags/RELEASE_\\1_\\2_\\3">\\1.\\2.\\3.0 \\4</a>',
+    => '<a name="\\1_\\2_\\3"></a><a href="https://github.com/phpmyadmin/phpmyadmin/commits/RELEASE_\\1_\\2_\\3">\\1.\\2.\\3.0 \\4</a>',
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.([1-9][0-9]*) (\([0-9-]+\))/'
-    => '<a name="\\1_\\2_\\3_\\4"></a><a href="http://phpmyadmin.git.sourceforge.net/git/gitweb.cgi?p=phpmyadmin/phpmyadmin;a=shortlog;h=refs/tags/RELEASE_\\1_\\2_\\3_\\4">\\1.\\2.\\3.\\4 \\5</a>',
+    => '<a name="\\1_\\2_\\3_\\4"></a><a href="https://github.com/phpmyadmin/phpmyadmin/commits/RELEASE_\\1_\\2_\\3_\\4">\\1.\\2.\\3.\\4 \\5</a>',
 
     // Highlight releases (not linkable)
     '/(    ### )(.*)/'
