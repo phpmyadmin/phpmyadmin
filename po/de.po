@@ -11474,7 +11474,6 @@ msgid "Bar"
 msgstr "Säule"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
