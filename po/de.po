@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-11 22:04+0200\n"
+"PO-Revision-Date: 2012-03-11 22:05+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5131,7 +5131,7 @@ msgstr "Zeige SQL Anfragen"
 #: libraries/config/messages.inc.php:473
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr ""
+msgstr "Definiert, ob das Abfragefeld nach dem Absenden geöffnet bleiben sollte"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 #, fuzzy
