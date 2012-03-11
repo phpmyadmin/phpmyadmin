@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-11 13:43+0200\n"
+"PO-Revision-Date: 2012-03-11 13:44+0200\n"
 "Last-Translator: Luca Rebellato <rebeluca@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1913,9 +1913,8 @@ msgid "Each point represents a data row."
 msgstr "Ogni punto rappresenta una riga dei dati."
 
 #: js/messages.php:295
-#, fuzzy
 msgid "Hovering over a point will show its label."
-msgstr "Passando il mouse su un punto mostrerà la sua etichetta."
+msgstr "Passa il mouse sopra un punto per vedere la sua etichetta."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
