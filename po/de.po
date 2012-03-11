@@ -11141,7 +11141,6 @@ msgid "Add a new server"
 msgstr "Neuen Server hinzufügen"
 
 #: setup/index.php:22
-#, fuzzy
 msgid "Wrong GET file attribute value"
 msgstr "Falscher GET Datei-Attribut-Wert"
 
