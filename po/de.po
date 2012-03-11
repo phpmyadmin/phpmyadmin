@@ -11425,7 +11425,6 @@ msgid "Can't rename index to PRIMARY!"
 msgstr "Kann Index nicht in PRIMARY umbenennen!"
 
 #: tbl_indexes.php:91
-#, fuzzy
 msgid "No index parts defined!"
 msgstr "Keine Indizes definiert!"
 
