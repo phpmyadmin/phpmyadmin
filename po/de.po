@@ -11913,7 +11913,7 @@ msgstr "Maximale Anzahl der darzustellenden Datensätze"
 
 #: tbl_zoom_select.php:396
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Punkte anzeigen/bearbeiten"
 
 #: tbl_zoom_select.php:403
 msgid "How to use"
