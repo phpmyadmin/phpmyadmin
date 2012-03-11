@@ -12506,6 +12506,8 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Durchschnitt Indexscans: %s, dieser Wert sollte kleiner als 1 pro Stunde "
+"sein"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
