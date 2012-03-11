@@ -12204,6 +12204,8 @@ msgstr "Langsame Anfragen Anteil"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Es gibt einen hohen Prozentsatz langsamer Abfragen verglichen mit der "
+"Onlinezeit des Servers."
 
 #: po/advisory_rules.php:23
 #, php-format
