@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-11 13:42+0200\n"
+"PO-Revision-Date: 2012-03-11 13:43+0200\n"
 "Last-Translator: Luca Rebellato <rebeluca@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1332,10 +1332,9 @@ msgid "Cached memory"
 msgstr "Memoria cached"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Memoria buffer"
+msgstr "Memoria bufferizzata"
 
 #: js/messages.php:111
 #| msgid "System memory"
