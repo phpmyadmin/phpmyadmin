@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-11 22:00+0200\n"
+"PO-Revision-Date: 2012-03-11 22:01+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1914,10 +1914,9 @@ msgid "Query results"
 msgstr "Abfrageergebnisse"
 
 #: js/messages.php:308
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Datenpunkt Inhalt"
+msgstr "Datenpunkt-Inhalt"
 
 #: js/messages.php:311 tbl_change.php:331 tbl_indexes.php:228
 #: tbl_indexes.php:255
