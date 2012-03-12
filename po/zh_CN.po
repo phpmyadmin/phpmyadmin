@@ -6724,11 +6724,10 @@ msgid "not OK"
 msgstr "错误"
 
 #: libraries/relation.lib.php:80
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
-msgstr "确定"
+msgstr "正常"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
@@ -6981,18 +6980,16 @@ msgid "Execute every"
 msgstr "运行周期"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "开始"
+msgstr "起始时间"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "结束"
+msgstr "终止时间"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:354
@@ -7000,10 +6997,9 @@ msgid "Definition"
 msgstr "定义"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "完整插入"
+msgstr "过期后禁用事件而不删除"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
@@ -7052,10 +7048,9 @@ msgid "Event scheduler status"
 msgstr "事件计划状态"
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "返回类型"
+msgstr "返回"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
@@ -7219,11 +7214,10 @@ msgid "Trigger name"
 msgstr "触发器名称"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "时间"
+msgstr "时机"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
@@ -8126,10 +8120,9 @@ msgid "Toggle small/big"
 msgstr "反向收缩/展开"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "要选择关系，点击："
+msgstr "显示/隐藏关系线"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
@@ -8738,10 +8731,9 @@ msgid "Revoke"
 msgstr "撤销"
 
 #: server_privileges.php:1494
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "导出"
+msgstr "全部导出"
 
 #: server_privileges.php:1513 server_privileges.php:1779
 #: server_privileges.php:2405
@@ -8749,16 +8741,14 @@ msgid "Any"
 msgstr "任意"
 
 #: server_privileges.php:1593
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
-msgstr "权限"
+msgstr "所有用户的权限"
 
 #: server_privileges.php:1617
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "查看用户"
+msgstr "用户概况"
 
 #: server_privileges.php:1757 server_privileges.php:1968
 #: server_privileges.php:2316
@@ -9151,10 +9141,9 @@ msgid "Run analyzer"
 msgstr "运行分析器"
 
 #: server_status.php:902
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "介绍"
+msgstr "说明"
 
 #: server_status.php:909
 msgid ""
