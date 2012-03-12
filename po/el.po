@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-12 09:55+0200\n"
+"PO-Revision-Date: 2012-03-12 09:56+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12619,6 +12619,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Σκεφτείτε να αυξήσετε το sort_buffer_size και/ή το read_rnd_buffer_size, "
+"ανάλογα με τους περιορισμούς της μνήμης του συστήματός σας"
 
 #: po/advisory_rules.php:113
 #, php-format
