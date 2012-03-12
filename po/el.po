@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-12 09:57+0200\n"
+"PO-Revision-Date: 2012-03-12 09:58+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12640,6 +12640,8 @@ msgstr "Επιτρέπει τη δημιουργία προσωρινών πιν
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Μέσος όρος προσωρινών πινάκων: %s, αυτή η τιμή πρέπει να είναι κάτω από 1 "
+"ανά ώρα."
 
 #: po/advisory_rules.php:120
 msgid "Sort rows"
