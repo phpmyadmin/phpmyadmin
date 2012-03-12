@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2010-12-28 22:26+0200\n"
-"Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
+"PO-Revision-Date: 2012-03-12 21:47+0200\n"
+"Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -793,7 +793,7 @@ msgstr "Журнал бази даних"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Значення для поля \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
