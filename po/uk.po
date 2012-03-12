@@ -1627,7 +1627,7 @@ msgstr "Шлях теми не знайдений для теми %s!"
 #: libraries/Theme_Manager.class.php:295 test/theme.php:160 themes.php:20
 #: themes.php:40
 msgid "Theme / Style"
-msgstr ""
+msgstr "Тема / Стиль"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
