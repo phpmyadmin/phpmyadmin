@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-12 10:04+0200\n"
+"PO-Revision-Date: 2012-03-12 10:20+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.4\n"
+"X-Generator: Weblate 0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -12709,6 +12709,13 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Αυτό δείχνει, συνήθως, συχνές πλήρεις σαρώσεις ευρετηρίου. Οι πλήρεις "
+"σαρώσεις ευρετηρίου είναι γρηγορότερες από τις σαρώσεις πινάκων αλλά "
+"απαιτούν έντονη χρήση επεξεργαστή για μεγάλους πίνακες, αν αυτοί οι πίνακες "
+"έχουν ή είχαν μεγάλους όγκους από UPDATEs και DELETEs, εκτελώντας το "
+"«OPTIMIZE TABLE» ίσως μειώσει τον αριθμό και/ή αυξήσει την ταχύτητα των "
+"πλήρων σαρώσεων ευρετηρίου. Εκτός από αυτό, οι πλήρεις σαρώσεις ευρετηρίου "
+"μπορούν να μειωθούν ξαναγράφοντας τα ερωτήματα."
 
 #: po/advisory_rules.php:133
 #, php-format
