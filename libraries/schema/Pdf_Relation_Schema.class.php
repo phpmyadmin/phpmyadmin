@@ -1130,7 +1130,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     {
         global $db, $pdf, $orientation, $paper;
         // TOC
-        $pdf->addpage($GLOBALS['orientation']);
+        $pdf->addpage($_POST['orientation']);
         $pdf->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
         $pdf->Ln(15);
         $i = 1;
@@ -1175,7 +1175,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         foreach ($alltables as $table) {
             $z++;
             $pdf->SetAutoPageBreak(true, 15);
-            $pdf->addpage($GLOBALS['orientation']);
+            $pdf->addpage($_POST['orientation']);
             $pdf->Bookmark($table);
             $pdf->SetAlias('{' . sprintf("%02d", $z) . '}', $pdf->PageNo());
             $pdf->PMA_links['RT'][$table]['-'] = $pdf->AddLink();
