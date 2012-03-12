@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-12 17:46+0200\n"
+"PO-Revision-Date: 2012-03-12 17:47+0200\n"
 "Last-Translator: Flavio Lisboa <flavio.lisboa@fgsl.eti.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5068,7 +5068,7 @@ msgstr "Exibe os campos da função em modo de edição/inserção"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show function fields"
-msgstr ""
+msgstr "Mostra campos de função."
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
