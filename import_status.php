@@ -8,6 +8,19 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/display_import_ajax.lib.php';
 
+/**
+ * Sets globals from $_GET
+ */
+$get_params = array(
+    'message',
+    'id'
+);
+foreach ($get_params as $one_get_param) {
+    if (isset($_GET[$one_get_param])) {
+        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
+    }
+}
+
 // AJAX requests can't be cached!
 PMA_no_cache_header();
 

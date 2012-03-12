@@ -15,12 +15,12 @@ $bg = $_SESSION['PMA_Theme']->getImgPath() . 'sprites.png';
 ?>
 /* Icon sprites */
 .icon, .footnotemarker {
-    margin:              0 0.3em;
-    padding:             0 !important;
-    width:               16px;
-    height:              16px;
-    background-image:    url('<?php echo $bg; ?>') !important;
-    background-repeat:   no-repeat !important;
+    margin: 0 .3em;
+    padding: 0 !important;
+    width: 16px;
+    height: 16px;
+    background-image: url('<?php echo $bg; ?>') !important;
+    background-repeat: no-repeat !important;
     background-position: top left !important;
 }
 
