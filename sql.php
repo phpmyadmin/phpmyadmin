@@ -38,6 +38,21 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
+/**
+ * Sets globals from $_GET
+ */
+$get_params = array(
+    'id_bookmark',
+    'label',
+    'sql_query'
+);
+foreach ($get_params as $one_get_param) {
+    if (isset($_GET[$one_get_param])) {
+        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
+    }
+}
+
+
 if (isset($_REQUEST['printview'])) {
     $GLOBALS['printview'] = $_REQUEST['printview'];
 }
