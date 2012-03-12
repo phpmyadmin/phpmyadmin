@@ -5138,7 +5138,7 @@ msgstr "Mostra campos de função."
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
-msgstr ""
+msgstr "Se uma dica será exibida ou não"
 
 #: libraries/config/messages.inc.php:467
 msgid "Show hint"
