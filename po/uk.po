@@ -1995,7 +1995,7 @@ msgstr "Рядкове редагування цього запиту"
 
 #: libraries/common.lib.php:1267
 msgid "Inline"
-msgstr ""
+msgstr "Влінію"
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
