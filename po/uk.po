@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-12 22:28+0200\n"
+"PO-Revision-Date: 2012-03-12 22:29+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2458,7 +2458,7 @@ msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d рядок видалено."
 msgstr[1] "%1$d рядків видалено."
-msgstr[2] "%1$d рядків видалено."
+msgstr[2] ""
 
 #: libraries/Message.class.php:273
 #, php-format
