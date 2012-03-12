@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-12 22:30+0200\n"
+"PO-Revision-Date: 2012-03-12 22:37+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3272,7 +3272,7 @@ msgstr "Підвищує ефективність оновлення екран�
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
-msgstr "Дозволити Ajax"
+msgstr "Включити Ajax"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
