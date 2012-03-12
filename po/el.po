@@ -12441,7 +12441,7 @@ msgstr ""
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "Το query_cache_limit ορίστηκε στο 1ΜΒ"
 
 #: po/advisory_rules.php:110
 msgid "Percentage of sorts that cause temporary tables"
