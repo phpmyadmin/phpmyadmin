@@ -4129,7 +4129,7 @@ msgstr "Exibir tabelas abertas"
 
 #: libraries/config/messages.inc.php:446
 msgid "Display the function fields in edit/insert mode"
-msgstr ""
+msgstr "Exibe os campos da função em modo de edição/inserção"
 
 #: libraries/config/messages.inc.php:447
 msgid "Show function fields"
