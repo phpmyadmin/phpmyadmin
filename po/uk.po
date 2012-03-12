@@ -2636,7 +2636,7 @@ msgstr "Продовжений заголовок таблиці"
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/export/latex.php:53 libraries/export/latex.php:77
 msgid "Label key"
-msgstr ""
+msgstr "Ключ підпису"
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:108
 #: libraries/config/messages.inc.php:132 libraries/export/odt.php:325
