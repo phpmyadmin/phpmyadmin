@@ -12730,7 +12730,7 @@ msgstr "Βαθμός ανάγνωσης σταθερής θέσης"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Ο βαθμός ανάγνωσης δεδομένων από μια σταθερή θέση είναι υψηλός."
 
 #: po/advisory_rules.php:137
 msgid ""
