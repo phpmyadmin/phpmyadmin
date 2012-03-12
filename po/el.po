@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-12 10:02+0200\n"
+"PO-Revision-Date: 2012-03-12 10:03+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12518,6 +12518,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Αυτό σημαίνει ότι οι ενώσεις προκαλούν πλήρεις σαρώσεις πίνακα. Η προσθήκη "
+"ευρετηρίων για τις στήλες που χρησιμοποιούνται στις συνθήκες ένωσης θα "
+"αυξήσει δραματικά τις ενώσεις πινάκων"
 
 #: po/advisory_rules.php:128
 #, php-format
