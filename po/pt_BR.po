@@ -5064,7 +5064,7 @@ msgstr "Exibir tipo dos campos"
 
 #: libraries/config/messages.inc.php:464
 msgid "Display the function fields in edit/insert mode"
-msgstr ""
+msgstr "Exibe os campos da função em modo de edição/inserção"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show function fields"
