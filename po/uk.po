@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-12 21:53+0200\n"
+"PO-Revision-Date: 2012-03-12 21:58+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -115,7 +115,7 @@ msgstr "Базу даних %1$s створено."
 
 #: db_datadict.php:49 db_operations.php:367
 msgid "Database comment: "
-msgstr "Коментар до бази даних: "
+msgstr "Коментар бази даних: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
