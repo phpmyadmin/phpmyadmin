@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-10-06 09:23+0200\n"
+"POT-Creation-Date: 2012-03-13 16:38+0100\n"
 "PO-Revision-Date: 2011-02-16 21:42+0200\n"
 "Last-Translator: <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
@@ -19,16 +19,16 @@ msgstr ""
 msgid "Show all"
 msgstr "Visa alla"
 
-#: browse_foreigners.php:70 libraries/common.lib.php:2332
+#: browse_foreigners.php:70 libraries/common.lib.php:2331
 #: libraries/display_tbl.lib.php:321 libraries/export/pdf.php:133
 #: libraries/schema/Pdf_Relation_Schema.class.php:243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1100
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
-#: libraries/schema/User_Schema.class.php:360
+#: libraries/schema/User_Schema.class.php:361
 msgid "Page number:"
 msgstr "Sida:"
 
-#: browse_foreigners.php:133
+#: browse_foreigners.php:138
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -38,19 +38,19 @@ msgstr ""
 "fönstret eller så är din webbläsares säkerhetsinställningar konfigurerade "
 "att blockera flerfönster uppdateringar."
 
-#: browse_foreigners.php:151 libraries/common.lib.php:2828
-#: libraries/common.lib.php:2835 libraries/common.lib.php:3014
-#: libraries/common.lib.php:3015 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:2827
+#: libraries/common.lib.php:2834 libraries/common.lib.php:3013
+#: libraries/common.lib.php:3014 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
 msgstr "Sök"
 
-#: browse_foreigners.php:154 db_operations.php:369 db_operations.php:410
-#: db_operations.php:520 db_operations.php:548 db_search.php:358
-#: db_structure.php:529 enum_editor.php:63 js/messages.php:59
+#: browse_foreigners.php:159 db_operations.php:374 db_operations.php:415
+#: db_operations.php:525 db_operations.php:553 db_search.php:358
+#: db_structure.php:555 enum_editor.php:63 js/messages.php:59
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:278 libraries/common.lib.php:1335
-#: libraries/common.lib.php:2308 libraries/core.lib.php:563
+#: libraries/auth/cookie.auth.lib.php:278 libraries/common.lib.php:1334
+#: libraries/common.lib.php:2307 libraries/core.lib.php:568
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:347 libraries/display_import.lib.php:267
@@ -58,8 +58,8 @@ msgstr "Sök"
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
 #: libraries/schema/User_Schema.class.php:124
 #: libraries/schema/User_Schema.class.php:176
-#: libraries/schema/User_Schema.class.php:410
-#: libraries/schema/User_Schema.class.php:449
+#: libraries/schema/User_Schema.class.php:411
+#: libraries/schema/User_Schema.class.php:450
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:519
 #: libraries/tbl_properties.inc.php:782 libraries/tbl_properties.inc.php:797
@@ -71,25 +71,25 @@ msgstr "Sök"
 #: server_replication.php:348 server_synchronize.php:1227 tbl_change.php:331
 #: tbl_change.php:1102 tbl_change.php:1139 tbl_indexes.php:250
 #: tbl_operations.php:276 tbl_operations.php:313 tbl_operations.php:515
-#: tbl_operations.php:577 tbl_operations.php:759 tbl_select.php:290
+#: tbl_operations.php:577 tbl_operations.php:760 tbl_select.php:290
 #: tbl_structure.php:660 tbl_structure.php:696 tbl_tracking.php:390
 #: tbl_tracking.php:507 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Kör"
 
-#: browse_foreigners.php:169 browse_foreigners.php:173
+#: browse_foreigners.php:174 browse_foreigners.php:178
 #: libraries/Index.class.php:441 tbl_tracking.php:315
 msgid "Keyname"
 msgstr "Nyckel"
 
-#: browse_foreigners.php:170 browse_foreigners.php:172
+#: browse_foreigners.php:175 browse_foreigners.php:177
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
 #: server_status.php:777
 msgid "Description"
 msgstr "Beskrivning"
 
-#: browse_foreigners.php:248 browse_foreigners.php:257
-#: browse_foreigners.php:269 browse_foreigners.php:277
+#: browse_foreigners.php:253 browse_foreigners.php:262
+#: browse_foreigners.php:274 browse_foreigners.php:282
 msgid "Use this value"
 msgstr "Använd detta värde"
 
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Database %1$s has been created."
 msgstr "Databas %1$s har skapats."
 
-#: db_datadict.php:48 db_operations.php:362
+#: db_datadict.php:48 db_operations.php:367
 msgid "Database comment: "
 msgstr "Databaskommentar: "
 
@@ -168,7 +168,7 @@ msgstr "Typ"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:171 db_structure.php:460 libraries/export/htmlword.php:250
+#: db_datadict.php:171 db_structure.php:486 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
 #: libraries/export/texytext.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1245
@@ -258,74 +258,74 @@ msgstr "Avmarkera alla"
 msgid "The database name is empty!"
 msgstr "Databasens namn är tomt!"
 
-#: db_operations.php:272
+#: db_operations.php:277
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Databas %s har döpts om till %s"
 
-#: db_operations.php:276
+#: db_operations.php:281
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "Databas %s har kopierats till %s"
 
-#: db_operations.php:404
+#: db_operations.php:409
 msgid "Rename database to"
 msgstr "Byt namn på databasen till"
 
-#: db_operations.php:429
+#: db_operations.php:434
 msgid "Remove database"
 msgstr "Radera databasen"
 
-#: db_operations.php:441
+#: db_operations.php:446
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Databasen %s har tagits bort."
 
-#: db_operations.php:446
+#: db_operations.php:451
 msgid "Drop the database (DROP)"
 msgstr "Tag bort databasen (DROP)"
 
-#: db_operations.php:476
+#: db_operations.php:481
 msgid "Copy database to"
 msgstr "Kopiera databas till"
 
-#: db_operations.php:483 tbl_operations.php:544 tbl_tracking.php:383
+#: db_operations.php:488 tbl_operations.php:544 tbl_tracking.php:383
 msgid "Structure only"
 msgstr "Enbart struktur"
 
-#: db_operations.php:484 tbl_operations.php:545 tbl_tracking.php:385
+#: db_operations.php:489 tbl_operations.php:545 tbl_tracking.php:385
 msgid "Structure and data"
 msgstr "Struktur och data"
 
-#: db_operations.php:485 tbl_operations.php:546 tbl_tracking.php:384
+#: db_operations.php:490 tbl_operations.php:546 tbl_tracking.php:384
 msgid "Data only"
 msgstr "Enbart data"
 
-#: db_operations.php:493
+#: db_operations.php:498
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE före kopiering"
 
-#: db_operations.php:496 libraries/config/messages.inc.php:124
+#: db_operations.php:501 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
 #: libraries/config/messages.inc.php:133 tbl_operations.php:552
 #, php-format
 msgid "Add %s"
 msgstr "Lägg till %s"
 
-#: db_operations.php:500 libraries/config/messages.inc.php:117
+#: db_operations.php:505 libraries/config/messages.inc.php:117
 #: tbl_operations.php:310 tbl_operations.php:554
 msgid "Add AUTO_INCREMENT value"
 msgstr "Lägg till AUTO_INCREMENT-värde"
 
-#: db_operations.php:504 tbl_operations.php:561
+#: db_operations.php:509 tbl_operations.php:561
 msgid "Add constraints"
 msgstr "Lägg till restriktioner"
 
-#: db_operations.php:517
+#: db_operations.php:522
 msgid "Switch to copied database"
 msgstr "Byt till kopierad databas"
 
-#: db_operations.php:541 libraries/Index.class.php:447
+#: db_operations.php:546 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:116 libraries/tbl_properties.inc.php:106
 #: libraries/tbl_properties.inc.php:731 server_collations.php:53
@@ -335,7 +335,7 @@ msgstr "Byt till kopierad databas"
 msgid "Collation"
 msgstr "Kollationering"
 
-#: db_operations.php:554
+#: db_operations.php:559
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -343,14 +343,14 @@ msgid ""
 msgstr ""
 "Konfigurationsschemat för phpMyAdmin har avaktiverats. %sVisa orsaken%s."
 
-#: db_operations.php:589
+#: db_operations.php:594
 msgid "Edit or export relational schema"
 msgstr "Editera eller exportera relationsschema"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:488 libraries/db_structure.lib.php:37
 #: libraries/export/pdf.php:100 libraries/export/xml.php:330
-#: libraries/header.inc.php:137 libraries/schema/User_Schema.class.php:237
+#: libraries/header.inc.php:137 libraries/schema/User_Schema.class.php:238
 #: server_privileges.php:1745 server_privileges.php:1801
 #: server_privileges.php:2065 server_synchronize.php:418
 #: server_synchronize.php:861 tbl_tracking.php:587 test/theme.php:74
@@ -359,7 +359,7 @@ msgstr "Tabell"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
-#: libraries/import.lib.php:147 navigation.php:620 navigation.php:642
+#: libraries/import.lib.php:147 navigation.php:620 navigation.php:643
 #: tbl_printview.php:391 tbl_structure.php:393 tbl_structure.php:479
 #: tbl_structure.php:871
 msgid "Rows"
@@ -369,33 +369,33 @@ msgstr "Rader"
 msgid "Size"
 msgstr "Storlek"
 
-#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:636
+#: db_printview.php:160 db_structure.php:442 libraries/export/sql.php:636
 #: libraries/export/sql.php:967
 msgid "in use"
 msgstr "används"
 
-#: db_printview.php:185 libraries/db_info.inc.php:95
+#: db_printview.php:185 libraries/db_info.inc.php:99
 #: libraries/export/sql.php:591
 #: libraries/schema/Pdf_Relation_Schema.class.php:1220 tbl_printview.php:431
 #: tbl_structure.php:903
 msgid "Creation"
 msgstr "Skapande"
 
-#: db_printview.php:194 libraries/db_info.inc.php:100
+#: db_printview.php:194 libraries/db_info.inc.php:104
 #: libraries/export/sql.php:596
 #: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:441
 #: tbl_structure.php:911
 msgid "Last update"
 msgstr "Senaste uppdatering"
 
-#: db_printview.php:203 libraries/db_info.inc.php:105
+#: db_printview.php:203 libraries/db_info.inc.php:109
 #: libraries/export/sql.php:601
 #: libraries/schema/Pdf_Relation_Schema.class.php:1230 tbl_printview.php:451
 #: tbl_structure.php:919
 msgid "Last check"
 msgstr "Senaste kontroll"
 
-#: db_printview.php:220 db_structure.php:439
+#: db_printview.php:220 db_structure.php:465
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -485,13 +485,13 @@ msgstr "Använd tabeller"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-fråga i databas <b>%s</b>:"
 
-#: db_qbe.php:956 libraries/common.lib.php:1188
+#: db_qbe.php:956 libraries/common.lib.php:1187
 msgid "Submit Query"
 msgstr "Kör fråga"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:646 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:650 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:224
 msgid "Access denied"
 msgstr "Åtkomst nekad"
@@ -524,8 +524,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s träff i tabell <i>%s</i>"
 msgstr[1] "%s träffar i tabell <i>%s</i>"
 
-#: db_search.php:254 libraries/common.lib.php:2830
-#: libraries/common.lib.php:3012 libraries/common.lib.php:3013
+#: db_search.php:254 libraries/common.lib.php:2829
+#: libraries/common.lib.php:3011 libraries/common.lib.php:3012
 #: libraries/tbl_links.inc.php:48 tbl_structure.php:564
 msgid "Browse"
 msgstr "Visa"
@@ -535,12 +535,12 @@ msgstr "Visa"
 msgid "Delete the matches for the %s table?"
 msgstr "radera matchande för %s tabellen?"
 
-#: db_search.php:259 libraries/display_tbl.lib.php:1253
-#: libraries/display_tbl.lib.php:2192
+#: db_search.php:259 libraries/display_tbl.lib.php:1255
+#: libraries/display_tbl.lib.php:2194
 #: libraries/schema/User_Schema.class.php:169
-#: libraries/schema/User_Schema.class.php:238
-#: libraries/schema/User_Schema.class.php:273
-#: libraries/schema/User_Schema.class.php:303
+#: libraries/schema/User_Schema.class.php:239
+#: libraries/schema/User_Schema.class.php:274
+#: libraries/schema/User_Schema.class.php:304
 #: libraries/sql_query_form.lib.php:447 pmd_general.php:423
 #: setup/frames/index.inc.php:126 setup/frames/index.inc.php:217
 msgid "Delete"
@@ -581,124 +581,124 @@ msgstr "Inuti kolumnen:"
 msgid "No tables found in database"
 msgstr "Inga tabeller finns i databasen."
 
-#: db_structure.php:277 tbl_operations.php:684
+#: db_structure.php:299 tbl_operations.php:684
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Tabellen %s har tömts"
 
-#: db_structure.php:286 tbl_operations.php:701
+#: db_structure.php:312 tbl_operations.php:701
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Vyn %s har tagits bort"
 
-#: db_structure.php:286 tbl_operations.php:701
+#: db_structure.php:312 tbl_operations.php:701
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Tabellen %s har tagits bort"
 
-#: db_structure.php:293 tbl_create.php:295
+#: db_structure.php:319 tbl_create.php:295
 msgid "Tracking is active."
 msgstr "Spårning är aktiv."
 
-#: db_structure.php:295 tbl_create.php:297
+#: db_structure.php:321 tbl_create.php:297
 msgid "Tracking is not active."
 msgstr "Spårning är inte aktiv."
 
-#: db_structure.php:379 libraries/display_tbl.lib.php:2076
+#: db_structure.php:405 libraries/display_tbl.lib.php:2078
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentationen%s."
 
-#: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:137
+#: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:137
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
 msgid "View"
 msgstr "Vy"
 
-#: db_structure.php:444 libraries/db_structure.lib.php:40
+#: db_structure.php:470 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:163 server_status.php:383
 msgid "Replication"
 msgstr "Replikering"
 
-#: db_structure.php:448
+#: db_structure.php:474
 msgid "Sum"
 msgstr "Summa"
 
-#: db_structure.php:455 libraries/StorageEngine.class.php:351
+#: db_structure.php:481 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s är standardlagringsmotorn på denna MySQL-server."
 
-#: db_structure.php:483 db_structure.php:500 db_structure.php:501
-#: libraries/display_tbl.lib.php:2217 libraries/display_tbl.lib.php:2222
+#: db_structure.php:509 db_structure.php:526 db_structure.php:527
+#: libraries/display_tbl.lib.php:2219 libraries/display_tbl.lib.php:2224
 #: libraries/mult_submits.inc.php:15 server_databases.php:256
 #: server_databases.php:261 server_privileges.php:1666 tbl_structure.php:552
 #: tbl_structure.php:561
 msgid "With selected:"
 msgstr "Med markerade:"
 
-#: db_structure.php:486 libraries/display_tbl.lib.php:2212
+#: db_structure.php:512 libraries/display_tbl.lib.php:2214
 #: server_databases.php:258 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:555
 msgid "Check All"
 msgstr "Markera alla"
 
-#: db_structure.php:490 libraries/display_tbl.lib.php:2213
+#: db_structure.php:516 libraries/display_tbl.lib.php:2215
 #: libraries/replication_gui.lib.php:35 server_databases.php:260
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:559
 msgid "Uncheck All"
 msgstr "Avmarkera alla"
 
-#: db_structure.php:495
+#: db_structure.php:521
 msgid "Check tables having overhead"
 msgstr "Markera ooptimerade"
 
-#: db_structure.php:503 libraries/config/messages.inc.php:162
-#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2230
-#: libraries/display_tbl.lib.php:2364 libraries/server_links.inc.php:69
+#: db_structure.php:529 libraries/config/messages.inc.php:162
+#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2232
+#: libraries/display_tbl.lib.php:2366 libraries/server_links.inc.php:69
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1354 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exportera"
 
-#: db_structure.php:505 db_structure.php:561
-#: libraries/display_tbl.lib.php:2319 tbl_structure.php:590
+#: db_structure.php:531 db_structure.php:587
+#: libraries/display_tbl.lib.php:2321 tbl_structure.php:590
 #: tbl_structure.php:592
 msgid "Print view"
 msgstr "Utskriftsvänlig visning"
 
-#: db_structure.php:509 libraries/common.lib.php:3021
-#: libraries/common.lib.php:3022
+#: db_structure.php:535 libraries/common.lib.php:3020
+#: libraries/common.lib.php:3021
 msgid "Empty"
 msgstr "Töm"
 
-#: db_structure.php:511 db_tracking.php:104 libraries/Index.class.php:487
-#: libraries/common.lib.php:3019 libraries/common.lib.php:3020
+#: db_structure.php:537 db_tracking.php:104 libraries/Index.class.php:487
+#: libraries/common.lib.php:3018 libraries/common.lib.php:3019
 #: server_databases.php:262 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:568
 msgid "Drop"
 msgstr "Radera"
 
-#: db_structure.php:513 tbl_operations.php:600
+#: db_structure.php:539 tbl_operations.php:600
 msgid "Check table"
 msgstr "Kontrollera tabell"
 
-#: db_structure.php:515 tbl_operations.php:649 tbl_structure.php:803
+#: db_structure.php:541 tbl_operations.php:649 tbl_structure.php:803
 #: tbl_structure.php:805
 msgid "Optimize table"
 msgstr "Optimera tabell"
 
-#: db_structure.php:517 tbl_operations.php:636
+#: db_structure.php:543 tbl_operations.php:636
 msgid "Repair table"
 msgstr "Reparera tabell"
 
-#: db_structure.php:519 tbl_operations.php:623
+#: db_structure.php:545 tbl_operations.php:623
 msgid "Analyze table"
 msgstr "Analysera tabell"
 
-#: db_structure.php:568 libraries/schema/User_Schema.class.php:387
+#: db_structure.php:594 libraries/schema/User_Schema.class.php:388
 msgid "Data Dictionary"
 msgstr "Datalexikon"
 
@@ -731,7 +731,7 @@ msgstr "Skapad"
 msgid "Updated"
 msgstr "Uppdaterad"
 
-#: db_tracking.php:89 libraries/common.lib.php:1354
+#: db_tracking.php:89 libraries/common.lib.php:1353
 #: libraries/server_links.inc.php:50 server_processlist.php:71
 #: tbl_tracking.php:591 test/theme.php:100
 msgid "Status"
@@ -876,7 +876,7 @@ msgstr "Bokmärket har tagits bort."
 msgid "Showing bookmark"
 msgstr "Visar bokmärke"
 
-#: import.php:402 sql.php:885
+#: import.php:402 sql.php:890
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bokmärket %s har skapats"
@@ -904,7 +904,7 @@ msgstr ""
 "tidsbegränsningar."
 
 #: import.php:453 libraries/Message.class.php:185
-#: libraries/display_tbl.lib.php:2113 libraries/sql_query_form.lib.php:139
+#: libraries/display_tbl.lib.php:2115 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:224 tbl_relation.php:282 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1030,7 +1030,7 @@ msgstr "Laddar"
 msgid "Processing Request"
 msgstr "Processa begäran"
 
-#: js/messages.php:65 libraries/import/ods.php:80
+#: js/messages.php:65 libraries/import/ods.php:89
 msgid "Error in Processing Request"
 msgstr "Fel i processbegäran"
 
@@ -1089,16 +1089,16 @@ msgid "Inline Edit"
 msgstr "Redigera"
 
 #: js/messages.php:89 libraries/Index.class.php:465
-#: libraries/common.lib.php:626 libraries/common.lib.php:1164
-#: libraries/common.lib.php:3023 libraries/config/messages.inc.php:462
-#: libraries/display_tbl.lib.php:1217 libraries/import.lib.php:1150
+#: libraries/common.lib.php:626 libraries/common.lib.php:1163
+#: libraries/common.lib.php:3022 libraries/config/messages.inc.php:462
+#: libraries/display_tbl.lib.php:1219 libraries/import.lib.php:1150
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125
 msgid "Edit"
 msgstr "Ändra"
 
 #: js/messages.php:90 libraries/config/FormDisplay.tpl.php:332
-#: libraries/schema/User_Schema.class.php:317
+#: libraries/schema/User_Schema.class.php:318
 #: libraries/tbl_properties.inc.php:777 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:215 tbl_change.php:1054 tbl_indexes.php:244
 #: tbl_relation.php:556
@@ -1184,8 +1184,8 @@ msgid "Prev"
 msgstr "Föregående"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:142 libraries/common.lib.php:2371
-#: libraries/common.lib.php:2374 libraries/display_tbl.lib.php:353
+#: js/messages.php:142 libraries/common.lib.php:2370
+#: libraries/common.lib.php:2373 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:895
 msgid "Next"
@@ -1245,63 +1245,63 @@ msgid "December"
 msgstr "december"
 
 #. l10n: Short month name
-#: js/messages.php:162 libraries/common.lib.php:1569
+#: js/messages.php:162 libraries/common.lib.php:1568
 msgid "Jan"
 msgstr "jan"
 
 #. l10n: Short month name
-#: js/messages.php:164 libraries/common.lib.php:1571
+#: js/messages.php:164 libraries/common.lib.php:1570
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:166 libraries/common.lib.php:1573
+#: js/messages.php:166 libraries/common.lib.php:1572
 msgid "Mar"
 msgstr "mars"
 
 #. l10n: Short month name
-#: js/messages.php:168 libraries/common.lib.php:1575
+#: js/messages.php:168 libraries/common.lib.php:1574
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:170 libraries/common.lib.php:1577
+#: js/messages.php:170 libraries/common.lib.php:1576
 msgctxt "Short month name"
 msgid "May"
 msgstr "maj"
 
 #. l10n: Short month name
-#: js/messages.php:172 libraries/common.lib.php:1579
+#: js/messages.php:172 libraries/common.lib.php:1578
 msgid "Jun"
 msgstr "jun"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1581
+#: js/messages.php:174 libraries/common.lib.php:1580
 msgid "Jul"
 msgstr "jul"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1583
+#: js/messages.php:176 libraries/common.lib.php:1582
 msgid "Aug"
 msgstr "aug"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1585
+#: js/messages.php:178 libraries/common.lib.php:1584
 msgid "Sep"
 msgstr "sep"
 
 #. l10n: Short month name
-#: js/messages.php:180 libraries/common.lib.php:1587
+#: js/messages.php:180 libraries/common.lib.php:1586
 msgid "Oct"
 msgstr "okt"
 
 #. l10n: Short month name
-#: js/messages.php:182 libraries/common.lib.php:1589
+#: js/messages.php:182 libraries/common.lib.php:1588
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:184 libraries/common.lib.php:1591
+#: js/messages.php:184 libraries/common.lib.php:1590
 msgid "Dec"
 msgstr "dec"
 
@@ -1334,37 +1334,37 @@ msgid "Saturday"
 msgstr "Lördag"
 
 #. l10n: Short week day name
-#: js/messages.php:197 libraries/common.lib.php:1594
+#: js/messages.php:197 libraries/common.lib.php:1593
 msgid "Sun"
 msgstr "Sön"
 
 #. l10n: Short week day name
-#: js/messages.php:199 libraries/common.lib.php:1596
+#: js/messages.php:199 libraries/common.lib.php:1595
 msgid "Mon"
 msgstr "Mån"
 
 #. l10n: Short week day name
-#: js/messages.php:201 libraries/common.lib.php:1598
+#: js/messages.php:201 libraries/common.lib.php:1597
 msgid "Tue"
 msgstr "Tis"
 
 #. l10n: Short week day name
-#: js/messages.php:203 libraries/common.lib.php:1600
+#: js/messages.php:203 libraries/common.lib.php:1599
 msgid "Wed"
 msgstr "Ons"
 
 #. l10n: Short week day name
-#: js/messages.php:205 libraries/common.lib.php:1602
+#: js/messages.php:205 libraries/common.lib.php:1601
 msgid "Thu"
 msgstr "Tors"
 
 #. l10n: Short week day name
-#: js/messages.php:207 libraries/common.lib.php:1604
+#: js/messages.php:207 libraries/common.lib.php:1603
 msgid "Fri"
 msgstr "Fre"
 
 #. l10n: Short week day name
-#: js/messages.php:209 libraries/common.lib.php:1606
+#: js/messages.php:209 libraries/common.lib.php:1605
 msgid "Sat"
 msgstr "Lör"
 
@@ -1564,20 +1564,20 @@ msgstr "%s har inaktiverats på denna MySQL-server."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 
-#: libraries/Table.class.php:1017
+#: libraries/Table.class.php:1022
 msgid "Invalid database"
 msgstr "Ogiltig databas"
 
-#: libraries/Table.class.php:1031 tbl_get_field.php:25
+#: libraries/Table.class.php:1036 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Ogiltigt tabellnamn"
 
-#: libraries/Table.class.php:1046
+#: libraries/Table.class.php:1066
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Fel vid namnbyte av tabell %1$s till %2$s"
 
-#: libraries/Table.class.php:1129
+#: libraries/Table.class.php:1149
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Tabell %s har döpts om till %s"
@@ -1684,7 +1684,7 @@ msgstr "Välj server"
 msgid "Cookies must be enabled past this point."
 msgstr "Kakor (cookies) måste tillåtas för att gå vidare."
 
-#: libraries/auth/cookie.auth.lib.php:644
+#: libraries/auth/cookie.auth.lib.php:648
 #: libraries/auth/signon.auth.lib.php:222
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -1692,14 +1692,14 @@ msgstr ""
 "Inloggning utan lösenord är inte tillåtet enligt konfiguration (se "
 "AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:648
+#: libraries/auth/cookie.auth.lib.php:652
 #: libraries/auth/signon.auth.lib.php:226
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Ingen aktivitet sedan %s sekunder; var god logga in igen"
 
-#: libraries/auth/cookie.auth.lib.php:658
-#: libraries/auth/cookie.auth.lib.php:660
+#: libraries/auth/cookie.auth.lib.php:662
+#: libraries/auth/cookie.auth.lib.php:664
 #: libraries/auth/signon.auth.lib.php:232
 msgid "Cannot log in to the MySQL server"
 msgstr "Kan ej logga in på MySQL-server"
@@ -1842,7 +1842,7 @@ msgstr "GD filändelse är nödvändig för tabell. "
 msgid "JSON encoder is needed for chart tooltips."
 msgstr "JSON avkodare behövs för verktygstips för diagram"
 
-#: libraries/common.inc.php:574
+#: libraries/common.inc.php:584
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -1857,12 +1857,12 @@ msgstr ""
 "som du erhåller. I de flesta fall saknas ett citationstecken eller ett "
 "semikolon någonstans.<br />Om du får en tom sida är allt OK."
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Kunde inte ladda standardkonfiguration från: %1$s"
 
-#: libraries/common.inc.php:590
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -1870,27 +1870,27 @@ msgstr ""
 "Variabeln <tt>$cfg['PmaAbsoluteUri']</tt> direktivet MÅSTE anges i din "
 "konfigurationsfil!"
 
-#: libraries/common.inc.php:620
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ogiltigt serverindex: %s"
 
-#: libraries/common.inc.php:627
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
 
-#: libraries/common.inc.php:636 libraries/config/messages.inc.php:486
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:486
 #: libraries/header.inc.php:115 main.php:163 server_synchronize.php:1175
 #: test/theme.php:56
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:819
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
-#: libraries/common.inc.php:922
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du bör uppgradera till %s %s eller senare."
@@ -1939,134 +1939,134 @@ msgstr "SQL-fråga"
 msgid "MySQL said: "
 msgstr "MySQL sa: "
 
-#: libraries/common.lib.php:1098
+#: libraries/common.lib.php:1097
 msgid "Failed to connect to SQL validator!"
 msgstr "Kunde inte ansluta till MySQL validerare"
 
-#: libraries/common.lib.php:1139 libraries/config/messages.inc.php:463
+#: libraries/common.lib.php:1138 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
 msgstr "Förklara SQL-kod"
 
-#: libraries/common.lib.php:1143
+#: libraries/common.lib.php:1142
 msgid "Skip Explain SQL"
 msgstr "Utan SQL-förklaring"
 
-#: libraries/common.lib.php:1177
+#: libraries/common.lib.php:1176
 msgid "Without PHP Code"
 msgstr "Utan PHP-kod"
 
-#: libraries/common.lib.php:1180 libraries/config/messages.inc.php:465
+#: libraries/common.lib.php:1179 libraries/config/messages.inc.php:465
 msgid "Create PHP Code"
 msgstr "Skapa PHP-kod"
 
-#: libraries/common.lib.php:1198 libraries/config/messages.inc.php:464
+#: libraries/common.lib.php:1197 libraries/config/messages.inc.php:464
 #: server_status.php:467
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: libraries/common.lib.php:1207
+#: libraries/common.lib.php:1206
 msgid "Skip Validate SQL"
 msgstr "Hoppa över SQL-validering"
 
-#: libraries/common.lib.php:1210 libraries/config/messages.inc.php:467
+#: libraries/common.lib.php:1209 libraries/config/messages.inc.php:467
 msgid "Validate SQL"
 msgstr "Validera SQL-kod"
 
-#: libraries/common.lib.php:1265
+#: libraries/common.lib.php:1264
 msgid "Inline edit of this query"
 msgstr "Redigera denna fråga"
 
-#: libraries/common.lib.php:1267
+#: libraries/common.lib.php:1266
 msgid "Inline"
 msgstr "Infogad"
 
-#: libraries/common.lib.php:1334 libraries/common.lib.php:1350
+#: libraries/common.lib.php:1333 libraries/common.lib.php:1349
 msgid "Profiling"
 msgstr "Profilering"
 
-#: libraries/common.lib.php:1355 libraries/tbl_triggers.lib.php:27
+#: libraries/common.lib.php:1354 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
 msgid "Time"
 msgstr "Tid"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1393
+#: libraries/common.lib.php:1392
 msgid "B"
 msgstr "bytes"
 
-#: libraries/common.lib.php:1393
+#: libraries/common.lib.php:1392
 msgid "KiB"
 msgstr "KiB"
 
-#: libraries/common.lib.php:1393
+#: libraries/common.lib.php:1392
 msgid "MiB"
 msgstr "MiB"
 
-#: libraries/common.lib.php:1393
+#: libraries/common.lib.php:1392
 msgid "GiB"
 msgstr "GiB"
 
-#: libraries/common.lib.php:1393
+#: libraries/common.lib.php:1392
 msgid "TiB"
 msgstr "TiB"
 
-#: libraries/common.lib.php:1393
+#: libraries/common.lib.php:1392
 msgid "PiB"
 msgstr "PiB"
 
-#: libraries/common.lib.php:1393
+#: libraries/common.lib.php:1392
 msgid "EiB"
 msgstr "EiB"
 
 #. l10n: Thousands separator
-#: libraries/common.lib.php:1431
+#: libraries/common.lib.php:1430
 msgid ","
 msgstr "  "
 
 #. l10n: Decimal separator
-#: libraries/common.lib.php:1433
+#: libraries/common.lib.php:1432
 msgid "."
 msgstr ","
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1610
+#: libraries/common.lib.php:1609
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y kl %H:%M"
 
-#: libraries/common.lib.php:1924
+#: libraries/common.lib.php:1923
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dagar, %s timmar, %s minuter och %s sekunder"
 
-#: libraries/common.lib.php:2341 libraries/common.lib.php:2344
+#: libraries/common.lib.php:2340 libraries/common.lib.php:2343
 #: libraries/display_tbl.lib.php:288 server_status.php:757
 msgid "Begin"
 msgstr "Starta"
 
-#: libraries/common.lib.php:2342 libraries/common.lib.php:2345
+#: libraries/common.lib.php:2341 libraries/common.lib.php:2344
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
 msgstr "Föregående"
 
-#: libraries/common.lib.php:2372 libraries/common.lib.php:2375
+#: libraries/common.lib.php:2371 libraries/common.lib.php:2374
 #: libraries/display_tbl.lib.php:368
 msgid "End"
 msgstr "Slut"
 
-#: libraries/common.lib.php:2447
+#: libraries/common.lib.php:2446
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Hoppa till databas &quot;%s&quot;."
 
-#: libraries/common.lib.php:2466
+#: libraries/common.lib.php:2465
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten för %s påverkas av en känd bugg, se %s"
 
-#: libraries/common.lib.php:2826 libraries/common.lib.php:2833
-#: libraries/common.lib.php:3018 libraries/config/setup.forms.php:285
+#: libraries/common.lib.php:2825 libraries/common.lib.php:2832
+#: libraries/common.lib.php:3017 libraries/config/setup.forms.php:285
 #: libraries/config/setup.forms.php:322 libraries/config/setup.forms.php:348
 #: libraries/config/user_preferences.forms.php:187
 #: libraries/config/user_preferences.forms.php:224
@@ -2078,7 +2078,7 @@ msgstr "Funktionaliteten för %s påverkas av en känd bugg, se %s"
 msgid "Structure"
 msgstr "Struktur"
 
-#: libraries/common.lib.php:2827 libraries/common.lib.php:2834
+#: libraries/common.lib.php:2826 libraries/common.lib.php:2833
 #: libraries/config/messages.inc.php:212 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
 #: libraries/server_links.inc.php:46 libraries/tbl_links.inc.php:58
@@ -2086,33 +2086,33 @@ msgstr "Struktur"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2829 libraries/common.lib.php:3016
-#: libraries/common.lib.php:3017 libraries/sql_query_form.lib.php:318
+#: libraries/common.lib.php:2828 libraries/common.lib.php:3015
+#: libraries/common.lib.php:3016 libraries/sql_query_form.lib.php:318
 #: libraries/sql_query_form.lib.php:321 libraries/tbl_links.inc.php:67
 msgid "Insert"
 msgstr "Lägg till"
 
-#: libraries/common.lib.php:2836 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:2835 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:86 libraries/tbl_links.inc.php:102
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operationer"
 
-#: libraries/common.lib.php:2966
+#: libraries/common.lib.php:2965
 msgid "Browse your computer:"
 msgstr "Gå igenom din dator:"
 
-#: libraries/common.lib.php:2979
+#: libraries/common.lib.php:2978
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Välj katalog att ladda upp till från web-server listningen <b>%s</b>:"
 
-#: libraries/common.lib.php:2991 libraries/sql_query_form.lib.php:500
+#: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:962
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Katalogen som du konfigurerat för uppladdning kan inte nås"
 
-#: libraries/common.lib.php:2999
+#: libraries/common.lib.php:2998
 msgid "There are no files to upload"
 msgstr "Det finns inga filer att ladda upp"
 
@@ -2267,7 +2267,7 @@ msgid "Allow users to customize this value"
 msgstr "Tillåt användare att anpassa detta värde"
 
 #: libraries/config/FormDisplay.tpl.php:333
-#: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
+#: libraries/schema/User_Schema.class.php:471 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1103
 msgid "Reset"
 msgstr "Återställ"
@@ -3109,7 +3109,7 @@ msgstr "Använd nyckelordet LOCAL"
 msgid "Column names in first row"
 msgstr "Kolumn på första raden"
 
-#: libraries/config/messages.inc.php:253 libraries/import/ods.php:27
+#: libraries/config/messages.inc.php:253 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr "Importera inte tomma rader"
 
@@ -4318,7 +4318,7 @@ msgstr "CSV med LOAD DATA"
 #: libraries/config/setup.forms.php:249 libraries/config/setup.forms.php:342
 #: libraries/config/user_preferences.forms.php:152
 #: libraries/config/user_preferences.forms.php:244 libraries/export/ods.php:17
-#: libraries/import/ods.php:22
+#: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "OpenDocument kalkylblad"
 
@@ -4384,12 +4384,12 @@ msgid "Incorrect IP address: %s"
 msgstr "Felaktig IP-adress: %s"
 
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
-#: libraries/core.lib.php:264
+#: libraries/core.lib.php:266
 msgctxt "PHP documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/core.lib.php:280
+#: libraries/core.lib.php:285
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s tillägg saknas. Vänligen kontrollera din PHP konfiguration."
@@ -4437,7 +4437,7 @@ msgstr "Rutiner"
 msgid "Return type"
 msgstr "Returtyp"
 
-#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1962
+#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1964
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -4795,8 +4795,8 @@ msgstr "Sortera efter nyckel"
 #: libraries/export/xml.php:25 libraries/export/yaml.php:29
 #: libraries/import.lib.php:1145 libraries/import.lib.php:1167
 #: libraries/import/csv.php:32 libraries/import/docsql.php:34
-#: libraries/import/ldi.php:48 libraries/import/ods.php:32
-#: libraries/import/sql.php:19 libraries/import/xml.php:25 tbl_select.php:230
+#: libraries/import/ldi.php:48 libraries/import/ods.php:39
+#: libraries/import/sql.php:19 libraries/import/xml.php:32 tbl_select.php:230
 #: tbl_structure.php:847
 msgid "Options"
 msgstr "Alternativ"
@@ -4830,58 +4830,58 @@ msgstr "Visa BLOB-innehåll"
 msgid "Browser transformation"
 msgstr "Webbläsaromvandling"
 
-#: libraries/display_tbl.lib.php:1218
+#: libraries/display_tbl.lib.php:1220
 msgid "Copy"
 msgstr "Kopiera"
 
-#: libraries/display_tbl.lib.php:1233 libraries/display_tbl.lib.php:1245
+#: libraries/display_tbl.lib.php:1235 libraries/display_tbl.lib.php:1247
 msgid "The row has been deleted"
 msgstr "Raden har raderats"
 
-#: libraries/display_tbl.lib.php:1272 libraries/display_tbl.lib.php:2192
+#: libraries/display_tbl.lib.php:1274 libraries/display_tbl.lib.php:2194
 #: server_processlist.php:92
 msgid "Kill"
 msgstr "Döda"
 
-#: libraries/display_tbl.lib.php:2066
+#: libraries/display_tbl.lib.php:2068
 msgid "in query"
 msgstr "i fråga"
 
-#: libraries/display_tbl.lib.php:2084
+#: libraries/display_tbl.lib.php:2086
 msgid "Showing rows"
 msgstr "Visar rader"
 
-#: libraries/display_tbl.lib.php:2094
+#: libraries/display_tbl.lib.php:2096
 msgid "total"
 msgstr "totalt"
 
-#: libraries/display_tbl.lib.php:2102 sql.php:629
+#: libraries/display_tbl.lib.php:2104 sql.php:630
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Frågan tog %01.4f sek"
 
-#: libraries/display_tbl.lib.php:2225 querywindow.php:114 querywindow.php:118
+#: libraries/display_tbl.lib.php:2227 querywindow.php:114 querywindow.php:118
 #: querywindow.php:121 tbl_structure.php:150 tbl_structure.php:567
 msgid "Change"
 msgstr "Ändra"
 
-#: libraries/display_tbl.lib.php:2298
+#: libraries/display_tbl.lib.php:2300
 msgid "Query results operations"
 msgstr "Operationer för frågeresultat"
 
-#: libraries/display_tbl.lib.php:2326
+#: libraries/display_tbl.lib.php:2328
 msgid "Print view (with full texts)"
 msgstr "Utskriftsvänlig version (med fullständiga texter)"
 
-#: libraries/display_tbl.lib.php:2370 tbl_chart.php:81
+#: libraries/display_tbl.lib.php:2372 tbl_chart.php:81
 msgid "Display chart"
 msgstr "Visa diagram"
 
-#: libraries/display_tbl.lib.php:2389
+#: libraries/display_tbl.lib.php:2391
 msgid "Create view"
 msgstr "Skapa vy"
 
-#: libraries/display_tbl.lib.php:2504
+#: libraries/display_tbl.lib.php:2506
 msgid "Link not found"
 msgstr "Länken hittades inte"
 
@@ -5619,7 +5619,7 @@ msgstr "Struktur för visning"
 msgid "Stand-in structure for view"
 msgstr "Ersättningsstruktur för visning"
 
-#: libraries/export/xml.php:17 libraries/import/xml.php:21
+#: libraries/export/xml.php:17 libraries/import/xml.php:28
 msgid "XML"
 msgstr "XML"
 
@@ -5648,7 +5648,7 @@ msgstr "SQL-resultat"
 msgid "Generated by"
 msgstr "Genererad av"
 
-#: libraries/import.lib.php:153 sql.php:625 tbl_change.php:179
+#: libraries/import.lib.php:153 sql.php:626 tbl_change.php:179
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
@@ -5689,7 +5689,7 @@ msgstr "Gå till tabell"
 msgid "Go to view"
 msgstr "Gå till vy"
 
-#: libraries/import/csv.php:37 libraries/import/ods.php:26
+#: libraries/import/csv.php:37 libraries/import/ods.php:33
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -5745,7 +5745,7 @@ msgstr "DocSQL"
 msgid "Table name"
 msgstr "Tabellnamn"
 
-#: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:316
+#: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:317
 #: view_create.php:147
 msgid "Column names"
 msgstr "Kolumn-namn"
@@ -5754,12 +5754,12 @@ msgstr "Kolumn-namn"
 msgid "This plugin does not support compressed imports!"
 msgstr "Detta tillägg stöder inte komprimerade importer!"
 
-#: libraries/import/ods.php:28
+#: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 "Importera procenttal som korrekt antal decimaler <i>(t.ex. 12.00% to .12)</i>"
 
-#: libraries/import/ods.php:29
+#: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importera valutor <i>(t.ex. $5.00 to 5.00)</i>"
 
@@ -5771,7 +5771,7 @@ msgstr "SQL kompatibilitetsläge:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Använd inte <code>AUTO_INCREMENT</code> för nollvärden"
 
-#: libraries/import/xml.php:74 libraries/import/xml.php:130
+#: libraries/import/xml.php:83 libraries/import/xml.php:139
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -5789,7 +5789,7 @@ msgstr "Inget"
 msgid "Convert to Kana"
 msgstr "Konvertera till Kana"
 
-#: libraries/mult_submits.inc.php:419 tbl_replace.php:331
+#: libraries/mult_submits.inc.php:419 tbl_replace.php:343
 msgid "No change"
 msgstr "Ingen förändring"
 
@@ -6266,55 +6266,55 @@ msgstr "Välj en sida att redigera"
 msgid "Select page"
 msgstr "Välj sida"
 
-#: libraries/schema/User_Schema.class.php:211
+#: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
 msgstr "Välj tabeller"
 
-#: libraries/schema/User_Schema.class.php:346
+#: libraries/schema/User_Schema.class.php:347
 msgid "Display relational schema"
 msgstr "Visa relationsschema"
 
-#: libraries/schema/User_Schema.class.php:356
+#: libraries/schema/User_Schema.class.php:357
 msgid "Select Export Relational Type"
 msgstr "Välj Exportera Relationell Typ"
 
-#: libraries/schema/User_Schema.class.php:377
+#: libraries/schema/User_Schema.class.php:378
 msgid "Show grid"
 msgstr "Visa rutnät"
 
-#: libraries/schema/User_Schema.class.php:379
+#: libraries/schema/User_Schema.class.php:380
 msgid "Show color"
 msgstr "Visa färg"
 
-#: libraries/schema/User_Schema.class.php:381
+#: libraries/schema/User_Schema.class.php:382
 msgid "Show dimension of tables"
 msgstr "Visa tabellers dimensioner"
 
-#: libraries/schema/User_Schema.class.php:384
+#: libraries/schema/User_Schema.class.php:385
 msgid "Display all tables with the same width"
 msgstr "Visa alla tabeller med samma bredd"
 
-#: libraries/schema/User_Schema.class.php:389
+#: libraries/schema/User_Schema.class.php:390
 msgid "Only show keys"
 msgstr "Visa endast nycklar"
 
-#: libraries/schema/User_Schema.class.php:391
+#: libraries/schema/User_Schema.class.php:392
 msgid "Landscape"
 msgstr "Landskap"
 
-#: libraries/schema/User_Schema.class.php:392
+#: libraries/schema/User_Schema.class.php:393
 msgid "Portrait"
 msgstr "Porträtt"
 
-#: libraries/schema/User_Schema.class.php:394
+#: libraries/schema/User_Schema.class.php:395
 msgid "Orientation"
 msgstr "Orientering"
 
-#: libraries/schema/User_Schema.class.php:407
+#: libraries/schema/User_Schema.class.php:408
 msgid "Paper size"
 msgstr "Pappersstorlek"
 
-#: libraries/schema/User_Schema.class.php:444
+#: libraries/schema/User_Schema.class.php:445
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -6322,7 +6322,7 @@ msgstr ""
 "Nuvarande sida har referenser till tabeller som inte längre existerar. Vill "
 "du ta bort dessa referenser?"
 
-#: libraries/schema/User_Schema.class.php:469
+#: libraries/schema/User_Schema.class.php:470
 msgid "Toggle scratchboard"
 msgstr "Visa/dölj skisstavla"
 
@@ -6372,25 +6372,25 @@ msgstr "Synkronisera"
 msgid "Settings"
 msgstr "Inställningar"
 
-#: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1116
+#: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1116
 msgid "Source database"
 msgstr "Källdatabas"
 
-#: libraries/server_synchronize.lib.php:1339
-#: libraries/server_synchronize.lib.php:1362
+#: libraries/server_synchronize.lib.php:1340
+#: libraries/server_synchronize.lib.php:1363
 msgid "Current server"
 msgstr "Aktuell Server"
 
-#: libraries/server_synchronize.lib.php:1341
-#: libraries/server_synchronize.lib.php:1364
+#: libraries/server_synchronize.lib.php:1342
+#: libraries/server_synchronize.lib.php:1365
 msgid "Remote server"
 msgstr "Fjärrserver"
 
-#: libraries/server_synchronize.lib.php:1344
+#: libraries/server_synchronize.lib.php:1345
 msgid "Difference"
 msgstr "Skillnad"
 
-#: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1118
+#: libraries/server_synchronize.lib.php:1361 server_synchronize.php:1118
 msgid "Target database"
 msgstr "Måldatabas"
 
@@ -6413,11 +6413,11 @@ msgstr "Rensa"
 msgid "Columns"
 msgstr "Kolumn"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:924 sql.php:925 sql.php:942
+#: libraries/sql_query_form.lib.php:336 sql.php:929 sql.php:930 sql.php:947
 msgid "Bookmark this SQL query"
 msgstr "Skapa bokmärke för den här SQL-frågan"
 
-#: libraries/sql_query_form.lib.php:343 sql.php:936
+#: libraries/sql_query_form.lib.php:343 sql.php:941
 msgid "Let every user access this bookmark"
 msgstr "Låt varje användare få tillgång till detta bokmärke"
 
@@ -9220,23 +9220,23 @@ msgstr ""
 "%sZip dekompression%s kräver funktioner (%s) som inte är tillgängliga på "
 "detta system."
 
-#: setup/lib/index.lib.php:296
+#: setup/lib/index.lib.php:297
 msgid "You should use SSL connections if your web server supports it."
 msgstr "Du ska använda SSL-anslutningar om din webbserver stödjer det."
 
-#: setup/lib/index.lib.php:306
+#: setup/lib/index.lib.php:307
 msgid "You should use mysqli for performance reasons."
 msgstr "Du ska använda mysqli av prestandaskäl."
 
-#: setup/lib/index.lib.php:331
+#: setup/lib/index.lib.php:332
 msgid "You allow for connecting to the server without a password."
 msgstr "Du tillåter anslutning till servern utan lösenord."
 
-#: setup/lib/index.lib.php:351
+#: setup/lib/index.lib.php:352
 msgid "Key is too short, it should have at least 8 characters."
 msgstr "Nyckeln är för kort, den ska ha minst 8 tecken."
 
-#: setup/lib/index.lib.php:358
+#: setup/lib/index.lib.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Nyckeln ska innehålla bokstäver, siffror [em]och[/em] specialtecken."
 
@@ -9250,29 +9250,29 @@ msgstr "Bläddra bland främmande värden"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärke \"% s\" som standard webbläsarfråga."
 
-#: sql.php:601 tbl_replace.php:387
+#: sql.php:602 tbl_replace.php:399
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad id: %1$d"
 
-#: sql.php:618
+#: sql.php:619
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: sql.php:621 tbl_replace.php:361
+#: sql.php:622 tbl_replace.php:373
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: sql.php:623
+#: sql.php:624
 msgid "Validated SQL"
 msgstr "Validerad SQL-kod"
 
-#: sql.php:898
+#: sql.php:903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problem med index för tabell `%s`"
 
-#: sql.php:930
+#: sql.php:935
 msgid "Label"
 msgstr "Etikett"
 
@@ -9581,40 +9581,40 @@ msgstr "Töm tabellen (TRUNCATE)"
 msgid "Delete the table (DROP)"
 msgstr "Ta bort tabellen (DROP)"
 
-#: tbl_operations.php:729
+#: tbl_operations.php:730
 msgid "Partition maintenance"
 msgstr "Underhåll av partition"
 
-#: tbl_operations.php:737
+#: tbl_operations.php:738
 #, php-format
 msgid "Partition %s"
 msgstr "Partition %s"
 
-#: tbl_operations.php:740
+#: tbl_operations.php:741
 msgid "Analyze"
 msgstr "Analysera"
 
-#: tbl_operations.php:741
+#: tbl_operations.php:742
 msgid "Check"
 msgstr "Kontrollera"
 
-#: tbl_operations.php:742
+#: tbl_operations.php:743
 msgid "Optimize"
 msgstr "Optimera"
 
-#: tbl_operations.php:743
+#: tbl_operations.php:744
 msgid "Rebuild"
 msgstr "Återskapa"
 
-#: tbl_operations.php:744
+#: tbl_operations.php:745
 msgid "Repair"
 msgstr "Reparera"
 
-#: tbl_operations.php:756
+#: tbl_operations.php:757
 msgid "Remove partitioning"
 msgstr "Ta bort partitionering"
 
-#: tbl_operations.php:782
+#: tbl_operations.php:783
 msgid "Check referential integrity:"
 msgstr "Kontrollera referensintegritet:"
 
