@@ -767,9 +767,8 @@ msgid "Last version"
 msgstr "সর্বশেষ সংস্করণ"
 
 #: db_tracking.php:88 tbl_tracking.php:651
-#, fuzzy
 msgid "Created"
-msgstr "তৈরী করুন"
+msgstr "তৈরী করা হয়েছে"
 
 #: db_tracking.php:89 tbl_tracking.php:652
 msgid "Updated"
