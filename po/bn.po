@@ -806,7 +806,7 @@ msgstr "সংস্করণসমূহ"
 
 #: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
 msgid "Tracking report"
-msgstr ""
+msgstr "ট্র্যাকিং রিপোর্ট"
 
 #: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
 #, fuzzy
