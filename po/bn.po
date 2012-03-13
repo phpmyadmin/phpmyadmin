@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2012-03-13 18:33+0200\n"
+"PO-Revision-Date: 2012-03-13 18:34+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -744,7 +744,7 @@ msgstr "তৈরী করা হয়েছে"
 
 #: db_tracking.php:88 tbl_tracking.php:590
 msgid "Updated"
-msgstr ""
+msgstr "আপডেটেড"
 
 #: db_tracking.php:89 libraries/common.lib.php:1353
 #: libraries/server_links.inc.php:50 server_processlist.php:71
