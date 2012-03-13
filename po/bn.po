@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2012-03-13 16:46+0200\n"
+"PO-Revision-Date: 2012-03-13 16:47+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -273,10 +273,9 @@ msgid "Rename database to"
 msgstr "ডাটাবেজ রিনেম কর"
 
 #: db_operations.php:434
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "ডাটাবেজ রিনেম কর"
+msgstr "ডাটাবেজ মূছে ফেল"
 
 #: db_operations.php:446
 #, php-format
