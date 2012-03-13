@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-13 17:17+0200\n"
+"PO-Revision-Date: 2012-03-13 17:20+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -533,10 +533,10 @@ msgid "Browse"
 msgstr "ব্রাউজ করুন"
 
 #: db_search.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "টেবিল এর জন্য ডাটা ডাম্পিং করুন"
+msgstr "%s মানানসই টেবিলটি মুছে দেবেন?"
 
 #: db_search.php:239 libraries/display_tbl.lib.php:1426
 #: libraries/display_tbl.lib.php:2467
