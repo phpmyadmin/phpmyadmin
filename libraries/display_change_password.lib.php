@@ -68,7 +68,8 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
         </tr>
         </table>
     </fieldset>
-    <fieldset id="fieldset_change_password_footer" class="tblFooters">
-            <input type="submit" name="change_pw" value="<?php echo(__('Go')); ?>" />
-    </fieldset>
+<!--    <fieldset id="fieldset_change_password_footer" class="tblFooters">
+	    <input type="submit" name="change_pw" value="<?php //echo(__('Go')); ?>" />
+	    <button aria-disabled="false" name="change_pw" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit"><span class="ui-button-text">Go</span></button>
+    </fieldset>-->
 </form>
