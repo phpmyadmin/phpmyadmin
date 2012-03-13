@@ -2347,28 +2347,8 @@ $(document).ready(function() {
          * @var button_options  Object containing options to be passed to jQueryUI's dialog
          */
         var button_options = {};
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            $('<div id="change_password_dialog"></div>')
-            .dialog({
-                title: PMA_messages['strChangePassword'],
-                width: 600,
-                close: function(ev,ui) {$(this).remove();},
-                buttons : button_options,
-                beforeClose: function(ev,ui){ $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax')}
-            })
-            .append(data);
-            displayPasswordGenerateButton();
-        }) // end $.get()
-    }) // end handler for change password anchor
-
-    /**
-     * Attach Ajax event handler for Change Password form submission
-     *
-     * @uses    PMA_ajaxShowMessage()
-     * @see $cfg['AjaxEnable']
-     */
-    $("#change_password_form.ajax").find('input[name=change_pw]').live('click', function(event) {
+        button_options[PMA_messages['strGo']] = function() {
+            
         event.preventDefault();
 
         /**
@@ -2398,7 +2378,29 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }) // end $.post()
-    }) // end handler for Change Password form submission
+            
+        }
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            $('<div id="change_password_dialog"></div>')
+            .dialog({
+                title: PMA_messages['strChangePassword'],
+                width: 600,
+                close: function(ev,ui) {$(this).remove();},
+                buttons : button_options,
+                beforeClose: function(ev,ui){ $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax')}
+            })
+            .append(data);
+            displayPasswordGenerateButton();
+        }) // end $.get()
+    }) // end handler for change password anchor
+
+    /**
+     * Attach Ajax event handler for Change Password form submission
+     *
+     * @uses    PMA_ajaxShowMessage()
+     * @see $cfg['AjaxEnable']
+     */
 }) // end $(document).ready() for Change Password
 
 /**
