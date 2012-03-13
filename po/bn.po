@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2012-03-13 18:38+0200\n"
+"PO-Revision-Date: 2012-03-13 18:39+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -793,9 +793,8 @@ msgid "Track table"
 msgstr "টেবিল ট্রাক কর"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "ডাটাবেজ"
+msgstr "ডাটাবেজ লগ"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
