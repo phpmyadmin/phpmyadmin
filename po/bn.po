@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-13 18:28+0200\n"
+"PO-Revision-Date: 2012-03-13 18:30+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -623,7 +623,7 @@ msgstr "ট্র্যাকিং সক্রিয় নয়।"
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr ""
+msgstr "এই ভিউ এ অন্তত এই সংখ্যক সারি রয়েছে। %sdocumentation%s পড়ুন."
 
 #: db_structure.php:460 db_structure.php:474 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
