@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2012-03-13 17:08+0200\n"
+"PO-Revision-Date: 2012-03-13 17:10+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -419,7 +419,7 @@ msgstr "পরিবর্তন করুন"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "দৃষ্টিলব্ধ নির্মাতা"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:871
