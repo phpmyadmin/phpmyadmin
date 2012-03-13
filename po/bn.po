@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-13 18:24+0200\n"
+"PO-Revision-Date: 2012-03-13 18:27+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -625,7 +625,7 @@ msgstr "Table %s has been dropped"
 
 #: db_structure.php:338 tbl_create.php:281
 msgid "Tracking is active."
-msgstr ""
+msgstr "ট্র্যাকিং সক্রিয়।"
 
 #: db_structure.php:343 tbl_create.php:284
 msgid "Tracking is not active."
