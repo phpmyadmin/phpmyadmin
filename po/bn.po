@@ -765,7 +765,7 @@ msgstr "এই টেবিলের জন্য ট্র্যাকিং �
 
 #: db_tracking.php:119 tbl_tracking.php:543 tbl_tracking.php:601
 msgid "active"
-msgstr ""
+msgstr "সক্রিয়"
 
 #: db_tracking.php:121 tbl_tracking.php:545 tbl_tracking.php:603
 msgid "not active"
