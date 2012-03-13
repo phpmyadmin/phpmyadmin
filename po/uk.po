@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2012-03-13 20:45+0200\n"
+"PO-Revision-Date: 2012-03-13 20:50+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3430,7 +3430,7 @@ msgstr "Звичайний порядок"
 
 #: libraries/config/messages.inc.php:320 libraries/config/messages.inc.php:330
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "Використовувати тільки піктограми, тільки текст, або обидва"
 
 #: libraries/config/messages.inc.php:321
 msgid "Iconic navigation bar"
