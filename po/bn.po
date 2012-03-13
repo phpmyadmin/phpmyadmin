@@ -745,9 +745,8 @@ msgid "Data Dictionary"
 msgstr "ডাটা অভিধান"
 
 #: db_tracking.php:80
-#, fuzzy
 msgid "Tracked tables"
-msgstr "টেবিল পরীক্ষা কর"
+msgstr "টেবিলগুলি ট্রাক করা"
 
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
