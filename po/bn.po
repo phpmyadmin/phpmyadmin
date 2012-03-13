@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-13 17:43+0200\n"
+"PO-Revision-Date: 2012-03-13 18:20+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -563,10 +563,9 @@ msgid "Search in database"
 msgstr "ডাটাবে এ খুজুঁনSearch in database"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "শব্দ বা মানের জন্য অনুসন্ধান (ওয়াইল্ডকার্ড: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
