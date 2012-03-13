@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2012-03-13 17:20+0200\n"
+"PO-Revision-Date: 2012-03-13 17:43+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -558,12 +558,12 @@ msgid "Delete"
 msgstr "মুছে ফেল"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> match(es)"
-msgstr[1] "<b>Total:</b> <i>%s</i> match(es)"
+msgstr[0] "<b>মোট:</b> <i>%s</i> মানানসই"
+msgstr[1] "<b>মোট:</b> <i>%s</i> গুলি মানানসই"
 
 #: db_search.php:295
 msgid "Search in database"
