@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2012-03-13 18:35+0200\n"
+"PO-Revision-Date: 2012-03-13 18:36+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -772,9 +772,8 @@ msgid "not active"
 msgstr "সক্রিয় নয়"
 
 #: db_tracking.php:134
-#, fuzzy
 msgid "Versions"
-msgstr "পারসিয়ান"
+msgstr "সংস্করণসমূহ"
 
 #: db_tracking.php:135 tbl_tracking.php:374 tbl_tracking.php:621
 msgid "Tracking report"
