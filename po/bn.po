@@ -831,9 +831,8 @@ msgid "Enter each value in a separate field"
 msgstr "একটি পৃথক ফিল্ডে প্রতিটি মান লিখুন"
 
 #: enum_editor.php:123
-#, fuzzy
 msgid "Add a value"
-msgstr "একটি নতুন ইউজার যোগ করুন"
+msgstr "একটি মান যোগ করুন"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
