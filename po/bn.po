@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-13 17:06+0200\n"
+"PO-Revision-Date: 2012-03-13 17:07+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -394,12 +394,12 @@ msgid "Last check"
 msgstr "Last check"
 
 #: db_printview.php:219 db_structure.php:502
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s table(s)"
-msgstr[1] "%s table(s)"
+msgstr[0] "%s টেবিল(s)"
+msgstr[1] "%s টেবিলসমূহ(s)"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
