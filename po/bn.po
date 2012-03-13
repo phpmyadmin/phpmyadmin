@@ -713,9 +713,8 @@ msgid "Analyze table"
 msgstr "টেবিল বিশ্লেষণ কর"
 
 #: db_structure.php:589
-#, fuzzy
 msgid "Add prefix to table"
-msgstr "কোন ডাটাবেজ নাই"
+msgstr "টেবিলে উপসর্গ যোগ করুন"
 
 #: db_structure.php:591 libraries/mult_submits.inc.php:263
 #, fuzzy
