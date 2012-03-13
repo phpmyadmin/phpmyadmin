@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-13 18:42+0200\n"
+"PO-Revision-Date: 2012-03-13 18:43+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -828,7 +828,7 @@ msgstr "%s কলামের মানসমূহ"
 
 #: enum_editor.php:34 js/messages.php:265
 msgid "Enter each value in a separate field"
-msgstr ""
+msgstr "একটি পৃথক ফিল্ডে প্রতিটি মান লিখুন"
 
 #: enum_editor.php:123
 #, fuzzy
