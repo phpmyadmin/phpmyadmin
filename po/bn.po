@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2012-03-13 18:22+0200\n"
+"PO-Revision-Date: 2012-03-13 18:24+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -591,10 +591,9 @@ msgid "Inside column:"
 msgstr "ভিতরে টেবিল(গুলি):"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "ডাটাবেজ এ কোন টেবিল পাওয়া যায়নি।"
+msgstr "ডাটাবেজে কোন টেবিল পাওয়া যায়নি।"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
