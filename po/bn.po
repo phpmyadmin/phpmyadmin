@@ -769,7 +769,7 @@ msgstr "সক্রিয়"
 
 #: db_tracking.php:121 tbl_tracking.php:545 tbl_tracking.php:603
 msgid "not active"
-msgstr ""
+msgstr "সক্রিয় নয়"
 
 #: db_tracking.php:134
 #, fuzzy
