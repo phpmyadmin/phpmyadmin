@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.10-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-10-06 09:23+0200\n"
-"PO-Revision-Date: 2012-03-13 10:53+0200\n"
+"PO-Revision-Date: 2012-03-13 10:54+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -3412,7 +3412,7 @@ msgstr "Це є Редагування, редагування Влінію, К�
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on left side"
-msgstr ""
+msgstr "Показати рядок посилань таблиці на лівій стороні"
 
 #: libraries/config/messages.inc.php:317
 msgid "Show table row links on right side"
