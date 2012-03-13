@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-09 16:09+0100\n"
-"PO-Revision-Date: 2012-03-13 18:21+0200\n"
+"PO-Revision-Date: 2012-03-13 18:22+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -581,10 +581,9 @@ msgid "Inside tables:"
 msgstr "ভিতরে টেবিল (গুলি):"
 
 #: db_search.php:330
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Inside table(s):"
+msgstr "ভিতরে টেবিল(গুলি):"
 
 #: db_structure.php:68
 #, fuzzy
