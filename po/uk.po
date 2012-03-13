@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
-"PO-Revision-Date: 2012-03-13 20:43+0200\n"
+"PO-Revision-Date: 2012-03-13 20:45+0200\n"
 "Last-Translator: typim <duke3d@ukr.net>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -4424,7 +4424,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Використати природній порядок для сортування імен таблиць та баз даних"
 
 #: libraries/config/messages.inc.php:324
 msgid "Natural order"
