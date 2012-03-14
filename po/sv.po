@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-14 20:54+0200\n"
+"PO-Revision-Date: 2012-03-14 20:56+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1790,7 +1790,7 @@ msgstr "Data"
 #: server_databases.php:215 server_status.php:541 server_status.php:602
 #: server_status.php:625 tbl_printview.php:348 tbl_structure.php:790
 msgid "Total"
-msgstr "Total"
+msgstr "Totalt"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:776
