@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:47+0100\n"
-"PO-Revision-Date: 2012-03-14 14:53+0200\n"
+"PO-Revision-Date: 2012-03-14 14:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
 "Language: uz@latin\n"
@@ -8558,7 +8558,7 @@ msgstr "Tanlash uchun sichqoncha tugmasini bosing"
 #: libraries/sql_query_form.lib.php:189
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "\"%s\" serverida SQL-so‘rov(lar)ni bajarish "
+msgstr "\"%s\" serverida SQL-so‘rov(lar)ni bajarish"
 
 #: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:228
 #, php-format
