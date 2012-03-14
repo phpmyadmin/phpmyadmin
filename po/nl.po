@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 17:30+0200\n"
+"PO-Revision-Date: 2012-03-14 17:33+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10493,10 +10493,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Het aantal threads dat actief bezig is."
 
 #: server_status.php:1551
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start Monitor"
-msgstr "Tekstveld regels"
+msgstr "Start bewaking"
 
 #: server_status.php:1560
 #, fuzzy
