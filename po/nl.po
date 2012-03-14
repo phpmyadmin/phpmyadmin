@@ -10523,7 +10523,7 @@ msgstr "Voeg een grafiek toe"
 
 #: server_status.php:1574
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Herschikken/bewerken van de grafieken"
 
 #: server_status.php:1578
 msgid "Refresh rate"
