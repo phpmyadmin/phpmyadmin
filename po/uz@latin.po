@@ -1975,7 +1975,7 @@ msgstr "SQL so‘rovlari qutisi"
 #: js/messages.php:275 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr ""
-"Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak. "
+"Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak."
 
 #: js/messages.php:276 libraries/common.lib.php:2774
 #: libraries/display_tbl.lib.php:2501 querywindow.php:87 tbl_structure.php:149
