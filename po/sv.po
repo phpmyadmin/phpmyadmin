@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-14 19:37+0200\n"
+"PO-Revision-Date: 2012-03-14 19:38+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1941,7 +1941,7 @@ msgstr "MySQL sa: "
 
 #: libraries/common.lib.php:1097
 msgid "Failed to connect to SQL validator!"
-msgstr "Kunde inte ansluta till MySQL validerare"
+msgstr "Lyckades inte ansluta till SQL validerare!"
 
 #: libraries/common.lib.php:1138 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
