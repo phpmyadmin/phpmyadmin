@@ -1,11 +1,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2011-04-16 22:04+0200\n"
-"Last-Translator: <aris_feryanto@yahoo.com>\n"
+"PO-Revision-Date: 2012-02-16 20:01+0200\n"
+"Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -2323,10 +2323,12 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Rahasia passphrase digunakan untuk enkripsi cookie dalam otentifikasi "
+"[kbd]cookie[kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "rahasia Blow fish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
@@ -2349,6 +2351,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Izinkan [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] kompresi untuk "
+"operasi impor dan ekspor"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
@@ -2393,6 +2397,8 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Kompres ekspor gzip/bzip2 dengan cepat tanpa memerlukan banyak memori, jika "
+"Anda mengalami masalah dengan file gzip/bzip2 nonaktifkan fitur ini"
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
@@ -2408,6 +2414,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Apakah suatu peringatan (&quot;Apakah Anda benar-benar yakin ...&quot;) "
+"harus ditampilkan bila Anda akan kehilangan data"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
@@ -2418,9 +2426,8 @@ msgid "Debug SQL"
 msgstr "Debug SQL"
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
 msgid "Default display direction"
-msgstr "Pilihan cara untuk mengekspor Database"
+msgstr "Arah tampilan bawaan"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
@@ -2437,9 +2444,8 @@ msgid "Tab that is displayed when entering a database"
 msgstr "Tab yang ditampilkan sewaktu memasuki suatu basis data"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 msgid "Default database tab"
-msgstr "Ubah nama database menjadi"
+msgstr "Tab basis data bawaan"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
@@ -2486,16 +2492,14 @@ msgid "Edit SQL queries in popup window"
 msgstr "Edit kueri SQL pada jendela munculan"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "Edit baris berikut"
+msgstr "Edit dalam jendela"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Tampilkan ciri-ciri"
+msgstr "Tampilkan galat"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
@@ -2524,9 +2528,8 @@ msgid "Save as file"
 msgstr "Simpan file dalam format"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:237
-#, fuzzy
 msgid "Character set of the file"
-msgstr "Penyusunan karakter dalam file:"
+msgstr "Set karakter berkas"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: tbl_printview.php:373 tbl_structure.php:831
@@ -2545,26 +2548,23 @@ msgstr "Kompresi"
 #: libraries/export/excel.php:24 libraries/export/htmlword.php:29
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Letakkan nama Fields pada baris pertama"
+msgstr "Masukkan nama kolom pada baris pertama"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
-msgstr "Field ditutup dengan"
+msgstr "Kolom diapit oleh"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:247 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Field dikembalikan oleh"
+msgstr "Kolom dikembalikan oleh"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
@@ -2581,10 +2581,9 @@ msgstr "Hapus karakter CRLF dalam kolom"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Garis diputuskan oleh"
+msgstr "Kolom diakhiri oleh"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:238
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
@@ -2592,35 +2591,30 @@ msgid "Lines terminated by"
 msgstr "Garis diputuskan oleh"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
-msgstr "Edisi Excel"
+msgstr "Versi Excel"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 msgid "Database name template"
-msgstr "Konvensi nama file"
+msgstr "Templat nama basis data"
 
 #: libraries/config/messages.inc.php:84
-#, fuzzy
 msgid "Server name template"
-msgstr "Konvensi nama file"
+msgstr "Templat nama server"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 msgid "Table name template"
-msgstr "Konvensi nama file"
+msgstr "Templat nama tabel"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:135
 #: libraries/config/messages.inc.php:141 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "tabel %s"
+msgstr "Tabel dump"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
@@ -2652,10 +2646,9 @@ msgid "Relations"
 msgstr "Tabel Relasi"
 
 #: libraries/config/messages.inc.php:103
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "Jenis Ekspor"
+msgstr "Metode ekspor"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
@@ -2667,15 +2660,13 @@ msgid "Overwrite existing file(s)"
 msgstr "Timpahkan (Overwrite) file(s) yang ada"
 
 #: libraries/config/messages.inc.php:116
-#, fuzzy
 msgid "Remember file name template"
-msgstr "Konvensi nama file"
+msgstr "Ingat templat nama berkas"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Nama tabel dan nama field dalam tanda kutip biasa"
+msgstr "Apit nama tabel dan kolom dengan tanda petik balik"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:258
 #: libraries/display_export.lib.php:346
@@ -2715,20 +2706,18 @@ msgid "Maximal length of created query"
 msgstr "Panjang maksimum kueri yang dibuat"
 
 #: libraries/config/messages.inc.php:136
-#, fuzzy
 #| msgid "Export tables"
 msgid "Export type"
-msgstr "Ekspor tabel"
+msgstr "Jenis ekspor"
 
 #: libraries/config/messages.inc.php:137 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
 msgstr "Menyertakan ekspor dalam transaksi"
 
 #: libraries/config/messages.inc.php:138
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export time in UTC"
-msgstr "Ekspor isi"
+msgstr "Ekspor waktu dalam UTC"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
@@ -2768,9 +2757,8 @@ msgstr "Atur modus jelajah"
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
 #: libraries/config/messages.inc.php:187 libraries/config/messages.inc.php:215
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 msgid "Customize default options"
-msgstr "Pilihan cara untuk mengekspor Database"
+msgstr "Sesuaikan opsi bawaan"
 
 #: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:305
@@ -2810,10 +2798,9 @@ msgid "Features"
 msgstr "Fitur"
 
 #: libraries/config/messages.inc.php:166
-#, fuzzy
 #| msgid "Generate"
 msgid "General"
-msgstr "Menghasilkan"
+msgstr "Umum"
 
 #: libraries/config/messages.inc.php:167
 msgid "Set some commonly used options"
@@ -2822,14 +2809,12 @@ msgstr "Atur beberapa opsi yang umum dipakai"
 #: libraries/config/messages.inc.php:168 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
-#, fuzzy
 msgid "Import"
-msgstr "Ekspor"
+msgstr "Impor"
 
 #: libraries/config/messages.inc.php:169
-#, fuzzy
 msgid "Import defaults"
-msgstr "Impor file"
+msgstr "Bawaan impor"
 
 #: libraries/config/messages.inc.php:170
 msgid "Customize default common import options"
@@ -2848,9 +2833,8 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:176
-#, fuzzy
 msgid "Databases display options"
-msgstr "Pilihan cara untuk mengekspor Database"
+msgstr "Opsi tampilan basis data"
 
 #: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
@@ -2862,7 +2846,6 @@ msgstr "Atur tampilan bingkai navigasi"
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
-#, fuzzy
 msgid "Servers"
 msgstr "Server"
 
@@ -2883,10 +2866,9 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:186
-#, fuzzy
 #| msgid "Documentation"
 msgid "Open Document"
-msgstr "Dokumentasi"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
@@ -2897,10 +2879,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Pengaturan yang tidak masuk di mana pun"
 
 #: libraries/config/messages.inc.php:190
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Halaman no.:"
+msgstr "Judul halaman"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
@@ -2935,10 +2916,9 @@ msgid "Basic settings"
 msgstr "Pengaturan dasar"
 
 #: libraries/config/messages.inc.php:197
-#, fuzzy
 #| msgid "Documentation"
 msgid "Authentication"
-msgstr "Dokumentasi"
+msgstr "Autentikasi"
 
 #: libraries/config/messages.inc.php:198
 msgid "Authentication settings"
@@ -2980,9 +2960,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:206
-#, fuzzy
 msgid "Customize export options"
-msgstr "Pilihan cara untuk mengekspor Database"
+msgstr "Sesuaikan opsi ekspor"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize import defaults"
@@ -2998,29 +2977,25 @@ msgstr "Atur bingkai utama"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:17
-#, fuzzy
 msgid "SQL queries"
-msgstr "Pencarian SQL"
+msgstr "Kueri SQL"
 
 #: libraries/config/messages.inc.php:213
-#, fuzzy
 msgid "SQL Query box"
-msgstr "Pencarian SQL"
+msgstr "Kotak Kueri SQL"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Atur tautan yang ditampilkan di kotak Kueri SQL"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "Pencarian SQL"
+msgstr "Pengaturan kueri SQL"
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "Sejarah SQL"
+msgstr "Validator SQL"
 
 #: libraries/config/messages.inc.php:219
 msgid ""
@@ -3031,40 +3006,35 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 msgid "Startup"
-msgstr "Status"
+msgstr "Awal"
 
 #: libraries/config/messages.inc.php:221
 msgid "Customize startup page"
 msgstr "Atur halaman awal"
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 msgid "Tabs"
-msgstr "Tabel"
+msgstr "Tab"
 
 #: libraries/config/messages.inc.php:223
 msgid "Choose how you want tabs to work"
 msgstr "Pilih cara kerja tab yang Anda inginkan"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Gunakan text field"
+msgstr "Isian teks"
 
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 msgid "Customize text input fields"
-msgstr "Pilihan cara untuk mengekspor Database"
+msgstr "Sesuaikan isian masukan teks"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:17
 msgid "Texy! text"
 msgstr "Teks Texy!"
 
 #: libraries/config/messages.inc.php:228
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
 msgstr "Peringatan"
@@ -3134,10 +3104,9 @@ msgstr "Gunakan kata kunci LOCAL"
 
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/config/messages.inc.php:261
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "Letakkan nama Fields pada baris pertama"
+msgstr "Nama kolom pada baris pertama"
 
 #: libraries/config/messages.inc.php:253 libraries/import/ods.php:34
 msgid "Do not import empty rows"
@@ -3160,7 +3129,6 @@ msgid "Partial import: skip queries"
 msgstr "Impor parsial: lewati kueri"
 
 #: libraries/config/messages.inc.php:259
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
@@ -3404,9 +3372,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:314
-#, fuzzy
 msgid "Memory limit"
-msgstr "Batas dari sumber"
+msgstr "Limit memori"
 
 #: libraries/config/messages.inc.php:315
 msgid "These are Edit, Inline edit, Copy and Delete links"
@@ -3425,10 +3392,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Gunakan urutan alami untuk pengurutan nama tabel dan basis data"
 
 #: libraries/config/messages.inc.php:319
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Urutkan tabel berdasarkan"
+msgstr "Urutan alami"
 
 #: libraries/config/messages.inc.php:320 libraries/config/messages.inc.php:330
 msgid "Use only icons, only text or both"
@@ -3519,22 +3485,19 @@ msgid "Query window height (in pixels)"
 msgstr "Tinggi jendela kueri (dalam piksel)"
 
 #: libraries/config/messages.inc.php:342
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Jendela Pencarian"
+msgstr "Tinggi jendela kueri"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Jendela Pencarian"
+msgstr "Lebar jendela kueri (dalam piksel)"
 
 #: libraries/config/messages.inc.php:344
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Jendela Pencarian"
+msgstr "Lebar jendela kueri"
 
 #: libraries/config/messages.inc.php:345
 msgid "Select which functions will be used for character set conversion"
@@ -3549,10 +3512,9 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
 #: libraries/config/messages.inc.php:348
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Perbaiki proses"
+msgstr "Ulangi judul"
 
 #: libraries/config/messages.inc.php:349
 msgid "Show help button instead of Documentation text"
@@ -3567,9 +3529,8 @@ msgid "Directory where exports can be saved on server"
 msgstr "Direktori penyimpanan ekspor di server"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 msgid "Save directory"
-msgstr "Home direktori data"
+msgstr "Direktori penyimpanan"
 
 #: libraries/config/messages.inc.php:354
 msgid "Leave blank if not used"
@@ -3655,9 +3616,8 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: libraries/config/messages.inc.php:373
-#, fuzzy
 msgid "Connection type"
-msgstr "Koneksi"
+msgstr "Jenis koneksi"
 
 #: libraries/config/messages.inc.php:374
 msgid "Control user password"
@@ -3678,9 +3638,8 @@ msgid "Count tables when showing database list"
 msgstr "Hitung tabel sewaktu menunjukkan daftar basis data"
 
 #: libraries/config/messages.inc.php:378
-#, fuzzy
 msgid "Count tables"
-msgstr "Tabel tidak ditemukan"
+msgstr "Hitung tabel"
 
 #: libraries/config/messages.inc.php:379
 msgid ""
@@ -3689,9 +3648,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:380
-#, fuzzy
 msgid "Designer table"
-msgstr "Defragmentasikan tabel"
+msgstr "Tabel desainer"
 
 #: libraries/config/messages.inc.php:381
 msgid ""
@@ -3716,9 +3674,8 @@ msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 msgid "Hide databases"
-msgstr "Database tidak ditemukan"
+msgstr "Sembunyikan basis data"
 
 #: libraries/config/messages.inc.php:387
 msgid ""
@@ -3735,9 +3692,8 @@ msgid "Hostname where MySQL server is running"
 msgstr "Nama inang yang menjalankan server MySQL"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 msgid "Server hostname"
-msgstr "Pilihan Server"
+msgstr "Nama inang server"
 
 #: libraries/config/messages.inc.php:391
 msgid "Logout URL"
@@ -3789,19 +3745,17 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:401
-#, fuzzy
 #| msgid "Database"
 msgid "Database name"
-msgstr "Database"
+msgstr "Nama basis data"
 
 #: libraries/config/messages.inc.php:402
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 msgid "Server port"
-msgstr "ID Server"
+msgstr "Porta server"
 
 #: libraries/config/messages.inc.php:404
 msgid ""
@@ -3810,9 +3764,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:405
-#, fuzzy
 msgid "Relation table"
-msgstr "Perbaiki tabel"
+msgstr "Tabel relasi"
 
 #: libraries/config/messages.inc.php:406
 msgid "SQL command to fetch available databases"
@@ -3841,9 +3794,8 @@ msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:412
-#, fuzzy
 msgid "Server socket"
-msgstr "Pilihan Server"
+msgstr "Socket server"
 
 #: libraries/config/messages.inc.php:413
 msgid "Enable SSL for connection to MySQL server"
@@ -3869,10 +3821,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "Tampilkan komentar kolom"
+msgstr "Tabel kolom tampilan"
 
 #: libraries/config/messages.inc.php:419
 msgid ""
@@ -3909,10 +3860,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Keterangan"
+msgstr "Statement untuk dilacak"
 
 #: libraries/config/messages.inc.php:427
 msgid ""
@@ -3931,10 +3881,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Modus restorasi otomatis"
+msgstr "Buat versi secara otomatis"
 
 #: libraries/config/messages.inc.php:431
 msgid ""
@@ -4006,9 +3955,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 msgid "Show field types"
-msgstr "Tampilkan tabel"
+msgstr "Tampilkan jenis isian"
 
 #: libraries/config/messages.inc.php:446
 msgid "Display the function fields in edit/insert mode"
@@ -4039,18 +3987,16 @@ msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
 #: libraries/config/messages.inc.php:452
-#, fuzzy
 msgid "Show SQL queries"
-msgstr "Tampilkan pencarian yang lengkap"
+msgstr "Tampilkan kueri SQL"
 
 #: libraries/config/messages.inc.php:453
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 msgid "Show statistics"
-msgstr "Statistik Baris"
+msgstr "Tampilkan statistik"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -4149,10 +4095,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:478
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Textarea columns"
-msgstr "Tambahkan/Hapus kolom"
+msgstr "Kolom textarea"
 
 #: libraries/config/messages.inc.php:479
 msgid ""
@@ -4173,10 +4118,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr "Judul jendela peramban sewaktu tidak ada yang dipilih"
 
 #: libraries/config/messages.inc.php:484
-#, fuzzy
 #| msgid "Default"
 msgid "Default title"
-msgstr "Default"
+msgstr "Judul bawaan"
 
 #: libraries/config/messages.inc.php:485
 msgid "Title of browser window when a server is selected"
@@ -4296,10 +4240,9 @@ msgstr "Cepat"
 
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "Warna kustom"
+msgstr "Kustom"
 
 #: libraries/config/setup.forms.php:281
 #: libraries/config/user_preferences.forms.php:183
@@ -4455,10 +4398,9 @@ msgid "Password Hashing"
 msgstr "Pengernaian Kata Sandi (Password Hashing)"
 
 #: libraries/display_change_password.lib.php:65
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 compatible"
+msgstr "Kompatibel MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
@@ -4480,38 +4422,35 @@ msgid "Create table on database %s"
 msgstr "Ciptakan tabel baru pada database %s"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of columns"
-msgstr "Jumlah baris per halaman"
+msgstr "Jumlah kolom"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin export, silahkan periksa instalasi Anda!"
 
 #: libraries/display_export.lib.php:80
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Mengizinkan untuk mengunci tabel dalam Thread yang lagi berjalan."
+msgstr "Mengekspor basis data dari server saat ini"
 
 #: libraries/display_export.lib.php:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Ciptakan tabel baru pada database %s"
+msgstr "Mengekspor tabel dari basis data \"%s\" "
 
 #: libraries/display_export.lib.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Ciptakan tabel baru pada database %s"
+msgstr "Mengekspor baris dari tabel \"%s\" "
 
 #: libraries/display_export.lib.php:90
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Jenis Ekspor"
+msgstr "Metode Ekspor"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
@@ -4522,34 +4461,29 @@ msgid "Custom - display all possible options"
 msgstr "Kustom - menampilkan semua opsi"
 
 #: libraries/display_export.lib.php:130
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Database"
+msgstr "Basis Data:"
 
 #: libraries/display_export.lib.php:132
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Tabel"
+msgstr "Tabel:"
 
 #: libraries/display_export.lib.php:142
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Baris"
+msgstr "Baris:"
 
 #: libraries/display_export.lib.php:150
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
-msgstr "Dump semua row"
+msgstr "Dump beberapa baris"
 
 #: libraries/display_export.lib.php:152
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows:"
-msgstr "Jumlah baris per halaman"
+msgstr "Jumlah baris:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
@@ -4564,22 +4498,20 @@ msgid "Output:"
 msgstr "Hasil:"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Simpan pada server dalam direktori %s"
+msgstr "Simpan ke direktori <b>%s</b> di server"
 
 #: libraries/display_export.lib.php:199
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Kirimkan ke"
+msgstr "Simpan hasil ke suatu berkas"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Konvensi nama file"
+msgstr "Templat nama berkas:"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
@@ -4611,10 +4543,9 @@ msgid "Character set of the file:"
 msgstr "Penyusunan karakter dalam file:"
 
 #: libraries/display_export.lib.php:304
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Kompresi"
+msgstr "Kompresi:"
 
 #: libraries/display_export.lib.php:306 libraries/display_tbl.lib.php:517
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
@@ -4623,41 +4554,35 @@ msgid "None"
 msgstr "tanpa"
 
 #: libraries/display_export.lib.php:308
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "Dikompress dengan Zip"
+msgstr "di-zip"
 
 #: libraries/display_export.lib.php:310
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "Dikompress dengan GZip"
+msgstr "di-gzip"
 
 #: libraries/display_export.lib.php:312
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"Dikompress dengan BZip\""
+msgstr "di-bzip"
 
 #: libraries/display_export.lib.php:321
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Kirimkan ke"
+msgstr "Tampilkan hasil sebagai teks"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Format"
+msgstr "Format:"
 
 #: libraries/display_export.lib.php:331
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Pilihan transformasi"
+msgstr "Opsi khusus format:"
 
 #: libraries/display_export.lib.php:332
 msgid ""
@@ -4687,20 +4612,19 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Gagal login ke MySQL server"
+msgstr "Mengimpor ke dalam server saat ini"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Database tidak ditemukan"
+msgstr "Mengimpor ke dalam basis data \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Database tidak ditemukan"
+msgstr "Mengimpor ke dalam tabel \"%s\""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
@@ -4724,10 +4648,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Upload file tidak diizinkan di server ini."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
-msgstr "Teks yang disingkat"
+msgstr "Impor Parsial:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -4764,7 +4687,6 @@ msgid "%d is not valid row number."
 msgstr "%d bukanlah nomor baris yang berlaku."
 
 #: libraries/display_tbl.lib.php:392
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "baris dimulai dari rekord #"
@@ -4803,32 +4725,27 @@ msgstr "Urut berdasarkan kunci"
 #: libraries/import/ldi.php:48 libraries/import/ods.php:39
 #: libraries/import/sql.php:19 libraries/import/xml.php:32 tbl_select.php:230
 #: tbl_structure.php:847
-#, fuzzy
 msgid "Options"
-msgstr "Operasi"
+msgstr "Opsi"
 
 #: libraries/display_tbl.lib.php:551 libraries/display_tbl.lib.php:569
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Teks yang disingkat"
+msgstr "Teks parsial"
 
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:573
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Teks Penuh"
+msgstr "Teks penuh"
 
 #: libraries/display_tbl.lib.php:586
-#, fuzzy
 msgid "Relational key"
-msgstr "Skema Relational"
+msgstr "Kunci relasi"
 
 #: libraries/display_tbl.lib.php:587
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Skema Relational"
+msgstr "Kolom tampilan relasi"
 
 #: libraries/display_tbl.lib.php:594
 msgid "Show binary contents"
@@ -4887,16 +4804,14 @@ msgid "Print view (with full texts)"
 msgstr "Pandangan cetak (dengan teks lengkap)"
 
 #: libraries/display_tbl.lib.php:2372 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Tampilkan skema PDF"
+msgstr "Tampilkan bagan"
 
 #: libraries/display_tbl.lib.php:2391
-#, fuzzy
 #| msgid "Create version"
 msgid "Create view"
-msgstr "Membuat versi"
+msgstr "Buat tampilan"
 
 #: libraries/display_tbl.lib.php:2506
 msgid "Link not found"
@@ -5097,9 +5012,8 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1179
-#, fuzzy
 msgid "Port"
-msgstr "Urutkan"
+msgstr "Porta"
 
 #: libraries/engines/pbms.lib.php:36
 msgid ""
@@ -5167,10 +5081,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Tabel Relasi"
+msgstr "Tautan Terkait"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
@@ -5264,9 +5177,8 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:62
-#, fuzzy
 msgid "Log buffer size"
-msgstr "Urutkan ukuran Buffer"
+msgstr "Besar penyangga log"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid ""
@@ -5319,53 +5231,46 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Garis diputuskan oleh"
+msgstr "Kolom dipisahkan oleh:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Field ditutup dengan"
+msgstr "Kolom diapit oleh:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Field dikembalikan oleh"
+msgstr "Kolom dikembalikan oleh:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Garis diputuskan oleh"
+msgstr "Baris diakhir dengan:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Menggantikan NULL dengan"
+msgstr "Ganti NULL dengan:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Edisi Excel"
+msgstr "Versi Excel:"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#, fuzzy
 msgid "Data dump options"
-msgstr "Pilihan cara untuk mengekspor Database"
+msgstr "Opsi dump data"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:1043 libraries/export/texytext.php:123
@@ -5378,53 +5283,46 @@ msgid "Table structure for table"
 msgstr "Struktur dari tabel"
 
 #: libraries/export/latex.php:13
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Isi dari tabel __TABLE__"
+msgstr "Isi tabel @TABLE@"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
 msgstr "(dilanjutkan)"
 
 #: libraries/export/latex.php:15
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Struktur dari tabel __TABLE__"
+msgstr "Struktur tabel @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Pilihan transformasi"
+msgstr "Opsi pembuatan objek"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Judul halaman"
+msgstr "Judul halaman (lanjutan)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Tanpa pemeriksaan kunci asing"
+msgstr "Tampilkan hubungan kunci luar"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Tampilkan komentar kolom"
+msgstr "Tampilkan komentar"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Tipe MIME yang tersedia"
+msgstr "Tampilkan jenis MIME"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:341
 #: libraries/export/xml.php:106 libraries/header_printview.inc.php:56
@@ -5465,10 +5363,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr ""
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Import files"
 msgid "Report title:"
-msgstr "Impor file"
+msgstr "Judul laporan:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
@@ -5481,10 +5378,9 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Menambahkan komentar individual pada Header (\\n membelahkan garis)"
+msgstr "Menambahkan komentar judul kustom (\\n memotong baris)"
 
 #: libraries/export/sql.php:37
 msgid ""
@@ -5499,16 +5395,15 @@ msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Keterangan"
+msgstr "Tambahkan statement %s"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Keterangan"
+msgstr "Tambahkan statement:"
 
 #: libraries/export/sql.php:123
 msgid ""
@@ -5575,12 +5470,10 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:209 libraries/export/xml.php:34
-#, fuzzy
 msgid "Procedures"
-msgstr "Proses Aktif"
+msgstr "Prosedur"
 
 #: libraries/export/sql.php:223 libraries/export/xml.php:32
-#, fuzzy
 msgid "Functions"
 msgstr "Fungsi"
 
@@ -5606,9 +5499,8 @@ msgid "Triggers"
 msgstr "Trigger"
 
 #: libraries/export/sql.php:885
-#, fuzzy
 msgid "Structure for view"
-msgstr "Struktur saja"
+msgstr "Struktur untuk view"
 
 #: libraries/export/sql.php:894
 msgid "Stand-in structure for view"
@@ -5623,10 +5515,9 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Gambarkan"
+msgstr "View"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
@@ -5699,7 +5590,6 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
 msgstr "Nama kolom"
@@ -5754,16 +5644,14 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "SQL compatibility mode:"
-msgstr "MySQL&nbsp;4.0 compatible"
+msgstr "Modus kompatibilitas SQL:"
 
 #: libraries/import/sql.php:42
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
+msgstr "Jangan gunakan <code>AUTO_INCREMENT</code> untuk nilai nol"
 
 #: libraries/import/xml.php:83 libraries/import/xml.php:139
 msgid ""
@@ -5774,11 +5662,10 @@ msgstr ""
 "lagi."
 
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "tanpa"
+msgstr "Tidak ada"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:148
@@ -6000,10 +5887,9 @@ msgid "Reload navigation frame"
 msgstr "Muat ulang bingkai navigasi"
 
 #: libraries/plugin_interface.lib.php:336
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
-msgstr "Format ini tidak ada pilihannya"
+msgstr "Format ini tidak memiliki opsi"
 
 #: libraries/relation.lib.php:83
 msgid "not OK"
@@ -6174,10 +6060,10 @@ msgstr "Menghasilkan kata sandi"
 #: libraries/schema/Pdf_Relation_Schema.class.php:489
 #: libraries/schema/Svg_Relation_Schema.class.php:370
 #: libraries/schema/Visio_Relation_Schema.class.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "Tabel \"%s\" tidak ditemukan!"
+msgstr "Tabel %s tidak ditemukan!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:254
 #: libraries/schema/Eps_Relation_Schema.class.php:442
@@ -6192,10 +6078,10 @@ msgstr "Silakan konfigurasikan koordinasi bagi tabel %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:851
 #: libraries/schema/Svg_Relation_Schema.class.php:738
 #: libraries/schema/Visio_Relation_Schema.class.php:503
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Skema dari database \"%s\"  - Halaman %s"
+msgstr "Skema basis data %s - Halaman %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 msgid "This page does not contain any tables!"
@@ -6232,16 +6118,14 @@ msgid "Create a page"
 msgstr "Ciptakan halaman baru"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Halaman no.:"
+msgstr "Nama halaman"
 
 #: libraries/schema/User_Schema.class.php:103
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Layout otomatis"
+msgstr "Tata letak otomatis berdasarkan"
 
 #: libraries/schema/User_Schema.class.php:106
 msgid "Internal relations"
@@ -6256,20 +6140,18 @@ msgid "Please choose a page to edit"
 msgstr "Silakan pilih halaman untuk diubah"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Pilih tabel"
+msgstr "Pilih halaman"
 
 #: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
 msgstr "Pilih tabel"
 
 #: libraries/schema/User_Schema.class.php:347
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Skema Relational"
+msgstr "Tampilkan skema relasi"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "Select Export Relational Type"
@@ -6304,10 +6186,9 @@ msgid "Portrait"
 msgstr "Gambaran"
 
 #: libraries/schema/User_Schema.class.php:395
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Pembuatan"
+msgstr "Orientasi"
 
 #: libraries/schema/User_Schema.class.php:408
 msgid "Paper size"
@@ -6337,10 +6218,9 @@ msgid "Unknown language: %1$s."
 msgstr "Bahasa tidak dikenal: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current server"
 msgid "Current Server"
-msgstr "Server saat ini"
+msgstr "Server Saat Ini"
 
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
@@ -6370,10 +6250,9 @@ msgid "Synchronize"
 msgstr "Sinkronisasi"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Ciri-ciri dari General Relation"
+msgstr "Pengaturan"
 
 #: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1116
 msgid "Source database"
@@ -6398,9 +6277,9 @@ msgid "Target database"
 msgstr "Database target"
 
 #: libraries/sql_query_form.lib.php:223
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "Melaksanakan perintah SQL pada database %s"
+msgstr "Jalankan perintah SQL pada basis data %s"
 
 #: libraries/sql_query_form.lib.php:240 libraries/sql_query_form.lib.php:264
 #, php-format
@@ -6409,15 +6288,13 @@ msgstr "Melaksanakan perintah SQL pada database %s"
 
 #: libraries/sql_query_form.lib.php:296 navigation.php:276
 #: setup/frames/index.inc.php:219
-#, fuzzy
 msgid "Clear"
-msgstr "Kalender"
+msgstr "Bersihkan"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Nama kolom"
+msgstr "Kolom"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:929 sql.php:930 sql.php:947
 msgid "Bookmark this SQL query"
@@ -6547,7 +6424,6 @@ msgid "Length/Values"
 msgstr "Ukuran Panjang/Nilai*"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -6559,10 +6435,9 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Jika tipe field sama dengan \"enum\" atau \"set\", silakan masukkan nilai "
-"dengan format: 'a','b','c'...<br />Jika sebuah backslash (\"\\\") atau suatu "
-"tanda kutip (\"'\") diperlukan, tanda tersebut perlu ditutupi dengan tanda "
-"backslash (seb. contoh '\\\\xyz' atau 'a\\'b')."
+"Jika jenis kolom adalah \"enum\" atau \"set\", harap masukkan nilai dengan "
+"format: 'a','b','c'...<br />Jika perlu memasukkan petik balik (\"\\\") atau "
+"petik tunggal (\"'\"), awali dengan petik balik (mis. '\\\\xyz' atau 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6612,11 +6487,10 @@ msgid "Get more editing space"
 msgstr "Dapatkan ruang pengeditan lebih luas"
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
-msgstr "tanpa"
+msgstr "Tidak ada"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
@@ -6651,16 +6525,15 @@ msgid "PARTITION definition"
 msgstr "Definisi PARTITION"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:640
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "Menambahkan %s field(s)"
+msgstr "Tambahkan %s kolom"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:634
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Anda perlu menambahkan sedikitnya satu Field."
+msgstr "Anda perlu menambahkan paling tidak satu kolom."
 
 #: libraries/tbl_properties.inc.php:796
 #, fuzzy
@@ -6672,7 +6545,6 @@ msgid "Event"
 msgstr "Kejadian"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -6684,10 +6556,10 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Tampilkan Link untuk men-download data binari dari Field. Pilihan pertama "
-"adalah nama dari file binari tersebut. Pilihan kedua adalah nama Field dari "
-"sebuah baris tabel yang memiliki nama file. Bila Anda menetapkan pilihan "
-"kedua, pilihan pertama harus ditepatkan ke sebuah string yang kosong"
+"Tampilkan tautan untuk mengunduh data biner kolom. Anda dapat menggunakan "
+"opsi pertama untuk menentukan nama berkas, atau opsi kedua sebagai nama "
+"kolom yang menyimpan nama berkas. Jika Anda menggunakan opsi kedua, Anda "
+"harus memasukkan string kosong ke dalam pilihan pertama."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
@@ -6723,7 +6595,6 @@ msgid ""
 msgstr ""
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -6747,31 +6618,30 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"HANYA UNTUK LINUX: Luncurkan aplikasi eksternal dan mengisi data Field "
-"dengan cara standar. Menghasilkan output standar dari aplikasi yang "
-"bersangkutan. Default-nya adalah Tidy untuk mempercantik kode HTML cetakan. "
-"Dengan alasan pengamanan sistem, Anda perlu meng-edit file libraries/"
-"transformations/text_plain__external.inc.php dan menambahkan Tools yang akan "
-"diizinkan secara manual. Pilihan pertama adalah jumlah dari program yang "
-"ingin digunakan dan pilihan kedua adalah parameter untuk program-program "
-"tersebut. Parameter ketiga, bila diset ke 1 akan mengubah output dengan "
-"menggunakan htmlspecialchars() (Default adalah 1). Parameter keempat, bila "
-"diset ke 1 akan menambahkan sebuah NOWRAP pada Content Cell dengan hasil "
-"output yang akan ditampilkan tanpa keperluan untuk me-format ulang (Default "
-"1)"
+"HANYA UNTUK LINUX: Jalankan aplikasi eksternal dan berikan data kolom "
+"melalui masukan standar. Mengembalikan keluaran standar kepada aplikasi. "
+"Bawaan adalah Tidy, untuk mempercantik cetakan kode HTML. Untuk keamanan, "
+"Anda harus mengedit berkas "
+"libraries/transformations/text_plain__external.inc.php secara manual dan "
+"mendaftarkan alat yang ingin Anda sediakan. Opsi pertama adalah jumlah "
+"aplikasi yang ingin dipakai dan opsi kedua adalah parameter untuk program. "
+"Opsi ketiga, jika disetel menjadi 1, akan mengubah keluaran dengan "
+"menggunakan htmlspecialchars() (Bawaan 1). Opsi keempat, jika disetel "
+"menjadi 1, akan mencegah pemenggalan dan memastikan bahwa semua keluaran "
+"tampil dalam satu baris (Bawaan 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Menyimpan format asli dari field. Escaping tidak dilakukan."
+msgstr ""
+"Tampilkan konten kolom apa adanya, tanpa melalui htmlspecialchars(). Kolom "
+"diasumsikan mengandung HTML yang valid."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6781,12 +6651,11 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Tampilkan sebuah gambar dan sebuah Link, nama file berada dalam field; "
-"pilihan utama adalah awalan seperti \"http://domain.com/\", pilihan kedua "
-"adalah lebar dalam piksel, pilihan ketiga adalah tingginya."
+"Tampilkan gambar dan tautan; kolom mengandung nama berkas. Opsi pertama "
+"adalah prefiks URL seperti \"http://www.example.com/\". Opsi kedua dan ketiga "
+"adalah lebar dan tinggi dalam piksel."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6796,9 +6665,8 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Tampilkan sebuah Link, nama file berada dalam field; pilihan utama adalah "
-"awalan seperti  \"http://domain.com/\", pilihan kedua adalah judul untuk "
-"Link tersebut."
+"Tampilkan tautan; kolom mengandung nama berkas. Opsi pertama adalah prefiks "
+"URL seperti \"http://www.example.com/\". Opsi kedua adalah judul tautan."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
@@ -6826,16 +6694,14 @@ msgstr ""
 "Output bila sebuah Substring dibalikkan (Default: ...) ."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "Ciri-ciri dari General Relation"
+msgstr "Kelola pengaturan Anda"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Modifikasi telah disimpan"
+msgstr "Konfigurasi telah disimpan"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
@@ -6845,10 +6711,9 @@ msgid ""
 msgstr ""
 
 #: libraries/user_preferences.lib.php:142
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
-msgstr "Tidak dapat memuat konfigurasi default dari: \"%1$s\""
+msgstr "Konfigurasi tidak dapat disimpan"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
@@ -6866,10 +6731,9 @@ msgid "Error in ZIP archive:"
 msgstr "Kesalahan dalam arsip ZIP:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Ciri-ciri dari General Relation"
+msgstr "Pengaturan Umum"
 
 #: main.php:103
 msgid "MySQL connection collation"
@@ -6880,10 +6744,9 @@ msgid "Appearance Settings"
 msgstr "Pengaturan Tampilan"
 
 #: main.php:147 prefs_manage.php:274
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "Ciri-ciri dari General Relation"
+msgstr "Pengaturan lain"
 
 #: main.php:165
 msgid "Protocol version"
@@ -6908,9 +6771,8 @@ msgid "MySQL client version"
 msgstr ""
 
 #: main.php:191
-#, fuzzy
 msgid "PHP extension"
-msgstr "Versi PHP"
+msgstr "Ekstensi PHP"
 
 #: main.php:197
 msgid "Show PHP information"
@@ -6925,20 +6787,18 @@ msgid "Official Homepage"
 msgstr "Homepage resmi phpMyAdmin"
 
 #: main.php:219
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atribut"
+msgstr "Berkontribusi"
 
 #: main.php:220
 msgid "Get support"
 msgstr "Dukungan"
 
 #: main.php:221
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Tidak ada perubahan"
+msgstr "Daftar perubahan"
 
 #: main.php:245
 msgid ""
@@ -7003,7 +6863,7 @@ msgstr ""
 "konfigurasi."
 
 #: main.php:301
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -7012,7 +6872,7 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Fasilitas penambahan untuk bekerja dengan tabel yang di-link di nonaktifkan. "
-"Untuk mengetahui sebabnya silakan klik %sdisini%s."
+"Untuk mengetahui sebabnya harap klik %sdi sini%s."
 
 #: main.php:316
 msgid ""
@@ -7052,7 +6912,6 @@ msgid "filter tables by name"
 msgstr "Urutkan tabel berdasarkan"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
@@ -7111,19 +6970,17 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
 #: pmd_general.php:120
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Jalankan pencarian SQL"
+msgstr "Bangun Kueri"
 
 #: pmd_general.php:125
 msgid "Move Menu"
 msgstr "Pindahkan Menu"
 
 #: pmd_general.php:137
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "Tampilkan semua"
+msgstr "Sembunyikan/Tampilkan semua"
 
 #: pmd_general.php:141
 msgid "Hide/Show Tables with no relation"
@@ -7138,40 +6995,34 @@ msgid "Delete relation"
 msgstr "Hapus relasi"
 
 #: pmd_general.php:460 pmd_general.php:519
-#, fuzzy
 msgid "Relation operator"
-msgstr "Tampilan relasi"
+msgstr "Operator relasi"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Ekspor"
+msgstr "Kecuali"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "dalam susunan pemeriksaan"
+msgstr "subkueri"
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 msgid "Rename to"
-msgstr "Ubah nama tabel menjadi "
+msgstr "Ubah nama menjadi"
 
 #: pmd_general.php:482 pmd_general.php:581
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Nama pengguna"
+msgstr "Nama baru"
 
 #: pmd_general.php:485 pmd_general.php:700
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Ciptakan"
+msgstr "Agregasi"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
@@ -7180,10 +7031,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: pmd_general.php:810
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Pilihan untuk tabel"
+msgstr "Opsi aktif"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
@@ -7197,43 +7047,37 @@ msgid ""
 msgstr ""
 
 #: pmd_pdf.php:34
-#, fuzzy
 msgid "Page has been created"
-msgstr "Tabel %s telah dihapus"
+msgstr "Halaman telah dibuat"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
 msgstr "Pembuatan halaman gagal"
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "halaman"
+msgstr "Halaman"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Impor file"
+msgstr "Impor dari halaman terpilih"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "No rows selected"
 msgid "Export to selected page"
-msgstr "Tidak ada baris yang dipilih"
+msgstr "Ekspor ke halaman terpilih"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Ciptakan indeks baru"
+msgstr "Buat halaman dan ekspor ke dalamnya"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Nama pengguna"
+msgstr "Nama halaman baru:"
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -7256,14 +7100,12 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relasi FOREIGN KEY ditambahkan"
 
 #: pmd_relation_new.php:84
-#, fuzzy
 msgid "Internal relation added"
-msgstr "Relasi internal"
+msgstr "Relasi internal ditambahkan"
 
 #: pmd_relation_upd.php:55
-#, fuzzy
 msgid "Relation deleted"
-msgstr "Tampilan relasi"
+msgstr "Relasi dihapus"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
@@ -7278,10 +7120,9 @@ msgid "Cannot save settings, submitted form contains errors"
 msgstr "Pengaturan tidak dapat disimpan, formulir kiriman mengandung galat"
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr "Tidak dapat memuat konfigurasi default dari: \"%1$s\""
+msgstr "Tidak dapat mengimpor konfigurasi"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
@@ -7296,10 +7137,9 @@ msgid "Saved on: @DATE@"
 msgstr "Disimpan pada: @DATE@"
 
 #: prefs_manage.php:239
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Impor file"
+msgstr "Impor dari berkas"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
@@ -7361,19 +7201,17 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> tabel tidak ditemukan atau tidak diset di %s"
 
 #: schema_export.php:47
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Tabel \"%s\" tidak ditemukan!"
+msgstr "Berkas tidak ditemukan"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
 msgstr "Pilih Log binari untuk ditinjau"
 
 #: server_binlog.php:122 server_status.php:387
-#, fuzzy
 msgid "Files"
-msgstr "Field"
+msgstr "Berkas"
 
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:58
 #: server_processlist.php:60
@@ -7571,11 +7409,8 @@ msgstr ""
 
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
-#, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr ""
-"Membatasi jumlah koneksi baru yang diperbolehkan untuk setiap pengguna dalam "
-"batas waktu satu jam."
+msgstr "Membatasi jumlah koneksi simultan yang dapat dibuat pengguna."
 
 #: server_privileges.php:55 server_privileges.php:198
 #: server_privileges.php:558
@@ -7638,9 +7473,8 @@ msgstr ""
 
 #: server_privileges.php:65 server_privileges.php:211
 #: server_privileges.php:549
-#, fuzzy
 msgid "Allows creating and dropping triggers"
-msgstr "Mengizinkan untuk menciptakan dan hapus Indeks."
+msgstr "Mengizinkan untuk membuat dan menghapus trigger"
 
 #: server_privileges.php:66 server_privileges.php:192
 #: server_privileges.php:457 server_privileges.php:519
@@ -7652,11 +7486,10 @@ msgid "No privileges."
 msgstr "Tanpa Hak Istimewa (Privileges)."
 
 #: server_privileges.php:312 server_privileges.php:313
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
-msgstr "tanpa"
+msgstr "Tidak ada"
 
 #: server_privileges.php:443 server_privileges.php:580
 #: server_privileges.php:1798 server_privileges.php:1804
@@ -7699,7 +7532,6 @@ msgid "Do not change the password"
 msgstr "Jangan ubah Kata Sandi"
 
 #: server_privileges.php:817 server_privileges.php:2286
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Pengguna tidak ditemukan."
@@ -7860,11 +7692,10 @@ msgid "Database for user"
 msgstr "Database untuk pengguna"
 
 #: server_privileges.php:2118
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
-msgstr "tanpa"
+msgstr "Tidak ada"
 
 #: server_privileges.php:2119
 msgid "Create database with same name and grant all privileges"
@@ -7985,9 +7816,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr "Abaikan semua basis data; Replikasikan:"
 
 #: server_replication.php:224
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Silakan pilih database"
+msgstr "Harap pilih basis data:"
 
 #: server_replication.php:227
 msgid ""
@@ -8030,9 +7860,8 @@ msgid "Control slave:"
 msgstr "Kendalikan slave:"
 
 #: server_replication.php:324
-#, fuzzy
 msgid "Full start"
-msgstr "Teks penuh"
+msgstr "Jalankan semua"
 
 #: server_replication.php:324
 msgid "Full stop"
@@ -8043,20 +7872,18 @@ msgid "Reset slave"
 msgstr "Reset slave"
 
 #: server_replication.php:327
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Struktur saja"
+msgstr "Jalankan hanya Thread SQL"
 
 #: server_replication.php:329
 msgid "Stop SQL Thread only"
 msgstr "Hanya hentikan Thread SQL"
 
 #: server_replication.php:332
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Struktur saja"
+msgstr "Jalankan hanya Thread IO"
 
 #: server_replication.php:334
 msgid "Stop IO Thread only"
@@ -8542,7 +8369,6 @@ msgid "The total number of blocks in the query cache."
 msgstr ""
 
 #: server_status.php:131
-#, fuzzy
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Reset"
@@ -8665,9 +8491,8 @@ msgid "Handler"
 msgstr "Handler"
 
 #: server_status.php:376
-#, fuzzy
 msgid "Query cache"
-msgstr "Tipe Pencarian"
+msgstr "Singgahan kueri"
 
 #: server_status.php:377
 msgid "Threads"
@@ -8678,9 +8503,8 @@ msgid "Temporary data"
 msgstr "Data temporer"
 
 #: server_status.php:380
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "Gunakan perintah INSERT memperlambat"
+msgstr "Penambahan tunda"
 
 #: server_status.php:381
 msgid "Key cache"
@@ -8703,9 +8527,8 @@ msgid "Flush (close) all tables"
 msgstr "Bersihkan (tutup) semua tabel"
 
 #: server_status.php:399
-#, fuzzy
 msgid "Show open tables"
-msgstr "Tampilkan tabel"
+msgstr "Tampilkan tabel terbuka"
 
 #: server_status.php:404
 msgid "Show slave hosts"
@@ -8724,7 +8547,6 @@ msgid "Show processes"
 msgstr "Tampilkan Proses"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
@@ -8935,10 +8757,9 @@ msgid "Enter manually"
 msgstr "Masukkan secara manual"
 
 #: server_synchronize.php:1139
-#, fuzzy
 #| msgid "Connections"
 msgid "Current connection"
-msgstr "Koneksi"
+msgstr "Koneksi sekarang"
 
 #: server_synchronize.php:1168
 #, php-format
@@ -9042,14 +8863,12 @@ msgid "Display"
 msgstr "Tampilkan"
 
 #: setup/frames/index.inc.php:216
-#, fuzzy
 msgid "Load"
-msgstr "Lokal"
+msgstr "Muat"
 
 #: setup/frames/index.inc.php:227
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "Dokumentasi phpMyAdmin"
+msgstr "Situs phpMyAdmin"
 
 #: setup/frames/index.inc.php:228
 msgid "Donate"
@@ -9060,9 +8879,8 @@ msgid "Edit server"
 msgstr "Edit server"
 
 #: setup/frames/servers.inc.php:37
-#, fuzzy
 msgid "Add a new server"
-msgstr "Menambahkan pengguna baru"
+msgstr "Tambahkan server baru"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
@@ -9081,9 +8899,8 @@ msgid "Ignore errors"
 msgstr "Abaikan galat"
 
 #: setup/lib/form_processing.lib.php:49
-#, fuzzy
 msgid "Show form"
-msgstr "Tampilkan warna"
+msgstr "Tampilkan formulir"
 
 #: setup/lib/index.lib.php:119
 msgid ""
@@ -9257,10 +9074,9 @@ msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
 #: sql.php:624
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Mengesahkan (validate) SQL"
+msgstr "SQL tervalidasi"
 
 #: sql.php:903
 #, php-format
@@ -9272,9 +9088,9 @@ msgid "Label"
 msgstr "Judul"
 
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "Sukses menghapus Pengguna yang dipilih."
+msgstr "Tabel %1$s berhasil diubah"
 
 #: tbl_change.php:283 tbl_change.php:321
 msgid "Function"
@@ -9344,13 +9160,11 @@ msgid "Continue insertion with %s rows"
 msgstr "Lanjutkan penambahan untuk %s baris"
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Sukses reload Hak Istimewa (Privileges)."
 
 #: tbl_chart.php:59
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
@@ -9358,18 +9172,17 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Kemungkinan hanya perkiraan saja. Lihat [a@./Documentation."
-"html#faq3_11@Dokumentasi]FAQ 3.11[/a]"
+"Kemungkinan hanya perkiraan saja. Lihat "
+"[a@./Documentation.html#faq3_11@Dokumentasi]FAQ 3.11[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"
 msgstr "Lebar"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Right"
 msgid "Height"
-msgstr "Kanan"
+msgstr "Tinggi"
 
 #: tbl_chart.php:98
 msgid "Title"
@@ -9451,14 +9264,14 @@ msgid "Redraw"
 msgstr "Gambar ulang"
 
 #: tbl_create.php:56
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "Pengguna %s telah terdaftar!"
+msgstr "Tabel %s sudah ada!"
 
 #: tbl_create.php:242
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been created."
-msgstr "Tabel %s telah dihapus"
+msgstr "Tabel %s telah dibuat."
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
@@ -9572,30 +9385,26 @@ msgid "Table %s has been flushed"
 msgstr "Tabel %s telah dibuang"
 
 #: tbl_operations.php:664
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Tutup tabel (\"FLUSH\")"
+msgstr "Bersihkan tabel (\"FLUSH\")"
 
 #: tbl_operations.php:673
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
-msgstr "Hapus pelacakan data untuk tabel ini"
+msgstr "Hapus data atau tabel"
 
 #: tbl_operations.php:688
 msgid "Empty the table (TRUNCATE)"
 msgstr "Kosongkan tabel (TRUNCATE)"
 
 #: tbl_operations.php:708
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Database tidak ditemukan"
+msgstr "Hapus tabel (DROP)"
 
 #: tbl_operations.php:730
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "Pemeliharaan tabel"
+msgstr "Pemeliharaan partisi"
 
 #: tbl_operations.php:738
 #, php-format
@@ -9676,7 +9485,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:395
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Relasi internal"
@@ -9700,10 +9508,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "cari berdasarkan data contoh (\"query by example\") (wildcard: \"%\")"
 
 #: tbl_select.php:233
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Pilihan field (min. satu):"
+msgstr "Pilih kolom (paling tidak satu):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -9718,9 +9525,8 @@ msgid "Display order:"
 msgstr "Urut tampilan berdasarkan:"
 
 #: tbl_structure.php:161 tbl_structure.php:165
-#, fuzzy
 msgid "Browse distinct values"
-msgstr "Menjelajahi nilai luar"
+msgstr "Jelajahi nilai distingtif"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
@@ -9739,17 +9545,16 @@ msgid "Add FULLTEXT index"
 msgstr "Tambahkan indeks FULLTEXT"
 
 #: tbl_structure.php:389
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
-msgstr "tanpa"
+msgstr "Tidak ada"
 
 #: tbl_structure.php:402
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "Tabel %s telah dihapus"
+msgstr "Kolom %s telah dihapus"
 
 #: tbl_structure.php:413 tbl_structure.php:487
 #, php-format
@@ -9763,10 +9568,9 @@ msgid "An index has been added on %s"
 msgstr "Indeks telah ditambahkan pada %s"
 
 #: tbl_structure.php:475
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
-msgstr "Tampilkan informasi PHP"
+msgstr "Tampilkan tindakan lain"
 
 #: tbl_structure.php:604 tbl_structure.php:606
 msgid "Relation view"
@@ -9794,10 +9598,10 @@ msgid "After %s"
 msgstr "sisipkan setelah %s"
 
 #: tbl_structure.php:693
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Ciptakan indeks pada kolom &nbsp;%s&nbsp;"
+msgstr "Buat indeks pada &nbsp;%s&nbsp; kolom"
 
 #: tbl_structure.php:850
 msgid "partitioned"
@@ -9961,7 +9765,6 @@ msgid "Available transformations"
 msgstr "Transformasi yang tersedia"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -9980,6 +9783,5 @@ msgid "VIEW name"
 msgstr "Nama VIEW"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Ubah nama tabel menjadi "
+msgstr "Ubah nama tampilan menjadi "
