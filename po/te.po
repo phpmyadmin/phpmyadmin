@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:08+0100\n"
+"POT-Creation-Date: 2012-03-14 14:17+0100\n"
 "PO-Revision-Date: 2012-03-09 02:43+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -144,7 +144,6 @@ msgstr "పట్టిక వ్యాఖ్యలు"
 #: tbl_change.php:318 tbl_indexes.php:213 tbl_printview.php:136
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:433
-#| msgid "Command"
 msgid "Column"
 msgstr "వరుస"
 
@@ -830,7 +829,6 @@ msgstr ""
 
 #: enum_editor.php:30 js/messages.php:267
 #, php-format
-#| msgid "Add/Delete columns"
 msgid "Values for column %s"
 msgstr "%s నిలువు వరుసకు విలువలు"
 
@@ -840,7 +838,6 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: enum_editor.php:123
-#| msgid "Add a new User"
 msgid "Add a value"
 msgstr "విలువను చేర్చు"
 
@@ -853,7 +850,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "తప్పు రకం!"
 
@@ -863,7 +859,6 @@ msgstr ""
 
 # మొదటి అనువాదము
 #: export.php:106
-#| msgid "Remove database"
 msgid "Bad parameters!"
 msgstr "చెల్లని పరామితులు!"
 
@@ -889,7 +884,6 @@ msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: file_echo.php:21
-#| msgid "Export type"
 msgid "Invalid export type"
 msgstr "చెల్లని ఎగుమతి రకం"
 
@@ -934,7 +928,6 @@ msgstr ""
 # మొదటి అనువాదము
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:326
-#| msgid "Add into comments"
 msgid "Add a point"
 msgstr "బిందువును చేర్చు"
 

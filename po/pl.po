@@ -1,9 +1,9 @@
 # iMutrix <lord_dark@wp.pl>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:08+0100\n"
+"POT-Creation-Date: 2012-03-14 14:17+0100\n"
 "PO-Revision-Date: 2012-03-09 23:03+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
@@ -2038,7 +2038,6 @@ msgid ", latest stable version:"
 msgstr ", ostatnia stabilna wersja:"
 
 #: js/messages.php:367
-#| msgid "Jump to database"
 msgid "up to date"
 msgstr "aktualna"
 
@@ -7720,12 +7719,10 @@ msgid "Trigger %1$s has been created."
 msgstr "Tabela %1$s została utworzona."
 
 #: libraries/rte/rte_triggers.lib.php:161
-#| msgid "Edit server"
 msgid "Edit trigger"
 msgstr "Edytuj wyzwalacz"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#| msgid "Triggers"
 msgid "Trigger name"
 msgstr "Nazwa wyzwalacza"
 
@@ -7786,28 +7783,23 @@ msgstr "Dodaj wyzwalacz"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
-#| msgid "Export contents"
 msgid "Export of trigger %s"
 msgstr "Eksport wyzwalacza %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#| msgid "Triggers"
 msgid "trigger"
 msgstr "wyzwalacz"
 
 #: libraries/rte/rte_words.lib.php:34
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Nie masz wystarczających uprawnień aby utworzyć wyzwalacz"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
-#| msgid "No tables found in database"
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Nie znaleziono wyzwalacza %1$s w bazie danych %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
-#| msgid "There are no files to upload"
 msgid "There are no triggers to display."
 msgstr "Brak wyzwalaczy"
 
@@ -10661,8 +10653,7 @@ msgid ""
 msgstr ""
 "Twoja przeglądarka odświeży wszystkie wyświetlane wykresy w regularnych "
 "odstępach czasu. Możesz dodawać wykresy i zmienić częstotliwość odświeżania "
-"w 'Ustawienia' lub usunąć wykres za pomocą ikony zębatki dla każdego "
-"wykresu."
+"w 'Ustawienia' lub usunąć wykres za pomocą ikony zębatki dla każdego wykresu."
 
 #: server_status.php:1627
 msgid ""
@@ -10688,10 +10679,10 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 "Włączenie general_log może zwiększa obciążenie serwera o 5-15%. Również miej "
-"świadomość, że generowanie statystyk z dzienników jest obciążenie "
-"intensywne zadań, więc wskazane jest, aby wybrać tylko niewielki przedział "
-"czasowy i wyłączyć general_log i opróżnić swoją tabelę raz monitorowania nie "
-"jest wymagane."
+"świadomość, że generowanie statystyk z dzienników jest obciążenie intensywne "
+"zadań, więc wskazane jest, aby wybrać tylko niewielki przedział czasowy i "
+"wyłączyć general_log i opróżnić swoją tabelę raz monitorowania nie jest "
+"wymagane."
 
 #: server_status.php:1648
 msgid "Preset chart"
@@ -11344,7 +11335,6 @@ msgid "Continue insertion with %s rows"
 msgstr "Kontynuuj wstawianie %s wierszy"
 
 #: tbl_chart.php:89
-#| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Słupkowy"
@@ -11365,7 +11355,6 @@ msgid "Spline"
 msgstr "Klin"
 
 #: tbl_chart.php:97
-#| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Kołowy"
@@ -12570,8 +12559,8 @@ msgstr ""
 "Zwykle oznacza to częste pełne skanowanie indeksu. Pełne skanowanie indeksu "
 "jest szybsze niż skanowanie tabeli, ale wymaga wiele cykli procesora w "
 "dużych tabelach, jeśli te tabele, które mają lub miały duże ilości "
-"aktualizacji i kasowania, uruchomiono 'OPTIMIZE TABLE\" może zmniejszyć ilość "
-"i/lub przyspieszyć pełne skanowanie indeksu. Innych niż tego pełnego "
+"aktualizacji i kasowania, uruchomiono 'OPTIMIZE TABLE\" może zmniejszyć "
+"ilość i/lub przyspieszyć pełne skanowanie indeksu. Innych niż tego pełnego "
 "skanowania indeksu może zostać obniżona o przepisanie zapytania."
 
 #: po/advisory_rules.php:133
@@ -12682,8 +12671,8 @@ msgstr ""
 "wartości tych zmiennych. Aby wyeliminować te trzeba będzie przepisać "
 "zapytania, aby uniknąć tych warunków (w obrębie tabeli tymczasowej: Obecność "
 "kolumny BLOB lub TEXT lub obecności kolumny większego niż 512 bajtów), jak "
-"wspomniano na początku <a href=\"http://www.facebook.com/note.php?note_id=101"
-"50111255065841&comments\">Artykuł wg Pythian Group</a>"
+"wspomniano na początku <a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Artykuł wg Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12731,7 +12720,8 @@ msgstr "Rozmiar bufora klucza MyISAM"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr "Klucz bufora nie jest inicjowany. Brak indeksów MyISAM będą buforowane."
+msgstr ""
+"Klucz bufora nie jest inicjowany. Brak indeksów MyISAM będą buforowane."
 
 #: po/advisory_rules.php:162
 msgid ""
@@ -12985,8 +12975,7 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
-"Maksymalna ilość zużytych połączeń jest zbliżona do wartości "
-"max_connections."
+"Maksymalna ilość zużytych połączeń jest zbliżona do wartości max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
@@ -13128,9 +13117,9 @@ msgstr ""
 "pamiętać jednak, że nie można po prostu zmienić wartość tej zmiennej. Musisz "
 "wyłączyć serwer, należy usunąć pliki InnoDB dziennika ustaw nową wartość w "
 "my.cnf, uruchomić serwer, a następnie sprawdzić logi o błędach, jeśli "
-"wszystko poszło dobrze. Zobacz także <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">ten wpis bloga</a>"
+"wszystko poszło dobrze. Zobacz także <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">ten wpis bloga</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13164,13 +13153,13 @@ msgid ""
 msgstr ""
 "To zwykle wystarczy ustawić innodb_log_file_size na 25%% o wielkości "
 "{innodb_buffer_pool_size}. Bardzo duży innodb_log_file_size spowalnia czas "
-"odzyskiwania po awarii bazy danych znacznie. Zobacz także <a "
-"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">ten artykuł</a>. Musisz wyłączyć serwer, należy "
-"usunąć pliki InnoDB dziennika ustaw nową wartość w my.cnf, uruchomić serwer, "
-"a następnie sprawdzić logi o błędach, jeśli wszystko poszło dobrze. Zobacz "
-"także <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01"
-"/increase-innodblogfilesize-proper-way.html\">ten wpis bloga</a>"
+"odzyskiwania po awarii bazy danych znacznie. Zobacz także <a href=\"http://"
+"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">ten artykuł</a>. Musisz wyłączyć serwer, należy usunąć pliki InnoDB "
+"dziennika ustaw nową wartość w my.cnf, uruchomić serwer, a następnie "
+"sprawdzić logi o błędach, jeśli wszystko poszło dobrze. Zobacz także <a href="
+"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">ten wpis bloga</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13206,9 +13195,9 @@ msgstr ""
 "swojego dostępnej pamięci. Jeśli nie jest to przypadek, trzeba starannie "
 "ocenić zużycie pamięci swoich innych usług i non-InnoDB-Tables i ustawić tę "
 "zmienną odpowiednio. Jeśli jest zbyt wysoka, system zacznie wymieniać, co "
-"zmniejsza wydajność znacząco. Zobacz także <a "
-"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">ten artykuł</a>"
+"zmniejsza wydajność znacząco. Zobacz także <a href=\"http://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">ten "
+"artykuł</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
@@ -13309,8 +13298,8 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ "For compatibility reasons the chart image is segmented by default, select "
 #~ "this to draw the whole chart in one image."
 #~ msgstr ""
-#~ "Ze względu na kompatybilność obraz wykresu jest podzielony domyślne, wybierz "
-#~ "ten, aby narysować cały wykres w jednym obrazie."
+#~ "Ze względu na kompatybilność obraz wykresu jest podzielony domyślne, "
+#~ "wybierz ten, aby narysować cały wykres w jednym obrazie."
 
 #~ msgid "GD extension is needed for charts."
 #~ msgstr "Rozszerzenie GD jest wymagane, do generowania wykresów."
@@ -13340,15 +13329,16 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Brak obsługi motywów, proszę sprawdzić konfigurację i/lub motywy w katalogu "
-#~ "%s."
+#~ "Brak obsługi motywów, proszę sprawdzić konfigurację i/lub motywy w "
+#~ "katalogu %s."
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "Pamiętaj, że nie każde wyniki tabeli można umieścić na wykresie. Zobacz <a "
-#~ "href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Pamiętaj, że nie każde wyniki tabeli można umieścić na wykresie. Zobacz "
+#~ "<a href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ "
+#~ "6.29</a>"
 
 #~ msgid "Note: Generating the query chart can take a long time."
 #~ msgstr "Uwaga: Generowanie zapytań wykresu może zająć dużo czasu."
@@ -13376,9 +13366,9 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ "column, click the \"Choose column to display\" icon, then click on the "
 #~ "appropriate column name."
 #~ msgstr ""
-#~ "Wyświetlania kolumna jest pokazywana w kolorze różowym. Aby ustawić/zmienić "
-#~ "kolumny jak wyświetlanie kolumn, kliknij \"Wybierz kolumny do wyświetlenia\", "
-#~ "a następnie kliknij odpowiednią nazwę kolumny."
+#~ "Wyświetlania kolumna jest pokazywana w kolorze różowym. Aby ustawić/"
+#~ "zmienić kolumny jak wyświetlanie kolumn, kliknij \"Wybierz kolumny do "
+#~ "wyświetlenia\", a następnie kliknij odpowiednią nazwę kolumny."
 
 #~ msgid "The number of free memory blocks in query cache."
 #~ msgstr "Liczba wolnych bloków pamięci w podręcznym buforze zapytań."
@@ -13387,8 +13377,8 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr ""
-#~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz "
-#~ "[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz [a@./"
+#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 
 #~ msgid "Theme / Style"
 #~ msgstr "Motyw / Styl"
@@ -13396,8 +13386,8 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ msgid ""
 #~ "When drawing a radar chart all values are normalized to a range [0..10]."
 #~ msgstr ""
-#~ "Podczas rysowania wykresu radarowego wszystkie wartości są znormalizowane do "
-#~ "zakresu [0..10]."
+#~ "Podczas rysowania wykresu radarowego wszystkie wartości są znormalizowane "
+#~ "do zakresu [0..10]."
 
 #~ msgid ""
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
@@ -13421,12 +13411,12 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "phpMyAdmin nie zdołał odczytać Twojego pliku konfiguracji!<br />Może się to "
-#~ "zdarzyć, jeśli PHP znajdzie w nim błąd składniowy lub nie może znaleźć tego "
-#~ "pliku.<br />Proszę wywołać bezpośrednio plik konfiguracyjny używając "
-#~ "poniższego linku i odczytać otrzymane komunikat(y) o błędach. W większości "
-#~ "przypadków brakuje gdzieś cudzysłowu lub średnika.<br />Jeżeli otrzymasz "
-#~ "pustą stronę, wszystko jest w porządku."
+#~ "phpMyAdmin nie zdołał odczytać Twojego pliku konfiguracji!<br />Może się "
+#~ "to zdarzyć, jeśli PHP znajdzie w nim błąd składniowy lub nie może znaleźć "
+#~ "tego pliku.<br />Proszę wywołać bezpośrednio plik konfiguracyjny używając "
+#~ "poniższego linku i odczytać otrzymane komunikat(y) o błędach. W "
+#~ "większości przypadków brakuje gdzieś cudzysłowu lub średnika.<br />Jeżeli "
+#~ "otrzymasz pustą stronę, wszystko jest w porządku."
 
 #~ msgid "row(s) starting from row #"
 #~ msgstr "wiersz(e) zaczynające sie od wiersza #"

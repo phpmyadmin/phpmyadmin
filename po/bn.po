@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:08+0100\n"
+"POT-Creation-Date: 2012-03-14 14:17+0100\n"
 "PO-Revision-Date: 2012-03-13 18:43+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
@@ -117,8 +117,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s ফাইল এই সিস্টেমের মধ্যে উপলব্ধ নয়। আরও তথ্যের জন্য অনুগ্রহ করে "
-"www.phpmyadmin.net পরিদর্শন করুন।"
+"%s ফাইল এই সিস্টেমের মধ্যে উপলব্ধ নয়। আরও তথ্যের জন্য অনুগ্রহ করে www.phpmyadmin."
+"net পরিদর্শন করুন।"
 
 #: db_create.php:60
 #, php-format
@@ -278,7 +278,6 @@ msgid "Rename database to"
 msgstr "ডাটাবেজ রিনেম কর"
 
 #: db_operations.php:438
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "ডাটাবেজ মূছে ফেল"
 
@@ -343,18 +342,14 @@ msgstr "Collation"
 
 #: db_operations.php:561
 #, php-format
-#| msgid ""
-#| "ditional features for working with linked tables have been ctivated. To d "
-#| "out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"PhpMyAdmin কনফিগারেশন সংরক্ষণাগার নিষ্ক্রিয় করা হয়েছে। কারন খুঁজতে ক্লিক "
-"করুন %shere%s."
+"PhpMyAdmin কনফিগারেশন সংরক্ষণাগার নিষ্ক্রিয় করা হয়েছে। কারন খুঁজতে ক্লিক করুন %shere"
+"%s."
 
 #: db_operations.php:595
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "সম্বন্ধযুক্ত স্কিমা"
 
@@ -408,7 +403,6 @@ msgstr "Last check"
 
 #: db_printview.php:219 db_structure.php:514
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s টেবিল(s)"
@@ -420,7 +414,6 @@ msgstr "আপনাকে প্রদর্শন করার জন্য �
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
 msgstr "%sদৃষ্টিলব্ধ নির্মাতা%s পরিবর্তন করুন"
 
@@ -477,12 +470,10 @@ msgid "Modify"
 msgstr "Modify"
 
 #: db_qbe.php:606
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "নির্ণায়ক সারি যোগ /মুছুন"
 
 #: db_qbe.php:618
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "ফিল্ড কলামগুলি যোগ/মুছুন"
 
@@ -533,7 +524,6 @@ msgstr "Search results for \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s ভিতরের টেবিলটি মানানসই <i>%s</i>"
@@ -547,7 +537,6 @@ msgstr "ব্রাউজ করুন"
 
 #: db_search.php:239
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "%s মানানসই টেবিলটি মুছে দেবেন?"
 
@@ -565,7 +554,6 @@ msgstr "মুছে ফেল"
 
 #: db_search.php:252
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>মোট:</b> <i>%s</i> মানানসই"
@@ -576,7 +564,6 @@ msgid "Search in database"
 msgstr "ডাটাবে এ খুজুঁনSearch in database"
 
 #: db_search.php:277
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "শব্দ বা মানের জন্য অনুসন্ধান (ওয়াইল্ডকার্ড: \"%\"):"
 
@@ -589,17 +576,14 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Words are separated by a space character (\" \")."
 
 #: db_search.php:300
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "ভিতরে টেবিল (গুলি):"
 
 #: db_search.php:330
-#| msgid "Inside table(s):"
 msgid "Inside column:"
 msgstr "ভিতরে টেবিল(গুলি):"
 
 #: db_structure.php:68
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "ডাটাবেজে কোন টেবিল পাওয়া যায়নি।"
 
@@ -736,7 +720,6 @@ msgid "Replace table prefix"
 msgstr "টেবিল উপসর্গ প্রতিস্থাপন"
 
 #: db_structure.php:605 libraries/mult_submits.inc.php:251
-#| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "উপসর্গ সহ টেবিলটি অনুলিপি করুন"
 
@@ -835,7 +818,6 @@ msgstr "একটি নতুন কলামের মানসমূহ"
 
 #: enum_editor.php:30 js/messages.php:267
 #, php-format
-#| msgid "Number of fields"
 msgid "Values for column %s"
 msgstr "%s কলামের মানসমূহ"
 

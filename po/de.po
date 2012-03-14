@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:08+0100\n"
+"POT-Creation-Date: 2012-03-14 14:17+0100\n"
 "PO-Revision-Date: 2012-03-12 01:01+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: german <de@li.org>\n"
@@ -1613,12 +1613,10 @@ msgid "Total time:"
 msgstr "Gesamt Zeit:"
 
 #: js/messages.php:190
-#| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Messergebnisse"
 
 #: js/messages.php:191
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabelle"
@@ -1931,12 +1929,10 @@ msgid "Select two different columns"
 msgstr "2 unterschiedliche Spalten auswählen"
 
 #: js/messages.php:311
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Abfrageergebnisse"
 
 #: js/messages.php:312
-#| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Datenpunkt-Inhalt"
 
@@ -2305,7 +2301,6 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
@@ -3386,7 +3381,6 @@ msgstr ""
 "Lege die Mindestgröße der Eingabefelder für CHAR und VARCHAR-Spalten fest"
 
 #: libraries/config/messages.inc.php:35
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
 msgstr "Mindestgröße für Eingabefeld"
 
@@ -3398,7 +3392,6 @@ msgstr ""
 "Lege die maximale Größe der Eingabefelder für CHAR und VARCHAR-Spalten fest"
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "Maximale Größe für Eingabefeld"
 
@@ -5056,9 +5049,6 @@ msgid "Automatically create versions"
 msgstr "Versionen automatisch erzeugen"
 
 #: libraries/config/messages.inc.php:447
-#| msgid ""
-#| "blank for no user preferences storage in database, suggested: d]_config[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -5195,10 +5185,10 @@ msgstr "Zeige SQL Anfragen"
 #: libraries/config/messages.inc.php:473
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr "Definiert, ob das Abfragefeld nach dem Absenden geöffnet bleiben sollte"
+msgstr ""
+"Definiert, ob das Abfragefeld nach dem Absenden geöffnet bleiben sollte"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#| msgid "Hide query box"
 msgid "Retain query box"
 msgstr "Abfragefeld weiterhin anzeigen"
 
@@ -6022,7 +6012,6 @@ msgid "Show BLOB contents"
 msgstr "BLOB Inhalte anzeigen"
 
 #: libraries/display_tbl.lib.php:687
-#| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "Darstellungsumwandlung ausblenden"
 
@@ -7013,7 +7002,8 @@ msgstr "ESRI-Shapedaten"
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr "Beim Importieren der ESRI-Shapedaten ist ein Fehler aufgetreten: \"%s\"."
+msgstr ""
+"Beim Importieren der ESRI-Shapedaten ist ein Fehler aufgetreten: \"%s\"."
 
 #: libraries/import/shp.php:336
 msgid ""
@@ -7550,13 +7540,11 @@ msgid "Execute every"
 msgstr "Abfrage ausführen"
 
 #: libraries/rte/rte_events.lib.php:449
-#| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Start"
 
 #: libraries/rte/rte_events.lib.php:457
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Ende"
@@ -7791,7 +7779,6 @@ msgid "Trigger name"
 msgstr "Trigger-Name"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Zeit"
@@ -8057,7 +8044,6 @@ msgid "Current Server"
 msgstr "Aktueller Server"
 
 #: libraries/server_links.inc.php:60
-#| msgid "User"
 msgid "Users"
 msgstr "Benutzer"
 
@@ -9428,7 +9414,6 @@ msgid "Any"
 msgstr "Jeder"
 
 #: server_privileges.php:1565
-#| msgid "User overview"
 msgid "Users overview"
 msgstr "Benutzerübersicht"
 
@@ -11340,7 +11325,6 @@ msgstr ""
 "nicht zur Verfügung stehen."
 
 #: setup/lib/index.lib.php:324
-#| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
 "Sie sollten SSL-Verbindungen benutzen, wenn Ihr Datenbankserver es "
@@ -11468,31 +11452,26 @@ msgid "Continue insertion with %s rows"
 msgstr "Einfügen mit %s Datensätzen fortfahren"
 
 #: tbl_chart.php:89
-#| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Säule"
 
 #: tbl_chart.php:91
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Spalte"
 
 #: tbl_chart.php:93
-#| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Linie"
 
 #: tbl_chart.php:95
-#| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Profil"
 
 #: tbl_chart.php:97
-#| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Torte"
@@ -11741,7 +11720,6 @@ msgid "Check referential integrity:"
 msgstr "Prüfe referentielle Integrität:"
 
 #: tbl_printview.php:72
-#| msgid "Show tables"
 msgid "Showing tables"
 msgstr "Tabellen anzeigen"
 
@@ -12284,15 +12262,13 @@ msgid "Current version: %s"
 msgstr "Aktuelle Version: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#| msgid "Version"
 msgid "Minor Version"
 msgstr "Unterversion"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr ""
-"Version kleiner als 5.1.30 (die erste allgemein verfügbare Freigabe von "
-"5.1)."
+"Version kleiner als 5.1.30 (die erste allgemein verfügbare Freigabe von 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
@@ -12318,7 +12294,8 @@ msgstr "Distribution"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr "Version ist aus Quellen übersetzt, keine offizielle MySQL-Binärversion."
+msgstr ""
+"Version ist aus Quellen übersetzt, keine offizielle MySQL-Binärversion."
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -12576,7 +12553,6 @@ msgid "Percentage of sorts that cause temporary tables"
 msgstr "Erlaubt das Erstellen temporärer Tabellen"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
 msgstr "Zu viele Sortierungen verursachen temporäre Tabellen."
 
@@ -12596,7 +12572,6 @@ msgstr ""
 "kleiner als 10%% sein."
 
 #: po/advisory_rules.php:115
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Prozentwert der Sortierungen, die temporäre Tabellen verursachen"
 
@@ -12630,7 +12605,6 @@ msgid "Sorted rows average: %s"
 msgstr "Durchschnitt sortierte Zeilen: %s"
 
 #: po/advisory_rules.php:125
-#| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
 msgstr "Rate von Joins ohne Indizes"
 
@@ -12673,8 +12647,7 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Durchschnitt Indexscans: %s, dieser Wert sollte kleiner als 1 pro Stunde "
-"sein"
+"Durchschnitt Indexscans: %s, dieser Wert sollte kleiner als 1 pro Stunde sein"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
@@ -12848,7 +12821,6 @@ msgstr ""
 "sollte über 95%% liegen"
 
 #: po/advisory_rules.php:170
-#| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Prozentwert des verwendeten MyISAM-Schlüsselpuffers"
 

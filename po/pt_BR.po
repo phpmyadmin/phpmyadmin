@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-08 16:08+0100\n"
+"POT-Creation-Date: 2012-03-14 14:17+0100\n"
 "PO-Revision-Date: 2012-03-12 17:49+0200\n"
 "Last-Translator: Flavio Lisboa <flavio.lisboa@fgsl.eti.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -1596,7 +1596,6 @@ msgid "Analyzing..."
 msgstr "Analisando..."
 
 #: js/messages.php:186
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Demonstrar saída"
 
@@ -1610,7 +1609,6 @@ msgid "Total time:"
 msgstr "Tempo total:"
 
 #: js/messages.php:190
-#| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Representação dos resultados"
 
@@ -1625,7 +1623,6 @@ msgstr "Conjunto de caracteres"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Opções de filtro da tabela de log"
 
@@ -1699,7 +1696,6 @@ msgid "Import"
 msgstr "Importar"
 
 #: js/messages.php:214
-#| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Analisar query"
 
@@ -1720,12 +1716,10 @@ msgid "Recommendation"
 msgstr "Recomendações"
 
 #: js/messages.php:222
-#| msgid "Details"
 msgid "Rule details"
 msgstr "Detalhes da regra"
 
 #: js/messages.php:223
-#| msgid "Authentication"
 msgid "Justification"
 msgstr "Justificação"
 
@@ -1832,7 +1826,6 @@ msgstr ""
 
 #: js/messages.php:270
 #, php-format
-#| msgid "+ Add a value"
 msgid "Add %d value(s)"
 msgstr "Adicionar %d valor(es)"
 
@@ -2296,7 +2289,6 @@ msgstr "calendário-mês-ano"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:486
-#| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Sufixo de ano"
@@ -2537,7 +2529,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Esse servidor MySQL não suporta o stored engine %s."
 
 #: libraries/Table.class.php:329
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "Status da tabela desconhecida"
 
@@ -3000,7 +2991,6 @@ msgstr "Parâmetros perdidos:"
 
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Início"
@@ -3008,7 +2998,6 @@ msgstr "Início"
 #: libraries/common.lib.php:2456 libraries/common.lib.php:2459
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
@@ -4820,10 +4809,10 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Voce pode usar coringas MySQL (% e _), use caractere de escape neles se você "
-"deseja caractere literal, ex: use [kbd]'meu\\_db'[/kbd] e não "
-"[kbd]'meu_db'[/kbd]. Usando esta opção você pode ordenar a lista de banco de "
-"dados, apenas entre seus nomes em ordem e use  [kbd]*[/kbd] no final para "
-"exibir os restantes em ordem alfabética."
+"deseja caractere literal, ex: use [kbd]'meu\\_db'[/kbd] e não [kbd]'meu_db'[/"
+"kbd]. Usando esta opção você pode ordenar a lista de banco de dados, apenas "
+"entre seus nomes em ordem e use  [kbd]*[/kbd] no final para exibir os "
+"restantes em ordem alfabética."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
@@ -4886,8 +4875,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"Deixe em branco se não houver [a@http://wiki.phpmyadmin.net/pma/relation"
-"]relation-links[/a] suporte, sugestão: [kbd]pma_relation[/kbd]"
+"Deixe em branco se não houver [a@http://wiki.phpmyadmin.net/pma/relation]"
+"relation-links[/a] suporte, sugestão: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -5149,8 +5138,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Exibe link para saída de "
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Exibe link para saída de [a@http://php.net/manual/function.phpinfo.php]"
+"phpinfo()[/a] "
 
 #: libraries/config/messages.inc.php:469
 msgid "Show phpinfo() link"
@@ -5172,8 +5161,7 @@ msgstr "Mostrar consultas SQL"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
-"Define se a caixa de consulta deve estar sobre a tela depois de sua "
-"submissão"
+"Define se a caixa de consulta deve estar sobre a tela depois de sua submissão"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 #, fuzzy
@@ -13370,8 +13358,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 #~ "maximum number for which vertical model is used"
 #~ msgstr ""
-#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o número "
-#~ "máximo para o qual o modelo vertical é usado"
+#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o "
+#~ "número máximo para o qual o modelo vertical é usado"
 
 #~ msgid "Create table on database %s"
 #~ msgstr "Criar nova tabela no Banco de Dados %s"
@@ -13394,8 +13382,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "appropriate column name."
 #~ msgstr ""
 #~ "O campo de exibição está em rosa. Para ajustar/desajustar um campo como "
-#~ "campo de exibição, clique no ícone \"Escolher campo para exibição\", então "
-#~ "clique no nome do campo apropriado."
+#~ "campo de exibição, clique no ícone \"Escolher campo para exibição\", "
+#~ "então clique no nome do campo apropriado."
 
 #~ msgid "memcached usage"
 #~ msgstr "Uso do espaço"
@@ -13491,12 +13479,13 @@ msgstr "concurrent_insert está com valor 0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "O phpMyAdmin não foi capaz de ler o arquivo de configuração!<br />Isto pode "
-#~ "acontecer se o php encontrar um erro no <i>parsing</i> ou se não conseguir "
-#~ "encontrar o arquivo.<br />Chame o arquivo de configuração diretamente usando "
-#~ "o <i>link</i> abaixo e leia a(s) mensagem(ns) de erro do php. Na maior "
-#~ "parte dos casos, trata-se de uma falta de aspas ou de um ponto e vírgula "
-#~ "errado.<br />Se receber uma página em branco, está tudo certo."
+#~ "O phpMyAdmin não foi capaz de ler o arquivo de configuração!<br />Isto "
+#~ "pode acontecer se o php encontrar um erro no <i>parsing</i> ou se não "
+#~ "conseguir encontrar o arquivo.<br />Chame o arquivo de configuração "
+#~ "diretamente usando o <i>link</i> abaixo e leia a(s) mensagem(ns) de erro "
+#~ "do php. Na maior parte dos casos, trata-se de uma falta de aspas ou de um "
+#~ "ponto e vírgula errado.<br />Se receber uma página em branco, está tudo "
+#~ "certo."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Remoção de eventos"
@@ -13531,8 +13520,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "<b>Server traffic</b>: These tables show the network traffic statistics "
 #~ "of this MySQL server since its startup."
 #~ msgstr ""
-#~ "<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do tráfico "
-#~ "da rede neste servidor MySQL desde o início."
+#~ "<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do "
+#~ "tráfico da rede neste servidor MySQL desde o início."
 
 #~ msgid ""
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
@@ -13559,8 +13548,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "For compatibility reasons the chart image is segmented by default, select "
 #~ "this to draw the whole chart in one image."
 #~ msgstr ""
-#~ "Por questões de compatibilidade a imagem do gráfico é segmentada por padrão, "
-#~ "selecione este para desenhar o gráfico inteiro em uma imagem."
+#~ "Por questões de compatibilidade a imagem do gráfico é segmentada por "
+#~ "padrão, selecione este para desenhar o gráfico inteiro em uma imagem."
 
 #~ msgid "Add a New User"
 #~ msgstr "Adicionar usuário"
