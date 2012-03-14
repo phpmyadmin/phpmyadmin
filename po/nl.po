@@ -11360,10 +11360,9 @@ msgid "Redraw"
 msgstr "Hertekenen"
 
 #: tbl_gis_visualization.php:177
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Opslaan als bestand"
+msgstr "Opslaan naar bestand"
 
 #: tbl_gis_visualization.php:178
 #, fuzzy
