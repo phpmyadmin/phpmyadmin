@@ -7886,7 +7886,7 @@ msgstr "Ko‘rish uchun binar jurnalni tanlang"
 
 #: server_binlog.php:122 server_status.php:387
 msgid "Files"
-msgstr "Fayllar soni "
+msgstr "Fayllar soni"
 
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:58
 #: server_processlist.php:60
