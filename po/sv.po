@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 20:54+0200\n"
+"PO-Revision-Date: 2012-03-14 20:56+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1183,7 +1183,7 @@ msgstr "Statisk data"
 #: server_status.php:1126 server_status.php:1187 tbl_printview.php:310
 #: tbl_structure.php:804
 msgid "Total"
-msgstr "Total"
+msgstr "Totalt"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:603 server_status.php:1022
