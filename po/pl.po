@@ -5555,7 +5555,7 @@ msgstr "Dodaj oświadczenie %s"
 
 #: libraries/export/sql.php:91
 msgid "Add statements:"
-msgstr "Cecha"
+msgstr "Cecha:"
 
 #: libraries/export/sql.php:123
 #, fuzzy
