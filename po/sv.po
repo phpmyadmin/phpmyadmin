@@ -5605,7 +5605,7 @@ msgstr "Antal kolumner"
 
 #: libraries/display_export.lib.php:37
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Kunde inte ladda export-tillägg. Kontrollera din installation."
+msgstr "Kunde inte ladda export-tillägg. Kontrollera din installation!"
 
 #: libraries/display_export.lib.php:82
 msgid "Exporting databases from the current server"
