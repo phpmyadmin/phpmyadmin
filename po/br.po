@@ -2682,7 +2682,7 @@ msgstr "Anv implijer :"
 
 #: libraries/auth/cookie.auth.lib.php:220
 msgid "Password:"
-msgstr "Ger-tremen : "
+msgstr "Ger-tremen :"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Server Choice"
