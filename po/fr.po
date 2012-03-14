@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-14 17:38+0200\n"
+"PO-Revision-Date: 2012-03-14 17:39+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3057,7 +3057,7 @@ msgstr "Personnaliser les champs de saisie"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr "Texte Texy!"
+msgstr "Texte Texy"
 
 #: libraries/config/messages.inc.php:228
 msgid "Warnings"
