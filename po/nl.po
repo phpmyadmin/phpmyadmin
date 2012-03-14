@@ -11738,7 +11738,7 @@ msgstr "Grootte van de rij"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
-msgstr ""
+msgstr "Volgende automatische indexwaarde"
 
 #: tbl_relation.php:271
 #, php-format
