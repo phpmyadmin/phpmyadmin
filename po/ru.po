@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 18:08+0200\n"
+"PO-Revision-Date: 2012-03-14 18:15+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -7808,7 +7808,7 @@ msgstr "Показать все таблицы одинаковой ширины
 
 #: libraries/schema/User_Schema.class.php:425
 msgid "Only show keys"
-msgstr "Only show keys"
+msgstr "Показывать только ключи"
 
 #: libraries/schema/User_Schema.class.php:427
 msgid "Landscape"
