@@ -11805,10 +11805,10 @@ msgid "Activate now"
 msgstr "Включить"
 
 #: tbl_tracking.php:742
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Создать версию %s из %s.%s"
+msgstr "Создать версию %1$s из %2$s"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
