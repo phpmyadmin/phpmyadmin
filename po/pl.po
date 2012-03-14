@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 21:57+0200\n"
+"PO-Revision-Date: 2012-03-14 21:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -6622,7 +6622,7 @@ msgstr "(Generuje raport zawierający danej pojedynczej tabeli.)"
 
 #: libraries/export/pdf.php:25
 msgid "Report title:"
-msgstr "Tytuł raportu"
+msgstr "Tytuł raportu:"
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
