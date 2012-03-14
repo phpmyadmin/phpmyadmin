@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2010-04-16 10:43+0200\n"
-"Last-Translator: Sutharshan <sutharshan02@gmail.com>\n"
+"PO-Revision-Date: 2011-12-28 11:44+0200\n"
+"Last-Translator: any anonymous user <>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -401,8 +401,8 @@ msgstr "கடைசி சோதனை"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s அட்டவணை"
+msgstr[1] "%s அட்டவணைகள்"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -467,16 +467,14 @@ msgid "Modify"
 msgstr "மாற்று"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "விதி நிரைகளை சேர்க்க/ நீக்குக"
+msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
+msgstr "நெடுவரிசைகள்  சேர்க்க/ நீக்க"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
@@ -527,8 +525,8 @@ msgstr "\"<i>%s</i>\" %s இற்கான தேடல் முடிவு�
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s அட்டவணையில் பொருந்தியவை <i>%s</i>"
+msgstr[1] "%s அட்டவணையில் பொருந்தியவைகள் <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2829
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
@@ -556,8 +554,8 @@ msgstr "அழி"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>மொத்தம்:</b> <i>%s</i> பொருத்தம்"
+msgstr[1] "<b>மொத்த:</b> <i>%s</i> பொருத்தங்கள்"
 
 #: db_search.php:295
 msgid "Search in database"
@@ -988,7 +986,6 @@ msgid "The passwords aren't the same!"
 msgstr ""
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "புதிய பயனாளரை சேர்க்க"
@@ -1081,7 +1078,6 @@ msgid "Show query box"
 msgstr "வினவல் பெட்டியை காண்பி"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Inline Edit"
 msgstr "உள்வரிசை"
@@ -1154,10 +1150,9 @@ msgid "Change Password"
 msgstr "கடவுச்சொல்லை மாற்று"
 
 #: js/messages.php:115 tbl_structure.php:475
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "திங்கள்"
+msgstr "மேலும்"
 
 #: js/messages.php:118 setup/lib/index.lib.php:158
 #, php-format
@@ -1180,16 +1175,18 @@ msgstr "முடிந்த"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:140
+#, fuzzy
 msgid "Prev"
-msgstr ""
+msgstr "பின்"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:142 libraries/common.lib.php:2370
 #: libraries/common.lib.php:2373 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:895
+#, fuzzy
 msgid "Next"
-msgstr ""
+msgstr "அடுத்து"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:144
@@ -1197,20 +1194,18 @@ msgid "Today"
 msgstr "இன்று"
 
 #: js/messages.php:147
-#, fuzzy
 #| msgid "Jan"
 msgid "January"
-msgstr "தை"
+msgstr "ஜனவரி"
 
 #: js/messages.php:148
 msgid "February"
 msgstr "மாசி"
 
 #: js/messages.php:149
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
-msgstr "பங்குனி"
+msgstr "மார்ச்"
 
 #: js/messages.php:150
 #, fuzzy
@@ -1223,22 +1218,19 @@ msgid "May"
 msgstr "வைகாசி"
 
 #: js/messages.php:152
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
-msgstr "ஆணி"
+msgstr "ஜூன்"
 
 #: js/messages.php:153
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
-msgstr "ஆடி"
+msgstr "ஜூலை"
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
-msgstr "ஆவணி"
+msgstr "ஆகஸ்ட்"
 
 #: js/messages.php:155
 msgid "September"
@@ -1394,49 +1386,42 @@ msgstr "சனி"
 
 #. l10n: Minimal week day name
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "ஞாயிறு"
+msgstr "ஞாயி"
 
 #. l10n: Minimal week day name
 #: js/messages.php:215
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "திங்கள்"
+msgstr "திங்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
-msgstr "செவ்வாய்"
+msgstr "செவ்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:219
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "புதன்"
+msgstr "புத"
 
 #. l10n: Minimal week day name
 #: js/messages.php:221
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "வியாழன்"
+msgstr "வியா"
 
 #. l10n: Minimal week day name
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "வெள்ளி"
+msgstr "வெள்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:225
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "சனி"
@@ -2073,13 +2058,15 @@ msgstr "ஆரம்பம்"
 #: libraries/common.lib.php:2341 libraries/common.lib.php:2344
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
 #: server_binlog.php:156
+#, fuzzy
 msgid "Previous"
-msgstr ""
+msgstr "முந்தைய"
 
 #: libraries/common.lib.php:2371 libraries/common.lib.php:2374
 #: libraries/display_tbl.lib.php:368
+#, fuzzy
 msgid "End"
-msgstr ""
+msgstr "முடிவு"
 
 #: libraries/common.lib.php:2446
 #, php-format
