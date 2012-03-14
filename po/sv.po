@@ -7158,7 +7158,7 @@ msgstr "Skapa en sida och exportera till den"
 
 #: pmd_pdf.php:111
 msgid "New page name: "
-msgstr "Nytt sidnamn:"
+msgstr "Nytt sidnamn: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
