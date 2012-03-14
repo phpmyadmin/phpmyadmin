@@ -10661,10 +10661,9 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1572 server_status.php:1643
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add chart"
-msgstr "Voeg voorvoegsel toe"
+msgstr "Voeg een grafiek toe"
 
 #: server_status.php:1574
 msgid "Rearrange/edit charts"
