@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-14 19:38+0200\n"
+"PO-Revision-Date: 2012-03-14 19:42+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6502,7 +6502,7 @@ msgstr "SLUT RÅTEXT"
 
 #: libraries/sqlparser.lib.php:364
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Automatiskt bifoga citattecken till slutet av frågan"
+msgstr "Infoga automatiskt ett citattecken till slutet av frågan!"
 
 #: libraries/sqlparser.lib.php:367
 msgid "Unclosed quote"
