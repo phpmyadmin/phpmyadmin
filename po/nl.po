@@ -11365,10 +11365,9 @@ msgid "Save to file"
 msgstr "Opslaan naar bestand"
 
 #: tbl_gis_visualization.php:178
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "Tabelnaam"
+msgstr "Bestandsnaam"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
