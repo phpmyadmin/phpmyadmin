@@ -224,7 +224,7 @@ if (isset($_REQUEST['submit_search'])) {
         $sql_query .= $newsearchsqls['select_count'];
 
         echo '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
-            .'<td>' . sprintf(_ngettext('%s match inside table <i>%s</i>', '%s matches inside table <i>%s</i>', $res_cnt), $res_cnt,
+            .'<td>' . sprintf(_ngettext('%1$s match inside table <i>%2$s</i>', '%1$s matches inside table <i>%2$s</i>', $res_cnt), $res_cnt,
                 htmlspecialchars($each_table)) . "</td>\n";
 
         if ($res_cnt > 0) {
