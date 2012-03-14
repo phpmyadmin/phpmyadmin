@@ -5,11 +5,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2011-07-02 22:10+0200\n"
-"Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
+"PO-Revision-Date: 2011-10-13 17:20+0200\n"
+"Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
@@ -9537,15 +9537,13 @@ msgstr ""
 #~ msgid "Insert Table"
 #~ msgstr "Ensoc'hañ un daolenn"
 
-#, fuzzy
 #~| msgid "Indexes"
 #~ msgid "Hide indexes"
-#~ msgstr "Menegerioù"
+#~ msgstr "Kuzhat menegerioù"
 
-#, fuzzy
 #~| msgid "Indexes"
 #~ msgid "Show indexes"
-#~ msgstr "Menegerioù"
+#~ msgstr "Diskouez menegerioù"
 
 #~ msgid "Show search results"
 #~ msgstr "Diskouez disoc'hoù an enklask"
@@ -9557,8 +9555,7 @@ msgstr ""
 #~ msgstr "O tiverkañ"
 
 #~ msgid "The definition of a stored function must contain a RETURN statement!"
-#~ msgstr ""
-#~ "Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket"
+#~ msgstr "Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket"
 
 #~ msgid "Value too long in the form!"
 #~ msgstr "Talvoud re hir er furmskrid !"
@@ -9602,8 +9599,8 @@ msgstr ""
 #~ "This usually means there is a syntax error in it, please check any errors "
 #~ "shown below."
 #~ msgstr ""
-#~ "Peurliesañ e talvez ez eus ur fazi ereadurezh enni. Gwiriit ha n'eus ket "
-#~ "ur fazi o tont war wel a-is."
+#~ "Peurliesañ e talvez ez eus ur fazi ereadurezh enni. Gwiriit ha n'eus ket ur "
+#~ "fazi o tont war wel a-is."
 
 #~ msgid "Execute"
 #~ msgstr "Seveniñ"
@@ -9622,7 +9619,6 @@ msgstr ""
 #~ msgid "Mode"
 #~ msgstr "Muioc'h"
 
-#, fuzzy
 #~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Furchal"
