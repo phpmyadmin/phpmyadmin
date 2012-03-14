@@ -3,11 +3,11 @@
 # This file is distributed under the same license as the phpMyAdmin package.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2011-02-10 14:03+0100\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2011-09-27 08:42+0200\n"
+"Last-Translator: <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "Language: ml\n"
 "MIME-Version: 1.0\n"
@@ -394,8 +394,8 @@ msgstr "അന്തിമ പരിശോധന"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s പട്ടിക"
+msgstr[1] "%s പട്ടികകൾ"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
