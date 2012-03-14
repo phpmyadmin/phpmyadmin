@@ -2931,7 +2931,7 @@ msgstr ""
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "\"%s\" soniya davomida faollik kuzatilmadi, iltimos, qayta avtorizatsiyadan "
-"o‘ting. "
+"o‘ting."
 
 #: libraries/auth/cookie.auth.lib.php:582
 #: libraries/auth/cookie.auth.lib.php:584
