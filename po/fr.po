@@ -11667,10 +11667,10 @@ msgid "Tracking report for table `%s`"
 msgstr "Rapport de suivi pour la table `%s`"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Version %s créée, le suivi pour %s.%s est activé."
+msgstr "Version %1$s créée, le suivi pour %2$s est activé."
 
 #: tbl_tracking.php:186
 #, fuzzy, php-format
