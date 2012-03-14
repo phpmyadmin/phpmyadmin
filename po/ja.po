@@ -13003,12 +13003,10 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is deactivated."
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
 #~ msgstr "%s.%s への SQL コマンド追跡、世代 %s を非アクティブにしました。"
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "%s.%s への SQL コマンド追跡、世代 %s をアクティブにしました。"
 

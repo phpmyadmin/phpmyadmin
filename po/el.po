@@ -13134,12 +13134,10 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is deactivated."
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
 #~ msgstr "Η παρακολούθηση του %s.%s , η έκδοση %s είναι απενεργοποιημένη."
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "Η παρακολούθηση του %s.%s , η έκδοση %s είναι ενεργοποιημένη."
 

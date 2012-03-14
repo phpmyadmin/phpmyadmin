@@ -13152,12 +13152,10 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is deactivated."
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
 #~ msgstr "Sporing for %s.%s, version %s er deaktiveret."
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "Sporing for %s.%s, version %s er aktiveret."
 

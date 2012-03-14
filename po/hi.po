@@ -12796,12 +12796,10 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is deactivated."
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
 #~ msgstr "संस्करण %s बन चूका है, ट्रैकिंग %s.%s के लिए निष्क्रिय"
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "ट्रैकिंग %s.%s के लिए, संस्करण %s सक्रिय"
 
