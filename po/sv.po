@@ -6278,7 +6278,7 @@ msgstr "Liknande länkar"
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr "PrimeBase XT Blogg av Paul McCullagh "
+msgstr "PrimeBase XT Blogg av Paul McCullagh"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
