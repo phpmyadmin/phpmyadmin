@@ -5354,7 +5354,7 @@ msgstr "Ishlatilish"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
-msgstr "sahifalar soni "
+msgstr "sahifalar soni"
 
 #: libraries/engines/innodb.lib.php:180
 msgid "Free pages"
