@@ -1656,7 +1656,7 @@ msgstr "Påverkade rader:"
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"Parsning av config-filen misslyckades.. Det verkar inte vara giltig JSON-kod"
+"Parsning av config-filen misslyckades. Det verkar inte vara giltig JSON-kod."
 
 #: js/messages.php:211
 msgid ""
