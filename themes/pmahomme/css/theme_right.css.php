@@ -1085,7 +1085,6 @@ div#tablestatistics table {
 #topmenucontainer {
     padding-right: 1em;
     width: 100%;
-    border-bottom:1px solid #ccc;
     background-color: #dcdcdc;
 }
 
