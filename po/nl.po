@@ -10746,7 +10746,7 @@ msgstr ""
 
 #: server_status.php:1634
 msgid "Please note:"
-msgstr ""
+msgstr "Hou rekening met :"
 
 #: server_status.php:1636
 msgid ""
