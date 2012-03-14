@@ -12181,7 +12181,7 @@ msgstr ""
 #: po/advisory_rules.php:30
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Logs van trage queries "
+msgstr "Logs van trage queries"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
