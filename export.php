@@ -129,8 +129,9 @@ $time_start = time();
  * Output handler for all exports, if needed buffering, it stores data into
  * $dump_buffer, otherwise it prints thems out.
  *
- * @param string  $line  the insert statement
- * @return  bool    Whether output succeeded
+ * @param string $line the insert statement
+ *
+ * @return bool Whether output succeeded
  */
 function PMA_exportOutputHandler($line)
 {
@@ -258,18 +259,27 @@ if ($asfile) {
     $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     if ($export_type == 'server') {
         if (isset($remember_template)) {
-            $GLOBALS['PMA_Config']->setUserValue('pma_server_filename_template',
-                'Export/file_template_server', $filename_template);
+            $GLOBALS['PMA_Config']->setUserValue(
+                'pma_server_filename_template',
+                'Export/file_template_server',
+                $filename_template
+            );
         }
     } elseif ($export_type == 'database') {
         if (isset($remember_template)) {
-            $GLOBALS['PMA_Config']->setUserValue('pma_db_filename_template',
-                'Export/file_template_database', $filename_template);
+            $GLOBALS['PMA_Config']->setUserValue(
+                'pma_db_filename_template',
+                'Export/file_template_database',
+                $filename_template
+            );
         }
     } else {
         if (isset($remember_template)) {
-            $GLOBALS['PMA_Config']->setUserValue('pma_table_filename_template',
-                'Export/file_template_table', $filename_template);
+            $GLOBALS['PMA_Config']->setUserValue(
+                'pma_table_filename_template',
+                'Export/file_template_table',
+                $filename_template
+            );
         }
     }
     $filename = PMA_expandUserString($filename_template);
@@ -368,10 +378,10 @@ if (!$save_on_server) {
         /**
          * Displays a back button with all the $_REQUEST data in the URL (store in a variable to also display after the textarea)
          */
-         $back_button = '<p>[ <a href="';
+        $back_button = '<p>[ <a href="';
         if ($export_type == 'server') {
-           $back_button .= 'server_export.php?' . PMA_generate_common_url();
-         } elseif ($export_type == 'database') {
+            $back_button .= 'server_export.php?' . PMA_generate_common_url();
+        } elseif ($export_type == 'database') {
             $back_button .= 'db_export.php?' . PMA_generate_common_url($db);
         } else {
             $back_button .= 'tbl_export.php?' . PMA_generate_common_url($db, $table);
@@ -434,7 +444,8 @@ do {
         // Walk over databases
         foreach ($GLOBALS['pma']->databases as $current_db) {
             if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
-                || ! isset($tmp_select)) {
+                || ! isset($tmp_select)
+            ) {
                 if (!PMA_exportDBHeader($current_db)) {
                     break 2;
                 }
