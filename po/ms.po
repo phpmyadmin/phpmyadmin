@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
@@ -963,7 +963,6 @@ msgid "Dropping Event"
 msgstr ""
 
 #: js/messages.php:33
-#, fuzzy
 msgid "Dropping Procedure"
 msgstr "Proses-proses"
 
@@ -1013,13 +1012,11 @@ msgid "The passwords aren't the same!"
 msgstr "Katalaluan tidak sama!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Tambah Pengguna Baru"
 
 #: js/messages.php:53
-#, fuzzy
 msgid "Create User"
 msgstr "Versi Pelayan"
 
@@ -1098,7 +1095,6 @@ msgid "Table must have at least one column"
 msgstr "Anda mesti pilih sekurang-kurangnya satu Kolum untuk dipapar"
 
 #: js/messages.php:76
-#, fuzzy
 msgid "Create Table"
 msgstr "Cipta Halaman baru"
 
@@ -4775,7 +4771,6 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:392
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "baris bermula dari rekod #"
@@ -8348,7 +8343,6 @@ msgid "The total number of blocks in the query cache."
 msgstr ""
 
 #: server_status.php:131
-#, fuzzy
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Ulangtetap"
@@ -8530,7 +8524,6 @@ msgid "Show processes"
 msgstr "Papar proses"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
@@ -9136,7 +9129,6 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "Thread %s was successfully killed."
 msgid "Chart generated successfully."
 msgstr "Bebenang %s telah berjaya dimatikan."
@@ -9782,8 +9774,8 @@ msgstr "Tukarnama jadual ke"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "Ciri-ciri tambahan ini adalah untuk bekerja dengan pautan jadual yang "
-#~ "telah tidak diaktifkan. Untuk mengetahuinya klik %shere%s."
+#~ "Ciri-ciri tambahan ini adalah untuk bekerja dengan pautan jadual yang telah "
+#~ "tidak diaktifkan. Untuk mengetahuinya klik %shere%s."
 
 #~ msgid "No tables"
 #~ msgstr "Tiada Jadual"
@@ -9797,20 +9789,20 @@ msgstr "Tukarnama jadual ke"
 #~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
 #~ "\\'b')."
 #~ msgstr ""
-#~ "Jika jenis medan ialah \"enum\" atau \"set\", sila masukkan nilai "
-#~ "menggunakan format: 'a','b','c'...<br />Jika Anda ingin menggunakan "
-#~ "backslash (\"\\\") atau single quote (\"'\") didalam nilai tersebut, "
-#~ "backslashes kan ia (cth '\\\\xyz' or 'a\\'b')."
+#~ "Jika jenis medan ialah \"enum\" atau \"set\", sila masukkan nilai menggunakan "
+#~ "format: 'a','b','c'...<br />Jika Anda ingin menggunakan backslash (\"\\\") atau "
+#~ "single quote (\"'\") didalam nilai tersebut, backslashes kan ia (cth '\\\\xyz' "
+#~ "or 'a\\'b')."
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
 #~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
-#~ "Jika jenis medan ialah \"enum\" atau \"set\", sila masukkan nilai "
-#~ "menggunakan format: 'a','b','c'...<br />Jika Anda ingin menggunakan "
-#~ "backslash (\"\\\") atau single quote (\"'\") didalam nilai tersebut, "
-#~ "backslashes kan ia (cth '\\\\xyz' or 'a\\'b')."
+#~ "Jika jenis medan ialah \"enum\" atau \"set\", sila masukkan nilai menggunakan "
+#~ "format: 'a','b','c'...<br />Jika Anda ingin menggunakan backslash (\"\\\") atau "
+#~ "single quote (\"'\") didalam nilai tersebut, backslashes kan ia (cth '\\\\xyz' "
+#~ "or 'a\\'b')."
 
 #~ msgid "New table"
 #~ msgstr "Tiada Jadual"
@@ -9868,9 +9860,8 @@ msgstr "Tukarnama jadual ke"
 #~ "the necessary extensions appear to be loaded. Check your PHP "
 #~ "configuration."
 #~ msgstr ""
-#~ "Tidak boleh menggunakan fungsi iconv mahupun libiconv mahupun "
-#~ "recode_string apabila sambungan lapuran dimuat. Periksa konfigurasi php "
-#~ "anda."
+#~ "Tidak boleh menggunakan fungsi iconv mahupun libiconv mahupun recode_string "
+#~ "apabila sambungan lapuran dimuat. Periksa konfigurasi php anda."
 
 #~ msgid "Field"
 #~ msgstr "Medan"
@@ -9960,16 +9951,16 @@ msgstr "Tukarnama jadual ke"
 #~ "query on the MySQL command line interface. The MySQL server error output "
 #~ "be . "
 #~ msgstr ""
-#~ "Ada kemungkinan anda akan berjumpa dengan pepijat di penghuraian SQL. "
-#~ "Sila semak kueri anda dengan teliti, dan periksa tanda quote adalah betul "
-#~ "dan tidak tersalah letak. Antara kegagalan lain mungkin disebabkan fail "
-#~ "yang dimuatnaik bersama binari oleh anda berada diluar kawasan quote. "
-#~ "Anda juga boleh mencuba kueri MySQL anda di antaramuka aturan baris "
-#~ "(cli). Dibawah adalah kesalah Pelayan MySql , jika ada, ianya membantu "
-#~ "anda menganalisis masalah. Jika masih terdapat pemasalahan atau masalah "
-#~ "penghuraian dimana antaramuka aturan baris berjaya, sila kurangkan "
-#~ "kemasukan kueri SQL kepada satu kueri yang bermasalah, dan lapurkan "
-#~ "pepijat desertai oleh seruas data dan SALIN keratan rentas dibawah:"
+#~ "Ada kemungkinan anda akan berjumpa dengan pepijat di penghuraian SQL. Sila "
+#~ "semak kueri anda dengan teliti, dan periksa tanda quote adalah betul dan "
+#~ "tidak tersalah letak. Antara kegagalan lain mungkin disebabkan fail yang "
+#~ "dimuatnaik bersama binari oleh anda berada diluar kawasan quote. Anda juga "
+#~ "boleh mencuba kueri MySQL anda di antaramuka aturan baris (cli). Dibawah "
+#~ "adalah kesalah Pelayan MySql , jika ada, ianya membantu anda menganalisis "
+#~ "masalah. Jika masih terdapat pemasalahan atau masalah penghuraian dimana "
+#~ "antaramuka aturan baris berjaya, sila kurangkan kemasukan kueri SQL kepada "
+#~ "satu kueri yang bermasalah, dan lapurkan pepijat desertai oleh seruas data "
+#~ "dan SALIN keratan rentas dibawah:"
 
 #~ msgctxt "$strStrucCSV"
 #~ msgid "CSV"
