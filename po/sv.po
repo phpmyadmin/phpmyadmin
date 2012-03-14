@@ -8358,7 +8358,7 @@ msgstr ""
 
 #: libraries/transformations/text_plain__sql.inc.php:10
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Formaterar text som en SQL-fråga med syntaxmarkering"
+msgstr "Formaterar text som en SQL-fråga med syntaxmarkering."
 
 #: libraries/transformations/text_plain__substr.inc.php:10
 msgid ""
