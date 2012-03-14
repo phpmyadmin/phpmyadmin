@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 19:51+0200\n"
+"PO-Revision-Date: 2012-03-14 19:52+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10629,7 +10629,7 @@ msgstr "Verschil weergeven"
 
 #: server_status.php:1677
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Een scheiding toepassen"
 
 #: server_status.php:1684
 msgid "Append unit to data values"
