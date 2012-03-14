@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:20+0100\n"
-"PO-Revision-Date: 2012-03-14 14:29+0200\n"
+"PO-Revision-Date: 2012-03-14 14:37+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1178,7 +1178,7 @@ msgstr " "
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/common.lib.php:1482
 msgid "."
-msgstr "."
+msgstr ","
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
