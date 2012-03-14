@@ -12546,10 +12546,9 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:125
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "Rate of joins without indexes"
-msgstr "Er zijn geen bestanden om te uploaden"
+msgstr "Aandeel JOINS zonder index"
 
 #: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
