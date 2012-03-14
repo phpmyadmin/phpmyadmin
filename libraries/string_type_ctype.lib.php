@@ -12,7 +12,8 @@
  *
  * The SQL Parser code relies heavily on these functions.
  *
- * @package PhpMyAdmin-StringType-CType
+ * @package PhpMyAdmin-String
+ * @subpackage CType
  */
 
 /**

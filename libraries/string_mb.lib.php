@@ -12,7 +12,8 @@
  *
  * The SQL Parser code relies heavily on these functions.
  *
- * @package PhpMyAdmin-String-MB
+ * @package PhpMyAdmin-String
+ * @subpackage MB
  */
 
 /**
