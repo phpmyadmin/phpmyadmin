@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:47+0100\n"
-"PO-Revision-Date: 2012-03-14 14:51+0200\n"
+"PO-Revision-Date: 2012-03-14 14:52+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
 "Language: uz@latin\n"
@@ -2720,7 +2720,7 @@ msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
 #: libraries/StorageEngine.class.php:203
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas. "
+msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas."
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
