@@ -1996,7 +1996,7 @@ msgstr "bytes"
 
 #: libraries/common.lib.php:1392
 msgid "KiB"
-msgstr "KiB"
+msgstr "kB"
 
 #: libraries/common.lib.php:1392
 msgid "MiB"
