@@ -4718,7 +4718,6 @@ msgstr ""
 "gedefinieerde machine te gebruiken"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
 msgstr "Controle machine"
