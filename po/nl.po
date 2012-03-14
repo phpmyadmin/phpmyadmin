@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 17:38+0200\n"
+"PO-Revision-Date: 2012-03-14 17:39+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -11124,11 +11124,9 @@ msgstr ""
 "dit systeem."
 
 #: setup/lib/index.lib.php:321
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr ""
-"U kunt het beste SSL verbindingen gebruiken als uw webserver dit ondersteunt."
+msgstr "Gebruik SSL verbindingen als uw database server dit ondersteunt."
 
 #: setup/lib/index.lib.php:334
 msgid "You should use mysqli for performance reasons."
