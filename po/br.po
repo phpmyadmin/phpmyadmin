@@ -12400,8 +12400,8 @@ msgstr ""
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Ha sur oc'h e fell deoc'h diweredekaat an holl zaveennoù BLOB evit an "
-#~ "diaz roadennoù %s ?"
+#~ "Ha sur oc'h e fell deoc'h diweredekaat an holl zaveennoù BLOB evit an diaz "
+#~ "roadennoù %s ?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."
