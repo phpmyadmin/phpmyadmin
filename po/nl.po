@@ -10674,10 +10674,9 @@ msgid "Refresh rate"
 msgstr "Vernieuwingsfrequentie"
 
 #: server_status.php:1583
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns"
-msgstr "Textarea kolommen"
+msgstr "Grafiek kolommen"
 
 #: server_status.php:1599
 msgid "Chart arrangement"
