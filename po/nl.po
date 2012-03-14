@@ -11256,7 +11256,6 @@ msgid "Column"
 msgstr "Kolom"
 
 #: tbl_chart.php:93
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
