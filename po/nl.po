@@ -13018,10 +13018,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formaat van het geïmporteerde bestand"
+msgstr "Aantal afgebroken clients"
 
 #: po/advisory_rules.php:248
 #, php-format
