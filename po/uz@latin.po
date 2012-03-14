@@ -1000,7 +1000,7 @@ msgstr ""
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr ""
-"Ushbu operatsiyani bajarish uzoq vaqt talab qilishi mumkin. Davom etsinmi? "
+"Ushbu operatsiyani bajarish uzoq vaqt talab qilishi mumkin. Davom etsinmi?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
