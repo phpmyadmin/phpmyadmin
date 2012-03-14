@@ -1528,7 +1528,6 @@ msgstr "Grafiek titel"
 
 #. l10n: As in differential values
 #: js/messages.php:170
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "Verschil"
