@@ -5892,7 +5892,7 @@ msgstr "Custom - afișează toate opțiunile posibile"
 
 #: libraries/display_export.lib.php:135
 msgid "Database(s):"
-msgstr "Bază(e) de date"
+msgstr "Bază(e) de date:"
 
 #: libraries/display_export.lib.php:137
 msgid "Table(s):"
