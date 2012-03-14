@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 18:15+0200\n"
+"PO-Revision-Date: 2012-03-14 18:16+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5976,7 +5976,7 @@ msgstr "всего"
 #: libraries/display_tbl.lib.php:2376 sql.php:766
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "запрос занял %01.4f сек."
+msgstr "Запрос занял %01.4f сек."
 
 #: libraries/display_tbl.lib.php:2579
 msgid "Query results operations"
