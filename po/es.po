@@ -11896,10 +11896,10 @@ msgid "Activate now"
 msgstr "Activar ahora"
 
 #: tbl_tracking.php:742
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Crear versión %s de %s.%s"
+msgstr "Crear versión %1$s de %2$s"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
