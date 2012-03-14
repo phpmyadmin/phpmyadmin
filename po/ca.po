@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-09 16:09+0100\n"
+"POT-Creation-Date: 2012-03-14 14:20+0100\n"
 "PO-Revision-Date: 2012-03-08 14:41+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Weblate 0.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
-#: libraries/display_tbl.lib.php:359 server_privileges.php:1729
+#: libraries/display_tbl.lib.php:359 server_privileges.php:1728
 msgid "Show all"
 msgstr "Mostra tot"
 
@@ -45,14 +45,13 @@ msgstr ""
 msgid "Search"
 msgstr "Cerca"
 
-#: browse_foreigners.php:163 db_operations.php:375 db_operations.php:415
-#: db_operations.php:525 db_operations.php:552 db_search.php:337
+#: browse_foreigners.php:163 db_operations.php:387 db_operations.php:427
+#: db_operations.php:537 db_operations.php:564 db_search.php:337
 #: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1402
 #: libraries/common.lib.php:2449 libraries/core.lib.php:505
-#: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
@@ -69,8 +68,8 @@ msgstr "Cerca"
 #: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:765
-#: server_privileges.php:1857 server_privileges.php:2221
-#: server_privileges.php:2268 server_privileges.php:2300
+#: server_privileges.php:1856 server_privileges.php:2220
+#: server_privileges.php:2267 server_privileges.php:2299
 #: server_replication.php:263 server_replication.php:346
 #: server_replication.php:377 server_synchronize.php:1309 tbl_change.php:371
 #: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
@@ -107,12 +106,12 @@ msgstr ""
 "L'arxiu %s no es troba en aquest sistema, si us plau, visita www.phpmyadmin."
 "net per a més informació"
 
-#: db_create.php:60
+#: db_create.php:73
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "S'ha creat la base de dades %1$s."
 
-#: db_datadict.php:49 db_operations.php:367
+#: db_datadict.php:49 db_operations.php:379
 msgid "Database comment: "
 msgstr "Comentaris de la base de dades: "
 
@@ -144,7 +143,7 @@ msgstr "Columna"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
-#: server_privileges.php:2314 tbl_change.php:316 tbl_change.php:349
+#: server_privileges.php:2313 tbl_change.php:316 tbl_change.php:349
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
 msgid "Type"
@@ -198,10 +197,10 @@ msgstr "Comentaris"
 #: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:297
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
-#: server_privileges.php:1520 server_privileges.php:1530
-#: server_privileges.php:1787 server_privileges.php:1798
-#: server_privileges.php:2133 server_privileges.php:2138
-#: server_privileges.php:2431 sql.php:298 sql.php:362 tbl_printview.php:190
+#: server_privileges.php:1519 server_privileges.php:1529
+#: server_privileges.php:1786 server_privileges.php:1797
+#: server_privileges.php:2132 server_privileges.php:2137
+#: server_privileges.php:2430 sql.php:328 sql.php:392 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:281 tbl_tracking.php:336
 #: tbl_tracking.php:341
 msgid "No"
@@ -220,10 +219,10 @@ msgstr "No"
 #: libraries/mult_submits.inc.php:303
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
-#: server_databases.php:81 server_privileges.php:1518
-#: server_privileges.php:1528 server_privileges.php:1784
-#: server_privileges.php:1798 server_privileges.php:2133
-#: server_privileges.php:2136 server_privileges.php:2431 sql.php:361
+#: server_databases.php:95 server_privileges.php:1517
+#: server_privileges.php:1527 server_privileges.php:1783
+#: server_privileges.php:1797 server_privileges.php:2132
+#: server_privileges.php:2135 server_privileges.php:2430 sql.php:391
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
 msgid "Yes"
@@ -246,78 +245,78 @@ msgstr "Tria Tot"
 msgid "Unselect All"
 msgstr "Desmarca tot"
 
-#: db_operations.php:38 tbl_create.php:22
+#: db_operations.php:50 tbl_create.php:22
 msgid "The database name is empty!"
 msgstr "El nom de la base de dades és buit!"
 
-#: db_operations.php:277
+#: db_operations.php:289
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Base de dades %s reanomenada a %s"
 
-#: db_operations.php:281
+#: db_operations.php:293
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "La base de dades %s s'ha copiat a %s"
 
-#: db_operations.php:409
+#: db_operations.php:421
 msgid "Rename database to"
 msgstr "Reanomena base de dades a"
 
-#: db_operations.php:435
+#: db_operations.php:447
 msgid "Remove database"
 msgstr "Elimina la base de dades"
 
-#: db_operations.php:447
+#: db_operations.php:459
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "La base de dades %s s'ha eliminat."
 
-#: db_operations.php:452
+#: db_operations.php:464
 msgid "Drop the database (DROP)"
 msgstr "Esborra la base de dades (DROP)"
 
-#: db_operations.php:481
+#: db_operations.php:493
 msgid "Copy database to"
 msgstr "Còpia base de dades a"
 
-#: db_operations.php:488 tbl_operations.php:554 tbl_tracking.php:424
+#: db_operations.php:500 tbl_operations.php:554 tbl_tracking.php:424
 msgid "Structure only"
 msgstr "Només l'estructura"
 
-#: db_operations.php:489 tbl_operations.php:555 tbl_tracking.php:426
+#: db_operations.php:501 tbl_operations.php:555 tbl_tracking.php:426
 msgid "Structure and data"
 msgstr "Estructura i dades"
 
-#: db_operations.php:490 tbl_operations.php:556 tbl_tracking.php:425
+#: db_operations.php:502 tbl_operations.php:556 tbl_tracking.php:425
 msgid "Data only"
 msgstr "Només dades"
 
-#: db_operations.php:498
+#: db_operations.php:510
 msgid "CREATE DATABASE before copying"
 msgstr "Inclou CREATE DATABASE abans de copiar"
 
-#: db_operations.php:501 libraries/config/messages.inc.php:128
+#: db_operations.php:513 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:137 tbl_operations.php:562
 #, php-format
 msgid "Add %s"
 msgstr "Afegeix %s"
 
-#: db_operations.php:505 libraries/config/messages.inc.php:121
+#: db_operations.php:517 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:564
 msgid "Add AUTO_INCREMENT value"
 msgstr "Afegeix valor AUTO_INCREMENT"
 
-#: db_operations.php:509 tbl_operations.php:571
+#: db_operations.php:521 tbl_operations.php:571
 msgid "Add constraints"
 msgstr "Afegeix restriccions"
 
-#: db_operations.php:522
+#: db_operations.php:534
 msgid "Switch to copied database"
 msgstr "Canvia a la base de dades copiada"
 
-#: db_operations.php:545 libraries/Index.class.php:446
+#: db_operations.php:557 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
@@ -327,7 +326,7 @@ msgstr "Canvia a la base de dades copiada"
 msgid "Collation"
 msgstr "Ordenació"
 
-#: db_operations.php:558
+#: db_operations.php:570
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -336,7 +335,7 @@ msgstr ""
 "S'ha desactivat l' emmagatzemament de la configuració de phpMyAdmin. Per "
 "veure el motiu, clica %saqui%s."
 
-#: db_operations.php:592
+#: db_operations.php:604
 msgid "Edit or export relational schema"
 msgstr "Edita o exporta l'esquema relacional"
 
@@ -345,8 +344,8 @@ msgstr "Edita o exporta l'esquema relacional"
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1908
-#: server_privileges.php:1966 server_privileges.php:2235
+#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1907
+#: server_privileges.php:1965 server_privileges.php:2234
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
 msgstr "Taula"
@@ -412,7 +411,7 @@ msgstr "Classificació"
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:566
 #: libraries/display_tbl.lib.php:959 libraries/display_tbl.lib.php:962
-#: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
+#: server_databases.php:176 server_databases.php:193 tbl_operations.php:279
 #: tbl_select.php:247
 msgid "Ascending"
 msgstr "Ascendent"
@@ -420,7 +419,7 @@ msgstr "Ascendent"
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:98
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:571
 #: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:963
-#: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
+#: server_databases.php:176 server_databases.php:193 tbl_operations.php:280
 #: tbl_select.php:248
 msgid "Descending"
 msgstr "Descendent"
@@ -632,21 +631,21 @@ msgstr "%s és el motor d'emmagatzematge per defecte en aquest servidor MySQL."
 
 #: db_structure.php:549 db_structure.php:566 db_structure.php:567
 #: libraries/display_tbl.lib.php:2492 libraries/display_tbl.lib.php:2497
-#: libraries/mult_submits.inc.php:27 server_databases.php:263
-#: server_databases.php:268 server_privileges.php:1821 tbl_structure.php:557
+#: libraries/mult_submits.inc.php:27 server_databases.php:277
+#: server_databases.php:282 server_privileges.php:1820 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
 msgstr "Amb marca:"
 
 #: db_structure.php:552 libraries/display_tbl.lib.php:2487
-#: server_databases.php:265 server_privileges.php:703
-#: server_privileges.php:1824 tbl_structure.php:560
+#: server_databases.php:279 server_privileges.php:703
+#: server_privileges.php:1823 tbl_structure.php:560
 msgid "Check All"
 msgstr "Marcar-ho tot"
 
 #: db_structure.php:556 libraries/display_tbl.lib.php:2488
-#: libraries/replication_gui.lib.php:35 server_databases.php:267
-#: server_privileges.php:706 server_privileges.php:1828 tbl_structure.php:564
+#: libraries/replication_gui.lib.php:35 server_databases.php:281
+#: server_privileges.php:706 server_privileges.php:1827 tbl_structure.php:564
 msgid "Uncheck All"
 msgstr "Desmarcar tot"
 
@@ -659,7 +658,7 @@ msgstr "Comprova taules desfragmentades"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2510 libraries/display_tbl.lib.php:2651
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1486 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1485 server_status.php:1600
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exporta"
@@ -676,7 +675,7 @@ msgstr "Buida"
 
 #: db_structure.php:577 db_tracking.php:105 enum_editor.php:116
 #: libraries/Index.class.php:490 libraries/common.lib.php:3378
-#: libraries/common.lib.php:3379 server_databases.php:269
+#: libraries/common.lib.php:3379 server_databases.php:283
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "Elimina"
@@ -722,9 +721,9 @@ msgstr "Taules seguides"
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
-#: libraries/header_printview.inc.php:60 server_databases.php:161
-#: server_privileges.php:1903 server_privileges.php:1966
-#: server_privileges.php:2229 server_status.php:1239
+#: libraries/header_printview.inc.php:60 server_databases.php:175
+#: server_privileges.php:1902 server_privileges.php:1965
+#: server_privileges.php:2228 server_status.php:1239
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
@@ -744,15 +743,15 @@ msgstr "Actualitzat"
 
 #: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1242 sql.php:902 tbl_tracking.php:653
+#: server_status.php:1242 sql.php:932 tbl_tracking.php:653
 msgid "Status"
 msgstr "Estat"
 
 #: db_tracking.php:91 libraries/Index.class.php:438
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
-#: server_databases.php:194 server_privileges.php:1758
-#: server_privileges.php:1970 server_privileges.php:2317 tbl_structure.php:211
+#: server_databases.php:208 server_privileges.php:1757
+#: server_privileges.php:1969 server_privileges.php:2316 tbl_structure.php:211
 msgid "Action"
 msgstr "Acció"
 
@@ -944,7 +943,7 @@ msgstr ""
 "Tria «GeomFromText» de la columna \"Funció\" i enganxa la cadena següent al "
 "camp \"Valor\""
 
-#: import.php:61
+#: import.php:78
 #, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
@@ -953,20 +952,20 @@ msgstr ""
 "Probablement has triat d'enviar un arxiu massa gran. Consulta la "
 "%sdocumentació%s per trobar formes de modificar aquest límit."
 
-#: import.php:174 import.php:426
+#: import.php:191 import.php:443
 msgid "Showing bookmark"
 msgstr "Mostrant consultes desades"
 
-#: import.php:184 import.php:422
+#: import.php:201 import.php:439
 msgid "The bookmark has been deleted."
 msgstr "S'ha esborrat la consulta desada."
 
-#: import.php:298 import.php:351 libraries/File.class.php:384
+#: import.php:315 import.php:368 libraries/File.class.php:384
 #: libraries/File.class.php:467
 msgid "File could not be read"
 msgstr "No es pot llegir l'arxiu"
 
-#: import.php:306 import.php:315 import.php:334 import.php:343
+#: import.php:323 import.php:332 import.php:351 import.php:360
 #: libraries/File.class.php:537 libraries/File.class.php:545
 #: libraries/File.class.php:561 libraries/File.class.php:569
 #, php-format
@@ -977,7 +976,7 @@ msgstr ""
 "S'intenta carregar un arxiu amb una compresió no suportada (%s). O bé aquest "
 "suport no s'ha implementat encara o bé el teniu desactivat a la configuració."
 
-#: import.php:356
+#: import.php:373
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -987,29 +986,29 @@ msgstr ""
 "o el tamany de l'arxiu es més gran que el permès per la configuració del "
 "vostre PHP. Veieu [a@./Documentation.html#faq1_16]PFC(FAQ) 1.16[/a]."
 
-#: import.php:373
+#: import.php:390
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 "No es pot convertir el joc de caracters de l'arxivu sense la biblioteca "
 "corresponent"
 
-#: import.php:397 libraries/display_import.lib.php:23
+#: import.php:414 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "No es poden carregar les extensions d'importació, comprova l'instal.lació!"
 
-#: import.php:428 sql.php:937
+#: import.php:445 sql.php:967
 #, php-format
 msgid "Bookmark %s created"
 msgstr "%s creat com a Consulta desada"
 
-#: import.php:434 import.php:440
+#: import.php:451 import.php:457
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importació finalitzada correctament, %d consultes executades."
 
-#: import.php:449
+#: import.php:466
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -1017,7 +1016,7 @@ msgstr ""
 "Temps exaurit de l'arxiu d'ordres, si voleu finalitzar l'importació, torneu "
 "a enviar el mateix arxiu a importar i el procés continuarà."
 
-#: import.php:451
+#: import.php:468
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1026,14 +1025,14 @@ msgstr ""
 "indica que phpMyAdmin no ha pogut finalitzar aquesta importació a menys que "
 "incrementeu els límits de temps de php."
 
-#: import.php:479 libraries/Message.class.php:175
+#: import.php:496 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1205
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "La vostra comanda SQL ha estat executada amb èxit"
 
-#: import_status.php:29 libraries/common.lib.php:709
+#: import_status.php:42 libraries/common.lib.php:709
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
 msgid "Back"
 msgstr "Enrere"
@@ -1043,15 +1042,15 @@ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "phpMyAdmin és més fàcil amb un navegador que <b>suporti marcs -frames-</b>."
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:255
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:285
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Instrucció \"DROP DATABASE\" desactivada."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:292 sql.php:356
+#: js/messages.php:30 libraries/mult_submits.inc.php:292 sql.php:386
 msgid "Do you really want to "
 msgstr "Realment vols fer?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:292 sql.php:341
+#: js/messages.php:31 libraries/mult_submits.inc.php:292 sql.php:371
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ets a punt de DESTRUIR completament una base de dades!"
 
@@ -1109,16 +1108,16 @@ msgstr "El nom del servidor és buit!"
 msgid "The user name is empty!"
 msgstr "El nom d'usuari és buit!"
 
-#: js/messages.php:53 server_privileges.php:1353 user_password.php:50
+#: js/messages.php:53 server_privileges.php:1352 user_password.php:50
 msgid "The password is empty!"
 msgstr "La contrasenya és buida!"
 
-#: js/messages.php:54 server_privileges.php:1351 user_password.php:53
+#: js/messages.php:54 server_privileges.php:1350 user_password.php:53
 msgid "The passwords aren't the same!"
 msgstr "Les contrasenyes no coincideixen!"
 
-#: js/messages.php:55 server_privileges.php:1842 server_privileges.php:1866
-#: server_privileges.php:2278 server_privileges.php:2472
+#: js/messages.php:55 server_privileges.php:1841 server_privileges.php:1865
+#: server_privileges.php:2277 server_privileges.php:2471
 msgid "Add user"
 msgstr "Afegirl usuari"
 
@@ -1161,7 +1160,7 @@ msgstr "Dades estàtiques"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:158 server_databases.php:222
+#: libraries/engines/innodb.lib.php:158 server_databases.php:236
 #: server_status.php:1126 server_status.php:1187 tbl_printview.php:310
 #: tbl_structure.php:804
 msgid "Total"
@@ -1387,7 +1386,7 @@ msgstr "Afegeix al menys una variable a la serie"
 #: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2119 server_status.php:1268 server_status.php:1697
+#: server_privileges.php:2118 server_status.php:1268 server_status.php:1697
 #: tbl_zoom_select.php:220 tbl_zoom_select.php:264
 msgid "None"
 msgstr "Res"
@@ -1566,7 +1565,7 @@ msgid "Explain output"
 msgstr "Explicar sortida"
 
 #: js/messages.php:184 js/messages.php:490 libraries/rte/rte_list.lib.php:62
-#: server_status.php:1241 sql.php:903
+#: server_status.php:1241 sql.php:933
 msgid "Time"
 msgstr "Temps"
 
@@ -2394,8 +2393,8 @@ msgstr ""
 "esborrar."
 
 #: libraries/List_Database.class.php:379 libraries/config/messages.inc.php:179
-#: libraries/server_links.inc.php:43 server_databases.php:104
-#: server_privileges.php:1903
+#: libraries/server_links.inc.php:43 server_databases.php:118
+#: server_privileges.php:1902
 msgid "Databases"
 msgstr "Bases de dades"
 
@@ -2861,7 +2860,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "En línia"
 
-#: libraries/common.lib.php:1401 sql.php:898
+#: libraries/common.lib.php:1401 sql.php:928
 msgid "Profiling"
 msgstr "Perfils"
 
@@ -5175,7 +5174,7 @@ msgstr "Necessita activar el SQL Validator"
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
 #: libraries/replication_gui.lib.php:355 server_privileges.php:898
 #: server_privileges.php:902 server_privileges.php:913
-#: server_privileges.php:1754 server_synchronize.php:1273
+#: server_privileges.php:1753 server_synchronize.php:1273
 msgid "Password"
 msgstr "Contrasenya"
 
@@ -5512,7 +5511,7 @@ msgid "Designer"
 msgstr "Dissenyador"
 
 #: libraries/db_links.inc.php:92 server_privileges.php:140
-#: server_privileges.php:1967 server_privileges.php:2315
+#: server_privileges.php:1966 server_privileges.php:2314
 msgid "Privileges"
 msgstr "Permisos"
 
@@ -5582,7 +5581,7 @@ msgid "Create"
 msgstr "Crea"
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:142
-#: server_privileges.php:1639 server_replication.php:33
+#: server_privileges.php:1638 server_replication.php:33
 msgid "No Privileges"
 msgstr "Sense permisos"
 
@@ -5977,7 +5976,7 @@ msgstr "Mostrant registres"
 msgid "total"
 msgstr "total"
 
-#: libraries/display_tbl.lib.php:2376 sql.php:736
+#: libraries/display_tbl.lib.php:2376 sql.php:766
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "La consulta tarda %01.4f seg"
@@ -6447,7 +6446,7 @@ msgstr "Mostra tipus MIME"
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:833
 #: server_privileges.php:836 server_privileges.php:892
-#: server_privileges.php:1753 server_privileges.php:2313
+#: server_privileges.php:1752 server_privileges.php:2312
 #: server_status.php:1238
 msgid "Host"
 msgstr "Servidor"
@@ -6688,7 +6687,7 @@ msgid "Generated by"
 msgstr "Generat per"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
-#: sql.php:732 tbl_change.php:190 tbl_get_field.php:34
+#: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha retornat un conjunt buit (p.e. cap fila)."
 
@@ -7282,7 +7281,7 @@ msgstr "Qualsevol usuari"
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
 #: libraries/replication_gui.lib.php:352 server_privileges.php:819
 #: server_privileges.php:886 server_privileges.php:910
-#: server_privileges.php:2178 server_privileges.php:2208
+#: server_privileges.php:2177 server_privileges.php:2207
 msgid "Use text field"
 msgstr "Usa camp de text"
 
@@ -7455,7 +7454,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2469
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2468
 msgid "New"
 msgstr ""
 
@@ -8040,11 +8039,11 @@ msgstr "Neteja"
 msgid "Columns"
 msgstr "Columnes"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:977 sql.php:994
+#: libraries/sql_query_form.lib.php:300 sql.php:1007 sql.php:1024
 msgid "Bookmark this SQL query"
 msgstr "Desa aquesta consulta SQL"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:988
+#: libraries/sql_query_form.lib.php:307 sql.php:1018
 msgid "Let every user access this bookmark"
 msgstr "Deixa accedir a cada usuari a aquesta consulta desada"
 
@@ -8485,8 +8484,8 @@ msgstr "Mostra versions"
 msgid "Protocol version"
 msgstr "Versió del protocol"
 
-#: main.php:179 server_privileges.php:1600 server_privileges.php:1752
-#: server_privileges.php:1893 server_privileges.php:2312
+#: main.php:179 server_privileges.php:1599 server_privileges.php:1751
+#: server_privileges.php:1892 server_privileges.php:2311
 #: server_status.php:1237
 msgid "User"
 msgstr "Usuari"
@@ -8639,7 +8638,7 @@ msgstr ""
 "Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation%s "
 "per a possibles assumptes."
 
-#: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
+#: navigation.php:182 server_databases.php:298 server_synchronize.php:1294
 msgid "No databases"
 msgstr "No hi ha bases de dades"
 
@@ -8955,33 +8954,33 @@ msgstr "Informació"
 msgid "Character Sets and Collations"
 msgstr "Jocs de Caràcters i ordenacions"
 
-#: server_databases.php:69
+#: server_databases.php:83
 msgid "No databases selected."
 msgstr "No s'han triat bases de dades."
 
-#: server_databases.php:80
+#: server_databases.php:94
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "%s bases de dades s'han esborrat correctament."
 
-#: server_databases.php:104
+#: server_databases.php:118
 msgid "Databases statistics"
 msgstr "Estadístiques de les bases de dades"
 
-#: server_databases.php:186 server_replication.php:209
+#: server_databases.php:200 server_replication.php:209
 #: server_replication.php:237
 msgid "Master replication"
 msgstr "Replicació del mestre"
 
-#: server_databases.php:188 server_replication.php:276
+#: server_databases.php:202 server_replication.php:276
 msgid "Slave replication"
 msgstr "Replicació de l'esclau"
 
-#: server_databases.php:275 server_databases.php:276
+#: server_databases.php:289 server_databases.php:290
 msgid "Enable Statistics"
 msgstr "Activa Estadístiques"
 
-#: server_databases.php:278
+#: server_databases.php:292
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -9234,12 +9233,12 @@ msgid "None"
 msgstr "Cap"
 
 #: server_privileges.php:555 server_privileges.php:700
-#: server_privileges.php:1963 server_privileges.php:1969
+#: server_privileges.php:1962 server_privileges.php:1968
 msgid "Table-specific privileges"
 msgstr "Permisos especifics de taula"
 
 #: server_privileges.php:556 server_privileges.php:708
-#: server_privileges.php:1756
+#: server_privileges.php:1755
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès "
 
@@ -9247,11 +9246,11 @@ msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès "
 msgid "Administration"
 msgstr "Administració"
 
-#: server_privileges.php:697 server_privileges.php:1755
+#: server_privileges.php:697 server_privileges.php:1754
 msgid "Global privileges"
 msgstr "Permisos generals"
 
-#: server_privileges.php:699 server_privileges.php:1963
+#: server_privileges.php:699 server_privileges.php:1962
 msgid "Database-specific privileges"
 msgstr "Permisos específics de base de dades"
 
@@ -9271,7 +9270,7 @@ msgstr "Informació d'Identificació"
 msgid "Do not change the password"
 msgstr "No canviïs la contrasenya"
 
-#: server_privileges.php:955 server_privileges.php:2455
+#: server_privileges.php:955 server_privileges.php:2454
 msgid "No user found."
 msgstr "No s'han trobat usuaris."
 
@@ -9284,93 +9283,93 @@ msgstr "L'usuari %s ja existeix!"
 msgid "You have added a new user."
 msgstr "Has afegit un usuari nou."
 
-#: server_privileges.php:1310
+#: server_privileges.php:1309
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Heu actualitzat els permisos de %s."
 
-#: server_privileges.php:1332
+#: server_privileges.php:1331
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Has tret els permisos per %s"
 
-#: server_privileges.php:1368
+#: server_privileges.php:1367
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "La contrasenya per %s s'ha canviat correctament."
 
-#: server_privileges.php:1388
+#: server_privileges.php:1387
 #, php-format
 msgid "Deleting %s"
 msgstr "Esborrant %s"
 
-#: server_privileges.php:1402
+#: server_privileges.php:1401
 msgid "No users selected for deleting!"
 msgstr "No s'han triat usuaris per esborrar!"
 
-#: server_privileges.php:1405
+#: server_privileges.php:1404
 msgid "Reloading the privileges"
 msgstr "Recarregant permisos"
 
-#: server_privileges.php:1423
+#: server_privileges.php:1422
 msgid "The selected users have been deleted successfully."
 msgstr "S'han esborrat correctament els usuaris triats."
 
-#: server_privileges.php:1458
+#: server_privileges.php:1457
 msgid "The privileges were reloaded successfully."
 msgstr "Els permisos s'han recarregat correctament."
 
-#: server_privileges.php:1469 server_privileges.php:1892
+#: server_privileges.php:1468 server_privileges.php:1891
 msgid "Edit Privileges"
 msgstr "Edita permisos"
 
-#: server_privileges.php:1478
+#: server_privileges.php:1477
 msgid "Revoke"
 msgstr "Treu"
 
-#: server_privileges.php:1494
+#: server_privileges.php:1493
 #, fuzzy
 #| msgid "Export"
 msgid "Export all"
 msgstr "Exporta"
 
-#: server_privileges.php:1513 server_privileges.php:1779
-#: server_privileges.php:2405
+#: server_privileges.php:1512 server_privileges.php:1778
+#: server_privileges.php:2404
 msgid "Any"
 msgstr "Qualsevol"
 
-#: server_privileges.php:1593
+#: server_privileges.php:1592
 #, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "Permisos"
 
-#: server_privileges.php:1617
+#: server_privileges.php:1616
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Informació general de l'usuari"
 
-#: server_privileges.php:1757 server_privileges.php:1968
-#: server_privileges.php:2316
+#: server_privileges.php:1756 server_privileges.php:1967
+#: server_privileges.php:2315
 msgid "Grant"
 msgstr "Atorga"
 
-#: server_privileges.php:1847
+#: server_privileges.php:1846
 msgid "Remove selected users"
 msgstr "Treu els usuaris triats"
 
-#: server_privileges.php:1850
+#: server_privileges.php:1849
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Treu tots els permisos actius dels usuaris i els esborra després."
 
-#: server_privileges.php:1851 server_privileges.php:1852
-#: server_privileges.php:1853
+#: server_privileges.php:1850 server_privileges.php:1851
+#: server_privileges.php:1852
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 "Esborra les bases de dades que tenen els mateixos noms que els usuaris."
 
-#: server_privileges.php:1874
+#: server_privileges.php:1873
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9383,49 +9382,49 @@ msgstr ""
 "permisos que utilitza el servidor si s'han fet canvis manualment. En aquest "
 "cas, es necessari %srecarregar els permisos%s abans de continuar."
 
-#: server_privileges.php:1927
+#: server_privileges.php:1926
 msgid "The selected user was not found in the privilege table."
 msgstr "No s'ha trobat l'usuari triat a la taula de permisos."
 
-#: server_privileges.php:1969
+#: server_privileges.php:1968
 msgid "Column-specific privileges"
 msgstr "Permisos específics de columna"
 
-#: server_privileges.php:2175
+#: server_privileges.php:2174
 msgid "Add privileges on the following database"
 msgstr "Afegeix permisos a la següent base de dades"
 
-#: server_privileges.php:2193
+#: server_privileges.php:2192
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Els comodins _ i % han de marcar-se amb una \\ per usar-los literalment"
 
-#: server_privileges.php:2196
+#: server_privileges.php:2195
 msgid "Add privileges on the following table"
 msgstr "Afegeix permisos a la següent taula"
 
-#: server_privileges.php:2253
+#: server_privileges.php:2252
 msgid "Change Login Information / Copy User"
 msgstr "Canvi d'Informació de Connexió / Copia d'Usuari"
 
-#: server_privileges.php:2256
+#: server_privileges.php:2255
 msgid "Create a new user with the same privileges and ..."
 msgstr "Crea un nou usuari amb els mateixos permisos i ..."
 
-#: server_privileges.php:2258
+#: server_privileges.php:2257
 msgid "... keep the old one."
 msgstr "... respecta l'antic."
 
-#: server_privileges.php:2259
+#: server_privileges.php:2258
 msgid "... delete the old one from the user tables."
 msgstr "... esborra l'antic de les taules d'usuaris."
 
-#: server_privileges.php:2260
+#: server_privileges.php:2259
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr "... treu tots els permisos actius de l'antic i esborra'l després."
 
-#: server_privileges.php:2261
+#: server_privileges.php:2260
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -9433,41 +9432,41 @@ msgstr ""
 " ... esborra l'antic de les taules d'usuaris i recarrega els permisos "
 "després."
 
-#: server_privileges.php:2284
+#: server_privileges.php:2283
 msgid "Database for user"
 msgstr "Base de dades per usuari"
 
-#: server_privileges.php:2286
+#: server_privileges.php:2285
 msgid "Create database with same name and grant all privileges"
 msgstr "Crea una base de dades amb el mateix nom i atorga tots els permisos"
 
-#: server_privileges.php:2288
+#: server_privileges.php:2287
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Atorga tots els permisos en un nom comodí (nomusuari\\_%)"
 
-#: server_privileges.php:2292
+#: server_privileges.php:2291
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Atorga tots els permisos a la base de dades &quot;%s&quot;"
 
-#: server_privileges.php:2308
+#: server_privileges.php:2307
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Usuaris amb accés a &quot;%s&quot;"
 
-#: server_privileges.php:2417
+#: server_privileges.php:2416
 msgid "global"
 msgstr "global"
 
-#: server_privileges.php:2419
+#: server_privileges.php:2418
 msgid "database-specific"
 msgstr "específic de la base de dades"
 
-#: server_privileges.php:2421
+#: server_privileges.php:2420
 msgid "wildcard"
 msgstr "comodins"
 
-#: server_privileges.php:2464
+#: server_privileges.php:2463
 #, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
@@ -11261,39 +11260,39 @@ msgstr "La clau pot contenir lletres, numeros [em]i[/em] caràcters especials."
 msgid "Wrong data"
 msgstr "No hi ha bases de dades"
 
-#: sql.php:111 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
+#: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
 #: tbl_zoom_select.php:127
 msgid "Browse foreign values"
 msgstr "Navega valors externs"
 
-#: sql.php:220
+#: sql.php:250
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usar el preferit \"%s\" com a pàgina de cerca per defecte."
 
-#: sql.php:708 tbl_replace.php:397
+#: sql.php:738 tbl_replace.php:397
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id de la fila inserida: %1$d"
 
-#: sql.php:725
+#: sql.php:755
 msgid "Showing as PHP code"
 msgstr "Mostrant com a codi PHP"
 
-#: sql.php:728 tbl_replace.php:371
+#: sql.php:758 tbl_replace.php:371
 msgid "Showing SQL query"
 msgstr "Mostrant consulta SQL"
 
-#: sql.php:730
+#: sql.php:760
 msgid "Validated SQL"
 msgstr "SQL validat"
 
-#: sql.php:950
+#: sql.php:980
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemes amb els indexs de la taula `%s`"
 
-#: sql.php:982
+#: sql.php:1012
 msgid "Label"
 msgstr "Etiqueta"
 
