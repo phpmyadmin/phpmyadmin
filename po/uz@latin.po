@@ -5875,7 +5875,7 @@ msgstr "Xost"
 #: libraries/export/latex.php:144 libraries/export/sql.php:342
 #: libraries/export/xml.php:111 libraries/header_printview.inc.php:58
 msgid "Generation Time"
-msgstr "Tuzilgan sana "
+msgstr "Tuzilgan sana"
 
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
 #: libraries/export/xml.php:112 main.php:164
