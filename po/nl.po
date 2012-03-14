@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 17:51+0200\n"
+"PO-Revision-Date: 2012-03-14 17:52+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -11965,10 +11965,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Huidige aantal Questions: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Toon SQL-queries"
+msgstr "Percentage trage queries"
 
 #: po/advisory_rules.php:16
 msgid ""
