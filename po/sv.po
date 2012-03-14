@@ -1865,7 +1865,7 @@ msgstr "Hovra över en punkt kommer visa etiketten."
 
 #: js/messages.php:297
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr "Använd mushjulet för att zooma in eller ut"
+msgstr "Använd mushjulet för att zooma in eller ut."
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
