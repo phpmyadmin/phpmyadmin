@@ -1,11 +1,11 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2010-07-21 14:50+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2011-11-06 21:20+0200\n"
+"Last-Translator: inter981 <inter981@gmail.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -100,10 +100,9 @@ msgid "No blob streaming server configured!"
 msgstr "Non se configurou ningún servidor de streaming blob!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Non se puido escribir no disco."
+msgstr "Produciuse un fallo ao obter as cabeceiras."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -142,10 +141,9 @@ msgstr "Comentarios da táboa"
 #: tbl_change.php:309 tbl_indexes.php:185 tbl_printview.php:139
 #: tbl_relation.php:392 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:268 tbl_tracking.php:319
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Nomes das columnas"
+msgstr "Columnas"
 
 #: db_datadict.php:168 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -278,10 +276,9 @@ msgid "Rename database to"
 msgstr "Mudar o nome da base de datos para"
 
 #: db_operations.php:434
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Mudar o nome da base de datos para"
+msgstr "Eliminar base de datos"
 
 #: db_operations.php:446
 #, php-format
@@ -289,10 +286,9 @@ msgid "Database %s has been dropped."
 msgstr "Eliminouse a base de datos %s."
 
 #: db_operations.php:451
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Ir á base de datos"
+msgstr "Eliminar base de datos (DROP)"
 
 #: db_operations.php:481
 msgid "Copy database to"
@@ -345,7 +341,7 @@ msgid "Collation"
 msgstr "Orde alfabética"
 
 #: db_operations.php:559
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -353,14 +349,13 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Desactivouse a funcionalidade adicional para o traballo con táboas "
-"vinculadas. Para saber o por que, prema %saqu&iacute;%s."
+"Desactivouse a configuración de almacenamento. Para saber por que prema %"
+"saqu&iacute;%s."
 
 #: db_operations.php:594
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Esquema relacional"
+msgstr "Editar ou exportar esquema relacional"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:488 libraries/db_structure.lib.php:37
@@ -411,12 +406,12 @@ msgid "Last check"
 msgstr "Comprobación máis recente"
 
 #: db_printview.php:220 db_structure.php:465
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s táboa(s)"
-msgstr[1] "%s táboa(s)"
+msgstr[0] "%s táboa"
+msgstr[1] "%s táboas"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -538,12 +533,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Procurar os resultados para \"<i>%s</i>\" %s:"
 
 #: db_search.php:247
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s ocorrencias(s) dentro da táboa <i>%s</i>"
-msgstr[1] "%s ocorrencias(s) dentro da táboa <i>%s</i>"
+msgstr[0] "%s ocorrencia dentro da táboa <i>%s</i>"
+msgstr[1] "%s ocorrencias dentro da táboa <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2829
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
@@ -552,10 +547,10 @@ msgid "Browse"
 msgstr "Visualizar"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "A extraer datos da táboa"
+msgstr "Eliminar as coincidencias para a táboa %s?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1255
 #: libraries/display_tbl.lib.php:2194
@@ -569,12 +564,12 @@ msgid "Delete"
 msgstr "Eliminar"
 
 #: db_search.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> ocorrencia(s)"
-msgstr[1] "<b>Total:</b> <i>%s</i> ocorrencia(s)"
+msgstr[0] "<b>Total:</b> <i>%s</i> ocorrencia"
+msgstr[1] "<b>Total:</b> <i>%s</i> ocorrencias"
 
 #: db_search.php:295
 msgid "Search in database"
@@ -597,16 +592,14 @@ msgid "Inside table(s):"
 msgstr "Dentro da(s) táboa(s):"
 
 #: db_search.php:351
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "No campo:"
+msgstr "Dentro da columna:"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Non se achou ningunha táboa na base de datos"
+msgstr "No se atoparon táboas na base de datos:"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
@@ -976,16 +969,14 @@ msgid "Dropping Event"
 msgstr ""
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "Procedementos"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Permite inserir e substituír datos."
+msgstr "Eliminar os datos de seguemento"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
@@ -1031,13 +1022,11 @@ msgid "The passwords aren't the same!"
 msgstr "Os contrasinais non son os mesmos."
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Engadir un usuario novo"
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Create version"
 msgid "Create User"
 msgstr "Crear unha versión"
@@ -1126,7 +1115,6 @@ msgid "Table must have at least one column"
 msgstr "A táboa ha de ter, polo menos, un campo."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Crear táboas"
@@ -1150,7 +1138,6 @@ msgid "Show query box"
 msgstr "Caixa de Procuras SQL"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Motores"
@@ -3642,7 +3629,6 @@ msgid "These are Edit, Inline edit, Copy and Delete links"
 msgstr ""
 
 #: libraries/config/messages.inc.php:316
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show table row links on left side"
 msgstr "Mostrar o logotipo na moldura esquerda"
@@ -5141,7 +5127,6 @@ msgid "%d is not valid row number."
 msgstr "%d non é un número de fileira válido."
 
 #: libraries/display_tbl.lib.php:392
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "fileiras, a comezar pola"
@@ -7648,7 +7633,6 @@ msgid "To select relation, click :"
 msgstr "Para seleccionar unha relación, prema:"
 
 #: pmd_help.php:28
-#, fuzzy
 #| msgid ""
 #| "The display field is shown in pink. To set/unset a field as the display "
 #| "field, click the \"Choose field to display\" icon, then click on the "
@@ -9275,7 +9259,6 @@ msgid "Show processes"
 msgstr "Mostrar os procesos"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
@@ -10017,13 +10000,11 @@ msgid "Continue insertion with %s rows"
 msgstr "Reiniciar a inserción con %s fileiras"
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Non houbo problemas ao recargar os privilexios."
 
 #: tbl_chart.php:59
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
@@ -10666,7 +10647,6 @@ msgstr "Mudar o nome da táboa para"
 #~ msgid "Excel 2007 XLSX Workbook"
 #~ msgstr "Libro de traballo XLSX do Excel 2007"
 
-#, fuzzy
 #~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "A extraer datos da táboa"
@@ -10731,9 +10711,9 @@ msgstr "Mudar o nome da táboa para"
 #~ "\\'b')."
 #~ msgstr ""
 #~ "Introduza os valores das opcións de transformación empregando este "
-#~ "formato:'a', 100, b,'c'...<br />Se necesitar introducir unha barra para "
-#~ "trás (\"\\\") ou aspas simples (\"'\") entre estes valores, precédaos de "
-#~ "barra para trás (por exemplo '\\\\xyz' ou 'a\\'b')."
+#~ "formato:'a', 100, b,'c'...<br />Se necesitar introducir unha barra para trás "
+#~ "(\"\\\") ou aspas simples (\"'\") entre estes valores, precédaos de barra para "
+#~ "trás (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
@@ -10741,9 +10721,9 @@ msgstr "Mudar o nome da táboa para"
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "Introduza os valores das opcións de transformación empregando este "
-#~ "formato:'a', 100, b,'c'...<br />Se necesitar introducir unha barra para "
-#~ "trás (\"\\\") ou aspas simples (\"'\") entre estes valores, precédaos de "
-#~ "barra para trás (por exemplo '\\\\xyz' ou 'a\\'b')."
+#~ "formato:'a', 100, b,'c'...<br />Se necesitar introducir unha barra para trás "
+#~ "(\"\\\") ou aspas simples (\"'\") entre estes valores, precédaos de barra para "
+#~ "trás (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #~ msgid "New table"
 #~ msgstr "Sen táboas"
@@ -10778,9 +10758,9 @@ msgstr "Mudar o nome da táboa para"
 #~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
 #~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
 #~ msgstr ""
-#~ "Configuración das solicitudes de SQL; para as opcións da caixa Procuras "
-#~ "SQL vexa a configuración da [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]moldura de navegación[/a]"
+#~ "Configuración das solicitudes de SQL; para as opcións da caixa Procuras SQL "
+#~ "vexa a configuración da "
+#~ "[a@?page=form&amp;formset=main_frame#tab_Sql_box]moldura de navegación[/a]"
 
 #~ msgid "Remove carriage return/line field characters within columns"
 #~ msgstr "Eliminar os caracteres CRLF dentro dos campos"
@@ -10795,8 +10775,7 @@ msgstr "Mudar o nome da táboa para"
 #~ msgstr "lembrar o modelo"
 
 #~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "A compresión do ficheiro importado detectarase automaticamente de: %s"
+#~ msgstr "A compresión do ficheiro importado detectarase automaticamente de: %s"
 
 #~ msgid "Add into comments"
 #~ msgstr "Engadir aos comentarios"
