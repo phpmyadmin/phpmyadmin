@@ -12016,10 +12016,9 @@ msgstr ""
 "kolommen"
 
 #: tbl_zoom_select.php:145
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Verberg zoekcriteria"
+msgstr "Bijkomende zoekcriteria"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
