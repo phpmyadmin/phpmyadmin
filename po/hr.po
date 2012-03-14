@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2012-03-03 09:52+0100\n"
 "Last-Translator: Nikola Vojković <vojka@xnet.hr>\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -985,7 +985,6 @@ msgid "Dropping Event"
 msgstr ""
 
 #: js/messages.php:33
-#| msgid "Procedures"
 msgid "Dropping Procedure"
 msgstr "Postupci"
 
@@ -1037,7 +1036,6 @@ msgid "The passwords aren't the same!"
 msgstr "Lozinke se ne podudaraju!"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Dodaj novog korisnika"
 
@@ -1128,7 +1126,6 @@ msgid "Table must have at least one column"
 msgstr "Tablica mora sadržavati najmanje jedno polje."
 
 #: js/messages.php:76
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "Izradi tablicu"
 
@@ -1149,7 +1146,6 @@ msgid "Show query box"
 msgstr "SQL upit"
 
 #: js/messages.php:88
-#| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Pogoni"
 
@@ -4910,7 +4906,6 @@ msgid "%d is not valid row number."
 msgstr "%d nije valjani broj retka."
 
 #: libraries/display_tbl.lib.php:392
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "redovi koji započinju zapisom #"
 
@@ -7378,10 +7373,6 @@ msgid "To select relation, click :"
 msgstr "Za odabir relacije pritisnite:"
 
 #: pmd_help.php:28
-#| msgid ""
-#| "The display field is shown in pink. To set/unset a field as the display "
-#| "field, click the \"Choose field to display\" icon, then click on the "
-#| "appropriate field name."
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
@@ -8978,7 +8969,6 @@ msgid "Show processes"
 msgstr "Prikaži procese"
 
 #: server_status.php:470
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Povrat"
@@ -9595,14 +9585,10 @@ msgid "Continue insertion with %s rows"
 msgstr "Ponovno pokreni umetanje s %s redaka"
 
 #: tbl_chart.php:56
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Privilegije su uspješno učitane."
 
 #: tbl_chart.php:59
-#| msgid ""
-#| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-#| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -10280,8 +10266,8 @@ msgstr "Preimenuj prikaz u"
 #~ msgstr ""
 #~ "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
 #~ "100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
-#~ "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka stavite "
-#~ "lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
+#~ "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
+#~ "stavite lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
@@ -10290,8 +10276,8 @@ msgstr "Preimenuj prikaz u"
 #~ msgstr ""
 #~ "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
 #~ "100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
-#~ "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka stavite "
-#~ "lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
+#~ "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
+#~ "stavite lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
 
 #~ msgid "New table"
 #~ msgstr "Nema tablica"
@@ -10363,8 +10349,8 @@ msgstr "Preimenuj prikaz u"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation][em]%"
-#~ "1$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
+#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation]"
+#~ "[em]%1$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "
@@ -10372,8 +10358,8 @@ msgstr "Preimenuj prikaz u"
 #~ "charset conversion in phpMyAdmin."
 #~ msgstr ""
 #~ "Nije moguće učitati proširenja iconv ili recode potrebna za pretvaranje "
-#~ "znakova. Potrebno je konfigurirati PHP radi omogućavanja ovih proširenja ili "
-#~ "unutar phpMyAdmin onemogućiti pretvaranje znakova."
+#~ "znakova. Potrebno je konfigurirati PHP radi omogućavanja ovih proširenja "
+#~ "ili unutar phpMyAdmin onemogućiti pretvaranje znakova."
 
 #~ msgid ""
 #~ "Couldn't use the iconv, libiconv, or recode_string functions, although "

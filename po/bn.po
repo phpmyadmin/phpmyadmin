@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2012-03-13 18:43+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
@@ -112,8 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s ফাইল এই সিস্টেমের মধ্যে উপলব্ধ নয়। আরও তথ্যের জন্য অনুগ্রহ করে "
-"www.phpmyadmin.net পরিদর্শন করুন।"
+"%s ফাইল এই সিস্টেমের মধ্যে উপলব্ধ নয়। আরও তথ্যের জন্য অনুগ্রহ করে www.phpmyadmin."
+"net পরিদর্শন করুন।"
 
 #: db_create.php:58
 #, php-format
@@ -273,7 +273,6 @@ msgid "Rename database to"
 msgstr "ডাটাবেজ রিনেম কর"
 
 #: db_operations.php:434
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "ডাটাবেজ মূছে ফেল"
 
@@ -338,18 +337,14 @@ msgstr "Collation"
 
 #: db_operations.php:559
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"PhpMyAdmin কনফিগারেশন সংরক্ষণাগার নিষ্ক্রিয় করা হয়েছে। কারন খুঁজতে ক্লিক "
-"করুন %shere%s."
+"PhpMyAdmin কনফিগারেশন সংরক্ষণাগার নিষ্ক্রিয় করা হয়েছে। কারন খুঁজতে ক্লিক করুন %shere"
+"%s."
 
 #: db_operations.php:594
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "সম্বন্ধযুক্ত স্কিমা"
 
@@ -403,7 +398,6 @@ msgstr "Last check"
 
 #: db_printview.php:220 db_structure.php:465
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s টেবিল(s)"
@@ -472,12 +466,10 @@ msgid "Modify"
 msgstr "Modify"
 
 #: db_qbe.php:606
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "নির্ণায়ক সারি যোগ /মুছুন"
 
 #: db_qbe.php:618
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "ফিল্ড কলামগুলি যোগ/মুছুন"
 
@@ -528,7 +520,6 @@ msgstr "Search results for \"<i>%s</i>\" %s:"
 
 #: db_search.php:247
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s ভিতরের টেবিলটি মানানসই <i>%s</i>"
@@ -542,7 +533,6 @@ msgstr "ব্রাউজ করুন"
 
 #: db_search.php:259
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "%s মানানসই টেবিলটি মুছে দেবেন?"
 
@@ -559,7 +549,6 @@ msgstr "মুছে ফেল"
 
 #: db_search.php:272
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>মোট:</b> <i>%s</i> মানানসই"
@@ -586,12 +575,10 @@ msgid "Inside table(s):"
 msgstr "Inside table(s):"
 
 #: db_search.php:351
-#| msgid "Inside table(s):"
 msgid "Inside column:"
 msgstr "ভিতরে টেবিল(গুলি):"
 
 #: db_structure.php:59
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "ডাটাবেজে কোন টেবিল পাওয়া যায়নি।"
 

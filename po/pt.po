@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2011-12-27 22:24+0200\n"
 "Last-Translator: NunoCruz <ncruzdesign@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
@@ -1018,7 +1018,6 @@ msgid "Create User"
 msgstr "Criar Utilizador"
 
 #: js/messages.php:54
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Recarregar Privilégios"
 
@@ -1151,7 +1150,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Por favor seleccione a chave primária ou a chave única "
 
 #: js/messages.php:104 pmd_general.php:87 tbl_relation.php:538
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Escolha a coluna para mostrar"
 
@@ -1160,7 +1158,6 @@ msgid "Add an option for column "
 msgstr "Adicionar uma opção para a coluna"
 
 #: js/messages.php:110
-#| msgid "Change password"
 msgid "Generate password"
 msgstr "Gerar palavra-passe"
 
@@ -1216,12 +1213,10 @@ msgstr "Próximo"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:144
-#| msgid "Total"
 msgid "Today"
 msgstr "Hoje"
 
 #: js/messages.php:147
-#| msgid "Binary"
 msgid "January"
 msgstr "Janeiro"
 
@@ -1230,12 +1225,10 @@ msgid "February"
 msgstr "Fevereiro"
 
 #: js/messages.php:149
-#| msgid "Mar"
 msgid "March"
 msgstr "Março"
 
 #: js/messages.php:150
-#| msgid "Apr"
 msgid "April"
 msgstr "Abril"
 
@@ -1244,17 +1237,14 @@ msgid "May"
 msgstr "Mai"
 
 #: js/messages.php:152
-#| msgid "Jun"
 msgid "June"
 msgstr "Junho"
 
 #: js/messages.php:153
-#| msgid "Jul"
 msgid "July"
 msgstr "Julho"
 
 #: js/messages.php:154
-#| msgid "Aug"
 msgid "August"
 msgstr "Agosto"
 
@@ -1263,7 +1253,6 @@ msgid "September"
 msgstr "Setembro"
 
 #: js/messages.php:156
-#| msgid "Oct"
 msgid "October"
 msgstr "Outubro"
 
@@ -1297,7 +1286,6 @@ msgstr "Abr"
 
 #. l10n: Short month name
 #: js/messages.php:170 libraries/common.lib.php:1576
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maio"
@@ -1338,17 +1326,14 @@ msgid "Dec"
 msgstr "Dez"
 
 #: js/messages.php:187
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "Domingo"
 
 #: js/messages.php:188
-#| msgid "Mon"
 msgid "Monday"
 msgstr "Segunda"
 
 #: js/messages.php:189
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "Terça"
 
@@ -1361,7 +1346,6 @@ msgid "Thursday"
 msgstr "Quinta"
 
 #: js/messages.php:192
-#| msgid "Fri"
 msgid "Friday"
 msgstr "Sexta"
 
@@ -1463,12 +1447,10 @@ msgid "Hour"
 msgstr "Hora"
 
 #: js/messages.php:230
-#| msgid "in use"
 msgid "Minute"
 msgstr "Minuto"
 
 #: js/messages.php:231
-#| msgid "per second"
 msgid "Second"
 msgstr "Segundo"
 
@@ -1885,7 +1867,6 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:83
-#| msgid "SQL result"
 msgid "Query results"
 msgstr "Resultado(s) das(s) consulta(s)"
 
@@ -2166,7 +2147,6 @@ msgstr "Procurar no seu computador:"
 
 #: libraries/common.lib.php:2978
 #, php-format
-#| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selecionar a partir da directoria de upload do servidor <b>%s</b>:"
 
@@ -2188,7 +2168,6 @@ msgid "Open"
 msgstr "Abrir"
 
 #: libraries/config.values.php:74
-#| msgid "Unclosed quote"
 msgid "Closed"
 msgstr "Fechado"
 
@@ -2280,7 +2259,6 @@ msgstr "Dados em falta para %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "indisponível"
 
@@ -2348,7 +2326,6 @@ msgid "Improves efficiency of screen refresh"
 msgstr "Melhora a eficiência de actualização do ecrã"
 
 #: libraries/config/messages.inc.php:18
-#| msgid "Enabled"
 msgid "Enable Ajax"
 msgstr "Activar Ajax"
 
@@ -2566,7 +2543,6 @@ msgid "Edit in window"
 msgstr "Editar em janela"
 
 #: libraries/config/messages.inc.php:62
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "Exibir erros"
 
@@ -2620,7 +2596,6 @@ msgstr "Compressão"
 #: libraries/export/excel.php:24 libraries/export/htmlword.php:29
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Colocar os nomes das colunas na primeira linha"
 
@@ -2655,7 +2630,6 @@ msgstr "Remover caracteres CRLF nas colunas"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Colunas terminadas por"
 
@@ -2665,7 +2639,6 @@ msgid "Lines terminated by"
 msgstr "Linhas terminadas por"
 
 #: libraries/config/messages.inc.php:80
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Edição do Excel"
 
@@ -4801,7 +4774,6 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:392
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "registos começando em"
 
@@ -6378,7 +6350,6 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "Configurações"
 
@@ -8598,7 +8569,6 @@ msgid "Show processes"
 msgstr "Mostra os Processos"
 
 #: server_status.php:470
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Limpa"
@@ -9207,7 +9177,6 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "O privilégios foram recarregados com sucesso."
 

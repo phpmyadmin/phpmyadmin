@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2012-02-17 10:54+0200\n"
 "Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -98,7 +98,6 @@ msgid "No blob streaming server configured!"
 msgstr "blob streaming 서버 설정이 되지 않았습니다!"
 
 #: bs_disp_as_mime_type.php:35
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
 msgstr "헤더를 가져오는 데 실패했습니다."
 
@@ -273,7 +272,6 @@ msgid "Rename database to"
 msgstr "데이터베이스 이름 변경"
 
 #: db_operations.php:434
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "데이터베이스 제거"
 
@@ -338,13 +336,12 @@ msgstr "데이터정렬방식"
 
 #: db_operations.php:559
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr "phpMyAdmin 설정 스토리지가 비활성화 되어 있습니다. 원인을 확인하려면 %s여기를 클릭%s하십시오."
+msgstr ""
+"phpMyAdmin 설정 스토리지가 비활성화 되어 있습니다. 원인을 확인하려면 %s여기"
+"를 클릭%s하십시오."
 
 #: db_operations.php:594
 msgid "Edit or export relational schema"
@@ -521,7 +518,6 @@ msgstr "\"<i>%s</i>\"의 검색 결과 %s:"
 
 #: db_search.php:247
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "테이블 <i>%s</i>에서 %s 건 일치"
@@ -534,7 +530,6 @@ msgstr "보기"
 
 #: db_search.php:259
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?"
 
@@ -551,7 +546,6 @@ msgstr "삭제"
 
 #: db_search.php:272
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>총:</b> <i>%s</i> 건 일치"
@@ -581,7 +575,6 @@ msgid "Inside column:"
 msgstr "검색할 컬럼:"
 
 #: db_structure.php:59
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "데이터베이스에 테이블이 없습니다."
 
@@ -839,7 +832,9 @@ msgstr "덤프 파일이 %s에 저장되었습니다."
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
-msgstr "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 %s문서%s를 참조하여 주십시오."
+msgstr ""
+"너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 %s문서%s"
+"를 참조하여 주십시오."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -954,7 +949,6 @@ msgid "Dropping Procedure"
 msgstr "프로세스 목록"
 
 #: js/messages.php:35
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "추적 데이터 삭제중"
 
@@ -1001,7 +995,6 @@ msgid "The passwords aren't the same!"
 msgstr "암호가 동일하지 않습니다!"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "새 사용자 추가"
 
@@ -1010,12 +1003,10 @@ msgid "Create User"
 msgstr "서버 버전"
 
 #: js/messages.php:54
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "사용권한을 다시 불러옵니다."
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "선택한 사용자를 삭제"
 
@@ -1035,7 +1026,6 @@ msgid "Loading"
 msgstr "불러오고 있습니다."
 
 #: js/messages.php:64
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "요청을 처리중입니다."
 
@@ -1058,17 +1048,14 @@ msgid "OK"
 msgstr "확인"
 
 #: js/messages.php:71
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "데이터베이스 이름을 변경중입니다."
 
 #: js/messages.php:72
-#| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "데이터베이스를 다시 불러오고 있습니다."
 
 #: js/messages.php:73
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "데이터베이스를 복사중입니다."
 
@@ -1077,7 +1064,6 @@ msgid "Changing Charset"
 msgstr "언어를 변경하고 있습니다."
 
 #: js/messages.php:75
-#| msgid "Table must have at least one column."
 msgid "Table must have at least one column"
 msgstr "테이블은 적어도 1개 이상의 컬럼이 있어야 합니다."
 
@@ -1086,7 +1072,6 @@ msgid "Create Table"
 msgstr "새 페이지 만들기"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "검색중"
 
@@ -1837,7 +1822,6 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:83
-#| msgid "SQL result"
 msgid "Query results"
 msgstr "질의 결과"
 
@@ -2547,21 +2531,18 @@ msgstr "압축"
 #: libraries/export/excel.php:24 libraries/export/htmlword.php:29
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "첫 줄에 열 이름을 넣기"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "열 감싸기"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:247 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "열 특수문자 처리"
 
@@ -2580,7 +2561,6 @@ msgstr "열 내의 CRLF 문자를 제거하기"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "열 구분자"
 
@@ -2610,8 +2590,6 @@ msgstr "파일명 템플릿"
 #: libraries/config/messages.inc.php:141 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Dump table"
 msgstr "덤프 테이블"
 
@@ -2646,7 +2624,6 @@ msgid "Relations"
 msgstr "테이블 작업"
 
 #: libraries/config/messages.inc.php:103
-#| msgid "Export"
 msgid "Export method"
 msgstr "내보내기 방법"
 
@@ -2664,7 +2641,6 @@ msgid "Remember file name template"
 msgstr "파일명 템플릿을 저장하기"
 
 #: libraries/config/messages.inc.php:118
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "테이블과 열 이름을 백쿼트(`)로 감싸기"
 
@@ -3005,7 +2981,6 @@ msgid "SQL queries settings"
 msgstr "SQL 질의"
 
 #: libraries/config/messages.inc.php:218
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "질의 검사기"
 
@@ -3495,7 +3470,6 @@ msgid "Query window height"
 msgstr "질의 창"
 
 #: libraries/config/messages.inc.php:343
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "질의 창"
 
@@ -4227,7 +4201,6 @@ msgid "Cookie authentication"
 msgstr "인증중입니다..."
 
 #: libraries/config/setup.forms.php:48
-#| msgid "Authenticating..."
 msgid "HTTP authentication"
 msgstr "HTTP 인증"
 
@@ -4443,7 +4416,6 @@ msgstr ""
 "내보내기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: libraries/display_export.lib.php:80
-#| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
 msgstr "현재 서버에서 데이터베이스를 내보내기"
 
@@ -4474,17 +4446,14 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:130
-#| msgid "Databases"
 msgid "Database(s):"
 msgstr "데이터베이스 :"
 
 #: libraries/display_export.lib.php:132
-#| msgid "Tables"
 msgid "Table(s):"
 msgstr "테이블 : "
 
 #: libraries/display_export.lib.php:142
-#| msgid "Rows"
 msgid "Rows:"
 msgstr "행 : "
 
@@ -4601,7 +4570,6 @@ msgid "Format:"
 msgstr "Format"
 
 #: libraries/display_export.lib.php:331
-#| msgid "Column-specific privileges"
 msgid "Format-specific options:"
 msgstr "형식 특정 옵션 : "
 
@@ -4705,7 +4673,6 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:392
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "행. 시작(행)위치"
 
@@ -5298,7 +5265,6 @@ msgid "(continued)"
 msgstr ""
 
 #: libraries/export/latex.php:15
-#| msgid "Table structure for table"
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ 테이블 구조"
 
@@ -6258,7 +6224,6 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#| msgid "Deleting %s"
 msgid "Settings"
 msgstr "설정"
 
@@ -6423,19 +6388,15 @@ msgid "Length/Values"
 msgstr "길이/값*"
 
 #: libraries/tbl_properties.inc.php:104
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a','b','c'...<br />여기에 "
-"역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
+"오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
+"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6467,8 +6428,9 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a',100, b,'c'...<br />여기에 "
-"역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
+"오: 'a',100, b,'c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
+"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
@@ -8433,7 +8395,6 @@ msgid "Show processes"
 msgstr "MySQL 프로세스 보기"
 
 #: server_status.php:470
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "리세트"
@@ -9034,20 +8995,16 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "권한을 다시 로딩했습니다."
 
 #: tbl_chart.php:59
-#| msgid ""
-#| "Error moving the uploaded file, see [a@./Documentation."
-#| "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"업로드된 파일을 이동시킬 수 없었습니다. [a@./Documentation.html#faq1_11@Documentation]FAQ "
-"1.11[/a] 참조."
+"업로드된 파일을 이동시킬 수 없었습니다. [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a] 참조."
 
 #: tbl_chart.php:90
 msgid "Width"
@@ -9681,7 +9638,9 @@ msgstr "테이블 이름 바꾸기"
 #~ msgid ""
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
-#~ msgstr "링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 %s여기를 클릭%s하십시오."
+#~ msgstr ""
+#~ "링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려"
+#~ "면 %s여기를 클릭%s하십시오."
 
 #~ msgid "No tables"
 #~ msgstr "테이블이 없습니다"
@@ -9695,16 +9654,18 @@ msgstr "테이블 이름 바꾸기"
 #~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
 #~ "\\'b')."
 #~ msgstr ""
-#~ "필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a','b','c'...<br />여기에 "
-#~ "역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+#~ "필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하"
+#~ "십시오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 "
+#~ "한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
 #~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
-#~ "필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a','b','c'...<br />여기에 "
-#~ "역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+#~ "필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하"
+#~ "십시오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 "
+#~ "한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #~ msgid "New table"
 #~ msgstr "테이블이 없습니다"
@@ -9758,13 +9719,13 @@ msgstr "테이블 이름 바꾸기"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] 확장모듈을 불러올 수 없습니다. PHP "
-#~ "설정을 확인해주세요."
+#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] 확장모듈을 불러올 "
+#~ "수 없습니다. PHP 설정을 확인해주세요."
 
 #~ msgid ""
 #~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
 #~ "the necessary extensions appear to be loaded. Check your PHP "
 #~ "configuration."
 #~ msgstr ""
-#~ "필요한 확장기능이 로드된 것 같지만 iconv, libiconv, 혹은 recode_string 함수를 사용할 수 없습니다. PHP "
-#~ "설정을 확인해주십시오."
+#~ "필요한 확장기능이 로드된 것 같지만 iconv, libiconv, 혹은 recode_string 함"
+#~ "수를 사용할 수 없습니다. PHP 설정을 확인해주십시오."

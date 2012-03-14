@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2012-02-16 20:01+0200\n"
 "Last-Translator: haze_skw <julungpujut@ymail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -2323,8 +2323,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Rahasia passphrase digunakan untuk enkripsi cookie dalam otentifikasi "
-"[kbd]cookie[kbd]"
+"Rahasia passphrase digunakan untuk enkripsi cookie dalam otentifikasi [kbd]"
+"cookie[kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -2492,12 +2492,10 @@ msgid "Edit SQL queries in popup window"
 msgstr "Edit kueri SQL pada jendela munculan"
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "Edit dalam jendela"
 
 #: libraries/config/messages.inc.php:62
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "Tampilkan galat"
 
@@ -2548,21 +2546,18 @@ msgstr "Kompresi"
 #: libraries/export/excel.php:24 libraries/export/htmlword.php:29
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Masukkan nama kolom pada baris pertama"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Kolom diapit oleh"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:247 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Kolom dikembalikan oleh"
 
@@ -2581,7 +2576,6 @@ msgstr "Hapus karakter CRLF dalam kolom"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Kolom diakhiri oleh"
 
@@ -2591,7 +2585,6 @@ msgid "Lines terminated by"
 msgstr "Garis diputuskan oleh"
 
 #: libraries/config/messages.inc.php:80
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Versi Excel"
 
@@ -2612,7 +2605,6 @@ msgstr "Templat nama tabel"
 #: libraries/config/messages.inc.php:141 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "Tabel dump"
 
@@ -2646,7 +2638,6 @@ msgid "Relations"
 msgstr "Tabel Relasi"
 
 #: libraries/config/messages.inc.php:103
-#| msgid "Export type"
 msgid "Export method"
 msgstr "Metode ekspor"
 
@@ -2664,7 +2655,6 @@ msgid "Remember file name template"
 msgstr "Ingat templat nama berkas"
 
 #: libraries/config/messages.inc.php:118
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Apit nama tabel dan kolom dengan tanda petik balik"
 
@@ -2706,7 +2696,6 @@ msgid "Maximal length of created query"
 msgstr "Panjang maksimum kueri yang dibuat"
 
 #: libraries/config/messages.inc.php:136
-#| msgid "Export tables"
 msgid "Export type"
 msgstr "Jenis ekspor"
 
@@ -2715,7 +2704,6 @@ msgid "Enclose export in a transaction"
 msgstr "Menyertakan ekspor dalam transaksi"
 
 #: libraries/config/messages.inc.php:138
-#| msgid "Export contents"
 msgid "Export time in UTC"
 msgstr "Ekspor waktu dalam UTC"
 
@@ -2798,7 +2786,6 @@ msgid "Features"
 msgstr "Fitur"
 
 #: libraries/config/messages.inc.php:166
-#| msgid "Generate"
 msgid "General"
 msgstr "Umum"
 
@@ -2866,7 +2853,6 @@ msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:186
-#| msgid "Documentation"
 msgid "Open Document"
 msgstr "Open Document"
 
@@ -2879,7 +2865,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Pengaturan yang tidak masuk di mana pun"
 
 #: libraries/config/messages.inc.php:190
-#| msgid "Page number:"
 msgid "Page titles"
 msgstr "Judul halaman"
 
@@ -2916,7 +2901,6 @@ msgid "Basic settings"
 msgstr "Pengaturan dasar"
 
 #: libraries/config/messages.inc.php:197
-#| msgid "Documentation"
 msgid "Authentication"
 msgstr "Autentikasi"
 
@@ -2993,7 +2977,6 @@ msgid "SQL queries settings"
 msgstr "Pengaturan kueri SQL"
 
 #: libraries/config/messages.inc.php:218
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "Validator SQL"
 
@@ -3022,7 +3005,6 @@ msgid "Choose how you want tabs to work"
 msgstr "Pilih cara kerja tab yang Anda inginkan"
 
 #: libraries/config/messages.inc.php:224
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "Isian teks"
 
@@ -3035,7 +3017,6 @@ msgid "Texy! text"
 msgstr "Teks Texy!"
 
 #: libraries/config/messages.inc.php:228
-#| msgid "Warning"
 msgid "Warnings"
 msgstr "Peringatan"
 
@@ -3104,7 +3085,6 @@ msgstr "Gunakan kata kunci LOCAL"
 
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/config/messages.inc.php:261
-#| msgid "Put fields names in the first row"
 msgid "Column names in first row"
 msgstr "Nama kolom pada baris pertama"
 
@@ -3129,7 +3109,6 @@ msgid "Partial import: skip queries"
 msgstr "Impor parsial: lewati kueri"
 
 #: libraries/config/messages.inc.php:259
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
 
@@ -3392,7 +3371,6 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Gunakan urutan alami untuk pengurutan nama tabel dan basis data"
 
 #: libraries/config/messages.inc.php:319
-#| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Urutan alami"
 
@@ -3485,17 +3463,14 @@ msgid "Query window height (in pixels)"
 msgstr "Tinggi jendela kueri (dalam piksel)"
 
 #: libraries/config/messages.inc.php:342
-#| msgid "Query window"
 msgid "Query window height"
 msgstr "Tinggi jendela kueri"
 
 #: libraries/config/messages.inc.php:343
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Lebar jendela kueri (dalam piksel)"
 
 #: libraries/config/messages.inc.php:344
-#| msgid "Query window"
 msgid "Query window width"
 msgstr "Lebar jendela kueri"
 
@@ -3512,7 +3487,6 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
 #: libraries/config/messages.inc.php:348
-#| msgid "Repair threads"
 msgid "Repeat headers"
 msgstr "Ulangi judul"
 
@@ -3745,7 +3719,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:401
-#| msgid "Database"
 msgid "Database name"
 msgstr "Nama basis data"
 
@@ -3821,7 +3794,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:418
-#| msgid "Displaying Column Comments"
 msgid "Display columns table"
 msgstr "Tabel kolom tampilan"
 
@@ -3860,7 +3832,6 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Statement untuk dilacak"
 
@@ -3881,7 +3852,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
-#| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Buat versi secara otomatis"
 
@@ -4095,7 +4065,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:478
-#| msgid "Add/Delete columns"
 msgid "Textarea columns"
 msgstr "Kolom textarea"
 
@@ -4118,7 +4087,6 @@ msgid "Title of browser window when nothing is selected"
 msgstr "Judul jendela peramban sewaktu tidak ada yang dipilih"
 
 #: libraries/config/messages.inc.php:484
-#| msgid "Default"
 msgid "Default title"
 msgstr "Judul bawaan"
 
@@ -4240,7 +4208,6 @@ msgstr "Cepat"
 
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
-#| msgid "Custom color"
 msgid "Custom"
 msgstr "Kustom"
 
@@ -4398,7 +4365,6 @@ msgid "Password Hashing"
 msgstr "Pengernaian Kata Sandi (Password Hashing)"
 
 #: libraries/display_change_password.lib.php:65
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "Kompatibel MySQL 4.0"
 
@@ -4422,7 +4388,6 @@ msgid "Create table on database %s"
 msgstr "Ciptakan tabel baru pada database %s"
 
 #: libraries/display_create_table.lib.php:55
-#| msgid "Number of rows per page"
 msgid "Number of columns"
 msgstr "Jumlah kolom"
 
@@ -4431,24 +4396,20 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin export, silahkan periksa instalasi Anda!"
 
 #: libraries/display_export.lib.php:80
-#| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
 msgstr "Mengekspor basis data dari server saat ini"
 
 #: libraries/display_export.lib.php:82
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
 msgstr "Mengekspor tabel dari basis data \"%s\" "
 
 #: libraries/display_export.lib.php:84
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
 msgstr "Mengekspor baris dari tabel \"%s\" "
 
 #: libraries/display_export.lib.php:90
-#| msgid "Export type"
 msgid "Export Method:"
 msgstr "Metode Ekspor"
 
@@ -4461,27 +4422,22 @@ msgid "Custom - display all possible options"
 msgstr "Kustom - menampilkan semua opsi"
 
 #: libraries/display_export.lib.php:130
-#| msgid "Databases"
 msgid "Database(s):"
 msgstr "Basis Data:"
 
 #: libraries/display_export.lib.php:132
-#| msgid "Tables"
 msgid "Table(s):"
 msgstr "Tabel:"
 
 #: libraries/display_export.lib.php:142
-#| msgid "Rows"
 msgid "Rows:"
 msgstr "Baris:"
 
 #: libraries/display_export.lib.php:150
-#| msgid "Dump all rows"
 msgid "Dump some row(s)"
 msgstr "Dump beberapa baris"
 
 #: libraries/display_export.lib.php:152
-#| msgid "Number of rows per page"
 msgid "Number of rows:"
 msgstr "Jumlah baris:"
 
@@ -4499,17 +4455,14 @@ msgstr "Hasil:"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:207
 #, php-format
-#| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Simpan ke direktori <b>%s</b> di server"
 
 #: libraries/display_export.lib.php:199
-#| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Simpan hasil ke suatu berkas"
 
 #: libraries/display_export.lib.php:220
-#| msgid "File name template"
 msgid "File name template:"
 msgstr "Templat nama berkas:"
 
@@ -4543,7 +4496,6 @@ msgid "Character set of the file:"
 msgstr "Penyusunan karakter dalam file:"
 
 #: libraries/display_export.lib.php:304
-#| msgid "Compression"
 msgid "Compression:"
 msgstr "Kompresi:"
 
@@ -4554,33 +4506,27 @@ msgid "None"
 msgstr "tanpa"
 
 #: libraries/display_export.lib.php:308
-#| msgid "\"zipped\""
 msgid "zipped"
 msgstr "di-zip"
 
 #: libraries/display_export.lib.php:310
-#| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "di-gzip"
 
 #: libraries/display_export.lib.php:312
-#| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "di-bzip"
 
 #: libraries/display_export.lib.php:321
-#| msgid "Save as file"
 msgid "View output as text"
 msgstr "Tampilkan hasil sebagai teks"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#| msgid "Format"
 msgid "Format:"
 msgstr "Format:"
 
 #: libraries/display_export.lib.php:331
-#| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Opsi khusus format:"
 
@@ -4612,7 +4558,6 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:129
-#| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
 msgstr "Mengimpor ke dalam server saat ini"
 
@@ -4648,7 +4593,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Upload file tidak diizinkan di server ini."
 
 #: libraries/display_import.lib.php:208
-#| msgid "Partial Texts"
 msgid "Partial Import:"
 msgstr "Impor Parsial:"
 
@@ -4687,7 +4631,6 @@ msgid "%d is not valid row number."
 msgstr "%d bukanlah nomor baris yang berlaku."
 
 #: libraries/display_tbl.lib.php:392
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "baris dimulai dari rekord #"
 
@@ -4729,12 +4672,10 @@ msgid "Options"
 msgstr "Opsi"
 
 #: libraries/display_tbl.lib.php:551 libraries/display_tbl.lib.php:569
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Teks parsial"
 
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:573
-#| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Teks penuh"
 
@@ -4743,7 +4684,6 @@ msgid "Relational key"
 msgstr "Kunci relasi"
 
 #: libraries/display_tbl.lib.php:587
-#| msgid "Relational schema"
 msgid "Relational display column"
 msgstr "Kolom tampilan relasi"
 
@@ -4804,12 +4744,10 @@ msgid "Print view (with full texts)"
 msgstr "Pandangan cetak (dengan teks lengkap)"
 
 #: libraries/display_tbl.lib.php:2372 tbl_chart.php:81
-#| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Tampilkan bagan"
 
 #: libraries/display_tbl.lib.php:2391
-#| msgid "Create version"
 msgid "Create view"
 msgstr "Buat tampilan"
 
@@ -5081,7 +5019,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#| msgid "Relations"
 msgid "Related Links"
 msgstr "Tautan Terkait"
 
@@ -5231,29 +5168,24 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
 msgstr "Kolom dipisahkan oleh:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
 msgstr "Kolom diapit oleh:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#| msgid "Fields escaped by"
 msgid "Columns escaped with:"
 msgstr "Kolom dikembalikan oleh:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
 msgstr "Baris diakhir dengan:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "Ganti NULL dengan:"
 
@@ -5262,7 +5194,6 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/excel.php:32
-#| msgid "Excel edition"
 msgid "Excel edition:"
 msgstr "Versi Excel:"
 
@@ -5283,7 +5214,6 @@ msgid "Table structure for table"
 msgstr "Struktur dari tabel"
 
 #: libraries/export/latex.php:13
-#| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
 msgstr "Isi tabel @TABLE@"
 
@@ -5292,35 +5222,29 @@ msgid "(continued)"
 msgstr "(dilanjutkan)"
 
 #: libraries/export/latex.php:15
-#| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
 msgstr "Struktur tabel @TABLE@"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#| msgid "Transformation options"
 msgid "Object creation options"
 msgstr "Opsi pembuatan objek"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#| msgid "Table caption"
 msgid "Table caption (continued)"
 msgstr "Judul halaman (lanjutan)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
 msgstr "Tampilkan hubungan kunci luar"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "Tampilkan komentar"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#| msgid "Available MIME types"
 msgid "Display MIME types"
 msgstr "Tampilkan jenis MIME"
 
@@ -5363,7 +5287,6 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr ""
 
 #: libraries/export/pdf.php:24
-#| msgid "Import files"
 msgid "Report title:"
 msgstr "Judul laporan:"
 
@@ -5378,7 +5301,6 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:35
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Menambahkan komentar judul kustom (\\n memotong baris)"
 
@@ -5396,12 +5318,10 @@ msgstr ""
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
 #, php-format
-#| msgid "Statements"
 msgid "Add %s statement"
 msgstr "Tambahkan statement %s"
 
 #: libraries/export/sql.php:91
-#| msgid "Statements"
 msgid "Add statements:"
 msgstr "Tambahkan statement:"
 
@@ -5515,7 +5435,6 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:40
-#| msgid "View"
 msgid "Views"
 msgstr "View"
 
@@ -5590,7 +5509,6 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:41
-#| msgid "Column names"
 msgid "Column names: "
 msgstr "Nama kolom"
 
@@ -5644,12 +5562,10 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
 #: libraries/import/sql.php:32
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "SQL compatibility mode:"
 msgstr "Modus kompatibilitas SQL:"
 
 #: libraries/import/sql.php:42
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Jangan gunakan <code>AUTO_INCREMENT</code> untuk nilai nol"
 
@@ -5662,7 +5578,6 @@ msgstr ""
 "lagi."
 
 #: libraries/kanji-encoding.lib.php:142
-#| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Tidak ada"
@@ -5887,7 +5802,6 @@ msgid "Reload navigation frame"
 msgstr "Muat ulang bingkai navigasi"
 
 #: libraries/plugin_interface.lib.php:336
-#| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Format ini tidak memiliki opsi"
 
@@ -6061,7 +5975,6 @@ msgstr "Menghasilkan kata sandi"
 #: libraries/schema/Svg_Relation_Schema.class.php:370
 #: libraries/schema/Visio_Relation_Schema.class.php:214
 #, php-format
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Tabel %s tidak ditemukan!"
 
@@ -6079,7 +5992,6 @@ msgstr "Silakan konfigurasikan koordinasi bagi tabel %s"
 #: libraries/schema/Svg_Relation_Schema.class.php:738
 #: libraries/schema/Visio_Relation_Schema.class.php:503
 #, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Skema basis data %s - Halaman %s"
 
@@ -6118,12 +6030,10 @@ msgid "Create a page"
 msgstr "Ciptakan halaman baru"
 
 #: libraries/schema/User_Schema.class.php:99
-#| msgid "Page number:"
 msgid "Page name"
 msgstr "Nama halaman"
 
 #: libraries/schema/User_Schema.class.php:103
-#| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Tata letak otomatis berdasarkan"
 
@@ -6140,7 +6050,6 @@ msgid "Please choose a page to edit"
 msgstr "Silakan pilih halaman untuk diubah"
 
 #: libraries/schema/User_Schema.class.php:153
-#| msgid "Select Tables"
 msgid "Select page"
 msgstr "Pilih halaman"
 
@@ -6149,7 +6058,6 @@ msgid "Select Tables"
 msgstr "Pilih tabel"
 
 #: libraries/schema/User_Schema.class.php:347
-#| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Tampilkan skema relasi"
 
@@ -6186,7 +6094,6 @@ msgid "Portrait"
 msgstr "Gambaran"
 
 #: libraries/schema/User_Schema.class.php:395
-#| msgid "Creation"
 msgid "Orientation"
 msgstr "Orientasi"
 
@@ -6218,7 +6125,6 @@ msgid "Unknown language: %1$s."
 msgstr "Bahasa tidak dikenal: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#| msgid "Current server"
 msgid "Current Server"
 msgstr "Server Saat Ini"
 
@@ -6250,7 +6156,6 @@ msgid "Synchronize"
 msgstr "Sinkronisasi"
 
 #: libraries/server_links.inc.php:99
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "Pengaturan"
 
@@ -6292,7 +6197,6 @@ msgid "Clear"
 msgstr "Bersihkan"
 
 #: libraries/sql_query_form.lib.php:301
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Kolom"
 
@@ -6424,11 +6328,6 @@ msgid "Length/Values"
 msgstr "Ukuran Panjang/Nilai*"
 
 #: libraries/tbl_properties.inc.php:104
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -6437,7 +6336,8 @@ msgid ""
 msgstr ""
 "Jika jenis kolom adalah \"enum\" atau \"set\", harap masukkan nilai dengan "
 "format: 'a','b','c'...<br />Jika perlu memasukkan petik balik (\"\\\") atau "
-"petik tunggal (\"'\"), awali dengan petik balik (mis. '\\\\xyz' atau 'a\\'b')."
+"petik tunggal (\"'\"), awali dengan petik balik (mis. '\\\\xyz' atau 'a"
+"\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6487,7 +6387,6 @@ msgid "Get more editing space"
 msgstr "Dapatkan ruang pengeditan lebih luas"
 
 #: libraries/tbl_properties.inc.php:396
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Tidak ada"
@@ -6526,12 +6425,10 @@ msgstr "Definisi PARTITION"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:640
 #, php-format
-#| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "Tambahkan %s kolom"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:634
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Anda perlu menambahkan paling tidak satu kolom."
 
@@ -6545,11 +6442,6 @@ msgid "Event"
 msgstr "Kejadian"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -6595,17 +6487,6 @@ msgid ""
 msgstr ""
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -6621,19 +6502,15 @@ msgstr ""
 "HANYA UNTUK LINUX: Jalankan aplikasi eksternal dan berikan data kolom "
 "melalui masukan standar. Mengembalikan keluaran standar kepada aplikasi. "
 "Bawaan adalah Tidy, untuk mempercantik cetakan kode HTML. Untuk keamanan, "
-"Anda harus mengedit berkas "
-"libraries/transformations/text_plain__external.inc.php secara manual dan "
-"mendaftarkan alat yang ingin Anda sediakan. Opsi pertama adalah jumlah "
-"aplikasi yang ingin dipakai dan opsi kedua adalah parameter untuk program. "
-"Opsi ketiga, jika disetel menjadi 1, akan mengubah keluaran dengan "
-"menggunakan htmlspecialchars() (Bawaan 1). Opsi keempat, jika disetel "
-"menjadi 1, akan mencegah pemenggalan dan memastikan bahwa semua keluaran "
-"tampil dalam satu baris (Bawaan 1)."
+"Anda harus mengedit berkas libraries/transformations/text_plain__external."
+"inc.php secara manual dan mendaftarkan alat yang ingin Anda sediakan. Opsi "
+"pertama adalah jumlah aplikasi yang ingin dipakai dan opsi kedua adalah "
+"parameter untuk program. Opsi ketiga, jika disetel menjadi 1, akan mengubah "
+"keluaran dengan menggunakan htmlspecialchars() (Bawaan 1). Opsi keempat, "
+"jika disetel menjadi 1, akan mencegah pemenggalan dan memastikan bahwa semua "
+"keluaran tampil dalam satu baris (Bawaan 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -6642,24 +6519,16 @@ msgstr ""
 "diasumsikan mengandung HTML yang valid."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
 "Tampilkan gambar dan tautan; kolom mengandung nama berkas. Opsi pertama "
-"adalah prefiks URL seperti \"http://www.example.com/\". Opsi kedua dan ketiga "
-"adalah lebar dan tinggi dalam piksel."
+"adalah prefiks URL seperti \"http://www.example.com/\". Opsi kedua dan "
+"ketiga adalah lebar dan tinggi dalam piksel."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -6694,12 +6563,10 @@ msgstr ""
 "Output bila sebuah Substring dibalikkan (Default: ...) ."
 
 #: libraries/user_preferences.inc.php:32
-#| msgid "General relation features"
 msgid "Manage your settings"
 msgstr "Kelola pengaturan Anda"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "Konfigurasi telah disimpan"
 
@@ -6711,7 +6578,6 @@ msgid ""
 msgstr ""
 
 #: libraries/user_preferences.lib.php:142
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
 msgstr "Konfigurasi tidak dapat disimpan"
 
@@ -6731,7 +6597,6 @@ msgid "Error in ZIP archive:"
 msgstr "Kesalahan dalam arsip ZIP:"
 
 #: main.php:65
-#| msgid "General relation features"
 msgid "General Settings"
 msgstr "Pengaturan Umum"
 
@@ -6744,7 +6609,6 @@ msgid "Appearance Settings"
 msgstr "Pengaturan Tampilan"
 
 #: main.php:147 prefs_manage.php:274
-#| msgid "General relation features"
 msgid "More settings"
 msgstr "Pengaturan lain"
 
@@ -6787,7 +6651,6 @@ msgid "Official Homepage"
 msgstr "Homepage resmi phpMyAdmin"
 
 #: main.php:219
-#| msgid "Attributes"
 msgid "Contribute"
 msgstr "Berkontribusi"
 
@@ -6796,7 +6659,6 @@ msgid "Get support"
 msgstr "Dukungan"
 
 #: main.php:221
-#| msgid "No change"
 msgid "List of changes"
 msgstr "Daftar perubahan"
 
@@ -6864,9 +6726,6 @@ msgstr ""
 
 #: main.php:301
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
@@ -6912,7 +6771,6 @@ msgid "filter tables by name"
 msgstr "Urutkan tabel berdasarkan"
 
 #: navigation.php:308 navigation.php:309
-#| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Buat tabel"
@@ -6970,7 +6828,6 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
 #: pmd_general.php:120
-#| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Bangun Kueri"
 
@@ -7000,13 +6857,11 @@ msgstr "Operator relasi"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#| msgid "Export"
 msgid "Except"
 msgstr "Kecuali"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#| msgid "in query"
 msgid "subquery"
 msgstr "subkueri"
 
@@ -7015,12 +6870,10 @@ msgid "Rename to"
 msgstr "Ubah nama menjadi"
 
 #: pmd_general.php:482 pmd_general.php:581
-#| msgid "User name"
 msgid "New name"
 msgstr "Nama baru"
 
 #: pmd_general.php:485 pmd_general.php:700
-#| msgid "Create"
 msgid "Aggregate"
 msgstr "Agregasi"
 
@@ -7031,7 +6884,6 @@ msgid "Operator"
 msgstr "Operator"
 
 #: pmd_general.php:810
-#| msgid "Table options"
 msgid "Active options"
 msgstr "Opsi aktif"
 
@@ -7055,27 +6907,22 @@ msgid "Page creation failed"
 msgstr "Pembuatan halaman gagal"
 
 #: pmd_pdf.php:89
-#| msgid "pages"
 msgid "Page"
 msgstr "Halaman"
 
 #: pmd_pdf.php:99
-#| msgid "Import files"
 msgid "Import from selected page"
 msgstr "Impor dari halaman terpilih"
 
 #: pmd_pdf.php:100
-#| msgid "No rows selected"
 msgid "Export to selected page"
 msgstr "Ekspor ke halaman terpilih"
 
 #: pmd_pdf.php:102
-#| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "Buat halaman dan ekspor ke dalamnya"
 
 #: pmd_pdf.php:111
-#| msgid "User name"
 msgid "New page name: "
 msgstr "Nama halaman baru:"
 
@@ -7120,7 +6967,6 @@ msgid "Cannot save settings, submitted form contains errors"
 msgstr "Pengaturan tidak dapat disimpan, formulir kiriman mengandung galat"
 
 #: prefs_manage.php:80
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
 msgstr "Tidak dapat mengimpor konfigurasi"
 
@@ -7137,7 +6983,6 @@ msgid "Saved on: @DATE@"
 msgstr "Disimpan pada: @DATE@"
 
 #: prefs_manage.php:239
-#| msgid "Import files"
 msgid "Import from file"
 msgstr "Impor dari berkas"
 
@@ -7201,7 +7046,6 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> tabel tidak ditemukan atau tidak diset di %s"
 
 #: schema_export.php:47
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
 msgstr "Berkas tidak ditemukan"
 
@@ -7486,7 +7330,6 @@ msgid "No privileges."
 msgstr "Tanpa Hak Istimewa (Privileges)."
 
 #: server_privileges.php:312 server_privileges.php:313
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Tidak ada"
@@ -7532,7 +7375,6 @@ msgid "Do not change the password"
 msgstr "Jangan ubah Kata Sandi"
 
 #: server_privileges.php:817 server_privileges.php:2286
-#| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Pengguna tidak ditemukan."
 
@@ -7692,7 +7534,6 @@ msgid "Database for user"
 msgstr "Database untuk pengguna"
 
 #: server_privileges.php:2118
-#| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Tidak ada"
@@ -7872,7 +7713,6 @@ msgid "Reset slave"
 msgstr "Reset slave"
 
 #: server_replication.php:327
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
 msgstr "Jalankan hanya Thread SQL"
 
@@ -7881,7 +7721,6 @@ msgid "Stop SQL Thread only"
 msgstr "Hanya hentikan Thread SQL"
 
 #: server_replication.php:332
-#| msgid "Structure only"
 msgid "Start IO Thread only"
 msgstr "Jalankan hanya Thread IO"
 
@@ -8547,7 +8386,6 @@ msgid "Show processes"
 msgstr "Tampilkan Proses"
 
 #: server_status.php:470
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Reset"
@@ -8757,7 +8595,6 @@ msgid "Enter manually"
 msgstr "Masukkan secara manual"
 
 #: server_synchronize.php:1139
-#| msgid "Connections"
 msgid "Current connection"
 msgstr "Koneksi sekarang"
 
@@ -9074,7 +8911,6 @@ msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
 #: sql.php:624
-#| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "SQL tervalidasi"
 
@@ -9160,27 +8996,22 @@ msgid "Continue insertion with %s rows"
 msgstr "Lanjutkan penambahan untuk %s baris"
 
 #: tbl_chart.php:56
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Sukses reload Hak Istimewa (Privileges)."
 
 #: tbl_chart.php:59
-#| msgid ""
-#| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-#| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Kemungkinan hanya perkiraan saja. Lihat "
-"[a@./Documentation.html#faq3_11@Dokumentasi]FAQ 3.11[/a]"
+"Kemungkinan hanya perkiraan saja. Lihat [a@./Documentation."
+"html#faq3_11@Dokumentasi]FAQ 3.11[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"
 msgstr "Lebar"
 
 #: tbl_chart.php:94
-#| msgid "Right"
 msgid "Height"
 msgstr "Tinggi"
 
@@ -9385,12 +9216,10 @@ msgid "Table %s has been flushed"
 msgstr "Tabel %s telah dibuang"
 
 #: tbl_operations.php:664
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Bersihkan tabel (\"FLUSH\")"
 
 #: tbl_operations.php:673
-#| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
 msgstr "Hapus data atau tabel"
 
@@ -9485,7 +9314,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:395
-#| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Relasi internal"
 
@@ -9508,7 +9336,6 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "cari berdasarkan data contoh (\"query by example\") (wildcard: \"%\")"
 
 #: tbl_select.php:233
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Pilih kolom (paling tidak satu):"
 
@@ -9545,14 +9372,12 @@ msgid "Add FULLTEXT index"
 msgstr "Tambahkan indeks FULLTEXT"
 
 #: tbl_structure.php:389
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Tidak ada"
 
 #: tbl_structure.php:402
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Kolom %s telah dihapus"
 
@@ -9568,7 +9393,6 @@ msgid "An index has been added on %s"
 msgstr "Indeks telah ditambahkan pada %s"
 
 #: tbl_structure.php:475
-#| msgid "Show PHP information"
 msgid "Show more actions"
 msgstr "Tampilkan tindakan lain"
 
@@ -9599,7 +9423,6 @@ msgstr "sisipkan setelah %s"
 
 #: tbl_structure.php:693
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Buat indeks pada &nbsp;%s&nbsp; kolom"
 
@@ -9765,7 +9588,6 @@ msgid "Available transformations"
 msgstr "Transformasi yang tersedia"
 
 #: transformation_overview.php:47
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Deskripsi"

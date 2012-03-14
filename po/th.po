@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2012-02-24 19:23+0200\n"
 "Last-Translator: kanitchet <kanichet@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
@@ -136,7 +136,6 @@ msgstr "หมายเหตุของตาราง"
 #: tbl_change.php:309 tbl_indexes.php:185 tbl_printview.php:139
 #: tbl_relation.php:392 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:268 tbl_tracking.php:319
-#| msgid "Column names"
 msgid "Column"
 msgstr "สดมภ์"
 
@@ -394,7 +393,6 @@ msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ
 
 #: db_printview.php:220 db_structure.php:465
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s ตาราง"
@@ -462,12 +460,10 @@ msgid "Modify"
 msgstr "แก้ไข"
 
 #: db_qbe.php:606
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "เพิ่ม/ลบ แถว"
 
 #: db_qbe.php:618
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "เพิ่ม/ลบ สดมภ์"
 
@@ -518,7 +514,6 @@ msgstr "ผลการค้นหา \"<i>%s</i>\" %s:"
 
 #: db_search.php:247
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
@@ -531,7 +526,6 @@ msgstr "เปิดดู"
 
 #: db_search.php:259
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "ลบตรงกับที่ตาราง %s  หรือไม่?"
 
@@ -548,7 +542,6 @@ msgstr "ลบ"
 
 #: db_search.php:272
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง"
@@ -578,7 +571,6 @@ msgid "Inside column:"
 msgstr "ในคอลัมน์:"
 
 #: db_structure.php:59
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
 
@@ -610,9 +602,7 @@ msgstr "หยุดการติดตามแล้ว"
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr ""
-"การแสดงผลนี้แสดงเพียงจำนวนข้อมูลเท่านี้, ดูข้อมูลเพิ่มเติมได้ที่ %"
-"sdocumentation%s"
+msgstr "การแสดงผลนี้แสดงเพียงจำนวนข้อมูลเท่านี้, ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:137
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
@@ -836,8 +826,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"คุณพยายามที่จะอับโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s "
-"เอกสารช่วยเหลือ เพื่อแก้ไขปัญหาดังกล่าวนี้ "
+"คุณพยายามที่จะอับโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
+"เพื่อแก้ไขปัญหาดังกล่าวนี้ "
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -861,10 +851,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ "
-"หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ กรุณาแก้ไขไฟล์ตั้งค่าของ PHP "
-"ดูเอกสารเพิ่มเติมได้ที่ [a@./Documentation.html#faq1_16@Documentation]FAQ "
-"1.16[/a]"
+"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
+"กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [a@./Documentation."
+"html#faq1_16@Documentation]FAQ 1.16[/a]"
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -899,8 +888,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin "
-"ไม่สามารถนำเข้าได้ทัน ตามเวลารันสูงสุดที่กำหนดใน PHP"
+"ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin ไม่สามารถนำเข้าได้ทัน "
+"ตามเวลารันสูงสุดที่กำหนดใน PHP"
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2115 libraries/sql_query_form.lib.php:139
@@ -950,7 +939,6 @@ msgid "Dropping Procedure"
 msgstr "โพรเซส"
 
 #: js/messages.php:35
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "กำลังลบข้อมูลติดตามตาราง"
 
@@ -996,7 +984,6 @@ msgid "The passwords aren't the same!"
 msgstr "รหัสผ่านไม่ตรงกัน!"
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "เพิ่มผู้ใช้ใหม่"
 
@@ -1009,7 +996,6 @@ msgid "Reloading Privileges"
 msgstr "รีเฟรชสิทธิใหม่"
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "ถอนผู้ใช้ที่เลือก"
 
@@ -1029,7 +1015,6 @@ msgid "Loading"
 msgstr "กำลังเรียกดูข้อมูล"
 
 #: js/messages.php:64
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "กำลังประมวลผล"
 
@@ -1052,12 +1037,10 @@ msgid "OK"
 msgstr "ตกลง"
 
 #: js/messages.php:71
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "กำลังเปลี่ยนชื่อฐานข้อมูล"
 
 #: js/messages.php:72
-#| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "รีเฟรซฐานข้อมูล"
 
@@ -1066,12 +1049,10 @@ msgid "Copying Database"
 msgstr "กำลังคัดลอกฐานข้อมูล"
 
 #: js/messages.php:74
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "กำลังเปลี่ยนชุดตัวอักษร"
 
 #: js/messages.php:75
-#| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
 msgstr "ตารางต้องอย่างน้อยหนึ่งคอลัมน์"
 
@@ -1080,7 +1061,6 @@ msgid "Create Table"
 msgstr "เริ่มหน้าใหม่"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "กำลังค้นหา"
 
@@ -1144,7 +1124,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "กรุณาเลือกคีย์หลักหรือคียเดี่ยว"
 
 #: js/messages.php:104 pmd_general.php:87 tbl_relation.php:538
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "เลือกฟิลด์ที่ต้องการแสดง"
 
@@ -1153,7 +1132,6 @@ msgid "Add an option for column "
 msgstr "เพิ่มตัวเลือกสำหรับสดมภ์"
 
 #: js/messages.php:110
-#| msgid "Change password"
 msgid "Generate password"
 msgstr "สร้างรหัสอัตโนมัติ"
 
@@ -1162,12 +1140,10 @@ msgid "Generate"
 msgstr "สร้างอัตโนมัติ"
 
 #: js/messages.php:112
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "เปลี่ยนรหัสผ่าน"
 
 #: js/messages.php:115 tbl_structure.php:475
-#| msgid "Mon"
 msgid "More"
 msgstr "เพิ่มเติม"
 
@@ -1176,8 +1152,7 @@ msgstr "เพิ่มเติม"
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
-msgstr ""
-"phpMyAdmin มีรุ่นใหม่แล้ว กรุณาพิจารณาอัพเกรดเป็นรุ่นใหม่ %s โดยออกเมื่อ %s"
+msgstr "phpMyAdmin มีรุ่นใหม่แล้ว กรุณาพิจารณาอัพเกรดเป็นรุ่นใหม่ %s โดยออกเมื่อ %s"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:120
@@ -1186,7 +1161,6 @@ msgstr ", รุ่นเสถียรล่าสุด:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:138
-#| msgid "None"
 msgid "Done"
 msgstr "จบ"
 
@@ -1207,12 +1181,10 @@ msgstr "ต่อไป"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:144
-#| msgid "Total"
 msgid "Today"
 msgstr "วันนี้"
 
 #: js/messages.php:147
-#| msgid "Binary"
 msgid "January"
 msgstr "มกราคม"
 
@@ -1221,12 +1193,10 @@ msgid "February"
 msgstr "กุมภาพันธ์"
 
 #: js/messages.php:149
-#| msgid "Mar"
 msgid "March"
 msgstr "มีนาคม"
 
 #: js/messages.php:150
-#| msgid "Apr"
 msgid "April"
 msgstr "เมษายน"
 
@@ -1235,17 +1205,14 @@ msgid "May"
 msgstr "พ.ค."
 
 #: js/messages.php:152
-#| msgid "Jun"
 msgid "June"
 msgstr "มิถุนายน"
 
 #: js/messages.php:153
-#| msgid "Jul"
 msgid "July"
 msgstr "กรกฎาคม"
 
 #: js/messages.php:154
-#| msgid "Aug"
 msgid "August"
 msgstr "สิงหาคม"
 
@@ -1254,7 +1221,6 @@ msgid "September"
 msgstr "กันยายน"
 
 #: js/messages.php:156
-#| msgid "Oct"
 msgid "October"
 msgstr "ตุลาคม"
 
@@ -1288,7 +1254,6 @@ msgstr "เม.ย."
 
 #. l10n: Short month name
 #: js/messages.php:170 libraries/common.lib.php:1576
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "พ.ค."
@@ -1329,17 +1294,14 @@ msgid "Dec"
 msgstr "ธ.ค."
 
 #: js/messages.php:187
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "อาทิตย์"
 
 #: js/messages.php:188
-#| msgid "Mon"
 msgid "Monday"
 msgstr "วันจันทร์"
 
 #: js/messages.php:189
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
@@ -1352,7 +1314,6 @@ msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
 #: js/messages.php:192
-#| msgid "Fri"
 msgid "Friday"
 msgstr "วันศุกร์"
 
@@ -1397,43 +1358,36 @@ msgstr "ส."
 
 #. l10n: Minimal week day name
 #: js/messages.php:213
-#| msgid "Sun"
 msgid "Su"
 msgstr "อา."
 
 #. l10n: Minimal week day name
 #: js/messages.php:215
-#| msgid "Mon"
 msgid "Mo"
 msgstr "จ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:217
-#| msgid "Tue"
 msgid "Tu"
 msgstr "อ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:219
-#| msgid "Wed"
 msgid "We"
 msgstr "พ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:221
-#| msgid "Thu"
 msgid "Th"
 msgstr "พฤ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:223
-#| msgid "Fri"
 msgid "Fr"
 msgstr "ศ."
 
 #. l10n: Minimal week day name
 #: js/messages.php:225
-#| msgid "Sat"
 msgid "Sa"
 msgstr "ส."
 
@@ -1447,12 +1401,10 @@ msgid "Hour"
 msgstr "ชั่วโมง"
 
 #: js/messages.php:230
-#| msgid "in use"
 msgid "Minute"
 msgstr "นาที"
 
 #: js/messages.php:231
-#| msgid "per second"
 msgid "Second"
 msgstr "วินาที"
 
@@ -1495,8 +1447,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"มีข้อผิดพลาดขนาดย้ายไฟล์อัพหลด กรุณาดู "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+"มีข้อผิดพลาดขนาดย้ายไฟล์อัพหลด กรุณาดู [a@./Documentation.html#faq1_11@Documentation]"
+"FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1562,14 +1514,12 @@ msgstr[0] "%1$d ระเบียนได้รับผล"
 
 #: libraries/Message.class.php:279
 #, php-format
-#| msgid "No rows selected"
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d ระเบียนถูกลบ"
 
 #: libraries/Message.class.php:298
 #, php-format
-#| msgid "No rows selected"
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d ระเบียนถูกเพิ่ม"
@@ -1851,7 +1801,6 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:83
-#| msgid "SQL result"
 msgid "Query results"
 msgstr "ผลลัพธ์ SQL"
 
@@ -4736,7 +4685,6 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:392
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "แถว เริ่มจากแถวที่"
 
@@ -6309,7 +6257,6 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "การตั้งค่า"
 
@@ -6735,7 +6682,6 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: main.php:65
-#| msgid "General relation features"
 msgid "General Settings"
 msgstr "ตั้งค่าทั่วไป"
 
@@ -6748,7 +6694,6 @@ msgid "Appearance Settings"
 msgstr "ตั้งค่าลักษณะที่ปรากฏ"
 
 #: main.php:147 prefs_manage.php:274
-#| msgid "General relation features"
 msgid "More settings"
 msgstr "ตั้งค่าเพิ่มเติม"
 
@@ -8509,7 +8454,6 @@ msgid "Show processes"
 msgstr "แสดงงานที่ทำอยู่ของ MySQL"
 
 #: server_status.php:470
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "เริ่มใหม่"
@@ -9109,7 +9053,6 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
 
@@ -9756,8 +9699,8 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ "
-#~ "ตามเหตุผลที่แจ้งไว้ใน %shere%s"
+#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere"
+#~ "%s"
 
 #~ msgid "No tables"
 #~ msgstr "ไม่มีตาราง"
@@ -9771,20 +9714,18 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 #~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
 #~ "\\'b')."
 #~ msgstr ""
-#~ "ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'...<br "
-#~ "/>ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
-#~ "เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or "
-#~ "'a\\'b')"
+#~ "ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'...<br /"
+#~ ">ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
+#~ "เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
 #~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
-#~ "ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'...<br "
-#~ "/>ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
-#~ "เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or "
-#~ "'a\\'b')"
+#~ "ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'...<br /"
+#~ ">ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
+#~ "เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
 
 #~ msgid "New table"
 #~ msgstr "ไม่มีตาราง"
@@ -9847,18 +9788,16 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 #~ "conversion. Either configure PHP to enable these extensions or disable "
 #~ "charset conversion in phpMyAdmin."
 #~ msgstr ""
-#~ "ไม่สามารถเรียกใช้ตัวช่วย iconv หรือ recode เพื่อแปลงชุดตัวอักษร, ทางเลือก: "
-#~ "1) ตั้งค่าให้ PHP สามารถใช้ตัวช่วยเหล่านี้ได้ หรือ 2) ตั้งค่าให้ phpMyAdmin "
-#~ "ไม่ต้องแปลงชุดตัวอักษร"
+#~ "ไม่สามารถเรียกใช้ตัวช่วย iconv หรือ recode เพื่อแปลงชุดตัวอักษร, ทางเลือก: 1) ตั้งค่าให้ "
+#~ "PHP สามารถใช้ตัวช่วยเหล่านี้ได้ หรือ 2) ตั้งค่าให้ phpMyAdmin ไม่ต้องแปลงชุดตัวอักษร"
 
 #~ msgid ""
 #~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
 #~ "the necessary extensions appear to be loaded. Check your PHP "
 #~ "configuration."
 #~ msgstr ""
-#~ "ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ "
-#~ "ที่สามารถเรียกตัวช่วย สำหรับฟังก์ชั่นเหล่านั้นขึ้นมาได้แล้ว. "
-#~ "ลองตรวจสอบการตั้งค่าของ PHP"
+#~ "ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ ที่สามารถเรียกตัวช่วย "
+#~ "สำหรับฟังก์ชั่นเหล่านั้นขึ้นมาได้แล้ว. ลองตรวจสอบการตั้งค่าของ PHP"
 
 #~ msgid "Field"
 #~ msgstr "ฟิลด์"
@@ -9960,17 +9899,17 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 #~ "query on the MySQL command line interface. The MySQL server error output "
 #~ "be . "
 #~ msgstr ""
-#~ "อาจจะมีการเปลี่ยนแปลงบางอย่าง ที่คุณพบว่ามันเป็นข้อผิดพลาดของตัวอ่านคำสั่ง "
-#~ "SQL. กรุณาตรวจสอบคำค้นของคุณให้ถี่ถ้วน โดยเฉพาะการเปิด/ปิดเครื่องหมายคำพูด "
-#~ "(quotes) ให้ถูกต้อง. อีกสาเหตุหนึ่งที่เป็นไปได้คือ "
+#~ "อาจจะมีการเปลี่ยนแปลงบางอย่าง ที่คุณพบว่ามันเป็นข้อผิดพลาดของตัวอ่านคำสั่ง SQL. "
+#~ "กรุณาตรวจสอบคำค้นของคุณให้ถี่ถ้วน โดยเฉพาะการเปิด/ปิดเครื่องหมายคำพูด (quotes) "
+#~ "ให้ถูกต้อง. อีกสาเหตุหนึ่งที่เป็นไปได้คือ "
 #~ "คุณอาจจะอัพโหลดแฟ้มไบนารีข้างนอกช่วงของเครื่องหมายคำพูด. "
 #~ "คุณสามารถที่จะลองคำค้นของคุณที่คอมมานด์ไลน์ของ MySQL "
-#~ "ซึ่งคุณอาจจะพบข้อผิดพลาดบางอย่างในนั้น. หากเซิร์ฟเวอร์ MySQL "
-#~ "แจ้งข้อผิดพลาดมา, ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น. "
-#~ "ถ้าคุณยังพบปัญหากับ parser ใน phpMyAdmin อยู่ แต่ไม่พบปัญหากับ parser "
-#~ "ในคอมมานด์ไลน์, ให้ลองลดความยาวของคำค้น SQL ลง จนกระทั่งเหลือคำค้น SQL "
-#~ "เดี่ยวๆ ที่ยังทำให้เกิดปัญหาอยู่อีก, แล้วแจ้งข้อผิดพลาดดังกล่าวมาที่เรา, "
-#~ "ส่งมันมาพร้อมกับตัวข้อมูลที่คุณค้น ซึ่งได้จากส่วนของ CUT ด้านล่าง."
+#~ "ซึ่งคุณอาจจะพบข้อผิดพลาดบางอย่างในนั้น. หากเซิร์ฟเวอร์ MySQL แจ้งข้อผิดพลาดมา, "
+#~ "ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น. ถ้าคุณยังพบปัญหากับ parser ใน "
+#~ "phpMyAdmin อยู่ แต่ไม่พบปัญหากับ parser ในคอมมานด์ไลน์, ให้ลองลดความยาวของคำค้น SQL "
+#~ "ลง จนกระทั่งเหลือคำค้น SQL เดี่ยวๆ ที่ยังทำให้เกิดปัญหาอยู่อีก, "
+#~ "แล้วแจ้งข้อผิดพลาดดังกล่าวมาที่เรา, ส่งมันมาพร้อมกับตัวข้อมูลที่คุณค้น ซึ่งได้จากส่วนของ CUT "
+#~ "ด้านล่าง."
 
 #~ msgctxt "$strStrucCSV"
 #~ msgid "CSV"
@@ -9981,8 +9920,7 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 
 #~ msgid ""
 #~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr ""
-#~ "นี่เป็นวิธีที่หมดจดที่สุด แต่การโหลดสิทธิใช้งานใหม่ จะต้องใช้เวลาสักระยะ."
+#~ msgstr "นี่เป็นวิธีที่หมดจดที่สุด แต่การโหลดสิทธิใช้งานใหม่ จะต้องใช้เวลาสักระยะ."
 
 #~ msgid "has been altered."
 #~ msgstr "เปลี่ยนเสร็จแล้ว"
@@ -10000,8 +9938,7 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 #~ msgid ""
 #~ "The users will still have the USAGE privilege until the privileges are "
 #~ "reloaded."
-#~ msgstr ""
-#~ "ผู้ใช้ต่างๆ ยังคงมีสิทธิ USAGE จนกว่า ข้อมูลสิทธิ จะถูกเรียกใช้ใหม่อีกที."
+#~ msgstr "ผู้ใช้ต่างๆ ยังคงมีสิทธิ USAGE จนกว่า ข้อมูลสิทธิ จะถูกเรียกใช้ใหม่อีกที."
 
 #~ msgctxt "Create SELECT ... query"
 #~ msgid "Select"

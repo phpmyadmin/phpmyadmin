@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2012-03-12 17:49+0200\n"
 "Last-Translator: Flavio Lisboa <flavio.lisboa@fgsl.eti.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -470,7 +470,6 @@ msgid "Add/Delete criteria rows"
 msgstr "Adicionar/Remover critérios de linha"
 
 #: db_qbe.php:618
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Adicionar/Remover colunas"
 
@@ -1074,17 +1073,14 @@ msgid "Changing Charset"
 msgstr "Modificando charset"
 
 #: js/messages.php:75
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "A tabela deve ter pelo menos uma coluna"
 
 #: js/messages.php:76
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "Criar nova tabela"
 
 #: js/messages.php:81
-#| msgid "Search"
 msgid "Searching"
 msgstr "Buscando"
 
@@ -1097,7 +1093,6 @@ msgid "Show query box"
 msgstr "Mostrar caixa de consulta"
 
 #: js/messages.php:88
-#| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Editar linha"
 
@@ -1149,7 +1144,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Por favor, selecione uma chave primária ou uma chave única"
 
 #: js/messages.php:104 pmd_general.php:87 tbl_relation.php:538
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Marque a coluna para exibir"
 
@@ -1158,7 +1152,6 @@ msgid "Add an option for column "
 msgstr "Adicionar uma opção para a coluna"
 
 #: js/messages.php:110
-#| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Gerar senha"
 
@@ -1167,7 +1160,6 @@ msgid "Generate"
 msgstr "Gerar"
 
 #: js/messages.php:112
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "Alterar senha"
 
@@ -1284,7 +1276,6 @@ msgstr "Abr"
 
 #. l10n: Short month name
 #: js/messages.php:170 libraries/common.lib.php:1576
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
@@ -1389,43 +1380,36 @@ msgstr "Sab"
 
 #. l10n: Minimal week day name
 #: js/messages.php:213
-#| msgid "Sun"
 msgid "Su"
 msgstr "Dom"
 
 #. l10n: Minimal week day name
 #: js/messages.php:215
-#| msgid "Mon"
 msgid "Mo"
 msgstr "Seg"
 
 #. l10n: Minimal week day name
 #: js/messages.php:217
-#| msgid "Tue"
 msgid "Tu"
 msgstr "Ter"
 
 #. l10n: Minimal week day name
 #: js/messages.php:219
-#| msgid "Wed"
 msgid "We"
 msgstr "Qua"
 
 #. l10n: Minimal week day name
 #: js/messages.php:221
-#| msgid "Thu"
 msgid "Th"
 msgstr "Qui"
 
 #. l10n: Minimal week day name
 #: js/messages.php:223
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Sex"
 
 #. l10n: Minimal week day name
 #: js/messages.php:225
-#| msgid "Sat"
 msgid "Sa"
 msgstr "Sab"
 
@@ -1550,7 +1534,6 @@ msgstr "Erro"
 
 #: libraries/Message.class.php:260
 #, php-format
-#| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d linha afetada."
@@ -1558,7 +1541,6 @@ msgstr[1] "%1$d linha(s) afetadas."
 
 #: libraries/Message.class.php:279
 #, php-format
-#| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d linhas excluída."
@@ -1566,7 +1548,6 @@ msgstr[1] "%1$d linhas(s) excluídas."
 
 #: libraries/Message.class.php:298
 #, php-format
-#| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d linha inserida."
@@ -1761,7 +1742,6 @@ msgid "PBMS error"
 msgstr "Erro PBMS"
 
 #: libraries/blobstreaming.lib.php:267
-#| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
 msgstr "Falha na conexão PBMS:"
 
@@ -1837,7 +1817,6 @@ msgid "Not replicated"
 msgstr "Não aplicavel"
 
 #: libraries/build_html_for_db.lib.php:136
-#| msgid "Replication"
 msgid "Replicated"
 msgstr "Replicado"
 
@@ -1859,7 +1838,6 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:83
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Resultado(s) da(s) consulta(s)"
 
@@ -1893,7 +1871,6 @@ msgstr ""
 
 #: libraries/common.inc.php:595
 #, php-format
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
 
@@ -1905,7 +1882,6 @@ msgstr "A variável <tt>$cfg['PmaAbsoluteUri']</tt> deve ser setada"
 
 #: libraries/common.inc.php:630
 #, php-format
-#| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Índice de servidor inválido: \"%s\""
 
@@ -2182,7 +2158,6 @@ msgstr "dados"
 #: libraries/config.values.php:97 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
 #: libraries/export/sql.php:79 libraries/export/texytext.php:23
-#| msgid "Structure and data"
 msgid "structure and data"
 msgstr "estrutura e dados"
 
@@ -2199,12 +2174,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Personalizada - como acima, mas sem a escolha rápida/personalizada."
 
 #: libraries/config.values.php:119
-#| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "inserções completas"
 
 #: libraries/config.values.php:120
-#| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "inserções extendidas"
 
@@ -2583,21 +2556,18 @@ msgstr "Compressão"
 #: libraries/export/excel.php:24 libraries/export/htmlword.php:29
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Colocar os nomes das colunas na primeira linha"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Campos delimitados por"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:247 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Colunas escapadas por"
 
@@ -2616,7 +2586,6 @@ msgstr "Remover caracteres CRLF em colunas"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Colunas terminadas por"
 
@@ -2626,7 +2595,6 @@ msgid "Lines terminated by"
 msgstr "Linhas terminadas por"
 
 #: libraries/config/messages.inc.php:80
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Edição do Excel"
 
@@ -2647,7 +2615,6 @@ msgstr "Modelo de nome da tabela"
 #: libraries/config/messages.inc.php:141 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "Esvaziar tabela"
 
@@ -2681,7 +2648,6 @@ msgid "Relations"
 msgstr "Relações"
 
 #: libraries/config/messages.inc.php:103
-#| msgid "Export type"
 msgid "Export method"
 msgstr "Método de exportação"
 
@@ -2699,7 +2665,6 @@ msgid "Remember file name template"
 msgstr "Lembrar modelo de nome de arquivo"
 
 #: libraries/config/messages.inc.php:118
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Usar crases nos nomes de tabelas e campos"
 
@@ -2709,7 +2674,6 @@ msgid "SQL compatibility mode"
 msgstr "Modo de compatibilidade SQL"
 
 #: libraries/config/messages.inc.php:120 libraries/export/sql.php:111
-#| msgid "<code>@TABLE@</code>"
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CRIAR TABELA</code> opções:"
 
@@ -2915,7 +2879,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Configurações que não se encaixavam em nenhum outro lugar"
 
 #: libraries/config/messages.inc.php:190
-#| msgid "Page number:"
 msgid "Page titles"
 msgstr "Títulos das páginas"
 
@@ -2981,7 +2944,6 @@ msgid "Enter server connection parameters"
 msgstr "Digite os parâmetros de configuração do servidor"
 
 #: libraries/config/messages.inc.php:202
-#| msgid "Configuration"
 msgid "Configuration storage"
 msgstr "Configuração de armazenamento"
 
@@ -3041,7 +3003,6 @@ msgid "SQL queries settings"
 msgstr "Configurações de consultas SQL"
 
 #: libraries/config/messages.inc.php:218
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "Validador SQL"
 
@@ -3180,7 +3141,6 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importa porcentagem como decimal (12.00% para .12)"
 
 #: libraries/config/messages.inc.php:256
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Número de registros (consultas) ignoradas no início"
 
@@ -3189,7 +3149,6 @@ msgid "Partial import: skip queries"
 msgstr "Importação parcial: pula consultas"
 
 #: libraries/config/messages.inc.php:259
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nâo usar AUTO_INCREMENT para valores zero"
 
@@ -3226,7 +3185,6 @@ msgid "Display servers selection"
 msgstr "Exibe seleção de servidores"
 
 #: libraries/config/messages.inc.php:270
-#| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
 
@@ -3540,9 +3498,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Ative se você quiser usar o histórico de consultas baseado em banco de dados "
-"(requer a configuração de armazenamento do phpMyAdmin). Se desativado, "
-"serão utilizadas rotinas JS para exibir o histórico de consultas (que será "
-"perdido se a janela for fechada)."
+"(requer a configuração de armazenamento do phpMyAdmin). Se desativado, serão "
+"utilizadas rotinas JS para exibir o histórico de consultas (que será perdido "
+"se a janela for fechada)."
 
 #: libraries/config/messages.inc.php:335
 msgid "Permanent query history"
@@ -3595,7 +3553,6 @@ msgstr ""
 "Repetir cabeçalhos a cada X celulas, [kbd]0[/kbd] desativa esta configuração"
 
 #: libraries/config/messages.inc.php:348
-#| msgid "Repair threads"
 msgid "Repeat headers"
 msgstr "Repetir cabeçalhos"
 
@@ -3654,8 +3611,8 @@ msgid ""
 "swekey.conf)"
 msgstr ""
 "O caminho para o arquivo de configuração [a@http://swekey.com] autenticação "
-"equipamento SweKey [/a] (não localizado na raiz do seu documento: sugestão: "
-"/etc/swekey.conf)"
+"equipamento SweKey [/a] (não localizado na raiz do seu documento: sugestão: /"
+"etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:363
 msgid "SweKey config file"
@@ -3674,9 +3631,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Deixe em branco quando não há "
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] suporte, sugestão: "
-"[kbd]pma_bookmark[/kbd]"
+"Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"bookmark[/a] suporte, sugestão: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:367
 msgid "Bookmark table"
@@ -3720,8 +3676,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Um usuário especial MySQL será configurado com permissões limitadas, mais "
-"informações disponíveis em "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"informações disponíveis em [a@http://wiki.phpmyadmin.net/pma/controluser]wiki"
+"[/a]"
 
 #: libraries/config/messages.inc.php:376
 msgid "Control user"
@@ -3740,8 +3696,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Deixe em branco quando não há de Desenho, sugestão: "
-"[kbd]pma_designer_coords[/kbd]"
+"Deixe em branco quando não há de Desenho, sugestão: [kbd]pma_designer_coords"
+"[/kbd]"
 
 #: libraries/config/messages.inc.php:380
 msgid "Designer table"
@@ -3922,8 +3878,8 @@ msgstr "Utilizar SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Deixe em branco se não houver suporte a esquema PDF, sugestão: "
-"[kbd]pma_table_coords[/kbd]"
+"Deixe em branco se não houver suporte a esquema PDF, sugestão: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:416
 msgid "PDF schema: table coordinates"
@@ -3938,7 +3894,6 @@ msgstr ""
 "suporte; sugestão: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:418
-#| msgid "Displaying Column Comments"
 msgid "Display columns table"
 msgstr "Exibir colunas da tabela"
 
@@ -3983,7 +3938,6 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "Define a lista de comandos que a auto-criação use para novas versões."
 
 #: libraries/config/messages.inc.php:426
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Comandos a rastrear"
 
@@ -4054,8 +4008,8 @@ msgstr "Nome completo deste servidor"
 #: libraries/config/messages.inc.php:439
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Quando precisa ser exibido a um usuário o botão &quot;exiba "
-"todas(colunas)&quot; "
+"Quando precisa ser exibido a um usuário o botão &quot;exiba todas(colunas)"
+"&quot; "
 
 #: libraries/config/messages.inc.php:440
 msgid "Allow to display all the rows"
@@ -4067,10 +4021,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"Favor certificar-se que habilitando isto, não haverá efeito no "
-"[kbd]config[/kbd] modo de autenticação porque a senha está bem feita no "
-"arquivo de configuração; isto não limita a habilidade de executar o comando "
-"diretamente"
+"Favor certificar-se que habilitando isto, não haverá efeito no [kbd]config[/"
+"kbd] modo de autenticação porque a senha está bem feita no arquivo de "
+"configuração; isto não limita a habilidade de executar o comando diretamente"
 
 #: libraries/config/messages.inc.php:442
 msgid "Show password change form"
@@ -4089,7 +4042,6 @@ msgstr ""
 "edição/inserção"
 
 #: libraries/config/messages.inc.php:445
-#| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Exibir tipo dos campos"
 
@@ -4567,7 +4519,6 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Não pode carregar exportação dos plugins, verifique sua instalação!"
 
 #: libraries/display_export.lib.php:80
-#| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
 msgstr "Exportar bancos de dados do servidor atual"
 
@@ -4615,7 +4566,6 @@ msgid "Dump some row(s)"
 msgstr "Dumpar alguma(s) linha(s)"
 
 #: libraries/display_export.lib.php:152
-#| msgid "Number of fields"
 msgid "Number of rows:"
 msgstr "Número de linhas:"
 
@@ -4644,7 +4594,6 @@ msgid "Save output to a file"
 msgstr "Enviado"
 
 #: libraries/display_export.lib.php:220
-#| msgid "File name template"
 msgid "File name template:"
 msgstr "Nome do arquivo do modelo:"
 
@@ -4685,7 +4634,6 @@ msgid "Character set of the file:"
 msgstr "Conjunto de caracteres do arquivo"
 
 #: libraries/display_export.lib.php:304
-#| msgid "Compression"
 msgid "Compression:"
 msgstr "Compressão:"
 
@@ -4721,12 +4669,10 @@ msgstr "Enviado"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#| msgid "Format"
 msgid "Format:"
 msgstr "Formato:"
 
 #: libraries/display_export.lib.php:331
-#| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Opções de formato especifico:"
 
@@ -4781,7 +4727,6 @@ msgid "Importing into the table \"%s\""
 msgstr "Sem bases"
 
 #: libraries/display_import.lib.php:139
-#| msgid "File to import"
 msgid "File to Import:"
 msgstr "Arquivo para importar:"
 
@@ -4803,7 +4748,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Não é permitido subir arquivos neste servidor."
 
 #: libraries/display_import.lib.php:208
-#| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "Importação parcial:"
 
@@ -4816,10 +4760,6 @@ msgstr ""
 "continuar na posição %d."
 
 #: libraries/display_import.lib.php:221
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. This might be good way to import large "
-#| "files, however it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
@@ -4830,7 +4770,6 @@ msgstr ""
 "arquivos grandes, entretanto isso pode interromper as transações.)</i>"
 
 #: libraries/display_import.lib.php:228
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Número de registros para pular, iniciando da primeira linha:"
 
@@ -4849,7 +4788,6 @@ msgid "%d is not valid row number."
 msgstr "%d não é um número de linha válido."
 
 #: libraries/display_tbl.lib.php:392
-#| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "registro(s) começando de"
 
@@ -5402,12 +5340,10 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
 msgstr "Colunas separadas com:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
 msgstr "Colunas delimitadas por:"
 
@@ -5418,14 +5354,12 @@ msgid "Columns escaped with:"
 msgstr "Campos contornados por"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
 msgstr "Linhas terminadas com:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "Substituir NULL com:"
 
@@ -5434,7 +5368,6 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/excel.php:32
-#| msgid "Excel edition"
 msgid "Excel edition:"
 msgstr "Edição do Excel:"
 
@@ -5543,7 +5476,6 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Gerado um relatório contendo dados da tabela simples)"
 
 #: libraries/export/pdf.php:24
-#| msgid "Report title"
 msgid "Report title:"
 msgstr "Título do Relatório:"
 
@@ -5582,7 +5514,6 @@ msgid "Add %s statement"
 msgstr "Comandos"
 
 #: libraries/export/sql.php:91
-#| msgid "Statements"
 msgid "Add statements:"
 msgstr "Adicionar instruções:"
 
@@ -5830,7 +5761,6 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
 #: libraries/import/sql.php:32
-#| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
 msgstr "Modo de compatibilidade SQL"
 
@@ -6304,7 +6234,6 @@ msgid "Create a page"
 msgstr "Criar uma nova página"
 
 #: libraries/schema/User_Schema.class.php:99
-#| msgid "Page number:"
 msgid "Page name"
 msgstr "Numero da página:"
 
@@ -6441,7 +6370,6 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "Configurações"
 
@@ -6741,11 +6669,6 @@ msgid "Event"
 msgstr "Evento"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#| msgid ""
-#| "Displays a link to download the binary data of the field. You can use the "
-#| "first option to specify the filename, or use the second option as the "
-#| "name of a field which contains the filename. If you use the second "
-#| "option, you need to set the first option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -6811,17 +6734,6 @@ msgstr ""
 "isso é feito usando a função gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -6837,19 +6749,15 @@ msgstr ""
 "LINUX APENAS: Rode uma aplicação externa e alimente os campos de dados pela "
 "entrada padrão. Retorna a saída padrão da aplicação. Padrão é Limpo, para "
 "uma bonita impressão do código HTML. Por razões de segurança, você deve "
-"editar manualmente o arquivo "
-"libraries/transformations/text_plain__external.inc.php e inserir as "
-"ferramentas que você permite rodar. A primeira opção é o número do programa "
-"que você quer rodar e a segunda opção são os parâmetros para o programa. A "
-"terceira opção, se setada para 1 irá converter a saída usando "
-"htmlspecialchars() (Padrão é 1). A quarta opção, se setada como 1 irá por um "
-"NOWRAP para o conteúdo da célula, de forma que a saída inteira será "
+"editar manualmente o arquivo libraries/transformations/text_plain__external."
+"inc.php e inserir as ferramentas que você permite rodar. A primeira opção é "
+"o número do programa que você quer rodar e a segunda opção são os parâmetros "
+"para o programa. A terceira opção, se setada para 1 irá converter a saída "
+"usando htmlspecialchars() (Padrão é 1). A quarta opção, se setada como 1 irá "
+"por um NOWRAP para o conteúdo da célula, de forma que a saída inteira será "
 "mostrada sem reformatação(Padrão é 1)"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#| msgid ""
-#| "Displays the contents of the field as-is, without running it through "
-#| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -6858,10 +6766,6 @@ msgstr ""
 "htmlspecialchars(). Isso é, a coluna assume conter HTML válido"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#| msgid ""
-#| "Displays an image and a link; the field contains the filename. The first "
-#| "option is a URL prefix like \"http://www.example.com/\". The second and "
-#| "third options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6872,18 +6776,14 @@ msgstr ""
 "terceira opção são a largura e a altura em pixels."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#| msgid ""
-#| "Displays a link; the field contains the filename. The first option is a "
-#| "URL prefix like \"http://www.example.com/\". The second option is a title "
-#| "for the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
 "Mostra um link, o campo contém o nome do arquivo. A primeira opção é um "
-"prefixo URL como \"http://www.exemplo.com/\". A segunda opção é um título para "
-"o link."
+"prefixo URL como \"http://www.exemplo.com/\". A segunda opção é um título "
+"para o link."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
@@ -7273,10 +7173,6 @@ msgid "To select relation, click :"
 msgstr "Para selecionar relacionamento, clique :"
 
 #: pmd_help.php:28
-#| msgid ""
-#| "The display field is shown in pink. To set/unset a field as the display "
-#| "field, click the \"Choose field to display\" icon, then click on the "
-#| "appropriate field name."
 msgid ""
 "The display column is shown in pink. To set/unset a column as the display "
 "column, click the \"Choose column to display\" icon, then click on the "
@@ -8110,7 +8006,6 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:327
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
 msgstr "Iniciar somente processo SQL"
 
@@ -8119,7 +8014,6 @@ msgid "Stop SQL Thread only"
 msgstr ""
 
 #: server_replication.php:332
-#| msgid "Structure only"
 msgid "Start IO Thread only"
 msgstr "Iniciar somente processo IO"
 
@@ -8871,7 +8765,6 @@ msgid "Show processes"
 msgstr "Mostrar os Processos"
 
 #: server_status.php:470
-#| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
 msgstr "Restaurar"
@@ -9491,14 +9384,10 @@ msgid "Continue insertion with %s rows"
 msgstr "Reiniciar inserção com %s registros"
 
 #: tbl_chart.php:56
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Os privilégios foram recarregados com sucesso."
 
 #: tbl_chart.php:59
-#| msgid ""
-#| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-#| "3.11[/a]"
 msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -9717,7 +9606,6 @@ msgid "Table %s has been flushed"
 msgstr "Tabela %s foi limpa"
 
 #: tbl_operations.php:664
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Limpar a tabela (FLUSH)"
 
@@ -9919,7 +9807,6 @@ msgid "Propose table structure"
 msgstr "Propor estrutura da tabela"
 
 #: tbl_structure.php:638
-#| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "Adicionar coluna"
 

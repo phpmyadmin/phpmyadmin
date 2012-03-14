@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2011-12-28 11:44+0200\n"
 "Last-Translator: any anonymous user <>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -467,12 +467,10 @@ msgid "Modify"
 msgstr "மாற்று"
 
 #: db_qbe.php:606
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
 
 #: db_qbe.php:618
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "நெடுவரிசைகள்  சேர்க்க/ நீக்க"
 
@@ -986,7 +984,6 @@ msgid "The passwords aren't the same!"
 msgstr ""
 
 #: js/messages.php:52
-#| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "புதிய பயனாளரை சேர்க்க"
 
@@ -1078,7 +1075,6 @@ msgid "Show query box"
 msgstr "வினவல் பெட்டியை காண்பி"
 
 #: js/messages.php:88
-#| msgid "Inline"
 msgid "Inline Edit"
 msgstr "உள்வரிசை"
 
@@ -1150,7 +1146,6 @@ msgid "Change Password"
 msgstr "கடவுச்சொல்லை மாற்று"
 
 #: js/messages.php:115 tbl_structure.php:475
-#| msgid "Mon"
 msgid "More"
 msgstr "மேலும்"
 
@@ -1194,7 +1189,6 @@ msgid "Today"
 msgstr "இன்று"
 
 #: js/messages.php:147
-#| msgid "Jan"
 msgid "January"
 msgstr "ஜனவரி"
 
@@ -1203,7 +1197,6 @@ msgid "February"
 msgstr "மாசி"
 
 #: js/messages.php:149
-#| msgid "Mar"
 msgid "March"
 msgstr "மார்ச்"
 
@@ -1218,17 +1211,14 @@ msgid "May"
 msgstr "வைகாசி"
 
 #: js/messages.php:152
-#| msgid "Jun"
 msgid "June"
 msgstr "ஜூன்"
 
 #: js/messages.php:153
-#| msgid "Jul"
 msgid "July"
 msgstr "ஜூலை"
 
 #: js/messages.php:154
-#| msgid "Aug"
 msgid "August"
 msgstr "ஆகஸ்ட்"
 
@@ -1386,43 +1376,36 @@ msgstr "சனி"
 
 #. l10n: Minimal week day name
 #: js/messages.php:213
-#| msgid "Sun"
 msgid "Su"
 msgstr "ஞாயி"
 
 #. l10n: Minimal week day name
 #: js/messages.php:215
-#| msgid "Mon"
 msgid "Mo"
 msgstr "திங்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:217
-#| msgid "Tue"
 msgid "Tu"
 msgstr "செவ்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:219
-#| msgid "Wed"
 msgid "We"
 msgstr "புத"
 
 #. l10n: Minimal week day name
 #: js/messages.php:221
-#| msgid "Thu"
 msgid "Th"
 msgstr "வியா"
 
 #. l10n: Minimal week day name
 #: js/messages.php:223
-#| msgid "Fri"
 msgid "Fr"
 msgstr "வெள்"
 
 #. l10n: Minimal week day name
 #: js/messages.php:225
-#| msgid "Sat"
 msgid "Sa"
 msgstr "சனி"
 

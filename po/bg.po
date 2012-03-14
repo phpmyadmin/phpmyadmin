@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-13 16:38+0100\n"
+"POT-Creation-Date: 2012-03-14 14:14+0100\n"
 "PO-Revision-Date: 2012-01-07 17:19+0200\n"
 "Last-Translator: stoyan <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -5189,7 +5189,6 @@ msgstr "Показване коментари"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#| msgid "Available MIME types"
 msgid "Display MIME types"
 msgstr "Показване MIME типове"
 
@@ -5748,7 +5747,6 @@ msgid "Reload navigation frame"
 msgstr ""
 
 #: libraries/plugin_interface.lib.php:336
-#| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Този формат няма опции"
 
@@ -5981,7 +5979,6 @@ msgid "Page name"
 msgstr "Име на страница"
 
 #: libraries/schema/User_Schema.class.php:103
-#| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Автоматично оформление базирано на"
 
@@ -5998,7 +5995,6 @@ msgid "Please choose a page to edit"
 msgstr "Моля изберете страница за редактиране"
 
 #: libraries/schema/User_Schema.class.php:153
-#| msgid "Select Tables"
 msgid "Select page"
 msgstr "Избор на страница"
 
@@ -6007,7 +6003,6 @@ msgid "Select Tables"
 msgstr "Избери таблици"
 
 #: libraries/schema/User_Schema.class.php:347
-#| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Показване схема на релациите"
 
@@ -6044,7 +6039,6 @@ msgid "Portrait"
 msgstr "Портретно"
 
 #: libraries/schema/User_Schema.class.php:395
-#| msgid "Creation"
 msgid "Orientation"
 msgstr "Посока"
 
@@ -6076,7 +6070,6 @@ msgid "Unknown language: %1$s."
 msgstr "Непознат език: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#| msgid "Server"
 msgid "Current Server"
 msgstr "Текущ сървър"
 
@@ -6108,7 +6101,6 @@ msgid "Synchronize"
 msgstr "Синхронизиране"
 
 #: libraries/server_links.inc.php:99
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "Настройки"
 
@@ -6150,7 +6142,6 @@ msgid "Clear"
 msgstr "Изчистване"
 
 #: libraries/sql_query_form.lib.php:301
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Колони"
 
@@ -6341,7 +6332,6 @@ msgid "Get more editing space"
 msgstr "Още място за редакция"
 
 #: libraries/tbl_properties.inc.php:396
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Няма"
@@ -6514,12 +6504,10 @@ msgstr ""
 "изведени залепени от края в слъчай на скъсяване (По подразбиране: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#| msgid "General relation features"
 msgid "Manage your settings"
 msgstr "Управление мои настройки"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "Конфигурацията е записана"
 
@@ -6554,7 +6542,6 @@ msgid "Error in ZIP archive:"
 msgstr "Грешка в ZIP архива:"
 
 #: main.php:65
-#| msgid "General relation features"
 msgid "General Settings"
 msgstr "Общи настройки"
 
@@ -6567,7 +6554,6 @@ msgid "Appearance Settings"
 msgstr "Визуални настройки"
 
 #: main.php:147 prefs_manage.php:274
-#| msgid "General relation features"
 msgid "More settings"
 msgstr "Още"
 
@@ -6610,7 +6596,6 @@ msgid "Official Homepage"
 msgstr "Официалната страница на phpMyAdmin"
 
 #: main.php:219
-#| msgid "Attributes"
 msgid "Contribute"
 msgstr "Принос"
 
@@ -6619,7 +6604,6 @@ msgid "Get support"
 msgstr "Получаване на помощ"
 
 #: main.php:221
-#| msgid "No change"
 msgid "List of changes"
 msgstr "Списък с промени"
 
@@ -6781,7 +6765,6 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
 #: pmd_general.php:120
-#| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Построяване на заявка"
 
@@ -6811,23 +6794,19 @@ msgstr "Оператор на отношение"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#| msgid "Export"
 msgid "Except"
 msgstr "Освен"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#| msgid "in query"
 msgid "subquery"
 msgstr "подзаявка"
 
 #: pmd_general.php:480 pmd_general.php:576
-#| msgid "Rename view to"
 msgid "Rename to"
 msgstr "Преименуване на"
 
 #: pmd_general.php:482 pmd_general.php:581
-#| msgid "User name"
 msgid "New name"
 msgstr "Ново име"
 
@@ -6844,7 +6823,6 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: pmd_general.php:810
-#| msgid "Table options"
 msgid "Active options"
 msgstr "Активни опции"
 
@@ -6872,17 +6850,14 @@ msgid "Page"
 msgstr "Страница"
 
 #: pmd_pdf.php:99
-#| msgid "Import files"
 msgid "Import from selected page"
 msgstr "Импорт от избрания файл"
 
 #: pmd_pdf.php:100
-#| msgid "No rows selected"
 msgid "Export to selected page"
 msgstr "Експорт към избраната страница"
 
 #: pmd_pdf.php:102
-#| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "създаване на страница и експорт към нея"
 
@@ -6947,7 +6922,6 @@ msgid "Saved on: @DATE@"
 msgstr "Записан на: @DATE@"
 
 #: prefs_manage.php:239
-#| msgid "Import files"
 msgid "Import from file"
 msgstr "Импорт от файл"
 
@@ -8522,7 +8496,6 @@ msgid "Enter manually"
 msgstr "Ръчно въвеждане"
 
 #: server_synchronize.php:1139
-#| msgid "max. concurrent connections"
 msgid "Current connection"
 msgstr "Текуща връзка"
 
@@ -8839,7 +8812,6 @@ msgid "Showing SQL query"
 msgstr ""
 
 #: sql.php:624
-#| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Валидиран SQL"
 
@@ -8924,7 +8896,6 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Диаграмата е създадена."
 
@@ -9240,7 +9211,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:395
-#| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Вътрешна релация"
 
@@ -9305,7 +9275,6 @@ msgstr "Няма"
 
 #: tbl_structure.php:402
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Колоната %s беше изтрита"
 
@@ -9321,7 +9290,6 @@ msgid "An index has been added on %s"
 msgstr "Беше добавен индекс на %s"
 
 #: tbl_structure.php:475
-#| msgid "Show versions"
 msgid "Show more actions"
 msgstr "Показване повече действия"
 
@@ -9352,7 +9320,6 @@ msgstr "След %s"
 
 #: tbl_structure.php:693
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Създаване на индекс върху &nbsp;%s&nbsp;колони"
 
