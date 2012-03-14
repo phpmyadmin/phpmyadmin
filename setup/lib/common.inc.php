@@ -3,7 +3,7 @@
 /**
  * Loads libraries/common.inc.php and preforms some additional actions
  *
- * @package PhpMyAdmin-setup
+ * @package PhpMyAdmin-Setup
  */
 
 /**

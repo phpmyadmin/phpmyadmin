@@ -10,7 +10,7 @@
  * Base class for forms, loads default configuration options, checks allowed
  * values etc.
  *
- * @package    phpMyAdmin
+ * @package PhpMyAdmin
  */
 class Form
 {

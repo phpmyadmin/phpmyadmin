@@ -2,8 +2,8 @@
 /**
  * Front controller for setup script
  *
- * @package    phpMyAdmin-setup
- * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
+ * @package PhpMyAdmin-Setup
+ * @license http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
  */
 
 /**

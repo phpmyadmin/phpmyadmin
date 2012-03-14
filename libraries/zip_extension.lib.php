@@ -3,7 +3,7 @@
 
 /**
  * Interface for the zip extension
- * @package    phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /**
