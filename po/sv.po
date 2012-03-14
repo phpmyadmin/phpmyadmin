@@ -2008,7 +2008,7 @@ msgstr "GB"
 
 #: libraries/common.lib.php:1392
 msgid "TiB"
-msgstr "TiB"
+msgstr "TB"
 
 #: libraries/common.lib.php:1392
 msgid "PiB"
