@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 17:28+0200\n"
+"PO-Revision-Date: 2012-03-14 17:29+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8038,10 +8038,10 @@ msgid "Table seems to be empty!"
 msgstr "La table semble vide !"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Le suivi de %s.%s est activé."
+msgstr "Le suivi de %s est activé."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
