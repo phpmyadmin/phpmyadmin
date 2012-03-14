@@ -584,7 +584,7 @@ msgstr "E diabarzh an taolennoù"
 
 #: db_search.php:351
 msgid "Inside column:"
-msgstr "Er bann : "
+msgstr "Er bann :"
 
 #: db_structure.php:59
 msgid "No tables found in database"
