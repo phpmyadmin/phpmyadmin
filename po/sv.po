@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-14 20:07+0200\n"
+"PO-Revision-Date: 2012-03-14 20:08+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -579,7 +579,7 @@ msgstr "Inuti kolumnen:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
-msgstr "Inga tabeller finns i databasen."
+msgstr "Det finns inga tabeller i databasen"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
