@@ -12043,7 +12043,7 @@ msgstr "Maximum aantal af te drukken regels"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Doorzoek/bewerk de punten"
 
 #: tbl_zoom_select.php:417
 #| msgid "Control user"
