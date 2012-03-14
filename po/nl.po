@@ -11471,10 +11471,9 @@ msgid "Y-Axis label:"
 msgstr "Y-as label:"
 
 #: tbl_chart.php:143
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Waarde"
+msgstr "Y-waarden"
 
 #: tbl_create.php:31
 #, php-format
