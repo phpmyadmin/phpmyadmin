@@ -5378,7 +5378,7 @@ msgstr "Band sahifalar"
 
 #: libraries/engines/innodb.lib.php:213
 msgid "Latched pages"
-msgstr "Blokirovka qilingan sahifalar soni: "
+msgstr "Blokirovka qilingan sahifalar soni"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Buffer Pool Activity"
