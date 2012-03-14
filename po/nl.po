@@ -11300,10 +11300,9 @@ msgstr ""
 "Sleutel hoort letters, cijfers [em]en[/em] speciale tekens te bevatten."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "Geen gegevens"
+msgstr "Verkeerde gegevens"
 
 #: sql.php:109 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
