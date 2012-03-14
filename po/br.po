@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 16:15+0100\n"
-"PO-Revision-Date: 2012-03-14 16:32+0200\n"
+"PO-Revision-Date: 2012-03-14 16:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -7206,7 +7206,7 @@ msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Kemmet eo bet an argerzh %1s."
+msgstr "Kemmet eo bet an argerzh %1$s."
 
 #: libraries/rte/rte_routines.lib.php:284
 #, php-format
