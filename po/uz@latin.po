@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:47+0100\n"
-"PO-Revision-Date: 2012-03-14 14:55+0200\n"
+"PO-Revision-Date: 2012-03-14 14:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
 "Language: uz@latin\n"
@@ -12304,7 +12304,7 @@ msgstr "(\"PRIMARY\" nomi <b>faqat</b> birlamchi indeksgaega bo‘lishi shart!)"
 
 #: tbl_indexes.php:199
 msgid "Index type:"
-msgstr "Indeks turi: "
+msgstr "Indeks turi:"
 
 #: tbl_indexes.php:285
 #, php-format
