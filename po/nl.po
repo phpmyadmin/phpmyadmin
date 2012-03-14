@@ -10626,10 +10626,9 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1690
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "Een server toevoegen"
+msgstr "Deze serie toevoegen"
 
 #: server_status.php:1692
 msgid "Clear series"
