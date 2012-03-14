@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:03+0200\n"
+"PO-Revision-Date: 2012-03-14 20:04+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7344,7 +7344,7 @@ msgstr "ON"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr "Status för händelsehanteraren "
+msgstr "Status för händelsehanteraren"
 
 #: libraries/rte/rte_list.lib.php:54
 msgid "Returns"
