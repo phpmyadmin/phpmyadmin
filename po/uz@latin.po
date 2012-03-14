@@ -836,7 +836,7 @@ msgstr "Belgilangan eksport turi faylga saqlanishi shart!"
 #: export.php:164 export.php:189 export.php:670
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "\"%s\" faylini saqlash uchun diskda yetarli joy mavjud emas. "
+msgstr "\"%s\" faylini saqlash uchun diskda yetarli joy mavjud emas."
 
 #: export.php:305
 #, php-format
