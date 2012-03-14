@@ -10642,7 +10642,7 @@ msgstr "Deze serie toevoegen"
 
 #: server_status.php:1692
 msgid "Clear series"
-msgstr ""
+msgstr "Reeks leegmaken"
 
 #: server_status.php:1695
 msgid "Series in Chart:"
