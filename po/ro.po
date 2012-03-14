@@ -5964,7 +5964,7 @@ msgstr "Bază(e) de date:"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
-msgstr "Tabelă(e)"
+msgstr "Tabelă(e):"
 
 #: libraries/display_export.lib.php:144
 msgid "Rows:"
