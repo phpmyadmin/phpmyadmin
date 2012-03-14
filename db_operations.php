@@ -27,7 +27,18 @@ $GLOBALS['js_include'][] = 'db_operations.js';
  * Sets globals from $_REQUEST (we're using GET on ajax, POST otherwise)
  */
 $request_params = array(
-    'drop_if_exists'
+    'add_constraints',
+    'comment',
+    'create_database_before_copying',
+    'db_collation',
+    'db_copy',
+    'db_rename',
+    'drop_if_exists',
+    'newname',
+    'sql_auto_increment',
+    'submitcollation',
+    'switch_to_new',
+    'what'
 );
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
