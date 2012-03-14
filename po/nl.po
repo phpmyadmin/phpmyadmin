@@ -12147,6 +12147,8 @@ msgstr "Percentage trage queries"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Er is een groot aantal trage queries in vergelijking met het totaal aan "
+"queries."
 
 #: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
