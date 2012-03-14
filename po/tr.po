@@ -11718,10 +11718,10 @@ msgid "Deactivate now"
 msgstr "Hemen devre dışı bırak"
 
 #: tbl_tracking.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "%s.%s için izlemeyi aktif et"
+msgstr "%s için izlemeyi aktif et"
 
 #: tbl_tracking.php:729
 msgid "Activate now"
