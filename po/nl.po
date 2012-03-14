@@ -10919,9 +10919,8 @@ msgid "Target database has been synchronized with source database"
 msgstr "De bestemmings database is gesynchronizeerd met de bron database"
 
 #: server_synchronize.php:1046
-#, fuzzy
 msgid "Executed queries"
-msgstr "SQL-queries"
+msgstr "Uitgevoerde SQL-queries"
 
 #: server_synchronize.php:1202
 msgid "Enter manually"
