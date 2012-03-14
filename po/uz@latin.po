@@ -893,7 +893,7 @@ msgstr "Indеks(lar)ni saqlash"
 #: export.php:166 export.php:191 export.php:652
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "\"%s\" faylini saqlash uchun diskda yetarli joy mavjud emas. "
+msgstr "\"%s\" faylini saqlash uchun diskda yetarli joy mavjud emas."
 
 #: export.php:307
 #, php-format
