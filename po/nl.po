@@ -12292,7 +12292,7 @@ msgstr ""
 #: po/advisory_rules.php:100
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Maximum groote query cache"
+msgstr "Maximum grootte query cache"
 
 #: po/advisory_rules.php:101
 msgid ""
