@@ -2678,7 +2678,7 @@ msgstr "Servijer :"
 
 #: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
-msgstr "Anv implijer : "
+msgstr "Anv implijer :"
 
 #: libraries/auth/cookie.auth.lib.php:220
 msgid "Password:"
