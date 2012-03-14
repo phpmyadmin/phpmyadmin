@@ -11505,10 +11505,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Sledování pro %1$s bylo vypnuto ve verzi %2$s."
 
 #: tbl_tracking.php:198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Je zapnuté sledování %s."
+msgstr "Sledování pro %1$s bylo zapnuto ve verzi %2$s."
 
 #: tbl_tracking.php:211
 msgid "SQL statements executed."
