@@ -2004,7 +2004,7 @@ msgstr "Mb"
 
 #: libraries/common.lib.php:1392
 msgid "GiB"
-msgstr "GiB"
+msgstr "GB"
 
 #: libraries/common.lib.php:1392
 msgid "TiB"
