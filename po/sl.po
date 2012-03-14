@@ -11686,10 +11686,10 @@ msgid "Show versions"
 msgstr "Prikaži različice"
 
 #: tbl_tracking.php:714
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "Dezaktiviraj sledenje za %s.%s"
+msgstr "Dezaktiviraj sledenje za %s"
 
 #: tbl_tracking.php:716
 msgid "Deactivate now"
