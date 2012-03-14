@@ -5402,7 +5402,7 @@ msgstr "Buferning tozalanishi kutilmoqda"
 
 #: libraries/engines/innodb.lib.php:252
 msgid "Read misses in %"
-msgstr "Buferni o‘qishda % qoldirishlar mavjud "
+msgstr "Buferni o‘qishda % qoldirishlar mavjud"
 
 #: libraries/engines/innodb.lib.php:260
 msgid "Write waits in %"
