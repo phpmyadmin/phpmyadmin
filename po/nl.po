@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 17:48+0200\n"
+"PO-Revision-Date: 2012-03-14 17:50+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -11855,10 +11855,11 @@ msgid "Create version"
 msgstr "Versie aanmaken"
 
 #: tbl_zoom_select.php:215
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
+msgstr ""
+"Voer een \"query als voorbeeld\" (wildcard: \"%\") uit op twee verschillende "
+"kolommen"
 
 #: tbl_zoom_select.php:225
 #, fuzzy
