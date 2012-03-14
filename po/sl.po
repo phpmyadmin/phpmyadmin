@@ -11574,10 +11574,10 @@ msgid "Tracking report for table `%s`"
 msgstr "Poročilo sledenja za tabelo `%s`"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Različica %s je ustvarjena, sledenje %s.%s je aktivirano."
+msgstr "Različica %1$s je ustvarjena, sledenje %2$s je aktivirano."
 
 #: tbl_tracking.php:186
 #, fuzzy, php-format
