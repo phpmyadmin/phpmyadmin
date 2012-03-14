@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 17:36+0200\n"
+"PO-Revision-Date: 2012-03-14 17:37+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10793,10 +10793,9 @@ msgid "Series in Chart:"
 msgstr "Series in Grafiek:"
 
 #: server_status.php:1708
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Toon statistieken"
+msgstr "Logstatistieken"
 
 #: server_status.php:1709
 msgid "Selected time range:"
