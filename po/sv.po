@@ -7805,7 +7805,7 @@ msgstr "Den här sidan innehåller inga tabeller!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "SCHEMA FEL:"
+msgstr "SCHEMA FEL: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
