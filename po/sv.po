@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:56+0200\n"
+"PO-Revision-Date: 2012-03-14 20:57+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1269,7 +1269,7 @@ msgstr "Mb"
 #: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1428
 #: server_status.php:1680
 msgid "KiB"
-msgstr "Kb"
+msgstr "kB"
 
 #: js/messages.php:103
 msgid "Average load"
