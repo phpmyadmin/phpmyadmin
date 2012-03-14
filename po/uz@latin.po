@@ -9445,7 +9445,7 @@ msgstr "Ulanishlar"
 
 #: server_status.php:567
 msgid "max. concurrent connections"
-msgstr "Maksimal ulanishlar soni "
+msgstr "Maksimal ulanishlar soni"
 
 #: server_status.php:574
 msgid "Failed attempts"
