@@ -8944,7 +8944,7 @@ msgid ""
 "author what %s does."
 msgstr ""
 "Hozirgi vatqda tavsif mavjud emas. <br /> Ishlatilayotgan \"%s\" o‘girishlar "
-"namoyishi funksiyalarining ishi yaqin orada tavsiflanadi. "
+"namoyishi funksiyalarining ishi yaqin orada tavsiflanadi."
 
 #: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
 #, fuzzy, php-format
