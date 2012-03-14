@@ -12355,12 +12355,10 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Tracking of %s.%s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
 #~ msgstr "Проследяването на %s.%s е активно."
 
 #, fuzzy
-#~| msgid "Tracking of %s.%s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "Проследяването на %s.%s е активно."
 
