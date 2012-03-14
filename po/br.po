@@ -2645,7 +2645,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:212
 msgid "Server:"
-msgstr "Servijer : "
+msgstr "Servijer :"
 
 #: libraries/auth/cookie.auth.lib.php:217
 msgid "Username:"
