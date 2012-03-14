@@ -1331,7 +1331,7 @@ msgstr "bytes"
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:124 libraries/common.lib.php:1432
 msgid "GiB"
-msgstr "GiB"
+msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:125 libraries/common.lib.php:1434
