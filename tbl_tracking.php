@@ -430,7 +430,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     $str4 = '<input type="text" name="users" value="' . htmlspecialchars($_REQUEST['users']) . '" />';
     $str5 = '<input type="submit" name="list_report" value="' . __('Go') . '" />';
 
-    printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
+    printf(__('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'), $str1, $str2, $str3, $str4, $str5);
 
     // Prepare delete link content here
     $drop_image_or_text = '';
@@ -558,7 +558,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     </form>
     <form method="post" action="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $_REQUEST['version'])); ?>">
     <?php
-    printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
+    printf(__('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'), $str1, $str2, $str3, $str4, $str5);
 
     $str_export1 =  '<select name="export_type">' .
                     '<option value="sqldumpfile">' . __('SQL dump (file download)') . '</option>' .
@@ -727,7 +727,7 @@ if ($last_version > 0) {
 <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset>
-    <legend><?php printf(__('Create version %s of %s.%s'), ($last_version + 1), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
+    <legend><?php printf(__('Create version %1$s of %2$s.%3$s'), ($last_version + 1), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
 
     <input type="hidden" name="version" value="<?php echo ($last_version + 1); ?>" />
 
