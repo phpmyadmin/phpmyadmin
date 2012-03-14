@@ -74,6 +74,7 @@ phpMyAdmin - ChangeLog
 - bug #3423717 [core] Improved detection of SSL connection
 + FULLTEXT support for InnoDB, starting with MySQL 5.6.4
 - bug #3497151 [interface] Duplicate inline query edit box
+- bug #3504567 [mime] Description of the transformation missing in the tooltip 
 
 3.4.11.0 (not yet released)
 - bug #3486970 [import] Exception on XML import
