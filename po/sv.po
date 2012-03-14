@@ -1494,7 +1494,7 @@ msgstr "Diagramtitel"
 #. l10n: As in differential values
 #: js/messages.php:166
 msgid "Differential"
-msgstr "Differential"
+msgstr "Differentiell"
 
 #: js/messages.php:167
 #, php-format
