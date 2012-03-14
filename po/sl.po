@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:10+0200\n"
+"PO-Revision-Date: 2012-03-14 20:11+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -11696,10 +11696,10 @@ msgid "Deactivate now"
 msgstr "Dezaktiviraj zdaj"
 
 #: tbl_tracking.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "Aktiviraj sledenje %s.%s"
+msgstr "Aktiviraj sledenje %s"
 
 #: tbl_tracking.php:729
 msgid "Activate now"
