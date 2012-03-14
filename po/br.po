@@ -516,8 +516,8 @@ msgstr "Disoc'hoù ar c'hlask evit \"<i>%s</i>\" %s :"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s glotadenn en daolenn <i>%s</i> "
-msgstr[1] "%s klotadenn en daolenn <i>%s</i> "
+msgstr[0] "%s glotadenn en daolenn <i>%s</i>"
+msgstr[1] "%s klotadenn en daolenn <i>%s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3159
 #: libraries/common.lib.php:3371 libraries/common.lib.php:3372
