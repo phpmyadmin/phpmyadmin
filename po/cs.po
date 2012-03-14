@@ -11627,10 +11627,10 @@ msgid "Activate now"
 msgstr "Zapnout teď"
 
 #: tbl_tracking.php:730
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Vytvořit verzi %s z %s.%s"
+msgstr "Vytvořit verzi %$1s z %2$s"
 
 #: tbl_tracking.php:734
 msgid "Track these data definition statements:"
