@@ -8042,7 +8042,7 @@ msgstr "Таблица - пуста!"
 #, fuzzy, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Слежение за %s.%s включено."
+msgstr "Слежение за %s включено."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
