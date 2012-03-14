@@ -11957,7 +11957,7 @@ msgstr ""
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr "De tijd dat het systeem onafgebroken actief is, is maar %s"
+msgstr "De bedrijfstijd is maar %s"
 
 #: po/advisory_rules.php:10
 msgid "Questions below 1,000"
