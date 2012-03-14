@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:07+0200\n"
+"PO-Revision-Date: 2012-03-14 20:08+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2510,10 +2510,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Napaka pri preimenovanju tabele %1$s v %2$s"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Tabela %s je preimenovana v %s"
+msgstr "Tabelo %1$s sem preimenoval v %2$s."
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
