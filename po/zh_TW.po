@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 16:42+0100\n"
+"POT-Creation-Date: 2012-03-14 17:21+0100\n"
 "PO-Revision-Date: 2011-06-19 09:59+0200\n"
 "Last-Translator: <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
@@ -49,14 +49,14 @@ msgstr "搜尋"
 #: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1402
+#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1402
 #: libraries/common.lib.php:2449 libraries/core.lib.php:505
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
-#: libraries/rte/rte_routines.lib.php:1449
+#: libraries/rte/rte_routines.lib.php:1455
 #: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
@@ -74,14 +74,14 @@ msgstr "搜尋"
 #: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
 #: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:260
-#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:431
-#: tbl_tracking.php:569 tbl_zoom_select.php:299 view_create.php:181
+#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:443
+#: tbl_tracking.php:581 tbl_zoom_select.php:310 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
 msgstr "執行"
 
 #: browse_foreigners.php:178 browse_foreigners.php:182
-#: libraries/Index.class.php:440 tbl_tracking.php:319
+#: libraries/Index.class.php:440 tbl_tracking.php:331
 msgid "Keyname"
 msgstr "鍵名"
 
@@ -125,8 +125,8 @@ msgstr "表註釋"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
 #: tbl_change.php:337 tbl_indexes.php:213 tbl_printview.php:136
-#: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
-#: tbl_zoom_select.php:419
+#: tbl_relation.php:395 tbl_tracking.php:269 tbl_tracking.php:335
+#: tbl_zoom_select.php:430
 msgid "Column"
 msgstr "欄位"
 
@@ -136,13 +136,13 @@ msgstr "欄位"
 #: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:836
 #: libraries/rte/rte_routines.lib.php:861
-#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_routines.lib.php:1373
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2313 tbl_change.php:316 tbl_change.php:349
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
+#: tbl_structure.php:767 tbl_tracking.php:270 tbl_tracking.php:332
 msgid "Type"
 msgstr "類型"
 
@@ -152,8 +152,8 @@ msgstr "類型"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:364
-#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:326 tbl_zoom_select.php:420
+#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:272
+#: tbl_tracking.php:338 tbl_zoom_select.php:431
 msgid "Null"
 msgstr "空"
 
@@ -163,7 +163,7 @@ msgstr "空"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
-#: tbl_structure.php:206 tbl_tracking.php:261
+#: tbl_structure.php:206 tbl_tracking.php:273
 msgid "Default"
 msgstr "預設"
 
@@ -198,8 +198,8 @@ msgstr "註釋"
 #: server_privileges.php:1786 server_privileges.php:1797
 #: server_privileges.php:2132 server_privileges.php:2137
 #: server_privileges.php:2430 sql.php:328 sql.php:392 tbl_printview.php:190
-#: tbl_structure.php:349 tbl_tracking.php:281 tbl_tracking.php:336
-#: tbl_tracking.php:341
+#: tbl_structure.php:349 tbl_tracking.php:293 tbl_tracking.php:348
+#: tbl_tracking.php:353
 msgid "No"
 msgstr "否"
 
@@ -221,7 +221,7 @@ msgstr "否"
 #: server_privileges.php:1797 server_privileges.php:2132
 #: server_privileges.php:2135 server_privileges.php:2430 sql.php:391
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
-#: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
+#: tbl_tracking.php:293 tbl_tracking.php:346 tbl_tracking.php:351
 msgid "Yes"
 msgstr "是"
 
@@ -277,15 +277,15 @@ msgstr "刪除資料庫 (DROP)"
 msgid "Copy database to"
 msgstr "複製資料庫到"
 
-#: db_operations.php:500 tbl_operations.php:554 tbl_tracking.php:424
+#: db_operations.php:500 tbl_operations.php:554 tbl_tracking.php:436
 msgid "Structure only"
 msgstr "僅結構"
 
-#: db_operations.php:501 tbl_operations.php:555 tbl_tracking.php:426
+#: db_operations.php:501 tbl_operations.php:555 tbl_tracking.php:438
 msgid "Structure and data"
 msgstr "結構和資料"
 
-#: db_operations.php:502 tbl_operations.php:556 tbl_tracking.php:425
+#: db_operations.php:502 tbl_operations.php:556 tbl_tracking.php:437
 msgid "Data only"
 msgstr "僅資料"
 
@@ -318,8 +318,8 @@ msgstr "切換到複製的資料庫"
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
-#: tbl_tracking.php:325
+#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:271
+#: tbl_tracking.php:337
 msgid "Collation"
 msgstr "排序規則"
 
@@ -341,7 +341,7 @@ msgstr "編輯或匯出關聯大綱"
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1907
 #: server_privileges.php:1965 server_privileges.php:2234
-#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
+#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:661
 msgid "Table"
 msgstr "表"
 
@@ -420,7 +420,7 @@ msgid "Descending"
 msgstr "遞減"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:427
-#: tbl_change.php:294 tbl_tracking.php:654
+#: tbl_change.php:294 tbl_tracking.php:666
 msgid "Show"
 msgstr "顯示"
 
@@ -477,7 +477,7 @@ msgstr "送出查詢"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
-#: libraries/auth/cookie.auth.lib.php:571 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:581 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "拒絕訪問"
@@ -530,7 +530,7 @@ msgstr "刪除 %s 資料表中符合的資料?"
 #: libraries/schema/User_Schema.class.php:338
 #: libraries/sql_query_form.lib.php:411 pmd_general.php:417
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
-#: tbl_tracking.php:441 tbl_tracking.php:462 tbl_tracking.php:519
+#: tbl_tracking.php:453 tbl_tracking.php:474 tbl_tracking.php:531
 msgid "Delete"
 msgstr "刪除"
 
@@ -723,7 +723,7 @@ msgstr "已追蹤的表"
 #: server_privileges.php:1902 server_privileges.php:1965
 #: server_privileges.php:2228 server_status.php:1239
 #: server_synchronize.php:1277 server_synchronize.php:1281
-#: tbl_tracking.php:648
+#: tbl_tracking.php:660
 msgid "Database"
 msgstr "資料庫"
 
@@ -731,17 +731,17 @@ msgstr "資料庫"
 msgid "Last version"
 msgstr "最新版本"
 
-#: db_tracking.php:88 tbl_tracking.php:651
+#: db_tracking.php:88 tbl_tracking.php:663
 msgid "Created"
 msgstr "建立"
 
-#: db_tracking.php:89 tbl_tracking.php:652
+#: db_tracking.php:89 tbl_tracking.php:664
 msgid "Updated"
 msgstr "更新"
 
 #: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1242 sql.php:932 tbl_tracking.php:653
+#: server_status.php:1242 sql.php:932 tbl_tracking.php:665
 msgid "Status"
 msgstr "狀態"
 
@@ -757,11 +757,11 @@ msgstr "動作"
 msgid "Delete tracking data for this table"
 msgstr "刪除追蹤資料"
 
-#: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
+#: db_tracking.php:120 tbl_tracking.php:617 tbl_tracking.php:675
 msgid "active"
 msgstr "啓用"
 
-#: db_tracking.php:122 tbl_tracking.php:607 tbl_tracking.php:665
+#: db_tracking.php:122 tbl_tracking.php:619 tbl_tracking.php:677
 msgid "not active"
 msgstr "停用"
 
@@ -769,11 +769,11 @@ msgstr "停用"
 msgid "Versions"
 msgstr "版本"
 
-#: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
+#: db_tracking.php:136 tbl_tracking.php:427 tbl_tracking.php:695
 msgid "Tracking report"
 msgstr "追蹤報告"
 
-#: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
+#: db_tracking.php:137 tbl_tracking.php:247 tbl_tracking.php:697
 msgid "Structure snapshot"
 msgstr "結構快照"
 
@@ -1038,7 +1038,7 @@ msgstr ""
 "將無法完成匯入操作"
 
 #: import.php:496 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1205
+#: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1209
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1147,8 +1147,8 @@ msgstr "重新載入權限"
 msgid "Removing Selected Users"
 msgstr "正在刪除選中的使用者"
 
-#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:235
-#: tbl_tracking.php:415
+#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:247
+#: tbl_tracking.php:427
 msgid "Close"
 msgstr "關閉"
 
@@ -1429,7 +1429,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2118 server_status.php:1268 server_status.php:1697
-#: tbl_zoom_select.php:220 tbl_zoom_select.php:264
+#: tbl_zoom_select.php:231 tbl_zoom_select.php:275
 msgid "None"
 msgstr "無"
 
@@ -2447,27 +2447,27 @@ msgid "No index defined!"
 msgstr "沒有已定義的索引！"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:693 tbl_tracking.php:315
+#: tbl_structure.php:693 tbl_tracking.php:327
 msgid "Indexes"
 msgstr "索引"
 
 #: libraries/Index.class.php:442 libraries/tbl_properties.inc.php:472
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
-#: tbl_tracking.php:321
+#: tbl_tracking.php:333
 msgid "Unique"
 msgstr "唯一"
 
-#: libraries/Index.class.php:443 tbl_tracking.php:322
+#: libraries/Index.class.php:443 tbl_tracking.php:334
 msgid "Packed"
 msgstr "緊湊"
 
-#: libraries/Index.class.php:445 tbl_tracking.php:324
+#: libraries/Index.class.php:445 tbl_tracking.php:336
 msgid "Cardinality"
 msgstr "基數"
 
 #: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
-#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
-#: tbl_tracking.php:327
+#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:275
+#: tbl_tracking.php:339
 msgid "Comment"
 msgstr "註解"
 
@@ -2636,7 +2636,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "無法連線: 設定錯誤."
 
 #: libraries/auth/config.auth.lib.php:86
-#: libraries/auth/cookie.auth.lib.php:173 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "歡迎使用 %s"
@@ -2663,57 +2663,57 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:198
+#: libraries/auth/cookie.auth.lib.php:200
 msgid "Log in"
 msgstr "登錄"
 
-#: libraries/auth/cookie.auth.lib.php:200
 #: libraries/auth/cookie.auth.lib.php:202
+#: libraries/auth/cookie.auth.lib.php:204
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 檔案"
 
-#: libraries/auth/cookie.auth.lib.php:212
-#: libraries/auth/cookie.auth.lib.php:213
+#: libraries/auth/cookie.auth.lib.php:214
+#: libraries/auth/cookie.auth.lib.php:215
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "您可以輸入以空格分隔的主機名/IP網址和連結埠"
 
-#: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:214
 msgid "Server:"
 msgstr "伺服器："
 
-#: libraries/auth/cookie.auth.lib.php:217
+#: libraries/auth/cookie.auth.lib.php:219
 msgid "Username:"
 msgstr "使用者名稱"
 
-#: libraries/auth/cookie.auth.lib.php:221
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "Password:"
 msgstr "密碼："
 
-#: libraries/auth/cookie.auth.lib.php:228
+#: libraries/auth/cookie.auth.lib.php:230
 msgid "Server Choice"
 msgstr "選擇伺服器"
 
-#: libraries/auth/cookie.auth.lib.php:274 libraries/header.inc.php:87
+#: libraries/auth/cookie.auth.lib.php:276 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
 msgstr "必須啟用 Cookies 才能登入。"
 
-#: libraries/auth/cookie.auth.lib.php:569
+#: libraries/auth/cookie.auth.lib.php:579
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "空密碼登錄被禁止 (參見 允許空密碼)"
 
-#: libraries/auth/cookie.auth.lib.php:573
+#: libraries/auth/cookie.auth.lib.php:583
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "登錄超時 (%s 秒未操作)，請重新登錄"
 
-#: libraries/auth/cookie.auth.lib.php:583
-#: libraries/auth/cookie.auth.lib.php:585
+#: libraries/auth/cookie.auth.lib.php:593
+#: libraries/auth/cookie.auth.lib.php:595
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "無法登錄 MySQL 伺服器"
@@ -2895,7 +2895,7 @@ msgstr "SQL 查詢"
 #: libraries/rte/rte_routines.lib.php:258
 #: libraries/rte/rte_routines.lib.php:268
 #: libraries/rte/rte_routines.lib.php:282
-#: libraries/rte/rte_routines.lib.php:1255
+#: libraries/rte/rte_routines.lib.php:1260
 #: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
@@ -3029,9 +3029,9 @@ msgstr "點擊選取"
 #: libraries/config/user_preferences.forms.php:231
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
-#: libraries/import.lib.php:1131 libraries/tbl_links.inc.php:61
+#: libraries/import.lib.php:1134 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:591 pmd_general.php:140
-#: server_privileges.php:633 server_replication.php:343 tbl_tracking.php:253
+#: server_privileges.php:633 server_replication.php:343 tbl_tracking.php:265
 msgid "Structure"
 msgstr "結構"
 
@@ -5153,8 +5153,8 @@ msgid ""
 "kbd])"
 msgstr "如果您有自己的帳號，請在這裏輸入 (預設爲 [kbd]anonymous (匿名)[/kbd])"
 
-#: libraries/config/messages.inc.php:494 tbl_tracking.php:460
-#: tbl_tracking.php:517
+#: libraries/config/messages.inc.php:494 tbl_tracking.php:472
+#: tbl_tracking.php:529
 msgid "Username"
 msgstr "使用者名"
 
@@ -5536,7 +5536,7 @@ msgstr "建立資料表"
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
 #: libraries/rte/rte_routines.lib.php:860
-#: libraries/rte/rte_routines.lib.php:1366 libraries/tbl_properties.inc.php:92
+#: libraries/rte/rte_routines.lib.php:1372 libraries/tbl_properties.inc.php:92
 #: setup/frames/index.inc.php:127 tbl_structure.php:201
 msgid "Name"
 msgstr "名字"
@@ -5838,7 +5838,7 @@ msgstr "主鍵排序"
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
-#: libraries/import.lib.php:1110 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1111 libraries/import.lib.php:1134
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
@@ -6572,7 +6572,7 @@ msgstr "SQL 查詢結果"
 msgid "Generated by"
 msgstr "產生者"
 
-#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
+#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1253
 #: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查詢結果爲空 (即零行)"
@@ -6599,31 +6599,31 @@ msgstr "點選相應的“選項”連結修改它的設定"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "點選“結構”連結編輯它的結構"
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1113
 #, fuzzy, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
 msgstr "轉到資料庫"
 
-#: libraries/import.lib.php:1115 libraries/import.lib.php:1138
+#: libraries/import.lib.php:1116 libraries/import.lib.php:1141
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "在 %s 中丟失資料"
 
-#: libraries/import.lib.php:1133
+#: libraries/import.lib.php:1136
 #, fuzzy, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "轉到資料表"
 
-#: libraries/import.lib.php:1136
+#: libraries/import.lib.php:1139
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "僅結構"
 
-#: libraries/import.lib.php:1142
+#: libraries/import.lib.php:1146
 #, fuzzy, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
@@ -7119,10 +7119,10 @@ msgid "Variable"
 msgstr "變數"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
+#: libraries/rte/rte_routines.lib.php:1377 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1476 tbl_change.php:365
-#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:421
+#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:432
 msgid "Value"
 msgstr "值"
 
@@ -7181,7 +7181,7 @@ msgstr "產生密碼"
 #: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:252
 #: libraries/rte/rte_routines.lib.php:257
 #: libraries/rte/rte_routines.lib.php:281
-#: libraries/rte/rte_routines.lib.php:1254
+#: libraries/rte/rte_routines.lib.php:1259
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
 #, fuzzy, php-format
@@ -7222,8 +7222,8 @@ msgid "Edit event"
 msgstr "編輯伺服器"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
-#: libraries/rte/rte_routines.lib.php:1276
-#: libraries/rte/rte_routines.lib.php:1312
+#: libraries/rte/rte_routines.lib.php:1282
+#: libraries/rte/rte_routines.lib.php:1318
 #: libraries/rte/rte_triggers.lib.php:187
 #, fuzzy
 #| msgid "Error in Processing Request"
@@ -7449,50 +7449,50 @@ msgstr ""
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1048
-#: libraries/rte/rte_routines.lib.php:1086
+#: libraries/rte/rte_routines.lib.php:1050
+#: libraries/rte/rte_routines.lib.php:1090
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1066
+#: libraries/rte/rte_routines.lib.php:1068
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1076
+#: libraries/rte/rte_routines.lib.php:1078
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1120
+#: libraries/rte/rte_routines.lib.php:1124
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1210
+#: libraries/rte/rte_routines.lib.php:1214
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 
-#: libraries/rte/rte_routines.lib.php:1226
+#: libraries/rte/rte_routines.lib.php:1230
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "允許運行 Procedure"
 
-#: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_routines.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1312
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1359
-#: libraries/rte/rte_routines.lib.php:1362
+#: libraries/rte/rte_routines.lib.php:1365
+#: libraries/rte/rte_routines.lib.php:1368
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
 msgstr "一般"
 
-#: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
+#: libraries/rte/rte_routines.lib.php:1375 libraries/tbl_select.lib.php:79
 #: tbl_change.php:305 tbl_change.php:361
 msgid "Function"
 msgstr "函數"
@@ -7713,7 +7713,7 @@ msgstr "屬性"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
 #: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
-#: tbl_tracking.php:262
+#: tbl_tracking.php:274
 msgid "Extra"
 msgstr "額外"
 
@@ -7938,7 +7938,7 @@ msgstr ""
 "您的 SQL 查詢可能有錯。如果可能的話，以下會列出 MySQL 伺服器的錯誤輸出，這可"
 "能對您解決問題有一定的幫助"
 
-#: libraries/sqlparser.lib.php:175
+#: libraries/sqlparser.lib.php:176
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -7957,35 +7957,35 @@ msgstr ""
 "面執行成功而解析器出錯，請將您的 SQL 查詢縮減到導致問題的某一條指令，然後和下"
 "面剪切區中的資料一起送出一個缺陷 (bug) 報告："
 
-#: libraries/sqlparser.lib.php:177
+#: libraries/sqlparser.lib.php:178
 msgid "BEGIN CUT"
 msgstr "開始剪切"
 
-#: libraries/sqlparser.lib.php:179
+#: libraries/sqlparser.lib.php:180
 msgid "END CUT"
 msgstr "結束剪切"
 
-#: libraries/sqlparser.lib.php:181
+#: libraries/sqlparser.lib.php:182
 msgid "BEGIN RAW"
 msgstr "開始原文"
 
-#: libraries/sqlparser.lib.php:185
+#: libraries/sqlparser.lib.php:186
 msgid "END RAW"
 msgstr "結束原文"
 
-#: libraries/sqlparser.lib.php:382
+#: libraries/sqlparser.lib.php:383
 msgid "Automatically appended backtick to the end of query!"
 msgstr "自動在查詢結尾閉合了引號！"
 
-#: libraries/sqlparser.lib.php:385
+#: libraries/sqlparser.lib.php:386
 msgid "Unclosed quote"
 msgstr "引號不配對"
 
-#: libraries/sqlparser.lib.php:537
+#: libraries/sqlparser.lib.php:538
 msgid "Invalid Identifer"
 msgstr "無效的識別符號"
 
-#: libraries/sqlparser.lib.php:653
+#: libraries/sqlparser.lib.php:654
 msgid "Unknown Punctuation String"
 msgstr "未知的標點符號字元串"
 
@@ -8821,7 +8821,7 @@ msgstr ""
 msgid "Library"
 msgstr ""
 
-#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
+#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:662
 msgid "Version"
 msgstr "版本"
 
@@ -10933,7 +10933,7 @@ msgid "Wrong data"
 msgstr "沒有資料庫"
 
 #: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
-#: tbl_zoom_select.php:127
+#: tbl_zoom_select.php:138
 msgid "Browse foreign values"
 msgstr "瀏覽不相關的值"
 
@@ -11433,7 +11433,7 @@ msgstr "新增索引"
 msgid "Add FULLTEXT index"
 msgstr "新增全文索引"
 
-#: tbl_structure.php:359 tbl_tracking.php:295
+#: tbl_structure.php:359 tbl_tracking.php:307
 msgctxt "None for default"
 msgid "None"
 msgstr "無"
@@ -11504,189 +11504,189 @@ msgstr "已分區"
 msgid "Tracking report for table `%s`"
 msgstr "`%s` 的追蹤報告"
 
-#: tbl_tracking.php:173
+#: tbl_tracking.php:174
 #, fuzzy, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
-msgid "Version %1$s is created, tracking for %2$s is activated."
+msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "已建立版本 %s，%s.%s 的追蹤已啓用"
 
-#: tbl_tracking.php:181
+#: tbl_tracking.php:186
 #, fuzzy, php-format
-#| msgid "Tracking for %s.%s , version %s is deactivated."
-msgid "Tracking for %1$s, version %2$s is deactivated."
-msgstr "%s.%s 的追蹤，版本 %s 已停用"
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking for %1$s was deactivated at version %2$s."
+msgstr "%s.%s 的追蹤已啓用"
 
-#: tbl_tracking.php:189
+#: tbl_tracking.php:198
 #, fuzzy, php-format
-#| msgid "Tracking for %s.%s , version %s is activated."
-msgid "Tracking for %1$s, version %2$s is activated."
-msgstr "%s.%s 的追蹤，版本 %s 已啓用"
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking for %1$s was activated at version %2$s."
+msgstr "%s.%s 的追蹤已啓用"
 
-#: tbl_tracking.php:199
+#: tbl_tracking.php:211
 msgid "SQL statements executed."
 msgstr "SQL 指令已執行"
 
-#: tbl_tracking.php:205
+#: tbl_tracking.php:217
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr "您可以透過建立一個臨時資料庫來執行這個匯出。請確保您有足夠的權限"
 
-#: tbl_tracking.php:206
+#: tbl_tracking.php:218
 msgid "Comment out these two lines if you do not need them."
 msgstr "如果您不需要，請註釋以下兩行"
 
-#: tbl_tracking.php:215
+#: tbl_tracking.php:227
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL 指令已匯出。請複製儲存或運行它"
 
-#: tbl_tracking.php:246
+#: tbl_tracking.php:258
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "版本 %s 的快照 (SQL 程式碼)"
 
-#: tbl_tracking.php:388
+#: tbl_tracking.php:400
 #, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
 msgstr "追蹤這些資料定義的語句:"
 
-#: tbl_tracking.php:390 tbl_tracking.php:407
+#: tbl_tracking.php:402 tbl_tracking.php:419
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
 msgstr "查詢方式"
 
-#: tbl_tracking.php:405
+#: tbl_tracking.php:417
 #, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
 msgstr "追蹤這些資料模擬的語句:"
 
-#: tbl_tracking.php:417
+#: tbl_tracking.php:429
 msgid "Tracking statements"
 msgstr "追蹤指令"
 
-#: tbl_tracking.php:433 tbl_tracking.php:561
+#: tbl_tracking.php:445 tbl_tracking.php:573
 #, fuzzy, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "顯示自 %2$s 起至 %3$s 使用者 %4$s 執行的 %1$s %5$s"
 
-#: tbl_tracking.php:438
+#: tbl_tracking.php:450
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
 msgstr "刪除此資料表的追蹤資料"
 
-#: tbl_tracking.php:449
+#: tbl_tracking.php:461
 #, fuzzy
 #| msgid "No databases"
 msgid "No data"
 msgstr "沒有資料庫"
 
-#: tbl_tracking.php:459 tbl_tracking.php:516
+#: tbl_tracking.php:471 tbl_tracking.php:528
 msgid "Date"
 msgstr "日期"
 
-#: tbl_tracking.php:461
+#: tbl_tracking.php:473
 msgid "Data definition statement"
 msgstr "資料定義指令"
 
-#: tbl_tracking.php:518
+#: tbl_tracking.php:530
 msgid "Data manipulation statement"
 msgstr "資料操作指令"
 
-#: tbl_tracking.php:564
+#: tbl_tracking.php:576
 msgid "SQL dump (file download)"
 msgstr "SQL 匯出 (檔案下載)"
 
-#: tbl_tracking.php:565
+#: tbl_tracking.php:577
 msgid "SQL dump"
 msgstr "SQL 匯出"
 
-#: tbl_tracking.php:566
+#: tbl_tracking.php:578
 msgid "This option will replace your table and contained data."
 msgstr "該選項將導致目前表的結構和資料被替換"
 
-#: tbl_tracking.php:566
+#: tbl_tracking.php:578
 msgid "SQL execution"
 msgstr "執行 SQL 指令"
 
-#: tbl_tracking.php:578
+#: tbl_tracking.php:590
 #, php-format
 msgid "Export as %s"
 msgstr "匯出爲 %s"
 
-#: tbl_tracking.php:618
+#: tbl_tracking.php:630
 msgid "Show versions"
 msgstr "查看版本"
 
-#: tbl_tracking.php:702
+#: tbl_tracking.php:714
 #, fuzzy, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
 msgstr "停用 %s.%s 的追蹤"
 
-#: tbl_tracking.php:704
+#: tbl_tracking.php:716
 msgid "Deactivate now"
 msgstr "立即停用"
 
-#: tbl_tracking.php:715
+#: tbl_tracking.php:727
 #, fuzzy, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
 msgstr "啓用 %s.%s 的追蹤"
 
-#: tbl_tracking.php:717
+#: tbl_tracking.php:729
 msgid "Activate now"
 msgstr "立即啓用"
 
-#: tbl_tracking.php:730
+#: tbl_tracking.php:742
 #, fuzzy, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
 msgstr "爲 %2$s.%3$s 建立版本 %1$s"
 
-#: tbl_tracking.php:734
+#: tbl_tracking.php:746
 msgid "Track these data definition statements:"
 msgstr "追蹤下列資料定義指令:"
 
-#: tbl_tracking.php:742
+#: tbl_tracking.php:754
 msgid "Track these data manipulation statements:"
 msgstr "追蹤下列資料操作指令:"
 
-#: tbl_tracking.php:750
+#: tbl_tracking.php:762
 msgid "Create version"
 msgstr "建立版本"
 
-#: tbl_zoom_select.php:204
+#: tbl_zoom_select.php:215
 #, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "執行“依例查詢”(萬用字元：“%”)"
 
-#: tbl_zoom_select.php:214
+#: tbl_zoom_select.php:225
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
 msgstr "隱藏搜尋條件"
 
-#: tbl_zoom_select.php:262
+#: tbl_zoom_select.php:273
 msgid "Use this column to label each point"
 msgstr ""
 
-#: tbl_zoom_select.php:282
+#: tbl_zoom_select.php:293
 #, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "顯示的最多行數"
 
-#: tbl_zoom_select.php:396
+#: tbl_zoom_select.php:407
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: tbl_zoom_select.php:403
+#: tbl_zoom_select.php:414
 #, fuzzy
 #| msgid "Control user"
 msgid "How to use"
@@ -12864,6 +12864,16 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Tracking for %s.%s , version %s is deactivated."
+#~ msgid "Tracking for %1$s, version %2$s is deactivated."
+#~ msgstr "%s.%s 的追蹤，版本 %s 已停用"
+
+#, fuzzy
+#~| msgid "Tracking for %s.%s , version %s is activated."
+#~ msgid "Tracking for %1$s, version %2$s is activated."
+#~ msgstr "%s.%s 的追蹤，版本 %s 已啓用"
 
 #, fuzzy
 #~ msgctxt "Correctly setup"

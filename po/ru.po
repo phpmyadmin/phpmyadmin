@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 16:42+0100\n"
+"POT-Creation-Date: 2012-03-14 17:21+0100\n"
 "PO-Revision-Date: 2012-03-09 19:40+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -51,14 +51,14 @@ msgstr "Поиск"
 #: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1402
+#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1402
 #: libraries/common.lib.php:2449 libraries/core.lib.php:505
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
-#: libraries/rte/rte_routines.lib.php:1449
+#: libraries/rte/rte_routines.lib.php:1455
 #: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
@@ -76,14 +76,14 @@ msgstr "Поиск"
 #: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
 #: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:260
-#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:431
-#: tbl_tracking.php:569 tbl_zoom_select.php:299 view_create.php:181
+#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:443
+#: tbl_tracking.php:581 tbl_zoom_select.php:310 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
 msgstr "OK"
 
 #: browse_foreigners.php:178 browse_foreigners.php:182
-#: libraries/Index.class.php:440 tbl_tracking.php:319
+#: libraries/Index.class.php:440 tbl_tracking.php:331
 msgid "Keyname"
 msgstr "Имя индекса"
 
@@ -129,8 +129,8 @@ msgstr "Комментарий к таблице"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
 #: tbl_change.php:337 tbl_indexes.php:213 tbl_printview.php:136
-#: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
-#: tbl_zoom_select.php:419
+#: tbl_relation.php:395 tbl_tracking.php:269 tbl_tracking.php:335
+#: tbl_zoom_select.php:430
 msgid "Column"
 msgstr "Поле"
 
@@ -140,13 +140,13 @@ msgstr "Поле"
 #: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:836
 #: libraries/rte/rte_routines.lib.php:861
-#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_routines.lib.php:1373
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2313 tbl_change.php:316 tbl_change.php:349
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
+#: tbl_structure.php:767 tbl_tracking.php:270 tbl_tracking.php:332
 msgid "Type"
 msgstr "Тип"
 
@@ -156,8 +156,8 @@ msgstr "Тип"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:364
-#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:326 tbl_zoom_select.php:420
+#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:272
+#: tbl_tracking.php:338 tbl_zoom_select.php:431
 msgid "Null"
 msgstr "Null"
 
@@ -167,7 +167,7 @@ msgstr "Null"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
-#: tbl_structure.php:206 tbl_tracking.php:261
+#: tbl_structure.php:206 tbl_tracking.php:273
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -202,8 +202,8 @@ msgstr "Комментарии"
 #: server_privileges.php:1786 server_privileges.php:1797
 #: server_privileges.php:2132 server_privileges.php:2137
 #: server_privileges.php:2430 sql.php:328 sql.php:392 tbl_printview.php:190
-#: tbl_structure.php:349 tbl_tracking.php:281 tbl_tracking.php:336
-#: tbl_tracking.php:341
+#: tbl_structure.php:349 tbl_tracking.php:293 tbl_tracking.php:348
+#: tbl_tracking.php:353
 msgid "No"
 msgstr "Нет"
 
@@ -225,7 +225,7 @@ msgstr "Нет"
 #: server_privileges.php:1797 server_privileges.php:2132
 #: server_privileges.php:2135 server_privileges.php:2430 sql.php:391
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
-#: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
+#: tbl_tracking.php:293 tbl_tracking.php:346 tbl_tracking.php:351
 msgid "Yes"
 msgstr "Да"
 
@@ -281,15 +281,15 @@ msgstr "Удалить базу данных (DROP)"
 msgid "Copy database to"
 msgstr "Скопировать базу данных в"
 
-#: db_operations.php:500 tbl_operations.php:554 tbl_tracking.php:424
+#: db_operations.php:500 tbl_operations.php:554 tbl_tracking.php:436
 msgid "Structure only"
 msgstr "Только структура"
 
-#: db_operations.php:501 tbl_operations.php:555 tbl_tracking.php:426
+#: db_operations.php:501 tbl_operations.php:555 tbl_tracking.php:438
 msgid "Structure and data"
 msgstr "Структура и данные"
 
-#: db_operations.php:502 tbl_operations.php:556 tbl_tracking.php:425
+#: db_operations.php:502 tbl_operations.php:556 tbl_tracking.php:437
 msgid "Data only"
 msgstr "Только данные"
 
@@ -322,8 +322,8 @@ msgstr "Переключиться на скопированную базу да
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
-#: tbl_tracking.php:325
+#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:271
+#: tbl_tracking.php:337
 msgid "Collation"
 msgstr "Сравнение"
 
@@ -347,7 +347,7 @@ msgstr "Редакция или экспорт схемы связей"
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1907
 #: server_privileges.php:1965 server_privileges.php:2234
-#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
+#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:661
 msgid "Table"
 msgstr "Таблица"
 
@@ -428,7 +428,7 @@ msgid "Descending"
 msgstr "По убыванию"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:427
-#: tbl_change.php:294 tbl_tracking.php:654
+#: tbl_change.php:294 tbl_tracking.php:666
 msgid "Show"
 msgstr "Показать"
 
@@ -485,7 +485,7 @@ msgstr "Выполнить запрос"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
-#: libraries/auth/cookie.auth.lib.php:571 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:581 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "В доступе отказано"
@@ -540,7 +540,7 @@ msgstr "Удалить соответствия для таблицы %s?"
 #: libraries/schema/User_Schema.class.php:338
 #: libraries/sql_query_form.lib.php:411 pmd_general.php:417
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
-#: tbl_tracking.php:441 tbl_tracking.php:462 tbl_tracking.php:519
+#: tbl_tracking.php:453 tbl_tracking.php:474 tbl_tracking.php:531
 msgid "Delete"
 msgstr "Удалить"
 
@@ -733,7 +733,7 @@ msgstr "Отслеживаемые таблицы"
 #: server_privileges.php:1902 server_privileges.php:1965
 #: server_privileges.php:2228 server_status.php:1239
 #: server_synchronize.php:1277 server_synchronize.php:1281
-#: tbl_tracking.php:648
+#: tbl_tracking.php:660
 msgid "Database"
 msgstr "База данных"
 
@@ -741,17 +741,17 @@ msgstr "База данных"
 msgid "Last version"
 msgstr "Последняя версия"
 
-#: db_tracking.php:88 tbl_tracking.php:651
+#: db_tracking.php:88 tbl_tracking.php:663
 msgid "Created"
 msgstr "Создан"
 
-#: db_tracking.php:89 tbl_tracking.php:652
+#: db_tracking.php:89 tbl_tracking.php:664
 msgid "Updated"
 msgstr "Обновлён"
 
 #: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1242 sql.php:932 tbl_tracking.php:653
+#: server_status.php:1242 sql.php:932 tbl_tracking.php:665
 msgid "Status"
 msgstr "Состояние"
 
@@ -767,11 +767,11 @@ msgstr "Действие"
 msgid "Delete tracking data for this table"
 msgstr "Удалить данные слежения за таблицей"
 
-#: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
+#: db_tracking.php:120 tbl_tracking.php:617 tbl_tracking.php:675
 msgid "active"
 msgstr "включено"
 
-#: db_tracking.php:122 tbl_tracking.php:607 tbl_tracking.php:665
+#: db_tracking.php:122 tbl_tracking.php:619 tbl_tracking.php:677
 msgid "not active"
 msgstr "выключено"
 
@@ -779,11 +779,11 @@ msgstr "выключено"
 msgid "Versions"
 msgstr "Версии"
 
-#: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
+#: db_tracking.php:136 tbl_tracking.php:427 tbl_tracking.php:695
 msgid "Tracking report"
 msgstr "Отчёт слежения"
 
-#: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
+#: db_tracking.php:137 tbl_tracking.php:247 tbl_tracking.php:697
 msgid "Structure snapshot"
 msgstr "Обзор структуры"
 
@@ -1035,7 +1035,7 @@ msgstr ""
 "пока не будет увеличено ограничение времени выполнения php-сценариев."
 
 #: import.php:496 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1205
+#: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1209
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1139,8 +1139,8 @@ msgstr "Перезагрузка привилегий"
 msgid "Removing Selected Users"
 msgstr "Удаление выбранных пользователей"
 
-#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:235
-#: tbl_tracking.php:415
+#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:247
+#: tbl_tracking.php:427
 msgid "Close"
 msgstr "Закрыть"
 
@@ -1397,7 +1397,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2118 server_status.php:1268 server_status.php:1697
-#: tbl_zoom_select.php:220 tbl_zoom_select.php:264
+#: tbl_zoom_select.php:231 tbl_zoom_select.php:275
 msgid "None"
 msgstr "Нет"
 
@@ -2388,27 +2388,27 @@ msgid "No index defined!"
 msgstr "Индекс не определен!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:693 tbl_tracking.php:315
+#: tbl_structure.php:693 tbl_tracking.php:327
 msgid "Indexes"
 msgstr "Индексы"
 
 #: libraries/Index.class.php:442 libraries/tbl_properties.inc.php:472
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
-#: tbl_tracking.php:321
+#: tbl_tracking.php:333
 msgid "Unique"
 msgstr "Уникальный"
 
-#: libraries/Index.class.php:443 tbl_tracking.php:322
+#: libraries/Index.class.php:443 tbl_tracking.php:334
 msgid "Packed"
 msgstr "Упакован"
 
-#: libraries/Index.class.php:445 tbl_tracking.php:324
+#: libraries/Index.class.php:445 tbl_tracking.php:336
 msgid "Cardinality"
 msgstr "Уникальных элементов"
 
 #: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
-#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
-#: tbl_tracking.php:327
+#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:275
+#: tbl_tracking.php:339
 msgid "Comment"
 msgstr "Комментарий"
 
@@ -2585,7 +2585,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Соединение невозможно! Неверные настройки."
 
 #: libraries/auth/config.auth.lib.php:86
-#: libraries/auth/cookie.auth.lib.php:173 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Добро пожаловать в %s"
@@ -2615,58 +2615,58 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Невозможно использование Blowfish из mcrypt!"
 
-#: libraries/auth/cookie.auth.lib.php:198
+#: libraries/auth/cookie.auth.lib.php:200
 msgid "Log in"
 msgstr "Авторизация"
 
-#: libraries/auth/cookie.auth.lib.php:200
 #: libraries/auth/cookie.auth.lib.php:202
+#: libraries/auth/cookie.auth.lib.php:204
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "Документация phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:212
-#: libraries/auth/cookie.auth.lib.php:213
+#: libraries/auth/cookie.auth.lib.php:214
+#: libraries/auth/cookie.auth.lib.php:215
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Вы можете ввести хост/IP адрес и порт разделенные пробелом."
 
-#: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:214
 msgid "Server:"
 msgstr "Сервер:"
 
-#: libraries/auth/cookie.auth.lib.php:217
+#: libraries/auth/cookie.auth.lib.php:219
 msgid "Username:"
 msgstr "Пользователь:"
 
-#: libraries/auth/cookie.auth.lib.php:221
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "Password:"
 msgstr "Пароль:"
 
-#: libraries/auth/cookie.auth.lib.php:228
+#: libraries/auth/cookie.auth.lib.php:230
 msgid "Server Choice"
 msgstr "Выбор сервера"
 
-#: libraries/auth/cookie.auth.lib.php:274 libraries/header.inc.php:87
+#: libraries/auth/cookie.auth.lib.php:276 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
 msgstr "Для полноценной работы необходима поддержка cookies браузером."
 
-#: libraries/auth/cookie.auth.lib.php:569
+#: libraries/auth/cookie.auth.lib.php:579
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "Вход без пароля запрещен при конфигурации (смотрите AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:573
+#: libraries/auth/cookie.auth.lib.php:583
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "Отсутствие активности более %s секунд, пожалуйста, авторизуйтесь заново"
 
-#: libraries/auth/cookie.auth.lib.php:583
-#: libraries/auth/cookie.auth.lib.php:585
+#: libraries/auth/cookie.auth.lib.php:593
+#: libraries/auth/cookie.auth.lib.php:595
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Невозможно подключиться к серверу MySQL"
@@ -2853,7 +2853,7 @@ msgstr "SQL-запрос"
 #: libraries/rte/rte_routines.lib.php:258
 #: libraries/rte/rte_routines.lib.php:268
 #: libraries/rte/rte_routines.lib.php:282
-#: libraries/rte/rte_routines.lib.php:1255
+#: libraries/rte/rte_routines.lib.php:1260
 #: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
@@ -2975,9 +2975,9 @@ msgstr "Кликните для переключения"
 #: libraries/config/user_preferences.forms.php:231
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
-#: libraries/import.lib.php:1131 libraries/tbl_links.inc.php:61
+#: libraries/import.lib.php:1134 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:591 pmd_general.php:140
-#: server_privileges.php:633 server_replication.php:343 tbl_tracking.php:253
+#: server_privileges.php:633 server_replication.php:343 tbl_tracking.php:265
 msgid "Structure"
 msgstr "Структура"
 
@@ -5208,8 +5208,8 @@ msgstr ""
 "При наличии выделенного имени пользователя, пропишите его здесь (изначально "
 "используется [kbd]anonymous[/kbd])"
 
-#: libraries/config/messages.inc.php:494 tbl_tracking.php:460
-#: tbl_tracking.php:517
+#: libraries/config/messages.inc.php:494 tbl_tracking.php:472
+#: tbl_tracking.php:529
 msgid "Username"
 msgstr "Пользователь"
 
@@ -5604,7 +5604,7 @@ msgstr "Создать таблицу"
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
 #: libraries/rte/rte_routines.lib.php:860
-#: libraries/rte/rte_routines.lib.php:1366 libraries/tbl_properties.inc.php:92
+#: libraries/rte/rte_routines.lib.php:1372 libraries/tbl_properties.inc.php:92
 #: setup/frames/index.inc.php:127 tbl_structure.php:201
 msgid "Name"
 msgstr "Имя"
@@ -5908,7 +5908,7 @@ msgstr "Сортировать по индексу"
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
-#: libraries/import.lib.php:1110 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1111 libraries/import.lib.php:1134
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
@@ -6678,7 +6678,7 @@ msgstr "Результат SQL-запроса"
 msgid "Generated by"
 msgstr "Создан"
 
-#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
+#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1253
 #: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
@@ -6701,27 +6701,27 @@ msgstr "Изменить любую настройку нажав на соот�
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Отредактировать структуру перейдя по ссылке \"Структура\""
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1113
 #, php-format
 msgid "Go to database: %s"
 msgstr "Перейти к базе данных: %s"
 
-#: libraries/import.lib.php:1115 libraries/import.lib.php:1138
+#: libraries/import.lib.php:1116 libraries/import.lib.php:1141
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Отредактировать настройки для %s"
 
-#: libraries/import.lib.php:1133
+#: libraries/import.lib.php:1136
 #, php-format
 msgid "Go to table: %s"
 msgstr "Перейти к таблице: %s"
 
-#: libraries/import.lib.php:1136
+#: libraries/import.lib.php:1139
 #, php-format
 msgid "Structure of %s"
 msgstr "Структура %s"
 
-#: libraries/import.lib.php:1142
+#: libraries/import.lib.php:1146
 #, php-format
 msgid "Go to view: %s"
 msgstr "Перейти к представлению (VIEW): %s"
@@ -7223,10 +7223,10 @@ msgid "Variable"
 msgstr "Переменная"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
+#: libraries/rte/rte_routines.lib.php:1377 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1476 tbl_change.php:365
-#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:421
+#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:432
 msgid "Value"
 msgstr "Значение"
 
@@ -7289,7 +7289,7 @@ msgstr "Создать пароль"
 #: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:252
 #: libraries/rte/rte_routines.lib.php:257
 #: libraries/rte/rte_routines.lib.php:281
-#: libraries/rte/rte_routines.lib.php:1254
+#: libraries/rte/rte_routines.lib.php:1259
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
 #, php-format
@@ -7325,8 +7325,8 @@ msgid "Edit event"
 msgstr "Редактировать событие"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
-#: libraries/rte/rte_routines.lib.php:1276
-#: libraries/rte/rte_routines.lib.php:1312
+#: libraries/rte/rte_routines.lib.php:1282
+#: libraries/rte/rte_routines.lib.php:1318
 #: libraries/rte/rte_triggers.lib.php:187
 msgid "Error in processing request"
 msgstr "Ошибка при обработке запроса"
@@ -7522,8 +7522,8 @@ msgstr "Необходимо задать имя процедуры"
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "\"%s\" является ошибочным параметром."
 
-#: libraries/rte/rte_routines.lib.php:1048
-#: libraries/rte/rte_routines.lib.php:1086
+#: libraries/rte/rte_routines.lib.php:1050
+#: libraries/rte/rte_routines.lib.php:1090
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -7531,19 +7531,19 @@ msgstr ""
 "Вы должны задать длину/значения для параметров процедуры имеющих тип ENUM, "
 "SET, VARCHAR и VARBINARY."
 
-#: libraries/rte/rte_routines.lib.php:1066
+#: libraries/rte/rte_routines.lib.php:1068
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Вы должны задать имя и тип для каждого параметра процедуры."
 
-#: libraries/rte/rte_routines.lib.php:1076
+#: libraries/rte/rte_routines.lib.php:1078
 msgid "You must provide a valid return type for the routine."
 msgstr "Необходимо задать корректный возвращаемый тип для процедуры."
 
-#: libraries/rte/rte_routines.lib.php:1120
+#: libraries/rte/rte_routines.lib.php:1124
 msgid "You must provide a routine definition."
 msgstr "Вы должны задать определение процедуры."
 
-#: libraries/rte/rte_routines.lib.php:1210
+#: libraries/rte/rte_routines.lib.php:1214
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
@@ -7551,22 +7551,22 @@ msgstr[0] "Последним выражением в процедуре был�
 msgstr[1] "Последним выражением в процедуре были затронуты %d строки"
 msgstr[2] "Последним выражением в процедуре было затронуто %d строк"
 
-#: libraries/rte/rte_routines.lib.php:1226
+#: libraries/rte/rte_routines.lib.php:1230
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Результаты выполнения процедуры %s"
 
-#: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_routines.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1312
 msgid "Execute routine"
 msgstr "Выполнить процедуру"
 
-#: libraries/rte/rte_routines.lib.php:1359
-#: libraries/rte/rte_routines.lib.php:1362
+#: libraries/rte/rte_routines.lib.php:1365
+#: libraries/rte/rte_routines.lib.php:1368
 msgid "Routine parameters"
 msgstr "Параметры процедуры"
 
-#: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
+#: libraries/rte/rte_routines.lib.php:1375 libraries/tbl_select.lib.php:79
 #: tbl_change.php:305 tbl_change.php:361
 msgid "Function"
 msgstr "Функция"
@@ -7747,7 +7747,7 @@ msgstr "Атрибуты"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
 #: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
-#: tbl_tracking.php:262
+#: tbl_tracking.php:274
 msgid "Extra"
 msgstr "Дополнительно"
 
@@ -7972,7 +7972,7 @@ msgstr ""
 "Вероятно, SQL-запрос содержит ошибку. При наличии таковой, ниже будет "
 "выведена ошибка MySQL-сервера, облегчающая диагностику проблемы."
 
-#: libraries/sqlparser.lib.php:175
+#: libraries/sqlparser.lib.php:176
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -7994,35 +7994,35 @@ msgstr ""
 "которая вызывает ошибку и отправьте разработчикам описание ошибки, снабдив "
 "его данными из секции CUT выведенной ниже:"
 
-#: libraries/sqlparser.lib.php:177
+#: libraries/sqlparser.lib.php:178
 msgid "BEGIN CUT"
 msgstr "BEGIN CUT"
 
-#: libraries/sqlparser.lib.php:179
+#: libraries/sqlparser.lib.php:180
 msgid "END CUT"
 msgstr "END CUT"
 
-#: libraries/sqlparser.lib.php:181
+#: libraries/sqlparser.lib.php:182
 msgid "BEGIN RAW"
 msgstr "BEGIN RAW"
 
-#: libraries/sqlparser.lib.php:185
+#: libraries/sqlparser.lib.php:186
 msgid "END RAW"
 msgstr "END RAW"
 
-#: libraries/sqlparser.lib.php:382
+#: libraries/sqlparser.lib.php:383
 msgid "Automatically appended backtick to the end of query!"
 msgstr "В конец запроса была автоматически добавлена обратная кавычка!"
 
-#: libraries/sqlparser.lib.php:385
+#: libraries/sqlparser.lib.php:386
 msgid "Unclosed quote"
 msgstr "Незакрытая кавычка"
 
-#: libraries/sqlparser.lib.php:537
+#: libraries/sqlparser.lib.php:538
 msgid "Invalid Identifer"
 msgstr "Неправильный идентификатор"
 
-#: libraries/sqlparser.lib.php:653
+#: libraries/sqlparser.lib.php:654
 msgid "Unknown Punctuation String"
 msgstr "Неизвестная пунктуация"
 
@@ -8890,7 +8890,7 @@ msgstr "Модуль"
 msgid "Library"
 msgstr "Библиотека"
 
-#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
+#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:662
 msgid "Version"
 msgstr "Версия"
 
@@ -11143,7 +11143,7 @@ msgid "Wrong data"
 msgstr "Ошибочные данные"
 
 #: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
-#: tbl_zoom_select.php:127
+#: tbl_zoom_select.php:138
 msgid "Browse foreign values"
 msgstr "Обзор внешних значений"
 
@@ -11605,7 +11605,7 @@ msgstr "Добавить пространственный индекс"
 msgid "Add FULLTEXT index"
 msgstr "Добавить полнотекстовый индекс"
 
-#: tbl_structure.php:359 tbl_tracking.php:295
+#: tbl_structure.php:359 tbl_tracking.php:307
 msgctxt "None for default"
 msgid "None"
 msgstr "Нет"
@@ -11674,29 +11674,29 @@ msgstr "разделён"
 msgid "Tracking report for table `%s`"
 msgstr "Отчёт слежения для таблицы `%s`"
 
-#: tbl_tracking.php:173
+#: tbl_tracking.php:174
 #, fuzzy, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
-msgid "Version %1$s is created, tracking for %2$s is activated."
+msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Версия %s создана, отслеживание %s.%s включено."
 
-#: tbl_tracking.php:181
+#: tbl_tracking.php:186
 #, fuzzy, php-format
-#| msgid "Tracking for %s.%s , version %s is deactivated."
-msgid "Tracking for %1$s, version %2$s is deactivated."
-msgstr "Отслеживание %s.%s, версии %s выключено."
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking for %1$s was deactivated at version %2$s."
+msgstr "Слежение за %s.%s включено."
 
-#: tbl_tracking.php:189
+#: tbl_tracking.php:198
 #, fuzzy, php-format
-#| msgid "Tracking for %s.%s , version %s is activated."
-msgid "Tracking for %1$s, version %2$s is activated."
-msgstr "Отслеживание %s.%s, версии %s включено."
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking for %1$s was activated at version %2$s."
+msgstr "Слежение за %s.%s включено."
 
-#: tbl_tracking.php:199
+#: tbl_tracking.php:211
 msgid "SQL statements executed."
 msgstr "Выполненные SQL запросы."
 
-#: tbl_tracking.php:205
+#: tbl_tracking.php:217
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -11705,147 +11705,147 @@ msgstr ""
 "временную базу данных. Убедитесь, что у вас есть для этого достаточные "
 "привилегии."
 
-#: tbl_tracking.php:206
+#: tbl_tracking.php:218
 msgid "Comment out these two lines if you do not need them."
 msgstr "Закомментируйте эти две строки, если они вам не нужны."
 
-#: tbl_tracking.php:215
+#: tbl_tracking.php:227
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL выражения успешно выгружены; скопируйте, либо выполните их."
 
-#: tbl_tracking.php:246
+#: tbl_tracking.php:258
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Обзор версии %s (SQL код)"
 
-#: tbl_tracking.php:388
+#: tbl_tracking.php:400
 msgid "Tracking data definition successfully deleted"
 msgstr "Данные слежения успешно удалены"
 
-#: tbl_tracking.php:390 tbl_tracking.php:407
+#: tbl_tracking.php:402 tbl_tracking.php:419
 msgid "Query error"
 msgstr "Ошибка запроса"
 
-#: tbl_tracking.php:405
+#: tbl_tracking.php:417
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Данные слежения успешно удалены"
 
-#: tbl_tracking.php:417
+#: tbl_tracking.php:429
 msgid "Tracking statements"
 msgstr "Отслеживаемые выражения"
 
-#: tbl_tracking.php:433 tbl_tracking.php:561
+#: tbl_tracking.php:445 tbl_tracking.php:573
 #, fuzzy, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Вывести %s с датой от %s до %s пользователя %s %s"
 
-#: tbl_tracking.php:438
+#: tbl_tracking.php:450
 msgid "Delete tracking data row from report"
 msgstr "Удалить строку данных слежения за таблицей"
 
-#: tbl_tracking.php:449
+#: tbl_tracking.php:461
 msgid "No data"
 msgstr "Нет данных"
 
-#: tbl_tracking.php:459 tbl_tracking.php:516
+#: tbl_tracking.php:471 tbl_tracking.php:528
 msgid "Date"
 msgstr "Дата"
 
-#: tbl_tracking.php:461
+#: tbl_tracking.php:473
 msgid "Data definition statement"
 msgstr "Выражение определяющее структуру"
 
-#: tbl_tracking.php:518
+#: tbl_tracking.php:530
 msgid "Data manipulation statement"
 msgstr "Выражение изменяющее данные"
 
-#: tbl_tracking.php:564
+#: tbl_tracking.php:576
 msgid "SQL dump (file download)"
 msgstr "Выгрузка SQL (файл)"
 
-#: tbl_tracking.php:565
+#: tbl_tracking.php:577
 msgid "SQL dump"
 msgstr "Выгрузка SQL"
 
-#: tbl_tracking.php:566
+#: tbl_tracking.php:578
 msgid "This option will replace your table and contained data."
 msgstr "Данный параметр заместит таблицу и содержащиеся в ней данные."
 
-#: tbl_tracking.php:566
+#: tbl_tracking.php:578
 msgid "SQL execution"
 msgstr "Выполнение SQL запроса"
 
-#: tbl_tracking.php:578
+#: tbl_tracking.php:590
 #, php-format
 msgid "Export as %s"
 msgstr "Экспортировать как %s"
 
-#: tbl_tracking.php:618
+#: tbl_tracking.php:630
 msgid "Show versions"
 msgstr "Показать версии"
 
-#: tbl_tracking.php:702
+#: tbl_tracking.php:714
 #, fuzzy, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
 msgstr "Выключить слежение за %s.%s"
 
-#: tbl_tracking.php:704
+#: tbl_tracking.php:716
 msgid "Deactivate now"
 msgstr "Выключить"
 
-#: tbl_tracking.php:715
+#: tbl_tracking.php:727
 #, fuzzy, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
 msgstr "Включить слежение за %s.%s"
 
-#: tbl_tracking.php:717
+#: tbl_tracking.php:729
 msgid "Activate now"
 msgstr "Включить"
 
-#: tbl_tracking.php:730
+#: tbl_tracking.php:742
 #, fuzzy, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
 msgstr "Создать версию %s из %s.%s"
 
-#: tbl_tracking.php:734
+#: tbl_tracking.php:746
 msgid "Track these data definition statements:"
 msgstr "Отслеживать выражения определяющие структуру:"
 
-#: tbl_tracking.php:742
+#: tbl_tracking.php:754
 msgid "Track these data manipulation statements:"
 msgstr "Отслеживать выражения изменяющие данные:"
 
-#: tbl_tracking.php:750
+#: tbl_tracking.php:762
 msgid "Create version"
 msgstr "Создать версию"
 
-#: tbl_zoom_select.php:204
+#: tbl_zoom_select.php:215
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Выполнить \"запрос по образцу\" (символ шаблона: \"%\") для двух различных "
 "столбцов"
 
-#: tbl_zoom_select.php:214
+#: tbl_zoom_select.php:225
 msgid "Additional search criteria"
 msgstr "Добавочный критерий поиска"
 
-#: tbl_zoom_select.php:262
+#: tbl_zoom_select.php:273
 msgid "Use this column to label each point"
 msgstr "Использовать данное поле для обозначения каждой точки"
 
-#: tbl_zoom_select.php:282
+#: tbl_zoom_select.php:293
 msgid "Maximum rows to plot"
 msgstr "Максимальное количество строк для построения"
 
-#: tbl_zoom_select.php:396
+#: tbl_zoom_select.php:407
 msgid "Browse/Edit the points"
 msgstr "Обзор/Редакция точек"
 
-#: tbl_zoom_select.php:403
+#: tbl_zoom_select.php:414
 msgid "How to use"
 msgstr "Как использовать"
 
@@ -13176,6 +13176,16 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert установлен в 0"
+
+#, fuzzy
+#~| msgid "Tracking for %s.%s , version %s is deactivated."
+#~ msgid "Tracking for %1$s, version %2$s is deactivated."
+#~ msgstr "Отслеживание %s.%s, версии %s выключено."
+
+#, fuzzy
+#~| msgid "Tracking for %s.%s , version %s is activated."
+#~ msgid "Tracking for %1$s, version %2$s is activated."
+#~ msgstr "Отслеживание %s.%s, версии %s включено."
 
 #, fuzzy
 #~ msgctxt "Correctly setup"

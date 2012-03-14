@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 16:42+0100\n"
+"POT-Creation-Date: 2012-03-14 17:21+0100\n"
 "PO-Revision-Date: 2011-07-24 19:04+0200\n"
 "Last-Translator: <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -49,14 +49,14 @@ msgstr "ढूंढें"
 #: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1402
+#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1402
 #: libraries/common.lib.php:2449 libraries/core.lib.php:505
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
-#: libraries/rte/rte_routines.lib.php:1449
+#: libraries/rte/rte_routines.lib.php:1455
 #: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
@@ -74,14 +74,14 @@ msgstr "ढूंढें"
 #: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
 #: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:260
-#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:431
-#: tbl_tracking.php:569 tbl_zoom_select.php:299 view_create.php:181
+#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:443
+#: tbl_tracking.php:581 tbl_zoom_select.php:310 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
 msgstr "जाएँ"
 
 #: browse_foreigners.php:178 browse_foreigners.php:182
-#: libraries/Index.class.php:440 tbl_tracking.php:319
+#: libraries/Index.class.php:440 tbl_tracking.php:331
 msgid "Keyname"
 msgstr "मुख्यनाम"
 
@@ -127,8 +127,8 @@ msgstr "टेबल टिप्पणि:"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
 #: tbl_change.php:337 tbl_indexes.php:213 tbl_printview.php:136
-#: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
-#: tbl_zoom_select.php:419
+#: tbl_relation.php:395 tbl_tracking.php:269 tbl_tracking.php:335
+#: tbl_zoom_select.php:430
 msgid "Column"
 msgstr "स्तम्भ"
 
@@ -138,13 +138,13 @@ msgstr "स्तम्भ"
 #: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:836
 #: libraries/rte/rte_routines.lib.php:861
-#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_routines.lib.php:1373
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2313 tbl_change.php:316 tbl_change.php:349
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
+#: tbl_structure.php:767 tbl_tracking.php:270 tbl_tracking.php:332
 msgid "Type"
 msgstr "प्रकार/किस्म"
 
@@ -154,8 +154,8 @@ msgstr "प्रकार/किस्म"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:364
-#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:260
-#: tbl_tracking.php:326 tbl_zoom_select.php:420
+#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:272
+#: tbl_tracking.php:338 tbl_zoom_select.php:431
 msgid "Null"
 msgstr "शून्य"
 
@@ -165,7 +165,7 @@ msgstr "शून्य"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
-#: tbl_structure.php:206 tbl_tracking.php:261
+#: tbl_structure.php:206 tbl_tracking.php:273
 msgid "Default"
 msgstr "तयशुदा"
 
@@ -200,8 +200,8 @@ msgstr "टिप्पणी"
 #: server_privileges.php:1786 server_privileges.php:1797
 #: server_privileges.php:2132 server_privileges.php:2137
 #: server_privileges.php:2430 sql.php:328 sql.php:392 tbl_printview.php:190
-#: tbl_structure.php:349 tbl_tracking.php:281 tbl_tracking.php:336
-#: tbl_tracking.php:341
+#: tbl_structure.php:349 tbl_tracking.php:293 tbl_tracking.php:348
+#: tbl_tracking.php:353
 msgid "No"
 msgstr "नहीं"
 
@@ -223,7 +223,7 @@ msgstr "नहीं"
 #: server_privileges.php:1797 server_privileges.php:2132
 #: server_privileges.php:2135 server_privileges.php:2430 sql.php:391
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
-#: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
+#: tbl_tracking.php:293 tbl_tracking.php:346 tbl_tracking.php:351
 msgid "Yes"
 msgstr "हाँ "
 
@@ -279,15 +279,15 @@ msgstr "डेटाबेस को ड्रप करे "
 msgid "Copy database to"
 msgstr "डेटाबेस को ______ में कॉपी करें"
 
-#: db_operations.php:500 tbl_operations.php:554 tbl_tracking.php:424
+#: db_operations.php:500 tbl_operations.php:554 tbl_tracking.php:436
 msgid "Structure only"
 msgstr "केवल संरचना"
 
-#: db_operations.php:501 tbl_operations.php:555 tbl_tracking.php:426
+#: db_operations.php:501 tbl_operations.php:555 tbl_tracking.php:438
 msgid "Structure and data"
 msgstr "संरचना और डाटा"
 
-#: db_operations.php:502 tbl_operations.php:556 tbl_tracking.php:425
+#: db_operations.php:502 tbl_operations.php:556 tbl_tracking.php:437
 msgid "Data only"
 msgstr "केवल डाटा"
 
@@ -320,8 +320,8 @@ msgstr "नक़ल किये गए डाटाबेस पर जाय�
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
-#: tbl_tracking.php:325
+#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:271
+#: tbl_tracking.php:337
 msgid "Collation"
 msgstr "क्रम में करें"
 
@@ -345,7 +345,7 @@ msgstr "संबंधपरक स्कीमा को संपादित
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1907
 #: server_privileges.php:1965 server_privileges.php:2234
-#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
+#: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:661
 msgid "Table"
 msgstr "टेबल "
 
@@ -425,7 +425,7 @@ msgid "Descending"
 msgstr "अवरोही"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:427
-#: tbl_change.php:294 tbl_tracking.php:654
+#: tbl_change.php:294 tbl_tracking.php:666
 msgid "Show"
 msgstr "दिखाओ"
 
@@ -482,7 +482,7 @@ msgstr "क्वरी भेजें"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
-#: libraries/auth/cookie.auth.lib.php:571 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:581 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "पहुँच निषेधित"
@@ -536,7 +536,7 @@ msgstr "इस %s टेबल से मैच हटाएँ"
 #: libraries/schema/User_Schema.class.php:338
 #: libraries/sql_query_form.lib.php:411 pmd_general.php:417
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
-#: tbl_tracking.php:441 tbl_tracking.php:462 tbl_tracking.php:519
+#: tbl_tracking.php:453 tbl_tracking.php:474 tbl_tracking.php:531
 msgid "Delete"
 msgstr "मिटाएँ"
 
@@ -726,7 +726,7 @@ msgstr "ट्रैक की गयी टेबलएं"
 #: server_privileges.php:1902 server_privileges.php:1965
 #: server_privileges.php:2228 server_status.php:1239
 #: server_synchronize.php:1277 server_synchronize.php:1281
-#: tbl_tracking.php:648
+#: tbl_tracking.php:660
 msgid "Database"
 msgstr "डाटाबेस"
 
@@ -734,17 +734,17 @@ msgstr "डाटाबेस"
 msgid "Last version"
 msgstr "पिछला संस्करण"
 
-#: db_tracking.php:88 tbl_tracking.php:651
+#: db_tracking.php:88 tbl_tracking.php:663
 msgid "Created"
 msgstr "बनाया"
 
-#: db_tracking.php:89 tbl_tracking.php:652
+#: db_tracking.php:89 tbl_tracking.php:664
 msgid "Updated"
 msgstr "अद्यतन"
 
 #: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1242 sql.php:932 tbl_tracking.php:653
+#: server_status.php:1242 sql.php:932 tbl_tracking.php:665
 msgid "Status"
 msgstr "स्थिति"
 
@@ -760,11 +760,11 @@ msgstr "कार्य"
 msgid "Delete tracking data for this table"
 msgstr "इस टेबल के लिए ट्रैकिंग डेटा हटाएँ"
 
-#: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
+#: db_tracking.php:120 tbl_tracking.php:617 tbl_tracking.php:675
 msgid "active"
 msgstr "सक्रिय"
 
-#: db_tracking.php:122 tbl_tracking.php:607 tbl_tracking.php:665
+#: db_tracking.php:122 tbl_tracking.php:619 tbl_tracking.php:677
 msgid "not active"
 msgstr "निष्क्रिय"
 
@@ -772,11 +772,11 @@ msgstr "निष्क्रिय"
 msgid "Versions"
 msgstr "संस्करण"
 
-#: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
+#: db_tracking.php:136 tbl_tracking.php:427 tbl_tracking.php:695
 msgid "Tracking report"
 msgstr "ट्रैकिंग रिपोर्ट"
 
-#: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
+#: db_tracking.php:137 tbl_tracking.php:247 tbl_tracking.php:697
 msgid "Structure snapshot"
 msgstr "संरचना क्षणचित्र"
 
@@ -1045,7 +1045,7 @@ msgstr ""
 "सीमा नहीं बढ़ाते तब तक  phpMyAdmin आयात के लिए सक्षम नहीं है."
 
 #: import.php:496 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1205
+#: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1209
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1156,8 +1156,8 @@ msgstr "प्रिविलेज पुनः लोड करें"
 msgid "Removing Selected Users"
 msgstr "चयनित यूसर को हटायें"
 
-#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:235
-#: tbl_tracking.php:415
+#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:247
+#: tbl_tracking.php:427
 msgid "Close"
 msgstr "बंद"
 
@@ -1446,7 +1446,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2118 server_status.php:1268 server_status.php:1697
-#: tbl_zoom_select.php:220 tbl_zoom_select.php:264
+#: tbl_zoom_select.php:231 tbl_zoom_select.php:275
 msgid "None"
 msgstr "कोई नहीं"
 
@@ -2476,27 +2476,27 @@ msgid "No index defined!"
 msgstr "परिभाषित सूचकांक  नहीं पाए गए!"
 
 #: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:693 tbl_tracking.php:315
+#: tbl_structure.php:693 tbl_tracking.php:327
 msgid "Indexes"
 msgstr "सूचकांक"
 
 #: libraries/Index.class.php:442 libraries/tbl_properties.inc.php:472
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
-#: tbl_tracking.php:321
+#: tbl_tracking.php:333
 msgid "Unique"
 msgstr "अद्वितीय"
 
-#: libraries/Index.class.php:443 tbl_tracking.php:322
+#: libraries/Index.class.php:443 tbl_tracking.php:334
 msgid "Packed"
 msgstr "जमा"
 
-#: libraries/Index.class.php:445 tbl_tracking.php:324
+#: libraries/Index.class.php:445 tbl_tracking.php:336
 msgid "Cardinality"
 msgstr "प्रमुखता"
 
 #: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
-#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
-#: tbl_tracking.php:327
+#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:275
+#: tbl_tracking.php:339
 msgid "Comment"
 msgstr "टिप्पणी"
 
@@ -2674,7 +2674,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "अमान्य सेटिंग्स: कनेक्ट नहीं कर सकते हैं"
 
 #: libraries/auth/config.auth.lib.php:86
-#: libraries/auth/cookie.auth.lib.php:173 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s मे स्वागत है"
@@ -2703,57 +2703,57 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:198
+#: libraries/auth/cookie.auth.lib.php:200
 msgid "Log in"
 msgstr "लोगिन"
 
-#: libraries/auth/cookie.auth.lib.php:200
 #: libraries/auth/cookie.auth.lib.php:202
+#: libraries/auth/cookie.auth.lib.php:204
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin दस्तावेज़ीकरण"
 
-#: libraries/auth/cookie.auth.lib.php:212
-#: libraries/auth/cookie.auth.lib.php:213
+#: libraries/auth/cookie.auth.lib.php:214
+#: libraries/auth/cookie.auth.lib.php:215
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "आप होस्टनाम / आईपी पता और पोर्ट स्पचे से अलग कर के दाल सकते हैं."
 
-#: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:214
 msgid "Server:"
 msgstr "सर्वर:"
 
-#: libraries/auth/cookie.auth.lib.php:217
+#: libraries/auth/cookie.auth.lib.php:219
 msgid "Username:"
 msgstr "उपयोक्तानाम:"
 
-#: libraries/auth/cookie.auth.lib.php:221
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "Password:"
 msgstr "पासव्रड:"
 
-#: libraries/auth/cookie.auth.lib.php:228
+#: libraries/auth/cookie.auth.lib.php:230
 msgid "Server Choice"
 msgstr "सर्वर चुनिये"
 
-#: libraries/auth/cookie.auth.lib.php:274 libraries/header.inc.php:87
+#: libraries/auth/cookie.auth.lib.php:276 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
 msgstr "कुकीज़ इस बिंदु अतीत सक्षम होना चाहिए."
 
-#: libraries/auth/cookie.auth.lib.php:569
+#: libraries/auth/cookie.auth.lib.php:579
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)."
 
-#: libraries/auth/cookie.auth.lib.php:573
+#: libraries/auth/cookie.auth.lib.php:583
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s सेकंड के भीतर कोई गतिविधि नहीं है. कृपया फिर से लोगिन करें."
 
-#: libraries/auth/cookie.auth.lib.php:583
-#: libraries/auth/cookie.auth.lib.php:585
+#: libraries/auth/cookie.auth.lib.php:593
+#: libraries/auth/cookie.auth.lib.php:595
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL सर्वर में प्रवेश नहीं कर सकते"
@@ -2938,7 +2938,7 @@ msgstr "SQL क्वरी"
 #: libraries/rte/rte_routines.lib.php:258
 #: libraries/rte/rte_routines.lib.php:268
 #: libraries/rte/rte_routines.lib.php:282
-#: libraries/rte/rte_routines.lib.php:1255
+#: libraries/rte/rte_routines.lib.php:1260
 #: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
@@ -3071,9 +3071,9 @@ msgstr "चयन करने के लिए क्लिक करें."
 #: libraries/config/user_preferences.forms.php:231
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
-#: libraries/import.lib.php:1131 libraries/tbl_links.inc.php:61
+#: libraries/import.lib.php:1134 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:591 pmd_general.php:140
-#: server_privileges.php:633 server_replication.php:343 tbl_tracking.php:253
+#: server_privileges.php:633 server_replication.php:343 tbl_tracking.php:265
 msgid "Structure"
 msgstr "संरचना"
 
@@ -5199,8 +5199,8 @@ msgid ""
 msgstr ""
 "अगर आप एक कस्टम यूसर हैं,तो यहाँ निर्दिष्ट करें, (defaults to [kbd]anonymous[/kbd])"
 
-#: libraries/config/messages.inc.php:494 tbl_tracking.php:460
-#: tbl_tracking.php:517
+#: libraries/config/messages.inc.php:494 tbl_tracking.php:472
+#: tbl_tracking.php:529
 msgid "Username"
 msgstr "यूसर नाम"
 
@@ -5569,7 +5569,7 @@ msgstr "टेबल बनायें"
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
 #: libraries/rte/rte_routines.lib.php:860
-#: libraries/rte/rte_routines.lib.php:1366 libraries/tbl_properties.inc.php:92
+#: libraries/rte/rte_routines.lib.php:1372 libraries/tbl_properties.inc.php:92
 #: setup/frames/index.inc.php:127 tbl_structure.php:201
 msgid "Name"
 msgstr "नाम"
@@ -5867,7 +5867,7 @@ msgstr "कुंजी सॉर्ट"
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
-#: libraries/import.lib.php:1110 libraries/import.lib.php:1131
+#: libraries/import.lib.php:1111 libraries/import.lib.php:1134
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
@@ -6592,7 +6592,7 @@ msgstr "SQLपरिणाम"
 msgid "Generated by"
 msgstr "द्वारा उत्पन्न"
 
-#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
+#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1253
 #: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ने एक खाली परिणाम सेट लोताया"
@@ -6619,31 +6619,31 @@ msgstr "सेटिंग्स को बदलने के लिए \"व�
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "इसकी संरचना को संपादित करने के लिए \"संरचना\" लिंक पर क्लिक करें"
 
-#: libraries/import.lib.php:1112
+#: libraries/import.lib.php:1113
 #, fuzzy, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
 msgstr "डेटाबेस पर जायें"
 
-#: libraries/import.lib.php:1115 libraries/import.lib.php:1138
+#: libraries/import.lib.php:1116 libraries/import.lib.php:1141
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "%s के लिए डेटा लापता"
 
-#: libraries/import.lib.php:1133
+#: libraries/import.lib.php:1136
 #, fuzzy, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "टेबल पर जायें"
 
-#: libraries/import.lib.php:1136
+#: libraries/import.lib.php:1139
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "केवल संरचना"
 
-#: libraries/import.lib.php:1142
+#: libraries/import.lib.php:1146
 #, fuzzy, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
@@ -7139,10 +7139,10 @@ msgid "Variable"
 msgstr "स्थिति"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
+#: libraries/rte/rte_routines.lib.php:1377 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1476 tbl_change.php:365
-#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:421
+#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:432
 msgid "Value"
 msgstr "मूल्य"
 
@@ -7201,7 +7201,7 @@ msgstr "पासवर्ड उत्पन्न"
 #: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:252
 #: libraries/rte/rte_routines.lib.php:257
 #: libraries/rte/rte_routines.lib.php:281
-#: libraries/rte/rte_routines.lib.php:1254
+#: libraries/rte/rte_routines.lib.php:1259
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
 #, fuzzy, php-format
@@ -7242,8 +7242,8 @@ msgid "Edit event"
 msgstr "सर्वर को संपादित करें"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
-#: libraries/rte/rte_routines.lib.php:1276
-#: libraries/rte/rte_routines.lib.php:1312
+#: libraries/rte/rte_routines.lib.php:1282
+#: libraries/rte/rte_routines.lib.php:1318
 #: libraries/rte/rte_triggers.lib.php:187
 #, fuzzy
 #| msgid "Error in Processing Request"
@@ -7471,51 +7471,51 @@ msgstr ""
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1048
-#: libraries/rte/rte_routines.lib.php:1086
+#: libraries/rte/rte_routines.lib.php:1050
+#: libraries/rte/rte_routines.lib.php:1090
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1066
+#: libraries/rte/rte_routines.lib.php:1068
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1076
+#: libraries/rte/rte_routines.lib.php:1078
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1120
+#: libraries/rte/rte_routines.lib.php:1124
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1210
+#: libraries/rte/rte_routines.lib.php:1214
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/rte/rte_routines.lib.php:1226
+#: libraries/rte/rte_routines.lib.php:1230
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "संग्रहीत दिनचर्या को क्रियान्वित करने की अनुमति देता है"
 
-#: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_routines.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1312
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1359
-#: libraries/rte/rte_routines.lib.php:1362
+#: libraries/rte/rte_routines.lib.php:1365
+#: libraries/rte/rte_routines.lib.php:1368
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
 msgstr "नियमित कार्य"
 
-#: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
+#: libraries/rte/rte_routines.lib.php:1375 libraries/tbl_select.lib.php:79
 #: tbl_change.php:305 tbl_change.php:361
 msgid "Function"
 msgstr ""
@@ -7739,7 +7739,7 @@ msgstr "विशेषता"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
 #: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
-#: tbl_tracking.php:262
+#: tbl_tracking.php:274
 msgid "Extra"
 msgstr "अतिरिक्त"
 
@@ -7974,7 +7974,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:175
+#: libraries/sqlparser.lib.php:176
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -7987,35 +7987,35 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:177
+#: libraries/sqlparser.lib.php:178
 msgid "BEGIN CUT"
 msgstr "BEGIN कट"
 
-#: libraries/sqlparser.lib.php:179
+#: libraries/sqlparser.lib.php:180
 msgid "END CUT"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:181
+#: libraries/sqlparser.lib.php:182
 msgid "BEGIN RAW"
 msgstr "BEGIN रॉ"
 
-#: libraries/sqlparser.lib.php:185
+#: libraries/sqlparser.lib.php:186
 msgid "END RAW"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:382
+#: libraries/sqlparser.lib.php:383
 msgid "Automatically appended backtick to the end of query!"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:385
+#: libraries/sqlparser.lib.php:386
 msgid "Unclosed quote"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:537
+#: libraries/sqlparser.lib.php:538
 msgid "Invalid Identifer"
 msgstr "अवैध पहचानकर्ता"
 
-#: libraries/sqlparser.lib.php:653
+#: libraries/sqlparser.lib.php:654
 msgid "Unknown Punctuation String"
 msgstr "अज्ञात विराम स्ट्रिंग"
 
@@ -8851,7 +8851,7 @@ msgstr ""
 msgid "Library"
 msgstr ""
 
-#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
+#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:662
 msgid "Version"
 msgstr "संस्करण"
 
@@ -10875,7 +10875,7 @@ msgid "Wrong data"
 msgstr "कोइ डाटाबेस नहिं"
 
 #: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
-#: tbl_zoom_select.php:127
+#: tbl_zoom_select.php:138
 msgid "Browse foreign values"
 msgstr "विदेशी मूल्य ब्राउस करें "
 
@@ -11375,7 +11375,7 @@ msgstr "अनुक्रमणिका जोड़"
 msgid "Add FULLTEXT index"
 msgstr "FULLTEXT सूचकांक जोड़ें "
 
-#: tbl_structure.php:359 tbl_tracking.php:295
+#: tbl_structure.php:359 tbl_tracking.php:307
 msgctxt "None for default"
 msgid "None"
 msgstr "कोई नहीं"
@@ -11446,29 +11446,29 @@ msgstr "विभाजित"
 msgid "Tracking report for table `%s`"
 msgstr "टेबल `%s` की ट्रैकिंग रिपोर्ट "
 
-#: tbl_tracking.php:173
+#: tbl_tracking.php:174
 #, fuzzy, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
-msgid "Version %1$s is created, tracking for %2$s is activated."
+msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "संस्करण %s बन चूका है, ट्रैकिंग %s.%s के लिए सक्रिय"
 
-#: tbl_tracking.php:181
+#: tbl_tracking.php:186
 #, fuzzy, php-format
-#| msgid "Tracking for %s.%s , version %s is deactivated."
-msgid "Tracking for %1$s, version %2$s is deactivated."
-msgstr "संस्करण %s बन चूका है, ट्रैकिंग %s.%s के लिए निष्क्रिय"
+#| msgid "Tracking is active."
+msgid "Tracking for %1$s was deactivated at version %2$s."
+msgstr "ट्रैकिंग सक्रिय है"
 
-#: tbl_tracking.php:189
+#: tbl_tracking.php:198
 #, fuzzy, php-format
-#| msgid "Tracking for %s.%s , version %s is activated."
-msgid "Tracking for %1$s, version %2$s is activated."
-msgstr "ट्रैकिंग %s.%s के लिए, संस्करण %s सक्रिय"
+#| msgid "Tracking is active."
+msgid "Tracking for %1$s was activated at version %2$s."
+msgstr "ट्रैकिंग सक्रिय है"
 
-#: tbl_tracking.php:199
+#: tbl_tracking.php:211
 msgid "SQL statements executed."
 msgstr "SQL कथन चलाएँ"
 
-#: tbl_tracking.php:205
+#: tbl_tracking.php:217
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -11476,159 +11476,159 @@ msgstr ""
 "आप दुम्प को क्रियान्वित कर सकते हैं एक अस्थायी डेटाबेस का उपयोग करें. सुनिश्चित करें कि आप "
 "ऐसा करने के लिए विशेषाधिकार हैं कृपया."
 
-#: tbl_tracking.php:206
+#: tbl_tracking.php:218
 msgid "Comment out these two lines if you do not need them."
 msgstr "इन दो लाइन को टिप्पणी बना दें अगर आपको इनकी आवश्यकता नहीं है"
 
-#: tbl_tracking.php:215
+#: tbl_tracking.php:227
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "SQL कथन निर्यात. कृपया दुम्प को या तो कॉपी करें य फिर क्रियान्वित करें"
 
-#: tbl_tracking.php:246
+#: tbl_tracking.php:258
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "संस्करण %s क्षणचित्र (SQL कोड)"
 
-#: tbl_tracking.php:388
+#: tbl_tracking.php:400
 #, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
 msgstr "डेटा परिभाषा पर नज़र रखना"
 
-#: tbl_tracking.php:390 tbl_tracking.php:407
+#: tbl_tracking.php:402 tbl_tracking.php:419
 #, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
 msgstr "त्रुटियों को इकट्ठा करें"
 
-#: tbl_tracking.php:405
+#: tbl_tracking.php:417
 #, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
 msgstr "डेटा आपरेशन पर नज़र रखना"
 
-#: tbl_tracking.php:417
+#: tbl_tracking.php:429
 msgid "Tracking statements"
 msgstr "ट्रैकिंग कि स्थिति"
 
-#: tbl_tracking.php:433 tbl_tracking.php:561
+#: tbl_tracking.php:445 tbl_tracking.php:573
 #, fuzzy, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "%s दिखाएँ तारीख %s से %s तक, उपयोक्ता %s %s"
 
-#: tbl_tracking.php:438
+#: tbl_tracking.php:450
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
 msgstr "इस टेबल के लिए ट्रैकिंग डेटा हटाएँ"
 
-#: tbl_tracking.php:449
+#: tbl_tracking.php:461
 #, fuzzy
 #| msgid "No databases"
 msgid "No data"
 msgstr "कोइ डाटाबेस नहिं"
 
-#: tbl_tracking.php:459 tbl_tracking.php:516
+#: tbl_tracking.php:471 tbl_tracking.php:528
 msgid "Date"
 msgstr "तिथि"
 
-#: tbl_tracking.php:461
+#: tbl_tracking.php:473
 msgid "Data definition statement"
 msgstr "डेटा परिभाषा कथन"
 
-#: tbl_tracking.php:518
+#: tbl_tracking.php:530
 msgid "Data manipulation statement"
 msgstr "डेटा हेरफेर कथन"
 
-#: tbl_tracking.php:564
+#: tbl_tracking.php:576
 msgid "SQL dump (file download)"
 msgstr "SQL दुम्प ( फाइल डाउनलोड )"
 
-#: tbl_tracking.php:565
+#: tbl_tracking.php:577
 msgid "SQL dump"
 msgstr "SQL ढेर लगाना"
 
-#: tbl_tracking.php:566
+#: tbl_tracking.php:578
 msgid "This option will replace your table and contained data."
 msgstr "यह विकल्प आपके टेबल और डेटा को बदल देगा."
 
-#: tbl_tracking.php:566
+#: tbl_tracking.php:578
 msgid "SQL execution"
 msgstr "SQL अमल"
 
-#: tbl_tracking.php:578
+#: tbl_tracking.php:590
 #, php-format
 msgid "Export as %s"
 msgstr "%s के रूप में निर्यात"
 
-#: tbl_tracking.php:618
+#: tbl_tracking.php:630
 msgid "Show versions"
 msgstr "संस्करण दिखाएँ"
 
-#: tbl_tracking.php:702
+#: tbl_tracking.php:714
 #, fuzzy, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
 msgstr "ट्रैकिंग निष्क्रिय %s.%s"
 
-#: tbl_tracking.php:704
+#: tbl_tracking.php:716
 msgid "Deactivate now"
 msgstr "निष्क्रिय करे"
 
-#: tbl_tracking.php:715
+#: tbl_tracking.php:727
 #, fuzzy, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
 msgstr "ट्रैकिंग सक्रिय %s.%s"
 
-#: tbl_tracking.php:717
+#: tbl_tracking.php:729
 msgid "Activate now"
 msgstr "सक्रिय करे"
 
-#: tbl_tracking.php:730
+#: tbl_tracking.php:742
 #, fuzzy, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
 msgstr "%s संस्करण बनायें %s.%s"
 
-#: tbl_tracking.php:734
+#: tbl_tracking.php:746
 msgid "Track these data definition statements:"
 msgstr "डेटा परिभाषा पर नज़र रखना"
 
-#: tbl_tracking.php:742
+#: tbl_tracking.php:754
 msgid "Track these data manipulation statements:"
 msgstr "डेटा आपरेशन पर नज़र रखना"
 
-#: tbl_tracking.php:750
+#: tbl_tracking.php:762
 msgid "Create version"
 msgstr "संस्करण बनाएँ"
 
-#: tbl_zoom_select.php:204
+#: tbl_zoom_select.php:215
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 
-#: tbl_zoom_select.php:214
+#: tbl_zoom_select.php:225
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
 msgstr "खोज मापदंड छिपाना"
 
-#: tbl_zoom_select.php:262
+#: tbl_zoom_select.php:273
 msgid "Use this column to label each point"
 msgstr ""
 
-#: tbl_zoom_select.php:282
+#: tbl_zoom_select.php:293
 #, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "प्रदर्शित रो की अधिकतम संख्या"
 
-#: tbl_zoom_select.php:396
+#: tbl_zoom_select.php:407
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: tbl_zoom_select.php:403
+#: tbl_zoom_select.php:414
 #, fuzzy
 #| msgid "Control user"
 msgid "How to use"
@@ -12794,6 +12794,16 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Tracking for %s.%s , version %s is deactivated."
+#~ msgid "Tracking for %1$s, version %2$s is deactivated."
+#~ msgstr "संस्करण %s बन चूका है, ट्रैकिंग %s.%s के लिए निष्क्रिय"
+
+#, fuzzy
+#~| msgid "Tracking for %s.%s , version %s is activated."
+#~ msgid "Tracking for %1$s, version %2$s is activated."
+#~ msgstr "ट्रैकिंग %s.%s के लिए, संस्करण %s सक्रिय"
 
 #, fuzzy
 #~ msgctxt "Correctly setup"
