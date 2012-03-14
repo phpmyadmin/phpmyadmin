@@ -1965,7 +1965,7 @@ msgstr "MySQL a répondu: "
 
 #: libraries/common.lib.php:1097
 msgid "Failed to connect to SQL validator!"
-msgstr "Connexion au validateur SQL impossible"
+msgstr "Connexion au validateur SQL impossible!"
 
 #: libraries/common.lib.php:1138 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
