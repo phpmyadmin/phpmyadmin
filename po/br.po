@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:20+0100\n"
+"POT-Creation-Date: 2012-03-14 14:47+0100\n"
 "PO-Revision-Date: 2011-10-13 17:20+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2531,8 +2531,9 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Fazi en ur adenvel %1$s e %2$s"
 
 #: libraries/Table.class.php:1257
-#, php-format
-msgid "Table %s has been renamed to %s"
+#, fuzzy, php-format
+#| msgid "Table %s has been renamed to %s"
+msgid "Table %1$s has been renamed to %2$s."
 msgstr "Anv an daolenn %s zo %s bremañ"
 
 #: libraries/Table.class.php:1389

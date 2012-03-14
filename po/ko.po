@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:20+0100\n"
+"POT-Creation-Date: 2012-03-14 14:47+0100\n"
 "PO-Revision-Date: 2012-02-17 10:54+0200\n"
 "Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -2489,8 +2489,9 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr ""
 
 #: libraries/Table.class.php:1257
-#, php-format
-msgid "Table %s has been renamed to %s"
+#, fuzzy, php-format
+#| msgid "Table %s has been renamed to %s"
+msgid "Table %1$s has been renamed to %2$s."
 msgstr "테이블 %s을(를) %s(으)로 이름을 변경하였습니다."
 
 #: libraries/Table.class.php:1389

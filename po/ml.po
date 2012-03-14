@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:20+0100\n"
+"POT-Creation-Date: 2012-03-14 14:47+0100\n"
 "PO-Revision-Date: 2011-09-27 08:42+0200\n"
 "Last-Translator: <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
@@ -2428,9 +2428,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr ""
 
 #: libraries/Table.class.php:1257
-#, php-format
-msgid "Table %s has been renamed to %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Database %s has been renamed to %s"
+msgid "Table %1$s has been renamed to %2$s."
+msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് മാറ്റിയിരിക്കുന്നു"
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"

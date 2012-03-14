@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:20+0100\n"
+"POT-Creation-Date: 2012-03-14 14:47+0100\n"
 "PO-Revision-Date: 2010-12-02 14:49+0200\n"
 "Last-Translator: Sasa Kostic <sasha.kostic@gmail.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
@@ -2699,8 +2699,9 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Greška pri preimenovanju tabele %1$s u %2$s"
 
 #: libraries/Table.class.php:1257
-#, php-format
-msgid "Table %s has been renamed to %s"
+#, fuzzy, php-format
+#| msgid "Table %s has been renamed to %s"
+msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabeli %s promenjeno ime u %s"
 
 #: libraries/Table.class.php:1389
