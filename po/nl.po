@@ -3025,7 +3025,6 @@ msgstr "Volgende"
 
 #: libraries/common.lib.php:2487 libraries/common.lib.php:2490
 #: libraries/display_tbl.lib.php:390
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
