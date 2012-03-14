@@ -10535,10 +10535,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1600
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Herstel standaard waarde"
+msgstr "Herstel standaardwaarde"
 
 #: server_status.php:1604
 #, fuzzy
