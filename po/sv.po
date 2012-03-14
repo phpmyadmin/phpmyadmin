@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 20:57+0200\n"
+"PO-Revision-Date: 2012-03-14 20:58+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1513,7 +1513,7 @@ msgstr "Diagramtitel"
 #. l10n: As in differential values
 #: js/messages.php:170
 msgid "Differential"
-msgstr "Differential"
+msgstr "Differentiell"
 
 #: js/messages.php:171
 #, php-format
