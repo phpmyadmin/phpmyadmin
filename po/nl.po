@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 18:20+0200\n"
+"PO-Revision-Date: 2012-03-14 18:21+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12997,10 +12997,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Formaat van het geïmporteerde bestand"
+msgstr "Percentage van afgebroken clients"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
