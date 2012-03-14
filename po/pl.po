@@ -6496,7 +6496,7 @@ msgstr "Dodaj oświadczenie %s"
 
 #: libraries/export/sql.php:152
 msgid "Add statements:"
-msgstr "Cecha"
+msgstr "Cecha:"
 
 #: libraries/export/sql.php:211
 msgid ""
