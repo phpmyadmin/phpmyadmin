@@ -1,11 +1,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2010-03-12 09:16+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2011-05-19 17:04+0200\n"
+"Last-Translator: <sjanevski@gmail.com>\n"
 "Language-Team: macedonian_cyrillic <mk@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -113,9 +113,9 @@ msgid ""
 msgstr ""
 
 #: db_create.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "Базата на податоци %s не е прифатена"
+msgstr "Базата на податоци %1$s е креирана"
 
 #: db_datadict.php:48 db_operations.php:367
 msgid "Database comment: "
@@ -272,10 +272,9 @@ msgid "Rename database to"
 msgstr "Преименувај ја базата на податоци во"
 
 #: db_operations.php:434
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Преименувај ја базата на податоци во"
+msgstr "Избриши ја базата на податоци."
 
 #: db_operations.php:446
 #, php-format
@@ -745,9 +744,8 @@ msgid "Last version"
 msgstr "Последна Верзија"
 
 #: db_tracking.php:87 tbl_tracking.php:589
-#, fuzzy
 msgid "Created"
-msgstr "Креирај"
+msgstr "Креирано"
 
 #: db_tracking.php:88 tbl_tracking.php:590
 msgid "Updated"
@@ -1012,13 +1010,11 @@ msgid "The passwords aren't the same!"
 msgstr "Лозинките не се идентични!"
 
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a New User"
 msgstr "Додади нов корисник"
 
 #: js/messages.php:53
-#, fuzzy
 msgid "Create User"
 msgstr "Верзија на серверот"
 
@@ -1103,7 +1099,6 @@ msgid "Table must have at least one column"
 msgstr "Морате да изберете барем една колона за приказ"
 
 #: js/messages.php:76
-#, fuzzy
 msgid "Create Table"
 msgstr "Направи нова страница"
 
@@ -1124,7 +1119,6 @@ msgid "Show query box"
 msgstr "SQL упит"
 
 #: js/messages.php:88
-#, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Складишта"
@@ -4831,10 +4825,9 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:392
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
-msgstr " записи почнувајќи од записот"
+msgstr "записи почнувајќи од записот"
 
 #: libraries/display_tbl.lib.php:397
 msgid "horizontal"
@@ -8558,7 +8551,6 @@ msgid "The total number of blocks in the query cache."
 msgstr ""
 
 #: server_status.php:131
-#, fuzzy
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Поништи"
@@ -8740,7 +8732,6 @@ msgid "Show processes"
 msgstr "Прикажи листа на процеси"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
@@ -9349,13 +9340,11 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Привилегиите се успешно вчитани."
 
 #: tbl_chart.php:59
-#, fuzzy
 #| msgid ""
 #| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 #| "3.11[/a]"
@@ -9992,7 +9981,6 @@ msgstr ""
 msgid "Rename view to"
 msgstr "Промени го името на табелата во "
 
-#, fuzzy
 #~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Приказ на податоци од табелата"
@@ -10013,8 +10001,8 @@ msgstr "Промени го името на табелата во "
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "Дополнителните можности за работа со поврзаните табели се исклучени. За "
-#~ "да дознаете зошто, кликнете %sовде%s."
+#~ "Дополнителните можности за работа со поврзаните табели се исклучени. За да "
+#~ "дознаете зошто, кликнете %sовде%s."
 
 #~ msgid "Execute bookmarked query"
 #~ msgstr "Изврши запамтен упит"
@@ -10032,9 +10020,9 @@ msgstr "Промени го името на табелата во "
 #~ "\\'b')."
 #~ msgstr ""
 #~ "Ве молиме внесете вредности за опциите на трансформацијата во следниов "
-#~ "формат: 'a','b','c'...<br /> Ако треба да внесете обратна коса црта (\"\\"
-#~ "\") или апостроф (\"'\") во тие вредности, ставете обратна коса црта пред "
-#~ "нив (пример '\\\\xyz' или 'a\\'b')."
+#~ "формат: 'a','b','c'...<br /> Ако треба да внесете обратна коса црта (\"\\\") "
+#~ "или апостроф (\"'\") во тие вредности, ставете обратна коса црта пред нив "
+#~ "(пример '\\\\xyz' или 'a\\'b')."
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
@@ -10042,9 +10030,9 @@ msgstr "Промени го името на табелата во "
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "Ве молиме внесете вредности за опциите на трансформацијата во следниов "
-#~ "формат: 'a','b','c'...<br /> Ако треба да внесете обратна коса црта (\"\\"
-#~ "\") или апостроф (\"'\") во тие вредности, ставете обратна коса црта пред "
-#~ "нив (пример '\\\\xyz' или 'a\\'b')."
+#~ "формат: 'a','b','c'...<br /> Ако треба да внесете обратна коса црта (\"\\\") "
+#~ "или апостроф (\"'\") во тие вредности, ставете обратна коса црта пред нив "
+#~ "(пример '\\\\xyz' или 'a\\'b')."
 
 #~ msgid "New table"
 #~ msgstr "Нема табела"
@@ -10112,18 +10100,17 @@ msgstr "Промени го името на табелата во "
 #~ "conversion. Either configure PHP to enable these extensions or disable "
 #~ "charset conversion in phpMyAdmin."
 #~ msgstr ""
-#~ "Не можам да ги вчитам iconv или recode екстензиите потребни за конверзија "
-#~ "на кодните страници, подесете го PHP да дозволи користење на овие "
-#~ "екстензии или оневозможете ја конверзијата на кодни страници во "
-#~ "phpMyAdmin-у."
+#~ "Не можам да ги вчитам iconv или recode екстензиите потребни за конверзија на "
+#~ "кодните страници, подесете го PHP да дозволи користење на овие екстензии "
+#~ "или оневозможете ја конверзијата на кодни страници во phpMyAdmin-у."
 
 #~ msgid ""
 #~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
 #~ "the necessary extensions appear to be loaded. Check your PHP "
 #~ "configuration."
 #~ msgstr ""
-#~ "Не можам да ги користам iconv или libiconv или recode_string функциите "
-#~ "иако екстензијата пријавува дека е вчитана. Проверите ја вашата PHP "
+#~ "Не можам да ги користам iconv или libiconv или recode_string функциите иако "
+#~ "екстензијата пријавува дека е вчитана. Проверите ја вашата PHP "
 #~ "конфигурација."
 
 #~ msgid "Field"
@@ -10238,16 +10225,15 @@ msgstr "Промени го името на табелата во "
 #~ "query on the MySQL command line interface. The MySQL server error output "
 #~ "be . "
 #~ msgstr ""
-#~ "Постои можност дека сте отркиле грешка во SQL парсерот. Ве молиме "
-#~ "внимателно проверете го вашиот упит, проверете дали наводниците се "
-#~ "правилно поставени или дали можеби недостасуваат. Други можни причини се: "
-#~ "бинарна податотека надвор од областа за обичен текст. Можете да го "
-#~ "пробате упит командната линија на MySQL. Долната порака за грешка на "
-#~ "MySQL серверот, може да ви помогне да го откриете проблемот. Ако и "
-#~ "понатаму имате проблеми или ако парсерот не успеава иако од командата "
-#~ "линија се е во ред, испратете го својот SQL упит со извештајот за грешка "
-#~ "и делот од кодот во долната РЕЗ секција до нас за да можеме да провериме "
-#~ "за што се работи."
+#~ "Постои можност дека сте отркиле грешка во SQL парсерот. Ве молиме внимателно "
+#~ "проверете го вашиот упит, проверете дали наводниците се правилно поставени "
+#~ "или дали можеби недостасуваат. Други можни причини се: бинарна податотека "
+#~ "надвор од областа за обичен текст. Можете да го пробате упит командната "
+#~ "линија на MySQL. Долната порака за грешка на MySQL серверот, може да ви "
+#~ "помогне да го откриете проблемот. Ако и понатаму имате проблеми или ако "
+#~ "парсерот не успеава иако од командата линија се е во ред, испратете го "
+#~ "својот SQL упит со извештајот за грешка и делот од кодот во долната РЕЗ "
+#~ "секција до нас за да можеме да провериме за што се работи."
 
 #~ msgctxt "$strStrucCSV"
 #~ msgid "CSV"
@@ -10259,8 +10245,7 @@ msgstr "Промени го името на табелата во "
 #~ msgid ""
 #~ "This is the cleanest way, but reloading the privileges may take a while."
 #~ msgstr ""
-#~ "Ова е најчист начин, но повторното вчитување на привилегите може да "
-#~ "потрае."
+#~ "Ова е најчист начин, но повторното вчитување на привилегите може да потрае."
 
 #~ msgid "has been altered."
 #~ msgstr "е променет(а)."
@@ -10269,8 +10254,8 @@ msgstr "Промени го името на табелата во "
 #~ "The &quot;deleted&quot; users will still be able to access the server as "
 #~ "usual until the privileges are reloaded."
 #~ msgstr ""
-#~ "&quot;Избришаните&quot; корисници и понатаму ќе имаат пристап до серверот "
-#~ "се додека привилегиите не се вчитаат повторно."
+#~ "&quot;Избришаните&quot; корисници и понатаму ќе имаат пристап до серверот се "
+#~ "додека привилегиите не се вчитаат повторно."
 
 #~ msgid "Just delete the users from the privilege tables."
 #~ msgstr "Само избриши ги корисниците од табелата на привилегии."
@@ -10278,8 +10263,8 @@ msgstr "Промени го името на табелата во "
 #~ msgid ""
 #~ "Allows running stored procedures; has no effect in this MySQL version."
 #~ msgstr ""
-#~ "Дозволува стартување на снимени процедури. Нема ефект во новата верзија "
-#~ "на MySQL."
+#~ "Дозволува стартување на снимени процедури. Нема ефект во новата верзија на "
+#~ "MySQL."
 
 #~ msgid "Process list"
 #~ msgstr "Листа на процеси"
