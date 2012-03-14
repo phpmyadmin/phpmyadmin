@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 18:18+0200\n"
+"PO-Revision-Date: 2012-03-14 18:19+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -756,7 +756,7 @@ msgstr "Eylem"
 
 #: db_tracking.php:102 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "Bu tabloyu izleme verisini sil"
+msgstr "Bu tablo için izleme verisini sil"
 
 #: db_tracking.php:120 tbl_tracking.php:617 tbl_tracking.php:675
 msgid "active"
