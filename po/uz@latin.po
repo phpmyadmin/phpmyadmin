@@ -6562,7 +6562,7 @@ msgstr "sahifalar soni"
 
 #: libraries/engines/innodb.lib.php:170
 msgid "Free pages"
-msgstr "Bo‘sh sahifalar soni "
+msgstr "Bo‘sh sahifalar soni"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
