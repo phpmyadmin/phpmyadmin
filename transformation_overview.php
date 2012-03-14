@@ -51,16 +51,7 @@ foreach ($types['mimetype'] as $key => $mimetype) {
 <?php
 $odd_row = true;
 foreach ($types['transformation'] as $key => $transform) {
-    $func = strtolower(str_ireplace('.inc.php', '', $types['transformation_file'][$key]));
-    include './libraries/transformations/' . $types['transformation_file'][$key];
-    $funcname = 'PMA_transformation_' . $func . '_info';
-    $desc = '<i>' . sprintf(__('No description is available for this transformation.<br />Please ask the author what %s does.'), 'PMA_transformation_' . $func . '()') . '</i>';
-    if (function_exists($funcname)) {
-        $desc_arr = $funcname();
-        if (isset($desc_arr['info'])) {
-            $desc = $desc_arr['info'];
-        }
-    }
+    $desc = PMA_getTransformationDescription($types['transformation_file'][$key]);
     ?>
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
         <td><?php echo $transform; ?></td>
