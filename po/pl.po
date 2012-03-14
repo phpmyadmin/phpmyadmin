@@ -8795,7 +8795,7 @@ msgstr "Utwórz stronę i eksport do niej"
 
 #: pmd_pdf.php:107
 msgid "New page name: "
-msgstr "Nowa nazwa strony:"
+msgstr "Nowa nazwa strony: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
