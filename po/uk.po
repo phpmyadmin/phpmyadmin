@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
 "PO-Revision-Date: 2012-03-13 20:57+0200\n"
@@ -4679,7 +4679,6 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:392
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "рядків з"
@@ -6047,10 +6046,10 @@ msgstr "Згенерувати пароль"
 #: libraries/schema/Pdf_Relation_Schema.class.php:489
 #: libraries/schema/Svg_Relation_Schema.class.php:370
 #: libraries/schema/Visio_Relation_Schema.class.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "Таблиці \"%s\" не існує!"
+msgstr "Таблиця %s не існує!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:254
 #: libraries/schema/Eps_Relation_Schema.class.php:442
@@ -6065,10 +6064,10 @@ msgstr "Прошу сконфіґурувати координати табли�
 #: libraries/schema/Pdf_Relation_Schema.class.php:851
 #: libraries/schema/Svg_Relation_Schema.class.php:738
 #: libraries/schema/Visio_Relation_Schema.class.php:503
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Схема бази даних \"%s\" - Сторінка %s"
+msgstr "Схема бази даних %s - Сторінка %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 msgid "This page does not contain any tables!"
@@ -6105,10 +6104,9 @@ msgid "Create a page"
 msgstr "Створити нову сторінку"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Номер сторінки:"
+msgstr "Назва сторінки"
 
 #: libraries/schema/User_Schema.class.php:103
 #, fuzzy
@@ -6129,20 +6127,18 @@ msgid "Please choose a page to edit"
 msgstr "Прошу вибрати сторінку для редагування"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Вибрати таблиці"
+msgstr "Вибрати сторінку"
 
 #: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
 msgstr "Вибрати таблиці"
 
 #: libraries/schema/User_Schema.class.php:347
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Схема зв'язків"
+msgstr "Відобразити схему зв'язків"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "Select Export Relational Type"
@@ -6177,10 +6173,9 @@ msgid "Portrait"
 msgstr "Portrait"
 
 #: libraries/schema/User_Schema.class.php:395
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Створено"
+msgstr "Орієнтація"
 
 #: libraries/schema/User_Schema.class.php:408
 msgid "Paper size"
@@ -6210,10 +6205,9 @@ msgid "Unknown language: %1$s."
 msgstr "Невідома мова: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "Сервер"
+msgstr "Поточний Сервер"
 
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
@@ -6243,10 +6237,9 @@ msgid "Synchronize"
 msgstr "Синхронізувати"
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Загальні можливості"
+msgstr "Налаштування"
 
 #: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1116
 msgid "Source database"
@@ -6286,10 +6279,9 @@ msgid "Clear"
 msgstr "Очистити"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Назви колонок"
+msgstr "Колонки"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:929 sql.php:930 sql.php:947
 msgid "Bookmark this SQL query"
@@ -6967,35 +6959,30 @@ msgstr "Перегляд залежностей"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Експорт"
+msgstr "За винятком"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "по запиту"
+msgstr "підзапит"
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Rename to"
-msgstr "Перейменувати таблицю в"
+msgstr "Перейменувати у"
 
 #: pmd_general.php:482 pmd_general.php:581
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Ім'я користувача"
+msgstr "Нове ім'я"
 
 #: pmd_general.php:485 pmd_general.php:700
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Створити"
+msgstr "Загальний"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
@@ -7004,10 +6991,9 @@ msgid "Operator"
 msgstr ""
 
 #: pmd_general.php:810
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Налаштування таблиці"
+msgstr "Активовані опції"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
@@ -7029,32 +7015,28 @@ msgid "Page creation failed"
 msgstr "Створення сторінки обламалось"
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "Usage"
 msgid "Page"
-msgstr "Використання"
+msgstr "Сторінка"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Імпорт файлів"
+msgstr "Імпорт з вибраної сторінки"
 
 #: pmd_pdf.php:100
 msgid "Export to selected page"
 msgstr "Експорт у вибрану сторінку"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Створити новий індекс"
+msgstr "Створити нову сторінку та експортувати в неї"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Ім'я користувача"
+msgstr "Нова назва сторінки: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -7113,10 +7095,9 @@ msgid "Saved on: @DATE@"
 msgstr "Збережено у: @DATE@"
 
 #: prefs_manage.php:239
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Імпорт файлів"
+msgstr "Імпорт з файлу"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
@@ -7179,10 +7160,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Таблицю <b>%s</b> не знайдено або не визначено у %s"
 
 #: schema_export.php:47
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Таблиці \"%s\" не існує!"
+msgstr "Файл не існує"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
@@ -8482,7 +8462,6 @@ msgid "Show processes"
 msgstr "Показати процеси"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
@@ -9084,7 +9063,6 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "Права успішно перезавантажено."
