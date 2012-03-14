@@ -1,11 +1,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-13 16:38+0100\n"
-"PO-Revision-Date: 2011-03-26 03:23+0200\n"
-"Last-Translator: <efgpinto@gmail.com>\n"
+"PO-Revision-Date: 2011-12-27 22:24+0200\n"
+"Last-Translator: NunoCruz <ncruzdesign@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -623,7 +623,6 @@ msgstr "Vista"
 #: db_structure.php:470 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:163 server_status.php:383
-#, fuzzy
 msgid "Replication"
 msgstr "Replicação"
 
@@ -1019,10 +1018,9 @@ msgid "Create User"
 msgstr "Criar Utilizador"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "A recarregar privilégios"
+msgstr "Recarregar Privilégios"
 
 #: js/messages.php:55
 msgid "Removing Selected Users"
@@ -1128,14 +1126,12 @@ msgid "Hide"
 msgstr "Esconder"
 
 #: js/messages.php:94
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "Comando SQL"
+msgstr "Esconder critérios de buca"
 
 #: js/messages.php:95
-#, fuzzy
 msgid "Show search criteria"
-msgstr "Comando SQL"
+msgstr "Mostrar critérios de busca"
 
 #: js/messages.php:98 tbl_change.php:303 tbl_indexes.php:196
 #: tbl_indexes.php:221
@@ -1155,25 +1151,22 @@ msgid "Please select the primary key or a unique key"
 msgstr "Por favor seleccione a chave primária ou a chave única "
 
 #: js/messages.php:104 pmd_general.php:87 tbl_relation.php:538
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Escolha campo para mostrar"
+msgstr "Escolha a coluna para mostrar"
 
 #: js/messages.php:107
 msgid "Add an option for column "
 msgstr "Adicionar uma opção para a coluna"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
-msgstr "Alterar a palavra-passe"
+msgstr "Gerar palavra-passe"
 
 #: js/messages.php:111 libraries/replication_gui.lib.php:365
-#, fuzzy
 msgid "Generate"
-msgstr "Gerado por"
+msgstr "Gerar"
 
 #: js/messages.php:112
 #, fuzzy
@@ -1198,15 +1191,13 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:120
-#, fuzzy
 msgid ", latest stable version:"
-msgstr "Versão do servidor"
+msgstr ", última versão estável:"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:138
-#, fuzzy
 msgid "Done"
-msgstr "Dados"
+msgstr "Concluído"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:140
@@ -1225,64 +1216,56 @@ msgstr "Próximo"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:144
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Total"
+msgstr "Hoje"
 
 #: js/messages.php:147
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr " Binário "
+msgstr "Janeiro"
 
 #: js/messages.php:148
 msgid "February"
 msgstr "Fevereiro"
 
 #: js/messages.php:149
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
-msgstr "Mar"
+msgstr "Março"
 
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
-msgstr "Abr"
+msgstr "Abril"
 
 #: js/messages.php:151
 msgid "May"
 msgstr "Mai"
 
 #: js/messages.php:152
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
-msgstr "Jun"
+msgstr "Junho"
 
 #: js/messages.php:153
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
-msgstr "Jul"
+msgstr "Julho"
 
 #: js/messages.php:154
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
-msgstr "Ago"
+msgstr "Agosto"
 
 #: js/messages.php:155
 msgid "September"
 msgstr "Setembro"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
-msgstr "Out"
+msgstr "Outubro"
 
 #: js/messages.php:157
 msgid "November"
@@ -1314,11 +1297,10 @@ msgstr "Abr"
 
 #. l10n: Short month name
 #: js/messages.php:170 libraries/common.lib.php:1576
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
-msgstr "Mai"
+msgstr "Maio"
 
 #. l10n: Short month name
 #: js/messages.php:172 libraries/common.lib.php:1578
@@ -1356,22 +1338,19 @@ msgid "Dec"
 msgstr "Dez"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "Dom"
+msgstr "Domingo"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "Seg"
+msgstr "Segunda"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "Ter"
+msgstr "Terça"
 
 #: js/messages.php:190
 msgid "Wednesday"
@@ -1382,10 +1361,9 @@ msgid "Thursday"
 msgstr "Quinta"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "Sex"
+msgstr "Sexta"
 
 #: js/messages.php:193
 msgid "Saturday"
@@ -1485,16 +1463,14 @@ msgid "Hour"
 msgstr "Hora"
 
 #: js/messages.php:230
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "em uso"
+msgstr "Minuto"
 
 #: js/messages.php:231
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "por segundo"
+msgstr "Segundo"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
@@ -1566,9 +1542,8 @@ msgid "Cardinality"
 msgstr "Quantidade"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:274 tbl_tracking.php:323
-#, fuzzy
 msgid "Comment"
-msgstr "Comentários"
+msgstr "Comentário"
 
 #: libraries/Index.class.php:471
 msgid "The primary key has been dropped"
@@ -1604,22 +1579,22 @@ msgstr "Erro"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d linha afectada."
+msgstr[1] "%1$d linha(s) afectadas."
 
 #: libraries/Message.class.php:279
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d linhas excluída."
+msgstr[1] "%1$d linhas(s) excluídas."
 
 #: libraries/Message.class.php:298
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d linha inserida."
+msgstr[1] "%1$d linha(s) inseridas."
 
 #: libraries/StorageEngine.class.php:194
 #, fuzzy
@@ -1881,18 +1856,16 @@ msgid "Overhead"
 msgstr "Suspenso"
 
 #: libraries/build_html_for_db.lib.php:93
-#, fuzzy
 msgid "Jump to database"
-msgstr "Sem bases de dados"
+msgstr "Ir para base de dados"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
 msgstr ""
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
 msgid "Replicated"
-msgstr "Relações"
+msgstr "Replicado"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
@@ -1904,19 +1877,17 @@ msgid "Check Privileges"
 msgstr "Verificar Privilégios"
 
 #: libraries/chart.lib.php:40
-#, fuzzy
 msgid "Query statistics"
-msgstr "Estatísticas dos registos"
+msgstr "Estatísticas de comandos"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:83
-#, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
-msgstr "Resultado SQL"
+msgstr "Resultado(s) das(s) consulta(s)"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
@@ -2194,10 +2165,10 @@ msgid "Browse your computer:"
 msgstr "Procurar no seu computador:"
 
 #: libraries/common.lib.php:2978
-#, fuzzy, php-format
+#, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Directoria no servidor web para fazer upload"
+msgstr "Selecionar a partir da directoria de upload do servidor <b>%s</b>:"
 
 #: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:962
@@ -2217,10 +2188,9 @@ msgid "Open"
 msgstr "Abrir"
 
 #: libraries/config.values.php:74
-#, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
-msgstr "Aspa não fechada"
+msgstr "Fechado"
 
 #: libraries/config.values.php:95 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2310,10 +2280,9 @@ msgstr "Dados em falta para %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "Variável"
+msgstr "indisponível"
 
 #: libraries/config/FormDisplay.class.php:737
 #: libraries/config/FormDisplay.class.php:741
@@ -2336,9 +2305,8 @@ msgid "SQL Validator is disabled"
 msgstr "Validador SQL desactivado"
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy
 msgid "SOAP extension not found"
-msgstr "versão do PHP"
+msgstr "Extensão SOAP não encontrada"
 
 #: libraries/config/FormDisplay.class.php:781
 #, php-format
@@ -2380,10 +2348,9 @@ msgid "Improves efficiency of screen refresh"
 msgstr "Melhora a eficiência de actualização do ecrã"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid "Enabled"
 msgid "Enable Ajax"
-msgstr "Activado"
+msgstr "Activar Ajax"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
@@ -2393,9 +2360,8 @@ msgstr ""
 "formulário de login para cookie de autenticação "
 
 #: libraries/config/messages.inc.php:20
-#, fuzzy
 msgid "Allow login to any MySQL server"
-msgstr "Não é possível fazer login no servidor MySQL"
+msgstr "Permitir autenticação para qualquer servidor MySQL"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
@@ -2526,9 +2492,8 @@ msgid "Debug SQL"
 msgstr "Depurar SQL"
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
 msgid "Default display direction"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Direcção de exibição padrão"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
@@ -2545,9 +2510,8 @@ msgid "Tab that is displayed when entering a database"
 msgstr "Separador que é exibido quando entrar numa base de dados"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 msgid "Default database tab"
-msgstr "Renomeia a tabela para "
+msgstr "Separador padrão da base de dados"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
@@ -2602,10 +2566,9 @@ msgid "Edit in window"
 msgstr "Editar em janela"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "Mostrar Características"
+msgstr "Exibir erros"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
@@ -2657,10 +2620,9 @@ msgstr "Compressão"
 #: libraries/export/excel.php:24 libraries/export/htmlword.php:29
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
-msgstr "Coloca os nomes dos compos na primeira linha"
+msgstr "Colocar os nomes das colunas na primeira linha"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:75
@@ -2693,10 +2655,9 @@ msgstr "Remover caracteres CRLF nas colunas"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "Linhas terminadas por"
+msgstr "Colunas terminadas por"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:238
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
@@ -2704,15 +2665,13 @@ msgid "Lines terminated by"
 msgstr "Linhas terminadas por"
 
 #: libraries/config/messages.inc.php:80
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
-msgstr "Edição Excel"
+msgstr "Edição do Excel"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 msgid "Database name template"
-msgstr "Nome do ficheiro modelo"
+msgstr "Modelo de nome da base de dados"
 
 #: libraries/config/messages.inc.php:84
 #, fuzzy
@@ -2935,9 +2894,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:168 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
-#, fuzzy
 msgid "Import"
-msgstr "Exportar"
+msgstr "Importar"
 
 #: libraries/config/messages.inc.php:169
 #, fuzzy
@@ -4843,7 +4801,6 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/display_tbl.lib.php:392
-#, fuzzy
 #| msgid "row(s) starting from record #"
 msgid "row(s) starting from row #"
 msgstr "registos começando em"
@@ -6421,10 +6378,9 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Características gerais de Relação"
+msgstr "Configurações"
 
 #: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1116
 #, fuzzy
@@ -7018,9 +6974,8 @@ msgid "No databases"
 msgstr "Sem bases de dados"
 
 #: navigation.php:277
-#, fuzzy
 msgid "Filter"
-msgstr "Qtd Campos"
+msgstr "Filtrar"
 
 #: navigation.php:277
 #, fuzzy
@@ -8461,7 +8416,6 @@ msgid "The total number of blocks in the query cache."
 msgstr ""
 
 #: server_status.php:131
-#, fuzzy
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Limpa"
@@ -8644,7 +8598,6 @@ msgid "Show processes"
 msgstr "Mostra os Processos"
 
 #: server_status.php:470
-#, fuzzy
 #| msgid "Reset"
 msgctxt "for Show status"
 msgid "Reset"
@@ -9254,7 +9207,6 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:56
-#, fuzzy
 #| msgid "The privileges were reloaded successfully."
 msgid "Chart generated successfully."
 msgstr "O privilégios foram recarregados com sucesso."
