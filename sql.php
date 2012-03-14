@@ -383,7 +383,7 @@ if ($do_confirm) {
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? PMA_sanitize($show_query, true) : ''; ?>" />
     <?php
     echo '<fieldset class="confirmation">' . "\n"
-        .'    <legend>' . __('Do you really want to ') . '</legend>'
+        .'    <legend>' . __('Do you really want to execute following query?') . '</legend>'
         .'    <tt>' . htmlspecialchars($stripped_sql_query) . '</tt>' . "\n"
         .'</fieldset>' . "\n"
         .'<fieldset class="tblFooters">' . "\n";

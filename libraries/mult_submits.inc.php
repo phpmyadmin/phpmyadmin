@@ -289,7 +289,12 @@ if (!empty($submit_mult) && !empty($what)) {
     <?php
         } else { ?>
     <fieldset class="confirmation">
-        <legend><?php echo ($what == 'drop_db' ? __('You are about to DESTROY a complete database!') . '&nbsp;' : '') . __('Do you really want to '); ?>:</legend>
+        <legend><?php
+            if ($what == 'drop_db') {
+                echo  __('You are about to DESTROY a complete database!') . '&nbsp;';
+            }
+            echo __('Do you really want to execute following query?');
+        ?>:</legend>
         <tt><?php echo $full_query; ?></tt>
     </fieldset>
     <fieldset class="tblFooters">

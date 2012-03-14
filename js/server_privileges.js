@@ -541,7 +541,7 @@ $(document).ready(function() {
     $('#checkbox_drop_users_db').click(function() {
         $this_checkbox = $(this);
         if ($this_checkbox.is(':checked')) {
-            var is_confirmed = confirm(PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\nDROP DATABASE');
+            var is_confirmed = confirm(PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\nDROP DATABASE');
             if (! is_confirmed) {
                 $this_checkbox.attr('checked', false);
             }

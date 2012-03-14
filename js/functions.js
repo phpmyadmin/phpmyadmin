@@ -242,7 +242,7 @@ function confirmLink(theLink, theSqlQuery)
         return true;
     }
 
-    var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + theSqlQuery);
+    var is_confirmed = confirm(PMA_messages['strDoYouReally'] + '\n' + theSqlQuery);
     if (is_confirmed) {
         if ( $(theLink).hasClass('formLinkSubmit') ) {
             var name = 'is_js_confirmed';
@@ -311,7 +311,7 @@ function confirmQuery(theForm1, sqlQuery1)
         var message      = (sqlQuery1.value.length > 100)
                          ? sqlQuery1.value.substr(0, 100) + '\n    ...'
                          : sqlQuery1.value;
-        var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + message);
+        var is_confirmed = confirm(PMA_messages['strDoYouReally'] + '\n' + message);
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
@@ -2268,7 +2268,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP DATABASE ' + escapeHtml(window.parent.db);
+        var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\n' + 'DROP DATABASE ' + escapeHtml(window.parent.db);
 
         $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
 
@@ -2348,7 +2348,7 @@ $(document).ready(function() {
          */
         var button_options = {};
         button_options[PMA_messages['strGo']] = function() {
-            
+
         event.preventDefault();
 
         /**
@@ -2378,7 +2378,7 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }) // end $.post()
-            
+
         }
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
@@ -3332,7 +3332,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strDropTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'DROP TABLE ' + window.parent.table;
+        var question = PMA_messages['strDropTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\n' + 'DROP TABLE ' + window.parent.table;
 
         $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
 
@@ -3363,7 +3363,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strTruncateTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + 'TRUNCATE TABLE ' + window.parent.table;
+        var question = PMA_messages['strTruncateTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\n' + 'TRUNCATE TABLE ' + window.parent.table;
 
         $(this).PMA_confirm(question, $(this).attr('href') ,function(url) {
 
