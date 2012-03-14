@@ -7634,7 +7634,7 @@ msgstr "Aloqa mavjud bo‘lmagan jadvallarni yashirish/ko‘rsatish"
 
 #: pmd_general.php:181
 msgid "Number of tables"
-msgstr "Jadvallar soni "
+msgstr "Jadvallar soni"
 
 #: pmd_general.php:418
 msgid "Delete relation"
