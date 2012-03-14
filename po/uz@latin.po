@@ -6530,7 +6530,7 @@ msgid ""
 "when it becomes full."
 msgstr ""
 "Jadvalda joy tugaganda ma`lumotlar fayli hajmini avtomatik oshirish "
-"(megabaytlarda) "
+"(megabaytlarda)."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
