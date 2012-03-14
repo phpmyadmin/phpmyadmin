@@ -505,7 +505,7 @@ msgstr "Jadvallarni ishlatish"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "<b>\"%s\"</b> ma`lumotlar bazasiga SQL-so‘rov: "
+msgstr "<b>\"%s\"</b> ma`lumotlar bazasiga SQL-so‘rov:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1219
 msgid "Submit Query"
