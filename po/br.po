@@ -1892,7 +1892,7 @@ msgid ""
 "configuration file!"
 msgstr ""
 "RET eo d'an arventenn <tt>$cfg['PmaAbsoluteUri']</tt> bezañ resisaet er "
-"restr kefluniañ."
+"restr kefluniañ!"
 
 #: libraries/common.inc.php:630
 #, php-format
