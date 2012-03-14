@@ -2012,7 +2012,7 @@ msgstr "TB"
 
 #: libraries/common.lib.php:1392
 msgid "PiB"
-msgstr "PiB"
+msgstr "PB"
 
 #: libraries/common.lib.php:1392
 msgid "EiB"
