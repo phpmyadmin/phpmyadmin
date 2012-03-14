@@ -8564,7 +8564,7 @@ msgstr ""
 "MySQL de mai jos, daca e vreuna, poate sa te ajute la diagnosticarea "
 "problemei. Daca in continuare ai probleme cu executarea comenzii, redu o "
 "parte din comanda la aceea parte care cauzeaza problema și raporteaza acesta "
-"ca un BUG in sectiunea DE TAIAT"
+"ca un BUG in sectiunea DE TAIAT:"
 
 #: libraries/sqlparser.lib.php:177
 msgid "BEGIN CUT"
