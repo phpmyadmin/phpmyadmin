@@ -12218,10 +12218,9 @@ msgid "Current version: %s"
 msgstr "Huidige versie: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Versie"
+msgstr "Versie met kleine wijzigingen"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
