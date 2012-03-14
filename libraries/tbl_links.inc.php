@@ -123,7 +123,7 @@ echo PMA_generate_html_tabs($tabs, $url_params);
 unset($tabs);
 
 if (PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])) {
-    $msg = PMA_Message::notice('<a href="tbl_tracking.php?'.$url_query.'">'.sprintf(__('Tracking of %s.%s is activated.'), htmlspecialchars($GLOBALS["db"]), htmlspecialchars($GLOBALS["table"])).'</a>');
+    $msg = PMA_Message::notice('<a href="tbl_tracking.php?'.$url_query.'">'.sprintf(__('Tracking of %s is activated.'), htmlspecialchars($GLOBALS["db"] . '.' . $GLOBALS["table"])).'</a>');
     $msg->display();
 }
 

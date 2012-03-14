@@ -170,7 +170,7 @@ if (isset($_REQUEST['submit_create_version'])) {
     $tracking_set = rtrim($tracking_set, ',');
 
     if (PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set )) {
-        $msg = PMA_Message::success(sprintf(__('Version %s is created, tracking for %s.%s is activated.'), $_REQUEST['version'], htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])));
+        $msg = PMA_Message::success(sprintf(__('Version %1$s is created, tracking for %2$s is activated.'), $_REQUEST['version'], htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])));
         $msg->display();
     }
 }
@@ -178,7 +178,7 @@ if (isset($_REQUEST['submit_create_version'])) {
 // Deactivate tracking
 if (isset($_REQUEST['submit_deactivate_now'])) {
     if (PMA_Tracker::deactivateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
-        $msg = PMA_Message::success(sprintf(__('Tracking for %s.%s , version %s is deactivated.'), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table']), $_REQUEST['version']));
+        $msg = PMA_Message::success(sprintf(__('Tracking for %1$s, version %2$s is deactivated.'), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']), $_REQUEST['version']));
         $msg->display();
     }
 }
@@ -186,7 +186,7 @@ if (isset($_REQUEST['submit_deactivate_now'])) {
 // Activate tracking
 if (isset($_REQUEST['submit_activate_now'])) {
     if (PMA_Tracker::activateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
-        $msg = PMA_Message::success(sprintf(__('Tracking for %s.%s , version %s is activated.'), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table']), $_REQUEST['version']));
+        $msg = PMA_Message::success(sprintf(__('Tracking for %1$s, version %2$s is activated.'), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']), $_REQUEST['version']));
         $msg->display();
     }
 }
@@ -699,7 +699,7 @@ if ($last_version > 0) {
         <div id="div_deactivate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
-            <legend><?php printf(__('Deactivate tracking for %s.%s'), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
+            <legend><?php printf(__('Deactivate tracking for %s'), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])); ?></legend>
             <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
             <input type="submit" name="submit_deactivate_now" value="<?php echo __('Deactivate now'); ?>" />
         </fieldset>
@@ -712,7 +712,7 @@ if ($last_version > 0) {
         <div id="div_activate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
-            <legend><?php printf(__('Activate tracking for %s.%s'), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
+            <legend><?php printf(__('Activate tracking for %s'), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])); ?></legend>
             <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
             <input type="submit" name="submit_activate_now" value="<?php echo __('Activate now'); ?>" />
         </fieldset>
@@ -727,7 +727,7 @@ if ($last_version > 0) {
 <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset>
-    <legend><?php printf(__('Create version %1$s of %2$s.%3$s'), ($last_version + 1), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])); ?></legend>
+    <legend><?php printf(__('Create version %1$s of %2$s'), ($last_version + 1), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])); ?></legend>
 
     <input type="hidden" name="version" value="<?php echo ($last_version + 1); ?>" />
 
