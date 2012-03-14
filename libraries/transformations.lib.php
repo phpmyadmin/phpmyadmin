@@ -118,6 +118,35 @@ function PMA_getAvailableMIMEtypes()
 }
 
 /**
+ * Returns the description of the transformation
+ *
+ * @param string $file           transformation file
+ * @param string $html_formatted whether the description should be formatted as HTML
+ *
+ * @return the description of the transformation
+ */
+function PMA_getTransformationDescription($file, $html_formatted = true)
+{
+    include_once './libraries/transformations/' . $file;
+    $func = strtolower(str_replace('.inc.php', '', $file));
+    $funcname = 'PMA_transformation_' . $func . '_info';
+
+    $desc = sprintf(__('No description is available for this transformation.<br />Please ask the author what %s does.'), 'PMA_transformation_' . $func . '()');
+    if ($html_formatted) {
+        $desc = '<i>' . $desc . '</i>';
+    } else {
+        $desc = str_replace('<br />', ' ', $desc);
+    }
+    if (function_exists($funcname)) {
+        $desc_arr = $funcname();
+        if (isset($desc_arr['info'])) {
+            $desc = $desc_arr['info'];
+        }
+    }
+    return $desc;
+}
+
+/**
  * Gets the mimetypes for all columns of a table
  *
  * @param string $db     the name of the db to check for
@@ -167,8 +196,8 @@ function PMA_getMIME($db, $table, $strict = false)
  * @return  boolean  true, if comment-query was made.
  */
 function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
-    $transformation_options, $forcedelete = false)
-{
+    $transformation_options, $forcedelete = false
+) {
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['commwork']) {

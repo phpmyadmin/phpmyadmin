@@ -113,7 +113,7 @@ if (isset($plugin_list)) {
                 'name' => 'drop_database',
                 'text' => sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
                 );
-         }
+        }
 
         /* what to dump (structure/data/both) */
         $plugin_list['sql']['options'][] = array(
@@ -317,12 +317,14 @@ if (isset($plugin_list)) {
     /**
      * Exports routines (procedures and functions)
      *
-     * @param string  $db
-     * @return  bool  Whether it succeeded
+     * @param string $db Database
      *
-     * @access  public
+     * @return bool Whether it succeeded
+     *
+     * @access public
      */
-    function PMA_exportRoutines($db) {
+    function PMA_exportRoutines($db)
+    {
         global $crlf;
 
         $text = '';
@@ -384,10 +386,11 @@ if (isset($plugin_list)) {
     /**
      * Possibly outputs comment
      *
-     * @param string  $text  Text of comment
-     * @return  string      The formatted comment
+     * @param string $text Text of comment
      *
-     * @access  private
+     * @return string The formatted comment
+     *
+     * @access private
      */
     function PMA_exportComment($text = '')
     {
@@ -402,7 +405,7 @@ if (isset($plugin_list)) {
     /**
      * Possibly outputs CRLF
      *
-     * @return  string  $crlf or nothing
+     * @return string $crlf or nothing
      *
      * @access private
      */
@@ -418,9 +421,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return  bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {
@@ -457,9 +460,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return  bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportHeader()
     {
@@ -484,8 +487,7 @@ if (isset($plugin_list)) {
             $host_string .= ':' . $cfg['Server']['port'];
         }
         $head .= PMA_exportComment($host_string);
-        $head .= PMA_exportComment(__('Generation Time')
-              . ': ' .  PMA_localisedDate())
+        $head .= PMA_exportComment(__('Generation Time') . ': ' .  PMA_localisedDate())
               .  PMA_exportComment(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION)
               .  PMA_exportComment(__('PHP Version') . ': ' . phpversion())
               .  PMA_possibleCRLF();
@@ -507,7 +509,8 @@ if (isset($plugin_list)) {
 
         /* We want exported AUTO_INCREMENT columns to have still same value, do this only for recent MySQL exports */
         if ((!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE')
-                && !PMA_DRIZZLE) {
+            && !PMA_DRIZZLE
+        ) {
             $head .= 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
         }
 
@@ -550,10 +553,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it succeeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it succeeded
+     *
+     * @access public
      */
     function PMA_exportDBCreate($db)
     {
@@ -579,7 +583,8 @@ if (isset($plugin_list)) {
             return false;
         }
         if (isset($GLOBALS['sql_backquotes'])
-                && ((isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] == 'NONE') || PMA_DRIZZLE)) {
+            && ((isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] == 'NONE') || PMA_DRIZZLE)
+        ) {
             $result = PMA_exportOutputHandler('USE ' . PMA_backquote($db) . ';' . $crlf);
         } else {
             $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
@@ -591,10 +596,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it succeeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it succeeded
+     *
+     * @access public
      */
     function PMA_exportDBHeader($db)
     {
@@ -607,10 +613,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
-     * @return  bool        Whether it succeeded
+     * @param string $db Database name
      *
-     * @access  public
+     * @return bool Whether it succeeded
+     *
+     * @access public
      */
     function PMA_exportDBFooter($db)
     {
@@ -643,7 +650,7 @@ if (isset($plugin_list)) {
 
                 foreach ($event_names as $event_name) {
                     if (! empty($GLOBALS['sql_drop_table'])) {
-                $text .= 'DROP EVENT ' . PMA_backquote($event_name) . $delimiter . $crlf;
+                        $text .= 'DROP EVENT ' . PMA_backquote($event_name) . $delimiter . $crlf;
                     }
                     $text .= PMA_DBI_get_definition($db, 'EVENT', $event_name) . $delimiter . $crlf . $crlf;
                 }
@@ -661,14 +668,16 @@ if (isset($plugin_list)) {
     /**
      * Returns a stand-in CREATE definition to resolve view dependencies
      *
-     * @param string  $db    the database name
-     * @param string  $view  the view name
-     * @param string  $crlf  the end of line sequence
-     * @return  string         resulting definition
+     * @param string $db   the database name
+     * @param string $view the view name
+     * @param string $crlf the end of line sequence
      *
-     * @access  public
+     * @return string resulting definition
+     *
+     * @access public
      */
-    function PMA_getTableDefStandIn($db, $view, $crlf) {
+    function PMA_getTableDefStandIn($db, $view, $crlf)
+    {
         $create_query = '';
         if (! empty($GLOBALS['sql_drop_table'])) {
             $create_query .= 'DROP VIEW IF EXISTS ' . PMA_backquote($view) . ';' . $crlf;
@@ -692,16 +701,17 @@ if (isset($plugin_list)) {
     /**
      * Returns $table's CREATE definition
      *
-     * @param string  $db             the database name
-     * @param string  $table          the table name
-     * @param string  $crlf           the end of line sequence
-     * @param string  $error_url      the url to go back in case of error
-     * @param bool    $show_dates     whether to include creation/update/check dates
-     * @param bool    $add_semicolon  whether to add semicolon and end-of-line at the end
-     * @param bool    $view           whether we're handling a view
-     * @return  string   resulting schema
+     * @param string $db            the database name
+     * @param string $table         the table name
+     * @param string $crlf          the end of line sequence
+     * @param string $error_url     the url to go back in case of error
+     * @param bool   $show_dates    whether to include creation/update/check dates
+     * @param bool   $add_semicolon whether to add semicolon and end-of-line at the end
+     * @param bool   $view          whether we're handling a view
      *
-     * @access  public
+     * @return string resulting schema
+     *
+     * @access public
      */
     function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $add_semicolon = true, $view = false)
     {
@@ -716,7 +726,11 @@ if (isset($plugin_list)) {
         $new_crlf = $crlf;
 
         // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
-        $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\'', null, PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_query(
+            'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\'',
+            null,
+            PMA_DBI_QUERY_STORE
+        );
         if ($result != false) {
             if (PMA_DBI_num_rows($result) > 0) {
                 $tmpres        = PMA_DBI_fetch_assoc($result);
@@ -919,14 +933,15 @@ if (isset($plugin_list)) {
     /**
      * Returns $table's comments, relations etc.
      *
-     * @param string  $db           database name
-     * @param string  $table        table name
-     * @param string  $crlf         end of line sequence
-     * @param bool    $do_relation  whether to include relation comments
-     * @param bool    $do_mime      whether to include mime comments
-     * @return  string   resulting comments
+     * @param string $db          database name
+     * @param string $table       table name
+     * @param string $crlf        end of line sequence
+     * @param bool   $do_relation whether to include relation comments
+     * @param bool   $do_mime     whether to include mime comments
      *
-     * @access  private
+     * @return string resulting comments
+     *
+     * @access private
      */
     function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_mime = false)
     {
@@ -975,8 +990,10 @@ if (isset($plugin_list)) {
                            . PMA_exportComment(__('RELATIONS FOR TABLE'). ' ' . PMA_backquote($table, $sql_backquotes) . ':');
             foreach ($res_rel AS $rel_field => $rel) {
                 $schema_create .= PMA_exportComment('  ' . PMA_backquote($rel_field, $sql_backquotes))
-                                . PMA_exportComment('      ' . PMA_backquote($rel['foreign_table'], $sql_backquotes)
-                                . ' -> ' . PMA_backquote($rel['foreign_field'], $sql_backquotes));
+                               . PMA_exportComment(
+                                   '      ' . PMA_backquote($rel['foreign_table'], $sql_backquotes)
+                                   . ' -> ' . PMA_backquote($rel['foreign_field'], $sql_backquotes)
+                               );
             }
             $schema_create .= PMA_exportComment();
         }
@@ -988,23 +1005,24 @@ if (isset($plugin_list)) {
     /**
      * Outputs table's structure
      *
-     * @param string  $db           database name
-     * @param string  $table        table name
-     * @param string  $crlf         the end of line sequence
-     * @param string  $error_url    the url to go back in case of error
-     * @param bool    $relation     whether to include relation comments
-     * @param bool    $comments     whether to include the pmadb-style column comments
-     *                                as comments in the structure; this is deprecated
-     *                                but the parameter is left here because export.php
-     *                                calls PMA_exportStructure() also for other export
-     *                                types which use this parameter
-     * @param bool    $mime         whether to include mime comments
-     * @param bool    $dates        whether to include creation/update/check dates
-     * @param string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $export_type  'server', 'database', 'table'
-     * @return  bool      Whether it succeeded
+     * @param string $db          database name
+     * @param string $table       table name
+     * @param string $crlf        the end of line sequence
+     * @param string $error_url   the url to go back in case of error
+     * @param bool   $relation    whether to include relation comments
+     * @param bool   $comments    whether to include the pmadb-style column comments
+     *                            as comments in the structure; this is deprecated
+     *                            but the parameter is left here because export.php
+     *                            calls PMA_exportStructure() also for other export
+     *                            types which use this parameter
+     * @param bool   $mime        whether to include mime comments
+     * @param bool   $dates       whether to include creation/update/check dates
+     * @param string $export_mode 'create_table','triggers','create_view','stand_in'
+     * @param string $export_type 'server', 'database', 'table'
      *
-     * @access  public
+     * @return bool Whether it succeeded
+     *
+     * @access public
      */
     function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, $comments = false, $mime = false, $dates = false, $export_mode, $export_type)
     {
@@ -1017,43 +1035,43 @@ if (isset($plugin_list)) {
               . PMA_exportComment();
 
         switch($export_mode) {
-            case 'create_table':
-                $dump .= PMA_exportComment(__('Table structure for table') . ' ' . $formatted_table_name);
-                $dump .= PMA_exportComment();
-                $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates);
-                $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $mime);
-                break;
-            case 'triggers':
-                $dump = '';
-                $triggers = PMA_DBI_get_triggers($db, $table);
-                if ($triggers) {
-                    $dump .=  PMA_possibleCRLF()
-                            . PMA_exportComment()
-                            . PMA_exportComment(__('Triggers') . ' ' . $formatted_table_name)
-                            . PMA_exportComment();
-                    $delimiter = '//';
-                    foreach ($triggers as $trigger) {
-                        $dump .= $trigger['drop'] . ';' . $crlf;
-                        $dump .= 'DELIMITER ' . $delimiter . $crlf;
-                        $dump .= $trigger['create'];
-                        $dump .= 'DELIMITER ;' . $crlf;
-                    }
-                }
-                break;
-            case 'create_view':
-                $dump .= PMA_exportComment(__('Structure for view') . ' ' . $formatted_table_name)
-                       . PMA_exportComment();
-                // delete the stand-in table previously created (if any)
-                if ($export_type != 'table') {
-                    $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table) . ';' . $crlf;
-                }
-                $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates, true, true);
-                break;
-            case 'stand_in':
-                $dump .=  PMA_exportComment(__('Stand-in structure for view') . ' ' . $formatted_table_name)
+        case 'create_table':
+            $dump .= PMA_exportComment(__('Table structure for table') . ' ' . $formatted_table_name);
+            $dump .= PMA_exportComment();
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates);
+            $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $mime);
+            break;
+        case 'triggers':
+            $dump = '';
+            $triggers = PMA_DBI_get_triggers($db, $table);
+            if ($triggers) {
+                $dump .=  PMA_possibleCRLF()
+                        . PMA_exportComment()
+                        . PMA_exportComment(__('Triggers') . ' ' . $formatted_table_name)
                         . PMA_exportComment();
-                // export a stand-in definition to resolve view dependencies
-                $dump .= PMA_getTableDefStandIn($db, $table, $crlf);
+                $delimiter = '//';
+                foreach ($triggers as $trigger) {
+                    $dump .= $trigger['drop'] . ';' . $crlf;
+                    $dump .= 'DELIMITER ' . $delimiter . $crlf;
+                    $dump .= $trigger['create'];
+                    $dump .= 'DELIMITER ;' . $crlf;
+                }
+            }
+            break;
+        case 'create_view':
+            $dump .= PMA_exportComment(__('Structure for view') . ' ' . $formatted_table_name)
+                   . PMA_exportComment();
+            // delete the stand-in table previously created (if any)
+            if ($export_type != 'table') {
+                $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table) . ';' . $crlf;
+            }
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates, true, true);
+            break;
+        case 'stand_in':
+            $dump .=  PMA_exportComment(__('Stand-in structure for view') . ' ' . $formatted_table_name)
+                    . PMA_exportComment();
+            // export a stand-in definition to resolve view dependencies
+            $dump .= PMA_getTableDefStandIn($db, $table, $crlf);
         } // end switch
 
         // this one is built by PMA_getTableDef() to use in table copy/move
@@ -1066,14 +1084,15 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table in SQL format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
-     * @return  bool        Whether it succeeded
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
-     * @access  public
+     * @return bool Whether it succeeded
+     *
+     * @access public
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
@@ -1162,8 +1181,8 @@ if (isset($plugin_list)) {
                 if ($GLOBALS['sql_insert_syntax'] == 'complete' || $GLOBALS['sql_insert_syntax'] == 'both') {
                     $fields        = implode(', ', $field_set);
                     $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $sql_backquotes)
-                // avoid EOL blank
-                                   . ' (' . $fields . ') VALUES';
+                        // avoid EOL blank
+                        . ' (' . $fields . ') VALUES';
                 } else {
                     $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $sql_backquotes)
                                    . ' VALUES';
@@ -1263,9 +1282,8 @@ if (isset($plugin_list)) {
                             }
                         }
                         $query_size += strlen($insert_line);
-                    }
-                    // Other inserts case
-                    else {
+                        // Other inserts case
+                    } else {
                         $insert_line = $schema_insert . '(' . implode(', ', $values) . ')';
                     }
                 }
