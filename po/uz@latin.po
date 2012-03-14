@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 14:51+0200\n"
+"PO-Revision-Date: 2012-03-14 14:52+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
 "Language: uz@latin\n"
@@ -2002,7 +2002,7 @@ msgstr "SQL so‘rovlari qutisi"
 #: js/messages.php:279 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr ""
-"Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak. "
+"Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak."
 
 #: js/messages.php:280 libraries/common.lib.php:2744
 #: libraries/display_tbl.lib.php:2507 querywindow.php:87 tbl_structure.php:149
