@@ -7592,7 +7592,7 @@ msgstr "Ingen trigger med namnet %1$s finns i databasen %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
-msgstr "Det finns inga triggers att visa"
+msgstr "Det finns inga triggers att visa."
 
 #: libraries/rte/rte_words.lib.php:42
 msgid "Add event"
