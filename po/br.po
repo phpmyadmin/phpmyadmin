@@ -1810,7 +1810,7 @@ msgstr "O tiverkañ"
 #: js/messages.php:259
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
-"Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket"
+"Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket!"
 
 #: js/messages.php:266
 #, php-format
