@@ -11679,10 +11679,10 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Le suivi de %1$s a été désactivé à la version %2$s."
 
 #: tbl_tracking.php:198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Le suivi de %s.%s est activé."
+msgstr "Le suivi de %1$s a été activé à la version %2$s."
 
 #: tbl_tracking.php:211
 msgid "SQL statements executed."
