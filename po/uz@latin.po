@@ -9449,7 +9449,7 @@ msgstr "Maksimal ulanishlar soni"
 
 #: server_status.php:574
 msgid "Failed attempts"
-msgstr "Muvaffaqiyatsiz urinishlar soni: "
+msgstr "Muvaffaqiyatsiz urinishlar soni"
 
 #: server_status.php:588
 msgid "Aborted"
