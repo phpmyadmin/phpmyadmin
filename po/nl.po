@@ -10652,10 +10652,9 @@ msgid "Start Monitor"
 msgstr "Start bewaking"
 
 #: server_status.php:1560
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Inleiding"
+msgstr "Instructies/Setup"
 
 #: server_status.php:1565
 msgid "Done rearranging/editing charts"
