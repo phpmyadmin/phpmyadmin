@@ -6241,7 +6241,7 @@ msgstr ""
 #: libraries/display_export.lib.php:276 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
 msgid "Character set of the file:"
-msgstr "Fayl kodirovkasi: "
+msgstr "Fayl kodirovkasi:"
 
 #: libraries/display_export.lib.php:306
 #, fuzzy
