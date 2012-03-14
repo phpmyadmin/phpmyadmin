@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 18:38+0200\n"
+"PO-Revision-Date: 2012-03-14 18:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8006,7 +8006,7 @@ msgstr "Tablo boş olarak görünüyor!"
 #, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "%s izleme aktif."
+msgstr "%s izleme aktif edildi."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
