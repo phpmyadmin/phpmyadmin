@@ -10961,7 +10961,7 @@ msgstr ""
 
 #: server_variables.php:80
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Variabele instellen is mislukt"
 
 #: server_variables.php:99
 msgid "Server variables and settings"
