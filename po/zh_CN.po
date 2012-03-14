@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-08 16:08+0100\n"
 "PO-Revision-Date: 2012-03-09 15:40+0200\n"
@@ -1242,7 +1242,7 @@ msgid ""
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
-msgstr ""
+msgstr "您浏览器本地存储中的图表设置不兼容于新版的监控对话框。所以您当前的设置可能不再有效。请通过<i>设置</i>菜单恢复默认设置。"
 
 #: js/messages.php:97
 msgid "Query cache efficiency"
@@ -1588,7 +1588,6 @@ msgid "Table"
 msgstr "表"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Charts"
 msgid "Chart"
 msgstr "图表"
@@ -2515,7 +2514,7 @@ msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
 "changed."
-msgstr ""
+msgstr "无法保存用户界面属性 \"%s\"。修改将在刷新本页后丢失。请检查表结构是否已修改。"
 
 #: libraries/Theme.class.php:145
 #, php-format
@@ -5288,7 +5287,7 @@ msgstr "OpenOffice 文档"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "无法初始化 Drizzle 连接库"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
 #| msgid "Could not connect to MySQL server"
@@ -5352,7 +5351,7 @@ msgstr "服务器没有响应。"
 
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "请检查数据库目录的权限。"
 
 #: libraries/database_interface.lib.php:1828
 msgid "Details..."
@@ -6712,7 +6711,7 @@ msgstr ""
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
-msgstr ""
+msgstr "您要导入的文件无效或文件中含有无效数据"
 
 #: libraries/import/shp.php:338
 #, php-format
@@ -7230,18 +7229,16 @@ msgid "Execute every"
 msgstr "运行周期"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "开始"
+msgstr "起始时间"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "结束"
+msgstr "终止时间"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:354
@@ -7249,10 +7246,9 @@ msgid "Definition"
 msgstr "定义"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "完整插入"
+msgstr "过期后禁用事件而不删除"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
@@ -7301,10 +7297,9 @@ msgid "Event scheduler status"
 msgstr "事件计划状态"
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "返回类型"
+msgstr "返回"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
@@ -7468,11 +7463,10 @@ msgid "Trigger name"
 msgstr "触发器名称"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "时间"
+msgstr "时机"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
@@ -7755,7 +7749,7 @@ msgstr "字符集"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "插件"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8198,7 +8192,7 @@ msgstr "数据库服务器"
 
 #: main.php:172
 msgid "Software"
-msgstr ""
+msgstr "软件"
 
 #: main.php:173
 #| msgid "Show versions"
@@ -8407,10 +8401,9 @@ msgid "Toggle small/big"
 msgstr "反向收缩/展开"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "要选择关系，点击："
+msgstr "显示/隐藏关系线"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
@@ -8704,7 +8697,7 @@ msgstr "查看数据库的转存(大纲)"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "模块"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -8712,15 +8705,15 @@ msgstr "开始"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "插件"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "模块"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "库"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
 msgid "Version"
@@ -8728,7 +8721,7 @@ msgstr "版本"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "作者"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
@@ -9029,10 +9022,9 @@ msgid "Any"
 msgstr "任意"
 
 #: server_privileges.php:1565
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "查看用户"
+msgstr "用户概况"
 
 #: server_privileges.php:1705 server_privileges.php:1899
 #: server_privileges.php:2258
@@ -9439,37 +9431,36 @@ msgid "Run analyzer"
 msgstr "运行分析器"
 
 #: server_status.php:902
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "介绍"
+msgstr "说明"
 
 #: server_status.php:909
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
-msgstr ""
+msgstr "建议系统可以通过分析服务器状态变量对服务器变量的设置提出建议。"
 
 #: server_status.php:911
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
-msgstr ""
+msgstr "请注意本系统所提出的建议建立在简单计算以及通用场合中，可能并不能满足您系统的实际需求。"
 
 #: server_status.php:913
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
-msgstr ""
+msgstr "在修改任何设置之前，请确定您确实知道在修改什么设置 (通过阅读文档) 并知道如何撤销改变。错误的设置可能导致与预期完全相反的结果。"
 
 #: server_status.php:915
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
-msgstr ""
+msgstr "最好的系统调整方法是一次只修改一个设置，观察并测试您的数据库，如果没有显著的效果就撤销改变。"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:937
@@ -10242,7 +10233,6 @@ msgid "Using the monitor:"
 msgstr "暂停监控"
 
 #: server_status.php:1625
-#, fuzzy
 #| msgid ""
 #| "Using the monitor:</b><br/> Ok, you are good to go! Once you click art "
 #| "monitor' your browser will refresh all displayed charts in a ular "
@@ -10256,15 +10246,9 @@ msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
-msgstr ""
-"<b>使用监控:</b><br/> 现在我们可以开始了！当你点击 '开始监控' 时你的浏览器会"
-"以一定间隔时间刷新所有的图表。你可以通过 '设置' 添加图表或修改刷新频率，或通"
-"过图表各自的齿轮图标来移除图表。<p>要想显示日志所记录的查询，请在图表上通过按"
-"住鼠标左键的拖拽操作选择相应的时间段。确认后即可显示出分组后的查询，你可以通"
-"过点击其中的 SELECT 语句获得进一步分析。</p>"
+msgstr "您的浏览器将会以一定的频率刷新所有已显示的图表。您可以在'设置'中添加图表或修改刷新频率，您也可以通过每个图表的齿轮图标来删除图表。"
 
 #: server_status.php:1627
-#, fuzzy
 #| msgid ""
 #| "Using the monitor:</b><br/> Ok, you are good to go! Once you click art "
 #| "monitor' your browser will refresh all displayed charts in a ular "
@@ -10279,19 +10263,13 @@ msgid ""
 "by holding down the left mouse button and panning over the chart. Once "
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
-msgstr ""
-"<b>使用监控:</b><br/> 现在我们可以开始了！当你点击 '开始监控' 时你的浏览器会"
-"以一定间隔时间刷新所有的图表。你可以通过 '设置' 添加图表或修改刷新频率，或通"
-"过图表各自的齿轮图标来移除图表。<p>要想显示日志所记录的查询，请在图表上通过按"
-"住鼠标左键的拖拽操作选择相应的时间段。确认后即可显示出分组后的查询，你可以通"
-"过点击其中的 SELECT 语句获得进一步分析。</p>"
+msgstr "要从日志中显示查询，请通过按下鼠标左键并拖拽选择一段时间范围。确定后，将会显示出分好组的查询，您可以点击任意 SELECT 查询以进一步分析。"
 
 #: server_status.php:1634
 msgid "Please note:"
-msgstr ""
+msgstr "请注意："
 
 #: server_status.php:1636
-#, fuzzy
 #| msgid ""
 #| "Please note:</b> Enabling the general_log may increase the server load "
 #| "5-15%. Also be aware that generating statistics from the logs is a d "
@@ -10304,8 +10282,7 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"<b>请注意:</b> 启用 general_log 可能会增加5-15% 的服务器负载。从日志中统计数"
-"据同样也是高负载的任务，建议选择一段小范围的时间并在用完监控后禁止 "
+"启用 general_log 可能会增加 5-15% 的服务器负载。从日志中统计数据同样也是高负载的任务，建议选择一段小范围的时间并在用完监控后禁止 "
 "general_log 并清空它的表。"
 
 #: server_status.php:1648
@@ -10371,16 +10348,15 @@ msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "去除 INSERT 语句中的变量值以获得更好的分组"
 
 #: server_status.php:1724
-#, fuzzy
 #| msgid ""
 #| "Choose from which log you want the statistics to be generated from.</"
 #| "Results are grouped by query text."
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr "<p>请选择生成统计的来源日志。</p>结果将根据查询语句分组。"
+msgstr "请选择生成统计的来源日志。"
 
 #: server_status.php:1726
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "结果将根据查询语句分组。"
 
 #: server_status.php:1731
 msgid "Query analyzer"
@@ -10805,10 +10781,9 @@ msgid ""
 msgstr "此系统目前不支持 %sZip 解压缩%s所必须的 (%s) 函数。"
 
 #: setup/lib/index.lib.php:324
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "如果服务器支持，你应该使用 SSL 连接。"
+msgstr "如果您的数据库服务器支持，您应该使用 SSL 连接。"
 
 #: setup/lib/index.lib.php:337
 msgid "You should use mysqli for performance reasons."
@@ -10827,10 +10802,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "短语密码应包含字母、数字[em]和[/em]特殊字符。"
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "无数据"
+msgstr "无效数据"
 
 #: sql.php:109 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
@@ -10931,7 +10905,6 @@ msgid "Continue insertion with %s rows"
 msgstr "继续插入 %s 行"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
@@ -10945,21 +10918,18 @@ msgid "Column"
 msgstr "字段"
 
 #: tbl_chart.php:93
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "折线图"
 
 #: tbl_chart.php:95
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "曲线图"
 
 #: tbl_chart.php:97
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
@@ -11068,10 +11038,9 @@ msgid "Add index"
 msgstr "添加索引"
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "编辑模式"
+msgstr "编辑索引"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
@@ -11208,10 +11177,9 @@ msgid "Check referential integrity:"
 msgstr "检查引用完整性："
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "显示表"
+msgstr "正在显示表"
 
 #: tbl_printview.php:269 tbl_structure.php:764
 msgid "Space usage"
@@ -11547,10 +11515,9 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:417
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "控制用户"
+msgstr "如何使用"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11657,60 +11624,57 @@ msgstr "慢查询率"
 #: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "慢查询率过高。"
 
 #: po/advisory_rules.php:23
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
-msgstr ""
+msgstr "当前慢查询率为 %s 每小时，此值不应高于 1%% 每小时。"
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL 查询"
+msgstr "慢查询时间"
 
 #: po/advisory_rules.php:26
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
-msgstr ""
+msgstr "long_query_time 当前设为 10 秒或更长，因此超过 10 秒的查询才被记为慢查询。"
 
 #: po/advisory_rules.php:27
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
-msgstr ""
+msgstr "建议根据您的环境将 {long_query_time} 调短。通常建议设为 1-5 秒。"
 
 #: po/advisory_rules.php:28
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time 已设为 %d 秒。"
+msgstr "long_query_time 当前被设为 %d 秒。"
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "显示查询框"
+msgstr "慢查询记录"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log 已启用。"
+msgstr "慢查询记录已禁用。"
 
 #: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
-msgstr ""
+msgstr "请将 {log_slow_queries} 设为 'ON' 来启用慢查询记录。这将有助于解决查询问题。"
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries 被设为 'OFF'"
 
 #: po/advisory_rules.php:35
 #, fuzzy
@@ -11720,45 +11684,43 @@ msgstr "清除所有数据"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "MySQL 服务器版本低于 5.1。"
 
 #: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
-msgstr ""
+msgstr "您应该升级到 MySQL 5.1 或 5.5，以获得新版本的更高性能。"
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "创建版本"
+msgstr "当前版本：%s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "版本"
+msgstr "子版本"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "版本低于 5.1.30 (5.1 的第一个 GA 版本)"
 
 #: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
-msgstr ""
+msgstr "您应该升级到最新的 MySQL 5.1 或 5.5，以获得新版本的更高性能。"
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "版本低于 5.5.8 (5.5 的第一个 GA 版本)"
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "您应升级到 %s %s 或更高版本。"
+msgstr "您应升级到 MySQL 5.5 的稳定版本。"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 #, fuzzy
@@ -11803,14 +11765,13 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL 字符集"
+msgstr "MySQL 架构"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL 没有以 64 位编译。"
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -11825,16 +11786,14 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "查询缓存"
+msgstr "查询缓存已禁用"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "服务器没有响应"
+msgstr "查询缓存没有启用。"
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -11846,13 +11805,12 @@ msgstr ""
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size 被设为 0 或 query_cache_type 被设为 'OFF'"
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "查询缓存"
+msgstr "查询缓存模式"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
@@ -11874,23 +11832,23 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%%)"
-msgstr "查询缓存效率"
+msgstr "查询缓存效率 (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "查询缓存命中率低。"
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "请考虑增加 {query_cache_limit}。"
 
 #: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "当前查询缓存命中率为 %s%% 低于 20%%"
 
 #: po/advisory_rules.php:85
 #, fuzzy
@@ -11972,10 +11930,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "查询缓存"
+msgstr "查询缓存最大值"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12408,10 +12365,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "键缓存"
+msgstr "线程缓存"
 
 #: po/advisory_rules.php:206
 msgid ""
@@ -12428,10 +12384,10 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "追踪已禁用。"
+msgstr "线程缓存命中率 %%"
 
 #: po/advisory_rules.php:211
 #, fuzzy
@@ -12741,9 +12697,7 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ msgid ""
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 #~ "maximum number for which vertical model is used"
-#~ msgstr ""
-#~ "[kbd]horizontal (水平)[/kbd]、[kbd]vertical (垂直)[/kbd] 或限定使用垂直模"
-#~ "式的最大数值"
+#~ msgstr "[kbd]horizontal (水平)[/kbd]、[kbd]vertical (垂直)[/kbd] 或限定使用垂直模式的最大数值"
 
 #~ msgid "Display direction for altering/creating columns"
 #~ msgstr "修改/新建字段时的显示模式"
@@ -12767,9 +12721,7 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ "The display column is shown in pink. To set/unset a column as the display "
 #~ "column, click the \"Choose column to display\" icon, then click on the "
 #~ "appropriate column name."
-#~ msgstr ""
-#~ "显示的字段为粉红色。要设置/取消显示的字段，点击“选择显示字段”图标，然后选"
-#~ "择需要的字段名。"
+#~ msgstr "显示的字段为粉红色。要设置/取消显示的字段，点击“选择显示字段”图标，然后选择需要的字段名。"
 
 #~ msgid ""
 #~ "The Advisor system can provide recommendations on server variables by "
@@ -12784,12 +12736,9 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ "measurable improvement.</p>"
 #~ msgstr ""
 #~ "建议系统可以通过分析服务器状态变量来提供建议。\n"
-#~ "        请注意本系统的建议基于相当简单的规则和计算且可能不适用于你的系"
-#~ "统。\n"
-#~ "        在修改任何设置前，请确保你知道你在修改什么以及如何恢复。错误的修改"
-#~ "可能导致截然相反的结果。\n"
-#~ "        调整系统的最佳方式为一次只修改一个设置，然后检查并测试你的数据库，"
-#~ "若没有显著的性能提升则恢复设置。"
+#~ "        请注意本系统的建议基于相当简单的规则和计算且可能不适用于你的系统。\n"
+#~ "        在修改任何设置前，请确保你知道你在修改什么以及如何恢复。错误的修改可能导致截然相反的结果。\n"
+#~ "        调整系统的最佳方式为一次只修改一个设置，然后检查并测试你的数据库，若没有显著的性能提升则恢复设置。"
 
 #~ msgid "memcached usage"
 #~ msgstr "已用空间"
@@ -12889,10 +12838,9 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "phpMyAdmin 无法读取您的配置文件！<br />这可能是因为配置文件不存在或有语法"
-#~ "错误。<br />请使用下面的链接直接访问配置文件，然后检查您收到的 PHP 错误信"
-#~ "息。通常的错误都是因为某处漏了引号或分号。<br />如果您看到的是一个空白页，"
-#~ "则代表没有任何问题。"
+#~ "phpMyAdmin 无法读取您的配置文件！<br />这可能是因为配置文件不存在或有语法错误。<br "
+#~ "/>请使用下面的链接直接访问配置文件，然后检查您收到的 PHP 错误信息。通常的错误都是因为某处漏了引号或分号。<br "
+#~ "/>如果您看到的是一个空白页，则代表没有任何问题。"
 
 #~ msgid "Dropping Event"
 #~ msgstr "正在删除事件"
@@ -12932,8 +12880,7 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ msgid ""
 #~ "<b>Server traffic</b>: These tables show the network traffic statistics "
 #~ "of this MySQL server since its startup."
-#~ msgstr ""
-#~ "<b>服务器流量</b>：这些表显示了此 MySQL 服务器自启动以来的网络流量统计。"
+#~ msgstr "<b>服务器流量</b>：这些表显示了此 MySQL 服务器自启动以来的网络流量统计。"
 
 #~ msgid ""
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
@@ -12950,8 +12897,8 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr ""
-#~ "该查询的结果不能用于图表。参见[a@./Documentation."
-#~ "html#faq6_29@Documentation]常见问题 (FAQ) 6.29[/a]"
+#~ "该查询的结果不能用于图表。参见[a@./Documentation.html#faq6_29@Documentation]常见问题 (FAQ) "
+#~ "6.29[/a]"
 
 #~ msgid "Title"
 #~ msgstr "标题"
@@ -12984,8 +12931,8 @@ msgstr "concurrent_insert(并发插入)被设置为0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
-#~ "html#faq6_29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6_29\" "
+#~ "target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"
