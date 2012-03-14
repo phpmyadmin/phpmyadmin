@@ -1365,7 +1365,7 @@ msgstr "PB"
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:131 libraries/common.lib.php:1408
 msgid "EiB"
-msgstr "EiB"
+msgstr "EB"
 
 #: js/messages.php:132
 #, php-format
