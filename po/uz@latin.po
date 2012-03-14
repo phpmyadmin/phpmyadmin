@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:47+0100\n"
-"PO-Revision-Date: 2010-07-22 02:30+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2012-03-14 14:57+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Weblate 0.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1728
@@ -26,7 +26,7 @@ msgstr "Barchasini ko‘rsatish"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:491
 msgid "Page number:"
-msgstr "Sahifa raqami: "
+msgstr "Sahifa raqami:"
 
 #: browse_foreigners.php:142
 msgid ""
@@ -111,7 +111,7 @@ msgstr "%1$s ma`lumotlar bazasi tuzildi."
 
 #: db_datadict.php:49 db_operations.php:379
 msgid "Database comment: "
-msgstr "Ma`lumotlar bazasiga izoh:"
+msgstr "Ma`lumotlar bazasiga izoh: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
@@ -357,7 +357,7 @@ msgstr "Aloqalar sxemasi"
 #: server_privileges.php:1965 server_privileges.php:2234
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
-msgstr "Jadval "
+msgstr "Jadval"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
@@ -489,7 +489,7 @@ msgstr "Jadvallarni ishlatish"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "<b>\"%s\"</b> ma`lumotlar bazasiga SQL-so‘rov: "
+msgstr "<b>\"%s\"</b> ma`lumotlar bazasiga SQL-so‘rov:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1249
 msgid "Submit Query"
@@ -663,7 +663,7 @@ msgstr "\"%s\" - MySQL serveridagi andozaviy ma`lumotlar jadvali turi."
 #: server_databases.php:282 server_privileges.php:1820 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
-msgstr "Belgilanganlarni: "
+msgstr "Belgilanganlarni:"
 
 #: db_structure.php:552 libraries/display_tbl.lib.php:2487
 #: server_databases.php:279 server_privileges.php:703
@@ -877,7 +877,7 @@ msgstr "Indеks(lar)ni saqlash"
 #: export.php:166 export.php:191 export.php:652
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "\"%s\" faylini saqlash uchun diskda yetarli joy mavjud emas. "
+msgstr "\"%s\" faylini saqlash uchun diskda yetarli joy mavjud emas."
 
 #: export.php:307
 #, php-format
@@ -1136,7 +1136,7 @@ msgstr ""
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr ""
-"Ushbu operatsiyani bajarish uzoq vaqt talab qilishi mumkin. Davom etsinmi? "
+"Ushbu operatsiyani bajarish uzoq vaqt talab qilishi mumkin. Davom etsinmi?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -1975,7 +1975,7 @@ msgstr "SQL so‘rovlari qutisi"
 #: js/messages.php:275 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr ""
-"Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak. "
+"Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak."
 
 #: js/messages.php:276 libraries/common.lib.php:2774
 #: libraries/display_tbl.lib.php:2501 querywindow.php:87 tbl_structure.php:149
@@ -2720,7 +2720,7 @@ msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
 #: libraries/StorageEngine.class.php:203
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas. "
+msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas."
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
@@ -2898,7 +2898,7 @@ msgstr ""
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "\"%s\" soniya davomida faollik kuzatilmadi, iltimos, qayta avtorizatsiyadan "
-"o‘ting. "
+"o‘ting."
 
 #: libraries/auth/cookie.auth.lib.php:582
 #: libraries/auth/cookie.auth.lib.php:584
@@ -6169,7 +6169,7 @@ msgstr ""
 #: libraries/display_export.lib.php:279 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
 msgid "Character set of the file:"
-msgstr "Fayl kodirovkasi: "
+msgstr "Fayl kodirovkasi:"
 
 #: libraries/display_export.lib.php:309
 #, fuzzy
@@ -6530,7 +6530,7 @@ msgid ""
 "when it becomes full."
 msgstr ""
 "Jadvalda joy tugaganda ma`lumotlar fayli hajmini avtomatik oshirish "
-"(megabaytlarda) "
+"(megabaytlarda)."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
@@ -6558,11 +6558,11 @@ msgstr "Ishlatilish"
 
 #: libraries/engines/innodb.lib.php:161
 msgid "pages"
-msgstr "sahifalar soni "
+msgstr "sahifalar soni"
 
 #: libraries/engines/innodb.lib.php:170
 msgid "Free pages"
-msgstr "Bo‘sh sahifalar soni "
+msgstr "Bo‘sh sahifalar soni"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
@@ -6574,7 +6574,7 @@ msgstr "Ma`lumotlar mavjud sahifalar"
 
 #: libraries/engines/innodb.lib.php:188
 msgid "Pages to be flushed"
-msgstr "Tozalash kerak bo‘lgan sahifalar soni: "
+msgstr "Tozalash kerak bo‘lgan sahifalar soni"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
@@ -6582,7 +6582,7 @@ msgstr "Band sahifalar"
 
 #: libraries/engines/innodb.lib.php:203
 msgid "Latched pages"
-msgstr "Blokirovka qilingan sahifalar soni: "
+msgstr "Blokirovka qilingan sahifalar soni"
 
 #: libraries/engines/innodb.lib.php:214
 msgid "Buffer Pool Activity"
@@ -6606,7 +6606,7 @@ msgstr "Buferning tozalanishi kutilmoqda"
 
 #: libraries/engines/innodb.lib.php:242
 msgid "Read misses in %"
-msgstr "Buferni o‘qishda % qoldirishlar mavjud "
+msgstr "Buferni o‘qishda % qoldirishlar mavjud"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Write waits in %"
@@ -6716,7 +6716,7 @@ msgid ""
 msgstr ""
 "Jadval ma`lumotlarini keshlash uchun ajratilgan xotira hajmi. Asl qiymati – "
 "32 Mb. Ushbu xotira ma`lumotlarni saqlash fayllari(.xtd)dagi va qator "
-"ko‘rsatgichlari(.xtr)dagi o‘zgarishlarni keshlashda ishlatiladi. "
+"ko‘rsatgichlari(.xtr)dagi o‘zgarishlarni keshlashda ishlatiladi."
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
@@ -6979,7 +6979,7 @@ msgstr "Xost"
 #: libraries/export/latex.php:137 libraries/export/sql.php:487
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:61
 msgid "Generation Time"
-msgstr "Tuzilgan sana "
+msgstr "Tuzilgan sana"
 
 #: libraries/export/latex.php:138 libraries/export/sql.php:489
 #: libraries/export/xml.php:137
@@ -8558,7 +8558,7 @@ msgstr "Tanlash uchun sichqoncha tugmasini bosing"
 #: libraries/sql_query_form.lib.php:189
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "\"%s\" serverida SQL-so‘rov(lar)ni bajarish "
+msgstr "\"%s\" serverida SQL-so‘rov(lar)ni bajarish"
 
 #: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:228
 #, php-format
@@ -8783,7 +8783,7 @@ msgid ""
 "author what %s does."
 msgstr ""
 "Hozirgi vatqda tavsif mavjud emas. <br /> Ishlatilayotgan \"%s\" o‘girishlar "
-"namoyishi funksiyalarining ishi yaqin orada tavsiflanadi. "
+"namoyishi funksiyalarining ishi yaqin orada tavsiflanadi."
 
 #: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
 #, fuzzy, php-format
@@ -9350,7 +9350,7 @@ msgstr "Yashirish"
 
 #: pmd_general.php:170
 msgid "Number of tables"
-msgstr "Jadvallar soni "
+msgstr "Jadvallar soni"
 
 #: pmd_general.php:412
 msgid "Delete relation"
@@ -9576,7 +9576,7 @@ msgstr "Ko‘rish uchun binar jurnalni tanlang"
 
 #: server_binlog.php:103 server_status.php:601
 msgid "Files"
-msgstr "Fayllar soni "
+msgstr "Fayllar soni"
 
 #: server_binlog.php:150 server_binlog.php:152 server_status.php:1248
 #: server_status.php:1250
@@ -10595,11 +10595,11 @@ msgstr "Yuborildi"
 
 #: server_status.php:1152
 msgid "max. concurrent connections"
-msgstr "Maksimal ulanishlar soni "
+msgstr "Maksimal ulanishlar soni"
 
 #: server_status.php:1159
 msgid "Failed attempts"
-msgstr "Muvaffaqiyatsiz urinishlar soni: "
+msgstr "Muvaffaqiyatsiz urinishlar soni"
 
 #: server_status.php:1173
 msgid "Aborted"
@@ -12295,7 +12295,7 @@ msgstr "Tahrirlash usuli"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
-msgstr "Indeks nomi: "
+msgstr "Indeks nomi:"
 
 #: tbl_indexes.php:188
 msgid ""
@@ -12304,7 +12304,7 @@ msgstr "(\"PRIMARY\" nomi <b>faqat</b> birlamchi indeksgaega bo‘lishi shart!)"
 
 #: tbl_indexes.php:199
 msgid "Index type:"
-msgstr "Indeks turi: "
+msgstr "Indeks turi:"
 
 #: tbl_indexes.php:285
 #, php-format
@@ -12518,7 +12518,7 @@ msgstr "Qidirish shartini ko‘shish (ya`ni \"where\" jumlasi):"
 
 #: tbl_select.php:228
 msgid "Number of rows per page"
-msgstr "Sahifadagi qatorlar soni "
+msgstr "Sahifadagi qatorlar soni"
 
 #: tbl_select.php:234
 msgid "Display order:"
@@ -12825,7 +12825,7 @@ msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
 "Kursiv bilan belgilangan MIME turlari alohida o‘girish funksiyalariga ega "
-"emas. "
+"emas"
 
 #: transformation_overview.php:42
 msgid "Available transformations"
