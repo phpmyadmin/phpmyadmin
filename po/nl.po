@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 19:53+0200\n"
+"PO-Revision-Date: 2012-03-14 19:54+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10818,6 +10818,8 @@ msgstr "Enkel SELECT, INSERT, UPDATE en DELETE opdrachten opvragen"
 #: server_status.php:1719
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
+"Variabele gegevens verwijderen uit INSERT opdrachten om beter te kunnen "
+"groeperen"
 
 #: server_status.php:1724
 msgid "Choose from which log you want the statistics to be generated from."
