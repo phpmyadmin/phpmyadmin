@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:47+0100\n"
+"POT-Creation-Date: 2012-03-14 16:15+0100\n"
 "PO-Revision-Date: 2012-03-12 10:30+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "Αναζήτηση"
 #: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1402
+#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1402
 #: libraries/common.lib.php:2449 libraries/core.lib.php:505
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -194,7 +194,7 @@ msgstr "Σχόλια"
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:297
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:302
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1519 server_privileges.php:1529
@@ -215,8 +215,8 @@ msgstr "Όχι"
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:99
 #: libraries/mult_submits.inc.php:104 libraries/mult_submits.inc.php:109
 #: libraries/mult_submits.inc.php:114 libraries/mult_submits.inc.php:274
-#: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:296
-#: libraries/mult_submits.inc.php:303
+#: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:301
+#: libraries/mult_submits.inc.php:308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:95 server_privileges.php:1517
@@ -480,10 +480,10 @@ msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Υποβολή ερωτήματος"
 
-#: db_search.php:31 libraries/auth/config.auth.lib.php:77
-#: libraries/auth/config.auth.lib.php:96
-#: libraries/auth/cookie.auth.lib.php:570 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:237
+#: db_search.php:31 libraries/auth/config.auth.lib.php:78
+#: libraries/auth/config.auth.lib.php:97
+#: libraries/auth/cookie.auth.lib.php:571 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "Άρνηση πρόσβασης"
 
@@ -1051,11 +1051,13 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:292 sql.php:386
-msgid "Do you really want to "
+#: js/messages.php:30 libraries/mult_submits.inc.php:296 sql.php:386
+#, fuzzy
+#| msgid "Do you really want to "
+msgid "Do you really want to execute following query?"
 msgstr "Θέλετε να εκτελέσετε την εντολή "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:292 sql.php:371
+#: js/messages.php:31 libraries/mult_submits.inc.php:294 sql.php:371
 msgid "You are about to DESTROY a complete database!"
 msgstr "Πρόκειται να DESTROY μια ολόκληρη βάση δεδομένων!"
 
@@ -2005,7 +2007,7 @@ msgstr "Αλλαγή Κωδικού Πρόσβασης"
 msgid "More"
 msgstr "Περισσότερα"
 
-#: js/messages.php:360 setup/lib/index.lib.php:173
+#: js/messages.php:360 setup/lib/index.lib.php:170
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2576,17 +2578,17 @@ msgstr "Η διαδρομή θέματος δεν βρέθηκε για το θ�
 msgid "Theme"
 msgstr "Θέμα"
 
-#: libraries/auth/config.auth.lib.php:71
+#: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
 msgstr "Αδύνατη η σύνδεση: άκυρες ρυθμίσεις."
 
-#: libraries/auth/config.auth.lib.php:85
-#: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/config.auth.lib.php:86
+#: libraries/auth/cookie.auth.lib.php:173 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Καλωσήρθατε στο %s"
 
-#: libraries/auth/config.auth.lib.php:100
+#: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -2595,7 +2597,7 @@ msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
 
-#: libraries/auth/config.auth.lib.php:109
+#: libraries/auth/config.auth.lib.php:110
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2608,76 +2610,76 @@ msgstr ""
 "και να βεβαιωθείτε ότι αντιστοιχούν σε αυτά που σας έχει δώσει ο "
 "διαχειρηστής του διακομιστή MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:35
+#: libraries/auth/cookie.auth.lib.php:36
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Αδύνατη η χρήση του Blowfish από το mcrypt!"
 
-#: libraries/auth/cookie.auth.lib.php:197
+#: libraries/auth/cookie.auth.lib.php:198
 msgid "Log in"
 msgstr "Σύνδεση"
 
-#: libraries/auth/cookie.auth.lib.php:199
-#: libraries/auth/cookie.auth.lib.php:201
+#: libraries/auth/cookie.auth.lib.php:200
+#: libraries/auth/cookie.auth.lib.php:202
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "Τεκμηρίωση phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:211
 #: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:213
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Μπορείτε να εισάγετε όνομα διακομιστή/διεύθυνση ΙΡ και θύρα χωρισμένα με "
 "κενό."
 
-#: libraries/auth/cookie.auth.lib.php:211
+#: libraries/auth/cookie.auth.lib.php:212
 msgid "Server:"
 msgstr "Διακομιστής:"
 
-#: libraries/auth/cookie.auth.lib.php:216
+#: libraries/auth/cookie.auth.lib.php:217
 msgid "Username:"
 msgstr "Όνομα χρήστη:"
 
-#: libraries/auth/cookie.auth.lib.php:220
+#: libraries/auth/cookie.auth.lib.php:221
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:228
 msgid "Server Choice"
 msgstr "Επιλογή Διακομιστή"
 
-#: libraries/auth/cookie.auth.lib.php:273 libraries/header.inc.php:87
+#: libraries/auth/cookie.auth.lib.php:274 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
 msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένα cookies."
 
-#: libraries/auth/cookie.auth.lib.php:568
-#: libraries/auth/signon.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:569
+#: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Η σύνδεση χωρίς κωδικό πρόσβασης απαγορεύεται από τις ρυθμίσεις (δείτε τη "
 "μεταβλητή AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:572
-#: libraries/auth/signon.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:573
+#: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "Καμιά δραστηριότητα εδώ και %s δευτερόλεπτα τουλάχιστον, για αυτό "
 "ξανασυνδεθείτε"
 
-#: libraries/auth/cookie.auth.lib.php:582
-#: libraries/auth/cookie.auth.lib.php:584
-#: libraries/auth/signon.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:583
+#: libraries/auth/cookie.auth.lib.php:585
+#: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή MySQL"
 
-#: libraries/auth/http.auth.lib.php:69
+#: libraries/auth/http.auth.lib.php:70
 msgid "Wrong username/password. Access denied."
 msgstr "Λανθασμένο όνομα χρήστη/κωδικός πρόσβασης. Άρνηση πρόσβασης."
 
-#: libraries/auth/signon.auth.lib.php:88
+#: libraries/auth/signon.auth.lib.php:89
 msgid "Can not find signon authentication script:"
 msgstr "Αδύνατη η εύρεση του κώδικα πιστοποίησης σύνδεσης:"
 
@@ -5356,11 +5358,11 @@ msgstr ""
 "Ενεργοποιεί τον έλεγχο για τη τελευταία έκδοση στη κεντρική σελίδα του "
 "phpMyAdmin"
 
-#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
-#: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
-#: setup/lib/index.lib.php:161 setup/lib/index.lib.php:172
-#: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
-#: setup/lib/index.lib.php:224
+#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:118
+#: setup/lib/index.lib.php:128 setup/lib/index.lib.php:148
+#: setup/lib/index.lib.php:158 setup/lib/index.lib.php:169
+#: setup/lib/index.lib.php:176 setup/lib/index.lib.php:182
+#: setup/lib/index.lib.php:221
 msgid "Version check"
 msgstr "Έλεγχος έκδοσης"
 
@@ -5559,8 +5561,8 @@ msgstr ""
 "Ίσως είναι κατά προσέγγιση. Δείτε τις [a@./Documentation."
 "html#faq3_11@Documentation]ΣΑΕ 3.11[/a]"
 
-#: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:186
+#: libraries/dbi/drizzle.dbi.lib.php:115 libraries/dbi/mysql.dbi.lib.php:118
+#: libraries/dbi/mysqli.dbi.lib.php:187
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Ανεπιτυχής σύνδεση του χρήστη ελέγχου όπως ορίστηκε στη ρύθμισή σας."
 
@@ -6884,7 +6886,7 @@ msgstr "Προσθήκη προθέματος πίνακα"
 msgid "Add prefix"
 msgstr "Προσθήκη προθέματος"
 
-#: libraries/mult_submits.inc.php:494 tbl_replace.php:341
+#: libraries/mult_submits.inc.php:499 tbl_replace.php:341
 msgid "No change"
 msgstr "Χωρίς αλλαγή"
 
@@ -10974,7 +10976,7 @@ msgstr "Επεξεργασία διακομιστή"
 msgid "Add a new server"
 msgstr "Προσθήκη ενός νέου διακομιστή"
 
-#: setup/index.php:22
+#: setup/index.php:21
 msgid "Wrong GET file attribute value"
 msgstr "Εσφαλμένη τιμή ιδιότητας αρχείου GET"
 
@@ -10998,14 +11000,14 @@ msgstr "Παράβλεψη σφαλμάτων"
 msgid "Show form"
 msgstr "Εμφάνιση φόρμας"
 
-#: setup/lib/index.lib.php:122
+#: setup/lib/index.lib.php:119
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
 "Ούτε διεύθυνση URL ούτε CURL είναι διαθέσιμα. Ο έλεγχος της έκδοσης δεν "
 "είναι δυνατό να γίνει."
 
-#: setup/lib/index.lib.php:132
+#: setup/lib/index.lib.php:129
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
@@ -11013,15 +11015,15 @@ msgstr ""
 "Η ανάγνωση της έκδοσης απέτυχε. Ίσως είστε εκτός δικτύου ή ο αναβαθμισμένος "
 "διακομιστής δεν αποκρίνεται."
 
-#: setup/lib/index.lib.php:152
+#: setup/lib/index.lib.php:149
 msgid "Got invalid version string from server"
 msgstr "Ελήφθει μη έγκυρη έκδοση από τον διακομιστή"
 
-#: setup/lib/index.lib.php:162
+#: setup/lib/index.lib.php:159
 msgid "Unparsable version string"
 msgstr "Μη αναγνώσιμος αριθμός έκδοσης"
 
-#: setup/lib/index.lib.php:180
+#: setup/lib/index.lib.php:177
 #, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
@@ -11030,11 +11032,11 @@ msgstr ""
 "Χρησιμοποιείτε έκδοση Git, τρέξτε το [kbd]git pull[/kbd] :-)[br]Η τελευταία "
 "σταθερή έκδοση είναι %s, δημοσιεύτηκε την %s."
 
-#: setup/lib/index.lib.php:186
+#: setup/lib/index.lib.php:183
 msgid "No newer stable version is available"
 msgstr "Δεν υπάρχει νεότερη σταθερή έκδοση διαθέσιμη"
 
-#: setup/lib/index.lib.php:274
+#: setup/lib/index.lib.php:271
 #, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
@@ -11048,7 +11050,7 @@ msgstr ""
 "προστασία με βάση την IP ίσως να μην είναι αξιόπιστη γιατί μπορεί η IP σας "
 "να ανήκει σε πάροχο με χιλιάδες χρήστες."
 
-#: setup/lib/index.lib.php:276
+#: setup/lib/index.lib.php:273
 msgid ""
 "You didn't have blowfish secret set and have enabled cookie authentication, "
 "so a key was automatically generated for you. It is used to encrypt cookies; "
@@ -11058,7 +11060,7 @@ msgstr ""
 "Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. Χρησιμοποιήθηκε για την "
 "κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
 
-#: setup/lib/index.lib.php:277
+#: setup/lib/index.lib.php:274
 #, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
@@ -11067,7 +11069,7 @@ msgstr ""
 "Η %sσυμπίεση και αποσυμπίεση Bzip2%s απαιτεί συναρτήσεις (%s) που δεν είναι "
 "διαθέσιμες σε αυτό το σύστημα."
 
-#: setup/lib/index.lib.php:279
+#: setup/lib/index.lib.php:276
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
@@ -11076,14 +11078,14 @@ msgstr ""
 "είναι καθολικά προσβάσιμος ούτε αναγνώσιμος ούτε εγγράψιμος από άλλους "
 "χρήστες στο διακομιστή σας."
 
-#: setup/lib/index.lib.php:280
+#: setup/lib/index.lib.php:277
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
 "Αυτή η %sεπιλογή%s πρέπει να ενεργοποιηθεί αν ο διακομιστής σας το "
 "υποστηρίζει."
 
-#: setup/lib/index.lib.php:282
+#: setup/lib/index.lib.php:279
 #, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
@@ -11092,7 +11094,7 @@ msgstr ""
 "Η %sσυμπίεση και αποσυμπίεση GZip%s απαιτεί συναρτήσεις (%s) που δεν είναι "
 "διαθέσιμες σε αυτό το σύστημα."
 
-#: setup/lib/index.lib.php:284
+#: setup/lib/index.lib.php:281
 #, php-format
 msgid ""
 "%sLogin cookie validity%s greater than 1440 seconds may cause random session "
@@ -11103,7 +11105,7 @@ msgstr ""
 "μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
 "%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
 
-#: setup/lib/index.lib.php:286
+#: setup/lib/index.lib.php:283
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -11113,7 +11115,7 @@ msgstr ""
 "λεπτά) το περισσότερο. Τιμές μεγαλύτερες από 1800 μπορεί να ελοχεύει "
 "κινδύνους απροσωποληψίας."
 
-#: setup/lib/index.lib.php:288
+#: setup/lib/index.lib.php:285
 #, php-format
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
@@ -11123,7 +11125,7 @@ msgstr ""
 "δεν είναι 0, η %sεγκυρότητα Σύνδεσης cookie%s πρέπει να οριστεί σε μια τιμή "
 "μικρότερη ή ίση με αυτή."
 
-#: setup/lib/index.lib.php:290
+#: setup/lib/index.lib.php:287
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
@@ -11136,7 +11138,7 @@ msgstr ""
 "διακομιστών%s. Ωστόσο, η βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν "
 "ο πάροχός έχει χιλιάδες χρήστες που συνδέονται."
 
-#: setup/lib/index.lib.php:292
+#: setup/lib/index.lib.php:289
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -11151,7 +11153,7 @@ msgstr ""
 "άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή [kbd]"
 "http[/kbd]."
 
-#: setup/lib/index.lib.php:294
+#: setup/lib/index.lib.php:291
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -11160,7 +11162,7 @@ msgstr ""
 "Η %sσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε αυτό "
 "το σύστημα."
 
-#: setup/lib/index.lib.php:296
+#: setup/lib/index.lib.php:293
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -11169,26 +11171,26 @@ msgstr ""
 "Η %sαποσυμπίεση Zip%s απαιτεί συναρτήσεις (%s) που δεν είναι διαθέσιμες σε "
 "αυτό το σύστημα."
 
-#: setup/lib/index.lib.php:324
+#: setup/lib/index.lib.php:321
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
 "Πρέπει να χρησιμοποιήσετε συνδέσεις SSL αν ο διακομιστής ιστού σας τις "
 "υποστηρίζει."
 
-#: setup/lib/index.lib.php:337
+#: setup/lib/index.lib.php:334
 msgid "You should use mysqli for performance reasons."
 msgstr "Πρέπει να χρησιμοποιείτε την mysqli για λόγους απόδοσης."
 
-#: setup/lib/index.lib.php:368
+#: setup/lib/index.lib.php:365
 msgid "You allow for connecting to the server without a password."
 msgstr "Επιτρέπετε την σύνδεση στο διακομιστή χωρίς κωδικό πρόσβασης."
 
-#: setup/lib/index.lib.php:390
+#: setup/lib/index.lib.php:387
 msgid "Key is too short, it should have at least 8 characters."
 msgstr ""
 "Το κλειδί είναι πολύ μικρό γιατί πρέπει να έχει τουλάχιστον 8 χαρακτήρες."
 
-#: setup/lib/index.lib.php:397
+#: setup/lib/index.lib.php:394
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "Το κλειδί πρέπει να περιέχει γράμματα, αριθμούς [em]και[/em] ειδικούς "

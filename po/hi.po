@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:47+0100\n"
+"POT-Creation-Date: 2012-03-14 16:15+0100\n"
 "PO-Revision-Date: 2011-07-24 19:04+0200\n"
 "Last-Translator: <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -49,7 +49,7 @@ msgstr "ढूंढें"
 #: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1402
+#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1402
 #: libraries/common.lib.php:2449 libraries/core.lib.php:505
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -193,7 +193,7 @@ msgstr "टिप्पणी"
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:297
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:302
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1519 server_privileges.php:1529
@@ -214,8 +214,8 @@ msgstr "नहीं"
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:99
 #: libraries/mult_submits.inc.php:104 libraries/mult_submits.inc.php:109
 #: libraries/mult_submits.inc.php:114 libraries/mult_submits.inc.php:274
-#: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:296
-#: libraries/mult_submits.inc.php:303
+#: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:301
+#: libraries/mult_submits.inc.php:308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:95 server_privileges.php:1517
@@ -480,10 +480,10 @@ msgstr "डेटाबेस <b>%s<b> पर SQL क्वरी:"
 msgid "Submit Query"
 msgstr "क्वरी भेजें"
 
-#: db_search.php:31 libraries/auth/config.auth.lib.php:77
-#: libraries/auth/config.auth.lib.php:96
-#: libraries/auth/cookie.auth.lib.php:570 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:237
+#: db_search.php:31 libraries/auth/config.auth.lib.php:78
+#: libraries/auth/config.auth.lib.php:97
+#: libraries/auth/cookie.auth.lib.php:571 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "पहुँच निषेधित"
 
@@ -1062,11 +1062,13 @@ msgstr "phpMyAdmin <b>तख़्त-सक्षम</b> ब्रोव्स�
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" बयान अक्षम हैं."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:292 sql.php:386
-msgid "Do you really want to "
+#: js/messages.php:30 libraries/mult_submits.inc.php:296 sql.php:386
+#, fuzzy
+#| msgid "Do you really want to "
+msgid "Do you really want to execute following query?"
 msgstr "क्या आप सचमुच चाहते है की"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:292 sql.php:371
+#: js/messages.php:31 libraries/mult_submits.inc.php:294 sql.php:371
 msgid "You are about to DESTROY a complete database!"
 msgstr "आप एक पूरा डेटाबेस नष्ट कर रहे हैं! "
 
@@ -2091,7 +2093,7 @@ msgstr "पासवर्ड बदलिये "
 msgid "More"
 msgstr "अधिक"
 
-#: js/messages.php:360 setup/lib/index.lib.php:173
+#: js/messages.php:360 setup/lib/index.lib.php:170
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2665,17 +2667,17 @@ msgstr "विषय %s के लिए थीम पथ नहीं मिल
 msgid "Theme"
 msgstr ""
 
-#: libraries/auth/config.auth.lib.php:71
+#: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
 msgstr "अमान्य सेटिंग्स: कनेक्ट नहीं कर सकते हैं"
 
-#: libraries/auth/config.auth.lib.php:85
-#: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/config.auth.lib.php:86
+#: libraries/auth/cookie.auth.lib.php:173 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s मे स्वागत है"
 
-#: libraries/auth/config.auth.lib.php:100
+#: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -2684,7 +2686,7 @@ msgstr ""
 "आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script"
 "%2$s का उपयोग करें."
 
-#: libraries/auth/config.auth.lib.php:109
+#: libraries/auth/config.auth.lib.php:110
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2695,70 +2697,70 @@ msgstr ""
 "अपने मेजबान विन्यास में, यूसर नाम और पासवर्ड की जाँच करें और इत्मीनान कर ले की ये "
 "उपयोगकरता नाम और पासवर्ड MySQL सर्वर के व्यवस्थापक द्वारा दी गई जानकारी के अनुरूप हैं."
 
-#: libraries/auth/cookie.auth.lib.php:35
+#: libraries/auth/cookie.auth.lib.php:36
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:197
+#: libraries/auth/cookie.auth.lib.php:198
 msgid "Log in"
 msgstr "लोगिन"
 
-#: libraries/auth/cookie.auth.lib.php:199
-#: libraries/auth/cookie.auth.lib.php:201
+#: libraries/auth/cookie.auth.lib.php:200
+#: libraries/auth/cookie.auth.lib.php:202
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin दस्तावेज़ीकरण"
 
-#: libraries/auth/cookie.auth.lib.php:211
 #: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:213
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "आप होस्टनाम / आईपी पता और पोर्ट स्पचे से अलग कर के दाल सकते हैं."
 
-#: libraries/auth/cookie.auth.lib.php:211
+#: libraries/auth/cookie.auth.lib.php:212
 msgid "Server:"
 msgstr "सर्वर:"
 
-#: libraries/auth/cookie.auth.lib.php:216
+#: libraries/auth/cookie.auth.lib.php:217
 msgid "Username:"
 msgstr "उपयोक्तानाम:"
 
-#: libraries/auth/cookie.auth.lib.php:220
+#: libraries/auth/cookie.auth.lib.php:221
 msgid "Password:"
 msgstr "पासव्रड:"
 
-#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:228
 msgid "Server Choice"
 msgstr "सर्वर चुनिये"
 
-#: libraries/auth/cookie.auth.lib.php:273 libraries/header.inc.php:87
+#: libraries/auth/cookie.auth.lib.php:274 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
 msgstr "कुकीज़ इस बिंदु अतीत सक्षम होना चाहिए."
 
-#: libraries/auth/cookie.auth.lib.php:568
-#: libraries/auth/signon.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:569
+#: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)."
 
-#: libraries/auth/cookie.auth.lib.php:572
-#: libraries/auth/signon.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:573
+#: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s सेकंड के भीतर कोई गतिविधि नहीं है. कृपया फिर से लोगिन करें."
 
-#: libraries/auth/cookie.auth.lib.php:582
-#: libraries/auth/cookie.auth.lib.php:584
-#: libraries/auth/signon.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:583
+#: libraries/auth/cookie.auth.lib.php:585
+#: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL सर्वर में प्रवेश नहीं कर सकते"
 
-#: libraries/auth/http.auth.lib.php:69
+#: libraries/auth/http.auth.lib.php:70
 msgid "Wrong username/password. Access denied."
 msgstr "यूसरनेम/पासवर्ड गलत है।  प्रवेश निषेध"
 
-#: libraries/auth/signon.auth.lib.php:88
+#: libraries/auth/signon.auth.lib.php:89
 #, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
@@ -5315,11 +5317,11 @@ msgstr "नवीनतम संस्करण के लिए जाँच"
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr "phpMyAdmin के मुख्य पृष्ठ पर नवीनतम संस्करण के लिए जाँच की अनुमति"
 
-#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
-#: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
-#: setup/lib/index.lib.php:161 setup/lib/index.lib.php:172
-#: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
-#: setup/lib/index.lib.php:224
+#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:118
+#: setup/lib/index.lib.php:128 setup/lib/index.lib.php:148
+#: setup/lib/index.lib.php:158 setup/lib/index.lib.php:169
+#: setup/lib/index.lib.php:176 setup/lib/index.lib.php:182
+#: setup/lib/index.lib.php:221
 msgid "Version check"
 msgstr "संस्करण की जांच"
 
@@ -5512,8 +5514,8 @@ msgid ""
 msgstr ""
 "शायद अनुमानित हैं. [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a] देखें"
 
-#: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:186
+#: libraries/dbi/drizzle.dbi.lib.php:115 libraries/dbi/mysql.dbi.lib.php:118
+#: libraries/dbi/mysqli.dbi.lib.php:187
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -6791,7 +6793,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr "अनुक्रमणिका जोड़"
 
-#: libraries/mult_submits.inc.php:494 tbl_replace.php:341
+#: libraries/mult_submits.inc.php:499 tbl_replace.php:341
 msgid "No change"
 msgstr "कोइ बदलाव नहीं"
 
@@ -10691,7 +10693,7 @@ msgstr "सर्वर को संपादित करें"
 msgid "Add a new server"
 msgstr "एक नया सर्वर जोडें"
 
-#: setup/index.php:22
+#: setup/index.php:21
 msgid "Wrong GET file attribute value"
 msgstr ""
 
@@ -10715,37 +10717,37 @@ msgstr "त्रुटियों उपेक्षा"
 msgid "Show form"
 msgstr "फार्म दिखाएँ"
 
-#: setup/lib/index.lib.php:122
+#: setup/lib/index.lib.php:119
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
 
-#: setup/lib/index.lib.php:132
+#: setup/lib/index.lib.php:129
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
 
-#: setup/lib/index.lib.php:152
+#: setup/lib/index.lib.php:149
 msgid "Got invalid version string from server"
 msgstr "सर्वर से अवैध संस्करण स्ट्रिंग प्राप्त हुई"
 
-#: setup/lib/index.lib.php:162
+#: setup/lib/index.lib.php:159
 msgid "Unparsable version string"
 msgstr "संस्करण स्ट्रिंग को पारस नहीं किया जा सकता"
 
-#: setup/lib/index.lib.php:180
+#: setup/lib/index.lib.php:177
 #, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
 
-#: setup/lib/index.lib.php:186
+#: setup/lib/index.lib.php:183
 msgid "No newer stable version is available"
 msgstr "कोई नए स्थिर संस्करण उपलब्ध नहीं है"
 
-#: setup/lib/index.lib.php:274
+#: setup/lib/index.lib.php:271
 #, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
@@ -10754,39 +10756,39 @@ msgid ""
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 
-#: setup/lib/index.lib.php:276
+#: setup/lib/index.lib.php:273
 msgid ""
 "You didn't have blowfish secret set and have enabled cookie authentication, "
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
 
-#: setup/lib/index.lib.php:277
+#: setup/lib/index.lib.php:274
 #, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
 
-#: setup/lib/index.lib.php:279
+#: setup/lib/index.lib.php:276
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
 
-#: setup/lib/index.lib.php:280
+#: setup/lib/index.lib.php:277
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
 
-#: setup/lib/index.lib.php:282
+#: setup/lib/index.lib.php:279
 #, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
 
-#: setup/lib/index.lib.php:284
+#: setup/lib/index.lib.php:281
 #, php-format
 msgid ""
 "%sLogin cookie validity%s greater than 1440 seconds may cause random session "
@@ -10794,21 +10796,21 @@ msgid ""
 "(currently %d)."
 msgstr ""
 
-#: setup/lib/index.lib.php:286
+#: setup/lib/index.lib.php:283
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 
-#: setup/lib/index.lib.php:288
+#: setup/lib/index.lib.php:285
 #, php-format
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
-#: setup/lib/index.lib.php:290
+#: setup/lib/index.lib.php:287
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
@@ -10817,7 +10819,7 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 
-#: setup/lib/index.lib.php:292
+#: setup/lib/index.lib.php:289
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -10827,39 +10829,39 @@ msgid ""
 "http[/kbd]."
 msgstr ""
 
-#: setup/lib/index.lib.php:294
+#: setup/lib/index.lib.php:291
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
 
-#: setup/lib/index.lib.php:296
+#: setup/lib/index.lib.php:293
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
 
-#: setup/lib/index.lib.php:324
+#: setup/lib/index.lib.php:321
 #, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
 msgstr "आप SSL कनेक्शन का उपयोग करें अगर आपका वेब सर्वर इसका समर्थन करता है"
 
-#: setup/lib/index.lib.php:337
+#: setup/lib/index.lib.php:334
 msgid "You should use mysqli for performance reasons."
 msgstr "प्रदर्शन कारणों के लिए mysqli का उपयोग करना चाहिए"
 
-#: setup/lib/index.lib.php:368
+#: setup/lib/index.lib.php:365
 msgid "You allow for connecting to the server without a password."
 msgstr "पासवर्ड के बिना सर्वर से कनेक्ट करने के लिए अनुमति"
 
-#: setup/lib/index.lib.php:390
+#: setup/lib/index.lib.php:387
 msgid "Key is too short, it should have at least 8 characters."
 msgstr "कुंजी बहुत छोटा है, इसमें कम से कम 8 वर्ण होने चाहिए"
 
-#: setup/lib/index.lib.php:397
+#: setup/lib/index.lib.php:394
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 

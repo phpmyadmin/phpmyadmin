@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:47+0100\n"
+"POT-Creation-Date: 2012-03-14 16:15+0100\n"
 "PO-Revision-Date: 2012-03-10 17:41+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "Buscar"
 #: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1402
+#: libraries/auth/cookie.auth.lib.php:246 libraries/common.lib.php:1402
 #: libraries/common.lib.php:2449 libraries/core.lib.php:505
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
@@ -194,7 +194,7 @@ msgstr "Comentarios"
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:297
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:302
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1519 server_privileges.php:1529
@@ -215,8 +215,8 @@ msgstr "No"
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:99
 #: libraries/mult_submits.inc.php:104 libraries/mult_submits.inc.php:109
 #: libraries/mult_submits.inc.php:114 libraries/mult_submits.inc.php:274
-#: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:296
-#: libraries/mult_submits.inc.php:303
+#: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:301
+#: libraries/mult_submits.inc.php:308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:95 server_privileges.php:1517
@@ -482,10 +482,10 @@ msgstr "Consulta a la base de datos <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Ejecutar la consulta"
 
-#: db_search.php:31 libraries/auth/config.auth.lib.php:77
-#: libraries/auth/config.auth.lib.php:96
-#: libraries/auth/cookie.auth.lib.php:570 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:237
+#: db_search.php:31 libraries/auth/config.auth.lib.php:78
+#: libraries/auth/config.auth.lib.php:97
+#: libraries/auth/cookie.auth.lib.php:571 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "Acceso denegado"
 
@@ -1056,11 +1056,13 @@ msgstr "phpMyAdmin funciona mejor con un navegador que <b>reconoce frames</b>."
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Las sentencias \"DROP DATABASE\" están desactivadas."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:292 sql.php:386
-msgid "Do you really want to "
+#: js/messages.php:30 libraries/mult_submits.inc.php:296 sql.php:386
+#, fuzzy
+#| msgid "Do you really want to "
+msgid "Do you really want to execute following query?"
 msgstr "Realmente desea "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:292 sql.php:371
+#: js/messages.php:31 libraries/mult_submits.inc.php:294 sql.php:371
 msgid "You are about to DESTROY a complete database!"
 msgstr "¡Está a punto de DESTRUIR una base de datos completa!"
 
@@ -2013,7 +2015,7 @@ msgstr "Cambar contraseña"
 msgid "More"
 msgstr "Más"
 
-#: js/messages.php:360 setup/lib/index.lib.php:173
+#: js/messages.php:360 setup/lib/index.lib.php:170
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2585,17 +2587,17 @@ msgstr "¡No se halló la ruta del tema %s!"
 msgid "Theme"
 msgstr "Tema"
 
-#: libraries/auth/config.auth.lib.php:71
+#: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
 msgstr "No se estableció la conexión: los parámetros están incorrectos."
 
-#: libraries/auth/config.auth.lib.php:85
-#: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/config.auth.lib.php:86
+#: libraries/auth/cookie.auth.lib.php:173 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Bienvenido a %s"
 
-#: libraries/auth/config.auth.lib.php:100
+#: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -2604,7 +2606,7 @@ msgstr ""
 "La razón más probable es que usted no haya creado un archivo de "
 "configuración. Utilice el %1$sscript de configuración%2$s para crear uno."
 
-#: libraries/auth/config.auth.lib.php:109
+#: libraries/auth/config.auth.lib.php:110
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2616,77 +2618,77 @@ msgstr ""
 "config.inc.php y asegurarse que corresponden con la información provista por "
 "el administrador del servidor MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:35
+#: libraries/auth/cookie.auth.lib.php:36
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "¡No se pudo utilizar Blowfish de la biblioteca mcrypt!"
 
-#: libraries/auth/cookie.auth.lib.php:197
+#: libraries/auth/cookie.auth.lib.php:198
 msgid "Log in"
 msgstr "Iniciar sesión"
 
-#: libraries/auth/cookie.auth.lib.php:199
-#: libraries/auth/cookie.auth.lib.php:201
+#: libraries/auth/cookie.auth.lib.php:200
+#: libraries/auth/cookie.auth.lib.php:202
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "Documentación de phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:211
 #: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:213
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Puede escribir el nombre del proveedor de servicios/dirección IP y el "
 "puerto, separado por un espacio."
 
-#: libraries/auth/cookie.auth.lib.php:211
+#: libraries/auth/cookie.auth.lib.php:212
 msgid "Server:"
 msgstr "Servidor:"
 
-#: libraries/auth/cookie.auth.lib.php:216
+#: libraries/auth/cookie.auth.lib.php:217
 msgid "Username:"
 msgstr "Usuario:"
 
-#: libraries/auth/cookie.auth.lib.php:220
+#: libraries/auth/cookie.auth.lib.php:221
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:228
 msgid "Server Choice"
 msgstr "Elección del servidor"
 
-#: libraries/auth/cookie.auth.lib.php:273 libraries/header.inc.php:87
+#: libraries/auth/cookie.auth.lib.php:274 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
 msgstr "Las cookies deben estar activadas."
 
-#: libraries/auth/cookie.auth.lib.php:568
-#: libraries/auth/signon.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:569
+#: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "El inicio de sesión sin contraseña está prohibido por la configuración (ver "
 "AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:572
-#: libraries/auth/signon.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:573
+#: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "No ha habido actividad desde hace %s o más segundos, por favor reingrese al "
 "sitio"
 
-#: libraries/auth/cookie.auth.lib.php:582
-#: libraries/auth/cookie.auth.lib.php:584
-#: libraries/auth/signon.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:583
+#: libraries/auth/cookie.auth.lib.php:585
+#: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "El servidor MySQL no autorizó su ingreso"
 
-#: libraries/auth/http.auth.lib.php:69
+#: libraries/auth/http.auth.lib.php:70
 msgid "Wrong username/password. Access denied."
 msgstr ""
 "El nombre de usuario o la contraseña es incorrecto. El acceso fue denegado."
 
-#: libraries/auth/signon.auth.lib.php:88
+#: libraries/auth/signon.auth.lib.php:89
 msgid "Can not find signon authentication script:"
 msgstr "No se pudo encontrar el script de autenticación «signon»"
 
@@ -5372,11 +5374,11 @@ msgstr ""
 "Habilita la verificación de la última versión en la página principal de "
 "phpMyAdmin"
 
-#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
-#: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
-#: setup/lib/index.lib.php:161 setup/lib/index.lib.php:172
-#: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
-#: setup/lib/index.lib.php:224
+#: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:118
+#: setup/lib/index.lib.php:128 setup/lib/index.lib.php:148
+#: setup/lib/index.lib.php:158 setup/lib/index.lib.php:169
+#: setup/lib/index.lib.php:176 setup/lib/index.lib.php:182
+#: setup/lib/index.lib.php:221
 msgid "Version check"
 msgstr "Revise la versión"
 
@@ -5579,8 +5581,8 @@ msgstr ""
 "Podría ser aproximado. Ver [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 
-#: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:186
+#: libraries/dbi/drizzle.dbi.lib.php:115 libraries/dbi/mysql.dbi.lib.php:118
+#: libraries/dbi/mysqli.dbi.lib.php:187
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "La conexión para controluser, como está definida en su configuración, "
@@ -6923,7 +6925,7 @@ msgstr "Agregar prefijo a la tabla"
 msgid "Add prefix"
 msgstr "Agregar prefijo"
 
-#: libraries/mult_submits.inc.php:494 tbl_replace.php:341
+#: libraries/mult_submits.inc.php:499 tbl_replace.php:341
 msgid "No change"
 msgstr "Sin cambios"
 
@@ -11003,7 +11005,7 @@ msgstr "Editar los parámetros del servidor"
 msgid "Add a new server"
 msgstr "Añadir un nuevo servidor"
 
-#: setup/index.php:22
+#: setup/index.php:21
 msgid "Wrong GET file attribute value"
 msgstr "Valor incorrecto del atributo de archivo («file») en GET"
 
@@ -11027,13 +11029,13 @@ msgstr "Ignorar los errores"
 msgid "Show form"
 msgstr "Mostrar el formulario"
 
-#: setup/lib/index.lib.php:122
+#: setup/lib/index.lib.php:119
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
 "No está disponible URL wrapper ni CURL. No es posible conocer la versión."
 
-#: setup/lib/index.lib.php:132
+#: setup/lib/index.lib.php:129
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
@@ -11041,15 +11043,15 @@ msgstr ""
 "Fracasó la lectura de la versión. Quizá usted está desconectado o el "
 "servidor de actualizaciones no está respondiendo."
 
-#: setup/lib/index.lib.php:152
+#: setup/lib/index.lib.php:149
 msgid "Got invalid version string from server"
 msgstr "El servidor envió una cifra incorrecta para la versión"
 
-#: setup/lib/index.lib.php:162
+#: setup/lib/index.lib.php:159
 msgid "Unparsable version string"
 msgstr "No se puede procesar la cifra de la versión"
 
-#: setup/lib/index.lib.php:180
+#: setup/lib/index.lib.php:177
 #, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
@@ -11058,11 +11060,11 @@ msgstr ""
 "Usted está usando versionado Git, ejecute [kbd]git pull[/kbd] :-)[br]La "
 "versión estable más reciente es %s, publicada el %s."
 
-#: setup/lib/index.lib.php:186
+#: setup/lib/index.lib.php:183
 msgid "No newer stable version is available"
 msgstr "No existe una versión estable más reciente"
 
-#: setup/lib/index.lib.php:274
+#: setup/lib/index.lib.php:271
 #, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
@@ -11076,7 +11078,7 @@ msgstr ""
 "protección basada en IP podría no ser confiable si su IP pertenece a un ISP "
 "al que están conectados miles de usuarios, incluyendo usted."
 
-#: setup/lib/index.lib.php:276
+#: setup/lib/index.lib.php:273
 msgid ""
 "You didn't have blowfish secret set and have enabled cookie authentication, "
 "so a key was automatically generated for you. It is used to encrypt cookies; "
@@ -11086,7 +11088,7 @@ msgstr ""
 "por cookie, así que una clave fue generada automáticamente. Se usa para "
 "encriptar cookies; no necesita recordarla."
 
-#: setup/lib/index.lib.php:277
+#: setup/lib/index.lib.php:274
 #, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
@@ -11095,7 +11097,7 @@ msgstr ""
 "%sLa compresión y descompresión Bzip2%s requiere funciones (%s) que no están "
 "disponibles en este sistema."
 
-#: setup/lib/index.lib.php:279
+#: setup/lib/index.lib.php:276
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
@@ -11104,13 +11106,13 @@ msgstr ""
 "es público ni que se puede leer o escribir en él por parte de otros usuarios "
 "en su servidor."
 
-#: setup/lib/index.lib.php:280
+#: setup/lib/index.lib.php:277
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
 "Esta %sopción%s debería estar activada si es soportada por su servidor web."
 
-#: setup/lib/index.lib.php:282
+#: setup/lib/index.lib.php:279
 #, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
@@ -11119,7 +11121,7 @@ msgstr ""
 "%sla compresión y descompresión GZip%s requiere funciones (%s) que no están "
 "disponibles en este sistema."
 
-#: setup/lib/index.lib.php:284
+#: setup/lib/index.lib.php:281
 #, php-format
 msgid ""
 "%sLogin cookie validity%s greater than 1440 seconds may cause random session "
@@ -11130,7 +11132,7 @@ msgstr ""
 "causar invalidaciones de sesión aleatorias si %ssession.gc_maxlifetime%s es "
 "menor que su valor (actualmente %d)."
 
-#: setup/lib/index.lib.php:286
+#: setup/lib/index.lib.php:283
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -11140,7 +11142,7 @@ msgstr ""
 "segundos (30 minutos) como máximo. Valores mayores a 1800 pueden representar "
 "un riesgo a la seguridad tal como la suplantación."
 
-#: setup/lib/index.lib.php:288
+#: setup/lib/index.lib.php:285
 #, php-format
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
@@ -11150,7 +11152,7 @@ msgstr ""
 "inicio de sesión%s no es 0, la %svalidez de la cookie de inicio de sesión%s "
 "debe ser definida a un valor menor o igual al mismo."
 
-#: setup/lib/index.lib.php:290
+#: setup/lib/index.lib.php:287
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
@@ -11164,7 +11166,7 @@ msgstr ""
 "si su IP pertenece a un ISP al que están conectados miles de usuarios, "
 "incluyendo usted."
 
-#: setup/lib/index.lib.php:292
+#: setup/lib/index.lib.php:289
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -11180,7 +11182,7 @@ msgstr ""
 "phpMyAdmin. Cambie al %stipo de autenticación%s a [kbd]cookie[/kbd] o [kbd]"
 "http[/kbd]."
 
-#: setup/lib/index.lib.php:294
+#: setup/lib/index.lib.php:291
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
@@ -11189,7 +11191,7 @@ msgstr ""
 "%sLa compresión Zip%s requiere funciones (%s) que no están disponibles en "
 "este sistema."
 
-#: setup/lib/index.lib.php:296
+#: setup/lib/index.lib.php:293
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
@@ -11198,24 +11200,24 @@ msgstr ""
 "%sLa descompresión Zip%s requiere funciones (%s) que no están disponibles en "
 "este sistema."
 
-#: setup/lib/index.lib.php:324
+#: setup/lib/index.lib.php:321
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
 "Debe utilizar conexiones SSL si su servidor de base de datos lo soporta."
 
-#: setup/lib/index.lib.php:337
+#: setup/lib/index.lib.php:334
 msgid "You should use mysqli for performance reasons."
 msgstr "Debe utilizar mysqli por razones de rendimiento."
 
-#: setup/lib/index.lib.php:368
+#: setup/lib/index.lib.php:365
 msgid "You allow for connecting to the server without a password."
 msgstr "Permite conectarse al servidor sin contraseña."
 
-#: setup/lib/index.lib.php:390
+#: setup/lib/index.lib.php:387
 msgid "Key is too short, it should have at least 8 characters."
 msgstr "La clave es muy corta, debe tener al menos 8 caracteres."
 
-#: setup/lib/index.lib.php:397
+#: setup/lib/index.lib.php:394
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "La clave debe contener letras, números [em]y[/em] caracteres especiales."
