@@ -13178,12 +13178,10 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert установлен в 0"
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is deactivated."
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
 #~ msgstr "Отслеживание %s.%s, версии %s выключено."
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "Отслеживание %s.%s, версии %s включено."
 

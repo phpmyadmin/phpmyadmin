@@ -12789,12 +12789,10 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is deactivated."
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
 #~ msgstr "%s.%s හි %s වන අනුවාදය සඳහා අවධානය අක්‍රීයයි."
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "%s.%s හි %s වන අනුවාදය සඳහා අවධානය සක්‍රීයයි."
 

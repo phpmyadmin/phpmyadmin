@@ -12866,12 +12866,10 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is deactivated."
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
 #~ msgstr "%s.%s 的追蹤，版本 %s 已停用"
 
 #, fuzzy
-#~| msgid "Tracking for %s.%s , version %s is activated."
 #~ msgid "Tracking for %1$s, version %2$s is activated."
 #~ msgstr "%s.%s 的追蹤，版本 %s 已啓用"
 
