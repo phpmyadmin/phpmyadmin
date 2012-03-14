@@ -8095,10 +8095,10 @@ msgid "Table seems to be empty!"
 msgstr "La tabla, ¡parece estar vacía!"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Seguimiento de %s.%s activado."
+msgstr "Seguimiento de %s activado."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
