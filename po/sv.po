@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 19:29+0200\n"
+"PO-Revision-Date: 2012-03-14 19:31+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -113,7 +113,7 @@ msgstr "Databas %1$s har skapats."
 
 #: db_datadict.php:49 db_operations.php:379
 msgid "Database comment: "
-msgstr "Databaskommentar:"
+msgstr "Databas kommentar:"
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
