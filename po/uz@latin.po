@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:47+0100\n"
-"PO-Revision-Date: 2012-03-14 14:50+0200\n"
+"PO-Revision-Date: 2012-03-14 14:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
 "Language: uz@latin\n"
@@ -26,7 +26,7 @@ msgstr "Barchasini ko‘rsatish"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:491
 msgid "Page number:"
-msgstr "Sahifa raqami: "
+msgstr "Sahifa raqami:"
 
 #: browse_foreigners.php:142
 msgid ""
