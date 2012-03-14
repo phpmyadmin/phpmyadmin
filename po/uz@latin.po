@@ -10751,7 +10751,7 @@ msgstr "Yuborildi"
 
 #: server_status.php:1152
 msgid "max. concurrent connections"
-msgstr "Maksimal ulanishlar soni "
+msgstr "Maksimal ulanishlar soni"
 
 #: server_status.php:1159
 msgid "Failed attempts"
