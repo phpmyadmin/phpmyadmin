@@ -5614,7 +5614,7 @@ msgid ""
 msgstr ""
 "Jadval ma`lumotlarini keshlash uchun ajratilgan xotira hajmi. Asl qiymati – "
 "32 Mb. Ushbu xotira ma`lumotlarni saqlash fayllari(.xtd)dagi va qator "
-"ko‘rsatgichlari(.xtr)dagi o‘zgarishlarni keshlashda ishlatiladi. "
+"ko‘rsatgichlari(.xtr)dagi o‘zgarishlarni keshlashda ishlatiladi."
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
