@@ -6498,8 +6498,8 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
-"De groote van de buffer die bij het schrijven naar de data log wordt "
-"gebruikt. De standaard is 256MB. De engine reserveerd een buffer per thread, "
+"De grootte van de buffer die bij het schrijven naar de data log wordt "
+"gebruikt. De standaard is 256MB. De engine reserveert een buffer per thread, "
 "maar enkel indien de thread ook moet schrijven naar de data log."
 
 #: libraries/engines/pbxt.lib.php:67
