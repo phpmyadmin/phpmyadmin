@@ -12173,6 +12173,8 @@ msgstr "Aandeel trage queries"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Er is een hoog percentage aan trage queries ten opzichte van de bedrijfstijd "
+"van de server."
 
 #: po/advisory_rules.php:23
 #, php-format
