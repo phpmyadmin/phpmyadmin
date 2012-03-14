@@ -11623,7 +11623,7 @@ msgstr "Weergave volgorde:"
 
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:581
 msgid "Spatial"
-msgstr ""
+msgstr "Ruimtelijk"
 
 #: tbl_structure.php:162 tbl_structure.php:166
 msgid "Browse distinct values"
