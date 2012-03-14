@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:04+0200\n"
+"PO-Revision-Date: 2012-03-14 20:05+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9520,7 +9520,7 @@ msgstr "Handledare"
 
 #: server_status.php:798 server_status.php:820
 msgid "Refresh rate: "
-msgstr "Uppdateringsfrekvens:"
+msgstr "Uppdateringsfrekvens: "
 
 #: server_status.php:839 server_variables.php:115
 msgid "Filters"
