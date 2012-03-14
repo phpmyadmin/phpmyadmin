@@ -7358,7 +7358,7 @@ msgstr "Kemmet eo bet an argerzh %1$s."
 #: libraries/rte/rte_routines.lib.php:284
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "Krouet eo bet an argerzh %1s."
+msgstr "Krouet eo bet an argerzh %1$s."
 
 #: libraries/rte/rte_routines.lib.php:344
 msgid "Edit routine"
