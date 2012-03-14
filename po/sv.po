@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 19:42+0200\n"
+"PO-Revision-Date: 2012-03-14 20:02+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1595,7 +1595,7 @@ msgstr "Profilering av resultat"
 #: js/messages.php:191
 msgctxt "Display format"
 msgid "Table"
-msgstr "Tabell "
+msgstr "Tabell"
 
 #: js/messages.php:192
 msgid "Chart"
