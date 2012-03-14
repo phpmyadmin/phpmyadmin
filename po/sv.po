@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-01-22 18:27+0200\n"
+"PO-Revision-Date: 2012-03-14 19:28+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1728
@@ -1431,7 +1431,7 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log är aktiverad, men servern loggar endast frågor som tar längre "
-"tid än% d sekunder. Det är lämpligt att definiera long_query_time till 0-2 "
+"tid än %d sekunder. Det är lämpligt att definiera long_query_time till 0-2 "
 "sekunder, beroende på ditt system."
 
 #: js/messages.php:150
