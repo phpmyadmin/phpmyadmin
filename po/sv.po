@@ -2679,7 +2679,7 @@ msgstr "Felaktigt användarnamn/lösenord. Åtkomst nekad."
 
 #: libraries/auth/signon.auth.lib.php:88
 msgid "Can not find signon authentication script:"
-msgstr "Kan inte hitta scriptet för verifiering av inloggning"
+msgstr "Kan inte hitta scriptet för verifiering av inloggning:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
