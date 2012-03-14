@@ -11688,7 +11688,6 @@ msgid "Check referential integrity:"
 msgstr "Controleer referentiële integriteit:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
 msgstr "Toon tabellen"
