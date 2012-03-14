@@ -12149,10 +12149,9 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Query cache"
+msgstr "Query cache is uitgeschakeld"
 
 #: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
