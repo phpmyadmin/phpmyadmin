@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 18:01+0200\n"
+"PO-Revision-Date: 2012-03-14 18:04+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12457,10 +12457,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Waar de tabelrij links getoond worden"
+msgstr "Aandeel van het lezen van de volgende regel"
 
 #: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
