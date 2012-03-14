@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:10+0200\n"
+"PO-Revision-Date: 2012-03-14 20:11+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1744,7 +1744,7 @@ msgstr "Ändra teckenuppsättning"
 
 #: js/messages.php:242
 msgid "Table must have at least one column"
-msgstr "Tabellen måste ha åtminstone ett fält."
+msgstr "Tabellen måste ha åtminstone en kolumn"
 
 #: js/messages.php:247
 msgid "Insert Table"
