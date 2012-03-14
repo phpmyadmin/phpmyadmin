@@ -196,8 +196,8 @@ function PMA_getMIME($db, $table, $strict = false)
  * @return  boolean  true, if comment-query was made.
  */
 function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
-    $transformation_options, $forcedelete = false)
-{
+    $transformation_options, $forcedelete = false
+) {
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['commwork']) {
