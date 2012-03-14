@@ -7698,7 +7698,7 @@ msgstr "Du måste ange en trigger definition."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
-msgstr "Lägg till rutin."
+msgstr "Lägg till rutin"
 
 #: libraries/rte/rte_words.lib.php:20
 #, php-format
