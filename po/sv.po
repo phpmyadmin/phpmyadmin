@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:02+0200\n"
+"PO-Revision-Date: 2012-03-14 20:03+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2481,7 +2481,7 @@ msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "Okänd tabell status:"
+msgstr "Okänd tabellstatus: "
 
 #: libraries/Table.class.php:1125
 msgid "Invalid database"
