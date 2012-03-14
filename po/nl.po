@@ -1592,7 +1592,6 @@ msgid "Profiling results"
 msgstr "Profiling resultaten"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
