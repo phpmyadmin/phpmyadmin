@@ -12681,7 +12681,7 @@ msgstr "Qidirish shartini ko‘shish (ya`ni \"where\" jumlasi):"
 
 #: tbl_select.php:203
 msgid "Number of rows per page"
-msgstr "Sahifadagi qatorlar soni "
+msgstr "Sahifadagi qatorlar soni"
 
 #: tbl_select.php:209
 msgid "Display order:"
