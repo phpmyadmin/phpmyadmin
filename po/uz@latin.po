@@ -9350,7 +9350,7 @@ msgstr "Yashirish"
 
 #: pmd_general.php:170
 msgid "Number of tables"
-msgstr "Jadvallar soni "
+msgstr "Jadvallar soni"
 
 #: pmd_general.php:412
 msgid "Delete relation"
