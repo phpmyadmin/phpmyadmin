@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-14 19:34+0200\n"
+"PO-Revision-Date: 2012-03-14 19:35+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11826,7 +11826,7 @@ msgstr "Skapa version %s of %s.%s"
 
 #: tbl_tracking.php:734
 msgid "Track these data definition statements:"
-msgstr "Spåra dessa datadefinitioners kommandon"
+msgstr "Spåra dessa datadefinitioners kommandon:"
 
 #: tbl_tracking.php:742
 msgid "Track these data manipulation statements:"
