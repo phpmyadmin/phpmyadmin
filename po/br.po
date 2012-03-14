@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 16:15+0100\n"
-"PO-Revision-Date: 2011-10-13 17:20+0200\n"
-"Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
+"PO-Revision-Date: 2012-03-14 16:33+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Weblate 0.6\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1728
@@ -30,7 +30,7 @@ msgstr "Diskouez pep tra"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:491
 msgid "Page number:"
-msgstr "Pajenn niv. : "
+msgstr "Pajenn niv. :"
 
 #: browse_foreigners.php:142
 msgid ""
@@ -516,8 +516,8 @@ msgstr "Disoc'hoù ar c'hlask evit \"<i>%s</i>\" %s :"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s glotadenn en daolenn <i>%s</i> "
-msgstr[1] "%s klotadenn en daolenn <i>%s</i> "
+msgstr[0] "%s glotadenn en daolenn <i>%s</i>"
+msgstr[1] "%s klotadenn en daolenn <i>%s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3159
 #: libraries/common.lib.php:3371 libraries/common.lib.php:3372
@@ -571,7 +571,7 @@ msgstr "E diabarzh an taolennoù"
 
 #: db_search.php:330
 msgid "Inside column:"
-msgstr "Er bann : "
+msgstr "Er bann :"
 
 #: db_structure.php:68
 msgid "No tables found in database"
@@ -640,7 +640,7 @@ msgstr "War ar servijer MySQL-mañ ez eo %s ar c'heflusker stokañ dre ziouer."
 #: server_databases.php:282 server_privileges.php:1820 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
-msgstr "Evit ar re zo diuzet : "
+msgstr "Evit ar re zo diuzet :"
 
 #: db_structure.php:552 libraries/display_tbl.lib.php:2487
 #: server_databases.php:279 server_privileges.php:703
@@ -1810,7 +1810,7 @@ msgstr "O tiverkañ"
 #: js/messages.php:259
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
-"Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket"
+"Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket!"
 
 #: js/messages.php:266
 #, php-format
@@ -2645,15 +2645,15 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:212
 msgid "Server:"
-msgstr "Servijer : "
+msgstr "Servijer :"
 
 #: libraries/auth/cookie.auth.lib.php:217
 msgid "Username:"
-msgstr "Anv implijer : "
+msgstr "Anv implijer :"
 
 #: libraries/auth/cookie.auth.lib.php:221
 msgid "Password:"
-msgstr "Ger-tremen : "
+msgstr "Ger-tremen :"
 
 #: libraries/auth/cookie.auth.lib.php:228
 msgid "Server Choice"
@@ -2789,7 +2789,7 @@ msgid ""
 "configuration file!"
 msgstr ""
 "RET eo d'an arventenn <tt>$cfg['PmaAbsoluteUri']</tt> bezañ resisaet er "
-"restr kefluniañ."
+"restr kefluniañ!"
 
 #: libraries/common.inc.php:647
 #, php-format
@@ -7206,12 +7206,12 @@ msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Kemmet eo bet an argerzh %1s."
+msgstr "Kemmet eo bet an argerzh %1$s."
 
 #: libraries/rte/rte_routines.lib.php:284
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "Krouet eo bet an argerzh %1s."
+msgstr "Krouet eo bet an argerzh %1$s."
 
 #: libraries/rte/rte_routines.lib.php:344
 msgid "Edit routine"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 16:15+0100\n"
-"PO-Revision-Date: 2012-03-14 14:43+0200\n"
+"PO-Revision-Date: 2012-03-14 16:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1046,10 +1046,9 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Příkaz „DROP DATABASE“ je vypnutý."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:296 sql.php:386
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "Opravdu si přejete vykonat příkaz "
+msgstr "Opravdu si přejete vykonat následující příkaz?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:294 sql.php:371
 msgid "You are about to DESTROY a complete database!"
@@ -2497,10 +2496,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Chyba při přejmenování tabulky %1$s na %2$s"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Tabulka %s byla přejmenována na %s"
+msgstr "Tabulka %1$s byla přejmenována na %2$s."
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
