@@ -22,7 +22,7 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['socket']   = '';
     $cfg['Servers'][$i]['connect_type']     = 'tcp';
     $cfg['Servers'][$i]['extension']        = 'mysql';
-    $cfg['Servers'][$i]['compress'] = FALSE;
+    $cfg['Servers'][$i]['compress'] = false;
     $cfg['Servers'][$i]['controluser']      = 'pma';
     $cfg['Servers'][$i]['controlpass']      = 'pmapass';
     $cfg['Servers'][$i]['auth_type']        = 'cookie';

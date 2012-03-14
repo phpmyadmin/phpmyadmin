@@ -169,7 +169,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $encodedstr     = preg_replace(
             "/(\015\012)|(\015)|(\012)/",
             '<br />' . "\n",
-            chunk_split(base64_encode($encodedstr)));
+            chunk_split(base64_encode($encodedstr))
+        );
 
 
         $SQP_errorString .= __('There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:')
@@ -224,19 +225,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (!isset($PMA_SQPdata_column_attrib)) {
             $PMA_SQPdata_column_attrib  = array_flip(
                 $GLOBALS['PMA_SQPdata_column_attrib']
-                );
+            );
             $PMA_SQPdata_function_name  = array_flip(
                 $GLOBALS['PMA_SQPdata_function_name']
-                );
+            );
             $PMA_SQPdata_reserved_word  = array_flip(
                 $GLOBALS['PMA_SQPdata_reserved_word']
-                );
+            );
             $PMA_SQPdata_forbidden_word = array_flip(
                 $GLOBALS['PMA_SQPdata_forbidden_word']
-                );
+            );
             $PMA_SQPdata_column_type    = array_flip(
                 $GLOBALS['PMA_SQPdata_column_type']
-                );
+            );
         }
 
         $sql_array               = array();
@@ -2294,7 +2295,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
                         false,
                         $PMA_SQPdata_operators_docs[$arr[$i]['data']]['anchor'],
-                        true);
+                        true
+                    );
                     $after .= '</a>';
                 }
 
@@ -2409,7 +2411,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         $PMA_SQPdata_functions_docs[$funcname]['link'],
                         false,
                         $PMA_SQPdata_functions_docs[$funcname]['anchor'],
-                        true);
+                        true
+                    );
                     $after .= '</a>';
                 }
                 break;
@@ -2727,7 +2730,8 @@ function PMA_SQP_buildCssData()
     for ($i = 0; $i < 8; $i++) {
         $css_string .= PMA_SQP_buildCssRule(
             'syntax_indent' . $i, 'margin-left',
-            ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']);
+            ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']
+        );
     }
 
     return $css_string;
@@ -2749,7 +2753,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $formatted_sql = preg_replace(
             "@((\015\012)|(\015)|(\012)){3,}@",
             "\n\n",
-            $formatted_sql);
+            $formatted_sql
+        );
 
         return $formatted_sql;
     } // end of the "PMA_SQP_formatNone()" function

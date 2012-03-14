@@ -1038,8 +1038,10 @@ function PMA_RTN_getQueryFromRequest()
                     );
                 }
                 if ($_REQUEST['item_param_length'][$i] != ''
-                    && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
-                                   $_REQUEST['item_param_type'][$i])
+                    && !preg_match(
+                        '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
+                        $_REQUEST['item_param_type'][$i]
+                    )
                 ) {
                     $params .= "(" . $_REQUEST['item_param_length'][$i] . ")";
                 } else if ($_REQUEST['item_param_length'][$i] == '' && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['item_param_type'][$i])) {
@@ -1076,8 +1078,10 @@ function PMA_RTN_getQueryFromRequest()
             $errors[] = __('You must provide a valid return type for the routine.');
         }
         if (! empty($_REQUEST['item_returnlength'])
-            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
-                            $_REQUEST['item_returntype'])
+            && !preg_match(
+                '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
+                $_REQUEST['item_returntype']
+            )
         ) {
             $query .= "(" . $_REQUEST['item_returnlength'] . ")";
         } else if (empty($_REQUEST['item_returnlength']) && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['item_returntype'])) {
@@ -1251,8 +1255,10 @@ function PMA_RTN_handleExecute()
                 }
             } else {
                 $output = '';
-                $message = PMA_message::error(sprintf(__('The following query has failed: "%s"'), $query) . '<br /><br />'
-                                                    . __('MySQL said: ') . PMA_DBI_getError(null));
+                $message = PMA_message::error(
+                    sprintf(__('The following query has failed: "%s"'), $query) . '<br /><br />'
+                        . __('MySQL said: ') . PMA_DBI_getError(null)
+                );
             }
             // Print/send output
             if ($GLOBALS['is_ajax_request']) {
