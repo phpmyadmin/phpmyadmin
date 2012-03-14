@@ -6709,7 +6709,6 @@ msgid ""
 msgstr "Een instelling veranderen door op \"Opties\" te klikken"
 
 #: libraries/import.lib.php:1109
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Klik op de \"Structuur\"-koppeling om de structuur aan te passen"
