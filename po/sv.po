@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:19+0200\n"
+"PO-Revision-Date: 2012-03-14 20:20+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9975,7 +9975,7 @@ msgstr "Mängden data skriven hittills, i bytes."
 
 #: server_status.php:1347
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr "Antalet sidor som har skrivits för doublewrite transaktioner"
+msgstr "Antalet sidor som har skrivits för doublewrite transaktioner."
 
 #: server_status.php:1348
 msgid "The number of doublewrite operations that have been performed."
