@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-09 16:09+0100\n"
+"POT-Creation-Date: 2012-03-14 14:47+0100\n"
 "PO-Revision-Date: 2011-04-06 18:43+0200\n"
 "Last-Translator: <theranchcowboy@googlemail.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
-#: libraries/display_tbl.lib.php:359 server_privileges.php:1729
+#: libraries/display_tbl.lib.php:359 server_privileges.php:1728
 msgid "Show all"
 msgstr "Прикажи све"
 
@@ -46,14 +46,13 @@ msgstr ""
 msgid "Search"
 msgstr "Претраживање"
 
-#: browse_foreigners.php:163 db_operations.php:375 db_operations.php:415
-#: db_operations.php:525 db_operations.php:552 db_search.php:337
+#: browse_foreigners.php:163 db_operations.php:387 db_operations.php:427
+#: db_operations.php:537 db_operations.php:564 db_search.php:337
 #: db_structure.php:603 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1402
 #: libraries/common.lib.php:2449 libraries/core.lib.php:505
-#: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
@@ -70,8 +69,8 @@ msgstr "Претраживање"
 #: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:765
-#: server_privileges.php:1857 server_privileges.php:2221
-#: server_privileges.php:2268 server_privileges.php:2300
+#: server_privileges.php:1856 server_privileges.php:2220
+#: server_privileges.php:2267 server_privileges.php:2299
 #: server_replication.php:263 server_replication.php:346
 #: server_replication.php:377 server_synchronize.php:1309 tbl_change.php:371
 #: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
@@ -106,12 +105,12 @@ msgid ""
 "for more information."
 msgstr ""
 
-#: db_create.php:60
+#: db_create.php:73
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "База %s је креирана."
 
-#: db_datadict.php:49 db_operations.php:367
+#: db_datadict.php:49 db_operations.php:379
 msgid "Database comment: "
 msgstr "Коментар базе:"
 
@@ -143,7 +142,7 @@ msgstr "Колона"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
-#: server_privileges.php:2314 tbl_change.php:316 tbl_change.php:349
+#: server_privileges.php:2313 tbl_change.php:316 tbl_change.php:349
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
 msgid "Type"
@@ -197,10 +196,10 @@ msgstr "Коментари"
 #: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:297
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
-#: server_privileges.php:1520 server_privileges.php:1530
-#: server_privileges.php:1787 server_privileges.php:1798
-#: server_privileges.php:2133 server_privileges.php:2138
-#: server_privileges.php:2431 sql.php:298 sql.php:362 tbl_printview.php:190
+#: server_privileges.php:1519 server_privileges.php:1529
+#: server_privileges.php:1786 server_privileges.php:1797
+#: server_privileges.php:2132 server_privileges.php:2137
+#: server_privileges.php:2430 sql.php:328 sql.php:392 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:281 tbl_tracking.php:336
 #: tbl_tracking.php:341
 msgid "No"
@@ -219,10 +218,10 @@ msgstr "Не"
 #: libraries/mult_submits.inc.php:303
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
-#: server_databases.php:81 server_privileges.php:1518
-#: server_privileges.php:1528 server_privileges.php:1784
-#: server_privileges.php:1798 server_privileges.php:2133
-#: server_privileges.php:2136 server_privileges.php:2431 sql.php:361
+#: server_databases.php:95 server_privileges.php:1517
+#: server_privileges.php:1527 server_privileges.php:1783
+#: server_privileges.php:1797 server_privileges.php:2132
+#: server_privileges.php:2135 server_privileges.php:2430 sql.php:391
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
 msgid "Yes"
@@ -245,78 +244,78 @@ msgstr "Изабери све"
 msgid "Unselect All"
 msgstr "ништа"
 
-#: db_operations.php:38 tbl_create.php:22
+#: db_operations.php:50 tbl_create.php:22
 msgid "The database name is empty!"
 msgstr "Име базе није задато!"
 
-#: db_operations.php:277
+#: db_operations.php:289
 #, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "База %s је преименована у %s"
 
-#: db_operations.php:281
+#: db_operations.php:293
 #, php-format
 msgid "Database %s has been copied to %s"
 msgstr "База %s је прекопирана у %s"
 
-#: db_operations.php:409
+#: db_operations.php:421
 msgid "Rename database to"
 msgstr "Преименуј базу у"
 
-#: db_operations.php:435
+#: db_operations.php:447
 msgid "Remove database"
 msgstr "Уклони базу"
 
-#: db_operations.php:447
+#: db_operations.php:459
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "База %s је одбачена."
 
-#: db_operations.php:452
+#: db_operations.php:464
 msgid "Drop the database (DROP)"
 msgstr "Одбаци базу (DROP)"
 
-#: db_operations.php:481
+#: db_operations.php:493
 msgid "Copy database to"
 msgstr "Копирај базу у"
 
-#: db_operations.php:488 tbl_operations.php:554 tbl_tracking.php:424
+#: db_operations.php:500 tbl_operations.php:554 tbl_tracking.php:424
 msgid "Structure only"
 msgstr "Само структура"
 
-#: db_operations.php:489 tbl_operations.php:555 tbl_tracking.php:426
+#: db_operations.php:501 tbl_operations.php:555 tbl_tracking.php:426
 msgid "Structure and data"
 msgstr "Структура и подаци"
 
-#: db_operations.php:490 tbl_operations.php:556 tbl_tracking.php:425
+#: db_operations.php:502 tbl_operations.php:556 tbl_tracking.php:425
 msgid "Data only"
 msgstr "Само подаци"
 
-#: db_operations.php:498
+#: db_operations.php:510
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE пре копирања"
 
-#: db_operations.php:501 libraries/config/messages.inc.php:128
+#: db_operations.php:513 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:137 tbl_operations.php:562
 #, php-format
 msgid "Add %s"
 msgstr "Додај %s"
 
-#: db_operations.php:505 libraries/config/messages.inc.php:121
+#: db_operations.php:517 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:564
 msgid "Add AUTO_INCREMENT value"
 msgstr "Додај AUTO_INCREMENT вредност"
 
-#: db_operations.php:509 tbl_operations.php:571
+#: db_operations.php:521 tbl_operations.php:571
 msgid "Add constraints"
 msgstr "Додај ограничења"
 
-#: db_operations.php:522
+#: db_operations.php:534
 msgid "Switch to copied database"
 msgstr "Пребаци се на копирану базу"
 
-#: db_operations.php:545 libraries/Index.class.php:446
+#: db_operations.php:557 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
@@ -326,7 +325,7 @@ msgstr "Пребаци се на копирану базу"
 msgid "Collation"
 msgstr "Сортирање"
 
-#: db_operations.php:558
+#: db_operations.php:570
 #, fuzzy, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
@@ -338,7 +337,7 @@ msgstr ""
 "Додатне могућности за рад са повезаним табелама су искључене. Да бисте "
 "сазнали зашто, кликните %sовде%s."
 
-#: db_operations.php:592
+#: db_operations.php:604
 msgid "Edit or export relational schema"
 msgstr "Уреди или извези релациону схему"
 
@@ -347,8 +346,8 @@ msgstr "Уреди или извези релациону схему"
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1908
-#: server_privileges.php:1966 server_privileges.php:2235
+#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1907
+#: server_privileges.php:1965 server_privileges.php:2234
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
 msgstr "Табела"
@@ -417,7 +416,7 @@ msgstr "Сортирање"
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:566
 #: libraries/display_tbl.lib.php:959 libraries/display_tbl.lib.php:962
-#: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
+#: server_databases.php:176 server_databases.php:193 tbl_operations.php:279
 #: tbl_select.php:247
 msgid "Ascending"
 msgstr "Растући"
@@ -425,7 +424,7 @@ msgstr "Растући"
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:98
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:571
 #: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:963
-#: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
+#: server_databases.php:176 server_databases.php:193 tbl_operations.php:280
 #: tbl_select.php:248
 msgid "Descending"
 msgstr "Опадајући"
@@ -653,21 +652,21 @@ msgstr "%s је подразумевани погон складиштења н�
 
 #: db_structure.php:549 db_structure.php:566 db_structure.php:567
 #: libraries/display_tbl.lib.php:2492 libraries/display_tbl.lib.php:2497
-#: libraries/mult_submits.inc.php:27 server_databases.php:263
-#: server_databases.php:268 server_privileges.php:1821 tbl_structure.php:557
+#: libraries/mult_submits.inc.php:27 server_databases.php:277
+#: server_databases.php:282 server_privileges.php:1820 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
 msgstr "Означено:"
 
 #: db_structure.php:552 libraries/display_tbl.lib.php:2487
-#: server_databases.php:265 server_privileges.php:703
-#: server_privileges.php:1824 tbl_structure.php:560
+#: server_databases.php:279 server_privileges.php:703
+#: server_privileges.php:1823 tbl_structure.php:560
 msgid "Check All"
 msgstr "Означи све"
 
 #: db_structure.php:556 libraries/display_tbl.lib.php:2488
-#: libraries/replication_gui.lib.php:35 server_databases.php:267
-#: server_privileges.php:706 server_privileges.php:1828 tbl_structure.php:564
+#: libraries/replication_gui.lib.php:35 server_databases.php:281
+#: server_privileges.php:706 server_privileges.php:1827 tbl_structure.php:564
 msgid "Uncheck All"
 msgstr "ниједно"
 
@@ -680,7 +679,7 @@ msgstr "Провери табеле које имају прекорачења"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2510 libraries/display_tbl.lib.php:2651
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1486 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1485 server_status.php:1600
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Извоз"
@@ -697,7 +696,7 @@ msgstr "Испразни"
 
 #: db_structure.php:577 db_tracking.php:105 enum_editor.php:116
 #: libraries/Index.class.php:490 libraries/common.lib.php:3378
-#: libraries/common.lib.php:3379 server_databases.php:269
+#: libraries/common.lib.php:3379 server_databases.php:283
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "Одбаци"
@@ -749,9 +748,9 @@ msgstr "Провери табелу"
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
-#: libraries/header_printview.inc.php:60 server_databases.php:161
-#: server_privileges.php:1903 server_privileges.php:1966
-#: server_privileges.php:2229 server_status.php:1239
+#: libraries/header_printview.inc.php:60 server_databases.php:175
+#: server_privileges.php:1902 server_privileges.php:1965
+#: server_privileges.php:2228 server_status.php:1239
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
@@ -773,15 +772,15 @@ msgstr ""
 
 #: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1242 sql.php:902 tbl_tracking.php:653
+#: server_status.php:1242 sql.php:932 tbl_tracking.php:653
 msgid "Status"
 msgstr "Статус"
 
 #: db_tracking.php:91 libraries/Index.class.php:438
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
-#: server_databases.php:194 server_privileges.php:1758
-#: server_privileges.php:1970 server_privileges.php:2317 tbl_structure.php:211
+#: server_databases.php:208 server_privileges.php:1757
+#: server_privileges.php:1969 server_privileges.php:2316 tbl_structure.php:211
 msgid "Action"
 msgstr "Акција"
 
@@ -994,7 +993,7 @@ msgid ""
 "string into the \"Value\" field"
 msgstr ""
 
-#: import.php:61
+#: import.php:78
 #, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
@@ -1003,20 +1002,20 @@ msgstr ""
 "Вероватно сте покушали да увезете превелику датотеку. Молимо погледајте "
 "%sдокументацију%s за начине превазилажења овог ограничења."
 
-#: import.php:174 import.php:426
+#: import.php:191 import.php:443
 msgid "Showing bookmark"
 msgstr "Приказивање маркера"
 
-#: import.php:184 import.php:422
+#: import.php:201 import.php:439
 msgid "The bookmark has been deleted."
 msgstr "Обележивач је управо обрисан."
 
-#: import.php:298 import.php:351 libraries/File.class.php:384
+#: import.php:315 import.php:368 libraries/File.class.php:384
 #: libraries/File.class.php:467
 msgid "File could not be read"
 msgstr "Датотеку није могуће прочитати"
 
-#: import.php:306 import.php:315 import.php:334 import.php:343
+#: import.php:323 import.php:332 import.php:351 import.php:360
 #: libraries/File.class.php:537 libraries/File.class.php:545
 #: libraries/File.class.php:561 libraries/File.class.php:569
 #, php-format
@@ -1027,7 +1026,7 @@ msgstr ""
 "Покушали сте да увезете датотеку са компресијом која није подржана (%s). Или "
 "подршка за њу није имплементирана, или је искључена у вашој конфигурацији."
 
-#: import.php:356
+#: import.php:373
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -1037,26 +1036,26 @@ msgstr ""
 "или величина датотеке превазилази максималну величину дозвољену у вашој "
 "конфигурацији PHP-а. Погледајте. See FAQ 1.16."
 
-#: import.php:373
+#: import.php:390
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 
-#: import.php:397 libraries/display_import.lib.php:23
+#: import.php:414 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Не могу да учитам додатке за увоз, молим проверите своју инсталацију!"
 
-#: import.php:428 sql.php:937
+#: import.php:445 sql.php:967
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Направљен маркер %s"
 
-#: import.php:434 import.php:440
+#: import.php:451 import.php:457
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Увоз је успешно завршен, извршено је %d упита."
 
-#: import.php:449
+#: import.php:466
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -1064,7 +1063,7 @@ msgstr ""
 "Време извршења скрипта је истекло, ако желите да довршите увоз, молимо "
 "пошаљите исту датотеку и увоз ће се наставити."
 
-#: import.php:451
+#: import.php:468
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1073,14 +1072,14 @@ msgstr ""
 "да phpMyAdmin неће бити у могућности да заврши овај увоз осим ако не "
 "повећате временска ограничења у PHP-у"
 
-#: import.php:479 libraries/Message.class.php:175
+#: import.php:496 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1205
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Ваш SQL упит је успешно извршен"
 
-#: import_status.php:29 libraries/common.lib.php:709
+#: import_status.php:42 libraries/common.lib.php:709
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
 msgid "Back"
 msgstr "Назад"
@@ -1089,15 +1088,15 @@ msgstr "Назад"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin преферира читаче који подржавају оквире."
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:255
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:285
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" команда је онемогућена."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:292 sql.php:356
+#: js/messages.php:30 libraries/mult_submits.inc.php:292 sql.php:386
 msgid "Do you really want to "
 msgstr "Да ли стварно хоћете да "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:292 sql.php:341
+#: js/messages.php:31 libraries/mult_submits.inc.php:292 sql.php:371
 msgid "You are about to DESTROY a complete database!"
 msgstr "Овим ћете УНИШТИТИ комплетну базу података!"
 
@@ -1168,16 +1167,16 @@ msgstr "Име домаћина је празно!"
 msgid "The user name is empty!"
 msgstr "Име корисника није унето!"
 
-#: js/messages.php:53 server_privileges.php:1353 user_password.php:50
+#: js/messages.php:53 server_privileges.php:1352 user_password.php:50
 msgid "The password is empty!"
 msgstr "Лозинка је празна!"
 
-#: js/messages.php:54 server_privileges.php:1351 user_password.php:53
+#: js/messages.php:54 server_privileges.php:1350 user_password.php:53
 msgid "The passwords aren't the same!"
 msgstr "Лозинке нису идентичне!"
 
-#: js/messages.php:55 server_privileges.php:1842 server_privileges.php:1866
-#: server_privileges.php:2278 server_privileges.php:2472
+#: js/messages.php:55 server_privileges.php:1841 server_privileges.php:1865
+#: server_privileges.php:2277 server_privileges.php:2471
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user"
@@ -1229,7 +1228,7 @@ msgstr ""
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:158 server_databases.php:222
+#: libraries/engines/innodb.lib.php:158 server_databases.php:236
 #: server_status.php:1126 server_status.php:1187 tbl_printview.php:310
 #: tbl_structure.php:804
 msgid "Total"
@@ -1482,7 +1481,7 @@ msgstr ""
 #: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2119 server_status.php:1268 server_status.php:1697
+#: server_privileges.php:2118 server_status.php:1268 server_status.php:1697
 #: tbl_zoom_select.php:220 tbl_zoom_select.php:264
 msgid "None"
 msgstr "нема"
@@ -1659,7 +1658,7 @@ msgid "Explain output"
 msgstr "Објасни SQL"
 
 #: js/messages.php:184 js/messages.php:490 libraries/rte/rte_list.lib.php:62
-#: server_status.php:1241 sql.php:903
+#: server_status.php:1241 sql.php:933
 msgid "Time"
 msgstr "Време"
 
@@ -2611,8 +2610,8 @@ msgid ""
 msgstr ""
 
 #: libraries/List_Database.class.php:379 libraries/config/messages.inc.php:179
-#: libraries/server_links.inc.php:43 server_databases.php:104
-#: server_privileges.php:1903
+#: libraries/server_links.inc.php:43 server_databases.php:118
+#: server_privileges.php:1902
 msgid "Databases"
 msgstr "Базе"
 
@@ -2707,8 +2706,9 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Грешка при преименовању табеле %1$s у %2$s"
 
 #: libraries/Table.class.php:1257
-#, php-format
-msgid "Table %s has been renamed to %s"
+#, fuzzy, php-format
+#| msgid "Table %s has been renamed to %s"
+msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табели %s промењено име у %s"
 
 #: libraries/Table.class.php:1389
@@ -3087,7 +3087,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Складиштења"
 
-#: libraries/common.lib.php:1401 sql.php:898
+#: libraries/common.lib.php:1401 sql.php:928
 msgid "Profiling"
 msgstr "Профилисање"
 
@@ -5331,7 +5331,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
 #: libraries/replication_gui.lib.php:355 server_privileges.php:898
 #: server_privileges.php:902 server_privileges.php:913
-#: server_privileges.php:1754 server_synchronize.php:1273
+#: server_privileges.php:1753 server_synchronize.php:1273
 msgid "Password"
 msgstr "Лозинка"
 
@@ -5647,7 +5647,7 @@ msgid "Designer"
 msgstr "Дизајнер"
 
 #: libraries/db_links.inc.php:92 server_privileges.php:140
-#: server_privileges.php:1967 server_privileges.php:2315
+#: server_privileges.php:1966 server_privileges.php:2314
 msgid "Privileges"
 msgstr "Привилегије"
 
@@ -5718,7 +5718,7 @@ msgid "Create"
 msgstr "Направи"
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:142
-#: server_privileges.php:1639 server_replication.php:33
+#: server_privileges.php:1638 server_replication.php:33
 msgid "No Privileges"
 msgstr "Нема привилегија"
 
@@ -6162,7 +6162,7 @@ msgstr "Приказ записа"
 msgid "total"
 msgstr "укупно"
 
-#: libraries/display_tbl.lib.php:2376 sql.php:736
+#: libraries/display_tbl.lib.php:2376 sql.php:766
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Упит је трајао %01.4f секунди"
@@ -6634,7 +6634,7 @@ msgstr "Доступни MIME-типови"
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:833
 #: server_privileges.php:836 server_privileges.php:892
-#: server_privileges.php:1753 server_privileges.php:2313
+#: server_privileges.php:1752 server_privileges.php:2312
 #: server_status.php:1238
 msgid "Host"
 msgstr "Домаћин"
@@ -6855,7 +6855,7 @@ msgid "Generated by"
 msgstr "Генерисао"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
-#: sql.php:732 tbl_change.php:190 tbl_get_field.php:34
+#: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL је вратио празан резултат (нула редова)."
 
@@ -7426,7 +7426,7 @@ msgstr "Било који корисник"
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
 #: libraries/replication_gui.lib.php:352 server_privileges.php:819
 #: server_privileges.php:886 server_privileges.php:910
-#: server_privileges.php:2178 server_privileges.php:2208
+#: server_privileges.php:2177 server_privileges.php:2207
 msgid "Use text field"
 msgstr "Користи текст поље"
 
@@ -7592,7 +7592,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2469
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2468
 msgid "New"
 msgstr ""
 
@@ -8186,11 +8186,11 @@ msgstr "Календар"
 msgid "Columns"
 msgstr "Имена колона"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:977 sql.php:994
+#: libraries/sql_query_form.lib.php:300 sql.php:1007 sql.php:1024
 msgid "Bookmark this SQL query"
 msgstr "Запамти SQL-упит"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:988
+#: libraries/sql_query_form.lib.php:307 sql.php:1018
 msgid "Let every user access this bookmark"
 msgstr "Дозволи сваком кориснику да приступа овом упамћеном упиту"
 
@@ -8677,8 +8677,8 @@ msgstr "Верзија сервера"
 msgid "Protocol version"
 msgstr "Верзија протокола"
 
-#: main.php:179 server_privileges.php:1600 server_privileges.php:1752
-#: server_privileges.php:1893 server_privileges.php:2312
+#: main.php:179 server_privileges.php:1599 server_privileges.php:1751
+#: server_privileges.php:1892 server_privileges.php:2311
 #: server_status.php:1237
 msgid "User"
 msgstr "Корисник"
@@ -8817,7 +8817,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
+#: navigation.php:182 server_databases.php:298 server_synchronize.php:1294
 msgid "No databases"
 msgstr "База не постоји"
 
@@ -9164,33 +9164,33 @@ msgstr "Информације"
 msgid "Character Sets and Collations"
 msgstr "Карактер сетови и сортирање"
 
-#: server_databases.php:69
+#: server_databases.php:83
 msgid "No databases selected."
 msgstr "Није изабрана ни једна база."
 
-#: server_databases.php:80
+#: server_databases.php:94
 #, php-format
 msgid "%s databases have been dropped successfully."
 msgstr "%s база је успешно одбачено."
 
-#: server_databases.php:104
+#: server_databases.php:118
 msgid "Databases statistics"
 msgstr "Статистика базе"
 
-#: server_databases.php:186 server_replication.php:209
+#: server_databases.php:200 server_replication.php:209
 #: server_replication.php:237
 msgid "Master replication"
 msgstr ""
 
-#: server_databases.php:188 server_replication.php:276
+#: server_databases.php:202 server_replication.php:276
 msgid "Slave replication"
 msgstr ""
 
-#: server_databases.php:275 server_databases.php:276
+#: server_databases.php:289 server_databases.php:290
 msgid "Enable Statistics"
 msgstr "Укључи статистике"
 
-#: server_databases.php:278
+#: server_databases.php:292
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -9444,12 +9444,12 @@ msgid "None"
 msgstr "нема"
 
 #: server_privileges.php:555 server_privileges.php:700
-#: server_privileges.php:1963 server_privileges.php:1969
+#: server_privileges.php:1962 server_privileges.php:1968
 msgid "Table-specific privileges"
 msgstr "Привилегије везане за табеле"
 
 #: server_privileges.php:556 server_privileges.php:708
-#: server_privileges.php:1756
+#: server_privileges.php:1755
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Напомена: MySQL имена привилегија морају да буду на енглеском "
 
@@ -9457,11 +9457,11 @@ msgstr "Напомена: MySQL имена привилегија морају �
 msgid "Administration"
 msgstr "Администрација"
 
-#: server_privileges.php:697 server_privileges.php:1755
+#: server_privileges.php:697 server_privileges.php:1754
 msgid "Global privileges"
 msgstr "Глобалне привилегије"
 
-#: server_privileges.php:699 server_privileges.php:1963
+#: server_privileges.php:699 server_privileges.php:1962
 msgid "Database-specific privileges"
 msgstr "Привилегије везане за базу"
 
@@ -9481,7 +9481,7 @@ msgstr "Подаци о пријави"
 msgid "Do not change the password"
 msgstr "Немој да мењаш лозинку"
 
-#: server_privileges.php:955 server_privileges.php:2455
+#: server_privileges.php:955 server_privileges.php:2454
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -9496,92 +9496,92 @@ msgstr "Корисник %s већ постоји!"
 msgid "You have added a new user."
 msgstr "Додали сте новог корисника."
 
-#: server_privileges.php:1310
+#: server_privileges.php:1309
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ажурирали сте привилегије за %s."
 
-#: server_privileges.php:1332
+#: server_privileges.php:1331
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Забранили сте привилегије за %s"
 
-#: server_privileges.php:1368
+#: server_privileges.php:1367
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Лозинка за %s је успешно промењена."
 
-#: server_privileges.php:1388
+#: server_privileges.php:1387
 #, php-format
 msgid "Deleting %s"
 msgstr "Бришем %s"
 
-#: server_privileges.php:1402
+#: server_privileges.php:1401
 msgid "No users selected for deleting!"
 msgstr "Ниједан корисник није одабран за брисање!"
 
-#: server_privileges.php:1405
+#: server_privileges.php:1404
 msgid "Reloading the privileges"
 msgstr "Поново учитавам привилегије"
 
-#: server_privileges.php:1423
+#: server_privileges.php:1422
 msgid "The selected users have been deleted successfully."
 msgstr "Изабрани корисници су успешно обрисани."
 
-#: server_privileges.php:1458
+#: server_privileges.php:1457
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегије су успешно поново учитане."
 
-#: server_privileges.php:1469 server_privileges.php:1892
+#: server_privileges.php:1468 server_privileges.php:1891
 msgid "Edit Privileges"
 msgstr "Промени привилегије"
 
-#: server_privileges.php:1478
+#: server_privileges.php:1477
 msgid "Revoke"
 msgstr "Забрани"
 
-#: server_privileges.php:1494
+#: server_privileges.php:1493
 #, fuzzy
 #| msgid "Export"
 msgid "Export all"
 msgstr "Извоз"
 
-#: server_privileges.php:1513 server_privileges.php:1779
-#: server_privileges.php:2405
+#: server_privileges.php:1512 server_privileges.php:1778
+#: server_privileges.php:2404
 msgid "Any"
 msgstr "Било који"
 
-#: server_privileges.php:1593
+#: server_privileges.php:1592
 #, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "Привилегије"
 
-#: server_privileges.php:1617
+#: server_privileges.php:1616
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Преглед корисника"
 
-#: server_privileges.php:1757 server_privileges.php:1968
-#: server_privileges.php:2316
+#: server_privileges.php:1756 server_privileges.php:1967
+#: server_privileges.php:2315
 msgid "Grant"
 msgstr "Омогући"
 
-#: server_privileges.php:1847
+#: server_privileges.php:1846
 msgid "Remove selected users"
 msgstr "Уклони изабране кориснике"
 
-#: server_privileges.php:1850
+#: server_privileges.php:1849
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Обустави све активне привилегије корисника и затим их обриши."
 
-#: server_privileges.php:1851 server_privileges.php:1852
-#: server_privileges.php:1853
+#: server_privileges.php:1850 server_privileges.php:1851
+#: server_privileges.php:1852
 msgid "Drop the databases that have the same names as the users."
 msgstr "Одбаци базе које се зову исто као корисници."
 
-#: server_privileges.php:1874
+#: server_privileges.php:1873
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9594,89 +9594,89 @@ msgstr ""
 "сервер користи ако су вршене ручне измене. У том случају %sпоново учитајте "
 "привилегије%s пре него што наставите."
 
-#: server_privileges.php:1927
+#: server_privileges.php:1926
 msgid "The selected user was not found in the privilege table."
 msgstr "Изабрани корисник није пронађен у табели привилегија."
 
-#: server_privileges.php:1969
+#: server_privileges.php:1968
 msgid "Column-specific privileges"
 msgstr "Привилегије везане за колоне"
 
-#: server_privileges.php:2175
+#: server_privileges.php:2174
 msgid "Add privileges on the following database"
 msgstr "Додај привилегије на следећој бази"
 
-#: server_privileges.php:2193
+#: server_privileges.php:2192
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Пре џокера _ и % треба ставити знак \\ ако их користите самостално"
 
-#: server_privileges.php:2196
+#: server_privileges.php:2195
 msgid "Add privileges on the following table"
 msgstr "Додај привилегије на следећој табели"
 
-#: server_privileges.php:2253
+#: server_privileges.php:2252
 msgid "Change Login Information / Copy User"
 msgstr "Промени информације о пријави / Копирај корисника"
 
-#: server_privileges.php:2256
+#: server_privileges.php:2255
 msgid "Create a new user with the same privileges and ..."
 msgstr "Направи новог корисника са истим привилегијама и ..."
 
-#: server_privileges.php:2258
+#: server_privileges.php:2257
 msgid "... keep the old one."
 msgstr "... сачувај старе."
 
-#: server_privileges.php:2259
+#: server_privileges.php:2258
 msgid "... delete the old one from the user tables."
 msgstr "... обриши старе из табела корисника."
 
-#: server_privileges.php:2260
+#: server_privileges.php:2259
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr "... обустави све привилегије старог корисника и затим га обриши."
 
-#: server_privileges.php:2261
+#: server_privileges.php:2260
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... обриши старог из табеле корисника и затим поново учитај привилегије."
 
-#: server_privileges.php:2284
+#: server_privileges.php:2283
 msgid "Database for user"
 msgstr "База за корисника"
 
-#: server_privileges.php:2286
+#: server_privileges.php:2285
 msgid "Create database with same name and grant all privileges"
 msgstr "Направи базу са истим именом и додај све привилегије"
 
-#: server_privileges.php:2288
+#: server_privileges.php:2287
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Дај све привилегије на имену са џокерима (корисничко_име\\_%)"
 
-#: server_privileges.php:2292
+#: server_privileges.php:2291
 #, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Провери привилегије за базу &quot;%s&quot;."
 
-#: server_privileges.php:2308
+#: server_privileges.php:2307
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Корисници који имају приступ &quot;%s&quot;"
 
-#: server_privileges.php:2417
+#: server_privileges.php:2416
 msgid "global"
 msgstr "глобално"
 
-#: server_privileges.php:2419
+#: server_privileges.php:2418
 msgid "database-specific"
 msgstr "Специфично за базу"
 
-#: server_privileges.php:2421
+#: server_privileges.php:2420
 msgid "wildcard"
 msgstr "џокер"
 
-#: server_privileges.php:2464
+#: server_privileges.php:2463
 #, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
@@ -11380,41 +11380,41 @@ msgstr ""
 msgid "Wrong data"
 msgstr "База не постоји"
 
-#: sql.php:111 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
+#: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:79
 #: tbl_zoom_select.php:127
 msgid "Browse foreign values"
 msgstr "Прегледај стране вредности"
 
-#: sql.php:220
+#: sql.php:250
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:708 tbl_replace.php:397
+#: sql.php:738 tbl_replace.php:397
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: sql.php:725
+#: sql.php:755
 msgid "Showing as PHP code"
 msgstr "Приказ као PHP код"
 
-#: sql.php:728 tbl_replace.php:371
+#: sql.php:758 tbl_replace.php:371
 msgid "Showing SQL query"
 msgstr "Приказ као SQL упит"
 
-#: sql.php:730
+#: sql.php:760
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Провери SQL"
 
-#: sql.php:950
+#: sql.php:980
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблем при индексирању табеле `%s`"
 
-#: sql.php:982
+#: sql.php:1012
 msgid "Label"
 msgstr "Назив"
 

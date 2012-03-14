@@ -1254,7 +1254,7 @@ class PMA_Table
         }
 
         $this->messages[] = sprintf(
-            __('Table %s has been renamed to %s'),
+            __('Table %1$s has been renamed to %2$s.'),
             htmlspecialchars($old_name),
             htmlspecialchars($new_name)
         );
