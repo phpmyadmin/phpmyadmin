@@ -5764,7 +5764,7 @@ msgstr ""
 
 #: libraries/import/csv.php:41
 msgid "Column names: "
-msgstr "Nazwy kolumn:"
+msgstr "Nazwy kolumn: "
 
 #: libraries/import/csv.php:61 libraries/import/csv.php:74
 #: libraries/import/csv.php:79 libraries/import/csv.php:84
