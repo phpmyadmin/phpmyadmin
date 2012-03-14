@@ -7942,10 +7942,10 @@ msgid "Table seems to be empty!"
 msgstr "Tabulka se zdá být prázdná!"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Sledování pro %s.%s je zapnuté."
+msgstr "Je zapnuté sledování %s."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
