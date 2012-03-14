@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 20:21+0200\n"
+"PO-Revision-Date: 2012-03-14 20:54+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -168,7 +168,7 @@ msgstr "Null"
 #: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
 #: tbl_structure.php:206 tbl_tracking.php:273
 msgid "Default"
-msgstr "Default"
+msgstr "Standardvärde"
 
 #: db_datadict.php:170 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:399 libraries/export/odt.php:313
