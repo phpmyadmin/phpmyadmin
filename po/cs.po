@@ -11556,10 +11556,10 @@ msgid "Tracking statements"
 msgstr "Sledování příkazů"
 
 #: tbl_tracking.php:433 tbl_tracking.php:561
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Zobrazit %s s datem od %s do %s od uživatele %s %s"
+msgstr "Zobrazit %1$s mezi daty %2$s a %2$s od uživatele %4$s %5$s"
 
 #: tbl_tracking.php:438
 msgid "Delete tracking data row from report"
