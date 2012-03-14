@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 16:15+0100\n"
+"POT-Creation-Date: 2012-03-14 16:42+0100\n"
 "PO-Revision-Date: 2012-03-14 16:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -511,9 +511,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Výsledky vyhledávání pro „<i>%s</i>“ %s:"
 
 #: db_search.php:227
-#, php-format
-msgid "%s match inside table <i>%s</i>"
-msgid_plural "%s matches inside table <i>%s</i>"
+#, fuzzy, php-format
+#| msgid "%s match inside table <i>%s</i>"
+#| msgid_plural "%s matches inside table <i>%s</i>"
+msgid "%1$s match inside table <i>%2$s</i>"
+msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%s odpovídající záznam v tabulce <i>%s</i>"
 msgstr[1] "%s odpovídající záznamy v tabulce <i>%s</i>"
 msgstr[2] "%s odpovídajících záznamů v tabulce <i>%s</i>"
@@ -1046,7 +1048,6 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Příkaz „DROP DATABASE“ je vypnutý."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:296 sql.php:386
-#| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
 msgstr "Opravdu si přejete vykonat následující příkaz?"
 
@@ -2497,7 +2498,6 @@ msgstr "Chyba při přejmenování tabulky %1$s na %2$s"
 
 #: libraries/Table.class.php:1257
 #, php-format
-#| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabulka %1$s byla přejmenována na %2$s."
 
@@ -7942,8 +7942,9 @@ msgid "Table seems to be empty!"
 msgstr "Tabulka se zdá být prázdná!"
 
 #: libraries/tbl_links.inc.php:126
-#, php-format
-msgid "Tracking of %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking of %s is activated."
 msgstr "Sledování pro %s.%s je zapnuté."
 
 #: libraries/tbl_properties.inc.php:98
@@ -11495,18 +11496,21 @@ msgid "Tracking report for table `%s`"
 msgstr "Záznamy o sledování tabulky `%s`"
 
 #: tbl_tracking.php:173
-#, php-format
-msgid "Version %s is created, tracking for %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Version %s is created, tracking for %s.%s is activated."
+msgid "Version %1$s is created, tracking for %2$s is activated."
 msgstr "Verze %s vytvořena, sledování pro %s.%s je zapnuté."
 
 #: tbl_tracking.php:181
-#, php-format
-msgid "Tracking for %s.%s , version %s is deactivated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is deactivated."
+msgid "Tracking for %1$s, version %2$s is deactivated."
 msgstr "Sledování pro %s.%s , verze %s je vypnuté."
 
 #: tbl_tracking.php:189
-#, php-format
-msgid "Tracking for %s.%s , version %s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is activated."
+msgid "Tracking for %1$s, version %2$s is activated."
 msgstr "Sledování pro %s.%s , verze %s je zapnuté."
 
 #: tbl_tracking.php:199
@@ -11552,8 +11556,9 @@ msgid "Tracking statements"
 msgstr "Sledování příkazů"
 
 #: tbl_tracking.php:433 tbl_tracking.php:561
-#, php-format
-msgid "Show %s with dates from %s to %s by user %s %s"
+#, fuzzy, php-format
+#| msgid "Show %s with dates from %s to %s by user %s %s"
+msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Zobrazit %s s datem od %s do %s od uživatele %s %s"
 
 #: tbl_tracking.php:438
@@ -11602,8 +11607,9 @@ msgid "Show versions"
 msgstr "Zobrazit verze"
 
 #: tbl_tracking.php:702
-#, php-format
-msgid "Deactivate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Deactivate tracking for %s.%s"
+msgid "Deactivate tracking for %s"
 msgstr "Vypnout sledování pro %s.%s"
 
 #: tbl_tracking.php:704
@@ -11611,8 +11617,9 @@ msgid "Deactivate now"
 msgstr "Vypnout teď"
 
 #: tbl_tracking.php:715
-#, php-format
-msgid "Activate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Activate tracking for %s.%s"
+msgid "Activate tracking for %s"
 msgstr "Zapnuté sledování pro %s.%s"
 
 #: tbl_tracking.php:717
@@ -11620,8 +11627,9 @@ msgid "Activate now"
 msgstr "Zapnout teď"
 
 #: tbl_tracking.php:730
-#, php-format
-msgid "Create version %s of %s.%s"
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "Create version %1$s of %2$s"
 msgstr "Vytvořit verzi %s z %s.%s"
 
 #: tbl_tracking.php:734

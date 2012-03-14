@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 16:15+0100\n"
+"POT-Creation-Date: 2012-03-14 16:42+0100\n"
 "PO-Revision-Date: 2011-11-15 17:19+0200\n"
 "Last-Translator: Macrotus <rokkeri@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -509,9 +509,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Tulokset hakusanalla \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
-#, php-format
-msgid "%s match inside table <i>%s</i>"
-msgid_plural "%s matches inside table <i>%s</i>"
+#, fuzzy, php-format
+#| msgid "%s match inside table <i>%s</i>"
+#| msgid_plural "%s matches inside table <i>%s</i>"
+msgid "%1$s match inside table <i>%2$s</i>"
+msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%s hakutulosta taulussa <i>%s</i>"
 msgstr[1] "%s hakutulosta taulussa <i>%s</i>"
 
@@ -8386,8 +8388,9 @@ msgid "Table seems to be empty!"
 msgstr "Taulu on tyhjä!"
 
 #: libraries/tbl_links.inc.php:126
-#, php-format
-msgid "Tracking of %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking of %s is activated."
 msgstr "Kohteen %s.%s seuranta on käytössä."
 
 #: libraries/tbl_properties.inc.php:98
@@ -12267,18 +12270,21 @@ msgid "Tracking report for table `%s`"
 msgstr "Taulun `%s` seurantaraportti"
 
 #: tbl_tracking.php:173
-#, php-format
-msgid "Version %s is created, tracking for %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Version %s is created, tracking for %s.%s is activated."
+msgid "Version %1$s is created, tracking for %2$s is activated."
 msgstr "Versio %s on luotu, kohteen %s.%s seuranta on käytössä."
 
 #: tbl_tracking.php:181
-#, php-format
-msgid "Tracking for %s.%s , version %s is deactivated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is deactivated."
+msgid "Tracking for %1$s, version %2$s is deactivated."
 msgstr "Kohteen %s.%s seuranta, versio %s on pois käytöstä."
 
 #: tbl_tracking.php:189
-#, php-format
-msgid "Tracking for %s.%s , version %s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is activated."
+msgid "Tracking for %1$s, version %2$s is activated."
 msgstr "Kohteen %s.%s seuranta, käytössä on versio %s."
 
 #: tbl_tracking.php:199
@@ -12329,8 +12335,9 @@ msgid "Tracking statements"
 msgstr "Seurantalauseet"
 
 #: tbl_tracking.php:433 tbl_tracking.php:561
-#, php-format
-msgid "Show %s with dates from %s to %s by user %s %s"
+#, fuzzy, php-format
+#| msgid "Show %s with dates from %s to %s by user %s %s"
+msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Näytä %s päiväyksestä %s päiväykseen %s käyttäjän %s %s osalta"
 
 #: tbl_tracking.php:438
@@ -12383,8 +12390,9 @@ msgid "Show versions"
 msgstr "Näytä versiot"
 
 #: tbl_tracking.php:702
-#, php-format
-msgid "Deactivate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Deactivate tracking for %s.%s"
+msgid "Deactivate tracking for %s"
 msgstr "Poista kohteen %s.%s seuranta"
 
 #: tbl_tracking.php:704
@@ -12392,8 +12400,9 @@ msgid "Deactivate now"
 msgstr "Poista käytöstä nyt"
 
 #: tbl_tracking.php:715
-#, php-format
-msgid "Activate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Activate tracking for %s.%s"
+msgid "Activate tracking for %s"
 msgstr "Ota käyttöön kohteen %s.%s seuranta"
 
 #: tbl_tracking.php:717
@@ -12401,8 +12410,9 @@ msgid "Activate now"
 msgstr "Ota käyttöön nyt"
 
 #: tbl_tracking.php:730
-#, php-format
-msgid "Create version %s of %s.%s"
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "Create version %1$s of %2$s"
 msgstr "Luo versio %s kohteesta %s.%s"
 
 #: tbl_tracking.php:734

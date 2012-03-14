@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 16:15+0100\n"
+"POT-Creation-Date: 2012-03-14 16:42+0100\n"
 "PO-Revision-Date: 2012-03-14 16:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -503,9 +503,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "“<i>%s</i>”的搜索结果 %s："
 
 #: db_search.php:227
-#, php-format
-msgid "%s match inside table <i>%s</i>"
-msgid_plural "%s matches inside table <i>%s</i>"
+#, fuzzy, php-format
+#| msgid "%s match inside table <i>%s</i>"
+#| msgid_plural "%s matches inside table <i>%s</i>"
+msgid "%1$s match inside table <i>%2$s</i>"
+msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "在表 <i>%2$s</i> 中找到 %1$s 个匹配"
 
 #: db_search.php:234 libraries/common.lib.php:3159
@@ -7726,8 +7728,9 @@ msgid "Table seems to be empty!"
 msgstr "数据表是空的！"
 
 #: libraries/tbl_links.inc.php:126
-#, php-format
-msgid "Tracking of %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking of %s is activated."
 msgstr "%s.%s 的追踪已启用。"
 
 #: libraries/tbl_properties.inc.php:98
@@ -11131,18 +11134,21 @@ msgid "Tracking report for table `%s`"
 msgstr "`%s` 的追踪报告"
 
 #: tbl_tracking.php:173
-#, php-format
-msgid "Version %s is created, tracking for %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Version %s is created, tracking for %s.%s is activated."
+msgid "Version %1$s is created, tracking for %2$s is activated."
 msgstr "已创建版本 %s，%s.%s 的追踪已启用。"
 
 #: tbl_tracking.php:181
-#, php-format
-msgid "Tracking for %s.%s , version %s is deactivated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is deactivated."
+msgid "Tracking for %1$s, version %2$s is deactivated."
 msgstr "%s.%s 的追踪，版本 %s 已禁用。"
 
 #: tbl_tracking.php:189
-#, php-format
-msgid "Tracking for %s.%s , version %s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is activated."
+msgid "Tracking for %1$s, version %2$s is activated."
 msgstr "%s.%s 的追踪，版本 %s 已启用。"
 
 #: tbl_tracking.php:199
@@ -11185,8 +11191,9 @@ msgid "Tracking statements"
 msgstr "追踪语句"
 
 #: tbl_tracking.php:433 tbl_tracking.php:561
-#, php-format
-msgid "Show %s with dates from %s to %s by user %s %s"
+#, fuzzy, php-format
+#| msgid "Show %s with dates from %s to %s by user %s %s"
+msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "显示自 %2$s 起至 %3$s 用户 %4$s 执行的 %1$s %5$s"
 
 #: tbl_tracking.php:438
@@ -11235,8 +11242,9 @@ msgid "Show versions"
 msgstr "查看版本"
 
 #: tbl_tracking.php:702
-#, php-format
-msgid "Deactivate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Deactivate tracking for %s.%s"
+msgid "Deactivate tracking for %s"
 msgstr "禁用 %s.%s 的追踪"
 
 #: tbl_tracking.php:704
@@ -11244,8 +11252,9 @@ msgid "Deactivate now"
 msgstr "立即禁用"
 
 #: tbl_tracking.php:715
-#, php-format
-msgid "Activate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Activate tracking for %s.%s"
+msgid "Activate tracking for %s"
 msgstr "启用 %s.%s 的追踪"
 
 #: tbl_tracking.php:717
@@ -11253,8 +11262,9 @@ msgid "Activate now"
 msgstr "立即启用"
 
 #: tbl_tracking.php:730
-#, php-format
-msgid "Create version %s of %s.%s"
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "Create version %1$s of %2$s"
 msgstr "为 %2$s.%3$s 创建版本 %1$s"
 
 #: tbl_tracking.php:734

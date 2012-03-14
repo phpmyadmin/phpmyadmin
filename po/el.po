@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 16:15+0100\n"
+"POT-Creation-Date: 2012-03-14 16:42+0100\n"
 "PO-Revision-Date: 2012-03-12 10:30+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -509,9 +509,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Αποτελέσματα αναζήτησης για «<i>%s</i>» %s:"
 
 #: db_search.php:227
-#, php-format
-msgid "%s match inside table <i>%s</i>"
-msgid_plural "%s matches inside table <i>%s</i>"
+#, fuzzy, php-format
+#| msgid "%s match inside table <i>%s</i>"
+#| msgid_plural "%s matches inside table <i>%s</i>"
+msgid "%1$s match inside table <i>%2$s</i>"
+msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%s απατέλεσμα στον πίνακα <i>%s</i>"
 msgstr[1] "%s αποτελέσματα στον πίνακα <i>%s</i>"
 
@@ -8061,8 +8063,9 @@ msgid "Table seems to be empty!"
 msgstr "Ο πίνακας φαίνεται να είναι άδειος!"
 
 #: libraries/tbl_links.inc.php:126
-#, php-format
-msgid "Tracking of %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking of %s is activated."
 msgstr "Παρακολούθηση του %s.%s ενεργοποιήθηκε."
 
 #: libraries/tbl_properties.inc.php:98
@@ -11738,18 +11741,21 @@ msgid "Tracking report for table `%s`"
 msgstr "Αναφορά παρακολούθησης για τον πίνακα «%s»"
 
 #: tbl_tracking.php:173
-#, php-format
-msgid "Version %s is created, tracking for %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Version %s is created, tracking for %s.%s is activated."
+msgid "Version %1$s is created, tracking for %2$s is activated."
 msgstr "Η έκδοση %s δημιουργήθηκε, η παρακολούθηση του %s.%s ενεργοποιήθηκε."
 
 #: tbl_tracking.php:181
-#, php-format
-msgid "Tracking for %s.%s , version %s is deactivated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is deactivated."
+msgid "Tracking for %1$s, version %2$s is deactivated."
 msgstr "Η παρακολούθηση του %s.%s , η έκδοση %s είναι απενεργοποιημένη."
 
 #: tbl_tracking.php:189
-#, php-format
-msgid "Tracking for %s.%s , version %s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is activated."
+msgid "Tracking for %1$s, version %2$s is activated."
 msgstr "Η παρακολούθηση του %s.%s , η έκδοση %s είναι ενεργοποιημένη."
 
 #: tbl_tracking.php:199
@@ -11794,8 +11800,9 @@ msgid "Tracking statements"
 msgstr "Δηλώσεις παρακολούθησης"
 
 #: tbl_tracking.php:433 tbl_tracking.php:561
-#, php-format
-msgid "Show %s with dates from %s to %s by user %s %s"
+#, fuzzy, php-format
+#| msgid "Show %s with dates from %s to %s by user %s %s"
+msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Εμφάνιση %s με ημερομηνίες από %s έως %s από χρήστη %s %s"
 
 #: tbl_tracking.php:438
@@ -11845,8 +11852,9 @@ msgid "Show versions"
 msgstr "Εμφάνιση εκδόσεων"
 
 #: tbl_tracking.php:702
-#, php-format
-msgid "Deactivate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Deactivate tracking for %s.%s"
+msgid "Deactivate tracking for %s"
 msgstr "Απενεργοποιήση παρακολούθησης για το %s.%s"
 
 #: tbl_tracking.php:704
@@ -11854,8 +11862,9 @@ msgid "Deactivate now"
 msgstr "Απενεργοποιήση τώρα"
 
 #: tbl_tracking.php:715
-#, php-format
-msgid "Activate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Activate tracking for %s.%s"
+msgid "Activate tracking for %s"
 msgstr "Ενεργοποίηση παρακολούθησης για το %s.%s"
 
 #: tbl_tracking.php:717
@@ -11863,8 +11872,9 @@ msgid "Activate now"
 msgstr "Ενεργοποιήση τώρα"
 
 #: tbl_tracking.php:730
-#, php-format
-msgid "Create version %s of %s.%s"
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "Create version %1$s of %2$s"
 msgstr "Δημιουργία έκδοσης %s του %s.%s"
 
 #: tbl_tracking.php:734

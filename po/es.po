@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 16:15+0100\n"
+"POT-Creation-Date: 2012-03-14 16:42+0100\n"
 "PO-Revision-Date: 2012-03-10 17:41+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -513,9 +513,11 @@ msgstr "Resultados de la búsqueda para \"<i>%s</i>\" %s:"
 # singular: %s resultado en la tabla <i>%s</i>
 # plural: %s resultados en la tabla <i>%s</i>
 #: db_search.php:227
-#, php-format
-msgid "%s match inside table <i>%s</i>"
-msgid_plural "%s matches inside table <i>%s</i>"
+#, fuzzy, php-format
+#| msgid "%s match inside table <i>%s</i>"
+#| msgid_plural "%s matches inside table <i>%s</i>"
+msgid "%1$s match inside table <i>%2$s</i>"
+msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%s resultado en la tabla <i>%s</i>"
 msgstr[1] "%s resultados en la tabla <i>%s</i>"
 
@@ -8094,8 +8096,9 @@ msgid "Table seems to be empty!"
 msgstr "La tabla, ¡parece estar vacía!"
 
 #: libraries/tbl_links.inc.php:126
-#, php-format
-msgid "Tracking of %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking of %s.%s is activated."
+msgid "Tracking of %s is activated."
 msgstr "Seguimiento de %s.%s activado."
 
 #: libraries/tbl_properties.inc.php:98
@@ -11764,18 +11767,21 @@ msgid "Tracking report for table `%s`"
 msgstr "Informe de seguimiento para la tabla `%s`"
 
 #: tbl_tracking.php:173
-#, php-format
-msgid "Version %s is created, tracking for %s.%s is activated."
+#, fuzzy, php-format
+#| msgid "Version %s is created, tracking for %s.%s is activated."
+msgid "Version %1$s is created, tracking for %2$s is activated."
 msgstr "Se ha creado la versión %s, se ha activado el seguimiento para %s.%s."
 
 #: tbl_tracking.php:181
-#, php-format
-msgid "Tracking for %s.%s , version %s is deactivated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is deactivated."
+msgid "Tracking for %1$s, version %2$s is deactivated."
 msgstr "Se ha desactivado el seguimiento para %s.%s, versión %s."
 
 #: tbl_tracking.php:189
-#, php-format
-msgid "Tracking for %s.%s , version %s is activated."
+#, fuzzy, php-format
+#| msgid "Tracking for %s.%s , version %s is activated."
+msgid "Tracking for %1$s, version %2$s is activated."
 msgstr "Se ha activado el seguimiento para %s.%s, versión %s."
 
 #: tbl_tracking.php:199
@@ -11820,8 +11826,9 @@ msgid "Tracking statements"
 msgstr "Realizando el seguimiento de las sentencias"
 
 #: tbl_tracking.php:433 tbl_tracking.php:561
-#, php-format
-msgid "Show %s with dates from %s to %s by user %s %s"
+#, fuzzy, php-format
+#| msgid "Show %s with dates from %s to %s by user %s %s"
+msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Muestra %s con fechas de %s a %s por parte del usuario %s %s"
 
 #: tbl_tracking.php:438
@@ -11870,8 +11877,9 @@ msgid "Show versions"
 msgstr "Mostrar versiones"
 
 #: tbl_tracking.php:702
-#, php-format
-msgid "Deactivate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Deactivate tracking for %s.%s"
+msgid "Deactivate tracking for %s"
 msgstr "Desactivar el seguimiento para %s.%s"
 
 #: tbl_tracking.php:704
@@ -11879,8 +11887,9 @@ msgid "Deactivate now"
 msgstr "Desactivar ahora"
 
 #: tbl_tracking.php:715
-#, php-format
-msgid "Activate tracking for %s.%s"
+#, fuzzy, php-format
+#| msgid "Activate tracking for %s.%s"
+msgid "Activate tracking for %s"
 msgstr "Activar el seguimiento para %s.%s"
 
 #: tbl_tracking.php:717
@@ -11888,8 +11897,9 @@ msgid "Activate now"
 msgstr "Activar ahora"
 
 #: tbl_tracking.php:730
-#, php-format
-msgid "Create version %s of %s.%s"
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "Create version %1$s of %2$s"
 msgstr "Crear versión %s de %s.%s"
 
 #: tbl_tracking.php:734
