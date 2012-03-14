@@ -2754,7 +2754,7 @@ msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
 #: libraries/StorageEngine.class.php:203
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas. "
+msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas."
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
