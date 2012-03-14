@@ -10787,7 +10787,7 @@ msgstr "Een scheiding toepassen"
 
 #: server_status.php:1684
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Eenheid toevoegen aan gegevenswaarden"
 
 #: server_status.php:1690
 #| msgid "Add a new server"
