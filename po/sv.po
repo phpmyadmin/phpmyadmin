@@ -11109,7 +11109,7 @@ msgstr "Blockera"
 #: tbl_chart.php:91
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Kolumn "
+msgstr "Kolumn"
 
 #: tbl_chart.php:93
 msgctxt "Chart type"
