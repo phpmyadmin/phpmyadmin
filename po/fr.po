@@ -7084,7 +7084,6 @@ msgid "not OK"
 msgstr "en erreur"
 
 #: libraries/relation.lib.php:80
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
