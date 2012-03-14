@@ -11938,7 +11938,7 @@ msgstr "Hernoem view naar"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr "Systeem minder dan 1 dag onafgebroken actief"
+msgstr "Bedrijfstijd lager dan één dag"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
