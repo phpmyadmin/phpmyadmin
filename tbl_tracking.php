@@ -170,7 +170,7 @@ if (isset($_REQUEST['submit_create_version'])) {
     $tracking_set = rtrim($tracking_set, ',');
 
     if (PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set )) {
-        $msg = PMA_Message::success(sprintf(__('Version %1$s is created, tracking for %2$s is activated.'), $_REQUEST['version'], htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])));
+        $msg = PMA_Message::success(sprintf(__('Version %1$s was created, tracking for %2$s is active.'), $_REQUEST['version'], htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])));
         $msg->display();
     }
 }
@@ -178,7 +178,7 @@ if (isset($_REQUEST['submit_create_version'])) {
 // Deactivate tracking
 if (isset($_REQUEST['submit_deactivate_now'])) {
     if (PMA_Tracker::deactivateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
-        $msg = PMA_Message::success(sprintf(__('Tracking for %1$s, version %2$s is deactivated.'), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']), $_REQUEST['version']));
+        $msg = PMA_Message::success(sprintf(__('Tracking for %1$s was deactivated at version %2$s.'), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']), $_REQUEST['version']));
         $msg->display();
     }
 }
@@ -186,7 +186,7 @@ if (isset($_REQUEST['submit_deactivate_now'])) {
 // Activate tracking
 if (isset($_REQUEST['submit_activate_now'])) {
     if (PMA_Tracker::activateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
-        $msg = PMA_Message::success(sprintf(__('Tracking for %1$s, version %2$s is activated.'), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']), $_REQUEST['version']));
+        $msg = PMA_Message::success(sprintf(__('Tracking for %1$s was activated at version %2$s.'), htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']), $_REQUEST['version']));
         $msg->display();
     }
 }
