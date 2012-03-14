@@ -3,7 +3,7 @@
 /**
  * Form edit view
  *
- * @package PhpMyAdmin-setup
+ * @package PhpMyAdmin-Setup
  */
 
 if (!defined('PHPMYADMIN')) {

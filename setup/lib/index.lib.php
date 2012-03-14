@@ -3,10 +3,7 @@
 /**
  * Various checks and message functions used on index page.
  *
- * Security checks are the idea of Aung Khant <aungkhant[at]yehg.net>, http://yehg.net/lab
- * Version check taken from the old setup script by Michal Čihař <michal@cihar.com>
- *
- * @package PhpMyAdmin-setup
+ * @package PhpMyAdmin-Setup
  */
 
 if (!defined('PHPMYADMIN')) {

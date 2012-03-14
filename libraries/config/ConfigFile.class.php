@@ -10,7 +10,7 @@
  * Config file management class.
  * Stores its data in $_SESSION
  *
- * @package    phpMyAdmin
+ * @package PhpMyAdmin
  */
 class ConfigFile
 {

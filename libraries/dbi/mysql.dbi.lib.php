@@ -3,7 +3,8 @@
 /**
  * Interface to the classic MySQL extension
  *
- * @package PhpMyAdmin-DBI-MySQL
+ * @package PhpMyAdmin-DBI
+ * @subpackage MySQL
  */
 if (! defined('PHPMYADMIN')) {
     exit;

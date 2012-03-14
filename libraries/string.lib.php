@@ -3,9 +3,6 @@
 /**
  * Specialized String Functions for phpMyAdmin
  *
- * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
- * http://www.orbis-terrarum.net/?l=people.robbat2
- *
  * Defines a set of function callbacks that have a pure C version available if
  * the "ctype" extension is available, but otherwise have PHP versions to use
  * (that are slower).
@@ -13,7 +10,7 @@
  * The SQL Parser code relies heavily on these functions.
  *
  * @todo a .lib filename should not have code in main(), split or rename file
- * @package PhpMyAdmin
+ * @package PhpMyAdmin-String
  */
 if (! defined('PHPMYADMIN')) {
     exit;

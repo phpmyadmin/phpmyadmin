@@ -3,7 +3,7 @@
 /**
  * Common Option Constants For DBI Functions
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin-DBI
  */
 if (! defined('PHPMYADMIN')) {
     exit;

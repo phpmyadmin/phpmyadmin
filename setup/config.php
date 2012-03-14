@@ -3,7 +3,7 @@
 /**
  * Front controller for config view / download and clear
  *
- * @package PhpMyAdmin-setup
+ * @package PhpMyAdmin-Setup
  */
 
 /**

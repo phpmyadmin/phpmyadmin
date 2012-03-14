@@ -3,7 +3,7 @@
 /**
  * Config file generator
  *
- * @package PhpMyAdmin-setup
+ * @package PhpMyAdmin-Setup
  */
 
 /**
