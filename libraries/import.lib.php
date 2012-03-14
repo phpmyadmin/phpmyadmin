@@ -3,7 +3,7 @@
 /**
  * Library that provides common import functions that are used by import plugins
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin-Import
  */
 if (! defined('PHPMYADMIN')) {
     exit;
