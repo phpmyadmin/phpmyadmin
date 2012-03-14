@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-14 19:46+0200\n"
+"PO-Revision-Date: 2012-03-14 19:47+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10514,7 +10514,7 @@ msgstr "Instructies/Setup"
 
 #: server_status.php:1565
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Klaar met herschikken/bewerken van de grafieken"
 
 #: server_status.php:1572 server_status.php:1643
 #| msgid "Add prefix"
