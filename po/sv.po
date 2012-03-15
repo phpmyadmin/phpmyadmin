@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 21:21+0200\n"
+"PO-Revision-Date: 2012-03-15 21:22+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1045,10 +1045,9 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" satserna är inaktiverade."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:296 sql.php:386
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "Vill du verkligen"
+msgstr "Vill du verkligen exekvera följande fråga?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:294 sql.php:371
 msgid "You are about to DESTROY a complete database!"
