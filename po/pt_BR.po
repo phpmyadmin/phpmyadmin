@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-15 14:23+0200\n"
+"PO-Revision-Date: 2012-03-15 14:25+0200\n"
 "Last-Translator: Roberto Mathias <betorsm@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5295,7 +5295,7 @@ msgstr "Linhas da área de texto"
 
 #: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Titulo da janela quando o banco de dados está selecionado"
 
 #: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
