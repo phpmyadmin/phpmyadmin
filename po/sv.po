@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 21:29+0200\n"
+"PO-Revision-Date: 2012-03-15 21:30+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11670,10 +11670,10 @@ msgid "Activate now"
 msgstr "Aktivera nu"
 
 #: tbl_tracking.php:742
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Skapa version %s of %s.%s"
+msgstr "Skapa version %1$s av %2$s"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
