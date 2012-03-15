@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:44+0200\n"
+"PO-Revision-Date: 2012-03-15 16:45+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1174,7 +1174,7 @@ msgstr "কুয়েরী লেখচিত্র সরাসরি"
 
 #: js/messages.php:66
 msgid "Static data"
-msgstr ""
+msgstr "স্থিসি উপাত্ত"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
