@@ -7963,10 +7963,10 @@ msgid "Table seems to be empty!"
 msgstr "Tabellen verkar vara tom!"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Spårning av %s.%s är aktiverad."
+msgstr "Spårning av %s är aktiverad."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
