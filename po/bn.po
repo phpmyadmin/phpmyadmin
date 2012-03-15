@@ -1131,10 +1131,9 @@ msgstr "ইন্ডেক্সে %d কলামসমূহ যোগ কর
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "মোট"
+msgstr "মোট গননা"
 
 #: js/messages.php:55
 msgid "The host name is empty!"
