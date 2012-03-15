@@ -886,7 +886,7 @@ msgstr "বেজ লেয়ার হিসাবে OpenStreetMaps ব্য
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "এসআরআইডি"
 
 #: gis_data_editor.php:151 js/messages.php:323
 #: libraries/display_tbl.lib.php:693
