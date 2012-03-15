@@ -24,6 +24,26 @@ require_once './libraries/db_table_exists.lib.php';
 
 
 /**
+ * Sets globals from $_REQUEST
+ */
+$request_params = array(
+    'cn',
+    'ct',
+    'newHeight',
+    'newWidth',
+    'resize',
+    'sql_query',
+    'transform_key',
+    'where_clause'
+);
+foreach ($request_params as $one_request_param) {
+    if (isset($_REQUEST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+    }
+}
+
+
+/**
  * Get the list of the fields of the current table
  */
 PMA_DBI_select_db($db);
