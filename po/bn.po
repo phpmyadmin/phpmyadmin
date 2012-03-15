@@ -1170,7 +1170,7 @@ msgstr "নির্ধারিত ব্যবহারীসমূহ মূ�
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:415
 msgid "Close"
-msgstr ""
+msgstr "বন্ধ"
 
 #: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1195
