@@ -1340,7 +1340,7 @@ msgstr "ফাঁকা মোমোরী"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "ব্যবহৃত মেমোরী"
 
 #: js/messages.php:114
 #, fuzzy
