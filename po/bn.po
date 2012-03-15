@@ -1023,7 +1023,7 @@ msgstr "নির্ধারিত ব্যবহারীসমূহ মূ�
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:246 tbl_tracking.php:374
 msgid "Close"
-msgstr ""
+msgstr "বন্ধ"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
