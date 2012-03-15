@@ -944,7 +944,7 @@ msgstr "একটি ইনার রিং যোগ করুন"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
-msgstr ""
+msgstr "পলিগন"
 
 #: gis_data_editor.php:306 js/messages.php:328
 #, fuzzy
