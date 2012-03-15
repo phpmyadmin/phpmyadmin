@@ -1335,10 +1335,9 @@ msgid "Used Swap"
 msgstr "ব্যবহৃত বিনিময়"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "ফ্রী পাতাসমূহ"
+msgstr "ফ্রী বিনিময়"
 
 #: js/messages.php:115
 msgid "Bytes sent"
