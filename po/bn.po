@@ -732,7 +732,6 @@ msgid "Database"
 msgstr "ডাটাবেজ"
 
 #: db_tracking.php:87
-#, fuzzy
 msgid "Last version"
 msgstr "সর্বশেষ সংস্করণ"
 
