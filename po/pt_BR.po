@@ -791,7 +791,7 @@ msgstr "Valores do campo \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
-msgstr "Digite cada valor em um campo separado"
+msgstr "Digite cada valor em um campo separado."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
