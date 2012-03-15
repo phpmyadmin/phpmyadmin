@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:50+0200\n"
+"PO-Revision-Date: 2012-03-15 16:51+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1228,7 +1228,7 @@ msgstr "সংযোগসমূহ/প্রক্রিয়াসমূহ"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "গত রিফ্রেস থেকে প্রশ্নসমূহ"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
