@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-15 17:10+0200\n"
+"PO-Revision-Date: 2012-03-15 17:11+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1426,7 +1426,7 @@ msgstr "লেখচিত্র মূছে ফেলুন"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "শিরোনাম এবং লেবেলসমূহ সম্পাদন করুন"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
