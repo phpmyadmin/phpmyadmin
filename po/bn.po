@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-15 15:47+0200\n"
+"PO-Revision-Date: 2012-03-15 15:51+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -833,7 +833,7 @@ msgstr "ফলাফল"
 
 #: enum_editor.php:130
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "\"দৈর্ঘ্য/মূল্যবোধ\" ফিল্ডে যুক্ত মান কপি এবং পেস্ট করুন "
 
 #: export.php:29
 #, fuzzy
