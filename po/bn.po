@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:37+0200\n"
+"PO-Revision-Date: 2012-03-15 16:38+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1132,10 +1132,9 @@ msgstr "The passwords aren't the same!"
 
 #: js/messages.php:55 server_privileges.php:1841 server_privileges.php:1865
 #: server_privileges.php:2277 server_privileges.php:2471
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "যেকোন ব্যাবহারকারী"
+msgstr "ব্যাবহারকারী যোগ করুন"
 
 #: js/messages.php:56
 #, fuzzy
