@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-15 16:02+0200\n"
+"PO-Revision-Date: 2012-03-15 16:03+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -882,7 +882,7 @@ msgstr "\"%s\" কলামের মান"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "বেজ লেয়ার হিসাবে OpenStreetMaps ব্যবহার"
 
 #: gis_data_editor.php:134
 msgid "SRID"
