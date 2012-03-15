@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 14:39+0200\n"
+"PO-Revision-Date: 2012-03-15 14:41+0200\n"
 "Last-Translator: Roberto Mathias <betorsm@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5213,6 +5213,8 @@ msgstr "Sugerir nome para o banco de dados"
 #: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
+"Um aviso é mostrado na página principal se uma falha de segurança é "
+"detectada"
 
 #: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
