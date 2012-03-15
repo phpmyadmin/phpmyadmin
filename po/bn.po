@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:04+0200\n"
+"PO-Revision-Date: 2012-03-15 16:05+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -893,7 +893,7 @@ msgstr "এক্স"
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:314
 msgid "Y"
-msgstr ""
+msgstr "ওয়াই"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:316
