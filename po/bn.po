@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-15 16:33+0200\n"
+"PO-Revision-Date: 2012-03-15 16:35+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -972,6 +972,8 @@ msgstr "আপনি একটি BLOB সংগ্রহস্থল নিষ�
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"আপনি কি নিশ্চিত যে আপনি %s ডাটাবেসের জন্য সব BLOB রেফারেন্স নিষ্ক্রিয় করতে "
+"চান?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
