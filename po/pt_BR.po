@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 14:26+0200\n"
+"PO-Revision-Date: 2012-03-15 14:27+0200\n"
 "Last-Translator: Roberto Mathias <betorsm@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5249,7 +5249,7 @@ msgstr "Titulo da janela quando o servidor é selecionado"
 
 #: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Título da janela quando uma tabela é selecionada"
 
 #: libraries/config/messages.inc.php:511
 msgid ""
