@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-15 16:40+0200\n"
+"PO-Revision-Date: 2012-03-15 16:41+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1181,10 +1181,9 @@ msgid "Edit"
 msgstr "সম্পাদনা কর"
 
 #: js/messages.php:66 server_status.php:803
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Server Choice"
+msgstr "সরাসরি ট্রাফিক লেখচিত্র"
 
 #: js/messages.php:67 server_status.php:806
 msgid "Live conn./process chart"
