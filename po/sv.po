@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 21:27+0200\n"
+"PO-Revision-Date: 2012-03-15 21:28+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11599,10 +11599,10 @@ msgid "Tracking statements"
 msgstr "Spårning av uppgifter"
 
 #: tbl_tracking.php:445 tbl_tracking.php:573
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Visa %s med datum fån %s till %s av användare %s %s"
+msgstr "Visa %1$s med datum från %2$s till %3$s av användare %4$s %5$s"
 
 #: tbl_tracking.php:450
 msgid "Delete tracking data row from report"
