@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 17:11+0200\n"
+"PO-Revision-Date: 2012-03-15 17:12+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1409,7 +1409,7 @@ msgstr "শিরোনাম এবং লেবেলসমূহ সম্প
 
 #: js/messages.php:136
 msgid "Add chart to grid"
-msgstr ""
+msgstr "গ্রিডে লেখচিত্র যোগ করুন"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
