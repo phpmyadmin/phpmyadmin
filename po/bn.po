@@ -1098,10 +1098,9 @@ msgid "Add Index"
 msgstr "ইন্ডেস্ক যোগ করুন"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
-msgstr "পরবর্তী সাড়ি সম্পাদনা করুন"
+msgstr "ইনডেক্স সম্পাদনা করুন"
 
 #: js/messages.php:44 tbl_indexes.php:293
 #, fuzzy, php-format
