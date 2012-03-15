@@ -1306,7 +1306,7 @@ msgstr "মোট মেমোরী"
 
 #: js/messages.php:105
 msgid "Cached memory"
-msgstr ""
+msgstr "ক্যাশে মেমোরী"
 
 #: js/messages.php:106
 #, fuzzy
