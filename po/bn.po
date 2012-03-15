@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:39+0200\n"
+"PO-Revision-Date: 2012-03-15 16:40+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1142,10 +1142,9 @@ msgid "Reloading Privileges"
 msgstr "বিশেষাধিকার রিলোড"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Remove selected users"
+msgstr "নির্ধারিত ব্যবহারীসমূহ মূছা হচ্ছে"
 
 #: js/messages.php:58 js/messages.php:137 tbl_tracking.php:247
 #: tbl_tracking.php:427
