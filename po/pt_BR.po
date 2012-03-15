@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-15 14:07+0200\n"
+"PO-Revision-Date: 2012-03-15 14:08+0200\n"
 "Last-Translator: Roberto Mathias <betorsm@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3414,7 +3414,7 @@ msgstr "Estes são Editar, Editar na linha, Copiar e Excluir links"
 
 #: libraries/config/messages.inc.php:316
 msgid "Show table row links on left side"
-msgstr ""
+msgstr "Mostrar links da linha da tabela no lado esquerdo"
 
 #: libraries/config/messages.inc.php:317
 msgid "Show table row links on right side"
