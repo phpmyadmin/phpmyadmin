@@ -930,7 +930,7 @@ msgstr "আউটার রিং"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
 msgid "Inner Ring"
-msgstr ""
+msgstr "ইনার রিং"
 
 #: gis_data_editor.php:252
 #, fuzzy
