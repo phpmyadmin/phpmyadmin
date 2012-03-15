@@ -1321,10 +1321,9 @@ msgid "Average load"
 msgstr "গড় লোড"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "মোট"
+msgstr "মোট মেমোরী"
 
 #: js/messages.php:109
 msgid "Cached memory"
