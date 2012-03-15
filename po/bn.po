@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:52+0200\n"
+"PO-Revision-Date: 2012-03-15 16:54+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1240,10 +1240,9 @@ msgid "Query statistics"
 msgstr "কুয়েরী পরিসংখ্যান"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible"
-msgstr "\"%1$s\" হতে ডিফল্ট কনফিগারেশন লোড করা যায়নি"
+msgstr "স্থানীয় মনিটর কনফিগারেশন বেমানান"
 
 #: js/messages.php:91
 msgid ""
