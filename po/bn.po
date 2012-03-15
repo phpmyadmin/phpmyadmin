@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:05+0200\n"
+"PO-Revision-Date: 2012-03-15 16:06+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -903,10 +903,9 @@ msgstr "পয়েন্ট %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a point"
-msgstr "%s ক্ষেত্রসমূহ যোগ কর"
+msgstr "একটি পয়েন্ট যোগ কর"
 
 #: gis_data_editor.php:220 js/messages.php:317
 #, fuzzy
