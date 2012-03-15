@@ -833,7 +833,7 @@ msgstr "ফলাফল"
 
 #: enum_editor.php:130
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "\"দৈর্ঘ্য/মূল্যবোধ\" ফিল্ডে যুক্ত মান কপি এবং পেস্ট করুন "
+msgstr "দৈর্ঘ্য/মূল্যবোধ ফিল্ডে যুক্ত মান কপি এবং পেস্ট করুন "
 
 #: export.php:29
 #, fuzzy
