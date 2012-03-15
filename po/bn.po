@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 15:52+0200\n"
+"PO-Revision-Date: 2012-03-15 15:53+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -833,10 +833,9 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Selected export type has to be saved in file!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Bad parameters!"
-msgstr "ডাটাবেজ রিনেম কর"
+msgstr "বাজে প্যারামিটার!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
