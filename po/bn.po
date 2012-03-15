@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:36+0200\n"
+"PO-Revision-Date: 2012-03-15 16:37+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1103,10 +1103,10 @@ msgid "Edit Index"
 msgstr "ইনডেক্স সম্পাদনা করুন"
 
 #: js/messages.php:44 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
-msgstr "%s ক্ষেত্রসমূহ যোগ কর"
+msgstr "ইন্ডেক্সে %d কলামসমূহ যোগ করুন"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
