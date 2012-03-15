@@ -5341,9 +5341,8 @@ msgid "Config authentication"
 msgstr "Configurar autenticação"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 msgid "Cookie authentication"
-msgstr "Falha na autenticação de hardware"
+msgstr "Autenticação de cookie"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
