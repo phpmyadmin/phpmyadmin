@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-15 16:31+0200\n"
+"PO-Revision-Date: 2012-03-15 16:33+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1096,7 +1096,7 @@ msgstr "This operation could take a long time. Proceed anyway?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "আপনি একটি BLOB সংগ্রহস্থল নিষ্ক্রিয় করেছেন!"
 
 #: js/messages.php:41
 #, php-format
