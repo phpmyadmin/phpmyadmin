@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:48+0200\n"
+"PO-Revision-Date: 2012-03-15 16:49+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1208,10 +1208,9 @@ msgid "KiB received since last refresh"
 msgstr "গত রিফ্রেস থেকে গৃহীত KiB"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Server Choice"
+msgstr "সার্ভার ট্রাফিক (in KiB)"
 
 #: js/messages.php:79
 msgid "Connections since last refresh"
