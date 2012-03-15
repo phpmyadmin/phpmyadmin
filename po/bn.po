@@ -1288,10 +1288,9 @@ msgid "Query cache usage"
 msgstr "কুয়েরী ক্যাশের ব্যবহারসমূহ"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Query cache"
+msgstr "ব্যবহৃত কুয়েরী ক্যাশে"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
