@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:31+0200\n"
+"PO-Revision-Date: 2012-03-15 16:36+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1093,10 +1093,9 @@ msgid "This is not a number!"
 msgstr "এটি কোন সংখ্যা না"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Index"
 msgid "Add Index"
-msgstr "ইন্ডেস্ক"
+msgstr "ইন্ডেস্ক যোগ করুন"
 
 #: js/messages.php:43
 #, fuzzy
