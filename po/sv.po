@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 21:24+0200\n"
+"PO-Revision-Date: 2012-03-15 21:25+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -11540,10 +11540,10 @@ msgid "Tracking report for table `%s`"
 msgstr "Spårning av rapport för tabell `%s`"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Version %s har skapats, spårning för %s.%s är aktiverad."
+msgstr "Version %1$s är skapad, spårning för %2$s är aktiv."
 
 #: tbl_tracking.php:186
 #, fuzzy, php-format
