@@ -1328,7 +1328,7 @@ msgstr "মোট বিনিময়"
 
 #: js/messages.php:111
 msgid "Cached Swap"
-msgstr ""
+msgstr "ক্যাশে বিনিময়"
 
 #: js/messages.php:112
 msgid "Used Swap"
