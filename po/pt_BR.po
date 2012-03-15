@@ -5291,7 +5291,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:502
 msgid "Textarea rows"
-msgstr ""
+msgstr "Linhas da área de texto"
 
 #: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
