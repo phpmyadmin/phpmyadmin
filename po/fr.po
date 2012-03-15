@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-14 17:39+0200\n"
+"PO-Revision-Date: 2012-03-15 17:58+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4667,7 +4667,7 @@ msgstr "Jeu de caractères du fichier : "
 
 #: libraries/display_export.lib.php:304
 msgid "Compression:"
-msgstr "Compression:"
+msgstr "Compression : "
 
 #: libraries/display_export.lib.php:306 libraries/display_tbl.lib.php:517
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
