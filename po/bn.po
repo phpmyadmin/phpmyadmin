@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-15 16:28+0200\n"
+"PO-Revision-Date: 2012-03-15 16:30+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1082,10 +1082,9 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "আপনি একটি সম্পূর্ন টেবিল অগ্রভাগ ছাঁটিয়া ফেলছেন!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Allows inserting and replacing data."
+msgstr "ট্র্যাকিং তথ্য মুছে ফেলা হচ্ছে"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
