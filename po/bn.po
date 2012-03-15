@@ -1298,7 +1298,7 @@ msgstr "সিস্টেম সিপিইউ ব্যবহারসমূ�
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr ""
+msgstr "সিস্টেম মেমোরী"
 
 #: js/messages.php:103
 msgid "System swap"
