@@ -895,7 +895,7 @@ msgstr "জ্যামিতি"
 
 #: gis_data_editor.php:172 js/messages.php:319
 msgid "Point"
-msgstr ""
+msgstr "পয়েন্ট"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:317
