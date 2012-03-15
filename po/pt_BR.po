@@ -5245,7 +5245,7 @@ msgstr "Título padrão"
 
 #: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "Titulo da janela quando o servidor é selecionado"
 
 #: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a table is selected"
