@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 16:06+0200\n"
+"PO-Revision-Date: 2012-03-15 16:07+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -914,7 +914,7 @@ msgstr "লাইনস্ট্র্রিং"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:321
 msgid "Outer Ring"
-msgstr ""
+msgstr "আউটার রিং"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:320
 msgid "Inner Ring"
