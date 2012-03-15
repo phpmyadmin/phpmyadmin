@@ -1257,9 +1257,8 @@ msgid "Questions (executed statements by the server)"
 msgstr "প্রশ্নসমূহ (সার্ভারের দ্বারা সঞ্চালিত বিবৃতি)"
 
 #: js/messages.php:91 server_status.php:785
-#, fuzzy
 msgid "Query statistics"
-msgstr "Row Statistics"
+msgstr "কুয়েরী পরিসংখ্যান"
 
 #: js/messages.php:94
 #, fuzzy
