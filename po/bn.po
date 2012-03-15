@@ -1365,10 +1365,9 @@ msgid "Bytes sent"
 msgstr "পাঠনো বাইটস"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "গৃহীত"
+msgstr "গৃহীত বাইটস"
 
 #: js/messages.php:121 server_status.php:1145
 msgid "Connections"
