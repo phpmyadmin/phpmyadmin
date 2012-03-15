@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-15 17:13+0200\n"
+"PO-Revision-Date: 2012-03-15 17:14+0200\n"
 "Last-Translator: Firoj Jaman <firojbd@ovi.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
 "Language: bn\n"
@@ -1425,7 +1425,7 @@ msgstr "কোনটিই নয়"
 
 #: js/messages.php:140
 msgid "Resume monitor"
-msgstr ""
+msgstr "নিরীক্ষণ পুনঃসূচনা"
 
 #: js/messages.php:141
 msgid "Pause monitor"
