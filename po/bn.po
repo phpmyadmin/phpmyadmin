@@ -1394,10 +1394,9 @@ msgstr "Traffic"
 
 #: js/messages.php:133 libraries/server_links.inc.php:73
 #: server_status.php:1555
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "General relation features"
+msgstr "সেটিংস"
 
 #: js/messages.php:134
 #, fuzzy
