@@ -2441,7 +2441,7 @@ msgstr "Fișierul de configurare existent (%s) nu poate fi citit."
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permisiuni greșite asupra fișierului de configurare, acesta nu ar trebui să "
-"aibă permisiuni de scriere pentru oricine. "
+"aibă permisiuni de scriere pentru oricine! "
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
