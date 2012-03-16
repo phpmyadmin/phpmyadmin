@@ -13151,7 +13151,7 @@ msgstr "Percentuale di connessioni abortite"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr "Sono state interrotte troppe connessioni"
+msgstr "Sono state interrotte troppe connessioni."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
