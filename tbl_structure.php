@@ -697,7 +697,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     echo PMA_Index::getView($table, $db);
     ?>
         <fieldset class="tblFooters" style="text-align: left;">
-            <form action="./tbl_indexes.php" method="post">
+            <form action="tbl_indexes.php" method="post">
                 <?php
                 echo PMA_generate_common_hidden_inputs($db, $table);
                 echo sprintf(__('Create an index on &nbsp;%s&nbsp;columns'),

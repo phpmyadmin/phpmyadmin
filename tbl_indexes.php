@@ -144,7 +144,7 @@ if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
 // end preparing form values
 ?>
 
-<form action="./tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>
+<form action="tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>
     onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') {
         this.elements['index[Key_name]'].disabled = false}">
 <?php

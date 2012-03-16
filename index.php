@@ -78,8 +78,8 @@ require './libraries/header_http.inc.php';
     lang="<?php echo $lang_iso_code; ?>"
     dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
-<link rel="icon" href="./favicon.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
     <?php echo htmlspecialchars($HTTP_HOST); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

@@ -234,7 +234,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 &&
 
     ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
-<script src="./js/keyhandler.js" type="text/javascript"></script>
+<script src="js/keyhandler.js" type="text/javascript"></script>
 <script type="text/javascript">
 //<![CDATA[
 var switch_movement = 0;

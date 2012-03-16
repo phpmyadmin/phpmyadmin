@@ -502,7 +502,7 @@ class PMA_User_Schema
     {
         global $with_field_names, $db;
         ?>
-        <script type="text/javascript" src="./js/dom-drag.js"></script>
+        <script type="text/javascript" src="js/dom-drag.js"></script>
         <form method="post" action="schema_edit.php" name="dragdrop">
         <input type="button" name="dragdrop" value="<?php echo __('Toggle scratchboard'); ?>" onclick="ToggleDragDrop('pdflayout');" />
         <input type="button" name="dragdropreset" value="<?php echo __('Reset'); ?>" onclick="resetDrag();" />
@@ -613,7 +613,7 @@ class PMA_User_Schema
 
         PMA_DBI_select_db($db);
 
-        include "./libraries/schema/" . ucfirst($export_type) . "_Relation_Schema.class.php";
+        include "libraries/schema/" . ucfirst($export_type) . "_Relation_Schema.class.php";
         $obj_schema = eval("new PMA_" . ucfirst($export_type) . "_Relation_Schema();");
     }
 

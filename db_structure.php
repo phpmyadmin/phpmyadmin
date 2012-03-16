@@ -644,7 +644,7 @@ echo '<p>';
 echo '<a href="db_printview.php?' . $url_query . '">';
 echo PMA_getIcon('b_print.png', __('Print view'), true) . '</a>';
 
-echo '<a href="./db_datadict.php?' . $url_query . '">';
+echo '<a href="db_datadict.php?' . $url_query . '">';
 echo PMA_getIcon('b_tblanalyse.png', __('Data Dictionary'), true) . '</a>';
 echo '</p>';
 

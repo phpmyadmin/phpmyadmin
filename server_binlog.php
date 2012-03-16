@@ -130,7 +130,7 @@ if ($pos > 0) {
         $this_url_params['pos'] = $pos - $GLOBALS['cfg']['MaxRows'];
     }
 
-    echo '<a href="./server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
+    echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         echo ' title="' . _pgettext('Previous page', 'Previous') . '">';
     } else {
@@ -146,7 +146,7 @@ if ($pos > 0) {
 if ($dontlimitchars) {
     unset($this_url_params['dontlimitchars']);
     ?>
-        <a href="./server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
+        <a href="server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
             title="<?php __('Truncate Shown Queries'); ?>">
                 <img src="<?php echo $pmaThemeImage; ?>s_partialtext.png"
                     alt="<?php echo __('Truncate Shown Queries'); ?>" /></a>
@@ -154,7 +154,7 @@ if ($dontlimitchars) {
 } else {
     $this_url_params['dontlimitchars'] = 1;
     ?>
-        <a href="./server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
+        <a href="server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
             title="<?php __('Show Full Queries'); ?>">
                 <img src="<?php echo $pmaThemeImage; ?>s_fulltext.png"
                     alt="<?php echo __('Show Full Queries'); ?>" /></a>
@@ -165,7 +165,7 @@ if ($dontlimitchars) {
 if ($num_rows >= $GLOBALS['cfg']['MaxRows']) {
     $this_url_params = $url_params;
     $this_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxRows'];
-    echo ' - <a href="./server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
+    echo ' - <a href="server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         echo ' title="' . _pgettext('Next page', 'Next') . '">';
     } else {

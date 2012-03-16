@@ -95,8 +95,8 @@ require_once './libraries/header_http.inc.php';
     dir="<?php echo $GLOBALS['text_dir']; ?>">
 
 <head>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin</title>
     <meta charset="utf-8" />
     <base target="frame_content" />

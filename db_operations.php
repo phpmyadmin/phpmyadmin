@@ -558,7 +558,7 @@ echo __('Remove database');
     if ($GLOBALS['cfg']['AjaxEnable']) {
         echo ' class="ajax" ';
     }
-    echo 'method="post" action="./db_operations.php">'
+    echo 'method="post" action="db_operations.php">'
        . PMA_generate_common_hidden_inputs($db, $table)
        . '<fieldset>' . "\n"
        . '    <legend>';

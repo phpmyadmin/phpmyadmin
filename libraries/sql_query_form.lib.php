@@ -387,11 +387,11 @@ function PMA_sqlQueryFormBookmark()
     echo '<div class="formelement">' . "\n";
     echo __('Variable');
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        echo ' <a href="./Documentation.html#faqbookmark"'
+        echo ' <a href="Documentation.html#faqbookmark"'
             .' target="documentation">'
             . PMA_getImage('b_help.png', __('Documentation')) . '</a>';
     } else {
-        echo ' (<a href="./Documentation.html#faqbookmark"'
+        echo ' (<a href="Documentation.html#faqbookmark"'
             .' target="documentation">' . __('Documentation') . '</a>): ';
     }
     echo '<input type="text" name="bookmark_variable" class="textfield"'
