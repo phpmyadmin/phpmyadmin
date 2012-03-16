@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-16 21:13+0200\n"
+"PO-Revision-Date: 2012-03-16 21:14+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -6498,7 +6498,7 @@ msgstr "Arată dimensiunile tabelei"
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Display all tables with the same width"
-msgstr "Arată toate tabelele cu aceeaăi mărime?"
+msgstr "Afișează toate tabelele cu aceeași lățime"
 
 #: libraries/schema/User_Schema.class.php:390
 msgid "Only show keys"
