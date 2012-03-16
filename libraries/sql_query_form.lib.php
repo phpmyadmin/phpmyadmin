@@ -277,11 +277,11 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         echo '</select>' . "\n"
             .'<div id="tablefieldinsertbuttoncontainer">' . "\n";
         if ($GLOBALS['cfg']['PropertiesIconic']) {
-            echo '<input type="button" name="insert" value="&lt;&lt;"'
+            echo '<input type="button" class="button" name="insert" value="&lt;&lt;"'
                 .' onclick="insertValueQuery()"'
                 .' title="' . __('Insert') . '" />' . "\n";
         } else {
-            echo '<input type="button" name="insert"'
+            echo '<input type="button" class="button" name="insert"'
                 .' value="' . __('Insert') . '"'
                 .' onclick="insertValueQuery()" />' . "\n";
         }
