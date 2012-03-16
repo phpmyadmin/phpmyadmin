@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Main export hanling code
+ * Main export handling code
  * @package PhpMyAdmin
  */
 
@@ -11,6 +11,15 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/zip.lib.php';
 require_once './libraries/plugin_interface.lib.php';
+
+/**
+ * Sets globals from all $_POST (in export.php only)
+ * Would it not be tiresome to list all export-plugin options here?
+ */
+foreach ($_POST as $one_post_param => $one_post_value)
+{
+    $GLOBALS[$one_post_param] = $one_post_value;
+}
 
 PMA_checkParameters(array('what', 'export_type'));
 
