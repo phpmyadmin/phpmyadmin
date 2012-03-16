@@ -25,8 +25,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testXssInHref()
     {
-        $this->assertEquals('[a@javascript:alert(\'XSS\');@target]link</a>',
-            PMA_sanitize('[a@javascript:alert(\'XSS\');@target]link[/a]'));
+        $this->assertEquals(
+            '[a@javascript:alert(\'XSS\');@target]link</a>',
+            PMA_sanitize('[a@javascript:alert(\'XSS\');@target]link[/a]')
+        );
     }
 
     /**
@@ -37,8 +39,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
         unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
         unset($GLOBALS['collation_connection']);
-        $this->assertEquals('<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F&amp;token=token" target="target">link</a>',
-            PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]'));
+        $this->assertEquals(
+            '<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F&amp;token=token" target="target">link</a>',
+            PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]')
+        );
     }
 
     /**
@@ -46,8 +50,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testLinkDoc()
     {
-        $this->assertEquals('<a href="./Documentation.html">doc</a>',
-            PMA_sanitize('[a@./Documentation.html]doc[/a]'));
+        $this->assertEquals(
+            '<a href="./Documentation.html">doc</a>',
+            PMA_sanitize('[a@./Documentation.html]doc[/a]')
+        );
     }
 
     /**
@@ -55,8 +61,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testInvalidTarget()
     {
-        $this->assertEquals('[a@./Documentation.html@INVALID9]doc</a>',
-            PMA_sanitize('[a@./Documentation.html@INVALID9]doc[/a]'));
+        $this->assertEquals(
+            '[a@./Documentation.html@INVALID9]doc</a>',
+            PMA_sanitize('[a@./Documentation.html@INVALID9]doc[/a]')
+        );
     }
 
     /**
@@ -64,8 +72,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testLinkDocXss()
     {
-        $this->assertEquals('[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
-            PMA_sanitize('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'));
+        $this->assertEquals(
+            '[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
+            PMA_sanitize('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]')
+        );
     }
 
     /**
@@ -73,8 +83,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testLinkAndXssInHref()
     {
-        $this->assertEquals('<a href="./Documentation.html">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
-            PMA_sanitize('[a@./Documentation.html]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]'));
+        $this->assertEquals(
+            '<a href="./Documentation.html">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
+            PMA_sanitize('[a@./Documentation.html]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
+        );
     }
 
     /**
@@ -82,8 +94,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testHtmlTags()
     {
-        $this->assertEquals('&lt;div onclick=""&gt;',
-            PMA_sanitize('<div onclick="">'));
+        $this->assertEquals(
+            '&lt;div onclick=""&gt;',
+            PMA_sanitize('<div onclick="">')
+        );
     }
 
     /**
@@ -91,8 +105,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testBBCode()
     {
-        $this->assertEquals('<strong>strong</strong>',
-            PMA_sanitize('[b]strong[/b]'));
+        $this->assertEquals(
+            '<strong>strong</strong>',
+            PMA_sanitize('[b]strong[/b]')
+        );
     }
 
     /**
@@ -100,8 +116,10 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testEscape()
     {
-        $this->assertEquals('&lt;strong&gt;strong&lt;/strong&gt;',
-            PMA_sanitize('[strong]strong[/strong]', true));
+        $this->assertEquals(
+            '&lt;strong&gt;strong&lt;/strong&gt;',
+            PMA_sanitize('[strong]strong[/strong]', true)
+        );
     }
 }
 ?>

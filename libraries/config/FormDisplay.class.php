@@ -383,8 +383,10 @@ class FormDisplay
         }
         $js_default[] = $js_line;
 
-        display_input($translated_path, $name, $description, $type,
-            $value, $value_is_default, $opts);
+        display_input(
+            $translated_path, $name, $description, $type,
+            $value, $value_is_default, $opts
+        );
     }
 
     /**
@@ -509,7 +511,8 @@ class FormDisplay
                     } else {
                         $this->errors[$form->name][] = sprintf(
                             __('Missing data for %s'),
-                            '<i>' . PMA_lang_name($system_path) . '</i>');
+                            '<i>' . PMA_lang_name($system_path) . '</i>'
+                        );
                         $result = false;
                         continue;
                     }
@@ -571,8 +574,10 @@ class FormDisplay
                 // now we have value with proper type
                 $values[$system_path] = $_POST[$key];
                 if ($change_index !== false) {
-                    $work_path = str_replace("Servers/$form->index/",
-                      "Servers/$change_index/", $work_path);
+                    $work_path = str_replace(
+                        "Servers/$form->index/",
+                        "Servers/$change_index/", $work_path
+                    );
                 }
                 $to_save[$work_path] = $system_path;
             }
@@ -710,8 +715,10 @@ class FormDisplay
             }
             if (!function_exists('recode_string')) {
                 $opts['values']['recode'] .= ' (' . __('unavailable') . ')';
-                $comment .= ($comment ? ", " : '') . sprintf(__('"%s" requires %s extension'),
-                    'recode', 'recode');
+                $comment .= ($comment ? ", " : '') . sprintf(
+                    __('"%s" requires %s extension'),
+                    'recode', 'recode'
+                );
             }
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
@@ -724,12 +731,16 @@ class FormDisplay
                 'GZipDump' => array('gzopen', 'gzencode'),
                 'BZipDump' => array('bzopen', 'bzcompress'));
             if (!function_exists($funcs[$system_path][0])) {
-                $comment = sprintf(__('import will not work, missing function (%s)'),
-                    $funcs[$system_path][0]);
+                $comment = sprintf(
+                    __('import will not work, missing function (%s)'),
+                    $funcs[$system_path][0]
+                );
             }
             if (!function_exists($funcs[$system_path][1])) {
-                $comment .= ($comment ? '; ' : '') . sprintf(__('export will not work, missing function (%s)'),
-                    $funcs[$system_path][1]);
+                $comment .= ($comment ? '; ' : '') . sprintf(
+                    __('export will not work, missing function (%s)'),
+                    $funcs[$system_path][1]
+                );
             }
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;

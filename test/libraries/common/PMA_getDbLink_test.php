@@ -39,26 +39,36 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
         global $cfg;
         $GLOBALS['db'] = 'test_db';
         $database = $GLOBALS['db'];
-        $this->assertEquals('<a href="' . $cfg['DefaultTabDatabase'] . '?db=' . $database
-                            . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;' . htmlspecialchars($database) . '&quot;.">'
-                            . htmlspecialchars($database) . '</a>', PMA_getDbLink());
+        $this->assertEquals(
+            '<a href="' . $cfg['DefaultTabDatabase'] . '?db=' . $database
+            . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
+            . htmlspecialchars($database) . '&quot;.">'
+            . htmlspecialchars($database) . '</a>', PMA_getDbLink()
+        );
     }
 
     function testGetDbLink()
     {
         global $cfg;
         $database = 'test_database';
-        $this->assertEquals('<a href="' . $cfg['DefaultTabDatabase'] . '?db=' . $database
-                            . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;' . htmlspecialchars($database) . '&quot;.">'
-                            . htmlspecialchars($database) . '</a>', PMA_getDbLink($database));
+        $this->assertEquals(
+            '<a href="' . $cfg['DefaultTabDatabase'] . '?db=' . $database
+            . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
+            . htmlspecialchars($database) . '&quot;.">'
+            . htmlspecialchars($database) . '</a>', PMA_getDbLink($database)
+        );
     }
 
     function testGetDbLinkWithSpecialChars()
     {
         global $cfg;
         $database = 'test&data\'base';
-        $this->assertEquals('<a href="' . $cfg['DefaultTabDatabase'] . '?db=' . htmlspecialchars(urlencode($database))
-                            . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;' . htmlspecialchars($database) . '&quot;.">'
-                            . htmlspecialchars($database) . '</a>', PMA_getDbLink($database));
+        $this->assertEquals(
+            '<a href="' . $cfg['DefaultTabDatabase'] . '?db='
+            . htmlspecialchars(urlencode($database))
+            . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
+            . htmlspecialchars($database) . '&quot;.">'
+            . htmlspecialchars($database) . '</a>', PMA_getDbLink($database)
+        );
     }
 }
