@@ -12048,7 +12048,7 @@ msgstr "Massimo numero di righe da visualizzare"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
-msgstr "Scorri/Modifica i punti"
+msgstr "Esplora/Modifica i punti"
 
 #: tbl_zoom_select.php:417
 msgid "How to use"
