@@ -5789,7 +5789,7 @@ msgstr "Extensia %s lipsește. Vă rugăm să vă verificați configurația PHP.
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
-msgstr "posibil atac adânc recursiv "
+msgstr "posibil atac adânc recursiv"
 
 #: libraries/database_interface.lib.php:1813
 msgid ""
