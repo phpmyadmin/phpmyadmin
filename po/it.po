@@ -13029,7 +13029,7 @@ msgstr "Percentuale di client abortiti"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr "Sono state interrotti troppi client"
+msgstr "Sono state interrotti troppi client."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
