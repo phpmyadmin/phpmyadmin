@@ -12109,8 +12109,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Per avere medie più accurate si raccomanda l'esecuzione del server per più "
-"di un giorno prima di lanciare questo analizzatore"
+"Per ottenere valori medi più realistici si raccomanda di lasciare il server "
+"in esecuzione per più di un giorno"
 
 #: po/advisory_rules.php:8
 #, php-format
