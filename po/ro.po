@@ -2625,7 +2625,7 @@ msgstr "Acest server MySQL nu susține motorul de stocare %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "status tabel necunoscut:"
+msgstr "status tabel necunoscut: "
 
 #: libraries/Table.class.php:1125
 msgid "Invalid database"
