@@ -12110,7 +12110,7 @@ msgid ""
 "longer than a day before running this analyzer"
 msgstr ""
 "Per ottenere valori medi più realistici si raccomanda di lasciare il server "
-"in esecuzione per più di un giorno"
+"in esecuzione per più di un giorno prima di lanciare questo analizzatore"
 
 #: po/advisory_rules.php:8
 #, php-format
