@@ -5303,7 +5303,7 @@ msgid ""
 msgstr ""
 "Timeout-ul, în secunde, pentru BLOB-uri temporare. Datele BLOB uploadate "
 "sunt șterse după acest interval, mai puțin dacă sunt referite printr-o "
-"intrare în baza de date. "
+"intrare în baza de date."
 
 #: libraries/engines/pbms.lib.php:50
 #, fuzzy
