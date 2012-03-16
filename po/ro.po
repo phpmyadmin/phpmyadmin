@@ -5140,7 +5140,7 @@ msgid ""
 "the log when creating a database."
 msgstr ""
 "Dacă o declarație DROP DATABASE IF EXISTS va fi adăugată ca prima linie la "
-"jurnal când se creează o bază de date. "
+"jurnal când se creează o bază de date."
 
 #: libraries/config/messages.inc.php:436
 msgid "Add DROP DATABASE"
