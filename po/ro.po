@@ -4027,7 +4027,7 @@ msgid ""
 "log when creating a view."
 msgstr ""
 "Dacă o declarație DROP VIEW IF EXISTS va fi adăugată ca prima linie la "
-"jurnal când se creează un view. "
+"jurnal când se creează un view."
 
 #: libraries/config/messages.inc.php:424
 msgid "Add DROP VIEW"
