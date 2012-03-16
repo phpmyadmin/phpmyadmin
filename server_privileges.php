@@ -1528,14 +1528,15 @@ $link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" hre
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
     . '&amp;export=1">'
-    . PMA_getIcon('b_tblexport.png', __('Export all'))
+    . PMA_getIcon('b_tblexport.png', __('Export all')) . ' '
+    . __('Export all')
     . '</a>';
 
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
  * Flush Privileges, show $message and exit.
  */
-if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
+if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export') && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
     if (isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
@@ -1623,8 +1624,8 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
  */
 
 // export user definition
-if (isset($_REQUEST['export'])) {
-    $response = '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
+if (isset($_REQUEST['export']) || (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'export')) {
+    $response = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
     if ($username == '%') {
         // export privileges for all users
         $title = __('Privileges for all users');
@@ -1632,11 +1633,26 @@ if (isset($_REQUEST['export'])) {
             $response .= PMA_getGrants($pair['user'], $pair['host']);
             $response .= "\n";
         }
-    } else {
+    } elseif (isset($_REQUEST['selected_usr'])) {
+        // export privileges for selected users
+        $title = __('Privileges');
+        foreach ($_REQUEST['selected_usr'] as $export_user) {
+            $export_username = substr($export_user, 0, strpos($export_user, '&'));
+            $export_hostname = substr($export_user, strrpos($export_user, ';') + 1);
+            $response .= '# ' . __('User') . ' `' . 
+                htmlspecialchars($export_username) . '`@`' . 
+                htmlspecialchars($export_hostname) . "`\n\n";
+            $response .= PMA_getGrants($export_username, $export_hostname) . "\n";
+        }
+    }
+    else {
         // export privileges for a single user
         $title = __('User') . ' `' . htmlspecialchars($username) . '`@`' . htmlspecialchars($hostname) . '`';
         $response .= PMA_getGrants($username, $hostname);
     }
+    // remove trailing whitespace
+    $response = trim($response);
+    
     $response .= '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
     if ($GLOBALS['is_ajax_request']) {
@@ -1863,7 +1879,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    .'<a href="server_privileges.php?' . $GLOBALS['url_query'] .  '"'
                    .' onclick="if (unMarkAllRows(\'usersForm\')) return false;">'
                    . __('Uncheck All') . '</a>' . "\n"
-                   . '</div>'
+                   .'<i>' . __('With selected:') . '</i>' . "\n";
+
+                PMA_buttonOrImage(
+                    'submit_mult', 'mult_submit', 'submit_mult_export',
+                    __('Export'), 'b_tblexport.png', 'export'
+                );
+                echo '<input type="hidden" name="initial" value="' . (isset($initial) ? $initial : '') . '" />';
+                echo '</div>'
                    . '<div class="clear_both" style="clear:both"></div>'
                    . '<div style="float:left; padding-left:10px;">';
                 printf($link_export_all, urlencode('%'), urlencode('%'), (isset($initial) ? $initial : ''));

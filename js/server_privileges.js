@@ -473,6 +473,53 @@ $(document).ready(function() {
      * @memberOf    jQuery
      * @name        export_user_click
      */
+    $("button.mult_submit[value=export]").live('click', function(event) {
+        event.preventDefault();
+        var $msgbox = PMA_ajaxShowMessage();
+        var button_options = {};
+        button_options[PMA_messages['strClose']] = function() {
+            $(this).dialog("close");
+        };
+        $.post($(this.form).prop('action'), 
+            $(this.form).serialize() + '&submit_mult=export&ajax_request=true', 
+            function(data) {
+                var $ajaxDialog = $('<div />')
+                .append(data.message)
+                .dialog({
+                    title: data.title,
+                    width: 500,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                });
+                PMA_ajaxRemoveMessage($msgbox);
+                // Attach syntax highlited editor to export dialog
+                CodeMirror.fromTextArea(
+                    $ajaxDialog.find('textarea')[0],
+                    {
+                        lineNumbers: true,
+                        matchBrackets: true,
+                        indentUnit: 4,
+                        mode: "text/x-mysql"
+                    }
+                );
+        }); //end $.post
+    });
+    // if exporting non-ajax, highlight anyways
+    if ($("textarea.export"))
+    {
+        CodeMirror.fromTextArea(
+            $('textarea.export')[0],
+            {
+                lineNumbers: true,
+                matchBrackets: true,
+                indentUnit: 4,
+                mode: "text/x-mysql"
+            }
+        );
+    }
+
     $(".export_user_anchor.ajax").live('click', function(event) {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
