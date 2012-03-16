@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-16 21:14+0200\n"
+"PO-Revision-Date: 2012-03-16 21:16+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -12019,7 +12019,7 @@ msgstr "Nu se poate copia tabelul peste cel existent pentru că este același!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "Nu se poate copia tabelul pe cel existent pentru ca este acelasi"
+msgstr "Nu se poate copia tabelul, pentru ca este acelasi!"
 
 #: tbl_move_copy.php:54
 #, php-format
