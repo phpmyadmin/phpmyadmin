@@ -21,12 +21,20 @@ if (isset($_REQUEST['show_as_php'])) {
  */
 $post_params = array(
     'action_bookmark',
+    'allow_interrupt',
     'bkm_label',
     'bookmark_variable',
+    'charset_of_file',
+    'format',
     'id_bookmark',
+    'import_type',
     'is_js_confirmed',
-    'message_to_show'
+    'MAX_FILE_SIZE',
+    'message_to_show',
+    'noplugin',
+    'skip_queries'
 );
+
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
@@ -85,6 +93,23 @@ if ($_POST == array() && $_GET == array()) {
 
     $message->display();
     include './libraries/footer.inc.php';
+}
+
+/**
+ * Sets globals from $_POST patterns, for import plugins
+ * We only need to load the selected plugin
+ */
+
+$post_patterns = array(
+    '/^force_file_/',
+    '/^'. $format . '_/'
+);
+foreach (array_keys($_POST) as $post_key) {
+    foreach ($post_patterns as $one_post_pattern) {
+        if (preg_match($one_post_pattern, $post_key)) {
+            $GLOBALS[$post_key] = $_POST[$post_key];
+        }
+    }
 }
 
 // Check needed parameters
