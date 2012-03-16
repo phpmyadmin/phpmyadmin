@@ -2492,10 +2492,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Error renaming table %1$s to %2$s"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Table %s has been renamed to %s"
+msgstr "Table %1$s has been renamed to %2$s."
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
