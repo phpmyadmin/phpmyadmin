@@ -9,7 +9,8 @@
 /**
  * Removes all variables from request except whitelisted ones.
  *
- * @param string list of variables to allow
+ * @param string &$whitelist list of variables to allow
+ *
  * @return nothing
  * @access public
  */

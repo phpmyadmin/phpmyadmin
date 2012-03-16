@@ -39,13 +39,13 @@ function PMA_Bookmark_getParams()
 /**
  * Gets the list of bookmarks defined for the current database
  *
- * @global  resource  the controluser db connection handle
+ * @param string $db the current database name
  *
- * @param string    the current database name
+ * @return array the bookmarks list (key as index, label as value)
  *
- * @return  array     the bookmarks list (key as index, label as value)
+ * @access public
  *
- * @access  public
+ * @global resource the controluser db connection handle
  */
 function PMA_Bookmark_getList($db)
 {
@@ -84,17 +84,18 @@ function PMA_Bookmark_getList($db)
 /**
  * Gets the sql command from a bookmark
  *
- * @global  resource  the controluser db connection handle
- *
- * @param string    the current database name
- * @param mixed     the id of the bookmark to get
- * @param string    which field to look up the $id
- * @param boolean  true: get all bookmarks regardless of the owning user
- * @param boolean   whether to ignore bookmarks with no user
+ * @param string  $db                  the current database name
+ * @param mixed   $id                  the id of the bookmark to get
+ * @param string  $id_field            which field to look up the $id
+ * @param boolean $action_bookmark_all true: get all bookmarks regardless of the owning user
+ * @param boolean $exact_user_match    whether to ignore bookmarks with no user
  *
  * @return  string    the sql query
  *
  * @access  public
+ *
+ * @global  resource  the controluser db connection handle
+ *
  */
 function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = false, $exact_user_match = false)
 {
@@ -125,15 +126,15 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
 /**
  * Adds a bookmark
  *
- * @global  resource  the controluser db connection handle
- *
- * @param array     the properties of the bookmark to add; here,
- *                    $fields['query'] is urlencoded
- * @param boolean   whether to make the bookmark available for all users
+ * @param array   $fields    the properties of the bookmark to add; here,
+ *                           $fields['query'] is urlencoded
+ * @param boolean $all_users whether to make the bookmark available for all users
  *
  * @return  boolean   whether the INSERT succeeds or not
  *
  * @access  public
+ *
+ * @global  resource  the controluser db connection handle
  */
 function PMA_Bookmark_save($fields, $all_users = false)
 {
@@ -154,12 +155,14 @@ function PMA_Bookmark_save($fields, $all_users = false)
 /**
  * Deletes a bookmark
  *
- * @global  resource  the controluser db connection handle
+ * @param string  $db the current database name
+ * @param integer $id the id of the bookmark to get
  *
- * @param string   the current database name
- * @param integer  the id of the bookmark to get
+ * @return bool true if successful
  *
  * @access  public
+ *
+ * @global  resource  the controluser db connection handle
  */
 function PMA_Bookmark_delete($db, $id)
 {

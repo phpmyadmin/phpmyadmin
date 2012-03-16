@@ -340,9 +340,10 @@ function PMA_usort_comparison_callback($a, $b)
  *
  * @return  array           list of tables in given db(s)
  */
-function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = false, $link = null,
-     $limit_offset = 0, $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC')
-{
+function PMA_DBI_get_tables_full($database, $table = false,
+    $tbl_is_group = false,  $link = null, $limit_offset = 0,
+    $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC'
+) {
     if (true === $limit_count) {
         $limit_count = $GLOBALS['cfg']['MaxTableList'];
     }
@@ -663,8 +664,8 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
  */
 function PMA_DBI_get_databases_full($database = null, $force_stats = false,
     $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
-    $limit_offset = 0, $limit_count = false)
-{
+    $limit_offset = 0, $limit_count = false
+) {
     $sort_order = strtoupper($sort_order);
 
     if (true === $limit_count) {
@@ -856,8 +857,8 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
  * @return array
  */
 function PMA_DBI_get_columns_full($database = null, $table = null,
-    $column = null, $link = null)
-{
+    $column = null, $link = null
+) {
     $columns = array();
 
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -1489,8 +1490,8 @@ function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null)
  * @return array resultrows or values indexed by $key
  */
 function PMA_DBI_fetch_result($result, $key = null, $value = null,
-    $link = null, $options = 0)
-{
+    $link = null, $options = 0
+) {
     $resultrows = array();
 
     if (is_string($result)) {
@@ -1665,7 +1666,7 @@ function PMA_isSuperuser()
  * @param string   $which PROCEDURE | FUNCTION
  * @param resource $link  mysql link
  *
- * @returnarray the procedure names or function names
+ * @return array the procedure names or function names
  */
 function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
 {
