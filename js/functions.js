@@ -3624,3 +3624,11 @@ function toggleRowColors($start)
         }
     }
 }
+
+/**
+ * Opens pma more themes link in themes browser, in new window instead of popup
+ * This way, we don't break HTML validity
+ */
+$(function () {
+    $("a[rel=_blank]").prop("target", "_blank");
+});
