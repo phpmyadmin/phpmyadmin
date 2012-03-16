@@ -5797,7 +5797,7 @@ msgid ""
 "configured)."
 msgstr ""
 "Server-ul nu răspunde (sau soclul serverului MySQL local nu este configurat "
-"corect)"
+"corect)."
 
 #: libraries/database_interface.lib.php:1816
 #, fuzzy
