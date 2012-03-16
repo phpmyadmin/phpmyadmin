@@ -9,7 +9,7 @@
 /**
  * requirements
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Gets the relation settings
@@ -26,16 +26,16 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $message_to_display = true;
     } else {
         $goto      = 'db_sql.php';
-        include './sql.php';
+        include 'sql.php';
         exit;
     }
 }
 
 $sub_part  = '_qbe';
-require './libraries/db_common.inc.php';
+require 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
-require './libraries/db_info.inc.php';
+require 'libraries/db_info.inc.php';
 
 if ($message_to_display) {
     PMA_Message::error(__('You have to choose at least one column to display'))->display();
@@ -99,7 +99,7 @@ $tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', 
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 if (0 == $tbl_result_cnt) {
     PMA_Message::error(__('No tables found in database.'))->display();
-    include './libraries/footer.inc.php';
+    include 'libraries/footer.inc.php';
     exit;
 }
 
@@ -962,5 +962,5 @@ if (!empty($qry_orderby)) {
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

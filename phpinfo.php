@@ -8,7 +8,7 @@
 /**
  * Gets core libraries and defines some variables
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 
 /**

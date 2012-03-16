@@ -8,13 +8,13 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
 $print_view = true;
-require_once './libraries/header.inc.php';
+require_once 'libraries/header.inc.php';
 
 PMA_checkParameters(array('db'));
 
@@ -248,5 +248,5 @@ PMA_printButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
 
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

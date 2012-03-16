@@ -9,18 +9,18 @@
 /**
 *
 */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work
  */
 $GLOBALS['js_include'][] = 'server_synchronize.js';
-require_once './libraries/server_common.inc.php';
+require_once 'libraries/server_common.inc.php';
 
 /**
 * Contains all the functions specific to synchronization
 */
-require './libraries/server_synchronize.lib.php';
+require 'libraries/server_synchronize.lib.php';
 
 /**
  * Increases the time limit up to the configured maximum
@@ -30,7 +30,7 @@ require './libraries/server_synchronize.lib.php';
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 /**
 * Enables warnings on the page
@@ -1398,5 +1398,5 @@ if (! isset($_REQUEST['submit_connect'])
  /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

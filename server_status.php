@@ -19,7 +19,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     $GLOBALS['is_header_sent'] = true;
 }
 
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Ajax request
@@ -409,8 +409,8 @@ if (PMA_DRIZZLE) {
     $server_master_status = false;
     $server_slave_status = false;
 } else {
-    include_once './libraries/replication.inc.php';
-    include_once './libraries/replication_gui.lib.php';
+    include_once 'libraries/replication.inc.php';
+    include_once 'libraries/replication_gui.lib.php';
 }
 
 /**
@@ -757,14 +757,14 @@ PMA_AddJSVar(
  /**
  * Does the common work
  */
-require './libraries/server_common.inc.php';
+require 'libraries/server_common.inc.php';
 
 
 
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 ?>
 <div id="serverstatus">
@@ -1801,5 +1801,5 @@ function cleanDeprecated(&$server_status)
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

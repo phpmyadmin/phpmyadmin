@@ -11,7 +11,7 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'db_search.js';
 $GLOBALS['js_include'][] = 'sql.js';
@@ -21,7 +21,7 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 /**
  * Gets some core libraries and send headers
  */
-require './libraries/db_common.inc.php';
+require 'libraries/db_common.inc.php';
 
 /**
  * init
@@ -94,7 +94,7 @@ if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
 $sub_part = '';
 
 if ( $GLOBALS['is_ajax_request'] != true) {
-    include './libraries/db_info.inc.php';
+    include 'libraries/db_info.inc.php';
     echo '<div id="searchresults">';
 }
 
@@ -357,5 +357,5 @@ $alter_select
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

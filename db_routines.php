@@ -9,13 +9,13 @@
 /**
  * Include required files
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/common.lib.php';
-require_once './libraries/mysql_charsets.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/common.lib.php';
+require_once 'libraries/mysql_charsets.lib.php';
 if (PMA_DRIZZLE) {
-    include_once './libraries/data_drizzle.inc.php';
+    include_once 'libraries/data_drizzle.inc.php';
 } else {
-    include_once './libraries/data_mysql.inc.php';
+    include_once 'libraries/data_mysql.inc.php';
 }
 
 /**
@@ -31,12 +31,12 @@ $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 /**
  * Include all other files
  */
-require_once './libraries/rte/rte_routines.lib.php';
+require_once 'libraries/rte/rte_routines.lib.php';
 
 /**
  * Do the magic
  */
 $_PMA_RTE = 'RTN';
-require_once './libraries/rte/rte_main.inc.php';
+require_once 'libraries/rte/rte_main.inc.php';
 
 ?>

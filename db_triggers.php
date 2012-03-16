@@ -9,8 +9,8 @@
 /**
  * Include required files
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/common.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/common.lib.php';
 
 /**
  * Include JavaScript libraries
@@ -24,12 +24,12 @@ $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 /**
  * Include all other files
  */
-require_once './libraries/rte/rte_triggers.lib.php';
+require_once 'libraries/rte/rte_triggers.lib.php';
 
 /**
  * Do the magic
  */
 $_PMA_RTE = 'TRI';
-require_once './libraries/rte/rte_main.inc.php';
+require_once 'libraries/rte/rte_main.inc.php';
 
 ?>

@@ -1,11 +1,11 @@
 <?php
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 if (! isset($_REQUEST['get_gis_editor']) && ! isset($_REQUEST['generate'])) {
-    include_once './libraries/header_http.inc.php';
-    include_once './libraries/header_meta_style.inc.php';
+    include_once 'libraries/header_http.inc.php';
+    include_once 'libraries/header_meta_style.inc.php';
 }
-require_once './libraries/gis/pma_gis_factory.php';
-require_once './libraries/gis_visualization.lib.php';
+require_once 'libraries/gis/pma_gis_factory.php';
+require_once 'libraries/gis_visualization.lib.php';
 
 // Get data if any posted
 $gis_data = array();
@@ -336,6 +336,6 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

@@ -7,11 +7,11 @@
 /**
  * Get some core libraries
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $action = 'tbl_create.php';
 
-require_once './libraries/header.inc.php';
+require_once 'libraries/header.inc.php';
 $titles = PMA_buildActionTitles();
 
 // Check parameters
@@ -206,7 +206,7 @@ if (isset($_REQUEST['do_save_data'])) {
     if ($result) {
 
         // If comments were sent, enable relation stuff
-        include_once './libraries/transformations.lib.php';
+        include_once 'libraries/transformations.lib.php';
 
         // Update comment table for mime types [MIME]
         if (isset($_REQUEST['field_mimetype'])
@@ -327,13 +327,13 @@ if (isset($_REQUEST['do_save_data'])) {
         // read table info on this newly created table, in case
         // the next page is Structure
         $reread_info = true;
-        include './libraries/tbl_info.inc.php';
+        include 'libraries/tbl_info.inc.php';
 
         // do not switch to sql.php - as there is no row to be displayed on a new table
         if ($cfg['DefaultTabTable'] === 'sql.php') {
-            include './tbl_structure.php';
+            include 'tbl_structure.php';
         } else {
-            include './' . $cfg['DefaultTabTable'];
+            include '' . $cfg['DefaultTabTable'];
         }
         exit;
     } else {
@@ -359,9 +359,9 @@ if ($GLOBALS['is_ajax_request'] != true) {
     echo('<div id="create_table_div">');
 }
 
-require './libraries/tbl_properties.inc.php';
+require 'libraries/tbl_properties.inc.php';
 // Displays the footer
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 if ($GLOBALS['is_ajax_request'] != true) {
     echo('</div>');

@@ -15,18 +15,18 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 /**
  * requirements
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work
  */
-require './libraries/server_common.inc.php';
+require 'libraries/server_common.inc.php';
 
 
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 
 /**
@@ -42,7 +42,7 @@ echo '<h2>' . "\n"
 /**
  * Includes the required charset library
  */
-require_once './libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.lib.php';
 
 
 /**
@@ -95,6 +95,6 @@ unset($table_row_count);
 echo '</table>' . "\n"
    . '</div>' . "\n";
 
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

@@ -8,16 +8,16 @@
 /**
  * Does the common work
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
-require './libraries/server_common.inc.php';
+require 'libraries/server_common.inc.php';
 if (!PMA_DRIZZLE) {
-    include_once './libraries/replication.inc.php';
+    include_once 'libraries/replication.inc.php';
 } else {
     $replication_types = array();
     $replication_info = null;
 }
-require './libraries/build_html_for_db.lib.php';
+require 'libraries/build_html_for_db.lib.php';
 
 /**
  * Sets globals from $_POST
@@ -88,7 +88,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         if (isset($_REQUEST['selected_dbs'])) {
             $selected_db = $_REQUEST['selected_dbs'];
         }
-        include './libraries/mult_submits.inc.php';
+        include 'libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
         if (empty($message)) {
             $message = PMA_Message::success(__('%s databases have been dropped successfully.'));
@@ -105,7 +105,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 
 /**
@@ -123,7 +123,7 @@ echo '<h2>' . "\n"
  */
 if ($cfg['ShowCreateDb']) {
     echo '<ul><li id="li_create_database">' . "\n";
-    include './libraries/display_create_database.lib.php';
+    include 'libraries/display_create_database.lib.php';
     echo '    </li>' . "\n";
     echo '</ul>' . "\n";
 }
@@ -302,6 +302,6 @@ unset($databases_count);
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

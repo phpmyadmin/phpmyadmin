@@ -9,17 +9,17 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work, provides $binary_logs
  */
-require_once './libraries/server_common.inc.php';
+require_once 'libraries/server_common.inc.php';
 
 /**
  * Displays the links
  */
-require_once './libraries/server_links.inc.php';
+require_once 'libraries/server_links.inc.php';
 
 $url_params = array();
 
@@ -213,6 +213,6 @@ while ($value = PMA_DBI_fetch_assoc($result)) {
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

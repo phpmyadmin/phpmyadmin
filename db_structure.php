@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'db_structure.js';
@@ -51,33 +51,33 @@ if (empty($is_info)) {
         // -> db_structure.php and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($error) || false === $error) {
-            include './libraries/mult_submits.inc.php';
+            include 'libraries/mult_submits.inc.php';
         }
         if (empty($message)) {
             $message = PMA_Message::success();
         }
     }
-    include './libraries/db_common.inc.php';
+    include 'libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_structure.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    include './libraries/db_info.inc.php';
+    include 'libraries/db_info.inc.php';
 
     if (!PMA_DRIZZLE) {
-        include_once './libraries/replication.inc.php';
+        include_once 'libraries/replication.inc.php';
     } else {
         $server_slave_status = false;
     }
 }
 
-require_once './libraries/bookmark.lib.php';
+require_once 'libraries/bookmark.lib.php';
 
-require_once './libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.lib.php';
 $db_collation = PMA_getDbCollation($db);
 
 // in a separate file to avoid redeclaration of functions in some code paths
-require_once './libraries/db_structure.lib.php';
+require_once 'libraries/db_structure.lib.php';
 $titles = PMA_buildActionTitles();
 
 // 1. No tables
@@ -86,13 +86,13 @@ if ($num_tables == 0) {
     echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
     if (empty($db_is_information_schema)) {
-        include './libraries/display_create_table.lib.php';
+        include 'libraries/display_create_table.lib.php';
     } // end if (Create Table dialog)
 
     /**
      * Displays the footer
      */
-    include_once './libraries/footer.inc.php';
+    include_once 'libraries/footer.inc.php';
     exit;
 }
 
@@ -649,11 +649,11 @@ echo PMA_getIcon('b_tblanalyse.png', __('Data Dictionary'), true) . '</a>';
 echo '</p>';
 
 if (empty($db_is_information_schema)) {
-    include './libraries/display_create_table.lib.php';
+    include 'libraries/display_create_table.lib.php';
 } // end if (Create Table dialog)
 
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

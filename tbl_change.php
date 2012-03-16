@@ -11,19 +11,19 @@
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/common.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/common.lib.php';
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once './libraries/db_table_exists.lib.php';
+require_once 'libraries/db_table_exists.lib.php';
 
 // load additional configuration variables
 if (PMA_DRIZZLE) {
-    include_once './libraries/data_drizzle.inc.php';
+    include_once 'libraries/data_drizzle.inc.php';
 } else {
-    include_once './libraries/data_mysql.inc.php';
+    include_once 'libraries/data_mysql.inc.php';
 }
 
 /**
@@ -58,7 +58,7 @@ if (isset($_REQUEST['default_action'])) {
 /**
  * file listing
  */
-require_once './libraries/file_listing.php';
+require_once 'libraries/file_listing.php';
 
 
 /**
@@ -100,7 +100,7 @@ $url_query = PMA_generate_common_url($url_params, 'html', '');
  * get table information
  * @todo should be done by a Table object
  */
-require_once './libraries/tbl_info.inc.php';
+require_once 'libraries/tbl_info.inc.php';
 
 /**
  * Get comments for table fileds/columns
@@ -127,7 +127,7 @@ $GLOBALS['js_include'][] = 'gis_data_editor.js';
 /**
  * HTTP and HTML headers
  */
-require_once './libraries/header.inc.php';
+require_once 'libraries/header.inc.php';
 
 /**
  * Displays the query submitted and its result
@@ -144,7 +144,7 @@ if (! empty($disp_message)) {
 /**
  * Displays top menu links
  */
-require_once './libraries/tbl_links.inc.php';
+require_once 'libraries/tbl_links.inc.php';
 
 
 /**
@@ -189,7 +189,7 @@ if (isset($where_clause)) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
             PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
             echo "\n";
-            include './libraries/footer.inc.php';
+            include 'libraries/footer.inc.php';
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
             list($unique_condition, $tmp_clause_is_unique)
@@ -1146,5 +1146,5 @@ if ($insert_mode) {
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

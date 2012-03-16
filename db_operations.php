@@ -15,8 +15,8 @@
 /**
  * requirements
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/mysql_charsets.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/mysql_charsets.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 // also add jQueryUI
@@ -129,7 +129,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $views = array();
 
         // remove all foreign key constraints, otherwise we can get errors
-        include_once './libraries/export/sql.php';
+        include_once 'libraries/export/sql.php';
         foreach ($tables_full as $each_table => $tmp) {
             $sql_constraints = '';
             $sql_drop_foreign_keys = '';
@@ -289,7 +289,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             /**
              * cleanup pmadb stuff for this db
              */
-            include_once './libraries/relation_cleanup.lib.php';
+            include_once 'libraries/relation_cleanup.lib.php';
             PMA_relationsCleanupDatabase($db);
 
             // if someday the RENAME DATABASE reappears, do not DROP
@@ -355,12 +355,12 @@ if (isset($_REQUEST['comment'])) {
  * because there is no table in the database ($is_info is true)
  */
 if (empty($is_info)) {
-    include './libraries/db_common.inc.php';
+    include 'libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    include './libraries/db_info.inc.php';
+    include 'libraries/db_info.inc.php';
     echo "\n";
 
     if (isset($message)) {
@@ -403,7 +403,7 @@ if (!$is_information_schema) {
     }
     ?>
     <div class="operations_half_width">
-    <?php include './libraries/display_create_table.lib.php'; ?>
+    <?php include 'libraries/display_create_table.lib.php'; ?>
     </div>
     <?php
     /**
@@ -618,5 +618,5 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

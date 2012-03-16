@@ -8,16 +8,16 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
-require './libraries/tbl_common.php';
+require 'libraries/tbl_common.php';
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
 $print_view = true;
 if (! isset($selected_tbl)) {
-    include_once './libraries/header.inc.php';
+    include_once 'libraries/header.inc.php';
 }
 
 // Check parameters
@@ -29,8 +29,8 @@ if (! isset($the_tables) || ! is_array($the_tables)) {
 /**
  * Gets the relations settings
  */
-require_once './libraries/transformations.lib.php';
-require_once './libraries/Index.class.php';
+require_once 'libraries/transformations.lib.php';
+require_once 'libraries/Index.class.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
@@ -62,7 +62,7 @@ $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
     if (empty($GLOBALS['is_header_sent'])) {
-        include_once './libraries/header.inc.php';
+        include_once 'libraries/header.inc.php';
     }
     $tbl_list     = '';
     foreach ($the_tables as $key => $table) {
@@ -443,5 +443,5 @@ PMA_printButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
 
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

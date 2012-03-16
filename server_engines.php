@@ -17,19 +17,19 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 /**
  * requirements
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work
  */
-require './libraries/server_common.inc.php';
-require './libraries/StorageEngine.class.php';
+require 'libraries/server_common.inc.php';
+require 'libraries/StorageEngine.class.php';
 
 
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 /**
  * Did the user request information about a certain storage engine?
@@ -141,6 +141,6 @@ if (empty($_REQUEST['engine'])
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

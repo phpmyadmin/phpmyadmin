@@ -7,9 +7,9 @@
 /**
  *
  */
-require_once './libraries/pmd_common.php';
-require './libraries/db_common.inc.php';
-require './libraries/db_info.inc.php';
+require_once 'libraries/pmd_common.php';
+require 'libraries/db_common.inc.php';
+require 'libraries/db_info.inc.php';
 
 $tab_column       = get_tab_info();
 $script_tabs      = get_script_tabs();
@@ -22,7 +22,7 @@ $params = array('lang' => $GLOBALS['lang']);
 if (isset($GLOBALS['db'])) {
     $params['db'] = $GLOBALS['db'];
 }
-require_once './libraries/header_scripts.inc.php';
+require_once 'libraries/header_scripts.inc.php';
 ?>
     <script type="text/javascript">
     // <![CDATA[

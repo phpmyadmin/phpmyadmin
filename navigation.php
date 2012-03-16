@@ -9,7 +9,7 @@
 /**
  * Gets a core script and starts output buffering work
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * finish and cleanup navigation.php script execution, only to be used in navigation.php
@@ -22,8 +22,8 @@ function PMA_exitNavigationFrame()
     exit;
 }
 
-require_once './libraries/common.lib.php';
-require_once './libraries/RecentTable.class.php';
+require_once 'libraries/common.lib.php';
+require_once 'libraries/RecentTable.class.php';
 
 /**
  * Check if it is an ajax request to reload the recent tables list.
@@ -58,7 +58,7 @@ if (empty($_SESSION['debug'])) {
 /**
  * the output compression library
  */
-require_once './libraries/ob.lib.php';
+require_once 'libraries/ob.lib.php';
 
 PMA_outBufferPre();
 
@@ -80,7 +80,7 @@ $cfgRelation = PMA_getRelationsParam();
  * For re-usability, moved http-headers to a seperate file.
  * It can now be included by libraries/header.inc.php, querywindow.php.
  */
-require_once './libraries/header_http.inc.php';
+require_once 'libraries/header_http.inc.php';
 
 /*
  * Displays the frame
@@ -158,7 +158,7 @@ require_once './libraries/header_http.inc.php';
 
 <body id="body_leftFrame">
 <?php
-require './libraries/navigation_header.inc.php';
+require 'libraries/navigation_header.inc.php';
 
 // display recently used tables
 if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
@@ -405,8 +405,8 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                     title="<?php echo htmlspecialchars($db['comment']); ?>"
                     onclick="
                         if (! toggle('<?php echo $element_counter; ?>', true))
-                            window.parent.goTo('./navigation.php?<?php echo $common_url_query; ?>');
-                        window.parent.goTo('./<?php echo $GLOBALS['cfg']['DefaultTabDatabase']
+                            window.parent.goTo('navigation.php?<?php echo $common_url_query; ?>');
+                        window.parent.goTo('<?php echo $GLOBALS['cfg']['DefaultTabDatabase']
                             . '?' . $common_url_query; ?>', 'main');
                         return false;">
                     <?php
@@ -540,8 +540,8 @@ function PMA_displayTableList($tables, $visible = false,
                 target="_parent"
                 onclick="
                     if (! toggle('<?php echo $element_counter; ?>', true))
-                        window.parent.goTo('./navigation.php?<?php echo $common_url_query; ?>');
-                    window.parent.goTo('./<?php echo $GLOBALS['cfg']['DefaultTabDatabase']
+                        window.parent.goTo('navigation.php?<?php echo $common_url_query; ?>');
+                    window.parent.goTo('<?php echo $GLOBALS['cfg']['DefaultTabDatabase']
                         . '?' . $common_url_query; ?>', 'main');
                     return false;">
                 <?php

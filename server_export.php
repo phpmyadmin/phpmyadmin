@@ -8,14 +8,14 @@
 /**
  * Does the common work
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'export.js';
 
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 $export_page_title = __('View dump (schema) of databases') . "\n";
 $checkall_url = 'server_export.php?'
@@ -55,11 +55,11 @@ $multi_values .= "\n";
 $multi_values .= '</select></div>';
 
 $export_type = 'server';
-require_once './libraries/display_export.lib.php';
+require_once 'libraries/display_export.lib.php';
 
 
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work
@@ -20,7 +20,7 @@ $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
 $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 $_add_user_error = false;
 
-require './libraries/server_common.inc.php';
+require 'libraries/server_common.inc.php';
 
 if ($GLOBALS['cfg']['AjaxEnable']) {
     $conditional_class = 'ajax';
@@ -172,13 +172,13 @@ if (isset($dbname)) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    include './libraries/server_links.inc.php';
+    include 'libraries/server_links.inc.php';
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usrlist.png')
        . __('Privileges') . "\n"
        . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    include './libraries/footer.inc.php';
+    include 'libraries/footer.inc.php';
 }
 
 $random_n = mt_rand(0, 1000000); // a random number that will be appended to the id of the user forms
@@ -1611,10 +1611,10 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 
     // Gets the database structure
     $sub_part = '_structure';
-    include './libraries/db_info.inc.php';
+    include 'libraries/db_info.inc.php';
     echo "\n";
 } else {
-    include './libraries/server_links.inc.php';
+    include 'libraries/server_links.inc.php';
 }
 
 
@@ -1985,7 +1985,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if ($user_does_not_exists) {
             PMA_Message::error(__('The selected user was not found in the privilege table.'))->display();
             PMA_displayLoginInformationFields();
-            //require './libraries/footer.inc.php';
+            //require 'libraries/footer.inc.php';
         }
 
         echo '<form name="usersForm" id="addUsersForm_' . $random_n . '" action="server_privileges.php" method="post">' . "\n";
@@ -2302,7 +2302,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         }
 
         if (! isset($dbname) && ! $user_does_not_exists) {
-            include_once './libraries/display_change_password.lib.php';
+            include_once 'libraries/display_change_password.lib.php';
 
             echo '<form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
                . PMA_generate_common_hidden_inputs('', '')
@@ -2540,6 +2540,6 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
  * Displays the footer
  */
 echo "\n\n";
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>
