@@ -12101,8 +12101,8 @@ msgstr "Uptime inferiore ad un giorno"
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
-"L'uptime è inferiore a un giorno, la regolazione delle prestazioni potrebbe "
-"non essere accurata."
+"Il server è stato in esecuzione per un periodo inferiore ad 1 giorno, i "
+"suggerimenti per migliorarne l'efficienza potrebbero non essere accurati."
 
 #: po/advisory_rules.php:7
 msgid ""
