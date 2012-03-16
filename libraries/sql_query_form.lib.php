@@ -251,13 +251,13 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
     // Add buttons to generate query easily for select all,single select,insert,update and delete
     if (count($fields_list)) {
-        echo '<input type="button" value="SELECT *" id="selectall" class="sqlbutton" />';
-        echo '<input type="button" value="SELECT" id="select" class="sqlbutton" />';
-        echo '<input type="button" value="INSERT" id="insert" class="sqlbutton" />';
-        echo '<input type="button" value="UPDATE" id="update" class="sqlbutton" />';
-        echo '<input type="button" value="DELETE" id="delete" class="sqlbutton" />';
+        echo '<input type="button" value="SELECT *" id="selectall" class="button sqlbutton" />';
+        echo '<input type="button" value="SELECT" id="select" class="button sqlbutton" />';
+        echo '<input type="button" value="INSERT" id="insert" class="button sqlbutton" />';
+        echo '<input type="button" value="UPDATE" id="update" class="button sqlbutton" />';
+        echo '<input type="button" value="DELETE" id="delete" class="button sqlbutton" />';
     }
-    echo '<input type="button" value="' . __('Clear') . '" id="clear" class="sqlbutton" />';
+    echo '<input type="button" value="' . __('Clear') . '" id="clear" class="button sqlbutton" />';
     echo '</div>' . "\n";
 
     if (count($fields_list)) {
