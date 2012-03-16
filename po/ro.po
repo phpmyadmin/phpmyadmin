@@ -635,7 +635,7 @@ msgstr "Tabelul %s a fost aruncat"
 
 #: db_structure.php:338 tbl_create.php:281
 msgid "Tracking is active."
-msgstr "Monitorizarea este activată"
+msgstr "Monitorizarea este activată."
 
 #: db_structure.php:343 tbl_create.php:284
 msgid "Tracking is not active."
