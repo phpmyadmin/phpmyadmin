@@ -1528,8 +1528,7 @@ $link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" hre
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
     . '&amp;export=1">'
-    . PMA_getIcon('b_tblexport.png', __('Export all')) . ' '
-    . __('Export all')
+    . PMA_getIcon('b_tblexport.png', __('Export all'))
     . '</a>';
 
 /**
