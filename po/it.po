@@ -1,10 +1,10 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-13 12:11+0100\n"
+"PO-Revision-Date: 2012-03-16 11:57+0100\n"
 "Last-Translator: Fabrizio Barbarino <fabrizio.barbarino@gmail.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -140,7 +140,6 @@ msgstr "Commenti alla tabella"
 #: tbl_change.php:309 tbl_indexes.php:185 tbl_printview.php:139
 #: tbl_relation.php:392 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:268 tbl_tracking.php:319
-#, fuzzy
 msgid "Column"
 msgstr "Campo"
 
@@ -357,7 +356,6 @@ msgstr "Modifica o esporta schema relazionale"
 #: server_privileges.php:1745 server_privileges.php:1801
 #: server_privileges.php:2065 server_synchronize.php:418
 #: server_synchronize.php:861 tbl_tracking.php:587 test/theme.php:74
-#, fuzzy
 msgid "Table"
 msgstr "Tabella"
 
@@ -1058,7 +1056,6 @@ msgstr "Creazione chiave primaria"
 #: js/messages.php:68 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
-#, fuzzy
 msgid "OK"
 msgstr "OK"
 
@@ -1350,7 +1347,6 @@ msgstr "Sabato"
 
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1593
-#, fuzzy
 msgid "Sun"
 msgstr "Dom"
 
@@ -2007,7 +2003,6 @@ msgstr "Profiling"
 
 #: libraries/common.lib.php:1354 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
-#, fuzzy
 msgid "Time"
 msgstr "Tempo"
 
