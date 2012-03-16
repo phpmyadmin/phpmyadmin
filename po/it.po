@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-16 12:15+0200\n"
+"PO-Revision-Date: 2012-03-16 12:16+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -12096,7 +12096,7 @@ msgstr "Rinomina la vista in"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr "Uptime da meno di un giorno"
+msgstr "Uptime inferiore ad un giorno"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
