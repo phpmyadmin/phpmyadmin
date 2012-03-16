@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-16 21:24+0200\n"
+"PO-Revision-Date: 2012-03-16 21:25+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -2072,7 +2072,7 @@ msgstr ""
 
 #: js/messages.php:341
 msgid "Add an option for column "
-msgstr "Adăugați o opțiune pentru coloană"
+msgstr "Adăugați o opțiune pentru coloană "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
