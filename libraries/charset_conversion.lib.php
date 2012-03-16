@@ -58,9 +58,9 @@ if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
  * Converts encoding of text according to parameters with detected
  * conversion function.
  *
- * @param string   source charset
- * @param string   target charset
- * @param string   what to convert
+ * @param string $src_charset  source charset
+ * @param string $dest_charset target charset
+ * @param string $what         what to convert
  *
  * @return  string   converted text
  *
@@ -73,14 +73,14 @@ function PMA_convert_string($src_charset, $dest_charset, $what)
         return $what;
     }
     switch ($GLOBALS['PMA_recoding_engine']) {
-        case PMA_CHARSET_RECODE:
-            return recode_string($src_charset . '..'  . $dest_charset, $what);
-        case PMA_CHARSET_ICONV:
-            return iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
-        case PMA_CHARSET_ICONV_AIX:
-            return PMA_aix_iconv_wrapper($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
-        default:
-            return $what;
+    case PMA_CHARSET_RECODE:
+        return recode_string($src_charset . '..'  . $dest_charset, $what);
+    case PMA_CHARSET_ICONV:
+        return iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
+    case PMA_CHARSET_ICONV_AIX:
+        return PMA_aix_iconv_wrapper($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
+    default:
+        return $what;
     }
 } //  end of the "PMA_convert_string()" function
 
