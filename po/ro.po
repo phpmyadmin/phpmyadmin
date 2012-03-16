@@ -11994,7 +11994,7 @@ msgstr "Lungime linie"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Mărime linie "
+msgstr "Mărime rând"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
