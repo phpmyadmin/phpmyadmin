@@ -11935,7 +11935,7 @@ msgstr "Rinomina la vista in"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr "Uptime da meno di un giorno"
+msgstr "Uptime inferiore ad un giorno"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
