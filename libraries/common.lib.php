@@ -3859,7 +3859,7 @@ function PMA_analyzeLimitClause($limit_clause)
 function PMA_printButton()
 {
     echo '<p class="print_ignore">';
-    echo '<input type="button" id="print" value="' . __('Print') . '" />';
+    echo '<input type="button" class="button" id="print" value="' . __('Print') . '" />';
     echo '</p>';
 }
 ?>
