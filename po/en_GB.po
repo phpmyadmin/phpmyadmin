@@ -11623,10 +11623,10 @@ msgid "Deactivate now"
 msgstr "Deactivate now"
 
 #: tbl_tracking.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "Activate tracking for %s.%s"
+msgstr "Activate tracking for %s"
 
 #: tbl_tracking.php:729
 msgid "Activate now"
