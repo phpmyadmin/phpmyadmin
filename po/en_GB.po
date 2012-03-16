@@ -11613,10 +11613,10 @@ msgid "Show versions"
 msgstr "Show versions"
 
 #: tbl_tracking.php:714
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "Deactivate tracking for %s.%s"
+msgstr "Deactivate tracking for %s"
 
 #: tbl_tracking.php:716
 msgid "Deactivate now"
