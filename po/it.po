@@ -10623,7 +10623,7 @@ msgstr ""
 "Abilitare il general_log può incrementare il carico del server del 5-15%. "
 "Tenete presente che la generazione delle statistiche a partire dai log è un "
 "compito intensivo per cui si consiglia di selezionare solo un intervallo "
-"temporale piccolo e disabilitare il general_log e svuotare la sua tabella"
+"temporale piccolo e disabilitare il general_log e svuotare la sua tabella."
 
 #: server_status.php:1648
 msgid "Preset chart"
