@@ -11509,10 +11509,10 @@ msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Version %1$s was created, tracking for %2$s is active."
 
 #: tbl_tracking.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Tracking of %s.%s is activated."
+msgstr "Tracking for %1$s was deactivated at version %2$s."
 
 #: tbl_tracking.php:198
 #, fuzzy, php-format
