@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-16 17:53+0200\n"
+"PO-Revision-Date: 2012-03-16 17:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -485,7 +485,7 @@ msgstr "Utiliser les tables"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Requête SQL sur la base <b>%s</b>: "
+msgstr "Requête SQL sur la base <b>%s</b> : "
 
 #: db_qbe.php:956 libraries/common.lib.php:1187
 msgid "Submit Query"
