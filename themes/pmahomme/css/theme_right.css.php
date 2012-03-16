@@ -193,12 +193,12 @@ input[type=password] {
 }
 
 input[type=submit],
-button[type=submit] {
+button[type=submit]:not(.mult_submit) {
     font-weight: bold !important;
 }
 
 input[type=submit],
-button[type=submit],
+button[type=submit]:not(.mult_submit),
 input[type=reset],
 input[name=submit_reset],
 input.button {
@@ -219,7 +219,7 @@ input.button {
 }
 
 input[type=submit]:hover,
-button[type=submit]:hover,
+button[type=submit]:not(.mult_submit):hover,
 input[type=reset]:hover,
 input[name=submit_reset]:hover,
 input.button:hover {
@@ -229,7 +229,7 @@ input.button:hover {
 }
 
 input[type=submit]:active,
-button[type=submit]:active,
+button[type=submit]:not(.mult_submit):active,
 input[type=reset]:active,
 input[name=submit_reset]:active,
 input.button:active {
