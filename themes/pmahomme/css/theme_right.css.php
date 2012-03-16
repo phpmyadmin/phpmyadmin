@@ -197,7 +197,8 @@ input[type=submit] {
 }
 
 input[type=submit],
-input[type=reset] {
+input[type=reset],
+input[name=submit_reset] {
     margin-left: 14px;
     border: 1px solid #aaa;
     padding: 3px 7px;
@@ -215,14 +216,16 @@ input[type=reset] {
 }
 
 input[type=submit]:hover,
-input[type=reset]:hover {
+input[type=reset]:hover,
+input[name=submit_reset]:hover {
     position: relative;
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
     cursor: pointer;
 }
 
 input[type=submit]:active,
-input[type=reset]:active {
+input[type=reset]:active,
+input[name=submit_reset]:active {
     position: relative;
     top: 1px;
     left: 1px;
