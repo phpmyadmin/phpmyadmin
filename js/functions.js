@@ -3060,9 +3060,9 @@ var toggleButton = function ($obj) {
     // OFF state we need to move it now.
     if ($('.container', $obj).hasClass('off')) {
         if (right == 'right') {
-            $('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
+            $('.container', $obj).animate({'left': '-=' + move + 'px'}, 0);
         } else {
-            $('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
+            $('.container', $obj).animate({'left': '+=' + move + 'px'}, 0);
         }
     }
     // Attach an 'onclick' event to the switch
@@ -3118,9 +3118,7 @@ var toggleButton = function ($obj) {
  */
 $(window).load(function () {
     $('.toggleAjax').each(function () {
-        $(this)
-        .show()
-        .find('.toggleButton')
+        $(this).show();
         toggleButton($(this));
     });
 });
