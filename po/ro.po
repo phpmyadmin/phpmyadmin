@@ -623,7 +623,7 @@ msgstr "Monitorizarea este activată."
 
 #: db_structure.php:336 tbl_create.php:284
 msgid "Tracking is not active."
-msgstr "Monitorizarea nu este activată"
+msgstr "Monitorizarea nu este activată."
 
 #: db_structure.php:444 libraries/display_tbl.lib.php:2350
 #, php-format
