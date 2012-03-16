@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-16 21:30+0200\n"
+"PO-Revision-Date: 2012-03-16 21:31+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -8527,7 +8527,7 @@ msgstr "Delimitator"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Afișează această comandă din nou aici "
+msgstr "Afișează această interogare din nou aici"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
