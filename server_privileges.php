@@ -46,6 +46,44 @@ foreach ($get_params as $one_get_param) {
     }
 }
 
+/**
+ * Sets globals from $_POST
+ */
+
+$post_params = array(
+    'createdb-1',
+    'createdb-2',
+    'createdb-3',
+    'grant_count',
+    'hostname',
+    'pma_pw',
+    'pma_pw2',
+    'pred_hostname',
+    'pred_password',
+    'pred_username',
+    'username'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
+
+/**
+ * Sets globals from $_POST patterns, for privileges and max_* vars
+ */
+
+$post_patterns = array(
+    '/_priv$/i',
+    '/^max_/i'
+);
+foreach (array_keys($_POST) as $post_key) {
+    foreach ($post_patterns as $one_post_pattern) {
+        if (preg_match($one_post_pattern, $post_key)) {
+            $GLOBALS[$post_key] = $_POST[$post_key];
+        }
+    }
+}
 
 /**
  * Messages are built using the message name
