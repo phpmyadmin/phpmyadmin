@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-16 21:25+0200\n"
+"PO-Revision-Date: 2012-03-16 21:26+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -2537,7 +2537,7 @@ msgstr "Afișează conținutul binar ca HEX implicit"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:598
 msgid "Show binary contents as HEX"
-msgstr "Afișează conținutul binar ca HEX "
+msgstr "Afișează conținutul binar ca HEX"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
