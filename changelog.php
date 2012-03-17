@@ -115,5 +115,11 @@ echo '<pre>';
 echo preg_replace(array_keys($replaces), $replaces, $changelog);
 echo '</pre>';
 ?>
+<script type="text/javascript">
+var links = document.getElementsByTagName("a");
+for(var i = 0; i < links.length; i++) {
+    links[i].target = "_blank";
+}
+</script>
 </body>
 </html>
