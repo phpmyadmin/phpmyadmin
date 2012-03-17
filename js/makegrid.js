@@ -722,7 +722,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     var gotoLink = document.createElement('div');
                     gotoLink.className = 'goto_link';
                     $(gotoLink).append(g.gotoLinkText + ': ')
-                        .append($td.find('a').clone());
+                        .append($td.find('a').clone().click(
+                            function (event) {
+                                event.preventDefault();
+                                window.open(this.href);
+                            }));
                     $editArea.append(gotoLink);
                 }
 
