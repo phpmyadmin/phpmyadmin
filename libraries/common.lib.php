@@ -578,9 +578,10 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
  *
  * @access  public
  */
-function PMA_mysqlDie($error_message = '', $the_query = '',
-$is_modify_link = true, $back_url = '', $exit = true)
-{
+function PMA_mysqlDie(
+    $error_message = '', $the_query = '',
+    $is_modify_link = true, $back_url = '', $exit = true
+) {
     global $table, $db;
 
     /**
@@ -894,8 +895,8 @@ function PMA_backquote($a_name, $do_it = true)
  *
  * </code>
  *
- * @param mixed   $a_name the "backquoted" database, table or field name
- *                        or array of it
+ * @param mixed $a_name the "backquoted" database, table or field name
+ *                      or array of it
  *
  * @return  mixed    the "backquoted" database, table or field name
  *
@@ -945,6 +946,8 @@ function PMA_whichCrlf()
  * Reloads navigation if needed.
  *
  * @param bool $jsonly prints out pure JavaScript
+ *
+ * @return nothing
  *
  * @access  public
  */
@@ -1511,9 +1514,10 @@ function PMA_localizeNumber($value)
  *
  * @access  public
  */
-function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0,
-$only_down = false, $noTrailingZero = true)
-{
+function PMA_formatNumber(
+    $value, $digits_left = 3, $digits_right = 0,
+    $only_down = false, $noTrailingZero = true
+) {
     if ($value==0) {
         return '0';
     }
@@ -1701,14 +1705,15 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * returns a tab for tabbed navigation.
  * If the variables $link and $args ar left empty, an inactive tab is created
  *
- * @param array $tab        array with all options
- * @param array $url_params
+ * @param array  $tab        array with all options
+ * @param array  $url_params
+ * @param string $base_dir
  *
  * @return  string  html code for one tab, a link if valid otherwise a span
  *
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
+function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
 {
     // default values
     $defaults = array(
@@ -1812,7 +1817,7 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
  *
  * @return  string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params, $base_dir='', $menu_id='topmenu')
+function PMA_generate_html_tabs($tabs, $url_params, $base_dir = '', $menu_id = 'topmenu')
 {
     $tab_navigation = '<div id="' . htmlentities($menu_id) . 'container" class="menucontainer">'
         .'<ul id="' . htmlentities($menu_id) . '">';
@@ -1846,8 +1851,8 @@ function PMA_generate_html_tabs($tabs, $url_params, $base_dir='', $menu_id='topm
  * @return string  the results to be echoed or saved in an array
  */
 function PMA_linkOrButton($url, $message, $tag_params = array(),
-    $new_form = true, $strip_img = false, $target = '')
-{
+    $new_form = true, $strip_img = false, $target = ''
+) {
     $url_length = strlen($url);
     // with this we should be able to catch case of image upload
     // into a (MEDIUM) BLOB; not worth generating even a form for these
@@ -2074,6 +2079,8 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  *                       until you know all needed parameters to check).
  * @param bool  $request Whether to include this list in checking for special params.
  *
+ * @return nothing
+ *
  * @global  string  path to current script
  * @global  boolean flag whether any special variable was required
  *
@@ -2284,8 +2291,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
  * @access  public
  */
 function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
-    $image, $value = '')
-{
+    $image, $value = ''
+) {
     if ($value == '') {
         $value = $text;
     }
@@ -2337,8 +2344,8 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
  */
 function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
     $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20,
-    $range = 10, $prompt = '')
-{
+    $range = 10, $prompt = ''
+) {
     $increment = floor($nbTotalPage / $percent);
     $pageNowMinusRange = ($pageNow - $range);
     $pageNowPlusRange = ($pageNow + $range);
@@ -2394,20 +2401,20 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
             }
         }
 
-/*
-    Add page numbers with "geometrically increasing" distances.
+        /*
+        Add page numbers with "geometrically increasing" distances.
 
-    This helps me a lot when navigating through giant tables.
+        This helps me a lot when navigating through giant tables.
 
-    Test case: table with 2.28 million sets, 76190 pages. Page of interest is
-    between 72376 and 76190.
-    Selecting page 72376.
-    Now, old version enumerated only +/- 10 pages around 72376 and the
-    percentage increment produced steps of about 3000.
+        Test case: table with 2.28 million sets, 76190 pages. Page of interest is
+        between 72376 and 76190.
+        Selecting page 72376.
+        Now, old version enumerated only +/- 10 pages around 72376 and the
+        percentage increment produced steps of about 3000.
 
-    The following code adds page numbers +/- 2,4,8,16,32,64,128,256 etc.
-    around the current page.
-*/
+        The following code adds page numbers +/- 2,4,8,16,32,64,128,256 etc.
+        around the current page.
+        */
 
         $i = $pageNow;
         $dist = 1;
@@ -2644,8 +2651,8 @@ function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
  * @return the HTML for the tadio buttons
  */
 function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '',
-$line_break = true, $escape_label = true, $class='')
-{
+    $line_break = true, $escape_label = true, $class=''
+) {
     foreach ($choices as $choice_value => $choice_label) {
         if (! empty($class)) {
             echo '<div class="' . $class . '">';

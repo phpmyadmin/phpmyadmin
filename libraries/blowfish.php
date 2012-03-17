@@ -320,7 +320,8 @@ class Horde_Cipher_blowfish
     /**
      * Set the key to be used for en/decryption.
      *
-     * @param string $key  The key to use.
+     * @param string $key The key to use.
+     *
      * @return bool
      */
     public function setKey($key)
@@ -344,45 +345,45 @@ class Horde_Cipher_blowfish
 
         $encZero = array('L' => 0, 'R' => 0);
         for ($i = 0; $i + 1 < $iMax; $i += 2) {
-          $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
-          $this->p[$i] = $encZero['L'];
-          $this->p[$i + 1] = $encZero['R'];
+            $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
+            $this->p[$i] = $encZero['L'];
+            $this->p[$i + 1] = $encZero['R'];
         }
 
         $iMax = count($this->s1);
         for ($i = 0; $i < $iMax; $i += 2) {
-          $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
-          $this->s1[$i] = $encZero['L'];
-          $this->s1[$i + 1] = $encZero['R'];
+            $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
+            $this->s1[$i] = $encZero['L'];
+            $this->s1[$i + 1] = $encZero['R'];
         }
 
         $iMax = count($this->s2);
         for ($i = 0; $i < $iMax; $i += 2) {
-          $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
-          $this->s2[$i] = $encZero['L'];
-          $this->s2[$i + 1] = $encZero['R'];
+            $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
+            $this->s2[$i] = $encZero['L'];
+            $this->s2[$i + 1] = $encZero['R'];
         }
 
         $iMax = count($this->s3);
         for ($i = 0; $i < $iMax; $i += 2) {
-          $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
-          $this->s3[$i] = $encZero['L'];
-          $this->s3[$i + 1] = $encZero['R'];
+            $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
+            $this->s3[$i] = $encZero['L'];
+            $this->s3[$i + 1] = $encZero['R'];
         }
 
         $iMax = count($this->s4);
         for ($i = 0; $i < $iMax; $i += 2) {
-          $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
-          $this->s4[$i] = $encZero['L'];
-          $this->s4[$i + 1] = $encZero['R'];
+            $encZero = $this->_encryptBlock($encZero['L'], $encZero['R']);
+            $this->s4[$i] = $encZero['L'];
+            $this->s4[$i + 1] = $encZero['R'];
         }
     }
 
     /**
      * Encrypt a block of data.
      *
-     * @param string $block      The data to encrypt.
-     * @param string $key        The key to use.
+     * @param string $block The data to encrypt.
+     * @param string $key   The key to use.
      *
      * @return string  The encrypted output.
      */
@@ -400,8 +401,8 @@ class Horde_Cipher_blowfish
     /**
      * Encrypt left and right halves of a block of data.
      *
-     * @param integer $L  Left half of the data.
-     * @param integer $R  Right half of the data.
+     * @param integer $L Left half of the data.
+     * @param integer $R Right half of the data.
      *
      * @return array  A hash, with keys 'L' and 'R', and the encrypted data as
      *                the values.
@@ -433,8 +434,8 @@ class Horde_Cipher_blowfish
     /**
      * Decrypt a block of data.
      *
-     * @param string $block  The data to decrypt.
-     * @param string $key    The key to use.
+     * @param string $block The data to decrypt.
+     * @param string $key   The key to use.
      *
      * @return string  The decrypted output.
      */
@@ -444,7 +445,7 @@ class Horde_Cipher_blowfish
             $this->setKey($key);
         }
 
-// change for phpMyAdmin
+        // change for phpMyAdmin
         $L = null;
         $R = null;
 
@@ -455,7 +456,7 @@ class Horde_Cipher_blowfish
         if (isset($retarray[1])) {
             $R = $retarray[1];
         }
-// end change for phpMyAdmin
+        // end change for phpMyAdmin
 
         $L ^= $this->p[17];
         $R ^= ((($this->s1[($L >> 24) & 0xFF] + $this->s2[($L >> 16) & 0x0ff]) ^ $this->s3[($L >> 8) & 0x0ff]) + $this->s4[$L & 0x0ff]) ^ $this->p[16];
@@ -484,8 +485,8 @@ class Horde_Cipher_blowfish
 /**
  * Encryption using blowfish algorithm
  *
- * @param string  original data
- * @param string  the secret
+ * @param string $data   original data
+ * @param string $secret the secret
  *
  * @return  string  the encrypted result
  *
@@ -512,8 +513,8 @@ function PMA_blowfish_encrypt($data, $secret)
 /**
  * Decryption using blowfish algorithm
  *
- * @param string  encrypted data
- * @param string  the secret
+ * @param string $encdata encrypted data
+ * @param string $secret  the secret
  *
  * @return  string  original data
  *

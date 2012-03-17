@@ -433,10 +433,20 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
 
 /**
  * Displays on which column(s) a table-specific privilege is granted
+ *
+ * @param array  $columns
+ * @param array  $row
+ * @param string $name_for_select
+ * @param string $priv_for_header
+ * @param string $name
+ * @param string $name_for_dfn
+ * @param string $name_for_current
+ *
+ * @return nothing
  */
-function PMA_display_column_privs($columns, $row, $name_for_select,
-    $priv_for_header, $name, $name_for_dfn, $name_for_current)
-{
+function PMA_displayColumnPrivs($columns, $row, $name_for_select,
+    $priv_for_header, $name, $name_for_dfn, $name_for_current
+) {
     echo '    <div class="item" id="div_item_' . $name . '">' . "\n"
        . '        <label for="select_' . $name . '_priv">' . "\n"
        . '            <tt><dfn title="' . $name_for_dfn . '">'
@@ -597,22 +607,22 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
 
 
         // privs that are attached to a specific column
-        PMA_display_column_privs(
+        PMA_displayColumnPrivs(
             $columns, $row, 'Select_priv', 'SELECT',
             'select', __('Allows reading data.'), 'Select'
         );
 
-        PMA_display_column_privs(
+        PMA_displayColumnPrivs(
             $columns, $row, 'Insert_priv', 'INSERT',
             'insert', __('Allows inserting and replacing data.'), 'Insert'
         );
 
-        PMA_display_column_privs(
+        PMA_displayColumnPrivs(
             $columns, $row, 'Update_priv', 'UPDATE',
             'update', __('Allows changing data.'), 'Update'
         );
 
-        PMA_display_column_privs(
+        PMA_displayColumnPrivs(
             $columns, $row, 'References_priv', 'REFERENCES', 'references',
             __('Has no effect in this MySQL version.'), 'References'
         );
@@ -621,8 +631,8 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
 
         echo '    <div class="item">' . "\n";
         foreach ($row as $current_grant => $current_grant_value) {
-            if (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)),
-                    array('Select', 'Insert', 'Update', 'References'))) {
+            $grant_type = substr($current_grant, 0, (strlen($current_grant) - 5));
+            if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))) {
                 continue;
             }
             // make a substitution to match the messages variables;
@@ -858,13 +868,16 @@ function PMA_displayLoginInformationFields($mode = 'new')
        . '    </select>' . "\n"
        . '</span>' . "\n"
        . '<input type="text" name="username" maxlength="'
-        . $username_length . '" title="' . __('User name') . '"'
-        . (empty($GLOBALS['username'])
-            ? ''
-            : ' value="' . htmlspecialchars(isset($GLOBALS['new_username'])
-                ? $GLOBALS['new_username']
-                : $GLOBALS['username']) . '"')
-        . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
+       . $username_length . '" title="' . __('User name') . '"'
+       . (empty($GLOBALS['username'])
+           ? ''
+           : ' value="' . htmlspecialchars(
+               isset($GLOBALS['new_username'])
+               ? $GLOBALS['new_username']
+               : $GLOBALS['username']
+           ) . '"'
+       )
+       . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
        . '</div>' . "\n"
        . '<div class="item">' . "\n"
        . '<label for="select_pred_hostname">' . "\n"
@@ -966,12 +979,13 @@ function PMA_displayLoginInformationFields($mode = 'new')
  * Returns all the grants for a certain user on a certain host
  * Used in the export privileges for all users section
  *
- * @param string $user      User name
- * @param string $host      Host name
+ * @param string $user User name
+ * @param string $host Host name
  *
  * @return string containing all the grants text
  */
-function PMA_getGrants($user, $host) {
+function PMA_getGrants($user, $host)
+{
     $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($user) . "'@'" . PMA_sqlAddSlashes($host) . "'");
     $response = '';
     foreach ($grants as $one_grant) {
@@ -1115,9 +1129,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             }
 
             if ($_error || ! PMA_DBI_try_query($real_sql_query)) {
-                $_REQUEST['createdb-1']
-                = $_REQUEST['createdb-2']
-                = $_REQUEST['createdb-3'] = false;
+                $_REQUEST['createdb-1'] = $_REQUEST['createdb-2'] = $_REQUEST['createdb-3'] = false;
                 $message = PMA_Message::rawError(PMA_DBI_getError());
             } else {
                 $message = PMA_Message::success(__('You have added a new user.'));

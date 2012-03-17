@@ -61,18 +61,20 @@ function PMA_getColumnOrder()
  * of databases from server_databases.php (which can be modified by
  * db_create.php)
  *
- * @param array $current
+ * @param array   $current
  * @param boolean $is_superuser
- * @param string $checkall
- * @param string $url_query
- * @param array $column_order
- * @param array $replication_types
- * @param array $replication_info
+ * @param string  $checkall
+ * @param string  $url_query
+ * @param array   $column_order
+ * @param array   $replication_types
+ * @param array   $replication_info
  *
  * @return array $column_order, $out
  */
-function PMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query, $column_order, $replication_types, $replication_info)
-{
+function PMA_buildHtmlForDb(
+    $current, $is_superuser, $checkall, $url_query,
+    $column_order, $replication_types, $replication_info
+) {
 
     $out = '';
     if ($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) {

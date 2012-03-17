@@ -30,6 +30,7 @@ $GLOBALS['is_superuser']       = PMA_isSuperuser();
  * displayed. For example, if an anonymous account exists, the named account
  * might be able to use its privileges, but SHOW GRANTS will not display them.
  *
+ * @return nothing
  */
 function PMA_analyseShowGrant()
 {
@@ -62,9 +63,10 @@ function PMA_analyseShowGrant()
     while ($row = PMA_DBI_fetch_row($rs_usr)) {
         // extract db from GRANT ... ON *.* or GRANT ... ON db.*
         $db_name_offset = strpos($row[0], ' ON ') + 4;
-        $show_grants_dbname = substr($row[0],
-            $db_name_offset,
-            strpos($row[0], '.', $db_name_offset) - $db_name_offset);
+        $show_grants_dbname = substr(
+            $row[0], $db_name_offset,
+            strpos($row[0], '.', $db_name_offset) - $db_name_offset
+        );
         $show_grants_dbname = PMA_unQuote($show_grants_dbname, '`');
 
         $show_grants_str    = substr($row[0], 6, (strpos($row[0], ' ON ') - 6));
@@ -77,9 +79,10 @@ function PMA_analyseShowGrant()
          * the create database dialog box
          */
         if ($show_grants_str == 'ALL'
-         || $show_grants_str == 'ALL PRIVILEGES'
-         || $show_grants_str == 'CREATE'
-         || strpos($show_grants_str, 'CREATE,') !== false) {
+            || $show_grants_str == 'ALL PRIVILEGES'
+            || $show_grants_str == 'CREATE'
+            || strpos($show_grants_str, 'CREATE,') !== false
+        ) {
             if ($show_grants_dbname == '*') {
                 // a global CREATE privilege
                 $GLOBALS['is_create_db_priv'] = true;
@@ -101,14 +104,14 @@ function PMA_analyseShowGrant()
                 }
 
                 if ((preg_match('/' . $re0 . '%|_/', $show_grants_dbname)
-                  && ! preg_match('/\\\\%|\\\\_/', $show_grants_dbname))
-                 // does this db exist?
-                 || (! PMA_DBI_try_query('USE ' .  preg_replace('/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test))
-                  && substr(PMA_DBI_getError(), 1, 4) != 1044)
+                    && ! preg_match('/\\\\%|\\\\_/', $show_grants_dbname))
+                    // does this db exist?
+                    || (! PMA_DBI_try_query('USE ' .  preg_replace('/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test))
+                    && substr(PMA_DBI_getError(), 1, 4) != 1044)
                 ) {
                     if ($GLOBALS['cfg']['SuggestDBName']) {
                         /**
-                         * Do not handle the underscore wildcard 
+                         * Do not handle the underscore wildcard
                          * (this case must be rare anyway)
                          */
                         $GLOBALS['db_to_create'] = preg_replace('/' . $re0 . '%/',     '\\1...', $show_grants_dbname);

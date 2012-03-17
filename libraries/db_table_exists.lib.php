@@ -32,7 +32,8 @@ if (empty($is_db)) {
             }
             PMA_sendHeaderLocation(
                 $cfg['PmaAbsoluteUri'] . 'main.php'
-                    . PMA_generate_common_url($url_params, '&'));
+                . PMA_generate_common_url($url_params, '&')
+            );
         }
         exit;
     }
@@ -47,7 +48,8 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT') && ! defined('TABLE_MAY_BE_A
         if (! $is_table) {
             $_result = PMA_DBI_try_query(
                 'SHOW TABLES LIKE \'' . PMA_sqlAddSlashes($table, true) . '\';',
-                null, PMA_DBI_QUERY_STORE);
+                null, PMA_DBI_QUERY_STORE
+            );
             $is_table = @PMA_DBI_num_rows($_result);
             PMA_DBI_free_result($_result);
         }
@@ -67,7 +69,8 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT') && ! defined('TABLE_MAY_BE_A
                  */
                 $_result = PMA_DBI_try_query(
                     'SELECT COUNT(*) FROM ' . PMA_backquote($table) . ';',
-                    null, PMA_DBI_QUERY_STORE);
+                    null, PMA_DBI_QUERY_STORE
+                );
                 $is_table = ($_result && @PMA_DBI_num_rows($_result));
                 PMA_DBI_free_result($_result);
             }

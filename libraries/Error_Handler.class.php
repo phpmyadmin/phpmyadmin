@@ -92,10 +92,12 @@ class PMA_Error_Handler
      * Do not use the context parameter as we want to avoid storing the
      * complete $GLOBALS inside $_SESSION['errors']
      *
-     * @param integer $errno
-     * @param string  $errstr
-     * @param string  $errfile
-     * @param integer $errline
+     * @param integer $errno   error number
+     * @param string  $errstr  error string
+     * @param string  $errfile error file
+     * @param integer $errline error line
+     *
+     * @return nothing
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
@@ -106,37 +108,39 @@ class PMA_Error_Handler
         $this->_errors[$error->getHash()] = $error;
 
         switch ($error->getNumber()) {
-            case E_USER_NOTICE:
-            case E_USER_WARNING:
-            case E_STRICT:
-            case E_DEPRECATED:
-            case E_NOTICE:
-            case E_WARNING:
-            case E_CORE_WARNING:
-            case E_COMPILE_WARNING:
-            case E_USER_ERROR:
-            case E_RECOVERABLE_ERROR:
-                // just collect the error
-                // display is called from outside
-                break;
-            case E_ERROR:
-            case E_PARSE:
-            case E_CORE_ERROR:
-            case E_COMPILE_ERROR:
-            default:
-                // FATAL error, dislay it and exit
-                $this->_dispFatalError($error);
-                exit;
-                break;
+        case E_USER_NOTICE:
+        case E_USER_WARNING:
+        case E_STRICT:
+        case E_DEPRECATED:
+        case E_NOTICE:
+        case E_WARNING:
+        case E_CORE_WARNING:
+        case E_COMPILE_WARNING:
+        case E_USER_ERROR:
+        case E_RECOVERABLE_ERROR:
+            // just collect the error
+            // display is called from outside
+            break;
+        case E_ERROR:
+        case E_PARSE:
+        case E_CORE_ERROR:
+        case E_COMPILE_ERROR:
+        default:
+            // FATAL error, dislay it and exit
+            $this->_dispFatalError($error);
+            exit;
+            break;
         }
     }
 
     /**
      * log error to configured log facility
      *
-     * @todo    finish!
-     * @param PMA_Error $error
+     * @param PMA_Error $error the error
+     *
      * @return bool
+     *
+     * @todo finish!
      */
     protected function _logError($error)
     {
@@ -146,10 +150,12 @@ class PMA_Error_Handler
     /**
      * trigger a custom error
      *
-     * @param string  $errorInfo
-     * @param integer $errorNumber
+     * @param string  $errorInfo   error message
+     * @param integer $errorNumber error number
      * @param string  $file
      * @param integer $line
+     *
+     * @return nothing
      */
     public function triggerError($errorInfo, $errorNumber = null, $file = null, $line = null)
     {
@@ -160,7 +166,9 @@ class PMA_Error_Handler
     /**
      * display fatal error and exit
      *
-     * @param PMA_Error $error
+     * @param PMA_Error $error the error
+     *
+     * @return nothing
      */
     protected function _dispFatalError($error)
     {
@@ -175,6 +183,7 @@ class PMA_Error_Handler
     /**
      * display the whole error page with all errors
      *
+     * @return nothing
      */
     public function dispErrorPage()
     {
@@ -188,6 +197,7 @@ class PMA_Error_Handler
     /**
      * display user errors not displayed
      *
+     * @return nothing
      */
     public function dispUserErrors()
     {
@@ -201,7 +211,9 @@ class PMA_Error_Handler
     /**
      * display HTML header
      *
-     * @param PMA_error $error
+     * @param PMA_error $error the error
+     *
+     * @return nothing
      */
     protected function _dispPageStart($error = null)
     {
@@ -217,6 +229,7 @@ class PMA_Error_Handler
     /**
      * display HTML footer
      *
+     * @return nothing
      */
     protected function _dispPageEnd()
     {
@@ -226,6 +239,7 @@ class PMA_Error_Handler
     /**
      * display all errors regardless already displayed or user errors
      *
+     * @return nothing
      */
     public function dispAllErrors()
     {
@@ -237,6 +251,7 @@ class PMA_Error_Handler
     /**
      * display errors not displayed
      *
+     * @return nothing
      */
     public function dispErrors()
     {
@@ -258,6 +273,7 @@ class PMA_Error_Handler
     /**
      * look in session for saved errors
      *
+     * @return nothing
      */
     protected function _checkSavedErrors()
     {
