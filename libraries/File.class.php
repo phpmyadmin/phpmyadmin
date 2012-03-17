@@ -72,8 +72,9 @@ class PMA_File
     /**
      * constructor
      *
-     * @access  public
-     * @param string  $name   file name
+     * @param string $name file name
+     *
+     * @access public
      */
     function __construct($name = false)
     {
@@ -123,9 +124,10 @@ class PMA_File
      * checks or sets the temp flag for this file
      * file objects with temp flags are deleted with object destruction
      *
-     * @access  public
-     * @param boolean sets the temp flag
+     * @param boolean $is_temp sets the temp flag
+     *
      * @return  boolean PMA_File::$_is_temp
+     * @access  public
      */
     function isTemp($is_temp = null)
     {
@@ -139,8 +141,10 @@ class PMA_File
     /**
      * accessor
      *
+     * @param string $name file name
+     *
+     * @return  nothing
      * @access  public
-     * @param string  $name   file name
      */
     function setName($name)
     {
@@ -148,8 +152,10 @@ class PMA_File
     }
 
     /**
-     * @access  public
+     *
      * @return  string  binary file content
+     *
+     * @access  public
      */
     function getContent($as_binary = true, $offset = 0, $length = null)
     {
@@ -203,9 +209,11 @@ class PMA_File
     }
 
     /**
-     * @access  public
-     * @param string  name of file uploaded
+     *
+     * @param string $name name of file uploaded
+     *
      * @return  boolean success
+     * @access  public
      */
     function setUploadedFile($name)
     {
@@ -221,10 +229,11 @@ class PMA_File
     }
 
     /**
-     * @access  public
-     * @param string  $key the md5 hash of the column name
-     * @param string  $rownumber
+     * @param string $key       the md5 hash of the column name
+     * @param string $rownumber
+     *
      * @return  boolean success
+     * @access  public
      */
     function setUploadedFromTblChangeRequest($key, $rownumber)
     {
@@ -235,34 +244,34 @@ class PMA_File
 
         // check for file upload errors
         switch ($file['error']) {
-            // we do not use the PHP constants here cause not all constants
-            // are defined in all versions of PHP - but the correct constants names
-            // are given as comment
-            case 0: //UPLOAD_ERR_OK:
-                return $this->setUploadedFile($file['tmp_name']);
-                break;
-            case 4: //UPLOAD_ERR_NO_FILE:
-                break;
-            case 1: //UPLOAD_ERR_INI_SIZE:
-                $this->_error_message = __('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
-                break;
-            case 2: //UPLOAD_ERR_FORM_SIZE:
-                $this->_error_message = __('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
-                break;
-            case 3: //UPLOAD_ERR_PARTIAL:
-                $this->_error_message = __('The uploaded file was only partially uploaded.');
-                break;
-            case 6: //UPLOAD_ERR_NO_TMP_DIR:
-                $this->_error_message = __('Missing a temporary folder.');
-                break;
-            case 7: //UPLOAD_ERR_CANT_WRITE:
-                $this->_error_message = __('Failed to write file to disk.');
-                break;
-            case 8: //UPLOAD_ERR_EXTENSION:
-                $this->_error_message = __('File upload stopped by extension.');
-                break;
-            default:
-                $this->_error_message = __('Unknown error in file upload.');
+        // we do not use the PHP constants here cause not all constants
+        // are defined in all versions of PHP - but the correct constants names
+        // are given as comment
+        case 0: //UPLOAD_ERR_OK:
+            return $this->setUploadedFile($file['tmp_name']);
+            break;
+        case 4: //UPLOAD_ERR_NO_FILE:
+            break;
+        case 1: //UPLOAD_ERR_INI_SIZE:
+            $this->_error_message = __('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
+            break;
+        case 2: //UPLOAD_ERR_FORM_SIZE:
+            $this->_error_message = __('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
+            break;
+        case 3: //UPLOAD_ERR_PARTIAL:
+            $this->_error_message = __('The uploaded file was only partially uploaded.');
+            break;
+        case 6: //UPLOAD_ERR_NO_TMP_DIR:
+            $this->_error_message = __('Missing a temporary folder.');
+            break;
+        case 7: //UPLOAD_ERR_CANT_WRITE:
+            $this->_error_message = __('Failed to write file to disk.');
+            break;
+        case 8: //UPLOAD_ERR_EXTENSION:
+            $this->_error_message = __('File upload stopped by extension.');
+            break;
+        default:
+            $this->_error_message = __('Unknown error in file upload.');
         } // end switch
 
         return false;
@@ -287,12 +296,13 @@ class PMA_File
      * $file['error'] = [value]
      * </code>
      *
+     * @param array  $file      the array
+     * @param string $rownumber
+     * @param string $key
+     *
+     * @return  array
      * @access  public
      * @static
-     * @param array   $file       the array
-     * @param string  $rownumber
-     * @param string  $key
-     * @return  array
      */
     function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber, $key)
     {
@@ -310,15 +320,17 @@ class PMA_File
     /**
      * sets the name if the file to the one selected in the tbl_change form
      *
-     * @access  public
-     * @param string  $key the md5 hash of the column name
-     * @param string  $rownumber
+     * @param string $key       the md5 hash of the column name
+     * @param string $rownumber
+     *
      * @return  boolean success
+     * @access  public
      */
     function setSelectedFromTblChangeRequest($key, $rownumber = null)
     {
         if (! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
-         && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])) {
+            && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
+        ) {
             // ... whether with multiple rows ...
             return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key]);
         } else {
@@ -348,10 +360,11 @@ class PMA_File
      * checks the superglobals provided if the tbl_change form is submitted
      * and uses the submitted/selected file
      *
-     * @access  public
-     * @param string  $key the md5 hash of the column name
-     * @param string  $rownumber
+     * @param string $key       the md5 hash of the column name
+     * @param string $rownumber
+     *
      * @return  boolean success
+     * @access  public
      */
     function checkTblChangeForm($key, $rownumber)
     {
@@ -371,9 +384,10 @@ class PMA_File
 
     /**
      *
-     * @access  public
-     * @param string  $name
+     * @param string $name
+     *
      * @return  boolean success
+     * @access  public
      */
     function setLocalSelectedFile($name)
     {
@@ -528,47 +542,47 @@ class PMA_File
         }
 
         switch ($this->getCompression()) {
-            case false:
-                return false;
-            case 'application/bzip2':
-                if ($GLOBALS['cfg']['BZipDump'] && @function_exists('bzopen')) {
-                    $this->_handle = @bzopen($this->getName(), 'r');
-                } else {
-                    $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
-                    return false;
-                }
-                break;
-            case 'application/gzip':
-                if ($GLOBALS['cfg']['GZipDump'] && @function_exists('gzopen')) {
-                    $this->_handle = @gzopen($this->getName(), 'r');
-                } else {
-                    $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
-                    return false;
-                }
-                break;
-            case 'application/zip':
-                if ($GLOBALS['cfg']['ZipDump'] && @function_exists('zip_open')) {
-                    include_once './libraries/zip_extension.lib.php';
-                    $result = PMA_getZipContents($this->getName());
-                    if (! empty($result['error'])) {
-                        $this->_error_message = PMA_Message::rawError($result['error']);
-                        return false;
-                    } else {
-                        $this->content_uncompressed = $result['data'];
-                    }
-                    unset($result);
-                } else {
-                    $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
-                    return false;
-                }
-                break;
-            case 'none':
-                $this->_handle = @fopen($this->getName(), 'r');
-                break;
-            default:
+        case false:
+            return false;
+        case 'application/bzip2':
+            if ($GLOBALS['cfg']['BZipDump'] && @function_exists('bzopen')) {
+                $this->_handle = @bzopen($this->getName(), 'r');
+            } else {
                 $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
                 return false;
-                break;
+            }
+            break;
+        case 'application/gzip':
+            if ($GLOBALS['cfg']['GZipDump'] && @function_exists('gzopen')) {
+                $this->_handle = @gzopen($this->getName(), 'r');
+            } else {
+                $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
+                return false;
+            }
+            break;
+        case 'application/zip':
+            if ($GLOBALS['cfg']['ZipDump'] && @function_exists('zip_open')) {
+                include_once './libraries/zip_extension.lib.php';
+                $result = PMA_getZipContents($this->getName());
+                if (! empty($result['error'])) {
+                    $this->_error_message = PMA_Message::rawError($result['error']);
+                    return false;
+                } else {
+                    $this->content_uncompressed = $result['data'];
+                }
+                unset($result);
+            } else {
+                $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
+                return false;
+            }
+            break;
+        case 'none':
+            $this->_handle = @fopen($this->getName(), 'r');
+            break;
+        default:
+            $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
+            return false;
+            break;
         }
 
         return true;
@@ -601,6 +615,7 @@ class PMA_File
      * advances the file pointer in the file handle by $length bytes/chars
      *
      * @param integer $length numbers of chars/bytes to skip
+     *
      * @return  boolean
      * @todo this function is unused
      */
@@ -615,9 +630,11 @@ class PMA_File
     /**
      * http://bugs.php.net/bug.php?id=29532
      * bzip reads a maximum of 8192 bytes on windows systems
-     * @todo this function is unused
+     *
      * @param int $max_size
+     *
      * @return bool|string
+     * @todo this function is unused
      */
     function getNextChunk($max_size = null)
     {
@@ -630,41 +647,41 @@ class PMA_File
         // $result = $this->handler->getNextChunk($size);
         $result = '';
         switch ($this->getCompression()) {
-            case 'application/bzip2':
-                $result = '';
-                while (strlen($result) < $size - 8192 && ! feof($this->getHandle())) {
-                    $result .= bzread($this->getHandle(), $size);
-                }
-                break;
-            case 'application/gzip':
-                $result = gzread($this->getHandle(), $size);
-                break;
-            case 'application/zip':
-                /*
-                 * if getNextChunk() is used some day,
-                 * replace this code by code similar to the one
-                 * in open()
-                 *
-                include_once './libraries/unzip.lib.php';
-                $import_handle = new SimpleUnzip();
-                $import_handle->ReadFile($this->getName());
-                if ($import_handle->Count() == 0) {
-                    $this->_error_message = __('No files found inside ZIP archive!');
-                    return false;
-                } elseif ($import_handle->GetError(0) != 0) {
-                    $this->_error_message = __('Error in ZIP archive:')
-                        . ' ' . $import_handle->GetErrorMsg(0);
-                    return false;
-                } else {
-                    $result = $import_handle->GetData(0);
-                }
-                 */
-                break;
-            case 'none':
-                $result = fread($this->getHandle(), $size);
-                break;
-            default:
+        case 'application/bzip2':
+            $result = '';
+            while (strlen($result) < $size - 8192 && ! feof($this->getHandle())) {
+                $result .= bzread($this->getHandle(), $size);
+            }
+            break;
+        case 'application/gzip':
+            $result = gzread($this->getHandle(), $size);
+            break;
+        case 'application/zip':
+            /*
+             * if getNextChunk() is used some day,
+             * replace this code by code similar to the one
+             * in open()
+             *
+            include_once './libraries/unzip.lib.php';
+            $import_handle = new SimpleUnzip();
+            $import_handle->ReadFile($this->getName());
+            if ($import_handle->Count() == 0) {
+                $this->_error_message = __('No files found inside ZIP archive!');
                 return false;
+            } elseif ($import_handle->GetError(0) != 0) {
+                $this->_error_message = __('Error in ZIP archive:')
+                    . ' ' . $import_handle->GetErrorMsg(0);
+                return false;
+            } else {
+                $result = $import_handle->GetData(0);
+            }
+             */
+            break;
+        case 'none':
+            $result = fread($this->getHandle(), $size);
+            break;
+        default:
+            return false;
         }
 
         if ($GLOBALS['charset_conversion']) {
