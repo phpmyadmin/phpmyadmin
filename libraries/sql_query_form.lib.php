@@ -238,9 +238,9 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         $sqlquerycontainer_id = 'sqlquerycontainerfull';
     }
 
-    echo '<a name="querybox"></a>' . "\n"
+    echo '<a id="querybox"></a>' . "\n"
         .'<div id="queryboxcontainer">' . "\n"
-        .'<fieldset id="querybox">' . "\n";
+        .'<fieldset id="queryboxf">' . "\n";
     echo '<legend>' . $legend . '</legend>' . "\n";
     echo '<div id="queryfieldscontainer">' . "\n";
     echo '<div id="' . $sqlquerycontainer_id . '">' . "\n"
