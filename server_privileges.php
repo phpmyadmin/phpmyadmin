@@ -1904,8 +1904,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 printf($link_export_all, urlencode('%'), urlencode('%'), (isset($initial) ? $initial : ''));
                 echo '</div>'
                    . '</div>'
-                   . '<div class="clear_both" style="clear:both"></div>'
-                   . '</div>';
+                   . '<div class="clear_both" style="clear:both"></div>';
 
                 // add/delete user fieldset
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
