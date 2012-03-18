@@ -1,4 +1,17 @@
 <?php
+/**
+ * BytesFall ShapeFiles library
+ *
+ * The library implements the 2D variants of the ShapeFile format as defined in
+ * http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf.
+ * The library currently supports reading and editing of ShapeFiles and the
+ * Associated information (DBF file).
+ *
+ * @package bfShapeFiles
+ * @version 0.0.2
+ * @link http://bfshapefiles.sourceforge.net/
+ * @license http://www.gnu.org/copyleft/gpl.html GPLv2
+ */
   function loadData($type, $data) {
     if (!$data) return $data;
     $tmp = unpack($type, $data);
@@ -32,7 +45,11 @@
 
     return $result;
   }
-
+/**
+ * ShapeFile class
+ *
+ * @package bfShapeFiles
+ */
   class ShapeFile {
     var $FileName;
 
