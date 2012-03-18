@@ -73,10 +73,7 @@ if (is_array($foreignData['disp_row'])) {
 }
 ?>
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xml:lang="<?php echo $available_languages[$lang][1]; ?>"
-    lang="<?php echo $available_languages[$lang][1]; ?>"
-    dir="<?php echo $text_dir; ?>">
+<html lang="<?php echo $available_languages[$lang][1]; ?>" dir="<?php echo $text_dir; ?>">
 
 <head>
     <title>phpMyAdmin</title>

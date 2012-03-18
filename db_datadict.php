@@ -228,7 +228,7 @@ foreach ($tables as $table) {
         }
         ?>
     </td>
-    <td<?php echo $type_nowrap; ?> xml:lang="en" dir="ltr"><?php echo $type; ?></td>
+    <td<?php echo $type_nowrap; ?> lang="en" dir="ltr"><?php echo $type; ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $attribute; ?></td>*/ ?>
     <td><?php echo (($row['Null'] == 'NO') ? __('No') : __('Yes')); ?></td>
     <td nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>

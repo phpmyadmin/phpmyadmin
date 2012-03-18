@@ -39,7 +39,7 @@ if ($text_dir == 'ltr') {
 }
 ?>
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][1]; ?>" lang="<?php echo $available_languages[$lang][1]; ?>" dir="<?php echo $text_dir; ?>">
+<html lang="<?php echo $available_languages[$lang][1]; ?>" dir="<?php echo $text_dir; ?>">
 
 <head>
 <meta charset="utf-8" />

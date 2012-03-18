@@ -32,7 +32,7 @@ if ($GLOBALS['text_dir'] == 'ltr') {
 
 ?>
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
+<html lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
     <meta charset="utf-8" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />

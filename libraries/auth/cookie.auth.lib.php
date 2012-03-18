@@ -172,7 +172,7 @@ if (top != self) {
     <?php
     echo sprintf(
         __('Welcome to %s'),
-        '<bdo dir="ltr" xml:lang="en">' . $page_title . '</bdo>'
+        '<bdo dir="ltr" lang="en">' . $page_title . '</bdo>'
     );
     ?>
 </h1>

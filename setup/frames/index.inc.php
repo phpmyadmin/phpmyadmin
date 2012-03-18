@@ -68,10 +68,10 @@ if (!$is_https) {
 
 <form id="select_lang" method="post" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
     <?php echo PMA_generate_common_hidden_inputs() ?>
-    <bdo xml:lang="en" dir="ltr"><label for="lang">
+    <bdo lang="en" dir="ltr"><label for="lang">
     <?php echo __('Language') . (__('Language') != 'Language' ? ' - Language' : '') ?>
     </label></bdo><br />
-    <select id="lang" name="lang" class="autosubmit" xml:lang="en" dir="ltr">
+    <select id="lang" name="lang" class="autosubmit" lang="en" dir="ltr">
     <?php
     // create language list
     $lang_list = array();

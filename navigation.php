@@ -89,10 +89,7 @@ require_once 'libraries/header_http.inc.php';
 /* echo '<?xml version="1.0" encoding="utf-8"?>'; */
 ?>
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xml:lang="<?php echo $available_languages[$lang][1]; ?>"
-    lang="<?php echo $available_languages[$lang][1]; ?>"
-    dir="<?php echo $GLOBALS['text_dir']; ?>">
+<html lang="<?php echo $available_languages[$lang][1]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 
 <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />

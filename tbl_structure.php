@@ -343,7 +343,7 @@ foreach ($fields as $row) {
         <?php echo $rownum; ?>
     </td>
     <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
-    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" xml:lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
+    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td nowrap="nowrap" class="column_attribute"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
