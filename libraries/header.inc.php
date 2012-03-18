@@ -57,9 +57,8 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
         include_once './libraries/header_http.inc.php';
         include_once './libraries/header_meta_style.inc.php';
         include_once './libraries/header_scripts.inc.php';
-        ?>
-        <meta name="OBGZip" content="<?php echo ($GLOBALS['cfg']['OBGzip'] ? 'true' : 'false'); ?>" />
-        <?php /* remove vertical scroll bar bug in ie */ ?>
+        
+        /* remove vertical scroll bar bug in ie */ ?>
         <!--[if IE 6]>
         <style type="text/css">
         /* <![CDATA[ */
