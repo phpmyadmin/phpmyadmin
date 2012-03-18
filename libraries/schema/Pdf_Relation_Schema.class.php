@@ -36,7 +36,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @param float $c_margin margin
      *
-     * @return nothing
+     * @return void
      */
     public function setCMargin($c_margin)
     {
@@ -54,7 +54,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      */
     function PMA_PDF_setScale($scale = 1, $xMin = 0, $yMin = 0, $leftMargin = -1, $topMargin = -1)
     {
@@ -83,7 +83,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      *
      * @see TCPDF::Cell()
      */
@@ -104,7 +104,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      *
      * @see TCPDF::Line()
      */
@@ -125,7 +125,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      *
      * @see TCPDF::SetXY()
      */
@@ -143,7 +143,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      *
      * @see TCPDF::SetX()
      */
@@ -160,7 +160,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      *
      * @see TCPDF::SetFontSize()
      */
@@ -178,7 +178,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      *
      * @see TCPDF::SetLineWidth()
      */
@@ -191,7 +191,7 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * This method is used to render the page header.
      *
-     * @return nothing
+     * @return void
      *
      * @see TCPDF::Header()
      */
@@ -219,7 +219,7 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * This function must be named "Footer" to work with the TCPDF library
      *
-     * @return nothing
+     * @return void
      *
      * @see PMA_PDF::Footer()
      */
@@ -236,7 +236,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @param array $w array of widths
      *
-     * @return nothing
+     * @return void
      */
     function SetWidths($w)
     {
@@ -377,7 +377,7 @@ class Table_Stats
      * @global array     The relations settings
      * @global string    The current db name
      *
-     * @return nothing
+     * @return void
      *
      * @see PMA_Schema_PDF, Table_Stats::Table_Stats_setWidth,
      *     Table_Stats::Table_Stats_setHeight
@@ -478,7 +478,7 @@ class Table_Stats
      *
      * @access private
      *
-     * @return nothing
+     * @return void
      *
      * @see PMA_Schema_PDF
      */
@@ -504,7 +504,7 @@ class Table_Stats
     /**
      * Sets the height of the table
      *
-     * @return nothing
+     * @return void
      *
      * @access private
      */
@@ -524,7 +524,7 @@ class Table_Stats
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      *
      * @see PMA_Schema_PDF
      */
@@ -621,7 +621,7 @@ class Relation_Stats
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      *
-     * @return nothing
+     * @return void
      *
      * @see Relation_Stats::_getXy
      */
@@ -697,7 +697,7 @@ class Relation_Stats
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      *
      * @see PMA_Schema_PDF
      */
@@ -940,7 +940,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @param string $table The table name of which sets XY co-ordinates
      *
-     * @return nothing
+     * @return void
      *
      * @access private
      */
@@ -963,7 +963,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @access private
      *
-     * @return nothing
+     * @return void
      *
      * @see _setMinMax
      */
@@ -996,7 +996,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @access private
      *
-     * @return nothing
+     * @return void
      *
      * @see PMA_Schema_PDF
      */
@@ -1059,7 +1059,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @access private
      *
-     * @return nothing
+     * @return void
      *
      * @see Relation_Stats::relationdraw()
      */
@@ -1079,7 +1079,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @access private
      *
-     * @return nothing
+     * @return void
      *
      * @see Table_Stats::tableDraw()
      */
@@ -1102,7 +1102,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *                  $cfg['Servers'][$i]['table_coords'] table)
      * @access private
      *
-     * @return nothing
+     * @return void
      *
      * @see PMA_Schema_PDF
      */

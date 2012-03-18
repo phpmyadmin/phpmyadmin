@@ -265,7 +265,7 @@ function PMA_getPHPDocLink($target)
  * @param bool   $fatal     Whether the error is fatal.
  * @param string $extra     Extra string to append to messsage.
  *
- * @return nothing
+ * @return void
  */
 function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 {
@@ -412,7 +412,7 @@ function PMA_array_merge_recursive()
  * @param string $function           function to call for every array element
  * @param bool   $apply_to_keys_also whether to call the function for the keys also
  *
- * @return nothing
+ * @return void
  *
  * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
  * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
@@ -560,7 +560,7 @@ function PMA_sendHeaderLocation($uri)
 /**
  * Outputs headers to prevent caching in browser (and on the way).
  *
- * @return nothing
+ * @return void
  */
 function PMA_no_cache_header()
 {
@@ -588,7 +588,7 @@ function PMA_no_cache_header()
  * @param int    $length   Length of content (optional)
  * @param bool   $no_cache Whether to include no-caching headers.
  *
- * @return nothing
+ * @return void
  */
 function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true)
 {
@@ -640,7 +640,7 @@ function PMA_array_read($path, $array, $default = null)
  * @param array  &$array the array
  * @param mixed  $value  value to store
  *
- * @return nothing
+ * @return void
  */
 function PMA_array_write($path, &$array, $value)
 {
@@ -662,7 +662,7 @@ function PMA_array_write($path, &$array, $value)
  * @param string $path   path in the array
  * @param array  &$array the array
  *
- * @return nothing
+ * @return void
  */
 function PMA_array_remove($path, &$array)
 {
@@ -741,7 +741,7 @@ function PMA_includeJS($url)
  *
  * @param string $str Js code to be added (e.g. "token=1234;")
  *
- * @return nothing
+ * @return void
  */
 function PMA_AddJSCode($str)
 {
@@ -755,7 +755,7 @@ function PMA_AddJSCode($str)
  * @param mixed  $value  Value to set, can be either string or array of strings
  * @param bool   $escape Whether to escape value or keep it as it is (for inclusion of js code)
  *
- * @return nothing
+ * @return void
  */
 function PMA_AddJSVar($key, $value, $escape = true)
 {

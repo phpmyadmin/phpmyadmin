@@ -118,7 +118,7 @@ class PMA_Error extends PMA_Message
      *
      * @param array $backtrace backtrace
      *
-     * @return nothing
+     * @return void
      */
     public function setBacktrace($backtrace)
     {
@@ -130,7 +130,7 @@ class PMA_Error extends PMA_Message
      *
      * @param integer $line the line
      *
-     * @return nothing
+     * @return void
      */
     public function setLine($line)
     {
@@ -142,7 +142,7 @@ class PMA_Error extends PMA_Message
      *
      * @param string $file the file
      *
-     * @return nothing
+     * @return void
      */
     public function setFile($file)
     {
@@ -248,7 +248,7 @@ class PMA_Error extends PMA_Message
     /**
      * Display HTML backtrace
      *
-     * @return nothing
+     * @return void
      */
     public function displayBacktrace()
     {
@@ -281,7 +281,7 @@ class PMA_Error extends PMA_Message
      * @param string $arg
      * @param string $function
      *
-     * @return nothing
+     * @return void
      */
     protected function displayArg($arg, $function)
     {
@@ -304,7 +304,7 @@ class PMA_Error extends PMA_Message
     /**
      * Displays the error in HTML
      *
-     * @return nothing
+     * @return void
      */
     public function display()
     {

@@ -20,7 +20,7 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
      * @param string $empty    string to be insterted in place of missing values
      * @param string $wkt      expected WKT
      *
-     * @return nothing
+     * @return void
      * @dataProvider providerForTestGenerateWkt
      */
     public function testGenerateWkt($gis_data, $index, $empty, $wkt)
@@ -43,7 +43,7 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
      * @param array  $params expected output array
      *
      * @dataProvider providerForTestGenerateParams
-     * @return nothing
+     * @return void
      */
     public function testGenerateParams($wkt, $index, $params)
     {
@@ -64,7 +64,7 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
      * @param array  $min_max expected results
      *
      * @dataProvider providerForTestScaleRow
-     * @return nothing
+     * @return void
      */
     public function testScaleRow($spatial, $min_max)
     {

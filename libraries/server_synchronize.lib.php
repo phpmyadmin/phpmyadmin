@@ -369,7 +369,7 @@ function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table, $ma
  * @param int    $index                  index of a table from $matching_table array
  * @param array  &$row_count             number of rows
  *
- * @return nothing
+ * @return void
  */
 function PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_link, $index, &$row_count)
 {
@@ -1274,7 +1274,7 @@ function PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_ind
  *
  * @param string $query the query to display
  *
- * @return nothing
+ * @return void
  */
 function PMA_displayQuery($query)
 {
@@ -1290,7 +1290,7 @@ function PMA_displayQuery($query)
  * @param string $src_db source db name
  * @param string $trg_db target db name
  *
- * @return nothing
+ * @return void
  */
 function PMA_syncDisplayHeaderCompare($src_db, $trg_db)
 {

@@ -63,7 +63,7 @@ class zipfile
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      */
     function setDoWrite()
     {
@@ -107,7 +107,7 @@ class zipfile
      *
      * @access public
      *
-     * @return nothing
+     * @return void
      */
     function addFile($data, $name, $time = 0)
     {

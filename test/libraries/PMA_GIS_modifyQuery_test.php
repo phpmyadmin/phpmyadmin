@@ -22,7 +22,7 @@ class PMA_GIS_modifyQueryTest extends PHPUnit_Framework_TestCase
      * @param string $modified_query modified query
      *
      * @dataProvider provider
-     * @return nothing
+     * @return void
      */
     public function testModifyQuery($sql_query, $settings, $modified_query)
     {

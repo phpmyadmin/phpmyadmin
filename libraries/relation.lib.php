@@ -69,7 +69,7 @@ function PMA_getRelationsParam($verbose = false)
  *
  * @param array $cfgRelation
  *
- * @return nothing
+ * @return void
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
@@ -166,7 +166,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
  * @param array   $messages           utility messages
  * @param boolean $skip_line          whether to skip a line after the message
  *
- * @return nothing
+ * @return void
  */
 function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $messages, $skip_line=true)
 {
@@ -186,7 +186,7 @@ function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $mes
  * @param array   $messages               utility messages
  * @param string  $doc_anchor             anchor in Documentation.html
  *
- * @return nothing
+ * @return void
  */
 function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $messages, $doc_anchor)
 {
@@ -671,7 +671,7 @@ function PMA_setDbComment($db, $comment = '')
  * @param string $username the username
  * @param string $sqlquery the sql query
  *
- * @return nothing
+ * @return void
  *
  * @access  public
  */
@@ -761,7 +761,7 @@ function PMA_getHistory($username)
  *
  * @param string $username the username
  *
- * @return nothing
+ * @return void
  *
  * @access  public
  */
@@ -1083,7 +1083,7 @@ function PMA_getRelatives($from)
  * @param string $field    old field name
  * @param string $new_name new field name
  *
- * @return nothing
+ * @return void
  */
 function PMA_REL_renameField($db, $table, $field, $new_name)
 {

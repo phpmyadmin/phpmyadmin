@@ -11,7 +11,7 @@
  *
  * @param string &$whitelist list of variables to allow
  *
- * @return nothing
+ * @return void
  * @access public
  */
 function PMA_remove_request_vars(&$whitelist)

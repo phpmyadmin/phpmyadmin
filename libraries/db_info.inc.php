@@ -39,7 +39,7 @@ $pos = $_SESSION['tmp_user_values']['table_limit_offset'];
  * @param array &$tooltip_aliasname tooltip data
  * @param array $table              tabledata
  *
- * @return nothing
+ * @return void
  */
 function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
 {

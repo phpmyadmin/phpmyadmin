@@ -214,7 +214,7 @@ function PMA_isSelect()
  * @param string  $input_for_real_end optional hidden field for special treatment
  * @param string  $onclick            optional onclick clause
  *
- * @return nothing
+ * @return void
  *
  * @global string   $db             the database name
  * @global string   $table          the table name
@@ -261,7 +261,7 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
  * @param string  $sql_query                 the URL-encoded query
  * @param string  $id_for_direction_dropdown the id for the direction dropdown
  *
- * @return nothing
+ * @return void
  *
  * @global  string   $db             the database name
  * @global  string   $table          the table name
@@ -2018,7 +2018,7 @@ function PMA_displayVerticalTable()
  * @todo    currently this is called twice unnecessary
  * @todo    ignore LIMIT and ORDER in query!?
  *
- * @return nothing
+ * @return void
  */
 function PMA_displayTable_checkConfigParams()
 {
@@ -2193,7 +2193,7 @@ function PMA_displayTable_checkConfigParams()
  *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
  *          PMA_displayTableBody(), PMA_displayResultsOperations()
  *
- * @return nothing
+ * @return void
  */
 function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 {
@@ -2569,7 +2569,7 @@ function default_function($buffer)
  *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
  *          PMA_displayTableBody(), PMA_displayResultsOperations()
  *
- * @return nothing
+ * @return void
  */
 function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
 {

@@ -404,7 +404,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
  * @param string $name_for_dfn
  * @param string $name_for_current
  *
- * @return nothing
+ * @return void
  */
 function PMA_displayColumnPrivs($columns, $row, $name_for_select,
     $priv_for_header, $name, $name_for_dfn, $name_for_current

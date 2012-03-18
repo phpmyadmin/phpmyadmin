@@ -482,7 +482,7 @@ class Table_Stats
      *
      * @global object    The current SVG image document
      *
-     * @return nothing
+     * @return void
      * @access private
      *
      * @see PMA_SVG
@@ -513,7 +513,7 @@ class Table_Stats
      *
      * @param integer $fontSize font size
      *
-     * @return nothing
+     * @return void
      * @access private
      */
     function _setHeightTable($fontSize)
@@ -530,7 +530,7 @@ class Table_Stats
      * @global object The current SVG image document
      *
      * @access public
-     * @return nothing
+     * @return void
      *
      * @see PMA_SVG,PMA_SVG::printElement
      */
@@ -600,7 +600,7 @@ class Relation_Stats
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      *
-     * @return nothing
+     * @return void
      *
      * @see Relation_Stats::_getXy
      */
@@ -676,7 +676,7 @@ class Relation_Stats
      *
      * @global object The current SVG image document
      *
-     * @return nothing
+     * @return void
      * @access public
      *
      * @see PMA_SVG
@@ -860,7 +860,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @param string $table The table name
      *
-     * @return nothing
+     * @return void
      * @access private
      */
     private function _setMinMax($table)
@@ -883,7 +883,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @param boolean $showInfo     Whether to display table position or not
      *
      * @access private
-     * @return nothing
+     * @return void
      *
      * @see _setMinMax,Table_Stats::__construct(),Relation_Stats::__construct()
      */
@@ -917,7 +917,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @param boolean $changeColor Whether to use one color per relation or not
      *
-     * @return nothing
+     * @return void
      * @access private
      *
      * @see Relation_Stats::relationDraw()
@@ -934,7 +934,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @param boolean $changeColor Whether to show color for primary fields or not
      *
-     * @return nothing
+     * @return void
      * @access private
      *
      * @see Table_Stats::Table_Stats_tableDraw()
