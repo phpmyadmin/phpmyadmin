@@ -267,7 +267,7 @@ class PMA_User_Schema
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="chpage" value="<?php echo htmlspecialchars($this->chosenPage); ?>" />
             <input type="hidden" name="do" value="edcoord" />
-            <table border="0">
+            <table>
             <tr>
                 <th><?php echo __('Table'); ?></th>
                 <th><?php echo __('Delete'); ?></th>

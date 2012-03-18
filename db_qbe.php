@@ -451,7 +451,7 @@ for ($y = 0; $y <= $row; $y++) {
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
     <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
         <!-- Row controls -->
-        <table border="0" cellpadding="0" cellspacing="0">
+        <table cellpadding="0" cellspacing="0">
         <tr>
             <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                 <small><?php echo __('Ins'); ?>:</small>
@@ -600,7 +600,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
 ?>
 </fieldset>
 <fieldset class="tblFooters">
-<table border="0" cellpadding="2" cellspacing="1">
+<table cellpadding="2" cellspacing="1">
 <tr>
     <td nowrap="nowrap">
         <?php echo __('Add/Delete criteria rows'); ?>:

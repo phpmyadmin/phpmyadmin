@@ -830,13 +830,13 @@ echo __('Runtime Information');
         </div>
         <div id="statustabs_allvars" class="clearfloat">
             <fieldset id="tableFilter" class="jsfeature">
+                <legend><?php echo __('Filters'); ?></legend>
                 <div class="buttonlinks">
                     <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
                         <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                         <?php echo __('Refresh'); ?>
                     </a>
                 </div>
-                <legend><?php echo __('Filters'); ?></legend>
                 <div class="formelement">
                     <label for="filterText"><?php echo __('Containing the word:'); ?></label>
                     <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
@@ -1550,7 +1550,7 @@ function printMonitor()
             <?php echo PMA_getImage('play.png'); ?>
             <?php echo __('Start Monitor'); ?>
         </a>
-        <a href="#settingsPopup" rel="popupLink" style="display:none;">
+        <a href="#settingsPopup" class="popupLink" style="display:none;">
             <?php echo PMA_getImage('s_cog.png'); ?>
             <?php echo __('Settings'); ?>
         </a>
@@ -1735,7 +1735,7 @@ function printMonitor()
     </div>
     <?php } ?>
 
-    <table border="0" class="clearfloat" id="chartGrid">
+    <table class="clearfloat" id="chartGrid">
 
     </table>
     <div id="logTable">

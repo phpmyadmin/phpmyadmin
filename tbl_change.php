@@ -1047,7 +1047,7 @@ foreach ($rows as $row_id => $vrow) {
     <div id="gis_editor"></div><div id="popup_background"></div>
     <br />
     <fieldset id="actions_panel">
-    <table border="0" cellpadding="5" cellspacing="0">
+    <table cellpadding="5" cellspacing="0">
     <tr>
         <td valign="middle" nowrap="nowrap">
             <select name="submit_type" class="control_at_footer" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">

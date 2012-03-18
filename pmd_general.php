@@ -330,7 +330,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <div id='layer_action' style="display:none;">Load...</div>
 
 <table id="layer_new_relation" style="display:none;"
-    width="5%" border="0" cellpadding="0" cellspacing="0">
+    width="5%" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
     <td class="frams1" width="10px"></td>
@@ -340,7 +340,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <tr>
     <td class="frams8"></td>
     <td class="input_tab">
-        <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+        <table width="168" align="center" cellpadding="2" cellspacing="0">
         <thead>
         <tr>
             <td colspan="2" align="center" nowrap="nowrap"><strong><?php echo __('Create relation'); ?></strong></td>
@@ -397,7 +397,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <table id="layer_upd_relation" style="display:none;"
-    width="5%" border="0" cellpadding="0" cellspacing="0">
+    width="5%" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
     <td class="frams1" width="10px"></td>
@@ -407,7 +407,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <tr>
     <td class="frams8"></td>
     <td class="input_tab">
-        <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
+        <table width="100%" align="center" cellpadding="2" cellspacing="0">
         <tr>
             <td colspan="3" align="center" nowrap="nowrap"><strong><?php echo __('Delete relation'); ?></strong></td>
         </tr>
@@ -432,7 +432,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <table id="pmd_optionse" style="display:none;"
-    width="5%" border="0" cellpadding="0" cellspacing="0">
+    width="5%" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
     <td class="frams1" width="10px"></td>
@@ -442,7 +442,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <tr>
     <td class="frams8"></td>
     <td class="input_tab">
-        <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+        <table width="168" align="center" cellpadding="2" cellspacing="0">
        <thead>
         <tr>
             <td colspan="2" rowspan="2" id="option_col_name" nowrap="nowrap" align="center"></td>
@@ -454,11 +454,11 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <td width="58" nowrap="nowrap"><?php echo __('Relation operator'); ?></td>
             <td width="102"><select name="rel_opt" id="rel_opt">
                     <option value="--" selected="selected"> -- </option>
-                    <option value="=" > = </option>
-                    <option value=">"> > </option>
-                    <option value="<"> < </option>
-                    <option value=">="> >= </option>
-                    <option value="<="> <= </option>
+                    <option value="="> = </option>
+                    <option value="&gt;"> &gt; </option>
+                    <option value="&lt;"> &lt; </option>
+                    <option value="&gt;="> &gt;= </option>
+                    <option value="&lt;="> &lt;= </option>
                     <option value="NOT"> NOT </option>
                     <option value="IN"> IN </option>
                     <option value="EXCEPT"> <?php echo __('Except'); ?> </option>
@@ -513,11 +513,11 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             <td width="58" nowrap="nowrap"><?php echo __('Relation operator'); ?></td>
             <td width="102"><select name="h_rel_opt" id="h_rel_opt">
                     <option value="--" selected="selected"> -- </option>
-                    <option value="=" > = </option>
-                    <option value=">"> > </option>
-                    <option value="<"> < </option>
-                    <option value=">="> >= </option>
-                    <option value="<="> <= </option>
+                    <option value="="> = </option>
+                    <option value="&gt;"> &gt; </option>
+                    <option value="&lt;"> &lt; </option>
+                    <option value="&gt;="> &gt;= </option>
+                    <option value="&lt;="> &lt;= </option>
                     <option value="NOT"> NOT </option>
                     <option value="IN"> IN </option>
                     <option value="EXCEPT"> <?php echo __('Except'); ?> </option>
@@ -554,7 +554,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <table id="query_rename_to" style="display:none;"
-    width="5%" border="0" cellpadding="0" cellspacing="0">
+    width="5%" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
     <td class="frams1" width="10px"></td>
@@ -564,7 +564,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <tr>
     <td class="frams8"></td>
     <td class="input_tab">
-        <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+        <table width="168" align="center" cellpadding="2" cellspacing="0">
         <thead>
         <tr>
         <td colspan="2" align="center" nowrap="nowrap"><strong><?php echo __('Rename to'); ?></strong></td>
@@ -602,7 +602,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <table id="query_having" style="display:none;"
-    width="5%" border="0" cellpadding="0" cellspacing="0">
+    width="5%" cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
         <td class="frams1" width="10px"></td>
@@ -612,7 +612,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <tr>
     <td class="frams8"></td>
     <td class="input_tab">
-    <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+    <table width="168" align="center" cellpadding="2" cellspacing="0">
        <thead>
         <tr>
           <td colspan="2" align="center" nowrap="nowrap"><strong>HAVING</strong></td>
@@ -636,11 +636,11 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <td width="58" nowrap="nowrap"><?php echo __('Operator'); ?></td>
             <td width="102"><select name="hrel_opt" id="hrel_opt">
                 <option value="--" selected="selected"> -- </option>
-                    <option value="=" > = </option>
-                    <option value=">"> > </option>
-                    <option value="<"> < </option>
-                    <option value=">="> >= </option>
-                    <option value="<="> <= </option>
+                    <option value="="> = </option>
+                    <option value="&gt;"> &gt; </option>
+                    <option value="&lt;"> &lt; </option>
+                    <option value="&gt;="> &gt;= </option>
+                    <option value="&lt;="> &lt;= </option>
                     <option value="NOT"> NOT </option>
                     <option value="IN"> IN </option>
                     <option value="EXCEPT"> <?php echo __('Except'); ?> </option>
@@ -678,7 +678,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <table id="query_Aggregate" style="display:none;"
-    width="5%" border="0" cellpadding="0" cellspacing="0">
+    width="5%" cellpadding="0" cellspacing="0">
 <tbody>
 <tr>
     <td class="frams1" width="10px"></td>
@@ -688,7 +688,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <tr>
     <td class="frams8"></td>
     <td class="input_tab">
-        <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+        <table width="168" align="center" cellpadding="2" cellspacing="0">
         <thead>
         <tr>
         <td colspan="2" align="center" nowrap="nowrap"><strong><?php echo __('Aggregate'); ?></strong></td>
@@ -732,7 +732,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <table id="query_where" style="display:none;"
-    width="5%" border="0" cellpadding="0" cellspacing="0">
+    width="5%" cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
         <td class="frams1" width="10px"></td>
@@ -742,7 +742,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <tr>
     <td class="frams8"></td>
     <td class="input_tab">
-    <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
+    <table width="168" align="center" cellpadding="2" cellspacing="0">
        <thead>
         <tr>
           <td colspan="2" align="center" nowrap="nowrap"><strong>WHERE</strong></td>
@@ -754,10 +754,10 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             <td width="102"><select name="erel_opt" id="erel_opt">
                 <option value="--" selected="selected"> -- </option>
                     <option value="=" > = </option>
-                    <option value=">"> > </option>
-                    <option value="<"> < </option>
-                    <option value=">="> >= </option>
-                    <option value="<="> <= </option>
+                    <option value="&gt;"> &gt; </option>
+                    <option value="&lt;"> &lt; </option>
+                    <option value="&gt;="> &gt;= </option>
+                    <option value="&lt;="> &lt;= </option>
                     <option value="NOT"> NOT </option>
                     <option value="IN"> IN </option>
                     <option value="EXCEPT"> <?php echo __('Except'); ?> </option>

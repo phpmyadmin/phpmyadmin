@@ -86,7 +86,7 @@ function PMA_auth_fails()
     <h1><?php echo sprintf(__('Welcome to %s'), ' phpMyAdmin '); ?></h1>
 </center>
 <br />
-<table border="0" cellpadding="0" cellspacing="3" align="center" width="80%">
+<table cellpadding="0" cellspacing="3" align="center" width="80%">
     <tr>
         <td>
 

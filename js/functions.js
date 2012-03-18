@@ -3630,5 +3630,5 @@ function toggleRowColors($start)
  * This way, we don't break HTML validity
  */
 $(function () {
-    $("a[rel=_blank]").prop("target", "_blank");
+    $("a._blank").prop("target", "_blank");
 });

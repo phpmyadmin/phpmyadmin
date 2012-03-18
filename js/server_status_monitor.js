@@ -1615,7 +1615,7 @@ $(function() {
     function buildLogTable(data) {
         var rows = data.rows;
         var cols = new Array();
-        var $table = $('<table border="0" class="sortable"></table>');
+        var $table = $('<table class="sortable"></table>');
         var $tBody, $tRow, $tCell;
 
         $('#logTable').html($table);

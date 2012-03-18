@@ -117,7 +117,7 @@ PMA_showMessage(PMA_Message::success());
  * Displays the page
  */
 ?>
-<table border="0" cellpadding="2" cellspacing="1">
+<table cellpadding="2" cellspacing="1">
 <thead>
 <tr>
     <td colspan="6" align="center">
