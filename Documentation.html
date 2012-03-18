@@ -56,7 +56,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
 <!-- REQUIREMENTS -->
 <h2 id="require">Requirements</h2>
 
-<ul><li><b>PHP</b>
+<ul><li><strong>PHP</strong>
         <ul><li>You need PHP 5.2.0 or newer, with <tt>session</tt> support
                 (<a href="#faq1_31">see
             <abbr title="Frequently Asked Questions">FAQ</abbr> 1.31</a>)
@@ -73,7 +73,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
             <li>When using the &quot;cookie&quot;
                 <a href="#authentication_modes">authentication method</a>, the
                 <a href="http://www.php.net/mcrypt"><tt>mcrypt</tt></a> extension
-                is strongly suggested for most users and is <b>required</b> for
+                is strongly suggested for most users and is <strong>required</strong> for
                 64&#8211;bit machines. Not using mcrypt will cause phpMyAdmin to
                 load pages significantly slower.
                 </li>
@@ -84,8 +84,8 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
                 <a href="http://www.php.net/libxml"><tt>libxml</tt></a> extension.</li>
         </ul>
     </li>
-    <li><b>MySQL</b> 5.0 or newer (<a href="#faq1_17">details</a>);</li>
-    <li><b>Web browser</b> with cookies enabled.</li>
+    <li><strong>MySQL</strong> 5.0 or newer (<a href="#faq1_17">details</a>);</li>
+    <li><strong>Web browser</strong> with cookies enabled.</li>
 </ul>
 
 <!-- INTRODUCTION -->
@@ -271,7 +271,7 @@ chmod o+w config/config.inc.php     # give it world writable permissions
                 Next, open <tt><a href="setup/">setup/</a>
                 </tt>in your browser. Note that <strong>changes are not saved to
                 disk until explicitly choose <tt>Save</tt></strong> from the
-                <i>Configuration</i> area of the screen. Normally the script saves
+                <em>Configuration</em> area of the screen. Normally the script saves
                 the new config.inc.php to the <tt>config/</tt> directory, but if
                 the webserver does not have the proper permissions you may see the
                 error "Cannot load or save configuration." Ensure that the <tt>
@@ -296,7 +296,7 @@ rm -rf config                      # remove not needed directory
         config does not require a user to
         enter a password to access the phpMyAdmin installation. Use of an alternate
         authentication method is recommended, for example with
-        HTTP&#8211;AUTH in a <a href="#glossary"><i>.htaccess</i></a> file or switch to using
+        HTTP&#8211;AUTH in a <a href="#glossary"><em>.htaccess</em></a> file or switch to using
         <tt>auth_type</tt> cookie or http. See the
         <a href="#faqmultiuser"> multi&#8211;user sub&#8211;section</a> of this
         <abbr title="Frequently Asked Questions">FAQ</abbr> for additional
@@ -309,7 +309,7 @@ rm -rf config                      # remove not needed directory
         authentication mode.</li>
     <li>You should deny access to the <tt>./libraries</tt> and
         <tt>./setup/lib</tt> subfolders in your webserver configuration. For
-        Apache you can use supplied <a href="#glossary"><i>.htaccess</i></a> file in that folder, for other
+        Apache you can use supplied <a href="#glossary"><em>.htaccess</em></a> file in that folder, for other
         webservers, you should configure this yourself.  Such configuration
         prevents from possible path exposure and cross side scripting
         vulnerabilities that might happen to be found in that code.</li>
@@ -334,21 +334,21 @@ rm -rf config                      # remove not needed directory
     controluser, so no other user should have rights to it).</p>
 
 <p> Please look at your <tt>./examples/</tt> directory, where you should find a
-    file called <i>create_tables.sql</i>. (If you are using a Windows server, pay
+    file called <em>create_tables.sql</em>. (If you are using a Windows server, pay
     special attention to <a href="#faq1_23">
     <abbr title="Frequently Asked Questions">FAQ</abbr> 1.23</a>).</p>
 
 <p> If you already had this infrastructure and upgraded to MySQL 4.1.2
-    or newer, please use <i>./examples/upgrade_tables_mysql_4_1_2+.sql</i>
-    and then create new tables by importing <i>./examples/create_tables.sql</i>.</p>
+    or newer, please use <em>./examples/upgrade_tables_mysql_4_1_2+.sql</em>
+    and then create new tables by importing <em>./examples/create_tables.sql</em>.</p>
 
 <p> You can use your phpMyAdmin to create the tables for you. Please be aware
     that you may need special (administrator) privileges to create the database
     and tables, and that the script may need some tuning, depending on the
     database name.</p>
 
-<p> After having imported the <i>./examples/create_tables.sql</i> file, you
-    should specify the table names in your <i>./config.inc.php</i> file. The
+<p> After having imported the <em>./examples/create_tables.sql</em> file, you
+    should specify the table names in your <em>./config.inc.php</em> file. The
     directives used for that can be found in the <a href="#config">Configuration
     section</a>. You will also need to have a controluser with the proper rights
     to those tables (see section <a href="#authentication_modes">Using
@@ -356,7 +356,7 @@ rm -rf config                      # remove not needed directory
 
 <h3 id="upgrading">Upgrading from an older version</h3>
 
-<p> Simply copy <i>./config.inc.php</i> from your previous installation into the newly
+<p> Simply copy <em>./config.inc.php</em> from your previous installation into the newly
     unpacked one. Configuration files from old versions may
     require some tweaking as some options have been changed or removed; in
     particular, the definition of <tt>$cfg['AttributeTypes']</tt> has changed
@@ -376,12 +376,12 @@ rm -rf config                      # remove not needed directory
 <h3 id="authentication_modes">Using authentication modes</h3>
 
 <ul><li><abbr title="HyperText Transfer Protocol">HTTP</abbr> and cookie
-        authentication modes are recommended in a <b>multi-user environment</b>
+        authentication modes are recommended in a <strong>multi-user environment</strong>
         where you want to give users access to their own database and don't want
         them to play around with others.<br />
         Nevertheless be aware that MS Internet Explorer seems to be really buggy
         about cookies, at least till version 6.<br />
-        Even in a <b>single-user environment</b>, you might prefer to use
+        Even in a <strong>single-user environment</strong>, you might prefer to use
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie mode so
         that your user/password pair are not in clear in the configuration file.
         </li>
@@ -399,11 +399,11 @@ rm -rf config                      # remove not needed directory
         your MySQL server is running with <tt>--skip-show-database</tt>.<br /><br />
 
         For '<abbr title="HyperText Transfer Protocol">HTTP</abbr>' and 'cookie'
-        modes, phpMyAdmin needs a controluser that has <b>only</b> the
-        <tt>SELECT</tt> privilege on the <i>`mysql`.`user` (all columns except
-        `Password`)</i>, <i>`mysql`.`db` (all columns)</i>, <i>`mysql`.`host`
-        (all columns)</i> and <i>`mysql`.`tables_priv` (all columns except
-        `Grantor` and `Timestamp`)</i> tables.<br /> You must specify the details
+        modes, phpMyAdmin needs a controluser that has <strong>only</strong> the
+        <tt>SELECT</tt> privilege on the <em>`mysql`.`user` (all columns except
+        `Password`)</em>, <em>`mysql`.`db` (all columns)</em>, <em>`mysql`.`host`
+        (all columns)</em> and <em>`mysql`.`tables_priv` (all columns except
+        `Grantor` and `Timestamp`)</em> tables.<br /> You must specify the details
         for the <a href="#controluser">controluser</a> in the <tt>config.inc.php</tt>
         file under the
         <tt><a href="#cfg_Servers_controluser" class="configrule">
@@ -411,8 +411,8 @@ rm -rf config                      # remove not needed directory
         <tt><a href="#cfg_Servers_controlpass" class="configrule">
             $cfg['Servers'][$i]['controlpass']</a></tt> settings.<br />
         The following example assumes you want to use <tt>pma</tt> as the
-        controluser and <tt>pmapass</tt> as the controlpass, but <b>this is
-        only an example: use something else in your file!</b> Input these
+        controluser and <tt>pmapass</tt> as the controlpass, but <strong>this is
+        only an example: use something else in your file!</strong> Input these
         statements from the phpMyAdmin <abbr title="structured query language">SQL
         </abbr> Query window or mysql command&#8211;line client.<br />
         Of course you have to replace <tt>localhost</tt> with the webserver's host
@@ -442,12 +442,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         configuration storage</a> be set up).  
     <br /></li>
 
-    <li>Then each of the <i>true</i> users should be granted a set of privileges
+    <li>Then each of the <em>true</em> users should be granted a set of privileges
         on a set of particular databases. Normally you shouldn't give global
         privileges to an ordinary user, unless you understand the impact of those
         privileges (for example, you are creating a superuser).<br />
-        For example, to grant the user <i>real_user</i> with all privileges on
-        the database <i>user_base</i>:<br />
+        For example, to grant the user <em>real_user</em> with all privileges on
+        the database <em>user_base</em>:<br />
 
         <pre>
 GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';
@@ -476,7 +476,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         1.35</a>.</li>
     <li>See also <a href="#faq4_4">
         <abbr title="Frequently Asked Questions">FAQ</abbr> 4.4</a> about not
-        using the <a href="#glossary"><i>.htaccess</i></a> mechanism along with
+        using the <a href="#glossary"><em>.htaccess</em></a> mechanism along with
         '<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication
         mode.</li>
 </ul>
@@ -534,7 +534,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     <li>Unlike cookie and http, does not require a user to log in when first
         loading the phpMyAdmin site. This is by design but could allow any
         user to access your installation. Use of some restriction method is
-        suggested, perhaps a <a href="#glossary"><i>.htaccess</i></a> file with the
+        suggested, perhaps a <a href="#glossary"><em>.htaccess</em></a> file with the
         HTTP-AUTH directive or disallowing incoming HTTP requests at
         one&#8217;s router or firewall will suffice (both of which
         are beyond the scope of this manual but easily searchable with Google).</li>
@@ -581,7 +581,7 @@ since this link provides funding for phpMyAdmin.
 
 <p> The parameters which relate to design (like colors) are placed in
     <tt>themes/themename/layout.inc.php</tt>. You might also want to create
-    <i>config.footer.inc.php</i> and <i>config.header.inc.php</i> files to add
+    <em>config.footer.inc.php</em> and <em>config.header.inc.php</em> files to add
     your site specific code to be included on start and end of each page.</p>
 
 <dl><dt id="cfg_PmaAbsoluteUri">$cfg['PmaAbsoluteUri'] string</dt>
@@ -697,10 +697,10 @@ since this link provides funding for phpMyAdmin.
     <dd>What php MySQL extension to use for the connection. Valid options are:
         <br /><br />
 
-        <tt><i>mysql</i></tt> :
+        <tt><em>mysql</em></tt> :
         The classic MySQL extension.<br /><br />
 
-        <tt><i>mysqli</i></tt> :
+        <tt><em>mysqli</em></tt> :
         The improved MySQL extension. This extension became available
         with PHP 5.0.0 and is the recommended way to connect to a server
         running MySQL 4.1.x or newer.</dd>
@@ -731,9 +731,9 @@ since this link provides funding for phpMyAdmin.
         cookie authentication modes (or 'config'
         authentication mode since phpMyAdmin 2.2.1), you need to supply the
         details of a MySQL account that has <tt>SELECT</tt> privilege on the
-        <i>mysql.user (all columns except &quot;Password&quot;)</i>,
-        <i>mysql.db (all columns)</i> and <i>mysql.tables_priv (all columns
-        except &quot;Grantor&quot; and &quot;Timestamp&quot;) </i>tables.
+        <em>mysql.user (all columns except &quot;Password&quot;)</em>,
+        <em>mysql.db (all columns)</em> and <em>mysql.tables_priv (all columns
+        except &quot;Grantor&quot; and &quot;Timestamp&quot;) </em>tables.
         This account is used to check what databases the user will see at
         login.<br />
         Please see the <a href="#setup">install section</a> on
@@ -749,7 +749,7 @@ since this link provides funding for phpMyAdmin.
         should be used for this server.
         <ul><li>'config' authentication (<tt>$auth_type&nbsp;=&nbsp;'config'</tt>)
                 is the plain old way: username and password are stored in
-                <i>config.inc.php</i>.</li>
+                <em>config.inc.php</em>.</li>
             <li>'cookie' authentication mode
                 (<tt>$auth_type&nbsp;=&nbsp;'cookie'</tt>) as introduced in
                 2.2.3 allows you to log in as any valid MySQL user with the
@@ -1030,7 +1030,7 @@ ALTER TABLE `pma_column_comments`
     ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
 </pre>
 
-                and remember that the Variable in <i>config.inc.php</i> has been
+                and remember that the Variable in <em>config.inc.php</em> has been
                 renamed from<br />
                 <tt>$cfg['Servers'][$i]['column_comments']</tt> to
                 <tt>$cfg['Servers'][$i]['column_info']</tt></li>
@@ -1280,9 +1280,9 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
         If your rule order is set to 'explicit', authorization is
         performed in a similar fashion to rule order 'deny,allow', with the
-        added restriction that your host/username combination <b>must</b> be
-        listed in the <i>allow</i> rules, and not listed in the <i>deny</i>
-        rules. This is the <b>most</b> secure means of using Allow/Deny rules,
+        added restriction that your host/username combination <strong>must</strong> be
+        listed in the <em>allow</em> rules, and not listed in the <em>deny</em>
+        rules. This is the <strong>most</strong> secure means of using Allow/Deny rules,
         and was available in Apache by specifying allow and deny rules without
         setting any order.<br /><br />
 
@@ -1300,8 +1300,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 </pre>
 
         If you wish to match all users, it is possible to use a <tt>'%'</tt> as
-        a wildcard in the <i>username</i> field.<br />
-        There are a few shortcuts you can use in the <i>ipmask</i> field as
+        a wildcard in the <em>username</em> field.<br />
+        There are a few shortcuts you can use in the <em>ipmask</em> field as
         well (please note that those containing SERVER_ADDRESS might not be
         available on all webservers):
         <pre>
@@ -1514,7 +1514,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>If enabled, allows you to log in to arbitrary servers using cookie auth and permits to specify servers of your choice in the Synchronize dialog.
         <br /><br />
 
-        <b>NOTE:</b> Please use this carefully, as this may allow users access to
+        <strong>NOTE:</strong> Please use this carefully, as this may allow users access to
         MySQL servers behind the firewall where your
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> server is placed.
     </dd>
@@ -1641,7 +1641,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         does not check MySQL commands entered directly.<br /><br />
 
         Please note that to block the usage of phpinfo() in scripts, you
-        have to put this in your <i>php.ini</i>:
+        have to put this in your <em>php.ini</em>:
 
         <pre>disable_functions = phpinfo()</pre>
 
@@ -1733,7 +1733,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>For the foreign key drop-down fields, there are several methods of
         display, offering both the key and value data. The contents of the
         array should be one or both of the following strings:
-        <i>'content-id'</i>, <i>'id-content'</i>.</dd>
+        <em>'content-id'</em>, <em>'id-content'</em>.</dd>
 
     <dt><span id="cfg_ZipDump">$cfg['ZipDump'] </span>boolean<br />
         <span id="cfg_GZipDump">$cfg['GZipDump'] </span>boolean<br />
@@ -1807,7 +1807,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines the default language to use, if not browser-defined or
         user-defined.<br />
         The corresponding language file needs to be in
-        locale/<i>code</i>/LC_MESSAGES/phpmyadmin.mo.
+        locale/<em>code</em>/LC_MESSAGES/phpmyadmin.mo.
         </dd>
 
     <dt id="cfg_DefaultConnectionCollation">$cfg['DefaultConnectionCollation'] string</dt>
@@ -1820,7 +1820,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt id="cfg_Lang">$cfg['Lang'] string</dt>
     <dd>Force language to use.<br />
         The corresponding language file needs to be in
-        locale/<i>code</i>/LC_MESSAGES/phpmyadmin.mo.
+        locale/<em>code</em>/LC_MESSAGES/phpmyadmin.mo.
         </dd>
 
     <dt id="cfg_FilterLanguages">$cfg['FilterLanguages'] string</dt>
@@ -2341,36 +2341,36 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dt id="cfg_SQP_fmtColor">$cfg['SQP']['fmtColor'] array of string tuples</dt>
     <dd>This array is used to define the colours for each type of element of
         the pretty-printed <abbr title="structured query language">SQL</abbr> queries. The tuple format is<br />
-        <i>class</i> =&gt; [<i>HTML colour code</i> | <i>empty string</i>]<br />
+        <em>class</em> =&gt; [<em>HTML colour code</em> | <em>empty string</em>]<br />
         If you specify an empty string for the color of a class, it is ignored
         in creating the stylesheet.
         You should not alter the class names, only the colour strings.<br />
-        <b>Class name key:</b>
-        <ul><li><b>comment</b> Applies to all comment sub-classes</li>
-            <li><b>comment_mysql</b> Comments as <tt>"#...\n"</tt></li>
-            <li><b>comment_ansi</b> Comments as <tt>"-- ...\n"</tt></li>
-            <li><b>comment_c</b> Comments as <tt>"/*...*/"</tt></li>
-            <li><b>digit</b> Applies to all digit sub-classes</li>
-            <li><b>digit_hex</b> Hexadecimal numbers</li>
-            <li><b>digit_integer</b> Integer numbers</li>
-            <li><b>digit_float</b> Floating point numbers</li>
-            <li><b>punct</b> Applies to all punctuation sub-classes</li>
-            <li><b>punct_bracket_open_round</b> Opening brackets<tt>"("</tt></li>
-            <li><b>punct_bracket_close_round</b> Closing brackets <tt>")"</tt></li>
-            <li><b>punct_listsep</b> List item Separator <tt>","</tt></li>
-            <li><b>punct_qualifier</b> Table/Column Qualifier <tt>"."</tt> </li>
-            <li><b>punct_queryend</b> End of query marker <tt>";"</tt></li>
-            <li><b>alpha</b> Applies to all alphabetic classes</li>
-            <li><b>alpha_columnType</b> Identifiers matching a column type</li>
-            <li><b>alpha_columnAttrib</b> Identifiers matching a database/table/column attribute</li>
-            <li><b>alpha_functionName</b> Identifiers matching a MySQL function name</li>
-            <li><b>alpha_reservedWord</b> Identifiers matching any other reserved word</li>
-            <li><b>alpha_variable</b> Identifiers matching a <abbr title="structured query language">SQL</abbr> variable <tt>"@foo"</tt></li>
-            <li><b>alpha_identifier</b> All other identifiers</li>
-            <li><b>quote</b> Applies to all quotation mark classes</li>
-            <li><b>quote_double</b> Double quotes <tt>"</tt></li>
-            <li><b>quote_single</b> Single quotes <tt>'</tt></li>
-            <li><b>quote_backtick</b> Backtick quotes <tt>`</tt></li>
+        <strong>Class name key:</strong>
+        <ul><li><strong>comment</strong> Applies to all comment sub-classes</li>
+            <li><strong>comment_mysql</strong> Comments as <tt>"#...\n"</tt></li>
+            <li><strong>comment_ansi</strong> Comments as <tt>"-- ...\n"</tt></li>
+            <li><strong>comment_c</strong> Comments as <tt>"/*...*/"</tt></li>
+            <li><strong>digit</strong> Applies to all digit sub-classes</li>
+            <li><strong>digit_hex</strong> Hexadecimal numbers</li>
+            <li><strong>digit_integer</strong> Integer numbers</li>
+            <li><strong>digit_float</strong> Floating point numbers</li>
+            <li><strong>punct</strong> Applies to all punctuation sub-classes</li>
+            <li><strong>punct_bracket_open_round</strong> Opening brackets<tt>"("</tt></li>
+            <li><strong>punct_bracket_close_round</strong> Closing brackets <tt>")"</tt></li>
+            <li><strong>punct_listsep</strong> List item Separator <tt>","</tt></li>
+            <li><strong>punct_qualifier</strong> Table/Column Qualifier <tt>"."</tt> </li>
+            <li><strong>punct_queryend</strong> End of query marker <tt>";"</tt></li>
+            <li><strong>alpha</strong> Applies to all alphabetic classes</li>
+            <li><strong>alpha_columnType</strong> Identifiers matching a column type</li>
+            <li><strong>alpha_columnAttrib</strong> Identifiers matching a database/table/column attribute</li>
+            <li><strong>alpha_functionName</strong> Identifiers matching a MySQL function name</li>
+            <li><strong>alpha_reservedWord</strong> Identifiers matching any other reserved word</li>
+            <li><strong>alpha_variable</strong> Identifiers matching a <abbr title="structured query language">SQL</abbr> variable <tt>"@foo"</tt></li>
+            <li><strong>alpha_identifier</strong> All other identifiers</li>
+            <li><strong>quote</strong> Applies to all quotation mark classes</li>
+            <li><strong>quote_double</strong> Double quotes <tt>"</tt></li>
+            <li><strong>quote_single</strong> Single quotes <tt>'</tt></li>
+            <li><strong>quote_backtick</strong> Backtick quotes <tt>`</tt></li>
         </ul>
     </dd>
 
@@ -2394,10 +2394,10 @@ setfacl -d -m "g:www-data:rwx" tmp
     </dd>
 
     <dt id="cfg_DBG">$cfg['DBG']</dt>
-    <dd><b>DEVELOPERS ONLY!</b></dd>
+    <dd><strong>DEVELOPERS ONLY!</strong></dd>
 
     <dt id="cfg_DBG_sql">$cfg['DBG']['sql'] boolean</dt>
-    <dd><b>DEVELOPERS ONLY!</b><br />
+    <dd><strong>DEVELOPERS ONLY!</strong><br />
         Enable logging queries and execution times to be displayed in the bottom
         of main page (right frame).</dd>
 
@@ -2458,7 +2458,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <p> For a general overview of all available transformations and their options,
     you can consult your
-    <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/transformation_overview.php</i>
+    <em>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/transformation_overview.php</em>
     installation.</p>
 
 <p> For a tutorial on how to effectively use transformations, see our
@@ -2467,7 +2467,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <h3 id="transformationshowto">2. Usage</h3>
 
-<p> Go to your <i>tbl_structure.php</i> page (i.e. reached through
+<p> Go to your <em>tbl_structure.php</em> page (i.e. reached through
     clicking on the 'Structure' link for a table). There click on
     &quot;Change&quot; (or change icon) and there you will see three new
     fields at
@@ -2528,7 +2528,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     for, but pay attention to option usage as well as what the transformation does to your
     column.</p>
 
-<p> There is a basic file called '<i>global.inc.php</i>'. This function can be included by
+<p> There is a basic file called '<em>global.inc.php</em>'. This function can be included by
     any other transform function and provides some basic functions.</p>
 
 <p> There are 5 possible file names:</p>
@@ -2545,7 +2545,7 @@ setfacl -d -m "g:www-data:rwx" tmp
         The transform function will the be called
         '<tt>PMA_transform_[mimetype]_[subtype]__[transform]()</tt>'.<br /><br />
 
-        <b>Example:</b><br /><br />
+        <strong>Example:</strong><br /><br />
 
         <tt>text_html__formatted.inc.php</tt><br />
         <tt>PMA_transform_text_html__formatted()</tt></li>
@@ -2562,7 +2562,7 @@ setfacl -d -m "g:www-data:rwx" tmp
         The transform function will the be called
         '<tt>PMA_transform_[mimetype]__[transform]()</tt>'.<br /><br />
 
-        <b>Example:</b><br /><br />
+        <strong>Example:</strong><br /><br />
 
         <tt>text__formatted.inc.php</tt><br />
         <tt>PMA_transform_text__formatted()</tt></li>
@@ -2577,7 +2577,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
         No transformation function is defined in the file itself.<br /><br />
 
-        <b>Example:</b><br /><br />
+        <strong>Example:</strong><br /><br />
 
         <tt>text_plain.inc.php</tt><br />
         (No function)</li>
@@ -2592,7 +2592,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
         No transformation function is defined in the file itself.<br /><br />
 
-        <b>Example:</b><br /><br />
+        <strong>Example:</strong><br /><br />
 
         <tt>text.inc.php</tt><br />
         (No function)</li>
@@ -2604,7 +2604,7 @@ setfacl -d -m "g:www-data:rwx" tmp
         The transform function will the be called
         '<tt>PMA_transform_global__[transform]()</tt>'.<br /><br />
 
-        <b>Example:</b><br /><br />
+        <strong>Example:</strong><br /><br />
 
         <tt>global__formatted</tt><br />
         <tt>PMA_transform_global__formatted()</tt></li>
@@ -2627,11 +2627,11 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <p> A transform function always gets passed three variables:</p>
 
-<ol><li><b>$buffer</b> - Contains the text inside of the column. This is the text,
+<ol><li><strong>$buffer</strong> - Contains the text inside of the column. This is the text,
         you want to transform.</li>
-    <li><b>$options</b> - Contains any user-passed options to a transform function
+    <li><strong>$options</strong> - Contains any user-passed options to a transform function
         as an array.</li>
-    <li><b>$meta</b> - Contains an object with information about your column.
+    <li><strong>$meta</strong> - Contains an object with information about your column.
         The data is drawn from the output of the
         <a href="http://www.php.net/mysql_fetch_field">mysql_fetch_field()</a>
         function. This means, all object properties described on the
@@ -2681,7 +2681,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     cryptic characters to my browser, what can I do?</a></h4>
 
 <p> Try to set the <a href="#cfg_OBGzip" class="configrule">$cfg['OBGzip']</a>
-    directive to <tt>FALSE</tt> in your <i>config.inc.php</i> file and the
+    directive to <tt>FALSE</tt> in your <em>config.inc.php</em> file and the
     <tt>zlib.output_compression</tt> directive to <tt>Off</tt> in your php
     configuration file.<br /></p>
 
@@ -2706,7 +2706,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     <abbr title="HyperText Transfer Protocol">HTTP</abbr> headers ...&quot;.</a>
 </h4>
 
-<p> You just forgot to read the <i>install.txt</i> file from the PHP distribution.
+<p> You just forgot to read the <em>install.txt</em> file from the PHP distribution.
     Have a look at the last message in this
     <a href="http://bugs.php.net/bug.php?id=12061">bug report</a> from the
     official PHP bug database.</p>
@@ -2727,9 +2727,9 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <p> This seems to be a PWS bug. Filippo Simoncini found a workaround (at this
     time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
-    declarations (2 lines) from the scripts <i>libraries/header.inc.php</i>,
-    <i>libraries/header_printview.inc.php</i>, <i>index.php</i>,
-    <i>navigation.php</i> and <i>libraries/common.lib.php</i>.</p>
+    declarations (2 lines) from the scripts <em>libraries/header.inc.php</em>,
+    <em>libraries/header_printview.inc.php</em>, <em>index.php</em>,
+    <em>navigation.php</em> and <em>libraries/common.lib.php</em>.</p>
 
 <h4 id="faq1_7">
     <a href="#faq1_7">1.7 How can I GZip or Bzip a dump or a
@@ -2746,8 +2746,8 @@ setfacl -d -m "g:www-data:rwx" tmp
     an error about safe mode being in effect.</a></h4>
 
 <p> Your uploaded file is saved by PHP in the &quot;upload dir&quot;, as
-    defined in <i>php.ini</i> by the variable <tt>upload_tmp_dir</tt> (usually
-    the system default is <i>/tmp</i>).<br />
+    defined in <em>php.ini</em> by the variable <tt>upload_tmp_dir</tt> (usually
+    the system default is <em>/tmp</em>).<br />
     We recommend the following setup for Apache servers running in safe mode,
     to enable uploads of files while being reasonably secure:</p>
 
@@ -2755,7 +2755,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     <li>give ownership to the Apache server's user.group:
         <tt>chown apache.apache /tmp/php</tt></li>
     <li>give proper permission: <tt>chmod 600 /tmp/php</tt></li>
-    <li>put <tt>upload_tmp_dir = /tmp/php</tt> in <i>php.ini</i></li>
+    <li>put <tt>upload_tmp_dir = /tmp/php</tt> in <em>php.ini</em></li>
     <li>restart Apache</li>
 </ul>
 
@@ -2768,7 +2768,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     I'm using the Apache server.</a></h4>
 
 <p> As suggested by &quot;Rob M&quot; in the phpWizard forum, add this line to
-    your <i>httpd.conf</i>:</p>
+    your <em>httpd.conf</em>:</p>
 
     <pre>SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown</pre>
 
@@ -2798,7 +2798,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     <a href="#faq1_14">1.14 (withdrawn).</a></h4>
 
 <h4 id="faq1_15">
-    <a href="#faq1_15">1.15 I have problems with <i>mysql.user</i> column names.</a>
+    <a href="#faq1_15">1.15 I have problems with <em>mysql.user</em> column names.</a>
 </h4>
 
 <p> In previous MySQL versions, the <tt>User</tt> and <tt>Password</tt>columns 
@@ -2816,7 +2816,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <p> The first things to check (or ask your host provider to check) are the
     values of <tt>upload_max_filesize</tt>, <tt>memory_limit</tt> and
-    <tt>post_max_size</tt> in the <i>php.ini</i> configuration file.
+    <tt>post_max_size</tt> in the <em>php.ini</em> configuration file.
     All of these three settings limit the maximum size of data that can be
     submitted and handled by PHP. One user also said that
     <tt>post_max_size</tt>
@@ -2837,7 +2837,7 @@ setfacl -d -m "g:www-data:rwx" tmp
         with it.</li>
     <li>If you have shell (command line) access, use MySQL to import the files
         directly. You can do this by issuing the &quot;source&quot; command from
-        within MySQL: <tt>source <i>filename.sql</i></tt>.</li>
+        within MySQL: <tt>source <em>filename.sql</em></tt>.</li>
 </ul>
 
 <h4 id="faq1_17">
@@ -2900,7 +2900,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 <p> To connect to a MySQL server, PHP needs a set of MySQL functions called
     &quot;MySQL extension&quot;. This extension may be part of the PHP
     distribution (compiled-in), otherwise it needs to be loaded dynamically. Its
-    name is probably <i>mysql.so</i> or <i>php_mysql.dll</i>. phpMyAdmin tried
+    name is probably <em>mysql.so</em> or <em>php_mysql.dll</em>. phpMyAdmin tried
     to load the extension but failed.<br /><br />
 
     Usually, the problem is solved by installing a software package called
@@ -2911,13 +2911,13 @@ setfacl -d -m "g:www-data:rwx" tmp
     <abbr title="Common Gateway Interface">CGI</abbr> version of PHP under Unix,
     and I cannot log in using cookie auth.</a></h4>
 
-<p> In <i>php.ini</i>, set <tt>mysql.max_links</tt> higher than 1.</p>
+<p> In <em>php.ini</em>, set <tt>mysql.max_links</tt> higher than 1.</p>
 
 <h4 id="faq1_22">
     <a href="#faq1_22">1.22 I don't see the &quot;Location of text file&quot; field,
     so I cannot upload.</a></h4>
 
-<p> This is most likely because in <i>php.ini</i>, your <tt>file_uploads</tt>
+<p> This is most likely because in <em>php.ini</em>, your <tt>file_uploads</tt>
     parameter is not set to &quot;on&quot;.</p>
 
 <h4 id="faq1_23">
@@ -2974,7 +2974,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 <p> This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
     GZIP output buffering is enabled. If you turn off it (by
     <a href="#cfg_OBGzip" class="configrule">$cfg['OBGzip'] = false</a>
-    in <i>config.inc.php</i>), it should work. This bug will be fixed in
+    in <em>config.inc.php</em>), it should work. This bug will be fixed in
     PHP&nbsp;5.0.0.</p>
 
 <h4 id="faq1_28">
@@ -3065,7 +3065,7 @@ the order of the server paragraph in <tt>config.inc.php</tt>.
     <code>Options FollowSymLinks</code> and <code>AllowOverride
     FileInfo</code> enabled for directory where phpMyAdmin is installed and
     you need mod_rewrite to be enabled. Then you just need to create following
-    <a href="#glossary"><i>.htaccess</i></a> file in root folder of phpMyAdmin installation
+    <a href="#glossary"><em>.htaccess</em></a> file in root folder of phpMyAdmin installation
     (don't forget to change directory name inside of it):</p>
 
 <pre>
@@ -3190,7 +3190,7 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
 <h4 id="faq1_42">
     <a href="#faq1_42">1.42 How can I prevent robots from accessing phpMyAdmin?</a></h4>
 
-<p>You can add various rules to <a href="#glossary"><i>.htaccess</i></a> to filter access
+<p>You can add various rules to <a href="#glossary"><em>.htaccess</em></a> to filter access
 based on user agent field. This is quite easy to circumvent, but could prevent at least
 some robots accessing your installation.</p>
 
@@ -3223,7 +3223,7 @@ RewriteRule .* - [F]
     <a href="#faq2_1">2.1 The error message &quot;Warning: Cannot add header information -
     headers already sent by ...&quot; is displayed, what's the problem?</a></h4>
 
-<p> Edit your <i>config.inc.php</i> file and ensure there is nothing
+<p> Edit your <em>config.inc.php</em> file and ensure there is nothing
     (I.E. no blank lines, no spaces, no characters...) neither before the
     <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
     tag at the end. We also got a report from a user under
@@ -3247,8 +3247,8 @@ RewriteRule .* - [F]
 
 <p> For RedHat users, Harald Legner suggests this on the mailing list:</p>
 
-<p> On my RedHat-Box the socket of MySQL is <i>/var/lib/mysql/mysql.sock</i>.
-    In your <i>php.ini</i> you will find a line</p>
+<p> On my RedHat-Box the socket of MySQL is <em>/var/lib/mysql/mysql.sock</em>.
+    In your <em>php.ini</em> you will find a line</p>
 
 <pre>mysql.default_socket = /tmp/mysql.sock</pre>
 
@@ -3262,13 +3262,13 @@ RewriteRule .* - [F]
 
 <ul><li>First, you need to determine what socket is being used by MySQL.<br />
         To do this, telnet to your server and go to the MySQL bin directory. In
-        this directory there should be a file named <i>mysqladmin</i>. Type
+        this directory there should be a file named <em>mysqladmin</em>. Type
         <tt>./mysqladmin variables</tt>, and this should give you a bunch of
         info about your MySQL server, including the socket
-        (<i>/tmp/mysql.sock</i>, for example).</li>
+        (<em>/tmp/mysql.sock</em>, for example).</li>
     <li>Then, you need to tell PHP to use this socket.<br /> To do this in
         phpMyAdmin, you need to complete the  socket information in the
-        <i>config.inc.php</i>.<br />
+        <em>config.inc.php</em>.<br />
         For example:
         <a href="#cfg_Servers_socket" class="configrule">
         $cfg['Servers'][$i]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</a>
@@ -3622,7 +3622,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
     This depends on your system.<br />
     If you're running a server which cannot be accessed by other people, it's
     sufficient to use the directory protection bundled with your webserver
-    (with Apache you can use <a href="#glossary"><i>.htaccess</i></a> files, for example).<br />
+    (with Apache you can use <a href="#glossary"><em>.htaccess</em></a> files, for example).<br />
     If other people have telnet access to your server, you should use
     phpMyAdmin's <abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie authentication features.
     <br /><br />
@@ -3630,7 +3630,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 </p>
 <ul>
     <li>
-        Your <i>config.inc.php</i> file should be <tt>chmod 660</tt>.
+        Your <em>config.inc.php</em> file should be <tt>chmod 660</tt>.
     </li>
     <li>
         All your phpMyAdmin files should be chown -R phpmy.apache, where phpmy
@@ -3644,10 +3644,10 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 
 <h4 id="faq4_3">
     <a href="#faq4_3">4.3 I get errors about not being able to include a file in
-    <i>/lang</i> or in <i>/libraries</i>.
+    <em>/lang</em> or in <em>/libraries</em>.
 </a></h4>
 <p>
-    Check <i>php.ini</i>, or ask your sysadmin to check it. The
+    Check <em>php.ini</em>, or ask your sysadmin to check it. The
     <tt>include_path</tt> must contain &quot;.&quot; somewhere in it, and
     <tt>open_basedir</tt>, if used, must contain &quot;.&quot; and
     &quot;./lang&quot; to allow normal operation of phpMyAdmin.
@@ -3666,7 +3666,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
         are wrong.</li>
     <li>The username/password you specify in the login dialog are invalid.</li>
     <li>You have already setup a security mechanism for the
-        phpMyAdmin-directory, eg. a <a href="#glossary"><i>.htaccess</i></a> file. This would interfere with
+        phpMyAdmin-directory, eg. a <a href="#glossary"><em>.htaccess</em></a> file. This would interfere with
         phpMyAdmin's authentication, so remove it.</li>
 </ul>
 
@@ -3682,7 +3682,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 <h4 id="faq4_6">
     <a href="#faq4_6">4.6 How can I use the Host-based authentication additions?</a></h4>
 
-<p> If you have existing rules from an old <a href="#glossary"><i>.htaccess</i></a> file, you can take them
+<p> If you have existing rules from an old <a href="#glossary"><em>.htaccess</em></a> file, you can take them
     and add a username between the <tt>'deny'</tt>/<tt>'allow'</tt> and
     <tt>'from'</tt> strings. Using the username wildcard of <tt>'%'</tt> would
     be a major benefit here if your installation is suited to using it. Then
@@ -4114,7 +4114,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 <h4 id="faqexport">
     <a href="#faqexport">6.12 I want to understand some Export options.</a></h4>
 
-<p><b>Structure:</b></p>
+<p><strong>Structure:</strong></p>
 
 <ul><li>&quot;Add DROP TABLE&quot; will add a line telling MySQL to
         <a href="http://dev.mysql.com/doc/mysql/en/drop-table.html">drop the table</a>,
@@ -4129,11 +4129,11 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
         column and table names formed with special characters are protected.</li>
     <li>&quot;Add into comments&quot; includes column comments, relations, and MIME
         types set in the pmadb in the dump as
-        <abbr title="structured query language">SQL</abbr> comments (<i>/* xxx */</i>).
+        <abbr title="structured query language">SQL</abbr> comments (<em>/* xxx */</em>).
        </li>
 </ul>
 
-<p><b>Data:</b></p>
+<p><strong>Data:</strong></p>
 
 <ul><li>&quot;Complete inserts&quot; adds the column names on every INSERT
         command, for better documentation (but resulting file is bigger).</li>
@@ -4234,12 +4234,12 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     box appears on for that database.<br /><br />
 
     Since phpMyAdmin 2.5.0 you are also able to store variables for the bookmarks.
-    Just use the string <b>/*[VARIABLE]*/</b> anywhere in your query. Everything
-    which is put into the <i>value</i> input box on the query box page will
+    Just use the string <strong>/*[VARIABLE]*/</strong> anywhere in your query. Everything
+    which is put into the <em>value</em> input box on the query box page will
     replace the string &quot;/*[VARIABLE]*/&quot; in your stored query. Just be
     aware of that you HAVE to create a valid query, otherwise your query won't be
     even able to be stored in the database.<br />
-    Also remember, that everything else inside the <b>/*[VARIABLE]*/</b> string
+    Also remember, that everything else inside the <strong>/*[VARIABLE]*/</strong> string
     for your query will remain the way it is, but will be stripped of the /**/
     chars. So you can use:<br /><br />
 
@@ -4262,8 +4262,8 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     <code>SELECT Name, Address FROM addresses WHERE 1 AND Name LIKE '%phpMyAdmin%'</code>
     <br /><br />
 
-    You can use multiple occurrences of <b>/*[VARIABLE]*/</b> in a single query (that is, multiple occurrences of the <i>same</i> variable).<br />
-    <b>NOTE THE ABSENCE OF SPACES</b> inside the &quot;/**/&quot; construct. Any
+    You can use multiple occurrences of <strong>/*[VARIABLE]*/</strong> in a single query (that is, multiple occurrences of the <em>same</em> variable).<br />
+    <strong>NOTE THE ABSENCE OF SPACES</strong> inside the &quot;/**/&quot; construct. Any
     spaces inserted there
     will be later also inserted as spaces in your query and may lead to unexpected
     results especially when
