@@ -206,7 +206,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             $ret .= '<li><input type="radio" name="' . $plugin_name . '_' . $opt['name'] . '" value="' . $key
             . '" id="radio_' . $plugin_name . '_' . $opt['name'] . '_' . $key . '"';
             if ($key == $default) {
-                $ret .= 'checked="checked"';
+                $ret .= ' checked="checked"';
             }
             $ret .= ' />' . '<label for="radio_' . $plugin_name . '_' . $opt['name'] . '_' . $key . '">'
             . PMA_getString($val) . '</label></li>';
