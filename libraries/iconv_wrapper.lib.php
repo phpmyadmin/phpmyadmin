@@ -40,9 +40,9 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
  * Wrapper around IBM AIX iconv(), whose character set naming differs
  * from the GNU version of iconv().
  *
- * @param string   input character set
- * @param string   output character set
- * @param string   the string to convert
+ * @param string $in_charset  input character set
+ * @param string $out_charset output character set
+ * @param string $str         the string to convert
  *
  * @return  mixed    converted string or false on failure
  *

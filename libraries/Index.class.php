@@ -86,7 +86,7 @@ class PMA_Index
     /**
      * Constructor
      *
-     * @param array $params
+     * @param array $params parameters
      */
     public function __construct($params = array())
     {
@@ -111,9 +111,10 @@ class PMA_Index
     /**
      * returns an array with all indexes from the given table
      *
-     * @param string $table
-     * @param string $schema
-     * @return  array
+     * @param string $table  table
+     * @param string $schema schema
+     *
+     * @return  array  array of indexes
      */
     static public function getFromTable($table, $schema)
     {
@@ -129,8 +130,9 @@ class PMA_Index
     /**
      * return primary if set, false otherwise
      *
-     * @param string $table
-     * @param string $schema
+     * @param string $table  table
+     * @param string $schema schema
+     *
      * @return  mixed primary index or false if no one exists
      */
     static public function getPrimary($table, $schema)
@@ -147,9 +149,10 @@ class PMA_Index
     /**
      * Load index data for table
      *
-     * @param string $table
-     * @param string $schema
-     * @return  boolean
+     * @param string $table  table
+     * @param string $schema schema
+     *
+     * @return  boolean whether loading was successful
      */
     static protected function _loadIndexes($table, $schema)
     {
@@ -177,6 +180,8 @@ class PMA_Index
      * Add column to index
      *
      * @param array $params column params
+     *
+     * @return void
      */
     public function addColumn($params)
     {
@@ -216,8 +221,9 @@ class PMA_Index
     /**
      * Returns true if $column indexed in this index
      *
-     * @param string $column
-     * @return  boolean
+     * @param string $column the column
+     *
+     * @return  boolean  true if $column indexed in this index
      */
     public function hasColumn($column)
     {
@@ -324,8 +330,9 @@ class PMA_Index
 
         foreach (PMA_Index::getIndexChoices() as $each_index_choice) {
             if ($each_index_choice === 'PRIMARY'
-             && $this->_choice !== 'PRIMARY'
-             && PMA_Index::getPrimary($this->_table, $this->_schema)) {
+                && $this->_choice !== 'PRIMARY'
+                && PMA_Index::getPrimary($this->_table, $this->_schema)
+            ) {
                 // skip PRIMARY if there is already one in the table
                 continue;
             }
@@ -403,12 +410,13 @@ class PMA_Index
     /**
      * Show index data
      *
-     * @param string      $table          The tablename
-     * @param array       $indexes_info   Referenced info array
-     * @param array       $indexes_data   Referenced data array
-     * @param boolean     $print_mode
+     * @param string  $table      The table name
+     * @param string  $schema     The schema name
+     * @param boolean $print_mode Whether the output is for the print mode
+     *
+     * @return  array  Index collection array
+     *
      * @access  public
-     * @return  array       Index collection array
      */
     static public function getView($table, $schema, $print_mode = false)
     {
@@ -543,9 +551,11 @@ class PMA_Index
     /**
      * Function to check over array of indexes and look for common problems
      *
+     * @param string $table  table name
+     * @param string $schema schema name
+     *
+     * @return  string  Output HTML
      * @access  public
-     * @param string      name of table
-     * @return  string      Output HTML
      */
     static public function findDuplicates($table, $schema)
     {

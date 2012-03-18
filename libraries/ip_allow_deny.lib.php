@@ -58,8 +58,8 @@ function PMA_getIp()
  * Does not match:
  * xxx.xxx.xxx.xx[yyy-zzz]  (range, partial octets not supported)
  *
- * @param string   string of IP range to match
- * @param string   string of IP to test against range
+ * @param string $testRange string of IP range to match
+ * @param string $ipToTest  string of IP to test against range
  *
  * @return  boolean    always true
  *
@@ -67,36 +67,35 @@ function PMA_getIp()
  */
 function PMA_ipMaskTest($testRange, $ipToTest)
 {
-   $result = true;
+    $result = true;
 
-   if (preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs)) {
-       // performs a mask match
-       $ipl    = ip2long($ipToTest);
-       $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);
+    if (preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs)) {
+        // performs a mask match
+        $ipl    = ip2long($ipToTest);
+        $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);
 
-       $maskl  = 0;
+        $maskl  = 0;
 
-       for ($i = 0; $i < 31; $i++) {
-           if ($i < $regs[5] - 1) {
-               $maskl = $maskl + PMA_pow(2, (30 - $i));
-           } // end if
-       } // end for
+        for ($i = 0; $i < 31; $i++) {
+            if ($i < $regs[5] - 1) {
+                $maskl = $maskl + PMA_pow(2, (30 - $i));
+            } // end if
+        } // end for
 
-       if (($maskl & $rangel) == ($maskl & $ipl)) {
-           return true;
-       } else {
-           return false;
-       }
-   } else {
-       // range based
-       $maskocts = explode('.', $testRange);
-       $ipocts   = explode('.', $ipToTest);
+        if (($maskl & $rangel) == ($maskl & $ipl)) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        // range based
+        $maskocts = explode('.', $testRange);
+        $ipocts   = explode('.', $ipToTest);
 
-       // perform a range match
-       for ($i = 0; $i < 4; $i++) {
+        // perform a range match
+        for ($i = 0; $i < 4; $i++) {
             if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs)) {
-                if (($ipocts[$i] > $regs[2])
-                    || ($ipocts[$i] < $regs[1])) {
+                if (($ipocts[$i] > $regs[2]) || ($ipocts[$i] < $regs[1])) {
                     $result = false;
                 } // end if
             } else {
@@ -104,17 +103,17 @@ function PMA_ipMaskTest($testRange, $ipToTest)
                     $result = false;
                 } // end if
             } // end if/else
-       } //end for
-   } //end if/else
+        } //end for
+    } //end if/else
 
-   return $result;
+    return $result;
 } // end of the "PMA_IPMaskTest()" function
 
 
 /**
  * Runs through IP Allow/Deny rules the use of it below for more information
  *
- * @param string 'allow' | 'deny' type of rule to match
+ * @param string $type 'allow' | 'deny' type of rule to match
  *
  * @return  bool   Matched a rule ?
  *
@@ -162,7 +161,8 @@ function PMA_allowDeny($type)
 
         // check for username
         if (($rule_data[1] != '%') //wildcarded first
-            && ($rule_data[1] != $username)) {
+            && ($rule_data[1] != $username)
+        ) {
             continue;
         }
 

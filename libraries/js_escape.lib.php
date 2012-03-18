@@ -13,8 +13,8 @@
  * This function is used to displays a javascript confirmation box for
  * "DROP/DELETE/ALTER" queries.
  *
- * @param string   $a_string          the string to format
- * @param boolean  $add_backquotes    whether to add backquotes to the string or not
+ * @param string  $a_string       the string to format
+ * @param boolean $add_backquotes whether to add backquotes to the string or not
  *
  * @return  string   the formatted string
  *
@@ -41,19 +41,26 @@ function PMA_jsFormat($a_string = '', $add_backquotes = true)
  * We also remove NUL byte as some browsers (namely MSIE) ignore it and
  * inserting it anywhere inside </script would allow to bypass this check.
  *
- * @param string  $string the string to be escaped
+ * @param string $string the string to be escaped
+ *
  * @return  string  the escaped string
  */
 function PMA_escapeJsString($string)
 {
-    return preg_replace('@</script@i', '</\' + \'script',
-                        strtr($string, array(
-                                "\000" => '',
-                                '\\' => '\\\\',
-                                '\'' => '\\\'',
-                                '"' => '\"',
-                                "\n" => '\n',
-                                "\r" => '\r')));
+    return preg_replace(
+        '@</script@i', '</\' + \'script',
+        strtr(
+            $string,
+            array(
+                "\000" => '',
+                '\\' => '\\\\',
+                '\'' => '\\\'',
+                '"' => '\"',
+                "\n" => '\n',
+                "\r" => '\r'
+            )
+        )
+    );
 }
 
 /**
@@ -61,7 +68,7 @@ function PMA_escapeJsString($string)
  *
  * @param string $value String to be formatted.
  *
- * @retrun string formatted value.
+ * @return string formatted value.
  */
 function PMA_formatJsVal($value)
 {
@@ -84,7 +91,8 @@ function PMA_formatJsVal($value)
  *
  * @param string $key    Name of value to set
  * @param mixed  $value  Value to set, can be either string or array of strings
- * @param bool   $escape Whether to escape value or keep it as it is (for inclusion of js code)
+ * @param bool   $escape Whether to escape value or keep it as it is
+ *                       (for inclusion of js code)
  *
  * @return string Javascript code.
  */
@@ -109,10 +117,10 @@ function PMA_getJsValue($key, $value, $escape = true)
  * Prints an javascript assignment with proper escaping of a value
  * and support for assigning array of strings.
  *
- * @param string $key Name of value to set
- * @param mixed $value Value to set, can be either string or array of strings
+ * @param string $key   Name of value to set
+ * @param mixed  $value Value to set, can be either string or array of strings
  *
- * @return nothing
+ * @return void
  */
 function PMA_printJsValue($key, $value)
 {
