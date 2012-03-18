@@ -937,7 +937,7 @@ $(document).ready(makeProfilingChart);
         foreach ($profiling_results as $one_result) {
             echo ' <tr>' .  "\n";
             echo '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
-            echo '<td align="right">' . (PMA_formatNumber($one_result['Duration'], 3, 1)) . 's</td>' .  "\n";
+            echo '<td class="right">' . (PMA_formatNumber($one_result['Duration'], 3, 1)) . 's</td>' .  "\n";
             $chart_json[ucwords($one_result['Status'])] = $one_result['Duration'];
         }
 

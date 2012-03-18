@@ -1860,10 +1860,10 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                            . '                ' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
                            . '                </code></td>' . "\n"
                            . '            <td>' . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . '</td>' . "\n"
-                           . '            <td align="center">';
+                           . '            <td class="center">';
                         printf($link_edit, urlencode($host['User']), urlencode($host['Host']), '', '');
                         echo '</td>';
-                        echo '<td align="center">';
+                        echo '<td class="center">';
                         printf($link_export, urlencode($host['User']), urlencode($host['Host']), (isset($initial) ? $initial : ''));
                         echo '</td>';
                         echo '</tr>';

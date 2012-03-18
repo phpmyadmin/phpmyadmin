@@ -605,7 +605,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
         if (is_array($content_row)) {
             foreach ($content_row as $content_row_val) {
                 ?>
-    <td align="center"><?php echo $content_row_val; ?></td>
+    <td class="center"><?php echo $content_row_val; ?></td>
                 <?php
             }
         }
@@ -624,7 +624,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
 if ($display_type == 'horizontal') {
     $new_field = '';
     foreach ($empty_row as $content_row_val) {
-        $new_field .= '<td align="center">' . $content_row_val . '</td>';
+        $new_field .= '<td class="center">' . $content_row_val . '</td>';
     }
     ?>
 <script type="text/javascript">

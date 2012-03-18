@@ -22,7 +22,7 @@ $checkall_url = 'server_export.php?'
               . PMA_generate_common_url()
               . '&amp;goto=db_export.php';
 
-$multi_values = '<div align="left">';
+$multi_values = '<div style="text-align: left">';
 $multi_values .= '<a href="' . $checkall_url . '&amp;selectall=1" onclick="setSelectOptions(\'dump\', \'db_select[]\', true); return false;">' . __('Select All') . '</a>
         /
         <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'db_select[]\', false); return false;">' . __('Unselect All') . '</a><br />';

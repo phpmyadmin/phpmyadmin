@@ -417,7 +417,7 @@ if (count($columns) > 0) {
         $myfield_html = htmlspecialchars($myfield);
         ?>
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <td align="center">
+        <td class="center">
             <strong><?php echo $myfield_html; ?></strong>
             <input type="hidden" name="fields_name[<?php echo $myfield_md5; ?>]" value="<?php echo $myfield_html; ?>"/>
         </td>

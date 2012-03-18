@@ -67,7 +67,7 @@ foreach ($mysql_charsets as $current_charset) {
            . '</tr>' . "\n";
     }
     $i++;
-    echo '<tr><th colspan="2" align="right">' . "\n"
+    echo '<tr><th colspan="2" class="right">' . "\n"
        . '        ' . htmlspecialchars($current_charset) . "\n"
        . (empty($mysql_charsets_descriptions[$current_charset])
             ? ''

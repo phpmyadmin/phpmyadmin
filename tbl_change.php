@@ -367,7 +367,7 @@ foreach ($rows as $row_id => $vrow) {
     </thead>
     <tfoot>
         <tr>
-            <th colspan="5" align="right" class="tblFooters">
+            <th colspan="5" class="tblFooters right">
                 <input type="submit" value="<?php echo __('Go'); ?>" />
             </th>
         </tr>
@@ -508,12 +508,12 @@ foreach ($rows as $row_id => $vrow) {
         }
         ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center">
+            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> class="center">
                 <?php echo $field['Field_title']; ?>
                 <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
             </td>
 <?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
-             <td align="center"<?php echo $field['wrap']; ?>><span class="column_type"><?php echo $field['pma_type']; ?></span>
+             <td class="center"<?php echo $field['wrap']; ?>><span class="column_type"><?php echo $field['pma_type']; ?></span>
              </td>
 
          <?php } //End if
@@ -613,12 +613,12 @@ foreach ($rows as $row_id => $vrow) {
             if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
             ) {
-                echo '        <td align="center">' . __('Binary') . '</td>' . "\n";
+                echo '        <td class="center">' . __('Binary') . '</td>' . "\n";
             } elseif (strstr($field['True_Type'], 'enum')
                 || strstr($field['True_Type'], 'set')
                 || in_array($field['pma_type'], $no_support_types)
             ) {
-                echo '        <td align="center">--</td>' . "\n";
+                echo '        <td class="center">--</td>' . "\n";
             } else {
                 ?>
                 <td>
@@ -720,7 +720,7 @@ foreach ($rows as $row_id => $vrow) {
             &nbsp;</td>
         </tr>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td colspan="5" align="right">
+            <td colspan="5" class="right">
                 <?php echo $backup_field . "\n"; ?>
                 <textarea name="fields<?php echo $field_name_appendix; ?>"
                     rows="<?php echo ($cfg['TextareaRows']*2); ?>"
@@ -1101,7 +1101,7 @@ if (isset($where_clause)) {
         <td>
 <?php echo PMA_showHint(__('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')); ?>
         </td>
-        <td colspan="3" align="right" valign="middle">
+        <td colspan="3" class="right" valign="middle">
             <input type="submit" class="control_at_footer" value="<?php echo __('Go'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
             <input type="reset" class="control_at_footer" value="<?php echo __('Reset'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />
         </td>

@@ -278,7 +278,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
         <td><input type="text" name="search_str" size="60"
                 value="<?php echo $searched; ?>" /></td>
     </tr>
-    <tr><td align="right" valign="top">
+    <tr><td class="right" valign="top">
             <?php echo __('Find:'); ?></td>
             <td><?php
 
@@ -296,7 +296,7 @@ unset($choices);
             ?>
             </td>
     </tr>
-    <tr><td align="right" valign="top">
+    <tr><td class="right" valign="top">
             <?php echo __('Inside tables:'); ?></td>
         <td rowspan="2">
 <?php
@@ -323,10 +323,10 @@ $alter_select
 ?>
         </td>
     </tr>
-    <tr><td align="right" valign="bottom">
+    <tr><td class="right" valign="bottom">
             <?php echo $alter_select; ?></td>
     </tr>
-    <tr><td align="right">
+    <tr><td class="right">
             <?php echo __('Inside column:'); ?></td>
         <td><input type="text" name="field_str" size="60"
                 value="<?php echo ! empty($field_str) ? htmlspecialchars($field_str) : ''; ?>" /></td>

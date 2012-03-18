@@ -269,7 +269,7 @@ if (isset($_REQUEST['do_save_data'])) {
            }
 
             $new_table_string = '<tr>' . "\n";
-            $new_table_string .= '<td align="center"> <input type="checkbox" id="checkbox_tbl_" name="selected_tbl[]" value="'.htmlspecialchars($table).'" /> </td>' . "\n";
+            $new_table_string .= '<td class="center"> <input type="checkbox" id="checkbox_tbl_" name="selected_tbl[]" value="'.htmlspecialchars($table).'" /> </td>' . "\n";
 
             $new_table_string .= '<th>';
             $new_table_string .= '<a href="sql.php' . PMA_generate_common_url($tbl_url_params) . '">'. $table . '</a>';

@@ -336,10 +336,10 @@ foreach ($fields as $row) {
     echo "\n";
     ?>
 <tr class="<?php echo $odd_row ? 'odd': 'even'; $odd_row = !$odd_row; ?>">
-    <td align="center">
+    <td class="center">
         <input type="checkbox" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
     </td>
-    <td align="right">
+    <td class="right">
         <?php echo $rownum; ?>
     </td>
     <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
@@ -359,20 +359,20 @@ foreach ($fields as $row) {
         echo '<i>' . _pgettext('None for default', 'None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
-    <td align="center" class="browse">
+    <td class="browse center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
             <?php echo $titles['BrowseDistinctValues']; ?></a>
     </td>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <td align="center" class="edit">
+    <td class="edit center">
         <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
             <?php echo $titles['Change']; ?></a>
     </td>
-    <td align="center" class="drop">
+    <td class="drop center">
         <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Drop']; ?></a>
     </td>
-    <td align="center" class="primary">
+    <td class="primary center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
@@ -387,7 +387,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="unique">
+    <td class="unique center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || isset($columns_with_unique_index[$field_name])) {
             echo $titles['NoUnique'] . "\n";
@@ -402,7 +402,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="index">
+    <td class="index center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoIndex'] . "\n";
@@ -418,7 +418,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="spatial">
+    <td class="spatial center">
         <?php
         $spatial_types = array(
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
@@ -444,7 +444,7 @@ foreach ($fields as $row) {
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
             ?>
-    <td align="center" nowrap="nowrap" class="fulltext">
+    <td nowrap="nowrap" class="fulltext center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
             <?php $fulltext_enabled = true; ?>
@@ -453,7 +453,7 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
         ?>
-    <td align="center" nowrap="nowrap" class="fulltext">
+    <td nowrap="nowrap" class="fulltext center">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
         <?php $fulltext_enabled = false; ?>
     </td>
@@ -811,7 +811,7 @@ if ($cfg['ShowStats']) {
         if (isset($free_size) && !PMA_DRIZZLE && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
             ?>
     <tr class="tblFooters">
-        <td colspan="3" align="center">
+        <td colspan="3" class="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
             echo PMA_getIcon('b_tbloptimize.png', __('Optimize table'));
             ?></a>

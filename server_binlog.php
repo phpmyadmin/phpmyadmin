@@ -120,7 +120,7 @@ PMA_showMessage(PMA_Message::success());
 <table cellpadding="2" cellspacing="1">
 <thead>
 <tr>
-    <td colspan="6" align="center">
+    <td colspan="6" class="center">
 <?php
 // we do not now how much rows are in the binlog
 // so we can just force 'NEXT' button
@@ -195,10 +195,10 @@ while ($value = PMA_DBI_fetch_assoc($result)) {
     ?>
 <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
     <td>&nbsp;<?php echo $value['Log_name']; ?>&nbsp;</td>
-    <td align="right">&nbsp;<?php echo $value['Pos']; ?>&nbsp;</td>
+    <td class="right">&nbsp;<?php echo $value['Pos']; ?>&nbsp;</td>
     <td>&nbsp;<?php echo $value['Event_type']; ?>&nbsp;</td>
-    <td align="right">&nbsp;<?php echo $value['Server_id']; ?>&nbsp;</td>
-    <td align="right">&nbsp;<?php echo isset($value['Orig_log_pos']) ? $value['Orig_log_pos'] : $value['End_log_pos']; ?>&nbsp;</td>
+    <td class="right">&nbsp;<?php echo $value['Server_id']; ?>&nbsp;</td>
+    <td class="right">&nbsp;<?php echo isset($value['Orig_log_pos']) ? $value['Orig_log_pos'] : $value['End_log_pos']; ?>&nbsp;</td>
     <td>&nbsp;<?php echo htmlspecialchars($value['Info']); ?>&nbsp;</td>
 </tr>
     <?php

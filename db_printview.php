@@ -130,7 +130,7 @@ if ($num_tables == 0) {
 
         if (isset($sts_data['TABLE_ROWS'])) {
             ?>
-    <td align="right">
+    <td class="right">
             <?php
             if ($merged_size) {
                 echo '<i>' . PMA_formatNumber($sts_data['TABLE_ROWS'], 0) . '</i>' . "\n";
@@ -148,14 +148,14 @@ if ($num_tables == 0) {
                 $sum_size += $tblsize;
                 list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, 1);
                 ?>
-    <td align="right" nowrap="nowrap">
+    <td class="right" nowrap="nowrap">
         <?php echo $formated_size . ' ' . $unit; ?>
     </td>
                 <?php
             } // end if
         } else {
             ?>
-    <td colspan="3" align="center">
+    <td colspan="3" class="center">
         <?php echo __('in use'); ?>
     </td>
             <?php
@@ -181,8 +181,8 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Create_time'])) {
                 ?>
                 <tr>
-                    <td align="right"><?php echo __('Creation') . ': '; ?></td>
-                    <td align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Create_time'])); ?></td>
+                    <td class="right"><?php echo __('Creation') . ': '; ?></td>
+                    <td class="right"><?php echo PMA_localisedDate(strtotime($sts_data['Create_time'])); ?></td>
                 </tr>
                 <?php
             }
@@ -190,8 +190,8 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Update_time'])) {
                 ?>
                 <tr>
-                    <td align="right"><?php echo __('Last update') . ': '; ?></td>
-                    <td align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Update_time'])); ?></td>
+                    <td class="right"><?php echo __('Last update') . ': '; ?></td>
+                    <td class="right"><?php echo PMA_localisedDate(strtotime($sts_data['Update_time'])); ?></td>
                 </tr>
                 <?php
             }
@@ -199,8 +199,8 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Check_time'])) {
                 ?>
                 <tr>
-                    <td align="right"><?php echo __('Last check') . ': '; ?></td>
-                    <td align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Check_time'])); ?></td>
+                    <td class="right"><?php echo __('Last check') . ': '; ?></td>
+                    <td class="right"><?php echo PMA_localisedDate(strtotime($sts_data['Check_time'])); ?></td>
                 </tr>
                 <?php
             }
@@ -215,20 +215,20 @@ if ($num_tables == 0) {
     }
     ?>
 <tr>
-    <th align="center">
+    <th class="center">
         <?php echo sprintf(_ngettext('%s table', '%s tables', $num_tables), PMA_formatNumber($num_tables, 0)); ?>
     </th>
-    <th align="right" nowrap="nowrap">
+    <th class="right" nowrap="nowrap">
         <?php echo PMA_formatNumber($sum_entries, 0); ?>
     </th>
-    <th align="center">
+    <th class="center">
         --
     </th>
     <?php
     if ($cfg['ShowStats']) {
         list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
         ?>
-    <th align="right" nowrap="nowrap">
+    <th class="right" nowrap="nowrap">
         <?php echo $sum_formated . ' ' . $unit; ?>
     </th>
         <?php

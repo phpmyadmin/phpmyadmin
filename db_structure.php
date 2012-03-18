@@ -408,31 +408,31 @@ foreach ($tables as $keyname => $each_table) {
     }
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-    <td align="center">
+    <td class="center">
         <input type="checkbox" name="selected_tbl[]"
             value="<?php echo htmlspecialchars($each_table['TABLE_NAME']); ?>"
             id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> /></td>
     <th><?php echo $browse_table_label; ?>
         <?php echo (! empty($tracking_icon) ? $tracking_icon : ''); ?>
     </th>
-   <?php if ($server_slave_status) { ?><td align="center"><?php
+   <?php if ($server_slave_status) { ?><td class="center"><?php
         echo $ignored
             ? PMA_getImage('s_cancel.png', 'NOT REPLICATED')
             : ''.
         $do
             ? PMA_getImage('s_success.png', 'REPLICATED')
             : ''; ?></td><?php } ?>
-    <td align="center"><?php echo $browse_table; ?></td>
-    <td align="center">
+    <td class="center"><?php echo $browse_table; ?></td>
+    <td class="center">
         <a href="tbl_structure.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Structure']; ?></a></td>
-    <td align="center"><?php echo $search_table; ?></td>
+    <td class="center"><?php echo $search_table; ?></td>
     <?php if (! $db_is_information_schema) { ?>
-    <td align="center" class="insert_table">
+    <td class="insert_table center">
         <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : ''); ?> href="tbl_change.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Insert']; ?></a></td>
-    <td align="center"><?php echo $empty_table; ?></td>
-    <td align="center">
+    <td class="center"><?php echo $empty_table; ?></td>
+    <td class="center">
     <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="drop_table_anchor"' : ''); ?> href="sql.php?<?php echo $tbl_url_query;
             ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php
             echo urlencode($drop_query); ?>&amp;message_to_show=<?php
@@ -497,7 +497,7 @@ foreach ($tables as $keyname => $each_table) {
         <?php } ?>
     <?php } else { ?>
     <td colspan="<?php echo ($colspan_for_structure - ($db_is_information_schema ? 5 : 8)) ?>"
-        align="center">
+        class="center">
         <?php echo __('in use'); ?></td>
     <?php } // end if (isset($each_table['TABLE_ROWS'])) else ?>
 </tr>
@@ -514,7 +514,7 @@ if ($is_show_stats) {
 </tbody>
 <tbody id="tbl_summary_row">
 <tr><th></th>
-    <th align="center" nowrap="nowrap" class="tbl_num">
+    <th nowrap="nowrap" class="tbl_num center">
         <?php
             echo sprintf(
                 _ngettext('%s table', '%s tables', $num_tables),
@@ -527,18 +527,18 @@ if ($is_show_stats) {
             echo '    <th>' . __('Replication') . '</th>' . "\n";
         }
     ?>
-    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" align="center">
+    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" class="center">
         <?php echo __('Sum'); ?></th>
     <th class="value tbl_rows"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
     $default_engine = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'storage_engine\';', 0, 1);
-    echo '    <th align="center">' . "\n"
+    echo '    <th class="center">' . "\n"
        . '        <dfn title="'
        . sprintf(__('%s is the default storage engine on this MySQL server.'), $default_engine)
        . '">' .$default_engine . '</dfn></th>' . "\n";
     // we got a case where $db_collation was empty
-    echo '    <th align="center">' . "\n";
+    echo '    <th class="center">' . "\n";
     if (! empty($db_collation)) {
         echo '        <dfn title="'
             . PMA_getCollationDescr($db_collation) . ' (' . __('Default') . ')">' . $db_collation

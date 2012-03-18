@@ -351,6 +351,18 @@ select[multiple] {
     margin-<?php echo $right; ?>: 1em;
 }
 
+th.left, td.left {
+    text-align: left;
+}
+
+th.center, td.center {
+    text-align: center;
+}
+
+th.right, td.right {
+    text-align: right;
+}
+
 .paddingtop {
     padding-top: 1em;
 }
