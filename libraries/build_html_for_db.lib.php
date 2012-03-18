@@ -148,7 +148,7 @@ function PMA_buildHtmlForDb(
         $out .= '<td class="tool">'
                . '<a onclick="'
                . 'if (window.parent.setDb) window.parent.setDb(\'' . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'
-               . '" href="./server_privileges.php?' . $url_query
+               . '" href="server_privileges.php?' . $url_query
                . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME'])
                . '" title="' . sprintf(__('Check privileges for database &quot;%s&quot;.'), htmlspecialchars($current['SCHEMA_NAME']))
                . '">'

@@ -8,16 +8,16 @@
 /**
  * Does the common work
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
-require './libraries/server_common.inc.php';
+require 'libraries/server_common.inc.php';
 if (!PMA_DRIZZLE) {
-    include_once './libraries/replication.inc.php';
+    include_once 'libraries/replication.inc.php';
 } else {
     $replication_types = array();
     $replication_info = null;
 }
-require './libraries/build_html_for_db.lib.php';
+require 'libraries/build_html_for_db.lib.php';
 
 /**
  * Sets globals from $_POST
@@ -88,7 +88,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         if (isset($_REQUEST['selected_dbs'])) {
             $selected_db = $_REQUEST['selected_dbs'];
         }
-        include './libraries/mult_submits.inc.php';
+        include 'libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
         if (empty($message)) {
             $message = PMA_Message::success(__('%s databases have been dropped successfully.'));
@@ -105,7 +105,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 
 /**
@@ -123,7 +123,7 @@ echo '<h2>' . "\n"
  */
 if ($cfg['ShowCreateDb']) {
     echo '<ul><li id="li_create_database">' . "\n";
-    include './libraries/display_create_database.lib.php';
+    include 'libraries/display_create_database.lib.php';
     echo '    </li>' . "\n";
     echo '</ul>' . "\n";
 }
@@ -161,7 +161,7 @@ if ($databases_count > 0) {
 
     $_url_params['pos'] = $pos;
 
-    echo '<form action="./server_databases.php" method="post" name="dbStatsForm" id="dbStatsForm">' . "\n"
+    echo '<form action="server_databases.php" method="post" name="dbStatsForm" id="dbStatsForm">' . "\n"
        . PMA_generate_common_hidden_inputs($_url_params);
 
     $_url_params['sort_by'] = 'SCHEMA_NAME';
@@ -171,7 +171,7 @@ if ($databases_count > 0) {
        . '<thead>' . "\n"
        . '<tr>' . "\n"
        . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '        <th></th>' . "\n" : '')
-       . '    <th><a href="./server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
+       . '    <th><a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
        . '            ' . __('Database') . "\n"
        . ($sort_by == 'SCHEMA_NAME' ? '                ' . PMA_getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
        . '        </a></th>' . "\n";
@@ -188,7 +188,7 @@ if ($databases_count > 0) {
             $_url_params['sort_by'] = $stat_name;
             $_url_params['sort_order'] = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
             echo '    <th' . $colspan . '>'
-                .'<a href="./server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
+                .'<a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
                 .'            ' . $stat['disp_name'] . "\n"
                 .($sort_by == $stat_name ? '            ' . PMA_getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
                 .'        </a></th>' . "\n";
@@ -275,9 +275,9 @@ if ($databases_count > 0) {
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         $common_url_query = PMA_generate_common_url(array('sort_by' => $sort_by, 'sort_order' => $sort_order, 'dbstats' => $dbstats));
         echo '<img class="selectallarrow" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-           . '<a href="./server_databases.php' . $common_url_query . '&amp;checkall=1" onclick="if (markAllRows(\'tabledatabases\')) return false;">' . "\n"
+           . '<a href="server_databases.php' . $common_url_query . '&amp;checkall=1" onclick="if (markAllRows(\'tabledatabases\')) return false;">' . "\n"
            . '    ' . __('Check All') . '</a> / ' . "\n"
-           . '<a href="./server_databases.php' . $common_url_query . '" onclick="if (unMarkAllRows(\'tabledatabases\')) return false;">' . "\n"
+           . '<a href="server_databases.php' . $common_url_query . '" onclick="if (unMarkAllRows(\'tabledatabases\')) return false;">' . "\n"
            . '    ' . __('Uncheck All') . '</a>' . "\n"
            . '<i>' . __('With selected:') . '</i>' . "\n";
         PMA_buttonOrImage('drop_selected_dbs', 'mult_submit', 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
@@ -285,7 +285,7 @@ if ($databases_count > 0) {
 
     if (empty($dbstats)) {
         echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-            echo '        <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1"'
+            echo '        <a href="server_databases.php?' . $url_query . '&amp;dbstats=1"'
                 .' title="' . __('Enable Statistics') . '">' . "\n"
                 .'            ' . __('Enable Statistics');
         echo '</a></strong><br />' . "\n";
@@ -302,6 +302,6 @@ unset($databases_count);
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

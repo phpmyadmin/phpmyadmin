@@ -16,17 +16,17 @@
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'tbl_relation.js';
 
-require_once './libraries/tbl_common.php';
+require_once 'libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_sql.php';
 
 
 /**
  * Gets tables informations
  */
-require_once './libraries/tbl_info.inc.php';
+require_once 'libraries/tbl_info.inc.php';
 
 // Note: in libraries/tbl_links.inc.php we get and display the table comment.
 // For InnoDB, this comment contains the REFER information but any update
@@ -36,7 +36,7 @@ $avoid_show_comment = true;
 /**
  * Displays top menu links
  */
-require_once './libraries/tbl_links.inc.php';
+require_once 'libraries/tbl_links.inc.php';
 
 $options_array = array(
     'CASCADE'   => 'CASCADE',
@@ -417,7 +417,7 @@ if (count($columns) > 0) {
         $myfield_html = htmlspecialchars($myfield);
         ?>
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <td align="center">
+        <td class="center">
             <strong><?php echo $myfield_html; ?></strong>
             <input type="hidden" name="fields_name[<?php echo $myfield_md5; ?>]" value="<?php echo $myfield_html; ?>"/>
         </td>
@@ -565,5 +565,5 @@ if (count($columns) > 0) {
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

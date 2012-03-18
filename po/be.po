@@ -2979,10 +2979,10 @@ msgstr "Немагчыма загрузіць канфігурацыю па зм
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Дырэктыва <tt>$cfg['PmaAbsoluteUri']</tt> ПАВІННА быць вызначаная ў вашым "
+"Дырэктыва <code>$cfg['PmaAbsoluteUri']</code> ПАВІННА быць вызначаная ў вашым "
 "канфігурацыйным файле!"
 
 #: libraries/common.inc.php:647

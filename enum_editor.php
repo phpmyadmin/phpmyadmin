@@ -10,9 +10,9 @@
  * @package PhpMyAdmin
  */
 
-require_once './libraries/common.inc.php';
-require_once './libraries/header_http.inc.php';
-require_once './libraries/header_meta_style.inc.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/header_http.inc.php';
+require_once 'libraries/header_meta_style.inc.php';
 ?>
 </head>
 <body>

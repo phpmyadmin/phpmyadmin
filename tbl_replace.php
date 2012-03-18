@@ -25,7 +25,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 // Check parameters
 PMA_checkParameters(array('db', 'table', 'goto'));
@@ -47,8 +47,8 @@ if (isset($_REQUEST['insert_rows'])
 ) {
     $cfg['InsertRows'] = $_REQUEST['insert_rows'];
     $GLOBALS['js_include'][] = 'tbl_change.js';
-    include_once './libraries/header.inc.php';
-    include './tbl_change.php';
+    include_once 'libraries/header.inc.php';
+    include 'tbl_change.php';
     exit;
 }
 
@@ -247,7 +247,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $me_fields_name[$key]
 
-        include './libraries/tbl_replace_fields.inc.php';
+        include 'libraries/tbl_replace_fields.inc.php';
 
         if (empty($me_funcs[$key])) {
             $cur_value = $val;
@@ -341,9 +341,9 @@ if ($is_insert && count($value_sets) > 0) {
     $message = PMA_Message::success(__('No change'));
     $active_page = $goto_include;
     if (! $GLOBALS['is_ajax_request'] == true) {
-        include_once './libraries/header.inc.php';
+        include_once 'libraries/header.inc.php';
     }
-    include './' . PMA_securePath($goto_include);
+    include '' . PMA_securePath($goto_include);
     exit;
 }
 unset($me_fields, $is_insertignore);
@@ -441,7 +441,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
 
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
         //handle relations work here for updated row.
-        include_once './libraries/relation.lib.php';
+        include_once 'libraries/relation.lib.php';
 
         $map = PMA_getForeigners($db, $table, '', 'both');
 
@@ -507,7 +507,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
     }
 
     if (isset($_REQUEST['do_transformations']) && $_REQUEST['do_transformations'] == true ) {
-        include_once './libraries/transformations.lib.php';
+        include_once 'libraries/transformations.lib.php';
         //if some posted fields need to be transformed, generate them here.
         $mime_map = PMA_getMIME($db, $table);
 
@@ -533,10 +533,10 @@ if ($GLOBALS['is_ajax_request'] == true) {
                         'transform_key' => $column_name,
                     );
 
-                    if (file_exists('./libraries/transformations/' . $include_file)) {
+                    if (file_exists('libraries/transformations/' . $include_file)) {
                         $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
 
-                        include_once './libraries/transformations/' . $include_file;
+                        include_once 'libraries/transformations/' . $include_file;
 
                         if (function_exists('PMA_transformation_' . $transformfunction_name)) {
                             $transform_function = 'PMA_transformation_' . $transformfunction_name;
@@ -584,10 +584,10 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
 /**
  * Load header.
  */
-require_once './libraries/header.inc.php';
+require_once 'libraries/header.inc.php';
 /**
  * Load target page.
  */
-require './' . PMA_securePath($goto_include);
+require '' . PMA_securePath($goto_include);
 exit;
 ?>

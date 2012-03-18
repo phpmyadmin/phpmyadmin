@@ -9,8 +9,8 @@
 /**
  * Get the variables sent or posted to this script and a core script
  */
-require_once './libraries/common.inc.php';
-//require_once './libraries/display_import_functions.lib.php';
+require_once 'libraries/common.inc.php';
+//require_once 'libraries/display_import_functions.lib.php';
 
 if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
@@ -21,12 +21,20 @@ if (isset($_REQUEST['show_as_php'])) {
  */
 $post_params = array(
     'action_bookmark',
+    'allow_interrupt',
     'bkm_label',
     'bookmark_variable',
+    'charset_of_file',
+    'format',
     'id_bookmark',
+    'import_type',
     'is_js_confirmed',
-    'message_to_show'
+    'MAX_FILE_SIZE',
+    'message_to_show',
+    'noplugin',
+    'skip_queries'
 );
+
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
@@ -74,7 +82,7 @@ if (!empty($sql_query)) {
 // upload limit has been reached, let's assume the second possibility.
 ;
 if ($_POST == array() && $_GET == array()) {
-    include_once './libraries/header.inc.php';
+    include_once 'libraries/header.inc.php';
     $message = PMA_Message::error(__('You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.'));
     $message->addParam('[a@./Documentation.html#faq1_16@_blank]');
     $message->addParam('[/a]');
@@ -84,7 +92,24 @@ if ($_POST == array() && $_GET == array()) {
     $_SESSION['Import_message']['go_back_url'] = $goto;
 
     $message->display();
-    include './libraries/footer.inc.php';
+    include 'libraries/footer.inc.php';
+}
+
+/**
+ * Sets globals from $_POST patterns, for import plugins
+ * We only need to load the selected plugin
+ */
+
+$post_patterns = array(
+    '/^force_file_/',
+    '/^'. $format . '_/'
+);
+foreach (array_keys($_POST) as $post_key) {
+    foreach ($post_patterns as $one_post_pattern) {
+        if (preg_match($one_post_pattern, $post_key)) {
+            $GLOBALS[$post_key] = $_POST[$post_key];
+        }
+    }
 }
 
 // Check needed parameters
@@ -94,7 +119,7 @@ PMA_checkParameters(array('import_type', 'format'));
 $format = PMA_securePath($format);
 
 // Import functions
-require_once './libraries/import.lib.php';
+require_once 'libraries/import.lib.php';
 
 // Create error and goto url
 if ($import_type == 'table') {
@@ -169,7 +194,7 @@ $bookmark_created = false;
 // Bookmark Support: get a query back from bookmark if required
 if (!empty($id_bookmark)) {
     $id_bookmark = (int)$id_bookmark;
-    include_once './libraries/bookmark.lib.php';
+    include_once 'libraries/bookmark.lib.php';
     switch ($action_bookmark) {
         case 0: // bookmarked query that have to be run
             $import_text = PMA_Bookmark_get($db, $id_bookmark, 'id', isset($action_bookmark_all));
@@ -218,7 +243,7 @@ if (isset($GLOBALS['show_as_php'])) {
 
 // Store the query as a bookmark before executing it if bookmarklabel was given
 if (!empty($bkm_label) && !empty($import_text)) {
-    include_once './libraries/bookmark.lib.php';
+    include_once 'libraries/bookmark.lib.php';
     $bfields = array(
                  'dbase' => $db,
                  'user'  => $cfg['Bookmark']['user'],
@@ -291,7 +316,7 @@ if ($import_file != 'none' && !$error) {
 
     if (!empty($open_basedir)) {
 
-        $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
+        $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
 
         if (is_writable($tmp_subdir)) {
 
@@ -339,7 +364,7 @@ if ($import_file != 'none' && !$error) {
                     /**
                      * Load interface for zip extension.
                      */
-                    include_once './libraries/zip_extension.lib.php';
+                    include_once 'libraries/zip_extension.lib.php';
                     $result = PMA_getZipContents($import_file);
                     if (! empty($result['error'])) {
                         $message = PMA_Message::rawError($result['error']);
@@ -409,13 +434,13 @@ if (!$error && isset($skip)) {
 
 if (!$error) {
     // Check for file existance
-    if (!file_exists('./libraries/import/' . $format . '.php')) {
+    if (!file_exists('libraries/import/' . $format . '.php')) {
         $error = true;
         $message = PMA_Message::error(__('Could not load import plugins, please check your installation!'));
     } else {
         // Do the real import
         $plugin_param = $import_type;
-        include './libraries/import/' . $format . '.php';
+        include 'libraries/import/' . $format . '.php';
     }
 }
 
@@ -479,7 +504,7 @@ if (isset($message)) {
 // (but if the query is too large, in case of an imported file, the parser
 //  can choke on it so avoid parsing)
 if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-    include_once './libraries/parse_analyze.lib.php';
+    include_once 'libraries/parse_analyze.lib.php';
 }
 
 // There was an error?
@@ -499,10 +524,10 @@ if (! empty($last_query_with_results)) {
 }
 
 if ($go_sql) {
-    include './sql.php';
+    include 'sql.php';
 } else {
     $active_page = $goto;
-    include './' . $goto;
+    include '' . $goto;
 }
 exit();
 ?>

@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once './libraries/pmd_common.php';
+require_once 'libraries/pmd_common.php';
 $die_save_pos = 0;
 require_once 'pmd_save_pos.php';
 extract($_POST, EXTR_SKIP);

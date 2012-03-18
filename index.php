@@ -10,7 +10,7 @@
 /**
  * Gets core libraries and defines some variables
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 // free the session file, for the other frames to be loaded
 session_write_close();
@@ -69,7 +69,7 @@ $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
 
 
 // start output
-require './libraries/header_http.inc.php';
+require 'libraries/header_http.inc.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
@@ -78,8 +78,8 @@ require './libraries/header_http.inc.php';
     lang="<?php echo $lang_iso_code; ?>"
     dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
-<link rel="icon" href="./favicon.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
     <?php echo htmlspecialchars($HTTP_HOST); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

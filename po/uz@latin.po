@@ -3019,10 +3019,10 @@ msgstr "\"%1$s\" faylidan andoza konfiguratsiyani yuklab bo‘lmadi."
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg[\"PmaAbsoluteUrl\"]</tt> direktivasi konfiguratsion faylda "
+"<code>$cfg[\"PmaAbsoluteUrl\"]</code> direktivasi konfiguratsion faylda "
 "sozlanishi SHART!"
 
 #: libraries/common.inc.php:647

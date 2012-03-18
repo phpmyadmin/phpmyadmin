@@ -366,7 +366,7 @@ function PMA_replication_gui_master_addslaveuser()
         . '    ' . __('Generate Password') . ':'
         . '</label>'
         . '<span class="options">'
-        . '    <input type="button" id="button_generate_password" value="' . __('Generate') . '" onclick="suggestPassword(this.form)" />'
+        . '    <input type="button" class="button" id="button_generate_password" value="' . __('Generate') . '" onclick="suggestPassword(this.form)" />'
         . '</span>'
         . '<input type="text" name="generated_pw" id="generated_pw" />'
         . '</div>'

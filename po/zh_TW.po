@@ -2820,9 +2820,9 @@ msgstr "無法載入預設設定: %1$s"
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
-msgstr "必須在您的設定檔案中設定 <tt>$cfg['PmaAbsoluteUri']</tt> ！"
+msgstr "必須在您的設定檔案中設定 <code>$cfg['PmaAbsoluteUri']</code> ！"
 
 #: libraries/common.inc.php:647
 #, php-format

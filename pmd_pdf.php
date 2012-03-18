@@ -5,7 +5,7 @@
  * @package PhpMyAdmin-Designer
  */
 
-require_once './libraries/pmd_common.php';
+require_once 'libraries/pmd_common.php';
 
 /**
  * If called directly from the designer, first save the positions
@@ -58,7 +58,7 @@ if (isset($mode)) {
 }
 
 // no need to use pmd/styles
-require_once './libraries/header_meta_style.inc.php';
+require_once 'libraries/header_meta_style.inc.php';
 ?>
 </head>
 <body>

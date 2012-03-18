@@ -8,13 +8,31 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'db_structure.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
+
+/**
+ * Sets globals from $_POST
+ */
+$post_params = array(
+    'error',
+    'is_info',
+    'message',
+    'mult_btn',
+    'selected_tbl',
+    'submit_mult'
+);
+
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
 
 /**
  * Prepares the tables list if the user where not redirected to this script
@@ -33,33 +51,33 @@ if (empty($is_info)) {
         // -> db_structure.php and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($error) || false === $error) {
-            include './libraries/mult_submits.inc.php';
+            include 'libraries/mult_submits.inc.php';
         }
         if (empty($message)) {
             $message = PMA_Message::success();
         }
     }
-    include './libraries/db_common.inc.php';
+    include 'libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_structure.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    include './libraries/db_info.inc.php';
+    include 'libraries/db_info.inc.php';
 
     if (!PMA_DRIZZLE) {
-        include_once './libraries/replication.inc.php';
+        include_once 'libraries/replication.inc.php';
     } else {
         $server_slave_status = false;
     }
 }
 
-require_once './libraries/bookmark.lib.php';
+require_once 'libraries/bookmark.lib.php';
 
-require_once './libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.lib.php';
 $db_collation = PMA_getDbCollation($db);
 
 // in a separate file to avoid redeclaration of functions in some code paths
-require_once './libraries/db_structure.lib.php';
+require_once 'libraries/db_structure.lib.php';
 $titles = PMA_buildActionTitles();
 
 // 1. No tables
@@ -68,13 +86,13 @@ if ($num_tables == 0) {
     echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
     if (empty($db_is_information_schema)) {
-        include './libraries/display_create_table.lib.php';
+        include 'libraries/display_create_table.lib.php';
     } // end if (Create Table dialog)
 
     /**
      * Displays the footer
      */
-    include_once './libraries/footer.inc.php';
+    include_once 'libraries/footer.inc.php';
     exit;
 }
 
@@ -390,31 +408,31 @@ foreach ($tables as $keyname => $each_table) {
     }
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-    <td align="center">
+    <td class="center">
         <input type="checkbox" name="selected_tbl[]"
             value="<?php echo htmlspecialchars($each_table['TABLE_NAME']); ?>"
             id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> /></td>
     <th><?php echo $browse_table_label; ?>
         <?php echo (! empty($tracking_icon) ? $tracking_icon : ''); ?>
     </th>
-   <?php if ($server_slave_status) { ?><td align="center"><?php
+   <?php if ($server_slave_status) { ?><td class="center"><?php
         echo $ignored
             ? PMA_getImage('s_cancel.png', 'NOT REPLICATED')
             : ''.
         $do
             ? PMA_getImage('s_success.png', 'REPLICATED')
             : ''; ?></td><?php } ?>
-    <td align="center"><?php echo $browse_table; ?></td>
-    <td align="center">
+    <td class="center"><?php echo $browse_table; ?></td>
+    <td class="center">
         <a href="tbl_structure.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Structure']; ?></a></td>
-    <td align="center"><?php echo $search_table; ?></td>
+    <td class="center"><?php echo $search_table; ?></td>
     <?php if (! $db_is_information_schema) { ?>
-    <td align="center" class="insert_table">
+    <td class="insert_table center">
         <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : ''); ?> href="tbl_change.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Insert']; ?></a></td>
-    <td align="center"><?php echo $empty_table; ?></td>
-    <td align="center">
+    <td class="center"><?php echo $empty_table; ?></td>
+    <td class="center">
     <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="drop_table_anchor"' : ''); ?> href="sql.php?<?php echo $tbl_url_query;
             ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php
             echo urlencode($drop_query); ?>&amp;message_to_show=<?php
@@ -479,7 +497,7 @@ foreach ($tables as $keyname => $each_table) {
         <?php } ?>
     <?php } else { ?>
     <td colspan="<?php echo ($colspan_for_structure - ($db_is_information_schema ? 5 : 8)) ?>"
-        align="center">
+        class="center">
         <?php echo __('in use'); ?></td>
     <?php } // end if (isset($each_table['TABLE_ROWS'])) else ?>
 </tr>
@@ -496,7 +514,7 @@ if ($is_show_stats) {
 </tbody>
 <tbody id="tbl_summary_row">
 <tr><th></th>
-    <th align="center" nowrap="nowrap" class="tbl_num">
+    <th nowrap="nowrap" class="tbl_num center">
         <?php
             echo sprintf(
                 _ngettext('%s table', '%s tables', $num_tables),
@@ -509,18 +527,18 @@ if ($is_show_stats) {
             echo '    <th>' . __('Replication') . '</th>' . "\n";
         }
     ?>
-    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" align="center">
+    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" class="center">
         <?php echo __('Sum'); ?></th>
     <th class="value tbl_rows"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
     $default_engine = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'storage_engine\';', 0, 1);
-    echo '    <th align="center">' . "\n"
+    echo '    <th class="center">' . "\n"
        . '        <dfn title="'
        . sprintf(__('%s is the default storage engine on this MySQL server.'), $default_engine)
        . '">' .$default_engine . '</dfn></th>' . "\n";
     // we got a case where $db_collation was empty
-    echo '    <th align="center">' . "\n";
+    echo '    <th class="center">' . "\n";
     if (! empty($db_collation)) {
         echo '        <dfn title="'
             . PMA_getCollationDescr($db_collation) . ' (' . __('Default') . ')">' . $db_collation
@@ -626,16 +644,16 @@ echo '<p>';
 echo '<a href="db_printview.php?' . $url_query . '">';
 echo PMA_getIcon('b_print.png', __('Print view'), true) . '</a>';
 
-echo '<a href="./db_datadict.php?' . $url_query . '">';
+echo '<a href="db_datadict.php?' . $url_query . '">';
 echo PMA_getIcon('b_tblanalyse.png', __('Data Dictionary'), true) . '</a>';
 echo '</p>';
 
 if (empty($db_is_information_schema)) {
-    include './libraries/display_create_table.lib.php';
+    include 'libraries/display_create_table.lib.php';
 } // end if (Create Table dialog)
 
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

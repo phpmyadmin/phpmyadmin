@@ -2748,10 +2748,10 @@ msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: %1$s"
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Parametr <tt>$cfg['PmaAbsoluteUri']</tt> MUSÍ být nastaven v konfiguračním "
+"Parametr <code>$cfg['PmaAbsoluteUri']</code> MUSÍ být nastaven v konfiguračním "
 "souboru!"
 
 #: libraries/common.inc.php:647

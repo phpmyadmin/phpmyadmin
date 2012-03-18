@@ -295,7 +295,7 @@ if (!empty($submit_mult) && !empty($what)) {
             }
             echo __('Do you really want to execute following query?');
         ?>:</legend>
-        <tt><?php echo $full_query; ?></tt>
+        <code><?php echo $full_query; ?></code>
     </fieldset>
     <fieldset class="tblFooters">
         <input type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes" />

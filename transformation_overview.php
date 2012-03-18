@@ -40,7 +40,7 @@ foreach ($types['mimetype'] as $key => $mimetype) {
 <br />
 <br />
 <h2><?php echo __('Available transformations'); ?></h2>
-<table border="0" width="90%">
+<table width="90%">
 <thead>
 <tr>
     <th><?php echo __('Browser transformation'); ?></th>

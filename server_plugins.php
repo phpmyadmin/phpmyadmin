@@ -16,7 +16,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 /**
  * requirements
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * JS includes
@@ -29,13 +29,13 @@ $GLOBALS['js_include'][] = 'server_plugins.js';
 /**
  * Does the common work
  */
-require './libraries/server_common.inc.php';
+require 'libraries/server_common.inc.php';
 
 
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 /**
  * Displays the sub-page heading
@@ -203,6 +203,6 @@ pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

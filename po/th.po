@@ -2690,9 +2690,9 @@ msgstr ""
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
-msgstr "<b>ต้อง</b>กำหนดค่า <tt>$cfg['PmaAbsoluteUri']</tt> ในไฟล์คอนฟิกูเรชั่นเสียก่อน"
+msgstr "<b>ต้อง</b>กำหนดค่า <code>$cfg['PmaAbsoluteUri']</code> ในไฟล์คอนฟิกูเรชั่นเสียก่อน"
 
 #: libraries/common.inc.php:647
 #, php-format

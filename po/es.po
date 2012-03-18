@@ -2787,10 +2787,10 @@ msgstr "No se pudo cargar la configuración predeterminada desde: %1$s"
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"¡El contenido de <tt>$cfg['PmaAbsoluteUri']</tt> DEBE estar definido en el "
+"¡El contenido de <code>$cfg['PmaAbsoluteUri']</code> DEBE estar definido en el "
 "archivo de configuración config.inc.php!"
 
 #: libraries/common.inc.php:647

@@ -10,19 +10,19 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $is_superuser = PMA_isSuperuser();
 
 /**
  * Gets a core script and starts output buffering work
  */
-require_once './libraries/sql_query_form.lib.php';
+require_once 'libraries/sql_query_form.lib.php';
 
 /**
  * starts output buffering if requested and supported
  */
-require_once './libraries/ob.lib.php';
+require_once 'libraries/ob.lib.php';
 PMA_outBufferPre();
 
 /**
@@ -33,7 +33,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * load bookmark support
  */
-require_once './libraries/bookmark.lib.php';
+require_once 'libraries/bookmark.lib.php';
 
 $querydisplay_tabs = array(
     'sql',
@@ -95,11 +95,11 @@ if ($no_js) {
     // ... we redirect to appropriate query sql page
     // works only full if $db and $table is also stored/grabbed from $_COOKIE
     if (strlen($table)) {
-        include './tbl_sql.php';
+        include 'tbl_sql.php';
     } elseif (strlen($db)) {
-        include './db_sql.php';
+        include 'db_sql.php';
     } else {
-        include './server_sql.php';
+        include 'server_sql.php';
     }
     exit;
 }
@@ -145,9 +145,9 @@ if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
 /**
  * start HTTP/HTML output
  */
-require_once './libraries/header_http.inc.php';
-require_once './libraries/header_meta_style.inc.php';
-require_once './libraries/header_scripts.inc.php';
+require_once 'libraries/header_http.inc.php';
+require_once 'libraries/header_meta_style.inc.php';
+require_once 'libraries/header_scripts.inc.php';
 ?>
 </head>
 

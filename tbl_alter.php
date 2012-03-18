@@ -12,9 +12,9 @@
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
-require_once './libraries/header.inc.php';
+require_once 'libraries/header.inc.php';
 
 if (isset($_REQUEST['field'])) {
     $GLOBALS['field'] = $_REQUEST['field'];
@@ -26,8 +26,8 @@ PMA_checkParameters(array('db', 'table'));
 /**
  * Gets tables informations
  */
-require_once './libraries/tbl_common.php';
-require_once './libraries/tbl_info.inc.php';
+require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_info.inc.php';
 
 $active_page = 'tbl_structure.php';
 
@@ -107,7 +107,7 @@ if (isset($_REQUEST['do_save_data'])) {
         /**
          * If comments were sent, enable relation stuff
          */
-        include_once './libraries/transformations.lib.php';
+        include_once 'libraries/transformations.lib.php';
 
         // updaet field names in relation
         if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
@@ -140,7 +140,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $active_page = 'tbl_structure.php';
-        include './tbl_structure.php';
+        include 'tbl_structure.php';
     } else {
         PMA_mysqlDie('', '', '', $err_url, false);
         // An error happened while inserting/updating a table definition.
@@ -161,7 +161,7 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 if ($abort == false) {
     if ($_REQUEST['ajax_request'] != true) {
-        include_once './libraries/tbl_links.inc.php';
+        include_once 'libraries/tbl_links.inc.php';
     }
 
     if (! isset($selected)) {
@@ -201,12 +201,12 @@ if ($abort == false) {
     /**
      * Form for changing properties.
      */
-    include './libraries/tbl_properties.inc.php';
+    include 'libraries/tbl_properties.inc.php';
 }
 
 
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

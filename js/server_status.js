@@ -76,7 +76,7 @@ $(function() {
     });
 
     // Popup behaviour
-    $('a[rel="popupLink"]').click( function() {
+    $('a.popupLink').click( function() {
         var $link = $(this);
 
         $('.' + $link.attr('href').substr(1))

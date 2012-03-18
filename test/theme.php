@@ -201,7 +201,7 @@ echo sprintf(__('Welcome to %s'),
 
 <fieldset class="confirmation">
     <legend>Confirmation fieldset</legend>
-    <tt>QUERY TO EXECUTE;</tt>
+    <code>QUERY TO EXECUTE;</code>
 </fieldset>
 <fieldset class="tblFooters">
     <input type="submit" name="yes" value="YES" />

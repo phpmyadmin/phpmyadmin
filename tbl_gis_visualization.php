@@ -13,7 +13,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
 }
 
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
@@ -26,12 +26,12 @@ $GLOBALS['js_include'][] = 'OpenStreetMap.js';
 ob_start();
 
 // Runs common work
-require_once './libraries/db_common.inc.php';
+require_once 'libraries/db_common.inc.php';
 $url_params['goto'] = $cfg['DefaultTabDatabase'];
 $url_params['back'] = 'sql.php';
 
 // Import visualization functions
-require_once './libraries/gis_visualization.lib.php';
+require_once 'libraries/gis_visualization.lib.php';
 
 // Execute the query and return the result
 $result = PMA_DBI_try_query($sql_query);
@@ -200,6 +200,6 @@ $visualization = PMA_GIS_visualizationResults($data, $visualizationSettings, $fo
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

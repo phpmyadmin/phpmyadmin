@@ -2779,10 +2779,10 @@ msgstr "Неможливо завантажити стандартну функ�
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Змінна <tt>$cfg['PmaAbsoluteUri']</tt> ПОВИННА бути встановлена у Вашому "
+"Змінна <code>$cfg['PmaAbsoluteUri']</code> ПОВИННА бути встановлена у Вашому "
 "конфігураційному файлі!"
 
 #: libraries/common.inc.php:647

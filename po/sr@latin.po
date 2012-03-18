@@ -2953,10 +2953,10 @@ msgstr "Ne mogu da učitam podrazumevanu konfiguraciju iz: \"%1$s\""
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> direktiva MORA biti podešena u "
+"<code>$cfg['PmaAbsoluteUri']</code> direktiva MORA biti podešena u "
 "konfiguracionoj datoteci!"
 
 #: libraries/common.inc.php:647

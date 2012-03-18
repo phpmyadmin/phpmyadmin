@@ -8,14 +8,14 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 
 /**
  * Runs common work
  */
-require './libraries/tbl_common.php';
+require 'libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_operations.php&amp;back=tbl_operations.php';
 $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 
@@ -27,8 +27,8 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Gets available MySQL charsets and storage engines
  */
-require_once './libraries/mysql_charsets.lib.php';
-require_once './libraries/StorageEngine.class.php';
+require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/StorageEngine.class.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 // also add jQueryUI
@@ -37,7 +37,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 /**
  * Class for partition management
  */
-require_once './libraries/Partition.class.php';
+require_once 'libraries/Partition.class.php';
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
@@ -47,7 +47,7 @@ PMA_DBI_select_db($GLOBALS['db']);
  * Gets tables informations
  */
 
-require './libraries/tbl_info.inc.php';
+require 'libraries/tbl_info.inc.php';
 
 // define some globals here, for improved syntax in the conditionals
 $is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = $is_aria = $is_pbxt = false;
@@ -72,13 +72,13 @@ $table_alters = array();
  */
 if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
     $_message = '';
-    include_once './tbl_move_copy.php';
+    include_once 'tbl_move_copy.php';
 }
 /**
  * If the table has to be maintained
  */
 if (isset($_REQUEST['table_maintenance'])) {
-    include_once './sql.php';
+    include_once 'sql.php';
     unset($result);
 }
 /**
@@ -211,7 +211,7 @@ if ($reread_info) {
     // a change, clear the cache
     PMA_Table::$cache = array();
     $page_checksum = $checksum = $delay_key_write = 0;
-    include './libraries/tbl_info.inc.php';
+    include 'libraries/tbl_info.inc.php';
 }
 unset($reread_info);
 
@@ -219,7 +219,7 @@ unset($reread_info);
  * Displays top menu links in non ajax requests
  */
 if (!isset($_REQUEST['ajax_request'])) {
-    include_once './libraries/tbl_links.inc.php';
+    include_once 'libraries/tbl_links.inc.php';
 }
 if (isset($result) && empty($message_to_show)) {
     // set to success by default, because result set could be empty
@@ -856,7 +856,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 
 function PMA_set_global_variables_for_engine($tbl_type)
