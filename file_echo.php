@@ -7,7 +7,7 @@
  * @package PhpMyAdmin
  */
 
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /* For chart exporting */
 if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {

@@ -2896,10 +2896,10 @@ msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Directiva <tt>$cfg['PmaAbsoluteUri']</tt> TREBUIE să fie stabilită în "
+"Directiva <code>$cfg['PmaAbsoluteUri']</code> TREBUIE să fie stabilită în "
 "fișierul de configurare!"
 
 #: libraries/common.inc.php:647

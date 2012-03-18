@@ -29,6 +29,26 @@ $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
+/**
+ * Sets globals from $_POST
+ */
+$post_params = array(
+    'collations',
+    'dataLabel',
+    'fields',
+    'fields_null',
+    'inputs',
+    'max_number_of_fields',
+    'maxPlotLimit',
+    'types',
+    'zoom_submit',
+    'zoomFunc'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
 
 /**
  * Handle AJAX request for data row on point select
@@ -171,6 +191,7 @@ $fields_cnt = count($fields_list);
 $foreigners = PMA_getForeigners($db, $table);
 $flag = 1;
 $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
+
 if (! isset($zoom_submit) && ! isset($inputs)) {
     $dataLabel = PMA_getDisplayField($db, $table);
 }

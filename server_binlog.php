@@ -9,17 +9,17 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work, provides $binary_logs
  */
-require_once './libraries/server_common.inc.php';
+require_once 'libraries/server_common.inc.php';
 
 /**
  * Displays the links
  */
-require_once './libraries/server_links.inc.php';
+require_once 'libraries/server_links.inc.php';
 
 $url_params = array();
 
@@ -117,10 +117,10 @@ PMA_showMessage(PMA_Message::success());
  * Displays the page
  */
 ?>
-<table border="0" cellpadding="2" cellspacing="1">
+<table cellpadding="2" cellspacing="1">
 <thead>
 <tr>
-    <td colspan="6" align="center">
+    <td colspan="6" class="center">
 <?php
 // we do not now how much rows are in the binlog
 // so we can just force 'NEXT' button
@@ -130,7 +130,7 @@ if ($pos > 0) {
         $this_url_params['pos'] = $pos - $GLOBALS['cfg']['MaxRows'];
     }
 
-    echo '<a href="./server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
+    echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         echo ' title="' . _pgettext('Previous page', 'Previous') . '">';
     } else {
@@ -146,7 +146,7 @@ if ($pos > 0) {
 if ($dontlimitchars) {
     unset($this_url_params['dontlimitchars']);
     ?>
-        <a href="./server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
+        <a href="server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
             title="<?php __('Truncate Shown Queries'); ?>">
                 <img src="<?php echo $pmaThemeImage; ?>s_partialtext.png"
                     alt="<?php echo __('Truncate Shown Queries'); ?>" /></a>
@@ -154,7 +154,7 @@ if ($dontlimitchars) {
 } else {
     $this_url_params['dontlimitchars'] = 1;
     ?>
-        <a href="./server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
+        <a href="server_binlog.php<?php echo PMA_generate_common_url($this_url_params); ?>"
             title="<?php __('Show Full Queries'); ?>">
                 <img src="<?php echo $pmaThemeImage; ?>s_fulltext.png"
                     alt="<?php echo __('Show Full Queries'); ?>" /></a>
@@ -165,7 +165,7 @@ if ($dontlimitchars) {
 if ($num_rows >= $GLOBALS['cfg']['MaxRows']) {
     $this_url_params = $url_params;
     $this_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxRows'];
-    echo ' - <a href="./server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
+    echo ' - <a href="server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         echo ' title="' . _pgettext('Next page', 'Next') . '">';
     } else {
@@ -195,10 +195,10 @@ while ($value = PMA_DBI_fetch_assoc($result)) {
     ?>
 <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
     <td>&nbsp;<?php echo $value['Log_name']; ?>&nbsp;</td>
-    <td align="right">&nbsp;<?php echo $value['Pos']; ?>&nbsp;</td>
+    <td class="right">&nbsp;<?php echo $value['Pos']; ?>&nbsp;</td>
     <td>&nbsp;<?php echo $value['Event_type']; ?>&nbsp;</td>
-    <td align="right">&nbsp;<?php echo $value['Server_id']; ?>&nbsp;</td>
-    <td align="right">&nbsp;<?php echo isset($value['Orig_log_pos']) ? $value['Orig_log_pos'] : $value['End_log_pos']; ?>&nbsp;</td>
+    <td class="right">&nbsp;<?php echo $value['Server_id']; ?>&nbsp;</td>
+    <td class="right">&nbsp;<?php echo isset($value['Orig_log_pos']) ? $value['Orig_log_pos'] : $value['End_log_pos']; ?>&nbsp;</td>
     <td>&nbsp;<?php echo htmlspecialchars($value['Info']); ?>&nbsp;</td>
 </tr>
     <?php
@@ -213,6 +213,6 @@ while ($value = PMA_DBI_fetch_assoc($result)) {
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

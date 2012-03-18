@@ -8,7 +8,7 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
@@ -17,7 +17,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 $GLOBALS['db'] = '';
 $GLOBALS['table'] = '';
 $show_query = '1';
-require_once './libraries/header.inc.php';
+require_once 'libraries/header.inc.php';
 
 // Any message to display?
 if (! empty($message)) {
@@ -30,9 +30,9 @@ $common_url_query =  PMA_generate_common_url('', '');
 // when $server > 0, a server has been chosen so we can display
 // all MySQL-related information
 if ($server > 0) {
-    include './libraries/server_common.inc.php';
-    include './libraries/StorageEngine.class.php';
-    include './libraries/server_links.inc.php';
+    include 'libraries/server_common.inc.php';
+    include 'libraries/StorageEngine.class.php';
+    include 'libraries/server_links.inc.php';
 
     // Use the verbose name of the server instead of the hostname
     // if a value is set
@@ -71,7 +71,7 @@ if ($server > 0
     if (! $cfg['LeftDisplayServers']
      && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
         echo '<li id="li_select_server">';
-        include_once './libraries/select_server.lib.php';
+        include_once 'libraries/select_server.lib.php';
         PMA_select_server(true, true);
         echo '</li>';
     }
@@ -80,7 +80,7 @@ if ($server > 0
      * Displays the mysql server related links
      */
     if ($server > 0 && !PMA_DRIZZLE) {
-        include_once './libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.lib.php';
 
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
@@ -93,7 +93,7 @@ if ($server > 0
                 PMA_printListItem(
                     __('Change password'),
                     'li_change_password',
-                    './user_password.php?' . $common_url_query,
+                    'user_password.php?' . $common_url_query,
                     null,
                     null,
                     'change_password_anchor',
@@ -127,7 +127,7 @@ echo '  <ul>';
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
     echo '<li id="li_select_lang">';
-    include_once './libraries/display_select_lang.lib.php';
+    include_once 'libraries/display_select_lang.lib.php';
     PMA_select_language();
     echo '</li>';
 }
@@ -152,7 +152,7 @@ if ($server > 0) {
     echo PMA_printListItem(
         __('More settings'),
         'li_user_preferences',
-        './prefs_manage.php?' . $common_url_query
+        'prefs_manage.php?' . $common_url_query
     );
     echo '</ul>';
 }
@@ -182,7 +182,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
 
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' . __('Server charset') . ': '
-       . '        <span xml:lang="en" dir="ltr">'
+       . '        <span lang="en" dir="ltr">'
        . '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']] . "\n"
        . '           (' . $mysql_charset_map['utf-8'] . ')' . "\n"
        . '        </span>' . "\n"
@@ -218,7 +218,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
     }
 
     if ($cfg['ShowPhpInfo']) {
-        PMA_printListItem(__('Show PHP information'), 'li_phpinfo', './phpinfo.php?' . $common_url_query);
+        PMA_printListItem(__('Show PHP information'), 'li_phpinfo', 'phpinfo.php?' . $common_url_query);
     }
     echo '  </ul>';
     echo ' </div>';
@@ -312,7 +312,7 @@ if (!empty($_SESSION['auto_blowfish_secret']) &&
  * Check for existence of config directory which should not exist in
  * production environment.
  */
-if (file_exists('./config')) {
+if (file_exists('config')) {
     trigger_error(__('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.'), E_USER_WARNING);
 }
 
@@ -398,8 +398,8 @@ if (!function_exists('mcrypt_encrypt') && !$GLOBALS['cfg']['McryptDisableWarning
  *
  * The data file is created while creating release by ./scripts/remove-incomplete-mo
  */
-if (file_exists('./libraries/language_stats.inc.php')) {
-    include './libraries/language_stats.inc.php';
+if (file_exists('libraries/language_stats.inc.php')) {
+    include 'libraries/language_stats.inc.php';
     /*
      * This message is intentionally not translated, because we're
      * handling incomplete translations here and focus on english
@@ -457,5 +457,5 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

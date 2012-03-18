@@ -17,19 +17,19 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 /**
  * requirements
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work
  */
-require './libraries/server_common.inc.php';
-require './libraries/StorageEngine.class.php';
+require 'libraries/server_common.inc.php';
+require 'libraries/StorageEngine.class.php';
 
 
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 /**
  * Did the user request information about a certain storage engine?
@@ -69,7 +69,7 @@ if (empty($_REQUEST['engine'])
                 ? ' disabled'
                 : '')
            . '">' . "\n"
-           . '    <td><a href="./server_engines.php'
+           . '    <td><a href="server_engines.php'
            . PMA_generate_common_url(array('engine' => $engine)) . '">' . "\n"
            . '            ' . htmlspecialchars($details['Engine']) . "\n"
            . '        </a></td>' . "\n"
@@ -106,7 +106,7 @@ if (empty($_REQUEST['engine'])
         if (empty($_REQUEST['page'])) {
             echo '    <strong>' . __('Variables') . '</strong>' . "\n";
         } else {
-            echo '    <a href="./server_engines.php'
+            echo '    <a href="server_engines.php'
                 . PMA_generate_common_url(array('engine' => $_REQUEST['engine'])) . '">'
                 . __('Variables') . '</a>' . "\n";
         }
@@ -115,7 +115,7 @@ if (empty($_REQUEST['engine'])
             if (isset($_REQUEST['page']) && $_REQUEST['page'] == $current) {
                 echo '    <strong>' . $label . '</strong>' . "\n";
             } else {
-                echo '    <a href="./server_engines.php'
+                echo '    <a href="server_engines.php'
                     . PMA_generate_common_url(
                         array('engine' => $_REQUEST['engine'], 'page' => $current))
                     . '">' . htmlspecialchars($label) . '</a>' . "\n";
@@ -141,6 +141,6 @@ if (empty($_REQUEST['engine'])
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

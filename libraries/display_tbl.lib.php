@@ -297,7 +297,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     ?>
 
 <!-- Navigation bar -->
-<table border="0" cellpadding="0" cellspacing="0" class="navigation">
+<table cellpadding="0" cellspacing="0" class="navigation">
 <tr>
     <td class="navigation_separator"></td>
     <?php
@@ -1146,7 +1146,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
  */
 function PMA_buildValueDisplay($class, $condition_field, $value)
 {
-    return '<td align="left"' . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $value . '</td>';
+    return '<td class="left ' . $class . ($condition_field ? ' condition' : '') . '">' . $value . '</td>';
 }
 
 /**
@@ -1556,15 +1556,15 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 //       so use the $pointer
 
                 if (! isset($row[$i]) || is_null($row[$i])) {
-                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field, $meta, 'align="right"');
+                    $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay('right '.$class, $condition_field, $meta, '');
                 } elseif ($row[$i] != '') {
 
                     $nowrap = ' nowrap';
                     $where_comparison = ' = ' . $row[$i];
 
-                    $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
+                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data('right '.$class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
                 } else {
-                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, $meta, 'align="right"');
+                    $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay('right '.$class, $condition_field, $meta, '');
                 }
 
             //  b l o b
@@ -2877,7 +2877,7 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
         if (! empty($class)) {
             $ret .= 'class="' . $class . '"';
         }
-        $ret .= ' align="center">'
+        $ret .= ' class="center">'
            . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $where_clause_html . ']"'
            . ' class="multi_checkbox"'
            . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
@@ -2902,7 +2902,7 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
 {
     $ret = '';
     if (! empty($edit_url)) {
-        $ret .= '<td class="' . $class . '" align="center" ' . ' ><span class="nowrap">'
+        $ret .= '<td class="' . $class . ' center" ' . ' ><span class="nowrap">'
            . PMA_linkOrButton($edit_url, $edit_str, array(), false);
         /*
          * Where clause for selecting this row uniquely is provided as
@@ -2931,18 +2931,18 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
 {
     $ret = '';
     if (! empty($copy_url)) {
-        $ret .= '<td ';
+        $ret .= '<td class="';
         if (! empty($class)) {
-            $ret .= 'class="' . $class . '" ';
+            $ret .= $class . ' ';
         }
-        $ret .= 'align="center" ' . ' ><span class="nowrap">'
+        $ret .= 'center" ' . ' ><span class="nowrap">'
            . PMA_linkOrButton($copy_url, $copy_str, array(), false);
         /*
          * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling grid editing
          */
         if (! empty($where_clause)) {
-            $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
+            $ret .= '<input type="hidden" class="where_clause" value="' . $where_clause_html . '" />';
         }
         $ret .= '</span></td>';
     }
@@ -2963,11 +2963,11 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
 {
     $ret = '';
     if (! empty($del_url)) {
-        $ret .= '<td ';
+        $ret .= '<td class="';
         if (! empty($class)) {
-            $ret .= 'class="' . $class . '" ';
+            $ret .= $class . ' ';
         }
-        $ret .= 'align="center" ' . ' >'
+        $ret .= 'center" ' . ' >'
            . PMA_linkOrButton($del_url, $del_str, $js_conf, false)
            . '</td>';
     }

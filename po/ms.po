@@ -2892,10 +2892,10 @@ msgstr ""
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg[PmaAbsoluteUri]</tt> MESTI disetkan di dalam fail konfigurasi."
+"<code>$cfg[PmaAbsoluteUri]</code> MESTI disetkan di dalam fail konfigurasi."
 
 #: libraries/common.inc.php:647
 #, php-format

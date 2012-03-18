@@ -325,7 +325,7 @@ require_once './libraries/List.class.php';
             $selected = $this->getDefault();
         }
 
-        $return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
+        $return = '<ul id="databaseList" lang="en" dir="ltr">' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
                 $return .= '<li class="group"><span>' . htmlspecialchars($group) . '</span><ul>' . "\n";
@@ -381,7 +381,7 @@ require_once './libraries/List.class.php';
             $selected = $this->getDefault();
         }
 
-        $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
+        $return = '<select name="db" id="lightm_db" lang="en" dir="ltr"'
             . ' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";

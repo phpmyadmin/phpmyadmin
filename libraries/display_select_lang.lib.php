@@ -50,13 +50,13 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
         $language_title .= PMA_showDocu('faq7_2');
     }
     if ($use_fieldset) {
-        echo '<fieldset><legend xml:lang="en" dir="ltr">' . $language_title . '</legend>';
+        echo '<fieldset><legend lang="en" dir="ltr">' . $language_title . '</legend>';
     } else {
-        echo '<bdo xml:lang="en" dir="ltr">' . $language_title . ':</bdo>';
+        echo '<bdo lang="en" dir="ltr">' . $language_title . ':</bdo>';
     }
     ?>
 
-    <select name="lang" class="autosubmit" xml:lang="en" dir="ltr">
+    <select name="lang" class="autosubmit" lang="en" dir="ltr">
     <?php
 
     uasort($GLOBALS['available_languages'], 'PMA_language_cmp');

@@ -192,12 +192,16 @@ input[type=password] {
 
 }
 
-input[type=submit] {
-    font-weight: bold;
+input[type=submit],
+button[type=submit]:not(.mult_submit) {
+    font-weight: bold !important;
 }
 
 input[type=submit],
-input[type=reset] {
+button[type=submit]:not(.mult_submit),
+input[type=reset],
+input[name=submit_reset],
+input.button {
     margin-left: 14px;
     border: 1px solid #aaa;
     padding: 3px 7px;
@@ -215,14 +219,20 @@ input[type=reset] {
 }
 
 input[type=submit]:hover,
-input[type=reset]:hover {
+button[type=submit]:not(.mult_submit):hover,
+input[type=reset]:hover,
+input[name=submit_reset]:hover,
+input.button:hover {
     position: relative;
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
     cursor: pointer;
 }
 
 input[type=submit]:active,
-input[type=reset]:active {
+button[type=submit]:not(.mult_submit):active,
+input[type=reset]:active,
+input[name=submit_reset]:active,
+input.button:active {
     position: relative;
     top: 1px;
     left: 1px;
@@ -339,6 +349,18 @@ select[multiple] {
 .floatleft {
     float: <?php echo $left; ?>;
     margin-<?php echo $right; ?>: 1em;
+}
+
+th.left, td.left {
+    text-align: left;
+}
+
+th.center, td.center {
+    text-align: center;
+}
+
+th.right, td.right {
+    text-align: right;
 }
 
 .paddingtop {

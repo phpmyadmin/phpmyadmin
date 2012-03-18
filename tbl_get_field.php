@@ -8,8 +8,8 @@
 /**
  * Common functions.
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/mime.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/mime.lib.php';
 
 /* Check parameters */
 PMA_checkParameters(array('db', 'table', 'where_clause', 'transform_key'));

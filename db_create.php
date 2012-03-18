@@ -8,15 +8,15 @@
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 
-require_once './libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.lib.php';
 if (!PMA_DRIZZLE) {
-    include_once './libraries/replication.inc.php';
+    include_once 'libraries/replication.inc.php';
 }
-require './libraries/build_html_for_db.lib.php';
+require 'libraries/build_html_for_db.lib.php';
 
 /**
  * Sets globals from $_POST
@@ -67,8 +67,8 @@ if (! $result) {
         PMA_ajaxResponse($message, false);
     }
 
-    include_once './libraries/header.inc.php';
-    include_once './main.php';
+    include_once 'libraries/header.inc.php';
+    include_once 'main.php';
 } else {
     $message = PMA_Message::success(__('Database %1$s has been created.'));
     $message->addParam($new_db);
@@ -138,7 +138,7 @@ if (! $result) {
         PMA_ajaxResponse($message, true, $extra_data);
     }
 
-    include_once './libraries/header.inc.php';
-    include_once './' . $cfg['DefaultTabDatabase'];
+    include_once 'libraries/header.inc.php';
+    include_once '' . $cfg['DefaultTabDatabase'];
 }
 ?>

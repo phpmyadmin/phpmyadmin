@@ -17,8 +17,8 @@ define('PMA_NO_VARIABLES_IMPORT', true);
 /**
  *
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/mysql_charsets.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/mysql_charsets.lib.php';
 
 /**
  * No rows were selected => show again the query and tell that user.
@@ -27,8 +27,8 @@ if (! PMA_isValid($_REQUEST['rows_to_delete'], 'array')
  && ! isset($_REQUEST['mult_btn'])) {
     $disp_message = __('No rows selected');
     $disp_query = '';
-    include './sql.php';
-    include './libraries/footer.inc.php';
+    include 'sql.php';
+    include 'libraries/footer.inc.php';
 }
 
 if (isset($_REQUEST['submit_mult'])) {
@@ -82,7 +82,7 @@ if (!empty($submit_mult)) {
             }
 
             $active_page = 'tbl_change.php';
-            include './tbl_change.php';
+            include 'tbl_change.php';
             break;
 
         case 'row_export':
@@ -99,7 +99,7 @@ if (!empty($submit_mult)) {
             }
 
             $active_page = 'tbl_export.php';
-            include './tbl_export.php';
+            include 'tbl_export.php';
             break;
 
         case 'row_delete':
@@ -112,7 +112,7 @@ if (!empty($submit_mult)) {
                     $original_url_query = $url_query;
                 }
             }
-            include './libraries/mult_submits.inc.php';
+            include 'libraries/mult_submits.inc.php';
             $_url_params = $GLOBALS['url_params'];
             $_url_params['goto'] = 'tbl_sql.php';
             $url_query = PMA_generate_common_url($_url_params);
@@ -140,12 +140,12 @@ if (!empty($submit_mult)) {
             unset($submit_mult, $_REQUEST['mult_btn']);
 
             $active_page = 'sql.php';
-            include './sql.php';
+            include 'sql.php';
 
             /**
              * Displays the footer
              */
-            include './libraries/footer.inc.php';
+            include 'libraries/footer.inc.php';
             break;
     }
 }

@@ -2757,10 +2757,10 @@ msgstr "Конфигурацията по подразбиране не може
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"На <tt>$cfg['PmaAbsoluteUri']</tt> ТРЯБВА да се зададе стойност в "
+"На <code>$cfg['PmaAbsoluteUri']</code> ТРЯБВА да се зададе стойност в "
 "конфигурационния файл!"
 
 #: libraries/common.inc.php:647

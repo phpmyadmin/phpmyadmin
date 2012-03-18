@@ -295,7 +295,7 @@ class PMA_Theme_Manager
         $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" class="themeselect">';
         $select_box .=  $theme_preview_href . __('Theme') . '</a>:' . "\n";
 
-        $select_box .=  '<select name="set_theme" xml:lang="en" dir="ltr" class="autosubmit">';
+        $select_box .=  '<select name="set_theme" lang="en" dir="ltr" class="autosubmit">';
         foreach ($this->themes as $each_theme_id => $each_theme) {
             $select_box .=  '<option value="' . $each_theme_id . '"';
             if ($this->active_theme === $each_theme_id) {

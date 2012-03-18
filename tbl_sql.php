@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Runs common work
@@ -19,10 +19,10 @@ $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
 $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
-require './libraries/tbl_common.php';
+require 'libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
 
-require_once './libraries/sql_query_form.lib.php';
+require_once 'libraries/sql_query_form.lib.php';
 
 $err_url   = 'tbl_sql.php' . $err_url;
 // After a syntax error, we return to this script
@@ -33,12 +33,12 @@ $back = 'tbl_sql.php';
 /**
  * Get table information
  */
-require_once './libraries/tbl_info.inc.php';
+require_once 'libraries/tbl_info.inc.php';
 
 /**
  * Displays top menu links
  */
-require_once './libraries/tbl_links.inc.php';
+require_once 'libraries/tbl_links.inc.php';
 
 /**
  * Query box, bookmark, insert data from textfile
@@ -48,5 +48,5 @@ PMA_sqlQueryForm(true, false, isset($_REQUEST['delimiter']) ? htmlspecialchars($
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

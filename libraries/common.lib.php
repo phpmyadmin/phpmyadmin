@@ -930,7 +930,7 @@ function PMA_removeBackquote($a_name)
  */
 function PMA_whichCrlf()
 {
-    // The 'PMA_USR_OS' constant is defined in "./libraries/Config.class.php"
+    // The 'PMA_USR_OS' constant is defined in "libraries/Config.class.php"
     // Win case
     if (PMA_USR_OS == 'Win') {
         $the_crlf = "\r\n";
@@ -2507,7 +2507,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 . $frame . '">' . $caption2 . '</a>';
         }
 
-        echo "\n", '<form action="./', basename($script), '" method="post" target="', $frame, '">', "\n";
+        echo "\n", '<form action="', basename($script), '" method="post" target="', $frame, '">', "\n";
         echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector(
             $max_count,
@@ -3866,7 +3866,7 @@ function PMA_analyzeLimitClause($limit_clause)
 function PMA_printButton()
 {
     echo '<p class="print_ignore">';
-    echo '<input type="button" id="print" value="' . __('Print') . '" />';
+    echo '<input type="button" class="button" id="print" value="' . __('Print') . '" />';
     echo '</p>';
 }
 ?>

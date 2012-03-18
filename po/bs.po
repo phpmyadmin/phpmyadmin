@@ -2909,10 +2909,10 @@ msgstr ""
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> direktiva MORA biti podješena u "
+"<code>$cfg['PmaAbsoluteUri']</code> direktiva MORA biti podješena u "
 "konfiguracionoj datoteci!"
 
 #: libraries/common.inc.php:647

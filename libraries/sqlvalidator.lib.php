@@ -64,7 +64,7 @@ function PMA_validateSQL($sql)
     if ($cfg['SQLValidator']['use']) {
         if (isset($GLOBALS['sqlvalidator_error'])
             && $GLOBALS['sqlvalidator_error']) {
-            $str = sprintf(__('The SQL validator could not be initialized. Please check if you have installed the necessary PHP extensions as described in the %sdocumentation%s.'), '<a href="./Documentation.html#faqsqlvalidator" target="documentation">', '</a>');
+            $str = sprintf(__('The SQL validator could not be initialized. Please check if you have installed the necessary PHP extensions as described in the %sdocumentation%s.'), '<a href="Documentation.html#faqsqlvalidator" target="documentation">', '</a>');
         } else {
             // create new class instance
             $srv = new PMA_SQLValidator();
