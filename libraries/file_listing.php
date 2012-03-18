@@ -12,6 +12,7 @@
  *
  * @param string $dir        directory to list
  * @param string $expression regular expression to match files
+ *
  * @return array   sorted file list on success, false on failure
  */
 function PMA_getDirContent($dir, $expression = '')
@@ -22,8 +23,8 @@ function PMA_getDirContent($dir, $expression = '')
             $dir .= '/';
         }
         while ($file = @readdir($handle)) {
-        // for PHP < 5.2.4, is_file() gives a warning when using open_basedir
-        // and verifying '..' or '.'
+            // for PHP < 5.2.4, is_file() gives a warning when using open_basedir
+            // and verifying '..' or '.'
             if ('.' != $file && '..' != $file && is_file($dir . $file) && ($expression == '' || preg_match($expression, $file))) {
                 $result[] = $file;
             }
@@ -42,6 +43,7 @@ function PMA_getDirContent($dir, $expression = '')
  * @param string $dir        directory to list
  * @param string $extensions regullar expression to match files
  * @param string $active     currently active choice
+ *
  * @return array   sorted file list on success, false on failure
  */
 function PMA_getFileSelectOptions($dir, $extensions = '', $active = '')

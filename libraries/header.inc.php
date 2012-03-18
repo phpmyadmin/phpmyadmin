@@ -108,106 +108,112 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
          */
 
         if (PMA_DISPLAY_HEADING && $GLOBALS['server'] > 0) {
-            $server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
-                            ? $GLOBALS['cfg']['Server']['verbose']
-                            : $GLOBALS['cfg']['Server']['host'] . (empty($GLOBALS['cfg']['Server']['port'])
-                                                                   ? ''
-                                                                   : ':' . $GLOBALS['cfg']['Server']['port']
-                                                                  )
-                           );
+            $server_info = ! empty($GLOBALS['cfg']['Server']['verbose'])
+                ? $GLOBALS['cfg']['Server']['verbose']
+                : $GLOBALS['cfg']['Server']['host'];
+            $server_info .= empty($GLOBALS['cfg']['Server']['port'])
+                ? ''
+                : ':' . $GLOBALS['cfg']['Server']['port'];
+
             $separator = "<span class='separator item'>&nbsp;»</span>\n";
             $item = '<a href="%1$s?%2$s" class="item">';
 
-                if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
-                    $item .= '%4$s: ';
-                }
-                $item .= '%3$s</a>' . "\n";
-                echo "<div id='floating_menubar'></div>\n";
-                echo "<div id='serverinfo'>\n";
-                if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                    echo PMA_getImage('s_host.png', '', array('class' => 'item')) . "\n";
-                }
-                printf($item,
-                        $GLOBALS['cfg']['DefaultTabServer'],
-                        PMA_generate_common_url(),
-                        htmlspecialchars($server_info),
-                        __('Server'));
+            if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
+                $item .= '%4$s: ';
+            }
+            $item .= '%3$s</a>' . "\n";
+            echo "<div id='floating_menubar'></div>\n";
+            echo "<div id='serverinfo'>\n";
+            if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                echo PMA_getImage('s_host.png', '', array('class' => 'item')) . "\n";
+            }
+            printf(
+                $item,
+                $GLOBALS['cfg']['DefaultTabServer'],
+                PMA_generate_common_url(),
+                htmlspecialchars($server_info),
+                __('Server')
+            );
 
-                if (strlen($GLOBALS['db'])) {
+            if (strlen($GLOBALS['db'])) {
+
+                echo $separator;
+                if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                    echo PMA_getImage('s_db.png', '', array('class' => 'item')) . "\n";
+                }
+                printf(
+                    $item,
+                    $GLOBALS['cfg']['DefaultTabDatabase'],
+                    PMA_generate_common_url($GLOBALS['db']),
+                    htmlspecialchars($GLOBALS['db']),
+                    __('Database')
+                );
+                // if the table is being dropped, $_REQUEST['purge'] is set to '1'
+                // so do not display the table name in upper div
+                if (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')) {
+                    include_once './libraries/tbl_info.inc.php';
 
                     echo $separator;
                     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                        echo PMA_getImage('s_db.png', '', array('class' => 'item')) . "\n";
+                        $icon = isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views.png' : 's_tbl.png';
+                        echo PMA_getImage($icon, '', array('class' => 'item')) . "\n";
                     }
-                    printf($item,
-                            $GLOBALS['cfg']['DefaultTabDatabase'],
-                            PMA_generate_common_url($GLOBALS['db']),
-                            htmlspecialchars($GLOBALS['db']),
-                            __('Database'));
-                    // if the table is being dropped, $_REQUEST['purge'] is set to '1'
-                    // so do not display the table name in upper div
-                    if (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')) {
-                        include_once './libraries/tbl_info.inc.php';
+                    printf(
+                        $item,
+                        $GLOBALS['cfg']['DefaultTabTable'],
+                        PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
+                        str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
+                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table'))
+                    );
 
-                        echo $separator;
-                        if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                            $icon = isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views.png' : 's_tbl.png';
-                            echo PMA_getImage($icon, '', array('class' => 'item')) . "\n";
+                    /**
+                     * Displays table comment
+                     */
+                    if (!empty($show_comment) && ! isset($GLOBALS['avoid_show_comment'])) {
+                        if (strstr($show_comment, '; InnoDB free')) {
+                            $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
                         }
-                        printf($item,
-                            $GLOBALS['cfg']['DefaultTabTable'],
-                            PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
-                            str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
-                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')));
+                        echo '<span class="table_comment" id="span_table_comment">'
+                            .'&quot;' . htmlspecialchars($show_comment)
+                            .'&quot;</span>' . "\n";
+                    } // end if
 
+                    // add recently used table and reload the navigation
+                    if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
+                        PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
+                    }
+                } else {
+                    // no table selected, display database comment if present
+                    /**
+                     * Settings for relations stuff
+                     */
+                    include_once './libraries/relation.lib.php';
+                    $cfgRelation = PMA_getRelationsParam();
+
+                    // Get additional information about tables for tooltip is done
+                    // in libraries/db_info.inc.php only once
+                    if ($cfgRelation['commwork']) {
+                        $comment = PMA_getDbComment($GLOBALS['db']);
                         /**
                          * Displays table comment
                          */
-                        if (!empty($show_comment) && ! isset($GLOBALS['avoid_show_comment'])) {
-                            if (strstr($show_comment, '; InnoDB free')) {
-                                $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
-                            }
-                            echo '<span class="table_comment" id="span_table_comment">'
-                                .'&quot;' . htmlspecialchars($show_comment)
-                                .'&quot;</span>' . "\n";
+                        if (! empty($comment)) {
+                            echo '<span class="table_comment"'
+                                . ' id="span_table_comment">&quot;'
+                                . htmlspecialchars($comment)
+                                . '&quot;</span>' . "\n";
                         } // end if
-
-                        // add recently used table and reload the navigation
-                        if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
-                            PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
-                        }
-                    } else {
-                        // no table selected, display database comment if present
-                        /**
-                         * Settings for relations stuff
-                         */
-                        include_once './libraries/relation.lib.php';
-                        $cfgRelation = PMA_getRelationsParam();
-
-                        // Get additional information about tables for tooltip is done
-                        // in libraries/db_info.inc.php only once
-                        if ($cfgRelation['commwork']) {
-                            $comment = PMA_getDbComment($GLOBALS['db']);
-                            /**
-                             * Displays table comment
-                             */
-                            if (! empty($comment)) {
-                                echo '<span class="table_comment"'
-                                    . ' id="span_table_comment">&quot;'
-                                    . htmlspecialchars($comment)
-                                    . '&quot;</span>' . "\n";
-                            } // end if
-                        }
                     }
                 }
             }
-            echo '<div class="clearfloat"></div>';
-            echo '</div>';
         }
-        /**
-         * Sets a variable to remember headers have been sent
-         */
-        $GLOBALS['is_header_sent'] = true;
+        echo '<div class="clearfloat"></div>';
+        echo '</div>';
+    }
+    /**
+     * Sets a variable to remember headers have been sent
+     */
+    $GLOBALS['is_header_sent'] = true;
 //end if (!$GLOBALS['is_ajax_request'])
 } else {
     if (empty($GLOBALS['is_header_sent'])) {

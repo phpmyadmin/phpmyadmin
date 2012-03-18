@@ -35,9 +35,11 @@ $pos = $_SESSION['tmp_user_values']['table_limit_offset'];
 /**
  * fills given tooltip arrays
  *
- * @param array   $tooltip_truename   tooltip data
- * @param array   $tooltip_aliasname  tooltip data
- * @param array   $table              tabledata
+ * @param array &$tooltip_truename  tooltip data
+ * @param array &$tooltip_aliasname tooltip data
+ * @param array $table              tabledata
+ *
+ * @return nothing
  */
 function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
 {
@@ -62,7 +64,8 @@ function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
     }
 
     if ($GLOBALS['cfg']['ShowTooltipAliasTB']
-     && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested') {
+        && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested'
+    ) {
         $tooltip_truename[$table['Name']] = $table['Comment'];
         $tooltip_aliasname[$table['Name']] = $table['Name'];
     } else {
@@ -137,13 +140,15 @@ if (true === $cfg['SkipLockedTables']) {
         if (isset($sot_cache)) {
             $db_info_result = PMA_DBI_query(
                 'SHOW TABLES FROM ' . PMA_backquote($db) . $tbl_group_sql . ';',
-                null, PMA_DBI_QUERY_STORE);
+                null, PMA_DBI_QUERY_STORE
+            );
             if ($db_info_result && PMA_DBI_num_rows($db_info_result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query(
                             'SHOW TABLE STATUS FROM ' . PMA_backquote($db)
-                             . ' LIKE \'' . PMA_sqlAddSlashes($tmp[0], true) . '\';');
+                            . ' LIKE \'' . PMA_sqlAddSlashes($tmp[0], true) . '\';'
+                        );
                         $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
                         PMA_DBI_free_result($sts_result);
                         unset($sts_result);
@@ -152,8 +157,9 @@ if (true === $cfg['SkipLockedTables']) {
                             $sts_tmp['Type'] =& $sts_tmp['Engine'];
                         }
 
-                        if (!empty($tbl_group) && $cfg['ShowTooltipAliasTB']
-                         && !preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])) {
+                        if (! empty($tbl_group) && $cfg['ShowTooltipAliasTB']
+                            && !preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])
+                        ) {
                             continue;
                         }
 

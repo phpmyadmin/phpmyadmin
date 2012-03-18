@@ -31,9 +31,9 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'<tr><th></th>' . "\n"
         .'    <th>' . PMA_SortableTableHeader(__('Table'), 'table') . '</th>' . "\n";
     if ($replication) {
-     echo '    <th>' . "\n"
-         .'        ' . __('Replication') . "\n"
-         .'    </th>';
+        echo '    <th>' . "\n"
+            .'        ' . __('Replication') . "\n"
+            .'    </th>';
     }
     echo '    <th colspan="' . $action_colspan . '">' . "\n"
         .'        ' . __('Action') . "\n"
@@ -65,17 +65,18 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
 /**
  * Creates a clickable column header for table information
  *
- * @param string  $title title to use for the link
- * @param string  $sort  corresponds to sortable data name mapped in libraries/db_info.inc.php
- * @param string  $initial_sort_order
- * @return string  link to be displayed in the table header
+ * @param string $title              title to use for the link
+ * @param string $sort               corresponds to sortable data name mapped in libraries/db_info.inc.php
+ * @param string $initial_sort_order initial sort order
+ *
+ * @return string link to be displayed in the table header
  */
 function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
 {
     // Set some defaults
     $requested_sort = 'table';
     $requested_sort_order = $future_sort_order = $initial_sort_order;
-    
+
     // If the user requested a sort
     if (isset($_REQUEST['sort'])) {
         $requested_sort = $_REQUEST['sort'];
