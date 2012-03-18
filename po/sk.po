@@ -2746,10 +2746,10 @@ msgstr "Nepodarilo sa načítať prednastavenú konfiguráciu zo súboru: %1$s"
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Direktíva <tt>$cfg['PmaAbsoluteUri']</tt> MUSÍ byť nastavená v konfiguračnom "
+"Direktíva <code>$cfg['PmaAbsoluteUri']</code> MUSÍ byť nastavená v konfiguračnom "
 "súbore!"
 
 #: libraries/common.inc.php:647

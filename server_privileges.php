@@ -449,8 +449,8 @@ function PMA_displayColumnPrivs($columns, $row, $name_for_select,
 ) {
     echo '    <div class="item" id="div_item_' . $name . '">' . "\n"
        . '        <label for="select_' . $name . '_priv">' . "\n"
-       . '            <tt><dfn title="' . $name_for_dfn . '">'
-        . $priv_for_header . '</dfn></tt>' . "\n"
+       . '            <code><dfn title="' . $name_for_dfn . '">'
+        . $priv_for_header . '</dfn></code>' . "\n"
        . '        </label><br />' . "\n"
        . '        <select id="select_' . $name . '_priv" name="'
         . $name_for_select . '[]" multiple="multiple" size="8">' . "\n";
@@ -662,11 +662,11 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
                 : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '"/>' . "\n";
 
             echo '            <label for="checkbox_' . $current_grant
-                . '"><tt><dfn title="'
+                . '"><code><dfn title="'
                 . (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
                     ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
                     : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl'])
-               . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label>' . "\n"
+               . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></code></label>' . "\n"
                . '        </div>' . "\n";
         } // end foreach ()
 
@@ -766,8 +766,8 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
                     .                   ' value="Y" title="' . $priv[2] . '"'
                     .                   ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
                     .               '/>' . "\n"
-                    . '            <label for="checkbox_' . $priv[0] . '_priv"><tt><dfn title="' . $priv[2] . '">'
-                    .                    $priv[1] . '</dfn></tt></label>' . "\n"
+                    . '            <label for="checkbox_' . $priv[0] . '_priv"><code><dfn title="' . $priv[2] . '">'
+                    .                    $priv[1] . '</dfn></code></label>' . "\n"
                     . '        </div>' . "\n";
             }
             echo '    </fieldset>' . "\n";
@@ -779,26 +779,26 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
                . '        <legend>' . __('Resource limits') . '</legend>' . "\n"
                . '        <p><small><i>' . __('Note: Setting these options to 0 (zero) removes the limit.') . '</i></small></p>' . "\n"
                . '        <div class="item">' . "\n"
-               . '            <label for="text_max_questions"><tt><dfn title="'
-                . __('Limits the number of queries the user may send to the server per hour.') . '">MAX QUERIES PER HOUR</dfn></tt></label>' . "\n"
+               . '            <label for="text_max_questions"><code><dfn title="'
+                . __('Limits the number of queries the user may send to the server per hour.') . '">MAX QUERIES PER HOUR</dfn></code></label>' . "\n"
                . '            <input type="text" name="max_questions" id="text_max_questions" value="'
                 . $row['max_questions'] . '" size="11" maxlength="11" title="' . __('Limits the number of queries the user may send to the server per hour.') . '" />' . "\n"
                . '        </div>' . "\n"
                . '        <div class="item">' . "\n"
-               . '            <label for="text_max_updates"><tt><dfn title="'
-                . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">MAX UPDATES PER HOUR</dfn></tt></label>' . "\n"
+               . '            <label for="text_max_updates"><code><dfn title="'
+                . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">MAX UPDATES PER HOUR</dfn></code></label>' . "\n"
                . '            <input type="text" name="max_updates" id="text_max_updates" value="'
                 . $row['max_updates'] . '" size="11" maxlength="11" title="' . __('Limits the number of commands that change any table or database the user may execute per hour.') . '" />' . "\n"
                . '        </div>' . "\n"
                . '        <div class="item">' . "\n"
-               . '            <label for="text_max_connections"><tt><dfn title="'
-                . __('Limits the number of new connections the user may open per hour.') . '">MAX CONNECTIONS PER HOUR</dfn></tt></label>' . "\n"
+               . '            <label for="text_max_connections"><code><dfn title="'
+                . __('Limits the number of new connections the user may open per hour.') . '">MAX CONNECTIONS PER HOUR</dfn></code></label>' . "\n"
                . '            <input type="text" name="max_connections" id="text_max_connections" value="'
                 . $row['max_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of new connections the user may open per hour.') . '" />' . "\n"
                . '        </div>' . "\n"
                . '        <div class="item">' . "\n"
-               . '            <label for="text_max_user_connections"><tt><dfn title="'
-                . __('Limits the number of simultaneous connections the user may have.') . '">MAX USER_CONNECTIONS</dfn></tt></label>' . "\n"
+               . '            <label for="text_max_user_connections"><code><dfn title="'
+                . __('Limits the number of simultaneous connections the user may have.') . '">MAX USER_CONNECTIONS</dfn></code></label>' . "\n"
                . '            <input type="text" name="max_user_connections" id="text_max_user_connections" value="'
                 . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of simultaneous connections the user may have.') . '" />' . "\n"
                . '        </div>' . "\n"
@@ -1570,7 +1570,7 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
         };
 
         $new_user_string .= '</td>'."\n";
-        $new_user_string .= '<td><tt>' . join(', ', PMA_extractPrivInfo('', true)) . '</tt></td>'; //Fill in privileges here
+        $new_user_string .= '<td><code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code></td>'; //Fill in privileges here
         $new_user_string .= '<td>';
 
         if ((isset($Grant_priv) && $Grant_priv == 'Y')) {
@@ -1708,8 +1708,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 // a automatic repair feature soon.
                 $raw = 'Your privilege table structure seems to be older than'
                     . ' this MySQL version!<br />'
-                    . 'Please run the <tt>mysql_upgrade</tt> command'
-                    . '(<tt>mysql_fix_privilege_tables</tt> on older systems)'
+                    . 'Please run the <code>mysql_upgrade</code> command'
+                    . '(<code>mysql_fix_privilege_tables</code> on older systems)'
                     . ' that should be included in your MySQL server distribution'
                     . ' to solve this problem!';
                 PMA_Message::rawError($raw)->display();
@@ -1856,9 +1856,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                             break;
                         } // end switch
                         echo '</td>' . "\n"
-                           . '            <td><tt>' . "\n"
+                           . '            <td><code>' . "\n"
                            . '                ' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
-                           . '                </tt></td>' . "\n"
+                           . '                </code></td>' . "\n"
                            . '            <td>' . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . '</td>' . "\n"
                            . '            <td align="center">';
                         printf($link_edit, urlencode($host['User']), urlencode($host['Host']), '', '');
@@ -2198,9 +2198,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
                     echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                        . '    <td>' . htmlspecialchars((! isset($dbname)) ? $row['Db'] : $row['Table_name']) . '</td>' . "\n"
-                       . '    <td><tt>' . "\n"
+                       . '    <td><code>' . "\n"
                        . '        ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row, true)) . "\n"
-                       . '        </tt></td>' . "\n"
+                       . '        </code></td>' . "\n"
                        . '    <td>' . ((((! isset($dbname)) && $row['Grant_priv'] == 'Y') || (isset($dbname) && in_array('Grant', explode(',', $row['Table_priv'])))) ? __('Yes') : __('No')) . '</td>' . "\n"
                        . '    <td>';
                     if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
@@ -2489,14 +2489,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 } elseif ($current['Db'] == PMA_escape_mysql_wildcards($checkprivs)) {
                     $user_form .= __('database-specific');
                 } else {
-                    $user_form .= __('wildcard'). ': <tt>' . htmlspecialchars($current['Db']) . '</tt>';
+                    $user_form .= __('wildcard'). ': <code>' . htmlspecialchars($current['Db']) . '</code>';
                 }
                 $user_form .= "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n"
-                   . '            <tt>' . "\n"
+                   . '            <code>' . "\n"
                    . '                ' . join(',' . "\n" . '                ', PMA_extractPrivInfo($current, true)) . "\n"
-                   . '            </tt>' . "\n"
+                   . '            </code>' . "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n"
                    . '            ' . ($current['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . "\n"

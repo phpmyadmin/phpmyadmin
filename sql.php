@@ -384,7 +384,7 @@ if ($do_confirm) {
     <?php
     echo '<fieldset class="confirmation">' . "\n"
         .'    <legend>' . __('Do you really want to execute following query?') . '</legend>'
-        .'    <tt>' . htmlspecialchars($stripped_sql_query) . '</tt>' . "\n"
+        .'    <code>' . htmlspecialchars($stripped_sql_query) . '</code>' . "\n"
         .'</fieldset>' . "\n"
         .'<fieldset class="tblFooters">' . "\n";
     ?>

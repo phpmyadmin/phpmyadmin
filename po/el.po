@@ -2779,10 +2779,10 @@ msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρ�
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Η εντολή <tt>$cfg['PmaAbsoluteUri']</tt> ΠΡΕΠΕΙ να οριστεί στο αρχείο "
+"Η εντολή <code>$cfg['PmaAbsoluteUri']</code> ΠΡΕΠΕΙ να οριστεί στο αρχείο "
 "ρυθμίσεων!"
 
 #: libraries/common.inc.php:647
