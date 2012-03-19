@@ -2501,7 +2501,7 @@ msgstr "Ce serveur MySQL ne supporte pas le moteur de stockage %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "Statut de table incorrect:"
+msgstr "Statut de table incorrect : "
 
 #: libraries/Table.class.php:1125
 msgid "Invalid database"
