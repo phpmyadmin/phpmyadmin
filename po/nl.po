@@ -10724,7 +10724,7 @@ msgstr ""
 "moet u de log_output configuratie parameter instellen op 'TABLE' en ofwel "
 "slow_query_log, ofwel general_log geactiveerd hebben. Merk echter op dat "
 "general_log veel gegevens genereert en dat de belasting van de server tot 15"
-"% kan stijgen."
+"% kan stijgen"
 
 #: server_status.php:1610
 msgid ""
