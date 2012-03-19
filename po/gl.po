@@ -511,13 +511,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Procurar os resultados para \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] "%s ocorrencia dentro da táboa <i>%s</i>"
-msgstr[1] "%s ocorrencias dentro da táboa <i>%s</i>"
+msgstr[0] "%1$s ocorrencia dentro da táboa <i>%2$s</i>"
+msgstr[1] "%1$s ocorrencias dentro da táboa <i>%2$s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3159
 #: libraries/common.lib.php:3371 libraries/common.lib.php:3372
