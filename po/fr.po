@@ -8131,7 +8131,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 "Il semble qu'il y ait une erreur dans votre requête SQL. Le message ci-bas "
-"peut vous aider à en trouver la cause."
+"peut vous aider à en trouver la cause"
 
 #: libraries/sqlparser.lib.php:175
 msgid ""
