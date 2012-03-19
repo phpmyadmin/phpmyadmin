@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-19 19:03+0200\n"
+"PO-Revision-Date: 2012-03-19 19:04+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12192,7 +12192,7 @@ msgstr "Drizzle documentatie kan gevonden worden op http://docs.drizzle.org/"
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "De versie tekenreeks (%s) komt overeen met het Drizzle versiepatroon"
 
 #: po/advisory_rules.php:65
 #| msgid "MySQL charset"
