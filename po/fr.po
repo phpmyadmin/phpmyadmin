@@ -1973,7 +1973,7 @@ msgid ""
 "want to leave this page before saving the data?"
 msgstr ""
 "Vous avez modifier des données non encore sauvegardées, êtes vous sûr de "
-"vouloir quitter cette page avant de sauvegarder?"
+"vouloir quitter cette page avant de sauvegarder ?"
 
 #: js/messages.php:346
 msgid "Drag to reorder"
