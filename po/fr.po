@@ -7833,7 +7833,7 @@ msgstr "Aucun déclencheur à afficher."
 
 #: libraries/rte/rte_words.lib.php:42
 msgid "Add event"
-msgstr "Ajouter un événement."
+msgstr "Ajouter un événement"
 
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
