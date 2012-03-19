@@ -2338,7 +2338,7 @@ msgstr "Le fichier de configuration (%s) est illisible."
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permissions sur le fichier de configuration incorrectes, il ne doit pas être "
-"en écriture pour tout le monde!"
+"en écriture pour tout le monde !"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
