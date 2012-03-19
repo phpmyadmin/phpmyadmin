@@ -6990,7 +6990,7 @@ msgid ""
 "data"
 msgstr ""
 "Vous avez tenté d'importer un fichier invalide ou ce fichier contient des "
-"données invalides."
+"données invalides"
 
 #: libraries/import/shp.php:338
 #, php-format
