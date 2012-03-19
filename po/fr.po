@@ -11722,7 +11722,7 @@ msgstr "Contrainte de clé étrangère"
 
 #: tbl_select.php:84
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Recherche «par valeur» (passepartout: «% ») "
+msgstr "Recherche «par valeur» (passepartout: «% »)"
 
 #: tbl_select.php:178
 msgid "Select columns (at least one):"
