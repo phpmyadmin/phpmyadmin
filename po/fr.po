@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-19 14:37+0200\n"
+"PO-Revision-Date: 2012-03-19 14:38+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -10956,7 +10956,7 @@ msgstr "Un numéro de version invalide a été reçu du serveur"
 
 #: setup/lib/index.lib.php:159
 msgid "Unparsable version string"
-msgstr "Analyse impossible du numéro de version."
+msgstr "Analyse impossible du numéro de version"
 
 #: setup/lib/index.lib.php:177
 #, php-format
