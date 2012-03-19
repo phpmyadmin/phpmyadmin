@@ -11897,7 +11897,7 @@ msgid ""
 "longer than a day before running this analyzer"
 msgstr ""
 "Pour obtenir de meilleurs résultats, il est recommandé de laisser le serveur "
-"en marche plus d'un jour avant d'utiliser l'analyseur."
+"en marche plus d'un jour avant d'utiliser l'analyseur"
 
 #: po/advisory_rules.php:8
 #, php-format
