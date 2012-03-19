@@ -16,7 +16,6 @@ msgstr ""
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
-#, fuzzy
 msgid "Show all"
 msgstr "Ver todo"
 
