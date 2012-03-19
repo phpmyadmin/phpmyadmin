@@ -1903,25 +1903,17 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
      */
     var button_options = {};
     button_options[PMA_messages['strOK']] = function(){
-        $(this).dialog("close");
+                                                $(this).dialog("close").remove();
 
-        if($.isFunction(callbackFn)) {
-            callbackFn.call(this, url);
-        }
-    };
-    button_options[PMA_messages['strCancel']] = function() {
-        $(this).dialog("close");
-    }
+                                                if($.isFunction(callbackFn)) {
+                                                    callbackFn.call(this, url);
+                                                }
+                                            };
+    button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
 
-    $('<div/>', {'id':'confirm_dialog'})
+    $('<div id="confirm_dialog"></div>')
     .prepend(question)
-    .dialog({
-        buttons: button_options,
-        close: function () {
-            $(this).remove();
-        },
-        modal: true
-    });
+    .dialog({buttons: button_options});
 };
 
 /**
