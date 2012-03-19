@@ -11854,10 +11854,10 @@ msgid "Deactivate now"
 msgstr "Nu uitschakelen"
 
 #: tbl_tracking.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "Tracking inschakelen voor %s.%s"
+msgstr "Tracking inschakelen van %s"
 
 #: tbl_tracking.php:729
 msgid "Activate now"
