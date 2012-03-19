@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-16 17:54+0200\n"
+"PO-Revision-Date: 2012-03-19 13:44+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -535,7 +535,7 @@ msgstr "Afficher"
 #: db_search.php:259
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Supprimer de la table %s les occurences?"
+msgstr "Supprimer de la table %s les occurences ?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1255
 #: libraries/display_tbl.lib.php:2194
