@@ -9353,7 +9353,7 @@ msgstr "passepartout"
 
 #: server_privileges.php:2463
 msgid "User has been added."
-msgstr "La vue %s a été supprimée"
+msgstr "La vue %s a été supprimée."
 
 #: server_replication.php:79
 msgid "Unknown error"
