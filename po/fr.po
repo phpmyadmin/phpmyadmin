@@ -1814,7 +1814,7 @@ msgstr "Destruction en cours"
 
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr "La définition d'une fonction doit comporter un énoncé RETURN!"
+msgstr "La définition d'une fonction doit comporter un énoncé RETURN !"
 
 #: js/messages.php:270
 #, php-format
