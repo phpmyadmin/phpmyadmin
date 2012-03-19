@@ -12064,7 +12064,7 @@ msgstr "La version est inférieure à 5.5.8 (la première version stable de 5.5)
 
 #: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Vous devriez mettre à jour vers une version stable de MySQL 5.5."
+msgstr "Vous devriez mettre à jour vers une version stable de MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 msgid "Distribution"
