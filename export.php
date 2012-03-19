@@ -381,7 +381,7 @@ if (!$save_on_server) {
         include_once 'libraries/header.inc.php';
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
-        echo "\n" . '<div align="' . $cell_align_left . '">' . "\n";
+        echo "\n" . '<div style="text-align: ' . $cell_align_left . '">' . "\n";
         //echo '    <pre>' . "\n";
 
         /**

@@ -333,7 +333,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td><?php echo __('Format'); ?></td>
-                <td align="<?php echo $cell_align_left; ?>">
+                <td class="<?php echo $cell_align_left; ?>">
                     <?php
                     if ($showtable['Row_format'] == 'Fixed') {
                         echo __('static');

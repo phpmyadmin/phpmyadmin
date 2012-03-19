@@ -367,15 +367,15 @@ for ($y = 0; $y <= $row; $y++) {
         $chk['and'] = '';
         ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+    <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
         <!-- Row controls -->
         <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-            <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                 <small><?php echo __('Ins'); ?>:</small>
                 <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
             </td>
-            <td align="<?php echo $cell_align_right; ?>">
+            <td class="<?php echo $cell_align_right; ?>">
                 <strong><?php echo __('And'); ?>:</strong>
             </td>
             <td>
@@ -384,11 +384,11 @@ for ($y = 0; $y <= $row; $y++) {
             </td>
         </tr>
         <tr>
-            <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                 <small><?php echo __('Del'); ?>:</small>
                 <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
             </td>
-            <td align="<?php echo $cell_align_right; ?>">
+            <td class="<?php echo $cell_align_right; ?>">
                 <strong><?php echo __('Or'); ?>:</strong>
             </td>
             <td>
@@ -449,15 +449,15 @@ for ($y = 0; $y <= $row; $y++) {
     echo "\n";
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+    <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
         <!-- Row controls -->
         <table cellpadding="0" cellspacing="0">
         <tr>
-            <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                 <small><?php echo __('Ins'); ?>:</small>
                 <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
             </td>
-            <td align="<?php echo $cell_align_right; ?>">
+            <td class="<?php echo $cell_align_right; ?>">
                 <strong><?php echo __('And'); ?>:</strong>
             </td>
             <td>
@@ -465,11 +465,11 @@ for ($y = 0; $y <= $row; $y++) {
             </td>
         </tr>
         <tr>
-            <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                 <small><?php echo __('Del'); ?>:</small>
                 <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
             </td>
-            <td align="<?php echo $cell_align_right; ?>">
+            <td class="<?php echo $cell_align_right; ?>">
                 <strong><?php echo __('Or'); ?>:</strong>
             </td>
             <td>

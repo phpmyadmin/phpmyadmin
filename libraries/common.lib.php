@@ -1053,8 +1053,8 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
     // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
     // check for it's presence before using it
-    echo '<div id="result_query" align="'
-        . ( isset($GLOBALS['cell_align_left']) ? $GLOBALS['cell_align_left'] : '' )
+    echo '<div id="result_query" '
+        . ( isset($GLOBALS['cell_align_left']) ? 'style="text-align: ' . $GLOBALS['cell_align_left'] . '" ' : '' )
         . '">' . "\n";
 
     if ($message instanceof PMA_Message) {
