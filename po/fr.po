@@ -9403,7 +9403,7 @@ msgstr "Intitulé"
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:97
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "La table %1$s a été modifiée avec succès."
+msgstr "La table %1$s a été modifiée avec succès"
 
 #: tbl_change.php:283 tbl_change.php:321
 msgid "Function"
