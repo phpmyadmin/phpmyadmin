@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-19 21:57+0200\n"
+"PO-Revision-Date: 2012-03-19 21:58+0200\n"
 "Last-Translator: frandieguez <fran.dieguez@mabishu.com>\n"
 "Language-Team: galician <gl@li.org>\n"
 "Language: gl\n"
@@ -718,7 +718,7 @@ msgstr "Analizar a táboa"
 #: db_structure.php:601
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Ir á táboa"
+msgstr "Engaidr prefixo á táboa"
 
 #: db_structure.php:603 libraries/mult_submits.inc.php:251
 #, fuzzy
