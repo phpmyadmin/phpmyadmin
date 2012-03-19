@@ -1919,8 +1919,7 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
         buttons: button_options,
         close: function () {
             $(this).remove();
-        },
-        modal: true
+        }
     });
 };
 
