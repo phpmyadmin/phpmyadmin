@@ -4056,7 +4056,7 @@ msgid ""
 "insert mode"
 msgstr ""
 "Définit si les champs des types de données MySQL doivent être affichés en "
-"mode modification/insertion."
+"mode modification/insertion"
 
 #: libraries/config/messages.inc.php:445
 msgid "Show field types"
