@@ -2529,7 +2529,7 @@ msgstr "Fout bij het hernoemen van de tabel %1$s naar %2$s"
 #, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Tabel %1$s is hernoemd naar %2$s"
+msgstr "Tabel %1$s is hernoemd naar %2$s."
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
