@@ -10952,7 +10952,7 @@ msgstr "Échec lors de la vérification de version."
 
 #: setup/lib/index.lib.php:149
 msgid "Got invalid version string from server"
-msgstr "Un numéro de version invalide a été reçu du serveur."
+msgstr "Un numéro de version invalide a été reçu du serveur"
 
 #: setup/lib/index.lib.php:159
 msgid "Unparsable version string"
