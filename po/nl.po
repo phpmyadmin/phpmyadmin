@@ -12127,7 +12127,7 @@ msgstr "Versie met kleine wijzigingen"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "Versie kleiner dan 5.1.30 (de eerste stabiele versie van 5.1)"
+msgstr "Versie kleiner dan 5.1.30 (de eerste stabiele versie van 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
