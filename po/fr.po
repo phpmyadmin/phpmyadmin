@@ -3454,7 +3454,7 @@ msgstr "Collecter les erreurs"
 #: libraries/config/messages.inc.php:68
 msgid "Show icons for warning, error and information messages"
 msgstr ""
-"Utiliser des icônes pour les avertissements, les erreurs et les informations."
+"Utiliser des icônes pour les avertissements, les erreurs et les informations"
 
 #: libraries/config/messages.inc.php:69
 msgid "Iconic errors"
