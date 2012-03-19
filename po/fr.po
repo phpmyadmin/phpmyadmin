@@ -9447,7 +9447,7 @@ msgid ""
 msgstr ""
 "Quand le serveur MySQL est redémarré, veuillez cliquer sur Exécuter. Par la "
 "suite vous devriez voir un message vous informant que ce serveur est "
-"configuré comme maître."
+"configuré comme maître"
 
 #: server_replication.php:321
 msgid "Slave SQL Thread not running!"
