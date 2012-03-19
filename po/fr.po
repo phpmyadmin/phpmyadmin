@@ -6999,7 +6999,7 @@ msgstr "Les données spatiales MySQL ne supportent pas le type ESRI «%s»."
 
 #: libraries/import/shp.php:376
 msgid "The imported file does not contain any data"
-msgstr "Le fichier importé ne contient aucune donnée."
+msgstr "Le fichier importé ne contient aucune donnée"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
