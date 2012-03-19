@@ -847,7 +847,7 @@ msgstr "Ce choix d'exportation doit être sauvegardé dans un fichier !"
 
 #: export.php:106
 msgid "Bad parameters!"
-msgstr "Paramètres incorrects!"
+msgstr "Paramètres incorrects !"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
