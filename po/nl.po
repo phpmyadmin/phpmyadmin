@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-19 23:07+0200\n"
+"PO-Revision-Date: 2012-03-19 23:08+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9239,10 +9239,9 @@ msgid "Revoke"
 msgstr "Ongedaan maken"
 
 #: server_privileges.php:1493
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "Exporteer"
+msgstr "Alles exporteren"
 
 #: server_privileges.php:1512 server_privileges.php:1778
 #: server_privileges.php:2404
