@@ -1057,7 +1057,7 @@ msgstr "La commande «DROP DATABASE» est désactivée."
 #: js/messages.php:30 libraries/mult_submits.inc.php:296 sql.php:386
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "Voulez-vous vraiment exécuter la requête suivante?"
+msgstr "Voulez-vous vraiment exécuter la requête suivante ?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:294 sql.php:371
 msgid "You are about to DESTROY a complete database!"
