@@ -4094,7 +4094,7 @@ msgstr "Valeur initiale des zones de glissement"
 
 #: libraries/config/messages.inc.php:267
 msgid "How many rows can be inserted at one time"
-msgstr "Le nombre de lignes qui peuvent être insérées à la fois."
+msgstr "Le nombre de lignes qui peuvent être insérées à la fois"
 
 #: libraries/config/messages.inc.php:268
 msgid "Number of inserted rows"
