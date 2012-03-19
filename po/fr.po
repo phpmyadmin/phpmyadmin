@@ -11946,7 +11946,7 @@ msgid ""
 "in the slow query log"
 msgstr ""
 "Veuillez augmenter la valeur du paramètre {long_query_time} ou optimiser les "
-"requêtes qui apparaissent dans le journal de requêtes lentes."
+"requêtes qui apparaissent dans le journal de requêtes lentes"
 
 #: po/advisory_rules.php:18
 #, php-format
