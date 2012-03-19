@@ -56,7 +56,7 @@ class PMA_Export_Relation_Schema
      *
      * @param string $value 'on' to set the the variable
      *
-     * @return nothing
+     * @return void
      */
     public function setShowColor($value)
     {

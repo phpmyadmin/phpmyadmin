@@ -69,7 +69,7 @@ function PMA_getRelationsParam($verbose = false)
  *
  * @param array $cfgRelation
  *
- * @return nothing
+ * @return void
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
@@ -116,7 +116,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     PMA_printDiagMessageForFeature(__('Browser transformation'), 'mimework', $messages);
 
     if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
-        echo '<tr><td colspan=2 align="left">' . __('Please see the documentation on how to update your column_comments table') . '</td></tr>' . "\n";
+        echo '<tr><td colspan=2 class="left">' . __('Please see the documentation on how to update your column_comments table') . '</td></tr>' . "\n";
     }
 
     PMA_printDiagMessageForParameter('bookmarktable', isset($cfgRelation['bookmark']), $messages, 'bookmark');
@@ -166,11 +166,11 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
  * @param array   $messages           utility messages
  * @param boolean $skip_line          whether to skip a line after the message
  *
- * @return nothing
+ * @return void
  */
 function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $messages, $skip_line=true)
 {
-    echo '    <tr><td colspan=2 align="right">' . $feature_name . ': '
+    echo '    <tr><td colspan=2 class="right">' . $feature_name . ': '
          . ($GLOBALS['cfgRelation'][$relation_parameter] ? $messages['enabled'] : $messages['disabled'])
          . '</td></tr>' . "\n";
     if ($skip_line) {
@@ -186,12 +186,12 @@ function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $mes
  * @param array   $messages               utility messages
  * @param string  $doc_anchor             anchor in Documentation.html
  *
- * @return nothing
+ * @return void
  */
 function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $messages, $doc_anchor)
 {
-    echo '    <tr><th align="left">';
-    echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... </th><td align="right">';
+    echo '    <tr><th class="left">';
+    echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... </th><td class="right">';
     echo ($relation_parameter_set ? $messages['ok'] : sprintf($messages['error'], $doc_anchor)) . '</td></tr>' . "\n";
 }
 
@@ -671,7 +671,7 @@ function PMA_setDbComment($db, $comment = '')
  * @param string $username the username
  * @param string $sqlquery the sql query
  *
- * @return nothing
+ * @return void
  *
  * @access  public
  */
@@ -761,7 +761,7 @@ function PMA_getHistory($username)
  *
  * @param string $username the username
  *
- * @return nothing
+ * @return void
  *
  * @access  public
  */
@@ -1083,7 +1083,7 @@ function PMA_getRelatives($from)
  * @param string $field    old field name
  * @param string $new_name new field name
  *
- * @return nothing
+ * @return void
  */
 function PMA_REL_renameField($db, $table, $field, $new_name)
 {

@@ -25,7 +25,7 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return nothing
+     * @return void
      */
     protected function setUp()
     {
@@ -37,7 +37,7 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return nothing
+     * @return void
      */
     protected function tearDown()
     {
@@ -176,7 +176,7 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
      * @param string $shape    expected shape in WKT
      *
      * @dataProvider providerForTestGetShape
-     * @return nothing
+     * @return void
      */
     public function testGetShape($row_data, $shape)
     {

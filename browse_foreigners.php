@@ -9,19 +9,19 @@
 /**
  * Gets a core script and starts output buffering work
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 PMA_checkParameters(array('db', 'table', 'field'));
 
-require_once './libraries/ob.lib.php';
+require_once 'libraries/ob.lib.php';
 PMA_outBufferPre();
 
-require_once './libraries/header_http.inc.php';
+require_once 'libraries/header_http.inc.php';
 
 /**
  * Displays the frame
  */
-require_once './libraries/transformations.lib.php'; // Transformations
+require_once 'libraries/transformations.lib.php'; // Transformations
 $cfgRelation = PMA_getRelationsParam();
 $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : false);
 
@@ -72,21 +72,17 @@ if (is_array($foreignData['disp_row'])) {
     }
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xml:lang="<?php echo $available_languages[$lang][1]; ?>"
-    lang="<?php echo $available_languages[$lang][1]; ?>"
-    dir="<?php echo $text_dir; ?>">
+<!DOCTYPE HTML>
+<html lang="<?php echo $available_languages[$lang][1]; ?>" dir="<?php echo $text_dir; ?>">
 
 <head>
     <title>phpMyAdmin</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=right&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
 <?php
 // includes everything asked for by libraries/common.inc.php
-require_once './libraries/header_scripts.inc.php';
+require_once 'libraries/header_scripts.inc.php';
 ?>
     <script type="text/javascript">
     //<![CDATA[

@@ -9,7 +9,7 @@
 /**
  * requirements
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Gets the relation settings
@@ -26,16 +26,16 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $message_to_display = true;
     } else {
         $goto      = 'db_sql.php';
-        include './sql.php';
+        include 'sql.php';
         exit;
     }
 }
 
 $sub_part  = '_qbe';
-require './libraries/db_common.inc.php';
+require 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
-require './libraries/db_info.inc.php';
+require 'libraries/db_info.inc.php';
 
 if ($message_to_display) {
     PMA_Message::error(__('You have to choose at least one column to display'))->display();
@@ -99,7 +99,7 @@ $tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', 
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 if (0 == $tbl_result_cnt) {
     PMA_Message::error(__('No tables found in database.'))->display();
-    include './libraries/footer.inc.php';
+    include 'libraries/footer.inc.php';
     exit;
 }
 
@@ -146,7 +146,7 @@ $realwidth = $form_column_width . 'ex';
 function showColumnSelectCell($columns, $column_number, $selected = '')
 {
     ?>
-    <td align="center">
+    <td class="center">
         <select name="Field[<?php echo $column_number; ?>]" size="1">
             <option value="">&nbsp;</option>
     <?php
@@ -225,7 +225,7 @@ $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
-    <td align="center">
+    <td class="center">
         <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
             <option value="">&nbsp;</option>
             <option value="ASC"><?php echo __('Ascending'); ?></option>
@@ -241,7 +241,7 @@ for ($x = 0; $x < $col; $x++) {
         continue;
     }
     ?>
-    <td align="center">
+    <td class="center">
         <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
             <option value="">&nbsp;</option>
     <?php
@@ -289,7 +289,7 @@ $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
-    <td align="center">
+    <td class="center">
         <input type="checkbox" name="Show[<?php echo $z; ?>]" />
     </td>
         <?php
@@ -307,7 +307,7 @@ for ($x = 0; $x < $col; $x++) {
         $checked     =  '';
     }
     ?>
-    <td align="center">
+    <td class="center">
         <input type="checkbox" name="Show[<?php echo $z; ?>]"<?php echo $checked; ?> />
     </td>
     <?php
@@ -325,7 +325,7 @@ $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
-    <td align="center">
+    <td class="center">
         <input type="text" name="criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
         <?php
@@ -346,7 +346,7 @@ for ($x = 0; $x < $col; $x++) {
         $curCriteria[$z]   = $prev_criteria[$x];
     }
     ?>
-    <td align="center">
+    <td class="center">
         <input type="hidden" name="prev_criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($curCriteria[$z]); ?>" />
         <input type="text" name="criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($tmp_criteria); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
@@ -405,7 +405,7 @@ for ($y = 0; $y <= $row; $y++) {
                 echo "\n";
                 $or = 'Or' . $w . '[' . $z . ']';
                 ?>
-    <td align="center">
+    <td class="center">
         <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
                 <?php
@@ -418,7 +418,7 @@ for ($y = 0; $y <= $row; $y++) {
             echo "\n";
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
-    <td align="center">
+    <td class="center">
         <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
             <?php
@@ -451,7 +451,7 @@ for ($y = 0; $y <= $row; $y++) {
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
     <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
         <!-- Row controls -->
-        <table border="0" cellpadding="0" cellspacing="0">
+        <table cellpadding="0" cellspacing="0">
         <tr>
             <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                 <small><?php echo __('Ins'); ?>:</small>
@@ -485,7 +485,7 @@ for ($y = 0; $y <= $row; $y++) {
             echo "\n";
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
-    <td align="center">
+    <td class="center">
         <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
             <?php
@@ -506,7 +506,7 @@ for ($y = 0; $y <= $row; $y++) {
             $tmp_or     = '';
         }
         ?>
-    <td align="center">
+    <td class="center">
         <input type="text" name="Or<?php echo $w . '[' . $z . ']'; ?>" value="<?php echo htmlspecialchars($tmp_or); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
         <?php
@@ -540,7 +540,7 @@ for ($x = 0; $x < $col; $x++) {
             $chk['or']  = '';
         }
         ?>
-    <td align="center">
+    <td class="center">
         <strong><?php echo __('Or'); ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
         &nbsp;&nbsp;<strong><?php echo __('And'); ?>:</strong>
@@ -571,7 +571,7 @@ for ($x = 0; $x < $col; $x++) {
         $chk['or']  = '';
     }
     ?>
-    <td align="center">
+    <td class="center">
         <strong><?php echo __('Or'); ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
         &nbsp;&nbsp;<strong><?php echo __('And'); ?>:</strong>
@@ -600,7 +600,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
 ?>
 </fieldset>
 <fieldset class="tblFooters">
-<table border="0" cellpadding="2" cellspacing="1">
+<table cellpadding="2" cellspacing="1">
 <tr>
     <td nowrap="nowrap">
         <?php echo __('Add/Delete criteria rows'); ?>:
@@ -962,5 +962,5 @@ if (!empty($qry_orderby)) {
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

@@ -2751,10 +2751,10 @@ msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> は<b>必ず</b>設定ファイルに設定しなければなり"
+"<code>$cfg['PmaAbsoluteUri']</code> は<b>必ず</b>設定ファイルに設定しなければなり"
 "ません！"
 
 #: libraries/common.inc.php:647

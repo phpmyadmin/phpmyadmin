@@ -2960,10 +2960,10 @@ msgstr "Не могу да учитам подразумевану конфиг�
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> директива МОРА бити подешена у "
+"<code>$cfg['PmaAbsoluteUri']</code> директива МОРА бити подешена у "
 "конфигурационој датотеци!"
 
 #: libraries/common.inc.php:647

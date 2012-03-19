@@ -31,7 +31,7 @@ class PMA_GIS_FactoryTest extends PHPUnit_Framework_TestCase
      * @param object $geom geometry object
      *
      * @dataProvider providerForTestFactory
-     * @return nothing
+     * @return void
      */
     public function testFactory($type, $geom)
     {

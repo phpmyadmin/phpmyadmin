@@ -25,7 +25,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return nothing
+     * @return void
      */
     protected function setUp()
     {
@@ -37,7 +37,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return nothing
+     * @return void
      */
     protected function tearDown()
     {
@@ -171,7 +171,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      * @param fload $area area of the ring
      *
      * @dataProvider providerForTestArea
-     * @return nothing
+     * @return void
      */
     public function testArea($ring, $area)
     {
@@ -224,7 +224,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      * @param bool  $isInside output
      *
      * @dataProvider providerForTestIsPointInsidePolygon
-     * @return nothing
+     * @return void
      */
     public function testIsPointInsidePolygon($point, $polygon, $isInside)
     {
@@ -282,7 +282,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      * @param array $ring array of points forming the ring
      *
      * @dataProvider providerForTestGetPointOnSurface
-     * @return nothing
+     * @return void
      */
     public function testGetPointOnSurface($ring)
     {

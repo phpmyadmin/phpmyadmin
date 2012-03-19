@@ -8,16 +8,16 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
-require './libraries/tbl_common.php';
+require 'libraries/tbl_common.php';
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
 $print_view = true;
 if (! isset($selected_tbl)) {
-    include_once './libraries/header.inc.php';
+    include_once 'libraries/header.inc.php';
 }
 
 // Check parameters
@@ -29,8 +29,8 @@ if (! isset($the_tables) || ! is_array($the_tables)) {
 /**
  * Gets the relations settings
  */
-require_once './libraries/transformations.lib.php';
-require_once './libraries/Index.class.php';
+require_once 'libraries/transformations.lib.php';
+require_once 'libraries/Index.class.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
@@ -62,7 +62,7 @@ $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
     if (empty($GLOBALS['is_header_sent'])) {
-        include_once './libraries/header.inc.php';
+        include_once 'libraries/header.inc.php';
     }
     $tbl_list     = '';
     foreach ($the_tables as $key => $table) {
@@ -261,7 +261,7 @@ foreach ($the_tables as $key => $table) {
                 ?>
     <br /><br />
 
-    <table border="0" cellspacing="0" cellpadding="0" class="noborder">
+    <table cellspacing="0" cellpadding="0">
     <tr>
 
         <!-- Space usage -->
@@ -270,11 +270,11 @@ foreach ($the_tables as $key => $table) {
             <table width="100%">
             <tr>
                 <th><?php echo __('Type'); ?></th>
-                <th colspan="2" align="center"><?php echo __('Usage'); ?></th>
+                <th colspan="2" class="center"><?php echo __('Usage'); ?></th>
             </tr>
             <tr>
                 <td style="padding-right: 10px"><?php echo __('Data'); ?></td>
-                <td align="right"><?php echo $data_size; ?></td>
+                <td class="right"><?php echo $data_size; ?></td>
                 <td><?php echo $data_unit; ?></td>
             </tr>
                 <?php
@@ -283,7 +283,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td style="padding-right: 10px"><?php echo __('Index'); ?></td>
-                <td align="right"><?php echo $index_size; ?></td>
+                <td class="right"><?php echo $index_size; ?></td>
                 <td><?php echo $index_unit; ?></td>
             </tr>
                     <?php
@@ -293,12 +293,12 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr style="color: #bb0000">
                 <td style="padding-right: 10px"><?php echo __('Overhead'); ?></td>
-                <td align="right"><?php echo $free_size; ?></td>
+                <td class="right"><?php echo $free_size; ?></td>
                 <td><?php echo $free_unit; ?></td>
             </tr>
             <tr>
                 <td style="padding-right: 10px"><?php echo __('Effective'); ?></td>
-                <td align="right"><?php echo $effect_size; ?></td>
+                <td class="right"><?php echo $effect_size; ?></td>
                 <td><?php echo $effect_unit; ?></td>
             </tr>
                     <?php
@@ -308,7 +308,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td style="padding-right: 10px"><?php echo __('Total'); ?></td>
-                <td align="right"><?php echo $tot_size; ?></td>
+                <td class="right"><?php echo $tot_size; ?></td>
                 <td><?php echo $tot_unit; ?></td>
             </tr>
                     <?php
@@ -326,7 +326,7 @@ foreach ($the_tables as $key => $table) {
             <table width="100%">
             <tr>
                 <th><?php echo __('Statements'); ?></th>
-                <th align="center"><?php echo __('Value'); ?></th>
+                <th class="center"><?php echo __('Value'); ?></th>
             </tr>
                 <?php
                 if (isset($showtable['Row_format'])) {
@@ -351,7 +351,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td><?php echo __('Rows'); ?></td>
-                <td align="right">
+                <td class="right">
                     <?php echo PMA_formatNumber($showtable['Rows'], 0) . "\n"; ?>
                 </td>
             </tr>
@@ -371,7 +371,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td><?php echo __('Row size'); ?>&nbsp;&oslash;</td>
-                <td align="right">
+                <td class="right">
                     <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
                 </td>
             </tr>
@@ -381,7 +381,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td><?php echo __('Next autoindex'); ?></td>
-                <td align="right">
+                <td class="right">
                     <?php echo PMA_formatNumber($showtable['Auto_increment'], 0) . "\n"; ?>
                 </td>
             </tr>
@@ -391,7 +391,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td><?php echo __('Creation'); ?></td>
-                <td align="right">
+                <td class="right">
                     <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
                 </td>
             </tr>
@@ -401,7 +401,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td><?php echo __('Last update'); ?></td>
-                <td align="right">
+                <td class="right">
                     <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
                 </td>
             </tr>
@@ -411,7 +411,7 @@ foreach ($the_tables as $key => $table) {
                     ?>
             <tr>
                 <td><?php echo __('Last check'); ?></td>
-                <td align="right">
+                <td class="right">
                     <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
                 </td>
             </tr>
@@ -443,5 +443,5 @@ PMA_printButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
 
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

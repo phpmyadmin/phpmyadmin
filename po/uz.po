@@ -3012,10 +3012,10 @@ msgstr "\"%1$s\" файлидан андоза конфигурацияни юк
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg[\"PmaAbsoluteUrl\"]</tt> директиваси конфигурацион файлда созланиши "
+"<code>$cfg[\"PmaAbsoluteUrl\"]</code> директиваси конфигурацион файлда созланиши "
 "ШАРТ!"
 
 #: libraries/common.inc.php:647

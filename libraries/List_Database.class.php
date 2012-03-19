@@ -56,8 +56,8 @@ require_once './libraries/List.class.php';
     /**
      * Constructor
      *
-     * @param mixed   $db_link_user       user database link resource|object
-     * @param mixed   $db_link_control    control database link resource|object
+     * @param mixed $db_link_user    user database link resource|object
+     * @param mixed $db_link_control control database link resource|object
      */
     public function __construct($db_link_user = null, $db_link_control = null)
     {
@@ -88,9 +88,10 @@ require_once './libraries/List.class.php';
     /**
      * retrieves database list from server
      *
-     * @todo    we could also search mysql tables if all fail?
-     * @param string  $like_db_name   usally a db_name containing wildcards
+     * @param string $like_db_name usally a db_name containing wildcards
+     *
      * @return array
+     * @todo   we could also search mysql tables if all fail?
      */
     protected function _retrieve($like_db_name = null)
     {
@@ -101,8 +102,10 @@ require_once './libraries/List.class.php';
         if (null !== $like_db_name) {
             $command = "SHOW DATABASES LIKE '" . $like_db_name . "'";
         } elseif (null === $this->_command) {
-            $command = str_replace('#user#', $GLOBALS['cfg']['Server']['user'],
-                $GLOBALS['cfg']['Server']['ShowDatabasesCommand']);
+            $command = str_replace(
+                '#user#', $GLOBALS['cfg']['Server']['user'],
+                $GLOBALS['cfg']['Server']['ShowDatabasesCommand']
+            );
             $this->_command = $command;
         } else {
             $command = $this->_command;
@@ -161,7 +164,8 @@ require_once './libraries/List.class.php';
     protected function _checkOnlyDatabase()
     {
         if (is_string($GLOBALS['cfg']['Server']['only_db'])
-         && strlen($GLOBALS['cfg']['Server']['only_db'])) {
+            && strlen($GLOBALS['cfg']['Server']['only_db'])
+        ) {
             $GLOBALS['cfg']['Server']['only_db'] = array(
                 $GLOBALS['cfg']['Server']['only_db']
             );
@@ -176,8 +180,9 @@ require_once './libraries/List.class.php';
         foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
             if ($each_only_db === '*' && ! $this->_show_databases_disabled) {
                 // append all not already listed dbs to the list
-                $items = array_merge($items,
-                    array_diff($this->_retrieve(), $items));
+                $items = array_merge(
+                    $items, array_diff($this->_retrieve(), $items)
+                );
                 // there can only be one '*', and this can only be last
                 break;
             }
@@ -222,6 +227,7 @@ require_once './libraries/List.class.php';
      *
      * @param integer $offset
      * @param integer $count
+     *
      * @return  array   db list
      */
     public function getGroupedDetails($offset, $count)
@@ -229,7 +235,8 @@ require_once './libraries/List.class.php';
         $dbgroups   = array();
 
         if ($GLOBALS['cfg']['ShowTooltip']
-          && $GLOBALS['cfgRelation']['commwork']) {
+            && $GLOBALS['cfgRelation']['commwork']
+        ) {
             $db_tooltips = PMA_getDbComments();
         }
 
@@ -299,6 +306,7 @@ require_once './libraries/List.class.php';
      *
      * @param integer $offset
      * @param integer $count
+     *
      * @return  array  some items
      */
     public function getLimitedItems($offset, $count)
@@ -317,7 +325,7 @@ require_once './libraries/List.class.php';
             $selected = $this->getDefault();
         }
 
-        $return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
+        $return = '<ul id="databaseList" lang="en" dir="ltr">' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
                 $return .= '<li class="group"><span>' . htmlspecialchars($group) . '</span><ul>' . "\n";
@@ -373,7 +381,7 @@ require_once './libraries/List.class.php';
             $selected = $this->getDefault();
         }
 
-        $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
+        $return = '<select name="db" id="lightm_db" lang="en" dir="ltr"'
             . ' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";

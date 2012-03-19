@@ -81,7 +81,7 @@ class PMA_Tracker
      *
      * @static
      *
-     * @return nothing
+     * @return void
      */
     static protected function init()
     {
@@ -105,7 +105,7 @@ class PMA_Tracker
      *
      * @static
      *
-     * @return nothing
+     * @return void
      */
     static public function enable()
     {
@@ -855,7 +855,7 @@ class PMA_Tracker
      *
      * @static
      *
-     * @return nothing
+     * @return void
      */
     static public function handleQuery($query)
     {

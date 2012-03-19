@@ -30,7 +30,7 @@ $GLOBALS['is_superuser']       = PMA_isSuperuser();
  * displayed. For example, if an anonymous account exists, the named account
  * might be able to use its privileges, but SHOW GRANTS will not display them.
  *
- * @return nothing
+ * @return void
  */
 function PMA_analyseShowGrant()
 {

@@ -94,7 +94,7 @@ class PMA_Config
     /**
      * sets system and application settings
      *
-     * @return nothing
+     * @return void
      */
     function checkSystem()
     {
@@ -121,7 +121,7 @@ class PMA_Config
     /**
      * whether to use gzip output compression or not
      *
-     * @return nothing
+     * @return void
      */
     function checkOutputCompression()
     {
@@ -150,7 +150,7 @@ class PMA_Config
      *
      * @see http://www.phpbuilder.net/columns/tim20000821.php
      *
-     * @return nothing
+     * @return void
      */
     function checkClient()
     {
@@ -230,7 +230,7 @@ class PMA_Config
     /**
      * Whether GD2 is present
      *
-     * @return nothing
+     * @return void
      */
     function checkGd2()
     {
@@ -273,7 +273,7 @@ class PMA_Config
     /**
      * Whether the Web server php is running on is IIS
      *
-     * @return nothing
+     * @return void
      */
     function checkWebServer()
     {
@@ -292,7 +292,7 @@ class PMA_Config
     /**
      * Whether the os php is running on is windows or not
      *
-     * @return nothing
+     * @return void
      */
     function checkWebServerOs()
     {
@@ -313,7 +313,7 @@ class PMA_Config
     /**
      * detects PHP version
      *
-     * @return nothing
+     * @return void
      */
     function checkPhpVersion()
     {
@@ -625,7 +625,7 @@ class PMA_Config
      * @param mixed  $new_cfg_value new value
      * @param mixed  $default_value default value
      *
-     * @return nothing
+     * @return void
      */
     function setUserValue($cookie_name, $cfg_path, $new_cfg_value, $default_value = null)
     {
@@ -678,7 +678,7 @@ class PMA_Config
      *
      * @param string $source source
      *
-     * @return nothing
+     * @return void
      */
     function setSource($source)
     {
@@ -688,7 +688,7 @@ class PMA_Config
     /**
      * checks if the config folder still exists and terminates app if true
      *
-     * @return nothing
+     * @return void
      */
     function checkConfigFolder()
     {
@@ -732,7 +732,7 @@ class PMA_Config
      * verifies the permissions on config file (if asked by configuration)
      * (must be called after config.inc.php has been merged)
      *
-     * @return nothing
+     * @return void
      */
     function checkPermissions()
     {
@@ -771,7 +771,7 @@ class PMA_Config
      * @param string $setting configuration option
      * @param string $value   new value for configuration option
      *
-     * @return nothing
+     * @return void
      */
     function set($setting, $value)
     {
@@ -964,7 +964,7 @@ class PMA_Config
      *
      * @todo check validity of $_REQUEST['collation_connection']
      *
-     * @return nothing
+     * @return void
      */
     function checkCollationConnection()
     {
@@ -979,7 +979,7 @@ class PMA_Config
     /**
      * checks for font size configuration, and sets font size as requested by user
      *
-     * @return nothing
+     * @return void
      */
     function checkFontsize()
     {
@@ -1007,7 +1007,7 @@ class PMA_Config
     /**
      * checks if upload is enabled
      *
-     * @return nothing
+     * @return void
      */
     function checkUpload()
     {
@@ -1029,7 +1029,7 @@ class PMA_Config
      *
      * this section generates $max_upload_size in bytes
      *
-     * @return nothing
+     * @return void
      */
     function checkUploadSize()
     {
@@ -1050,7 +1050,7 @@ class PMA_Config
     /**
      * check for https
      *
-     * @return nothing
+     * @return void
      */
     function checkIsHttps()
     {
@@ -1139,7 +1139,7 @@ class PMA_Config
     /**
      * detect correct cookie path
      *
-     * @return nothing
+     * @return void
      */
     function checkCookiePath()
     {
@@ -1169,7 +1169,7 @@ class PMA_Config
     /**
      * enables backward compatibility
      *
-     * @return nothing
+     * @return void
      */
     function enableBc()
     {
@@ -1206,7 +1206,7 @@ class PMA_Config
     /**
      * @todo finish
      *
-     * @return nothing
+     * @return void
      */
     function save()
     {

@@ -143,7 +143,7 @@ class PMA_File
      *
      * @param string $name file name
      *
-     * @return  nothing
+     * @return void
      * @access  public
      */
     function setName($name)

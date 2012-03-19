@@ -11,19 +11,19 @@
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/common.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/common.lib.php';
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once './libraries/db_table_exists.lib.php';
+require_once 'libraries/db_table_exists.lib.php';
 
 // load additional configuration variables
 if (PMA_DRIZZLE) {
-    include_once './libraries/data_drizzle.inc.php';
+    include_once 'libraries/data_drizzle.inc.php';
 } else {
-    include_once './libraries/data_mysql.inc.php';
+    include_once 'libraries/data_mysql.inc.php';
 }
 
 /**
@@ -58,7 +58,7 @@ if (isset($_REQUEST['default_action'])) {
 /**
  * file listing
  */
-require_once './libraries/file_listing.php';
+require_once 'libraries/file_listing.php';
 
 
 /**
@@ -100,7 +100,7 @@ $url_query = PMA_generate_common_url($url_params, 'html', '');
  * get table information
  * @todo should be done by a Table object
  */
-require_once './libraries/tbl_info.inc.php';
+require_once 'libraries/tbl_info.inc.php';
 
 /**
  * Get comments for table fileds/columns
@@ -127,7 +127,7 @@ $GLOBALS['js_include'][] = 'gis_data_editor.js';
 /**
  * HTTP and HTML headers
  */
-require_once './libraries/header.inc.php';
+require_once 'libraries/header.inc.php';
 
 /**
  * Displays the query submitted and its result
@@ -144,7 +144,7 @@ if (! empty($disp_message)) {
 /**
  * Displays top menu links
  */
-require_once './libraries/tbl_links.inc.php';
+require_once 'libraries/tbl_links.inc.php';
 
 
 /**
@@ -189,7 +189,7 @@ if (isset($where_clause)) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
             PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
             echo "\n";
-            include './libraries/footer.inc.php';
+            include 'libraries/footer.inc.php';
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
             list($unique_condition, $tmp_clause_is_unique)
@@ -234,7 +234,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 &&
 
     ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
-<script src="./js/keyhandler.js" type="text/javascript"></script>
+<script src="js/keyhandler.js" type="text/javascript"></script>
 <script type="text/javascript">
 //<![CDATA[
 var switch_movement = 0;
@@ -367,7 +367,7 @@ foreach ($rows as $row_id => $vrow) {
     </thead>
     <tfoot>
         <tr>
-            <th colspan="5" align="right" class="tblFooters">
+            <th colspan="5" class="tblFooters right">
                 <input type="submit" value="<?php echo __('Go'); ?>" />
             </th>
         </tr>
@@ -508,12 +508,12 @@ foreach ($rows as $row_id => $vrow) {
         }
         ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center">
+            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> class="center">
                 <?php echo $field['Field_title']; ?>
                 <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
             </td>
 <?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
-             <td align="center"<?php echo $field['wrap']; ?>><span class="column_type"><?php echo $field['pma_type']; ?></span>
+             <td class="center"<?php echo $field['wrap']; ?>><span class="column_type"><?php echo $field['pma_type']; ?></span>
              </td>
 
          <?php } //End if
@@ -613,12 +613,12 @@ foreach ($rows as $row_id => $vrow) {
             if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
             ) {
-                echo '        <td align="center">' . __('Binary') . '</td>' . "\n";
+                echo '        <td class="center">' . __('Binary') . '</td>' . "\n";
             } elseif (strstr($field['True_Type'], 'enum')
                 || strstr($field['True_Type'], 'set')
                 || in_array($field['pma_type'], $no_support_types)
             ) {
-                echo '        <td align="center">--</td>' . "\n";
+                echo '        <td class="center">--</td>' . "\n";
             } else {
                 ?>
                 <td>
@@ -720,7 +720,7 @@ foreach ($rows as $row_id => $vrow) {
             &nbsp;</td>
         </tr>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td colspan="5" align="right">
+            <td colspan="5" class="right">
                 <?php echo $backup_field . "\n"; ?>
                 <textarea name="fields<?php echo $field_name_appendix; ?>"
                     rows="<?php echo ($cfg['TextareaRows']*2); ?>"
@@ -1047,7 +1047,7 @@ foreach ($rows as $row_id => $vrow) {
     <div id="gis_editor"></div><div id="popup_background"></div>
     <br />
     <fieldset id="actions_panel">
-    <table border="0" cellpadding="5" cellspacing="0">
+    <table cellpadding="5" cellspacing="0">
     <tr>
         <td valign="middle" nowrap="nowrap">
             <select name="submit_type" class="control_at_footer" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
@@ -1101,7 +1101,7 @@ if (isset($where_clause)) {
         <td>
 <?php echo PMA_showHint(__('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')); ?>
         </td>
-        <td colspan="3" align="right" valign="middle">
+        <td colspan="3" class="right" valign="middle">
             <input type="submit" class="control_at_footer" value="<?php echo __('Go'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
             <input type="reset" class="control_at_footer" value="<?php echo __('Reset'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />
         </td>
@@ -1146,5 +1146,5 @@ if ($insert_mode) {
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

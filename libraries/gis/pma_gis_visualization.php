@@ -74,7 +74,7 @@ class PMA_GIS_Visualization
     /**
      * All the variable initialization, options handling has to be done here.
      *
-     * @return nothing
+     * @return void
      */
     protected function init()
     {
@@ -85,7 +85,7 @@ class PMA_GIS_Visualization
      * A function which handles passed parameters. Useful if desired
      * chart needs to be a little bit different from the default one.
      *
-     * @return nothing
+     * @return void
      */
     private function _handleOptions()
     {
@@ -124,7 +124,7 @@ class PMA_GIS_Visualization
      * @param string $type      mime type
      * @param string $ext       extension of the file
      *
-     * @return nothing
+     * @return void
      */
     private function _toFile($file_name, $type, $ext)
     {
@@ -175,7 +175,7 @@ class PMA_GIS_Visualization
      *
      * @param string $file_name File name
      *
-     * @return nothing
+     * @return void
      */
     public function toFileAsSvg($file_name)
     {
@@ -235,7 +235,7 @@ class PMA_GIS_Visualization
      *
      * @param string $file_name File name
      *
-     * @return nothing
+     * @return void
      */
     public function toFileAsPng($file_name)
     {
@@ -289,7 +289,7 @@ class PMA_GIS_Visualization
      *
      * @param string $file_name File name
      *
-     * @return nothing
+     * @return void
      */
     public function toFileAsPdf($file_name)
     {

@@ -104,7 +104,7 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
         }
     }
 
-    $return_str  = '<select xml:lang="en" dir="ltr" name="'
+    $return_str  = '<select lang="en" dir="ltr" name="'
         . htmlspecialchars($name) . '"'
         . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
         . ($submitOnChange ? ' class="autosubmit"' : '') . '>' . "\n";

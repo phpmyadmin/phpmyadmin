@@ -97,7 +97,7 @@ class PMA_Error_Handler
      * @param string  $errfile error file
      * @param integer $errline error line
      *
-     * @return nothing
+     * @return void
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
@@ -155,7 +155,7 @@ class PMA_Error_Handler
      * @param string  $file
      * @param integer $line
      *
-     * @return nothing
+     * @return void
      */
     public function triggerError($errorInfo, $errorNumber = null, $file = null, $line = null)
     {
@@ -168,7 +168,7 @@ class PMA_Error_Handler
      *
      * @param PMA_Error $error the error
      *
-     * @return nothing
+     * @return void
      */
     protected function _dispFatalError($error)
     {
@@ -183,7 +183,7 @@ class PMA_Error_Handler
     /**
      * display the whole error page with all errors
      *
-     * @return nothing
+     * @return void
      */
     public function dispErrorPage()
     {
@@ -197,7 +197,7 @@ class PMA_Error_Handler
     /**
      * display user errors not displayed
      *
-     * @return nothing
+     * @return void
      */
     public function dispUserErrors()
     {
@@ -213,7 +213,7 @@ class PMA_Error_Handler
      *
      * @param PMA_error $error the error
      *
-     * @return nothing
+     * @return void
      */
     protected function _dispPageStart($error = null)
     {
@@ -229,7 +229,7 @@ class PMA_Error_Handler
     /**
      * display HTML footer
      *
-     * @return nothing
+     * @return void
      */
     protected function _dispPageEnd()
     {
@@ -239,7 +239,7 @@ class PMA_Error_Handler
     /**
      * display all errors regardless already displayed or user errors
      *
-     * @return nothing
+     * @return void
      */
     public function dispAllErrors()
     {
@@ -251,7 +251,7 @@ class PMA_Error_Handler
     /**
      * display errors not displayed
      *
-     * @return nothing
+     * @return void
      */
     public function dispErrors()
     {
@@ -273,7 +273,7 @@ class PMA_Error_Handler
     /**
      * look in session for saved errors
      *
-     * @return nothing
+     * @return void
      */
     protected function _checkSavedErrors()
     {

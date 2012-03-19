@@ -2775,10 +2775,10 @@ msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
 # OK
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Le paramètre <tt>$cfg['PmaAbsoluteUri']</tt> DOIT être renseigné dans votre "
+"Le paramètre <code>$cfg['PmaAbsoluteUri']</code> DOIT être renseigné dans votre "
 "fichier de configuration !"
 
 #: libraries/common.inc.php:647

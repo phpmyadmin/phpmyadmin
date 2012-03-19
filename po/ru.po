@@ -2772,10 +2772,10 @@ msgstr "Невозможно загрузить изначальную конф�
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Директива <tt>$cfg['PmaAbsoluteUri']</tt> ДОЛЖНА быть установлена в "
+"Директива <code>$cfg['PmaAbsoluteUri']</code> ДОЛЖНА быть установлена в "
 "конфигурационном файле!"
 
 #: libraries/common.inc.php:647

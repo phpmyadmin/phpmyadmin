@@ -2787,10 +2787,10 @@ msgstr "N'eus ket bet gallet kargañ ar c'hefluniadur dre ziouer adalek %1$s"
 
 #: libraries/common.inc.php:617
 msgid ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"RET eo d'an arventenn <tt>$cfg['PmaAbsoluteUri']</tt> bezañ resisaet er "
+"RET eo d'an arventenn <code>$cfg['PmaAbsoluteUri']</code> bezañ resisaet er "
 "restr kefluniañ!"
 
 #: libraries/common.inc.php:647

@@ -930,7 +930,7 @@ function PMA_removeBackquote($a_name)
  */
 function PMA_whichCrlf()
 {
-    // The 'PMA_USR_OS' constant is defined in "./libraries/Config.class.php"
+    // The 'PMA_USR_OS' constant is defined in "libraries/Config.class.php"
     // Win case
     if (PMA_USR_OS == 'Win') {
         $the_crlf = "\r\n";
@@ -947,7 +947,7 @@ function PMA_whichCrlf()
  *
  * @param bool $jsonly prints out pure JavaScript
  *
- * @return nothing
+ * @return void
  *
  * @access  public
  */
@@ -2079,7 +2079,7 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  *                       until you know all needed parameters to check).
  * @param bool  $request Whether to include this list in checking for special params.
  *
- * @return nothing
+ * @return void
  *
  * @global  string  path to current script
  * @global  boolean flag whether any special variable was required
@@ -2507,7 +2507,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 . $frame . '">' . $caption2 . '</a>';
         }
 
-        echo "\n", '<form action="./', basename($script), '" method="post" target="', $frame, '">', "\n";
+        echo "\n", '<form action="', basename($script), '" method="post" target="', $frame, '">', "\n";
         echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector(
             $max_count,
@@ -2817,7 +2817,7 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
 /**
  * Clears cache content which needs to be refreshed on user change.
  *
- * @return nothing
+ * @return void
  */
 function PMA_clearUserCache()
 {
@@ -2883,7 +2883,7 @@ function PMA_cacheSet($var, $val = null, $server = 0)
  * @param string   $var    variable name
  * @param int|true $server server
  *
- * @return nothing
+ * @return void
  */
 function PMA_cacheUnset($var, $server = 0)
 {
@@ -3263,7 +3263,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
  * @param array              $extra_data extra data  optional -
  *                                       any other data as part of the json request
  *
- * @return nothing
+ * @return void
  */
 function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 {
@@ -3309,7 +3309,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
  *
  * @param string $max_upload_size maximum upload size
  *
- * @return nothing
+ * @return void
  */
 function PMA_browseUploadFile($max_upload_size)
 {
@@ -3328,7 +3328,7 @@ function PMA_browseUploadFile($max_upload_size)
  * @param array  $import_list array of import types
  * @param string $uploaddir   upload directory
  *
- * @return nothing
+ * @return void
  */
 function PMA_selectUploadFile($import_list, $uploaddir)
 {
@@ -3861,12 +3861,12 @@ function PMA_analyzeLimitClause($limit_clause)
 /**
  * Outputs HTML code for print button.
  *
- * @return nothing
+ * @return void
  */
 function PMA_printButton()
 {
     echo '<p class="print_ignore">';
-    echo '<input type="button" id="print" value="' . __('Print') . '" />';
+    echo '<input type="button" class="button" id="print" value="' . __('Print') . '" />';
     echo '</p>';
 }
 ?>

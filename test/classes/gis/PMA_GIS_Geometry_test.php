@@ -22,7 +22,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return nothing
+     * @return void
      */
     protected function setUp()
     {
@@ -34,7 +34,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return nothing
+     * @return void
      */
     protected function tearDown()
     {
@@ -65,7 +65,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      * @param array  $output    Expected output array
      *
      * @dataProvider providerForTestSetMinMax
-     * @return nothing
+     * @return void
      */
     public function testSetMinMax($point_set, $min_max, $output)
     {
@@ -121,7 +121,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      * @param string $output Expected output
      *
      * @dataProvider providerForTestGenerateParams
-     * @return nothing
+     * @return void
      */
     public function testGenerateParams($value, $output)
     {
@@ -175,7 +175,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      * @param array   $output     Expected output
      *
      * @dataProvider providerForTestExtractPoints
-     * @return nothing
+     * @return void
      */
     public function testExtractPoints($point_set, $scale_data, $linear, $output)
     {
