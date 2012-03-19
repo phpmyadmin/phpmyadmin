@@ -4013,7 +4013,7 @@ msgid ""
 "if one of the queries failed"
 msgstr ""
 "Si activé, phpMyAdmin continue le traitement des requêtes multi-énoncés même "
-"en cas d'échec de l'un des énoncés."
+"en cas d'échec de l'un des énoncés"
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
