@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-19 16:52+0200\n"
+"PO-Revision-Date: 2012-03-19 17:01+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -9811,7 +9811,7 @@ msgstr "Aucune ligne n'a été sélectionnée"
 
 #: tbl_select.php:109
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Recherche «par valeur» (passepartout: «% ») "
+msgstr "Recherche «par valeur» (passepartout: «% »)"
 
 #: tbl_select.php:233
 msgid "Select columns (at least one):"
