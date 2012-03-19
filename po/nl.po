@@ -12337,7 +12337,7 @@ msgstr ""
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' werd gevonden in version_comment"
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
