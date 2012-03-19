@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-19 19:05+0200\n"
+"PO-Revision-Date: 2012-03-19 23:05+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -508,13 +508,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Zoek resultaten voor \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] "%s overeenkomst in de tabel <i>%s</i>"
-msgstr[1] "%s overeenkomsten in de tabel <i>%s</i>"
+msgstr[0] "%1$s overeenkomst in de tabel <i>%2$s</i>"
+msgstr[1] "%1$s overeenkomsten in de tabel <i>%2$s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3159
 #: libraries/common.lib.php:3371 libraries/common.lib.php:3372
