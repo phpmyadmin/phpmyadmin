@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-19 13:45+0200\n"
+"PO-Revision-Date: 2012-03-19 13:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -827,7 +827,7 @@ msgstr "Copiez les valeurs et collez-les dans le champ «Taille/Valeurs»"
 
 #: export.php:29
 msgid "Bad type!"
-msgstr "Type incorrect!"
+msgstr "Type incorrect !"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
