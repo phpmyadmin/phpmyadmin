@@ -62,8 +62,7 @@ class PMA_getLinks_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(PMA_includeJS($filename), '<script src="js/'.$filename.'?ts='.$mod.'" type="text/javascript"></script>'. "\n");
 
         $filename = '?file.js';
-        //$this->assertEquals(PMA_includeJS($filename), '<script src="./js/?file.js" type="text/javascript"></script>\n');
-        $this->assertEquals(PMA_includeJS($filename), '<script src="./js/'.$filename.'" type="text/javascript"></script>'."\n");
+        $this->assertEquals(PMA_includeJS($filename), '<script src="js/'.$filename.'" type="text/javascript"></script>'."\n");
 
         //$this->assertFalse(PMA_includeJS(null));
     }
