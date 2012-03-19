@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-19 14:38+0200\n"
+"PO-Revision-Date: 2012-03-19 15:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -11520,7 +11520,7 @@ msgstr "dynamique"
 
 #: tbl_printview.php:363 tbl_structure.php:890
 msgid "Row length"
-msgstr "Longueur enr."
+msgstr "Longueur de ligne"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
