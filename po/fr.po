@@ -3758,7 +3758,7 @@ msgstr "Tables pour historique des requêtes SQL"
 
 #: libraries/config/messages.inc.php:389
 msgid "Hostname where MySQL server is running"
-msgstr "Le nom du serveur sur lequel MySQL est en exécution."
+msgstr "Le nom du serveur sur lequel MySQL est en exécution"
 
 #: libraries/config/messages.inc.php:390
 msgid "Server hostname"
