@@ -7885,7 +7885,7 @@ msgstr "Schéma de la base %s - Page %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
-msgstr "Cette page ne contient aucune table!"
+msgstr "Cette page ne contient aucune table !"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
