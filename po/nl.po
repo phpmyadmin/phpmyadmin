@@ -12105,7 +12105,7 @@ msgstr "Groep van uitgebrachte versies"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
-msgstr ""
+msgstr "De MySQL server versie is kleiner dan 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
