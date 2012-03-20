@@ -9905,10 +9905,10 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: server_status.php:1058
-#, fuzzy, php-format
+#, php-format
 #| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Aquest servidor MySQL és en marxa durant %s. Es va iniciar en %s."
+msgstr "Aquest servidor MySQL és en marxa durant %1$s. Es va iniciar en %2$s."
 
 #: server_status.php:1069
 msgid ""
