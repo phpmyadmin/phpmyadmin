@@ -6684,10 +6684,9 @@ msgstr ""
 "\"Opcions\""
 
 #: libraries/import.lib.php:1142
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Modificar la seva estructura, seguint l'enllaç  \"Estructura\""
+msgstr "Editar estructura seguint l'enllaç \"Estructura\""
 
 #: libraries/import.lib.php:1146
 #, fuzzy, php-format
