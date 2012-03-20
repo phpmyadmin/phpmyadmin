@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:43+0200\n"
+"PO-Revision-Date: 2012-03-20 16:44+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -8625,10 +8625,9 @@ msgid "Toggle small/big"
 msgstr "Canviar petit/gran"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Per triar una relació, clica :"
+msgstr "Canviar línies de relació"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
