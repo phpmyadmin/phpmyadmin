@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:03+0200\n"
+"PO-Revision-Date: 2012-03-20 17:04+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -10711,12 +10711,12 @@ msgstr[0] "%d segon"
 msgstr[1] "%d segons"
 
 #: server_status.php:1783
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "Minut"
-msgstr[1] "Minut"
+msgstr[0] "%d minut"
+msgstr[1] "%d minuts"
 
 #: server_synchronize.php:101
 msgid "Could not connect to the source"
