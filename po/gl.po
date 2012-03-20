@@ -9813,7 +9813,7 @@ msgstr "Non se achou ningún usuario."
 #: server_privileges.php:999
 #, php-format
 msgid "The user %s already exists!"
-msgstr "Xa existe o usuario %s"
+msgstr "Xa existe o usuario %s!"
 
 #: server_privileges.php:1085
 msgid "You have added a new user."
