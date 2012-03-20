@@ -8239,7 +8239,7 @@ msgstr "Separador"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Mostra aquesta consulta de nou "
+msgstr "Mostra aquesta consulta de nou"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
