@@ -7498,10 +7498,9 @@ msgstr "Error processant a la petició"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
 #: libraries/rte/rte_triggers.lib.php:302
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Detalls..."
+msgstr "Detalls"
 
 #: libraries/rte/rte_events.lib.php:374
 #, fuzzy
