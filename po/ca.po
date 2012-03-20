@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:17+0200\n"
+"PO-Revision-Date: 2012-03-20 16:18+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7289,10 +7289,10 @@ msgstr "Genera una Contrasenya"
 #: libraries/rte/rte_routines.lib.php:1259
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Les següents consultes s'han executat:"
+msgstr "Ha fallat la següent consulta: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
