@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 15:54+0200\n"
+"PO-Revision-Date: 2012-03-20 15:55+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4700,10 +4700,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Màxim nombre de taules mostrades a la llista"
+msgstr "Màxim nombre de preferències de taules a desar"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
