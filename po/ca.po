@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 15:26+0200\n"
+"PO-Revision-Date: 2012-03-20 15:28+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9255,7 +9255,7 @@ msgstr "Permisos especifics de taula"
 #: server_privileges.php:604 server_privileges.php:756
 #: server_privileges.php:1821
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès "
+msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès"
 
 #: server_privileges.php:681
 msgid "Administration"
