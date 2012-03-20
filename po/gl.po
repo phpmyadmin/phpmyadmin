@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-19 22:13+0100\n"
-"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"PO-Revision-Date: 2012-03-20 03:23+0200\n"
+"Last-Translator: frandieguez <fran.dieguez@mabishu.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -6432,7 +6432,7 @@ msgstr "a procurar"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
-msgstr "A mostrar rexistros "
+msgstr "Mostrando os rexistros"
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
