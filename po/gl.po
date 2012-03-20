@@ -11932,7 +11932,7 @@ msgstr "Por causa da sua lonxitude,<br /> este campo pode non ser editábel "
 
 #: tbl_change.php:863
 msgid "Binary - do not edit"
-msgstr "Binario - non editar "
+msgstr "Binario - non editar"
 
 #: tbl_change.php:1061
 msgid "Insert as new row"
