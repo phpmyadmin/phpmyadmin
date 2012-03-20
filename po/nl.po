@@ -10704,7 +10704,7 @@ msgstr ""
 #: server_status.php:1600
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Herstel standaardwaarde"
+msgstr "Standaardwaarde herstellen"
 
 #: server_status.php:1604
 #| msgid "Introduction"
