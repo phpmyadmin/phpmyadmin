@@ -6707,10 +6707,10 @@ msgid "Go to table: %s"
 msgstr "Anar a la taula: %s"
 
 #: libraries/import.lib.php:1172
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Només l'estructura"
+msgstr "Estructura de %s"
 
 #: libraries/import.lib.php:1180
 #, fuzzy, php-format
