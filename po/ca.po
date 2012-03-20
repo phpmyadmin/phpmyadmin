@@ -10748,10 +10748,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1648
-#, fuzzy
 #| msgid "Remove database"
 msgid "Preset chart"
-msgstr "Elimina la base de dades"
+msgstr "Gràfic predefinit"
 
 #: server_status.php:1652
 #, fuzzy
