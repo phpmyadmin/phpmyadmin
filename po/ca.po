@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:33+0200\n"
+"PO-Revision-Date: 2012-03-20 16:34+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7825,10 +7825,10 @@ msgid "You do not have the necessary privileges to create a routine"
 msgstr "No tens prou permisos per crear una rutina"
 
 #: libraries/rte/rte_words.lib.php:23
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Base de dades sense taules"
+msgstr "No s'ha trobat una rutina de nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:24
 #, fuzzy
