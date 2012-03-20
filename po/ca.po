@@ -10570,9 +10570,8 @@ msgid "Reset to default"
 msgstr "Restaura el valor per defecte"
 
 #: server_status.php:1614
-#, fuzzy
 msgid "Monitor Instructions"
-msgstr "Informació"
+msgstr "Instruccions de Monitorització"
 
 #: server_status.php:1615
 msgid ""
