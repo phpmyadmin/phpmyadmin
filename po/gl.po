@@ -9722,7 +9722,7 @@ msgstr "Permite gravar datos."
 #: server_privileges.php:82 server_privileges.php:268
 #: server_privileges.php:681
 msgid "Gives access to the complete list of databases."
-msgstr "Permite acceder á listaxe completa de bases de datos"
+msgstr "Permite acceder á lista completa de bases de datos."
 
 #: server_privileges.php:83 server_privileges.php:309
 #: server_privileges.php:314 server_privileges.php:653
