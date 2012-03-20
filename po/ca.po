@@ -7671,10 +7671,9 @@ msgid "Return type"
 msgstr "Tipus de retorn"
 
 #: libraries/rte/rte_routines.lib.php:892
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Longitud/Valors*"
+msgstr "Retornar Longitud/Valors"
 
 #: libraries/rte/rte_routines.lib.php:898
 #, fuzzy
