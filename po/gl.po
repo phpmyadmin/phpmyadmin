@@ -9043,7 +9043,7 @@ msgid ""
 "corrupted!"
 msgstr ""
 "Ten activada mbstring.func_overload na configuración do PHP. Esta opción é "
-"incompatíbel co phpMyAdmin e podería ocasionar danos nos datos"
+"incompatíbel co phpMyAdmin e podería ocasionar danos nos datos!"
 
 #: main.php:285
 msgid ""
