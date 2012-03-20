@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 15:47+0200\n"
+"PO-Revision-Date: 2012-03-20 16:09+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1198,7 +1198,6 @@ msgstr "Altre"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1450
-#, fuzzy
 msgid ","
 msgstr ","
 
@@ -3337,10 +3336,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Configurar camps d'entrada de text"
+msgstr "Mida mínima per a camps d'entrada"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3349,10 +3347,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Tamany màxim per arxius temporals de classificació"
+msgstr "Mida màxima pera camps d'entrada"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -3467,10 +3464,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Manteniment de la taula"
+msgstr "Desactivar manteniment múltiple de taules"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
@@ -4228,16 +4224,14 @@ msgid "Enable highlighting"
 msgstr "Activa resaltat"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Màxim nombre de taules mostrades a la llista"
+msgstr "Màxim nombre de taules usades recentment; 0 per desactivar"
 
 #: libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Taules no seguides"
+msgstr "Taules usades recentment"
 
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
@@ -4392,10 +4386,9 @@ msgid "Memory limit"
 msgstr "Límit de memoria"
 
 #: libraries/config/messages.inc.php:321
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Aixó són enllaços a Edició, Edició en línia, Copia i Esborrat"
+msgstr "Aixó són enllaços a Edició, Còpia i Esborrat"
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
@@ -4534,10 +4527,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Reanomena les taules a"
+msgstr "Recordar l'ordenació de les taules"
 
 #: libraries/config/messages.inc.php:354
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -4687,10 +4679,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Usuari de control"
+msgstr "Servidor de control"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -4773,10 +4764,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Màxim nombre de taules mostrades a la llista"
+msgstr "Màxim nombre de preferències de taules a desar"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
@@ -4848,7 +4838,6 @@ msgid "Server port"
 msgstr "Port del servidor"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "blank for no user preferences storage in database, suggested: d]_config[/"
 #| "kbd]"
@@ -4856,14 +4845,13 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport de preferències de l'usuari en base "
-"de dades, suggerit: [kbd]pma_config[/kbd]"
+"Deixa en blanc per treure la \"persistència\" de taules usades recentment "
+"entre sessions, suggerit: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Nom d'usuari de recuperació"
+msgstr "Taula usada recentment"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
@@ -4943,7 +4931,6 @@ msgid "Display columns table"
 msgstr "Taula de descripció de columnes"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "blank for no user preferences storage in database, suggested: d]_config[/"
 #| "kbd]"
@@ -4951,14 +4938,13 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport de preferències de l'usuari en base "
-"de dades, suggerit: [kbd]pma_config[/kbd]"
+"Deixa en blanc per desactivar la \"persistència\" de preferències d'interfase "
+"de taules entre sessions, suggerit: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Taula de preferències de l'usuari"
+msgstr "Preferències d'interfase de taula"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
@@ -5031,7 +5017,6 @@ msgid "Automatically create versions"
 msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "blank for no user preferences storage in database, suggested: d]_config[/"
 #| "kbd]"
@@ -5039,8 +5024,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport de preferències de l'usuari en base "
-"de dades, suggerit: [kbd]pma_userconfig[/kbd]"
+"Deixa en blanc per no desar les preferències de lúsuari en base de dades, "
+"suggerit: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -5110,10 +5095,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Direcció de visualització per defecte"
+msgstr "Mostrar direcció de visualització"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
@@ -5140,10 +5124,9 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "Mostra graella"
+msgstr "Mostra ajudes"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5175,10 +5158,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Amagar quadre de consultes"
+msgstr "Mantenir el quadre de consultes"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -5489,10 +5471,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "No es pot connectar al servidor MySQL"
+msgstr "No es pot connectar al servidor Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5539,18 +5520,18 @@ msgid "possible deep recursion attack"
 msgstr ""
 
 #: libraries/database_interface.lib.php:1813
-#, fuzzy
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(o el sòcol del servidor local MySQL no està configurat correctament)"
+msgstr ""
+"El servidor no està responent (o el sòcol del servidor local MySQL no està "
+"configurat correctament)."
 
 #: libraries/database_interface.lib.php:1816
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "El servidor no respon"
+msgstr "El servidor no respon."
 
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
@@ -5639,10 +5620,9 @@ msgstr "Compatible amb MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Crea una nova base de dades"
+msgstr "Crear base de dades"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
@@ -5913,16 +5893,14 @@ msgid "Language"
 msgstr "Idioma"
 
 #: libraries/display_tbl.lib.php:406
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Directori de desades"
+msgstr "Desar dades editades"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Columnes per a textareas"
+msgstr "Reataurar ordre de columnes"
 
 #: libraries/display_tbl.lib.php:423
 #, php-format
@@ -5930,22 +5908,19 @@ msgid "%d is not valid row number."
 msgstr "%d no és un num. vàlid de fila."
 
 #: libraries/display_tbl.lib.php:428
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Files per a textareas"
+msgstr "Fila d'inici"
 
 #: libraries/display_tbl.lib.php:430
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Nombre de files:"
+msgstr "Nombre de files"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Més"
+msgstr "Mode"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal"
@@ -6010,10 +5985,9 @@ msgid "Show BLOB contents"
 msgstr "Mostra contingut BLOB"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformació del navegador"
+msgstr "Amagar transformació del navegador"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
