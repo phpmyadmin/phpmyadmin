@@ -821,7 +821,7 @@ msgstr "Sortida"
 
 #: enum_editor.php:130
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "Còpia i enganxa els valors junts dins del camp \"Longitud/Valors\" "
+msgstr "Còpia i enganxa els valors junts dins del camp \"Longitud/Valors\""
 
 #: export.php:38
 msgid "Bad type!"
