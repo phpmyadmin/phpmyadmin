@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:58+0200\n"
+"PO-Revision-Date: 2012-03-20 17:01+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -10793,10 +10793,9 @@ msgid "Clear series"
 msgstr ""
 
 #: server_status.php:1695
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "Consultes SQL"
+msgstr "Series al gràfic:"
 
 #: server_status.php:1708
 #, fuzzy
