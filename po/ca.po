@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 15:58+0200\n"
+"PO-Revision-Date: 2012-03-20 16:00+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4867,7 +4867,6 @@ msgid "Display columns table"
 msgstr "Taula de descripció de columnes"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "blank for no user preferences storage in database, suggested: d]_config[/"
 #| "kbd]"
@@ -4875,8 +4874,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport de preferències de l'usuari en base "
-"de dades, suggerit: [kbd]pma_config[/kbd]"
+"Deixa en blanc per desactivar la \"persistència\" de preferències d'interfase "
+"de taules entre sessions, suggerit: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 #, fuzzy
