@@ -7836,10 +7836,9 @@ msgid "There are no routines to display."
 msgstr "No hi han rutines per mostrar."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "Afegir un nou servidor"
+msgstr "Afegir disparador"
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
