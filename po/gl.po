@@ -3742,7 +3742,7 @@ msgstr "Os campos escápanse con"
 #: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:147
 #: libraries/config/messages.inc.php:149 libraries/export/texytext.php:27
 msgid "Replace NULL by"
-msgstr "Substituír NULL por "
+msgstr "Substituír NULL por"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
 #, fuzzy
