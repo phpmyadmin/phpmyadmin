@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 15:49+0200\n"
+"PO-Revision-Date: 2012-03-20 15:51+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4160,10 +4160,9 @@ msgid "Enable highlighting"
 msgstr "Activa resaltat"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Màxim nombre de taules mostrades a la llista"
+msgstr "Màxim nombre de taules usades recentment; 0 per desactivar"
 
 #: libraries/config/messages.inc.php:291
 #, fuzzy
