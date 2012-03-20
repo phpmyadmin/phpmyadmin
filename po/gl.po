@@ -11032,7 +11032,7 @@ msgid ""
 msgstr ""
 "Número de unións sen chaves que comproban a utilización de chaves despois de "
 "cada fila (se non é 0, debería comprobar con atención os índices das "
-"táboas)."
+"táboas)"
 
 #: server_status.php:1395
 msgid ""
