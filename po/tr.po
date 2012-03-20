@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:31+0200\n"
+"PO-Revision-Date: 2012-03-20 17:40+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -10410,10 +10410,9 @@ msgstr ""
 "bir performans artışı vermez.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "İşlem önbelleği tavan oranı %%"
+msgstr "İşlem önbelleği tavan oranı (hesaplanmış değer)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
