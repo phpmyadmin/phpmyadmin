@@ -1686,7 +1686,7 @@ msgstr "Recomanacions"
 
 #: js/messages.php:218
 msgid "Rule details"
-msgstr "Detalls de regles..."
+msgstr "Detalls de la regla"
 
 #: js/messages.php:219
 msgid "Justification"
