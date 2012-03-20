@@ -11290,7 +11290,6 @@ msgid "Column"
 msgstr "Columna"
 
 #: tbl_chart.php:93
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
