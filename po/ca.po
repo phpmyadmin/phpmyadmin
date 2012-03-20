@@ -11351,7 +11351,7 @@ msgstr " A causa de la seva longitud,<br /> aquesta columna no pot ser editable"
 
 #: tbl_change.php:863
 msgid "Binary - do not edit"
-msgstr "Binari - no editeu "
+msgstr "Binari - no editeu"
 
 #: tbl_change.php:1061
 msgid "Insert as new row"
