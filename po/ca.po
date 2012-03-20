@@ -8196,10 +8196,9 @@ msgid "Table Search"
 msgstr "Cerca de taules"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1032
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Insereix"
+msgstr "Edita/Insereix"
 
 #: libraries/transformations.lib.php:134
 #, php-format
