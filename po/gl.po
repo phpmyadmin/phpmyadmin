@@ -2615,7 +2615,7 @@ msgid ""
 "removed."
 msgstr ""
 "Parece que os índice %1$s e %2$s son iguais e posibelmente poderíase "
-"eliminar un deles"
+"eliminar un deles."
 
 #: libraries/List_Database.class.php:379 libraries/config/messages.inc.php:179
 #: libraries/server_links.inc.php:43 server_databases.php:104
