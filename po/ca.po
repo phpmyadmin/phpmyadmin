@@ -4925,7 +4925,7 @@ msgstr "Crea una vista"
 
 #: libraries/display_tbl.lib.php:2506
 msgid "Link not found"
-msgstr "No s'ha trobat l'enllaç "
+msgstr "No s'ha trobat l'enllaç"
 
 #: libraries/engines/bdb.lib.php:20 main.php:213
 msgid "Version information"
