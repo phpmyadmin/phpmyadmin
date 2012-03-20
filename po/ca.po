@@ -10767,10 +10767,9 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1671
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Nom de taula incorrecte"
+msgstr "o escriu el nom de variable:"
 
 #: server_status.php:1675
 msgid "Display as differential value"
