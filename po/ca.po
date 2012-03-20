@@ -10662,10 +10662,9 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1572 server_status.php:1643
-#, fuzzy
 #| msgid "Add index"
 msgid "Add chart"
-msgstr "Afegir índex"
+msgstr "Afegir gràfic"
 
 #: server_status.php:1574
 msgid "Rearrange/edit charts"
