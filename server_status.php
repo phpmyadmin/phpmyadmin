@@ -1485,7 +1485,13 @@ function printVariablesTable()
             $odd_row = !$odd_row;
 ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_' . $allocationMap[$name]:''; ?>">
-            <th class="name"><?php echo htmlspecialchars(str_replace('_', ' ', $name)) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
+            <th class="name"><?php
+            echo htmlspecialchars(str_replace('_', ' ', $name));
+            /* Fields containing % are calculated, they can not be described in MySQL documentation */
+            if (strpos($name, '%') === FALSE) {
+                 echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name);
+            }
+            ?>
             </th>
             <td class="value"><span class="formatted"><?php
             if (isset($alerts[$name])) {
