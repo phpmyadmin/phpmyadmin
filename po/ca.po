@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:48+0200\n"
+"PO-Revision-Date: 2012-03-20 16:49+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9689,10 +9689,9 @@ msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:864
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "Mostra taules obertes"
+msgstr "Mostra valors sense format"
 
 #: server_status.php:868
 #, fuzzy
