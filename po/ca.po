@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:34+0200\n"
+"PO-Revision-Date: 2012-03-20 16:35+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7668,10 +7668,9 @@ msgid "No routine with name %1$s found in database %2$s"
 msgstr "No s'ha trobat una rutina de nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:24
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "No hi han rutines per mostrar."
 
 #: libraries/rte/rte_words.lib.php:30
 #, fuzzy
