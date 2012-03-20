@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:28+0200\n"
+"PO-Revision-Date: 2012-03-20 16:29+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7522,10 +7522,9 @@ msgid "Is deterministic"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:938
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "Seguretat"
+msgstr "Tipus de seguretat"
 
 #: libraries/rte/rte_routines.lib.php:945
 msgid "SQL data access"
