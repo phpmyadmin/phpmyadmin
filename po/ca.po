@@ -11454,10 +11454,9 @@ msgid "X-Axis:"
 msgstr ""
 
 #: tbl_chart.php:124
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "Consultes SQL"
+msgstr "Series:"
 
 #: tbl_chart.php:126
 #, fuzzy
