@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 15:47+0200\n"
+"PO-Revision-Date: 2012-03-20 15:48+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3337,10 +3337,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Configurar camps d'entrada de text"
+msgstr "Mida mínima per a camps d'entrada"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
