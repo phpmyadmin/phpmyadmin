@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:04+0200\n"
+"PO-Revision-Date: 2012-03-20 16:05+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -5093,10 +5093,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Amagar quadre de consultes"
+msgstr "Mantenir el quadre de consultes"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
