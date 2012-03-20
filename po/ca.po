@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:51+0200\n"
+"PO-Revision-Date: 2012-03-20 16:52+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9836,10 +9836,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "No es pot connectar al servidor MySQL"
+msgstr "La quantitat d'intents fallits de connexió al servidor MySQL."
 
 #: server_status.php:1304
 msgid ""
