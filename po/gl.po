@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-20 03:32+0200\n"
+"PO-Revision-Date: 2012-03-20 03:33+0200\n"
 "Last-Translator: frandieguez <fran.dieguez@mabishu.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -3195,7 +3195,7 @@ msgstr "Personalizar os campos de entrada de texto"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr "Texto para Texy!"
+msgstr "Texto para Texy"
 
 #: libraries/config/messages.inc.php:228
 #| msgid "Warning"
