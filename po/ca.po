@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:26+0200\n"
+"PO-Revision-Date: 2012-03-20 16:27+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7639,10 +7639,9 @@ msgid "Edit routine"
 msgstr "Editar rutina"
 
 #: libraries/rte/rte_routines.lib.php:831
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "Rutines"
+msgstr "Nom de rutina"
 
 #: libraries/rte/rte_routines.lib.php:854
 msgid "Parameters"
