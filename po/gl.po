@@ -10100,7 +10100,7 @@ msgstr "O número de columnas ten que ser maior de cero"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr "Non se pode mover unha táboa sobre si mesma"
+msgstr "Non se pode mover unha táboa sobre si mesma!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
