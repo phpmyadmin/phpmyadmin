@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-20 15:18+0100\n"
+"POT-Creation-Date: 2012-03-20 12:51-0400\n"
 "PO-Revision-Date: 2012-01-12 11:43+0200\n"
 "Last-Translator: Anonymous Pootle User\n"
 "Language-Team: tatarish <tt@li.org>\n"
-"Language: tt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tt\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 
@@ -370,26 +370,26 @@ msgstr "Kerem"
 msgid "Size"
 msgstr "Küläme"
 
-#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:805
+#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:806
 msgid "in use"
 msgstr "totıla"
 
 #: db_printview.php:184 libraries/db_info.inc.php:77
-#: libraries/export/sql.php:757
+#: libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:914
 msgid "Creation"
 msgstr "Yasalışı"
 
 #: db_printview.php:193 libraries/db_info.inc.php:82
-#: libraries/export/sql.php:762
+#: libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:922
 msgid "Last update"
 msgstr "Soñğı yañartılu"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
-#: libraries/export/sql.php:767
+#: libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:930
 msgid "Last check"
@@ -626,8 +626,8 @@ msgstr ""
 #: db_structure.php:462 libraries/display_tbl.lib.php:2350
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:165
@@ -747,7 +747,7 @@ msgstr "Tüşämä tikşerü"
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
-#: libraries/export/sql.php:608 libraries/export/texytext.php:66
+#: libraries/export/sql.php:609 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
 #: libraries/header_printview.inc.php:59 server_databases.php:175
 #: server_privileges.php:1975 server_privileges.php:2038
@@ -997,8 +997,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:216 import.php:468
@@ -1468,7 +1468,7 @@ msgid "Please add at least one variable to the series"
 msgstr ""
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
-#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1112
+#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2191 server_status.php:1268 server_status.php:1707
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
@@ -2758,8 +2758,8 @@ msgstr "%s siña İsäñme di"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:110
@@ -2876,7 +2876,7 @@ msgstr "Tüşämä"
 #: libraries/config/user_preferences.forms.php:239
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/export/latex.php:212 libraries/export/sql.php:1112
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:681 server_replication.php:344 tbl_printview.php:276
 #: tbl_structure.php:773
 msgid "Data"
@@ -3834,7 +3834,7 @@ msgstr "\"IGNORE\" belän kertäse"
 msgid "Syntax to use when inserting data"
 msgstr ""
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:285
+#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr "Kilgän soraw külämeneñ öske küläme"
 
@@ -5628,13 +5628,13 @@ msgstr "Xoquqlar"
 msgid "Routines"
 msgstr ""
 
-#: libraries/db_links.inc.php:100 libraries/export/sql.php:648
+#: libraries/db_links.inc.php:100 libraries/export/sql.php:649
 #: libraries/rte/rte_words.lib.php:49
 #, fuzzy
 msgid "Events"
 msgstr "Cibärelde"
 
-#: libraries/db_links.inc.php:104 libraries/export/sql.php:1050
+#: libraries/db_links.inc.php:104 libraries/export/sql.php:1051
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
@@ -5825,8 +5825,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:273
@@ -6459,8 +6459,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:127
@@ -6523,12 +6523,12 @@ msgid "Data dump options"
 msgstr "Biremlek saqlaw köyläneşe"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
-#: libraries/export/sql.php:1207 libraries/export/texytext.php:109
+#: libraries/export/sql.php:1220 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Tüşämä eçtälegen çığaru"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:249
-#: libraries/export/sql.php:1039 libraries/export/texytext.php:177
+#: libraries/export/sql.php:1040 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Tüşämä tözeleşe"
 
@@ -6577,7 +6577,7 @@ msgstr "Buy Açıqlamasın Kürsätäse"
 msgid "Display MIME types"
 msgstr "Barlıq MIME-törlär"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:485
+#: libraries/export/latex.php:132 libraries/export/sql.php:486
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
@@ -6588,17 +6588,17 @@ msgstr "Barlıq MIME-törlär"
 msgid "Host"
 msgstr "Host"
 
-#: libraries/export/latex.php:137 libraries/export/sql.php:490
+#: libraries/export/latex.php:137 libraries/export/sql.php:491
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:60
 msgid "Generation Time"
 msgstr "Ürçäw Zamanı"
 
-#: libraries/export/latex.php:138 libraries/export/sql.php:491
+#: libraries/export/latex.php:138 libraries/export/sql.php:492
 #: libraries/export/xml.php:137
 msgid "Server version"
 msgstr "Server söreme"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:492
+#: libraries/export/latex.php:139 libraries/export/sql.php:493
 #: libraries/export/xml.php:138
 msgid "PHP Version"
 msgstr "PHP Söreme"
@@ -6667,101 +6667,105 @@ msgid ""
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:231
+#: libraries/export/sql.php:226 libraries/export/sql.php:1185
+msgid "Truncate table before insert"
+msgstr ""
+
+#: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: libraries/export/sql.php:238
+#: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: libraries/export/sql.php:245
+#: libraries/export/sql.php:246
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/export/sql.php:255
+#: libraries/export/sql.php:256
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: libraries/export/sql.php:268
+#: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/export/sql.php:274
+#: libraries/export/sql.php:275
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: libraries/export/sql.php:275
+#: libraries/export/sql.php:276
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: libraries/export/sql.php:276
+#: libraries/export/sql.php:277
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: libraries/export/sql.php:277
+#: libraries/export/sql.php:278
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: libraries/export/sql.php:292
+#: libraries/export/sql.php:293
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:301
+#: libraries/export/sql.php:302
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:344 libraries/export/xml.php:45
+#: libraries/export/sql.php:345 libraries/export/xml.php:45
 #, fuzzy
 msgid "Procedures"
 msgstr "Proseslar"
 
-#: libraries/export/sql.php:361 libraries/export/xml.php:40
+#: libraries/export/sql.php:362 libraries/export/xml.php:40
 #, fuzzy
 msgid "Functions"
 msgstr "Funksí"
 
-#: libraries/export/sql.php:869
+#: libraries/export/sql.php:870
 msgid "Constraints for dumped tables"
 msgstr "Constraints for dumped tables"
 
-#: libraries/export/sql.php:878
+#: libraries/export/sql.php:879
 msgid "Constraints for table"
 msgstr "Constraints for table"
 
-#: libraries/export/sql.php:978
+#: libraries/export/sql.php:979
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/export/sql.php:990
+#: libraries/export/sql.php:991
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/export/sql.php:1062
+#: libraries/export/sql.php:1063
 #, fuzzy
 msgid "Structure for view"
 msgstr "Tözeleşen genä"
 
-#: libraries/export/sql.php:1071
+#: libraries/export/sql.php:1072
 #, fuzzy
 msgid "Stand-in structure for view"
 msgstr "Tözeleşen genä"
 
-#: libraries/export/sql.php:1131
+#: libraries/export/sql.php:1132
 #, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
@@ -8228,8 +8232,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"SQL-tikşerüçe köylänmägän. Bu kiräk bulğan php-yöklämäne köyläw turında "
-"%squllanmada%s uqıp bula."
+"SQL-tikşerüçe köylänmägän. Bu kiräk bulğan php-yöklämäne köyläw turında %"
+"squllanmada%s uqıp bula."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -9519,8 +9523,8 @@ msgstr "Bu qullanuçılar kebek atalğan biremleklärne beteräse."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Beläse: MySQL-serverneñ eçke tüşämä eçennän alınğan xoquqlar bu. Server "
 "qullana torğan xoquqlar qul aşa üzgärtelgän bulsa, bu tüşämä eçtälege "
@@ -12358,8 +12362,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12487,8 +12491,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115

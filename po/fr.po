@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-20 15:18+0100\n"
+"POT-Creation-Date: 2012-03-20 12:51-0400\n"
 "PO-Revision-Date: 2012-03-19 17:02+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 0.7\n"
 
@@ -363,26 +363,26 @@ msgstr "Lignes"
 msgid "Size"
 msgstr "Taille"
 
-#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:805
+#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:806
 msgid "in use"
 msgstr "utilisé"
 
 #: db_printview.php:184 libraries/db_info.inc.php:77
-#: libraries/export/sql.php:757
+#: libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:914
 msgid "Creation"
 msgstr "Création"
 
 #: db_printview.php:193 libraries/db_info.inc.php:82
-#: libraries/export/sql.php:762
+#: libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:922
 msgid "Last update"
 msgstr "Dernière modification"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
-#: libraries/export/sql.php:767
+#: libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:930
 msgid "Last check"
@@ -605,11 +605,11 @@ msgstr "Le suivi n'est pas activé."
 #: db_structure.php:462 libraries/display_tbl.lib.php:2350
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Cette vue contient au moins ce nombre de lignes. Veuillez référer à "
-"%sdocumentation%s."
+"Cette vue contient au moins ce nombre de lignes. Veuillez référer à %"
+"sdocumentation%s."
 
 #: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:165
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -721,7 +721,7 @@ msgstr "Tables faisant l'objet d'un suivi"
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
-#: libraries/export/sql.php:608 libraries/export/texytext.php:66
+#: libraries/export/sql.php:609 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
 #: libraries/header_printview.inc.php:59 server_databases.php:175
 #: server_privileges.php:1975 server_privileges.php:2038
@@ -944,14 +944,14 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Choisissez «GeomFromText» dans la colonne «Fonction» et collez la chaîne "
-"dans le champ «Valeur»"
+"Choisissez «GeomFromText» dans la colonne «Fonction» et collez la chaîne dans "
+"le champ «Valeur»"
 
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -1390,7 +1390,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Veuillez ajouter au moins une variable à la série"
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
-#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1112
+#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2191 server_status.php:1268 server_status.php:1707
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
@@ -2587,8 +2587,8 @@ msgstr "Bienvenue dans %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -2711,7 +2711,7 @@ msgstr "Tables"
 #: libraries/config/user_preferences.forms.php:239
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/export/latex.php:212 libraries/export/sql.php:1112
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:681 server_replication.php:344 tbl_printview.php:276
 #: tbl_structure.php:773
 msgid "Data"
@@ -3638,7 +3638,7 @@ msgstr "Ne pas insérer une ligne faisant doublon avec une clé unique"
 msgid "Syntax to use when inserting data"
 msgstr "Syntaxe à utiliser lors de l'insertion de données"
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:285
+#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr "Taille maximum de la requête générée"
 
@@ -5514,12 +5514,12 @@ msgstr "Privilèges"
 msgid "Routines"
 msgstr "Procédures stockées"
 
-#: libraries/db_links.inc.php:100 libraries/export/sql.php:648
+#: libraries/db_links.inc.php:100 libraries/export/sql.php:649
 #: libraries/rte/rte_words.lib.php:49
 msgid "Events"
 msgstr "Événements"
 
-#: libraries/db_links.inc.php:104 libraries/export/sql.php:1050
+#: libraries/db_links.inc.php:104 libraries/export/sql.php:1051
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
@@ -5685,8 +5685,8 @@ msgstr ", @TABLE@ sera remplacé par le nom de la table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -6328,8 +6328,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentation de PBXT et des informations additionnelles sont disponibles "
 "sur %sle site de PrimeBase XT%s."
@@ -6379,12 +6379,12 @@ msgid "Data dump options"
 msgstr "Options d'exportation"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
-#: libraries/export/sql.php:1207 libraries/export/texytext.php:109
+#: libraries/export/sql.php:1220 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Contenu de la table"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:249
-#: libraries/export/sql.php:1039 libraries/export/texytext.php:177
+#: libraries/export/sql.php:1040 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Structure de la table"
 
@@ -6423,7 +6423,7 @@ msgstr "Afficher les commentaires"
 msgid "Display MIME types"
 msgstr "Afficher les types MIME"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:485
+#: libraries/export/latex.php:132 libraries/export/sql.php:486
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
@@ -6434,17 +6434,17 @@ msgstr "Afficher les types MIME"
 msgid "Host"
 msgstr "Client"
 
-#: libraries/export/latex.php:137 libraries/export/sql.php:490
+#: libraries/export/latex.php:137 libraries/export/sql.php:491
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:60
 msgid "Generation Time"
 msgstr "Généré le"
 
-#: libraries/export/latex.php:138 libraries/export/sql.php:491
+#: libraries/export/latex.php:138 libraries/export/sql.php:492
 #: libraries/export/xml.php:137
 msgid "Server version"
 msgstr "Version du serveur"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:492
+#: libraries/export/latex.php:139 libraries/export/sql.php:493
 #: libraries/export/xml.php:138
 msgid "PHP Version"
 msgstr "Version de PHP"
@@ -6479,8 +6479,7 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») :"
+msgstr "Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») :"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -6516,27 +6515,31 @@ msgstr ""
 "(Protège les noms de tables et de colonnes comportant des caractères "
 "spéciaux ou des mots réservés)</i>"
 
-#: libraries/export/sql.php:231
+#: libraries/export/sql.php:226 libraries/export/sql.php:1185
+msgid "Truncate table before insert"
+msgstr ""
+
+#: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Au lieu d'énoncés <code>INSERT</code>, utiliser :"
 
-#: libraries/export/sql.php:238
+#: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "Énoncés <code>INSERT DELAYED</code>"
 
-#: libraries/export/sql.php:245
+#: libraries/export/sql.php:246
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "Énoncés <code>INSERT IGNORE</code>"
 
-#: libraries/export/sql.php:255
+#: libraries/export/sql.php:256
 msgid "Function to use when dumping data:"
 msgstr "Fonction à utiliser lors de l'exportation des données :"
 
-#: libraries/export/sql.php:268
+#: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
 msgstr "Syntaxe à utiliser lors de l'insertion de données :"
 
-#: libraries/export/sql.php:274
+#: libraries/export/sql.php:275
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -6546,7 +6549,7 @@ msgstr ""
 "&nbsp; &nbsp; &nbsp; Par exemple: <code>INSERT INTO tbl_name (col_A,col_B,"
 "col_C) VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:275
+#: libraries/export/sql.php:276
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -6556,7 +6559,7 @@ msgstr ""
 "&nbsp; &nbsp; &nbsp; Par exemple : <code>INSERT INTO tbl_name VALUES "
 "(1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:276
+#: libraries/export/sql.php:277
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -6565,7 +6568,7 @@ msgstr ""
 "<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</"
 "code>"
 
-#: libraries/export/sql.php:277
+#: libraries/export/sql.php:278
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6573,7 +6576,7 @@ msgstr ""
 "aucun des modes ci-dessus <br /> &nbsp; &nbsp; &nbsp; Par exemple : "
 "<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:292
+#: libraries/export/sql.php:293
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -6581,7 +6584,7 @@ msgstr ""
 "Exporter les colonnes binaires en format hexadécimal <i>(par exemple, «abc» "
 "devient 0x616263)</i>"
 
-#: libraries/export/sql.php:301
+#: libraries/export/sql.php:302
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -6590,39 +6593,39 @@ msgstr ""
 "d'être exportées et importées entre des serveurs de zones horaires "
 "différentes)</i>"
 
-#: libraries/export/sql.php:344 libraries/export/xml.php:45
+#: libraries/export/sql.php:345 libraries/export/xml.php:45
 msgid "Procedures"
 msgstr "Procédures"
 
-#: libraries/export/sql.php:361 libraries/export/xml.php:40
+#: libraries/export/sql.php:362 libraries/export/xml.php:40
 msgid "Functions"
 msgstr "Fonctions"
 
-#: libraries/export/sql.php:869
+#: libraries/export/sql.php:870
 msgid "Constraints for dumped tables"
 msgstr "Contraintes pour les tables exportées"
 
-#: libraries/export/sql.php:878
+#: libraries/export/sql.php:879
 msgid "Constraints for table"
 msgstr "Contraintes pour la table"
 
-#: libraries/export/sql.php:978
+#: libraries/export/sql.php:979
 msgid "MIME TYPES FOR TABLE"
 msgstr "TYPES MIME POUR LA TABLE"
 
-#: libraries/export/sql.php:990
+#: libraries/export/sql.php:991
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS POUR LA TABLE"
 
-#: libraries/export/sql.php:1062
+#: libraries/export/sql.php:1063
 msgid "Structure for view"
 msgstr "Structure de la vue"
 
-#: libraries/export/sql.php:1071
+#: libraries/export/sql.php:1072
 msgid "Stand-in structure for view"
 msgstr "Doublure de structure pour la vue"
 
-#: libraries/export/sql.php:1131
+#: libraries/export/sql.php:1132
 msgid "Error reading data:"
 msgstr "Erreur de lecture des données :"
 
@@ -8026,8 +8029,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Le validateur SQL n'a pas pu être initialisé. Vérifiez que les extensions "
-"PHP nécessaires ont bien été installées tel que décrit dans la "
-"%sdocumentation%s."
+"PHP nécessaires ont bien été installées tel que décrit dans la %"
+"sdocumentation%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -9259,8 +9262,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -11005,8 +11008,8 @@ msgid ""
 msgstr ""
 "Cette %soption%s ne devrait pas être activée car elle permet à un attaquant "
 "de tenter de forcer l'entrée sur tout serveur MySQL. Si vous en avez "
-"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance"
-"%s."
+"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance%"
+"s."
 
 #: setup/lib/index.lib.php:273
 msgid ""
@@ -11058,8 +11061,8 @@ msgid ""
 msgstr ""
 "Le paramètre %sLogin cookie validity%s avec une valeur de plus de 1440 "
 "secondes peut causer des interruptions de la session de travail si le "
-"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement "
-"%d)."
+"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement %"
+"d)."
 
 #: setup/lib/index.lib.php:283
 #, php-format
@@ -11078,8 +11081,8 @@ msgid ""
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Si vous utilisez l'authentification cookie et que le paramètre %sLogin "
-"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity"
-"%s doit avoir une valeur plus petite ou égale à celui-ci."
+"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%"
+"s doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: setup/lib/index.lib.php:287
 #, php-format
@@ -11089,8 +11092,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des paramètres de protection - "
-"%sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
+"Si vous l'estimez nécessaire, utilisez des paramètres de protection - %"
+"sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
 "Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
 "appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
 "compris, sont connectés."
@@ -12249,8 +12252,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Le ratio actuel de mémoire libre pour la cache de requêtes par rapport à la "
 "mémoire totale de la cache est de %s%%. Il devrait se situer à plus de 80%%"
@@ -12321,9 +12324,9 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s"
-"%%. Il est souhaitable que cette valeur soit faible (Limite pour cette "
-"règle: 0.1%%)"
+"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s%"
+"%. Il est souhaitable que cette valeur soit faible (Limite pour cette règle: "
+"0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12402,8 +12405,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de tous les tris causent la création de tables temporaires, cette "
 "valeur devrait être sous les 10%%."
@@ -12935,8 +12938,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections est à %s%% de max_connections, devrait être sous les "
-"80%%"
+"Max_used_connections est à %s%% de max_connections, devrait être sous les 80%"
+"%"
 
 #: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-20 15:18+0100\n"
+"POT-Creation-Date: 2012-03-20 12:51-0400\n"
 "PO-Revision-Date: 2012-03-20 16:46+0200\n"
 "Last-Translator: Arjen Brouwer <arjenjb@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.7\n"
 
@@ -361,26 +361,26 @@ msgstr "Rijen"
 msgid "Size"
 msgstr "Grootte"
 
-#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:805
+#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:806
 msgid "in use"
 msgstr "in gebruik"
 
 #: db_printview.php:184 libraries/db_info.inc.php:77
-#: libraries/export/sql.php:757
+#: libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:914
 msgid "Creation"
 msgstr "Gecreëerd"
 
 #: db_printview.php:193 libraries/db_info.inc.php:82
-#: libraries/export/sql.php:762
+#: libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:922
 msgid "Last update"
 msgstr "Laatst bijgewerkt"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
-#: libraries/export/sql.php:767
+#: libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:930
 msgid "Last check"
@@ -603,8 +603,8 @@ msgstr "Tracking is niet actief."
 #: db_structure.php:462 libraries/display_tbl.lib.php:2350
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
@@ -718,7 +718,7 @@ msgstr "Tabellen met tracker"
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
-#: libraries/export/sql.php:608 libraries/export/texytext.php:66
+#: libraries/export/sql.php:609 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
 #: libraries/header_printview.inc.php:59 server_databases.php:175
 #: server_privileges.php:1975 server_privileges.php:2038
@@ -949,11 +949,11 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"U probeerde waarschijnlijk een bestand dat te groot is te uploaden. Zie de "
-"%sdocumentatie%s voor mogelijkheden om dit te omzeilen."
+"U probeerde waarschijnlijk een bestand dat te groot is te uploaden. Zie de %"
+"sdocumentatie%s voor mogelijkheden om dit te omzeilen."
 
 #: import.php:216 import.php:468
 msgid "Showing bookmark"
@@ -1392,7 +1392,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Gelieve tenminste één variable toe te voegen aan de reeks"
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
-#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1112
+#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2191 server_status.php:1268 server_status.php:1707
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
@@ -2590,8 +2590,8 @@ msgstr "Welkom op %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "U heeft waarschijnlijk geen configuratiebestand aangemaakt. Het beste kunt u "
 "%1$ssetup script%2$s gebruiken om een te maken."
@@ -2714,7 +2714,7 @@ msgstr "Tabellen"
 #: libraries/config/user_preferences.forms.php:239
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/export/latex.php:212 libraries/export/sql.php:1112
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:681 server_replication.php:344 tbl_printview.php:276
 #: tbl_structure.php:773
 msgid "Data"
@@ -3642,7 +3642,7 @@ msgstr "Gebruik 'INSERT IGNORE'"
 msgid "Syntax to use when inserting data"
 msgstr "Syntax voor insert opdrachten"
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:285
+#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr "Maximale lengte van de gemaakte query"
 
@@ -5525,12 +5525,12 @@ msgstr "Rechten"
 msgid "Routines"
 msgstr "Routines"
 
-#: libraries/db_links.inc.php:100 libraries/export/sql.php:648
+#: libraries/db_links.inc.php:100 libraries/export/sql.php:649
 #: libraries/rte/rte_words.lib.php:49
 msgid "Events"
 msgstr "Gebeurtenissen"
 
-#: libraries/db_links.inc.php:104 libraries/export/sql.php:1050
+#: libraries/db_links.inc.php:104 libraries/export/sql.php:1051
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
@@ -5700,13 +5700,13 @@ msgstr ", @TABLE@ wordt vervangen door de tabel naam"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Deze waarde wordt geïnterpreteerd met behulp van %1$sstrftime%2$s, het "
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
-"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ"
-"%5$s voor meer details."
+"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ%5"
+"$s voor meer details."
 
 #: libraries/display_export.lib.php:273
 msgid "use this for future exports"
@@ -6342,11 +6342,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentatie en meer informatie over PBXT kan gevonden worden op de "
-"%sPrimeBase XT home pagina%s."
+"Documentatie en meer informatie over PBXT kan gevonden worden op de %"
+"sPrimeBase XT home pagina%s."
 
 #: libraries/engines/pbxt.lib.php:127
 msgid "Related Links"
@@ -6393,12 +6393,12 @@ msgid "Data dump options"
 msgstr "Data dump opties"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
-#: libraries/export/sql.php:1207 libraries/export/texytext.php:109
+#: libraries/export/sql.php:1220 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Gegevens worden uitgevoerd voor tabel"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:249
-#: libraries/export/sql.php:1039 libraries/export/texytext.php:177
+#: libraries/export/sql.php:1040 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Tabelstructuur voor tabel"
 
@@ -6437,7 +6437,7 @@ msgstr "Toon kolom commentaar"
 msgid "Display MIME types"
 msgstr "Toon beschikbare MIME-types"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:485
+#: libraries/export/latex.php:132 libraries/export/sql.php:486
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
@@ -6448,17 +6448,17 @@ msgstr "Toon beschikbare MIME-types"
 msgid "Host"
 msgstr "Machine"
 
-#: libraries/export/latex.php:137 libraries/export/sql.php:490
+#: libraries/export/latex.php:137 libraries/export/sql.php:491
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:60
 msgid "Generation Time"
 msgstr "Genereertijd"
 
-#: libraries/export/latex.php:138 libraries/export/sql.php:491
+#: libraries/export/latex.php:138 libraries/export/sql.php:492
 #: libraries/export/xml.php:137
 msgid "Server version"
 msgstr "Serverversie"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:492
+#: libraries/export/latex.php:139 libraries/export/sql.php:493
 #: libraries/export/xml.php:138
 msgid "PHP Version"
 msgstr "PHP-Versie"
@@ -6528,27 +6528,31 @@ msgstr ""
 "Voeg aanhalingstekens toe aan tabel- en kolomnamen <i>(Beschermt tabel- en "
 "kolomnamen die speciale tekens en sleutelwoorden bevatten)</i>"
 
-#: libraries/export/sql.php:231
+#: libraries/export/sql.php:226 libraries/export/sql.php:1185
+msgid "Truncate table before insert"
+msgstr ""
+
+#: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "In plaats van <code>INSERT</code> opdrachten, gebruik:"
 
-#: libraries/export/sql.php:238
+#: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> opdrachten"
 
-#: libraries/export/sql.php:245
+#: libraries/export/sql.php:246
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> opdrachten"
 
-#: libraries/export/sql.php:255
+#: libraries/export/sql.php:256
 msgid "Function to use when dumping data:"
 msgstr "Functie om te gebruiken bij het verwijderen van data:"
 
-#: libraries/export/sql.php:268
+#: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
 msgstr "Syntax om te gebruiken bij het toevoegen van data:"
 
-#: libraries/export/sql.php:274
+#: libraries/export/sql.php:275
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -6558,7 +6562,7 @@ msgstr ""
 "&nbsp; &nbsp; Voorbeeld: <code>INSERT INTO tbl_naam (kol_A,kol_B,kol_C) "
 "VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:275
+#: libraries/export/sql.php:276
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -6568,7 +6572,7 @@ msgstr ""
 "&nbsp; &nbsp; Voorbeeld: <code>INSERT INTO tbl_naam VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/export/sql.php:276
+#: libraries/export/sql.php:277
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -6576,7 +6580,7 @@ msgstr ""
 "beide van bovenstaande<br /> &nbsp; &nbsp; &nbsp; Voorbeeld: <code>INSERT "
 "INTO tbl_naam (kol_A,kol_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:277
+#: libraries/export/sql.php:278
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6584,7 +6588,7 @@ msgstr ""
 "geen van bovenstaande<br /> &nbsp; &nbsp; &nbsp; Voorbeeld: <code>INSERT "
 "INTO tbl_naam VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:292
+#: libraries/export/sql.php:293
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -6592,7 +6596,7 @@ msgstr ""
 "Dump kolommen in binair formaat met hexadecimale notatie <i>(bijvoorbeeld, "
 "\"abc\" becomes 0x616263)</i>"
 
-#: libraries/export/sql.php:301
+#: libraries/export/sql.php:302
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -6601,39 +6605,39 @@ msgstr ""
 "gedumpt en opnieuw ingeladen kunnen worden in servers in verschillende "
 "tijdszones)</i>"
 
-#: libraries/export/sql.php:344 libraries/export/xml.php:45
+#: libraries/export/sql.php:345 libraries/export/xml.php:45
 msgid "Procedures"
 msgstr "Procedures"
 
-#: libraries/export/sql.php:361 libraries/export/xml.php:40
+#: libraries/export/sql.php:362 libraries/export/xml.php:40
 msgid "Functions"
 msgstr "Functies"
 
-#: libraries/export/sql.php:869
+#: libraries/export/sql.php:870
 msgid "Constraints for dumped tables"
 msgstr "Beperkingen voor gedumpte tabellen"
 
-#: libraries/export/sql.php:878
+#: libraries/export/sql.php:879
 msgid "Constraints for table"
 msgstr "Beperkingen voor tabel"
 
-#: libraries/export/sql.php:978
+#: libraries/export/sql.php:979
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES VOOR TABEL"
 
-#: libraries/export/sql.php:990
+#: libraries/export/sql.php:991
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIES VOOR TABEL"
 
-#: libraries/export/sql.php:1062
+#: libraries/export/sql.php:1063
 msgid "Structure for view"
 msgstr "Structuur voor de view"
 
-#: libraries/export/sql.php:1071
+#: libraries/export/sql.php:1072
 msgid "Stand-in structure for view"
 msgstr "Stand-in structuur voor view"
 
-#: libraries/export/sql.php:1131
+#: libraries/export/sql.php:1132
 msgid "Error reading data:"
 msgstr "Fout bij het lezen van data:"
 
@@ -9235,7 +9239,6 @@ msgstr "Rechten voor alle gebruikers"
 
 #: server_privileges.php:1654
 #, php-format
-#| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Rechten voor %s"
 
@@ -9267,8 +9270,8 @@ msgstr "Verwijder de databases die dezelfde naam hebben als de gebruikers."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL "
 "privileges tabel. De content van deze tabel kan verschillen met de rechten "
@@ -10224,7 +10227,6 @@ msgstr ""
 "behaalde waarde sinds het starten van de server."
 
 #: server_status.php:1372
-#| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Percentage van de gebruikte sleutel cache (berekende waarde)"
 
@@ -12257,8 +12259,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12378,8 +12380,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115

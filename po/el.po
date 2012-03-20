@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-20 15:18+0100\n"
+"POT-Creation-Date: 2012-03-20 12:51-0400\n"
 "PO-Revision-Date: 2012-03-12 10:30+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.5\n"
 
@@ -362,26 +362,26 @@ msgstr "Εγγραφές"
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:805
+#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:806
 msgid "in use"
 msgstr "σε χρήση"
 
 #: db_printview.php:184 libraries/db_info.inc.php:77
-#: libraries/export/sql.php:757
+#: libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:914
 msgid "Creation"
 msgstr "Δημιουργία"
 
 #: db_printview.php:193 libraries/db_info.inc.php:82
-#: libraries/export/sql.php:762
+#: libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:922
 msgid "Last update"
 msgstr "Τελευταία ενημέρωση"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
-#: libraries/export/sql.php:767
+#: libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:930
 msgid "Last check"
@@ -606,11 +606,11 @@ msgstr "Η παρακολούθηση δεν είναι ενεργοποιημέ
 #: db_structure.php:462 libraries/display_tbl.lib.php:2350
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s."
 
 #: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:165
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -723,7 +723,7 @@ msgstr "Παρακολουθούμενοι πίνακες"
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
-#: libraries/export/sql.php:608 libraries/export/texytext.php:66
+#: libraries/export/sql.php:609 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
 #: libraries/header_printview.inc.php:59 server_databases.php:175
 #: server_privileges.php:1975 server_privileges.php:2038
@@ -950,11 +950,11 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:216 import.php:468
 msgid "Showing bookmark"
@@ -1393,7 +1393,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στις σειρές"
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
-#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1112
+#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2191 server_status.php:1268 server_status.php:1707
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
@@ -2593,8 +2593,8 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
@@ -2720,7 +2720,7 @@ msgstr "Πίνακες"
 #: libraries/config/user_preferences.forms.php:239
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/export/latex.php:212 libraries/export/sql.php:1112
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:681 server_replication.php:344 tbl_printview.php:276
 #: tbl_structure.php:773
 msgid "Data"
@@ -3646,7 +3646,7 @@ msgstr "Χρήση παραβλεφθέντων εισαγωγών"
 msgid "Syntax to use when inserting data"
 msgstr "Σύνταξη για χρήση στην εισαγωγή δεδομένων"
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:285
+#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr "Μέγιστο μήκος δημιουργηθέντος ερωτήματος"
 
@@ -5545,12 +5545,12 @@ msgstr "Δικαιώματα"
 msgid "Routines"
 msgstr "Εργασίες"
 
-#: libraries/db_links.inc.php:100 libraries/export/sql.php:648
+#: libraries/db_links.inc.php:100 libraries/export/sql.php:649
 #: libraries/rte/rte_words.lib.php:49
 msgid "Events"
 msgstr "Συμβάντα"
 
-#: libraries/db_links.inc.php:104 libraries/export/sql.php:1050
+#: libraries/db_links.inc.php:104 libraries/export/sql.php:1051
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
@@ -5716,8 +5716,8 @@ msgstr ", το @TABLE@ θα γίνει το όνομα του πίνακα"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -6359,11 +6359,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
-"%sΙστοσελίδα του PrimeBase XT%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην %"
+"sΙστοσελίδα του PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:127
 msgid "Related Links"
@@ -6410,12 +6410,12 @@ msgid "Data dump options"
 msgstr "Επιλογές απορριμμάτων δεδομένων"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
-#: libraries/export/sql.php:1207 libraries/export/texytext.php:109
+#: libraries/export/sql.php:1220 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Άδειασμα δεδομένων του πίνακα"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:249
-#: libraries/export/sql.php:1039 libraries/export/texytext.php:177
+#: libraries/export/sql.php:1040 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Δομή πίνακα για τον πίνακα"
 
@@ -6454,7 +6454,7 @@ msgstr "Εμφάνιση σχολίων"
 msgid "Display MIME types"
 msgstr "Διαθέσιμοι τύποι MIME"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:485
+#: libraries/export/latex.php:132 libraries/export/sql.php:486
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
@@ -6465,17 +6465,17 @@ msgstr "Διαθέσιμοι τύποι MIME"
 msgid "Host"
 msgstr "Φιλοξενητής"
 
-#: libraries/export/latex.php:137 libraries/export/sql.php:490
+#: libraries/export/latex.php:137 libraries/export/sql.php:491
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:60
 msgid "Generation Time"
 msgstr "Χρόνος δημιουργίας"
 
-#: libraries/export/latex.php:138 libraries/export/sql.php:491
+#: libraries/export/latex.php:138 libraries/export/sql.php:492
 #: libraries/export/xml.php:137
 msgid "Server version"
 msgstr "Έκδοση διακομιστή"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:492
+#: libraries/export/latex.php:139 libraries/export/sql.php:493
 #: libraries/export/xml.php:138
 msgid "PHP Version"
 msgstr "Έκδοση PHP"
@@ -6547,27 +6547,31 @@ msgstr ""
 "ονόματα πεδίων και πινάκων που δημιουργήθηκαν με ειδικούς χαρακτήρες ή "
 "λέξεις-κλειδιά)</i>"
 
-#: libraries/export/sql.php:231
+#: libraries/export/sql.php:226 libraries/export/sql.php:1185
+msgid "Truncate table before insert"
+msgstr ""
+
+#: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Αντί για δηλώσεις <code>INSERT</code>, χρησιμοποιήστε:"
 
-#: libraries/export/sql.php:238
+#: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "δηλώσεις <code>INSERT DELAYED</code>"
 
-#: libraries/export/sql.php:245
+#: libraries/export/sql.php:246
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "δηλώσεις <code>INSERT IGNORE</code>"
 
-#: libraries/export/sql.php:255
+#: libraries/export/sql.php:256
 msgid "Function to use when dumping data:"
 msgstr "Η συνάρτηση που θα χρησιμοποιηθεί κατά την μετατροπή δεδομένων:"
 
-#: libraries/export/sql.php:268
+#: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
 msgstr "Η σύνταξη που θα χρησιμοποιηθεί κατά την εισαγωγή δεδομένων:"
 
-#: libraries/export/sql.php:274
+#: libraries/export/sql.php:275
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -6577,7 +6581,7 @@ msgstr ""
 "&nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name (col_A,col_B,"
 "col_C) VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:275
+#: libraries/export/sql.php:276
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -6587,7 +6591,7 @@ msgstr ""
 "&nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name VALUES (1,2,3), "
 "(4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:276
+#: libraries/export/sql.php:277
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -6595,7 +6599,7 @@ msgstr ""
 "όλα τα παραπάνω<br /> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:277
+#: libraries/export/sql.php:278
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6603,7 +6607,7 @@ msgstr ""
 "κανένα από τα παραπάνω<br /> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:292
+#: libraries/export/sql.php:293
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -6611,7 +6615,7 @@ msgstr ""
 "Μετατροπή δυαδικών στηλών σε δεκαεξαδική σημείωση <i>(για παράδειγμα, το "
 "«abc» γίνεται 0x616263)</i>"
 
-#: libraries/export/sql.php:301
+#: libraries/export/sql.php:302
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -6620,39 +6624,39 @@ msgstr ""
 "μετατραπούν και να επαναφορτωθούν μεταξύ διακομιστών σε διαφορετικές ζώνες "
 "ώρας)</i>"
 
-#: libraries/export/sql.php:344 libraries/export/xml.php:45
+#: libraries/export/sql.php:345 libraries/export/xml.php:45
 msgid "Procedures"
 msgstr "Διαδικασίες"
 
-#: libraries/export/sql.php:361 libraries/export/xml.php:40
+#: libraries/export/sql.php:362 libraries/export/xml.php:40
 msgid "Functions"
 msgstr "Συναρτήσεις"
 
-#: libraries/export/sql.php:869
+#: libraries/export/sql.php:870
 msgid "Constraints for dumped tables"
 msgstr "Περιορισμοί για άχρηστους πίνακες"
 
-#: libraries/export/sql.php:878
+#: libraries/export/sql.php:879
 msgid "Constraints for table"
 msgstr "Περιορισμοί για πίνακα"
 
-#: libraries/export/sql.php:978
+#: libraries/export/sql.php:979
 msgid "MIME TYPES FOR TABLE"
 msgstr "ΤΥΠΟΙ MIME ΓΙΑ ΠΙΝΑΚΑ"
 
-#: libraries/export/sql.php:990
+#: libraries/export/sql.php:991
 msgid "RELATIONS FOR TABLE"
 msgstr "ΣΥΣΧΕΤΙΣΕΙΣ ΓΙΑ ΠΙΝΑΚΑ"
 
-#: libraries/export/sql.php:1062
+#: libraries/export/sql.php:1063
 msgid "Structure for view"
 msgstr "Δομή για προβολή"
 
-#: libraries/export/sql.php:1071
+#: libraries/export/sql.php:1072
 msgid "Stand-in structure for view"
 msgstr "Στημένη δομή για προβολή"
 
-#: libraries/export/sql.php:1131
+#: libraries/export/sql.php:1132
 msgid "Error reading data:"
 msgstr "Σφάλμα ανάγνωσης δεδομένων:"
 
@@ -8240,8 +8244,8 @@ msgstr ""
 "επιλογή για να ορίσετε μια μορφή ημερομηνίας-ώρας. Η τρίτη επιλογή ορίζει αν "
 "θέλετε να δείτε την τοπική ή την παγκόσμια ώρα (χρήση «local» ή «utc» "
 "αντίστοιχα). Σύμφωνα με αυτό, η μορφή της ημερομηνίας έχει διαφορετική τιμή "
-"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP "
-"και για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
+"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP και "
+"για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
 msgid ""
@@ -8513,8 +8517,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε "
-"%sεδώ%s."
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε %"
+"sεδώ%s."
 
 #: main.php:337
 msgid ""
@@ -9287,8 +9291,8 @@ msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδ�
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -10605,8 +10609,8 @@ msgid ""
 msgstr ""
 "Η Εποπτεία phpMyAdmin μπορεί να σας βοηθήσει να βελτιστοποιήσετε τη ρύθμιση "
 "του διακομιστή και να καταγράφει χρονοβόρα ερωτήματα. Για το τελευταίο θα "
-"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει "
-"το slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
+"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει το "
+"slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
 "παράγει πολλά δεδομένα και αυξάνει τη χρήση πόρων του διακομιστή μέχρι και "
 "15%"
 
@@ -11135,8 +11139,8 @@ msgid ""
 "(currently %d)."
 msgstr ""
 "Αν η %sεγκυρότητα Σύνδεσης cookie%s είναι μεγαλύτερη από 1440 δευτερόλεπτα "
-"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
-"%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
+"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime%"
+"s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
 
 #: setup/lib/index.lib.php:283
 #, php-format
@@ -12259,8 +12263,8 @@ msgid ""
 msgstr ""
 "Η λανθάνουσα μνήμη ερωτήματος είναι γνωστό ότι βελτιώνει σημαντικά την "
 "απόδοση, αν ρυθμιστεί σωστά. Ενεργοποιήστε τη ορίζοντας το "
-"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε "
-"«ΟΝ». <b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
+"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε «ΟΝ». "
+"<b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12341,8 +12345,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Η τρέχουσα αναλογία της ελεύθερης λανθάνουσας μνήμης ερωτήματος προς τη "
 "συνολική λανθάνουσα μνήμη ερωτήματος είναι %s%%. Πρέπει να είναι περισσότερο "
@@ -12419,8 +12423,8 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Ο βαθμός απομακρυσμένων ερωτημάτων προς τα εισερχόμενα ερωτήματα είναι %s%%. "
-"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: "
-"0,1%%)"
+"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: 0,1%"
+"%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12504,8 +12508,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "Το %s%% όλων των ταξινομήσεων προκαλεί προσωρινούς πίνακες, αυτή η τιμή "
 "πρέπει να είναι κάτω από 10%%."
@@ -13199,8 +13203,8 @@ msgstr ""
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων "
-#~ "%s;"
+#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων %"
+#~ "s;"
 
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Άγνωστο σφάλμα κατά την αποστολή αρχείου."

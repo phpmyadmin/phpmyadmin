@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-20 15:18+0100\n"
+"POT-Creation-Date: 2012-03-20 12:51-0400\n"
 "PO-Revision-Date: 2012-03-20 15:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 0.7\n"
 
@@ -105,8 +105,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Soubor %s nebyl nalezen, více informací naleznete na stránce "
-"www.phpmyadmin.net."
+"Soubor %s nebyl nalezen, více informací naleznete na stránce www.phpmyadmin."
+"net."
 
 #: db_create.php:73
 #, php-format
@@ -364,26 +364,26 @@ msgstr "Řádků"
 msgid "Size"
 msgstr "Velikost"
 
-#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:805
+#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:806
 msgid "in use"
 msgstr "právě se používá"
 
 #: db_printview.php:184 libraries/db_info.inc.php:77
-#: libraries/export/sql.php:757
+#: libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:914
 msgid "Creation"
 msgstr "Vytvořeno"
 
 #: db_printview.php:193 libraries/db_info.inc.php:82
-#: libraries/export/sql.php:762
+#: libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:922
 msgid "Last update"
 msgstr "Poslední změna"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
-#: libraries/export/sql.php:767
+#: libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:930
 msgid "Last check"
@@ -609,8 +609,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:462 libraries/display_tbl.lib.php:2350
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -724,7 +724,7 @@ msgstr "Sledované tabulky"
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
-#: libraries/export/sql.php:608 libraries/export/texytext.php:66
+#: libraries/export/sql.php:609 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
 #: libraries/header_printview.inc.php:59 server_databases.php:175
 #: server_privileges.php:1975 server_privileges.php:2038
@@ -949,8 +949,8 @@ msgstr "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako 
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1383,7 +1383,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Prosím přidejte do série alespoň jednu hodnotu"
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
-#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1112
+#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2191 server_status.php:1268 server_status.php:1707
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
@@ -2568,8 +2568,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -2690,7 +2690,7 @@ msgstr "Tabulky"
 #: libraries/config/user_preferences.forms.php:239
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/export/latex.php:212 libraries/export/sql.php:1112
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:681 server_replication.php:344 tbl_printview.php:276
 #: tbl_structure.php:773
 msgid "Data"
@@ -3606,7 +3606,7 @@ msgstr "Použít IGNORE"
 msgid "Syntax to use when inserting data"
 msgstr "Jakou syntaxi použít pro vkládání dat"
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:285
+#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr "Maximální velikost vytvořeného dotazu"
 
@@ -5452,12 +5452,12 @@ msgstr "Oprávnění"
 msgid "Routines"
 msgstr "Rutiny"
 
-#: libraries/db_links.inc.php:100 libraries/export/sql.php:648
+#: libraries/db_links.inc.php:100 libraries/export/sql.php:649
 #: libraries/rte/rte_words.lib.php:49
 msgid "Events"
 msgstr "Události"
 
-#: libraries/db_links.inc.php:104 libraries/export/sql.php:1050
+#: libraries/db_links.inc.php:104 libraries/export/sql.php:1051
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
@@ -5624,8 +5624,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -6254,8 +6254,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -6305,12 +6305,12 @@ msgid "Data dump options"
 msgstr "Nastavení výpisu dat"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
-#: libraries/export/sql.php:1207 libraries/export/texytext.php:109
+#: libraries/export/sql.php:1220 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Vypisuji data pro tabulku"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:249
-#: libraries/export/sql.php:1039 libraries/export/texytext.php:177
+#: libraries/export/sql.php:1040 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Struktura tabulky"
 
@@ -6349,7 +6349,7 @@ msgstr "Zobrazit komentáře"
 msgid "Display MIME types"
 msgstr "Zobrazit MIME typy"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:485
+#: libraries/export/latex.php:132 libraries/export/sql.php:486
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
@@ -6360,17 +6360,17 @@ msgstr "Zobrazit MIME typy"
 msgid "Host"
 msgstr "Počítač"
 
-#: libraries/export/latex.php:137 libraries/export/sql.php:490
+#: libraries/export/latex.php:137 libraries/export/sql.php:491
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:60
 msgid "Generation Time"
 msgstr "Vygenerováno"
 
-#: libraries/export/latex.php:138 libraries/export/sql.php:491
+#: libraries/export/latex.php:138 libraries/export/sql.php:492
 #: libraries/export/xml.php:137
 msgid "Server version"
 msgstr "Verze MySQL"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:492
+#: libraries/export/latex.php:139 libraries/export/sql.php:493
 #: libraries/export/xml.php:138
 msgid "PHP Version"
 msgstr "Verze PHP"
@@ -6438,27 +6438,31 @@ msgstr ""
 "Uzavřít název tabulky a polí do zpětných uvozovek <i>(Zabrání interpretaci "
 "názvů obsahujících speciální znaky nebo klíčová slova)</i>"
 
-#: libraries/export/sql.php:231
+#: libraries/export/sql.php:226 libraries/export/sql.php:1185
+msgid "Truncate table before insert"
+msgstr ""
+
+#: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Namísto příkazů <code>INSERT</code> použít:"
 
-#: libraries/export/sql.php:238
+#: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "příkazy <code>INSERT DELAYED</code>"
 
-#: libraries/export/sql.php:245
+#: libraries/export/sql.php:246
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "příkazy <code>INSERT IGNORE</code>"
 
-#: libraries/export/sql.php:255
+#: libraries/export/sql.php:256
 msgid "Function to use when dumping data:"
 msgstr "Jakou funkci použít pro vypisování dat:"
 
-#: libraries/export/sql.php:268
+#: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
 msgstr "Jakou syntaxi použít pro vkládání dat:"
 
-#: libraries/export/sql.php:274
+#: libraries/export/sql.php:275
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -6468,7 +6472,7 @@ msgstr ""
 "&nbsp; &nbsp; Příklad: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: libraries/export/sql.php:275
+#: libraries/export/sql.php:276
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -6478,7 +6482,7 @@ msgstr ""
 "&nbsp; Příklad: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
 "code>"
 
-#: libraries/export/sql.php:276
+#: libraries/export/sql.php:277
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -6486,7 +6490,7 @@ msgstr ""
 "obě výše uvedené možnosti<br /> &nbsp; &nbsp; &nbsp; Příklad: <code>INSERT "
 "INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:277
+#: libraries/export/sql.php:278
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6494,7 +6498,7 @@ msgstr ""
 "ani jedno z výše uvedených<br /> &nbsp; &nbsp; &nbsp; Příklad: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:292
+#: libraries/export/sql.php:293
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -6502,7 +6506,7 @@ msgstr ""
 "Vypisovat binární pole šestnáctkově <i>(například, „abc“ becomes 0x616263)</"
 "i>"
 
-#: libraries/export/sql.php:301
+#: libraries/export/sql.php:302
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -6510,39 +6514,39 @@ msgstr ""
 "Vypisovat pole TIMESTAMP v UTC <i>(usnadní přenost polí TIMESTAMP mezi "
 "servery v různých časových pásmech)</i>"
 
-#: libraries/export/sql.php:344 libraries/export/xml.php:45
+#: libraries/export/sql.php:345 libraries/export/xml.php:45
 msgid "Procedures"
 msgstr "Procedury"
 
-#: libraries/export/sql.php:361 libraries/export/xml.php:40
+#: libraries/export/sql.php:362 libraries/export/xml.php:40
 msgid "Functions"
 msgstr "Funkce"
 
-#: libraries/export/sql.php:869
+#: libraries/export/sql.php:870
 msgid "Constraints for dumped tables"
 msgstr "Omezení pro exportované tabulky"
 
-#: libraries/export/sql.php:878
+#: libraries/export/sql.php:879
 msgid "Constraints for table"
 msgstr "Omezení pro tabulku"
 
-#: libraries/export/sql.php:978
+#: libraries/export/sql.php:979
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPY PRO TABULKU"
 
-#: libraries/export/sql.php:990
+#: libraries/export/sql.php:991
 msgid "RELATIONS FOR TABLE"
 msgstr "RELACE PRO TABULKU"
 
-#: libraries/export/sql.php:1062
+#: libraries/export/sql.php:1063
 msgid "Structure for view"
 msgstr "Struktura pro pohled"
 
-#: libraries/export/sql.php:1071
+#: libraries/export/sql.php:1072
 msgid "Stand-in structure for view"
 msgstr "Zástupná struktura pro pohled"
 
-#: libraries/export/sql.php:1131
+#: libraries/export/sql.php:1132
 msgid "Error reading data:"
 msgstr "Chyba při čtení dat:"
 
@@ -7978,8 +7982,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
-"%spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
+"spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:137
 msgid "Transformation options"
@@ -8062,8 +8066,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
-"%s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
+"s dělá."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -8645,8 +8649,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
-"%sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
+"sNastavovacího skriptu%s."
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
@@ -9104,7 +9108,6 @@ msgstr "Oprávnění pro všechny uživatele"
 
 #: server_privileges.php:1654
 #, php-format
-#| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Oprávnění pro %s"
 
@@ -9135,8 +9138,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -10063,7 +10066,6 @@ msgstr ""
 "maximum bloků, které kdy byly obsazeny najednou."
 
 #: server_status.php:1372
-#| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Procento využití vyrovnávací paměti klíčů (vypočítaná hodnota)"
 
@@ -10320,7 +10322,6 @@ msgstr ""
 "mají dobrou implementaci vláken však toto nemá příliš velký vliv.)"
 
 #: server_status.php:1414
-#| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Úspěšnost vyrovnávací paměti vláken (vypočítaná hodnota)"
 
@@ -10920,8 +10921,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
-"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
+"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:287
@@ -10932,8 +10933,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
+"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -11811,8 +11812,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod "
-"1%%."
+"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod 1%"
+"%."
 
 #: po/advisory_rules.php:25
 msgid "Long query time"
@@ -12063,8 +12064,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "V současné době je volno %s%% vyrovnávací paměti. Tato hodnota by se měla "
 "držet nad 80%%"
@@ -12216,11 +12217,11 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
-"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod "
-"10%%."
+"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod 10%"
+"%."
 
 #: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
@@ -12410,8 +12411,8 @@ msgstr ""
 "dočasné tabulky jsou však zapisovány na disk bez ohledu na tato nastavení. "
 "Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
 "(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Podrobněji "
-"je tato problematika popsána na začátku <a href=\"http://www.facebook.com/not"
-"e.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>"
+"je tato problematika popsána na začátku <a href=\"http://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format

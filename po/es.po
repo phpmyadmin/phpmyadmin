@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-20 15:18+0100\n"
+"POT-Creation-Date: 2012-03-20 12:51-0400\n"
 "PO-Revision-Date: 2012-03-14 20:03+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.6\n"
 
@@ -362,26 +362,26 @@ msgstr "Filas"
 msgid "Size"
 msgstr "Tamaño"
 
-#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:805
+#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:806
 msgid "in use"
 msgstr "en uso"
 
 #: db_printview.php:184 libraries/db_info.inc.php:77
-#: libraries/export/sql.php:757
+#: libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:914
 msgid "Creation"
 msgstr "Creación"
 
 #: db_printview.php:193 libraries/db_info.inc.php:82
-#: libraries/export/sql.php:762
+#: libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:922
 msgid "Last update"
 msgstr "Última actualización"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
-#: libraries/export/sql.php:767
+#: libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:930
 msgid "Last check"
@@ -608,11 +608,11 @@ msgstr "El seguimiento no está activo."
 #: db_structure.php:462 libraries/display_tbl.lib.php:2350
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Por favor refiérase a la "
-"%sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Por favor refiérase a la %"
+"sdocumentation%s."
 
 #: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:165
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -725,7 +725,7 @@ msgstr "Tablas con seguimiento"
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
-#: libraries/export/sql.php:608 libraries/export/texytext.php:66
+#: libraries/export/sql.php:609 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
 #: libraries/header_printview.inc.php:59 server_databases.php:175
 #: server_privileges.php:1975 server_privileges.php:2038
@@ -954,8 +954,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Usted probablemente intentó cargar un archivo demasiado grande. Por favor, "
 "refiérase a %sla documentation%s para hallar modos de superar esta "
@@ -1398,7 +1398,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Por favor agregue al menos una variable a la serie"
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
-#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1112
+#: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
 #: server_privileges.php:2191 server_status.php:1268 server_status.php:1707
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
@@ -2597,8 +2597,8 @@ msgstr "Bienvenido a %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no haya creado un archivo de "
 "configuración. Utilice el %1$sscript de configuración%2$s para crear uno."
@@ -2724,7 +2724,7 @@ msgstr "Tablas"
 #: libraries/config/user_preferences.forms.php:239
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/export/latex.php:212 libraries/export/sql.php:1112
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:681 server_replication.php:344 tbl_printview.php:276
 #: tbl_structure.php:773
 msgid "Data"
@@ -3658,7 +3658,7 @@ msgstr "Usar la opción ignore inserts"
 msgid "Syntax to use when inserting data"
 msgstr "Sintaxis a utilizar para insertar datos"
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:285
+#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr "Longitud máxima de la consulta creada"
 
@@ -5560,12 +5560,12 @@ msgstr "Privilegios"
 msgid "Routines"
 msgstr "Rutinas"
 
-#: libraries/db_links.inc.php:100 libraries/export/sql.php:648
+#: libraries/db_links.inc.php:100 libraries/export/sql.php:649
 #: libraries/rte/rte_words.lib.php:49
 msgid "Events"
 msgstr "Eventos"
 
-#: libraries/db_links.inc.php:104 libraries/export/sql.php:1050
+#: libraries/db_links.inc.php:104 libraries/export/sql.php:1051
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
@@ -5733,8 +5733,8 @@ msgstr ", @TABLE@ se convertirá en el nombre de la tabla"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s por lo que se pueden usar "
 "cadenas para formatear el tiempo. Además sucederán las siguientes "
@@ -6383,8 +6383,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Se puede encontrar documentación y más información sobre PBXT en la %spágina "
 "inicial de PrimeBase XT%s."
@@ -6435,12 +6435,12 @@ msgid "Data dump options"
 msgstr "Opciones para volcado de datos"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
-#: libraries/export/sql.php:1207 libraries/export/texytext.php:109
+#: libraries/export/sql.php:1220 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Volcado de datos para la tabla"
 
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:249
-#: libraries/export/sql.php:1039 libraries/export/texytext.php:177
+#: libraries/export/sql.php:1040 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Estructura de tabla para la tabla"
 
@@ -6479,7 +6479,7 @@ msgstr "Mostrar comentarios"
 msgid "Display MIME types"
 msgstr "Tipos MIME disponibles"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:485
+#: libraries/export/latex.php:132 libraries/export/sql.php:486
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
@@ -6490,17 +6490,17 @@ msgstr "Tipos MIME disponibles"
 msgid "Host"
 msgstr "Servidor"
 
-#: libraries/export/latex.php:137 libraries/export/sql.php:490
+#: libraries/export/latex.php:137 libraries/export/sql.php:491
 #: libraries/export/xml.php:136 libraries/header_printview.inc.php:60
 msgid "Generation Time"
 msgstr "Tiempo de generación"
 
-#: libraries/export/latex.php:138 libraries/export/sql.php:491
+#: libraries/export/latex.php:138 libraries/export/sql.php:492
 #: libraries/export/xml.php:137
 msgid "Server version"
 msgstr "Versión del servidor"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:492
+#: libraries/export/latex.php:139 libraries/export/sql.php:493
 #: libraries/export/xml.php:138
 msgid "PHP Version"
 msgstr "Versión de PHP"
@@ -6573,27 +6573,31 @@ msgstr ""
 "nombre de tablas y campos compuestos con caracteres especiales o palabras "
 "clave)</i>"
 
-#: libraries/export/sql.php:231
+#: libraries/export/sql.php:226 libraries/export/sql.php:1185
+msgid "Truncate table before insert"
+msgstr ""
+
+#: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "En lugar de sentencias <code>INSERT</code>, utilizar:"
 
-#: libraries/export/sql.php:238
+#: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "Sentencias <code>INSERT DELAYED</code>"
 
-#: libraries/export/sql.php:245
+#: libraries/export/sql.php:246
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "Sentencias <code>INSERT IGNORE</code>"
 
-#: libraries/export/sql.php:255
+#: libraries/export/sql.php:256
 msgid "Function to use when dumping data:"
 msgstr "Función a utilizar al volcar datos:"
 
-#: libraries/export/sql.php:268
+#: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
 msgstr "Sintáxis a utilizar al insertar datos:"
 
-#: libraries/export/sql.php:274
+#: libraries/export/sql.php:275
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -6603,7 +6607,7 @@ msgstr ""
 "&nbsp; &nbsp; &nbsp; Ejemplo: <code>INSERT INTO nombre_tabla (columna_A,"
 "columna_B,columna_C) VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:275
+#: libraries/export/sql.php:276
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -6613,7 +6617,7 @@ msgstr ""
 "&nbsp; &nbsp; Ejemplo: <code>INSERT INTO nombre_tabla VALUES (1,2,3), "
 "(4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:276
+#: libraries/export/sql.php:277
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -6621,7 +6625,7 @@ msgstr ""
 "los dos anteriores<br /> &nbsp; &nbsp; &nbsp; Ejemplo: <code>INSERT INTO "
 "nombre_tabla (columna_A,columna_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:277
+#: libraries/export/sql.php:278
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6629,7 +6633,7 @@ msgstr ""
 "ninguno de los anteriores<br /> &nbsp; &nbsp; &nbsp; Ejemplo: <code>INSERT "
 "INTO nombre_tabla VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:292
+#: libraries/export/sql.php:293
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -6637,7 +6641,7 @@ msgstr ""
 "Volcar columnas binarias en notación hexadecimal <i>(por ejemplo \"abc\" "
 "sería 0x616263)</i>"
 
-#: libraries/export/sql.php:301
+#: libraries/export/sql.php:302
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -6645,39 +6649,39 @@ msgstr ""
 "Volcar columnas TIMESTAMP en UTC <i>(habilita que las columnas TIMESTAMP "
 "sean volcadas y cargadas por servidores en diferentes zonas horarias)</i>"
 
-#: libraries/export/sql.php:344 libraries/export/xml.php:45
+#: libraries/export/sql.php:345 libraries/export/xml.php:45
 msgid "Procedures"
 msgstr "Procedimientos"
 
-#: libraries/export/sql.php:361 libraries/export/xml.php:40
+#: libraries/export/sql.php:362 libraries/export/xml.php:40
 msgid "Functions"
 msgstr "Funciones"
 
-#: libraries/export/sql.php:869
+#: libraries/export/sql.php:870
 msgid "Constraints for dumped tables"
 msgstr "Restricciones para tablas volcadas"
 
-#: libraries/export/sql.php:878
+#: libraries/export/sql.php:879
 msgid "Constraints for table"
 msgstr "Filtros para la tabla"
 
-#: libraries/export/sql.php:978
+#: libraries/export/sql.php:979
 msgid "MIME TYPES FOR TABLE"
 msgstr "TIPOS MIME PARA LA TABLA"
 
-#: libraries/export/sql.php:990
+#: libraries/export/sql.php:991
 msgid "RELATIONS FOR TABLE"
 msgstr "RELACIONES PARA LA TABLA"
 
-#: libraries/export/sql.php:1062
+#: libraries/export/sql.php:1063
 msgid "Structure for view"
 msgstr "Estructura para la vista"
 
-#: libraries/export/sql.php:1071
+#: libraries/export/sql.php:1072
 msgid "Stand-in structure for view"
 msgstr "Estructura Stand-in para la vista"
 
-#: libraries/export/sql.php:1131
+#: libraries/export/sql.php:1132
 msgid "Error reading data:"
 msgstr "Error leyendo datos:"
 
@@ -8545,8 +8549,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
-"configurado, algunas funcionalidades extendidas fueron deshabilitadas. "
-"%sPulsa aquí para averiguar por qué%s."
+"configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
+"sPulsa aquí para averiguar por qué%s."
 
 #: main.php:337
 msgid ""
@@ -9321,8 +9325,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -10636,9 +10640,8 @@ msgstr ""
 "El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que "
-"«general_log» produce mucha información y aumenta la carga en el servidor "
-"hasta en un 15%"
+"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
+"produce mucha información y aumenta la carga en el servidor hasta en un 15%"
 
 #: server_status.php:1620
 msgid ""
@@ -12059,8 +12062,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen "
-"en el registro de consultas lentas."
+"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen en "
+"el registro de consultas lentas."
 
 #: po/advisory_rules.php:18
 #, php-format
@@ -12127,8 +12130,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Active el registro de consultas lenta configurando «log_slow_queries» a "
-"'ON'. Esto ayudará a analizar consultas con mala performance."
+"Active el registro de consultas lenta configurando «log_slow_queries» a 'ON'. "
+"Esto ayudará a analizar consultas con mala performance."
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
@@ -12271,8 +12274,8 @@ msgid ""
 msgstr ""
 "Se sabe que el caché de consultas puede mejorar la performance enormemente "
 "si está correctamente configurado. Actívelo definiendo «query_cache_size» a "
-"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. "
-"<b>Notar que: </b> si está utilizando memcached ignore esta recomendación."
+"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. <b>Notar "
+"que: </b> si está utilizando memcached ignore esta recomendación."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12349,8 +12352,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "La tasa actual de memoria libre del caché de consultas respecto del tamaño "
 "total es %s%%. Debería ser mayor al 80%%"
@@ -12508,8 +12511,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de todas las ordenaciones causan tablas temporales, este valor debería "
 "de ser menor a 10%%."
@@ -12572,8 +12575,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor "
-"a 1 por hora"
+"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor a "
+"1 por hora"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
@@ -12681,8 +12684,7 @@ msgstr ""
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
-"Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
+msgstr "Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
@@ -12706,14 +12708,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
-"embargo, algunas tablas temporales son siempre escritas a disco "
-"independientemente del valor de estas variables. Para eliminarlas deberá re-"
-"escribir las consultas para evitar estas condiciones (en una tabla temporal: "
-"la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
-"mayor a 512 bytes) como se menciona al comienzo del <a href=\"http://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artículo de "
-"Pythian Group</a>"
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
+"algunas tablas temporales son siempre escritas a disco independientemente "
+"del valor de estas variables. Para eliminarlas deberá re-escribir las "
+"consultas para evitar estas condiciones (en una tabla temporal: la presencia "
+"de una columna «BLOB» o «TEXT», o la presencia de una columna mayor a 512 "
+"bytes) como se menciona al comienzo del <a href=\"http://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">artículo de Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12738,8 +12739,8 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
-"embargo, algunas tablas temporales son siempre a disco permanentemente "
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
+"algunas tablas temporales son siempre a disco permanentemente "
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT» o la presencia de una columna "
@@ -12770,8 +12771,8 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M "
-"es un buen comienzo."
+"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M es "
+"un buen comienzo."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
@@ -12948,8 +12949,7 @@ msgstr ""
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
-"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
-"0."
+"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a 0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
@@ -13036,10 +13036,10 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
-"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones "
-"que no liberan los manejadores de base de datos apropiadamente sean "
-"eliminadas más rápido. Asegúrese que su código cierre los manejadores de "
-"base de datos apropiadamente."
+"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones que "
+"no liberan los manejadores de base de datos apropiadamente sean eliminadas "
+"más rápido. Asegúrese que su código cierre los manejadores de base de datos "
+"apropiadamente."
 
 #: po/advisory_rules.php:228
 #, php-format
@@ -13110,8 +13110,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% de todos los clientes son abandonados. Este valor debería ser menor a "
-"2%%"
+"%s%% de todos los clientes son abandonados. Este valor debería ser menor a 2%"
+"%"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
@@ -13443,8 +13443,8 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "Documentation and further information about PBMS can be found on %sThe "
 #~ "PrimeBase Media Streaming home page%s."
 #~ msgstr ""
-#~ "La documentación y más información sobre PBMS puede encontrarse la "
-#~ "%spaǵina inicial de The PrimeBase Media Streaming%s."
+#~ "La documentación y más información sobre PBMS puede encontrarse la %"
+#~ "spaǵina inicial de The PrimeBase Media Streaming%s."
 
 #~ msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
 #~ msgstr "Blog de The PrimeBase Media Streaming por Barry Leslie"
