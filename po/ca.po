@@ -11516,10 +11516,9 @@ msgid "Label column"
 msgstr "Etiqueta de columna"
 
 #: tbl_gis_visualization.php:138
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- cap -"
+msgstr "-- cap --"
 
 #: tbl_gis_visualization.php:151
 #, fuzzy
