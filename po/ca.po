@@ -5525,8 +5525,8 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
-"El servido no està responent (o el sòcol del servidor local MySQL no està "
-"configurat correctament)"
+"El servidor no està responent (o el sòcol del servidor local MySQL no està "
+"configurat correctament)."
 
 #: libraries/database_interface.lib.php:1816
 #, fuzzy
