@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-19 23:14+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2012-03-20 16:46+0200\n"
+"Last-Translator: Arjen Brouwer <arjenjb@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -9234,10 +9234,10 @@ msgid "Privileges for all users"
 msgstr "Rechten voor alle gebruikers"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Rechten"
+msgstr "Rechten voor %s"
 
 #: server_privileges.php:1682
 msgid "Users overview"
@@ -10224,10 +10224,9 @@ msgstr ""
 "behaalde waarde sinds het starten van de server."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Limietpercentage voor geopende bestanden die in gebruik zijn"
+msgstr "Percentage van de gebruikte sleutel cache (berekende waarde)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
@@ -10248,6 +10247,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Sleutel cache missers berekend als percentage van fysieke leesoperaties in "
+"vergelijking met uitleesopdrachten (berekende waarde)"
 
 #: server_status.php:1376
 msgid "The number of requests to write a key block to the cache."
@@ -10261,6 +10262,8 @@ msgstr "Het aantal fysieke schrijf opdrachten voor een sleutelblok naar disk."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Percentage van fysieke schrijf opdrachten vergeleken met schrijf verzoeken "
+"(berekende waarde)"
 
 #: server_status.php:1379
 msgid ""
@@ -10500,7 +10503,7 @@ msgstr ""
 
 #: server_status.php:1414
 msgid "Thread cache hit rate (calculated value)"
-msgstr ""
+msgstr "Thread cache trefprecentage (berekende waarde)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
@@ -10549,7 +10552,7 @@ msgstr ""
 
 #: server_status.php:1610
 msgid "Reset to default"
-msgstr "Herstel standaardwaarde"
+msgstr "Standaardwaarde herstellen"
 
 #: server_status.php:1614
 msgid "Monitor Instructions"
@@ -10577,10 +10580,10 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
-"Spijtig genoeg ondersteunt uw database server loggen naar een tabel niet. "
-"Dit is een vereiste om de database logs te kunnen analyseren met phpMyAdmin. "
-"Loggen naar een tabel wordt ondersteund vanaf MySQL 5.1.6. U kan wel de "
-"grafiek functionaliteit gebruiken."
+"Helaas ondersteunt uw database server loggen naar een tabel niet. Dit is een "
+"vereiste om de database logs te kunnen analyseren met phpMyAdmin. Loggen "
+"naar een tabel wordt ondersteund vanaf MySQL 5.1.6. U kunt wel de grafiek "
+"functionaliteit gebruiken."
 
 #: server_status.php:1633
 msgid "Using the monitor:"
@@ -10604,6 +10607,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"Om queries te tonen uit de logs, selecteer de relevante periode in een "
+"willekeurige grafiek door de linker muisknop in te drukken en over de "
+"grafiek te slepen. Na het bevestiging wordt een tabel met gegroepeerde "
+"queries geladen, daar kun je op één van de SELECT statements klikken om deze "
+"verder te analyseren. "
 
 #: server_status.php:1644
 msgid "Please note:"
@@ -12156,7 +12164,7 @@ msgstr "MySQL Architectuur"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr "MySQL werd niet gecompileerd als een 64-bit pakket."
+msgstr "MySQL is niet gecompileerd als een 64-bit pakket."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12168,7 +12176,7 @@ msgstr ""
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Beschikbaar geheugen op deze machine: %s"
 
 #: po/advisory_rules.php:70
 msgid "Query cache disabled"
@@ -12196,7 +12204,7 @@ msgstr "Query cache methode"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Suboptimale caching methode."
 
 #: po/advisory_rules.php:77
 msgid ""

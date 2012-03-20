@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:11+0200\n"
+"PO-Revision-Date: 2012-03-20 17:11+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4959,7 +4959,7 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Deixa en blanc per no desar les preferències de lúsuari en base de dades, "
+"Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
@@ -6619,10 +6619,9 @@ msgid "Stand-in structure for view"
 msgstr "Estructura de suport per a vistes"
 
 #: libraries/export/sql.php:1131
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Permet llegir dades."
+msgstr "Error llegint dades:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
@@ -6646,10 +6645,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Obrir nova finestra de phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:134
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "No s'han trobat dades per al gràfic."
+msgstr "No s'han trobat dades per a visualització GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
@@ -6674,10 +6672,9 @@ msgid ""
 msgstr "Les següents estructures han estat creades o bé alterades. Aquí pots:"
 
 #: libraries/import.lib.php:1140
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "Veure el contingut d'una estructura fent clic sobre el seu nom"
+msgstr "Veure el contingut d'una estructura prement sobre el seu nom"
 
 #: libraries/import.lib.php:1141
 msgid ""
@@ -6687,40 +6684,39 @@ msgstr ""
 "\"Opcions\""
 
 #: libraries/import.lib.php:1142
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Modificar la seva estructura, seguint l'enllaç  \"Estructura\""
+msgstr "Editar estructura seguint l'enllaç \"Estructura\""
 
 #: libraries/import.lib.php:1146
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Vés a la base de dades"
+msgstr "Anar a la base de dades %s"
 
 #: libraries/import.lib.php:1149 libraries/import.lib.php:1174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Falten dades a %s"
+msgstr "Editar configuració de %s"
 
 #: libraries/import.lib.php:1169
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Vés a la taula"
+msgstr "Anar a la taula: %s"
 
 #: libraries/import.lib.php:1172
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Només l'estructura"
+msgstr "Estructura de %s"
 
 #: libraries/import.lib.php:1180
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Vés a la vista"
+msgstr "Anar a la vista: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -6827,10 +6823,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:376
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "Aquesta pàgina no conté taules!"
+msgstr "L'arxiu importat no té dades"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -6851,10 +6846,9 @@ msgid "Convert to Kana"
 msgstr "Converteix a Kana"
 
 #: libraries/mult_submits.inc.php:266
-#, fuzzy
 #| msgid "Fr"
 msgid "From"
-msgstr "Dv"
+msgstr "De"
 
 #: libraries/mult_submits.inc.php:269
 msgid "To"
@@ -6870,10 +6864,9 @@ msgid "Add table prefix"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:282
-#, fuzzy
 #| msgid "Add index"
 msgid "Add prefix"
-msgstr "Afegir índex"
+msgstr "Afegir prefix"
 
 #: libraries/mult_submits.inc.php:499 tbl_replace.php:341
 msgid "No change"
@@ -7141,10 +7134,9 @@ msgid "SQL history"
 msgstr "Historial SQL"
 
 #: libraries/relation.lib.php:136
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Connexions persistents"
+msgstr "Taules persistents usades recentment"
 
 #: libraries/relation.lib.php:140
 msgid "Persistent tables' UI preferences"
@@ -7297,10 +7289,10 @@ msgstr "Genera una Contrasenya"
 #: libraries/rte/rte_routines.lib.php:1259
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Les següents consultes s'han executat:"
+msgstr "Ha fallat la següent consulta: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
@@ -7312,16 +7304,16 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr "S'ha esborrat la columna %s"
+msgstr "S'ha modificat l'esdeveniment %1$s."
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "S'ha creat la taula %1$s."
+msgstr "S'ha creat l'esdeveniment %1$s."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_triggers.lib.php:114
@@ -7329,42 +7321,38 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Editar servidor"
+msgstr "Editar esdeveniment"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1282
 #: libraries/rte/rte_routines.lib.php:1318
 #: libraries/rte/rte_triggers.lib.php:187
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Error a la petició de procés"
+msgstr "Error processant a la petició"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
 #: libraries/rte/rte_triggers.lib.php:302
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Detalls..."
+msgstr "Detalls"
 
 #: libraries/rte/rte_events.lib.php:374
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Tipus d'event"
+msgstr "Nom d'esdeveniment"
 
 #: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
 msgid "Event type"
 msgstr "Tipus d'event"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Canvi"
+msgstr "Canviar a %s"
 
 #: libraries/rte/rte_events.lib.php:422
 msgid "Execute at"
@@ -7375,14 +7363,12 @@ msgid "Execute every"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Startup"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Inici"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
@@ -7390,16 +7376,14 @@ msgstr "Final"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:354
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Descripció"
+msgstr "Definició"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "completa insercions"
+msgstr "Preservar al completar"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
@@ -7448,14 +7432,13 @@ msgid "Event scheduler status"
 msgstr ""
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Tipus de retorn"
+msgstr "Retorna"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
-msgstr "Esdevenivent"
+msgstr "Esdeveniment"
 
 #: libraries/rte/rte_routines.lib.php:64
 msgid ""
@@ -7466,90 +7449,82 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1005
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "Index de servidor invàlid: %s"
+msgstr "tipus de rutina invàlid: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:266
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:271
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "S'ha esborrat la columna %s"
+msgstr "S'ha modificat la rutina %1$s."
 
 #: libraries/rte/rte_routines.lib.php:284
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "S'ha creat la taula %1$s."
+msgstr "S'ha creat la rutina %1$s."
 
 #: libraries/rte/rte_routines.lib.php:344
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Mode d'edició"
+msgstr "Editar rutina"
 
 #: libraries/rte/rte_routines.lib.php:831
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "Rutines"
+msgstr "Nom de rutina"
 
 #: libraries/rte/rte_routines.lib.php:854
 msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:859
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Enllaços directes"
+msgstr "Direcció"
 
 #: libraries/rte/rte_routines.lib.php:862 libraries/tbl_properties.inc.php:98
 msgid "Length/Values"
 msgstr "Longitud/Valors*"
 
 #: libraries/rte/rte_routines.lib.php:877
-#, fuzzy
 #| msgid "Add index"
 msgid "Add parameter"
-msgstr "Afegir índex"
+msgstr "Afegir paràmetre"
 
 #: libraries/rte/rte_routines.lib.php:881
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Elimina la base de dades"
+msgstr "Elimina el darrer paràmetre"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
 msgstr "Tipus de retorn"
 
 #: libraries/rte/rte_routines.lib.php:892
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Longitud/Valors*"
+msgstr "Retornar Longitud/Valors"
 
 #: libraries/rte/rte_routines.lib.php:898
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Opcions de taula"
+msgstr "Retornar opcions"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:938
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "Seguretat"
+msgstr "Tipus de seguretat"
 
 #: libraries/rte/rte_routines.lib.php:945
 msgid "SQL data access"
@@ -7591,10 +7566,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/rte/rte_routines.lib.php:1230
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Permet executar rutines enmagatzemades."
+msgstr "Resultats de l'execució de la rutina %s"
 
 #: libraries/rte/rte_routines.lib.php:1306
 #: libraries/rte/rte_routines.lib.php:1312
@@ -7603,10 +7578,9 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1365
 #: libraries/rte/rte_routines.lib.php:1368
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Rutines"
+msgstr "Paràmetres de rutina"
 
 #: libraries/rte/rte_routines.lib.php:1375 libraries/tbl_select.lib.php:79
 #: tbl_change.php:305 tbl_change.php:361
@@ -7618,31 +7592,28 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Trigger %1$s has been modified."
-msgstr "S'ha esborrat la columna %s"
+msgstr "S'ha modificat el disparador %1$s."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "S'ha creat la taula %1$s."
+msgstr "Disparador %1$s creat."
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Edit trigger"
-msgstr "Afegir un nou servidor"
+msgstr "Editar disparador"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Disparadors"
+msgstr "Nom del disparador"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
@@ -7661,122 +7632,109 @@ msgid "You must provide a valid event for the trigger"
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
-msgstr "Nom de taula incorrecte"
+msgstr "Has de donar un nom de taula vàlid"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:18
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Afegir índex"
+msgstr "Afegir rutina"
 
 #: libraries/rte/rte_words.lib.php:20
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Predeterminats d'exportació"
+msgstr "Exportar la rutina %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Rutines"
+msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "No tens prou permisos per visualitzar aquesta informació!"
+msgstr "No tens prou permisos per crear una rutina"
 
 #: libraries/rte/rte_words.lib.php:23
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Base de dades sense taules"
+msgstr "No s'ha trobat una rutina de nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:24
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "No hi han rutines per mostrar."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "Afegir un nou servidor"
+msgstr "Afegir disparador"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Exporta contingut"
+msgstr "Exportar disparador %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Disparadors"
+msgstr "disparador"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "No tens prou permisos per visualitzar aquesta informació!"
+msgstr "No tens prou permisos per crear un disparador"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Base de dades sense taules"
+msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "No hi ha disparadors per mostrar."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "Afegir un nou servidor"
+msgstr "Afegir esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Exporta contingut"
+msgstr "Exportar esdeveniment %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Esdevenivent"
+msgstr "esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "No tens prou permisos per visualitzar aquesta informació!"
+msgstr "No tens prou permisos per crear un esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Base de dades sense taules"
+msgstr "No s'ha trobat un esdeveniment amb nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "No hi ha esdeveniments per mostrar."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
@@ -7937,10 +7895,9 @@ msgid "Current Server"
 msgstr "Servidor actual"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Usuari"
+msgstr "Usuaris"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1228
 #: server_synchronize.php:1236
@@ -8234,16 +8191,14 @@ msgid "Operator"
 msgstr "Operador"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Cerca"
+msgstr "Cerca de taules"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1032
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Insereix"
+msgstr "Edita/Insereix"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -8429,10 +8384,9 @@ msgid "General Settings"
 msgstr "Paràmetres Generals"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Ordenació de la connexió MySQL"
+msgstr "Ordenació de la connexió del servidor"
 
 #: main.php:124
 msgid "Appearance Settings"
@@ -8443,20 +8397,18 @@ msgid "More settings"
 msgstr "Més paràmetres"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Base de dades per usuari"
+msgstr "Servidor de base de dades"
 
 #: main.php:172
 msgid "Software"
 msgstr ""
 
 #: main.php:173
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Mostra versions"
+msgstr "Versió de programari"
 
 #: main.php:175
 msgid "Protocol version"
@@ -8469,20 +8421,18 @@ msgid "User"
 msgstr "Usuari"
 
 #: main.php:184
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Sócol del servidor"
+msgstr "Joc de caracters del servidor"
 
 #: main.php:196
 msgid "Web server"
 msgstr "Servidor web"
 
 #: main.php:209
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Usar versió lleugera"
+msgstr "Versió del client de base de dades"
 
 #: main.php:213
 msgid "PHP extension"
@@ -8621,10 +8571,9 @@ msgid "No databases"
 msgstr "No hi ha bases de dades"
 
 #: navigation.php:266
-#, fuzzy
 #| msgid "filter tables by name"
 msgid "Filter tables by name"
-msgstr "filtra les taules pel nom"
+msgstr "filtrar taules pel nom"
 
 #: navigation.php:299 navigation.php:300
 msgctxt "short form"
@@ -8676,10 +8625,9 @@ msgid "Toggle small/big"
 msgstr "Canviar petit/gran"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Per triar una relació, clica :"
+msgstr "Canviar línies de relació"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
@@ -9007,10 +8955,9 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Desactivat"
+msgstr "desactivat"
 
 #: server_privileges.php:91 server_privileges.php:426
 msgid "Includes all privileges except GRANT."
@@ -9329,10 +9276,9 @@ msgid "Privileges for %s"
 msgstr "Permisos"
 
 #: server_privileges.php:1682
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Informació general de l'usuari"
+msgstr "Vista global d'usuaris"
 
 #: server_privileges.php:1822 server_privileges.php:2040
 #: server_privileges.php:2388
@@ -9451,10 +9397,9 @@ msgid "wildcard"
 msgstr "comodins"
 
 #: server_privileges.php:2536
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "Vista %s esborrada"
+msgstr "Usuari afegit."
 
 #: server_replication.php:79
 msgid "Unknown error"
@@ -9477,7 +9422,7 @@ msgid "Unable to change master"
 msgstr "No es pot canviar el mestre"
 
 #: server_replication.php:102
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
 msgstr "S'ha canviat correctament el servidor mestre a %s"
@@ -9708,10 +9653,9 @@ msgid "Runtime Information"
 msgstr "Informació d'execució"
 
 #: server_status.php:786
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Veure la taula d'estat de l'esclau"
+msgstr "Totes les variables d'estat"
 
 #: server_status.php:787
 msgid "Monitor"
@@ -9722,54 +9666,46 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:798 server_status.php:820
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Refresca"
+msgstr "Velocitat de refresc: "
 
 #: server_status.php:833 server_variables.php:115
-#, fuzzy
 msgid "Filters"
-msgstr "Filtre"
+msgstr "Filtres"
 
 #: server_status.php:841 server_variables.php:117
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "No canviïs la contrasenya"
+msgstr "Incloent la paraula:"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Mostra taules obertes"
+msgstr "Mostra només valors d'alerta"
 
 #: server_status.php:850
 msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:864
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "Mostra taules obertes"
+msgstr "Mostra valors sense format"
 
 #: server_status.php:868
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Enllaços relacionats"
+msgstr "Enllaços relacionats:"
 
 #: server_status.php:901
-#, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "Tipus de consulta"
+msgstr "Executar analitzador"
 
 #: server_status.php:902
-#, fuzzy
 msgid "Instructions"
-msgstr "Informació"
+msgstr "Instruccions"
 
 #: server_status.php:909
 msgid ""
@@ -9800,10 +9736,10 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:937
-#, fuzzy, php-format
+#, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
-msgstr "Configura la pàgina d'inici"
+msgstr "Consultes des de l'inici: %s"
 
 #: server_status.php:973 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
@@ -9820,10 +9756,10 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: server_status.php:1058
-#, fuzzy, php-format
+#, php-format
 #| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Aquest servidor MySQL és en marxa durant %s. Es va iniciar en %s."
+msgstr "Aquest servidor MySQL és en marxa durant %1$s. Es va iniciar en %2$s."
 
 #: server_status.php:1069
 msgid ""
@@ -9900,10 +9836,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "No es pot connectar al servidor MySQL"
+msgstr "La quantitat d'intents fallits de connexió al servidor MySQL."
 
 #: server_status.php:1304
 msgid ""
@@ -10588,10 +10523,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "El nombre de fils que no estàn dormint."
 
 #: server_status.php:1561
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start Monitor"
-msgstr "Files per a textareas"
+msgstr "Començar monitorització"
 
 #: server_status.php:1570
 msgid "Instructions/Setup"
@@ -10602,31 +10536,27 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1582 server_status.php:1653
-#, fuzzy
 #| msgid "Add index"
 msgid "Add chart"
-msgstr "Afegir índex"
+msgstr "Afegir gràfic"
 
 #: server_status.php:1584
 msgid "Rearrange/edit charts"
 msgstr ""
 
 #: server_status.php:1588
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Refresca"
+msgstr "Velocitat de refresc"
 
 #: server_status.php:1593
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns"
-msgstr "Columnes per a textareas"
+msgstr "Columnes del gràfic"
 
 #: server_status.php:1609
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Gestió d'errors:"
+msgstr "Ordenació del gràfic"
 
 #: server_status.php:1609
 msgid ""
@@ -10635,15 +10565,13 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1610
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Restaura el valor per defecte"
 
 #: server_status.php:1614
-#, fuzzy
 msgid "Monitor Instructions"
-msgstr "Informació"
+msgstr "Instruccions de Monitorització"
 
 #: server_status.php:1615
 msgid ""
@@ -10694,32 +10622,28 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1658
-#, fuzzy
 #| msgid "Remove database"
 msgid "Preset chart"
-msgstr "Elimina la base de dades"
+msgstr "Gràfic predefinit"
 
 #: server_status.php:1662
-#, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
-msgstr "Veure la taula d'estat de l'esclau"
+msgstr "Variable(s) d'estat"
 
 #: server_status.php:1664
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Tria Taules"
+msgstr "Seleccionar series:"
 
 #: server_status.php:1666
 msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1681
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Nom de taula incorrecte"
+msgstr "o escriu el nom de variable:"
 
 #: server_status.php:1685
 msgid "Display as differential value"
@@ -10734,32 +10658,28 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1700
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "Afegir un nou servidor"
+msgstr "Afegir aquesta serie"
 
 #: server_status.php:1702
 msgid "Clear series"
 msgstr ""
 
 #: server_status.php:1705
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "Consultes SQL"
+msgstr "Series al gràfic:"
 
 #: server_status.php:1718
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Mostra estadístiques"
+msgstr "Estadístiques del registre"
 
 #: server_status.php:1719
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Selecciona la pàgina"
+msgstr "Rang de temps seleccionat:"
 
 #: server_status.php:1724
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -10778,26 +10698,25 @@ msgid "Results are grouped by query text."
 msgstr ""
 
 #: server_status.php:1741
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Tipus de consulta"
+msgstr "Analitzador de consultes"
 
 #: server_status.php:1781
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Segon"
-msgstr[1] "Segon"
+msgstr[0] "%d segon"
+msgstr[1] "%d segons"
 
 #: server_status.php:1783
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "Minut"
-msgstr[1] "Minut"
+msgstr[0] "%d minut"
+msgstr[1] "%d minuts"
 
 #: server_synchronize.php:101
 msgid "Could not connect to the source"
@@ -10885,9 +10804,8 @@ msgstr ""
 "La base de dades destinació s'ha sincronitzat amb la base de dades origen"
 
 #: server_synchronize.php:1098
-#, fuzzy
 msgid "Executed queries"
-msgstr "Consultes SQL"
+msgstr "Consultes executades"
 
 #: server_synchronize.php:1284
 msgid "Enter manually"
@@ -10976,10 +10894,9 @@ msgid "Insecure connection"
 msgstr "Connexió insegura"
 
 #: setup/frames/index.inc.php:94
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Infraestructura de taules enllaçades"
+msgstr "Configuració desada."
 
 #: setup/frames/index.inc.php:95
 msgid ""
@@ -11240,10 +11157,11 @@ msgstr ""
 "en aquest sistema."
 
 #: setup/lib/index.lib.php:321
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Hauries de fer servir connexions SSL si el teu servidor web ho permet."
+msgstr ""
+"Hauries de fer servir connexions SSL si el teu servidor de base de dades ho "
+"permet."
 
 #: setup/lib/index.lib.php:334
 msgid "You should use mysqli for performance reasons."
@@ -11262,10 +11180,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "La clau pot contenir lletres, numeros [em]i[/em] caràcters especials."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
-msgstr "No hi ha bases de dades"
+msgstr "Dades incorrectes"
 
 #: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:99
 #: tbl_zoom_select.php:158
@@ -11361,35 +11278,30 @@ msgid "Continue insertion with %s rows"
 msgstr "Continua l'inserció amb %s files"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Barra"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Columna"
 
 #: tbl_chart.php:93
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Línia"
 
 #: tbl_chart.php:95
-#, fuzzy
 #| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "En línia"
+msgstr "Ranures"
 
 #: tbl_chart.php:97
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
@@ -11400,50 +11312,43 @@ msgid "Stacked"
 msgstr "Apilat"
 
 #: tbl_chart.php:103
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Títol de llistat:"
+msgstr "Títol del gràfic"
 
 #: tbl_chart.php:109
 msgid "X-Axis:"
 msgstr ""
 
 #: tbl_chart.php:124
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "Consultes SQL"
+msgstr "Series:"
 
 #: tbl_chart.php:126
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Columnes per a textareas"
+msgstr "Columnes restants"
 
 #: tbl_chart.php:139
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "Títol de l'eix X"
+msgstr "Etiqueta de l'eix X:"
 
 #: tbl_chart.php:141
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Valor"
+msgstr "Valors X"
 
 #: tbl_chart.php:142
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Títol de l'eix Y"
+msgstr "Etiqueta de l'eix Y:"
 
 #: tbl_chart.php:143
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Valor"
+msgstr "Valors Y"
 
 #: tbl_create.php:31
 #, php-format
@@ -11460,10 +11365,9 @@ msgid "View dump (schema) of table"
 msgstr "Veure un bolcat (esquema) de la taula"
 
 #: tbl_gis_visualization.php:112
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Mostra la tría de servidors"
+msgstr "Mostra visualització GIS"
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
@@ -11474,38 +11378,33 @@ msgid "Height"
 msgstr "Alt"
 
 #: tbl_gis_visualization.php:136
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "Columnes per a textareas"
+msgstr "Etiqueta de columna"
 
 #: tbl_gis_visualization.php:138
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- cap -"
+msgstr "-- cap --"
 
 #: tbl_gis_visualization.php:151
-#, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
-msgstr "Comptador de l'arxiu de registre"
+msgstr "Columna espacial"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
 msgstr "Redibuixa"
 
 #: tbl_gis_visualization.php:177
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Desa com a arxiu"
+msgstr "Desa a un arxiu"
 
 #: tbl_gis_visualization.php:178
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "Nom de taula"
+msgstr "Nom de l'arxiu"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -11524,10 +11423,9 @@ msgid "Add index"
 msgstr "Afegir índex"
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "Mode d'edició"
+msgstr "Editar índex"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
@@ -11666,10 +11564,9 @@ msgid "Check referential integrity:"
 msgstr "Comprova la integritat referencial:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Mostra taules"
+msgstr "Mostrant taules"
 
 #: tbl_printview.php:269 tbl_structure.php:764
 msgid "Space usage"
