@@ -10545,9 +10545,8 @@ msgid "Rearrange/edit charts"
 msgstr ""
 
 #: server_status.php:1588
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Refresca"
+msgstr "Velocitat de refresc"
 
 #: server_status.php:1593
 #, fuzzy
