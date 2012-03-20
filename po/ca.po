@@ -11278,7 +11278,6 @@ msgid "Continue insertion with %s rows"
 msgstr "Continua l'inserció amb %s files"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
