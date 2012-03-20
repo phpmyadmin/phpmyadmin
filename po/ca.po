@@ -5921,10 +5921,9 @@ msgid "Show BLOB contents"
 msgstr "Mostra contingut BLOB"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformació del navegador"
+msgstr "Amagar transformació del navegador"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
