@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 15:51+0200\n"
+"PO-Revision-Date: 2012-03-20 15:52+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4230,10 +4230,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Màxim nombre de taules usades recentment; 0 per desactivar"
 
 #: libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Taules no seguides"
+msgstr "Taules usades recentment"
 
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
