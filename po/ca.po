@@ -11481,7 +11481,7 @@ msgstr "Treure Referència a Repositori BLOB"
 
 #: tbl_change.php:821
 msgid "Binary - do not edit"
-msgstr "Binari - no editeu "
+msgstr "Binari - no editeu"
 
 #: tbl_change.php:871
 msgid "Upload to BLOB repository"
