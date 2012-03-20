@@ -7595,10 +7595,9 @@ msgid "Event scheduler status"
 msgstr ""
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Tipus de retorn"
+msgstr "Retorna"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
