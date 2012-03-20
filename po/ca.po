@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-08 14:41+0200\n"
+"PO-Revision-Date: 2012-03-20 15:22+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.4\n"
+"X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -103,8 +103,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"L'arxiu %s no es troba en aquest sistema, si us plau, visita www.phpmyadmin."
-"net per a més informació"
+"L'arxiu %s no es troba en aquest sistema, si us plau, visita "
+"www.phpmyadmin.net per a més informació."
 
 #: db_create.php:73
 #, php-format
@@ -809,7 +809,7 @@ msgstr "Valors per la columna %s"
 
 #: enum_editor.php:34 js/messages.php:265
 msgid "Enter each value in a separate field"
-msgstr "Entra cada valor en un camp separat."
+msgstr "Entra cada valor en un camp separat"
 
 #: enum_editor.php:123
 msgid "Add a value"
@@ -1630,6 +1630,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"En sol · licitar noves dades del gràfic el servidor torna una resposta no "
+"vàlida. La causa més probable d'aixó és que la sessió ha finalitzat. Pot ser "
+"d'ajuda recarregar la pàgina i tornar a entrar les dades de connexió."
 
 #: js/messages.php:202
 msgid "Reload page"
@@ -1637,11 +1640,13 @@ msgstr "Recarregar pàgina"
 
 #: js/messages.php:204
 msgid "Affected rows:"
-msgstr ""
+msgstr "Files afectades:"
 
 #: js/messages.php:206
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"Ha fallat la interpretació de l'arxiu de configuració. No sembla que sigui "
+"codi JSON vàlid."
 
 #: js/messages.php:207
 msgid ""
@@ -1663,6 +1668,8 @@ msgstr "Analitzar consulta"
 #: js/messages.php:214
 msgid "Advisor system"
 msgstr ""
+"Ha fallat la creació de la graella del gràfic amb la configuració importada. "
+"Restablint la configuració per defecte..."
 
 #: js/messages.php:215
 msgid "Possible performance issues"
@@ -1690,7 +1697,7 @@ msgstr ""
 
 #: js/messages.php:221
 msgid "Test"
-msgstr ""
+msgstr "Prova"
 
 #: js/messages.php:226 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
@@ -7839,7 +7846,7 @@ msgstr "Aquesta pàgina no conté taules!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "ERROR D'ESQUEMA:"
+msgstr "ERROR D'ESQUEMA: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -8798,7 +8805,7 @@ msgstr "Crea una pàgina i exporta en ella"
 
 #: pmd_pdf.php:107
 msgid "New page name: "
-msgstr "Nou nom de pàgina:"
+msgstr "Nou nom de pàgina: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"

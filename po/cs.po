@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-14 17:29+0200\n"
+"PO-Revision-Date: 2012-03-20 15:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -10062,10 +10062,9 @@ msgstr ""
 "maximum bloků, které kdy byly obsazeny najednou."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Využití limitu na otevřené soubory v procentech"
+msgstr "Procento využití vyrovnávací paměti klíčů (vypočítaná hodnota)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
@@ -10086,6 +10085,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Úspěšnost vyrovnávací paměti klíčů spočítaná jako poměr skutečných a "
+"požadovaných čtení (vypočítaná hodnota)"
 
 #: server_status.php:1376
 msgid "The number of requests to write a key block to the cache."
@@ -10099,6 +10100,8 @@ msgstr "Počet skutečných zápisů bloku klíče na disk."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Procento skutečných zápisů v porovnání s požadavky na zápis (vypočítaná "
+"hodnota)"
 
 #: server_status.php:1379
 msgid ""
@@ -10316,10 +10319,9 @@ msgstr ""
 "mají dobrou implementaci vláken však toto nemá příliš velký vliv.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Úspěšnost vyrovnávací paměti vláken"
+msgstr "Úspěšnost vyrovnávací paměti vláken (vypočítaná hodnota)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
@@ -12407,8 +12409,8 @@ msgstr ""
 "dočasné tabulky jsou však zapisovány na disk bez ohledu na tato nastavení. "
 "Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
 "(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Podrobněji "
-"je tato problematika popsána na začátku <a href=\"http://www.facebook.com/"
-"note.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>."
+"je tato problematika popsána na začátku <a href=\"http://www.facebook.com/not"
+"e.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12478,7 +12480,7 @@ msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Využití vyrovnávací paměti klíčů MyISAM je příliš nízké."
+msgstr "Využití vyrovnávací paměti klíčů MyISAM je příliš nízké %%."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12496,7 +12498,7 @@ msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
 "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče je %s%%, tato "
-"hodnota by měla být nad 95%%."
+"hodnota by měla být nad 95%%"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
@@ -12646,7 +12648,7 @@ msgstr "Velikost vyrovnávací paměti vláken je nastavena na 0"
 #: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "Úspěšnost vyrovnávací paměti vláken"
+msgstr "Úspěšnost vyrovnávací paměti vláken %%"
 
 #: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
