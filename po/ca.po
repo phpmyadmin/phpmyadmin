@@ -4850,10 +4850,9 @@ msgstr ""
 "entre sessions, suggerit: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Nom d'usuari de recuperació"
+msgstr "Taula usada recentment"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
