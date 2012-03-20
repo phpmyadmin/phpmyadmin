@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:27+0200\n"
+"PO-Revision-Date: 2012-03-20 16:28+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7662,10 +7662,9 @@ msgid "Add parameter"
 msgstr "Afegir paràmetre"
 
 #: libraries/rte/rte_routines.lib.php:881
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Elimina la base de dades"
+msgstr "Elimina el darrer paràmetre"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
