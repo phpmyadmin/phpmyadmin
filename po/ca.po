@@ -5893,10 +5893,9 @@ msgid "Language"
 msgstr "Idioma"
 
 #: libraries/display_tbl.lib.php:406
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Directori de desades"
+msgstr "Desar dades editades"
 
 #: libraries/display_tbl.lib.php:412
 #, fuzzy
