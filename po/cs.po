@@ -10318,10 +10318,9 @@ msgstr ""
 "mají dobrou implementaci vláken však toto nemá příliš velký vliv.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Úspěšnost vyrovnávací paměti vláken"
+msgstr "Úspěšnost vyrovnávací paměti vláken (vypočítaná hodnota)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
