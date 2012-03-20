@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:14+0200\n"
+"PO-Revision-Date: 2012-03-20 16:15+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -6701,10 +6701,10 @@ msgid "Edit settings for %s"
 msgstr "Editar configuració de %s"
 
 #: libraries/import.lib.php:1169
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Vés a la taula"
+msgstr "Anar a la taula: %s"
 
 #: libraries/import.lib.php:1172
 #, fuzzy, php-format
