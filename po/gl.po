@@ -12126,7 +12126,7 @@ msgstr "Nome da táboa"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "O nome da chave primaria debe ser... PRIMARIA"
+msgstr "O nome da chave primaria debe ser... «PRIMARY»!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
