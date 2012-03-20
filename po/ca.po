@@ -7539,10 +7539,9 @@ msgstr "Final"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:354
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Descripció"
+msgstr "Definició"
 
 #: libraries/rte/rte_events.lib.php:471
 #, fuzzy
