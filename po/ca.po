@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:52+0200\n"
+"PO-Revision-Date: 2012-03-20 16:53+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -10649,10 +10649,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "El nombre de fils que no estàn dormint."
 
 #: server_status.php:1551
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start Monitor"
-msgstr "Files per a textareas"
+msgstr "Començar monitorització"
 
 #: server_status.php:1560
 msgid "Instructions/Setup"
