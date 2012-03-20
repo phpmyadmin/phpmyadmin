@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:09+0200\n"
+"PO-Revision-Date: 2012-03-20 16:11+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -6678,7 +6678,6 @@ msgid "Add statements:"
 msgstr "Afegir instruccions:"
 
 #: libraries/export/sql.php:211
-#, fuzzy
 #| msgid ""
 #| "e table and field names with backquotes <i>(Protects field and le names "
 #| "med with special characters or keywords)</i>"
@@ -6686,8 +6685,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Inclou noms de taules i camps amb -backquotes- <i>(Protegeix els noms de "
-"camps i taules compostos de caràcters especials o paraules clau)</i>"
+"Envoltar noms de taules i camps amb cometes inverses <i>(Protegeix els noms "
+"de camps i taules compostos de caràcters especials o paraules clau)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
