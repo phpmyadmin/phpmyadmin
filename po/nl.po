@@ -10552,7 +10552,7 @@ msgstr ""
 
 #: server_status.php:1610
 msgid "Reset to default"
-msgstr "Herstel standaardwaarde"
+msgstr "Standaardwaarde herstellen"
 
 #: server_status.php:1614
 msgid "Monitor Instructions"
