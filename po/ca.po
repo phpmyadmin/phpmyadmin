@@ -4021,7 +4021,7 @@ msgstr "No avortar en cas d'error d' INSERT"
 #: libraries/config/messages.inc.php:246 libraries/config/messages.inc.php:254
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
-msgstr "Canviar les dades de la taula per l'arxiu "
+msgstr "Canviar les dades de la taula per l'arxiu"
 
 #: libraries/config/messages.inc.php:248
 msgid ""
