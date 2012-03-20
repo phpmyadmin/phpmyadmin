@@ -2921,11 +2921,10 @@ msgstr "Pàgina següent"
 
 #: libraries/common.lib.php:2524 libraries/common.lib.php:2527
 #: libraries/display_tbl.lib.php:390
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "Final"
+msgstr "Darrera pàgina"
 
 #: libraries/common.lib.php:2594
 #, php-format
