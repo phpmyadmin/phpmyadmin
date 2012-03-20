@@ -12027,10 +12027,9 @@ msgstr ""
 "Fer una \"consulta segons exemple\" (comodí: \"%\") per a dos columnes diferents"
 
 #: tbl_zoom_select.php:145
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Amaga el criteri de cerca"
+msgstr "Criteri de cerca addicionals"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
