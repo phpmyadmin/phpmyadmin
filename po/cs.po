@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 15:22+0200\n"
+"PO-Revision-Date: 2012-03-20 15:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -105,7 +105,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Soubor %s nebyl nalezen, více informací naleznete na www.phpmyadmin.net."
+"Soubor %s nebyl nalezen, více informací naleznete na stránce "
+"www.phpmyadmin.net."
 
 #: db_create.php:73
 #, php-format
