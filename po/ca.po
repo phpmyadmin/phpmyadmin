@@ -7578,10 +7578,9 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1365
 #: libraries/rte/rte_routines.lib.php:1368
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Rutines"
+msgstr "Paràmetres de rutina"
 
 #: libraries/rte/rte_routines.lib.php:1375 libraries/tbl_select.lib.php:79
 #: tbl_change.php:305 tbl_change.php:361
