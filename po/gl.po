@@ -13702,8 +13702,8 @@ msgstr "Taxa de espera para bloqueos de táboas"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"Taxa de espera para bloqueos de táboas: %s, este valor habería ser inferior "
-"a 1 por hora."
+"Taxa de espera para bloqueos de táboas: %s, este valor debería ser inferior "
+"a 1 por hora"
 
 #: po/advisory_rules.php:205
 #, fuzzy
