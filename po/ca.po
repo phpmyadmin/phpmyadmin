@@ -117,8 +117,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"L'arxiu %s no es troba en aquest sistema, si us plau, visita www.phpmyadmin."
-"net per a més informació"
+"L'arxiu %s no es troba en aquest sistema, si us plau, visita "
+"www.phpmyadmin.net per a més informació."
 
 #: db_create.php:60
 #, php-format
