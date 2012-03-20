@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:32+0200\n"
+"PO-Revision-Date: 2012-03-20 16:40+0200\n"
 "Last-Translator: Arjen Brouwer <arjenjb@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12159,7 +12159,7 @@ msgstr "MySQL Architectuur"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr "MySQL werd niet gecompileerd als een 64-bit pakket."
+msgstr "MySQL is niet gecompileerd als een 64-bit pakket."
 
 #: po/advisory_rules.php:67
 msgid ""
