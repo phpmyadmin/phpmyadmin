@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:42+0200\n"
+"PO-Revision-Date: 2012-03-20 16:43+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -8421,10 +8421,9 @@ msgid "User"
 msgstr "Usuari"
 
 #: main.php:184
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Sócol del servidor"
+msgstr "Joc de caracters del servidor"
 
 #: main.php:196
 msgid "Web server"
