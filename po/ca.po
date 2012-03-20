@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 15:28+0200\n"
+"PO-Revision-Date: 2012-03-20 15:29+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -11473,8 +11473,7 @@ msgstr "S'ha modificat la taula %1$s correctament"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr ""
-" A causa de la seva longitud,<br /> aquesta columna no pot ser editable "
+msgstr " A causa de la seva longitud,<br /> aquesta columna no pot ser editable"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
