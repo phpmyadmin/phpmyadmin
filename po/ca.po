@@ -7734,7 +7734,7 @@ msgstr "No s'ha trobat un esdeveniment amb nom %1$s a la base de dades %2$s"
 #: libraries/rte/rte_words.lib.php:48
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "No hi ha esdeveniments per mostrar"
+msgstr "No hi ha esdeveniments per mostrar."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
