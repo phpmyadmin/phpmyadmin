@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-19 19:05+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2012-03-20 16:46+0200\n"
+"Last-Translator: Arjen Brouwer <arjenjb@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -10704,7 +10704,7 @@ msgstr ""
 #: server_status.php:1600
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Herstel standaardwaarde"
+msgstr "Standaardwaarde herstellen"
 
 #: server_status.php:1604
 #| msgid "Introduction"
@@ -10733,10 +10733,10 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
-"Spijtig genoeg ondersteunt uw database server loggen naar een tabel niet. "
-"Dit is een vereiste om de database logs te kunnen analyseren met phpMyAdmin. "
-"Loggen naar een tabel wordt ondersteund vanaf MySQL 5.1.6. U kan wel de "
-"grafiek functionaliteit gebruiken."
+"Helaas ondersteunt uw database server loggen naar een tabel niet. Dit is een "
+"vereiste om de database logs te kunnen analyseren met phpMyAdmin. Loggen "
+"naar een tabel wordt ondersteund vanaf MySQL 5.1.6. U kunt wel de grafiek "
+"functionaliteit gebruiken."
 
 #: server_status.php:1623
 msgid "Using the monitor:"
@@ -10760,6 +10760,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"Om queries te tonen uit de logs, selecteer de relevante periode in een "
+"willekeurige grafiek door de linker muisknop in te drukken en over de "
+"grafiek te slepen. Na het bevestiging wordt een tabel met gegroepeerde "
+"queries geladen, daar kun je op één van de SELECT statements klikken om deze "
+"verder te analyseren. "
 
 #: server_status.php:1634
 msgid "Please note:"
@@ -12355,7 +12360,7 @@ msgstr "MySQL Architectuur"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr "MySQL werd niet gecompileerd als een 64-bit pakket."
+msgstr "MySQL is niet gecompileerd als een 64-bit pakket."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12367,7 +12372,7 @@ msgstr ""
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Beschikbaar geheugen op deze machine: %s"
 
 #: po/advisory_rules.php:70
 #| msgid "Query cache"
@@ -12397,7 +12402,7 @@ msgstr "Query cache methode"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Suboptimale caching methode."
 
 #: po/advisory_rules.php:77
 msgid ""
