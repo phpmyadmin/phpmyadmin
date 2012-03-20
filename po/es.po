@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:41+0200\n"
+"PO-Revision-Date: 2012-03-20 17:42+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10570,10 +10570,9 @@ msgstr ""
 "tiene una buena implementación de procesos.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Porcentaje de efectividad del caché de hilos"
+msgstr "Porcentaje de aciertos del caché de hilos (valor calculado)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
