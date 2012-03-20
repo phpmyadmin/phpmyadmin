@@ -12209,10 +12209,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Tria Taules"
+msgstr "Serie de versions"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
