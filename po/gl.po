@@ -9817,7 +9817,7 @@ msgstr "Permite inserir e substituír datos."
 #: server_privileges.php:52 server_privileges.php:261
 #: server_privileges.php:664
 msgid "Allows locking tables for the current thread."
-msgstr "Permite bloquear táboas do fío en uso"
+msgstr "Permite bloquear táboas do fío actual."
 
 #: server_privileges.php:53 server_privileges.php:728
 #: server_privileges.php:730
