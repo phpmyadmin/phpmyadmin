@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:30+0200\n"
+"PO-Revision-Date: 2012-03-20 17:31+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10293,7 +10293,7 @@ msgstr ""
 #: server_status.php:1372
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Porcentaje de uso de la caché de claves (valor calculado)"
+msgstr "Porcentaje de uso del caché de claves (valor calculado)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
