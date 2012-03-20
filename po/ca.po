@@ -11925,10 +11925,9 @@ msgid "Query error"
 msgstr "Error de consulta"
 
 #: tbl_tracking.php:405
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Segueix aquestes declaracions de manipulació de dades:"
+msgstr "manipulació de seguiment de dades eliminat correctament"
 
 #: tbl_tracking.php:417
 msgid "Tracking statements"
