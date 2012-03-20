@@ -2979,11 +2979,10 @@ msgstr "Pàgina anterior"
 #: libraries/common.lib.php:2486 libraries/common.lib.php:2489
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr "Següent"
+msgstr "Pàgina següent"
 
 #: libraries/common.lib.php:2487 libraries/common.lib.php:2490
 #: libraries/display_tbl.lib.php:390
