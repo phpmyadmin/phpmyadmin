@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 17:14+0200\n"
+"PO-Revision-Date: 2012-03-20 17:15+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -12021,10 +12021,10 @@ msgid "Create version"
 msgstr "Crea versió"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
+msgstr ""
+"Fer una \"consulta segons exemple\" (comodí: \"%\") per a dos columnes diferents"
 
 #: tbl_zoom_select.php:145
 #, fuzzy
