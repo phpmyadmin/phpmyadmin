@@ -2963,7 +2963,6 @@ msgstr "Falta paràmetre:"
 
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
