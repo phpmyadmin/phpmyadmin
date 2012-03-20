@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 15:55+0200\n"
+"PO-Revision-Date: 2012-03-20 15:58+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -4839,7 +4839,6 @@ msgid "Server port"
 msgstr "Port del servidor"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "blank for no user preferences storage in database, suggested: d]_config[/"
 #| "kbd]"
@@ -4847,8 +4846,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar el suport de preferències de l'usuari en base "
-"de dades, suggerit: [kbd]pma_config[/kbd]"
+"Deixa en blanc per treure la \"persistència\" de taules usades recentment "
+"entre sessions, suggerit: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 #, fuzzy
