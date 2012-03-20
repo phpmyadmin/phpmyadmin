@@ -7884,10 +7884,9 @@ msgid "event"
 msgstr "esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "No tens prou permisos per visualitzar aquesta informació!"
+msgstr "No tens prou permisos per crear un esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:47
 #, fuzzy, php-format
