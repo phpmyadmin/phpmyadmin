@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-20 03:26+0200\n"
+"PO-Revision-Date: 2012-03-20 03:27+0200\n"
 "Last-Translator: frandieguez <fran.dieguez@mabishu.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -5943,8 +5943,7 @@ msgstr "Número de campos"
 #: libraries/display_export.lib.php:40
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
-"Non se deron carregado as extensións de exportación. Verifique a "
-"instalación."
+"Non foi posíbel cargar as extensións de exportación. Comprobe a instalación!"
 
 #: libraries/display_export.lib.php:85
 #, fuzzy
