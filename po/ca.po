@@ -6967,7 +6967,7 @@ msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:255
 msgid "Estonian"
-msgstr "Estonià "
+msgstr "Estonià"
 
 #: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:261
 msgid "German"
