@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:29+0200\n"
+"PO-Revision-Date: 2012-03-20 16:32+0200\n"
 "Last-Translator: Arjen Brouwer <arjenjb@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10503,7 +10503,7 @@ msgstr ""
 
 #: server_status.php:1414
 msgid "Thread cache hit rate (calculated value)"
-msgstr ""
+msgstr "Thread cache trefprecentage (berekende waarde)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
