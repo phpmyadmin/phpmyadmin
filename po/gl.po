@@ -8489,7 +8489,7 @@ msgstr "Mostrar a dimensión das táboas"
 
 #: libraries/schema/User_Schema.class.php:420
 msgid "Display all tables with the same width"
-msgstr "Mostrar todas as táboas co mesmo ancho?"
+msgstr "Mostrar todas as táboas co mesmo ancho"
 
 #: libraries/schema/User_Schema.class.php:425
 msgid "Only show keys"
