@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:01+0200\n"
+"PO-Revision-Date: 2012-03-20 17:02+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -10672,10 +10672,9 @@ msgid "Series in Chart:"
 msgstr "Series al gràfic:"
 
 #: server_status.php:1718
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Mostra estadístiques"
+msgstr "Estadístiques del registre"
 
 #: server_status.php:1719
 #, fuzzy
