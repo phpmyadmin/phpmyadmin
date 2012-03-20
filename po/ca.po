@@ -708,7 +708,7 @@ msgstr "Canvia el prefix de la taula"
 
 #: db_structure.php:611 libraries/mult_submits.inc.php:263
 msgid "Copy table with prefix"
-msgstr "Copia la taula amb prefix "
+msgstr "Copia la taula amb prefix"
 
 #: db_structure.php:648 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
