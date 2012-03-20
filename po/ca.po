@@ -7705,10 +7705,9 @@ msgid "There are no triggers to display."
 msgstr "No hi ha disparadors per mostrar."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "Afegir un nou servidor"
+msgstr "Afegir esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:44
 #, fuzzy, php-format
