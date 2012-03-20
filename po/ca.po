@@ -2033,8 +2033,9 @@ msgstr "EB"
 
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1430
+#, fuzzy
 msgid ","
-msgstr "."
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1432
