@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 17:21+0100\n"
-"PO-Revision-Date: 2012-03-20 03:31+0200\n"
+"PO-Revision-Date: 2012-03-20 03:32+0200\n"
 "Last-Translator: frandieguez <fran.dieguez@mabishu.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -12373,7 +12373,7 @@ msgstr "Condición da pesquisa (ou sexa, o complemento da cláusula \"WHERE\"):"
 
 #: tbl_select.php:228
 msgid "Number of rows per page"
-msgstr "Número de rexistros por páxina:"
+msgstr "Número de filas por páxina"
 
 #: tbl_select.php:234
 msgid "Display order:"
