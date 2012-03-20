@@ -8955,10 +8955,9 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "Desactivat"
+msgstr "desactivat"
 
 #: server_privileges.php:91 server_privileges.php:426
 msgid "Includes all privileges except GRANT."
