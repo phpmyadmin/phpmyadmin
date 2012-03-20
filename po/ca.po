@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 17:09+0200\n"
+"PO-Revision-Date: 2012-03-20 17:10+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -11530,10 +11530,9 @@ msgid "Redraw"
 msgstr "Redibuixa"
 
 #: tbl_gis_visualization.php:177
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Desa com a arxiu"
+msgstr "Desa a un arxiu"
 
 #: tbl_gis_visualization.php:178
 #, fuzzy
