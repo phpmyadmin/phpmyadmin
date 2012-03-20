@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 15:42+0200\n"
+"PO-Revision-Date: 2012-03-20 15:43+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2726,10 +2726,9 @@ msgid "numeric key detected"
 msgstr ""
 
 #: libraries/common.inc.php:606
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "No es pot desar la configuració"
+msgstr "No es pot llegir l'arxiu de configuració"
 
 #: libraries/common.inc.php:607
 msgid ""
