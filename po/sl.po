@@ -10131,10 +10131,9 @@ msgstr ""
 "naenkrat v uporabi."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Odstotek omejitve uporabljenih odprtih datotek"
+msgstr "Odstotek uporabljenega predpomnilnika ključev (izračunana vrednost)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
