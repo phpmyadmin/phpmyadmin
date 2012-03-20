@@ -9820,9 +9820,8 @@ msgid "Refresh rate: "
 msgstr "Velocitat de refresc: "
 
 #: server_status.php:839 server_variables.php:115
-#, fuzzy
 msgid "Filters"
-msgstr "Filtre"
+msgstr "Filtres"
 
 #: server_status.php:841 server_variables.php:117
 #, fuzzy
