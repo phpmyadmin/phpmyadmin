@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:12+0200\n"
+"PO-Revision-Date: 2012-03-20 16:13+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -6846,10 +6846,9 @@ msgid ""
 msgstr "Les següents estructures han estat creades o bé alterades. Aquí pots:"
 
 #: libraries/import.lib.php:1101
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "Veure el contingut d'una estructura fent clic sobre el seu nom"
+msgstr "Veure el contingut d'una estructura prement sobre el seu nom"
 
 #: libraries/import.lib.php:1102
 msgid ""
