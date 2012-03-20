@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-20 15:08+0100\n"
+"POT-Creation-Date: 2012-03-20 15:18+0100\n"
 "PO-Revision-Date: 2010-12-02 14:49+0200\n"
 "Last-Translator: Sasa Kostic <sasha.kostic@gmail.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
-#: libraries/display_tbl.lib.php:359 server_privileges.php:1793
+#: libraries/display_tbl.lib.php:359 server_privileges.php:1794
 msgid "Show all"
 msgstr "Prikaži sve"
 
@@ -69,8 +69,8 @@ msgstr "Pretraživanje"
 #: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:167
 #: navigation.php:205 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:813
-#: server_privileges.php:1928 server_privileges.php:2292
-#: server_privileges.php:2339 server_privileges.php:2371
+#: server_privileges.php:1929 server_privileges.php:2293
+#: server_privileges.php:2340 server_privileges.php:2372
 #: server_replication.php:263 server_replication.php:346
 #: server_replication.php:377 server_synchronize.php:1391 tbl_change.php:371
 #: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
@@ -142,7 +142,7 @@ msgstr "Kolona"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
-#: server_privileges.php:2385 tbl_change.php:316 tbl_change.php:349
+#: server_privileges.php:2386 tbl_change.php:316 tbl_change.php:349
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:767 tbl_tracking.php:270 tbl_tracking.php:332
 msgid "Type"
@@ -197,9 +197,9 @@ msgstr "Komentari"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1569 server_privileges.php:1579
-#: server_privileges.php:1851 server_privileges.php:1862
-#: server_privileges.php:2204 server_privileges.php:2209
-#: server_privileges.php:2502 sql.php:328 sql.php:392 tbl_printview.php:190
+#: server_privileges.php:1852 server_privileges.php:1863
+#: server_privileges.php:2205 server_privileges.php:2210
+#: server_privileges.php:2503 sql.php:328 sql.php:392 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:293 tbl_tracking.php:348
 #: tbl_tracking.php:353
 msgid "No"
@@ -219,9 +219,9 @@ msgstr "Ne"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:95 server_privileges.php:1567
-#: server_privileges.php:1577 server_privileges.php:1848
-#: server_privileges.php:1862 server_privileges.php:2204
-#: server_privileges.php:2207 server_privileges.php:2502 sql.php:391
+#: server_privileges.php:1577 server_privileges.php:1849
+#: server_privileges.php:1863 server_privileges.php:2205
+#: server_privileges.php:2208 server_privileges.php:2503 sql.php:391
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:293 tbl_tracking.php:346 tbl_tracking.php:351
 msgid "Yes"
@@ -346,8 +346,8 @@ msgstr "Uredi ili izvezi relacionu shemu"
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:165 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1979
-#: server_privileges.php:2037 server_privileges.php:2306
+#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1980
+#: server_privileges.php:2038 server_privileges.php:2307
 #: server_synchronize.php:448 server_synchronize.php:960 tbl_tracking.php:661
 msgid "Table"
 msgstr "Tabela"
@@ -645,20 +645,20 @@ msgstr "%s je podrazumevani pogon skladištenja na ovom MySQL serveru."
 #: db_structure.php:567 db_structure.php:584 db_structure.php:585
 #: libraries/display_tbl.lib.php:2492 libraries/display_tbl.lib.php:2497
 #: libraries/mult_submits.inc.php:27 server_databases.php:277
-#: server_databases.php:282 server_privileges.php:1885
-#: server_privileges.php:1893 tbl_structure.php:557 tbl_structure.php:566
+#: server_databases.php:282 server_privileges.php:1886
+#: server_privileges.php:1894 tbl_structure.php:557 tbl_structure.php:566
 msgid "With selected:"
 msgstr "Označeno:"
 
 #: db_structure.php:570 libraries/display_tbl.lib.php:2487
 #: server_databases.php:279 server_privileges.php:751
-#: server_privileges.php:1888 tbl_structure.php:560
+#: server_privileges.php:1889 tbl_structure.php:560
 msgid "Check All"
 msgstr "Označi sve"
 
 #: db_structure.php:574 libraries/display_tbl.lib.php:2488
 #: libraries/replication_gui.lib.php:35 server_databases.php:281
-#: server_privileges.php:754 server_privileges.php:1892 tbl_structure.php:564
+#: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
 msgstr "nijedno"
 
@@ -671,7 +671,7 @@ msgstr "Proveri tabele koje imaju prekoračenja"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2510 libraries/display_tbl.lib.php:2651
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1535 server_privileges.php:1897
+#: prefs_manage.php:286 server_privileges.php:1535 server_privileges.php:1898
 #: server_status.php:1610 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Izvoz"
@@ -741,8 +741,8 @@ msgstr "Proveri tabelu"
 #: libraries/export/sql.php:608 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
 #: libraries/header_printview.inc.php:59 server_databases.php:175
-#: server_privileges.php:1974 server_privileges.php:2037
-#: server_privileges.php:2300 server_status.php:1239
+#: server_privileges.php:1975 server_privileges.php:2038
+#: server_privileges.php:2301 server_status.php:1239
 #: server_synchronize.php:1359 server_synchronize.php:1363
 #: tbl_tracking.php:660
 msgid "Database"
@@ -771,8 +771,8 @@ msgstr "Status"
 #: db_tracking.php:91 libraries/Index.class.php:446
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
-#: server_databases.php:208 server_privileges.php:1822
-#: server_privileges.php:2041 server_privileges.php:2388 tbl_structure.php:211
+#: server_databases.php:208 server_privileges.php:1823
+#: server_privileges.php:2042 server_privileges.php:2389 tbl_structure.php:211
 msgid "Action"
 msgstr "Akcija"
 
@@ -1169,8 +1169,8 @@ msgstr "Lozinka je prazna!"
 msgid "The passwords aren't the same!"
 msgstr "Lozinke nisu identične!"
 
-#: js/messages.php:55 server_privileges.php:1913 server_privileges.php:1937
-#: server_privileges.php:2349 server_privileges.php:2543
+#: js/messages.php:55 server_privileges.php:1914 server_privileges.php:1938
+#: server_privileges.php:2350 server_privileges.php:2544
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user"
@@ -1476,7 +1476,7 @@ msgstr ""
 #: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1112
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2190 server_status.php:1268 server_status.php:1707
+#: server_privileges.php:2191 server_status.php:1268 server_status.php:1707
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
 msgid "None"
 msgstr "nema"
@@ -2606,7 +2606,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:387 libraries/config/messages.inc.php:179
 #: libraries/server_links.inc.php:43 server_databases.php:118
-#: server_privileges.php:1974
+#: server_privileges.php:1975
 msgid "Databases"
 msgstr "Baze"
 
@@ -5325,7 +5325,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
 #: libraries/replication_gui.lib.php:355 server_privileges.php:949
 #: server_privileges.php:953 server_privileges.php:964
-#: server_privileges.php:1818 server_synchronize.php:1355
+#: server_privileges.php:1819 server_synchronize.php:1355
 msgid "Password"
 msgstr "Lozinka"
 
@@ -5641,8 +5641,8 @@ msgid "Designer"
 msgstr "Dizajner"
 
 #: libraries/db_links.inc.php:92 server_privileges.php:178
-#: server_privileges.php:1649 server_privileges.php:2038
-#: server_privileges.php:2386
+#: server_privileges.php:1649 server_privileges.php:2039
+#: server_privileges.php:2387
 msgid "Privileges"
 msgstr "Privilegije"
 
@@ -5713,7 +5713,7 @@ msgid "Create"
 msgstr "Napravi"
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:180
-#: server_privileges.php:1703 server_replication.php:33
+#: server_privileges.php:1704 server_replication.php:33
 msgid "No Privileges"
 msgstr "Nema privilegija"
 
@@ -6626,7 +6626,7 @@ msgstr "Dostupni MIME-tipovi"
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:884
 #: server_privileges.php:887 server_privileges.php:943
-#: server_privileges.php:1817 server_privileges.php:2384
+#: server_privileges.php:1818 server_privileges.php:2385
 #: server_status.php:1238
 msgid "Host"
 msgstr "Domaćin"
@@ -7416,7 +7416,7 @@ msgstr "Bilo koji korisnik"
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
 #: libraries/replication_gui.lib.php:352 server_privileges.php:867
 #: server_privileges.php:937 server_privileges.php:961
-#: server_privileges.php:2249 server_privileges.php:2279
+#: server_privileges.php:2250 server_privileges.php:2280
 msgid "Use text field"
 msgstr "Koristi tekst polje"
 
@@ -7584,7 +7584,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2540
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2541
 msgid "New"
 msgstr ""
 
@@ -8669,8 +8669,8 @@ msgstr "Verzija servera"
 msgid "Protocol version"
 msgstr "Verzija protokola"
 
-#: main.php:179 server_privileges.php:1661 server_privileges.php:1816
-#: server_privileges.php:1964 server_privileges.php:2383
+#: main.php:179 server_privileges.php:1662 server_privileges.php:1817
+#: server_privileges.php:1965 server_privileges.php:2384
 #: server_status.php:1237
 msgid "User"
 msgstr "Korisnik"
@@ -9437,12 +9437,12 @@ msgid "None"
 msgstr "nema"
 
 #: server_privileges.php:603 server_privileges.php:748
-#: server_privileges.php:2034 server_privileges.php:2040
+#: server_privileges.php:2035 server_privileges.php:2041
 msgid "Table-specific privileges"
 msgstr "Privilegije vezane za tabele"
 
 #: server_privileges.php:604 server_privileges.php:756
-#: server_privileges.php:1820
+#: server_privileges.php:1821
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Napomena: MySQL imena privilegija moraju da budu na engleskom "
 
@@ -9450,11 +9450,11 @@ msgstr "Napomena: MySQL imena privilegija moraju da budu na engleskom "
 msgid "Administration"
 msgstr "Administracija"
 
-#: server_privileges.php:745 server_privileges.php:1819
+#: server_privileges.php:745 server_privileges.php:1820
 msgid "Global privileges"
 msgstr "Globalne privilegije"
 
-#: server_privileges.php:747 server_privileges.php:2034
+#: server_privileges.php:747 server_privileges.php:2035
 msgid "Database-specific privileges"
 msgstr "Privilegije vezane za bazu"
 
@@ -9474,7 +9474,7 @@ msgstr "Podaci o prijavi"
 msgid "Do not change the password"
 msgstr "Nemoj da menjaš lozinku"
 
-#: server_privileges.php:1007 server_privileges.php:2526
+#: server_privileges.php:1007 server_privileges.php:2527
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -9525,7 +9525,7 @@ msgstr "Izabrani korisnici su uspešno obrisani."
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegije su uspešno ponovo učitane."
 
-#: server_privileges.php:1518 server_privileges.php:1963
+#: server_privileges.php:1518 server_privileges.php:1964
 msgid "Edit Privileges"
 msgstr "Promeni privilegije"
 
@@ -9539,8 +9539,8 @@ msgstr "Zabrani"
 msgid "Export all"
 msgstr "Izvoz"
 
-#: server_privileges.php:1562 server_privileges.php:1843
-#: server_privileges.php:2476
+#: server_privileges.php:1562 server_privileges.php:1844
+#: server_privileges.php:2477
 msgid "Any"
 msgstr "Bilo koji"
 
@@ -9550,37 +9550,37 @@ msgstr "Bilo koji"
 msgid "Privileges for all users"
 msgstr "Privilegije"
 
-#: server_privileges.php:1653
-#, fuzzy
+#: server_privileges.php:1654
+#, fuzzy, php-format
 #| msgid "Privileges"
-msgid "Privileges for "
+msgid "Privileges for %s"
 msgstr "Privilegije"
 
-#: server_privileges.php:1681
+#: server_privileges.php:1682
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Pregled korisnika"
 
-#: server_privileges.php:1821 server_privileges.php:2039
-#: server_privileges.php:2387
+#: server_privileges.php:1822 server_privileges.php:2040
+#: server_privileges.php:2388
 msgid "Grant"
 msgstr "Omogući"
 
-#: server_privileges.php:1918
+#: server_privileges.php:1919
 msgid "Remove selected users"
 msgstr "Ukloni izabrane korisnike"
 
-#: server_privileges.php:1921
+#: server_privileges.php:1922
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Obustavi sve aktivne privilegije korisnika i zatim ih obriši."
 
-#: server_privileges.php:1922 server_privileges.php:1923
-#: server_privileges.php:1924
+#: server_privileges.php:1923 server_privileges.php:1924
+#: server_privileges.php:1925
 msgid "Drop the databases that have the same names as the users."
 msgstr "Odbaci baze koje se zovu isto kao korisnici."
 
-#: server_privileges.php:1945
+#: server_privileges.php:1946
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9593,89 +9593,89 @@ msgstr ""
 "server koristi ako su vršene ručne izmene. U tom slučaju %sponovo učitajte "
 "privilegije%s pre nego što nastavite."
 
-#: server_privileges.php:1998
+#: server_privileges.php:1999
 msgid "The selected user was not found in the privilege table."
 msgstr "Izabrani korisnik nije pronađen u tabeli privilegija."
 
-#: server_privileges.php:2040
+#: server_privileges.php:2041
 msgid "Column-specific privileges"
 msgstr "Privilegije vezane za kolone"
 
-#: server_privileges.php:2246
+#: server_privileges.php:2247
 msgid "Add privileges on the following database"
 msgstr "Dodaj privilegije na sledećoj bazi"
 
-#: server_privileges.php:2264
+#: server_privileges.php:2265
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Pre džokera _ i % treba staviti znak \\ ako ih koristite samostalno"
 
-#: server_privileges.php:2267
+#: server_privileges.php:2268
 msgid "Add privileges on the following table"
 msgstr "Dodaj privilegije na sledećoj tabeli"
 
-#: server_privileges.php:2324
+#: server_privileges.php:2325
 msgid "Change Login Information / Copy User"
 msgstr "Promeni informacije o prijavi / Kopiraj korisnika"
 
-#: server_privileges.php:2327
+#: server_privileges.php:2328
 msgid "Create a new user with the same privileges and ..."
 msgstr "Napravi novog korisnika sa istim privilegijama i ..."
 
-#: server_privileges.php:2329
+#: server_privileges.php:2330
 msgid "... keep the old one."
 msgstr "... sačuvaj stare."
 
-#: server_privileges.php:2330
+#: server_privileges.php:2331
 msgid "... delete the old one from the user tables."
 msgstr "... obriši stare iz tabela korisnika."
 
-#: server_privileges.php:2331
+#: server_privileges.php:2332
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr "... obustavi sve privilegije starog korisnika i zatim ga obriši."
 
-#: server_privileges.php:2332
+#: server_privileges.php:2333
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... obriši starog iz tabele korisnika i zatim ponovo učitaj privilegije."
 
-#: server_privileges.php:2355
+#: server_privileges.php:2356
 msgid "Database for user"
 msgstr "Baza za korisnika"
 
-#: server_privileges.php:2357
+#: server_privileges.php:2358
 msgid "Create database with same name and grant all privileges"
 msgstr "Napravi bazu sa istim imenom i dodaj sve privilegije"
 
-#: server_privileges.php:2359
+#: server_privileges.php:2360
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Daj sve privilegije na imenu sa džokerima (korisničko_ime\\_%)"
 
-#: server_privileges.php:2363
+#: server_privileges.php:2364
 #, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Proveri privilegije za bazu &quot;%s&quot;."
 
-#: server_privileges.php:2379
+#: server_privileges.php:2380
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Korisnici koji imaju pristup &quot;%s&quot;"
 
-#: server_privileges.php:2488
+#: server_privileges.php:2489
 msgid "global"
 msgstr "globalno"
 
-#: server_privileges.php:2490
+#: server_privileges.php:2491
 msgid "database-specific"
 msgstr "Specifično za bazu"
 
-#: server_privileges.php:2492
+#: server_privileges.php:2493
 msgid "wildcard"
 msgstr "džoker"
 
-#: server_privileges.php:2535
+#: server_privileges.php:2536
 #, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
