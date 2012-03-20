@@ -734,7 +734,7 @@ if ($cfg['ShowStats']) {
     $mergetable = PMA_Table::isMerge($GLOBALS['db'], $GLOBALS['table']);
 
     // this is to display for example 261.2 MiB instead of 268k KiB
-    $max_digits = 5;
+    $max_digits = 3;
     $decimals = 1;
     list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length'], $max_digits, $decimals);
     if ($mergetable == false) {
