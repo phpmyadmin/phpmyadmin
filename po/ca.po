@@ -5030,10 +5030,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Direcció de visualització per defecte"
+msgstr "Mostrar direcció de visualització"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
