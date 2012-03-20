@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:08+0100\n"
-"PO-Revision-Date: 2012-03-20 15:17+0200\n"
+"PO-Revision-Date: 2012-03-20 15:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9102,10 +9102,9 @@ msgid "Privileges for all users"
 msgstr "Oprávnění pro všechny uživatele"
 
 #: server_privileges.php:1653
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for "
-msgstr "Oprávnění"
+msgstr "Oprávnění pro "
 
 #: server_privileges.php:1681
 msgid "Users overview"
