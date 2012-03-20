@@ -10099,6 +10099,8 @@ msgstr "Počet skutečných zápisů bloku klíče na disk."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Procento skutečný zápisů v porovnání s požadavky na zápis (vypočítaná "
+"hodnota)"
 
 #: server_status.php:1379
 msgid ""
