@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 15:40+0200\n"
+"PO-Revision-Date: 2012-03-20 15:42+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -2646,10 +2646,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Usuari i/o clau erronis. Accés denegat."
 
 #: libraries/auth/signon.auth.lib.php:89
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Autenticació per configuració"
+msgstr "No es pot trobar l'script d'ordres d'inici de sessió d'autenticació:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
