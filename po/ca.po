@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:04+0200\n"
+"PO-Revision-Date: 2012-03-20 17:05+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -11180,10 +11180,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "La clau pot contenir lletres, numeros [em]i[/em] caràcters especials."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
-msgstr "No hi ha bases de dades"
+msgstr "Dades incorrectes"
 
 #: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:99
 #: tbl_zoom_select.php:158
