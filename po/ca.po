@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 16:41+0200\n"
+"PO-Revision-Date: 2012-03-20 16:42+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -8397,10 +8397,9 @@ msgid "More settings"
 msgstr "Més paràmetres"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Base de dades per usuari"
+msgstr "Servidor de base de dades"
 
 #: main.php:172
 msgid "Software"
