@@ -9701,7 +9701,7 @@ msgstr "Enllaços relacionats:"
 #: server_status.php:901
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "Execuar analitzador"
+msgstr "Executar analitzador"
 
 #: server_status.php:902
 #, fuzzy
