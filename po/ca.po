@@ -9276,10 +9276,9 @@ msgid "Privileges for %s"
 msgstr "Permisos"
 
 #: server_privileges.php:1682
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Informació general de l'usuari"
+msgstr "Vista global d'usuaris"
 
 #: server_privileges.php:1822 server_privileges.php:2040
 #: server_privileges.php:2388
