@@ -7646,10 +7646,10 @@ msgid "Add routine"
 msgstr "Afegir rutina"
 
 #: libraries/rte/rte_words.lib.php:20
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Predeterminats d'exportació"
+msgstr "Exportar la rutina %s"
 
 #: libraries/rte/rte_words.lib.php:21
 #, fuzzy
