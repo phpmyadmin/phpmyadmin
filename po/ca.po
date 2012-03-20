@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 15:23+0200\n"
+"PO-Revision-Date: 2012-03-20 15:24+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9067,7 +9067,7 @@ msgstr "Desar a l'emmagatzemament del navegador"
 
 #: prefs_manage.php:304
 msgid "Settings will be saved in your browser's local storage."
-msgstr "Els paràmetres es desaran al emmagatzemament local del teu navegador"
+msgstr "Els paràmetres es desaran al emmagatzemament local del teu navegador."
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
