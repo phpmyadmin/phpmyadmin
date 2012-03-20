@@ -8362,10 +8362,9 @@ msgid "Operator"
 msgstr "Operador"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Cerca"
+msgstr "Cerca de taules"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 #, fuzzy
