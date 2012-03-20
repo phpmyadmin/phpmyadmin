@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 15:38+0200\n"
+"PO-Revision-Date: 2012-03-20 15:39+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1204,7 +1204,6 @@ msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:78 libraries/common.lib.php:1452
-#, fuzzy
 msgid "."
 msgstr "."
 
