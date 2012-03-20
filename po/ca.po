@@ -5908,10 +5908,9 @@ msgid "%d is not valid row number."
 msgstr "%d no és un num. vàlid de fila."
 
 #: libraries/display_tbl.lib.php:428
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Files per a textareas"
+msgstr "Fila d'inici"
 
 #: libraries/display_tbl.lib.php:430
 #, fuzzy
