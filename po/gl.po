@@ -13724,7 +13724,7 @@ msgstr "Active a caché de fíos establecendo {thread_cache_size} > 0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr "A caché de fíos é 0."
+msgstr "A caché de fíos é 0"
 
 #: po/advisory_rules.php:210
 #, fuzzy, php-format
