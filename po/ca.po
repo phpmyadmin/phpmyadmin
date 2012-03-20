@@ -7513,10 +7513,9 @@ msgid "Return length/values"
 msgstr "Retornar Longitud/Valors"
 
 #: libraries/rte/rte_routines.lib.php:898
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Opcions de taula"
+msgstr "Retornar opcions"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
