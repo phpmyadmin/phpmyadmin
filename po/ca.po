@@ -7628,10 +7628,10 @@ msgid "Routine %1$s has been modified."
 msgstr "S'ha modificat la rutina %1$s."
 
 #: libraries/rte/rte_routines.lib.php:284
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "S'ha creat la taula %1$s."
+msgstr "S'ha creat la rutina %1$s."
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy
