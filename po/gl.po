@@ -2684,7 +2684,7 @@ msgstr "A base de datos non é válida"
 
 #: libraries/Table.class.php:1139 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr "Non se admite este nome de táboa."
+msgstr "Nome de táboa non válido"
 
 #: libraries/Table.class.php:1170
 #, php-format
