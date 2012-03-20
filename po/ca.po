@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:36+0200\n"
+"PO-Revision-Date: 2012-03-20 16:37+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7863,10 +7863,9 @@ msgid "No trigger with name %1$s found in database %2$s"
 msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "No hi ha disparadors per mostrar."
 
 #: libraries/rte/rte_words.lib.php:42
 #, fuzzy
