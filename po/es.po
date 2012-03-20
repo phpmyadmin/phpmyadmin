@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-14 20:03+0200\n"
+"PO-Revision-Date: 2012-03-20 17:30+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -9287,10 +9287,10 @@ msgid "Privileges for all users"
 msgstr "Privilegios para todos los usuarios"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilegios"
+msgstr "Privilegios para %s"
 
 #: server_privileges.php:1682
 msgid "Users overview"
