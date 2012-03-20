@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:30+0200\n"
+"PO-Revision-Date: 2012-03-20 17:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -10149,10 +10149,9 @@ msgstr ""
 "olması bir kerede en fazla blok sayısının kullanımda olmamasını gösterir."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Kullanılan açık dosya sınırları yüzdesi"
+msgstr "Kullanılan anahtar önbelleği yüzdesi (hesaplanmış değer)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
