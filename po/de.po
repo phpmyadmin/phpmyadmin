@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 12:27+0200\n"
+"PO-Revision-Date: 2012-03-20 12:28+0200\n"
 "Last-Translator: Philip Blatter <cihar@jamit.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -10792,10 +10792,9 @@ msgstr ""
 "auszuwählen und die gerneral_log nach der Überwachung wieder zu deaktivieren."
 
 #: server_status.php:1648
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "Skala entfernen"
+msgstr "Vordefiniertes Diagramm"
 
 #: server_status.php:1652
 msgid "Status variable(s)"
