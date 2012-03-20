@@ -10829,12 +10829,12 @@ msgid "Query analyzer"
 msgstr "Analitzador de consultes"
 
 #: server_status.php:1771
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "Segon"
-msgstr[1] "Segon"
+msgstr[1] "%d segons"
 
 #: server_status.php:1773
 #, fuzzy, php-format
