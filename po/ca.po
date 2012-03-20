@@ -1691,10 +1691,9 @@ msgid "Analyse Query"
 msgstr "Analitzar consulta"
 
 #: js/messages.php:218
+#, fuzzy
 msgid "Advisor system"
-msgstr ""
-"Ha fallat la creació de la graella del gràfic amb la configuració importada. "
-"Restablint la configuració per defecte..."
+msgstr "Assessor del sistema"
 
 #: js/messages.php:219
 msgid "Possible performance issues"
