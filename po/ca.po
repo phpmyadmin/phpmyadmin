@@ -9829,10 +9829,9 @@ msgid "Containing the word:"
 msgstr "Incloent la paraula:"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Mostra taules obertes"
+msgstr "Mostra només valors d'alerta"
 
 #: server_status.php:850
 msgid "Filter by category..."
