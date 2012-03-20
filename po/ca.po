@@ -6695,10 +6695,10 @@ msgid "Go to database: %s"
 msgstr "Anar a la base de dades %s"
 
 #: libraries/import.lib.php:1149 libraries/import.lib.php:1174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Falten dades a %s"
+msgstr "Editar configuració de %s"
 
 #: libraries/import.lib.php:1169
 #, fuzzy, php-format
