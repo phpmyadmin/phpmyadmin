@@ -821,7 +821,7 @@ msgstr "Valors per la columna %s"
 
 #: enum_editor.php:34 js/messages.php:269
 msgid "Enter each value in a separate field"
-msgstr "Entra cada valor en un camp separat."
+msgstr "Entra cada valor en un camp separat"
 
 #: enum_editor.php:123
 msgid "Add a value"
