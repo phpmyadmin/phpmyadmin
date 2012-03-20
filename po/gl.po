@@ -6141,7 +6141,7 @@ msgstr "Conxunto de caracteres"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr "Binario "
+msgstr "Binario"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
