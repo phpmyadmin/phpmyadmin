@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:15+0200\n"
+"PO-Revision-Date: 2012-03-20 17:16+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -11910,10 +11910,9 @@ msgid "Use this column to label each point"
 msgstr ""
 
 #: tbl_zoom_select.php:314
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Màxim nombre de files a mostrar"
+msgstr "Màxim nombre de files a dibuixar"
 
 #: tbl_zoom_select.php:428
 msgid "Browse/Edit the points"
