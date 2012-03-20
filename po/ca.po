@@ -11365,10 +11365,9 @@ msgid "View dump (schema) of table"
 msgstr "Veure un bolcat (esquema) de la taula"
 
 #: tbl_gis_visualization.php:112
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Mostra la tría de servidors"
+msgstr "Mostra visualització GIS"
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
