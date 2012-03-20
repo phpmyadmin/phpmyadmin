@@ -10894,10 +10894,9 @@ msgid "Insecure connection"
 msgstr "Connexió insegura"
 
 #: setup/frames/index.inc.php:94
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Infraestructura de taules enllaçades"
+msgstr "Configuració desada."
 
 #: setup/frames/index.inc.php:95
 msgid ""
