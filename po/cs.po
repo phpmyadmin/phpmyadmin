@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:08+0100\n"
-"PO-Revision-Date: 2012-03-14 17:29+0200\n"
+"PO-Revision-Date: 2012-03-20 15:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -12407,8 +12407,8 @@ msgstr ""
 "dočasné tabulky jsou však zapisovány na disk bez ohledu na tato nastavení. "
 "Jich se můžete zbavit jen přepsáním dotazů a obejitím těchto podmínek "
 "(přítomnost polí BLOB, TEXT nebo jiných větších než 512 bajtů). Podrobněji "
-"je tato problematika popsána na začátku <a href=\"http://www.facebook.com/"
-"note.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>."
+"je tato problematika popsána na začátku <a href=\"http://www.facebook.com/not"
+"e.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
