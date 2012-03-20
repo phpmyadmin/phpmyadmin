@@ -12478,7 +12478,7 @@ msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Využití vyrovnávací paměti klíčů MyISAM je příliš nízké."
+msgstr "Využití vyrovnávací paměti klíčů MyISAM je příliš nízké %%."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
