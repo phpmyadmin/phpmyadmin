@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:05+0200\n"
+"PO-Revision-Date: 2012-03-20 17:06+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -11296,11 +11296,10 @@ msgid "Line"
 msgstr "Línia"
 
 #: tbl_chart.php:95
-#, fuzzy
 #| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "En línia"
+msgstr "Ranures"
 
 #: tbl_chart.php:97
 #, fuzzy
