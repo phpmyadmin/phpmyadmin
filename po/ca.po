@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 17:17+0200\n"
+"PO-Revision-Date: 2012-03-20 17:19+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -12130,10 +12130,9 @@ msgid "Current amount of Questions: %s"
 msgstr "Quantitat actual de consultes: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Mostra consultes SQL"
+msgstr "Percentatge de consultes lentes"
 
 #: po/advisory_rules.php:16
 msgid ""
