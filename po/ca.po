@@ -7494,10 +7494,9 @@ msgid "Length/Values"
 msgstr "Longitud/Valors*"
 
 #: libraries/rte/rte_routines.lib.php:877
-#, fuzzy
 #| msgid "Add index"
 msgid "Add parameter"
-msgstr "Afegir índex"
+msgstr "Afegir paràmetre"
 
 #: libraries/rte/rte_routines.lib.php:881
 #, fuzzy
