@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 15:18+0100\n"
-"PO-Revision-Date: 2012-03-20 17:10+0200\n"
+"PO-Revision-Date: 2012-03-20 17:11+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -11423,10 +11423,9 @@ msgid "Add index"
 msgstr "Afegir índex"
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "Mode d'edició"
+msgstr "Editar índex"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
