@@ -10057,7 +10057,7 @@ msgstr "Ver o esquema do volcado da táboa"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "O nome da chave primaria debe ser... PRIMARIA"
+msgstr "O nome da chave primaria debe ser... «PRIMARY»!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
