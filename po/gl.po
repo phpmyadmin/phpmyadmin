@@ -654,7 +654,7 @@ msgstr "%s é o motor de almacenamento predefinido neste servidor de MySQL."
 #: server_databases.php:268 server_privileges.php:1760 tbl_structure.php:557
 #: tbl_structure.php:566
 msgid "With selected:"
-msgstr "Todos os marcados"
+msgstr "Cos marcados:"
 
 #: db_structure.php:564 libraries/display_tbl.lib.php:2493
 #: server_databases.php:265 server_privileges.php:684
