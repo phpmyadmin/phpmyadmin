@@ -11030,8 +11030,8 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"Número de unións de chaves que comproban a utilización de chaves despois de "
-"cada fileira (se non for 0, debería comprobar con atención os índices das "
+"Número de unións sen chaves que comproban a utilización de chaves despois de "
+"cada fila (se non é 0, debería comprobar con atención os índices das "
 "táboas)."
 
 #: server_status.php:1395
