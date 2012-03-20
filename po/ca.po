@@ -10707,7 +10707,7 @@ msgstr "Analitzador de consultes"
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Segon"
+msgstr[0] "%d segon"
 msgstr[1] "%d segons"
 
 #: server_status.php:1783
