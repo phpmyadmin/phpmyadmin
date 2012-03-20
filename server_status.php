@@ -1369,10 +1369,13 @@ function printVariablesTable()
         'Key_blocks_not_flushed' => __('The number of key blocks in the key cache that have changed but haven\'t yet been flushed to disk. It used to be known as Not_flushed_key_blocks.'),
         'Key_blocks_unused' => __('The number of unused blocks in the key cache. You can use this value to determine how much of the key cache is in use.'),
         'Key_blocks_used' => __('The number of used blocks in the key cache. This value is a high-water mark that indicates the maximum number of blocks that have ever been in use at one time.'),
+        'Key_buffer_fraction_%' => __('Percentage of used key cache (calculated value)'),
         'Key_read_requests' => __('The number of requests to read a key block from the cache.'),
         'Key_reads' => __('The number of physical reads of a key block from disk. If Key_reads is big, then your key_buffer_size value is probably too small. The cache miss rate can be calculated as Key_reads/Key_read_requests.'),
+        'Key_read_ratio_%' => __('Key cache miss calculated as rate of physical reads compared to read requests (calculated value)'),
         'Key_write_requests' => __('The number of requests to write a key block to the cache.'),
         'Key_writes' => __('The number of physical writes of a key block to disk.'),
+        'Key_write_ratio_%' => __('Percentage of physical writes compared to write requests (calculated value)'),
         'Last_query_cost' => __('The total cost of the last compiled query as computed by the query optimizer. Useful for comparing the cost of different query plans for the same query. The default value of 0 means that no query has been compiled yet.'),
         'Max_used_connections' => __('The maximum number of connections that have been in use simultaneously since the server started.'),
         'Not_flushed_delayed_rows' => __('The number of rows waiting to be written in INSERT DELAYED queues.'),
@@ -1408,6 +1411,7 @@ function printVariablesTable()
         'Threads_cached' => __('The number of threads in the thread cache. The cache hit rate can be calculated as Threads_created/Connections. If this value is red you should raise your thread_cache_size.'),
         'Threads_connected' => __('The number of currently open connections.'),
         'Threads_created' => __('The number of threads created to handle connections. If Threads_created is big, you may want to increase the thread_cache_size value. (Normally this doesn\'t give a notable performance improvement if you have a good thread implementation.)'),
+        'Threads_cache_hitrate_%' => __('Thread cache hit rate (calculated value)'),
         'Threads_running' => __('The number of threads that are not sleeping.')
     );
 
@@ -1485,7 +1489,13 @@ function printVariablesTable()
             $odd_row = !$odd_row;
 ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_' . $allocationMap[$name]:''; ?>">
-            <th class="name"><?php echo htmlspecialchars(str_replace('_', ' ', $name)) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
+            <th class="name"><?php
+            echo htmlspecialchars(str_replace('_', ' ', $name));
+            /* Fields containing % are calculated, they can not be described in MySQL documentation */
+            if (strpos($name, '%') === FALSE) {
+                 echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name);
+            }
+            ?>
             </th>
             <td class="value"><span class="formatted"><?php
             if (isset($alerts[$name])) {
