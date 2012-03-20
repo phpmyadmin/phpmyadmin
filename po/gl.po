@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-20 03:23+0200\n"
+"PO-Revision-Date: 2012-03-20 03:24+0200\n"
 "Last-Translator: frandieguez <fran.dieguez@mabishu.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -9889,7 +9889,7 @@ msgstr "Eliminar a referencia ao repositorio BLOB"
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr "Binario - non editar "
+msgstr "Binario - non editar"
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
