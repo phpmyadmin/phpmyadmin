@@ -6869,10 +6869,10 @@ msgid "Go to database: %s"
 msgstr "Anar a la base de dades %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Falten dades a %s"
+msgstr "Editar configuració de %s"
 
 #: libraries/import.lib.php:1127
 #, fuzzy, php-format
