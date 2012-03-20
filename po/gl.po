@@ -1219,8 +1219,9 @@ msgstr ""
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/common.lib.php:1480
+#, fuzzy
 msgid ","
-msgstr "."
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/common.lib.php:1482
