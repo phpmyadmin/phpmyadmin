@@ -10677,10 +10677,9 @@ msgid "Log statistics"
 msgstr "Estadístiques del registre"
 
 #: server_status.php:1719
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Selecciona la pàgina"
+msgstr "Rang de temps seleccionat:"
 
 #: server_status.php:1724
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
