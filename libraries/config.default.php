@@ -1731,6 +1731,13 @@ $cfg['Export']['sql_relation'] = false;
 /**
  *
  *
+ * @global boolean $cfg['Export']['sql_truncate']
+ */
+$cfg['Export']['sql_truncate'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['sql_delayed']
  */
 $cfg['Export']['sql_delayed'] = false;

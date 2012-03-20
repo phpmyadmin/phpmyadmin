@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 + Patch #3498201 Contest-6: Export all privileges
 + Patch #3502814 for rfe #3187077 Change password buttons should match
 + rfe #3488640 Expand table-group in non-light navigation frame if only one
++ Patch #3509360 Contest-3: Option "Truncate table" before "insert"
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
