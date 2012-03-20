@@ -6713,10 +6713,10 @@ msgid "Structure of %s"
 msgstr "Estructura de %s"
 
 #: libraries/import.lib.php:1180
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Vés a la vista"
+msgstr "Anar a la vista: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
