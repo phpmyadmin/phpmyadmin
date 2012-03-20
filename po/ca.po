@@ -10930,9 +10930,8 @@ msgstr ""
 "La base de dades destinació s'ha sincronitzat amb la base de dades origen"
 
 #: server_synchronize.php:1046
-#, fuzzy
 msgid "Executed queries"
-msgstr "Consultes SQL"
+msgstr "Consultes executades"
 
 #: server_synchronize.php:1202
 msgid "Enter manually"
