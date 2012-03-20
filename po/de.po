@@ -1279,7 +1279,7 @@ msgstr "Abfragen-Zwischenspeicher Effizienz"
 
 #: js/messages.php:98
 msgid "Query cache usage"
-msgstr "Abfragen-Zwischenspeicher Ausnutzung"
+msgstr "Abfragen-Zwischenspeichernutzung"
 
 #: js/messages.php:99
 msgid "Query cache used"
