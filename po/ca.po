@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:56+0200\n"
+"PO-Revision-Date: 2012-03-20 16:57+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -10758,10 +10758,9 @@ msgid "Status variable(s)"
 msgstr "Variable(s) d'estat"
 
 #: server_status.php:1654
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Tria Taules"
+msgstr "Seleccionar series:"
 
 #: server_status.php:1656
 msgid "Commonly monitored"
