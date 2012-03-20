@@ -11815,10 +11815,9 @@ msgid "Delete tracking data row from report"
 msgstr "Esborra les dades de seguiment de l'informe"
 
 #: tbl_tracking.php:461
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "No hi ha bases de dades"
+msgstr "No hi ha dades"
 
 #: tbl_tracking.php:471 tbl_tracking.php:528
 msgid "Date"
