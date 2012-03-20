@@ -10392,10 +10392,9 @@ msgstr ""
 "ne izboljša zmogljivosti v veliki meri, če imate dobro izvedbo niti.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "%% deleža zadetkov predpomnilnika niti"
+msgstr "Delež zadetkov predpomnilnika niti (izračunana vrednost)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
