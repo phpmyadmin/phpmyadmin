@@ -5854,10 +5854,9 @@ msgid "Number of rows"
 msgstr "Nombre de files"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Més"
+msgstr "Mode"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal"
