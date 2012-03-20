@@ -4940,7 +4940,7 @@ msgid ""
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
 "Deixa en blanc per desactivar la \"persistència\" de preferències d'interfase "
-"de taules entre sessions, suggerit: [kbd]pma_config[/kbd]"
+"de taules entre sessions, suggerit: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 #, fuzzy
