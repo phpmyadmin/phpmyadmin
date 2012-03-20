@@ -1150,7 +1150,7 @@ msgstr "O contrasinal está vacío!"
 
 #: js/messages.php:54 server_privileges.php:1350 user_password.php:53
 msgid "The passwords aren't the same!"
-msgstr "Os contrasinais non son os mesmos."
+msgstr "Os contrasinais non son iguais!"
 
 #: js/messages.php:55 server_privileges.php:1841 server_privileges.php:1865
 #: server_privileges.php:2277 server_privileges.php:2471
