@@ -11312,10 +11312,9 @@ msgid "Stacked"
 msgstr "Apilat"
 
 #: tbl_chart.php:103
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Títol de llistat:"
+msgstr "Títol del gràfic"
 
 #: tbl_chart.php:109
 msgid "X-Axis:"
