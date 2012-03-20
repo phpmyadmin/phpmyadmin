@@ -8546,10 +8546,9 @@ msgid "General Settings"
 msgstr "Paràmetres Generals"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Ordenació de la connexió MySQL"
+msgstr "Ordenació de la connexió del servidor"
 
 #: main.php:124
 msgid "Appearance Settings"
