@@ -222,7 +222,8 @@ if (isset($plugin_list)) {
             'text' => __('Data dump options'),
             'force' => 'structure'
             );
-
+		 $plugin_list['sql']['options'][] =
+            array('type' => 'bool', 'name' => 'truncate', 'text' => __('truncate - truncate table before insert'));	
         /* begin SQL statements */
         $plugin_list['sql']['options'][] = array(
             'type' => 'begin_subgroup',
@@ -1176,7 +1177,19 @@ if (isset($plugin_list)) {
                 if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'INSERT' && isset($GLOBALS['sql_ignore'])) {
                     $insert_delayed .= ' IGNORE';
                 }
-
+					//truncate table before insert
+			if($GLOBALS['sql_truncate'] &&  $sql_command    == 'INSERT'){
+				$truncate = 'TRUNCATE TABLE '.PMA_backquote($table, $sql_backquotes).";";
+				$truncatehead = PMA_possibleCRLF()
+                      . PMA_exportComment()
+                      . PMA_exportComment(__('Truncate table before insert') . ' ' . $formatted_table_name)
+                      . PMA_exportComment()
+                      . $crlf;
+			PMA_exportOutputHandler($truncatehead);
+			PMA_exportOutputHandler($truncate);
+			}
+			else 
+				$truncate='';
                 // scheme for inserting fields
                 if ($GLOBALS['sql_insert_syntax'] == 'complete' || $GLOBALS['sql_insert_syntax'] == 'both') {
                     $fields        = implode(', ', $field_set);
