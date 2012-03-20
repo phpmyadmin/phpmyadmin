@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 15:24+0200\n"
+"PO-Revision-Date: 2012-03-20 15:25+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -1062,7 +1062,7 @@ msgstr "Instrucció \"DROP DATABASE\" desactivada."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:354
 msgid "Do you really want to "
-msgstr "Realment vols fer"
+msgstr "Realment vols fer "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:339
 msgid "You are about to DESTROY a complete database!"
