@@ -2505,7 +2505,7 @@ msgstr "Aquest servidor MySQL no suporta el motor d'emmagatzematge %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "Estat de taula desconegut"
+msgstr "Estat de taula desconegut "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
