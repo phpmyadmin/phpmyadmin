@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 16:57+0200\n"
+"PO-Revision-Date: 2012-03-20 16:58+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -10784,10 +10784,9 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1690
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "Afegir un nou servidor"
+msgstr "Afegir aquesta serie"
 
 #: server_status.php:1692
 msgid "Clear series"
