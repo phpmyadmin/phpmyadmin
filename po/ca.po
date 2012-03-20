@@ -9694,10 +9694,9 @@ msgid "Show unformatted values"
 msgstr "Mostra valors sense format"
 
 #: server_status.php:868
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Enllaços relacionats"
+msgstr "Enllaços relacionats:"
 
 #: server_status.php:901
 #, fuzzy
