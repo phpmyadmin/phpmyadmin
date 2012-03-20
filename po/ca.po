@@ -7678,10 +7678,10 @@ msgid "Add trigger"
 msgstr "Afegir disparador"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Exporta contingut"
+msgstr "Exportar disparador %s"
 
 #: libraries/rte/rte_words.lib.php:33
 #, fuzzy
