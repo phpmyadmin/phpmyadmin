@@ -7804,10 +7804,9 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:18
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Afegir índex"
+msgstr "Afegir rutina"
 
 #: libraries/rte/rte_words.lib.php:20
 #, fuzzy, php-format
