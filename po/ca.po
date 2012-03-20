@@ -1147,7 +1147,7 @@ msgstr "Tria la columna a mostrar"
 
 #: js/messages.php:107
 msgid "Add an option for column "
-msgstr "Afegeix una opció per a la columna"
+msgstr "Afegeix una opció per a la columna "
 
 #: js/messages.php:110
 msgid "Generate password"
