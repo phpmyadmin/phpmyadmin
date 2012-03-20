@@ -11388,10 +11388,9 @@ msgid "-- None --"
 msgstr "-- cap --"
 
 #: tbl_gis_visualization.php:151
-#, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
-msgstr "Comptador de l'arxiu de registre"
+msgstr "Columna espacial"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
