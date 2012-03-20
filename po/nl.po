@@ -10224,10 +10224,9 @@ msgstr ""
 "behaalde waarde sinds het starten van de server."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Limietpercentage voor geopende bestanden die in gebruik zijn"
+msgstr "Percentage van de gebruikte sleutel cache (berekende waarde)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
