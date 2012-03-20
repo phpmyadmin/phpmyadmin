@@ -5124,10 +5124,9 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "Mostra graella"
+msgstr "Mostra ajudes"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
