@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-20 15:26+0200\n"
+"PO-Revision-Date: 2012-03-20 15:29+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -9380,7 +9380,7 @@ msgstr "Treure Referència a Repositori BLOB"
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr " Binari - no editeu "
+msgstr "Binari - no editeu"
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
