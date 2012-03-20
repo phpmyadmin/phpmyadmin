@@ -9653,10 +9653,9 @@ msgid "Runtime Information"
 msgstr "Informació d'execució"
 
 #: server_status.php:786
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Veure la taula d'estat de l'esclau"
+msgstr "Totes les variables d'estat"
 
 #: server_status.php:787
 msgid "Monitor"
