@@ -7994,7 +7994,7 @@ msgstr "Permite gravar datos."
 #: server_privileges.php:61 server_privileges.php:203
 #: server_privileges.php:561
 msgid "Gives access to the complete list of databases."
-msgstr "Permite acceder á listaxe completa de bases de datos"
+msgstr "Permite acceder á lista completa de bases de datos."
 
 #: server_privileges.php:62 server_privileges.php:214
 #: server_privileges.php:216 server_privileges.php:533
