@@ -11738,7 +11738,7 @@ msgstr "Tamany de fila"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Mida de fila "
+msgstr "Mida de fila"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
