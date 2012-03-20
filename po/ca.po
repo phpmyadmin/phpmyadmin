@@ -9853,9 +9853,8 @@ msgid "Run analyzer"
 msgstr "Executar analitzador"
 
 #: server_status.php:902
-#, fuzzy
 msgid "Instructions"
-msgstr "Informació"
+msgstr "Instruccions"
 
 #: server_status.php:909
 msgid ""
