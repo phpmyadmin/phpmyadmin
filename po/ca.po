@@ -2767,7 +2767,7 @@ msgstr "Configura les opcions predeterminades"
 #: libraries/config/user_preferences.forms.php:207 libraries/export/csv.php:16
 #: libraries/import/csv.php:21
 msgid "CSV"
-msgstr "CSV "
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:158
 msgid "Developer"
