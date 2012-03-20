@@ -2962,7 +2962,7 @@ msgid ""
 "configuration file!"
 msgstr ""
 "A directiva <code>$cfg['PmaAbsoluteUri']</code> DEBE estar asignada no seu "
-"ficheiro de configuración."
+"ficheiro de configuración!"
 
 #: libraries/common.inc.php:647
 #, fuzzy, php-format
