@@ -9668,7 +9668,7 @@ msgstr ""
 #: server_status.php:798 server_status.php:820
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Velocitat de refresc:"
+msgstr "Velocitat de refresc: "
 
 #: server_status.php:833 server_variables.php:115
 #, fuzzy
