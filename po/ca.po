@@ -12232,7 +12232,7 @@ msgstr "Versió actual: %s"
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Versió menor:"
+msgstr "Versió menor"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
