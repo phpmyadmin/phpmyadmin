@@ -6658,7 +6658,7 @@ msgstr ""
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
-"Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») :"
+"Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») : "
 
 #: libraries/export/sql.php:50
 msgid ""
