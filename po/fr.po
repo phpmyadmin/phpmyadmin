@@ -4631,7 +4631,7 @@ msgstr "Diriger la sortie vers un fichier"
 
 #: libraries/display_export.lib.php:220
 msgid "File name template:"
-msgstr "Modèle de nom de fichier:"
+msgstr "Modèle de nom de fichier : "
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
