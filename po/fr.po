@@ -5414,7 +5414,7 @@ msgstr "Colonnes entourées par : "
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
 msgid "Columns escaped with:"
-msgstr "Caractère d'échappement :"
+msgstr "Caractère d'échappement : "
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
 msgid "Lines terminated with:"
