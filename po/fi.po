@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 22:52+0200\n"
+"PO-Revision-Date: 2012-03-21 22:57+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1119,10 +1119,10 @@ msgid "Edit Index"
 msgstr "Muokkaa indeksiä"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Lisää sarake/sarakkeita"
+msgstr "Lisää indeksiin %d kolumni(a)"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
