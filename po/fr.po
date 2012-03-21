@@ -9229,10 +9229,10 @@ msgid "Privileges for all users"
 msgstr "Privilèges pour tous les utilisateurs"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilèges"
+msgstr "Privilèges pour %s"
 
 #: server_privileges.php:1682
 msgid "Users overview"
