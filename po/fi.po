@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 23:44+0200\n"
+"PO-Revision-Date: 2012-03-21 23:45+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1583,7 +1583,7 @@ msgstr ""
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Lokin tiedot on ladattu. Kyselyt suoritetaan tällä aikajänteellä:"
 
 #: js/messages.php:182
 #, fuzzy
