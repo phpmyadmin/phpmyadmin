@@ -12837,6 +12837,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% όλων των προσωρινών αρχείων εγγράφονται στο δίσκο, αυτή η τιμή πρέπει "
+"να είναι κάτω από 25%%"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
