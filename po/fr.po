@@ -10570,7 +10570,7 @@ msgstr ""
 
 #: server_status.php:1633
 msgid "Using the monitor:"
-msgstr "Utilisation de la surveillance :"
+msgstr "Utilisation de la surveillance : "
 
 #: server_status.php:1635
 msgid ""
