@@ -6895,7 +6895,7 @@ msgstr "Aucun fichier présent dans l'archive ZIP !"
 #: libraries/zip_extension.lib.php:48 libraries/zip_extension.lib.php:50
 #: libraries/zip_extension.lib.php:65
 msgid "Error in ZIP archive:"
-msgstr "Erreur rencontrée dans l'archive ZIP :"
+msgstr "Erreur rencontrée dans l'archive ZIP : "
 
 #: main.php:65
 msgid "General Settings"
