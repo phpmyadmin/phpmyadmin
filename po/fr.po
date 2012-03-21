@@ -9632,7 +9632,7 @@ msgstr "On ne peut déplacer la table sur elle-même !"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "On ne peut copier la table sur elle-même!"
+msgstr "On ne peut copier la table sur elle-même !"
 
 #: tbl_move_copy.php:54
 #, php-format
