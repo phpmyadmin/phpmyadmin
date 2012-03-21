@@ -10622,7 +10622,7 @@ msgstr "Variables d'état"
 
 #: server_status.php:1664
 msgid "Select series:"
-msgstr "Choisissez les séries :"
+msgstr "Choisissez les séries : "
 
 #: server_status.php:1666
 msgid "Commonly monitored"
