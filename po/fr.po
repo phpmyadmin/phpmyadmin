@@ -8771,7 +8771,7 @@ msgstr ""
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
-msgstr "Les paramètres existants seront écrasés!"
+msgstr "Les paramètres existants seront écrasés !"
 
 #: prefs_manage.php:321
 msgid "You can reset all your settings and restore them to default values."
