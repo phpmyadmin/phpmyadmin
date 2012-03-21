@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 21:41+0200\n"
+"PO-Revision-Date: 2012-03-21 21:42+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -5046,7 +5046,7 @@ msgstr "lauseessa"
 
 #: libraries/display_tbl.lib.php:2086
 msgid "Showing rows"
-msgstr "Näkyvillä rivit "
+msgstr "Näkyvillä rivit"
 
 #: libraries/display_tbl.lib.php:2096
 msgid "total"
