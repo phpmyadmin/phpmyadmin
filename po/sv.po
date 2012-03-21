@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 20:52+0200\n"
+"PO-Revision-Date: 2012-03-21 20:53+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12399,7 +12399,7 @@ msgstr ""
 
 #: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Andelen sorter som orsakar temporära tabeller."
+msgstr "Andelen sorter som orsakar temporära tabeller"
 
 #: po/advisory_rules.php:118
 #, php-format
