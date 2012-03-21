@@ -2460,7 +2460,7 @@ msgstr[1] "%1$d lignes insérées."
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
-msgstr "Erreur pendant la création du PDF: "
+msgstr "Erreur pendant la création du PDF : "
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
