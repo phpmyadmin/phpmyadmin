@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 17:44+0200\n"
+"PO-Revision-Date: 2012-03-21 17:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6712,7 +6712,7 @@ msgstr "Fonction à utiliser lors de l'exportation des données : "
 
 #: libraries/export/sql.php:268
 msgid "Syntax to use when inserting data:"
-msgstr "Syntaxe à utiliser lors de l'insertion de données :"
+msgstr "Syntaxe à utiliser lors de l'insertion de données : "
 
 #: libraries/export/sql.php:274
 msgid ""
