@@ -8905,7 +8905,7 @@ msgstr ""
 
 #: prefs_manage.php:252
 msgid "You have no saved settings!"
-msgstr "Vous n'avez pas sauvegardé les paramètres!"
+msgstr "Vous n'avez pas sauvegardé les paramètres !"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
