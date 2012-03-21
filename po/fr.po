@@ -12938,7 +12938,7 @@ msgstr ""
 #: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
-msgstr "Pourcentage de verrouillage de tables"
+msgstr "%% de verrouillage de tables"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
