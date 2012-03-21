@@ -6677,7 +6677,7 @@ msgstr "Aucune"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
-msgstr "Tel que défini :"
+msgstr "Tel que défini : "
 
 #: libraries/tbl_properties.inc.php:516 tbl_structure.php:153
 #: tbl_structure.php:157 tbl_structure.php:570
