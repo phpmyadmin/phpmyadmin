@@ -12254,7 +12254,7 @@ msgstr "Query cache werkt niet efficiënt, het wordt weinig gebruikt."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Overweeg om {query_cache_limit} te verhogen."
 
 #: po/advisory_rules.php:83
 #, php-format
