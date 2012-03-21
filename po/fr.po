@@ -6530,7 +6530,7 @@ msgstr "Colonnes entourées par : "
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
-msgstr "Caractère d'échappement :"
+msgstr "Caractère d'échappement : "
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
