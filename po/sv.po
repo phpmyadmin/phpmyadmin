@@ -12386,7 +12386,7 @@ msgid ""
 "on your system memory limits"
 msgstr ""
 "Överväg att öka sort_buffer_size och/eller read_rnd_buffer_size, beroende på "
-"ditt systems minnesbegränsning."
+"ditt systems minnesbegränsning"
 
 #: po/advisory_rules.php:113
 #, php-format
