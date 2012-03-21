@@ -12810,7 +12810,7 @@ msgstr "Ποσοστό προσωρινών πινάκων στο δίσκο"
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
-msgstr ""
+msgstr "Πολλοί προσωρινοί πίνακες εγγράφονται στο δίσκό αντί για τη μνήμη."
 
 #: po/advisory_rules.php:152
 msgid ""
