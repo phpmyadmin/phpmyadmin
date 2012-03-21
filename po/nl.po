@@ -12373,6 +12373,10 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Er is meer dan 3Gib geheugen beschikbaar (aangenomen dat de server op "
+"localhost draait), dit betekend dat MySQL waarschijnlijk geen toegang heeft "
+"tot al het geheugen. Je zou kunnen overwegen om de 64-bit versie van MySQL "
+"te installeren."
 
 #: po/advisory_rules.php:68
 #, php-format
