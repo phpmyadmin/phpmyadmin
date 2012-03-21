@@ -12822,7 +12822,7 @@ msgstr "Andel trådad cache %%"
 
 #: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
-msgstr "Trådad cache är inte effektivt"
+msgstr "Trådad cache är inte effektiv."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
