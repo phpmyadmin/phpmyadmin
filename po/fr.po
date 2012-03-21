@@ -1576,7 +1576,7 @@ msgstr "Moment"
 
 #: js/messages.php:185
 msgid "Total time:"
-msgstr "Temps total :"
+msgstr "Temps total : "
 
 #: js/messages.php:186
 msgid "Profiling results"
