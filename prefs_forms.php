@@ -9,14 +9,14 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/user_preferences.lib.php';
-require_once './libraries/config/config_functions.lib.php';
-require_once './libraries/config/messages.inc.php';
-require_once './libraries/config/ConfigFile.class.php';
-require_once './libraries/config/Form.class.php';
-require_once './libraries/config/FormDisplay.class.php';
-require './libraries/config/user_preferences.forms.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/user_preferences.lib.php';
+require_once 'libraries/config/config_functions.lib.php';
+require_once 'libraries/config/messages.inc.php';
+require_once 'libraries/config/ConfigFile.class.php';
+require_once 'libraries/config/Form.class.php';
+require_once 'libraries/config/FormDisplay.class.php';
+require 'libraries/config/user_preferences.forms.php';
 
 PMA_userprefs_pageinit();
 
@@ -66,8 +66,8 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
 
 // display forms
 $GLOBALS['js_include'][] = 'config.js';
-require './libraries/header.inc.php';
-require './libraries/user_preferences.inc.php';
+require 'libraries/header.inc.php';
+require 'libraries/user_preferences.inc.php';
 if ($error) {
     $error->display();
 }
@@ -85,5 +85,5 @@ $form_display->display(true, true);
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

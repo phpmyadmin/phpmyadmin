@@ -9,9 +9,9 @@
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/Index.class.php';
-require_once './libraries/tbl_common.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/Index.class.php';
+require_once 'libraries/tbl_common.php';
 
 // Get fields and stores their name/type
 $fields = array();
@@ -105,7 +105,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $active_page = 'tbl_structure.php';
-        include './tbl_structure.php';
+        include 'tbl_structure.php';
         exit;
     } else {
         if ( $GLOBALS['is_ajax_request'] == true) {
@@ -123,9 +123,9 @@ if (isset($_REQUEST['do_save_data'])) {
 
 // Displays headers (if needed)
 $GLOBALS['js_include'][] = 'indexes.js';
-require_once './libraries/tbl_info.inc.php';
+require_once 'libraries/tbl_info.inc.php';
 if ($GLOBALS['is_ajax_request'] != true) {
-    include_once './libraries/tbl_links.inc.php';
+    include_once 'libraries/tbl_links.inc.php';
 }
 
 if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
@@ -144,7 +144,7 @@ if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
 // end preparing form values
 ?>
 
-<form action="./tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>
+<form action="tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>
     onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') {
         this.elements['index[Key_name]'].disabled = false}">
 <?php
@@ -304,5 +304,5 @@ echo '<input type="submit" name="add_fields" value="' . __('Go') . '" />' . "\n"
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

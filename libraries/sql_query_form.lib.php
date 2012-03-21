@@ -245,9 +245,9 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         $sqlquerycontainer_id = 'sqlquerycontainerfull';
     }
 
-    echo '<a name="querybox"></a>' . "\n"
+    echo '<a id="querybox"></a>' . "\n"
         .'<div id="queryboxcontainer">' . "\n"
-        .'<fieldset id="querybox">' . "\n";
+        .'<fieldset id="queryboxf">' . "\n";
     echo '<legend>' . $legend . '</legend>' . "\n";
     echo '<div id="queryfieldscontainer">' . "\n";
     echo '<div id="' . $sqlquerycontainer_id . '">' . "\n"
@@ -258,13 +258,13 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
     // Add buttons to generate query easily for select all,single select,insert,update and delete
     if (count($fields_list)) {
-        echo '<input type="button" value="SELECT *" id="selectall" class="sqlbutton" />';
-        echo '<input type="button" value="SELECT" id="select" class="sqlbutton" />';
-        echo '<input type="button" value="INSERT" id="insert" class="sqlbutton" />';
-        echo '<input type="button" value="UPDATE" id="update" class="sqlbutton" />';
-        echo '<input type="button" value="DELETE" id="delete" class="sqlbutton" />';
+        echo '<input type="button" value="SELECT *" id="selectall" class="button sqlbutton" />';
+        echo '<input type="button" value="SELECT" id="select" class="button sqlbutton" />';
+        echo '<input type="button" value="INSERT" id="insert" class="button sqlbutton" />';
+        echo '<input type="button" value="UPDATE" id="update" class="button sqlbutton" />';
+        echo '<input type="button" value="DELETE" id="delete" class="button sqlbutton" />';
     }
-    echo '<input type="button" value="' . __('Clear') . '" id="clear" class="sqlbutton" />';
+    echo '<input type="button" value="' . __('Clear') . '" id="clear" class="button sqlbutton" />';
     echo '</div>' . "\n";
 
     if (count($fields_list)) {
@@ -284,11 +284,11 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         echo '</select>' . "\n"
             .'<div id="tablefieldinsertbuttoncontainer">' . "\n";
         if ($GLOBALS['cfg']['PropertiesIconic']) {
-            echo '<input type="button" name="insert" value="&lt;&lt;"'
+            echo '<input type="button" class="button" name="insert" value="&lt;&lt;"'
                 .' onclick="insertValueQuery()"'
                 .' title="' . __('Insert') . '" />' . "\n";
         } else {
-            echo '<input type="button" name="insert"'
+            echo '<input type="button" class="button" name="insert"'
                 .' value="' . __('Insert') . '"'
                 .' onclick="insertValueQuery()" />' . "\n";
         }
@@ -393,11 +393,11 @@ function PMA_sqlQueryFormBookmark()
     echo '<div class="formelement">' . "\n";
     echo __('Variable');
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        echo ' <a href="./Documentation.html#faqbookmark"'
+        echo ' <a href="Documentation.html#faqbookmark"'
             .' target="documentation">'
             . PMA_getImage('b_help.png', __('Documentation')) . '</a>';
     } else {
-        echo ' (<a href="./Documentation.html#faqbookmark"'
+        echo ' (<a href="Documentation.html#faqbookmark"'
             .' target="documentation">' . __('Documentation') . '</a>): ';
     }
     echo '<input type="text" name="bookmark_variable" class="textfield"'

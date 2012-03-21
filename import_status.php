@@ -5,8 +5,8 @@
  * @package PhpMyAdmin
  */
 
-require_once './libraries/common.inc.php';
-require_once './libraries/display_import_ajax.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/display_import_ajax.lib.php';
 
 /**
  * Sets globals from $_GET

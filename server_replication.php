@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work
@@ -16,22 +16,22 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'replication.js';
 
-require './libraries/server_common.inc.php';
-require './libraries/replication.inc.php';
-require './libraries/replication_gui.lib.php';
-require_once './libraries/server_synchronize.lib.php';
+require 'libraries/server_common.inc.php';
+require 'libraries/replication.inc.php';
+require 'libraries/replication_gui.lib.php';
+require_once 'libraries/server_synchronize.lib.php';
 
 /**
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    include './libraries/server_links.inc.php';
+    include 'libraries/server_links.inc.php';
     echo '<h2>' . "\n"
         . PMA_getIcon('s_replication.png')
         . __('Replication') . "\n"
         . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    include './libraries/footer.inc.php';
+    include 'libraries/footer.inc.php';
 }
 
 /**
@@ -184,7 +184,7 @@ if (isset($GLOBALS['sr_take_action'])) {
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 echo '<div id="replication">';
 echo ' <h2>';
@@ -264,7 +264,7 @@ if (isset($GLOBALS['mr_configure'])) {
     echo ' </form>';
     echo '</fieldset>';
 
-    include './libraries/footer.inc.php';
+    include 'libraries/footer.inc.php';
     exit;
 }
 
@@ -396,5 +396,5 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
 if (isset($GLOBALS['sl_configure'])) {
     PMA_replication_gui_changemaster("slave_changemaster");
 }
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

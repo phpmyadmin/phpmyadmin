@@ -9,14 +9,14 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/user_preferences.lib.php';
-require_once './libraries/config/config_functions.lib.php';
-require_once './libraries/config/messages.inc.php';
-require_once './libraries/config/ConfigFile.class.php';
-require_once './libraries/config/Form.class.php';
-require_once './libraries/config/FormDisplay.class.php';
-require './libraries/config/user_preferences.forms.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/user_preferences.lib.php';
+require_once 'libraries/config/config_functions.lib.php';
+require_once 'libraries/config/messages.inc.php';
+require_once 'libraries/config/ConfigFile.class.php';
+require_once 'libraries/config/Form.class.php';
+require_once 'libraries/config/FormDisplay.class.php';
+require 'libraries/config/user_preferences.forms.php';
 
 PMA_userprefs_pageinit();
 
@@ -51,7 +51,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         // before opening it. The doc explains how to create the "./tmp"
         // directory
         if (!empty($open_basedir)) {
-            $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
+            $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
             if (is_writable($tmp_subdir)) {
                 $import_file_new = tempnam($tmp_subdir, 'prefs');
                 if (move_uploaded_file($import_file, $import_file_new)) {
@@ -105,8 +105,8 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         }
         if (!$all_ok) {
             // mimic original form and post json in a hidden field
-            include './libraries/header.inc.php';
-            include './libraries/user_preferences.inc.php';
+            include 'libraries/header.inc.php';
+            include 'libraries/user_preferences.inc.php';
             $msg = PMA_Message::error(__('Configuration contains incorrect data for some fields.'));
             $msg->display();
             echo '<div class="config-form">';
@@ -128,7 +128,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
                 <input type="submit" name="submit_ignore" value="<?php echo __('No') ?>" />
             </form>
             <?php
-            include './libraries/footer.inc.php';
+            include 'libraries/footer.inc.php';
             return;
         }
 
@@ -209,8 +209,8 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
 }
 
 $GLOBALS['js_include'][] = 'config.js';
-require './libraries/header.inc.php';
-require './libraries/user_preferences.inc.php';
+require 'libraries/header.inc.php';
+require 'libraries/user_preferences.inc.php';
 if ($error) {
     if (!$error instanceof PMA_Message) {
         $error = PMA_Message::error($error);
@@ -264,7 +264,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             </form>
         </div>
         <?php
-        if (file_exists('./setup/index.php')) {
+        if (file_exists('setup/index.php')) {
             // show only if setup script is available, allows to disable this message
             // by simply removing setup directory
         ?>
@@ -331,5 +331,5 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

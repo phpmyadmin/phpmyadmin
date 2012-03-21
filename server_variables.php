@@ -12,7 +12,7 @@
 if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
 }
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'server_variables.js';
 
@@ -24,12 +24,12 @@ PMA_AddJSVar('is_superuser', PMA_isSuperuser() ? true : false);
 /**
  * Does the common work
  */
-require './libraries/server_common.inc.php';
+require 'libraries/server_common.inc.php';
 
 /**
  * Required to display documentation links
  */
-require './libraries/server_variables_doc.php';
+require 'libraries/server_variables_doc.php';
 
 /**
  * Ajax request
@@ -88,7 +88,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 /**
  * Displays the links
  */
-require './libraries/server_links.inc.php';
+require 'libraries/server_links.inc.php';
 
 
 /**
@@ -177,6 +177,6 @@ function formatVariable($name, $value)
 /**
  * Sends the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 
 ?>

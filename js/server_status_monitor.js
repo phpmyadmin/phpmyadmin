@@ -1581,7 +1581,7 @@ $(function() {
             $('div#logTable table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' +
                       PMA_messages['strSumRows'] + ' ' + rowSum + '<span style="float:right">' +
-                      PMA_messages['strTotal'] + '</span></th><th align="right">' + totalSum + '</th>');
+                      PMA_messages['strTotal'] + '</span></th><th class="right">' + totalSum + '</th>');
         }
     }
 
@@ -1615,7 +1615,7 @@ $(function() {
     function buildLogTable(data) {
         var rows = data.rows;
         var cols = new Array();
-        var $table = $('<table border="0" class="sortable"></table>');
+        var $table = $('<table class="sortable"></table>');
         var $tBody, $tRow, $tCell;
 
         $('#logTable').html($table);
@@ -1658,7 +1658,7 @@ $(function() {
         $table.append('<tfoot>' +
                     '<tr><th colspan="' + (cols.length - 1) + '">' + PMA_messages['strSumRows'] +
                     ' ' + data.numRows + '<span style="float:right">' + PMA_messages['strTotal'] +
-                    '</span></th><th align="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
+                    '</span></th><th class="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable th:last').html() == '#') {

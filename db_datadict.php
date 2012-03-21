@@ -8,11 +8,11 @@
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 if (! isset($selected_tbl)) {
-    include './libraries/db_common.inc.php';
-    include './libraries/db_info.inc.php';
+    include 'libraries/db_common.inc.php';
+    include 'libraries/db_info.inc.php';
 }
 
 
@@ -21,7 +21,7 @@ if (! isset($selected_tbl)) {
  */
 $cfgRelation  = PMA_getRelationsParam();
 
-require_once './libraries/transformations.lib.php';
+require_once 'libraries/transformations.lib.php';
 
 
 /**
@@ -228,7 +228,7 @@ foreach ($tables as $table) {
         }
         ?>
     </td>
-    <td<?php echo $type_nowrap; ?> xml:lang="en" dir="ltr"><?php echo $type; ?></td>
+    <td<?php echo $type_nowrap; ?> lang="en" dir="ltr"><?php echo $type; ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $attribute; ?></td>*/ ?>
     <td><?php echo (($row['Null'] == 'NO') ? __('No') : __('Yes')); ?></td>
     <td nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>
@@ -271,5 +271,5 @@ foreach ($tables as $table) {
  */
 PMA_printButton();
 
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

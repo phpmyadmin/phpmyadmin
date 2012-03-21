@@ -9,8 +9,8 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
-require_once './libraries/mysql_charsets.lib.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/mysql_charsets.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'tbl_structure.js';
@@ -62,15 +62,15 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         // what is this htmlspecialchars() for??
         //$sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
         $sql_query .= ' FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-        include './sql.php';
+        include 'sql.php';
         exit;
     } else {
         // handle multiple field commands
         // handle confirmation of deleting multiple fields/columns
         $action = 'tbl_structure.php';
-        include './libraries/mult_submits.inc.php';
-        //require_once './libraries/header.inc.php';
-        //require_once './libraries/tbl_links.inc.php';
+        include 'libraries/mult_submits.inc.php';
+        //require_once 'libraries/header.inc.php';
+        //require_once 'libraries/tbl_links.inc.php';
 
         if (empty($message)) {
             $message = PMA_Message::success();
@@ -86,7 +86,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Runs common work
  */
-require_once './libraries/tbl_common.php';
+require_once 'libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
@@ -99,13 +99,13 @@ $url_params['back'] = 'tbl_structure.php';
 /**
  * Gets tables informations
  */
-require_once './libraries/tbl_info.inc.php';
+require_once 'libraries/tbl_info.inc.php';
 
 /**
  * Displays top menu links
  */
-require_once './libraries/tbl_links.inc.php';
-require_once './libraries/Index.class.php';
+require_once 'libraries/tbl_links.inc.php';
+require_once 'libraries/Index.class.php';
 
 // 2. Gets table keys and retains them
 // @todo should be: $server->db($db)->table($table)->primary()
@@ -224,7 +224,7 @@ $comments_map = array();
 $mime_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    include_once './libraries/transformations.lib.php';
+    include_once 'libraries/transformations.lib.php';
 
     //$cfgRelation = PMA_getRelationsParam();
 
@@ -336,14 +336,14 @@ foreach ($fields as $row) {
     echo "\n";
     ?>
 <tr class="<?php echo $odd_row ? 'odd': 'even'; $odd_row = !$odd_row; ?>">
-    <td align="center">
+    <td class="center">
         <input type="checkbox" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
     </td>
-    <td align="right">
+    <td class="right">
         <?php echo $rownum; ?>
     </td>
     <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
-    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" xml:lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
+    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td nowrap="nowrap" class="column_attribute"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
@@ -359,20 +359,20 @@ foreach ($fields as $row) {
         echo '<i>' . _pgettext('None for default', 'None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
-    <td align="center" class="browse">
+    <td class="browse center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
             <?php echo $titles['BrowseDistinctValues']; ?></a>
     </td>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <td align="center" class="edit">
+    <td class="edit center">
         <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
             <?php echo $titles['Change']; ?></a>
     </td>
-    <td align="center" class="drop">
+    <td class="drop center">
         <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Drop']; ?></a>
     </td>
-    <td align="center" class="primary">
+    <td class="primary center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
@@ -387,7 +387,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="unique">
+    <td class="unique center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || isset($columns_with_unique_index[$field_name])) {
             echo $titles['NoUnique'] . "\n";
@@ -402,7 +402,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="index">
+    <td class="index center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoIndex'] . "\n";
@@ -418,7 +418,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="spatial">
+    <td class="spatial center">
         <?php
         $spatial_types = array(
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
@@ -444,7 +444,7 @@ foreach ($fields as $row) {
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
             ?>
-    <td align="center" nowrap="nowrap" class="fulltext">
+    <td nowrap="nowrap" class="fulltext center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
             <?php $fulltext_enabled = true; ?>
@@ -453,7 +453,7 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
         ?>
-    <td align="center" nowrap="nowrap" class="fulltext">
+    <td nowrap="nowrap" class="fulltext center">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
         <?php $fulltext_enabled = false; ?>
     </td>
@@ -682,7 +682,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
  * links again
  */
 if (count($fields) > 20) {
-    include './libraries/tbl_links.inc.php';
+    include 'libraries/tbl_links.inc.php';
 } // end if (count($fields) > 20)
 
 /**
@@ -697,7 +697,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     echo PMA_Index::getView($table, $db);
     ?>
         <fieldset class="tblFooters" style="text-align: left;">
-            <form action="./tbl_indexes.php" method="post">
+            <form action="tbl_indexes.php" method="post">
                 <?php
                 echo PMA_generate_common_hidden_inputs($db, $table);
                 echo sprintf(__('Create an index on &nbsp;%s&nbsp;columns'),
@@ -734,7 +734,7 @@ if ($cfg['ShowStats']) {
     $mergetable = PMA_Table::isMerge($GLOBALS['db'], $GLOBALS['table']);
 
     // this is to display for example 261.2 MiB instead of 268k KiB
-    $max_digits = 5;
+    $max_digits = 3;
     $decimals = 1;
     list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length'], $max_digits, $decimals);
     if ($mergetable == false) {
@@ -811,7 +811,7 @@ if ($cfg['ShowStats']) {
         if (isset($free_size) && !PMA_DRIZZLE && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
             ?>
     <tr class="tblFooters">
-        <td colspan="3" align="center">
+        <td colspan="3" class="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
             echo PMA_getIcon('b_tbloptimize.png', __('Optimize table'));
             ?></a>
@@ -948,5 +948,5 @@ echo '<div class="clearfloat"></div>' . "\n";
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

@@ -157,8 +157,8 @@ function PMA_current_version()
 
 function displayPasswordGenerateButton()
 {
-    $('#tr_element_before_generate_password').parent().append('<tr><td>' + PMA_messages['strGeneratePassword'] + '</td><td><input type="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
-    $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages['strGeneratePassword'] + ':</label><span class="options"><input type="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
+    $('#tr_element_before_generate_password').parent().append('<tr><td>' + PMA_messages['strGeneratePassword'] + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
+    $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages['strGeneratePassword'] + ':</label><span class="options"><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
 }
 
 /*
@@ -1069,8 +1069,8 @@ $(document).ready(function(){
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
-        new_content    += "<input type=\"button\" class=\"btnSave\" value=\"" + PMA_messages['strGo'] + "\">\n";
-        new_content    += "<input type=\"button\" class=\"btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">\n";
+        new_content    += "<input type=\"submit\" class=\"button btnSave\" value=\"" + PMA_messages['strGo'] + "\">\n";
+        new_content    += "<input type=\"button\" class=\"button btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">\n";
         $inner_sql.replaceWith(new_content);
 
         // These settings are duplicated from the .ready()function in functions.js
@@ -1819,17 +1819,25 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
      */
     var button_options = {};
     button_options[PMA_messages['strOK']] = function(){
-                                                $(this).dialog("close").remove();
+        $(this).dialog("close");
 
-                                                if($.isFunction(callbackFn)) {
-                                                    callbackFn.call(this, url);
-                                                }
-                                            };
-    button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
+        if($.isFunction(callbackFn)) {
+            callbackFn.call(this, url);
+        }
+    };
+    button_options[PMA_messages['strCancel']] = function() {
+        $(this).dialog("close");
+    }
 
-    $('<div id="confirm_dialog"></div>')
+    $('<div/>', {'id':'confirm_dialog'})
     .prepend(question)
-    .dialog({buttons: button_options});
+    .dialog({
+        buttons: button_options,
+        close: function () {
+            $(this).remove();
+        },
+        modal: true
+    });
 };
 
 /**
@@ -3060,9 +3068,9 @@ var toggleButton = function ($obj) {
     // OFF state we need to move it now.
     if ($('.container', $obj).hasClass('off')) {
         if (right == 'right') {
-            $('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
+            $('.container', $obj).animate({'left': '-=' + move + 'px'}, 0);
         } else {
-            $('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
+            $('.container', $obj).animate({'left': '+=' + move + 'px'}, 0);
         }
     }
     // Attach an 'onclick' event to the switch
@@ -3118,9 +3126,7 @@ var toggleButton = function ($obj) {
  */
 $(window).load(function () {
     $('.toggleAjax').each(function () {
-        $(this)
-        .show()
-        .find('.toggleButton')
+        $(this).show();
         toggleButton($(this));
     });
 });
@@ -3626,3 +3632,11 @@ function toggleRowColors($start)
         }
     }
 }
+
+/**
+ * Opens pma more themes link in themes browser, in new window instead of popup
+ * This way, we don't break HTML validity
+ */
+$(function () {
+    $("a._blank").prop("target", "_blank");
+});

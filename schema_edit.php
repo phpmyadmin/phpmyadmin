@@ -9,21 +9,21 @@
  * Gets some core libraries
  */
 
-require_once './libraries/common.inc.php';
-require_once './libraries/db_common.inc.php';
-require './libraries/StorageEngine.class.php';
+require_once 'libraries/common.inc.php';
+require_once 'libraries/db_common.inc.php';
+require 'libraries/StorageEngine.class.php';
 
 $active_page = 'db_operations.php';
-require_once './libraries/db_common.inc.php';
+require_once 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=schema_edit.php';
-require_once './libraries/db_info.inc.php';
+require_once 'libraries/db_info.inc.php';
 
 /**
  * Includ settings for relation stuff
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
-require_once './libraries/relation.lib.php';
+require_once 'libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -37,24 +37,24 @@ $cfgRelation = PMA_getRelationsParam();
 if (! $cfgRelation['relwork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'relation', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('relation') . "\n";
-    include_once './libraries/footer.inc.php';
+    include_once 'libraries/footer.inc.php';
 }
 
 if (! $cfgRelation['displaywork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_info', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_info') . "\n";
-    include_once './libraries/footer.inc.php';
+    include_once 'libraries/footer.inc.php';
 }
 
 if (! isset($cfgRelation['table_coords'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_coords') . "\n";
-    include_once './libraries/footer.inc.php';
+    include_once 'libraries/footer.inc.php';
 }
 if (! isset($cfgRelation['pdf_pages'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'pdf_page', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('pdf_pages') . "\n";
-    include_once './libraries/footer.inc.php';
+    include_once 'libraries/footer.inc.php';
 }
 
 if ($cfgRelation['pdfwork']) {
@@ -64,7 +64,7 @@ if ($cfgRelation['pdfwork']) {
     * so, user can interact with it and perform export of relations schema
     */
 
-    include_once './libraries/schema/User_Schema.class.php';
+    include_once 'libraries/schema/User_Schema.class.php';
     $user_schema = new PMA_User_Schema();
 
     /**
@@ -128,5 +128,5 @@ if ($cfgRelation['pdfwork']) {
  * Displays the footer
  */
 echo "\n";
-require_once './libraries/footer.inc.php';
+require_once 'libraries/footer.inc.php';
 ?>

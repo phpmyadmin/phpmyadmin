@@ -11,7 +11,7 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'db_search.js';
 $GLOBALS['js_include'][] = 'sql.js';
@@ -21,7 +21,7 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 /**
  * Gets some core libraries and send headers
  */
-require './libraries/db_common.inc.php';
+require 'libraries/db_common.inc.php';
 
 /**
  * init
@@ -94,7 +94,7 @@ if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
 $sub_part = '';
 
 if ( $GLOBALS['is_ajax_request'] != true) {
-    include './libraries/db_info.inc.php';
+    include 'libraries/db_info.inc.php';
     echo '<div id="searchresults">';
 }
 
@@ -278,7 +278,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
         <td><input type="text" name="search_str" size="60"
                 value="<?php echo $searched; ?>" /></td>
     </tr>
-    <tr><td align="right" valign="top">
+    <tr><td class="right" valign="top">
             <?php echo __('Find:'); ?></td>
             <td><?php
 
@@ -296,7 +296,7 @@ unset($choices);
             ?>
             </td>
     </tr>
-    <tr><td align="right" valign="top">
+    <tr><td class="right" valign="top">
             <?php echo __('Inside tables:'); ?></td>
         <td rowspan="2">
 <?php
@@ -323,10 +323,10 @@ $alter_select
 ?>
         </td>
     </tr>
-    <tr><td align="right" valign="bottom">
+    <tr><td class="right" valign="bottom">
             <?php echo $alter_select; ?></td>
     </tr>
-    <tr><td align="right">
+    <tr><td class="right">
             <?php echo __('Inside column:'); ?></td>
         <td><input type="text" name="field_str" size="60"
                 value="<?php echo ! empty($field_str) ? htmlspecialchars($field_str) : ''; ?>" /></td>
@@ -357,5 +357,5 @@ $alter_select
 /**
  * Displays the footer
  */
-require './libraries/footer.inc.php';
+require 'libraries/footer.inc.php';
 ?>

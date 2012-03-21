@@ -729,9 +729,9 @@ function PMA_linkURL($url)
 function PMA_includeJS($url)
 {
     if (strpos($url, '?') === false) {
-        return '<script src="./js/' . $url . '?ts=' . filemtime('./js/' . $url) . '" type="text/javascript"></script>' . "\n";
+        return '<script src="js/' . $url . '?ts=' . filemtime('./js/' . $url) . '" type="text/javascript"></script>' . "\n";
     } else {
-        return '<script src="./js/' . $url . '" type="text/javascript"></script>' . "\n";
+        return '<script src="js/' . $url . '" type="text/javascript"></script>' . "\n";
     }
 }
 
