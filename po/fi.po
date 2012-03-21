@@ -586,7 +586,7 @@ msgstr "Sarakkeen sisältä:"
 
 #: db_structure.php:68
 msgid "No tables found in database"
-msgstr "Tietokannassa ei ole tauluja."
+msgstr "Tietokannassa ei ole tauluja"
 
 #: db_structure.php:228 libraries/mysql_charsets.lib.php:409
 #: libraries/mysql_charsets.lib.php:416
