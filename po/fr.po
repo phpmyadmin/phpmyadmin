@@ -6641,7 +6641,7 @@ msgstr "(Génère un rapport contenant les données d'une seule table)"
 
 #: libraries/export/pdf.php:25
 msgid "Report title:"
-msgstr "Titre du rapport :"
+msgstr "Titre du rapport : "
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
