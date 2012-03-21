@@ -5643,7 +5643,7 @@ msgstr "Exporter quelques lignes"
 
 #: libraries/display_export.lib.php:157
 msgid "Number of rows:"
-msgstr "Nombre de lignes"
+msgstr "Nombre de lignes : "
 
 #: libraries/display_export.lib.php:160
 msgid "Row to begin at:"
