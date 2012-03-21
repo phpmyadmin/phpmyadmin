@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 23:51+0200\n"
+"PO-Revision-Date: 2012-03-21 23:52+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1595,10 +1595,9 @@ msgid "Total time:"
 msgstr "Kokonaisaika:"
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Profilointi"
+msgstr "Profiloinnin tulokset"
 
 #: js/messages.php:187
 #, fuzzy
