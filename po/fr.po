@@ -10760,7 +10760,7 @@ msgstr "Couramment surveillés"
 
 #: server_status.php:1671
 msgid "or type variable name:"
-msgstr "ou entrez un nom de variable :"
+msgstr "ou entrez un nom de variable : "
 
 #: server_status.php:1675
 msgid "Display as differential value"
