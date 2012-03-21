@@ -1640,7 +1640,7 @@ msgstr "Somme des lignes regroupées : "
 
 #: js/messages.php:201
 msgid "Total:"
-msgstr "Total :"
+msgstr "Total : "
 
 #: js/messages.php:203
 msgid "Loading logs"
