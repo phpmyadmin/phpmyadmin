@@ -1531,7 +1531,7 @@ msgstr "Hitaasta lokista"
 
 #: js/messages.php:171
 msgid "From general log"
-msgstr ""
+msgstr "Yleisestä lokista"
 
 #: js/messages.php:172
 msgid "Analysing & loading logs. This may take a while."
