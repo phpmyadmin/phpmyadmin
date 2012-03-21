@@ -2687,7 +2687,7 @@ msgstr "Mode de compatibilité SQL"
 
 #: libraries/config/messages.inc.php:120 libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "Options pour <code>CREATE TABLE</code> :"
+msgstr "Options pour <code>CREATE TABLE</code> : "
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
