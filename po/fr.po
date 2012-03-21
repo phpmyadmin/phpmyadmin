@@ -6677,7 +6677,7 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
-"Les structures suivanates ont été créées ou modifiées. Ici vous pouvez :"
+"Les structures suivanates ont été créées ou modifiées. Ici vous pouvez : "
 
 #: libraries/import.lib.php:1140
 msgid "View a structure's contents by clicking on its name"
