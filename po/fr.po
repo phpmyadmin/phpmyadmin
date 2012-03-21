@@ -5697,7 +5697,7 @@ msgstr "Base(s) de données : "
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
-msgstr "Table(s)"
+msgstr "Table(s) : "
 
 #: libraries/display_export.lib.php:144
 msgid "Rows:"
