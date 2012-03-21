@@ -11389,7 +11389,7 @@ msgstr "Modifier l'index"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
-msgstr "Nom de l'index :"
+msgstr "Nom de l'index : "
 
 #: tbl_indexes.php:188
 msgid ""
