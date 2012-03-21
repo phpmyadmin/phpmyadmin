@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 22:00+0200\n"
+"PO-Revision-Date: 2012-03-21 22:01+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -4478,7 +4478,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/config/setup.forms.php:346
 #: libraries/config/user_preferences.forms.php:248 libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr "Open Document Text"
+msgstr "Open Document -teksti"
 
 #: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
 msgid "Could not connect to MySQL server"
