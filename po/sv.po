@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 20:59+0200\n"
+"PO-Revision-Date: 2012-03-21 21:00+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12851,7 +12851,7 @@ msgstr "Är InnoDB inaktiverad?"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
-msgstr "Du har inte aktiverat InnoDB"
+msgstr "Du har inte aktiverat InnoDB."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
