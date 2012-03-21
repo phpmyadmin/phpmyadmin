@@ -880,7 +880,7 @@ msgstr "SRID"
 #: gis_data_editor.php:151 js/messages.php:319
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: gis_data_editor.php:172 js/messages.php:315
 msgid "Point"
