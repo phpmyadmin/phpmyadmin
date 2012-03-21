@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 20:50+0200\n"
+"PO-Revision-Date: 2012-03-21 20:51+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7232,7 +7232,7 @@ msgstr "Användarinställningar"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
-msgstr "Snabba steg för att installera avancerade funktioner"
+msgstr "Snabba steg för att installera avancerade funktioner:"
 
 #: libraries/relation.lib.php:154
 msgid ""
