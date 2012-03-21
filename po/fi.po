@@ -1308,10 +1308,9 @@ msgid "Used memory"
 msgstr "Käytetty muisti"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Yhteensä"
+msgstr "Yhteensä sivutusmuistia"
 
 #: js/messages.php:111
 msgid "Cached Swap"
