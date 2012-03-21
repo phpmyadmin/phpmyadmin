@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 22:11+0200\n"
+"PO-Revision-Date: 2012-03-21 22:12+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1794,7 +1794,7 @@ msgstr "Merkistökoodauksen vaihtaminen"
 
 #: js/messages.php:242
 msgid "Table must have at least one column"
-msgstr "Taulussa on oltava vähintään yksi kenttä."
+msgstr "Taulussa on oltava vähintään yksi kenttä"
 
 #: js/messages.php:247
 #, fuzzy
