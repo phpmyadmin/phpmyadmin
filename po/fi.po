@@ -1506,10 +1506,9 @@ msgid "Current settings"
 msgstr "Nykyiset asetukset"
 
 #: js/messages.php:164 server_status.php:1655
-#, fuzzy
 #| msgid "Report title"
 msgid "Chart Title"
-msgstr "Raportin otsikko"
+msgstr "Kaavion otsikko"
 
 #. l10n: As in differential values
 #: js/messages.php:166
