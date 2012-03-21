@@ -10,6 +10,7 @@
  * Checks whether given link is valid
  *
  * @param string $url URL to check
+ *
  * @return boolean True if string can be used as link
  */
 function PMA_checkLink($url)
@@ -38,6 +39,7 @@ function PMA_checkLink($url)
  * Callback function for replacing [a@link@target] links in bb code.
  *
  * @param array $found Array of preg matches
+ *
  * @return string Replaced string
  */
 function PMA_replaceBBLink($found)
@@ -82,6 +84,7 @@ function PMA_replaceBBLink($found)
  * @param string  $message the message
  * @param boolean $escape  whether to escape html in result
  * @param boolean $safe    whether string is safe (can keep < and > chars)
+ *
  * @return  string   the sanitized message
  */
 function PMA_sanitize($message, $escape = false, $safe = false)
@@ -137,9 +140,10 @@ function PMA_sanitize($message, $escape = false, $safe = false)
  * Sanitize a filename by removing anything besides A-Za-z0-9_.-
  *
  * Intended usecase:
- *    When using a filename in a Content-Disposition header the value should not contain ; or "
+ *    When using a filename in a Content-Disposition header
+ *    the value should not contain ; or "
  *
- * @param   string  The filename
+ * @param string $filename The filename
  *
  * @return  string  the sanitized filename
  *

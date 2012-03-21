@@ -71,8 +71,10 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['settings']['icon'] = 'b_tblops.png';
     $tabs['settings']['link'] = 'prefs_manage.php';
     $tabs['settings']['text'] = __('Settings');
-    $tabs['settings']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']),
-        array('prefs_forms.php', 'prefs_manage.php'));
+    $tabs['settings']['active'] = in_array(
+        basename($GLOBALS['PMA_PHP_SELF']),
+        array('prefs_forms.php', 'prefs_manage.php')
+    );
 
     $tabs['synchronize']['icon'] = 's_sync.png';
     $tabs['synchronize']['link'] = 'server_synchronize.php';

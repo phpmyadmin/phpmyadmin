@@ -77,13 +77,13 @@ if (! PMA_cacheExists('mysql_charsets', true)) {
     PMA_cacheSet('mysql_collations_flat', $GLOBALS['mysql_collations_flat'], true);
     PMA_cacheSet('mysql_collations_available', $GLOBALS['mysql_collations_available'], true);
 } else {
-    $GLOBALS['mysql_charsets']                  = PMA_cacheGet('mysql_charsets', true);
-    $GLOBALS['mysql_charsets_descriptions']     = PMA_cacheGet('mysql_charsets_descriptions', true);
-    $GLOBALS['mysql_charsets_available']        = PMA_cacheGet('mysql_charsets_available', true);
-    $GLOBALS['mysql_collations']                = PMA_cacheGet('mysql_collations', true);
-    $GLOBALS['mysql_default_collations']        = PMA_cacheGet('mysql_default_collations', true);
-    $GLOBALS['mysql_collations_flat']           = PMA_cacheGet('mysql_collations_flat', true);
-    $GLOBALS['mysql_collations_available']      = PMA_cacheGet('mysql_collations_available', true);
+    $GLOBALS['mysql_charsets']              = PMA_cacheGet('mysql_charsets', true);
+    $GLOBALS['mysql_charsets_descriptions'] = PMA_cacheGet('mysql_charsets_descriptions', true);
+    $GLOBALS['mysql_charsets_available']    = PMA_cacheGet('mysql_charsets_available', true);
+    $GLOBALS['mysql_collations']            = PMA_cacheGet('mysql_collations', true);
+    $GLOBALS['mysql_default_collations']    = PMA_cacheGet('mysql_default_collations', true);
+    $GLOBALS['mysql_collations_flat']       = PMA_cacheGet('mysql_collations_flat', true);
+    $GLOBALS['mysql_collations_available']  = PMA_cacheGet('mysql_collations_available', true);
 }
 
 define('PMA_CSDROPDOWN_COLLATION', 0);
@@ -91,8 +91,8 @@ define('PMA_CSDROPDOWN_CHARSET',   1);
 
 function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
     $name = null, $id = null, $default = null, $label = true, $indent = 0,
-    $submitOnChange = false, $displayUnavailable = false)
-{
+    $submitOnChange = false, $displayUnavailable = false
+) {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available;
 
@@ -161,7 +161,8 @@ function PMA_generateCharsetQueryPart($collation)
 /**
  * returns collation of given db
  *
- * @param string  $db     name of db
+ * @param string $db name of db
+ *
  * @return  string  collation of $db
  */
 function PMA_getDbCollation($db)
@@ -196,14 +197,15 @@ function PMA_getDbCollation($db)
 function PMA_getServerCollation()
 {
     return PMA_DBI_fetch_value(
-        'SHOW VARIABLES LIKE \'collation_server\'', 0, 1);
+        'SHOW VARIABLES LIKE \'collation_server\'', 0, 1
+    );
 }
 
 /**
  * returns description for given collation
  *
+ * @param string $collation MySQL collation string
  *
- * @param string  $collation  MySQL collation string
  * @return  string  collation description
  */
 function PMA_getCollationDescr($collation)

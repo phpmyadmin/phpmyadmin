@@ -52,7 +52,6 @@ abstract class PMA_List extends ArrayObject
      * checks if the given db names exists in the current list, if there is
      * missing at least one item it returns false otherwise true
      *
-     * @param string  $db_name,..     one or more mysql result resources
      * @return  boolean true if all items exists, otheriwse false
      */
     public function exists()
@@ -70,8 +69,10 @@ abstract class PMA_List extends ArrayObject
     /**
      * returns HTML <option>-tags to be used inside <select></select>
      *
-     * @param mixed   $selected   the selected db or true for selecting current db
-     * @param boolean $include_information_schema
+     * @param mixed   $selected                   the selected db or true for
+     *                                            selecting current db
+     * @param boolean $include_information_schema whether include information schema
+     *
      * @return  string  HTML option tags
      */
     public function getHtmlOptions($selected = '', $include_information_schema = true)
@@ -83,7 +84,8 @@ abstract class PMA_List extends ArrayObject
         $options = '';
         foreach ($this as $each_item) {
             if (false === $include_information_schema
-                    && PMA_is_system_schema($each_item)) {
+                && PMA_is_system_schema($each_item)
+            ) {
                 continue;
             }
             $options .= '<option value="' . htmlspecialchars($each_item) . '"';

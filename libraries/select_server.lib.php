@@ -9,8 +9,8 @@
 /**
  * display server selection in list or selectbox form, or option tags only
  *
- * @param boolean $not_only_options   whether to include form tags or not
- * @param boolean $ommit_fieldset     whether to ommit fieldset tag or not
+ * @param boolean $not_only_options whether to include form tags or not
+ * @param boolean $ommit_fieldset   whether to ommit fieldset tag or not
  */
 function PMA_select_server($not_only_options, $ommit_fieldset)
 {
@@ -88,7 +88,8 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
 
     if ($not_only_options) {
         echo '</select>';
-        // Show submit button if we have just one server (this happens with no default)
+        // Show submit button if we have just one server
+        // (this happens with no default)
         echo '<noscript>';
         echo '<input type="submit" value="' . __('Go') . '" />';
         echo '</noscript>';

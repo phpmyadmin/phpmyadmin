@@ -432,7 +432,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
             $link = 'index';
         }
         $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
-        if (!empty($anchor)) {
+        if (! empty($anchor)) {
             $url .= '#' . $anchor;
         }
         break;
@@ -459,7 +459,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
             }
         }
         $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
-        if (!empty($anchor)) {
+        if (! empty($anchor)) {
             $url .= '#' . $anchor;
         }
         break;
@@ -591,15 +591,15 @@ function PMA_mysqlDie(
 
     $error_msg_output = '';
 
-    if (!$error_message) {
+    if (! $error_message) {
         $error_message = PMA_DBI_getError();
     }
-    if (!$the_query && !empty($GLOBALS['sql_query'])) {
+    if (! $the_query && ! empty($GLOBALS['sql_query'])) {
         $the_query = $GLOBALS['sql_query'];
     }
 
     // --- Added to solve bug #641765
-    if (!function_exists('PMA_SQP_isError') || PMA_SQP_isError()) {
+    if (! function_exists('PMA_SQP_isError') || PMA_SQP_isError()) {
         $formatted_sql = htmlspecialchars($the_query);
     } elseif (empty($the_query) || trim($the_query) == '') {
         $formatted_sql = '';
@@ -616,7 +616,7 @@ function PMA_mysqlDie(
     // if the config password is wrong, or the MySQL server does not
     // respond, do not show the query that would reveal the
     // username/password
-    if (!empty($the_query) && !strstr($the_query, 'connect')) {
+    if (! empty($the_query) && ! strstr($the_query, 'connect')) {
         // --- Added to solve bug #641765
         if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
             $error_msg_output .= PMA_SQP_getErrorString() . "\n";
@@ -1045,7 +1045,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     if (strlen($GLOBALS['table'])
         && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])
     ) {
-        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024 && !PMA_DRIZZLE) {
+        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024 && ! PMA_DRIZZLE) {
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
     }
@@ -1270,7 +1270,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             && ! empty($cfg['SQLQuery']['Validate'])
         ) {
             $validate_params = $url_params;
-            if (!empty($GLOBALS['validatequery'])) {
+            if (! empty($GLOBALS['validatequery'])) {
                 $validate_message = __('Skip Validate SQL');
             } else {
                 $validate_params['validatequery'] = 1;
@@ -1283,7 +1283,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $validate_link = '';
         } //validator
 
-        if (!empty($GLOBALS['validatequery'])) {
+        if (! empty($GLOBALS['validatequery'])) {
             echo '<div class="sqlvalidate">';
         } else {
             echo '<code class="sql">';
@@ -1298,7 +1298,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         if (! empty($GLOBALS['show_as_php'])) {
             echo '";';
         }
-        if (!empty($GLOBALS['validatequery'])) {
+        if (! empty($GLOBALS['validatequery'])) {
             echo '</div>';
         } else {
             echo '</code>';
@@ -1744,7 +1744,7 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
         }
     }
 
-    if (!empty($tab['warning'])) {
+    if (! empty($tab['warning'])) {
         $tab['class'] .= ' error';
         $tab['attr'] .= ' title="' . htmlspecialchars($tab['warning']) . '"';
     }
@@ -1756,7 +1756,7 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
     }
 
     // build the link
-    if (!empty($tab['link'])) {
+    if (! empty($tab['link'])) {
         $tab['link'] = htmlentities($tab['link']);
         $tab['link'] = $tab['link'] . PMA_generate_common_url($url_params);
         if (! empty($tab['args'])) {
@@ -1793,7 +1793,7 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
     $id_string = ( empty($tab['id']) ? '' : ' id="'.$tab['id'].'" ' );
     $out = '<li' . ($tab['class'] == 'active' ? ' class="active"' : '') . '>';
 
-    if (!empty($tab['link'])) {
+    if (! empty($tab['link'])) {
         $out .= '<a class="tab' . htmlentities($tab['class']) . '"'
             .$id_string
             .' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
@@ -1864,7 +1864,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     if (! is_array($tag_params)) {
         $tmp = $tag_params;
         $tag_params = array();
-        if (!empty($tmp)) {
+        if (! empty($tmp)) {
             $tag_params['onclick'] = 'return confirmLink(this, \'' . PMA_escapeJsString($tmp) . '\')';
         }
         unset($tmp);
@@ -2045,7 +2045,7 @@ function PMA_flipstring($string, $Separator = "<br />\n")
         if ($char == '&') {
             $format_string .= $charbuff;
             $charbuff = $char;
-        } elseif ($char == ';' && !empty($charbuff)) {
+        } elseif ($char == ';' && ! empty($charbuff)) {
             $format_string .= $charbuff . $char;
             $charbuff = false;
             $append = true;
@@ -2219,7 +2219,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             } elseif (($meta->type == 'blob' || $meta->type == 'string')
                 // hexify only if this is a true not empty BLOB or a BINARY
                     && stristr($field_flags, 'BINARY')
-                    && !empty($row[$i])) {
+                    && ! empty($row[$i])) {
                 // do not waste memory building a too big condition
                 if (strlen($row[$i]) < 1000) {
                     // use a CAST if possible, to avoid problems
@@ -3221,7 +3221,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
         );
 
     /* Optional escaping */
-    if (!is_null($escape)) {
+    if (! is_null($escape)) {
         foreach ($replace as $key => $val) {
             $replace[$key] = $escape($val);
         }
@@ -3300,8 +3300,9 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 
     echo json_encode($response);
 
-    if (!defined('TESTSUITE'))
+    if (! defined('TESTSUITE')) {
         exit;
+    }
 }
 
 /**
@@ -3335,7 +3336,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
     echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
     $extensions = '';
     foreach ($import_list as $key => $val) {
-        if (!empty($extensions)) {
+        if (! empty($extensions)) {
             $extensions .= '|';
         }
         $extensions .= $val['extension'];
@@ -3355,7 +3356,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
         PMA_Message::error(
             __('The directory you set for upload work cannot be reached')
         )->display();
-    } elseif (!empty($files)) {
+    } elseif (! empty($files)) {
         echo "\n";
         echo '    <select style="margin: 5px" size="1" name="local_import_file" id="select_local_import_file">' . "\n";
         echo '        <option value="">&nbsp;</option>' . "\n";
