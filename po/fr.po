@@ -2990,7 +2990,7 @@ msgstr "%s jours, %s heures, %s minutes et %s secondes"
 
 #: libraries/common.lib.php:2072
 msgid "Missing parameter:"
-msgstr "Paramètre manquant :"
+msgstr "Paramètre manquant : "
 
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:306
