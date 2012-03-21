@@ -5615,7 +5615,7 @@ msgstr "Exportation des lignes de la table «%s»"
 
 #: libraries/display_export.lib.php:95
 msgid "Export Method:"
-msgstr "Méthode d'exportation:"
+msgstr "Méthode d'exportation : "
 
 #: libraries/display_export.lib.php:111
 msgid "Quick - display only the minimal options"
