@@ -6802,7 +6802,7 @@ msgstr "Doublure de structure pour la vue"
 
 #: libraries/export/sql.php:1112
 msgid "Error reading data:"
-msgstr "Erreur de lecture des données :"
+msgstr "Erreur de lecture des données : "
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
