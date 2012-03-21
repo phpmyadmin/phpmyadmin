@@ -565,7 +565,7 @@ msgstr "Mot(s) ou valeur(s) à rechercher (passe-partout: «%») :"
 
 #: db_search.php:303
 msgid "Find:"
-msgstr "Type de recherche :"
+msgstr "Type de recherche : "
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
