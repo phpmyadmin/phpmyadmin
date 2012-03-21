@@ -11398,7 +11398,7 @@ msgstr "(«PRIMARY» <b>doit et ne peut être</b> que le nom d'une clé primaire
 
 #: tbl_indexes.php:199
 msgid "Index type:"
-msgstr "Type d'index :"
+msgstr "Type d'index : "
 
 #: tbl_indexes.php:285
 #, php-format
