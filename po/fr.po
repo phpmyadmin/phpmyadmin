@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 17:40+0200\n"
+"PO-Revision-Date: 2012-03-21 17:41+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -4618,7 +4618,7 @@ msgstr "Exporter toutes les lignes"
 
 #: libraries/display_export.lib.php:174 libraries/display_export.lib.php:195
 msgid "Output:"
-msgstr "Sortie:"
+msgstr "Sortie : "
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:207
 #, php-format
