@@ -8455,7 +8455,7 @@ msgstr "Erotinmerkki"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Näytä kyselylause uudelleen "
+msgstr "Näytä tämä kyselylause uudestaan"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
