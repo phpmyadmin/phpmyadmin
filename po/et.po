@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 20:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-03-21 23:48+0200\n"
+"Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -4369,10 +4369,9 @@ msgid "Memory limit"
 msgstr "Mälu piirang"
 
 #: libraries/config/messages.inc.php:321
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Need on Muuda, Kiirmuutmine, Kopeeri ja Kustuta lingid"
+msgstr "Need on lingid Muuda, Kopeeri ja Kustuta"
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
