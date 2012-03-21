@@ -1590,10 +1590,9 @@ msgid "Time"
 msgstr "Aika"
 
 #: js/messages.php:185
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "Yhteensä"
+msgstr "Kokonaisaika:"
 
 #: js/messages.php:186
 #, fuzzy
