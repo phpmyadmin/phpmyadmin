@@ -11405,7 +11405,7 @@ msgstr "Ajouter à l'index&nbsp;%s&nbsp;colonne(s)"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr "On ne peut déplacer la table sur elle-même!"
+msgstr "On ne peut déplacer la table sur elle-même !"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
