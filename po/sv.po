@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 20:48+0200\n"
+"PO-Revision-Date: 2012-03-21 20:49+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5596,7 +5596,7 @@ msgstr "Rad att börja på:"
 
 #: libraries/display_export.lib.php:171
 msgid "Dump all rows"
-msgstr "¨Skippa alla rader:"
+msgstr "Ta bort alla rader"
 
 #: libraries/display_export.lib.php:179 libraries/display_export.lib.php:200
 msgid "Output:"
