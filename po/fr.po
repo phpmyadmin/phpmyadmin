@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-21 14:18+0200\n"
+"PO-Revision-Date: 2012-03-21 17:21+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -507,7 +507,7 @@ msgstr "expression réguliére"
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Résultats de la recherche de «<i>%s</i>» %s :"
+msgstr "Résultats de la recherche de «<i>%s</i>» %s : "
 
 #: db_search.php:227
 #, php-format
