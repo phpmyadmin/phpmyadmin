@@ -5796,7 +5796,7 @@ msgstr "Format : "
 
 #: libraries/display_export.lib.php:333
 msgid "Format-specific options:"
-msgstr "Options spécifiques au format:"
+msgstr "Options spécifiques au format : "
 
 #: libraries/display_export.lib.php:334
 msgid ""
