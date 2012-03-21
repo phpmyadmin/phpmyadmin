@@ -5635,7 +5635,7 @@ msgstr "Table(s) : "
 
 #: libraries/display_export.lib.php:147
 msgid "Rows:"
-msgstr "Lignes:"
+msgstr "Lignes : "
 
 #: libraries/display_export.lib.php:155
 msgid "Dump some row(s)"
