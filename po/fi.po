@@ -1318,7 +1318,7 @@ msgstr "Välimuistissa oleva sivutus"
 
 #: js/messages.php:112
 msgid "Used Swap"
-msgstr ""
+msgstr "Käytetty sivutusmuisti"
 
 #: js/messages.php:113
 #, fuzzy
