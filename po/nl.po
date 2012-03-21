@@ -12439,7 +12439,7 @@ msgstr ""
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Gemiddelde aantal gesorteerde regels : %s"
 
 #: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"
