@@ -91,12 +91,13 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         include 'libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
         if (empty($message)) {
-            $message = PMA_Message::success(__('%s databases have been dropped successfully.'));
             if ($mult_btn == __('Yes')) {
-                $message->addParam(count($selected));
+                $number_of_databases = count($selected);
             } else {
-                $message->addParam(0);
+                $number_of_databases = 0; 
             }
+            $message = PMA_Message::success(_ngettext('%1$d database has been dropped successfully.', '%1$d databases have been dropped successfully.', $number_of_databases));
+            $message->addParam($number_of_databases);
         }
 
     }

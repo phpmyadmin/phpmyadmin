@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-20 12:51-0400\n"
+"POT-Creation-Date: 2012-03-21 12:37-0400\n"
 "PO-Revision-Date: 2012-03-14 14:57+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 msgid "Show all"
 msgstr "Barchasini ko‘rsatish"
 
-#: browse_foreigners.php:70 libraries/PDF.class.php:42
+#: browse_foreigners.php:70 libraries/PDF.class.php:43
 #: libraries/common.lib.php:2483
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
-#: libraries/select_lang.lib.php:491
+#: libraries/select_lang.lib.php:500
 msgid "Page number:"
 msgstr "Sahifa raqami:"
 
@@ -39,8 +39,8 @@ msgstr ""
 "qilmoqda"
 
 #: browse_foreigners.php:156 libraries/common.lib.php:3164
-#: libraries/common.lib.php:3171 libraries/common.lib.php:3380
-#: libraries/common.lib.php:3381 libraries/db_links.inc.php:60
+#: libraries/common.lib.php:3171 libraries/common.lib.php:3381
+#: libraries/common.lib.php:3382 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Qidirish"
@@ -63,8 +63,8 @@ msgstr "Qidirish"
 #: libraries/schema/User_Schema.class.php:204
 #: libraries/schema/User_Schema.class.php:446
 #: libraries/schema/User_Schema.class.php:487
-#: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:356
-#: libraries/sql_query_form.lib.php:418 libraries/sql_query_form.lib.php:471
+#: libraries/select_server.lib.php:94 libraries/sql_query_form.lib.php:362
+#: libraries/sql_query_form.lib.php:424 libraries/sql_query_form.lib.php:479
 #: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:167
 #: navigation.php:205 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:813
@@ -194,7 +194,7 @@ msgstr "Izohlar"
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:302
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:299
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1569 server_privileges.php:1579
@@ -211,15 +211,15 @@ msgstr "Yo‘q"
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:58
-#: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:99
-#: libraries/mult_submits.inc.php:104 libraries/mult_submits.inc.php:109
-#: libraries/mult_submits.inc.php:114 libraries/mult_submits.inc.php:274
-#: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:301
-#: libraries/mult_submits.inc.php:308
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:56
+#: libraries/mult_submits.inc.php:88 libraries/mult_submits.inc.php:97
+#: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:107
+#: libraries/mult_submits.inc.php:112 libraries/mult_submits.inc.php:271
+#: libraries/mult_submits.inc.php:284 libraries/mult_submits.inc.php:298
+#: libraries/mult_submits.inc.php:305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
-#: server_databases.php:95 server_privileges.php:1567
+#: server_databases.php:94 server_privileges.php:1567
 #: server_privileges.php:1577 server_privileges.php:1849
 #: server_privileges.php:1863 server_privileges.php:2205
 #: server_privileges.php:2208 server_privileges.php:2503 sql.php:391
@@ -422,7 +422,7 @@ msgstr "Sortirovka qilish"
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:98
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:566
 #: libraries/display_tbl.lib.php:959 libraries/display_tbl.lib.php:962
-#: server_databases.php:176 server_databases.php:193 tbl_operations.php:279
+#: server_databases.php:177 server_databases.php:194 tbl_operations.php:279
 #: tbl_select.php:247
 msgid "Ascending"
 msgstr "O‘sish tartibida"
@@ -430,7 +430,7 @@ msgstr "O‘sish tartibida"
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:99
 #: libraries/db_structure.lib.php:108 libraries/display_tbl.lib.php:571
 #: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:963
-#: server_databases.php:176 server_databases.php:193 tbl_operations.php:280
+#: server_databases.php:177 server_databases.php:194 tbl_operations.php:280
 #: tbl_select.php:248
 msgid "Descending"
 msgstr "Kamayish tartibida"
@@ -532,7 +532,7 @@ msgstr[0] "<i>\"%s\"</i> jadvalida o‘xshashliklar soni \"%s\" ta"
 msgstr[1] "<i>\"%s\"</i> jadvalida o‘xshashliklar soni \"%s\" ta"
 
 #: db_search.php:234 libraries/common.lib.php:3166
-#: libraries/common.lib.php:3378 libraries/common.lib.php:3379
+#: libraries/common.lib.php:3379 libraries/common.lib.php:3380
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Ko‘rib chiqish"
@@ -549,7 +549,7 @@ msgstr "Ushbu jadval uchun kuzatuv ma’lumotlari o‘chirish"
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
 #: libraries/schema/User_Schema.class.php:338
-#: libraries/sql_query_form.lib.php:411 pmd_general.php:417
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:417
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
 #: tbl_tracking.php:453 tbl_tracking.php:474 tbl_tracking.php:531
 msgid "Delete"
@@ -600,8 +600,8 @@ msgstr "Quyidagi maydon(lar)da qidirish: "
 msgid "No tables found in database"
 msgstr "Ma`lumotlar bazasida bironta ham jadval mavjud emas."
 
-#: db_structure.php:239 libraries/mysql_charsets.lib.php:409
-#: libraries/mysql_charsets.lib.php:416
+#: db_structure.php:239 libraries/mysql_charsets.lib.php:411
+#: libraries/mysql_charsets.lib.php:418
 msgid "unknown"
 msgstr "noma`lum"
 
@@ -643,7 +643,7 @@ msgid "View"
 msgstr "Namoyish"
 
 #: db_structure.php:527 libraries/db_structure.lib.php:35
-#: libraries/server_links.inc.php:90 server_replication.php:31
+#: libraries/server_links.inc.php:92 server_replication.php:31
 #: server_replication.php:192 server_status.php:597
 msgid "Replication"
 msgstr "Replikatsiya (zaxira nusxa ko‘chirish)"
@@ -659,20 +659,20 @@ msgstr "\"%s\" - MySQL serveridagi andozaviy ma`lumotlar jadvali turi."
 
 #: db_structure.php:567 db_structure.php:584 db_structure.php:585
 #: libraries/display_tbl.lib.php:2492 libraries/display_tbl.lib.php:2497
-#: libraries/mult_submits.inc.php:27 server_databases.php:277
-#: server_databases.php:282 server_privileges.php:1886
+#: libraries/mult_submits.inc.php:27 server_databases.php:278
+#: server_databases.php:283 server_privileges.php:1886
 #: server_privileges.php:1894 tbl_structure.php:557 tbl_structure.php:566
 msgid "With selected:"
 msgstr "Belgilanganlarni:"
 
 #: db_structure.php:570 libraries/display_tbl.lib.php:2487
-#: server_databases.php:279 server_privileges.php:751
+#: server_databases.php:280 server_privileges.php:751
 #: server_privileges.php:1889 tbl_structure.php:560
 msgid "Check All"
 msgstr "Barchasini belgilash"
 
 #: db_structure.php:574 libraries/display_tbl.lib.php:2488
-#: libraries/replication_gui.lib.php:35 server_databases.php:281
+#: libraries/replication_gui.lib.php:35 server_databases.php:282
 #: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
 msgstr "Belgilashni bekor qilish"
@@ -681,8 +681,8 @@ msgstr "Belgilashni bekor qilish"
 msgid "Check tables having overhead"
 msgstr "Optimallashtirish lozim bo‘lgn jadvallarni belgilash"
 
-#: db_structure.php:587 libraries/common.lib.php:3391
-#: libraries/common.lib.php:3392 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3392
+#: libraries/common.lib.php:3393 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2510 libraries/display_tbl.lib.php:2651
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -696,14 +696,14 @@ msgstr "Eksport"
 msgid "Print view"
 msgstr "Chop etish versiyasi"
 
-#: db_structure.php:593 libraries/common.lib.php:3387
-#: libraries/common.lib.php:3388
+#: db_structure.php:593 libraries/common.lib.php:3388
+#: libraries/common.lib.php:3389
 msgid "Empty"
 msgstr "Tozalash"
 
 #: db_structure.php:595 db_tracking.php:105 enum_editor.php:116
-#: libraries/Index.class.php:498 libraries/common.lib.php:3385
-#: libraries/common.lib.php:3386 server_databases.php:283
+#: libraries/Index.class.php:498 libraries/common.lib.php:3386
+#: libraries/common.lib.php:3387 server_databases.php:284
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "O‘chirish"
@@ -730,13 +730,13 @@ msgstr "Jadval tahlili"
 msgid "Add prefix to table"
 msgstr "Ushbu jadvalga o‘tish"
 
-#: db_structure.php:609 libraries/mult_submits.inc.php:263
+#: db_structure.php:609 libraries/mult_submits.inc.php:260
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "Jadval ma`lumotlarini fayl ma`lumotlari bilan almashtirish"
 
-#: db_structure.php:611 libraries/mult_submits.inc.php:263
+#: db_structure.php:611 libraries/mult_submits.inc.php:260
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
@@ -755,7 +755,7 @@ msgstr "Kuzatilgan jadvallar"
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:609 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
-#: libraries/header_printview.inc.php:59 server_databases.php:175
+#: libraries/header_printview.inc.php:59 server_databases.php:176
 #: server_privileges.php:1975 server_privileges.php:2038
 #: server_privileges.php:2301 server_status.php:1239
 #: server_synchronize.php:1359 server_synchronize.php:1363
@@ -784,7 +784,7 @@ msgstr "Holat"
 #: db_tracking.php:91 libraries/Index.class.php:446
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
-#: server_databases.php:208 server_privileges.php:1823
+#: server_databases.php:209 server_privileges.php:1823
 #: server_privileges.php:2042 server_privileges.php:2389 tbl_structure.php:211
 msgid "Action"
 msgstr "Amal"
@@ -1080,9 +1080,9 @@ msgstr ""
 "Odatda, bu hol, php-ssenariylar uchun ajratilgan vaqt oshirilmaguncha "
 "phpMyAdmin dasturi import jarayonini yakunla olmasligini bildiradi."
 
-#: import.php:521 libraries/Message.class.php:175
+#: import.php:521 libraries/Message.class.php:177
 #: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1209
-#: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
+#: libraries/sql_query_form.lib.php:114 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL so‘rovi muvaffaqiyatli bajarildi"
@@ -1103,13 +1103,13 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
 "\"DROP DATABASE\" (ma`lumotlar bazasini o‘chirish) buyrug‘i o‘chirilgan."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:296 sql.php:386
+#: js/messages.php:30 libraries/mult_submits.inc.php:293 sql.php:386
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
 msgstr "Haqiqatan ham so‘rovni bajarmoqchimisiz?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:294 sql.php:371
+#: js/messages.php:31 libraries/mult_submits.inc.php:291 sql.php:371
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ma`lumotlar bazasi to‘liq O‘CHIRILADI!"
 
@@ -1215,7 +1215,7 @@ msgstr "Yopish"
 
 #: js/messages.php:61 js/messages.php:274 libraries/Index.class.php:476
 #: libraries/common.lib.php:649 libraries/common.lib.php:1228
-#: libraries/common.lib.php:3389 libraries/common.lib.php:3390
+#: libraries/common.lib.php:3390 libraries/common.lib.php:3391
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1390
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
@@ -1243,7 +1243,7 @@ msgstr ""
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:158 server_databases.php:236
+#: libraries/engines/innodb.lib.php:158 server_databases.php:237
 #: server_status.php:1126 server_status.php:1187 tbl_printview.php:310
 #: tbl_structure.php:804
 msgid "Total"
@@ -2660,18 +2660,18 @@ msgid ""
 msgstr "%1$s va %2$s indekslari bir xil, ulardan birini o‘chirish mumkin."
 
 #: libraries/List_Database.class.php:387 libraries/config/messages.inc.php:179
-#: libraries/server_links.inc.php:43 server_databases.php:118
+#: libraries/server_links.inc.php:43 server_databases.php:119
 #: server_privileges.php:1975
 msgid "Databases"
 msgstr "Ma`lumotlar bazalari"
 
-#: libraries/Message.class.php:193 libraries/common.lib.php:615
+#: libraries/Message.class.php:196 libraries/common.lib.php:615
 #: libraries/core.lib.php:216 libraries/import.lib.php:142 tbl_change.php:935
 #: tbl_operations.php:229 tbl_relation.php:282 view_operations.php:60
 msgid "Error"
 msgstr "Xatolik"
 
-#: libraries/Message.class.php:241
+#: libraries/Message.class.php:249
 #, fuzzy, php-format
 #| msgid "%1$d row(s) affected."
 msgid "%1$d row affected."
@@ -2679,7 +2679,7 @@ msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d ta qatorlarga ta`sir etdi."
 msgstr[1] "%1$d ta qatorlarga ta`sir etdi."
 
-#: libraries/Message.class.php:257
+#: libraries/Message.class.php:266
 #, fuzzy, php-format
 #| msgid "%1$d row(s) deleted."
 msgid "%1$d row deleted."
@@ -2687,7 +2687,7 @@ msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d ta qatorlar o‘chirildi."
 msgstr[1] "%1$d ta qatorlar o‘chirildi."
 
-#: libraries/Message.class.php:273
+#: libraries/Message.class.php:283
 #, fuzzy, php-format
 #| msgid "%1$d row(s) inserted."
 msgid "%1$d row inserted."
@@ -2695,25 +2695,25 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d ta qatorlar qo‘yildi."
 msgstr[1] "%1$d ta qatorlar qo‘yildi."
 
-#: libraries/PDF.class.php:81
+#: libraries/PDF.class.php:82
 #, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Ma`lumotlarni chaqirishga ruxsat beradi"
 
-#: libraries/RecentTable.class.php:107
+#: libraries/RecentTable.class.php:106
 #, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save recent table"
 msgstr "Konfiguratsiyani yuklab yoki saqlab bo‘lmadi"
 
-#: libraries/RecentTable.class.php:142
+#: libraries/RecentTable.class.php:141
 #, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
 msgstr "Jadvallarni sanash"
 
-#: libraries/RecentTable.class.php:149
+#: libraries/RecentTable.class.php:148
 #, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
@@ -3085,7 +3085,7 @@ msgstr "en"
 #: libraries/display_export.lib.php:237 libraries/engines/pbxt.lib.php:106
 #: libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
-#: libraries/sql_query_form.lib.php:392 libraries/sql_query_form.lib.php:395
+#: libraries/sql_query_form.lib.php:398 libraries/sql_query_form.lib.php:401
 #: main.php:238 server_variables.php:129
 msgid "Documentation"
 msgstr "Dokumentatsiya"
@@ -3234,7 +3234,7 @@ msgid "Click to toggle"
 msgstr "Tanlash uchun sichqoncha tugmasini bosing"
 
 #: libraries/common.lib.php:3162 libraries/common.lib.php:3169
-#: libraries/common.lib.php:3384 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3385 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -3254,9 +3254,9 @@ msgstr "Tuzilishi"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3165 libraries/common.lib.php:3382
-#: libraries/common.lib.php:3383 libraries/sql_query_form.lib.php:282
-#: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
+#: libraries/common.lib.php:3165 libraries/common.lib.php:3383
+#: libraries/common.lib.php:3384 libraries/sql_query_form.lib.php:289
+#: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Qo‘yish"
 
@@ -3266,31 +3266,31 @@ msgstr "Qo‘yish"
 msgid "Operations"
 msgstr "Operatsiyalar"
 
-#: libraries/common.lib.php:3316 libraries/sql_query_form.lib.php:443
+#: libraries/common.lib.php:3317 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:3335
+#: libraries/common.lib.php:3336
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Yuklash katalogidan"
 
-#: libraries/common.lib.php:3356 libraries/sql_query_form.lib.php:452
+#: libraries/common.lib.php:3357 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:936
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Ko‘rsatilgan katalokka yuklab bo‘lmadi"
 
-#: libraries/common.lib.php:3365
+#: libraries/common.lib.php:3366
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:3393 libraries/common.lib.php:3394
+#: libraries/common.lib.php:3394 libraries/common.lib.php:3395
 msgid "Execute"
 msgstr ""
 
-#: libraries/common.lib.php:3869
+#: libraries/common.lib.php:3870
 msgid "Print"
 msgstr "Chop etish"
 
@@ -5519,7 +5519,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 
-#: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
+#: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:358
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Retain query box"
@@ -6170,7 +6170,7 @@ msgid "use this for future exports"
 msgstr ""
 
 #: libraries/display_export.lib.php:279 libraries/display_import.lib.php:188
-#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
+#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:474
 msgid "Character set of the file:"
 msgstr "Fayl kodirovkasi:"
 
@@ -7393,32 +7393,32 @@ msgstr "Yo‘q"
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:266
+#: libraries/mult_submits.inc.php:263
 #, fuzzy
 #| msgid "Fri"
 msgid "From"
 msgstr "Jum"
 
-#: libraries/mult_submits.inc.php:269
+#: libraries/mult_submits.inc.php:266
 msgid "To"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:274 libraries/mult_submits.inc.php:287
-#: libraries/sql_query_form.lib.php:403
+#: libraries/mult_submits.inc.php:271 libraries/mult_submits.inc.php:284
+#: libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Bajarish"
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:276
 msgid "Add table prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:282
+#: libraries/mult_submits.inc.php:279
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add prefix"
 msgstr "Indеks(lar)ni saqlash"
 
-#: libraries/mult_submits.inc.php:499 tbl_replace.php:341
+#: libraries/mult_submits.inc.php:496 tbl_replace.php:341
 msgid "No change"
 msgstr "O‘zgarish yo‘q"
 
@@ -7426,186 +7426,186 @@ msgstr "O‘zgarish yo‘q"
 msgid "Charset"
 msgstr "Kodirovka"
 
-#: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
+#: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:415
 #: tbl_change.php:616
 msgid "Binary"
 msgstr "Ikkilik"
 
-#: libraries/mysql_charsets.lib.php:224
+#: libraries/mysql_charsets.lib.php:226
 msgid "Bulgarian"
 msgstr "Bolgarcha"
 
-#: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:353
+#: libraries/mysql_charsets.lib.php:230 libraries/mysql_charsets.lib.php:355
 msgid "Simplified Chinese"
 msgstr "Soddalashtirilgan xitoycha"
 
-#: libraries/mysql_charsets.lib.php:230 libraries/mysql_charsets.lib.php:373
+#: libraries/mysql_charsets.lib.php:232 libraries/mysql_charsets.lib.php:375
 msgid "Traditional Chinese"
 msgstr "An`anaviy xitoycha"
 
-#: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
+#: libraries/mysql_charsets.lib.php:236 libraries/mysql_charsets.lib.php:422
 msgid "case-insensitive"
 msgstr "harflar katta-kichikligi farqlanmaydi"
 
-#: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:422
+#: libraries/mysql_charsets.lib.php:239 libraries/mysql_charsets.lib.php:424
 msgid "case-sensitive"
 msgstr "harflar katta-kichikligi farqlanadi"
 
-#: libraries/mysql_charsets.lib.php:240
+#: libraries/mysql_charsets.lib.php:242
 msgid "Croatian"
 msgstr "Xorvatcha"
 
-#: libraries/mysql_charsets.lib.php:243
+#: libraries/mysql_charsets.lib.php:245
 msgid "Czech"
 msgstr "Chexcha"
 
-#: libraries/mysql_charsets.lib.php:246
+#: libraries/mysql_charsets.lib.php:248
 msgid "Danish"
 msgstr "Daniyacha"
 
-#: libraries/mysql_charsets.lib.php:249
+#: libraries/mysql_charsets.lib.php:251
 msgid "English"
 msgstr "Inglizcha"
 
-#: libraries/mysql_charsets.lib.php:252
+#: libraries/mysql_charsets.lib.php:254
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/mysql_charsets.lib.php:255
+#: libraries/mysql_charsets.lib.php:257
 msgid "Estonian"
 msgstr "Estoncha"
 
-#: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:261
+#: libraries/mysql_charsets.lib.php:260 libraries/mysql_charsets.lib.php:263
 msgid "German"
 msgstr "Nemischa"
 
-#: libraries/mysql_charsets.lib.php:258
+#: libraries/mysql_charsets.lib.php:260
 msgid "dictionary"
 msgstr "lug‘at"
 
-#: libraries/mysql_charsets.lib.php:261
+#: libraries/mysql_charsets.lib.php:263
 msgid "phone book"
 msgstr "telefonlar kitobi"
 
-#: libraries/mysql_charsets.lib.php:264
+#: libraries/mysql_charsets.lib.php:266
 msgid "Hungarian"
 msgstr "Vengercha"
 
-#: libraries/mysql_charsets.lib.php:267
+#: libraries/mysql_charsets.lib.php:269
 msgid "Icelandic"
 msgstr "Islandcha"
 
-#: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:360
+#: libraries/mysql_charsets.lib.php:272 libraries/mysql_charsets.lib.php:362
 msgid "Japanese"
 msgstr "Yaponcha"
 
-#: libraries/mysql_charsets.lib.php:273
+#: libraries/mysql_charsets.lib.php:275
 msgid "Latvian"
 msgstr "Latishcha"
 
-#: libraries/mysql_charsets.lib.php:276
+#: libraries/mysql_charsets.lib.php:278
 msgid "Lithuanian"
 msgstr "Litvacha"
 
-#: libraries/mysql_charsets.lib.php:279 libraries/mysql_charsets.lib.php:382
+#: libraries/mysql_charsets.lib.php:281 libraries/mysql_charsets.lib.php:384
 msgid "Korean"
 msgstr "Koreyscha"
 
-#: libraries/mysql_charsets.lib.php:282
+#: libraries/mysql_charsets.lib.php:284
 msgid "Persian"
 msgstr "Forscha"
 
-#: libraries/mysql_charsets.lib.php:285
+#: libraries/mysql_charsets.lib.php:287
 msgid "Polish"
 msgstr "Polyakcha"
 
-#: libraries/mysql_charsets.lib.php:288 libraries/mysql_charsets.lib.php:336
+#: libraries/mysql_charsets.lib.php:290 libraries/mysql_charsets.lib.php:338
 msgid "West European"
 msgstr "G‘arbiy-Yevropacha"
 
-#: libraries/mysql_charsets.lib.php:291
+#: libraries/mysql_charsets.lib.php:293
 msgid "Romanian"
 msgstr "Rumincha"
 
-#: libraries/mysql_charsets.lib.php:294
+#: libraries/mysql_charsets.lib.php:296
 msgid "Slovak"
 msgstr "Slovakcha"
 
-#: libraries/mysql_charsets.lib.php:297
+#: libraries/mysql_charsets.lib.php:299
 msgid "Slovenian"
 msgstr "Slovencha"
 
-#: libraries/mysql_charsets.lib.php:300
+#: libraries/mysql_charsets.lib.php:302
 msgid "Spanish"
 msgstr "Ispancha"
 
-#: libraries/mysql_charsets.lib.php:303
+#: libraries/mysql_charsets.lib.php:305
 msgid "Traditional Spanish"
 msgstr "An`anaviy ispancha"
 
-#: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:403
+#: libraries/mysql_charsets.lib.php:308 libraries/mysql_charsets.lib.php:405
 msgid "Swedish"
 msgstr "Shvedcha"
 
-#: libraries/mysql_charsets.lib.php:309 libraries/mysql_charsets.lib.php:406
+#: libraries/mysql_charsets.lib.php:311 libraries/mysql_charsets.lib.php:408
 msgid "Thai"
 msgstr "Taycha"
 
-#: libraries/mysql_charsets.lib.php:312 libraries/mysql_charsets.lib.php:400
+#: libraries/mysql_charsets.lib.php:314 libraries/mysql_charsets.lib.php:402
 msgid "Turkish"
 msgstr "Turkcha"
 
-#: libraries/mysql_charsets.lib.php:315 libraries/mysql_charsets.lib.php:397
+#: libraries/mysql_charsets.lib.php:317 libraries/mysql_charsets.lib.php:399
 msgid "Ukrainian"
 msgstr "Ukraincha"
 
-#: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
+#: libraries/mysql_charsets.lib.php:320 libraries/mysql_charsets.lib.php:329
 msgid "Unicode"
 msgstr "Yunikod"
 
-#: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
-#: libraries/mysql_charsets.lib.php:336 libraries/mysql_charsets.lib.php:343
-#: libraries/mysql_charsets.lib.php:365 libraries/mysql_charsets.lib.php:376
+#: libraries/mysql_charsets.lib.php:320 libraries/mysql_charsets.lib.php:329
+#: libraries/mysql_charsets.lib.php:338 libraries/mysql_charsets.lib.php:345
+#: libraries/mysql_charsets.lib.php:367 libraries/mysql_charsets.lib.php:378
 msgid "multilingual"
 msgstr "ko‘p tildagi"
 
-#: libraries/mysql_charsets.lib.php:343
+#: libraries/mysql_charsets.lib.php:345
 msgid "Central European"
 msgstr "Markaziy Yevropacha"
 
-#: libraries/mysql_charsets.lib.php:348
+#: libraries/mysql_charsets.lib.php:350
 msgid "Russian"
 msgstr "Ruscha"
 
-#: libraries/mysql_charsets.lib.php:365
+#: libraries/mysql_charsets.lib.php:367
 msgid "Baltic"
 msgstr "Baltikacha"
 
-#: libraries/mysql_charsets.lib.php:370
+#: libraries/mysql_charsets.lib.php:372
 msgid "Armenian"
 msgstr "Armancha"
 
-#: libraries/mysql_charsets.lib.php:376
+#: libraries/mysql_charsets.lib.php:378
 msgid "Cyrillic"
 msgstr "Kirillcha"
 
-#: libraries/mysql_charsets.lib.php:379
+#: libraries/mysql_charsets.lib.php:381
 msgid "Arabic"
 msgstr "Arabcha"
 
-#: libraries/mysql_charsets.lib.php:385
+#: libraries/mysql_charsets.lib.php:387
 msgid "Hebrew"
 msgstr "Yahudiycha"
 
-#: libraries/mysql_charsets.lib.php:388
+#: libraries/mysql_charsets.lib.php:390
 msgid "Georgian"
 msgstr "Gruzincha"
 
-#: libraries/mysql_charsets.lib.php:391
+#: libraries/mysql_charsets.lib.php:393
 msgid "Greek"
 msgstr "Grekcha"
 
-#: libraries/mysql_charsets.lib.php:394
+#: libraries/mysql_charsets.lib.php:396
 msgid "Czech-Slovak"
 msgstr "Chexoslovakcha"
 
@@ -7627,7 +7627,7 @@ msgstr "Chiqish"
 msgid "Reload navigation frame"
 msgstr "Navigatsiya oynasini qayta yuklash"
 
-#: libraries/plugin_interface.lib.php:309
+#: libraries/plugin_interface.lib.php:307
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
@@ -7677,7 +7677,7 @@ msgstr ""
 "\"column_comments\" jadvalini yangilash zarur. Batafsil ma`lumot uchun "
 "dokumentatsiyaga qarang."
 
-#: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:376
+#: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:382
 msgid "Bookmarked SQL query"
 msgstr "Xatcho‘p qo‘yilgan SQL so‘rovi"
 
@@ -7770,7 +7770,7 @@ msgstr "Bosh rеplikatsiya sеrvеri statusi"
 msgid "Slave status"
 msgstr "Tobе rеplikatsiya sеrvеri statusi"
 
-#: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:388
+#: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:394
 #: server_status.php:1479 server_variables.php:123
 msgid "Variable"
 msgstr "O‘zgaruvchi"
@@ -8485,12 +8485,12 @@ msgid "Toggle scratchboard"
 msgstr "Ko‘rsatish"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:480
+#: libraries/select_lang.lib.php:489
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:497 libraries/select_lang.lib.php:503
-#: libraries/select_lang.lib.php:509
+#: libraries/select_lang.lib.php:507 libraries/select_lang.lib.php:516
+#: libraries/select_lang.lib.php:525
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Noma`lum til: %1$s."
@@ -8507,111 +8507,111 @@ msgstr "Joriy sеrvеr"
 msgid "Users"
 msgstr "Foydalanuvchi"
 
-#: libraries/server_links.inc.php:79 server_synchronize.php:1228
+#: libraries/server_links.inc.php:81 server_synchronize.php:1228
 #: server_synchronize.php:1236
 msgid "Synchronize"
 msgstr "Sinxronizatsiya qilish"
 
-#: libraries/server_links.inc.php:84 server_binlog.php:77
+#: libraries/server_links.inc.php:86 server_binlog.php:77
 #: server_status.php:592
 msgid "Binary log"
 msgstr "Ikkilik jurnal"
 
-#: libraries/server_links.inc.php:95 server_engines.php:107
+#: libraries/server_links.inc.php:97 server_engines.php:107
 #: server_engines.php:111 server_status.php:645
 msgid "Variables"
 msgstr "O‘zgaruvchilar"
 
-#: libraries/server_links.inc.php:99
+#: libraries/server_links.inc.php:101
 msgid "Charsets"
 msgstr "Kodirovkalar"
 
-#: libraries/server_links.inc.php:104 server_plugins.php:47
+#: libraries/server_links.inc.php:106 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
 msgstr ""
 
-#: libraries/server_links.inc.php:108
+#: libraries/server_links.inc.php:110
 msgid "Engines"
 msgstr "Jadval turlari"
 
-#: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1262
+#: libraries/server_synchronize.lib.php:1335 server_synchronize.php:1262
 msgid "Source database"
 msgstr "Manba baza"
 
-#: libraries/server_synchronize.lib.php:1303
-#: libraries/server_synchronize.lib.php:1311
+#: libraries/server_synchronize.lib.php:1337
+#: libraries/server_synchronize.lib.php:1345
 msgid "Current server"
 msgstr "Joriy sеrvеr"
 
-#: libraries/server_synchronize.lib.php:1305
-#: libraries/server_synchronize.lib.php:1313
+#: libraries/server_synchronize.lib.php:1339
+#: libraries/server_synchronize.lib.php:1347
 msgid "Remote server"
 msgstr "Masofadagi sеrvеr"
 
-#: libraries/server_synchronize.lib.php:1308
+#: libraries/server_synchronize.lib.php:1342
 msgid "Difference"
 msgstr "Farq"
 
-#: libraries/server_synchronize.lib.php:1309 server_synchronize.php:1264
+#: libraries/server_synchronize.lib.php:1343 server_synchronize.php:1264
 msgid "Target database"
 msgstr "Nishon baza"
 
-#: libraries/server_synchronize.lib.php:1344
-#: libraries/server_synchronize.lib.php:1353
+#: libraries/server_synchronize.lib.php:1378
+#: libraries/server_synchronize.lib.php:1387
 msgid "Click to select"
 msgstr "Tanlash uchun sichqoncha tugmasini bosing"
 
-#: libraries/sql_query_form.lib.php:189
+#: libraries/sql_query_form.lib.php:192
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "\"%s\" serverida SQL-so‘rov(lar)ni bajarish"
 
-#: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:228
+#: libraries/sql_query_form.lib.php:213 libraries/sql_query_form.lib.php:235
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "\"%s\" ma`lumotlar bazasida SQL-so‘rov(lar)ni bajarish"
 
-#: libraries/sql_query_form.lib.php:260 navigation.php:265
+#: libraries/sql_query_form.lib.php:267 navigation.php:265
 #: setup/frames/index.inc.php:233
 msgid "Clear"
 msgstr "Tozalash"
 
-#: libraries/sql_query_form.lib.php:265
+#: libraries/sql_query_form.lib.php:272
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
 msgstr "Maydon nomlari"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:1007 sql.php:1024
+#: libraries/sql_query_form.lib.php:307 sql.php:1007 sql.php:1024
 msgid "Bookmark this SQL query"
 msgstr "Ushbu SQL so‘roviga xatcho‘p tuzish"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:1018
+#: libraries/sql_query_form.lib.php:313 sql.php:1018
 msgid "Let every user access this bookmark"
 msgstr "Barcha foydalanuvchilarga ruxsat berish"
 
-#: libraries/sql_query_form.lib.php:313
+#: libraries/sql_query_form.lib.php:319
 msgid "Replace existing bookmark of same name"
 msgstr "Shu nomli xatcho‘pni almashtirish"
 
-#: libraries/sql_query_form.lib.php:329
+#: libraries/sql_query_form.lib.php:335
 msgid "Do not overwrite this query from outside the window"
 msgstr "So‘rovlar oynasi ichidagi ma`lumotlarni blokirovka qilish"
 
-#: libraries/sql_query_form.lib.php:336
+#: libraries/sql_query_form.lib.php:342
 msgid "Delimiter"
 msgstr "Taqsimlovchi"
 
-#: libraries/sql_query_form.lib.php:344
+#: libraries/sql_query_form.lib.php:350
 msgid "Show this query here again"
 msgstr "Ushbu so‘rovni qayta ko‘rsatish"
 
-#: libraries/sql_query_form.lib.php:407
+#: libraries/sql_query_form.lib.php:413
 msgid "View only"
 msgstr "Faqat ko‘rish"
 
-#: libraries/sql_query_form.lib.php:455 tbl_change.php:939
+#: libraries/sql_query_form.lib.php:461 tbl_change.php:939
 msgid "web server upload directory"
 msgstr "Yuklash katalogidan"
 
@@ -9262,7 +9262,7 @@ msgstr ""
 "Server \"Suhosin\" himoya tizimadan foydalanmoqda. Yuzaga kelgan muammolar "
 "yechimi uchun \"%s\"dokumentatsiya\"%s\" ga qarang."
 
-#: navigation.php:178 server_databases.php:298 server_synchronize.php:1376
+#: navigation.php:178 server_databases.php:299 server_synchronize.php:1376
 msgid "No databases"
 msgstr "Ma`lumotlar bazasi mavjud emas"
 
@@ -9620,29 +9620,31 @@ msgstr "Kodirovkalar va taqqoslashlar"
 msgid "No databases selected."
 msgstr "Bironta ham ma`lumotlar bazasi tanlanmagan."
 
-#: server_databases.php:94
-#, php-format
-msgid "%s databases have been dropped successfully."
-msgstr "\"%s\" ma`lumotlar bazasi muvaffaqiyatli o‘chirildi."
+#: server_databases.php:99
+#, fuzzy, php-format
+#| msgid "%s databases have been dropped successfully."
+msgid "%1$d database has been dropped successfully."
+msgid_plural "%1$d databases have been dropped successfully."
+msgstr[0] "\"%s\" ma`lumotlar bazasi muvaffaqiyatli o‘chirildi."
 
-#: server_databases.php:118
+#: server_databases.php:119
 msgid "Databases statistics"
 msgstr "Ma`lumotlar bazasi statiskasi"
 
-#: server_databases.php:200 server_replication.php:209
+#: server_databases.php:201 server_replication.php:209
 #: server_replication.php:237
 msgid "Master replication"
 msgstr "Bosh sеrvеr rеplikatsiyasi"
 
-#: server_databases.php:202 server_replication.php:276
+#: server_databases.php:203 server_replication.php:276
 msgid "Slave replication"
 msgstr "Tobе sеrvеr rеplikatsiyasi"
 
-#: server_databases.php:289 server_databases.php:290
+#: server_databases.php:290 server_databases.php:291
 msgid "Enable Statistics"
 msgstr "Statiskani yoqish"
 
-#: server_databases.php:292
+#: server_databases.php:293
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
