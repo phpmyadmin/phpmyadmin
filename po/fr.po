@@ -11889,7 +11889,7 @@ msgstr "Description"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "Vous n'êtes pas autorisé à accéder à cette page!"
+msgstr "Vous n'êtes pas autorisé à accéder à cette page !"
 
 #: user_password.php:96
 msgid "The profile has been updated."
