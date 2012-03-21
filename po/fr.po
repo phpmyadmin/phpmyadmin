@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 11:15+0200\n"
+"PO-Revision-Date: 2012-03-21 11:16+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -5498,7 +5498,7 @@ msgstr "Client"
 #: libraries/export/latex.php:144 libraries/export/sql.php:342
 #: libraries/export/xml.php:111 libraries/header_printview.inc.php:58
 msgid "Generation Time"
-msgstr "Généré le"
+msgstr "Généré le "
 
 #: libraries/export/latex.php:145 libraries/export/sql.php:344
 #: libraries/export/xml.php:112 main.php:164
