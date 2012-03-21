@@ -11970,7 +11970,7 @@ msgstr "Suivre les énoncés de définition de données suivants : "
 
 #: tbl_tracking.php:742
 msgid "Track these data manipulation statements:"
-msgstr "Suivre les énoncés de manipulation de données suivants :"
+msgstr "Suivre les énoncés de manipulation de données suivants : "
 
 #: tbl_tracking.php:750
 msgid "Create version"
