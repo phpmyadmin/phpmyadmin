@@ -11590,7 +11590,7 @@ msgstr "Recherche «par valeur» (passepartout: «% »)"
 
 #: tbl_select.php:203
 msgid "Select columns (at least one):"
-msgstr "Choisir les colonnes (au moins une)"
+msgstr "Choisir les colonnes (au moins une) : "
 
 #: tbl_select.php:221
 msgid "Add search conditions (body of the \"where\" clause):"
