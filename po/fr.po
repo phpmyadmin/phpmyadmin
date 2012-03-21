@@ -6506,7 +6506,7 @@ msgstr "Ajouter un énoncé %s"
 
 #: libraries/export/sql.php:152
 msgid "Add statements:"
-msgstr "Ajouter les énoncés :"
+msgstr "Ajouter les énoncés : "
 
 #: libraries/export/sql.php:211
 msgid ""
