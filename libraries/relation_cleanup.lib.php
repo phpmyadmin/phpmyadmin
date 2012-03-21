@@ -143,7 +143,7 @@ function PMA_relationsCleanupDatabase($db)
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['designer_coords'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($db) . '\'';
         PMA_query_as_controluser($remove_query);
-     }
+    }
 
     if ($cfgRelation['relwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])

@@ -27,8 +27,10 @@ if (!@function_exists('session_name')) {
 //ini_set('session.auto_start', 0);
 
 // session cookie settings
-session_set_cookie_params(0, $GLOBALS['PMA_Config']->getCookiePath(),
-    '', $GLOBALS['PMA_Config']->isHttps(), true);
+session_set_cookie_params(
+    0, $GLOBALS['PMA_Config']->getCookiePath(),
+    '', $GLOBALS['PMA_Config']->isHttps(), true
+);
 
 // cookies are safer (use @ini_set() in case this function is disabled)
 @ini_set('session.use_cookies', true);
@@ -43,8 +45,10 @@ if (!empty($path)) {
 @ini_set('session.use_only_cookies', false);
 // do not force transparent session ids, see bug #3398788
 //@ini_set('session.use_trans_sid', true);
-@ini_set('url_rewriter.tags',
-    'a=href,frame=src,input=src,form=fakeentry,fieldset=');
+@ini_set(
+     'url_rewriter.tags',
+    'a=href,frame=src,input=src,form=fakeentry,fieldset='
+);
 //ini_set('arg_separator.output', '&amp;');
 
 // delete session/cookies when browser is closed

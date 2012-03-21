@@ -139,7 +139,8 @@ function get_script_contr()
         $js_var .= "['" . $con['C_NAME'][$i] . "']";
         $script_contr .= $js_var . " = new Array();\n";
         if (in_array($con['DTN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
-         && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])) {
+            && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
+        ) {
             $js_var .= "['" . $con['DTN'][$i] . "']";
             $script_contr .= $js_var . " = new Array();\n";
             $m_col = array();//}
@@ -168,6 +169,7 @@ function get_pk_or_unique_keys()
  * returns all indizes
  *
  * @param boolean whether to include ony unique ones
+ *
  * @return  array indizes
  */
 function get_all_keys($unique_only = false)

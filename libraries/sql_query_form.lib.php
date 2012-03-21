@@ -24,18 +24,19 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
 /**
  * prints the sql query boxes
  *
+ * @param boolean|string $query       query to display in the textarea
+ *                                    or true to display last executed
+ * @param boolean|string $display_tab sql|files|history|full|false
+ *                                    what part to display
+ *                                    false if not inside querywindow
+ * @param string         $delimiter   delimeter
+ *
  * @usedby  server_sql.php
  * @usedby  db_sql.php
  * @usedby  tbl_sql.php
  * @usedby  tbl_structure.php
  * @usedby  tbl_tracking.php
  * @usedby  querywindow.php
- * @param boolean|string  $query          query to display in the textarea
- *                                          or true to display last executed
- * @param boolean|string  $display_tab    sql|files|history|full|false
- *                                          what part to display
- *                                          false if not inside querywindow
- * @param string          $delimiter
  */
 function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 {
@@ -156,10 +157,11 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 /**
  * prints querybox fieldset
  *
+ * @param string  $query          query to display in the textarea
+ * @param boolean $is_querywindow if inside querywindow or not
+ * @param string  $delimiter      default delimiter to use
+ *
  * @usedby  PMA_sqlQueryForm()
- * @param string      $query          query to display in the textarea
- * @param boolean     $is_querywindow if inside querywindow or not
- * @param string      $delimiter      default delimiter to use
  */
 function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter = ';')
 {
@@ -186,9 +188,14 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     $fields_list    = array();
     if (! strlen($GLOBALS['db'])) {
         // prepare for server related
-        $legend = sprintf(__('Run SQL query/queries on server %s'),
+        $legend = sprintf(
+            __('Run SQL query/queries on server %s'),
             '&quot;' . htmlspecialchars(
-                ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']) ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'] : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']) . '&quot;');
+                ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
+                ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
+                : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
+            ) . '&quot;'
+        );
     } elseif (! strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
@@ -301,8 +308,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         <input type="text" name="bkm_label" id="bkm_label" tabindex="110" value="" />
         </div>
         <div class="formelement">
-        <input type="checkbox" name="bkm_all_users" tabindex="111" id="id_bkm_all_users"
-            value="true" />
+        <input type="checkbox" name="bkm_all_users" tabindex="111" id="id_bkm_all_users" value="true" />
         <label for="id_bkm_all_users">
             <?php echo __('Let every user access this bookmark'); ?></label>
         </div>
@@ -449,7 +455,7 @@ function PMA_sqlQueryFormUpload()
     echo '</div>';
 
     if ($files === false) {
-        $errors[] = PMA_Message::error( __('The directory you set for upload work cannot be reached'));
+        $errors[] = PMA_Message::error(__('The directory you set for upload work cannot be reached'));
     } elseif (!empty($files)) {
         echo '<div class="formelement">';
         echo '<strong>' . __('web server upload directory') .':</strong>' . "\n";
@@ -466,8 +472,10 @@ function PMA_sqlQueryFormUpload()
 
     echo '<fieldset id="" class="tblFooters">';
     echo __('Character set of the file:') . "\n";
-    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET,
-            'charset_of_file', null, 'utf8', false);
+    echo PMA_generateCharsetDropdownBox(
+        PMA_CSDROPDOWN_CHARSET,
+        'charset_of_file', null, 'utf8', false
+    );
     echo '<input type="submit" name="SQL" value="' . __('Go')
         .'" />' . "\n";
     echo '<div class="clearfloat"></div>' . "\n";

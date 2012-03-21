@@ -870,8 +870,8 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
  * @access  public
  */
 function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
-    $max = null)
-{
+    $max = null
+) {
     if (null === $max) {
         $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
     }

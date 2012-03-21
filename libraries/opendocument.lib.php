@@ -23,10 +23,10 @@ $GLOBALS['OpenDocumentNS'] = 'xmlns:office="urn:oasis:names:tc:opendocument:xmln
 /**
  * Minimalistic creator of OASIS OpenDocument
  *
- * @param string      desired MIME type
- * @param string      document content
+ * @param string $mime desired MIME type
+ * @param string $data document content
  *
- * @return  string      OASIS OpenDocument data
+ * @return  string  OASIS OpenDocument data
  *
  * @access  public
  */
@@ -35,7 +35,8 @@ function PMA_createOpenDocument($mime, $data)
     $zipfile = new zipfile();
     $zipfile -> addFile($mime, 'mimetype');
     $zipfile -> addFile($data, 'content.xml');
-    $zipfile -> addFile('<?xml version="1.0" encoding="UTF-8"?'. '>'
+    $zipfile -> addFile(
+        '<?xml version="1.0" encoding="UTF-8"?'. '>'
         . '<office:document-meta '
             . 'xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" '
             . 'xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" '
@@ -46,8 +47,10 @@ function PMA_createOpenDocument($mime, $data)
                 . '<meta:creation-date>' . strftime('%Y-%m-%dT%H:%M:%S') . '</meta:creation-date>'
             . '</office:meta>'
         . '</office:document-meta>',
-        'meta.xml');
-    $zipfile -> addFile('<?xml version="1.0" encoding="UTF-8"?' . '>'
+        'meta.xml'
+    );
+    $zipfile -> addFile(
+        '<?xml version="1.0" encoding="UTF-8"?' . '>'
         . '<office:document-styles '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
             . '<office:font-face-decls>'
                 . '<style:font-face style:name="Arial Unicode MS" svg:font-family="\'Arial Unicode MS\'" style:font-pitch="variable"/>'
@@ -90,15 +93,18 @@ function PMA_createOpenDocument($mime, $data)
                 . '<style:master-page style:name="Standard" style:page-layout-name="pm1"/>'
             . '</office:master-styles>'
         . '</office:document-styles>',
-        'styles.xml');
-    $zipfile -> addFile('<?xml version="1.0" encoding="UTF-8"?' . '>'
+        'styles.xml'
+    );
+    $zipfile -> addFile(
+        '<?xml version="1.0" encoding="UTF-8"?' . '>'
         . '<manifest:manifest xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0">'
         . '<manifest:file-entry manifest:media-type="' . $mime . '" manifest:full-path="/"/>'
         . '<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="content.xml"/>'
         . '<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="meta.xml"/>'
         . '<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="styles.xml"/>'
         . '</manifest:manifest>',
-        'META-INF/manifest.xml');
+        'META-INF/manifest.xml'
+    );
     return $zipfile -> file();
 }
 ?>

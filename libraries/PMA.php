@@ -43,23 +43,23 @@ class PMA
     /**
      * magic access to protected/inaccessible members/properties
      *
-     * @see http://php.net/language.oop5.overloading
-     *
      * @param string $param
+     *
      * @return mixed
+     * @see http://php.net/language.oop5.overloading
      */
     public function __get($param)
     {
         switch ($param) {
-            case 'databases' :
-                return $this->getDatabaseList();
-                break;
-            case 'userlink' :
-                return $this->userlink;
-                break;
-            case 'controllink' :
-                return $this->controllink;
-                break;
+        case 'databases' :
+            return $this->getDatabaseList();
+            break;
+        case 'userlink' :
+            return $this->userlink;
+            break;
+        case 'controllink' :
+            return $this->controllink;
+            break;
         }
 
         return null;
@@ -68,20 +68,21 @@ class PMA
     /**
      * magic access to protected/inaccessible members/properties
      *
-     * @see http://php.net/language.oop5.overloading
-     *
      * @param string $param
      * @param mixed  $value
+     *
+     * @return void
+     * @see http://php.net/language.oop5.overloading
      */
     public function __set($param, $value)
     {
         switch ($param) {
-            case 'userlink' :
-                $this->userlink = $value;
-                break;
-            case 'controllink' :
-                $this->controllink = $value;
-                break;
+        case 'userlink' :
+            $this->userlink = $value;
+            break;
+        case 'controllink' :
+            $this->controllink = $value;
+            break;
         }
     }
 

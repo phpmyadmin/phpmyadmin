@@ -46,7 +46,8 @@ if ($is_select) {
         $table = $analyzed_sql[0]['table_ref'][0]['table_true_name'];
     }
     if (isset($analyzed_sql[0]['table_ref'][0]['db'])
-      && strlen($analyzed_sql[0]['table_ref'][0]['db'])) {
+        && strlen($analyzed_sql[0]['table_ref'][0]['db'])
+    ) {
         $db    = $analyzed_sql[0]['table_ref'][0]['db'];
     } else {
         $db = $prev_db;

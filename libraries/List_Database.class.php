@@ -430,8 +430,9 @@ require_once './libraries/List.class.php';
             WHERE `Select_priv` = 'Y'
             AND `User`
             IN ('" . PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "', '')";
-        $tmp_mydbs = PMA_DBI_fetch_result($local_query, null, null,
-            $GLOBALS['controllink']);
+        $tmp_mydbs = PMA_DBI_fetch_result(
+            $local_query, null, null, $GLOBALS['controllink']
+        );
         if ($tmp_mydbs) {
             // Will use as associative array of the following 2 code
             // lines:

@@ -43,7 +43,7 @@ require_once './libraries/header.inc.php';
 $is_superuser = PMA_isSuperuser();
 
 // now, select the mysql db
-if ($is_superuser && !PMA_DRIZZLE) {
+if ($is_superuser && ! PMA_DRIZZLE) {
     PMA_DBI_select_db('mysql', $userlink);
 }
 
