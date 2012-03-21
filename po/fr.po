@@ -10662,7 +10662,7 @@ msgstr "Statistiques des journaux"
 
 #: server_status.php:1719
 msgid "Selected time range:"
-msgstr "Sélectionnez un intervalle de temps :"
+msgstr "Sélectionnez un intervalle de temps : "
 
 #: server_status.php:1724
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
