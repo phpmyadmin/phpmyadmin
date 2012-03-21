@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 20:41+0200\n"
+"PO-Revision-Date: 2012-03-21 20:43+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10134,7 +10134,7 @@ msgstr "Antalet fysiska skrivningar av ett nyckelblock till disk."
 #: server_status.php:1378
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
-msgstr ""
+msgstr "Andel fysiska skrivningar jämfört med läsbegäran (beräknat värde)"
 
 #: server_status.php:1379
 msgid ""
