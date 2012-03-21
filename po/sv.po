@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 20:49+0200\n"
+"PO-Revision-Date: 2012-03-21 20:50+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6771,7 +6771,7 @@ msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 #: libraries/import.lib.php:1100
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr "Följande strukturer har antingen skapats eller ändrats. Här kan du"
+msgstr "Följande strukturer har antingen skapats eller ändrats. Du kan:"
 
 #: libraries/import.lib.php:1101
 msgid "View a structure's contents by clicking on its name"
