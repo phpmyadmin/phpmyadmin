@@ -5592,7 +5592,7 @@ msgstr "Énoncés <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:147
 msgid "Function to use when dumping data:"
-msgstr "Fonction à utiliser lors de l'exportation des données :"
+msgstr "Fonction à utiliser lors de l'exportation des données : "
 
 #: libraries/export/sql.php:151
 msgid "Syntax to use when inserting data:"
