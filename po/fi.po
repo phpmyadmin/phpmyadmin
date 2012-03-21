@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 22:33+0200\n"
+"PO-Revision-Date: 2012-03-21 22:38+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -959,6 +959,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Valitse \"Toiminto\"-sarakkeesta \"GeomFromText\" ja liitä alla oleva merkkijono "
+"\"Arvo\"-kenttään"
 
 #: import.php:57
 #, php-format
