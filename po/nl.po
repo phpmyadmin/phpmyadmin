@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-20 16:46+0200\n"
-"Last-Translator: Arjen Brouwer <arjenjb@gmail.com>\n"
+"PO-Revision-Date: 2012-03-21 18:48+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.7\n"
 
@@ -10616,7 +10616,7 @@ msgstr ""
 "willekeurige grafiek door de linker muisknop in te drukken en over de "
 "grafiek te slepen. Na het bevestiging wordt een tabel met gegroepeerde "
 "queries geladen, daar kun je op één van de SELECT statements klikken om deze "
-"verder te analyseren. "
+"verder te analyseren."
 
 #: server_status.php:1644
 msgid "Please note:"
@@ -10629,6 +10629,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"Het inschakelen van de general_log kan de serverbelasting verhogen met 5-15%"
+". Wees er ook bewust van dat het genereren van statistieken uit de logs een "
+"belastende taak is, daarom is het aan te readen om alleen een kleine periode "
+"te selecteren, en de general_log uit te schakelen en de tabel te legen "
+"zodra het monitoren niet meer nodig is."
 
 #: server_status.php:1658
 msgid "Preset chart"
@@ -12177,6 +12182,10 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Er is meer dan 3Gib geheugen beschikbaar (aangenomen dat de server op "
+"localhost draait), dit betekent dat MySQL waarschijnlijk geen toegang heeft "
+"tot al het geheugen. U kan overwegen om de 64-bit versie van MySQL te "
+"installeren."
 
 #: po/advisory_rules.php:68
 #, php-format
@@ -12198,10 +12207,15 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"De query cache verhoogt de performantie enorm als deze correct ingesteld "
+"wordt. Schakel deze in {query_cache_size} in te stellen op 10 MiB of hoger "
+"en {query_cache_type} in te stellen op 'ON'. <b>Opmerking:</b> Negeer deze "
+"raadgeving als u memcached gebruikt."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"query_cache_size is ingesteld op 0 of query_cache_type is ingesteld op 'OFF'"
 
 #: po/advisory_rules.php:75
 msgid "Query caching method"
@@ -12218,6 +12232,10 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"U gebruikt MySQL Query cache op een druk gebruikte database. U kan overwegen "
+"om <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> te gebruiken in plaats van MySQL Query cache, "
+"vooral als u verschillende slaves heeft."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12225,6 +12243,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Query cache is ingeschakeld en de server ontvangt %d queries per seconde. "
+"Deze regel wordt getriggerd bij meer dan 100 queries per seconde."
 
 #: po/advisory_rules.php:80
 #, php-format
@@ -12233,16 +12253,16 @@ msgstr "Query cache efficiëntie (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Query cache werkt niet efficiënt, het wordt weinig gebruikt."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Overweeg om {query_cache_limit} te verhogen."
 
 #: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "Het huidig gebruik van de query cache van %s%% is lager dan 20%%"
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
@@ -12251,13 +12271,15 @@ msgstr "Query cache gebruik"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Minder dan 80%% van de query cache wordt gebruikt."
 
 #: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Dit wordt mogelijk veroorzaakt door {query_cache_limit} die te laag "
+"ingesteld is. Leegmaken van de query cache kan ook helpen."
 
 #: po/advisory_rules.php:88
 #, php-format
@@ -12265,6 +12287,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s%"
 "%. It should be above 80%%"
 msgstr ""
+"De huidige verhouding van vrij query cache geheugen tot de totale query "
+"cache grootte is %s%%. Dit zou meer dan 80%% moeten zijn"
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
@@ -12272,7 +12296,7 @@ msgstr "Query cache versnippering"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "De query cache is behoorlijk gefragmenteerd."
 
 #: po/advisory_rules.php:92
 msgid ""
@@ -12335,11 +12359,13 @@ msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Afhankelijk van uw omgeving, kan de performantie verhogen door deze waarde "
+"te verlagen."
 
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Huidige query cache grootte : %s"
 
 #: po/advisory_rules.php:105
 msgid "Query cache min result size"
@@ -12403,7 +12429,7 @@ msgstr "Sorteer regels"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Er worden zeer veel regels gesorteerd."
 
 #: po/advisory_rules.php:122
 msgid ""
@@ -12416,7 +12442,7 @@ msgstr ""
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Gemiddelde aantal gesorteerde regels : %s"
 
 #: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"

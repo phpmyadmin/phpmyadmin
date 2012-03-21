@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-19 17:02+0200\n"
+"PO-Revision-Date: 2012-03-21 17:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 0.7\n"
 
@@ -507,7 +507,7 @@ msgstr "expression réguliére"
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Résultats de la recherche de «<i>%s</i>» %s :"
+msgstr "Résultats de la recherche de «<i>%s</i>» %s : "
 
 #: db_search.php:227
 #, php-format
@@ -552,11 +552,11 @@ msgstr "Effectuer une nouvelle recherche dans la base de données"
 
 #: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Mots ou valeurs à rechercher (passe-partout: «%») :"
+msgstr "Mots ou valeurs à rechercher (passe-partout: «%») : "
 
 #: db_search.php:282
 msgid "Find:"
-msgstr "Type de recherche :"
+msgstr "Type de recherche : "
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
@@ -564,7 +564,7 @@ msgstr "Séparer les mots par un espace (« »)."
 
 #: db_search.php:300
 msgid "Inside tables:"
-msgstr "Dans les tables :"
+msgstr "Dans les tables : "
 
 #: db_search.php:330
 msgid "Inside column:"
@@ -637,7 +637,7 @@ msgstr "Sur ce serveur MySQL, le moteur de stockage par défaut est %s."
 #: server_databases.php:283 server_privileges.php:1886
 #: server_privileges.php:1894 tbl_structure.php:557 tbl_structure.php:566
 msgid "With selected:"
-msgstr "Pour la sélection :"
+msgstr "Pour la sélection : "
 
 #: db_structure.php:570 libraries/display_tbl.lib.php:2487
 #: server_databases.php:280 server_privileges.php:751
@@ -1451,7 +1451,7 @@ msgid ""
 "restart:"
 msgstr ""
 "Les réglages suivants seront appliqués globalement et remis à la valeur par "
-"défaut lors du rémarrage du serveur :"
+"défaut lors du rémarrage du serveur : "
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
@@ -1551,7 +1551,7 @@ msgstr ""
 
 #: js/messages.php:176
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "Fichier journal chargé. Requêtes exécutées dans ce laps de temps :"
+msgstr "Fichier journal chargé. Requêtes exécutées dans ce laps de temps : "
 
 #: js/messages.php:178
 msgid "Jump to Log table"
@@ -1576,7 +1576,7 @@ msgstr "Moment"
 
 #: js/messages.php:185
 msgid "Total time:"
-msgstr "Temps total :"
+msgstr "Temps total : "
 
 #: js/messages.php:186
 msgid "Profiling results"
@@ -1603,7 +1603,7 @@ msgstr "Filtre"
 
 #: js/messages.php:194
 msgid "Filter queries by word/regexp:"
-msgstr "Filtrer les requêtes par mot ou expression régulière :"
+msgstr "Filtrer les requêtes par mot ou expression régulière : "
 
 #: js/messages.php:195
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1611,11 +1611,11 @@ msgstr "Grouper les requêtes en ignorant la partie variable des clauses WHERE"
 
 #: js/messages.php:196
 msgid "Sum of grouped rows:"
-msgstr "Somme des lignes regroupées :"
+msgstr "Somme des lignes regroupées : "
 
 #: js/messages.php:197
 msgid "Total:"
-msgstr "Total :"
+msgstr "Total : "
 
 #: js/messages.php:199
 msgid "Loading logs"
@@ -1640,7 +1640,7 @@ msgstr "Recharger la page"
 
 #: js/messages.php:204
 msgid "Affected rows:"
-msgstr "Lignes modifiées :"
+msgstr "Lignes modifiées : "
 
 #: js/messages.php:206
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -2014,7 +2014,7 @@ msgstr ""
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:362
 msgid ", latest stable version:"
-msgstr ", dernière version stable :"
+msgstr ", dernière version stable : "
 
 #: js/messages.php:363
 msgid "up to date"
@@ -2460,7 +2460,7 @@ msgstr[1] "%1$d lignes insérées."
 
 #: libraries/PDF.class.php:82
 msgid "Error while creating PDF:"
-msgstr "Erreur pendant la création du PDF: "
+msgstr "Erreur pendant la création du PDF : "
 
 #: libraries/RecentTable.class.php:106
 msgid "Could not save recent table"
@@ -2674,7 +2674,7 @@ msgstr "Erreur d'utilisateur/mot de passe. Accès refusé."
 
 #: libraries/auth/signon.auth.lib.php:89
 msgid "Can not find signon authentication script:"
-msgstr "Ne peut trouver le script d'authentification pour le mode signon:"
+msgstr "Ne peut trouver le script d'authentification pour le mode signon : "
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
@@ -2798,7 +2798,7 @@ msgstr "Serveur"
 #: libraries/common.inc.php:850
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
-"Le fichier de configuration contient un type d'authentification invalide :"
+"Le fichier de configuration contient un type d'authentification invalide : "
 
 #: libraries/common.inc.php:968
 #, php-format
@@ -2923,7 +2923,7 @@ msgstr "%s jours, %s heures, %s minutes et %s secondes"
 
 #: libraries/common.lib.php:2109
 msgid "Missing parameter:"
-msgstr "Paramètre manquant :"
+msgstr "Paramètre manquant : "
 
 #: libraries/common.lib.php:2492 libraries/common.lib.php:2495
 #: libraries/display_tbl.lib.php:306
@@ -3001,13 +3001,14 @@ msgstr "Opérations"
 #: libraries/common.lib.php:3317 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
-msgstr "Parcourir :"
+msgstr "Parcourir : "
 
 #: libraries/common.lib.php:3336
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
-"Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> :"
+"Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> : "
+""
 
 #: libraries/common.lib.php:3357 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:936
@@ -3612,7 +3613,7 @@ msgstr "Mode de compatibilité SQL"
 
 #: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "Options pour <code>CREATE TABLE</code> :"
+msgstr "Options pour <code>CREATE TABLE</code> : "
 
 #: libraries/config/messages.inc.php:125
 msgid "Creation/Update/Check dates"
@@ -5614,7 +5615,7 @@ msgstr "Exportation des lignes de la table «%s»"
 
 #: libraries/display_export.lib.php:95
 msgid "Export Method:"
-msgstr "Méthode d'exportation:"
+msgstr "Méthode d'exportation : "
 
 #: libraries/display_export.lib.php:111
 msgid "Quick - display only the minimal options"
@@ -5626,15 +5627,15 @@ msgstr "Personnalisée - afficher toutes les options possibles"
 
 #: libraries/display_export.lib.php:135
 msgid "Database(s):"
-msgstr "Base(s) de données"
+msgstr "Base(s) de données : "
 
 #: libraries/display_export.lib.php:137
 msgid "Table(s):"
-msgstr "Table(s)"
+msgstr "Table(s) : "
 
 #: libraries/display_export.lib.php:147
 msgid "Rows:"
-msgstr "Lignes:"
+msgstr "Lignes : "
 
 #: libraries/display_export.lib.php:155
 msgid "Dump some row(s)"
@@ -5642,11 +5643,11 @@ msgstr "Exporter quelques lignes"
 
 #: libraries/display_export.lib.php:157
 msgid "Number of rows:"
-msgstr "Nombre de lignes"
+msgstr "Nombre de lignes : "
 
 #: libraries/display_export.lib.php:160
 msgid "Row to begin at:"
-msgstr "Ligne de début:"
+msgstr "Ligne de début : "
 
 #: libraries/display_export.lib.php:171
 msgid "Dump all rows"
@@ -5654,7 +5655,7 @@ msgstr "Exporter toutes les lignes"
 
 #: libraries/display_export.lib.php:179 libraries/display_export.lib.php:200
 msgid "Output:"
-msgstr "Sortie:"
+msgstr "Sortie : "
 
 #: libraries/display_export.lib.php:186 libraries/display_export.lib.php:212
 #, php-format
@@ -5667,7 +5668,7 @@ msgstr "Diriger la sortie vers un fichier"
 
 #: libraries/display_export.lib.php:225
 msgid "File name template:"
-msgstr "Modèle de nom de fichier:"
+msgstr "Modèle de nom de fichier : "
 
 #: libraries/display_export.lib.php:227
 msgid "@SERVER@ will become the server name"
@@ -5729,7 +5730,7 @@ msgstr "Format : "
 
 #: libraries/display_export.lib.php:336
 msgid "Format-specific options:"
-msgstr "Options spécifiques au format:"
+msgstr "Options spécifiques au format : "
 
 #: libraries/display_export.lib.php:337
 msgid ""
@@ -5741,7 +5742,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
-msgstr "Conversion de l'encodage:"
+msgstr "Conversion de l'encodage : "
 
 #: libraries/display_import.lib.php:66
 msgid ""
@@ -5781,7 +5782,7 @@ msgstr "Importation dans la table «%s»"
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
-msgstr "Fichier à importer:"
+msgstr "Fichier à importer : "
 
 #: libraries/display_import.lib.php:156
 #, php-format
@@ -5802,7 +5803,7 @@ msgstr "Les téléchargements vers ce serveur ne sont pas permis."
 
 #: libraries/display_import.lib.php:208
 msgid "Partial Import:"
-msgstr "Importation partielle:"
+msgstr "Importation partielle : "
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -5825,11 +5826,11 @@ msgstr ""
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Nombre de lignes à ignorer à partir de la première ligne:"
+msgstr "Nombre de lignes à ignorer à partir de la première ligne : "
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr "Options spécifiques au format:"
+msgstr "Options spécifiques au format : "
 
 #: libraries/display_select_lang.lib.php:47
 #: libraries/display_select_lang.lib.php:48 setup/frames/index.inc.php:72
@@ -6344,25 +6345,25 @@ msgstr "Le blogue de PrimeBase XT par Paul McCullagh"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
-msgstr "Colonnes séparées par :"
+msgstr "Colonnes séparées par : "
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
-msgstr "Colonnes entourées par :"
+msgstr "Colonnes entourées par : "
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
-msgstr "Caractère d'échappement :"
+msgstr "Caractère d'échappement : "
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
-msgstr "Lignes terminées par :"
+msgstr "Lignes terminées par : "
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
 msgid "Replace NULL with:"
-msgstr "Remplacer NULL par :"
+msgstr "Remplacer NULL par : "
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
@@ -6370,7 +6371,7 @@ msgstr "Enlève les caractères de fin de ligne à l'intérieur des colonnes"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
-msgstr "Version d'Excel :"
+msgstr "Version d'Excel : "
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
@@ -6463,7 +6464,7 @@ msgstr "(Génère un rapport contenant les données d'une seule table)"
 
 #: libraries/export/pdf.php:25
 msgid "Report title:"
-msgstr "Titre du rapport :"
+msgstr "Titre du rapport : "
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
@@ -6479,7 +6480,8 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») :"
+msgstr ""
+"Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») : "
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -6494,7 +6496,7 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Maximiser la compatibilité avec un système de base de données ou un ancien "
-"serveur MySQL:"
+"serveur MySQL : "
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
@@ -6504,7 +6506,7 @@ msgstr "Ajouter un énoncé %s"
 
 #: libraries/export/sql.php:152
 msgid "Add statements:"
-msgstr "Ajouter les énoncés :"
+msgstr "Ajouter les énoncés : "
 
 #: libraries/export/sql.php:211
 msgid ""
@@ -6517,11 +6519,11 @@ msgstr ""
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Vider la table avant d'insérer"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "Au lieu d'énoncés <code>INSERT</code>, utiliser :"
+msgstr "Au lieu d'énoncés <code>INSERT</code>, utiliser : "
 
 #: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
@@ -6533,11 +6535,11 @@ msgstr "Énoncés <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:256
 msgid "Function to use when dumping data:"
-msgstr "Fonction à utiliser lors de l'exportation des données :"
+msgstr "Fonction à utiliser lors de l'exportation des données : "
 
 #: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
-msgstr "Syntaxe à utiliser lors de l'insertion de données :"
+msgstr "Syntaxe à utiliser lors de l'insertion de données : "
 
 #: libraries/export/sql.php:275
 msgid ""
@@ -6627,7 +6629,7 @@ msgstr "Doublure de structure pour la vue"
 
 #: libraries/export/sql.php:1132
 msgid "Error reading data:"
-msgstr "Erreur de lecture des données :"
+msgstr "Erreur de lecture des données : "
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
@@ -6675,7 +6677,7 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
-"Les structures suivanates ont été créées ou modifiées. Ici vous pouvez :"
+"Les structures suivanates ont été créées ou modifiées. Ici vous pouvez : "
 
 #: libraries/import.lib.php:1140
 msgid "View a structure's contents by clicking on its name"
@@ -6829,7 +6831,7 @@ msgstr "Le fichier importé ne contient aucune donnée"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
-msgstr "Mode de compatibilité SQL :"
+msgstr "Mode de compatibilité SQL : "
 
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -7142,7 +7144,7 @@ msgstr "Préférences de l'utilisateur"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
-msgstr "Guide rapide de configuration des fonctions avancées :"
+msgstr "Guide rapide de configuration des fonctions avancées : "
 
 #: libraries/relation.lib.php:154
 msgid ""
@@ -7189,7 +7191,7 @@ msgid ""
 msgstr ""
 "Assurez-vous d'avoir un server-id unique dans votre fichier de configuration "
 "(my.cnf). Sinon, veuillez ajouter la ligne suivante dans la section "
-"[mysqld] :"
+"[mysqld] : "
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
@@ -7297,7 +7299,7 @@ msgstr "Désolé, il a été impossible de restaurer l'événement."
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:267
 #: libraries/rte/rte_triggers.lib.php:90
 msgid "The backed up query was:"
-msgstr "La requête conservée est :"
+msgstr "La requête conservée est : "
 
 #: libraries/rte/rte_events.lib.php:121
 #, php-format
@@ -8008,7 +8010,7 @@ msgstr "Fin des informations sur l'anomalie"
 
 #: libraries/sqlparser.lib.php:383
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Un guillemet oblique a été ajouté à la fin de la requête!"
+msgstr "Un guillemet oblique a été ajouté à la fin de la requête !"
 
 #: libraries/sqlparser.lib.php:386
 msgid "Unclosed quote"
@@ -8094,7 +8096,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:321
 msgid "ENUM or SET data too long?"
-msgstr "Données trop longues pour ENUM ou SET?"
+msgstr "Données trop longues pour ENUM ou SET ?"
 
 #: libraries/tbl_properties.inc.php:327
 msgid "Get more editing space"
@@ -8107,7 +8109,7 @@ msgstr "Aucune"
 
 #: libraries/tbl_properties.inc.php:352
 msgid "As defined:"
-msgstr "Tel que défini :"
+msgstr "Tel que défini : "
 
 #: libraries/tbl_properties.inc.php:466 tbl_structure.php:152
 #: tbl_structure.php:157 tbl_structure.php:575
@@ -8322,7 +8324,7 @@ msgid ""
 "import it for current session?"
 msgstr ""
 "Votre navigateur contient une configuration phpMyAdmin pour ce domaine. "
-"Voulez-vous l'importer dans la session courante?"
+"Voulez-vous l'importer dans la session courante ?"
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8331,7 +8333,7 @@ msgstr "Aucun fichier présent dans l'archive ZIP !"
 #: libraries/zip_extension.lib.php:53 libraries/zip_extension.lib.php:55
 #: libraries/zip_extension.lib.php:70
 msgid "Error in ZIP archive:"
-msgstr "Erreur rencontrée dans l'archive ZIP :"
+msgstr "Erreur rencontrée dans l'archive ZIP : "
 
 #: main.php:65
 msgid "General Settings"
@@ -8719,7 +8721,7 @@ msgstr ""
 
 #: prefs_manage.php:126
 msgid "Do you want to import remaining settings?"
-msgstr "Voulez-vous importer les autres paramètres?"
+msgstr "Voulez-vous importer les autres paramètres ?"
 
 #: prefs_manage.php:223 prefs_manage.php:249
 msgid "Saved on: @DATE@"
@@ -8740,7 +8742,7 @@ msgstr ""
 
 #: prefs_manage.php:252
 msgid "You have no saved settings!"
-msgstr "Vous n'avez pas sauvegardé les paramètres!"
+msgstr "Vous n'avez pas sauvegardé les paramètres !"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
@@ -8771,7 +8773,7 @@ msgstr ""
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
-msgstr "Les paramètres existants seront écrasés!"
+msgstr "Les paramètres existants seront écrasés !"
 
 #: prefs_manage.php:321
 msgid "You can reset all your settings and restore them to default values."
@@ -9232,10 +9234,10 @@ msgid "Privileges for all users"
 msgstr "Privilèges pour tous les utilisateurs"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilèges"
+msgstr "Privilèges pour %s"
 
 #: server_privileges.php:1682
 msgid "Users overview"
@@ -9424,15 +9426,15 @@ msgstr ""
 "réplication. Vous pouvez soit répliquer toutes les bases tout en ignorant "
 "certaines d'entre elles (utile si la majorité des bases doivent être "
 "répliquées) soit ignorer toutes les bases en demandant que certaines d'entre "
-"elles soient répliquées. Veuillez choisir le mode :"
+"elles soient répliquées. Veuillez choisir le mode : "
 
 #: server_replication.php:249
 msgid "Replicate all databases; Ignore:"
-msgstr "Répliquer toutes les bases de données; Ignorer :"
+msgstr "Répliquer toutes les bases de données; Ignorer : "
 
 #: server_replication.php:250
 msgid "Ignore all databases; Replicate:"
-msgstr "Ignorer toutes les bases de données; Répliquer :"
+msgstr "Ignorer toutes les bases de données; Répliquer : "
 
 #: server_replication.php:253
 msgid "Please select databases:"
@@ -9469,7 +9471,7 @@ msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 "Le serveur est configuré comme esclave dans un processus de réplication. "
-"Voudriez-vous :"
+"Voudriez-vous : "
 
 #: server_replication.php:336
 msgid "See slave status table"
@@ -9636,7 +9638,7 @@ msgstr "Filtres"
 
 #: server_status.php:841 server_variables.php:117
 msgid "Containing the word:"
-msgstr "Contenant le mot :"
+msgstr "Contenant le mot : "
 
 #: server_status.php:846
 msgid "Show only alert values"
@@ -9652,7 +9654,7 @@ msgstr "Afficher les valeurs non formattées"
 
 #: server_status.php:868
 msgid "Related links:"
-msgstr "Liens connexes:"
+msgstr "Liens connexes : "
 
 #: server_status.php:901
 msgid "Run analyzer"
@@ -10214,10 +10216,9 @@ msgstr ""
 "de clés."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Pourcentage du nombre de fichiers ouverts"
+msgstr "Pourcentage de la cache de clés qui est utilisé (valeur calculée)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
@@ -10239,6 +10240,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Échecs dans la cache de clés, en calculant le taux de lectures physiques "
+"comparé aux requêtes de lecture (valeur calculée)"
 
 #: server_status.php:1376
 msgid "The number of requests to write a key block to the cache."
@@ -10252,6 +10255,8 @@ msgstr "Le nombre d'écritures physiques d'un bloc de clés vers le disque."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Pourcentage d'écritures physiques versus les requêtes d'écriture (valeur "
+"calculée)"
 
 #: server_status.php:1379
 msgid ""
@@ -10484,10 +10489,9 @@ msgstr ""
 "d'exécution.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Taux de succès de la cache des fils d'exécution en %%"
+msgstr "Taux de succès de la cache des fils d'exécution (valeur calculée)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
@@ -10569,7 +10573,7 @@ msgstr ""
 
 #: server_status.php:1633
 msgid "Using the monitor:"
-msgstr "Utilisation de la surveillance :"
+msgstr "Utilisation de la surveillance : "
 
 #: server_status.php:1635
 msgid ""
@@ -10596,7 +10600,7 @@ msgstr ""
 
 #: server_status.php:1644
 msgid "Please note:"
-msgstr "Note :"
+msgstr "Note : "
 
 #: server_status.php:1646
 msgid ""
@@ -10621,7 +10625,7 @@ msgstr "Variables d'état"
 
 #: server_status.php:1664
 msgid "Select series:"
-msgstr "Choisissez les séries :"
+msgstr "Choisissez les séries : "
 
 #: server_status.php:1666
 msgid "Commonly monitored"
@@ -10629,7 +10633,7 @@ msgstr "Couramment surveillés"
 
 #: server_status.php:1681
 msgid "or type variable name:"
-msgstr "ou entrez un nom de variable :"
+msgstr "ou entrez un nom de variable : "
 
 #: server_status.php:1685
 msgid "Display as differential value"
@@ -10653,7 +10657,7 @@ msgstr "Effacer la série"
 
 #: server_status.php:1705
 msgid "Series in Chart:"
-msgstr "Séries dans le graphique :"
+msgstr "Séries dans le graphique : "
 
 #: server_status.php:1718
 msgid "Log statistics"
@@ -10661,7 +10665,7 @@ msgstr "Statistiques des journaux"
 
 #: server_status.php:1719
 msgid "Selected time range:"
-msgstr "Sélectionnez un intervalle de temps :"
+msgstr "Sélectionnez un intervalle de temps : "
 
 #: server_status.php:1724
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -11290,11 +11294,11 @@ msgstr "Titre du graphique"
 
 #: tbl_chart.php:109
 msgid "X-Axis:"
-msgstr "Axe des X"
+msgstr "Axe des X : "
 
 #: tbl_chart.php:124
 msgid "Series:"
-msgstr "Séries:"
+msgstr "Séries : "
 
 #: tbl_chart.php:126
 msgid "The remaining columns"
@@ -11302,7 +11306,7 @@ msgstr "Les colonnes restantes"
 
 #: tbl_chart.php:139
 msgid "X-Axis label:"
-msgstr "Étiquette pour l'axe des X"
+msgstr "Étiquette pour l'axe des X : "
 
 #: tbl_chart.php:141
 msgid "X Values"
@@ -11310,7 +11314,7 @@ msgstr "Valeurs en X"
 
 #: tbl_chart.php:142
 msgid "Y-Axis label:"
-msgstr "Étiquette pour l'axe des Y"
+msgstr "Étiquette pour l'axe des Y : "
 
 #: tbl_chart.php:143
 msgid "Y Values"
@@ -11368,15 +11372,15 @@ msgstr "Nom du fichier"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Le nom d'une clé primaire doit être «PRIMARY»!"
+msgstr "Le nom d'une clé primaire doit être «PRIMARY» !"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
-msgstr "La clé ne peut être renommée PRIMARY!"
+msgstr "La clé ne peut être renommée PRIMARY !"
 
 #: tbl_indexes.php:91
 msgid "No index parts defined!"
-msgstr "Aucune colonne n'a été définie pour cet index!"
+msgstr "Aucune colonne n'a été définie pour cet index !"
 
 #: tbl_indexes.php:173 tbl_structure.php:169 tbl_structure.php:170
 msgid "Add index"
@@ -11388,7 +11392,7 @@ msgstr "Modifier l'index"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
-msgstr "Nom de l'index :"
+msgstr "Nom de l'index : "
 
 #: tbl_indexes.php:188
 msgid ""
@@ -11397,7 +11401,7 @@ msgstr "(«PRIMARY» <b>doit et ne peut être</b> que le nom d'une clé primaire
 
 #: tbl_indexes.php:199
 msgid "Index type:"
-msgstr "Type d'index :"
+msgstr "Type d'index : "
 
 #: tbl_indexes.php:285
 #, php-format
@@ -11406,11 +11410,11 @@ msgstr "Ajouter à l'index&nbsp;%s&nbsp;colonne(s)"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr "On ne peut déplacer la table sur elle-même!"
+msgstr "On ne peut déplacer la table sur elle-même !"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "On ne peut copier la table sur elle-même!"
+msgstr "On ne peut copier la table sur elle-même !"
 
 #: tbl_move_copy.php:54
 #, php-format
@@ -11424,7 +11428,7 @@ msgstr "La table %s a été copiée vers %s."
 
 #: tbl_move_copy.php:81
 msgid "The table name is empty!"
-msgstr "Le nom de la table est vide!"
+msgstr "Le nom de la table est vide !"
 
 #: tbl_operations.php:268
 msgid "Alter table order by"
@@ -11448,7 +11452,7 @@ msgstr "Changer le nom de la table pour"
 
 #: tbl_operations.php:537
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Copier la table vers (base<b>.</b>table) :"
+msgstr "Copier la table vers (base<b>.</b>table) : "
 
 #: tbl_operations.php:584
 msgid "Switch to copied table"
@@ -11518,7 +11522,7 @@ msgstr "Supprimer le partitionnement"
 
 #: tbl_operations.php:813
 msgid "Check referential integrity:"
-msgstr "Vérifier l'intégrité référentielle"
+msgstr "Vérifier l'intégrité référentielle : "
 
 #: tbl_printview.php:72
 msgid "Showing tables"
@@ -11589,11 +11593,11 @@ msgstr "Recherche «par valeur» (passepartout: «% »)"
 
 #: tbl_select.php:203
 msgid "Select columns (at least one):"
-msgstr "Choisir les colonnes (au moins une)"
+msgstr "Choisir les colonnes (au moins une) : "
 
 #: tbl_select.php:221
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Critères de recherche (pour l'énoncé «where») :"
+msgstr "Critères de recherche (pour l'énoncé «where») : "
 
 #: tbl_select.php:228
 msgid "Number of rows per page"
@@ -11601,7 +11605,7 @@ msgstr "Nombre de lignes par page"
 
 #: tbl_select.php:234
 msgid "Display order:"
-msgstr "Ordre d'affichage :"
+msgstr "Ordre d'affichage : "
 
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:581
 msgid "Spatial"
@@ -11828,11 +11832,11 @@ msgstr "Créer la version %1$s de %2$s"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
-msgstr "Suivre les énoncés de définition de données suivants :"
+msgstr "Suivre les énoncés de définition de données suivants : "
 
 #: tbl_tracking.php:754
 msgid "Track these data manipulation statements:"
-msgstr "Suivre les énoncés de manipulation de données suivants :"
+msgstr "Suivre les énoncés de manipulation de données suivants : "
 
 #: tbl_tracking.php:762
 msgid "Create version"
@@ -11866,7 +11870,7 @@ msgstr "Consignes d'utilisation"
 
 #: themes.php:28
 msgid "Get more themes!"
-msgstr "Obtenez d'autres thèmes!"
+msgstr "Obtenez d'autres thèmes !"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -11890,7 +11894,7 @@ msgstr "Description"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "Vous n'êtes pas autorisé à accéder à cette page!"
+msgstr "Vous n'êtes pas autorisé à accéder à cette page !"
 
 #: user_password.php:96
 msgid "The profile has been updated."
@@ -12676,13 +12680,12 @@ msgstr "key_buffer_size est à 0"
 #: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Pourcentage maximum du tampon de clés MyISAM qui a été utilisé"
+msgstr "%% maximum du tampon de clés MyISAM qui a été utilisé"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
-"Le pourcentage de la mémoire tampon utilisée pour les clés MyISAM est bas."
+msgstr "Le %% de la mémoire tampon utilisée pour les clés MyISAM est bas."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
@@ -12802,7 +12805,7 @@ msgstr ""
 #: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
-msgstr "Pourcentage de verrouillage de tables"
+msgstr "%% de verrouillage de tables"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
@@ -13018,7 +13021,7 @@ msgstr ""
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr "InnoDB est-il désactivé?"
+msgstr "InnoDB est-il désactivé ?"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."

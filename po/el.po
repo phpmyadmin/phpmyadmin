@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-12 10:30+0200\n"
+"PO-Revision-Date: 2012-03-21 14:16+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.5\n"
+"X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -1183,12 +1183,12 @@ msgstr "Άλλα"
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/common.lib.php:1483
 msgid ","
-msgstr ","
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/common.lib.php:1485
 msgid "."
-msgstr "."
+msgstr ","
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
@@ -12677,11 +12677,15 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Αν έχετε αλλάξει εσκεμένα κάποιο από αυτά. Ο διακομιστής χρησιμοποιεί τη "
+"χαμηλότερη τιμή είτε για να προσδιορίσει το μέγιστο μέγεθος μνήμης για χρήση "
+"πινάκων. Έτσι, αν επιθυμείτε να αυξήσετε το όριο εσωτερικής μνήμης πινάκων "
+"θα πρέπει να αυξήσετε και την άλλη τιμή."
 
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Οι τρέχουσες τιμές είναι tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
@@ -12691,7 +12695,7 @@ msgstr "Ποσοστό προσωρινών πινάκων στο δίσκο"
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
-msgstr ""
+msgstr "Πολλοί προσωρινοί πίνακες εγγράφονται στο δίσκό αντί για τη μνήμη."
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12703,6 +12707,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Η αύξηση του {max_heap_table_size} και του {tmp_table_size} ίσως βοηθήσει. "
+"Ωστόσο ορισμένοι προσωρινοί πίνακες πάντα γράφονται στο δίσκο, ανεξάρτητα "
+"από την τιμή αυτών των μεταβλητών. Για να το αποτρέψετε αυτό θα πρέπει να "
+"ξαναγράψετε τα ερωτήματά σας για να αποφύγετε αυτές τις συνθήκες (Εντός ενός "
+"προσωρινού πίνακα: Παρουσία μιας στήλης BLOB ή TEXT ή παρουσία μιας στήλης "
+"μεγαλύτερης από 512 bytes) όπως αναφέρθηκεν στην αρχή ενός <a href=\"http://w"
+"ww.facebook.com/note.php?note_id=10150111255065841&comments\">Άρθρου από την "
+"Ομάδα Pythian</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12710,6 +12722,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% όλων των προσωρινών αρχείων εγγράφονται στο δίσκο, αυτή η τιμή πρέπει "
+"να είναι κάτω από 25%%"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
@@ -12725,6 +12739,14 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Η αύξηση του {max_heap_table_size} και του {tmp_table_size} ίσως βοηθήσει. "
+"Ωστόσο ορισμένοι προσωρινοί πίνακες πάντα γράφονται στο δίσκο, ανεξάρτητα "
+"από την τιμή αυτών των μεταβλητών. Για να το αποτρέψετε αυτό θα πρέπει να "
+"ξαναγράψετε τα ερωτήματά σας για να αποφύγετε αυτές τις συνθήκες (Εντός ενός "
+"προσωρινού πίνακα: Παρουσία μιας στήλης BLOB ή TEXT ή παρουσία μιας στήλης "
+"μεγαλύτερης από 512 bytes) όπως αναφέρθηκεν στην <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">τεκμηρίωση της MySQL</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12732,6 +12754,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Βαθμός των προσωρινών πινάκων που εγγράφονται στο δίσκο: %s, αυτή η τιμή "
+"πρέπει να είναι μικρότερη από 1 ανά ώρα"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12740,16 +12764,19 @@ msgstr "Μέγεθος buffer κλειδιού MyISAM"
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Το buffer κλειδιού δεν ξεκίνησε. Κανένα ευρετήριο MyISAM δεν θα αποθηκευτεί."
 
 #: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Ορίστε το {key_buffer_size} ανάλογα με το μέγεθος των ευρετηρίων MyISAM. 64M "
+"είναι μια καλή αρχή."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "Το key_buffer_size είναι 0"
 
 #: po/advisory_rules.php:165
 #, php-format
@@ -12769,6 +12796,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Ίσως χρειαστεί να μειώσετε το μέγεθος του {key_buffer_size}, επανεξετάστε "
+"τους πινακές σας για να δείτε αν έχουν απομακρυνθεί τα ευρετήρια ή εξετάστε "
+"τα ερωτήματα και τις προσδοκίες για το ποια ευρετήρια χρησιμοποιούνται."
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12786,24 +12816,30 @@ msgstr "Ποσοστό buffer κλειδιού MyISAM που χρησιμοπο�
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
+"%% buffer κλειδιού MyISAM χρησιμοποιείται: %s%%, αυτή η τιμή πρέπει να είναι "
+"πάνω από 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Ποσοστό των αναγνώσεων ευρετηρίων από τη μνήμη"
 
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
+"Το %% των ευρετηρίων που χρησιμοποιούν το buffer κλειδιού MyISAM είναι "
+"χαμηλό."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Ίσως χρειστεί να αυξήσετε το {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Αναγνώσεις ευρετηρίου από τη μνήμη: %s%%, αυτή η τιμή πρέπει να είναι πάνω "
+"από 95%%"
 
 #: po/advisory_rules.php:180
 msgid "Rate of table open"
@@ -12818,11 +12854,15 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Το άνοιγμα ερωτημάτων πινάκων απαιτεί I/O δίσκου που κοστίζει. Η αύξηση του "
+"{table_open_cache} ίσως το αποτρέψει αυτό."
 
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Βαθμός ανοιγμένων πινάκων: %s, αυτή η τιμή πρέπει να είναι μικρότερη από 10 "
+"ανά ώρα"
 
 #: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
@@ -12833,18 +12873,24 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Ο αριθμός των ανοιγμένων αρχείων προσεγγίζει τον μέγιστο αριθμό ανοιγμένων "
+"αρχείων. Ίσως λάβετ το σφάλμα «Πολλά ανοιχτά αρχεία»."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Σκεφτείτε να αυξήσετε το {open_files_limit}, και ελέξτε την καταγραφή "
+"σφαλμάτων αφού κάνετε επανεκκίνηση μετά την αλλαγή του open_files_limit."
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Ο αριθμός των ανοιγμένων αρχείων είναι στο %s%% του ορίου. Πρέπει να είναι "
+"κάτω από το 85%%"
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
@@ -12858,6 +12904,8 @@ msgstr "Ο βαθμός των ανοιγμένων αρχείων είναι υ
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Βαθμός ανοιγμένων αρχείων: %s, αυτή η τιμή πρέπει να είναι λιγότερο από 5 "
+"ανά ώρα"
 
 #: po/advisory_rules.php:195
 #, php-format
