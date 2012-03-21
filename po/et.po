@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-02-24 20:11+0200\n"
-"Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
+"PO-Revision-Date: 2012-03-21 20:58+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: estonian <et@li.org>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -7071,7 +7071,6 @@ msgid "Quick steps to setup advanced features:"
 msgstr "Täpsemate võimaluste seadistamise kiirsammud:"
 
 #: libraries/relation.lib.php:154
-#, fuzzy
 #| msgid ""
 #| "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgid ""
