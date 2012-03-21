@@ -5648,7 +5648,7 @@ msgstr "Rader:"
 
 #: libraries/display_export.lib.php:152
 msgid "Dump some row(s)"
-msgstr "Skippa några rader:"
+msgstr "Skippa några rader"
 
 #: libraries/display_export.lib.php:154
 msgid "Number of rows:"
