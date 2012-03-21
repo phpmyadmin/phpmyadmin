@@ -12439,7 +12439,7 @@ msgstr "Andelen JOIN som saknar index"
 
 #: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
-msgstr "Det finns för många JOINS som saknar index"
+msgstr "Det finns för många JOINS som saknar index."
 
 #: po/advisory_rules.php:127
 msgid ""
