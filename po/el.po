@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-21 14:13+0200\n"
+"PO-Revision-Date: 2012-03-21 14:14+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12878,6 +12878,8 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Σκεφτείτε να αυξήσετε το {open_files_limit}, και ελέξτε την καταγραφή "
+"σφαλμάτων αφού κάνετε επανεκκίνηση μετά την αλλαγή του open_files_limit."
 
 #: po/advisory_rules.php:188
 #, php-format
