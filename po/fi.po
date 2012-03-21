@@ -1267,10 +1267,9 @@ msgstr ""
 "<i>Asetukset</i>-valikosta oletusasetukset."
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Kyselyvälimuisti"
+msgstr "Kyselyvälimuistin tehokkuus"
 
 #: js/messages.php:98
 msgid "Query cache usage"
