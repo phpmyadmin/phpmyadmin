@@ -359,7 +359,7 @@ foreach ($fields as $row) {
         echo '<i>' . _pgettext('None for default', 'None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
-    <td class="browse center">
+    <td class="replaced_by_more center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
             <?php echo $titles['BrowseDistinctValues']; ?></a>
     </td>
@@ -372,7 +372,7 @@ foreach ($fields as $row) {
         <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Drop']; ?></a>
     </td>
-    <td class="primary center">
+    <td class="replaced_by_more center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
@@ -387,7 +387,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td class="unique center">
+    <td class="replaced_by_more center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || isset($columns_with_unique_index[$field_name])) {
             echo $titles['NoUnique'] . "\n";
@@ -402,7 +402,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td class="index center">
+    <td class="replaced_by_more center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoIndex'] . "\n";
@@ -418,7 +418,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td class="spatial center">
+    <td class="replaced_by_more center">
         <?php
         $spatial_types = array(
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
@@ -444,7 +444,7 @@ foreach ($fields as $row) {
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
             ?>
-    <td nowrap="nowrap" class="fulltext center">
+    <td nowrap="nowrap" class="replaced_by_more center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
             <?php $fulltext_enabled = true; ?>
@@ -453,7 +453,7 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
         ?>
-    <td nowrap="nowrap" class="fulltext center">
+    <td nowrap="nowrap" class="replaced_by_more center">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
         <?php $fulltext_enabled = false; ?>
     </td>

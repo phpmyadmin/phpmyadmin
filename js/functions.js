@@ -2671,12 +2671,7 @@ function displayMoreTableOpts()
     // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
     if($("input[type='hidden'][name='table_type']").val() == "table") {
         var $table = $("table[id='tablestructure']");
-        $table.find("td[class='browse']").remove();
-        $table.find("td[class='primary']").remove();
-        $table.find("td[class='unique']").remove();
-        $table.find("td[class='index']").remove();
-        $table.find("td[class='fulltext']").remove();
-        $table.find("td[class='spatial']").remove();
+        $table.find("td.replaced_by_more").remove();
         $table.find("th[class='action']").attr("colspan", 3);
 
         // Display the "more" text
