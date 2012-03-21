@@ -566,7 +566,7 @@ msgstr "Effectuer une nouvelle recherche dans la base de données"
 
 #: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Mots ou valeurs à rechercher (passe-partout: «%») :"
+msgstr "Mots ou valeurs à rechercher (passe-partout: «%») : "
 
 #: db_search.php:282
 msgid "Find:"
