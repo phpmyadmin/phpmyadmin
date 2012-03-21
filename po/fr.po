@@ -4799,7 +4799,7 @@ msgstr "Nombre de lignes à ignorer à partir de la première ligne : "
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr "Options spécifiques au format:"
+msgstr "Options spécifiques au format : "
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
