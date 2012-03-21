@@ -6539,7 +6539,7 @@ msgstr "Fonction à utiliser lors de l'exportation des données : "
 
 #: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
-msgstr "Syntaxe à utiliser lors de l'insertion de données :"
+msgstr "Syntaxe à utiliser lors de l'insertion de données : "
 
 #: libraries/export/sql.php:275
 msgid ""
