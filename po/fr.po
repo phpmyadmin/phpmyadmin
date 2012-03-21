@@ -5631,7 +5631,7 @@ msgstr "Base(s) de données : "
 
 #: libraries/display_export.lib.php:137
 msgid "Table(s):"
-msgstr "Table(s)"
+msgstr "Table(s) : "
 
 #: libraries/display_export.lib.php:147
 msgid "Rows:"
