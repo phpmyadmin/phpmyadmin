@@ -1576,7 +1576,7 @@ msgstr ""
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "Fichier journal chargé. Requêtes exécutées dans ce laps de temps :"
+msgstr "Fichier journal chargé. Requêtes exécutées dans ce laps de temps : "
 
 #: js/messages.php:182
 msgid "Jump to Log table"
