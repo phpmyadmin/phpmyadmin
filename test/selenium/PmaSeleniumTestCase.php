@@ -7,65 +7,63 @@
  * @group Selenium
  */
 
-// Optionally add the php-client-driver to your include path
-//set_include_path(get_include_path() . PATH_SEPARATOR . '/opt/selenium-remote-control-1.0.1/selenium-php-client-driver-1.0.1/PEAR/');
-
-// Include the main phpMyAdmin user config
-// currently only $cfg['Test'] is used
-require_once 'config.sample.inc.php';
-
-
-
-class PmaSeleniumTestCase extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumTestCase
 {
-    protected $selenium;
-    protected $cfg;
+    private $txtUsername;
+    private $txtPassword;
+    private $btnLogin;
+    private $selenium;
+    private $config;
 
-    protected $captureScreenshotOnFailure = true;
-    protected $screenshotPath = '/var/www/screenshots';
-    protected $screenshotUrl = 'http://localhost/screenshots';
+    public function __construct($selenium) {
+        $this->txtUsername = 'input_username';
+        $this->txtPassword = 'input_password';
+        $this->btnLogin = 'input_go';
+	$this->config = new TestConfig();
+        $this->selenium = $selenium;
 
-    public function setUp()
-    {
-        global $cfg;
-        $this->cfg =& $cfg;
-        //PHPUnit_Extensions_SeleniumTestCase::$browsers = $this->cfg['Test']['broswers'];
-
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-
-        $this->start();
     }
 
-    public function tearDown()
-    {
-        $this->stop();
+     /**
+     * perform a login
+     * @param <type> $username
+     * @param <type> $password
+     */
+    public function login($username, $password) {
+
+        $this->selenium->open($this->config->getLoginURL());
+        $this->selenium->type($this->txtUsername, $username);
+        $this->selenium->type($this->txtPassword, $password);
+        $this->selenium->click($this->btnLogin);
+        $this->selenium->waitForPageToLoad($this->config->getTimeoutValue());
+        
     }
 
     /**
-     * perform a login
+     *
+     * @return boolean
      */
-    public function doLogin()
-    {
-        $this->open(TESTSUITE_PHPMYADMIN_URL);
-        // Somehow selenium does not like the language selection on the cookie login page, forced English in the config for now.
-        //$this->select("lang", "label=English");
-
-        $this->waitForPageToLoad("30000");
-        $this->type("input_username", TESTSUITE_USER);
-        $this->type("input_password", TESTSUITE_PASSWORD);
-        $this->click("input_go");
-        $this->waitForPageToLoad("30001");
+    public function isSuccessLogin() {
+	    if($this->selenium->isElementPresent("//*[@id=\"serverinfo\"]")){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
+    /**
+     *
+     * @return boolean
+     */
+    public function isUnsuccessLogin() {
+	    $val = $this->selenium->getValue('input_go');
+	    if($this->selenium->isElementPresent("//html/body/div/div[@class='error']")){
+		    return true;
+	    } else {
+		    return false;
+	    }
     }
 
-    /*
-     * Just a dummy to show some example statements
-     *
-     public function mockTest()
-     {
-         // Slow down the testing speed, ideal for debugging
-         //$this->setSpeed(4000);
-}
-     */
 }
 
 ?>
