@@ -9616,7 +9616,7 @@ msgstr "Nom de l'index : "
 
 #: tbl_indexes.php:174
 msgid "Index type:"
-msgstr "Type d'index :"
+msgstr "Type d'index : "
 
 #: tbl_indexes.php:247
 #, php-format
