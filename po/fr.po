@@ -1603,7 +1603,7 @@ msgstr "Filtre"
 
 #: js/messages.php:194
 msgid "Filter queries by word/regexp:"
-msgstr "Filtrer les requêtes par mot ou expression régulière :"
+msgstr "Filtrer les requêtes par mot ou expression régulière : "
 
 #: js/messages.php:195
 msgid "Group queries, ignoring variable data in WHERE clauses"
