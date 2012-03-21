@@ -578,7 +578,7 @@ msgstr "Séparer les mots par un espace (« »)."
 
 #: db_search.php:300
 msgid "Inside tables:"
-msgstr "Dans les tables :"
+msgstr "Dans les tables : "
 
 #: db_search.php:330
 msgid "Inside column:"
