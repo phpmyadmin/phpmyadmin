@@ -11829,7 +11829,7 @@ msgstr "Créer la version %1$s de %2$s"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
-msgstr "Suivre les énoncés de définition de données suivants :"
+msgstr "Suivre les énoncés de définition de données suivants : "
 
 #: tbl_tracking.php:754
 msgid "Track these data manipulation statements:"
