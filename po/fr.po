@@ -8322,7 +8322,7 @@ msgid ""
 "import it for current session?"
 msgstr ""
 "Votre navigateur contient une configuration phpMyAdmin pour ce domaine. "
-"Voulez-vous l'importer dans la session courante?"
+"Voulez-vous l'importer dans la session courante ?"
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
