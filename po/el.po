@@ -12936,7 +12936,7 @@ msgstr ""
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Ποσοστό των αναγνώσεων ευρετηρίων από τη μνήμη"
 
 #: po/advisory_rules.php:176
 #, php-format
