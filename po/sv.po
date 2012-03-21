@@ -12681,7 +12681,7 @@ msgstr ""
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr "Aktivera trådad cache genom att sätta {thread_cache_size} > 0"
+msgstr "Aktivera trådad cache genom att sätta {thread_cache_size} > 0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
