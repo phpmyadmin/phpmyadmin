@@ -2720,7 +2720,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
-msgstr "Palvelin"
+msgstr "Palvelin:"
 
 #: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
