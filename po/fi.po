@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 22:00+0200\n"
+"PO-Revision-Date: 2012-03-21 22:01+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -5649,7 +5649,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:255 libraries/export/odt.php:22
 msgid "Open Document Text"
-msgstr "Open Document Text"
+msgstr "Open Document -teksti"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
