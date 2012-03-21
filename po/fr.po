@@ -6540,7 +6540,7 @@ msgstr "Lignes terminées par : "
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
 msgid "Replace NULL with:"
-msgstr "Remplacer NULL par :"
+msgstr "Remplacer NULL par : "
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
