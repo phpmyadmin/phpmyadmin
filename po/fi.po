@@ -1538,10 +1538,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analysoidaan ja ladataan lokeja. Tämä kestää hetken."
 
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Hakupyynnöt"
+msgstr "Peruuta pyyntö"
 
 #: js/messages.php:174
 msgid ""
