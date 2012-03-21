@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-21 14:09+0200\n"
+"PO-Revision-Date: 2012-03-21 14:10+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12835,6 +12835,8 @@ msgstr "Ίσως χρειστεί να αυξήσετε το {key_buffer_size}."
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Αναγνώσεις ευρετηρίου από τη μνήμη: %s%%, αυτή η τιμή πρέπει να είναι πάνω "
+"από 95%%"
 
 #: po/advisory_rules.php:180
 msgid "Rate of table open"
