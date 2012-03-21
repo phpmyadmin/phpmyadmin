@@ -11602,7 +11602,7 @@ msgstr "Nombre de lignes par page"
 
 #: tbl_select.php:234
 msgid "Display order:"
-msgstr "Ordre d'affichage :"
+msgstr "Ordre d'affichage : "
 
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:581
 msgid "Spatial"
