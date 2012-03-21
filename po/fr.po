@@ -6523,7 +6523,7 @@ msgstr "Vider la table avant d'insérer"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "Au lieu d'énoncés <code>INSERT</code>, utiliser :"
+msgstr "Au lieu d'énoncés <code>INSERT</code>, utiliser : "
 
 #: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
