@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 22:28+0200\n"
+"PO-Revision-Date: 2012-03-21 22:42+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -7643,7 +7643,7 @@ msgstr "Tiedostot"
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:58
 #: server_processlist.php:60
 msgid "Truncate Shown Queries"
-msgstr "Näytä katkaistut kyselyt"
+msgstr "Lyhennä näytettävät kyselyt"
 
 #: server_binlog.php:177 server_binlog.php:179 server_processlist.php:58
 #: server_processlist.php:60
