@@ -1611,7 +1611,7 @@ msgstr "Grouper les requêtes en ignorant la partie variable des clauses WHERE"
 
 #: js/messages.php:196
 msgid "Sum of grouped rows:"
-msgstr "Somme des lignes regroupées :"
+msgstr "Somme des lignes regroupées : "
 
 #: js/messages.php:197
 msgid "Total:"
