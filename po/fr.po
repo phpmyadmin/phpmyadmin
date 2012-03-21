@@ -4772,7 +4772,7 @@ msgstr "Les téléchargements vers ce serveur ne sont pas permis."
 
 #: libraries/display_import.lib.php:208
 msgid "Partial Import:"
-msgstr "Importation partielle:"
+msgstr "Importation partielle : "
 
 #: libraries/display_import.lib.php:214
 #, php-format
