@@ -6673,7 +6673,7 @@ msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Maximiser la compatibilité avec un système de base de données ou un ancien "
-"serveur MySQL:"
+"serveur MySQL : "
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
