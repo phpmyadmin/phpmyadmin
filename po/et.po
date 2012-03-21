@@ -9604,10 +9604,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Võrguliiklus alates käivitumisest: %s"
 
 #: server_status.php:1058
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "See MySQL server on töötanud %s. See käivitus %s."
+msgstr "See MySQL server on töötanud %1$s. See käivitus %2$s."
 
 #: server_status.php:1069
 msgid ""
