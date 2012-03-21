@@ -9160,10 +9160,9 @@ msgstr "Tabelipõhised õigused"
 
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1704
-#, fuzzy
 #| msgid " Note: MySQL privilege names are expressed in English "
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr " Märkus: MySQL õigused on inglise keelsed "
+msgstr "Märkus: MySQL õigused on inglise keelsed "
 
 #: server_privileges.php:614
 msgid "Administration"
