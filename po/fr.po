@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 17:47+0200\n"
+"PO-Revision-Date: 2012-03-21 17:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -7986,7 +7986,7 @@ msgstr "Répliquer toutes les bases de données; Ignorer : "
 
 #: server_replication.php:221
 msgid "Ignore all databases; Replicate:"
-msgstr "Ignorer toutes les bases de données; Répliquer :"
+msgstr "Ignorer toutes les bases de données; Répliquer : "
 
 #: server_replication.php:224
 msgid "Please select databases:"
