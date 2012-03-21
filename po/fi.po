@@ -1232,7 +1232,7 @@ msgstr "Kyselyn ominaisuuksia"
 #: js/messages.php:90
 #| msgid "Cannot load or save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Paikallisen tarkkailun asetukset yhteensopimattomat"
+msgstr "Paikallisen seurannan asetukset yhteensopimattomat"
 
 #: js/messages.php:91
 msgid ""
