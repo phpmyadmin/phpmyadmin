@@ -9741,7 +9741,7 @@ msgstr "Supprimer le partitionnement"
 
 #: tbl_operations.php:783
 msgid "Check referential integrity:"
-msgstr "Vérifier l'intégrité référentielle"
+msgstr "Vérifier l'intégrité référentielle : "
 
 #: tbl_printview.php:72
 msgid "Show tables"
