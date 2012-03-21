@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 23:08+0200\n"
+"PO-Revision-Date: 2012-03-21 23:09+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1341,10 +1341,9 @@ msgid "Used Swap"
 msgstr "Käytetty sivutusmuisti"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Vapaat sivut"
+msgstr "Vapaata sivutusmuistia"
 
 #: js/messages.php:119
 msgid "Bytes sent"
