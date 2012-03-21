@@ -9522,7 +9522,7 @@ msgstr "Synkronisera databaser med master"
 
 #: server_replication.php:320
 msgid "Control slave:"
-msgstr "Kontroll-slav"
+msgstr "Kontroll slav:"
 
 #: server_replication.php:323
 msgid "Full start"
