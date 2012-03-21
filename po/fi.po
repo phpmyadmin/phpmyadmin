@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 23:39+0200\n"
+"PO-Revision-Date: 2012-03-21 23:40+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1535,7 +1535,7 @@ msgstr "Yleisestä lokista"
 
 #: js/messages.php:172
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analysoidaan ja ladataan lokeja. Tämä kestää hetken."
 
 #: js/messages.php:173
 #, fuzzy
