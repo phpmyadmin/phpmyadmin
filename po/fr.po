@@ -3001,7 +3001,7 @@ msgstr "Opérations"
 #: libraries/common.lib.php:3316 libraries/sql_query_form.lib.php:443
 #: prefs_manage.php:239
 msgid "Browse your computer:"
-msgstr "Parcourir :"
+msgstr "Parcourir : "
 
 #: libraries/common.lib.php:3335
 #, php-format
