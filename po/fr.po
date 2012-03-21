@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 17:38+0200\n"
+"PO-Revision-Date: 2012-03-21 17:39+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2865,7 +2865,7 @@ msgstr "Serveur"
 #: libraries/common.inc.php:845
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
-"Le fichier de configuration contient un type d'authentification invalide :"
+"Le fichier de configuration contient un type d'authentification invalide : "
 
 #: libraries/common.inc.php:960
 #, php-format
