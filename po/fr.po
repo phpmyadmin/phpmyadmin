@@ -9468,7 +9468,7 @@ msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 "Le serveur est configuré comme esclave dans un processus de réplication. "
-"Voudriez-vous :"
+"Voudriez-vous : "
 
 #: server_replication.php:336
 msgid "See slave status table"
