@@ -10484,10 +10484,9 @@ msgstr ""
 "d'exécution.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Taux de succès de la cache des fils d'exécution en %%"
+msgstr "Taux de succès de la cache des fils d'exécution (valeur calculée)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
