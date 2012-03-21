@@ -7390,7 +7390,7 @@ msgstr "Selaimen muunnos (transformation)"
 #: libraries/relation.lib.php:119
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr "Tarkista ohjeista, kuinka Column_comments-tauluja voi päivittää."
+msgstr "Lue ohjeista, kuinka column_comments-taulut päivitetään."
 
 #: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:382
 msgid "Bookmarked SQL query"
