@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 23:48+0200\n"
+"PO-Revision-Date: 2012-03-21 23:50+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -9756,7 +9756,6 @@ msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr "See MySQL server töötab <b>paljundamisel</b> <b>alluvana</b>."
 
 #: server_status.php:1076
-#, fuzzy
 #| msgid ""
 #| "For further information about replication status on the server, please "
 #| "visit the <a href=#replication>replication section</a>."
@@ -9764,8 +9763,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
-"Kui soovid lugeda rohkem teavet paljundamise staatuse kohta serveris, siis "
-"palun vaata <a href=#replication>paljundamise sektsiooni</a>."
+"Lisateabe saamiseks serveri paljundamise staatuse kohta, palun vaata <a "
+"href=#replication>paljundamise sektsiooni</a>."
 
 #: server_status.php:1085
 msgid "Replication status"
