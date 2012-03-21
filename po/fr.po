@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 17:49+0200\n"
+"PO-Revision-Date: 2012-03-21 17:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -9820,7 +9820,7 @@ msgstr "Choisir les colonnes (au moins une) : "
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Critères de recherche (pour l'énoncé «where») :"
+msgstr "Critères de recherche (pour l'énoncé «where») : "
 
 #: tbl_select.php:258
 msgid "Number of rows per page"
