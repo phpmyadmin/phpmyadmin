@@ -1391,10 +1391,9 @@ msgstr "%d taulu(a)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Versiot"
+msgstr "Kysymykset"
 
 #: js/messages.php:136 server_status.php:1100
 msgid "Traffic"
