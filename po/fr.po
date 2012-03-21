@@ -3074,7 +3074,8 @@ msgstr "Parcourir : "
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
-"Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> :"
+"Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> : "
+""
 
 #: libraries/common.lib.php:3319 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
