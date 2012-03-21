@@ -11364,7 +11364,7 @@ msgstr "Salaamaton yhteys"
 
 #: setup/frames/index.inc.php:94
 msgid "Configuration saved."
-msgstr "Asetukset tallennettiin"
+msgstr "Asetukset tallennettu."
 
 #: setup/frames/index.inc.php:95
 msgid ""
