@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 11:16+0200\n"
+"PO-Revision-Date: 2012-03-21 11:22+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8173,7 +8173,7 @@ msgstr "Fin des informations sur l'anomalie"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Un guillemet oblique a été ajouté à la fin de la requête!"
+msgstr "Un guillemet oblique a été ajouté à la fin de la requête !"
 
 #: libraries/sqlparser.lib.php:385
 msgid "Unclosed quote"
