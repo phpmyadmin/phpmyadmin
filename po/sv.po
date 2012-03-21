@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 20:57+0200\n"
+"PO-Revision-Date: 2012-03-21 20:58+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12618,7 +12618,7 @@ msgid ""
 "restarting after changing open_files_limit."
 msgstr ""
 "Överväg att öka {open_files_limit} och kontrollera felloggen vid omstart "
-"efter att ha ändrat open_files_limit"
+"efter att ha ändrat open_files_limit."
 
 #: po/advisory_rules.php:188
 #, php-format
