@@ -12285,7 +12285,7 @@ msgid ""
 "%. It should be above 80%%"
 msgstr ""
 "De huidige verhouding van vrij query cache geheugen tot de totale query "
-"cache grootte is %s%%. Dit zou meer dan 80%% moeten zijn."
+"cache grootte is %s%%. Dit zou meer dan 80%% moeten zijn"
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
