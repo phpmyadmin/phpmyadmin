@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 22:28+0200\n"
+"PO-Revision-Date: 2012-03-21 22:30+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -937,10 +937,9 @@ msgid "Add a linestring"
 msgstr "Lisää rivimerkkijono"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:327
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Lisää uusi käyttäjä"
+msgstr "Lisää sisärengas"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
