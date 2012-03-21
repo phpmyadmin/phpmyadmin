@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 21:50+0200\n"
+"PO-Revision-Date: 2012-03-21 21:51+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -6517,7 +6517,7 @@ msgstr "Näytä taulujen ulottuvuus"
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Display all tables with the same width"
-msgstr "Näytä kaikki taulut samanlevyisinä?"
+msgstr "Näytä kaikki taulut samanlevyisinä"
 
 #: libraries/schema/User_Schema.class.php:390
 msgid "Only show keys"
