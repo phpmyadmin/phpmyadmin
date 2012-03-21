@@ -1665,7 +1665,7 @@ msgstr "Recharger la page"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr "Lignes modifiées :"
+msgstr "Lignes modifiées : "
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
