@@ -5730,7 +5730,7 @@ msgstr "Format : "
 
 #: libraries/display_export.lib.php:336
 msgid "Format-specific options:"
-msgstr "Options spécifiques au format:"
+msgstr "Options spécifiques au format : "
 
 #: libraries/display_export.lib.php:337
 msgid ""
