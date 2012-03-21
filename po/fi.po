@@ -1405,10 +1405,9 @@ msgid "Settings"
 msgstr "Asetukset"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Tuhoa tietokanta"
+msgstr "Poista kaavio"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
