@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-14 19:25+0200\n"
+"PO-Revision-Date: 2012-03-20 18:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -9179,10 +9179,10 @@ msgid "Privileges for all users"
 msgstr "Tüm kullanıcılar için yetkiler"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Yetkiler"
+msgstr "%s için yetkiler"
 
 #: server_privileges.php:1682
 msgid "Users overview"
@@ -10153,10 +10153,9 @@ msgstr ""
 "olması bir kerede en fazla blok sayısının kullanımda olmamasını gösterir."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Kullanılan açık dosya sınırları yüzdesi"
+msgstr "Kullanılan anahtar önbelleği yüzdesidir (hesaplanmış değer)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
@@ -10177,6 +10176,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Okuma isteklerine nazaran fiziksel okumaların oranı gibi eksik hesaplanan "
+"anahtar önbelleğidir (hesaplanmış değer)"
 
 #: server_status.php:1376
 msgid "The number of requests to write a key block to the cache."
@@ -10190,6 +10191,7 @@ msgstr "Diske anahtar bloğunu fiziksel yazma sayısıdır."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Yazma isteklerine nazaran fiziksel yazmaların yüzdesidir (hesaplanmış değer)"
 
 #: server_status.php:1379
 msgid ""
@@ -10415,10 +10417,9 @@ msgstr ""
 "bir performans artışı vermez.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "İşlem önbelleği tavan oranı %%"
+msgstr "İşlem önbelleği tavan oranı (hesaplanmış değer)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."

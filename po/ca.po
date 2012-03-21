@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-20 17:11+0200\n"
+"PO-Revision-Date: 2012-03-20 17:23+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -11497,10 +11497,9 @@ msgid "Add unique index"
 msgstr "Afegir índex únic"
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "Afegir índex"
+msgstr "Afegir índex espacial (SPATIAL)"
 
 #: tbl_structure.php:175 tbl_structure.php:176
 msgid "Add FULLTEXT index"
@@ -11533,10 +11532,9 @@ msgid "Show more actions"
 msgstr "Mostra més accions"
 
 #: tbl_structure.php:607
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Imprimeix vista"
+msgstr "Editar vista"
 
 #: tbl_structure.php:624
 msgid "Relation view"
@@ -11621,22 +11619,19 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Instantània de la versió %s (codi SQL)"
 
 #: tbl_tracking.php:400
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "Segueix aquestes declaracions de definició de dades:"
+msgstr "Definició de seguiment de dades eliminat correctament"
 
 #: tbl_tracking.php:402 tbl_tracking.php:419
-#, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
-msgstr "Recopila errors"
+msgstr "Error de consulta"
 
 #: tbl_tracking.php:417
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Segueix aquestes declaracions de manipulació de dades:"
+msgstr "manipulació de seguiment de dades eliminat correctament"
 
 #: tbl_tracking.php:429
 msgid "Tracking statements"
@@ -11649,16 +11644,14 @@ msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Mostra %s amb dates des de %s fins a  %s per l'usuari %s %s"
 
 #: tbl_tracking.php:450
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "Esborra les dades de seguiment per aquesta taula"
+msgstr "Esborra les dades de seguiment de l'informe"
 
 #: tbl_tracking.php:461
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "No hi ha bases de dades"
+msgstr "No hi ha dades"
 
 #: tbl_tracking.php:471 tbl_tracking.php:528
 msgid "Date"
@@ -11736,36 +11729,33 @@ msgid "Create version"
 msgstr "Crea versió"
 
 #: tbl_zoom_select.php:236
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
+msgstr ""
+"Fer una \"consulta segons exemple\" (comodí: \"%\") per a dos columnes diferents"
 
 #: tbl_zoom_select.php:246
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Amaga el criteri de cerca"
+msgstr "Criteri de cerca addicionals"
 
 #: tbl_zoom_select.php:294
 msgid "Use this column to label each point"
 msgstr ""
 
 #: tbl_zoom_select.php:314
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Màxim nombre de files a mostrar"
+msgstr "Màxim nombre de files a dibuixar"
 
 #: tbl_zoom_select.php:428
 msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:435
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Usuari de control"
+msgstr "Cóm utilitzar"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11825,10 +11815,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "Versions"
+msgstr "Menys de 1000 consultes"
 
 #: po/advisory_rules.php:11
 msgid ""
@@ -11843,16 +11832,15 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "Connexió actual"
+msgstr "Quantitat actual de consultes: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Mostra consultes SQL"
+msgstr "Percentatge de consultes lentes"
 
 #: po/advisory_rules.php:16
 msgid ""
@@ -11871,10 +11859,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Buida la memòria cau de consultes"
+msgstr "Freqüència de consultes lentes"
 
 #: po/advisory_rules.php:21
 msgid ""
@@ -11889,10 +11876,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "Consultes SQL"
+msgstr "Temps de consultes lentes"
 
 #: po/advisory_rules.php:26
 msgid ""
@@ -11912,10 +11898,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Mostrar quadre de consultes"
+msgstr "Registre de consultes lentes"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
@@ -11932,10 +11917,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Tria Taules"
+msgstr "Serie de versions"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
@@ -11948,16 +11932,15 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Crea versió"
+msgstr "Versió actual: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Versió"
+msgstr "Versió menor"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -11974,16 +11957,14 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Es necessari actualitzar a %s %s o posterior."
+msgstr "Es necessari actualitzar a una versió estable de MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Descripció"
+msgstr "Distribució"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -12022,10 +12003,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Joc de caràcters de MySQL"
+msgstr "Arquitectura MySQL"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
@@ -12044,10 +12024,9 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Memòria cau de consultes"
+msgstr "Memòria cau de consultes desactivat"
 
 #: po/advisory_rules.php:71
 #, fuzzy

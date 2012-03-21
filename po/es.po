@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-14 20:03+0200\n"
+"PO-Revision-Date: 2012-03-20 17:44+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -9291,10 +9291,10 @@ msgid "Privileges for all users"
 msgstr "Privilegios para todos los usuarios"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilegios"
+msgstr "Privilegios para %s"
 
 #: server_privileges.php:1682
 msgid "Users overview"
@@ -10295,10 +10295,9 @@ msgstr ""
 "se llegaron a usar."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Porcentaje de uso del límite de archivos de abiertos"
+msgstr "Porcentaje de uso del caché de claves (valor calculado)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
@@ -10320,6 +10319,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Los fallos en el caché de claves es calculado como la tasa de lecturas "
+"físicas comparadas con los pedidos de lectura (valor calculado)"
 
 #: server_status.php:1376
 msgid "The number of requests to write a key block to the cache."
@@ -10333,6 +10334,8 @@ msgstr "El número de escrituras físicas de un bloque de claves al disco."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Porcentaje de escrituras físicas comparadas con pedidos de escritura (valor "
+"calculado)"
 
 #: server_status.php:1379
 msgid ""
@@ -10550,7 +10553,7 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"El número de procesos en el cache de procesos. La tasa de hits al cache "
+"El número de procesos en el cache de procesos. La tasa de aciertos al cache "
 "puede calcularse como Threads_created/Connections. Si este valor es rojo, "
 "debe incrementar su thread_cache_size."
 
@@ -10571,10 +10574,9 @@ msgstr ""
 "tiene una buena implementación de procesos.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Porcentaje de efectividad del caché de hilos"
+msgstr "Porcentaje de aciertos del caché de hilos (valor calculado)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."

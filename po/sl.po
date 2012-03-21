@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-14 20:11+0200\n"
+"PO-Revision-Date: 2012-03-20 19:51+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
-"X-Generator: Weblate 0.6\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
+"X-Generator: Weblate 0.7\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -9157,10 +9157,10 @@ msgid "Privileges for all users"
 msgstr "Privilegiji vseh uporabnikov"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilegiji"
+msgstr "Privilegiji %s"
 
 #: server_privileges.php:1682
 msgid "Users overview"
@@ -10135,10 +10135,9 @@ msgstr ""
 "naenkrat v uporabi."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Odstotek omejitve uporabljenih odprtih datotek"
+msgstr "Odstotek uporabljenega predpomnilnika ključev (izračunana vrednost)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
@@ -10159,6 +10158,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Napačno izračunan predpomnilnik ključev kot delež fizičnih branj v "
+"primerjavi z zahtevami za branje (izračunana vrednost)"
 
 #: server_status.php:1376
 msgid "The number of requests to write a key block to the cache."
@@ -10172,6 +10173,8 @@ msgstr "Število fizičnih pisanj bloka ključev na disk."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Odstotek fizičnih zapisov v primerjavi z zahtevami za zapis (izračunana "
+"vrednost)"
 
 #: server_status.php:1379
 msgid ""
@@ -10395,10 +10398,9 @@ msgstr ""
 "ne izboljša zmogljivosti v veliki meri, če imate dobro izvedbo niti.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "%% deleža zadetkov predpomnilnika niti"
+msgstr "Delež zadetkov predpomnilnika niti (izračunana vrednost)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
