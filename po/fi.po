@@ -6254,7 +6254,7 @@ msgstr "Sarakkeiden kommentit näkyvissä"
 #: libraries/relation.lib.php:126
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr "Tarkista ohjeista, kuinka Column_comments-tauluja voi päivittää."
+msgstr "Lue ohjeista, kuinka column_comments-taulut päivitetään."
 
 #: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:410
 msgid "Bookmarked SQL query"
