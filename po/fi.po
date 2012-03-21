@@ -1547,7 +1547,7 @@ msgstr "Yksikkö"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "Hitaasta lokista"
 
 #: js/messages.php:175
 msgid "From general log"
