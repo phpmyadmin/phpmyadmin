@@ -10597,7 +10597,7 @@ msgstr ""
 
 #: server_status.php:1644
 msgid "Please note:"
-msgstr "Note :"
+msgstr "Note : "
 
 #: server_status.php:1646
 msgid ""
