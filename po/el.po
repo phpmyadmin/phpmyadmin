@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 14:08+0200\n"
+"PO-Revision-Date: 2012-03-21 14:09+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12942,6 +12942,8 @@ msgstr "Ποσοστό των αναγνώσεων ευρετηρίων από �
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
+"Το %% των ευρετηρίων που χρησιμοποιούν το buffer κλειδιού MyISAM είναι "
+"χαμηλό."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
