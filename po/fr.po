@@ -12680,8 +12680,7 @@ msgstr "%% maximum du tampon de clés MyISAM qui a été utilisé"
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
-"Le pourcentage de la mémoire tampon utilisée pour les clés MyISAM est bas."
+msgstr "Le %% de la mémoire tampon utilisée pour les clés MyISAM est bas."
 
 #: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
