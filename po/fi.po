@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 21:44+0200\n"
+"PO-Revision-Date: 2012-03-21 21:45+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1595,7 +1595,7 @@ msgstr "Taulun %s nimi on nyt %s"
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "Kelvollista polkua teemalle %s ei löytynyt."
+msgstr "Kelvollista kuvapolkua teemalle %s ei löytynyt!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
