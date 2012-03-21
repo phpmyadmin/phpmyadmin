@@ -13016,7 +13016,7 @@ msgstr ""
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr "InnoDB est-il désactivé?"
+msgstr "InnoDB est-il désactivé ?"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
