@@ -11586,7 +11586,7 @@ msgstr "Changer le nom de la table pour"
 
 #: tbl_operations.php:537
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Copier la table vers (base<b>.</b>table) :"
+msgstr "Copier la table vers (base<b>.</b>table) : "
 
 #: tbl_operations.php:584
 msgid "Switch to copied table"
