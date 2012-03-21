@@ -7144,7 +7144,7 @@ msgstr "Préférences de l'utilisateur"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
-msgstr "Guide rapide de configuration des fonctions avancées :"
+msgstr "Guide rapide de configuration des fonctions avancées : "
 
 #: libraries/relation.lib.php:154
 msgid ""
