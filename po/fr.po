@@ -2014,7 +2014,7 @@ msgstr ""
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:362
 msgid ", latest stable version:"
-msgstr ", dernière version stable :"
+msgstr ", dernière version stable : "
 
 #: js/messages.php:363
 msgid "up to date"
