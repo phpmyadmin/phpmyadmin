@@ -6053,7 +6053,7 @@ msgstr "Användarinställningar"
 
 #: libraries/relation.lib.php:151
 msgid "Quick steps to setup advanced features:"
-msgstr "Snabba steg för att installera avancerade funktioner"
+msgstr "Snabba steg för att installera avancerade funktioner:"
 
 #: libraries/relation.lib.php:153
 msgid ""
