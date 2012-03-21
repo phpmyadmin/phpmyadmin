@@ -1588,7 +1588,7 @@ msgstr "Lokin tiedot on ladattu. Kyselyt suoritetaan tällä aikajänteellä:"
 #: js/messages.php:182
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Siirry logitauluun"
+msgstr "Siirry lokitauluun"
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
