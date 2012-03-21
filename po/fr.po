@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-21 11:44+0200\n"
+"PO-Revision-Date: 2012-03-21 11:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -11375,7 +11375,7 @@ msgstr "La clé ne peut être renommée PRIMARY !"
 
 #: tbl_indexes.php:91
 msgid "No index parts defined!"
-msgstr "Aucune colonne n'a été définie pour cet index!"
+msgstr "Aucune colonne n'a été définie pour cet index !"
 
 #: tbl_indexes.php:173 tbl_structure.php:169 tbl_structure.php:170
 msgid "Add index"
