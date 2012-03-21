@@ -1566,10 +1566,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Lokin tiedot on ladattu. Kyselyt suoritetaan tällä aikajänteellä:"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Siirry tietokantaan"
+msgstr "Siirry logitauluun"
 
 #: js/messages.php:179
 msgid "Log analysed, but no data found in this time span."
