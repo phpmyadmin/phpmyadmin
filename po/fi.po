@@ -1415,7 +1415,7 @@ msgstr "Jatka seurantaa"
 
 #: js/messages.php:141
 msgid "Pause monitor"
-msgstr ""
+msgstr "Keskeytä seuranta"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
