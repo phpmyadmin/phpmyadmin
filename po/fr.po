@@ -6534,7 +6534,7 @@ msgstr "Caractère d'échappement : "
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
-msgstr "Lignes terminées par :"
+msgstr "Lignes terminées par : "
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
