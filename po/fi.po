@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 22:16+0200\n"
+"PO-Revision-Date: 2012-03-21 22:17+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -5054,7 +5054,7 @@ msgstr "yhteensä"
 #: libraries/display_tbl.lib.php:2104 sql.php:630
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "kysely kesti %01.4f sek."
+msgstr "Kysely kesti %01.4f s."
 
 #: libraries/display_tbl.lib.php:2227 querywindow.php:114 querywindow.php:118
 #: querywindow.php:121 tbl_structure.php:150 tbl_structure.php:567
