@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 23:02+0200\n"
+"PO-Revision-Date: 2012-03-21 23:03+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1230,10 +1230,9 @@ msgid "Query statistics"
 msgstr "Kyselyn ominaisuuksia"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Asetuksia ei voi ladata tai tallentaa"
+msgstr "Paikallisen tarkkailun asetukset yhteensopimattomat"
 
 #: js/messages.php:91
 msgid ""
