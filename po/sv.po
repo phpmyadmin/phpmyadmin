@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 20:43+0200\n"
+"PO-Revision-Date: 2012-03-21 20:45+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10362,10 +10362,9 @@ msgstr ""
 "trådimplementering.)"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Andel trådad cache %%"
+msgstr "Trådad cache träffrekvens (beräknat värde)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
