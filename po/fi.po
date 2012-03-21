@@ -925,7 +925,7 @@ msgstr "Rivimerkkijono"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
-msgstr "Ulkorengas"
+msgstr "Ulkoympyrä"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:324
 msgid "Inner Ring"
