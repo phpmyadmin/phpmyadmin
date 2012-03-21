@@ -8109,7 +8109,7 @@ msgstr "Aucune"
 
 #: libraries/tbl_properties.inc.php:352
 msgid "As defined:"
-msgstr "Tel que défini :"
+msgstr "Tel que défini : "
 
 #: libraries/tbl_properties.inc.php:466 tbl_structure.php:152
 #: tbl_structure.php:157 tbl_structure.php:575
