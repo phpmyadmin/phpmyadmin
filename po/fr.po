@@ -5406,7 +5406,7 @@ msgstr "Le site PrimeBase Media Streaming (PBMS)"
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
 msgid "Columns separated with:"
-msgstr "Colonnes séparées par :"
+msgstr "Colonnes séparées par : "
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
 msgid "Columns enclosed with:"
