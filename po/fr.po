@@ -9578,7 +9578,7 @@ msgstr ""
 "réplication. Vous pouvez soit répliquer toutes les bases tout en ignorant "
 "certaines d'entre elles (utile si la majorité des bases doivent être "
 "répliquées) soit ignorer toutes les bases en demandant que certaines d'entre "
-"elles soient répliquées. Veuillez choisir le mode :"
+"elles soient répliquées. Veuillez choisir le mode : "
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
