@@ -9828,7 +9828,7 @@ msgstr "Nombre de lignes par page"
 
 #: tbl_select.php:264
 msgid "Display order:"
-msgstr "Ordre d'affichage :"
+msgstr "Ordre d'affichage : "
 
 #: tbl_structure.php:161 tbl_structure.php:165
 msgid "Browse distinct values"
