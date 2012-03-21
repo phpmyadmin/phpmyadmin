@@ -9635,7 +9635,7 @@ msgstr "Filtres"
 
 #: server_status.php:841 server_variables.php:117
 msgid "Containing the word:"
-msgstr "Contenant le mot :"
+msgstr "Contenant le mot : "
 
 #: server_status.php:846
 msgid "Show only alert values"
