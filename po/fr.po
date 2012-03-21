@@ -11423,7 +11423,7 @@ msgstr "La table %s a été copiée vers %s."
 
 #: tbl_move_copy.php:81
 msgid "The table name is empty!"
-msgstr "Le nom de la table est vide!"
+msgstr "Le nom de la table est vide !"
 
 #: tbl_operations.php:268
 msgid "Alter table order by"
