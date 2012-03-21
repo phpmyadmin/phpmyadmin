@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-20 12:51-0400\n"
-"PO-Revision-Date: 2012-03-21 14:04+0200\n"
+"PO-Revision-Date: 2012-03-21 14:07+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12793,6 +12793,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Ίσως χρειαστεί να μειώσετε το μέγεθος του {key_buffer_size}, επανεξετάστε "
+"τους πινακές σας για να δείτε αν έχουν απομακρυνθεί τα ευρετήρια ή εξετάστε "
+"τα ερωτήματα και τις προσδοκίες για το ποια ευρετήρια χρησιμοποιούνται."
 
 #: po/advisory_rules.php:168
 #, php-format
