@@ -6345,7 +6345,7 @@ msgstr "Le blogue de PrimeBase XT par Paul McCullagh"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
-msgstr "Colonnes séparées par :"
+msgstr "Colonnes séparées par : "
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
