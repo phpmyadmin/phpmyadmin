@@ -1600,7 +1600,6 @@ msgid "Analyzing..."
 msgstr "Analysointi..."
 
 #: js/messages.php:186
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Selitä SQL-kysely"
