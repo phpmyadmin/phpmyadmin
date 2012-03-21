@@ -7359,7 +7359,7 @@ msgid ""
 msgstr ""
 "Assurez-vous d'avoir un server-id unique dans votre fichier de configuration "
 "(my.cnf). Sinon, veuillez ajouter la ligne suivante dans la section "
-"[mysqld] :"
+"[mysqld] : "
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
