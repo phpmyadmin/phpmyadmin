@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 14:10+0200\n"
+"PO-Revision-Date: 2012-03-21 14:11+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -12969,6 +12969,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Το άνοιγμα ερωτημάτων πινάκων απαιτεί I/O δίσκου που κοστίζει. Η αύξηση του "
+"{table_open_cache} ίσως το αποτρέψει αυτό."
 
 #: po/advisory_rules.php:183
 #, php-format
