@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 13:48+0200\n"
+"PO-Revision-Date: 2012-03-21 13:49+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -580,7 +580,7 @@ msgstr "Εσωτερικό πεδίο:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
-msgstr "Δεν βρέθηκαν Πίνακες στη βάση δεδομένων."
+msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
