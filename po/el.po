@@ -12891,7 +12891,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "Το key_buffer_size είναι 0"
 
 #: po/advisory_rules.php:165
 #, php-format
