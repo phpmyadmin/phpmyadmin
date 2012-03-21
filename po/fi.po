@@ -4117,9 +4117,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"Huomaa, että tämän käyttöön ottamisella ei ole vaikutusta [kbd]config[/kbd]-"
-"todennusta käytettäessä, koska salasana lukee suoraan asetustiedostossa; "
-"tämä ei estä saman komennon suorittamista suoraan."
+"Huomaa, että tämän käyttöönotolla ei ole vaikutusta "
+"[kbd]config[/kbd]-todennusta käytettäessä, koska salasana lukee suoraan "
+"asetustiedostossa; tämä ei estä saman komennon suorittamista suoraan."
 
 #: libraries/config/messages.inc.php:442
 msgid "Show password change form"
