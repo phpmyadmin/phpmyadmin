@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 21:42+0200\n"
+"PO-Revision-Date: 2012-03-21 21:43+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -9581,7 +9581,7 @@ msgstr "Taulukohtaiset käyttöoikeudet"
 #: server_privileges.php:604 server_privileges.php:756
 #: server_privileges.php:1821
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Huom! MySQL-käyttöoikeuksien nimet ovat englanniksi! "
+msgstr "Huom! MySQL-käyttöoikeuksien nimet ovat englanniksi"
 
 #: server_privileges.php:681
 msgid "Administration"
