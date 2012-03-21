@@ -11,6 +11,8 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
 
     /**
      * A private constructor; prevents direct creation of object.
+     *
+     * @access private
      */
     private function __construct()
     {
@@ -20,6 +22,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      * Returns the singleton.
      *
      * @return the singleton
+     * @access public
      */
     public static function singleton()
     {
@@ -36,7 +39,8 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array containing the min, max values for x and y cordinates
+     * @return array array containing the min, max values for x and y cordinates
+     * @access public
      */
     public function scaleRow($spatial)
     {
@@ -86,12 +90,13 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
-     * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
-     * @param array  $scale_data Array containing data related to scaling
-     * @param image  $image      Image object
+     * @param string $label      label for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data array containing data related to scaling
+     * @param object $image      image object
      *
-     * @return the modified image object
+     * @return object the modified image object
+     * @access public
      */
     public function prepareRowAsPng($spatial, $label, $color, $scale_data, $image)
     {
@@ -117,12 +122,13 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
-     * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
-     * @param array  $scale_data Array containing data related to scaling
-     * @param image  $pdf        TCPDF instance
+     * @param string $label      label for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data array containing data related to scaling
+     * @param object $pdf        TCPDF instance
      *
-     * @return the modified TCPDF instance
+     * @return object the modified TCPDF instance
+     * @access pubilc
      */
     public function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf)
     {
@@ -148,11 +154,12 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
-     * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $label      label for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data array containing data related to scaling
      *
-     * @return the code related to a row in the GIS dataset
+     * @return string the code related to a row in the GIS dataset
+     * @access public
      */
     public function prepareRowAsSvg($spatial, $label, $color, $scale_data)
     {
@@ -181,12 +188,13 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      * to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
-     * @param int    $srid       Spatial reference ID
-     * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param int    $srid       spatial reference ID
+     * @param string $label      label for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data array containing data related to scaling
      *
-     * @return JavaScript related to a row in the GIS dataset
+     * @return string JavaScript related to a row in the GIS dataset
+     * @access public
      */
     public function prepareRowAsOl($spatial, $srid, $label, $color, $scale_data)
     {
@@ -211,11 +219,12 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     }
 
     /**
-     * Split the GEOMETRYCOLLECTION object and get its constituents.
+     * Splits the GEOMETRYCOLLECTION object and get its constituents.
      *
-     * @param string $goem_col Geometry collection string
+     * @param string $goem_col geometry collection string
      *
-     * @return the constituents of the geometry collection object
+     * @return array the constituents of the geometry collection object
+     * @access private
      */
     private function _explodeGeomCol($goem_col)
     {
@@ -239,13 +248,14 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     }
 
     /**
-     * Generate the WKT with the set of parameters passed by the GIS editor.
+     * Generates the WKT with the set of parameters passed by the GIS editor.
      *
      * @param array  $gis_data GIS data
-     * @param int    $index    Index into the parameter object
-     * @param string $empty    Value for empty points
+     * @param int    $index    index into the parameter object
+     * @param string $empty    value for empty points
      *
-     * @return WKT with the set of parameters passed by the GIS editor
+     * @return string WKT with the set of parameters passed by the GIS editor
+     * @access public
      */
     public function generateWkt($gis_data, $index, $empty = '')
     {
@@ -269,12 +279,13 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         return $wkt;
     }
 
-    /** Generate parameters for the GIS data editor from the value of the GIS column.
+    /**
+     * Generates parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value of the GIS column
-     * @param index  $index of the geometry
      *
-     * @return  parameters for the GIS data editor from the value of the GIS column
+     * @return array parameters for the GIS editor from the value of the GIS column
+     * @access public
      */
     public function generateParams($value)
     {

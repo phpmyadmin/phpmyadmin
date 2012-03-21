@@ -10,11 +10,12 @@ abstract class PMA_GIS_Geometry
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
      * @param string $spatial    GIS data object
-     * @param string $label      Label for the GIS data object
-     * @param string $color      Color for the GIS data object
-     * @param array  $scale_data Data related to scaling
+     * @param string $label      label for the GIS data object
+     * @param string $color      color for the GIS data object
+     * @param array  $scale_data data related to scaling
      *
-     * @return the code related to a row in the GIS dataset
+     * @return string the code related to a row in the GIS dataset
+     * @access public
      */
     public abstract function prepareRowAsSvg($spatial, $label, $color, $scale_data);
 
@@ -22,12 +23,13 @@ abstract class PMA_GIS_Geometry
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
      * @param string $spatial    GIS data object
-     * @param string $label      Label for the GIS data object
-     * @param string $color      Color for the GIS data object
-     * @param array  $scale_data Array containing data related to scaling
-     * @param image  $image      Image object
+     * @param string $label      label for the GIS data object
+     * @param string $color      color for the GIS data object
+     * @param array  $scale_data array containing data related to scaling
+     * @param object $image      image object
      *
-     * @return the modified image object
+     * @return object the modified image object
+     * @access public
      */
     public abstract function prepareRowAsPng($spatial, $label, $color, $scale_data, $image);
 
@@ -35,12 +37,13 @@ abstract class PMA_GIS_Geometry
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
      * @param string $spatial    GIS data object
-     * @param string $label      Label for the GIS data object
-     * @param string $color      Color for the GIS data object
-     * @param array  $scale_data Array containing data related to scaling
-     * @param image  $pdf        TCPDF instance
+     * @param string $label      label for the GIS data object
+     * @param string $color      color for the GIS data object
+     * @param array  $scale_data array containing data related to scaling
+     * @param object $pdf        TCPDF instance
      *
-     * @return the modified TCPDF instance
+     * @return object the modified TCPDF instance
+     * @access public
      */
     public abstract function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
@@ -49,12 +52,13 @@ abstract class PMA_GIS_Geometry
      * to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS data object
-     * @param int    $srid       Spatial reference ID
-     * @param string $label      Label for the GIS data object
-     * @param string $color      Color for the GIS data object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param int    $srid       spatial reference ID
+     * @param string $label      label for the GIS data object
+     * @param string $color      color for the GIS data object
+     * @param array  $scale_data array containing data related to scaling
      *
-     * @return the JavaScript related to a row in the GIS dataset
+     * @return string the JavaScript related to a row in the GIS dataset
+     * @access public
      */
     public abstract function prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
 
@@ -63,28 +67,32 @@ abstract class PMA_GIS_Geometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array containing the min, max values for x and y cordinates
+     * @return array array containing the min, max values for x and y cordinates
+     * @access public
      */
     public abstract function scaleRow($spatial);
 
     /**
-     * Generate the WKT with the set of parameters passed by the GIS editor.
+     * Generates the WKT with the set of parameters passed by the GIS editor.
      *
      * @param array  $gis_data GIS data
-     * @param int    $index    Index into the parameter object
-     * @param string $empty    Value for empty points
+     * @param int    $index    index into the parameter object
+     * @param string $empty    value for empty points
      *
-     * @return WKT with the set of parameters passed by the GIS editor
+     * @return string WKT with the set of parameters passed by the GIS editor
+     * @access public
      */
     public abstract function generateWkt($gis_data, $index, $empty);
 
     /**
      * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
      *
-     * @param string $srid       Spatial reference ID
-     * @param array  $scale_data Data related to scaling
+     * @param string $srid       spatial reference ID
+     * @param array  $scale_data data related to scaling
      *
-     * @return OpenLayers.Bounds object that correspond to the bounds of GIS data
+     * @return string OpenLayers.Bounds object that
+     *                correspond to the bounds of GIS data
+     * @access protected
      */
     protected function getBoundsForOl($srid, $scale_data)
     {
@@ -98,12 +106,13 @@ abstract class PMA_GIS_Geometry
     }
 
     /**
-     * Update the min, max values with the given point set.
+     * Updates the min, max values with the given point set.
      *
-     * @param string $point_set Point set
-     * @param array  $min_max   Existing min, max values
+     * @param string $point_set point set
+     * @param array  $min_max   existing min, max values
      *
-     * @return the updated min, max values
+     * @return array the updated min, max values
+     * @access protected
      */
     protected function setMinMax($point_set, $min_max)
     {
@@ -133,13 +142,14 @@ abstract class PMA_GIS_Geometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generates parameters for the GIS data editor from the value of the GIS column.
      * This method performs common work.
      * More specific work is performed by each of the geom classes.
      *
-     * @param $gis_string $value of the GIS column
+     * @param string $value value of the GIS column
      *
      * @return array parameters for the GIS editor from the value of the GIS column
+     * @access protected
      */
     protected function generateParams($value)
     {
@@ -159,11 +169,12 @@ abstract class PMA_GIS_Geometry
     /**
      * Extracts points, scales and returns them as an array.
      *
-     * @param string  $point_set  String of comma sperated points
-     * @param array   $scale_data Data related to scaling
-     * @param boolean $linear     If true, as a 1D array, else as a 2D array
+     * @param string  $point_set  string of comma sperated points
+     * @param array   $scale_data data related to scaling
+     * @param boolean $linear     if true, as a 1D array, else as a 2D array
      *
-     * @return scaled points
+     * @return array scaled points
+     * @access protected
      */
     protected function extractPoints($point_set, $scale_data, $linear = false)
     {
@@ -204,12 +215,13 @@ abstract class PMA_GIS_Geometry
     }
 
     /**
-     * Generates JavaScriipt for adding points for OpenLayers polygon.
+     * Generates JavaScript for adding points for OpenLayers polygon.
      *
      * @param string $polygon points of a polygon in WKT form
      * @param string $srid    spatial reference id
      *
-     * @return JavaScriipt for adding points for OpenLayers polygon
+     * @return string JavaScript for adding points for OpenLayers polygon
+     * @access protected
      */
     protected function addPointsForOpenLayersPolygon($polygon, $srid)
     {

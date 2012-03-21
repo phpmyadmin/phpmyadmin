@@ -11,9 +11,9 @@ class PMA_GIS_Factory
      *
      * @param string $type type of the geometric object
      *
-     * @throws Exception
-     *
-     * @return the singleton instance of geometric class of the given type
+     * @return object the singleton instance of geometric class of the given type
+     * @access public
+     * @static
      */
     public static function factory($type)
     {

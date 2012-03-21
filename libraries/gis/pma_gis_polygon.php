@@ -11,6 +11,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
 
     /**
      * A private constructor; prevents direct creation of object.
+     *
+     * @access private
      */
     private function __construct()
     {
@@ -19,7 +21,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     /**
      * Returns the singleton.
      *
-     * @return the singleton
+     * @return object the singleton
+     * @access public
      */
     public static function singleton()
     {
@@ -36,7 +39,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array containing the min, max values for x and y cordinates
+     * @return array an array containing the min, max values for x and y cordinates
+     * @access public
      */
     public function scaleRow($spatial)
     {
@@ -61,9 +65,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param string $label      Label for the GIS POLYGON object
      * @param string $fill_color Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
-     * @param image  $image      Image object
+     * @param object $image      Image object
      *
-     * @return the modified image object
+     * @return object the modified image object
+     * @access public
      */
     public function prepareRowAsPng($spatial, $label, $fill_color, $scale_data, $image)
     {
@@ -111,9 +116,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param string $label      Label for the GIS POLYGON object
      * @param string $fill_color Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
-     * @param image  $pdf        TCPDF instance
+     * @param object $pdf        TCPDF instance
      *
-     * @return the modified TCPDF instance
+     * @return object the modified TCPDF instance
+     * @access public
      */
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
@@ -163,7 +169,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param string $fill_color Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
-     * @return the code related to a row in the GIS dataset
+     * @return string the code related to a row in the GIS dataset
+     * @access public
      */
     public function prepareRowAsSvg($spatial, $label, $fill_color, $scale_data)
     {
@@ -217,7 +224,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param string $fill_color Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
-     * @return JavaScript related to a row in the GIS dataset
+     * @return string JavaScript related to a row in the GIS dataset
+     * @access public
      */
     public function prepareRowAsOl($spatial, $srid, $label, $fill_color, $scale_data)
     {
@@ -249,7 +257,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param string $polygon    The ring
      * @param array  $scale_data Array containing data related to scaling
      *
-     * @return the code to draw the ring
+     * @return string the code to draw the ring
+     * @access private
      */
     private function _drawPath($polygon, $scale_data)
     {
@@ -272,7 +281,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param int    $index    Index into the parameter object
      * @param string $empty    Value for empty points
      *
-     * @return WKT with the set of parameters passed by the GIS editor
+     * @return string WKT with the set of parameters passed by the GIS editor
+     * @access public
      */
     public function generateWkt($gis_data, $index, $empty = '')
     {
@@ -310,7 +320,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @return the area of a closed simple polygon.
+     * @return float the area of a closed simple polygon
+     * @access public
+     * @static
      */
     public static function area($ring)
     {
@@ -346,7 +358,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @return whether a set of points represents an outer ring.
+     * @return bool whether a set of points represents an outer ring
+     * @access public
+     * @static
      */
     public static function isOuterRing($ring)
     {
@@ -364,7 +378,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param array $point   x, y coordinates of the point
      * @param array $polygon array of points forming the ring
      *
-     * @return whether a given point is inside a given polygon
+     * @return bool whether a given point is inside a given polygon
+     * @access public
+     * @static
      */
     public static function isPointInsidePolygon($point, $polygon)
     {
@@ -413,7 +429,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @return a point on the surface of the ring
+     * @return array a point on the surface of the ring
+     * @access public
+     * @static
      */
     public static function getPointOnSurface($ring)
     {
@@ -473,7 +491,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param string $value of the GIS column
      * @param index  $index of the geometry
      *
-     * @return  parameters for the GIS data editor from the value of the GIS column
+     * @return array params for the GIS data editor from the value of the GIS column
+     * @access public
      */
     public function generateParams($value, $index = -1)
     {
