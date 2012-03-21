@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 17:22+0200\n"
+"PO-Revision-Date: 2012-03-21 17:38+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2704,7 +2704,7 @@ msgstr "Erreur d'utilisateur/mot de passe. Accès refusé."
 
 #: libraries/auth/signon.auth.lib.php:88
 msgid "Can not find signon authentication script:"
-msgstr "Ne peut trouver le script d'authentification pour le mode signon:"
+msgstr "Ne peut trouver le script d'authentification pour le mode signon : "
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
