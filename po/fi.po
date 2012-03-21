@@ -798,7 +798,7 @@ msgstr "Tietokantaloki"
 #: enum_editor.php:23 js/messages.php:262
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET-muokkaus"
 
 #: enum_editor.php:28 js/messages.php:264
 msgid "Values for a new column"
