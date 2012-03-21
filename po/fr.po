@@ -11448,7 +11448,7 @@ msgstr "Valeurs en X"
 
 #: tbl_chart.php:142
 msgid "Y-Axis label:"
-msgstr "Étiquette pour l'axe des Y"
+msgstr "Étiquette pour l'axe des Y : "
 
 #: tbl_chart.php:143
 msgid "Y Values"
