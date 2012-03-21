@@ -11440,7 +11440,7 @@ msgstr "Les colonnes restantes"
 
 #: tbl_chart.php:139
 msgid "X-Axis label:"
-msgstr "Étiquette pour l'axe des X"
+msgstr "Étiquette pour l'axe des X : "
 
 #: tbl_chart.php:141
 msgid "X Values"
