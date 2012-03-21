@@ -9806,7 +9806,7 @@ msgstr "Afficher les valeurs non formattées"
 
 #: server_status.php:868
 msgid "Related links:"
-msgstr "Liens connexes:"
+msgstr "Liens connexes : "
 
 #: server_status.php:901
 msgid "Run analyzer"
