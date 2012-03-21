@@ -11295,7 +11295,7 @@ msgstr "Axe des X : "
 
 #: tbl_chart.php:124
 msgid "Series:"
-msgstr "Séries:"
+msgstr "Séries : "
 
 #: tbl_chart.php:126
 msgid "The remaining columns"
