@@ -426,6 +426,9 @@ function changeColumns(action,url)
     if ($('#change_column_dialog').length != 0) {
         $('#change_column_dialog').remove();
     }
+    if ($('#result_query').length != 0) {
+        $('#result_query').remove();
+    }
     var $div = $('<div id="change_column_dialog"></div>');
 
     /**
