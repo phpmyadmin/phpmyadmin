@@ -10654,7 +10654,7 @@ msgstr "Effacer la série"
 
 #: server_status.php:1705
 msgid "Series in Chart:"
-msgstr "Séries dans le graphique :"
+msgstr "Séries dans le graphique : "
 
 #: server_status.php:1718
 msgid "Log statistics"
