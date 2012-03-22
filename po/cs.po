@@ -1508,7 +1508,7 @@ msgstr "Primární klíč byl odstraněn"
 #: libraries/Index.class.php:475
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "Index %s byl odstraněn"
+msgstr "Klíč %s byl odstraněn"
 
 #: libraries/Index.class.php:579
 #, php-format
