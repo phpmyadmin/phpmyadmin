@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 19:07+0200\n"
+"PO-Revision-Date: 2012-03-22 19:08+0200\n"
 "Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -9094,7 +9094,7 @@ msgstr "Uprawnienia specyficzne dla tabel"
 #: server_privileges.php:604 server_privileges.php:756
 #: server_privileges.php:1821
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Uwaga: Uprawnienia MySQL są oznaczone w języku angielskim "
+msgstr "Uwaga: uprawnienia MySQL są oznaczone w języku angielskim"
 
 #: server_privileges.php:681
 msgid "Administration"
