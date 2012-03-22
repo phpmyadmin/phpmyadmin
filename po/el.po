@@ -11836,10 +11836,10 @@ msgid "Tracking statements"
 msgstr "Δηλώσεις παρακολούθησης"
 
 #: tbl_tracking.php:445 tbl_tracking.php:573
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Εμφάνιση %s με ημερομηνίες από %s έως %s από χρήστη %s %s"
+msgstr "Εμφάνιση %1$s με ημερομηνίες από %2$s έως %3$s από χρήστη %4$s %5$s"
 
 #: tbl_tracking.php:450
 msgid "Delete tracking data row from report"
