@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 + Patch #3502814 for rfe #3187077 Change password buttons should match
 + rfe #3488640 Expand table-group in non-light navigation frame if only one
 + Patch #3509360 Contest-3: Option "Truncate table" before "insert"
++ Patch #3506552 Contest-2: Show index information in the data dictionary
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.

@@ -264,8 +264,8 @@ foreach ($tables as $table) {
 </table>
 <?php
 // display indexes information
-    if(count(PMA_Index::getFromTable($table, $db))>0){
-        echo PMA_Index::getView($table, $db,true);
+    if (count(PMA_Index::getFromTable($table, $db)) > 0){
+        echo PMA_Index::getView($table, $db, true);
     }
 ?>
 </div>
