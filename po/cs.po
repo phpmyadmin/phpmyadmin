@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-22 16:23+0200\n"
+"PO-Revision-Date: 2012-03-22 16:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1564,7 +1564,7 @@ msgstr "Nejsou dostupné podrobnější informace o tomto úložišti."
 #: libraries/StorageEngine.class.php:354
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "Úložiště %s je dostupné na tomto MySQL serveru."
+msgstr "Úložiště %s je na tomto MySQL serveru je dostupné."
 
 #: libraries/StorageEngine.class.php:357
 #, php-format
