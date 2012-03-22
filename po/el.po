@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 09:19+0200\n"
+"PO-Revision-Date: 2012-03-22 09:20+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8866,12 +8866,12 @@ msgid "No databases selected."
 msgstr "Δεν έχετε επιλέξει βάσεις δεδομένων."
 
 #: server_databases.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s βάσεις δεδομένων διεγράφησαν επιτυχώς."
-msgstr[1] "%s βάσεις δεδομένων διεγράφησαν επιτυχώς."
+msgstr[0] "%1$d βάση δεδομένων διεγράφηκε επιτυχώς."
+msgstr[1] "%1$d βάσεις δεδομένων διεγράφηκαν επιτυχώς."
 
 #: server_databases.php:119
 msgid "Databases statistics"
