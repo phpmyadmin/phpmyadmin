@@ -10305,6 +10305,8 @@ msgstr "Ο αριθμός των φυσικών εγγραφών ενός κλε
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Ποσοστό φυσικών εγγραφών σε σχέση με τα αιτήματα εγγραφής (υπολογισμένη "
+"τιμή)"
 
 #: server_status.php:1379
 msgid ""
