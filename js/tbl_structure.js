@@ -210,7 +210,7 @@ $(document).ready(function() {
     /**
      *Ajax event handler for index edit
     **/
-    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function(event){
+    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function(event) {
         event.preventDefault();
         if ($(this).find("a").length == 0) {
             // Add index
@@ -320,8 +320,18 @@ $(document).ready(function() {
                         );
                     }
                 });
+                // focus index size input on column picked
+                $div.find('table#index_columns select').change(function() {
+                    if ($(this).find("option:selected").val() == '') {
+                        return true;
+                    }
+                    $(this).closest("tr").find("input").focus();
+                });
                 // Focus the slider, otherwise it looks nearly transparent
                 $('.ui-slider-handle').addClass('ui-state-focus');
+                // set focus on index name input, if empty
+                var input = $div.find('input#input_index_name');
+                input.val() || input.focus();
             }
         }); // end $.get()
     });
@@ -344,6 +354,13 @@ $(document).ready(function() {
                 );
             $newrow.find(':input').each(function() {
                 $(this).val('');
+            });
+            // focus index size input on column picked
+            $newrow.find('select').change(function() {
+                if ($(this).find("option:selected").val() == '') {
+                    return true;
+                }
+                $(this).closest("tr").find("input").focus();
             });
         }
     });
@@ -407,6 +424,8 @@ $(document).ready(function() {
                 /*changed the z-index of the enum editor to allow the edit*/
                 $("#enum_editor").css("z-index", "1100");
                 PMA_convertFootnotesToTooltips($div);
+                // set focus on first column name input
+                $div.find("input.textfield").eq(0).focus();
             }
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()
