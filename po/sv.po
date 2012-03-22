@@ -248,7 +248,7 @@ msgstr "Inga tabeller funna i databasen."
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
-msgstr "Markera alla"
+msgstr "Välj alla"
 
 #: db_export.php:46 db_search.php:343 server_export.php:28
 msgid "Unselect All"
