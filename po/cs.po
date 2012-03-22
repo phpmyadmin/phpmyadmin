@@ -1569,7 +1569,7 @@ msgstr "Úložiště %s je na tomto MySQL serveru je dostupné."
 #: libraries/StorageEngine.class.php:357
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "Úložiště %s je vypnuté na tomto MySQL serveru."
+msgstr "Úložiště %s je na tomto MySQL serveru vypnuté."
 
 #: libraries/StorageEngine.class.php:361
 #, php-format
