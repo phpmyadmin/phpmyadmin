@@ -12469,7 +12469,7 @@ msgid ""
 msgstr ""
 "Ceci signifie que les jointures requièrent des lectures de tables au "
 "complet. L'ajout d'index sur les colonnes utilisées dans les critères de "
-"jointure va accélérer les jointures."
+"jointure va accélérer les jointures"
 
 #: po/advisory_rules.php:128
 #, php-format
