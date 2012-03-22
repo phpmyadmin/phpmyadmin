@@ -11359,7 +11359,7 @@ msgstr "Rodzaj indeksu :"
 #: tbl_indexes.php:285
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Dodaj &nbsp;%s&nbsp;kolumn do indeksu "
+msgstr "Dodaj &nbsp;%s&nbsp;kolumn do indeksu"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
