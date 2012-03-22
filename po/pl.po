@@ -7832,7 +7832,7 @@ msgstr "Nieznany język: %1$s."
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:37
 msgid "Current Server"
-msgstr "Bieżący serwer "
+msgstr "Bieżący serwer"
 
 #: libraries/server_links.inc.php:60
 msgid "Users"
