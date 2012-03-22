@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-22 22:53+0200\n"
+"PO-Revision-Date: 2012-03-22 22:54+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -839,7 +839,7 @@ msgstr "Dålig typ!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr "Vald export-typ måste sparas till fil!"
+msgstr "Vald exporttyp måste sparas till fil!"
 
 #: export.php:106
 msgid "Bad parameters!"
