@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-22 17:22+0200\n"
+"PO-Revision-Date: 2012-03-22 17:23+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -13248,7 +13248,7 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "La taille maximum du journal InnoDB est de %s Mio."
+msgstr "La taille maximum du journal InnoDB est de %s Mio"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
