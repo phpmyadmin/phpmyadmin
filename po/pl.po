@@ -6987,7 +6987,7 @@ msgstr "Nie używaj <code>AUTO_INCREMENT</code> dla wartości zerowych"
 #: libraries/kanji-encoding.lib.php:147
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "Brak "
+msgstr "Brak"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:153
