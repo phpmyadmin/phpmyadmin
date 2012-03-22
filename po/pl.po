@@ -11165,7 +11165,7 @@ msgstr "Ze względu na jego długość, <br /> kolumna ta może nie być edytowa
 
 #: tbl_change.php:863
 msgid "Binary - do not edit"
-msgstr "Binarne - nie do edycji "
+msgstr "Binarne - nie do edycji"
 
 #: tbl_change.php:1061
 msgid "Insert as new row"
