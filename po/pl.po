@@ -11650,7 +11650,7 @@ msgstr "partycjonowanie"
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr "Raport śledzenia tabeli `% s`"
+msgstr "Raport śledzenia tabeli `%s`"
 
 #: tbl_tracking.php:174
 #, fuzzy, php-format
