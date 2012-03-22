@@ -457,7 +457,7 @@ msgstr "a"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr "smazat"
+msgstr "Smazat"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:307
