@@ -12954,6 +12954,8 @@ msgstr ""
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
+"Ενεργοποιήστε τη λανθάνουσα μνήμη νήματος ορίζοντας το {thread_cache_size} > "
+"0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
