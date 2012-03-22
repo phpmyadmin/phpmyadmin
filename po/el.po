@@ -13230,7 +13230,7 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Το απόλυτο μέγεθος καταγραφής της InnoDB είναι %s MB"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
