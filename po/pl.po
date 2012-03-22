@@ -11963,7 +11963,7 @@ msgstr "Dostępne transformacje"
 #: transformation_overview.php:47
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "Opis "
+msgstr "Opis"
 
 #: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
