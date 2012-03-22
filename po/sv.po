@@ -1096,7 +1096,7 @@ msgstr "Redigera"
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125
 msgid "Edit"
-msgstr "Ändra"
+msgstr "Redigera"
 
 #: js/messages.php:90 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:318
