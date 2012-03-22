@@ -639,7 +639,7 @@ msgstr "Summa"
 #: db_structure.php:532 libraries/StorageEngine.class.php:338
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s är standardmotorn i denna MySQL-server."
+msgstr "%s är standardmotorn för denna MySQL server."
 
 #: db_structure.php:561 db_structure.php:578 db_structure.php:579
 #: libraries/display_tbl.lib.php:2498 libraries/display_tbl.lib.php:2503
