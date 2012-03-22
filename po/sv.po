@@ -8875,7 +8875,7 @@ msgstr "Infoga rad(er)"
 
 #: server_synchronize.php:441 server_synchronize.php:885
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "Vill du radera alla tidigare rader från mål tabellen?"
+msgstr "Vill du radera alla föregående rader från måltabellen?"
 
 #: server_synchronize.php:444 server_synchronize.php:889
 msgid "Apply Selected Changes"
