@@ -8827,7 +8827,7 @@ msgstr "'%s' databasen existerar inte."
 
 #: server_synchronize.php:261
 msgid "Structure Synchronization"
-msgstr "Struktur Synkronisering"
+msgstr "Synkronisering av strukturen"
 
 #: server_synchronize.php:266
 msgid "Data Synchronization"
