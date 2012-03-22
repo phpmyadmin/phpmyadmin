@@ -1829,7 +1829,7 @@ msgstr "Jämför exekveringstid (millisekunder"
 
 #: libraries/chart.lib.php:83
 msgid "Query results"
-msgstr "Visa resultat"
+msgstr "Frågeresultat"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
