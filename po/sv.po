@@ -8887,7 +8887,7 @@ msgstr "Synkronisera databaser"
 
 #: server_synchronize.php:459
 msgid "Selected target tables have been synchronized with source tables."
-msgstr "Valda måltabellerna har synkroniserats med källtabellerna."
+msgstr "De valda måltabellerna har synkroniserats mot källtabellerna."
 
 #: server_synchronize.php:937
 msgid "Target database has been synchronized with source database"
