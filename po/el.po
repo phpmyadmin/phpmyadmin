@@ -13011,7 +13011,7 @@ msgstr "Αργός χρόνος προσπέλασης"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr "Το Slow_launch_threads είναι πάνω από 2δ"
+msgstr "Το Slow_launch_threads είναι πάνω από 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
