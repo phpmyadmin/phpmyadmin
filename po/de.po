@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-20 12:33+0200\n"
-"Last-Translator: Philip Blatter <cihar@jamit.de>\n"
+"PO-Revision-Date: 2012-03-22 21:08+0200\n"
+"Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.7\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1260,18 +1260,17 @@ msgid "Local monitor configuration incompatible"
 msgstr "Die lokale Bildschirmkonfiguration ist nicht kompatibel"
 
 #: js/messages.php:95
-#, fuzzy
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"Die Diagram Anordnung in Ihrem lokalen Browser Speicher ist nicht mehr "
-"kompatibel zur neuen Version des Monitor Dialogs. Es ist sehr "
-"wahrscheinlich, dass Ihre aktuellen Einstellungen nicht mehr funktionieren. "
-"Bitte setzen Sie die Konfiguration im <i>Einstellungen</i> Menü auf die "
-"Standardwerte zurück."
+"Die Diagramm-Anordnung in Ihrem lokalen Browserspeicher ist nicht mehr "
+"kompatibel zur neueren Version des Monitor Dialogs. Es ist sehr "
+"wahrscheinlich, dass Ihre derzeitigen Einstellungen nicht mehr funktionieren "
+"werden. Bitte setzen Sie die Konfiguration im <i>Einstellungen</i> Menü auf "
+"die Standardwerte zurück."
 
 #: js/messages.php:97
 msgid "Query cache efficiency"
