@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-22 23:12+0200\n"
+"PO-Revision-Date: 2012-03-22 23:13+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -8835,7 +8835,7 @@ msgstr "Datasynkronisering"
 
 #: server_synchronize.php:395 server_synchronize.php:834
 msgid "not present"
-msgstr "inte närvarande"
+msgstr "saknas"
 
 #: server_synchronize.php:419 server_synchronize.php:862
 msgid "Structure Difference"
