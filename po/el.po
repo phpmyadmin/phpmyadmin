@@ -11777,10 +11777,10 @@ msgid "Tracking report for table `%s`"
 msgstr "Αναφορά παρακολούθησης για τον πίνακα «%s»"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Η έκδοση %s δημιουργήθηκε, η παρακολούθηση του %s.%s ενεργοποιήθηκε."
+msgstr "Η έκδοση %1$s δημιουργήθηκε, η παρακολούθηση του %2$s ενεργοποιήθηκε."
 
 #: tbl_tracking.php:186
 #, fuzzy, php-format
