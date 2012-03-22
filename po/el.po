@@ -9242,10 +9242,9 @@ msgid "Revoke"
 msgstr "Ανάκληση"
 
 #: server_privileges.php:1543
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "Εξαγωγή"
+msgstr "Εξαγωγή όλων"
 
 #: server_privileges.php:1562 server_privileges.php:1844
 #: server_privileges.php:2477
