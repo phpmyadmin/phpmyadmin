@@ -6548,7 +6548,7 @@ msgstr ""
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Εκκαθάριση του πίνακα πριν την εισαγωγή"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
