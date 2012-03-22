@@ -13285,7 +13285,7 @@ msgstr "Ταυτόχρονες εισαγωγές MyISAM"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Ενεργοποιήστε το concurrent_insert ορίζοντας στο 1"
 
 #: po/advisory_rules.php:272
 msgid ""
