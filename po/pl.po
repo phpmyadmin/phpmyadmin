@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 19:04+0200\n"
+"PO-Revision-Date: 2012-03-22 19:05+0200\n"
 "Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -7434,7 +7434,7 @@ msgstr "Przepraszamy, nie udało nam się przywrócić upuszczony procedury."
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Kolumna %s została zmodyfikowana."
+msgstr "Kolumna %1$s została zmodyfikowana."
 
 #: libraries/rte/rte_routines.lib.php:284
 #, php-format
