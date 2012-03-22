@@ -13139,7 +13139,7 @@ msgstr ""
 #: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "Το long_query_time έχει οριστεί σε %s"
+msgstr "Το slow_launch_time έχει οριστεί σε %s"
 
 #: po/advisory_rules.php:225
 msgid "Percentage of used connections"
