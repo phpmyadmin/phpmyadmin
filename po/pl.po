@@ -5855,7 +5855,7 @@ msgstr "Kodowanie napisów"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr " Binarne "
+msgstr "Binarne"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
