@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-22 08:51+0200\n"
+"PO-Revision-Date: 2012-03-22 08:52+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -13315,7 +13315,7 @@ msgstr "Μέγιστο μέγεθος καταγραφής InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Το μεγεθος του αρχείου καταγραφής της InnoDB είναι ανεπαρκώς μεγάλο."
 
 #: po/advisory_rules.php:262
 #, php-format
