@@ -9232,7 +9232,7 @@ msgstr "Brak uprawnień."
 #: server_privileges.php:405 server_privileges.php:406
 msgctxt "None privileges"
 msgid "None"
-msgstr "Brak "
+msgstr "Brak"
 
 #: server_privileges.php:536 server_privileges.php:681
 #: server_privileges.php:1894 server_privileges.php:1900
