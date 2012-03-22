@@ -1054,10 +1054,9 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:293 sql.php:386
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "Θέλετε να εκτελέσετε την εντολή "
+msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα; "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:291 sql.php:371
 msgid "You are about to DESTROY a complete database!"
