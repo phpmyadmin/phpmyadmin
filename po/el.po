@@ -13234,6 +13234,7 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% όλων των πελατών ματαιώθηκε. Αυτη η τιμή πρέπει να είναι κάτω από 2%%"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
