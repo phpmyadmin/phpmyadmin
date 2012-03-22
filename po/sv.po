@@ -456,7 +456,7 @@ msgstr "Ändra"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
-msgstr "Lägg till / Ta bort villkorsrader"
+msgstr "Lägg till/Ta bort villkorsrader"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
