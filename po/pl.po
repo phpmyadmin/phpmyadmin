@@ -2496,7 +2496,7 @@ msgstr "Ten serwer MySQL nie obsługuje mechanizmu składowania %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "nieznany status tabeli:"
+msgstr "nieznany status tabeli: "
 
 #: libraries/Table.class.php:1125
 msgid "Invalid database"
