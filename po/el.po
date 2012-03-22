@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-22 08:19+0200\n"
+"PO-Revision-Date: 2012-03-22 08:20+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -13075,7 +13075,7 @@ msgstr ""
 #: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "Βαθμός πατήματος λανθάνουσας μνήμης νήματος %%"
+msgstr "Βαθμός νήματος λανθάνουσας μνήμης νήματος %%"
 
 #: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
