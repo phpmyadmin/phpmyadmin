@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-22 22:44+0200\n"
+"PO-Revision-Date: 2012-03-22 22:45+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -80,7 +80,7 @@ msgstr "Kör"
 #: browse_foreigners.php:174 browse_foreigners.php:178
 #: libraries/Index.class.php:441 tbl_tracking.php:315
 msgid "Keyname"
-msgstr "Nyckel"
+msgstr "Nyckelnamn"
 
 #: browse_foreigners.php:175 browse_foreigners.php:177
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
