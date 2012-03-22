@@ -13045,7 +13045,7 @@ msgstr ""
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Βαθμός αναμονής κλειδώματος πίνακα"
 
 #: po/advisory_rules.php:203
 #, php-format
