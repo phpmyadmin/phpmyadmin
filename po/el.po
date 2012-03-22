@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-22 08:24+0200\n"
+"PO-Revision-Date: 2012-03-22 08:25+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -13109,6 +13109,9 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Αυτό συνήθως συμβαίνει σε περίπτωση γενικής υπερφόρτωσης συστήματος καθώς "
+"είναι απλές διαδικασίες. Ίσως θέλετε να εποπτεύσετε τη φόρτωση του "
+"συστήματός σας προσεκτικά."
 
 #: po/advisory_rules.php:218
 #, php-format
