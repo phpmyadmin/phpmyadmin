@@ -1047,7 +1047,7 @@ msgstr "Din SQL-fråga utfördes korrekt"
 #: import_status.php:29 libraries/common.lib.php:709
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
 msgid "Back"
-msgstr "Tillbaka"
+msgstr "Föregående"
 
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
