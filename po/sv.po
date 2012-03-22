@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-22 22:49+0200\n"
+"PO-Revision-Date: 2012-03-22 22:52+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -567,7 +567,7 @@ msgstr "Hitta:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
-msgstr "Ord är  separerade med mellanslag (\" \")."
+msgstr "Ord separeras av ett mellanslag (\" \")."
 
 #: db_search.php:321
 msgid "Inside table(s):"
