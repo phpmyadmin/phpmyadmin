@@ -514,7 +514,7 @@ if ($is_show_stats) {
 </tbody>
 <tbody id="tbl_summary_row">
 <tr><th></th>
-    <th nowrap="nowrap" class="tbl_num center">
+    <th nowrap="nowrap" class="tbl_num">
         <?php
             echo sprintf(
                 _ngettext('%s table', '%s tables', $num_tables),
@@ -527,7 +527,7 @@ if ($is_show_stats) {
             echo '    <th>' . __('Replication') . '</th>' . "\n";
         }
     ?>
-    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" class="center">
+    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>">
         <?php echo __('Sum'); ?></th>
     <th class="value tbl_rows"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
 <?php
@@ -538,7 +538,7 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
        . sprintf(__('%s is the default storage engine on this MySQL server.'), $default_engine)
        . '">' .$default_engine . '</dfn></th>' . "\n";
     // we got a case where $db_collation was empty
-    echo '    <th class="center">' . "\n";
+    echo '    <th>' . "\n";
     if (! empty($db_collation)) {
         echo '        <dfn title="'
             . PMA_getCollationDescr($db_collation) . ' (' . __('Default') . ')">' . $db_collation
