@@ -287,7 +287,7 @@ msgstr "Tag bort databasen (DROP)"
 
 #: db_operations.php:481
 msgid "Copy database to"
-msgstr "Kopiera databas till"
+msgstr "Kopiera databasen till"
 
 #: db_operations.php:488 tbl_operations.php:544 tbl_tracking.php:383
 msgid "Structure only"
