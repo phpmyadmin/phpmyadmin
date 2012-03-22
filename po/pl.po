@@ -5778,7 +5778,7 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
-"Nieprawidłowa kolumna (% s) określona! Upewnij się, że nazwy kolumn są "
+"Nieprawidłowa kolumna (%s) określona! Upewnij się, że nazwy kolumn są "
 "napisane poprawnie, oddzielone przecinkami, a nie w cudzysłowie."
 
 #: libraries/import/csv.php:189 libraries/import/csv.php:436
