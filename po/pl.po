@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 19:05+0200\n"
+"PO-Revision-Date: 2012-03-22 19:06+0200\n"
 "Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -9685,7 +9685,7 @@ msgstr "Ruch sieciowy od uruchomienia: %s"
 #: server_status.php:1058
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Ten serwer MySQL działa już od: %s. Uruchomiony został o: %s."
+msgstr "Ten serwer MySQL działa już od: %1$s. Uruchomiony został o: %2$s."
 
 #: server_status.php:1069
 msgid ""
