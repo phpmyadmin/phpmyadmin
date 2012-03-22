@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 08:32+0200\n"
+"PO-Revision-Date: 2012-03-22 08:33+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -13063,7 +13063,7 @@ msgstr "Ποσοστό παρατημένων συνδέσεων"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Πάρα πολλές παρατημένες συνδέσεις."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
