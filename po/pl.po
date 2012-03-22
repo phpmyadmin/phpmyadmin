@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-22 19:04+0200\n"
+"PO-Revision-Date: 2012-03-22 19:06+0200\n"
 "Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -9875,7 +9875,7 @@ msgstr "partycjonowanie"
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr "Monitorowanie raportu tabeli `%s`"
+msgstr "Raport śledzenia tabeli `%s`"
 
 #: tbl_tracking.php:183
 #, php-format
