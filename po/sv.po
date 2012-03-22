@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-22 22:44+0200\n"
+"PO-Revision-Date: 2012-03-22 22:46+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -266,7 +266,7 @@ msgstr "Databasens namn är tomt!"
 #: db_operations.php:280
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Databas %s har ändrats till %s"
+msgstr "Databasen %s har bytt namn till %s"
 
 #: db_operations.php:284
 #, php-format
