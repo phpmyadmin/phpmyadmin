@@ -817,7 +817,7 @@ msgstr "Utdata"
 
 #: enum_editor.php:130
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "Klipp och klistra de sammanförda värdena till fältet \"Längd/Värde\""
+msgstr "Klipp och klistra de sammanfogade värdena till fältet \"Längd/Värde\""
 
 #: export.php:38
 msgid "Bad type!"
