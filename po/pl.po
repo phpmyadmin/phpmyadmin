@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-22 19:06+0200\n"
+"PO-Revision-Date: 2012-03-22 19:07+0200\n"
 "Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -4898,7 +4898,7 @@ msgstr "w zapytaniu"
 
 #: libraries/display_tbl.lib.php:2086
 msgid "Showing rows"
-msgstr "Pokaż rekordy "
+msgstr "Pokaż wiersze"
 
 #: libraries/display_tbl.lib.php:2096
 msgid "total"
