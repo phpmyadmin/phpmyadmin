@@ -1150,7 +1150,7 @@ msgstr "Wybierz kolumny do wyświetlenia"
 
 #: js/messages.php:107
 msgid "Add an option for column "
-msgstr "Dodaj opcję do kolumny"
+msgstr "Dodaj opcję do kolumny "
 
 #: js/messages.php:110
 msgid "Generate password"
