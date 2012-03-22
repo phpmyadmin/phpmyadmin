@@ -1751,6 +1751,13 @@ hr.enum_editor_no_js {
 }
 
 /**
+ * Create table styles
+ */
+#create_table_form table.table-name td {
+    vertical-align: middle;
+}
+
+/**
  * Table structure styles
  */
 .structure_actions_dropdown {
