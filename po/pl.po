@@ -7558,7 +7558,7 @@ msgstr "Przepraszamy, nie udało nam się przywrócić upuszczonego wyzwalacza."
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Tabela %s została zmodyfikowana."
+msgstr "Wyzwalacz %1$s został zmodyfikowany."
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, php-format
