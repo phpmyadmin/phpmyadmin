@@ -1516,7 +1516,7 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
-"Indexy %1$s a %2$s vypadají stejné a jeden z nich by pravděpodobně mohl být "
+"Klíče %1$s a %2$s vypadají stejné a jeden z nich by pravděpodobně mohl být "
 "odstraněn."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:175
