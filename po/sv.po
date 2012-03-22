@@ -3731,7 +3731,7 @@ msgstr "Serverns värdnamn"
 
 #: libraries/config/messages.inc.php:391
 msgid "Logout URL"
-msgstr " URL för utloggning"
+msgstr "URL för utloggning"
 
 #: libraries/config/messages.inc.php:392
 msgid "Try to connect without password"
