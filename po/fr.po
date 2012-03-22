@@ -12580,8 +12580,8 @@ msgid ""
 "sorting"
 msgstr ""
 "Bien qu'un grand nombre de tris ne soit pas mauvais en soi, vérifiez que les "
-"requêtes qui demandent un tri utilisent des colonnes indexées dans la clause "
-"ORDER BY, ce qui va grandement accélérer les tris."
+"requêtes qui demandent un tri utilisent des colonnes indexées dans la "
+"clause ORDER BY, ce qui va grandement accélérer les tris"
 
 #: po/advisory_rules.php:123
 #, php-format
