@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 09:26+0200\n"
+"PO-Revision-Date: 2012-03-22 09:27+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1056,7 +1056,7 @@ msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποι�
 #: js/messages.php:30 libraries/mult_submits.inc.php:293 sql.php:386
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα; "
+msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα;"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:291 sql.php:371
 msgid "You are about to DESTROY a complete database!"
