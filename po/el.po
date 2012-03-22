@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 08:27+0200\n"
+"PO-Revision-Date: 2012-03-22 08:28+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -13018,6 +13018,8 @@ msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Ορίστε το slow_launch_time σε 1s ή 2s για σωστό μέτρημα νημάτων που είναι "
+"αργά στην προσπέλαση"
 
 #: po/advisory_rules.php:223
 #, php-format
