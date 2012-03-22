@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 21:25+0200\n"
+"PO-Revision-Date: 2012-03-22 21:29+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2531,10 +2531,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Fehler beim umbenennen von Tabelle %1$s nach %2$s"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Tabelle %s wurde in %s umbenannt"
+msgstr "Tabelle %1$s wurde in %2$s umbenannt."
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
