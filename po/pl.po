@@ -11634,7 +11634,7 @@ msgstr "Długość wiersza"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Rozmiar wiersza "
+msgstr "Rozmiar wiersza"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
