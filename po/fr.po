@@ -12540,8 +12540,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
-"Augmentez sort_buffer_size et/ou  read_rnd_buffer_size, selon la mémoire "
-"disponible."
+"Augmentez sort_buffer_size et/ou read_rnd_buffer_size, selon la mémoire "
+"disponible"
 
 #: po/advisory_rules.php:113
 #, php-format
