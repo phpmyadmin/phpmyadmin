@@ -1707,7 +1707,7 @@ msgstr "Přihlášení bez hesla je zakázáno v konfiguraci (viz AllowNoPasswor
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
-"Byli jste příliš dlouho neaktivní (déle než %s sekund), prosím přihlaste se "
+"Nebyla zaznamenána žádná aktivita po dobu %s sekund, prosím přihlaste se "
 "znovu"
 
 #: libraries/auth/cookie.auth.lib.php:662
