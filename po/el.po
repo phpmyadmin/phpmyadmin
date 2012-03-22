@@ -6522,7 +6522,7 @@ msgstr "Διαχωριστικό"
 
 #: libraries/sql_query_form.lib.php:380
 msgid " Show this query here again "
-msgstr "Επανεμφάνιση αυτού του ερώτηματος εδώ"
+msgstr " Επανεμφάνιση αυτού του ερώτηματος εδώ "
 
 #: libraries/sql_query_form.lib.php:439
 msgid "Submit"
