@@ -13249,7 +13249,7 @@ msgstr ""
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Είναι απενεργποιημένη η InnoDB;"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
