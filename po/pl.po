@@ -1957,7 +1957,7 @@ msgstr ""
 
 #: js/messages.php:341
 msgid "Add an option for column "
-msgstr "Dodaj opcję do kolumny"
+msgstr "Dodaj opcję do kolumny "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
