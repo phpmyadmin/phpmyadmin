@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 19:08+0200\n"
+"PO-Revision-Date: 2012-03-22 19:09+0200\n"
 "Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -11511,7 +11511,7 @@ msgstr "Długość wiersza"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Rozmiar wiersza "
+msgstr "Rozmiar wiersza"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
