@@ -253,6 +253,8 @@ function PMA_langDetails($lang)
         return array('hr|croatian', 'hr', 'Hrvatski');
     case 'hu':
         return array('hu|hungarian', 'hu', 'Magyar');
+    case 'hy':
+        return array('hy|armenian', 'hy', 'Հայերէն');
     case 'id':
         return array('id|indonesian', 'id', 'Bahasa Indonesia');
     case 'it':
