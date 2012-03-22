@@ -13054,6 +13054,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Οι Max_used_connections είναι στο %s%% των max_connections, έπρεπε να είναι "
+"κάτω από 80%%"
 
 #: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
