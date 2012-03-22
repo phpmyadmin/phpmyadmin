@@ -787,7 +787,7 @@ msgstr "Sledovat tabulku"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr "Historie databáze"
+msgstr "Záznam databáze"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
