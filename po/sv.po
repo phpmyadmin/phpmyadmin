@@ -528,7 +528,7 @@ msgstr[1] "%s träffar i tabell <i>%s</i>"
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
 #: libraries/tbl_links.inc.php:48 tbl_structure.php:564
 msgid "Browse"
-msgstr "Visa"
+msgstr "Bläddra"
 
 #: db_search.php:259
 #, php-format
