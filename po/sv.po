@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 22:46+0200\n"
+"PO-Revision-Date: 2012-03-22 22:47+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -314,7 +314,7 @@ msgstr "Lägg till restriktioner"
 
 #: db_operations.php:545
 msgid "Switch to copied database"
-msgstr "Växla till den kopierade databasen"
+msgstr "Byt till den kopierade databasen"
 
 #: db_operations.php:568 libraries/Index.class.php:454
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
