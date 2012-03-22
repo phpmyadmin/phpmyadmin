@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 23:02+0200\n"
+"PO-Revision-Date: 2012-03-22 23:03+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1049,7 +1049,7 @@ msgstr "Vill du verkligen exekvera följande fråga?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:291 sql.php:371
 msgid "You are about to DESTROY a complete database!"
-msgstr "Du är på väg att FÖRSTÖRA en komplett databas!"
+msgstr "Du är på väg att RADERA en hel databas!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
