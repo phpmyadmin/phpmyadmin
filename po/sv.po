@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-22 23:03+0200\n"
+"PO-Revision-Date: 2012-03-22 23:04+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1010,7 +1010,7 @@ msgstr "Ladda om privilegier"
 
 #: js/messages.php:55
 msgid "Removing Selected Users"
-msgstr "Tar bort markerade användare"
+msgstr "Tar bort valda användare"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:246 tbl_tracking.php:374
