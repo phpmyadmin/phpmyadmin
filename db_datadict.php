@@ -22,7 +22,7 @@ if (! isset($selected_tbl)) {
 $cfgRelation  = PMA_getRelationsParam();
 
 require_once 'libraries/transformations.lib.php';
-
+require_once 'libraries/Index.class.php';
 
 /**
  * Check parameters
@@ -262,6 +262,12 @@ foreach ($tables as $table) {
     $count++;
     ?>
 </table>
+<?php
+// display indexes information
+    if (count(PMA_Index::getFromTable($table, $db)) > 0){
+        echo PMA_Index::getView($table, $db, true);
+    }
+?>
 </div>
     <?php
 } //ends main while
