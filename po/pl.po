@@ -9585,7 +9585,7 @@ msgstr "Rodzaj indeksu :"
 #: tbl_indexes.php:247
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Dodaj &nbsp;%s&nbsp;kolumn do indeksu "
+msgstr "Dodaj &nbsp;%s&nbsp;kolumn do indeksu"
 
 #: tbl_indexes.php:252 tbl_structure.php:688
 msgid "Column count has to be larger than zero."
