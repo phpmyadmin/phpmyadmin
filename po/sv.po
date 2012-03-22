@@ -10740,7 +10740,7 @@ msgstr "Radera kolumn(er)"
 
 #: server_synchronize.php:445 server_synchronize.php:917
 msgid "Alter column(s)"
-msgstr "Förändra kolumn(er)"
+msgstr "Ändra kolumn(er)"
 
 #: server_synchronize.php:446 server_synchronize.php:918
 msgid "Remove index(s)"
