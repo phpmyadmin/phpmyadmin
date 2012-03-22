@@ -6864,7 +6864,7 @@ msgstr "Kodowanie znaków"
 #: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:415
 #: tbl_change.php:616
 msgid "Binary"
-msgstr "Binarne "
+msgstr "Binarne"
 
 #: libraries/mysql_charsets.lib.php:226
 msgid "Bulgarian"
