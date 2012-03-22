@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-22 08:41+0200\n"
+"PO-Revision-Date: 2012-03-22 08:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -13257,7 +13257,7 @@ msgstr "Δεν έχετε ενεργοποημένη την InnoDB."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "Η InnoDB ε΄ναι συνήθς η καλύτερη επιλογή για μηχανές πινάκων."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
