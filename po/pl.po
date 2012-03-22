@@ -11284,7 +11284,7 @@ msgstr "Usuń odwołanie do repozytorium BLOBów"
 
 #: tbl_change.php:821
 msgid "Binary - do not edit"
-msgstr "Binarne - nie do edycji "
+msgstr "Binarne - nie do edycji"
 
 #: tbl_change.php:871
 msgid "Upload to BLOB repository"
