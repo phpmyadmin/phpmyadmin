@@ -8765,7 +8765,7 @@ msgstr "Skickade"
 
 #: server_status.php:560
 msgid "Connections"
-msgstr "Förbindelser"
+msgstr "Anslutningar"
 
 #: server_status.php:567
 msgid "max. concurrent connections"
