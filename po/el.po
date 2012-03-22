@@ -8066,10 +8066,10 @@ msgid "Table seems to be empty!"
 msgstr "Ο πίνακας φαίνεται να είναι άδειος!"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Παρακολούθηση του %s.%s ενεργοποιήθηκε."
+msgstr "Παρακολούθηση του %s ενεργοποιήθηκε."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
