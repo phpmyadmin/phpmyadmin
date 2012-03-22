@@ -10581,7 +10581,7 @@ msgstr "Gotowe przestawienie/edycji wykresów"
 
 #: server_status.php:1572 server_status.php:1643
 msgid "Add chart"
-msgstr "Dodaj wykres "
+msgstr "Dodaj wykres"
 
 #: server_status.php:1574
 msgid "Rearrange/edit charts"
