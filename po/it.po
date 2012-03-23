@@ -10721,8 +10721,8 @@ msgstr "Recupera solamente comandi SELECT,INSERT,UPDATE e DELETE"
 #: server_status.php:1729
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
-"Rimuovete le variabili nei comandi INSERT per effettuare un raggruppamento "
-"migliore"
+"Rimuovi dati variabili dai comandi INSERT per ottenere un miglior "
+"raggruppamento"
 
 #: server_status.php:1734
 msgid "Choose from which log you want the statistics to be generated from."
