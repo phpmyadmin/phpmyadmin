@@ -4488,7 +4488,7 @@ msgstr ""
 #: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysql.dbi.lib.php:363
 #: libraries/dbi/mysqli.dbi.lib.php:417
 msgid "The server is not responding"
-msgstr "Der Server antwortet nicht."
+msgstr "Der Server antwortet nicht"
 
 #: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysqli.dbi.lib.php:417
 msgid "(or the local MySQL server's socket is not correctly configured)"
