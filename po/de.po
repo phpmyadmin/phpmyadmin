@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-23 21:08+0200\n"
+"PO-Revision-Date: 2012-03-23 21:09+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12920,9 +12920,8 @@ msgid "Percentage of aborted connections"
 msgstr "Prozentsatz der verworfenen Verbindungen"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
-#, fuzzy
 msgid "Too many connections are aborted."
-msgstr "Zu viele Verbindungen wurden abgebrochen."
+msgstr "Zu viele Verbindungen werden abgebrochen."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
