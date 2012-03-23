@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 10:12+0200\n"
+"PO-Revision-Date: 2012-03-23 12:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1740,7 +1740,7 @@ msgstr "Authentizuji..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr "Chyba PDMS"
+msgstr "Chyba PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
