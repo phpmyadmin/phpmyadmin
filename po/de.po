@@ -459,7 +459,7 @@ msgstr "Entf"
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:307
 #: tbl_change.php:965 tbl_indexes.php:246 tbl_select.php:251
 msgid "Or"
-msgstr "oder"
+msgstr "Oder"
 
 #: db_qbe.php:529
 msgid "Modify"
