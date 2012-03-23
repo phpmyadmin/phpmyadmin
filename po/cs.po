@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-23 09:44+0200\n"
+"PO-Revision-Date: 2012-03-23 09:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4332,8 +4332,7 @@ msgstr "Ikony v navigační liště"
 
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr ""
-"Použije vyrovnávací paměť pro GZip výstup, čímž zvýší rychlost HTTP přenosů"
+msgstr "Použít vyrovnávací paměť výstupu GZip pro zrychlení přenosů HTTP"
 
 #: libraries/config/messages.inc.php:328
 msgid "GZip output buffering"
