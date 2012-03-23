@@ -12903,7 +12903,7 @@ msgstr "Anzahl der Datei-Öffnungen"
 #: po/advisory_rules.php:191
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "Die Anzahl der Datei-Zugriffe ist hoch. "
+msgstr "Die Anzahl der Datei-Zugriffe ist hoch."
 
 #: po/advisory_rules.php:193
 #, php-format
