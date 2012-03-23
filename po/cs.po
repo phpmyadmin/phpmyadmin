@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 09:33+0200\n"
+"PO-Revision-Date: 2012-03-23 09:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1476,7 +1476,7 @@ msgstr ""
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
-msgstr "Není definován žádný index!"
+msgstr "Není definován žádný klíč!"
 
 #: libraries/Index.class.php:432 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:311
