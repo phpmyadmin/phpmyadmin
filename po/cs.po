@@ -7157,7 +7157,7 @@ msgstr "Vytvořit novou stránku a exportovat na ní"
 
 #: pmd_pdf.php:111
 msgid "New page name: "
-msgstr "Název nové stránky:"
+msgstr "Název nové stránky: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
