@@ -9470,7 +9470,7 @@ msgstr "(„PRIMARY“ <b>musí</b> být jméno <b>pouze</b> primárního klíč
 
 #: tbl_indexes.php:168
 msgid "Index name:"
-msgstr "Jméno indexu:"
+msgstr "Jméno klíče:"
 
 #: tbl_indexes.php:174
 msgid "Index type:"
