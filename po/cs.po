@@ -5190,9 +5190,9 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"Toto je množství paměti alokované pro vyrovnávací paměť indexu. Výchozí "
-"velikost je 32MB. Zde alokovaná paměť se používá pouze pro vyrovnávací pamět "
-"stránek indexu."
+"Toto je množství paměti alokované pro vyrovnávací paměť klíčů. Výchozí "
+"velikost je 32MB. Zde alokovaná paměť se používá pouze pro vyrovnávací paměť "
+"stránek klíčů."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
