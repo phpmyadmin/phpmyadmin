@@ -5207,7 +5207,7 @@ msgstr ""
 #: libraries/core.lib.php:247
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #: libraries/core.lib.php:266
 #, php-format
