@@ -927,6 +927,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                     && strpos($sort_expression_nodirection, '(') === false
                 ) {
                     $new_sort_expression_nodirection = $sort_tbl . $sort_expression_nodirection;
+                } else {
+                    $new_sort_expression_nodirection = $sort_expression_nodirection;
                 }
 
                 $is_in_sort = false;
