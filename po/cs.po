@@ -5222,7 +5222,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
-msgstr "Prahová hodnota logového souboru"
+msgstr "Hranice záznamového souboru"
 
 #: libraries/engines/pbxt.lib.php:38
 msgid ""
