@@ -8492,8 +8492,8 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"Počet spojení, které nevyužívaly indexy. Pokud tato hodnota není 0, měli "
-"byste zkontrolovat indexy tabulek."
+"Počet spojení, které nevyužívaly klíče. Pokud tato hodnota není 0, měli "
+"byste zkontrolovat klíče tabulek."
 
 #: server_status.php:134
 msgid "The number of joins that used a range search on a reference table."
