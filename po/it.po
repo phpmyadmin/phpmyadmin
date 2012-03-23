@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-23 15:23+0200\n"
+"PO-Revision-Date: 2012-03-23 15:24+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10840,7 +10840,7 @@ msgstr "Intervallo di tempo selezionato:"
 
 #: server_status.php:1714
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "Recupera solamente i comandi SELECT, INSERT, UPDATE e DELETE"
+msgstr "Recupera solamente comandi SELECT,INSERT,UPDATE e DELETE"
 
 #: server_status.php:1719
 msgid "Remove variable data in INSERT statements for better grouping"
