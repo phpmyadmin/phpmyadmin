@@ -9833,7 +9833,7 @@ msgstr "Příkaz pro úpravu dat"
 
 #: tbl_tracking.php:502
 msgid "SQL dump (file download)"
-msgstr "výpis SQL (stáhnout soubor)"
+msgstr "Výpis SQL (stáhnout soubor)"
 
 #: tbl_tracking.php:503
 msgid "SQL dump"
