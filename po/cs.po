@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-23 09:47+0200\n"
+"PO-Revision-Date: 2012-03-23 09:48+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4627,7 +4627,7 @@ msgstr "Komprimovat připojení"
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
-"Jak se připojit k serveru, ponechte [kbd]tcp[/kbd] pokud si nejste jistí"
+"Způsob připojení k serveru, pokud si nejste jistí ponechte [kbd]tcp[/kbd]"
 
 #: libraries/config/messages.inc.php:381
 msgid "Connection type"
