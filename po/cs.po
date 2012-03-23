@@ -9391,7 +9391,7 @@ msgstr "Typ sloupců"
 
 #: tbl_chart.php:146
 msgid "Stacked"
-msgstr "Skládané"
+msgstr "Složený"
 
 #: tbl_chart.php:147
 msgid "Multi"
