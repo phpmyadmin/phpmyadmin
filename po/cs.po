@@ -8070,9 +8070,9 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"Počet přečtení první položky indexu. Příliš vysoká hodnota znamení, že "
-"server provádí mnoho kompletních procházení indexu. Na příklad SELECT col1 "
-"FROM foo, pokud je col1 indexována."
+"Počet přečtení první položky klíčů. Příliš vysoká hodnota znamení, že server "
+"provádí mnoho kompletních procházení klíčů. Na příklad SELECT col1 FROM "
+"foo, pokud je col1 v klíči."
 
 #: server_status.php:59
 msgid ""
