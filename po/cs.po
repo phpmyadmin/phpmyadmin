@@ -4929,7 +4929,7 @@ msgid ""
 "tables."
 msgstr ""
 "Velikost vyrovnávací paměti, kterou InnoDB používá pro vyrovnávací paměť dat "
-"a indexů tabulek."
+"a klíčů tabulek."
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
