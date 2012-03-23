@@ -8088,9 +8088,9 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
-"Počet požadavků na přečtení dalšího řádku podle indexu. Tato hodnota se "
-"zvětšuje pokud provádíte dotaz na indexované pole s omezením rozsahu nebo "
-"prohledáváte index."
+"Počet požadavků na přečtení dalšího řádku podle klíče. Tato hodnota se "
+"zvětšuje pokud provádíte dotaz na sloupec s klíčem s omezením rozsahu nebo "
+"prohledáváte klíč."
 
 #: server_status.php:61
 msgid ""
