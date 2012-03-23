@@ -9474,7 +9474,7 @@ msgstr "Jméno klíče:"
 
 #: tbl_indexes.php:174
 msgid "Index type:"
-msgstr "Typ indexu:"
+msgstr "Typ klíče:"
 
 #: tbl_indexes.php:247
 #, php-format
