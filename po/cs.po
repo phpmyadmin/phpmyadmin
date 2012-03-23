@@ -5070,8 +5070,9 @@ msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
-"Paměť, která je alokována při řazení MyISAM indexů během jejich vytváření "
-"příkazem CREATE INDEX nebo opravování příkazem ALTER TABLE."
+"Paměť, která je alokována při řazení MyISAM klíčů během jejich vytváření "
+"příkazem CREATE INDEX nebo ALTER TABLE nebo opravování příkazem REPAIR "
+"TABLE."
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
