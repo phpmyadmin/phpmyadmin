@@ -9695,7 +9695,7 @@ msgstr "Přidat primární klíč"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add index"
-msgstr "Přidat index"
+msgstr "Přidat klíč"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
