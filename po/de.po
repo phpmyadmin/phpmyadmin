@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-23 20:56+0200\n"
+"PO-Revision-Date: 2012-03-23 20:58+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12719,10 +12719,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Aktuelle Belegungen sind: tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
-msgstr "Wo die Datensatz-Links angezeigt werden sollen"
+msgstr "Prozentsatz der temporären Tabellen auf der Festplatte"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
