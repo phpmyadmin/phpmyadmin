@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-23 15:22+0200\n"
+"PO-Revision-Date: 2012-03-23 15:23+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -12470,7 +12470,7 @@ msgstr "Percentuale di ordinamenti che producono tabelle temporanee"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
 msgid "Too many sorts are causing temporary tables."
-msgstr "Troppi ordinamenti stanno creando tabelle temporanee"
+msgstr "Troppi ordinamenti stanno creando tabelle temporanee."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
