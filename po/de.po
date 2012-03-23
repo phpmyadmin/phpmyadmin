@@ -12898,7 +12898,7 @@ msgstr ""
 #: po/advisory_rules.php:190
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Anzahl der Datei-Öffnungen."
+msgstr "Anzahl der Datei-Öffnungen"
 
 #: po/advisory_rules.php:191
 #, fuzzy
