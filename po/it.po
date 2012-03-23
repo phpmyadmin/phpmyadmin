@@ -13143,10 +13143,11 @@ msgstr ""
 "il tempo necessario per recuperare i database in seguito a crash, quindi "
 "sarebbe opportuno non andare molto oltre 256 MiB. È necessario tener conto "
 "che non è possibile una veloce modifica di questo parametro. Occorre fermare "
-"il server, rimuovere i file log InnoDB, impostare il nuovo valore in my.cnf, "
-"avviare il server, quindi assicurarsi dell'assenza di errori nei log. Vedi "
-"anche <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">questo articolo di blog</a>."
+"il server, rimuovere i file log InnoDB, impostare il nuovo valore in "
+"my.cnf, avviare il server, quindi assicurarsi dell'assenza di errori nei "
+"log. Vedi anche <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">questo articolo di blog</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
