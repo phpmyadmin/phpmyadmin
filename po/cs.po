@@ -9449,7 +9449,7 @@ msgstr "Jméno primárního klíče musí být „PRIMARY“!"
 
 #: tbl_indexes.php:74
 msgid "Can't rename index to PRIMARY!"
-msgstr "Index nemůžete přejmenovat na „PRIMARY“!"
+msgstr "Klíč nelze přejmenovat na „PRIMARY“!"
 
 #: tbl_indexes.php:90
 msgid "No index parts defined!"
