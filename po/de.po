@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 21:23+0200\n"
+"PO-Revision-Date: 2012-03-23 21:24+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9812,7 +9812,7 @@ msgstr "Beschränkung für auswärtige Schlüssel"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
-msgstr "Es wurden keine Datensätze ausgewählt."
+msgstr "Es wurden keine Datensätze ausgewählt"
 
 #: tbl_select.php:109
 msgid "Do a \"query by example\" (wildcard: \"%\")"
