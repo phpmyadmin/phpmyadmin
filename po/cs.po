@@ -3755,9 +3755,9 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Můžete použít žolíky MySQL (% a _), escapujte je, pokud je chcete použít "
-"jako znaky, např. použijte 'moje\\_db' a ne 'moje_db'. Použitím této volby "
-"můžete také změnit pořadí databází, stačí na konci seznamu uvést [kbd]*[/"
-"kbd] pro zobrazní ostatních v abecedním pořadí."
+"jako znaky, např. použijte [kbd]'moje\\_db'[/kbd] a ne [kbd]'moje_db'[/kbd]. "
+"Použitím této volby můžete také změnit pořadí databází, stačí na konci "
+"seznamu uvést [kbd]*[/kbd] pro zobrazní ostatních v abecedním pořadí."
 
 #: libraries/config/messages.inc.php:395
 msgid "Show only listed databases"
