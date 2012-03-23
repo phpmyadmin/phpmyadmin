@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-23 15:37+0200\n"
+"PO-Revision-Date: 2012-03-23 15:39+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -12680,7 +12680,7 @@ msgstr "Tasso di lettura della prima voce nell'indice"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Il tasso di lettura della prima voce nell'indice è alto."
 
 #: po/advisory_rules.php:132
 msgid ""
