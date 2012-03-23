@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 09:59+0200\n"
+"PO-Revision-Date: 2012-03-23 10:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -5038,7 +5038,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:36
 msgid "Maximum size for temporary files on index creation"
-msgstr "Maximální velikost dočasných souborů při vytváření indexu"
+msgstr "Maximální velikost dočasných souborů při vytváření klíčů"
 
 #: libraries/engines/myisam.lib.php:37
 msgid ""
