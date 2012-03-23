@@ -13091,7 +13091,7 @@ msgstr ""
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
-"%s thread hanno richiesto più di %s secondi per partire, dovrebbe essere 0 "
+"%s thread hanno richiesto più di %s secondi per partire, dovrebbe essere 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
