@@ -580,7 +580,7 @@ msgstr "In Spalte:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
-msgstr "Diese Datenbank enthält keine Tabellen."
+msgstr "Diese Datenbank enthält keine Tabellen"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
