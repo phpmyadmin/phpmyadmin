@@ -2899,7 +2899,7 @@ msgstr "Přizpůsobit nastavení okna dotazů"
 
 #: libraries/config/messages.inc.php:194
 msgid "Security"
-msgstr "Zabezpeční"
+msgstr "Zabezpečení"
 
 #: libraries/config/messages.inc.php:195
 msgid ""
