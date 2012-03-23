@@ -8751,7 +8751,7 @@ msgstr "Připojení"
 
 #: server_status.php:567
 msgid "max. concurrent connections"
-msgstr "Maximum současných připojení"
+msgstr "maximum současných připojení"
 
 #: server_status.php:574
 msgid "Failed attempts"
