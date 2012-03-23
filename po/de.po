@@ -12814,10 +12814,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Schlüssel-Cache"
+msgstr "Prozess-Zwischenspeicher"
 
 #: po/advisory_rules.php:206
 msgid ""
