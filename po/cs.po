@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-23 10:03+0200\n"
+"PO-Revision-Date: 2012-03-23 10:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -8887,7 +8887,7 @@ msgstr ""
 #: server_privileges.php:107 server_privileges.php:298
 #: server_privileges.php:698
 msgid "Allows creating and dropping indexes."
-msgstr "Umožňuje vytvářet a rušit klíče."
+msgstr "Umožňuje vytvářet a odstraňovat klíče."
 
 #: server_privileges.php:108 server_privileges.php:258
 #: server_privileges.php:617 server_privileges.php:686
