@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 21:19+0200\n"
+"PO-Revision-Date: 2012-03-23 21:20+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -495,7 +495,7 @@ msgstr "SQL-Befehl ausführen"
 #: libraries/auth/cookie.auth.lib.php:650 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:224
 msgid "Access denied"
-msgstr "Zugriff verweigert."
+msgstr "Zugriff verweigert"
 
 #: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
