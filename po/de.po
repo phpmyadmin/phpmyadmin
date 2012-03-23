@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-22 21:12+0200\n"
+"PO-Revision-Date: 2012-03-23 20:55+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -12474,12 +12474,13 @@ msgid "Query cache low memory prunes"
 msgstr ""
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "Freier Speicher im Abfragen-Cache."
+msgstr ""
+"Zwischengespeicherte Abfragen werden aufgrund von mangelndem Speicherplatz "
+"des Abfragen-Zwischenspeichers entfernt."
 
 #: po/advisory_rules.php:97
 msgid ""
