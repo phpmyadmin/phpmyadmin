@@ -4866,7 +4866,7 @@ msgstr "celkem"
 #: libraries/display_tbl.lib.php:2104 sql.php:630
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "dotaz trval %01.4f sekund"
+msgstr "Dotaz trval %01.4f sekund"
 
 #: libraries/display_tbl.lib.php:2227 querywindow.php:114 querywindow.php:118
 #: querywindow.php:121 tbl_structure.php:150 tbl_structure.php:567
