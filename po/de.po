@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 21:20+0200\n"
+"PO-Revision-Date: 2012-03-23 21:21+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -656,7 +656,7 @@ msgstr "Auswahl entfernen"
 
 #: db_structure.php:521
 msgid "Check tables having overhead"
-msgstr "Tabellen m. Überhang ausw."
+msgstr "Tabellen mit Überhang auswählen"
 
 #: db_structure.php:529 libraries/config/messages.inc.php:162
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2232
