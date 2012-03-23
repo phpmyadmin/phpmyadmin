@@ -8110,7 +8110,7 @@ msgstr ""
 "Počet požadavků na přečtení konkrétního řádku tabulky. Vysoká hodnota "
 "znamená, že provádíte mnoho dotazů, které vyžadují řazení výsledků. "
 "Pravděpodobně používáte mnoho dotazů, které vyžadují prohlížení celé tabulky "
-"nebo používáte spojení tabulek, která nevyužívají indexů."
+"nebo používáte spojení tabulek, která nevyužívají klíčů."
 
 #: server_status.php:63
 msgid ""
