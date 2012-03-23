@@ -2318,7 +2318,7 @@ msgstr "Povolit začlenění do cizího rámu"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Zobrazit příkaz &quot;Zrušit databázi&quot; běžným uživatelům"
+msgstr "Zobrazit příkaz „Zrušit databázi“ běžným uživatelům"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
