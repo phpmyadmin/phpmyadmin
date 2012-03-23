@@ -7922,7 +7922,7 @@ msgstr "Kann Master nicht wechseln"
 #: server_replication.php:72 server_replication.php:73
 #, php-format
 msgid "Master server changed succesfully to %s"
-msgstr "Master-Server wurde erfolgreich auf %s geändert."
+msgstr "Master-Server wurde erfolgreich auf %s geändert"
 
 #: server_replication.php:181
 msgid "This server is configured as master in a replication process."
