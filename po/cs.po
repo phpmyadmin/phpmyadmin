@@ -5046,7 +5046,7 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
-"Pokud by byl soubor pro vytváření MyISAM indexu byl větší než zde uvedená "
+"Pokud by byl soubor pro vytváření MyISAM klíče byl větší než zde uvedená "
 "hodnota, použije se pomalejší metoda vyrovnávací paměti klíčů."
 
 #: libraries/engines/myisam.lib.php:41
