@@ -8919,8 +8919,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"Mål databasen kommer bli helt synkroniserat med källdatabasen. Källdatabasen "
-"kommer att förbli oförändrad."
+"Databasen kommer synkroniseras med källdatabasen. Källdatabasen kommer vara "
+"oförändrad."
 
 #: server_variables.php:39
 msgid "Server variables and settings"
