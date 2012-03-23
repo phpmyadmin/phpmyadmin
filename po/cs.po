@@ -5058,8 +5058,8 @@ msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
-"Pokud je tato hodnota větší než 1, indexy v MyISAM tabulkách jsou vytvářeny "
-"paralelně (každý index vlastním vláknem) při obnově nebo řazení."
+"Pokud je tato hodnota větší než 1, jsou při obnově nebo řazení klíčů "
+"v MyISAM tabulkách klíče vytvářeny paralelně (každý klíč vlastním vláknem)."
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
