@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-23 20:12+0200\n"
+"PO-Revision-Date: 2012-03-23 20:14+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10490,10 +10490,9 @@ msgstr ""
 "при хорошей реализации потоков)."
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "%% соотношение обращений в кеш потока"
+msgstr "Соотношение обращений в кеш потока (подсчитанное значение)"
 
 #: server_status.php:1415
 msgid "The number of threads that are not sleeping."
