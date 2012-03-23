@@ -9213,7 +9213,7 @@ msgstr "Přidělit všechna oprávnění na jméno odpovídající masce (uživa
 #: server_privileges.php:2364
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Přidělit všechna oprávnění na databázi„%s“"
+msgstr "Přidělit všechna oprávnění na databázi „%s“"
 
 #: server_privileges.php:2380
 #, php-format
