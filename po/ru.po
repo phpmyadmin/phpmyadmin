@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-23 20:11+0200\n"
+"PO-Revision-Date: 2012-03-23 20:12+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10246,6 +10246,8 @@ msgstr "Количество физических операций записи 
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Процентное соотношение физических процессов записи сравнительно к запросам "
+"записи (подсчитанное значение)"
 
 #: server_status.php:1379
 msgid ""
