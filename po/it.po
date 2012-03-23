@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-16 12:16+0200\n"
+"PO-Revision-Date: 2012-03-23 15:22+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -12482,7 +12482,7 @@ msgstr ""
 "lungo periodo). Impostare con attenzione {query_cache_min_res_unit} a un "
 "valore più basso potrebbe risolvere, ad esempio potete impostarlo alla "
 "dimensione media delle vostre query nella cache utilizzando la formula: "
-"(query_cache_size - qcache_free_memory) / qcache_queries_in_cache  "
+"(query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
