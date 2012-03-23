@@ -585,7 +585,7 @@ msgstr "Diese Datenbank enthält keine Tabellen"
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
 msgid "Table %s has been emptied"
-msgstr "Die Tabelle %s wurde geleert."
+msgstr "Die Tabelle %s wurde geleert"
 
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
