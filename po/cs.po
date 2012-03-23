@@ -8168,7 +8168,7 @@ msgid ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 "Počet stránek zablokovaných pro administrativní účely jako zamykání řádků "
-"nebo hashe indexů. Tato hodnota také může být vypočítána jako "
+"nebo hashe klíčů. Tato hodnota také může být vypočítána jako "
 "Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data."
 
