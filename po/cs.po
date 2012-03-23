@@ -9724,7 +9724,7 @@ msgstr "V tabulce %s byl vytvořen primární klíč"
 #: tbl_structure.php:500 tbl_structure.php:513 tbl_structure.php:526
 #, php-format
 msgid "An index has been added on %s"
-msgstr "Na poli %s byl vytvořen index"
+msgstr "Na poli %s byl vytvořen klíč"
 
 #: tbl_structure.php:475
 msgid "Show more actions"
