@@ -595,7 +595,7 @@ msgstr "Die Ansicht %s wurde gelöscht"
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "Die Tabelle %s wurde gelöscht."
+msgstr "Die Tabelle %s wurde gelöscht"
 
 #: db_structure.php:319 tbl_create.php:295
 msgid "Tracking is active."
