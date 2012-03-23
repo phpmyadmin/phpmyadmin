@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 21:22+0200\n"
+"PO-Revision-Date: 2012-03-23 21:23+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7655,7 +7655,7 @@ msgstr "Tabellenspezifische Rechte"
 #: server_privileges.php:444 server_privileges.php:588
 #: server_privileges.php:1610
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr "MySQL-Rechte werden auf Englisch angegeben."
+msgstr "MySQL-Rechte werden auf Englisch angegeben"
 
 #: server_privileges.php:513
 msgid "Administration"
