@@ -3990,7 +3990,7 @@ msgstr "Dlouhé jméno tohoto serveru"
 
 #: libraries/config/messages.inc.php:439
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Jestli uživateli bude zobrazeno tlačítko &quot;zobrazit vše&quot;"
+msgstr "Jestli bude uživateli zobrazeno tlačítko „Zobrazit vše“"
 
 #: libraries/config/messages.inc.php:440
 msgid "Allow to display all the rows"
