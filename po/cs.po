@@ -9758,7 +9758,7 @@ msgstr "Po %s"
 #: tbl_structure.php:693
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Vytvořit index na &nbsp;%s&nbsp;polích"
+msgstr "Vytvořit klíč na &nbsp;%s&nbsp;polích"
 
 #: tbl_structure.php:850
 msgid "partitioned"
