@@ -3357,8 +3357,7 @@ msgid ""
 "shown."
 msgstr ""
 "Počet řádků, které se zobrazí při procházení množiny výsledků. Pokud je "
-"množina výsledků delší, zobrazí se odkazy &quot;Předchozí&quot; a &quot;"
-"Další&quot;."
+"množina výsledků delší, zobrazí se odkazy „Předchozí“ a „Další“."
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum number of rows to display"
