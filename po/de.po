@@ -13042,7 +13042,7 @@ msgstr ""
 #: po/advisory_rules.php:230
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Prozentsatz der verworfenen Verbindungen"
+msgstr "Prozentsatz der abgebrochenen Verbindungen"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
