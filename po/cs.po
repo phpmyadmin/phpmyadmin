@@ -6565,7 +6565,7 @@ msgstr ""
 #: tbl_printview.php:323 tbl_structure.php:154 tbl_structure.php:158
 #: tbl_structure.php:572 tbl_structure.php:767
 msgid "Index"
-msgstr "Index"
+msgstr "Klíč"
 
 #: libraries/tbl_properties.inc.php:135
 #, php-format
