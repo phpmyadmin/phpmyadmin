@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-22 21:47+0200\n"
+"PO-Revision-Date: 2012-03-23 20:52+0200\n"
 "Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -10265,10 +10265,10 @@ msgstr ""
 "Zwischenspeicher."
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Dateiformat"
+msgstr ""
+"Prozentsatz des benutzten Schlüssel-Zwischenspeichers (berechneter Wert)"
 
 #: server_status.php:1373
 msgid "The number of requests to read a key block from the cache."
