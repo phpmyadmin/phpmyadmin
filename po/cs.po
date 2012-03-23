@@ -8121,7 +8121,7 @@ msgid ""
 msgstr ""
 "Počet požadavků na přečtení dalšího řádku ze souboru. Tato hodnota je vysoká "
 "pokud dotazy procházejí celé tabulky, pravděpodobně tedy nemají vhodné "
-"indexy."
+"klíče."
 
 #: server_status.php:64
 msgid "The number of internal ROLLBACK statements."
