@@ -4020,7 +4020,7 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Určiuje jestli mají být zobrazeny typy polí při úpravě a vkládání záznamů"
+"Určuje, jestli mají být zobrazeny typy polí při úpravě a vkládání záznamů"
 
 #: libraries/config/messages.inc.php:445
 msgid "Show field types"
