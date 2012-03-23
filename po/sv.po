@@ -9066,7 +9066,7 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
-"Läsning av version misslyckades. Kanske är du offline eller så svarar inte "
+"Lyckades ej läsa version. Du är kanske offline, eller så svarar inte "
 "uppgraderingsservern."
 
 #: setup/lib/index.lib.php:143
