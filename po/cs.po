@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 10:11+0200\n"
+"PO-Revision-Date: 2012-03-23 10:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9786,7 +9786,7 @@ msgstr "Sledování pro %s.%s , verze %s je zapnuté."
 
 #: tbl_tracking.php:209
 msgid "SQL statements executed."
-msgstr "provedené SQL příkazy."
+msgstr "SQL příkazy byly provedeny."
 
 #: tbl_tracking.php:216
 msgid ""
