@@ -5081,8 +5081,8 @@ msgstr "Hranice odpadu"
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
-"Procentuální podíl odpadu (garbage) v souboru datového logu předtím, než je "
-"soubor stlačen."
+"Procentuální podíl odpadu v souboru datového logu předtím, než je soubor "
+"zhuštěn."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1179
