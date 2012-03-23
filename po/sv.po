@@ -10804,8 +10804,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"Mål databasen kommer synkroniseras med källdatabasen. Källdatabasen kommer "
-"vara oförändrad."
+"Databasen kommer synkroniseras med källdatabasen. Källdatabasen kommer vara "
+"oförändrad."
 
 #: server_variables.php:80
 msgid "Setting variable failed"
