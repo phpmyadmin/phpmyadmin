@@ -9679,7 +9679,7 @@ msgstr "Přidat vyhledávací parametry (část dotazu po příkazu „WHERE“)
 
 #: tbl_select.php:258
 msgid "Number of rows per page"
-msgstr "záznamů na stránku"
+msgstr "Záznamů na stránku"
 
 #: tbl_select.php:264
 msgid "Display order:"
