@@ -5076,7 +5076,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
-msgstr "Práh velikosti odpadu (garbage)"
+msgstr "Hranice odpadu"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
