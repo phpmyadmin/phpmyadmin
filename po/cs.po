@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-23 10:10+0200\n"
+"PO-Revision-Date: 2012-03-23 10:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9479,7 +9479,7 @@ msgstr "Typ klíče:"
 #: tbl_indexes.php:247
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Přidat %s polí do indexu"
+msgstr "Přidat %s polí do klíče"
 
 #: tbl_indexes.php:252 tbl_structure.php:688
 msgid "Column count has to be larger than zero."
