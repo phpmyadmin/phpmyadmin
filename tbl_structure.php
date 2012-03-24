@@ -198,16 +198,16 @@ $i = 0;
 <tr>
     <th></th>
     <th>#</th>
-    <th class="column"><?php echo __('Name'); ?></th>
-    <th class="type"><?php echo __('Type'); ?></th>
-    <th class="collation"><?php echo __('Collation'); ?></th>
-    <th class="attributes"><?php echo __('Attributes'); ?></th>
-    <th class="null"><?php echo __('Null'); ?></th>
-    <th class="default"><?php echo __('Default'); ?></th>
-    <th class="extra"><?php echo __('Extra'); ?></th>
+    <th><?php echo __('Name'); ?></th>
+    <th><?php echo __('Type'); ?></th>
+    <th><?php echo __('Collation'); ?></th>
+    <th><?php echo __('Attributes'); ?></th>
+    <th><?php echo __('Null'); ?></th>
+    <th><?php echo __('Default'); ?></th>
+    <th><?php echo __('Extra'); ?></th>
 <?php if ($db_is_information_schema || $tbl_is_view) { ?>
-    <th class="view"><?php echo __('View'); ?></th>
-<?php } else { ?>
+    <th><?php echo __('View'); ?></th>
+<?php } else { /* see functions.js, displayMoreTableOpts() */?>
     <th colspan="7" class="action"><?php echo __('Action'); ?></th>
 <?php } ?>
 </tr>
