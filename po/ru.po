@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-24 10:29+0200\n"
+"PO-Revision-Date: 2012-03-24 10:31+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9611,7 +9611,7 @@ msgstr "Изменить индекс"
 #: tbl_indexes.php:165
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(Имя \"PRIMARY\" должен иметь <b>только</b> первичный индекс!)"
+msgstr "(Имя \"PRIMARY\" <b>должен</b> иметь <b>только</b> первичный индекс!)"
 
 #: tbl_indexes.php:168
 msgid "Index name:"
