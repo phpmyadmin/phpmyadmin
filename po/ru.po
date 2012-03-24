@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-24 10:26+0200\n"
+"PO-Revision-Date: 2012-03-24 10:29+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10286,9 +10286,7 @@ msgstr "Количество открытых файлов."
 
 #: server_status.php:1384
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
-"Количество открытых потоков (применяется к файлам журналов). Потоком "
-"называется файл, открытый с помощью функции fopen."
+msgstr "Количество открытых потоков (в основном применяется к файлам журналов)."
 
 #: server_status.php:1385
 msgid "The number of tables that are open."
