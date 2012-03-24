@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 17:50+0200\n"
+"PO-Revision-Date: 2012-03-24 15:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 0.7\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -9777,7 +9777,7 @@ msgstr "dynamique"
 
 #: tbl_printview.php:401 tbl_structure.php:879
 msgid "Row length"
-msgstr "Longueur enr."
+msgstr "Longueur de ligne"
 
 #: tbl_printview.php:411 tbl_structure.php:887
 msgid " Row size "
