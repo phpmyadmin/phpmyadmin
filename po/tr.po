@@ -4390,7 +4390,7 @@ msgstr "Yapılandırma kimlik doğrulaması yöntemi kullanırken kullanıcı ad
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
-"Oturum kaydı kimlik doğrulaması yöntemi kullanırken oturum kaydı oturumu adı "
+"Oturumu açma kimlik doğrulaması yöntemi kullanırken oturumu açma oturum adı "
 "boş"
 
 #: libraries/config/validate.lib.php:242
