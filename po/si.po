@@ -6017,9 +6017,8 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
-#, fuzzy
 msgid "Port"
-msgstr "‍තෝරනවා"
+msgstr "පෝර්ට්"
 
 #: libraries/engines/pbms.lib.php:36
 msgid ""
