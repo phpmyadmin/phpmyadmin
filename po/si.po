@@ -1553,7 +1553,7 @@ msgstr "ගබඩා යන්ත්‍රයෙහි තත්වය පිල
 #: libraries/StorageEngine.class.php:354
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "%s is available on this MySQL server."
+msgstr "මෙම MySQL සේවාදායකයේ %s ඇත."
 
 #: libraries/StorageEngine.class.php:357
 #, php-format
