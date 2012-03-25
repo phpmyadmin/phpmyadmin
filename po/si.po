@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 15:40+0200\n"
+"PO-Revision-Date: 2012-03-25 15:41+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6424,10 +6424,10 @@ msgid "Go to database: %s"
 msgstr "%s දත්තගබඩාව වෙත යන්න"
 
 #: libraries/import.lib.php:1149 libraries/import.lib.php:1174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "%s සඳහා දත්ත නොමැත"
+msgstr "%s සඳහා සිටුවම් සංස්කරණය කරන්න"
 
 #: libraries/import.lib.php:1169
 #, fuzzy, php-format
