@@ -3148,6 +3148,8 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"සැහැල්ලු ප්‍රකාරය පමණි; දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වන්න (පහත සඳහන් "
+"වෙන්කරණය මත තීරණය වේ)"
 
 #: libraries/config/messages.inc.php:274
 msgid "Display databases in a tree"
