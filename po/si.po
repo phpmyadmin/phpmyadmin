@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 15:52+0200\n"
+"PO-Revision-Date: 2012-03-25 17:17+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7139,7 +7139,7 @@ msgstr "පිහිටුම"
 
 #: server_binlog.php:201
 msgid "Event type"
-msgstr "සිදුවීමේ වර්ගය"
+msgstr "සිද්ධි වර්ගය"
 
 #: server_binlog.php:203
 msgid "Original position"
