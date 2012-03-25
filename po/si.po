@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 11:58+0200\n"
+"PO-Revision-Date: 2012-03-25 12:02+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3480,10 +3480,9 @@ msgstr "ගොනු නාම ටෙම්ප්ලේටය"
 #: libraries/config/messages.inc.php:145 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:123 libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "Dump table"
+msgstr "වගු නික්ෂේපනය"
 
 #: libraries/config/messages.inc.php:94 libraries/export/latex.php:32
 msgid "Include table caption"
