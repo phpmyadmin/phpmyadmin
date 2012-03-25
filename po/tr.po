@@ -4057,8 +4057,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"[a@http://php.net/manual/function.phpinfo.php]Phpinfo()[/a] çıktısına "
-"bağlantıyı gösterir"
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] çıktısı için "
+"bağlantı gösterir"
 
 #: libraries/config/messages.inc.php:449
 msgid "Show phpinfo() link"
