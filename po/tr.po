@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:21+0200\n"
+"PO-Revision-Date: 2012-03-25 14:22+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3029,7 +3029,7 @@ msgstr "Metin alanları"
 
 #: libraries/config/messages.inc.php:225
 msgid "Customize text input fields"
-msgstr "Metin giriş alanlarını özelleştirir"
+msgstr "Metin girdi alanlarını özelleştirir"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:17
 msgid "Texy! text"
