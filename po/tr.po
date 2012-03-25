@@ -6853,7 +6853,7 @@ msgstr ""
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
-msgstr "ZIP arşivi içinde hiç dosya bulunamadı!"
+msgstr "ZIP arşivi içinde bulunan dosya yok!"
 
 #: libraries/zip_extension.lib.php:48 libraries/zip_extension.lib.php:50
 #: libraries/zip_extension.lib.php:65
