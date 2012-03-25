@@ -2905,7 +2905,7 @@ msgstr "අවසන"
 #: libraries/common.lib.php:2594
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; දත්තගබඩාව වෙත යන්න"
+msgstr "&quot;%s&quot; දත්තගබඩාව වෙත යන්න."
 
 #: libraries/common.lib.php:2614
 #, php-format
