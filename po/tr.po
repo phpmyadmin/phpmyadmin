@@ -9285,7 +9285,7 @@ msgstr "Sunucuya parolasız bağlanmaya izin verdiniz."
 
 #: setup/lib/index.lib.php:352
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Anahtar çok kısa, en az 8 karakter olmalıdır"
+msgstr "Anahtar çok kısa, en az 8 karakter olmalıdır."
 
 #: setup/lib/index.lib.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
