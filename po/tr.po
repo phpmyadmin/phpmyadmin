@@ -8060,7 +8060,7 @@ msgid ""
 msgstr ""
 "İfadeler çalıştırılırken sunucu tarafından disk üzerindeki geçici tablo "
 "sayıları otomatik olarak oluşturuldu. Eğer Created_tmp_disk_tables değeri "
-"büyük ise, geçici tabloların disk tabanlı yerine bellek tabanlı olamasına "
+"büyük ise, geçici tabloların disk tabanlı yerine bellek tabanlı olmasına "
 "sebep olmak için tmp_table_size değerini arttırmak isteyebilirsiniz."
 
 #: server_status.php:49
