@@ -8258,8 +8258,8 @@ msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
-"InnoDB'nin ara bellek havuzundan tatmin olamadığı ve tek-sayfa okuması "
-"yapmak zorunda olduğu mantıksal okuma sayısıdır."
+"InnoDB'nin arabellek havuzundan tatmin olamadığı ve tek-sayfa okuması yapmak "
+"zorunda olduğu mantıksal okuma sayısıdır."
 
 #: server_status.php:78
 msgid ""
