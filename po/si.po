@@ -4705,7 +4705,7 @@ msgstr "පෙළ ඉවත් කරන ලදි"
 #: libraries/display_tbl.lib.php:1274 libraries/display_tbl.lib.php:2194
 #: server_processlist.php:92
 msgid "Kill"
-msgstr "Kill"
+msgstr "නවතා දමන්න"
 
 #: libraries/display_tbl.lib.php:2068
 msgid "in query"
