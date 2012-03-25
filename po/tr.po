@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 13:38+0200\n"
+"PO-Revision-Date: 2012-03-25 13:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -695,7 +695,7 @@ msgstr "Tabloyu onar"
 
 #: db_structure.php:545 tbl_operations.php:623
 msgid "Analyze table"
-msgstr "Tabloyu incele"
+msgstr "Tabloyu çözümle"
 
 #: db_structure.php:594 libraries/schema/User_Schema.class.php:388
 msgid "Data Dictionary"
