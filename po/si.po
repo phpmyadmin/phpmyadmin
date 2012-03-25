@@ -3097,7 +3097,7 @@ msgstr "අර්ධ ආනයනය: විමසුම් නොසලකා �
 
 #: libraries/config/messages.inc.php:259
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "බිංදුව අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
+msgstr "ශුන්‍ය අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
 
 #: libraries/config/messages.inc.php:262
 msgid "Initial state for sliders"
