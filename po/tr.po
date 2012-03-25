@@ -6520,7 +6520,7 @@ msgstr ""
 "aşağıdaki MySQL sunucu hata çıktısı, sorunu teşhis etmenizde ayrıca size "
 "yardımcı olabilir. Eğer hala sorunlarınız varsa ya da komut satırı arabirimi "
 "başarılı olduğunda ayrıştırıcı başarısızsa, lütfen sorunlara neden olan SQL "
-"sorgu girişinizi tek bir sorguya indirgeyin ve aşağıdaki CUT bölümü içindeki "
+"sorgu girdinizi tek bir sorguya indirgeyin ve aşağıdaki CUT bölümü içindeki "
 "veri yığını ile birlikte hata raporunu gönderin:"
 
 #: libraries/sqlparser.lib.php:171
