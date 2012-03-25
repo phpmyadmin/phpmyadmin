@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 16:47+0200\n"
+"PO-Revision-Date: 2012-03-25 16:48+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7472,10 +7472,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
-msgstr "වලංගු නොවන වගු නම"
+msgstr "ඔබ වලංගු වගු නාමයක් ලබාදිය යුතුයි"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
