@@ -5691,7 +5691,7 @@ msgstr "Üreten:"
 #: libraries/import.lib.php:153 sql.php:626 tbl_change.php:179
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL boş bir sonuç kümesi döndürdü (örn. sıfır satır)."
+msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
 
 #: libraries/import.lib.php:1141
 msgid ""
