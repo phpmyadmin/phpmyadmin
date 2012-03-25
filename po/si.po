@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 12:27+0200\n"
+"PO-Revision-Date: 2012-03-25 12:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4656,7 +4656,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
-msgstr "සබැඳි වගුව"
+msgstr "සබැඳුම් දත්ත ඇතුලත් වගුව"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
