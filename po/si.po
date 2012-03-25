@@ -7198,10 +7198,9 @@ msgid "Length/Values"
 msgstr "දිග/අගයන්"
 
 #: libraries/rte/rte_routines.lib.php:877
-#, fuzzy
 #| msgid "Add index"
 msgid "Add parameter"
-msgstr "සුචිය එක් කරන්න"
+msgstr "පරාමිතය එක් කරන්න"
 
 #: libraries/rte/rte_routines.lib.php:881
 #, fuzzy
