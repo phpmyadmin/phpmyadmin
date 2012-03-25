@@ -8231,7 +8231,7 @@ msgstr ""
 
 #: server_status.php:73
 msgid "Total size of buffer pool, in pages."
-msgstr "Sayfalardaki ara bellek havuzunun toplam boyutudur."
+msgstr "Sayfalardaki arabellek havuzunun toplam boyutudur."
 
 #: server_status.php:74
 msgid ""
