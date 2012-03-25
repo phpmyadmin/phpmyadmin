@@ -3506,7 +3506,7 @@ msgstr "Sorgu geçmişi uzunluğu"
 
 #: libraries/config/messages.inc.php:339
 msgid "Tab displayed when opening a new query window"
-msgstr "Yeni sorgu penceresi açıldığında görüntülenen sekme"
+msgstr "Yeni bir sorgu penceresi açıldığında görüntülenen sekme"
 
 #: libraries/config/messages.inc.php:340
 msgid "Default query window tab"
