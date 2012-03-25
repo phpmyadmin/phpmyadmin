@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:52+0200\n"
+"PO-Revision-Date: 2012-03-25 14:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4360,10 +4360,9 @@ msgid "Create table on database %s"
 msgstr "%s දත්තගබඩාවේ නව වගුවක් සාදන්න"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "ක්ෂේත්‍ර ගණන"
+msgstr "තීර ගණන"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
