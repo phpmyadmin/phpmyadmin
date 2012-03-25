@@ -1112,9 +1112,8 @@ msgid "Hide"
 msgstr "සඟවන්න"
 
 #: js/messages.php:94
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "SQL විමසුම"
+msgstr "සෙවුම් නිර්ණායක සඟවන්න"
 
 #: js/messages.php:95
 #, fuzzy
