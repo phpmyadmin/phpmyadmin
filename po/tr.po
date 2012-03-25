@@ -6075,7 +6075,7 @@ msgstr "Sütun Yorumları gösteriliyor"
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
-"Sütun_Yorumları tablonuzun nasıl güncelleneceğini öğrenmek için lütfen "
+"Lütfen column_comments tablonuzun nasıl güncelleneceğini öğrenmek için "
 "belgeye bakın"
 
 #: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:410
