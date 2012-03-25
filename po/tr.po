@@ -8328,7 +8328,7 @@ msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
-"Sahip olunan bekleme sayısıdır çünkü günlük ara belleği çok küçük ve devam "
+"Sahip olunan bekleme sayısıdır çünkü günlük arabelleği çok küçük ve devam "
 "etmeden önce temizlenmesi için beklemek zorundayız."
 
 #: server_status.php:91
