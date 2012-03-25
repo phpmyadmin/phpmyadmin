@@ -1972,7 +1972,7 @@ msgstr "SQL සත්‍යාපනයෙන් ඉවත් වන්න"
 
 #: libraries/common.lib.php:1209 libraries/config/messages.inc.php:467
 msgid "Validate SQL"
-msgstr "Validate SQL"
+msgstr "SQL සත්‍යාපනය"
 
 #: libraries/common.lib.php:1264
 msgid "Inline edit of this query"
