@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 16:50+0200\n"
+"PO-Revision-Date: 2012-03-25 16:51+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7485,10 +7485,10 @@ msgid "Add routine"
 msgstr "නෛත්‍යකයක් එක් කරන්න"
 
 #: libraries/rte/rte_words.lib.php:20
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "අපනයන පෙරනිමි"
+msgstr "%s නෛත්‍යකයේ අපනයනය"
 
 #: libraries/rte/rte_words.lib.php:21
 #, fuzzy
