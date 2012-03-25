@@ -3588,7 +3588,8 @@ msgstr "Root oturumu açmaya izin ver"
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
-"HTTP Kimlik Denetimi yaparken görüntülemek için Temel Kimlik Denetim alan adı"
+"HTTP Kimlik Doğrulaması yaparken görüntülemek için Basit Kimlik Doğrulaması "
+"alan adı"
 
 #: libraries/config/messages.inc.php:361
 msgid "HTTP Realm"
