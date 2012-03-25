@@ -8201,7 +8201,7 @@ msgstr "Şu anki dolu sayfa sayısıdır."
 
 #: server_status.php:69
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "Temizlenmesi için istenmiş ara bellek havuz sayfa sayısıdır."
+msgstr "Temizlenmesi için istenmiş arabellek havuz sayfa sayısıdır."
 
 #: server_status.php:70
 msgid "The number of free pages."
