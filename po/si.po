@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 13:01+0200\n"
+"PO-Revision-Date: 2012-03-25 13:02+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5494,10 +5494,9 @@ msgid "bzipped"
 msgstr "bzipp කරන ලද"
 
 #: libraries/display_export.lib.php:326
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "ගොනුවක් ලෙස තෝරන්න"
+msgstr "ප්‍රතිදානය පෙළ ලෙස දර්ශනය කරන්න"
 
 #: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
