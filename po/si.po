@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 15:27+0200\n"
+"PO-Revision-Date: 2012-03-25 15:28+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6314,10 +6314,9 @@ msgid "Display foreign key relationships"
 msgstr "අන්‍ය යතුරු සබඳතා පෙන්වන්න"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "තීර විස්තර පෙන්වීම"
+msgstr "විස්තර පෙන්වන්න "
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:63
