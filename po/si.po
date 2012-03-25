@@ -4646,7 +4646,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:417
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "මෑතදී භාවිත වූ වගු"
+msgstr "මෑතදී භාවිතා වූ වගු"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
