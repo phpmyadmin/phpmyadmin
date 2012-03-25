@@ -6930,9 +6930,8 @@ msgid "User name"
 msgstr "භාවිත නාමය"
 
 #: libraries/replication_gui.lib.php:70 server_synchronize.php:1343
-#, fuzzy
 msgid "Port"
-msgstr "‍තෝරනවා"
+msgstr "පෝර්ට්"
 
 #: libraries/replication_gui.lib.php:107
 #, fuzzy
