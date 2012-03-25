@@ -1548,8 +1548,7 @@ msgstr[1] "පේළි %1$d ක් ඇතුල් කෙරුනි."
 #: libraries/StorageEngine.class.php:194
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
-"There is no detailed status information available for this storage engine."
+msgstr "ගබඩා යන්ත්‍රයෙහි තත්වය පිලිබඳ වැඩිදුර තොරතුරු නැත."
 
 #: libraries/StorageEngine.class.php:354
 #, php-format
