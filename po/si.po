@@ -7504,7 +7504,7 @@ msgstr "නෛත්‍යකයක් සැදීම සඳහා ඔබට �
 #, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "%2$s දත්තගබඩාවේ %2$s නමින් නෛත්‍යක කිසිවක් හමු නොවිණි"
+msgstr "%2$s දත්තගබඩාවේ %1$s නමින් නෛත්‍යක කිසිවක් හමු නොවිණි"
 
 #: libraries/rte/rte_words.lib.php:24
 msgid "There are no routines to display."
