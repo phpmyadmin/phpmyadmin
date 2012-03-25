@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 12:03+0200\n"
+"PO-Revision-Date: 2012-03-25 12:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3939,7 +3939,7 @@ msgstr "ටැබ් ක්‍රියා කල යුතු ආකාරය �
 #: libraries/config/messages.inc.php:228
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "Text ක්ෂේත්‍රයන්"
+msgstr "පෙළ ක්ෂේත්‍රයන්"
 
 #: libraries/config/messages.inc.php:229
 #, fuzzy
