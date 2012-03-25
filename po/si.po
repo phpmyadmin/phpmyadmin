@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 17:41+0200\n"
+"PO-Revision-Date: 2012-03-25 17:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7222,7 +7222,7 @@ msgstr "ප්‍රතිදාන විකල්ප"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
-msgstr ""
+msgstr "නිර්ණයනය කල හැකිද යන වග"
 
 #: libraries/rte/rte_routines.lib.php:938
 #| msgid "Security"
