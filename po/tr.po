@@ -8277,7 +8277,7 @@ msgstr ""
 
 #: server_status.php:79
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr "InnoDB ara bellek havuzuna bitti yazma sayısıdır."
+msgstr "InnoDB arabellek havuzuna bitti yazma sayısıdır."
 
 #: server_status.php:80
 msgid "The number of fsync() operations so far."
