@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 17:38+0200\n"
+"PO-Revision-Date: 2012-03-25 17:40+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7295,7 +7295,7 @@ msgstr "වලංගු නැති නෛත්‍යක වර්ගය: \"%s
 
 #: libraries/rte/rte_routines.lib.php:266
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "හලන ලද නෛත්‍යකය ප්‍රතිස්ථාපනය කිරීම අසමත් විය."
 
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
