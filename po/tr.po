@@ -7719,7 +7719,7 @@ msgstr "Kullanıcı gözden geçirme"
 #: server_privileges.php:1611 server_privileges.php:1803
 #: server_privileges.php:2153
 msgid "Grant"
-msgstr "Onayla"
+msgstr "Onaylı"
 
 #: server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2297
