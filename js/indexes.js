@@ -27,9 +27,9 @@ function checkIndexType()
      */
     $size_inputs = $('input[name="index[columns][sub_parts][]"]');
     /**
-     * @var Object Span containg the controllers to add more columns
+     * @var Object Footer containg the controllers to add more columns
      */
-    $add_more = $('#addMoreColumns');
+    $add_more = $('#index_frm .tblFooters');
 
     if ($select_index_type.val() == 'SPATIAL') {
         // Disable and hide the size column
