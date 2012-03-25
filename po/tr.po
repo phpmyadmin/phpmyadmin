@@ -4947,7 +4947,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:34
 msgid "Buffer pool size"
-msgstr "Ara bellek havuzu boyutu"
+msgstr "Arabellek havuzu boyutu"
 
 #: libraries/engines/innodb.lib.php:35
 msgid ""
