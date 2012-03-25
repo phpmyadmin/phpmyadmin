@@ -7200,7 +7200,7 @@ msgstr "ක්‍රියාත්මක කල යුත්තේ"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute every"
-msgstr ""
+msgstr "ක්‍රියාත්මක කරන්න සෑම"
 
 #: libraries/rte/rte_events.lib.php:449
 #| msgid "Startup"
