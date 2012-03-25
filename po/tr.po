@@ -9642,7 +9642,7 @@ msgstr "Bölüm %s"
 
 #: tbl_operations.php:741
 msgid "Analyze"
-msgstr "İncele"
+msgstr "Çözümle"
 
 #: tbl_operations.php:742
 msgid "Check"
