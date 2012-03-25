@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 15:57+0200\n"
+"PO-Revision-Date: 2012-03-25 15:58+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7170,7 +7170,6 @@ msgstr "සිද්ධිය සංස්කරණය කරන්න"
 #: libraries/rte/rte_routines.lib.php:1276
 #: libraries/rte/rte_routines.lib.php:1312
 #: libraries/rte/rte_triggers.lib.php:187
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "ඉල්ලීම පිරිසැකසීමේදී දෝශ ඇතිවිය"
