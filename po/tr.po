@@ -8213,7 +8213,7 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"InnoDB ara bellek havuzunda sabitlenmiş sayfa sayısıdır. Bunlar şu anki "
+"InnoDB arabellek havuzunda sabitlenmiş sayfa sayısıdır. Bunlar şu anki "
 "okunan veya yazılmış ya da bazı diğer sebepler yüzünden temizlenemeyen veya "
 "taşınamayan sayfalardır."
 
