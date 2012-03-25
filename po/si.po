@@ -7325,7 +7325,7 @@ msgstr "වේලාව"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
-msgstr "ඔබ ප්‍රේරකය සඳහා නමක් ලබාදිය යුතුයි  "
+msgstr "ඔබ ප්‍රේරකය සඳහා නමක් ලබාදිය යුතුයි"
 
 #: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
