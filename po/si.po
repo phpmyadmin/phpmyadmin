@@ -860,9 +860,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"ආනයනය සඳහා දත්ත කිසිවක් නොලැබුණි. ගොනුව ආනයනය සඳහා යොමු නොකිරීම හෝ යොමු කල "
+"ගොනුවේ විශාලත්වය PHP වින්‍යාසයන්හි අනුමත ප්‍රමාණයට වැඩ විශාල වීම මීට හේතු "
+"විය හැකිය. [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] බලන්න."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
