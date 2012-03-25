@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:34+0200\n"
+"PO-Revision-Date: 2012-03-25 14:39+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3169,7 +3169,7 @@ msgstr "වගු ගසෙහි උපරිම මට්ටම් ගණන"
 
 #: libraries/config/messages.inc.php:278
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "වගු ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වීමේදී එක් එක් මට්ටම් වෙන කරන සලකුණ"
 
 #: libraries/config/messages.inc.php:279
 msgid "Table tree separator"
