@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 15:56+0200\n"
+"PO-Revision-Date: 2012-03-25 15:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7012,7 +7012,7 @@ msgstr ""
 #, php-format
 #| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr "%1$s සිද්ධිය වෙනස් කර ඇත."
+msgstr "%1$s සිද්ධිය වෙනස් කරන ලදි."
 
 #: libraries/rte/rte_events.lib.php:133
 #, fuzzy, php-format
