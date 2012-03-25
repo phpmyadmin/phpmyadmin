@@ -1869,8 +1869,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
-"configuration file!"
+"<tt>$cfg['PmaAbsoluteUri']</tt> සඳහා අගය ඔබගේ වින්‍යාස ගොනුවේ අඩංගු විය "
+"යුතුමය!"
 
 #: libraries/common.inc.php:630
 #, php-format
