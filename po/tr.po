@@ -3668,7 +3668,7 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
-"Sınırlı yetkilerle yapılandırılmış özel MySQL kullanıcısıdır, daha fazla "
+"Sınırlı izinlerle yapılandırılmış özel MySQL kullanıcısıdır, daha fazla "
 "bilgi [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]'de mevcuttur"
 
 #: libraries/config/messages.inc.php:376
