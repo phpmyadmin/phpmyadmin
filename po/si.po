@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 12:49+0200\n"
+"PO-Revision-Date: 2012-03-25 12:51+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5077,10 +5077,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:500
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "ක්ෂේත්‍ර තීර එක් කරන්න/ඉවත් කරන්න"
+msgstr "පෙළ පෙදෙසේ පළල"
 
 #: libraries/config/messages.inc.php:501
 msgid ""
