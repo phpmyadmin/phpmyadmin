@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:45+0200\n"
+"PO-Revision-Date: 2012-03-25 14:46+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3284,7 +3284,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:303 libraries/config/messages.inc.php:308
 #: libraries/config/messages.inc.php:336
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "භාවිතා කරන්නන්ට වැඩි අගයක් සිටුවිය නොහැක"
 
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of databases displayed in left frame and database list"
