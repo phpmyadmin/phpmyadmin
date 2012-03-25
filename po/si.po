@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:39+0200\n"
+"PO-Revision-Date: 2012-03-25 14:40+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3173,7 +3173,7 @@ msgstr "වගු ලැයිස්තුව ගසක ආකාරයෙන්
 
 #: libraries/config/messages.inc.php:279
 msgid "Table tree separator"
-msgstr ""
+msgstr "වගු ගසෙහි වෙන්කරණය"
 
 #: libraries/config/messages.inc.php:280
 msgid "URL where logo in the navigation frame will point to"
