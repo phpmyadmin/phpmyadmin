@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 13:21+0200\n"
+"PO-Revision-Date: 2012-03-25 13:22+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6269,9 +6269,8 @@ msgstr "එක්සෙල් සංස්කරණය:"
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
 #: libraries/export/texytext.php:26 libraries/export/xml.php:73
-#, fuzzy
 msgid "Data dump options"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "දත්ත නික්ෂේපන විකල්ප"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
 #: libraries/export/sql.php:1188 libraries/export/texytext.php:109
