@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 12:51+0200\n"
+"PO-Revision-Date: 2012-03-25 12:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5100,9 +5100,8 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:506
-#, fuzzy
 msgid "Default title"
-msgstr "බවට දත්තගබඩාවේ නම වෙනස් කරන්න"
+msgstr "පෙරනිමි නාමය"
 
 #: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
