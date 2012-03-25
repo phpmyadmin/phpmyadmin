@@ -1895,7 +1895,7 @@ msgstr "වින්‍යසයන්හි වලංගු නැති සත
 #: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "You should upgrade to %s %s or later."
+msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
 #: libraries/common.lib.php:142
 #, php-format
