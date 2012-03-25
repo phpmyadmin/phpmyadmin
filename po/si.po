@@ -7339,10 +7339,9 @@ msgid "Add parameter"
 msgstr "පරාමිතය එක් කරන්න"
 
 #: libraries/rte/rte_routines.lib.php:881
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "දත්තගබඩාව ඉවත් කරන්න"
+msgstr "අවසන් පරාමිතය ඉවත් කරන්න"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
