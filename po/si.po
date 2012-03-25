@@ -6623,10 +6623,9 @@ msgstr ""
 "(Default: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "General relation features"
+msgstr "සිටුවම් පරිපාලනය"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 msgid "Configuration has been saved"
