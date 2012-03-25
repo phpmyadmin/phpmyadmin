@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 16:11+0200\n"
+"PO-Revision-Date: 2012-03-25 16:12+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7175,10 +7175,9 @@ msgid "Routine %1$s has been created."
 msgstr "%1$s නෛත්‍යකය සාදන ලදි."
 
 #: libraries/rte/rte_routines.lib.php:344
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "සංස්කරණ ප්‍රකාරය"
+msgstr "නෛත්‍යකය සංස්කරණ කරන්න"
 
 #: libraries/rte/rte_routines.lib.php:831
 #, fuzzy
