@@ -7480,7 +7480,7 @@ msgstr "Olay zamanlayıcısı için olayları ayarlamaya izin verir"
 #: server_privileges.php:45 server_privileges.php:220
 #: server_privileges.php:536
 msgid "Allows executing stored routines."
-msgstr "Depolanan yordamların yürütülmesine izin verir."
+msgstr "Saklanan yordamların yürütülmesine izin verir."
 
 #: server_privileges.php:46 server_privileges.php:199
 #: server_privileges.php:523
