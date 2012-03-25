@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 12:53+0200\n"
+"PO-Revision-Date: 2012-03-25 12:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5128,9 +5128,8 @@ msgid "Directory on server where you can upload files for import"
 msgstr ""
 
 #: libraries/config/messages.inc.php:514
-#, fuzzy
 msgid "Upload directory"
-msgstr "දත්ත මුල් පිටුව"
+msgstr "උඩුගත කිරීමේ ඩිරෙක්ටරිය"
 
 #: libraries/config/messages.inc.php:515
 msgid "Allow for searching inside the entire database"
