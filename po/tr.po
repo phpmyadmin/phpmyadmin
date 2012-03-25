@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:27+0200\n"
+"PO-Revision-Date: 2012-03-25 14:28+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4506,7 +4506,7 @@ msgstr "Parola yok"
 #: libraries/replication_gui.lib.php:355 libraries/replication_gui.lib.php:358
 #: server_privileges.php:797 server_privileges.php:800
 msgid "Re-type"
-msgstr "Yeniden gir"
+msgstr "Parola tekrarı"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
