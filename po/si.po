@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 13:07+0200\n"
+"PO-Revision-Date: 2012-03-25 13:08+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4667,10 +4667,9 @@ msgid "Partial texts"
 msgstr "අර්ධ පෙළ"
 
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:573
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "සම්පූර්ණ පාඨ"
+msgstr "පූර්ණ පෙළ"
 
 #: libraries/display_tbl.lib.php:586
 #, fuzzy
