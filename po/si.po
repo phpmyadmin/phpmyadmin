@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 13:48+0200\n"
+"PO-Revision-Date: 2012-03-25 13:49+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -508,7 +508,7 @@ msgstr "හරියටම වාක්‍යාංශය"
 
 #: db_search.php:67 db_search.php:310
 msgid "as regular expression"
-msgstr "as regular expression"
+msgstr "regular expression ලෙස"
 
 #: db_search.php:229
 #, php-format
