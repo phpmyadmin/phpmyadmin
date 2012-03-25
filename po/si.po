@@ -3942,9 +3942,8 @@ msgid "Text fields"
 msgstr "පෙළ ක්ෂේත්‍රයන්"
 
 #: libraries/config/messages.inc.php:229
-#, fuzzy
 msgid "Customize text input fields"
-msgstr "දත්තගබඩා අපනයන විකල්ප"
+msgstr "පෙළ ආදාන ක්ෂේත්‍රයන් රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:230 libraries/export/texytext.php:18
 msgid "Texy! text"
