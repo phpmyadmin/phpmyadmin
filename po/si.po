@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 12:22+0200\n"
+"PO-Revision-Date: 2012-03-25 12:23+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4644,10 +4644,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "වගුව විශ්ලේෂණය කරන්න"
+msgstr "මෑතදී භාවිත වූ වගු"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
