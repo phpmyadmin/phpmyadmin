@@ -6215,7 +6215,7 @@ msgid ""
 "table are used instead."
 msgstr ""
 "Anamakine tablosu kullanıldığında bu alan yoksayılır ve yerine Anamakine "
-"tablosunda depolanan değerler kullanılır."
+"tablosunda saklanan değerler kullanılır."
 
 #: libraries/replication_gui.lib.php:362
 msgid "Generate Password"
