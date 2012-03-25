@@ -3487,9 +3487,10 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Eğer VT-tabanlı sorgu geçmişi istiyorsanız etkinleştirin (pmadb gerektirir). "
-"Eğer etkisizleştirilirse, sorgu geçmişini görüntülemek için bu JS-"
-"programlarından yararlanır (pencere kapatıldığında bilgi kaybolur)."
+"Eğer VT-tabanlı sorgu geçmişi istiyorsanız etkinleştirin (phpMyAdmin "
+"yapılandırma depolaması gerektirir). Eğer etkisizleştirilirse, sorgu "
+"geçmişini görüntülemek için bu, JS-yordamlarından yararlanır (pencerenin "
+"kapatılmasıyla kaybolur)."
 
 #: libraries/config/messages.inc.php:335
 msgid "Permanent query history"
