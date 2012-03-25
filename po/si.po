@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:08+0200\n"
+"PO-Revision-Date: 2012-03-25 14:09+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1989,7 +1989,7 @@ msgstr ""
 #: libraries/common.lib.php:1354 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
 msgid "Time"
-msgstr "වේලාව"
+msgstr "කාලය"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1392
