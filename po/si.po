@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 11:33+0200\n"
+"PO-Revision-Date: 2012-03-25 11:35+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2755,7 +2755,7 @@ msgstr "අනුරූ කරන ලද"
 #: libraries/build_html_for_db.lib.php:151
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "&quot;%s&quot; දත්තගබඩාව සඳහා වරප්‍රසාද පරීක්ෂා කරන්න"
+msgstr "&quot;%s&quot; දත්තගබඩාව සඳහා වරප්‍රසාද පරීක්ෂා කරන්න."
 
 #: libraries/build_html_for_db.lib.php:154
 msgid "Check Privileges"
