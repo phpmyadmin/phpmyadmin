@@ -7318,7 +7318,6 @@ msgid "Trigger name"
 msgstr "ප්‍රේරකයේ නම"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
