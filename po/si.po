@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:29+0200\n"
+"PO-Revision-Date: 2012-03-25 14:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3140,9 +3140,8 @@ msgid "String that separates databases into different tree levels"
 msgstr "දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වීමේදී එක් එක් මට්ටම් වෙන කරන සලකුණ"
 
 #: libraries/config/messages.inc.php:272
-#, fuzzy
 msgid "Database tree separator"
-msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
+msgstr "දත්තගබඩා ගසෙහි වෙන්කරණය"
 
 #: libraries/config/messages.inc.php:273
 msgid ""
