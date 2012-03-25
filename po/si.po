@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 16:19+0200\n"
+"PO-Revision-Date: 2012-03-25 16:21+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7406,10 +7406,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/rte/rte_routines.lib.php:1226
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Allows executing stored routines."
+msgstr "%s නෛත්‍යකයේ ප්‍රතිදානය    "
 
 #: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_routines.lib.php:1306
