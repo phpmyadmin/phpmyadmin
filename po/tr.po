@@ -7443,7 +7443,7 @@ msgstr "Yeni tabloların oluşturulmasına izin verir."
 #: server_privileges.php:38 server_privileges.php:205
 #: server_privileges.php:532
 msgid "Allows creating temporary tables."
-msgstr "Geçici tablolara oluşturulmasına izin verir."
+msgstr "Geçici tablolar oluşturulmasına izin verir."
 
 #: server_privileges.php:39 server_privileges.php:219
 #: server_privileges.php:568
