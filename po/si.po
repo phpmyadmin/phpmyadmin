@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 17:26+0200\n"
+"PO-Revision-Date: 2012-03-25 17:28+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7245,7 +7245,7 @@ msgstr "ඔබ සිද්ධිය සඳහා වලංගු කාල ප�
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "ඔබ සිද්ධිය සඳහා වලංගු ක්‍රියාත්මක කිරීමේ වෙලාවක් ලබාදිය යුතුයි."
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
