@@ -4289,7 +4289,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:498
 msgid "Verbose multiple statements"
-msgstr "Çoklu ifadeler için fazla bilgi"
+msgstr "Ayrıntılı çoklu ifadeler"
 
 #: libraries/config/messages.inc.php:499 setup/frames/index.inc.php:229
 msgid "Check for latest version"
