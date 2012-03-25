@@ -6921,9 +6921,8 @@ msgid "Master status"
 msgstr "Master සේවාදායකයේ තත්වය"
 
 #: libraries/replication_gui.lib.php:109
-#, fuzzy
 msgid "Slave status"
-msgstr "උපතත්වයන් පෙන්වන්න"
+msgstr "Slave සේවාදායකයේ තත්වය"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:394
 #: server_status.php:1479 server_variables.php:123
