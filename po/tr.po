@@ -3299,7 +3299,7 @@ msgid ""
 "recommended for non-trusted environments."
 msgstr ""
 "Oturum açma tanımlama bilgisinin ne kadar (saniye olarak) tarayıcıda "
-"depolanacağını tanımlar. Varsayılan 0 değeri anlamı sadece var olan oturum "
+"saklanacağını tanımlar. Varsayılan 0 değeri anlamı sadece var olan oturum "
 "için tutulacağıdır, ve tarayıcı penceresini kapatır kapatmaz silinecektir. "
 "Bu güvenli olmayan ortamlar için önerilir."
 
