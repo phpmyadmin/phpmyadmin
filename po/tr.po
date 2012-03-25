@@ -3849,7 +3849,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:409
 msgid "Signon session name"
-msgstr "Oturum açma oturumu adı"
+msgstr "Oturumu açma oturum adı"
 
 #: libraries/config/messages.inc.php:410
 msgid "Signon URL"
