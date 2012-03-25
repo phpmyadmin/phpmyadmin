@@ -4967,7 +4967,7 @@ msgstr "InnoDB Durumu"
 
 #: libraries/engines/innodb.lib.php:163
 msgid "Buffer Pool Usage"
-msgstr "Ara Bellek Havuzu Kullanımı"
+msgstr "Arabellek Havuzu Kullanımı"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
