@@ -3305,7 +3305,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Login cookie store"
-msgstr "Oturum açma tanımlama bilgisi depolama"
+msgstr "Oturum açma tanımlama bilgisi saklama"
 
 #: libraries/config/messages.inc.php:296
 msgid "Define how long (in seconds) a login cookie is valid"
