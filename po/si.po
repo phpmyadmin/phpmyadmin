@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 13:09+0200\n"
+"PO-Revision-Date: 2012-03-25 13:12+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5702,10 +5702,9 @@ msgid "Show BLOB contents"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Browser transformation"
+msgstr "බ්‍රව්සර රූපාන්තරනය සඟවන්න"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
