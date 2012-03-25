@@ -4676,10 +4676,9 @@ msgid "Relational key"
 msgstr "සබැඳි යතුර"
 
 #: libraries/display_tbl.lib.php:587
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Relational schema"
+msgstr "සබැඳි දර්ශන තීරය"
 
 #: libraries/display_tbl.lib.php:594
 msgid "Show binary contents"
