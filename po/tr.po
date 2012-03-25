@@ -7001,8 +7001,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı. Nedenini "
-"öğrenmek için %sburaya%s tıklayın."
+"phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
+"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya%"
+"s tıklayın."
 
 #: main.php:316
 msgid ""
