@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 12:13+0200\n"
+"PO-Revision-Date: 2012-03-25 12:15+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4499,10 +4499,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Any host"
 msgid "Control host"
-msgstr "ඕනෑම දායකයෙක්"
+msgstr "පාලක දායකයා"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
