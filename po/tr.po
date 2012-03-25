@@ -4954,7 +4954,7 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"Hafıza ara belleği boyutu InnoDB, veriyi önbelleklemek ve tablolarını "
+"Hafıza arabelleği boyutu InnoDB, veriyi önbelleklemek ve tablolarını "
 "indekslemek için kullanır."
 
 #: libraries/engines/innodb.lib.php:134
