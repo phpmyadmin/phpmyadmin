@@ -8043,9 +8043,9 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayısıdır ama "
-"binlog_cache_size değerini aştı ve işlemdeki ifadeleri depolamak için geçici "
-"dosya kullandı."
+"Geçici binari günlüğü önbelleğinde kullanılan ama binlog_cache_size değerini "
+"aşmış ve işlemdeki ifadeleri saklamak için geçici dosya kullanmış "
+"işlemlerin sayısıdır."
 
 #: server_status.php:47
 msgid "The number of transactions that used the temporary binary log cache."
