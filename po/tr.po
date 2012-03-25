@@ -5774,7 +5774,7 @@ msgstr "%d. satırında CSV girdisinin geçersiz biçimi."
 #: libraries/import/csv.php:324
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "CSV girişinde %d. satırda geçersiz sütun sayısı."
+msgstr "CSV girdisinde %d. satırda geçersiz sütun sayısı."
 
 #: libraries/import/docsql.php:27
 msgid "DocSQL"
