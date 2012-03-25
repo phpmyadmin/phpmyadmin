@@ -5632,10 +5632,9 @@ msgid "Number of rows"
 msgstr "පේළි ගණන"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "තවත්"
+msgstr "ප්‍රකාරය"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal"
