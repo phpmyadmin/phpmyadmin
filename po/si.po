@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 11:56+0200\n"
+"PO-Revision-Date: 2012-03-25 11:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3417,10 +3417,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "වගු නඩත්තුව"
+msgstr "වගු කිහිපයක් එක වර නඩත්තු කිරීම අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
