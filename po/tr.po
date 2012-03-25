@@ -1718,7 +1718,7 @@ msgstr "%s dosyası herhangi bir anahtar kimliği içermiyor"
 #: libraries/auth/swekey/swekey.auth.lib.php:159
 #: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
-msgstr "Donanım kimlik doğrulama başarısız"
+msgstr "Donanım kimlik doğrulaması başarısız"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
