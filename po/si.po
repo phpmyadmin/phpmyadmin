@@ -6182,9 +6182,8 @@ msgid "Settings"
 msgstr "සිටුවම්"
 
 #: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1116
-#, fuzzy
 msgid "Source database"
-msgstr "දත්තගබඩාවේ සොයන්න"
+msgstr "මූලාශ්‍ර දත්ත ගබඩාව"
 
 #: libraries/server_synchronize.lib.php:1340
 #: libraries/server_synchronize.lib.php:1363
