@@ -4396,7 +4396,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:242
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
-"Oturum kaydı kimlik doğrulaması yöntemi kullanırken oturum kaydı URL'si boş"
+"Oturumu açma kimlik doğrulaması yöntemi kullanırken oturumu açma URL'si boş"
 
 #: libraries/config/validate.lib.php:276
 msgid "Empty phpMyAdmin control user while using pmadb"
