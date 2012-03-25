@@ -3137,7 +3137,7 @@ msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට
 
 #: libraries/config/messages.inc.php:271
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වීමේදී එක් එක් මට්ටම් වෙන කරන සලකුණ"
 
 #: libraries/config/messages.inc.php:272
 #, fuzzy
