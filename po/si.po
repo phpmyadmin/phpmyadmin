@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:15+0200\n"
+"PO-Revision-Date: 2012-03-25 14:16+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6827,9 +6827,8 @@ msgid "No databases"
 msgstr "දත්තගබඩා නොමැත"
 
 #: navigation.php:277
-#, fuzzy
 msgid "Filter"
-msgstr "ක්ෂේත්‍ර"
+msgstr "පෙරහන්න"
 
 #: navigation.php:277
 #, fuzzy
