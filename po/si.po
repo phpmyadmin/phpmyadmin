@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 13:30+0200\n"
+"PO-Revision-Date: 2012-03-25 13:31+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4686,7 +4686,7 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:596
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "BLOB දත්ත පෙන්වන්න"
 
 #: libraries/display_tbl.lib.php:606 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
