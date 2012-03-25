@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 16:16+0200\n"
+"PO-Revision-Date: 2012-03-25 16:18+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7348,10 +7348,9 @@ msgid "Return type"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:892
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "දිග/අගයන්"
+msgstr "ප්‍රතිදානයේ දිග/අගයන්"
 
 #: libraries/rte/rte_routines.lib.php:898
 #, fuzzy
