@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 16:51+0200\n"
+"PO-Revision-Date: 2012-03-25 16:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7496,10 +7496,9 @@ msgid "routine"
 msgstr "නෛත්‍යක"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "You don't have sufficient privileges to be here right now!"
+msgstr "නෛත්‍යකයක් සැදීම සඳහා ඔබට ප්‍රමාණවත් වරප්‍රසාද නොමැත"
 
 #: libraries/rte/rte_words.lib.php:23
 #, fuzzy, php-format
