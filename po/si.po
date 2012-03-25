@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 14:02+0200\n"
+"PO-Revision-Date: 2012-03-25 14:11+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4110,7 +4110,7 @@ msgstr "සියලු දත්ත ගබඩා එකවර පෙන්ව�
 
 #: libraries/config/messages.inc.php:280
 msgid "Use light version"
-msgstr "සැහැල්ලු අනුවාදය භාවිත කරන්න"
+msgstr "සැහැල්ලු අනුවාදය භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum table tree depth"
