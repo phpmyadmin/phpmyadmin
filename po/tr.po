@@ -7424,7 +7424,7 @@ msgstr "Varolan tabloların yapısının değiştirilmesine izin verir."
 #: server_privileges.php:34 server_privileges.php:218
 #: server_privileges.php:535
 msgid "Allows altering and dropping stored routines."
-msgstr "Depolanan yordamların değiştirilmesine ve kaldırılmasına izin verir."
+msgstr "Saklanan yordamların değiştirilmesine ve kaldırılmasına izin verir."
 
 #: server_privileges.php:35 server_privileges.php:194
 #: server_privileges.php:528
