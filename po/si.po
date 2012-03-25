@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 16:22+0200\n"
+"PO-Revision-Date: 2012-03-25 16:24+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7278,7 +7278,7 @@ msgstr "%s නෛත්‍යකයේ ප්‍රතිදානය"
 #: libraries/rte/rte_routines.lib.php:1306
 #: libraries/rte/rte_routines.lib.php:1312
 msgid "Execute routine"
-msgstr ""
+msgstr "නෛත්‍යකය ක්‍රියාත්මක කරන්න"
 
 #: libraries/rte/rte_routines.lib.php:1365
 #: libraries/rte/rte_routines.lib.php:1368
