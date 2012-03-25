@@ -5300,7 +5300,7 @@ msgid ""
 msgstr ""
 "Veri günlük dosyasının en fazla boyutu. Varsayılan değer 64MB'tır. PBXT tüm "
 "tablolar tarafından kullanılan en fazla 32000 veri günlüğü oluşturabilir. Bu "
-"yüzden veritabanında depolanabilir toplam veri miktarını arttırmak için bu "
+"yüzden veritabanında saklanabilir toplam veri miktarını arttırmak için bu "
 "değişkenin değeri arttırılabilir."
 
 #: libraries/engines/pbxt.lib.php:57
