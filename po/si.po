@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 17:03+0200\n"
+"PO-Revision-Date: 2012-03-25 17:05+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7418,10 +7418,9 @@ msgid "event"
 msgstr "සිද්ධිය"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "You don't have sufficient privileges to be here right now!"
+msgstr "සිද්ධියක් සැදීම සඳහා ඔබට ප්‍රමාණවත් වරප්‍රසාද නොමැත"
 
 #: libraries/rte/rte_words.lib.php:47
 #, fuzzy, php-format
