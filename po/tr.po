@@ -3990,7 +3990,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:436
 msgid "Verbose check"
-msgstr "Fazla bilgi denetimi"
+msgstr "Ayrıntılı kontrol"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
