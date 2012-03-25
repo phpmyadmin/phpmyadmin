@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:19+0200\n"
+"PO-Revision-Date: 2012-03-25 14:23+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1709,7 +1709,7 @@ msgstr "වැරදි භාවිත නාමය/මුරපදය. පි�
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "%s ගොනුවෙහි යතුරු කිසිවක් අඩංගු නොවේ"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:159
 #: libraries/auth/swekey/swekey.auth.lib.php:182
