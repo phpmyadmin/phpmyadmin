@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:32+0200\n"
+"PO-Revision-Date: 2012-03-25 14:33+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3157,7 +3157,7 @@ msgstr "දත්තගබඩා ලැයිස්තුව ගසක ආකා
 
 #: libraries/config/messages.inc.php:275
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "සියලු දත්ත ගබඩා එකවර පෙන්වීමට මෙය අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:276
 msgid "Use light version"
