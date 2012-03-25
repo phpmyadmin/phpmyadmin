@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:16+0200\n"
+"PO-Revision-Date: 2012-03-25 14:18+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1116,9 +1116,8 @@ msgid "Hide search criteria"
 msgstr "සෙවුම් නිර්ණායක සඟවන්න"
 
 #: js/messages.php:95
-#, fuzzy
 msgid "Show search criteria"
-msgstr "SQL විමසුම"
+msgstr "සෙවුම් නිර්ණායක පෙන්වන්න"
 
 #: js/messages.php:98 tbl_change.php:303 tbl_indexes.php:196
 #: tbl_indexes.php:221
