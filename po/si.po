@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 16:44+0200\n"
+"PO-Revision-Date: 2012-03-25 16:45+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7302,10 +7302,10 @@ msgid "Trigger %1$s has been modified."
 msgstr "%1$s ප්‍රේරකය වෙනස් කරන ලදි."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "%1$s වගුව සාදන ලදි."
+msgstr "%1$s ප්‍රේරකය සාදන ලදි."
 
 #: libraries/rte/rte_triggers.lib.php:161
 #, fuzzy
