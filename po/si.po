@@ -866,7 +866,7 @@ msgstr ""
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Could not load import plugins, please check your installation!"
+msgstr "ආනයනය පේනු පූරණය අසමත් විය. ඔබගේ ස්ථාපිතය පරීක්ෂා කරන්න!"
 
 #: import.php:396
 msgid "The bookmark has been deleted."
