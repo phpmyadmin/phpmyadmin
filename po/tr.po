@@ -4381,7 +4381,7 @@ msgstr "Açık Belge Metni"
 
 #: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
 msgid "Could not connect to MySQL server"
-msgstr "MySQL sunucusuna bağlanamadı"
+msgstr "MySQL sunucusuna bağlanılamadı"
 
 #: libraries/config/validate.lib.php:234
 msgid "Empty username while using config authentication method"
