@@ -6541,7 +6541,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:364
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Otomatik olarak sorgunun sonuna ters işaret ekle"
+msgstr "Otomatik olarak sorgunun sonuna ters işaret ekle!"
 
 #: libraries/sqlparser.lib.php:367
 msgid "Unclosed quote"
