@@ -6166,7 +6166,7 @@ msgstr "අන්‍ය යතුරු සබඳතා පෙන්වන්න
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "විස්තර පෙන්වන්න "
+msgstr "විස්තර පෙන්වන්න"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:63
