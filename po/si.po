@@ -5426,7 +5426,7 @@ msgstr "දසුන සඳහා සැකිල්ල"
 
 #: libraries/export/sql.php:894
 msgid "Stand-in structure for view"
-msgstr "දසුන සැදීම සඳහා තාවකාලික සැකිල්ල "
+msgstr "දසුන සැදීම සඳහා තාවකාලික සැකිල්ල"
 
 #: libraries/export/xml.php:17 libraries/import/xml.php:28
 msgid "XML"
