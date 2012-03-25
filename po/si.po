@@ -7491,7 +7491,6 @@ msgid "Export of routine %s"
 msgstr "%s නෛත්‍යකයේ අපනයනය"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
 msgstr "නෛත්‍යක"
