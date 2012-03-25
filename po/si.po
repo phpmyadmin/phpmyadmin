@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 13:35+0200\n"
+"PO-Revision-Date: 2012-03-25 13:38+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1960,7 +1960,7 @@ msgstr "සලකුණු කිරීමට/ ඉවත් කිරීමට �
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "තීර පෙන්වීමට/සැඟවීමට<br />ඊතලය ක්ලික් කරන්න"
 
 #: js/messages.php:351
 msgid ""
