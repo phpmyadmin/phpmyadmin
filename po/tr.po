@@ -8618,7 +8618,7 @@ msgid ""
 msgstr ""
 "Yapılması zorunlu sıralama algoritması birleştirme geçişi sayısıdır. Eğer bu "
 "değer büyükse, sort_buffer_size sistem değişkeninin değerini arttırmayı "
-"dikkate almalısınız."
+"düşünmelisiniz."
 
 #: server_status.php:144
 msgid "The number of sorts that were done with ranges."
