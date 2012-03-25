@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 13:59+0200\n"
+"PO-Revision-Date: 2012-03-25 14:00+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -992,7 +992,7 @@ msgstr "මුරපදය හිස්ව පවතී!"
 
 #: js/messages.php:51 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
-msgstr "The passwords aren't the same!"
+msgstr "මුරපද නොගැලපේ!"
 
 #: js/messages.php:52
 msgid "Add a New User"
