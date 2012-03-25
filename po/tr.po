@@ -9822,7 +9822,7 @@ msgstr "Tablonun Başına"
 #: tbl_structure.php:654
 #, php-format
 msgid "After %s"
-msgstr "%s sonrasına"
+msgstr "%s Şunun Sonrasına"
 
 #: tbl_structure.php:693
 #, php-format
