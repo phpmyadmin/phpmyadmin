@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:49+0200\n"
+"PO-Revision-Date: 2012-03-25 14:50+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6200,9 +6200,8 @@ msgid "Difference"
 msgstr ""
 
 #: libraries/server_synchronize.lib.php:1361 server_synchronize.php:1118
-#, fuzzy
 msgid "Target database"
-msgstr "දත්තගබඩාවේ සොයන්න"
+msgstr "ඉලක්කගත දත්ත ගබඩාව"
 
 #: libraries/sql_query_form.lib.php:223
 #, php-format
