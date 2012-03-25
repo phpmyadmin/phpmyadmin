@@ -816,7 +816,8 @@ msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත�
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"File %s already exists on server, change filename or check overwrite option."
+"%s ගොනුව මේ වන විටත් සේවාදායකයෙහි පවතී, ගොනු නාමය වෙනස් කරන්න නැතහොත් ඉක්මවා "
+"ලිවීමේ හැකියාව සලකා බලන්න."
 
 #: export.php:309 export.php:313
 #, php-format
