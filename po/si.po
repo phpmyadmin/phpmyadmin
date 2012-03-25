@@ -1594,7 +1594,7 @@ msgstr "පූර්වදර්ශනයක් නොමැත."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
-msgstr "take it"
+msgstr "ලබාගන්න"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
