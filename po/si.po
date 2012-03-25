@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 12:32+0200\n"
+"PO-Revision-Date: 2012-03-25 12:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4723,10 +4723,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:434
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "Defragment table"
+msgstr "UI අභිරුචි පිළිබඳ දත්ත ඇතුලත් වගුව"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
