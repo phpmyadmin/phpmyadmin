@@ -804,7 +804,7 @@ msgstr "ඈඳූ අගයන් \"Length/Values\" ක්ෂේත්‍රය 
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr "Selected export type has to be saved in file!"
+msgstr "තෝරාගත් අපනයන වර්ගය ගොනුව තුල සුරැකිය යුතුයි!"
 
 #: export.php:164 export.php:189 export.php:670
 #, php-format
