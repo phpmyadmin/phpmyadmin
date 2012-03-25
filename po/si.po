@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 13:45+0200\n"
+"PO-Revision-Date: 2012-03-25 13:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -836,7 +836,7 @@ msgstr "වැරදි පරාමිතියන්!"
 #: export.php:176 export.php:201 export.php:672
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත් අවකාශ නොමැත."
+msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත් ඉඩ අවකාශ නොමැත."
 
 #: export.php:326
 #, php-format
