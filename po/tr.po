@@ -5092,7 +5092,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
-msgstr "Ara bellek boyutunu sırala"
+msgstr "Arabellek boyutunu sırala"
 
 #: libraries/engines/myisam.lib.php:47
 msgid ""
