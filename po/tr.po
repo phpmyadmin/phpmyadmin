@@ -8049,7 +8049,7 @@ msgstr ""
 
 #: server_status.php:47
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayısı."
+msgstr "Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayısıdır."
 
 #: server_status.php:48
 msgid ""
