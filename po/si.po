@@ -6496,7 +6496,7 @@ msgstr "දසුන සඳහා සැකිල්ල"
 
 #: libraries/export/sql.php:1053
 msgid "Stand-in structure for view"
-msgstr "දසුන සැදීම සඳහා තාවකාලික සැකිල්ල "
+msgstr "දසුන සැදීම සඳහා තාවකාලික සැකිල්ල"
 
 #: libraries/export/sql.php:1112
 #, fuzzy
