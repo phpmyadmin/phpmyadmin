@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 15:41+0200\n"
+"PO-Revision-Date: 2012-03-25 15:43+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6576,9 +6576,9 @@ msgid "Edit settings for %s"
 msgstr "%s සඳහා සිටුවම් සංස්කරණය කරන්න"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "%s වගුව වෙත යන්න"
 
 #: libraries/import.lib.php:1130
 #, fuzzy, php-format
