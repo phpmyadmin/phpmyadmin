@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 15:32+0200\n"
+"PO-Revision-Date: 2012-03-25 15:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5425,9 +5425,8 @@ msgid "Structure for view"
 msgstr "දසුන සඳහා සැකිල්ල"
 
 #: libraries/export/sql.php:894
-#, fuzzy
 msgid "Stand-in structure for view"
-msgstr "Structure only"
+msgstr "දසුන සැදීම සඳහා තාවකාලික සැකිල්ල "
 
 #: libraries/export/xml.php:17 libraries/import/xml.php:28
 msgid "XML"
