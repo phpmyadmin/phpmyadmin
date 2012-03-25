@@ -3181,7 +3181,7 @@ msgstr "යාත්‍රණ රාමුවේ දැක්වෙන ලාං
 
 #: libraries/config/messages.inc.php:281
 msgid "Logo link URL"
-msgstr ""
+msgstr "ලාංඡනය හා සබැඳි URL"
 
 #: libraries/config/messages.inc.php:282
 msgid ""
