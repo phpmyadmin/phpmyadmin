@@ -7290,8 +7290,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Config.inc.php dosyasını değiştirerek daha fazla ayar ayarlayabilirsiniz, "
-"örn. %sKur programcığı%s kullanarak."
+"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. %"
+"sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
