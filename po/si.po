@@ -7208,7 +7208,7 @@ msgstr "අවසන් පරාමිතය ඉවත් කරන්න"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
-msgstr ""
+msgstr "ප්‍රතිදාන වර්ගය"
 
 #: libraries/rte/rte_routines.lib.php:892
 #| msgid "Length/Values"
