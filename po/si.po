@@ -7353,10 +7353,9 @@ msgid "Return length/values"
 msgstr "ප්‍රතිදානයේ දිග/අගයන්"
 
 #: libraries/rte/rte_routines.lib.php:898
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "වගු විකල්ප"
+msgstr "ප්‍රතිදාන විකල්ප"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
