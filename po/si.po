@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 15:22+0200\n"
+"PO-Revision-Date: 2012-03-25 15:24+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2473,10 +2473,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s සිට %2$s දක්වා වගුවේ නම් වෙනස් කිරීමේ දෝෂයක් ඇත"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "%s වගුව %s බවට නම වෙනස් කරන ලදි"
+msgstr "%1$s වගුව %2$s ලෙසට නම වෙනස් කරන ලදි."
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
