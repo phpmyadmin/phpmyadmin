@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 11:47+0200\n"
+"PO-Revision-Date: 2012-03-25 11:51+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1682,10 +1682,9 @@ msgid "Recommendation"
 msgstr "නිර්දේශය"
 
 #: js/messages.php:222
-#, fuzzy
 #| msgid "Details..."
 msgid "Rule details"
-msgstr "තොරතුරු..."
+msgstr "රීතිය සම්බන්ද තොරතුරු"
 
 #: js/messages.php:223
 msgid "Justification"
