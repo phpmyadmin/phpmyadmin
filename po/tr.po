@@ -6722,7 +6722,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr "Bu resmi indirme için bağlantı görüntüler."
+msgstr "Bu resmi indirmek için bağlantı görüntüler."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 msgid ""
