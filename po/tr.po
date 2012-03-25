@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:30+0200\n"
+"PO-Revision-Date: 2012-03-25 14:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5514,9 +5514,7 @@ msgstr ""
 
 #: libraries/export/sql.php:35
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"İlave özel başlık yorumu (\n"
-" satırları böler):"
+msgstr "İlave özel başlık yorumu (\\n satırları böler):"
 
 #: libraries/export/sql.php:37
 msgid ""
