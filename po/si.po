@@ -5712,7 +5712,7 @@ msgstr "Well Known Text"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Well Known Binary"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
