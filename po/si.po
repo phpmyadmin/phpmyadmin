@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 15:48+0200\n"
+"PO-Revision-Date: 2012-03-25 15:52+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7053,9 +7053,8 @@ msgid "User name"
 msgstr "භාවිත නාමය"
 
 #: libraries/replication_gui.lib.php:107
-#, fuzzy
 msgid "Master status"
-msgstr "උපතත්වයන් පෙන්වන්න"
+msgstr "Master සේවාදායකයේ තත්වය"
 
 #: libraries/replication_gui.lib.php:109
 #, fuzzy
