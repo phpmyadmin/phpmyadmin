@@ -7413,7 +7413,6 @@ msgid "Export of event %s"
 msgstr "%s සිද්ධියේ අපනයන"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
 msgstr "සිද්ධිය"
