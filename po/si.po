@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-25 14:11+0200\n"
+"PO-Revision-Date: 2012-03-25 15:27+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6309,10 +6309,9 @@ msgstr "වගු සිරස් තලය"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "අන්‍ය යතුරු පරීක්ෂා අක්‍රිය කරන්න"
+msgstr "අන්‍ය යතුරු සබඳතා පෙන්වන්න"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
 #, fuzzy
