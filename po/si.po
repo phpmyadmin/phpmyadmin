@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 13:31+0200\n"
+"PO-Revision-Date: 2012-03-25 13:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4682,7 +4682,7 @@ msgstr "සබැඳි දර්ශන තීරය"
 
 #: libraries/display_tbl.lib.php:594
 msgid "Show binary contents"
-msgstr ""
+msgstr "ද්වීමය දත්ත පෙන්වන්න"
 
 #: libraries/display_tbl.lib.php:596
 msgid "Show BLOB contents"
