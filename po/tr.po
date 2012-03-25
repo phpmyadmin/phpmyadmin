@@ -4959,7 +4959,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
-msgstr "Ara Bellek Havuzu"
+msgstr "Arabellek Havuzu"
 
 #: libraries/engines/innodb.lib.php:135 server_status.php:432
 msgid "InnoDB Status"
