@@ -4999,7 +4999,7 @@ msgstr "Sabitlenmiş sayfalar"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Buffer Pool Activity"
-msgstr "Ara Bellek Havuzu Etkinliği"
+msgstr "Arabellek Havuzu Etkinliği"
 
 #: libraries/engines/innodb.lib.php:228
 msgid "Read requests"
