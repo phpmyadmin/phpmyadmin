@@ -427,17 +427,23 @@ class PMA_Index
         $no_indexes .= PMA_Message::notice(__('No index defined!'))->getDisplay();
         $no_indexes .= '</div>';
 
-        $r  = '<fieldset>';
-        $r .= '<legend id="index_header">' . __('Indexes');
-        $r .= PMA_showMySQLDocu('optimization', 'optimizing-database-structure');
-        $r .= '</legend>';
-        $r .= $no_indexes;
-        if (count($indexes) < 1) {
-            $r .= '</fieldset>';
-            return $r;
-        }
         if (! $print_mode) {
+            $r  = '<fieldset>';
+            $r .= '<legend id="index_header">' . __('Indexes');
+            $r .= PMA_showMySQLDocu('optimization', 'optimizing-database-structure');
+            $r .= '</legend>';
+            $r .= $no_indexes;
+            if (count($indexes) < 1) {
+                $r .= '</fieldset>';
+                return $r;
+            }
             $r .= PMA_Index::findDuplicates($table, $schema);
+        } else {
+            $r  = '<h3>' . __('Indexes') . '</h3>';
+            $r .= $no_indexes;
+            if (count($indexes) < 1) {
+                return $r;
+            }
         }
         $r .= '<table id="table_index">';
         $r .= '<thead>';
@@ -499,7 +505,11 @@ class PMA_Index
                    . '</td>' . "\n";
             }
 
-            $r .= '<th ' . $row_span . '>' . htmlspecialchars($index->getName()) . '</th>';
+            if (! $print_mode) {
+                $r .= '<th ' . $row_span . '>' . htmlspecialchars($index->getName()) . '</th>';
+            } else {
+                $r .= '<td ' . $row_span . '>' . htmlspecialchars($index->getName()) . '</td>';
+            }
             $r .= '<td ' . $row_span . '>' . htmlspecialchars($index->getType()) . '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isUnique(true) . '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isPacked(true) . '</td>';
@@ -528,7 +538,9 @@ class PMA_Index
         } // end while
         $r .= '</tbody>';
         $r .= '</table>';
-        $r .= '</fieldset>';
+        if (! $print_mode) {
+            $r .= '</fieldset>';
+        }
 
         return $r;
     }
