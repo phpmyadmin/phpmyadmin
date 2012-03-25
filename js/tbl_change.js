@@ -157,10 +157,10 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var target = evt.target || evt.srcElement;
 
     // Unchecks the corresponding "NULL" control
-    $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").attr({'checked': false});
+    $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").attr('checked', false);
 
     // Unchecks the Ignore checkbox for the current row
-    $("input[name='insert_ignore_" + multi_edit + "']").attr({'checked': false});
+    $("input[name='insert_ignore_" + multi_edit + "']").attr('checked', false);
     var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
 
     // Does this field come from datepicker?

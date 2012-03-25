@@ -236,7 +236,7 @@ $(document).ready(function() {
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
-            })
+            });
         };
         button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close"); };
 
@@ -332,13 +332,13 @@ $(document).ready(function() {
                     .end()
                     .find('tr:even')
                     .removeClass('odd').addClass('even');
-                })
+                });
             }
             else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }) // end $.post()
-    }) // end Revoke User
+        }); // end $.post()
+    }); // end Revoke User
 
     /**
      * AJAX handler for 'Edit User'
@@ -382,8 +382,8 @@ $(document).ready(function() {
             displayPasswordGenerateButton();
             PMA_ajaxRemoveMessage($msgbox);
             PMA_convertFootnotesToTooltips($div);
-        }) // end $.get()
-    })
+        }); // end $.get()
+    });
 
     /**
      * Step 2: Submit the Edit User Dialog
@@ -462,7 +462,7 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.error, false);
             }
         });
-    })
+    });
     //end Edit user
 
     /**
@@ -582,8 +582,8 @@ $(document).ready(function() {
              .siblings("h2").not(":first").remove();
 
             PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.get
-    })// end of the paginate users table
+        }); // end $.get
+    }); // end of the paginate users table
 
     /*
      * Additional confirmation dialog after clicking

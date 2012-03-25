@@ -43,7 +43,7 @@ $(document).ready(function() {
         plotOptions: {
             series: {}
         }
-    }
+    };
 
     $('#querychart').html('');
 
@@ -232,8 +232,11 @@ function PMA_queryChart(data,passedSettings)
         }
     };
 
-    if(passedSettings.chart.type == 'pie')
-        settings.tooltip.formatter = function() { return '<b>'+columnNames[0]+'</b><br/>'+this.y; }
+    if(passedSettings.chart.type == 'pie') {
+        settings.tooltip.formatter = function() { 
+            return '<b>'+columnNames[0]+'</b><br/>'+this.y; 
+        };
+    }
 
     // Overwrite/Merge default settings with passedsettings
     $.extend(true,settings,passedSettings);

@@ -265,7 +265,7 @@ $(function() {
                             },
                             error: function() { serverResponseError(); }
                          }
-            }
+            };
 
             setupLiveChart($tab, this, settings);
             if (tabstat == 'liveconnections') {
@@ -631,7 +631,7 @@ $(function() {
         
         dlgBtns[PMA_messages['strClose']] = function() {
             $(this).dialog('close');
-        }
+        };
         
         $('#advisorInstructionsDialog').attr('title', PMA_messages['strAdvisorSystem']);
         $('#advisorInstructionsDialog').dialog({
@@ -674,7 +674,7 @@ $(function() {
                 
                 $.each(data.run.fired, function(key, value) {
                     // recommendation may contain links, don't show those in overview table (clicking on them redirects the user)
-                    rc_stripped = $.trim($('<div>').html(value.recommendation).text())
+                    rc_stripped = $.trim($('<div>').html(value.recommendation).text());
                     $tbody.append($tr = $('<tr class="linkElem noclick ' + (even ? 'even' : 'odd') + '"><td>' + 
                                             value.issue + '</td><td>' + rc_stripped + ' </td></tr>')); 
                     even = !even;
