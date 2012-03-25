@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 15:34+0200\n"
+"PO-Revision-Date: 2012-03-25 15:38+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5441,9 +5441,8 @@ msgid "Views"
 msgstr "දසුන්"
 
 #: libraries/export/xml.php:47
-#, fuzzy
 msgid "Export contents"
-msgstr "අපනයන වර්ගය"
+msgstr "අන්තර්ගතය අපනයනය කරන්න"
 
 #: libraries/footer.inc.php:188 libraries/footer.inc.php:191
 #: libraries/footer.inc.php:194
