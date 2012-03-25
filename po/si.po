@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-25 15:43+0200\n"
+"PO-Revision-Date: 2012-03-25 15:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6435,10 +6435,10 @@ msgid "Go to table: %s"
 msgstr "%s වගුව වෙත යන්න"
 
 #: libraries/import.lib.php:1172
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "සැකිල්ල පමණයි"
+msgstr "%s හි සැකිල්ල"
 
 #: libraries/import.lib.php:1180
 #, php-format
