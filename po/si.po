@@ -7520,7 +7520,6 @@ msgid "Export of trigger %s"
 msgstr "%s ප්‍රේරකයේ අපනයන"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
 msgstr "ප්‍රේරක"
