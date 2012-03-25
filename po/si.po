@@ -1563,7 +1563,7 @@ msgstr "මෙම MySQL සේවාදායකයේ %s අක්‍රීය 
 #: libraries/StorageEngine.class.php:361
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "This MySQL server does not support the %s storage engine."
+msgstr "මෙම MySQL සේවාදායකයේ %s ගබඩා යන්ත්‍රය භාවිත කල නොහැක."
 
 #: libraries/Table.class.php:1022
 msgid "Invalid database"
