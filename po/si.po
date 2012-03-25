@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-25 14:01+0200\n"
+"PO-Revision-Date: 2012-03-25 14:02+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1470,7 +1470,7 @@ msgstr ""
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
-msgstr "සුචියක් නිර්වචනය කර නැත!"
+msgstr "සුචියක් අර්ථදක්වා නැත!"
 
 #: libraries/Index.class.php:432 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:311
