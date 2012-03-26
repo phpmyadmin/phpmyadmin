@@ -7915,7 +7915,7 @@ msgstr "Verschil"
 
 #: libraries/server_synchronize.lib.php:1343 server_synchronize.php:1264
 msgid "Target database"
-msgstr "Doel database"
+msgstr "Doel databank"
 
 #: libraries/server_synchronize.lib.php:1378
 #: libraries/server_synchronize.lib.php:1387
