@@ -9465,7 +9465,7 @@ msgstr ""
 
 #: server_privileges.php:2127
 msgid "Add privileges on the following table"
-msgstr "Voeg privileges toe aan de volgende tabel"
+msgstr "Voeg rechten toe op de volgende tabel"
 
 #: server_privileges.php:2184
 msgid "Change Login Information / Copy User"
