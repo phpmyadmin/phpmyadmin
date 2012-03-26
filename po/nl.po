@@ -11320,7 +11320,7 @@ msgstr ""
 #: setup/lib/index.lib.php:324
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Gebruik SSL verbindingen als uw database server dit ondersteunt."
+msgstr "Gebruik SSL verbindingen als uw databankserver dit ondersteunt."
 
 #: setup/lib/index.lib.php:337
 msgid "You should use mysqli for performance reasons."
