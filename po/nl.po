@@ -2462,7 +2462,7 @@ msgstr "Het tabblad dat wordt getoond na het openen van een databank"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr "Standaard database tabblad"
+msgstr "Standaard databank tabblad"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
