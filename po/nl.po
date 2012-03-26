@@ -9312,7 +9312,7 @@ msgstr "Wijzig Aanmeldingsinformatie / Kopieer gebruiker"
 
 #: server_privileges.php:2328
 msgid "Create a new user with the same privileges and ..."
-msgstr "Maak een nieuwe gebruiker aan met dezelfde privileges en ..."
+msgstr "Maak een nieuwe gebruiker aan met dezelfde rechten en ..."
 
 #: server_privileges.php:2330
 msgid "... keep the old one."
