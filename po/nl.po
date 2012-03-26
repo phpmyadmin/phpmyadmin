@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-26 18:38+0200\n"
+"PO-Revision-Date: 2012-03-26 18:41+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -13053,6 +13053,9 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Verhoog max_connections, of verminder wait_timeout zodat verbindingen die "
+"databank handlers niet netjes sluiten, sneller afgesloten worden. Zorg "
+"ervoor dat de code databank handlers netjes afsluit."
 
 #: po/advisory_rules.php:228
 #, php-format
