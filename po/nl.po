@@ -7874,7 +7874,7 @@ msgstr "Geen"
 
 #: server_privileges.php:2119
 msgid "Create database with same name and grant all privileges"
-msgstr "Maak een database met dezelfde naam en geef alle rechten hierop"
+msgstr "Maak een databank aan met dezelfde naam en geef alle rechten hierop"
 
 #: server_privileges.php:2120
 msgid "Grant all privileges on wildcard name (username\\_%)"
