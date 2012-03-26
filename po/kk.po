@@ -230,7 +230,7 @@ msgstr "Жоқ"
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:293 tbl_tracking.php:346 tbl_tracking.php:351
 msgid "Yes"
-msgstr ""
+msgstr "Иә"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
