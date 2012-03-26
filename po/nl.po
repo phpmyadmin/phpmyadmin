@@ -293,7 +293,7 @@ msgstr "Alleen data"
 
 #: db_operations.php:521
 msgid "CREATE DATABASE before copying"
-msgstr "CREATE DATABASE voor het kopiëren"
+msgstr "CREATE DATABASE vóór het kopiëren"
 
 #: db_operations.php:524 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
