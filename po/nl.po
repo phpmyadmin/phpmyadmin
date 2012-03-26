@@ -1834,7 +1834,7 @@ msgstr "Controleer rechten voor database &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr "Controleer privileges"
+msgstr "Controleer rechten"
 
 #: libraries/chart.lib.php:40
 msgid "Query statistics"
