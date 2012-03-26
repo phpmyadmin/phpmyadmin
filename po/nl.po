@@ -7647,7 +7647,7 @@ msgstr "U heeft niet voldoende rechten om een routine aan te maken"
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Geen routine met naam %1$s gevonden in database %2$s"
+msgstr "Geen routine met naam %1$s gevonden in databank %2$s"
 
 #: libraries/rte/rte_words.lib.php:24
 msgid "There are no routines to display."
