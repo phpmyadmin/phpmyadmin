@@ -3328,7 +3328,7 @@ msgstr "Aanmeldingscookie opslag"
 
 #: libraries/config/messages.inc.php:296
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Definieer hoelang (in seconden) een inlog cookie geldig blijft"
+msgstr "Definieer hoelang (in seconden) een aanmeldingscookie geldig blijft"
 
 #: libraries/config/messages.inc.php:297
 msgid "Login cookie validity"
