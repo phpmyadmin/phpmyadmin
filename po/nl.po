@@ -4754,7 +4754,7 @@ msgstr "Importeren naar de huidige MySQL-server"
 #: libraries/display_import.lib.php:131
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Importeren in database \"%s\""
+msgstr "Importeren in databank \"%s\""
 
 #: libraries/display_import.lib.php:133
 #, php-format
