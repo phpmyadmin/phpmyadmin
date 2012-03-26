@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 18:50+0200\n"
+"PO-Revision-Date: 2012-03-26 18:52+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -110,7 +110,7 @@ msgstr ""
 #: db_create.php:73
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Мәліметтер қоры %1$s құрылды."
+msgstr "%1$s мәлімет қоры құрылды."
 
 #: db_datadict.php:49 db_operations.php:390
 msgid "Database comment: "
