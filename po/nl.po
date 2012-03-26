@@ -2079,7 +2079,7 @@ msgstr "Einde"
 #: libraries/common.lib.php:2446
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Ga naar database &quot;%s&quot;."
+msgstr "Ga naar databank &quot;%s&quot;."
 
 #: libraries/common.lib.php:2465
 #, php-format
