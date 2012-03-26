@@ -7814,8 +7814,7 @@ msgstr ""
 
 #: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."
-msgstr ""
-"De geselecteerde gebruiker werd niet aangetroffen in de privileges tabel."
+msgstr "De geselecteerde gebruiker werd niet aangetroffen in de rechtentabel."
 
 #: server_privileges.php:1804
 msgid "Column-specific privileges"
