@@ -1068,7 +1068,7 @@ msgstr "Ververs databank"
 
 #: js/messages.php:73
 msgid "Copying Database"
-msgstr "Database kopiëren"
+msgstr "Databank kopiëren"
 
 #: js/messages.php:74
 msgid "Changing Charset"
