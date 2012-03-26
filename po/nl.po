@@ -2740,7 +2740,7 @@ msgstr "Gerepliceerd"
 #: libraries/build_html_for_db.lib.php:153
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Controleer rechten voor database &quot;%s&quot;."
+msgstr "Controleer rechten voor databank &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:156
 msgid "Check Privileges"
