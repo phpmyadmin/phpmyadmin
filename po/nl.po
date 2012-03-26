@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-26 18:26+0200\n"
+"PO-Revision-Date: 2012-03-26 18:27+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -5717,7 +5717,7 @@ msgstr "Uitgebreid - toon alle mogelijke opties"
 
 #: libraries/display_export.lib.php:132
 msgid "Database(s):"
-msgstr "Database(s):"
+msgstr "Databank(en):"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
