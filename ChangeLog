@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 + Patch #3506552 Contest-2: Show index information in the data dictionary
 
 3.5.1.0 (not yet released)
+- bug #3510784 [edit] Limit clause ignored when sort order is remembered
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.

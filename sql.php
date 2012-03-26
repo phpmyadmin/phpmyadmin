@@ -467,7 +467,7 @@ if ($GLOBALS['cfg']['RememberSorting']
             // retrieve the remembered sorting order for current table
             $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
             $full_sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append
-                . $analyzed_sql[0]['section_after_limit'];
+                . $analyzed_sql[0]['limit_clause'] . ' ' . $analyzed_sql[0]['section_after_limit'];
 
             // update the $analyzed_sql
             $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
