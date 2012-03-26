@@ -10886,7 +10886,7 @@ msgstr "Verbinding naar de bestemmingsdatabase is mislukt"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "Database '%s' bestaat niet."
+msgstr "Databank '%s' bestaat niet."
 
 #: server_synchronize.php:282
 msgid "Structure Synchronization"
