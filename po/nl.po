@@ -5208,7 +5208,7 @@ msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
-"Indien tooltips zijn ingeschakeld en er een database opmerking aanwezig is, "
+"Indien tooltips zijn ingeschakeld en er een databank opmerking aanwezig is, "
 "wisselt dit de opmerking en de werkelijke naam om"
 
 #: libraries/config/messages.inc.php:478
