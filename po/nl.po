@@ -7673,7 +7673,7 @@ msgstr "U heeft niet voldoende rechten om een trigger aan te maken"
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Geen trigger met naam %1$s gevonden in database %2$s"
+msgstr "Geen trigger met naam %1$s gevonden in databank %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
