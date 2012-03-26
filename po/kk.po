@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 16:04+0200\n"
+"PO-Revision-Date: 2012-03-26 16:05+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -91,7 +91,7 @@ msgstr "Индекс атауы"
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
 #: server_plugins.php:147 server_status.php:1481
 msgid "Description"
-msgstr ""
+msgstr "Сипаттама"
 
 #: browse_foreigners.php:255 browse_foreigners.php:264
 #: browse_foreigners.php:276 browse_foreigners.php:284
