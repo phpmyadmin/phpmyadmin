@@ -3032,7 +3032,7 @@ msgstr "Einde"
 #: libraries/common.lib.php:2557
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "Ga naar database &quot;%s&quot;."
+msgstr "Ga naar databank &quot;%s&quot;."
 
 #: libraries/common.lib.php:2577
 #, php-format
