@@ -8718,7 +8718,7 @@ msgstr "Maak tabel"
 
 #: navigation.php:309 navigation.php:473
 msgid "Please select a database"
-msgstr "Selecteer A.U.B. een database"
+msgstr "Selecteer A.U.B. een databank"
 
 #: pmd_general.php:64
 msgid "Show/Hide left menu"
