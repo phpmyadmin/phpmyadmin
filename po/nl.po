@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 18:30+0200\n"
+"PO-Revision-Date: 2012-03-26 18:31+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -7699,7 +7699,7 @@ msgstr "U heeft niet voldoende rechten om een gebeurtenis aan te maken"
 #: libraries/rte/rte_words.lib.php:47
 #, php-format
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Geen gebeurtenis met naam %1$s gevonden in database %2$s"
+msgstr "Geen gebeurtenis met naam %1$s gevonden in databank %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
