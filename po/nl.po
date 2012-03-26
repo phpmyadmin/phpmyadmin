@@ -579,7 +579,7 @@ msgstr "In de kolom:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
-msgstr "Geen tabellen gevonden in de database"
+msgstr "Geen tabellen gevonden in de databank"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
