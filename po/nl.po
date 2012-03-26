@@ -3294,7 +3294,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
-msgstr "Sta het inloggen op een willekeurige MySQL-server toe"
+msgstr "Sta aanmelden op gelijk welke MySQL-server toe"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
