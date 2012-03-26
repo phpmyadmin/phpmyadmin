@@ -3504,7 +3504,7 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Schakel dit in wanneer u wil dat SQL-query historie wordt bijgehouden in een "
-"database (vereist phpMyAdmin configuratie opslag). Indien uitgeschakeld "
+"databank (vereist phpMyAdmin configuratie opslag). Indien uitgeschakeld "
 "worden JS-routines gebruikt om query geschiedenis te tonen (deze gaat "
 "verloren bij het sluiten van het venster)."
 
