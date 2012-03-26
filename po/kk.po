@@ -208,7 +208,7 @@ msgstr "Түсініктеме"
 #: tbl_structure.php:349 tbl_tracking.php:293 tbl_tracking.php:348
 #: tbl_tracking.php:353
 msgid "No"
-msgstr ""
+msgstr "Жоқ"
 
 #: db_datadict.php:233 js/messages.php:243 libraries/Index.class.php:357
 #: libraries/Index.class.php:382 libraries/Index.class.php:689
