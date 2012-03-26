@@ -5690,7 +5690,7 @@ msgstr "@SERVER@ wordt vervangen door de servernaam"
 
 #: libraries/display_export.lib.php:229
 msgid ", @DATABASE@ will become the database name"
-msgstr ", @DATABASE@ wordt vervangen door de databasenaam"
+msgstr ", @DATABASE@ wordt vervangen door de databanknaam"
 
 #: libraries/display_export.lib.php:231
 msgid ", @TABLE@ will become the table name"
