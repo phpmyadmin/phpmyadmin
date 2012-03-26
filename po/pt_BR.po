@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 22:32+0200\n"
+"PO-Revision-Date: 2012-03-26 22:33+0200\n"
 "Last-Translator: Everton R <everton@tconibo.org>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2519,7 +2519,7 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Erro ao renomear tabela %1$s para %2$s"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabela %s renomeada para %s"
