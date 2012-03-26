@@ -11481,7 +11481,7 @@ msgstr "Tabel hernoemen naar"
 
 #: tbl_operations.php:537
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Kopieer tabel naar (database<b>.</b>tabel):"
+msgstr "Kopieer tabel naar (databank<b>.</b>tabel):"
 
 #: tbl_operations.php:584
 msgid "Switch to copied table"
