@@ -2401,7 +2401,7 @@ msgstr "Aantal regels voor CHAR/VARCHAR tekstgebieden"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr "CHAR textarea regels"
+msgstr "CHAR tekstgebied regels"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
