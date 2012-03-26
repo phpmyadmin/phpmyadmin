@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-21 21:19+0200\n"
+"PO-Revision-Date: 2012-03-25 14:45+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -103,8 +103,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Bu sistemde %s dosyası mevcut değil, lütfen daha fazla bilgi için www."
-"phpmyadmin.net adresini ziyaret edin."
+"%s dosyası bu sistemde mevcut değil, lütfen daha fazla bilgi için "
+"www.phpmyadmin.net adresini ziyaret edin."
 
 #: db_create.php:73
 #, php-format
@@ -791,7 +791,7 @@ msgstr "Veritabanı Günlüğü"
 #: enum_editor.php:23 js/messages.php:262
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr "ENUM/SET düzenleyci"
+msgstr "ENUM/SET düzenleyicisi"
 
 #: enum_editor.php:28 js/messages.php:264
 msgid "Values for a new column"
@@ -980,9 +980,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"İçe aktarmak için veri alınmadı. Ya dosya adı gönderilmedi ya da PHP "
-"yapılandırmanız tarafından izin verilen en fazla dosya boyutu aşıldı. [a@./"
-"Documentation.html#faq1_16@Documentation]SSS 1.16[/a]'ya bakın."
+"İçe aktarmak için veri alınmadı. Ya gönderilen dosya adı yok ya da dosya "
+"boyutu PHP yapılandırmanız tarafından izin verilen en fazla boyutu aştı. "
+"[a@./Documentation.html#faq1_16@Documentation]SSS 1.16[/a]'ya bakın."
 
 #: import.php:415
 msgid ""
@@ -2996,7 +2996,7 @@ msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor"
 
 #: libraries/common.lib.php:3366
 msgid "There are no files to upload"
-msgstr "Göndermek için dosyalar yok"
+msgstr "Göndermek için hiç dosya yok"
 
 #: libraries/common.lib.php:3394 libraries/common.lib.php:3395
 msgid "Execute"
