@@ -65,7 +65,7 @@ $(document).ready(function() {
                  .hide();
                 $('#togglesearchformlink')
                  // always start with the Show message
-                 .text(PMA_messages['strShowSearchCriteria'])
+                 .text(PMA_messages['strShowSearchCriteria']);
                 $('#togglesearchformdiv')
                  // now it's time to show the div containing the link 
                  .show();
@@ -81,8 +81,8 @@ $(document).ready(function() {
                     $("#sqlqueryresults").html(response['error']);
                 }
             }
-        }) // end $.post()
-    })
+        }); // end $.post()
+    });
 
     // Following section is related to the 'function based search' for geometry data types.
     // Initialy hide all the open_gis_editor spans

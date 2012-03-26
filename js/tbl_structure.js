@@ -70,7 +70,7 @@ $(document).ready(function() {
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
-            }) // end $.get()
+            }); // end $.get()
         }); // end $.PMA_confirm()
     }) ; //end of Drop Column Anchor action
 
@@ -112,9 +112,9 @@ $(document).ready(function() {
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    })//end Add Primary Key
+            }); // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end Add Primary Key
 
     /**
      * Ajax Event handler for 'Drop Primary Key/Index'
@@ -168,9 +168,9 @@ $(document).ready(function() {
                 else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    }) //end Drop Primary Key/Index
+            }); // end $.get()
+        }); // end $.PMA_confirm()
+    }); //end Drop Primary Key/Index
 
     /**
      *Ajax event handler for multi column change
@@ -280,11 +280,11 @@ $(document).ready(function() {
                     }
                     PMA_ajaxShowMessage($error, false);
                 }
-            }) // end $.post()
-        }
+            }); // end $.post()
+        };
         button_options[PMA_messages['strCancel']] = function() {
             $(this).dialog('close');
-        }
+        };
         var $msgbox = PMA_ajaxShowMessage();
         $.get("tbl_indexes.php", url, function(data) {
             if (data.error) {
@@ -323,7 +323,7 @@ $(document).ready(function() {
                 // Focus the slider, otherwise it looks nearly transparent
                 $('.ui-slider-handle').addClass('ui-state-focus');
             }
-        }) // end $.get()
+        }); // end $.get()
     });
 
     /**
@@ -368,10 +368,14 @@ $(document).ready(function() {
          */
         var button_options = {};
         // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+        button_options[PMA_messages['strCancel']] = function() {
+            $(this).dialog('close').remove();
+        };
 
         var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
+        button_options_error[PMA_messages['strOK']] = function() {
+            $(this).dialog('close').remove();
+        };
         var $msgbox = PMA_ajaxShowMessage();
 
         $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true" ,  function(data) {
@@ -386,7 +390,7 @@ $(document).ready(function() {
                     open: PMA_verifyColumnsProperties,
                     modal: true,
                     buttons : button_options_error
-                })// end dialog options
+                }); // end dialog options
             } else {
                 $div
                 .append(data)
@@ -405,12 +409,9 @@ $(document).ready(function() {
                 PMA_convertFootnotesToTooltips($div);
             }
             PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.get()
+        }); // end $.get()
     });
-
-
-
-}) // end $(document).ready()
+}); // end $(document).ready()
 
 /**
  * Loads the append_fields_form to the Change dialog allowing users
@@ -437,10 +438,14 @@ function changeColumns(action,url)
      */
     var button_options = {};
     // in the following function we need to use $(this)
-    button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+    button_options[PMA_messages['strCancel']] = function() {
+        $(this).dialog('close').remove();
+    };
 
     var button_options_error = {};
-    button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
+    button_options_error[PMA_messages['strOK']] = function() {
+        $(this).dialog('close').remove();
+    };
     var $msgbox = PMA_ajaxShowMessage();
 
     $.get( action , url ,  function(data) {
@@ -455,7 +460,7 @@ function changeColumns(action,url)
                 modal: true,
                 open: PMA_verifyColumnsProperties,
                 buttons : button_options_error
-            })// end dialog options
+            }); // end dialog options
         } else {
             $div
             .append(data)
@@ -474,6 +479,6 @@ function changeColumns(action,url)
             PMA_convertFootnotesToTooltips($div);
         }
         PMA_ajaxRemoveMessage($msgbox);
-    }) // end $.get()
+    }); // end $.get()
 }
 

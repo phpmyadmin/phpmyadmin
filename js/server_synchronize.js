@@ -314,7 +314,7 @@ function hideOrDisplayServerFields($server_selector, selected_option)
         $tbody.find('.server-socket').val(parts[2]);
         $tbody.find('.server-user').val(parts[3]);
         $tbody.find('.server-pass').val('');
-        $tbody.find('.server-db').val(parts[4])
+        $tbody.find('.server-db').val(parts[4]);
     }
 }
 

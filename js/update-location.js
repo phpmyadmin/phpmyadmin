@@ -71,4 +71,4 @@ $(document).ready(function(){
     }
     /* Indicate that we're done (and we are not going to change location */
     hash_init_done = 1;
-})
+});

@@ -43,7 +43,7 @@ $(document).ready(function() {
         plotOptions: {
             series: {}
         }
-    }
+    };
 
     $('#querychart').html('');
 
@@ -52,23 +52,27 @@ $(document).ready(function() {
 
         drawChart();
 
-        if($(this).attr('value') == 'bar' || $(this).attr('value') == 'column')
+        if ($(this).attr('value') == 'bar' || $(this).attr('value') == 'column') {
             $('span.barStacked').show();
-        else
+        } else {
             $('span.barStacked').hide();
+        }
     });
 
     $('input[name="barStacked"]').click(function() {
-        if(this.checked)
-            $.extend(true,currentSettings,{ plotOptions: { series: { stacking:'normal' } } });
-        else
-            $.extend(true,currentSettings,{ plotOptions: { series: { stacking:null } } });
+        if (this.checked) {
+            $.extend(true, currentSettings, { plotOptions: { series: { stacking:'normal' } } });
+        } else {
+            $.extend(true, currentSettings, { plotOptions: { series: { stacking:null } } });
+        }
         drawChart();
     });
 
     $('input[name="chartTitle"]').keyup(function() {
         var title = $(this).attr('value');
-        if(title.length == 0) title = ' ';
+        if (title.length == 0) {
+            title = ' ';
+        }
         currentChart.setTitle({ text: title });
     });
 
@@ -96,27 +100,38 @@ $(document).ready(function() {
         currentSettings.chart.width = $('#resizer').width() - 20;
         currentSettings.chart.height = $('#resizer').height() - 20;
 
-        if(currentChart != null) currentChart.destroy();
+        if (currentChart != null) {
+            currentChart.destroy();
+        }
 
-        if(noAnimation) currentSettings.plotOptions.series.animation = false;
-        currentChart = PMA_queryChart(chart_data,currentSettings);
-        if(noAnimation) currentSettings.plotOptions.series.animation = true;
+        if (noAnimation) {
+            currentSettings.plotOptions.series.animation = false;
+        }
+        currentChart = PMA_queryChart(chart_data, currentSettings);
+        if (noAnimation) {
+            currentSettings.plotOptions.series.animation = true;
+        }
     }
 
     drawChart();
     $('#querychart').show();
 });
 
-function in_array(element,array)
+function in_array(element, array)
 {
-    for(var i=0; i < array.length; i++)
-        if(array[i] == element) return true;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] == element) {
+            return true;
+        }
+    }
     return false;
 }
 
-function PMA_queryChart(data,passedSettings)
+function PMA_queryChart(data, passedSettings)
 {
-    if($('#querychart').length == 0) return;
+    if ($('#querychart').length == 0) {
+        return;
+    }
 
     var columnNames = Array();
 
@@ -124,7 +139,7 @@ function PMA_queryChart(data,passedSettings)
     var xaxis = { type: 'linear' };
     var yaxis = new Object();
 
-    $.each(data[0],function(index,element) {
+    $.each(data[0], function(index, element) {
         columnNames.push(index);
     });
 
@@ -135,31 +150,34 @@ function PMA_queryChart(data,passedSettings)
         case 'bar':
             xaxis.categories = new Array();
 
-            if(chart_series == 'columns') {
+            if (chart_series == 'columns') {
                 var j = 0;
-                for(var i=0; i<columnNames.length; i++)
-                    if(i != chart_xaxis_idx) {
+                for (var i = 0; i<columnNames.length; i++)
+                    if (i != chart_xaxis_idx) {
                         series[j] = new Object();
                         series[j].data = new Array();
                         series[j].name = columnNames[i];
 
-                        $.each(data,function(key,value) {
+                        $.each(data, function(key, value) {
                             series[j].data.push(parseFloat(value[columnNames[i]]));
-                            if( j== 0 && chart_xaxis_idx != -1 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]])
+                            if ( j == 0 && chart_xaxis_idx != -1 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]])
                                 xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
                         });
                         j++;
                     }
             } else {
-                var j=0;
+                var j = 0;
                 var seriesIndex = new Object();
                 // Get series types and build series object from the query data
-                $.each(data,function(index,element) {
+                $.each(data, function(index, element) {
                     var contains = false;
-                    for(var i=0; i < series.length; i++)
-                        if(series[i].name == element[chart_series]) contains = true;
+                    for (var i = 0; i < series.length; i++) {
+                        if (series[i].name == element[chart_series]) {
+                            contains = true;
+                        }
+                    }
 
-                    if(!contains) {
+                    if (! contains) {
                         seriesIndex[element[chart_series]] = j;
                         series[j] = new Object();
                         series[j].data = new Array();
@@ -170,25 +188,27 @@ function PMA_queryChart(data,passedSettings)
 
                 var type;
                 // Get series points from query data
-                $.each(data,function(key,value) {
+                $.each(data, function(key, value) {
                     type = value[chart_series];
                     series[seriesIndex[type]].data.push(parseFloat(value[columnNames[0]]));
 
-                    if( !in_array(value[columnNames[chart_xaxis_idx]],xaxis.categories))
+                    if ( ! in_array(value[columnNames[chart_xaxis_idx]], xaxis.categories)) {
                         xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
+                    }
                 });
             }
 
 
 
-            if(columnNames.length == 2)
+            if (columnNames.length == 2) {
                 yaxis.title = { text: columnNames[0] };
+            }
             break;
 
         case 'pie':
             series[0] = new Object();
             series[0].data = new Array();
-            $.each(data,function(key,value) {
+            $.each(data, function(key, value) {
                     series[0].data.push({
                         name: value[columnNames[chart_xaxis_idx]],
                         y: parseFloat(value[columnNames[0]])
@@ -219,24 +239,29 @@ function PMA_queryChart(data,passedSettings)
                     enabled: true,
                     distance: 35,
                     formatter: function() {
-                        return '<b>'+ this.point.name +'</b><br/>'+ Highcharts.numberFormat(this.percentage, 2) +' %';
-                   }
+                        return '<b>'+ this.point.name +'</b><br/>'+ Highcharts.numberFormat(this.percentage, 2) + ' %';
+                    }
                 }
             }
         },
         tooltip: {
             formatter: function() {
-                if(this.point.name) return '<b>'+this.series.name+'</b><br/>'+this.point.name+'<br/>'+this.y;
-                return '<b>'+this.series.name+'</b><br/>'+this.y;
+                if (this.point.name) {
+                    return '<b>' + this.series.name + '</b><br/>' + this.point.name+'<br/>' + this.y;
+                }
+                return '<b>' + this.series.name+'</b><br/>'+this.y;
             }
         }
     };
 
-    if(passedSettings.chart.type == 'pie')
-        settings.tooltip.formatter = function() { return '<b>'+columnNames[0]+'</b><br/>'+this.y; }
+    if (passedSettings.chart.type == 'pie') {
+        settings.tooltip.formatter = function() { 
+            return '<b>' + columnNames[0] + '</b><br/>' + this.y;
+        };
+    }
 
     // Overwrite/Merge default settings with passedsettings
-    $.extend(true,settings,passedSettings);
+    $.extend(true, settings, passedSettings);
 
     return PMA_createChart(settings);
 }
