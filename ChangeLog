@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 + Patch #3510656 Contest-1: Ignoring foreign keys while dropping tables
 
 3.5.1.0 (not yet released)
+- bug #3510784 [edit] Limit clause ignored when sort order is remembered
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.

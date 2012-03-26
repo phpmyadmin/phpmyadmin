@@ -1120,6 +1120,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             ) {
                 $query_base = $analyzed_display_query[0]['section_before_limit']
                     . "\n" . $GLOBALS['sql_order_to_append']
+                    . $analyzed_display_query[0]['limit_clause'] . ' '
                     . $analyzed_display_query[0]['section_after_limit'];
 
                 // Need to reparse query
