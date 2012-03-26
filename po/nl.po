@@ -4052,7 +4052,7 @@ msgstr "Toon formulier voor wachtwoord wijzigen"
 
 #: libraries/config/messages.inc.php:443
 msgid "Show create database form"
-msgstr "Toon formulier om een nieuwe database te creëren"
+msgstr "Toon formulier om een nieuwe databank aan te maken"
 
 #: libraries/config/messages.inc.php:444
 msgid ""
