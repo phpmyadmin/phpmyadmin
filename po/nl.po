@@ -9340,10 +9340,10 @@ msgid ""
 "http[/kbd]."
 msgstr ""
 "U gebruikt het [kbd]config[/kbd] authenticatie type en heeft de te gebruiken "
-"gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch inloggen. "
+"gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
 "Dit is niet aanbevolen voor productie systemen gezien iemand die het URL van "
-"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatie type"
-"%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
+"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatie "
+"type%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, php-format
