@@ -7897,7 +7897,7 @@ msgstr "Engines"
 
 #: libraries/server_synchronize.lib.php:1335 server_synchronize.php:1262
 msgid "Source database"
-msgstr "Bron database"
+msgstr "Bron databank"
 
 #: libraries/server_synchronize.lib.php:1337
 #: libraries/server_synchronize.lib.php:1345
