@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 17:40+0200\n"
+"PO-Revision-Date: 2012-03-26 17:49+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2740,7 +2740,7 @@ msgstr "Gerepliceerd"
 #: libraries/build_html_for_db.lib.php:153
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Controleer privileges voor database &quot;%s&quot;."
+msgstr "Controleer rechten voor database &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:156
 msgid "Check Privileges"
