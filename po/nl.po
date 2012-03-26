@@ -2030,7 +2030,7 @@ msgstr "GiB"
 
 #: libraries/common.lib.php:1392
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #: libraries/common.lib.php:1392
 msgid "PiB"
