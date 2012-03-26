@@ -9350,7 +9350,7 @@ msgstr "Geef alle rechten op de wildcard naam (gebruikersnaam\\_%)"
 #: server_privileges.php:2364
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Geef alle rechten op de database &quot;%s&quot;"
+msgstr "Geef alle rechten op databank &quot;%s&quot;"
 
 #: server_privileges.php:2380
 #, php-format
