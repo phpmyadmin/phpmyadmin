@@ -570,7 +570,7 @@ msgstr "In de kolom:"
 
 #: db_structure.php:86
 msgid "No tables found in database"
-msgstr "Geen tabellen gevonden in de database"
+msgstr "Geen tabellen gevonden in de databank"
 
 #: db_structure.php:239 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
