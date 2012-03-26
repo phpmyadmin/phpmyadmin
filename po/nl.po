@@ -780,7 +780,7 @@ msgstr "Tabel tracken"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr "Database-log"
+msgstr "Databank-log"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
