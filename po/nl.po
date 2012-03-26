@@ -8539,7 +8539,7 @@ msgstr "Overige instellingen"
 
 #: main.php:169
 msgid "Database server"
-msgstr "Database server"
+msgstr "Databank server"
 
 #: main.php:172
 msgid "Software"
