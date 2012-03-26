@@ -243,7 +243,7 @@ msgstr "Bekijk een dump (schema) van databank"
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:370 navigation.php:303
 msgid "No tables found in database."
-msgstr "Geen tabellen gevonden in de database."
+msgstr "Geen tabellen gevonden in de databank."
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
