@@ -546,7 +546,7 @@ msgstr[1] "<b>Totaal:</b> <i>%s</i> overeenkomsten"
 
 #: db_search.php:274
 msgid "Search in database"
-msgstr "Zoeken in de database"
+msgstr "Zoeken in de databank"
 
 #: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
