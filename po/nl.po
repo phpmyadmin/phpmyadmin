@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-26 18:12+0200\n"
+"PO-Revision-Date: 2012-03-26 18:13+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2540,7 +2540,7 @@ msgstr "onbekende tabel status: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
-msgstr "Ongeldige database"
+msgstr "Ongeldige databank"
 
 #: libraries/Table.class.php:1134 tbl_get_field.php:25
 msgid "Invalid table name"
