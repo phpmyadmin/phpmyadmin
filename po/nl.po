@@ -3919,7 +3919,7 @@ msgid ""
 "the log when creating a database."
 msgstr ""
 "Of DROP DATABASE IF EXISTS opdracht toegevoegd wordt als eerste regel van de "
-"log als een database aangemaakt wordt."
+"log als een databank aangemaakt wordt."
 
 #: libraries/config/messages.inc.php:420
 msgid "Add DROP DATABASE"
