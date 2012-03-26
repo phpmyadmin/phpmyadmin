@@ -282,7 +282,7 @@ msgstr "Databank %s werd verwijderd."
 
 #: db_operations.php:451
 msgid "Drop the database (DROP)"
-msgstr "Laat de database vervallen (DROP)"
+msgstr "Verwijder de databank (DROP)"
 
 #: db_operations.php:481
 msgid "Copy database to"
