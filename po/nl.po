@@ -5579,7 +5579,7 @@ msgstr "Compatibel met MySQL&nbsp;4.0"
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
 msgid "Create database"
-msgstr "Database aanmaken"
+msgstr "Databank aanmaken"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
