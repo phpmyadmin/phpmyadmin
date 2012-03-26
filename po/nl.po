@@ -7701,7 +7701,7 @@ msgstr ""
 
 #: server_privileges.php:690
 msgid "Login Information"
-msgstr "Inloginformatie"
+msgstr "Aanmeldingsinformatie"
 
 #: server_privileges.php:784
 msgid "Do not change the password"
