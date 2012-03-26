@@ -2709,7 +2709,7 @@ msgstr "en"
 #: libraries/common.lib.php:454
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:458
