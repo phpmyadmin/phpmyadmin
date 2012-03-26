@@ -5620,7 +5620,7 @@ msgstr "Exporteer meerdere databases vanuit de huidige server"
 #: libraries/display_export.lib.php:87
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "Tabellen exporteren uit de \"%s\" database"
+msgstr "Tabellen exporteren uit de \"%s\" databank"
 
 #: libraries/display_export.lib.php:89
 #, php-format
