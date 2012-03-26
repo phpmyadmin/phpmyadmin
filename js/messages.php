@@ -247,7 +247,7 @@ $js_messages['strNo'] = __('No');
 $js_messages['strInsertTable'] = __('Insert Table');
 $js_messages['strHideIndexes'] = __('Hide indexes');
 $js_messages['strShowIndexes'] = __('Show indexes');
-$js_messages['strForeignKeyCheck'] = __('Foreign Key Check:');
+$js_messages['strForeignKeyCheck'] = __('Foreign key check:');
 $js_messages['strForeignKeyCheckEnabled'] = __('(Enabled)');
 $js_messages['strForeignKeyCheckDisabled'] = __('(Disabled)');
 
