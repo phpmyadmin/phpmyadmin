@@ -740,7 +740,7 @@ msgstr "Tabellen met tracker"
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
-msgstr "Database"
+msgstr "Databank"
 
 #: db_tracking.php:87
 msgid "Last version"
