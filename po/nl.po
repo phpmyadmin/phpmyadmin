@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-26 17:49+0200\n"
+"PO-Revision-Date: 2012-03-26 17:50+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1157,7 +1157,7 @@ msgstr "Gebruiker toevoegen"
 
 #: js/messages.php:60
 msgid "Reloading Privileges"
-msgstr "Bezig de privileges te verversen"
+msgstr "Rechten worden herladen"
 
 #: js/messages.php:61
 msgid "Removing Selected Users"
