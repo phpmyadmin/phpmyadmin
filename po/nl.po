@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 17:29+0200\n"
+"PO-Revision-Date: 2012-03-26 17:30+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3665,7 +3665,7 @@ msgstr "Dwing een beveiligde verbinding af tijdens het gebruik van phpMyAdmin"
 
 #: libraries/config/messages.inc.php:151
 msgid "Force SSL connection"
-msgstr "Beveiligde verbinding (SSL) afdwingen"
+msgstr "SSL verbinding afdwingen"
 
 #: libraries/config/messages.inc.php:152
 msgid ""
