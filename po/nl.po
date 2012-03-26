@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-26 17:35+0200\n"
+"PO-Revision-Date: 2012-03-26 17:39+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -165,7 +165,7 @@ msgstr "Type"
 #: tbl_printview.php:142 tbl_structure.php:202 tbl_tracking.php:271
 #: tbl_tracking.php:322
 msgid "Null"
-msgstr "Null"
+msgstr "Leeg"
 
 #: db_datadict.php:171 db_structure.php:486 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
