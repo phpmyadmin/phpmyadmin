@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-26 18:10+0200\n"
+"PO-Revision-Date: 2012-03-26 18:11+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1105,8 +1105,7 @@ msgstr "U staat op het punt om een BLOB Bewaarplaats UIT TE SCHAKELEN!"
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
-"U staat op het punt om alle BLOB referenties voor database %s uit te "
-"schakelen. Weet u het zeker?"
+"Bent u zeker om alle BLOB referenties voor databank %s uit te schakelen?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
