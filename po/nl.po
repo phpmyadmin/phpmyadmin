@@ -5332,7 +5332,7 @@ msgstr "Tekstveld regels"
 
 #: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
-msgstr "Titel van het browser scherm wanneer een database is geselecteerd"
+msgstr "Titel van het browser scherm wanneer een databank is geselecteerd"
 
 #: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
