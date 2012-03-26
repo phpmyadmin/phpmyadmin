@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 18:07+0200\n"
+"PO-Revision-Date: 2012-03-26 18:08+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -277,7 +277,7 @@ msgstr "Verwijder de databank (DROP)"
 
 #: db_operations.php:504
 msgid "Copy database to"
-msgstr "Kopieer database naar"
+msgstr "Kopiëer databank naar"
 
 #: db_operations.php:511 tbl_operations.php:554 tbl_tracking.php:436
 msgid "Structure only"
