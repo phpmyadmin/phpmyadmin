@@ -926,9 +926,20 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                     && strpos($sort_expression_nodirection, $sort_tbl) === false
                     && strpos($sort_expression_nodirection, '(') === false
                 ) {
-                    $sort_expression_nodirection = $sort_tbl . $sort_expression_nodirection;
+                    $new_sort_expression_nodirection = $sort_tbl . $sort_expression_nodirection;
+                } else {
+                    $new_sort_expression_nodirection = $sort_expression_nodirection;
                 }
-                $is_in_sort = (str_replace('`', '', $sort_tbl) . $name_to_use_in_sort == str_replace('`', '', $sort_expression_nodirection) ? true : false);
+
+                $is_in_sort = false;
+                $sort_name = str_replace('`', '', $sort_tbl) . $name_to_use_in_sort;
+                if (
+                   $sort_name == str_replace('`', '', $new_sort_expression_nodirection)
+                   ||
+                   $sort_name == str_replace('`', '', $sort_expression_nodirection)
+                ) {
+                    $is_in_sort = true;
+                }
             }
             // 2.1.3 Check the field name for a bracket.
             //       If it contains one, it's probably a function column
