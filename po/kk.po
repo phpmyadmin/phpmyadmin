@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 19:01+0200\n"
-"Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
+"PO-Revision-Date: 2012-03-26 19:11+0200\n"
+"Last-Translator: baurzhan zhakashev <baur79@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,7 @@ msgstr "Іздеу"
 #: tbl_tracking.php:581 tbl_zoom_select.php:331 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
-msgstr "Растау"
+msgstr "Өту"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
 #: libraries/Index.class.php:448 tbl_tracking.php:331
