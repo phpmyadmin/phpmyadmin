@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 16:18+0200\n"
-"Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
+"PO-Revision-Date: 2012-03-26 21:58+0600\n"
+"Last-Translator: Берікбол <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -38,6 +38,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"The target browser window could not be updated. Maybe you have closed the "
+"parent window, or your browser's security settings are configured to block "
+"cross-window updates.kjkkj"
 
 #: browse_foreigners.php:156 libraries/common.lib.php:3164
 #: libraries/common.lib.php:3171 libraries/common.lib.php:3381
@@ -80,7 +83,7 @@ msgstr "Іздеу"
 #: tbl_tracking.php:581 tbl_zoom_select.php:331 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
-msgstr ""
+msgstr "Растау"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
 #: libraries/Index.class.php:448 tbl_tracking.php:331
@@ -2493,7 +2496,7 @@ msgstr ""
 #: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "%s-ге қош келдіңіз"
 
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
@@ -2533,15 +2536,15 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:214
 msgid "Server:"
-msgstr ""
+msgstr "Сервер:"
 
 #: libraries/auth/cookie.auth.lib.php:219
 msgid "Username:"
-msgstr ""
+msgstr "Қолданушы:"
 
 #: libraries/auth/cookie.auth.lib.php:223
 msgid "Password:"
-msgstr ""
+msgstr "Құпия сөз:"
 
 #: libraries/auth/cookie.auth.lib.php:230
 msgid "Server Choice"
@@ -5496,7 +5499,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:47
 #: libraries/display_select_lang.lib.php:48 setup/frames/index.inc.php:72
 msgid "Language"
-msgstr ""
+msgstr "Тіл"
 
 #: libraries/display_tbl.lib.php:406
 msgid "Save edited data"
