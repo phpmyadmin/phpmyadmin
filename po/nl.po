@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-26 18:35+0200\n"
+"PO-Revision-Date: 2012-03-26 18:36+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9025,7 +9025,7 @@ msgstr "De geselecteerde tabellen zijn gesynchroniseerd met de bron tabellen."
 
 #: server_synchronize.php:937
 msgid "Target database has been synchronized with source database"
-msgstr "De bestemmings database is gesynchronizeerd met de bron database"
+msgstr "De bestemmingsdatabank werd gesynchronizeerd met de brondatabank"
 
 #: server_synchronize.php:998
 msgid "The following queries have been executed:"
