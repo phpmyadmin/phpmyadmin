@@ -1064,7 +1064,7 @@ msgstr "Databank hernoemen"
 
 #: js/messages.php:72
 msgid "Reload Database"
-msgstr "Ververs database"
+msgstr "Ververs databank"
 
 #: js/messages.php:73
 msgid "Copying Database"
