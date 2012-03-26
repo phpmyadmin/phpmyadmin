@@ -2812,7 +2812,7 @@ msgstr "Gerepliceerd"
 #: libraries/build_html_for_db.lib.php:151
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Controleer rechten voor databank &quot;%s&quot;."
+msgstr "Controleer rechten op databank &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:154
 msgid "Check Privileges"
