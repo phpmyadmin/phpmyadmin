@@ -7729,7 +7729,7 @@ msgstr "Configureer de coördinaten voor de tabel %s"
 #: libraries/schema/Visio_Relation_Schema.class.php:537
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema van de %s database - Pagina %s"
+msgstr "Schema van de %s databank - Pagina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
