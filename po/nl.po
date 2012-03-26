@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 18:29+0200\n"
+"PO-Revision-Date: 2012-03-26 18:30+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6704,7 +6704,7 @@ msgstr "Klik op de \"Structuur\"-koppeling om de structuur aan te passen"
 #: libraries/import.lib.php:1146
 #, php-format
 msgid "Go to database: %s"
-msgstr "Ga naar database : %s"
+msgstr "Ga naar databank : %s"
 
 #: libraries/import.lib.php:1149 libraries/import.lib.php:1174
 #, php-format
