@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 20:00+0200\n"
+"PO-Revision-Date: 2012-03-26 20:10+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -247,7 +247,7 @@ msgstr "Бәрін белгілеу"
 
 #: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
-msgstr ""
+msgstr "ерекшеленгендерді алып тастау"
 
 #: db_operations.php:61 tbl_create.php:22
 msgid "The database name is empty!"
