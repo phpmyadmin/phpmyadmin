@@ -7464,7 +7464,7 @@ msgstr "Bekijk dump (schema) van de databases"
 
 #: server_privileges.php:32 server_privileges.php:276
 msgid "Includes all privileges except GRANT."
-msgstr "Bevat alle rechten behalve GRANT."
+msgstr "Omvat alle rechten behalve GRANT."
 
 #: server_privileges.php:33 server_privileges.php:202
 #: server_privileges.php:529
