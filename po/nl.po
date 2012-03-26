@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-21 18:48+0200\n"
+"PO-Revision-Date: 2012-03-26 17:40+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.7\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -977,7 +977,7 @@ msgstr "Toon bookmark"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
-msgstr "De favoriet is verwijderd."
+msgstr "De favoriet werd verwijderd."
 
 #: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
@@ -1927,7 +1927,7 @@ msgstr "Selecteer twee verschillende kolommen"
 
 #: js/messages.php:311
 msgid "Query results"
-msgstr "Query resultaat"
+msgstr "Query resultaten"
 
 #: js/messages.php:312
 msgid "Data point content"
@@ -2692,7 +2692,7 @@ msgstr "Cookies moeten aan staan voorbij dit punt."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"Inloggen zonder wachtwoord is niet toegestaan vanuit de instellingen (zie "
+"Aanmelden zonder wachtwoord is niet toegestaan door de instellingen (zie "
 "AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:572
@@ -3289,12 +3289,12 @@ msgstr "AJAX inschakelen"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
-"Indien ingeschakeld kan de gebruiker elke MySQL-server opgeven op het login "
-"formulier voor cookie authenticatie"
+"Indien ingeschakeld kan de gebruiker elke MySQL-server opgeven op het "
+"aanmeldingsformulier voor cookie authenticatie"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
-msgstr "Sta het inloggen op een willekeurige MySQL-server toe"
+msgstr "Sta aanmelden op gelijk welke MySQL-server toe"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
@@ -3442,7 +3442,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
-msgstr "Bevestig DROP-queries"
+msgstr "Bevestig DROP queries"
 
 #: libraries/config/messages.inc.php:48
 msgid "Debug SQL"
@@ -3742,7 +3742,7 @@ msgstr "Dwing een beveiligde verbinding af tijdens het gebruik van phpMyAdmin"
 
 #: libraries/config/messages.inc.php:151
 msgid "Force SSL connection"
-msgstr "Beveiligde verbinding (SSL) afdwingen"
+msgstr "SSL verbinding afdwingen"
 
 #: libraries/config/messages.inc.php:152
 msgid ""
@@ -4328,22 +4328,22 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-"Definieert hoe lang (in seconden) een login cookie bewaard moet worden door "
-"de browser. De standaard, 0, bewaard dit enkel voor de levensduur van de "
-"huidige sessie, en vervalt wanneer de browser wordt afgesloten. Dit is aan "
-"te raden voor niet vertrouwde omgevingen."
+"Definieert hoe lang (in seconden) een aanmeldingscookie bewaard moet worden "
+"door de browser. Standaard (waarde 0) wordt deze enkel voor de levensduur "
+"van de huidige sessie bewaard, en vervalt wanneer de browser wordt "
+"afgesloten. Dit is aan te raden voor niet vertrouwde omgevingen."
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie store"
-msgstr "Inlog cookie opslag"
+msgstr "Aanmeldingscookie opslag"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Definieer hoelang (in seconden) een inlog cookie geldig blijft"
+msgstr "Definieer hoelang (in seconden) een aanmeldingscookie geldig blijft"
 
 #: libraries/config/messages.inc.php:303
 msgid "Login cookie validity"
-msgstr "Inlog cookie geldigheid"
+msgstr "Geldigheid aanmeldingscookie"
 
 #: libraries/config/messages.inc.php:304
 msgid "Double size of textarea for LONGTEXT columns"
@@ -4621,7 +4621,7 @@ msgstr "Inloggen zonder wachtwoord toestaan"
 
 #: libraries/config/messages.inc.php:367
 msgid "Allow root login"
-msgstr "Root login toestaan"
+msgstr "Aanmelden als root toestaan"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -7359,7 +7359,8 @@ msgstr ""
 #: libraries/relation.lib.php:157
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
-"Log opnieuw in op phpMyAdmin om het bijgewerkte configuratiebestand te laden."
+"Meld opnieuw aan bij phpMyAdmin om het bijgewerkte configuratiebestand te "
+"laden."
 
 #: libraries/relation.lib.php:1130
 msgid "no description"
@@ -7677,7 +7678,7 @@ msgstr "Verwijder laatste parameter"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
-msgstr "Teruggeef type"
+msgstr "Retour type"
 
 #: libraries/rte/rte_routines.lib.php:892
 msgid "Return length/values"
@@ -8634,17 +8635,18 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"De PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lager dan de "
-"ingestelde cookie geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
-"eerder dan in phpMyAdmin is ingesteld."
+"De PHP parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@]session.gc_maxlifetime[/a] is korter dan de ingestelde cookie "
+"geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
+"phpMyAdmin is ingesteld."
 
 #: main.php:300
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"De cookie geldigheid gedefinieerd door een PHP parameter is lager dan de "
+"De cookie geldigheid gedefinieerd door een PHP parameter is korter dan de "
 "ingestelde cookie geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
 "eerder dan in phpMyAdmin is ingesteld."
 
@@ -9337,7 +9339,7 @@ msgstr ""
 
 #: server_privileges.php:791
 msgid "Login Information"
-msgstr "Inloginformatie"
+msgstr "Aanmeldingsinformatie"
 
 #: server_privileges.php:885
 msgid "Do not change the password"
@@ -9468,7 +9470,7 @@ msgstr "Voeg privileges toe aan de volgende tabel"
 
 #: server_privileges.php:2184
 msgid "Change Login Information / Copy User"
-msgstr "Wijzig de Inlog Informatie / Kopieer gebruiker"
+msgstr "Wijzig Aanmeldingsinformatie / Kopieer gebruiker"
 
 #: server_privileges.php:2187
 msgid "Create a new user with the same privileges and ..."
@@ -10017,8 +10019,8 @@ msgid ""
 msgstr ""
 "Het aantal tijdelijke tabellen op schijf die door de server automatisch "
 "aangemaakt werden bij het uitvoeren van queries. Als Created_tmp_disk_tables "
-"groot is, is het aangewezen om tmp_table_size te vergroten  waarde om "
-"tijdelijke tabellen aan te maken in geheugen in plaats van op harde schijf."
+"groot is, is het aangewezen om tmp_table_size te vergroten om tijdelijke "
+"tabellen aan te maken in geheugen in plaats van op harde schijf."
 
 #: server_status.php:1308
 msgid "How many temporary files mysqld has created."
@@ -11192,11 +11194,11 @@ msgid ""
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Deze %soptie%s zou uitgeschakeld moeten zijn gezien het de mogelijkheid "
-"geeft aan kwaadwillenden om op groteschaal inlog pogingen uit te voeren op "
-"willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan %strusted "
-"proxies list%s. Echter, IP-adres gebaseerde beveiliging is mogelijk niet "
-"betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt waar "
-"ook vele andere klanten gebruik van maken."
+"geeft aan kwaadwillenden om op grote schaal aanmeldinspogingen uit te voeren "
+"op willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan %"
+"strusted proxies list%s. Echter, IP-adres gebaseerde beveiliging is mogelijk "
+"niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt "
+"waar ook vele andere klanten gebruik van maken."
 
 #: setup/lib/index.lib.php:276
 msgid ""
@@ -11295,10 +11297,10 @@ msgid ""
 "http[/kbd]."
 msgstr ""
 "U gebruikt het [kbd]config[/kbd] authenticatie type en heeft de te gebruiken "
-"gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch inloggen. "
+"gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
 "Dit is niet aanbevolen voor productie systemen gezien iemand die het URL van "
-"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatie type"
-"%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
+"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatie "
+"type%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:294
 #, php-format
