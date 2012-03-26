@@ -5402,7 +5402,7 @@ msgstr "Aangepast"
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:190
 msgid "Database export options"
-msgstr "Database export opties"
+msgstr "Databank exporteer opties"
 
 #: libraries/config/setup.forms.php:325
 #: libraries/config/user_preferences.forms.php:223
