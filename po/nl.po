@@ -1067,7 +1067,7 @@ msgstr "U staat op het punt een volledige tabel te VERWIJDEREN!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "U staat op het punt een volledige database LEEG te maken!"
+msgstr "U staat op het punt een volledige databank LEEG te maken!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
