@@ -13,6 +13,8 @@ phpMyAdmin - ChangeLog
 + Patch #3509360 Contest-3: Option "Truncate table" before "insert"
 + Patch #3506552 Contest-2: Show index information in the data dictionary
 
+3.5.1.0 (not yet released)
+
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
 + "up to date" message on main page when current version is up to date
