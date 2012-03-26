@@ -8393,7 +8393,7 @@ msgstr "Web server"
 
 #: main.php:209
 msgid "Database client version"
-msgstr "Client versie database"
+msgstr "Client versie databank"
 
 #: main.php:213
 msgid "PHP extension"
