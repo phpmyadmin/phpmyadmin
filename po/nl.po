@@ -6616,7 +6616,7 @@ msgstr "Tracking is ingeschakeld voor %s.%s."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
-msgstr "Lengte/Waardes*"
+msgstr "Lengte/Waarden"
 
 #: libraries/tbl_properties.inc.php:104
 msgid ""
