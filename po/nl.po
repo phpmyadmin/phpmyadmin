@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 17:56+0200\n"
+"PO-Revision-Date: 2012-03-26 17:57+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9294,7 +9294,7 @@ msgstr "Kolom-specifieke rechten"
 
 #: server_privileges.php:2247
 msgid "Add privileges on the following database"
-msgstr "Voeg privileges toe aan de volgende database"
+msgstr "Voeg rechten toe op de volgende database"
 
 #: server_privileges.php:2265
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
