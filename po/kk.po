@@ -30,7 +30,7 @@ msgstr "Бәрін көрсету"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:500
 msgid "Page number:"
-msgstr ""
+msgstr "Бет номері:"
 
 #: browse_foreigners.php:138
 msgid ""
