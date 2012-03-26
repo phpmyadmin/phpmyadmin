@@ -3409,7 +3409,7 @@ msgstr "Toon binaire-inhoud als HEX"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show database listing as a list instead of a drop down"
-msgstr "Toon een database overzicht als een lijst in plaats van een afrolmenu"
+msgstr "Toon een databank overzicht als een lijst in plaats van een afrolmenu"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display databases as a list"
