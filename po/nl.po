@@ -9424,7 +9424,7 @@ msgstr "Verwijder de geselecteerde gebruikers"
 #: server_privileges.php:1781
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
-"Trek alle actieve privileges in van alle gebruikers en verwijder deze daarna."
+"Trek alle actieve rechten in van alle gebruikers en verwijder deze daarna."
 
 #: server_privileges.php:1782 server_privileges.php:1783
 #: server_privileges.php:1784
