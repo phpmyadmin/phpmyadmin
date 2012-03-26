@@ -274,7 +274,7 @@ msgstr "Databank %s werd gekopiëerd naar %s"
 
 #: db_operations.php:412
 msgid "Rename database to"
-msgstr "Hernoem database naar"
+msgstr "Hernoem databank naar"
 
 #: db_operations.php:438
 msgid "Remove database"
