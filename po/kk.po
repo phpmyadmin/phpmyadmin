@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 16:17+0200\n"
+"PO-Revision-Date: 2012-03-26 16:18+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -134,7 +134,7 @@ msgstr "Кестеге түсініктеме:"
 #: tbl_relation.php:395 tbl_tracking.php:269 tbl_tracking.php:335
 #: tbl_zoom_select.php:451
 msgid "Column"
-msgstr ""
+msgstr "Бағана"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:449
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
