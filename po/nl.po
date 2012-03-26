@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-26 17:57+0200\n"
+"PO-Revision-Date: 2012-03-26 17:58+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -9486,8 +9486,7 @@ msgstr "... verwijder de oude van de user tabellen."
 #: server_privileges.php:2191
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
-msgstr ""
-"... herstel alle actieve privileges van de oude en verwijder deze daarna."
+msgstr "... herstel alle actieve rechten van de oude en verwijder deze daarna."
 
 #: server_privileges.php:2192
 msgid ""
