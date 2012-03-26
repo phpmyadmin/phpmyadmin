@@ -1751,7 +1751,7 @@ msgstr "Ververs databank"
 
 #: js/messages.php:240
 msgid "Copying Database"
-msgstr "Database kopiëren"
+msgstr "Databank kopiëren"
 
 #: js/messages.php:241
 msgid "Changing Charset"
