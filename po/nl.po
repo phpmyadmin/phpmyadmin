@@ -9290,7 +9290,7 @@ msgstr "De geselecteerde gebruiker werd niet aangetroffen in de rechtentabel."
 
 #: server_privileges.php:2041
 msgid "Column-specific privileges"
-msgstr "Kolom-specifieke privileges"
+msgstr "Kolom-specifieke rechten"
 
 #: server_privileges.php:2247
 msgid "Add privileges on the following database"
