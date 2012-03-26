@@ -6694,7 +6694,7 @@ msgstr ""
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Database systeem of oudere MySQL server om uitvoer compabiliteit mee te "
+"Databank systeem of oudere MySQL server om uitvoer compabiliteit mee te "
 "maximaliseren:"
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
