@@ -4119,7 +4119,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid "Display database comment instead of its name"
-msgstr "Toon database opmerking in plaats van de naam"
+msgstr "Toon databank opmerking in plaats van de naam"
 
 #: libraries/config/messages.inc.php:457
 msgid ""
