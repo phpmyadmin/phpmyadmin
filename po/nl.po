@@ -949,7 +949,7 @@ msgstr "Weet u zeker dat u dit wilt "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
-msgstr "U staat op het punt een complete database te VERWIJDEREN!"
+msgstr "U staat op het punt een volledige database te VERWIJDEREN!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
