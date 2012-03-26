@@ -3332,7 +3332,7 @@ msgstr "Definieer hoelang (in seconden) een aanmeldingscookie geldig blijft"
 
 #: libraries/config/messages.inc.php:297
 msgid "Login cookie validity"
-msgstr "Inlog cookie geldigheid"
+msgstr "Geldigheid aanmeldingscookie"
 
 #: libraries/config/messages.inc.php:298
 msgid "Double size of textarea for LONGTEXT columns"
