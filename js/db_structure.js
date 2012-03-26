@@ -253,6 +253,28 @@ $(document).ready(function() {
         }) // end $.post()
     });
 
+     /**
+     * Event handler for 'Foreign Key Checks' disabling option
+     * in the drop table confirmation form
+     */
+    $(".fkc_switch").click(function(event){
+       if ($("#fkc_checkbox").attr('checked') == 'checked') {
+           $("#fkc_checkbox").removeAttr('checked');
+           $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
+           return;
+       }
+       $("#fkc_checkbox").attr('checked','checked');   
+       $("#fkc_status").html(PMA_messages['strForeignKeyCheckEnabled']);
+    });
+
+    $('#fkc_checkbox').change(function () {
+        if ($(this).attr("checked")) {
+            $("#fkc_status").html(PMA_messages['strForeignKeyCheckEnabled']);
+            return;
+        }
+        $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
+    }); // End of event handler for 'Foreign Key Check'
+
     /**
      * Ajax Event handler for 'Truncate Table'
      *
