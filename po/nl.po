@@ -4126,7 +4126,7 @@ msgstr "Teken(reeks) dat de boomdiepte aangeeft in databasenamen"
 
 #: libraries/config/messages.inc.php:276
 msgid "Database tree separator"
-msgstr "Database boomstructuur scheidingsteken"
+msgstr "Scheidingsteken databank boomstructuur"
 
 #: libraries/config/messages.inc.php:277
 msgid ""
