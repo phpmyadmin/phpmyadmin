@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-26 18:31+0200\n"
+"PO-Revision-Date: 2012-03-26 18:32+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -6481,7 +6481,7 @@ msgstr "Voer SQL query/queries uit op de server %s"
 #: libraries/sql_query_form.lib.php:240 libraries/sql_query_form.lib.php:264
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Draai SQL query/queries op database %s"
+msgstr "Voer SQL query/queries uit op databank %s"
 
 #: libraries/sql_query_form.lib.php:296 navigation.php:276
 #: setup/frames/index.inc.php:219
