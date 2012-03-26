@@ -9148,7 +9148,7 @@ msgstr "Administratie"
 
 #: server_privileges.php:745 server_privileges.php:1820
 msgid "Global privileges"
-msgstr "Globale privileges"
+msgstr "Globale rechten"
 
 #: server_privileges.php:747 server_privileges.php:2035
 msgid "Database-specific privileges"
