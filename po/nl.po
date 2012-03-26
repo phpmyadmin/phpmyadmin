@@ -9339,7 +9339,7 @@ msgstr ""
 
 #: server_privileges.php:791
 msgid "Login Information"
-msgstr "Inloginformatie"
+msgstr "Aanmeldingsinformatie"
 
 #: server_privileges.php:885
 msgid "Do not change the password"
