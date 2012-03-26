@@ -9152,7 +9152,7 @@ msgstr "Globale rechten"
 
 #: server_privileges.php:747 server_privileges.php:2035
 msgid "Database-specific privileges"
-msgstr "Database-specifieke rechten"
+msgstr "Databank-specifieke rechten"
 
 #: server_privileges.php:779
 msgid "Resource limits"
