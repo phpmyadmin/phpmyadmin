@@ -7670,7 +7670,7 @@ msgstr "Geen"
 #: server_privileges.php:443 server_privileges.php:580
 #: server_privileges.php:1798 server_privileges.php:1804
 msgid "Table-specific privileges"
-msgstr "Tabel-specifieke privileges"
+msgstr "Tabel-specifieke rechten"
 
 #: server_privileges.php:444 server_privileges.php:588
 #: server_privileges.php:1610
