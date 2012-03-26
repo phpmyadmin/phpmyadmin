@@ -6155,7 +6155,8 @@ msgstr ""
 #: libraries/relation.lib.php:156
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
-"Log opnieuw in op phpMyAdmin om het bijgewerkte configuratiebestand te laden."
+"Meld opnieuw aan bij phpMyAdmin om het bijgewerkte configuratiebestand te "
+"laden."
 
 #: libraries/relation.lib.php:1175
 msgid "no description"
