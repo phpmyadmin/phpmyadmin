@@ -294,7 +294,17 @@ if (!empty($submit_mult) && !empty($what)) {
             ?>:</legend>
             <code><?php echo $full_query; ?></code>
         </fieldset>
-        <fieldset class="tblFooters">
+        <fieldset class="tblFooters"><?php
+            // Display option to disable foreign key checks while dropping tables
+            if ($what == 'drop_tbl') { ?> 
+                <div id="foreignkeychk">
+                <span class="fkc_switch"><?php echo __('Foreign key check:'); ?></span>
+                <span class="checkbox"><input type="checkbox" name="fk_check" value="1" id="fkc_checkbox"<?php 
+                $default_fk_check_value = (PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
+                echo ($default_fk_check_value) ? ' checked=\"checked\"' : '' ?>/></span>
+                <span id="fkc_status" class="fkc_switch"><?php echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)'); ?></span>
+                </div><?php
+            } ?>
             <input type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes" />
             <input type="submit" name="mult_btn" value="<?php echo __('No'); ?>" id="buttonNo" />
         </fieldset>
@@ -464,6 +474,7 @@ if (!empty($submit_mult) && !empty($what)) {
     } // end for
 
     if ($query_type == 'drop_tbl') {
+        $default_fk_check_value = (PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
         if (!empty($sql_query)) {
             $sql_query .= ';';
         } elseif (!empty($sql_query_views)) {
@@ -476,7 +487,13 @@ if (!empty($submit_mult) && !empty($what)) {
         include './sql.php';
     } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
+        if(!isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') { // for disabling foreign key checks while dropping tables
+            PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 0;');
+        }
         $result = PMA_DBI_try_query($sql_query);
+        if(!isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl' && $default_fk_check_value) {
+            PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 1;');         
+        }
         if ($result && !empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
             $result = PMA_DBI_try_query($sql_query_views);

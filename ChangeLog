@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 + rfe #3488640 Expand table-group in non-light navigation frame if only one
 + Patch #3509360 Contest-3: Option "Truncate table" before "insert"
 + Patch #3506552 Contest-2: Show index information in the data dictionary
++ Patch #3510656 Contest-1: Ignoring foreign keys while dropping tables
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered

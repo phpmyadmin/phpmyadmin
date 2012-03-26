@@ -3578,6 +3578,12 @@ h2.active {
     color: black;
     font-weight: normal;
 }
+ 
+#foreignkeychk {
+    align:left;
+    position:absolute;
+    cursor:pointer;
+}
 
 input.btn {
     color: #333;
