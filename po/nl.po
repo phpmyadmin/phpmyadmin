@@ -4120,7 +4120,7 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
-"Standaard formaat; deze lijst is afhankelijk van de locatie (database, "
+"Standaard formaat; deze lijst is afhankelijk van de locatie (databank, "
 "tabel), enkel SQL is altijd beschikbaar"
 
 #: libraries/config/messages.inc.php:249
