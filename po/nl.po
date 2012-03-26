@@ -7576,7 +7576,7 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limiteert het aantal commando's, welke een database of tabel veranderen, die "
+"Limiteert het aantal commando's, welke een databank of tabel veranderen, die "
 "een gebruiker per uur mag uitvoeren."
 
 #: server_privileges.php:54 server_privileges.php:634
