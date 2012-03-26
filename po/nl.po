@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 19:03+0200\n"
+"PO-Revision-Date: 2012-03-26 19:06+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2585,7 +2585,7 @@ msgstr "Kan niet verbinden: ongeldige instellingen."
 #: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
-msgstr "Welkom op %s"
+msgstr "Welkom bij %s"
 
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
