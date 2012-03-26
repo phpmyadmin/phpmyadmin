@@ -322,7 +322,7 @@ msgstr "Voeg beperkingen toe"
 
 #: db_operations.php:522
 msgid "Switch to copied database"
-msgstr "Overschakelen naar de gekopieerde database"
+msgstr "Overschakelen naar de gekopiëerde databank"
 
 #: db_operations.php:546 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
