@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-26 18:36+0200\n"
+"PO-Revision-Date: 2012-03-26 18:37+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -11643,7 +11643,7 @@ msgstr "(apart)"
 
 #: tbl_operations.php:297
 msgid "Move table to (database<b>.</b>table):"
-msgstr "Verplaats tabel naar (database<b>.</b>tabel):"
+msgstr "Verplaats tabel naar (databank<b>.</b>tabel):"
 
 #: tbl_operations.php:355
 msgid "Table options"
