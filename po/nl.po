@@ -2727,7 +2727,7 @@ msgstr "Overhead"
 
 #: libraries/build_html_for_db.lib.php:96
 msgid "Jump to database"
-msgstr "Ga naar database"
+msgstr "Ga naar databank"
 
 #: libraries/build_html_for_db.lib.php:133
 msgid "Not replicated"
