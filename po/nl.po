@@ -7430,7 +7430,7 @@ msgstr "%s databases zijn succesvol verwijderd."
 
 #: server_databases.php:100
 msgid "Databases statistics"
-msgstr "Database statistieken"
+msgstr "Databank statistieken"
 
 #: server_databases.php:183 server_replication.php:180
 #: server_replication.php:208
