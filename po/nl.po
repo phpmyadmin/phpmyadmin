@@ -4200,7 +4200,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:474
 msgid "Suggest new database name"
-msgstr "Stel een databasenaam voor"
+msgstr "Stel een databanknaam voor"
 
 #: libraries/config/messages.inc.php:475
 msgid "A warning is displayed on the main page if Suhosin is detected"
