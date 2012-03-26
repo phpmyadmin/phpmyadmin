@@ -278,7 +278,7 @@ msgstr "Verwijder databank"
 #: db_operations.php:446
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Database %s is verwijderd."
+msgstr "Databank %s werd verwijderd."
 
 #: db_operations.php:451
 msgid "Drop the database (DROP)"
