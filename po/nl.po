@@ -2034,7 +2034,7 @@ msgstr "TiB"
 
 #: libraries/common.lib.php:1392
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #: libraries/common.lib.php:1392
 msgid "EiB"
