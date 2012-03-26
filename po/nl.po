@@ -4385,7 +4385,7 @@ msgstr "Aangepast"
 #: libraries/config/setup.forms.php:281
 #: libraries/config/user_preferences.forms.php:183
 msgid "Database export options"
-msgstr "Database export opties"
+msgstr "Databank exporteer opties"
 
 #: libraries/config/setup.forms.php:314
 #: libraries/config/user_preferences.forms.php:216
