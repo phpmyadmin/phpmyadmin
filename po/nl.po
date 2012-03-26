@@ -9103,7 +9103,7 @@ msgstr "uitgeschakeld"
 
 #: server_privileges.php:34 server_privileges.php:369
 msgid "Includes all privileges except GRANT."
-msgstr "Bevat alle privileges behalve GRANT."
+msgstr "Bevat alle rechten behalve GRANT."
 
 #: server_privileges.php:35 server_privileges.php:245
 #: server_privileges.php:630
