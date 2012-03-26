@@ -112,7 +112,7 @@ msgstr "Databank %1$s werd aangemaakt."
 
 #: db_datadict.php:49 db_operations.php:390
 msgid "Database comment: "
-msgstr "Database opmerking: "
+msgstr "Databank opmerking: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
