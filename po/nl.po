@@ -5223,9 +5223,9 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
-"Een metadata hoofdingenlijst met \":\" als lijstscheidingsteken, die "
-"gebruikt wordt om de pbms_metadata_header tabel te initiliaseren bij aanmaak "
-"van een database."
+"Een metadata hoofdingenlijst met \":\" als lijstscheidingsteken, die gebruikt "
+"wordt om de pbms_metadata_header tabel te initiliaseren bij aanmaak van een "
+"databank."
 
 #: libraries/engines/pbms.lib.php:94
 #, php-format
