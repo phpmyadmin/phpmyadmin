@@ -8073,7 +8073,7 @@ msgstr "Engines"
 
 #: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
 msgid "Source database"
-msgstr "Bron database"
+msgstr "Bron databank"
 
 #: libraries/server_synchronize.lib.php:1303
 #: libraries/server_synchronize.lib.php:1311
