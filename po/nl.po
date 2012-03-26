@@ -9393,7 +9393,7 @@ msgstr "De geselecteerde gebruikers zijn met succes verwijderd."
 
 #: server_privileges.php:1421
 msgid "The privileges were reloaded successfully."
-msgstr "De privileges zijn succesvol vernieuwd."
+msgstr "De rechten werden succesvol opnieuw ingeladen."
 
 #: server_privileges.php:1432 server_privileges.php:1823
 msgid "Edit Privileges"
