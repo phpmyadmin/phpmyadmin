@@ -9454,7 +9454,7 @@ msgstr "Kolom-specifieke rechten"
 
 #: server_privileges.php:2106
 msgid "Add privileges on the following database"
-msgstr "Voeg rechten toe op de volgende database"
+msgstr "Voeg rechten toe op de volgende databank"
 
 #: server_privileges.php:2124
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
