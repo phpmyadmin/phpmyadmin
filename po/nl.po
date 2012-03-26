@@ -5500,7 +5500,7 @@ msgstr "Details..."
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
-msgstr "Database lijkt leeg!"
+msgstr "Databank lijkt leeg te zijn!"
 
 #: libraries/db_links.inc.php:65 libraries/relation.lib.php:144
 #: libraries/tbl_links.inc.php:97
