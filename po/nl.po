@@ -6741,7 +6741,7 @@ msgid ""
 "separated by commas and not enclosed in quotations."
 msgstr ""
 "Als de data in elke regel van het bestand niet in dezelfde volgorde staat "
-"als deze van de database, vul hier dan de overeenkomstige kolomnamen in. "
+"als deze van de databank, vul hier dan de overeenkomstige kolomnamen in. "
 "Kolomnamen moeten gescheiden worden door komma's en mogen niet voorzien zijn "
 "van aanhalingstekens."
 
