@@ -2744,7 +2744,7 @@ msgstr "Controleer rechten voor database &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:156
 msgid "Check Privileges"
-msgstr "Controleer privileges"
+msgstr "Controleer rechten"
 
 #: libraries/common.inc.php:151
 msgid "possible exploit"
