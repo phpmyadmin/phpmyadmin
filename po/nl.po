@@ -251,7 +251,7 @@ msgstr "De databank naam is leeg!"
 #: db_operations.php:300
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Database %s is hernoemd naar %s"
+msgstr "Databank %s werd hernoemd naar %s"
 
 #: db_operations.php:304
 #, php-format
