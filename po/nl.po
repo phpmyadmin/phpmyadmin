@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-26 18:16+0200\n"
+"PO-Revision-Date: 2012-03-26 18:17+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -2610,7 +2610,7 @@ msgstr "Excel editie"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
-msgstr "Database naam template"
+msgstr "Databank naam template"
 
 #: libraries/config/messages.inc.php:84
 msgid "Server name template"
