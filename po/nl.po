@@ -6453,7 +6453,7 @@ msgstr "Instellingen"
 
 #: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1116
 msgid "Source database"
-msgstr "Bron database"
+msgstr "Bron databank"
 
 #: libraries/server_synchronize.lib.php:1340
 #: libraries/server_synchronize.lib.php:1363
