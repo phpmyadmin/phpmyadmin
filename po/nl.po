@@ -9528,7 +9528,7 @@ msgstr "globaal"
 
 #: server_privileges.php:2361
 msgid "database-specific"
-msgstr "database-specifiek"
+msgstr "databank-specifiek"
 
 #: server_privileges.php:2363
 msgid "wildcard"
