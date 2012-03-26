@@ -2522,7 +2522,7 @@ msgstr "Erro ao renomear tabela %1$s para %2$s"
 #, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Tabela %s renomeada para %s"
+msgstr "Table %1$s renomeada para %2$s."
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
