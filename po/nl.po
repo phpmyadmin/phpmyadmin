@@ -2430,8 +2430,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Of er een waarschuwing(&quot;Weet u jet zeker...&quot;) moet worden getoond "
-"op het moment dat u gegevens gaat verwijderen"
+"Of er een waarschuwing(&quot;Weet u zeker...&quot;) moet worden getoond op "
+"het moment dat u gegevens gaat verwijderen"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
