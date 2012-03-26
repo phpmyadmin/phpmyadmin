@@ -10982,8 +10982,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"De bestemmingsdatabase zal volledig worden gesynchroniseerd met de bron. De "
-"bron zal niet worden gewijzigd."
+"De bestemmingsdatabank zal volledig worden gesynchroniseerd met de "
+"brondatabank. De brondatabank zal niet worden gewijzigd."
 
 #: server_variables.php:80
 msgid "Setting variable failed"
