@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 18:09+0200\n"
+"PO-Revision-Date: 2012-03-26 18:10+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -1059,7 +1059,7 @@ msgstr "Weet u zeker dat u de volgende SQL query wil uitvoeren?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:291 sql.php:371
 msgid "You are about to DESTROY a complete database!"
-msgstr "U staat op het punt een volledige database te VERWIJDEREN!"
+msgstr "U staat op het punt een volledige databank te VERWIJDEREN!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
