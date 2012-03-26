@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 18:32+0200\n"
-"Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
+"PO-Revision-Date: 2012-03-26 22:45+0600\n"
+"Last-Translator: Берікбол <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -2328,7 +2328,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:275
 #: tbl_tracking.php:339
 msgid "Comment"
-msgstr ""
+msgstr "түсініктеме қалдыру"
 
 #: libraries/Index.class.php:482
 msgid "The primary key has been dropped"
@@ -2350,7 +2350,7 @@ msgstr ""
 #: libraries/server_links.inc.php:43 server_databases.php:119
 #: server_privileges.php:1975
 msgid "Databases"
-msgstr ""
+msgstr "Мәлімет қорлары"
 
 #: libraries/Message.class.php:196 libraries/common.lib.php:615
 #: libraries/core.lib.php:216 libraries/import.lib.php:142 tbl_change.php:935
@@ -2519,7 +2519,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:200
 msgid "Log in"
-msgstr ""
+msgstr "Кіру"
 
 #: libraries/auth/cookie.auth.lib.php:202
 #: libraries/auth/cookie.auth.lib.php:204
@@ -2527,7 +2527,7 @@ msgstr ""
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "phpMyAdmin құжаттамасы"
 
 #: libraries/auth/cookie.auth.lib.php:214
 #: libraries/auth/cookie.auth.lib.php:215
@@ -2710,19 +2710,19 @@ msgstr ""
 #: libraries/common.lib.php:450
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "kk"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:454
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "kk"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:458
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "kk"
 
 #: libraries/common.lib.php:472 libraries/common.lib.php:474
 #: libraries/common.lib.php:476 libraries/common.lib.php:494
@@ -5144,7 +5144,7 @@ msgstr ""
 #: libraries/core.lib.php:253
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr "en"
+msgstr "kk"
 
 #: libraries/core.lib.php:274
 #, php-format
