@@ -5377,7 +5377,7 @@ msgstr "Upload folder"
 
 #: libraries/config/messages.inc.php:515
 msgid "Allow for searching inside the entire database"
-msgstr "Maak het mogelijk om te zoeken binnen de gehele database"
+msgstr "Maak het mogelijk om te zoeken binnen de gehele databank"
 
 #: libraries/config/messages.inc.php:516
 msgid "Use database search"
