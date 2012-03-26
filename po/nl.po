@@ -9299,7 +9299,7 @@ msgstr "Maakt het mogelijk data aan te passen."
 
 #: server_privileges.php:69 server_privileges.php:363
 msgid "No privileges."
-msgstr "Geen privileges."
+msgstr "Geen rechten."
 
 #: server_privileges.php:405 server_privileges.php:406
 msgctxt "None privileges"
