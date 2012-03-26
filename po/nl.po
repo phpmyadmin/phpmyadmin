@@ -7019,7 +7019,7 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"De cookie geldigheid gedefinieerd door een PHP parameter is lager dan de "
+"De cookie geldigheid gedefinieerd door een PHP parameter is korter dan de "
 "ingestelde cookie geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
 "eerder dan in phpMyAdmin is ingesteld."
 
