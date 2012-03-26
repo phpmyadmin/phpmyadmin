@@ -3362,8 +3362,8 @@ msgstr "Gebruiker kan geen hogere waarde instellen"
 #: libraries/config/messages.inc.php:304
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
-"Het maximale aantal databases dat wordt getoond in het linker frame en de "
-"database lijst"
+"Het maximale aantal databanken dat wordt getoond in het linker frame en de "
+"databank lijst"
 
 #: libraries/config/messages.inc.php:305
 msgid "Maximum databases"
