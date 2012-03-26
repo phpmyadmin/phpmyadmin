@@ -802,7 +802,7 @@ msgstr "Tabel tracken"
 
 #: db_tracking.php:227
 msgid "Database Log"
-msgstr "Database-log"
+msgstr "Databank-log"
 
 #: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
