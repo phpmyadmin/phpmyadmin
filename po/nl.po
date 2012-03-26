@@ -9325,7 +9325,7 @@ msgstr "Globale rechten"
 
 #: server_privileges.php:680 server_privileges.php:1894
 msgid "Database-specific privileges"
-msgstr "Database-specifieke rechten"
+msgstr "Databank-specifieke rechten"
 
 #: server_privileges.php:712
 msgid "Resource limits"
