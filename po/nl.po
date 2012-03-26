@@ -1838,7 +1838,7 @@ msgstr "Controleer privileges"
 
 #: libraries/chart.lib.php:40
 msgid "Query statistics"
-msgstr "Toon statistieken"
+msgstr "Query statistieken"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
