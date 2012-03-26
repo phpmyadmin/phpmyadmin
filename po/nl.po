@@ -1771,7 +1771,7 @@ msgstr "Klik om deze melding te sluiten"
 
 #: js/messages.php:242
 msgid "Renaming Databases"
-msgstr "Database hernoemen"
+msgstr "Databank hernoemen"
 
 #: js/messages.php:243
 msgid "Reload Database"
