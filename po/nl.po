@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 18:22+0200\n"
+"PO-Revision-Date: 2012-03-26 18:23+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -5119,7 +5119,7 @@ msgstr "Query veld behouden"
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
-"Maakt het mogelijk om statistieken van databases en tabellen te tonen (over "
+"Maakt het mogelijk om statistieken van databanken en tabellen te tonen (over "
 "o.a. het schijfgebruik)"
 
 #: libraries/config/messages.inc.php:476
