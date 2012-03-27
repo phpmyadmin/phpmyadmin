@@ -4686,7 +4686,7 @@ msgstr "«gzippé»"
 
 #: libraries/display_export.lib.php:312
 msgid "bzipped"
-msgstr " «bzippé »"
+msgstr "«bzippé»"
 
 #: libraries/display_export.lib.php:321
 msgid "View output as text"
