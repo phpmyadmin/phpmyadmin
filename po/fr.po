@@ -2011,7 +2011,7 @@ msgstr "Profilage"
 #: libraries/common.lib.php:1354 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
 msgid "Time"
-msgstr "Durée"
+msgstr "Moment"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1392
