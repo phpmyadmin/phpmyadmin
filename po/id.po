@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-02-16 20:01+0200\n"
-"Last-Translator: haze_skw <julungpujut@ymail.com>\n"
+"PO-Revision-Date: 2012-03-27 16:57+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -532,7 +532,7 @@ msgstr "Browse"
 #: db_search.php:259
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Hapus yang cocok untuk% s tabel?"
+msgstr "Hapus yang cocok untuk %s tabel?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1255
 #: libraries/display_tbl.lib.php:2194
@@ -879,7 +879,7 @@ msgstr "Tampilkan bookmark"
 #: import.php:402 sql.php:890
 #, php-format
 msgid "Bookmark %s created"
-msgstr "Bookmark % s dibuat"
+msgstr "Markah %s dibuat"
 
 #: import.php:408 import.php:414
 #, php-format
@@ -9102,7 +9102,7 @@ msgstr "Tabel %s sudah ada!"
 #: tbl_create.php:242
 #, php-format
 msgid "Table %1$s has been created."
-msgstr "Tabel %s telah dibuat."
+msgstr "Tabel %1$s telah dibuat."
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
