@@ -11,6 +11,20 @@ require_once 'libraries/pmd_common.php';
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';
 
+/**
+ * Sets globals from $_GET
+ */
+$get_params = array(
+    'db',
+    'table',
+    'token'
+);
+foreach ($get_params as $one_get_param) {
+    if (isset($_GET[$one_get_param])) {
+        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
+    }
+}
+
 $tab_column       = get_tab_info();
 $script_tabs      = get_script_tabs();
 $script_contr     = get_script_contr();
