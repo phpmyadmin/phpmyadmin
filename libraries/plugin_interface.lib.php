@@ -103,29 +103,6 @@ function PMA_pluginGetDefault($section, $opt)
 }
 
 /**
- * Returns html input tag option 'checked' if option $opt
- * should be set by config or request
- *
- * @param string $section name of config section in
- *                        $GLOBALS['cfg'][$section] for plugin
- * @param string $opt     name of option
- * @param string $val     value of option to check against
- *
- * @return  string  html input tag option 'checked'
- */
-function PMA_pluginIsActive($section, $opt, $val)
-{
-    if (! empty($GLOBALS['timeout_passed']) && isset($_REQUEST[$opt])) {
-        if ($_REQUEST[$opt] == $val) {
-            return ' checked="checked"';
-        }
-    } elseif (isset($GLOBALS['cfg'][$section][$opt]) &&  $GLOBALS['cfg'][$section][$opt] == $val) {
-        return ' checked="checked"';
-    }
-    return '';
-}
-
-/**
  * Returns html select form element for plugin choice
  * and hidden fields denoting whether each plugin must be exported as a file
  *
