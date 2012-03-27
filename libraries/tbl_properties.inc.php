@@ -563,10 +563,10 @@ echo PMA_generate_common_hidden_inputs($_form_params);
 unset($_form_params);
 if ($action == 'tbl_create.php') {
     ?>
-    <table>
+    <table class="table-name">
         <tr><td><?php echo __('Table name'); ?>:&nbsp;<input type="text" name="table" size="40" maxlength="80"
                 value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
-                class="textfield" />
+                class="textfield" autofocus />
             </td>
             <td>
                 <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>

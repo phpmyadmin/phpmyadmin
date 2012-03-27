@@ -1371,6 +1371,12 @@ function PMA_createTableDialog( $div, url , target)
          $(this).closest('.ui-dialog-content').dialog('close').remove();
      };
 
+     // allow create-table form only once
+     if ($('#create_table_form').length) {
+        $('#create_table_form input[autofocus]').focus();
+        return;
+     }
+
      var $msgbox = PMA_ajaxShowMessage();
 
      $.get( target , url ,  function(data) {
@@ -1431,6 +1437,9 @@ function PMA_createTableDialog( $div, url , target)
                      var $save_button  = $('#create_table_form').find("input[name='do_save_data']");
                      $cancel_button.insertAfter($save_button);
                      $button_pane.hide();
+
+                     // focus table name input
+                     $(this).find("input[autofocus]").focus();
                  },
                  close: function() {
                      $(window).unbind('resize.dialog-resizer');
