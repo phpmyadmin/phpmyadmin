@@ -7,14 +7,6 @@
  * @package PhpMyAdmin
  */
 
-/**
- * no need for variables importing
- * @ignore
- */
-if (! defined('PMA_NO_VARIABLES_IMPORT')) {
-    define('PMA_NO_VARIABLES_IMPORT', true);
-}
-
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     $GLOBALS['is_header_sent'] = true;
 }

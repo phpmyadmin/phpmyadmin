@@ -273,13 +273,6 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
 }
 
 /**
- * include deprecated grab_globals only if required
- */
-if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
-    include './libraries/grab_globals.lib.php';
-}
-
-/**
  * check timezone setting
  * this could produce an E_STRICT - but only once,
  * if not done here it will produce E_STRICT on every date/time function

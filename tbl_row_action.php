@@ -6,14 +6,6 @@
  * @package PhpMyAdmin
  */
 
-
-/**
- * do not globalize/import request variables
- * can only be enabled if all included files are switched superglobals too
- * but leave this here to show that this file is 'superglobalized'
-define('PMA_NO_VARIABLES_IMPORT', true);
- */
-
 /**
  *
  */

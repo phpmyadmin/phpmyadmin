@@ -8,14 +8,6 @@
  */
 
 /**
- * no need for variables importing
- * @ignore
- */
-if (! defined('PMA_NO_VARIABLES_IMPORT')) {
-    define('PMA_NO_VARIABLES_IMPORT', true);
-}
-
-/**
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
