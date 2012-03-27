@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-02-16 20:01+0200\n"
-"Last-Translator: haze_skw <julungpujut@ymail.com>\n"
+"PO-Revision-Date: 2012-03-27 16:57+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.8\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
@@ -1003,7 +1003,7 @@ msgstr "Tidak dapat memuat plugin import, harap periksa instalasi Anda!"
 #: import.php:470 sql.php:967
 #, php-format
 msgid "Bookmark %s created"
-msgstr "Markah % s dibuat"
+msgstr "Markah %s dibuat"
 
 #: import.php:476 import.php:482
 #, php-format
@@ -2528,7 +2528,7 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"Tidak bisa menyimpan UI properti \"% s\". Perubahan yang dibuat tidak akan "
+"Tidak bisa menyimpan UI properti \"%s\". Perubahan yang dibuat tidak akan "
 "terus-menerus setelah Anda me-refresh halaman ini. Silakan periksa jika "
 "struktur tabel telah berubah."
 
@@ -7307,7 +7307,7 @@ msgstr "Trigger %1$s telah diubah."
 #: libraries/rte/rte_triggers.lib.php:106
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Tabel %s telah dibuat."
+msgstr "Tabel %1$s telah dibuat."
 
 #: libraries/rte/rte_triggers.lib.php:161
 msgid "Edit trigger"
@@ -10831,7 +10831,7 @@ msgstr "Tabel %s sudah ada!"
 #: tbl_create.php:227
 #, php-format
 msgid "Table %1$s has been created."
-msgstr "Tabel %s telah dibuat."
+msgstr "Tabel %1$s telah dibuat."
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
