@@ -3,14 +3,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2011-05-31 09:47+0800\n"
-"Last-Translator: Finjon Kiang (http://twpug.net)\n"
+"PO-Revision-Date: 2012-03-27 17:10+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -514,7 +515,7 @@ msgstr "“<i>%s</i>”的搜尋結果 %s："
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "在表 <i>%2$s</i> 中找到 %1$s 個符合"
+msgstr[0] "%s 筆資料符合 - 於資料表 <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2829
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
