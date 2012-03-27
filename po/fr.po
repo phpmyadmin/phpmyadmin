@@ -1641,7 +1641,7 @@ msgstr "Connexion impossible: paramètres incorrects."
 #: test/theme.php:151
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bienvenue sur %s"
+msgstr "Bienvenue dans %s"
 
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
