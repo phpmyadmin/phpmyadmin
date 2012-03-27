@@ -9393,7 +9393,7 @@ msgstr "Survol des utilisateurs"
 #: server_privileges.php:1705 server_privileges.php:1899
 #: server_privileges.php:2258
 msgid "Grant"
-msgstr "«Grant »"
+msgstr "«Grant»"
 
 #: server_privileges.php:1778
 msgid "Remove selected users"
