@@ -1345,9 +1345,9 @@ function PMA_showNoticeForEnum(selectElement)
     enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
     var selectedType = selectElement.val();
     if (selectedType == "ENUM" || selectedType == "SET") {
-        $("p[id='enum_notice_" + enum_notice_id + "']").show();
+        $("p#enum_notice_" + enum_notice_id).show();
     } else {
-        $("p[id='enum_notice_" + enum_notice_id + "']").hide();
+        $("p#enum_notice_" + enum_notice_id).hide();
     }
 }
 
@@ -2440,7 +2440,7 @@ $(document).ready(function() {
     PMA_verifyColumnsProperties();
     //
     // needs live() to work also in the Create Table dialog
-    $("select[class='column_type']").live('change', function() {
+    $("select.column_type").live('change', function() {
         PMA_showNoticeForEnum($(this));
     });
     $(".default_type").live('change', function() {
@@ -2453,7 +2453,7 @@ $(document).ready(function() {
 
 function PMA_verifyColumnsProperties()
 {
-    $("select[class='column_type']").each(function() {
+    $("select.column_type").each(function() {
         PMA_showNoticeForEnum($(this));
     });
     $(".default_type").each(function() {
@@ -2604,7 +2604,7 @@ $(document).ready(function() {
             });
             // get the Length/Values text field where this value belongs
             var values_id = $(this).find("input[type='hidden']").attr("value");
-            $("input[id='" + values_id + "']").attr("value", value_array.join(","));
+            $("input#" + values_id).attr("value", value_array.join(","));
             $(this).dialog("close");
         };
         buttonOptions[PMA_messages['strClose']] = function () {
@@ -2689,12 +2689,12 @@ function displayMoreTableOpts()
     // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
     // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
     if ($("input[type='hidden'][name='table_type']").val() == "table") {
-        var $table = $("table[id='tablestructure']");
+        var $table = $("table#tablestructure");
         $table.find("td.replaced_by_more").remove();
-        $table.find("th[class='action']").attr("colspan", 3);
+        $table.find("th.action").attr("colspan", 3);
 
         // Display the "more" text
-        $table.find("td[class='more_opts']").show();
+        $table.find("td.more_opts").show();
 
         // Position the dropdown
         $(".structure_actions_dropdown").each(function() {
@@ -2710,7 +2710,7 @@ function displayMoreTableOpts()
         // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
         // positioning an iframe directly on top of it
         var $after_field = $("select[name='after_field']");
-        $("iframe[class='IE_hack']")
+        $("iframe.IE_hack")
             .width($after_field.width())
             .height($after_field.height())
             .offset({
@@ -2719,10 +2719,10 @@ function displayMoreTableOpts()
             });
 
         // When "more" is hovered over, show the hidden actions
-        $table.find("td[class='more_opts']")
+        $table.find("td.more_opts")
             .mouseenter(function() {
                 if ($.browser.msie && $.browser.version == "6.0") {
-                    $("iframe[class='IE_hack']")
+                    $("iframe.IE_hack")
                         .show()
                         .width($after_field.width()+4)
                         .height($after_field.height()+4)
@@ -2745,7 +2745,7 @@ function displayMoreTableOpts()
             .mouseleave(function() {
                 $(this).children(".structure_actions_dropdown").hide();
                 if ($.browser.msie && $.browser.version == "6.0") {
-                    $("iframe[class='IE_hack']").hide();
+                    $("iframe.IE_hack").hide();
                 }
             });
     }
@@ -2773,15 +2773,15 @@ function checkIndexName(form_id)
     var $the_idx_type = $("#select_index_type");
 
     // Index is a primary key
-    if ($the_idx_type.find("option:selected").attr("value") == 'PRIMARY') {
-        $the_idx_name.attr("value", 'PRIMARY');
+    if ($the_idx_type.find("option:selected").val() == 'PRIMARY') {
+        $the_idx_name.val('PRIMARY');
         $the_idx_name.attr("disabled", true);
     }
 
     // Other cases
     else {
-        if ($the_idx_name.attr("value") == 'PRIMARY') {
-            $the_idx_name.attr("value",  '');
+        if ($the_idx_name.val() == 'PRIMARY') {
+            $the_idx_name.val("");
         }
         $the_idx_name.attr("disabled", false);
     }
@@ -2836,7 +2836,7 @@ function PMA_convertFootnotesToTooltips($div)
          * initially get the img class as "footnotemarker footnote_2", now we get
          * #2 as the span_id. Using that we can find footnote_2 in footnotes.
          * */
-        var tooltip_text = $footnotes.find("span[id='footnote_" + span_id + "']").html();
+        var tooltip_text = $footnotes.find("span#footnote_" + span_id).html();
         $(this).qtip({
             content: tooltip_text,
             show: { delay: 0 },
@@ -3237,7 +3237,7 @@ $(document).ready(function() {
     /**
      * Enables the text generated by PMA_linkOrButton() to be clickable
      */
-    $('a[class~="formLinkSubmit"]').live('click', function(e) {
+    $('a.formLinkSubmit').live('click', function(e) {
 
         if ($(this).attr('href').indexOf('=') != -1) {
             var data = $(this).attr('href').substr($(this).attr('href').indexOf('#')+1).split('=', 2);
