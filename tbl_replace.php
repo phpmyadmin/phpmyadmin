@@ -12,17 +12,6 @@
  */
 
 /**
- * do not import request variable into global scope
- *
- * cannot be used as long as it could happen that the $goto file that is included
- * at the end of this script is not updated to work without imported request variables
- *
- * @todo uncomment this if all possible included files to rely on import request variables
-if (! defined('PMA_NO_VARIABLES_IMPORT')) {
-    define('PMA_NO_VARIABLES_IMPORT', true);
-}
- */
-/**
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';

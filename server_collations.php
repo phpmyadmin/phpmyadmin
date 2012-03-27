@@ -6,13 +6,6 @@
  */
 
 /**
- * no need for variables importing
- * @ignore
- */
-if (! defined('PMA_NO_VARIABLES_IMPORT')) {
-    define('PMA_NO_VARIABLES_IMPORT', true);
-}
-/**
  * requirements
  */
 require_once 'libraries/common.inc.php';

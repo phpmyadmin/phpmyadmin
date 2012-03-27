@@ -5,14 +5,6 @@
  * @package PhpMyAdmin
  */
 
-/**
- * do not import request variable into global scope
- * @ignore
- */
-if (! defined('PMA_NO_VARIABLES_IMPORT')) {
-    define('PMA_NO_VARIABLES_IMPORT', true);
-}
-
 require_once 'libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';

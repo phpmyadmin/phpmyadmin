@@ -15,21 +15,12 @@
  * default is to advance to the field-value parsing. Will only be set to
  * true when a binary file is uploaded, thus bypassing further manipulation of $val.
  *
- * note: grab_globals has extracted the fields from _FILES or HTTP_POST_FILES
- *
- *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * do not import request variable into global scope
- */
-if (! defined('PMA_NO_VARIABLES_IMPORT')) {
-    define('PMA_NO_VARIABLES_IMPORT', true);
-}
 /**
  * Gets some core libraries
  */
