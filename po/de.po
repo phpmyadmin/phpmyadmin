@@ -2134,7 +2134,7 @@ msgstr "Wählen Sie vom Webserver-Uploadverzeichnis <b>%s</b>:"
 #: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:962
 msgid "The directory you set for upload work cannot be reached"
-msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden."
+msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden"
 
 #: libraries/common.lib.php:2998
 msgid "There are no files to upload"
