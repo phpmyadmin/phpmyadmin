@@ -918,7 +918,7 @@ msgstr ""
 #: tbl_operations.php:224 tbl_relation.php:282 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt."
+msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt"
 
 #: import_status.php:30 libraries/common.lib.php:682
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
