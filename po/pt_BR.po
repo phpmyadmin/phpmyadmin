@@ -4,20 +4,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-15 15:00+0200\n"
-"Last-Translator: Roberto Mathias <betorsm@gmail.com>\n"
+"PO-Revision-Date: 2012-03-28 16:16+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
 msgid "Show all"
-msgstr "Mostrar todos"
+msgstr "Mostrar tudo"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2331
 #: libraries/display_tbl.lib.php:321 libraries/export/pdf.php:133
@@ -26,7 +26,7 @@ msgstr "Mostrar todos"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
 #: libraries/schema/User_Schema.class.php:361
 msgid "Page number:"
-msgstr "Numero da página:"
+msgstr "Página número:"
 
 #: browse_foreigners.php:138
 msgid ""
@@ -333,7 +333,7 @@ msgstr "Mudar para o Banco de Dados copiado"
 #: tbl_structure.php:200 tbl_structure.php:861 tbl_tracking.php:270
 #: tbl_tracking.php:321
 msgid "Collation"
-msgstr "Collation"
+msgstr "Colação"
 
 #: db_operations.php:559
 #, php-format
@@ -405,7 +405,7 @@ msgstr[1] "%s tabelas"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "Deve escolher pelo menos uma coluna para exibir"
+msgstr "Você deve escolher pelo menos uma coluna para exibir"
 
 #: db_qbe.php:186
 msgid "Switch to"
@@ -484,7 +484,7 @@ msgstr "Usar tabelas"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Consulta no Banco de Dados <b>%s</b>:"
+msgstr "Consulta SQL ao Banco de Dados <b>%s</b>:"
 
 #: db_qbe.php:956 libraries/common.lib.php:1187
 msgid "Submit Query"
@@ -632,7 +632,7 @@ msgstr "Soma"
 #: db_structure.php:481 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s é o stored engine padrão neste servidor MySQL."
+msgstr "%s é o mecanismo de armazenamento padrão neste servidor MySQL."
 
 #: db_structure.php:509 db_structure.php:526 db_structure.php:527
 #: libraries/display_tbl.lib.php:2219 libraries/display_tbl.lib.php:2224
@@ -765,7 +765,7 @@ msgstr "Versões"
 
 #: db_tracking.php:135 tbl_tracking.php:374 tbl_tracking.php:621
 msgid "Tracking report"
-msgstr "Relatório de rastreamento"
+msgstr "Relatório de monitoramento"
 
 #: db_tracking.php:136 tbl_tracking.php:246 tbl_tracking.php:623
 msgid "Structure snapshot"
@@ -778,7 +778,7 @@ msgstr "Tabelas não monitoradas"
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:626
 #: tbl_structure.php:628
 msgid "Track table"
-msgstr "Rastrear tabela"
+msgstr "Monitorar tabela"
 
 #: db_tracking.php:229
 msgid "Database Log"
@@ -946,7 +946,7 @@ msgstr "Você realmente deseja"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
-msgstr "Você está prestes à DESTRUIR completamente o Banco de Dados!"
+msgstr "Você está prestes à DESTRUIR um banco de dados completo!"
 
 #: js/messages.php:32
 msgid "Dropping Event"
@@ -970,7 +970,7 @@ msgstr "Esta operação pode ser demorada. Deseja prosseguir?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Você está prestes a desativar um repositório BLOB."
+msgstr "Você está prestes a DESATIVAR um repositório BLOB!"
 
 #: js/messages.php:41
 #, php-format
@@ -1444,8 +1444,8 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"O arquivo carregado excede o tamanho definido na diretriz MAX_FILE_SIZE do "
-"formulário HTM."
+"O arquivo enviado excede o tamanho definido na diretriz MAX_FILE_SIZE que "
+"foi definido no formulário HTML."
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
@@ -1471,7 +1471,9 @@ msgstr "Erro desconhecido no carregamento do arquivo."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Erro ao mover o arquivo carregado, veja FAQ 1.11"
+msgstr ""
+"Erro ao mover o arquivo carregado, veja "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1676,7 +1678,7 @@ msgstr "Você pode digitar a url/IP e a porta separados por um espaço."
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
-msgstr "Servidor"
+msgstr "Servidor:"
 
 #: libraries/auth/cookie.auth.lib.php:249
 msgid "Username:"
@@ -1877,7 +1879,9 @@ msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr "A variável <tt>$cfg['PmaAbsoluteUri']</tt> deve ser setada"
+msgstr ""
+"A diretriz<tt>$cfg['PmaAbsoluteUri']</tt> dDEVE ser estabelecida no seu "
+"arquivo de configuração!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -1951,7 +1955,7 @@ msgstr "Mensagens do MySQL : "
 
 #: libraries/common.lib.php:1097
 msgid "Failed to connect to SQL validator!"
-msgstr "Falha ao conectar ao validador SQL"
+msgstr "Falha ao conectar ao validador SQL!"
 
 #: libraries/common.lib.php:1138 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
@@ -2043,7 +2047,7 @@ msgstr "."
 #: libraries/common.lib.php:1609
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d/%m/%Y às %Hh%Mmin"
+msgstr "%d/%m/%Y às %T"
 
 #: libraries/common.lib.php:1923
 #, php-format
@@ -2121,8 +2125,7 @@ msgstr "Selecionar a partir do diretório de upload do servidor <b>%s</b>:"
 #: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:962
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
-"O diretório que você especificou para subir arquivos não foi encontrado."
+msgstr "O diretório que você especificou para subir arquivos não foi encontrado"
 
 #: libraries/common.lib.php:2998
 msgid "There are no files to upload"
@@ -2169,7 +2172,7 @@ msgstr "Personalizada - exibir todas as opções possíveis para configurar"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "Personalizada - como acima, mas sem a escolha rápida/personalizada."
+msgstr "Personalizada - como acima, mas sem a escolha rápida/personalizada"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
@@ -2638,7 +2641,7 @@ msgstr "Rótulo da chave"
 #: libraries/config/messages.inc.php:132 libraries/export/odt.php:325
 #: libraries/tbl_properties.inc.php:141
 msgid "MIME type"
-msgstr "MIME-type"
+msgstr "MIME type"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 tbl_relation.php:389
@@ -2717,7 +2720,7 @@ msgstr "Hora de exportação em UTC"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
-msgstr "Forçar conexão segura quando usar phpMyAdmin"
+msgstr "Forçar conexão segura ao utilizar o phpMyAdmin"
 
 #: libraries/config/messages.inc.php:147
 msgid "Force SSL connection"
@@ -2747,11 +2750,11 @@ msgstr "Limite de chave estrangeira"
 
 #: libraries/config/messages.inc.php:152
 msgid "Browse mode"
-msgstr "Modo de busca"
+msgstr "Modo de navegação"
 
 #: libraries/config/messages.inc.php:153
 msgid "Customize browse mode"
-msgstr "Personalizar modo de busca"
+msgstr "Personalizar modo de navegação"
 
 #: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
@@ -3043,7 +3046,7 @@ msgstr "Personalizar campos de entrada de texto"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr "Texy! texto"
+msgstr "Texto texy!"
 
 #: libraries/config/messages.inc.php:228
 msgid "Warnings"
@@ -3318,7 +3321,7 @@ msgstr "Armazena cookie de login"
 
 #: libraries/config/messages.inc.php:296
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr "Define quanto tempo (em segundos) um cookie de sessão é válido"
+msgstr "Define a duração (em segundos) da validade do cookie de login"
 
 #: libraries/config/messages.inc.php:297
 msgid "Login cookie validity"
@@ -3711,7 +3714,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:382
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "Desabilitar o uso do INFORMATION_SCHEMA"
+msgstr "Desabilitar o uso do INFORMATION_SCHEMA "
 
 #: libraries/config/messages.inc.php:383
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -3720,7 +3723,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:384
 msgid "PHP extension to use"
-msgstr "Utilizar a extensão do PHP"
+msgstr "Extensões PHP para utilizar"
 
 #: libraries/config/messages.inc.php:385
 msgid "Hide databases matching regular expression (PCRE)"
@@ -4114,7 +4117,7 @@ msgstr "Exibir comentários das tabelas ao invés dos nomes"
 
 #: libraries/config/messages.inc.php:459
 msgid "Display table comments in tooltips"
-msgstr "Mostrar comentários das tabelas em tooltips"
+msgstr "Mostrar comentários das tabelas nas dicas"
 
 #: libraries/config/messages.inc.php:460
 msgid ""
@@ -4638,7 +4641,7 @@ msgstr "use este para futuras exportações"
 #: libraries/display_export.lib.php:274 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:516
 msgid "Character set of the file:"
-msgstr "Conjunto de caracteres do arquivo"
+msgstr "Conjunto de caracteres do arquivo:"
 
 #: libraries/display_export.lib.php:304
 msgid "Compression:"
@@ -5606,7 +5609,7 @@ msgstr "Restrições para a tabela"
 
 #: libraries/export/sql.php:804
 msgid "MIME TYPES FOR TABLE"
-msgstr "MIME-TYPES PARA AS TABELAS"
+msgstr "MIME-TYPES PARA TABELA"
 
 #: libraries/export/sql.php:816
 msgid "RELATIONS FOR TABLE"
@@ -5804,7 +5807,7 @@ msgstr "Conjunto de caracteres"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr " Binário "
+msgstr "Binário"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -6050,7 +6053,7 @@ msgstr "Consulta SQL gravada"
 
 #: libraries/relation.lib.php:135 querywindow.php:98 querywindow.php:205
 msgid "SQL history"
-msgstr "Histórico de consultas"
+msgstr "Histórico SQL"
 
 #: libraries/relation.lib.php:147
 msgid "User preferences"
@@ -6296,7 +6299,7 @@ msgstr "Mostrar dimensão das tabelas"
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Display all tables with the same width"
-msgstr "mostrar todas as tabelas com o mesmo tamanho?"
+msgstr "Mostrar todas as tabelas com o mesmo tamanho"
 
 #: libraries/schema/User_Schema.class.php:390
 msgid "Only show keys"
@@ -6486,7 +6489,7 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 "Talvez tenha encontrado um bug no analizador (parser) do SQL. Analise a sua "
-"Consulta SQL com atenção, e verifique se as aspas estão corretas e não estão "
+"consulta SQL com atenção e verifique se as aspas estão corretas e não estão "
 "desencontradas. Outra possibilidade de falha é o fato de estar tentando "
 "subir um arquivo com saída binária de uma área de texto citada. Pode também "
 "experimentar a sua consulta SQL no prompt de comandos do MySQL. A saída de "
@@ -6506,11 +6509,11 @@ msgstr "FIM CORTE"
 
 #: libraries/sqlparser.lib.php:175
 msgid "BEGIN RAW"
-msgstr "INICIO CRU"
+msgstr "INICIO RAW"
 
 #: libraries/sqlparser.lib.php:179
 msgid "END RAW"
-msgstr "FIM CRU"
+msgstr "FIM RAW"
 
 #: libraries/sqlparser.lib.php:364
 msgid "Automatically appended backtick to the end of query!"
@@ -6535,7 +6538,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "O Validador SQL não pode ser inicializado. Verifique se você instalou a "
-"extenção necessária do php conforme está escrito em %sdocumentation%s."
+"extensão necessária do php conforme está escrito na %sdocumentação%s."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6703,8 +6706,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Mostrar uma miniatura clicável; opções: largura,altura em pixels (mantém a "
-"proporção original)"
+"Mostrar uma miniatura clicável; As opções são a largura e altura máxima em "
+"pixels."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
@@ -9044,7 +9047,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
-msgstr "Conexão insegura"
+msgstr "Conexão vulnerável"
 
 #: setup/frames/index.inc.php:88 setup/frames/menu.inc.php:15
 msgid "Overview"
@@ -9277,7 +9280,7 @@ msgstr "Você permite a conexão com o servidor sem uma senha."
 
 #: setup/lib/index.lib.php:352
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "A chave é muito curta, você deveria ter pelo menos 8 caracteres."
+msgstr "A chave é muito curta, deveria ter pelo menos 8 caracteres."
 
 #: setup/lib/index.lib.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -9744,7 +9747,7 @@ msgstr "Selecionar os campos (no mínimo 1)"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Condição de Pesquisa (complemento da cláusula \"onde\"):"
+msgstr "Condição de pesquisa (complemento da cláusula \"onde\"):"
 
 #: tbl_select.php:258
 msgid "Number of rows per page"
@@ -9756,7 +9759,7 @@ msgstr "Ordenado por:"
 
 #: tbl_structure.php:161 tbl_structure.php:165
 msgid "Browse distinct values"
-msgstr "Navegador distingue valores"
+msgstr "Procurar valores distintos"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
@@ -10013,7 +10016,7 @@ msgstr "Você não tem direitos suficientes para estar aqui agora!"
 
 #: user_password.php:110
 msgid "The profile has been updated."
-msgstr "A configuração foi atualizada."
+msgstr "O perfil foi atualizado."
 
 #: view_create.php:141
 msgid "VIEW name"
