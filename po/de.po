@@ -942,7 +942,7 @@ msgstr "Zum Abwählen anklicken"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Die Anweisung \"DROP DATABASE\" wurde deaktiviert."
+msgstr "\"DROP DATABASE\" - Anweisungen wurden deaktiviert."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:293
 msgid "Do you really want to "
