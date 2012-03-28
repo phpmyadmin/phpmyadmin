@@ -832,7 +832,7 @@ msgstr "Der Webserver hat keine Schreibrechte um die Datei %s zu speichern."
 #: export.php:672
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Dump (Schema) wurde in Datei %s gespeichert."
+msgstr "Auflistung wurde in Datei %s gespeichert."
 
 #: import.php:58
 #, php-format
