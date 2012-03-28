@@ -1560,7 +1560,7 @@ msgstr[1] "%1$d Datensätze eingefügt."
 #: libraries/StorageEngine.class.php:194
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "Für dieses Tabellenformat sind keine Statusinformationen verfügbar"
+msgstr "Für dieses Tabellenformat sind keine Statusinformationen verfügbar."
 
 #: libraries/StorageEngine.class.php:354
 #, php-format
