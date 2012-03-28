@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-28 15:32+0200\n"
+"PO-Revision-Date: 2012-03-28 15:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -767,7 +767,7 @@ msgstr "Versionen"
 
 #: db_tracking.php:135 tbl_tracking.php:374 tbl_tracking.php:621
 msgid "Tracking report"
-msgstr "Tracking Report"
+msgstr "Verfolgungs-Bericht"
 
 #: db_tracking.php:136 tbl_tracking.php:246 tbl_tracking.php:623
 msgid "Structure snapshot"
