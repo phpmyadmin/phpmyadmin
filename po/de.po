@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-28 16:07+0200\n"
+"PO-Revision-Date: 2012-03-28 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -100,11 +100,11 @@ msgstr "Kein BLOB-Streaming-Server konfiguriert!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr "Das Abrufen der Kopfzeilen ist fehlgeschlagen."
+msgstr "Das Abrufen der Kopfzeilen ist fehlgeschlagen"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "Die entfernte URL konnte nicht geöffnet werden."
+msgstr "Die entfernte URL konnte nicht geöffnet werden"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -975,7 +975,7 @@ msgstr ""
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Sie sind dabei ein BLOB-Repository zu deaktivieren!"
+msgstr "Sie sind dabei ein BLOB-Repository zu DEAKTIVIEREN!"
 
 #: js/messages.php:41
 #, php-format
@@ -1593,7 +1593,7 @@ msgstr "Fehler beim umbenennen von Tabelle %1$s nach %2$s"
 #: libraries/Table.class.php:1149
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "Tabelle %s wurde umbenannt in %s."
+msgstr "Tabelle %s wurde in %s umbenannt"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -1756,7 +1756,7 @@ msgstr "PBMS Verbindung fehlgeschlagen:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr "PBMS: Infos über BLOB nicht erhalten: "
+msgstr "PBMS: Infos über BLOB nicht erhalten:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
@@ -1888,7 +1888,7 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Das <tt>$cfg['PmaAbsoluteUri']</tt>-Verzeichnis MUSS in Ihrer "
+"Das <tt>$cfg['PmaAbsoluteUri']</tt> Verzeichnis MUSS in Ihrer "
 "Konfigurationsdatei angegeben werden!"
 
 #: libraries/common.inc.php:630
@@ -5119,11 +5119,13 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
-msgstr "Müll-Grenzwert"
+msgstr "Grenzwert zur Speicherbereinigung"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr "Der Prozentsatz an Müll in einer Logdatei bevor sie komprimiert wird."
+msgstr ""
+"Der Prozentsatz an Speicherbereinigungswerten in einem Archiv bevor es "
+"komprimiert wird."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1179
@@ -5140,7 +5142,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
-msgstr "Repository-Grenzwert"
+msgstr "Archiv-Grenzwert"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
@@ -5148,13 +5150,13 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
-"Die maximale Größe einer Datei für ein BLOB-Repository. Sie können Kb, MB "
-"oder GB verwenden, um die Einheit des Wertes anzugeben. Ist keine Einheit "
+"Die maximale Größe einer Datei für ein BLOB-Archiv. Sie können Kb, MB oder "
+"GB verwenden, um die Einheit des Wertes anzugeben. Ist keine Einheit "
 "angegeben, wird von Bytes ausgegangen."
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
-msgstr "Temp Blob-Timeout"
+msgstr "Temp Blob-Zeitfenster"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
@@ -5211,8 +5213,8 @@ msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
-"Dokumentation und weitere Informationen über PBMS sind auf der %sWebsite von "
-"The PrimeBase Media Streaming%s verfügbar."
+"Dokumentation und weitere Informationen über PBMS sind auf der %s Website "
+"von The PrimeBase Media Streaming%s verfügbar."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 msgid "Related Links"
@@ -7416,7 +7418,7 @@ msgstr "Es wurden keine Datenbanken ausgewählt."
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "Es wurden %s Datenbanken gelöscht."
+msgstr "%s Datenbanken wurden erfolgreich gelöscht."
 
 #: server_databases.php:100
 msgid "Databases statistics"
