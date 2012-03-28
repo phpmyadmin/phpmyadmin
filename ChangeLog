@@ -80,6 +80,9 @@ phpMyAdmin - ChangeLog
 - bug #3486970 [import] Exception on XML import
 - bug #3488777 [navi] $cfg['ShowTooltipAliasTB'] and blank names in navigation
 
+3.4.10.2 (2012-03-28)
+- [security] Fixed local path disclosure vulnerability, see PMASA-2012-2
+
 3.4.10.1 (2012-02-18)
 - [security] XSS in replication setup, see PMASA-2012-1
 
