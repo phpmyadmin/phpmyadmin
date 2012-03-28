@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-27 16:59+0200\n"
+"PO-Revision-Date: 2012-03-28 15:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Det angivne browservindue kunne ikke opdateres. Måske har du lukket det "
 "overliggende vindue eller din browser blokerer for tvær-vindue opdateringer "
-"i sikkerhedsindstillingerne"
+"i sikkerhedsindstillingerne."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:2827
 #: libraries/common.lib.php:2834 libraries/common.lib.php:3013
@@ -117,7 +117,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Database %1$s er oprettet,"
+msgstr "Database %1$s er oprettet."
 
 #: db_datadict.php:48 db_operations.php:367
 msgid "Database comment: "
@@ -286,7 +286,7 @@ msgstr "Drop databasen (DROP)"
 
 #: db_operations.php:481
 msgid "Copy database to"
-msgstr "Kopiér database til"
+msgstr "Kopier database til"
 
 #: db_operations.php:488 tbl_operations.php:544 tbl_tracking.php:383
 msgid "Structure only"
@@ -332,7 +332,7 @@ msgstr "Skift til den kopierede database"
 #: tbl_structure.php:200 tbl_structure.php:861 tbl_tracking.php:270
 #: tbl_tracking.php:321
 msgid "Collation"
-msgstr "Kollation (Collation)"
+msgstr "Tegnsæt (sortering)"
 
 #: db_operations.php:559
 #, php-format
@@ -493,7 +493,7 @@ msgstr "Send forespørgsel"
 #: libraries/auth/cookie.auth.lib.php:650 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:224
 msgid "Access denied"
-msgstr "Adgang Nægtet"
+msgstr "Adgang nægtet"
 
 #: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
@@ -501,7 +501,7 @@ msgstr "mindst et af ordene"
 
 #: db_search.php:65 db_search.php:308
 msgid "all words"
-msgstr "alle ordene"
+msgstr "alle ord"
 
 #: db_search.php:66 db_search.php:309
 msgid "the exact phrase"
@@ -566,7 +566,7 @@ msgstr "Find:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
-msgstr "Ord adskilles af mellemrums-karakter (\" \")."
+msgstr "Ord adskilles af mellemrumstegn (\" \")."
 
 #: db_search.php:321
 msgid "Inside table(s):"
@@ -583,17 +583,17 @@ msgstr "Ingen tabeller fundet i databasen"
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
 msgid "Table %s has been emptied"
-msgstr "Tabel %s er tømt"
+msgstr "Tabel %s blev tømt"
 
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
 msgid "View %s has been dropped"
-msgstr "Visning %s er blevet droppet"
+msgstr "Visning %s er blevet slettet"
 
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "Tabel %s er slettet"
+msgstr "Tabel %s blev slettet"
 
 #: db_structure.php:319 tbl_create.php:295
 msgid "Tracking is active."
@@ -620,7 +620,7 @@ msgstr "Visning"
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:163 server_status.php:383
 msgid "Replication"
-msgstr "Replikering"
+msgstr "Replikation"
 
 #: db_structure.php:474
 msgid "Sum"
@@ -643,13 +643,13 @@ msgstr "Med det markerede:"
 #: server_databases.php:258 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:555
 msgid "Check All"
-msgstr "Afmærk alt"
+msgstr "Vælg alle"
 
 #: db_structure.php:516 libraries/display_tbl.lib.php:2215
 #: libraries/replication_gui.lib.php:35 server_databases.php:260
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:559
 msgid "Uncheck All"
-msgstr "Fjern alle mærker"
+msgstr "Fravælg alle"
 
 #: db_structure.php:521
 msgid "Check tables having overhead"
@@ -661,13 +661,13 @@ msgstr "Check tabeller der har overhead"
 #: libraries/tbl_links.inc.php:73 prefs_manage.php:288
 #: server_privileges.php:1354 setup/frames/menu.inc.php:21
 msgid "Export"
-msgstr "Eksport"
+msgstr "Eksporter"
 
 #: db_structure.php:531 db_structure.php:587
 #: libraries/display_tbl.lib.php:2321 tbl_structure.php:590
 #: tbl_structure.php:592
 msgid "Print view"
-msgstr "Vis (udskriftvenlig)"
+msgstr "Udskriv"
 
 #: db_structure.php:535 libraries/common.lib.php:3020
 #: libraries/common.lib.php:3021
@@ -696,7 +696,7 @@ msgstr "Reparer tabel"
 
 #: db_structure.php:545 tbl_operations.php:623
 msgid "Analyze table"
-msgstr "Analysér tabel"
+msgstr "Analyser tabel"
 
 #: db_structure.php:594 libraries/schema/User_Schema.class.php:388
 msgid "Data Dictionary"
@@ -746,7 +746,7 @@ msgstr "Handling"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "Sletter sporingsdata for denne tabel."
+msgstr "Slet sporingsdata for denne tabel"
 
 #: db_tracking.php:119 tbl_tracking.php:543 tbl_tracking.php:601
 msgid "active"
@@ -775,11 +775,11 @@ msgstr "Ikke-sporede tabeller"
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:626
 #: tbl_structure.php:628
 msgid "Track table"
-msgstr "Spor tabel"
+msgstr "Sporingstabel"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr "Database log"
+msgstr "Databaselog"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
@@ -809,7 +809,7 @@ msgstr "Valgte eksporttype skal gemmes som fil!"
 #: export.php:164 export.php:189 export.php:670
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Utilstrækkeligt plads til at gemme filen %s."
+msgstr "Utilstrækkelig plads til at gemme filen %s."
 
 #: export.php:305
 #, php-format
@@ -863,8 +863,9 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 "Der blev ikke modtaget nogen data til import. Enten blev der ikke indsendt "
-"et filnavn, eller filstørrelsen kan have overskredet maksimalstørrelsen "
-"tilladt af din PHP-konfiguration. Se FAQ 1.16."
+"et filnavn, eller filstørrelsen kan have overskredet maksimal størrelsen "
+"tilladt af din PHP-konfiguration. Se  "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -894,7 +895,7 @@ msgid ""
 "file and import will resume."
 msgstr ""
 "Script timeout nået, hvis du vil afslutte importen, indsend venligst samme "
-"fil igen og importen vil fortsætte hvor den slap."
+"fil igen og importen vil blive genoptaget."
 
 #: import.php:425
 msgid ""
@@ -977,7 +978,7 @@ msgstr ""
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "Ingen værdi i formularen !"
+msgstr "Ingen værdi i formularen!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
@@ -993,11 +994,11 @@ msgstr "Intet brugernavn!"
 
 #: js/messages.php:50 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
-msgstr "Der er ikke angivet noget kodeord!"
+msgstr "Der er ikke angivet nogen adgangskode"
 
 #: js/messages.php:51 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
-msgstr "De to kodeord er ikke ens!"
+msgstr "De to adgangskoder er ikke ens!"
 
 #: js/messages.php:52
 msgid "Add a New User"
@@ -1153,7 +1154,7 @@ msgstr "Generer adgangskode"
 
 #: js/messages.php:111 libraries/replication_gui.lib.php:365
 msgid "Generate"
-msgstr "Generér"
+msgstr "Generer"
 
 #: js/messages.php:112
 msgid "Change Password"
@@ -1466,7 +1467,9 @@ msgstr "Ukendt fejl i filupload."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Fejl ved flytning af den uploadede fil, se FAQ 1.11"
+msgstr ""
+"Fejl ved flytning af den uploadede fil, se "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1511,7 +1514,7 @@ msgid ""
 "removed."
 msgstr ""
 "Indeks %1$s ser ud til at være identisk med indeks %2$s, så et af dem kan "
-"sikkert fjernes"
+"sikkert fjernes."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:175
 #: libraries/server_links.inc.php:42 server_databases.php:100
@@ -1598,7 +1601,7 @@ msgstr "Intet billede til rådighed."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
-msgstr "Vælg dette"
+msgstr "vælg dette"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
@@ -1648,9 +1651,9 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin forsøgte at forbinde til MySQL-serveren, og serveren afviste "
-"forbindelsen. Du bør tjekke host, brugernavn og kodeord i config.inc.php og "
-"sikre dig at de svarer til den information du har fået af administratoren af "
-"MySQL-serveren."
+"forbindelsen. Du bør tjekke host, brugernavn og adgangskode i config.inc.php "
+"og sikre dig at de svarer til den information du har fået af "
+"administratoren af MySQL-serveren."
 
 #: libraries/auth/cookie.auth.lib.php:230
 msgid "Log in"
@@ -1669,11 +1672,11 @@ msgstr "phpMyAdmin dokumentation"
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Du kan angive værtsnavn/IP adresse og port ved at adskille dem med et "
-"mellemrum"
+"mellemrum."
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
-msgstr "Server"
+msgstr "Server:"
 
 #: libraries/auth/cookie.auth.lib.php:249
 msgid "Username:"
@@ -1681,11 +1684,11 @@ msgstr "Brugernavn:"
 
 #: libraries/auth/cookie.auth.lib.php:253
 msgid "Password:"
-msgstr "Kodeord:"
+msgstr "Adgangskode:"
 
 #: libraries/auth/cookie.auth.lib.php:260
 msgid "Server Choice"
-msgstr "Server valg"
+msgstr "Servervalg"
 
 #: libraries/auth/cookie.auth.lib.php:306 libraries/header.inc.php:72
 msgid "Cookies must be enabled past this point."
@@ -1696,7 +1699,7 @@ msgstr "Herefter skal cookies være slået til."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"Det er ifølge konfigurationen ikke tilladt at logge ind uden en adgangskkode "
+"Det er ifølge konfigurationen ikke tilladt at logge ind uden en adgangskode "
 "(se AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:652
@@ -1714,7 +1717,7 @@ msgstr "Kan ikke logge ind på MySQL-serveren"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "Forkert brugernavn/kodeord. Adgang nægtet."
+msgstr "Forkert brugernavn/adgangskode. Adgang nægtet."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -1724,7 +1727,7 @@ msgstr "Filen %s indeholder ikke noget nøgle-id"
 #: libraries/auth/swekey/swekey.auth.lib.php:159
 #: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
-msgstr "Godkendelse af hardware mislykkedes"
+msgstr "Hardwareautentifikation mislykkedes"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
@@ -1811,7 +1814,7 @@ msgstr "Gå til database"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr "Ikke gentaget"
+msgstr "Ikke replikeret"
 
 #: libraries/build_html_for_db.lib.php:136
 msgid "Replicated"
@@ -1824,7 +1827,7 @@ msgstr "Check privilegier for database &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr "Check Privilegier"
+msgstr "Check privilegier"
 
 #: libraries/chart.lib.php:40
 msgid "Query statistics"
@@ -1889,7 +1892,7 @@ msgstr "Server indekset %s er ugyldigt"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Ugyldigt hostnavn for server %1$s. Gennemgå venligst din konfiguration."
+"Ugyldigt værtsnavn for server %1$s. Gennemgå venligst din konfiguration."
 
 #: libraries/common.inc.php:646 libraries/config/messages.inc.php:486
 #: libraries/header.inc.php:115 main.php:163 server_synchronize.php:1175
@@ -1964,7 +1967,7 @@ msgstr "Spring over Forklar SQL"
 
 #: libraries/common.lib.php:1176
 msgid "Without PHP Code"
-msgstr "uden PHP-kode"
+msgstr "Uden PHP-kode"
 
 #: libraries/common.lib.php:1179 libraries/config/messages.inc.php:465
 msgid "Create PHP Code"
@@ -1973,15 +1976,15 @@ msgstr "Fremstil PHP-kode"
 #: libraries/common.lib.php:1197 libraries/config/messages.inc.php:464
 #: server_status.php:467
 msgid "Refresh"
-msgstr "Opdatér"
+msgstr "Opdater"
 
 #: libraries/common.lib.php:1206
 msgid "Skip Validate SQL"
-msgstr "Spring over Validér SQL"
+msgstr "Spring over Valider SQL"
 
 #: libraries/common.lib.php:1209 libraries/config/messages.inc.php:467
 msgid "Validate SQL"
-msgstr "Validér SQL"
+msgstr "Valider SQL"
 
 #: libraries/common.lib.php:1264
 msgid "Inline edit of this query"
@@ -1995,7 +1998,7 @@ msgstr "I linje"
 
 #: libraries/common.lib.php:1333 libraries/common.lib.php:1349
 msgid "Profiling"
-msgstr "Skitsering"
+msgstr "Profilering"
 
 #: libraries/common.lib.php:1354 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
@@ -2113,7 +2116,7 @@ msgstr "Operationer"
 
 #: libraries/common.lib.php:2965
 msgid "Browse your computer:"
-msgstr "Gennemse din computer"
+msgstr "Gennemse din computer:"
 
 #: libraries/common.lib.php:2978
 #, php-format
@@ -2162,17 +2165,17 @@ msgstr "struktur og data"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr "Hurtig - vis kun de mest nødvendige konfigurationsmuligheder"
+msgstr "Hurtig - vis kun de mest nødvendige konfigurationsindstillinger"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
-msgstr "Brugerdefineret - vis alle valgmuligheder for konfigurering"
+msgstr "Brugerdefineret - vis alle indstillinger til konfigurering"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
-"Brugerdefineret - som ovenfor, men uden valgmuligheder for hurtig/"
-"brugerdefineret"
+"Brugerdefineret - som ovenfor, men uden indstillinger for "
+"hurtig/brugerdefineret"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
@@ -2184,11 +2187,11 @@ msgstr "udvidede indsættelser"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
-msgstr "Begge de ovenfor anførte"
+msgstr "begge de ovenfor anførte"
 
 #: libraries/config.values.php:122
 msgid "neither of the above"
-msgstr "Ingen af de ovenfor anførte"
+msgstr "ingen af de ovenfor anførte"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
@@ -2203,7 +2206,7 @@ msgstr "Ikke et ikke-negativt tal"
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
 msgid "Not a valid port number"
-msgstr "Ikke et gyldigt port-nummer"
+msgstr "Ikke et gyldigt portnummer"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:574
@@ -2236,7 +2239,7 @@ msgstr "\"%s\" er afhængig af udvidelsen %s"
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr "importeringen kommer ikke til at fungere, funktionen (%s) mangler"
+msgstr "importen kommer ikke til at fungere, funktionen (%s) mangler"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
@@ -2259,7 +2262,8 @@ msgstr "maksimum %s"
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
-"Denne indstilling er deaktiveret og din konfiguration vil ikke anvende den"
+"Denne indstilling er deaktiveret og vil ikke blive anvendt i din "
+"konfiguration"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
@@ -2299,7 +2303,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Aktivering medfører, at brugeren kan tilgå en hvilken som helst MySQL-server "
-"fra log ind-siden ved cookie-godkendelse"
+"fra log ind-siden ved cookie-autentifikation"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -2312,8 +2316,9 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Aktivering indebærer, at en side, som ligger på et andet domæne, har adgang "
-"til at kalde phpMyAdmin fra en frame. Det er en potentiel sikkerhedsrisiko, "
-"fordi det åbner op for cross-frame skripting angreb"
+"til at kalde phpMyAdmin fra en ramme. Det er en potentiel "
+"[strong]sikkerhedsrisiko[/strong], fordi det åbner op for cross-frame "
+"scripting angreb"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -2328,8 +2333,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Hemmeligt kodeordsudtryk til kryptering af cookies ved [kbd]cookie[/kbd] "
-"godkendelse"
+"Hemmeligt adgangskodeudtryk til kryptering af cookies ved [kbd]cookie[/kbd] "
+"autentifikation"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -2356,7 +2361,7 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"Aktivér komprimering af [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] ved "
+"Aktiver komprimering af [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] ved "
 "import -og eksport arbejdsgange"
 
 #: libraries/config/messages.inc.php:31
@@ -2404,11 +2409,11 @@ msgid ""
 msgstr ""
 "Pak gzip/bzip2-eksporter under eksporten uden behov for ret meget "
 "hukommelse. Hvis du får problemer med de dannede gzip/bzip2-filer, så "
-"deaktivér denne funktion"
+"deaktiver denne funktion"
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr "Komprimér undervejs"
+msgstr "Komprimer undervejs"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
@@ -2497,7 +2502,7 @@ msgstr "Vis servere på en liste"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr "Redigér SQL-forespørgsler i et popup vindue"
+msgstr "Rediger SQL-forespørgsler i et popup vindue"
 
 #: libraries/config/messages.inc.php:61
 msgid "Edit in window"
@@ -2517,19 +2522,19 @@ msgstr "Vis ikoner i advarsels-, fejl-, og informationsmeddelelser"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr "Ikon-fejl"
+msgstr "Ikonfejl"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
-"Bestem antallet af sekunder, som et skript må være om at køre ([kbd]0[/kbd] "
-"er lig med ingen tidsgrænse"
+"Sæt antallet af sekunder, som et skript må være om at køre ([kbd]0[/kbd] er "
+"lig med ingen tidsgrænse)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr "Maksimal ekspeditionstid"
+msgstr "Maksimal eksekveringstid"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
@@ -2581,7 +2586,7 @@ msgstr "Erstat NULL med"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr "Fjern karakterer for linjeskift i felterne"
+msgstr "Fjern CRLF-tegn i kolonner"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
@@ -2592,7 +2597,7 @@ msgstr "Kolonner afsluttes med"
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:238
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr "Linjer afsluttet med"
+msgstr "Linjer afsluttes med"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
@@ -2604,11 +2609,11 @@ msgstr "Skabelon for databasenavn"
 
 #: libraries/config/messages.inc.php:84
 msgid "Server name template"
-msgstr "Maske for servernavn"
+msgstr "Skabelon for servernavn"
 
 #: libraries/config/messages.inc.php:85
 msgid "Table name template"
-msgstr "Maske for tabelnavn"
+msgstr "Skabelon for tabelnavn"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:135
@@ -2662,7 +2667,7 @@ msgstr "Overskriv eksisterende fil(er)"
 
 #: libraries/config/messages.inc.php:116
 msgid "Remember file name template"
-msgstr "Husk maske for filnavn"
+msgstr "Husk skabelon for filnavn"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
@@ -2671,11 +2676,11 @@ msgstr "Brug \"backquotes\" omkring tabel- og feltnavne"
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:258
 #: libraries/display_export.lib.php:346
 msgid "SQL compatibility mode"
-msgstr "SQL-kompatibilitetsmodus"
+msgstr "SQL-kompatibilitetstilstand"
 
 #: libraries/config/messages.inc.php:120 libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "Muligheder for <code>CREATE TABLE</code>:"
+msgstr "Indstillinger til <code>CREATE TABLE</code>:"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -2691,15 +2696,15 @@ msgstr "Slå fremmednøgle-checks fra"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
-msgstr "Brug heksadecimal for BLOB"
+msgstr "Brug hexadecimal for BLOB"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
-msgstr "Brug ignorér inserts"
+msgstr "Brug ignorer inserts"
 
 #: libraries/config/messages.inc.php:130
 msgid "Syntax to use when inserting data"
-msgstr "Syntaks som skal bruges, når der indsættes data"
+msgstr "Syntaks der bruges, når der indsættes data"
 
 #: libraries/config/messages.inc.php:131 libraries/export/sql.php:163
 msgid "Maximal length of created query"
@@ -2711,11 +2716,11 @@ msgstr "Eksporttype"
 
 #: libraries/config/messages.inc.php:137 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
-msgstr "Inkludér eksport i en transaktion"
+msgstr "Indlejr eksport i en transaktion"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export time in UTC"
-msgstr "Angiv eksporteringstidspunktet i UTC (Universal Time Coordinated)"
+msgstr "Angiv eksporttidspunktet i UTC (Universal Time Coordinated)"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
@@ -2735,15 +2740,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
-msgstr "Sortër fremmede nøgler i valgboks på:"
+msgstr "Orden af fremmednøgler i valgboks"
 
 #: libraries/config/messages.inc.php:150
 msgid "A dropdown will be used if fewer items are present"
-msgstr "Der vil blive brugt en valgboks, hvis der er færre elementer til stede"
+msgstr "Der vil blive brugt en valgboks, hvis færre elementer er til stede"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key limit"
-msgstr "Øvre grænse for fremmed nøgle"
+msgstr "Øvre grænse for fremmednøgle"
 
 #: libraries/config/messages.inc.php:152
 msgid "Browse mode"
@@ -2751,7 +2756,7 @@ msgstr "Gennemsynstilstand"
 
 #: libraries/config/messages.inc.php:153
 msgid "Customize browse mode"
-msgstr "Brugerindstilling for gennemsynstilstand"
+msgstr "Tilpas for gennemsynstilstand"
 
 #: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
@@ -2782,7 +2787,7 @@ msgstr "Redigeringstilstand"
 
 #: libraries/config/messages.inc.php:161
 msgid "Customize edit mode"
-msgstr "Tilpas redigerinstilstand"
+msgstr "Tilpas redigeringstilstand"
 
 #: libraries/config/messages.inc.php:163
 msgid "Export defaults"
@@ -2809,7 +2814,7 @@ msgstr "Bestem indstillinger for nogle af de mest anvendte valgmuligheder"
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "Import"
+msgstr "Importer"
 
 #: libraries/config/messages.inc.php:169
 msgid "Import defaults"
@@ -2887,14 +2892,17 @@ msgid ""
 "Specify browser's title bar text. Refer to [a@Documentation."
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
-msgstr "Angiv browserens titeltekst. "
+msgstr ""
+"Angiv browserens tekst i titelbaren. Se "
+"[a@Documentation.html#cfg_TitleTable]dokumentationen[/a] for tekststrenge "
+"der indeholder særlige værdier."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation_header.inc.php:83
 #: libraries/navigation_header.inc.php:86
 #: libraries/navigation_header.inc.php:89
 msgid "Query window"
-msgstr "Foresp. vindue"
+msgstr "Forespørgselsvindue"
 
 #: libraries/config/messages.inc.php:193
 msgid "Customize query window options"
@@ -2909,8 +2917,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
-"Bemærk venligst at phpMyAdmin blot er en brugerflade, hvis egenskaber ikke "
-"begrænser MySQL"
+"Bemærk venligst at phpMyAdmin blot er en brugerflade og at den ikke "
+"begrænser mulighederne i MySQL"
 
 #: libraries/config/messages.inc.php:196
 msgid "Basic settings"
@@ -2922,7 +2930,7 @@ msgstr "Autentifikation"
 
 #: libraries/config/messages.inc.php:198
 msgid "Authentication settings"
-msgstr "Indstillinger for godkendelse"
+msgstr "Indstillinger for autentifikation"
 
 #: libraries/config/messages.inc.php:199
 msgid "Server configuration"
@@ -2934,7 +2942,7 @@ msgid ""
 "what they are for"
 msgstr ""
 "Avanceret serverkonfiguration. Lad være med at ændre disse indstillinger med "
-"mindre, du ved, hvad de betyder"
+"mindre du ved, hvad de betyder"
 
 #: libraries/config/messages.inc.php:201
 msgid "Enter server connection parameters"
