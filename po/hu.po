@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-28 15:59+0200\n"
+"PO-Revision-Date: 2012-03-28 16:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1894,7 +1894,7 @@ msgstr "A(z) %1$s szerver hosztneve érvénytelen. Ellenőrizze a beállítások
 #: libraries/header.inc.php:115 main.php:163 server_synchronize.php:1175
 #: test/theme.php:56
 msgid "Server"
-msgstr "Szerver"
+msgstr "Kiszolgáló"
 
 #: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
@@ -3895,7 +3895,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF-séma: table coordinates"
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display fields, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -3903,14 +3902,13 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"A megjelenítendő mezők táblája, hagyja üresen, ha ne támogassa; "
-"alapértelmezés: [kbd]pma_table_info[/kbd]"
+"Tábla a megjelenített oszlopok leírásához, hagyja üresen, ha nem kíván "
+"megadni leírást; javasolt: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
-msgstr "Megjelenítendő mezők táblája"
+msgstr "Oszlopok tábla megjelenítése"
 
 #: libraries/config/messages.inc.php:419
 msgid ""
@@ -3954,13 +3952,11 @@ msgstr ""
 "Állítások listájának definiálása az új verziójú automata-létrehozások során."
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Utasítások"
+msgstr "Utasítások követésre"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -3969,10 +3965,9 @@ msgid ""
 "kbd]"
 msgstr ""
 "Hagyja üresen, ha nincs szükség az SQL-lekérdezések előzményeinek "
-"támogatására, alapértelmezés: [kbd]pma_history[/kbd]"
+"támogatására, javasolt: [kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL-lekérdezések előzményeinek táblája"
@@ -3984,10 +3979,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Automatikus helyreállítási mód"
+msgstr "Verziók automatikus létrehozása"
 
 #: libraries/config/messages.inc.php:431
 #, fuzzy
@@ -4071,10 +4065,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Nyitott táblák megjelenítése"
+msgstr "Mező típusok mutatása"
 
 #: libraries/config/messages.inc.php:446
 msgid "Display the function fields in edit/insert mode"
@@ -4197,9 +4190,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:472 tbl_tracking.php:406
 #: tbl_tracking.php:457
-#, fuzzy
 msgid "Username"
-msgstr "Felhasználónév:"
+msgstr "Felhasználónév"
 
 #: libraries/config/messages.inc.php:473
 msgid ""
@@ -4228,10 +4220,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:478
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
-msgstr "CHAR szövegterület oszlopai"
+msgstr "Szövegterület oszlopai"
 
 #: libraries/config/messages.inc.php:479
 msgid ""
@@ -4240,10 +4231,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:480
-#, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
-msgstr "CHAR szövegterület sorai"
+msgstr "Szövegterület sorai"
 
 #: libraries/config/messages.inc.php:481
 msgid "Title of browser window when a database is selected"
@@ -4254,10 +4244,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr "A böngésző ablak címe, ha semmi sincs kiválasztva"
 
 #: libraries/config/messages.inc.php:484
-#, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
-msgstr "Alapértelmezett tábla fül"
+msgstr "Alapértelmezett cím"
 
 #: libraries/config/messages.inc.php:485
 msgid "Title of browser window when a server is selected"
@@ -4352,28 +4341,24 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Config authentication"
-msgstr "Az állomás hitelesítési sorrendje"
+msgstr "Beállítás hitelesítés"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Cookie authentication"
-msgstr "Az állomás hitelesítési sorrendje"
+msgstr "Cookie hitelesítés"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "Az állomás hitelesítési sorrendje"
+msgstr "HTTP hitelesítés"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Signon authentication"
-msgstr "Az állomás hitelesítési sorrendje"
+msgstr "Signon hitelesítés"
 
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
@@ -4394,10 +4379,9 @@ msgstr "Gyors"
 
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "Egyéni szín"
+msgstr "Egyedi"
 
 #: libraries/config/setup.forms.php:281
 #: libraries/config/user_preferences.forms.php:183
@@ -4561,10 +4545,9 @@ msgid "Password Hashing"
 msgstr "Jelszó kivonatolása"
 
 #: libraries/display_change_password.lib.php:65
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 kompatibilis"
+msgstr "MySQL 4.0 kompatibilis"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
@@ -4586,10 +4569,9 @@ msgid "Create table on database %s"
 msgstr "Új tábla létrehozása a(z) %s adatbázisban"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Mezők száma"
+msgstr "Oszlopok száma"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
@@ -4598,66 +4580,59 @@ msgstr ""
 "telepítését!"
 
 #: libraries/display_export.lib.php:80
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "A jelenlegi szálon engedélyezi a táblák blokkolását."
+msgstr "Adatbázisok exportálása a jelenlegi szerverről"
 
 #: libraries/display_export.lib.php:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Új tábla létrehozása a(z) %s adatbázisban"
+msgstr "Táblák exportálása a \"%s\" adatbázisból"
 
 #: libraries/display_export.lib.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Új tábla létrehozása a(z) %s adatbázisban"
+msgstr "Sorok exportálása a \"%s\" táblából"
 
 #: libraries/display_export.lib.php:90
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Exportálás típusa"
+msgstr "Exportálás módszere:"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
 msgstr "Gyors - csak minimális opció megjelenítése"
 
 #: libraries/display_export.lib.php:122
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Custom - display all possible options"
-msgstr "Az exportálás alapértelmezett beállításainak testreszabása"
+msgstr "Egyedi - minden lehetséges opció megjelenítése"
 
 #: libraries/display_export.lib.php:130
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Adatbázisok"
+msgstr "Adatbázis(ok):"
 
 #: libraries/display_export.lib.php:132
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Táblák"
+msgstr "Táblá(k):"
 
 #: libraries/display_export.lib.php:142
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "sor"
+msgstr "Sorok:"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
 msgstr "Néhány sor kiírása"
 
 #: libraries/display_export.lib.php:152
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Mezők száma"
+msgstr "Sorok száma:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
@@ -4672,22 +4647,20 @@ msgid "Output:"
 msgstr "Kimenet:"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Mentés a szerver %s könyvtárában"
+msgstr "Mentés a szerver <b>%s</b> könyvtárába"
 
 #: libraries/display_export.lib.php:199
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Mentés fájlként"
+msgstr "A kimenet mentése fájlként"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Fájlnévsablon"
+msgstr "Fájlnévsablon:"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
@@ -4702,7 +4675,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ lesz a tábla neve"
 
 #: libraries/display_export.lib.php:230
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4712,9 +4685,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"Ennek az értéknek az értelmezése az %1$sstrftime%2$s használatával történik, "
-"vagyis időformázó karakterláncokat használhat. A következő átalakításokra "
-"kerül továbbá sor: %3$s. Más szöveg eredeti állapotában kerül megtartásra."
+"Ennek az értéknek az értelmezése a(z) %1$sstrftime%2$s használatával "
+"történik, vagyis időformázó karakterláncokat használhat. Továbbá a következő "
+"átalakításokra kerül sor: %3$s. Más szöveg eredeti állapotában kerül "
+"megtartásra. Tekintse meg a %4$sFAQ%5$s oldalt a részletekért."
 
 #: libraries/display_export.lib.php:268
 msgid "use this for future exports"
@@ -4726,10 +4700,9 @@ msgid "Character set of the file:"
 msgstr "A fájl karakterkészlete:"
 
 #: libraries/display_export.lib.php:304
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Tömörítés"
+msgstr "Tömörítés:"
 
 #: libraries/display_export.lib.php:306 libraries/display_tbl.lib.php:517
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
@@ -4738,41 +4711,35 @@ msgid "None"
 msgstr "Nincs"
 
 #: libraries/display_export.lib.php:308
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"zip tömörítés\""
+msgstr "zip-elve"
 
 #: libraries/display_export.lib.php:310
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzip tömörítés\""
+msgstr "gzip-elve"
 
 #: libraries/display_export.lib.php:312
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzip tömörítés\""
+msgstr "bzip-elve"
 
 #: libraries/display_export.lib.php:321
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Mentés fájlként"
+msgstr "A kimenet megtekintése szövegként"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Formátum"
+msgstr "Formátum:"
 
 #: libraries/display_export.lib.php:331
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Átalakítás beállításai"
+msgstr "Formátum specifikus opciók:"
 
 #: libraries/display_export.lib.php:332
 msgid ""
@@ -4804,26 +4771,24 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Nem lehet bejelentkezni a MySQL szerverre"
+msgstr "Importálás a jelenlegi kiszolgálóra"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Nincs adatbázis"
+msgstr "Importálás a(z) \"%s\" adatbázisba"
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Nincs adatbázis"
+msgstr "Importálás a(z) \"%s\" táblába"
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Importálandó fájl"
+msgstr "Az importálandó fájl:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
@@ -4843,10 +4808,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Ezen a szerveren a fájlfeltöltések nem engedélyezettek."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Részleges importálás"
+msgstr "Részleges importálás:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -4857,7 +4821,6 @@ msgstr ""
 "pozíciótól folytatódik."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4867,15 +4830,14 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Az importálás megszakításának engedélyezése, ha a szkript észleli, hogy "
-"közel van az időkorláthoz. Nagy fájlok importálásakor jól jöhet, azonban meg "
-"tudja szakítani a tranzakciót."
+"Az importálás megszakításának engedélyezése, ha a parancsfájl észleli, hogy "
+"közel van a PHP időkorláthoz. <i>(Nagy fájlok importálásakor jól jöhet, "
+"azonban meg tudja szakítani a tranzakciót.)</i>"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Az elejétől kihagyandó rekordok (lekérdezések) száma"
+msgstr "Az elejéről kihagyandó sorok száma:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
@@ -4935,13 +4897,11 @@ msgid "Options"
 msgstr "Beállítások"
 
 #: libraries/display_tbl.lib.php:551 libraries/display_tbl.lib.php:569
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Részleges szövegek"
 
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:573
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Teljes szövegek"
@@ -5013,15 +4973,13 @@ msgid "Print view (with full texts)"
 msgstr "Nyomtatási nézet (teljes szöveggel)"
 
 #: libraries/display_tbl.lib.php:2372 tbl_chart.php:81
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "PDF séma megjelenítése"
+msgstr "Diagram megjelenítése"
 
 #: libraries/display_tbl.lib.php:2391
-#, fuzzy
 msgid "Create view"
-msgstr "Kapcsolat létrehozása"
+msgstr "Nézet létrehozása"
 
 #: libraries/display_tbl.lib.php:2506
 msgid "Link not found"
@@ -5481,56 +5439,48 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:21 libraries/import/csv.php:27
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Sorok vége"
+msgstr "Oszlopok elválasztása ezzel:"
 
 #: libraries/export/csv.php:22 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Mező lezárás"
+msgstr "Oszlopok körbezárása ezzel:"
 
 #: libraries/export/csv.php:23 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Mező escape karakter"
+msgstr "Oszlopok escape-elése ezzel:"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Sorok vége"
+msgstr "Sorok végződése ezzel:"
 
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "NULL cseréje ezzel:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "A mezőkben lévő CRLF karakterek eltávolítása"
+msgstr "A kocsi vissza/új sor karakterek eltávolítása az oszlopokból"
 
 #: libraries/export/excel.php:32
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel szerkesztés"
+msgstr "Excel verzió:"
 
 #: libraries/export/htmlword.php:27 libraries/export/latex.php:69
 #: libraries/export/odt.php:55 libraries/export/sql.php:132
 #: libraries/export/texytext.php:25 libraries/export/xml.php:45
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Az adatbázisok megjelenítésének beállításai"
+msgstr "Adatkiírási beállítások"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
 #: libraries/export/sql.php:1043 libraries/export/texytext.php:123
@@ -5556,16 +5506,14 @@ msgstr "@TABLE@ tábla szerkezete"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Átalakítás beállításai"
+msgstr "Objektum-létrehozási beállítások"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Táblacím"
+msgstr "Táblacím (folytatólagos)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
@@ -5575,17 +5523,15 @@ msgid "Display foreign key relationships"
 msgstr "Az idegen kulcsok ellenőrzésének letiltása"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Oszlopmegjegyzések megjelenítése"
+msgstr "Megjegyzések megjelenítése"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Létező MIME-típusok"
+msgstr "MIME-típusok megjelenítése"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:341
 #: libraries/export/xml.php:106 libraries/header_printview.inc.php:56
@@ -5626,10 +5572,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Egyetlen táblázat adatait tartalmazó jelentést generál)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "A jelentés címe"
+msgstr "A jelentés címe:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
@@ -5644,10 +5589,9 @@ msgstr ""
 "időbélyege, a PHP verziója és a szerver verziója)</i>"
 
 #: libraries/export/sql.php:35
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Egyéni megjegyzés hozzáadása a fejléchez (a \\n töri a sorokat)"
+msgstr "További egyéni megjegyzés hozzáadása a fejléchez (a \\n töri a sorokat):"
 
 #: libraries/export/sql.php:37
 msgid ""
@@ -5666,16 +5610,15 @@ msgstr ""
 
 #: libraries/export/sql.php:72 libraries/export/sql.php:105
 #: libraries/export/sql.php:107
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Utasítások"
+msgstr "%s utasítások hozzáadása"
 
 #: libraries/export/sql.php:91
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Utasítások"
+msgstr "Utasítások hozzáadása:"
 
 #: libraries/export/sql.php:123
 msgid ""
@@ -5801,15 +5744,13 @@ msgid "Object creation options (all are recommended)"
 msgstr "Objektum-létrehozási beállítások (mindegyik javasolt)"
 
 #: libraries/export/xml.php:40
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Nézet"
+msgstr "Nézetek"
 
 #: libraries/export/xml.php:47
-#, fuzzy
 msgid "Export contents"
-msgstr "Exportálás alapértelmezései"
+msgstr "Tartalom exportálása"
 
 #: libraries/footer.inc.php:188 libraries/footer.inc.php:191
 #: libraries/footer.inc.php:194
@@ -5880,10 +5821,9 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:41
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Oszlopnevek"
+msgstr "Oszlopnevek: "
 
 #: libraries/import/csv.php:61 libraries/import/csv.php:74
 #: libraries/import/csv.php:79 libraries/import/csv.php:84
@@ -5904,10 +5844,10 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "A CSV bevitel %d. sorában a formázás érvénytelen."
 
 #: libraries/import/csv.php:324
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
-msgstr "A CSV bevitel %d. sorában a mezők száma érvénytelen."
+msgstr "Érvénytelen oszlopszám a CSV bemenet %d. sorában."
 
 #: libraries/import/docsql.php:27
 msgid "DocSQL"
@@ -5938,16 +5878,14 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Valuták importálása <i>(pl. $5.00 helyett 5.00)</i>"
 
 #: libraries/import/sql.php:32
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "SQL kompatibilitási mód"
+msgstr "SQL kompatibilitási mód:"
 
 #: libraries/import/sql.php:42
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Az AUTO_INCREMENT nulla értékekhez nincs használatban"
+msgstr "Ne használja az <code>AUTO_INCREMENT</code>-et nulla értékekhez"
 
 #: libraries/import/xml.php:83 libraries/import/xml.php:139
 msgid ""
@@ -5956,7 +5894,6 @@ msgid ""
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -6178,12 +6115,10 @@ msgstr "Kilépés"
 #: libraries/navigation_header.inc.php:123
 #: libraries/navigation_header.inc.php:124
 #: libraries/navigation_header.inc.php:126
-#, fuzzy
 msgid "Reload navigation frame"
-msgstr "A navigációs keret testreszabása"
+msgstr "A navigációs keret újratöltése"
 
 #: libraries/plugin_interface.lib.php:336
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Ennek a formátumnak nincsenek beállításai"
@@ -6366,10 +6301,10 @@ msgstr "Jelszó generálása"
 #: libraries/schema/Pdf_Relation_Schema.class.php:489
 #: libraries/schema/Svg_Relation_Schema.class.php:370
 #: libraries/schema/Visio_Relation_Schema.class.php:214
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "Nem létezik a(z) \"%s\" tábla!"
+msgstr "A(z) \"%s\" tábla nem létezik!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:254
 #: libraries/schema/Eps_Relation_Schema.class.php:442
@@ -6384,16 +6319,15 @@ msgstr "Állítsa be a(z) %s tábla koordinátáit"
 #: libraries/schema/Pdf_Relation_Schema.class.php:851
 #: libraries/schema/Svg_Relation_Schema.class.php:738
 #: libraries/schema/Visio_Relation_Schema.class.php:503
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "A(z) \"%s\" adatbázis sémája - %s. oldal"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "A(z) %s fájl nem tartalmaz semmilyen kulcsazonosítót"
+msgstr "Ez az oldal nem tartalmaz egyetlen táblát sem!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
@@ -6426,10 +6360,9 @@ msgid "Create a page"
 msgstr "Új oldal készítése"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Oldalszám:"
+msgstr "Oldal neve"
 
 #: libraries/schema/User_Schema.class.php:103
 #, fuzzy
@@ -6450,20 +6383,18 @@ msgid "Please choose a page to edit"
 msgstr "Válassza ki a szerkesztendő oldalt"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Táblák kiválasztása"
+msgstr "Oldal kiválasztása"
 
 #: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
 msgstr "Táblák kiválasztása"
 
 #: libraries/schema/User_Schema.class.php:347
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Kapcsolati séma"
+msgstr "Kapcsolati séma megjelenítése"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "Select Export Relational Type"
@@ -6498,10 +6429,9 @@ msgid "Portrait"
 msgstr "Álló"
 
 #: libraries/schema/User_Schema.class.php:395
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Létrehozás"
+msgstr "Tájolás"
 
 #: libraries/schema/User_Schema.class.php:408
 msgid "Paper size"
@@ -6531,10 +6461,9 @@ msgid "Unknown language: %1$s."
 msgstr "Ismeretlen nyelv: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "Szerver"
+msgstr "Jelenlegi kiszolgáló"
 
 #: libraries/server_links.inc.php:55 server_binlog.php:96
 #: server_status.php:378 test/theme.php:120
@@ -6564,15 +6493,13 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Általános relációs jellemzők"
+msgstr "Beállítások"
 
 #: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1116
-#, fuzzy
 msgid "Source database"
-msgstr "Keresés az adatbázisban"
+msgstr "Forrás adatbázis"
 
 #: libraries/server_synchronize.lib.php:1340
 #: libraries/server_synchronize.lib.php:1363
@@ -6581,18 +6508,16 @@ msgstr "Jelenlegi szerver"
 
 #: libraries/server_synchronize.lib.php:1342
 #: libraries/server_synchronize.lib.php:1365
-#, fuzzy
 msgid "Remote server"
-msgstr "Új szerver"
+msgstr "Távoli szerver"
 
 #: libraries/server_synchronize.lib.php:1345
 msgid "Difference"
 msgstr "Különbség"
 
 #: libraries/server_synchronize.lib.php:1361 server_synchronize.php:1118
-#, fuzzy
 msgid "Target database"
-msgstr "Keresés az adatbázisban"
+msgstr "Cél adatbázis"
 
 #: libraries/sql_query_form.lib.php:223
 #, php-format
@@ -6610,10 +6535,9 @@ msgid "Clear"
 msgstr "Törlés"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Oszlopnevek"
+msgstr "Oszlopok"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:929 sql.php:930 sql.php:947
 msgid "Bookmark this SQL query"
@@ -6745,7 +6669,6 @@ msgid "Length/Values"
 msgstr "Hossz/Érték*"
 
 #: libraries/tbl_properties.inc.php:104
-#, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
 #| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
@@ -6757,10 +6680,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Ha a mező típusa \"enum\" vagy \"set\", akkor az értékeket ilyen formában "
+"Ha az oszlop típusa \"enum\" vagy \"set\", akkor az értékeket ilyen formában "
 "írja be: 'a','b','c'...<br />Ha fordított perjelet (\"\\\") vagy aposztrófot "
-"(\"'\") akar ezekben az értékekben használni, akkor fordított perjellel "
-"kezdje (pl.: '\\\\xyz' vagy 'a\\'b')."
+"(\"'\") akar ezekben az értékekben használni, akkor fordított perjellel kezdje "
+"(például '\\\\xyz' vagy 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6810,7 +6733,6 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -6849,16 +6771,15 @@ msgid "PARTITION definition"
 msgstr "PARTITION definíció"
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:640
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "%s mező hozzáadása"
+msgstr "%s oszlop hozzáadása"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:634
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Legalább egy mezőt meg kell adnia."
+msgstr "Legalább egy oszlopot kell hozzáadnia."
 
 #: libraries/tbl_properties.inc.php:796
 #, fuzzy
@@ -6871,7 +6792,6 @@ msgid "Event"
 msgstr "Esemény"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -6883,11 +6803,11 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Egy hivatkozást jelenít meg a mező bináris adatának letöltéséhez. "
-"Használhatja az első lehetőséget a fájlnév megadásához, vagy használhatja a  "
-"második lehetőséget egy mező neveként, mely tartalmazza a fájlnevet. Ha a "
-"második lehetőséget használja, akkor az első lehetőséget üres karakterláncra "
-"kell állítania."
+"Egy hivatkozást jelenít meg az oszlop bináris adatának letöltéséhez. "
+"Használhatja az első lehetőséget a fájlnév megadásához, vagy használhatja a "
+"második lehetőséget egy oszlop neveként, amely tartalmazza a fájlnevet. Ha a "
+"második lehetőséget használja, akkor az első lehetőséget üres "
+"karakterláncra kell állítania."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
@@ -6944,7 +6864,6 @@ msgstr ""
 "végrehajtása a gmdate() függvénnyel történik."
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -6968,19 +6887,18 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"CSAK LINUX: Elindít egy külső alkalmazást, mely hagyományos bemeneten "
-"keresztül kapja a mezőadatokat. Visszatér az alkalmazás hagyományos "
-"bemenetén. Alapértelmezés a Tidy, mely csinos HTML kódot kap. Biztonsági "
-"okokból a libraries/transformations/text_plain__external.inc.php fájlt "
-"kézzel kell szerkeszteni, és beírni a hozzáférni kívánt eszközök neveit. Az "
-"első lehetőség akkor a használni kívánt program száma, a második a program "
-"paramáterei. A harmadik lehetőség, ha 1-re állított, akkor konvertálja a "
-"kimenetet a htmlspecialchars() eljárással (alapértelmezés: 1). A negyedik "
-"lehetőség, ha egyre van beállítva, megakadályozza a beágyazást, és "
-"biztosítja, hogy a kimenet az összes soron megjelenik (alapértelmezés: 1)"
+"CSAK LINUX: Elindít egy külső alkalmazást, amely hagyományos bemeneten "
+"keresztül kapja az oszlopadatokat. Visszatér az alkalmazás hagyományos "
+"kimenetén. Alapértelmezés a Tidy, a csinos HTML kód. Biztonsági okokból a "
+"libraries/transformations/text_plain__external.inc.php fájlt kézzel kell "
+"szerkeszteni, és beírni a hozzáférni kívánt eszközök neveit. Ekkor az első "
+"lehetőség a használni kívánt program száma, a második lehetőség a program "
+"paraméterei. Ha a harmadik lehetőség 1-re állított, akkor konvertálja a "
+"kimenetet a htmlspecialchars() eljárással (alapértelmezés: 1). Ha a negyedik "
+"lehetőség 1-re van állítva, akkor megakadályozza a beágyazást, és "
+"biztosítja, hogy a kimenet az összes soron megjelenik (alapértelmezés: 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -6988,12 +6906,11 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Eredeti állapotában jeleníti meg a mező tartalmát, a htmlspecialchars() "
-"függvényen keresztüli lefuttatás nélkül. Vagyis feltételezi, hogy a mező "
+"Eredeti állapotában jeleníti meg az oszlop tartalmát, a htmlspecialchars() "
+"függvényen keresztüli lefuttatás nélkül. Vagyis feltételezi, hogy az oszlop "
 "érvényes HTML-kódot tartalmaz."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -7003,12 +6920,11 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Egy képet és egy hivatkozást jelenít meg; a mező tartalmazza a fájlnevet. Az "
-"első opcíó egy URL előtag, mint a \"http://www.pelda.hu/\". A második és "
-"harmadik lehetőség a szélesség és a magasság képpontban."
+"Egy képet és egy hivatkozást jelenít meg; az oszlop tartalmazza a fájlnevet. "
+"Az első lehetőség egy URL előtag, mint a \"http://www.pelda.hu/\". A második "
+"és harmadik lehetőség a szélesség és a magasság képpontban."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -7018,9 +6934,9 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Egy hivatkozást jelenít meg; a mező tartalmazza a fájlnevet. ; Az első "
-"lehetőség egy URL előtag, mint a \"http://www.pelda.hu/\". A második "
-"lehetőség a hivatkozás címe."
+"Egy hivatkozást jelenít meg; az oszlop tartalmazza a fájlnevet. Az első "
+"lehetőség egy URL előtag, mint a \"http://www.pelda.hu/\". A második lehetőség "
+"a hivatkozás címe."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
@@ -7047,13 +6963,11 @@ msgstr ""
 "karakterlánc a tranzakció előfordulásakor (alapértelmezés: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Manage your settings"
-msgstr "Egyéb alapbeállítások"
+msgstr "Beállítások kezelése"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "A módosítások mentése megtörtént"
@@ -7068,10 +6982,9 @@ msgstr ""
 "tároláshoz szükséges a %sphpMyAdmin beállítás tároló%s."
 
 #: libraries/user_preferences.lib.php:142
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
-msgstr "A beállítások nem tölthetők be vagy menthetők"
+msgstr "Nem menthetők el a módosítások"
 
 #: libraries/user_preferences.lib.php:309
 msgid ""
@@ -7089,26 +7002,23 @@ msgid "Error in ZIP archive:"
 msgstr "Hiba a ZIP archívumban:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Általános relációs jellemzők"
+msgstr "Általános beállítások"
 
 #: main.php:103
 msgid "MySQL connection collation"
 msgstr "MySQL kapcsolat illesztése"
 
 #: main.php:119
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Egyéb alapbeállítások"
+msgstr "Megjelenési beállítások"
 
 #: main.php:147 prefs_manage.php:274
-#, fuzzy
 #| msgid "Other core settings"
 msgid "More settings"
-msgstr "Egyéb alapbeállítások"
+msgstr "További beállítások"
 
 #: main.php:165
 msgid "Protocol version"
@@ -7149,10 +7059,9 @@ msgid "Official Homepage"
 msgstr "Hivatalos honlap"
 
 #: main.php:219
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Tulajdonságok"
+msgstr "Közreműködés"
 
 #: main.php:220
 #, fuzzy
@@ -7160,10 +7069,9 @@ msgid "Get support"
 msgstr "Exportálás"
 
 #: main.php:221
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Nincs változás"
+msgstr "Változások listája"
 
 #: main.php:245
 msgid ""
@@ -7285,9 +7193,8 @@ msgid "No databases"
 msgstr "Nincs adatbázis"
 
 #: navigation.php:277
-#, fuzzy
 msgid "Filter"
-msgstr "Fájlok"
+msgstr "Szűrő"
 
 #: navigation.php:277
 #, fuzzy
@@ -7296,7 +7203,6 @@ msgid "filter tables by name"
 msgstr "Tábla rendezésének módosítása e szerint:"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
@@ -7355,10 +7261,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "A PDF-séma importálási/exportálási koordinátái"
 
 #: pmd_general.php:120
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Lekérdezés indítása"
+msgstr "Lekérdezés készítése"
 
 #: pmd_general.php:125
 msgid "Move Menu"
@@ -7381,10 +7286,9 @@ msgid "Delete relation"
 msgstr "Kapcsolat törlése"
 
 #: pmd_general.php:460 pmd_general.php:519
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "A kapcsolat törlése kész"
+msgstr "Kapcsolat operátor"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
@@ -7395,10 +7299,9 @@ msgstr "Exportálás"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "lekérdezésben"
+msgstr "allekérdezés"
 
 #: pmd_general.php:480 pmd_general.php:576
 #, fuzzy
@@ -7407,16 +7310,14 @@ msgid "Rename to"
 msgstr "Nézet átnevezése"
 
 #: pmd_general.php:482 pmd_general.php:581
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Felhasználónév"
+msgstr "Új név"
 
 #: pmd_general.php:485 pmd_general.php:700
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Létrehozás"
+msgstr "Összegzés"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
@@ -7450,43 +7351,37 @@ msgstr ""
 "megjelenítendő mezőt\" ikonra, majd kattintson a megfelelő mező nevére."
 
 #: pmd_pdf.php:34
-#, fuzzy
 msgid "Page has been created"
-msgstr "A(z) %1$s tábla elkészült."
+msgstr "Az oldal elkészült"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
 msgstr "Az oldal létrehozása meghiúsult"
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "lapok"
+msgstr "Oldal"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Fájlok importálása"
+msgstr "Importálás a kiválasztott oldalakról"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "Méretezendő exportálás/importálás"
+msgstr "Exportálás a kiválasztott oldalakra"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Új index létrehozása"
+msgstr "Oldal létrehozása és exportálás arra"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Felhasználónév"
+msgstr "Új oldal neve: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -7525,17 +7420,14 @@ msgid "Modifications have been saved"
 msgstr "A módosítások mentése megtörtént"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "A beküldött űrlapban hibák vannak"
+msgstr "A beállítások nem menthetők, az elküldött űrlap hibákat tartalmaz"
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr ""
-"Nem lehetett betölteni az alapértelmezett konfigurációt innen: \"%1$s\""
+msgstr "Nem importálhatók a beállítások"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
@@ -7550,10 +7442,9 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:239
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Fájlok importálása"
+msgstr "Importálás fájlból"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
@@ -7564,20 +7455,18 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr "A beállítások a böngészője helyi tárolójából lesznek importálva."
 
 #: prefs_manage.php:254
-#, fuzzy
 #| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Egyéb alapbeállítások"
+msgstr "Nincsenek elmentett beállításai!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
 msgstr "Az ön web böngészője nem támogatja ezt a szolgáltatást"
 
 #: prefs_manage.php:263
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
-msgstr "Szerverbeállítások"
+msgstr "Egyesítés a jelenlegi beállítással"
 
 #: prefs_manage.php:277
 #, php-format
@@ -7621,10 +7510,9 @@ msgstr ""
 "Nem található a(z) <b>%s</b> tábla, vagy nem adták meg a(z) %s adatbázisban"
 
 #: schema_export.php:47
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Nem létezik a(z) \"%s\" tábla!"
+msgstr "A fájl nem létezik"
 
 #: server_binlog.php:106
 msgid "Select binary log to view"
@@ -7909,7 +7797,6 @@ msgid "No privileges."
 msgstr "Nincsenek jogok."
 
 #: server_privileges.php:312 server_privileges.php:313
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -7955,10 +7842,9 @@ msgid "Do not change the password"
 msgstr "Nincs jelszó megváltoztatás"
 
 #: server_privileges.php:817 server_privileges.php:2286
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
-msgstr "Nem található(k) a felhasználó(k)."
+msgstr "Nem található felhasználó."
 
 #: server_privileges.php:861
 #, php-format
@@ -8236,9 +8122,8 @@ msgid "Ignore all databases; Replicate:"
 msgstr ""
 
 #: server_replication.php:224
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Válasszon adatbázist"
+msgstr "Kérjük válasszon adatbázist:"
 
 #: server_replication.php:227
 msgid ""
@@ -9174,14 +9059,12 @@ msgid "Replication status"
 msgstr "Többszörözéses állapot"
 
 #: server_synchronize.php:92
-#, fuzzy
 msgid "Could not connect to the source"
-msgstr "Nem lehetett kapcsolódni a MySQL-szerverhez"
+msgstr "Nem lehetett kapcsolódni a forráshoz"
 
 #: server_synchronize.php:95
-#, fuzzy
 msgid "Could not connect to the target"
-msgstr "Nem lehetett kapcsolódni a MySQL-szerverhez"
+msgstr "Nem lehetett kapcsolódni a célhoz"
 
 #: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:76
 #: tbl_get_field.php:19
@@ -9202,9 +9085,8 @@ msgid "not present"
 msgstr ""
 
 #: server_synchronize.php:419 server_synchronize.php:862
-#, fuzzy
 msgid "Structure Difference"
-msgstr "Nézet szerkezete"
+msgstr "Szerkezet különbség"
 
 #: server_synchronize.php:420 server_synchronize.php:863
 msgid "Data Difference"
@@ -9267,16 +9149,15 @@ msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1139
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Veszélyes kapcsolat"
+msgstr "Jelenlegi kapcsolat"
 
 #: server_synchronize.php:1168
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
-msgstr "Konfigurációs fájl"
+msgstr "Beállítás: %s"
 
 #: server_synchronize.php:1183
 msgid "Socket"
@@ -9309,7 +9190,6 @@ msgid "Cannot load or save configuration"
 msgstr "A beállítások nem tölthetők be vagy menthetők"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #| "top level directory as described in [a@../Documentation.html#setup_script]"
@@ -9320,10 +9200,10 @@ msgid ""
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"Készítsen a [a@../Documentation.html#setup_script]dokumentációban[/a] "
-"ismertetettek szerint a webszerver által írható [em]config[/em] mappát a "
-"phpMyAdmin felső szintű könyvtárában. Csak akkor tudja különben letölteni "
-"vagy megjeleníteni azt."
+"Készítsen a [a@Documentation.html#setup_script]dokumentációban[/a] leírtak "
+"szerint a webszerver által írható [em]config[/em] mappát a phpMyAdmin felső "
+"szintű könyvtárában. Különben csak letölteni vagy megjeleníteni tudja majd "
+"azt."
 
 #: setup/frames/index.inc.php:57
 msgid ""
@@ -9450,7 +9330,7 @@ msgid "Unparsable version string"
 msgstr "A verzió karakterlánc nem elemezhető"
 
 #: setup/lib/index.lib.php:162
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
 #| "latest stable version is %s, released on %s."
@@ -9458,8 +9338,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Ön verziókezeléses verziót használ, futtassa le az [kbd]svn frissítést[/"
-"kbd] :-)[br]Legújabb stabil verzió: %s, kiadás dátuma: %s."
+"Ön Git verziót használ, futtassa a [kbd]git pull[/kbd] parancsot "
+":-)[br]Legújabb stabil verzió: %s, kiadás dátuma: %s."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
@@ -9499,7 +9379,7 @@ msgstr ""
 "felhasználásra a cookiek titkosításához."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -9508,9 +9388,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"A [a@?page=form&amp;formset=features#tab_Import_export]Bzip2 formátumba "
-"tömörítéshez és kibontáshoz[/a] olyan függvényekre (%s) van szükség, melyek "
-"ezen a rendszeren nem elérhetőek."
+"A %sBzip2 tömörítéshez és kicsomagoláshoz%s olyan függvényekre (%s) van "
+"szükség, amelyek ezen a rendszeren nem elérhetőek."
 
 #: setup/lib/index.lib.php:255
 msgid ""
@@ -9522,13 +9401,15 @@ msgstr ""
 "felhasználó által sem írható."
 
 #: setup/lib/index.lib.php:256
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "SSL-kapcsolatokat kell használnia, ha a webszerver támogatja"
+msgstr ""
+"Ezt a %slehetőséget%s engedélyezni kellene, ha a webböngészője támogatja "
+"azt."
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -9537,9 +9418,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"A [a@?page=form&amp;formset=features#tab_Import_export]GZip formátumba "
-"tömörítéshez és kibontáshoz[/a] olyan függvényekre (%s) van szükség, melyek "
-"ezen a rendszeren nem elérhetőek."
+"A %sGZip tömörítéshez és kicsomagoláshoz%s olyan függvényekre (%s) van "
+"szükség, amelyek ezen a rendszeren nem elérhetőek."
 
 #: setup/lib/index.lib.php:260
 #, php-format
@@ -9618,7 +9498,7 @@ msgstr ""
 "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]hitelesítési típust[/a]."
 
 #: setup/lib/index.lib.php:270
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 #| "requires functions (%s) which are unavailable on this system."
@@ -9626,12 +9506,11 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"A [a@?page=form&amp;formset=features#tab_Import_export]zip formátumba "
-"tömörítéshez[/a] olyan függvényekre (%s) van szükség, melyek ezen a "
+"A %szip tömörítéshez%s olyan függvényekre (%s) van szükség, amelyek ezen a "
 "rendszeren nem elérhetőek."
 
 #: setup/lib/index.lib.php:272
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/"
 #| "a] requires functions (%s) which are unavailable on this system."
@@ -9639,9 +9518,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"A [a@?page=form&amp;formset=features#tab_Import_export]zipek kibontásához[/"
-"a] olyan függvényekre (%s) van szükség, melyek ezen a rendszeren nem "
-"elérhetőek."
+"A %szip kicsomagoláshoz%s olyan függvényekre (%s) van szükség, amelyek ezen "
+"a rendszeren nem elérhetőek."
 
 #: setup/lib/index.lib.php:297
 #, fuzzy
@@ -9650,28 +9528,25 @@ msgid "You should use SSL connections if your web server supports it."
 msgstr "SSL-kapcsolatokat kell használnia, ha a webszerver támogatja"
 
 #: setup/lib/index.lib.php:307
-#, fuzzy
 #| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
-msgstr "Teljesítmény okokból használja a mysqli kiterjesztést"
+msgstr "Teljesítmény okokból mysqli kiterjesztést kellene használnia."
 
 #: setup/lib/index.lib.php:332
 msgid "You allow for connecting to the server without a password."
 msgstr "Ön engedélyezi a jelszó nélküli csatlakozást a szerverhez."
 
 #: setup/lib/index.lib.php:352
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
 msgstr "Túl rövid a kulcs, legalább 8 karakterből álljon"
 
 #: setup/lib/index.lib.php:359
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
-"A kulcs alfanumerikus karaktereket, betűket [em]és[/em] speciális "
-"karaktereket tartalmazzon"
+"A kulcsnak betűket, számokat [em]és[/em] speciális karaktereket kell "
+"tartalmaznia."
 
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
@@ -9697,10 +9572,9 @@ msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
 #: sql.php:624
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "SQL érvényesítése"
+msgstr "Érvényes SQL"
 
 #: sql.php:903
 #, php-format
@@ -9747,9 +9621,8 @@ msgid "Insert as new row and ignore errors"
 msgstr "Új sor beillesztése és a hibák figyelmen kívül hagyása"
 
 #: tbl_change.php:1060
-#, fuzzy
 msgid "Show insert query"
-msgstr "Megjelenítés SQL lekérdezésként"
+msgstr "Beillesztő lekérdezés megjelenítése"
 
 #: tbl_change.php:1071
 msgid "and then"
@@ -9779,10 +9652,10 @@ msgstr ""
 "léphet."
 
 #: tbl_change.php:1137
-#, fuzzy, php-format
+#, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
-msgstr "Beszúrás újrakezdése %s sorral"
+msgstr "Beszúrás folytatása a(z) %s sorokkal"
 
 #: tbl_chart.php:56
 #, fuzzy
@@ -9855,10 +9728,9 @@ msgid "Bar type"
 msgstr "Lekérdezés típusa"
 
 #: tbl_chart.php:146
-#, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
-msgstr "Csomagolt"
+msgstr "Halmozott"
 
 #: tbl_chart.php:147
 msgid "Multi"
@@ -10011,25 +9883,22 @@ msgid "Table %s has been flushed"
 msgstr "A(z) %s tábla kiírása megtörtént"
 
 #: tbl_operations.php:664
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Tábla kiírása (\"FLUSH\")"
+msgstr "Tábla kiöblítése (FLUSH)"
 
 #: tbl_operations.php:673
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "A tábla adatainak kiíratása"
+msgstr "Adat vagy tábla törlése"
 
 #: tbl_operations.php:688
 msgid "Empty the table (TRUNCATE)"
 msgstr "Tábla kiürítése (TRUNCATE)"
 
 #: tbl_operations.php:708
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Nincs adatbázis"
+msgstr "Tábla törlése (DROP)"
 
 #: tbl_operations.php:730
 msgid "Partition maintenance"
@@ -10116,10 +9985,9 @@ msgstr ""
 "az adattípusokat)"
 
 #: tbl_relation.php:395
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Belső kapcsolatok"
+msgstr "Belső kapcsolat"
 
 #: tbl_relation.php:397
 msgid ""
@@ -10129,10 +9997,9 @@ msgstr ""
 "Nincs szükség belső kapcsolatra, ha létezik megfelelő IDEGEN KULCS kapcsolat."
 
 #: tbl_relation.php:403
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Idegen kulcs korlátozása"
+msgstr "Idegen kulcs megszorítás"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
@@ -10144,10 +10011,9 @@ msgstr ""
 "Egy \"példa szerinti lekérdezés\" végrehajtása (karakterhelyettesítő: \"%\")"
 
 #: tbl_select.php:233
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Válasszon mezőket (legalább egyet):"
+msgstr "Válasszon oszlopokat (legalább egyet):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -10182,17 +10048,16 @@ msgid "Add FULLTEXT index"
 msgstr "FULLTEXT index hozzáadása"
 
 #: tbl_structure.php:389
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Nincs"
 
 #: tbl_structure.php:402
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "A(z) %s tábla eldobása megtörtént"
+msgstr "A(z) %s oszlop eldobása megtörtént"
 
 #: tbl_structure.php:413 tbl_structure.php:487
 #, php-format
@@ -10206,10 +10071,9 @@ msgid "An index has been added on %s"
 msgstr "Az index hozzáadása a(z) %s mezőn megtörtént"
 
 #: tbl_structure.php:475
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Verziók megjelenítése"
+msgstr "Több tevékenység mutatása"
 
 #: tbl_structure.php:604 tbl_structure.php:606
 msgid "Relation view"
@@ -10220,10 +10084,9 @@ msgid "Propose table structure"
 msgstr "Táblaszerkezet ajánlása"
 
 #: tbl_structure.php:638
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "%s mező hozzáadása"
+msgstr "Oszlop hozzáadása"
 
 #: tbl_structure.php:652
 msgid "At End of Table"
@@ -10239,10 +10102,10 @@ msgid "After %s"
 msgstr "%s után"
 
 #: tbl_structure.php:693
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Index készítése a(z) %s. oszlopon"
+msgstr "Index készítése a(z) &nbsp;%s&nbsp;oszlopokon"
 
 #: tbl_structure.php:850
 msgid "partitioned"
@@ -10301,9 +10164,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: tbl_tracking.php:405 tbl_tracking.php:456
-#, fuzzy
 msgid "Date"
-msgstr "Adatok"
+msgstr "Dátum"
 
 #: tbl_tracking.php:407
 msgid "Data definition statement"
