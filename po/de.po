@@ -632,7 +632,9 @@ msgstr "Gesamt"
 #: db_structure.php:481 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "Neue Tabellen werden standardmäßig im Format %s angelegt."
+msgstr ""
+"%s die Storage-Engine die standardmäßig auf diesem MySQL-Server eingestellt "
+"ist."
 
 #: db_structure.php:509 db_structure.php:526 db_structure.php:527
 #: libraries/display_tbl.lib.php:2219 libraries/display_tbl.lib.php:2224
