@@ -14,6 +14,8 @@ error_reporting(E_ALL);
 /**
  * Read config file.
  */
-require CONFIG_FILE;
+if (is_readable(CONFIG_FILE)) {
+    require CONFIG_FILE;
+}
 
 ?>
