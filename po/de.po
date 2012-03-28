@@ -2189,7 +2189,7 @@ msgstr "Vollständige INSERTs"
 
 #: libraries/config.values.php:120
 msgid "extended inserts"
-msgstr "Erweiterte 'INSERT's"
+msgstr "Erweiterte INSERTs"
 
 #: libraries/config.values.php:121
 msgid "both of the above"
