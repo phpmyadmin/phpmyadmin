@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-02-24 19:23+0200\n"
-"Last-Translator: kanitchet <kanichet@hotmail.com>\n"
+"PO-Revision-Date: 2012-03-28 16:19+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: thai <th@li.org>\n"
-"Language: \n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -85,7 +85,7 @@ msgstr "ชื่อคีย์"
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
 #: server_status.php:777
 msgid "Description"
-msgstr "รายละเอียด"
+msgstr "คำอธิบาย"
 
 #: browse_foreigners.php:253 browse_foreigners.php:262
 #: browse_foreigners.php:274 browse_foreigners.php:282
@@ -103,7 +103,7 @@ msgstr "การดึงค่าส่วนหัวไม่สำเร็
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "เชื่อมต่อ url ปลายทางไม่สำเร็จ"
+msgstr "เชื่อมต่อ URL ปลายทางไม่สำเร็จ"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -241,7 +241,7 @@ msgstr "ดูโครงสร้างของฐานข้อมูล"
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:370 navigation.php:303
 msgid "No tables found in database."
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
@@ -351,7 +351,7 @@ msgstr "แก้ไข หรือส่งออก รีเลชันแ�
 #: server_privileges.php:2065 server_synchronize.php:418
 #: server_synchronize.php:861 tbl_tracking.php:587 test/theme.php:74
 msgid "Table"
-msgstr "ตาราง "
+msgstr "ตาราง"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
@@ -607,7 +607,7 @@ msgstr "การแสดงผลนี้แสดงเพียงจำน
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:137
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
 msgid "View"
-msgstr "วิว"
+msgstr "ตารางจำลอง (View)"
 
 #: db_structure.php:470 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
@@ -759,7 +759,7 @@ msgstr "รายงานผลการติดตาม"
 
 #: db_tracking.php:136 tbl_tracking.php:246 tbl_tracking.php:623
 msgid "Structure snapshot"
-msgstr "โครงสร้างแบบคร่าวๆ"
+msgstr "เก็บโครงสร้างไว้"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
@@ -875,7 +875,7 @@ msgstr "ที่คั่นหน้า %s ได้ถูกสร้าง�
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "นำเข้าได้สำเร็จ %d กำลังดำเนินกา่รต่อ"
+msgstr "นำเข้าได้สำเร็จ %d ได้ถูกนำเดินการแล้ว"
 
 #: import.php:423
 msgid ""
@@ -920,11 +920,11 @@ msgstr "คลิกเพื่อยกเลิกการเลือก"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
+msgstr "คำสั่ง \"ทิ้งฐานข้อมูล\" ถูกปิดไว้"
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:293
 msgid "Do you really want to "
-msgstr "ต้องการจะ "
+msgstr "คุณแน่ใจที่ต้องการจะ"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
@@ -961,7 +961,7 @@ msgstr "คุณแน่ใจที่ปิด BLOB อ้างอิงข
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "ค่าในแบบฟอร์มหายไป !"
+msgstr "ค่าในแบบฟอร์มไม่มี !"
 
 #: js/messages.php:45
 msgid "This is not a number!"
@@ -1109,7 +1109,7 @@ msgstr "แสดงหลักการค้นหา"
 #: js/messages.php:98 tbl_change.php:303 tbl_indexes.php:196
 #: tbl_indexes.php:221
 msgid "Ignore"
-msgstr "ไม่สนใจ"
+msgstr "ข้าม"
 
 #: js/messages.php:101
 msgid "Select referenced key"
@@ -1202,7 +1202,7 @@ msgstr "เมษายน"
 
 #: js/messages.php:151
 msgid "May"
-msgstr "พ.ค."
+msgstr "พฤษภาคม"
 
 #: js/messages.php:152
 msgid "June"
@@ -1471,7 +1471,7 @@ msgstr "กลุ่ม"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:320
 msgid "Cardinality"
-msgstr "Cardinality"
+msgstr "เอกเทศ"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:274 tbl_tracking.php:323
 msgid "Comment"
@@ -1479,7 +1479,7 @@ msgstr "หมายเหตุ"
 
 #: libraries/Index.class.php:471
 msgid "The primary key has been dropped"
-msgstr "โยนไพรมารีคีย์ทิ้งไปเรียบร้อยแล้ว"
+msgstr "โยนคีย์หลักทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/Index.class.php:475
 #, php-format
@@ -5682,7 +5682,7 @@ msgstr "ชุดตัวอักษร"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr " ข้อมูลไบนารี "
+msgstr "ข้อมูลไบนารี "
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -6572,7 +6572,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr "แสดงลิงก์ไปยังรูป (ดาวน์โหลดข้อมูลไบนารีโดยตรง/blob)."
+msgstr "แสดงการเชื่อมโยงเพื่อดาวน์โหลดรูปภาพนี้"
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 msgid ""
@@ -9003,7 +9003,7 @@ msgstr ""
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr " ข้อมูลไบนารี - ห้ามแก้ไข "
+msgstr "ข้อมูลไบนารี - ห้ามแก้ไข "
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
