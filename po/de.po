@@ -1621,7 +1621,7 @@ msgstr "Oberflächendesign %s nicht gefunden!"
 #: libraries/Theme_Manager.class.php:215
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "Pfad für das Oberflächendesign \"%s\" nicht gefunden!"
+msgstr "Pfad für das Oberflächendesign %s nicht gefunden!"
 
 #: libraries/Theme_Manager.class.php:295 test/theme.php:160 themes.php:20
 #: themes.php:40
