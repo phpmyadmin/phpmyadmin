@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-27 16:56+0200\n"
+"PO-Revision-Date: 2012-03-28 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -26,7 +26,7 @@ msgstr "Mostrar tudo"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
 #: libraries/schema/User_Schema.class.php:361
 msgid "Page number:"
-msgstr "Número de página:"
+msgstr "Número da página:"
 
 #: browse_foreigners.php:138
 msgid ""
@@ -34,9 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"A janela de destino no seu Navegador não pôde ser actualizada. Talvez tenha "
+"A janela de destino no seu browser não pode ser actualizada. Talvez tenha "
 "fechado a janela que a originou, ou as configurações de segurança do seu "
-"navegador encontram-se definidas para não permitir actualizações entre "
+"browser encontram-se definidas para não permitir actualizações entre "
 "janelas."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:2827
@@ -76,7 +76,7 @@ msgstr "Pesquisar"
 #: tbl_structure.php:660 tbl_structure.php:696 tbl_tracking.php:390
 #: tbl_tracking.php:507 view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "Executa"
+msgstr "Executar"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
 #: libraries/Index.class.php:441 tbl_tracking.php:315
@@ -1356,7 +1356,7 @@ msgstr "Sábado"
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1593
 msgid "Sun"
-msgstr "Dom"
+msgstr "Domingo"
 
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1595
@@ -5773,7 +5773,7 @@ msgstr "Mapa de Caractere"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr " Binário "
+msgstr "Binário "
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -9127,7 +9127,7 @@ msgstr ""
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr " Binário - não editar "
+msgstr "Binário - não editar "
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
