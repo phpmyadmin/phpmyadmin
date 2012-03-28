@@ -4,20 +4,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2011-05-05 12:49+0200\n"
-"Last-Translator: <gergo314@gmail.com>\n"
+"PO-Revision-Date: 2012-03-28 15:59+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
 msgid "Show all"
-msgstr "Összes"
+msgstr "Összes megjelenítése"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2331
 #: libraries/display_tbl.lib.php:321 libraries/export/pdf.php:133
@@ -112,8 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"A %s fájl nem elérhető ezen a rendszeren, keresse fel a www.phpmyadmin.net -"
-"et további információkért."
+"A(z) %s fájl nem elérhető ezen a rendszeren, keresse fel a "
+"www.phpmyadmin.net oldalt további információkért."
 
 #: db_create.php:58
 #, php-format
@@ -184,7 +184,7 @@ msgstr "Alapértelmezett"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1268 tbl_printview.php:147
 msgid "Links to"
-msgstr "Hivatkozások:"
+msgstr "Hivatkozás"
 
 #: db_datadict.php:177 db_printview.php:110
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
@@ -364,7 +364,7 @@ msgstr "Tábla"
 #: tbl_printview.php:391 tbl_structure.php:393 tbl_structure.php:479
 #: tbl_structure.php:871
 msgid "Rows"
-msgstr "sorok"
+msgstr "Sorok"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:186
 msgid "Size"
@@ -580,7 +580,7 @@ msgstr "Mezőben:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
-msgstr "Nem található tábla az adatbázisban."
+msgstr "Nem található tábla az adatbázisban"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
@@ -749,7 +749,7 @@ msgstr "Művelet"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "Tábla nyomkövetési adatainak törlése."
+msgstr "Tábla nyomkövetési adatainak törlése"
 
 #: db_tracking.php:119 tbl_tracking.php:543 tbl_tracking.php:601
 msgid "active"
@@ -931,7 +931,7 @@ msgstr "A phpMyAdmin <b>keretkezelő</b> böngészőben használhatóbb."
 #: server_synchronize.php:734 server_synchronize.php:762
 #: server_synchronize.php:790 server_synchronize.php:802
 msgid "Click to select"
-msgstr "Kattintson a kiválasztáshoz."
+msgstr "Kattintson a kijelöléshez."
 
 #: js/messages.php:26
 msgid "Click to unselect"
@@ -1039,7 +1039,7 @@ msgstr "Kérés feldolgozása"
 
 #: js/messages.php:65 libraries/import/ods.php:89
 msgid "Error in Processing Request"
-msgstr "Kérés feldolgozása sikertelen"
+msgstr "Hiba a kérés feldolgozásában"
 
 #: js/messages.php:66
 msgid "Dropping Column"
@@ -1148,7 +1148,7 @@ msgstr "Válassza ki a megjelenítendő oszlopot"
 
 #: js/messages.php:107
 msgid "Add an option for column "
-msgstr "Adjon meg egy opciót az oszlophoz"
+msgstr "Adjon meg egy opciót az oszlophoz "
 
 #: js/messages.php:110
 msgid "Generate password"
@@ -1221,7 +1221,7 @@ msgstr "Április"
 
 #: js/messages.php:151
 msgid "May"
-msgstr "máj."
+msgstr "Május"
 
 #: js/messages.php:152
 msgid "June"
@@ -1237,7 +1237,7 @@ msgstr "Augusztus"
 
 #: js/messages.php:155
 msgid "September"
-msgstr "szept."
+msgstr "Szeptember"
 
 #: js/messages.php:156
 msgid "October"
@@ -1245,11 +1245,11 @@ msgstr "Október"
 
 #: js/messages.php:157
 msgid "November"
-msgstr "Nov."
+msgstr "November"
 
 #: js/messages.php:158
 msgid "December"
-msgstr "Dec."
+msgstr "December"
 
 #. l10n: Short month name
 #: js/messages.php:162 libraries/common.lib.php:1568
@@ -1343,17 +1343,17 @@ msgstr "Szombat"
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1593
 msgid "Sun"
-msgstr "V"
+msgstr "Vas"
 
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1595
 msgid "Mon"
-msgstr "H"
+msgstr "Hét"
 
 #. l10n: Short week day name
 #: js/messages.php:201 libraries/common.lib.php:1597
 msgid "Tue"
-msgstr "K"
+msgstr "Ked"
 
 #. l10n: Short week day name
 #: js/messages.php:203 libraries/common.lib.php:1599
@@ -1363,12 +1363,12 @@ msgstr "Sze"
 #. l10n: Short week day name
 #: js/messages.php:205 libraries/common.lib.php:1601
 msgid "Thu"
-msgstr "Cs"
+msgstr "Csü"
 
 #. l10n: Short week day name
 #: js/messages.php:207 libraries/common.lib.php:1603
 msgid "Fri"
-msgstr "P"
+msgstr "Pén"
 
 #. l10n: Short week day name
 #: js/messages.php:209 libraries/common.lib.php:1605
@@ -1378,17 +1378,17 @@ msgstr "Szo"
 #. l10n: Minimal week day name
 #: js/messages.php:213
 msgid "Su"
-msgstr "V"
+msgstr "Va"
 
 #. l10n: Minimal week day name
 #: js/messages.php:215
 msgid "Mo"
-msgstr "H"
+msgstr "Hé"
 
 #. l10n: Minimal week day name
 #: js/messages.php:217
 msgid "Tu"
-msgstr "K"
+msgstr "Ke"
 
 #. l10n: Minimal week day name
 #: js/messages.php:219
@@ -1403,7 +1403,7 @@ msgstr "Cs"
 #. l10n: Minimal week day name
 #: js/messages.php:223
 msgid "Fr"
-msgstr "P"
+msgstr "Pé"
 
 #. l10n: Minimal week day name
 #: js/messages.php:225
@@ -1469,7 +1469,9 @@ msgstr "Ismeretlen hiba a fájlfeltöltésben."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Hiba történt a feltöltött fájl áthelyezésekor, lásd: GYIK 1.11"
+msgstr ""
+"Hiba történt a feltöltött fájl áthelyezésekor, lásd "
+"[a@./Documentation.html#faq1_11@Documentation]GyIK 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1615,7 +1617,7 @@ msgstr "Nem található a(z) %s téma!"
 #: libraries/Theme_Manager.class.php:215
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "Nem található a(z) %s téma téma elérési útja!"
+msgstr "Nem található a(z) %s téma elérési útja!"
 
 #: libraries/Theme_Manager.class.php:295 test/theme.php:160 themes.php:20
 #: themes.php:40
@@ -1868,8 +1870,7 @@ msgstr ""
 #: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
-"Nem lehetett betölteni az alapértelmezett konfigurációt innen: \"%1$s\""
+msgstr "Nem lehetett betölteni az alapértelmezett konfigurációt innen: %1$s"
 
 #: libraries/common.inc.php:600
 msgid ""
@@ -1882,7 +1883,7 @@ msgstr ""
 #: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "Érvénytelen szerverindex: \"%s\""
+msgstr "Érvénytelen szerverindex: %s"
 
 #: libraries/common.inc.php:637
 #, php-format
@@ -1907,7 +1908,7 @@ msgstr "Frissítenie kell %s %s vagy újabb verzióra."
 #: libraries/common.lib.php:142
 #, php-format
 msgid "Max: %s%s"
-msgstr "Legnagyobb méret: %s%s"
+msgstr "Max: %s%s"
 
 #. l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:404
@@ -2003,7 +2004,7 @@ msgstr "Idő"
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1392
 msgid "B"
-msgstr "Bájt"
+msgstr "B"
 
 #: libraries/common.lib.php:1392
 msgid "KiB"
@@ -2015,24 +2016,24 @@ msgstr "MB"
 
 #: libraries/common.lib.php:1392
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #: libraries/common.lib.php:1392
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #: libraries/common.lib.php:1392
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #: libraries/common.lib.php:1392
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 #. l10n: Thousands separator
 #: libraries/common.lib.php:1430
 msgid ","
-msgstr " "
+msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/common.lib.php:1432
@@ -2280,7 +2281,7 @@ msgstr "Engedélyezi a felhasználóknak az érték módosítását"
 #: libraries/schema/User_Schema.class.php:471 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1103
 msgid "Reset"
-msgstr "Törlés"
+msgstr "Visszaállítás"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
@@ -2307,9 +2308,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
-"Ezt engedélyezve egy másik domain-on lévő oldal meg tudja hívni a phpMyAdmin-"
-"t egy kereten belül, és ez egy potenciális [strong]biztonsági rés[/strong], "
-"ami lehetővé teszi a \"cross-frame scripting\" támadásokat"
+"Ezt engedélyezve egy másik domain-on lévő oldal meg tudja hívni a "
+"phpMyAdmin-t egy kereten belül, és ez egy potenciális [strong]biztonsági "
+"rés[/strong], ami lehetővé teszi a cross-frame scripting támadásokat"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -2557,7 +2558,7 @@ msgstr "Tömörítés"
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
 msgid "Put columns names in the first row"
-msgstr "A mezőneveket az első sorba teszi"
+msgstr "A mezőneveket tegye az első sorba"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:75
@@ -2616,7 +2617,7 @@ msgstr "Táblanév-sablon"
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
 msgid "Dump table"
-msgstr "Dump tábla"
+msgstr "Tábla kiírása"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
@@ -2953,7 +2954,7 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"A phpMyAdmin konfigurációs tároló beállításával további funkciókhoz  nyer "
+"A phpMyAdmin konfigurációs tároló beállításával további funkciókhoz nyer "
 "hozzáférést, hivatkozzon a [a@Documentation.html#linked-tables]phpMyadmin "
 "konfigurációs tárolók[/a] fejezetet a dokumentációban"
 
@@ -3130,15 +3131,16 @@ msgstr "A mezőnevek az első sorban"
 
 #: libraries/config/messages.inc.php:253 libraries/import/ods.php:34
 msgid "Do not import empty rows"
-msgstr "Ne importáljon üres sorokat"
+msgstr "Ne importálja az üres sorokat"
 
 #: libraries/config/messages.inc.php:254
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Valuták importálása ($5.00-5.00)"
+msgstr "Valuták importálása ($5.00 helyett 5.00)"
 
 #: libraries/config/messages.inc.php:255
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Százalékos értékek importálása pontos tizedestörtként"
+msgstr ""
+"Százalékos értékek importálása pontos tizedestörtként (12.00% helyett .12)"
 
 #: libraries/config/messages.inc.php:256
 msgid "Number of queries to skip from start"
@@ -3150,7 +3152,7 @@ msgstr "Részleges importálás: lekérdezések kihagyása"
 
 #: libraries/config/messages.inc.php:259
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "AUTO_INCREMENT-et ne használjon zéró értékekhez"
+msgstr "Ne használja az AUTO_INCREMENT-et nulla értékekhez"
 
 #: libraries/config/messages.inc.php:262
 msgid "Initial state for sliders"
@@ -3472,14 +3474,13 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
-"Letiltja az alapértelmezett figyelmeztetést az adatbázis részleteinél, ha a "
-"phpMyAdmin konfigurációs  tárolóhoz tartozó adatbázistáblák közül valamelyik "
-"nem található"
+"Letiltja az alapértelmezett figyelmeztetést, mely az adatbázis részletek "
+"Struktúra oldalon jelenik meg, ha a phpMyAdmin konfiguráció tároló táblák "
+"valamelyike nem található"
 
 #: libraries/config/messages.inc.php:329
-#, fuzzy
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Hiányzó táblák a phpMyAdmin konfigurációs tárolóhoz"
+msgstr "Hiányzó phpMyAdmin konfiguráció tároló táblák"
 
 #: libraries/config/messages.inc.php:331
 msgid "Iconic table operations"
@@ -4389,7 +4390,7 @@ msgstr "Open Document munkafüzet"
 #: libraries/config/setup.forms.php:256
 #: libraries/config/user_preferences.forms.php:159
 msgid "Quick"
-msgstr "Quick"
+msgstr "Gyors"
 
 #: libraries/config/setup.forms.php:260
 #: libraries/config/user_preferences.forms.php:163
@@ -4514,7 +4515,9 @@ msgstr "Típus visszaadása"
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
-msgstr "Becsült érték lehet. Lásd: GYIK 3.11"
+msgstr ""
+"Becsült érték lehet. Lásd [a@./Documentation.html#faq3_11@Documentation]GyIK "
+"3.11[/a]"
 
 #: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
@@ -4648,7 +4651,7 @@ msgstr "sor"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
-msgstr "Néhány sor dumpolása"
+msgstr "Néhány sor kiírása"
 
 #: libraries/display_export.lib.php:152
 #, fuzzy
@@ -4662,7 +4665,7 @@ msgstr "Ettől a sortól kezdve:"
 
 #: libraries/display_export.lib.php:166
 msgid "Dump all rows"
-msgstr "Összes sor dumpolása"
+msgstr "Összes sor kiírása"
 
 #: libraries/display_export.lib.php:174 libraries/display_export.lib.php:195
 msgid "Output:"
@@ -5194,7 +5197,7 @@ msgid ""
 msgstr ""
 "Ha ez az érték nagyobb, mint 1, akkor a MyISAM táblaindexek készítése a "
 "tároló folyamat által párhuzamosan (mindegyik index a saját szálában) "
-"történik a javítás során "
+"történik a javítás során."
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
@@ -6679,7 +6682,7 @@ msgstr ""
 "Kérjük, hogy vizsgálja meg gondosan a lekérdezésedet, ellenőrizze, hogy az "
 "idézőjelek jók-e és jól illeszkednek-e. Más lehetséges hiba oka lehet, hogy "
 "binárisan töltött fel egy fájlt az idézett szövegmezőn kívül. Kipróbálhatja "
-"a lekérdezésedet a MySQL parancssoros kezelőfelületén.  A MySQL szerver "
+"a lekérdezésedet a MySQL parancssoros kezelőfelületén. A MySQL szerver "
 "hibakimenete alul látható, ha van ott valami, az segíthet a hiba okának "
 "kiderítésében. Ha még mindig gondjai vannak, vagy a szintaktikai elemző "
 "(parser) hibát jelez, ahol a parancssoros kezelőfelületen végrehajtódik, "
@@ -6724,8 +6727,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a  "
-"%sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
+"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a %"
+"sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
 "kiterjesztést."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
@@ -7039,10 +7042,9 @@ msgid ""
 msgstr ""
 "Valamely karakterlánc egy részét mutatja. Az első lehetőség a karakterlánc "
 "elejéről kihagyandó karakterek száma (alapértelmezés: 0). A második "
-"lehetőség a visszaadandó karakterek száma száma (alapértelmezés: a "
-"karakterlánc végéig). A harmadik lehetőség az elején és/vagy a végén "
-"hozzáfűzendő karakterlánc a tranzakció előfordulásakor (alapértelmezés: \"..."
-"\")."
+"lehetőség a visszaadandó karakterek száma (alapértelmezés: a karakterlánc "
+"végéig). A harmadik lehetőség az elején és/vagy a végén hozzáfűzendő "
+"karakterlánc a tranzakció előfordulásakor (alapértelmezés: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
 #, fuzzy
@@ -7170,10 +7172,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"A konfigurációs fájl olyan beállításokat (jelszó nélküli root hozzáférés) "
-"tartalmaz, melyek megegyeznek az alapértelmezett MySQL jogosult fiókéval. A "
-"MySQL szerver most ezzel az alapbeállítással fut, behatolásra nyitott. "
-"Javítsa ezt a biztonsági rést."
+"A konfigurációs fájl olyan beállításokat tartalmaz (jelszó nélküli root "
+"hozzáférés), amelyek megegyeznek az alapértelmezett MySQL jogosult fiókéval. "
+"A MySQL szerver most ezzel az alapbeállítással fut, behatolásra nyitott, "
+"ezért javítsa ezt a biztonsági rést a 'root' felhasználónak adott jelszóval."
 
 #: main.php:253
 msgid ""
@@ -8642,7 +8644,7 @@ msgstr "A naplófájlba történt fizikai írások száma."
 
 #: server_status.php:93
 msgid "The number of fsync() writes done to the log file."
-msgstr "A naplófájlba történt fsyncs írások száma."
+msgstr "A naplófájlba történt fsync() írások száma."
 
 #: server_status.php:94
 msgid "The number of pending log file fsyncs."
@@ -8719,7 +8721,7 @@ msgid ""
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 "A kulcsgyorsítótárban lévő kulcsblokkok száma, melyek megváltoztak, de még "
-"nem kerültek lemezre kiírásra. Ez  Not_flushed_key_blocks néven ismert."
+"nem kerültek lemezre kiírásra. Ez Not_flushed_key_blocks néven ismert."
 
 #: server_status.php:111
 msgid ""
@@ -8781,7 +8783,7 @@ msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
-"Az eddig megnyitott táblák száma. Ha a megnyitott táblák nagy,akkor "
+"Az eddig megnyitott táblák száma. Ha a megnyitott táblák nagyok, akkor "
 "valószínűleg túl kicsi a táblagyorsítótár értéke."
 
 #: server_status.php:120
@@ -9890,7 +9892,7 @@ msgstr "Újrarajzolás"
 #: tbl_create.php:56
 #, php-format
 msgid "Table %s already exists!"
-msgstr "Már létezik nevű %s tábla!"
+msgstr "Már létezik %s nevű tábla!"
 
 #: tbl_create.php:242
 #, php-format
@@ -10080,7 +10082,7 @@ msgstr "Méret"
 
 #: tbl_printview.php:338 tbl_structure.php:781
 msgid "Effective"
-msgstr "Hatályos"
+msgstr "Hatásos"
 
 #: tbl_printview.php:363 tbl_structure.php:819
 msgid "Row Statistics"
@@ -10313,11 +10315,11 @@ msgstr "Adat manipuláló utasítás"
 
 #: tbl_tracking.php:502
 msgid "SQL dump (file download)"
-msgstr "SQL dump (fájl letöltés)"
+msgstr "SQL kiírás (fájl letöltés)"
 
 #: tbl_tracking.php:503
 msgid "SQL dump"
-msgstr "SQL dump"
+msgstr "SQL kiírás"
 
 #: tbl_tracking.php:504
 msgid "This option will replace your table and contained data."
