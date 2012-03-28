@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-28 15:48+0200\n"
+"PO-Revision-Date: 2012-03-28 15:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2804,7 +2804,7 @@ msgstr "Standard-Exporteinstellungen anpassen"
 #: libraries/config/messages.inc.php:165 libraries/config/messages.inc.php:207
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr "Features"
+msgstr "Funktionen"
 
 #: libraries/config/messages.inc.php:166
 msgid "General"
