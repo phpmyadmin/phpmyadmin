@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-21 20:59+0200\n"
+"PO-Revision-Date: 2012-03-28 14:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -26,7 +26,7 @@ msgstr "Näita kõiki"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
 #: libraries/schema/User_Schema.class.php:361
 msgid "Page number:"
-msgstr "Lehenumber:"
+msgstr "Leht:"
 
 #: browse_foreigners.php:138
 msgid ""
@@ -34,9 +34,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"Vajaliku sirvija akent ei suudetud uuendada. Võibolla Te olete peaakna "
-"sulgenud või Teie sirvija ei luba akendevahelist suhtlist tänu "
-"turvaseadetele."
+"Veebilehitseja sihtakent ei saanud uuendada. Võib-olla sulgesid ülemakna või "
+"sinu veebilehitseja turvasätted blokeerivad akna värskendamist."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:2827
 #: libraries/common.lib.php:2834 libraries/common.lib.php:3013
@@ -239,7 +238,7 @@ msgstr "Prindi"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr "Vaata andmebaasi väljundit (skeemi)"
+msgstr "Vaata andmebaasi tõmmist (skeemi)"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:370 navigation.php:303
