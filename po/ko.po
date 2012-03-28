@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-02-17 10:54+0200\n"
-"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
+"PO-Revision-Date: 2012-03-28 16:14+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -26,7 +26,7 @@ msgstr "모두 보기"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
 #: libraries/schema/User_Schema.class.php:361
 msgid "Page number:"
-msgstr "페이지:"
+msgstr "페이지 번호:"
 
 #: browse_foreigners.php:138
 msgid ""
@@ -110,9 +110,7 @@ msgstr "원격 URL 열기 실패했습니다"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
-"%s 파일은 사용할 수 없습니다. www.phpmyadmin.net에 방문하여 정보를 확인하세"
-"요."
+msgstr "%s 파일은 이 시스템에서 이용할 수 없습니다. www.phpmyadmin.net에 방문하여 정보를 확인하시기 바랍니다."
 
 #: db_create.php:58
 #, php-format
@@ -194,7 +192,7 @@ msgstr "링크 대상:"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1269
 #: libraries/tbl_properties.inc.php:128 tbl_printview.php:149
 msgid "Comments"
-msgstr "설명(코멘트)"
+msgstr "설명"
 
 #: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
@@ -210,7 +208,7 @@ msgstr "설명(코멘트)"
 #: server_privileges.php:2268 sql.php:238 sql.php:299 tbl_printview.php:226
 #: tbl_structure.php:378 tbl_tracking.php:332 tbl_tracking.php:337
 msgid "No"
-msgstr " 아니오 "
+msgstr "아니오 "
 
 #: db_datadict.php:260 js/messages.php:77 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
@@ -265,7 +263,7 @@ msgstr "데이터베이스 %s 의 이름을 %s 로 변경하였습니다."
 #: db_operations.php:281
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "데이터베이스 %s 를  %s 로 복사하였습니다."
+msgstr "데이터베이스 %s를  %s로 복사하였습니다."
 
 #: db_operations.php:409
 msgid "Rename database to"
@@ -363,7 +361,7 @@ msgstr "테이블 "
 #: tbl_printview.php:391 tbl_structure.php:393 tbl_structure.php:479
 #: tbl_structure.php:871
 msgid "Rows"
-msgstr "행(레코드)"
+msgstr "행"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:186
 msgid "Size"
@@ -386,14 +384,14 @@ msgstr "생성"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:441
 #: tbl_structure.php:911
 msgid "Last update"
-msgstr "업데이트"
+msgstr "마지막 업데이트"
 
 #: db_printview.php:203 libraries/db_info.inc.php:109
 #: libraries/export/sql.php:601
 #: libraries/schema/Pdf_Relation_Schema.class.php:1230 tbl_printview.php:451
 #: tbl_structure.php:919
 msgid "Last check"
-msgstr "검사"
+msgstr "마지막 검사"
 
 #: db_printview.php:220 db_structure.php:465
 #, php-format
@@ -403,7 +401,7 @@ msgstr[0] "%s개 테이블 "
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "출력하려면 적어도 1개 이상의 열(칼럼)을 선택해야 합니다."
+msgstr "출력하려면 적어도 1개 이상의 열을 선택해야 합니다."
 
 #: db_qbe.php:186
 msgid "Switch to"
@@ -430,7 +428,7 @@ msgstr "오름차순"
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:272
 #: tbl_select.php:278
 msgid "Descending"
-msgstr "내림차순(역순)"
+msgstr "내림차순"
 
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:390
 #: tbl_change.php:278 tbl_tracking.php:592
@@ -591,7 +589,7 @@ msgstr "뷰 %s가 제거되었습니다."
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "테이블 %s를 제거했습니다."
 
 #: db_structure.php:319 tbl_create.php:295
 msgid "Tracking is active."
@@ -883,7 +881,7 @@ msgstr "북마크 %s가 생성되었습니다."
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "가져오기를 마쳤습니다. %d 쿼리가 실행되었습니다."
+msgstr "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
 
 #: import.php:423
 msgid ""
@@ -906,7 +904,7 @@ msgstr ""
 #: tbl_operations.php:224 tbl_relation.php:282 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "SQL 질의가 바르게 실행되었습니다."
+msgstr "질의가 바르게 실행되었습니다."
 
 #: import_status.php:30 libraries/common.lib.php:682
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
@@ -972,11 +970,11 @@ msgstr ""
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "Missing value in the form !"
+msgstr "입력 폼 안에 빠진 값이 있습니다!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
-msgstr "은 숫자(번호)가 아닙니다!"
+msgstr "은 숫자가 아닙니다!"
 
 #: js/messages.php:48
 msgid "The host name is empty!"
@@ -988,7 +986,7 @@ msgstr "사용자명이 없습니다!"
 
 #: js/messages.php:50 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
-msgstr "암호가 비었습니다!"
+msgstr "암호가 없습니다!"
 
 #: js/messages.php:51 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
@@ -1120,7 +1118,7 @@ msgstr "검색 조건 보이기"
 #: js/messages.php:98 tbl_change.php:303 tbl_indexes.php:196
 #: tbl_indexes.php:221
 msgid "Ignore"
-msgstr "Ignore"
+msgstr "무시"
 
 #: js/messages.php:101
 msgid "Select referenced key"
@@ -1784,7 +1782,7 @@ msgstr "데이터"
 #: server_databases.php:215 server_status.php:541 server_status.php:602
 #: server_status.php:625 tbl_printview.php:348 tbl_structure.php:790
 msgid "Total"
-msgstr "전체 사용량"
+msgstr "전체 쿼리수"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:776
@@ -1811,7 +1809,7 @@ msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr "사용권한 보기"
+msgstr "사용권한 검사"
 
 #: libraries/chart.lib.php:40
 msgid "Query statistics"
@@ -1942,7 +1940,7 @@ msgstr "SQL 해석"
 
 #: libraries/common.lib.php:1142
 msgid "Skip Explain SQL"
-msgstr "해석(EXPLAIN) 생략"
+msgstr "SQL 해석 생략"
 
 #: libraries/common.lib.php:1176
 msgid "Without PHP Code"
@@ -2517,7 +2515,7 @@ msgstr "파일 문자셋"
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: tbl_printview.php:373 tbl_structure.php:831
 msgid "Format"
-msgstr "Format"
+msgstr "형식"
 
 #: libraries/config/messages.inc.php:71
 msgid "Compression"
@@ -2567,7 +2565,7 @@ msgstr "열 구분자"
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:238
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr "줄(열) 구분자"
+msgstr "줄 구분자"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
@@ -4394,7 +4392,7 @@ msgstr "새 데이터베이스 만들기"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
-msgstr " 만들기 "
+msgstr "만들기 "
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:121
 #: server_privileges.php:1493 server_replication.php:33
@@ -6203,7 +6201,7 @@ msgstr "바이너리"
 
 #: libraries/server_links.inc.php:59 server_processlist.php:21
 msgid "Processes"
-msgstr "프로세스 목록"
+msgstr "프로세스"
 
 #: libraries/server_links.inc.php:77 server_engines.php:125
 #: server_engines.php:129 server_status.php:430 test/theme.php:104
@@ -6370,9 +6368,7 @@ msgstr ""
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
-msgstr ""
-"SQL 검사기가 초기화되지 않았습니다. %s문서%s에서 설명한 php 확장모듈을 설치했"
-"는지 확인해보십시오."
+msgstr "질의 검사기가 초기화되지 않았습니다. %s문서%s에서 설명한 필수 PHP 확장모듈을 설치했는지 확인해 보십시오."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6702,9 +6698,8 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"환경설정파일에 MySQL 관리자 암호가 없습니다. 이같은 기본설정상태로 MySQL 서버"
-"가 작동한다면 누구나 침입할 수 있으므로, 이 보안상 허점을 수정하시기 바랍니"
-"다."
+"환경설정파일에 MySQL 관리자 암호가 없습니다. 이같은 기본설정상태로 MySQL 서버가 작동한다면 누구나 침입할 수 있으므로, "
+"'root'유저에 암호를 설정하여 이 보안 취약점을 수정하시기 바랍니다."
 
 #: main.php:253
 msgid ""
@@ -7452,7 +7447,7 @@ msgstr "%s 의 암호가 바뀌었습니다."
 #: server_privileges.php:1256
 #, php-format
 msgid "Deleting %s"
-msgstr " %s 을 삭제합니다"
+msgstr "%s 을 삭제합니다"
 
 #: server_privileges.php:1270
 msgid "No users selected for deleting!"
@@ -8945,7 +8940,7 @@ msgstr ""
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr " 바이너리 - 편집 금지 "
+msgstr "바이너리 - 편집 금지 "
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
@@ -8987,7 +8982,7 @@ msgstr "다음 행 수정"
 #: tbl_change.php:1099
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
-msgstr "탭 키를 이용해 이동하거나 CTRL+화살표로 이동할 수 있다"
+msgstr "탭 키나 CTRL+화살표로 값 항목을 이동할 수 있습니다."
 
 #: tbl_change.php:1137
 #, php-format
@@ -9392,7 +9387,7 @@ msgstr "테이블 %s 을 제거했습니다."
 #: tbl_structure.php:413 tbl_structure.php:487
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr " %s에 기본 키가 추가되었습니다"
+msgstr "%s에 기본 키가 추가되었습니다"
 
 #: tbl_structure.php:428 tbl_structure.php:443 tbl_structure.php:458
 #: tbl_structure.php:500 tbl_structure.php:513 tbl_structure.php:526
