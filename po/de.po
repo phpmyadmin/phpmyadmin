@@ -2087,8 +2087,7 @@ msgstr "Zur Datenbank &quot;%s&quot; springen."
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
-"Die Funktion  \"%s\" wird durch einen bekannten Fehler beeinträchtigt, siehe "
-"%s"
+"Die Funktion %s wird durch einen bekannten Fehler beeinträchtigt, siehe %s"
 
 #: libraries/common.lib.php:2825 libraries/common.lib.php:2832
 #: libraries/common.lib.php:3017 libraries/config/setup.forms.php:285
