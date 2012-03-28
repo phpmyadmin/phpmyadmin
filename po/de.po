@@ -1840,7 +1840,7 @@ msgstr "Rechte überprüfen"
 
 #: libraries/chart.lib.php:40
 msgid "Query statistics"
-msgstr "Statistiken abfragen"
+msgstr "Abfrage-Statistiken"
 
 #: libraries/chart.lib.php:63
 msgid "Query execution time comparison (in microseconds)"
