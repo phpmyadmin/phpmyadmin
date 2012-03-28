@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-28 16:14+0200\n"
+"PO-Revision-Date: 2012-03-28 16:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -103,7 +103,7 @@ msgstr "헤더를 가져오는 데 실패했습니다."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "원격 URL 열기 실패했습니다"
+msgstr "원격 URL 열기에 실패했습니다"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -960,7 +960,7 @@ msgstr "이 명령은 오랜 시간이 걸릴 수 있습니다. 그래도 실행
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "BLOB 저장소를 사용 불가능하게 하려고 합니다!"
+msgstr "BLOB 저장소를 사용할 수 없게 하려고 합니다!"
 
 #: js/messages.php:41
 #, php-format
@@ -1577,7 +1577,7 @@ msgstr ""
 #: libraries/Table.class.php:1149
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "테이블 %s을(를) %s(으)로 변경하였습니다."
+msgstr "테이블 %s을(를) %s(으)로 이름을 변경하였습니다."
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -1859,7 +1859,7 @@ msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr "환경설정 파일에서 <tt>$cfg['PmaAbsoluteUri']</tt> 주소를 기입하십시오!"
+msgstr "환경설정 파일에 <tt>$cfg['PmaAbsoluteUri']</tt> 변수가 정의되어야 합니다!"
 
 #: libraries/common.inc.php:630
 #, php-format
