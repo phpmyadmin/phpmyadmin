@@ -30,8 +30,8 @@ class AllSeleniumTests
         $suite = new PHPUnit_Framework_TestSuite('phpMyAdmin');
 
         $suite->addTestSuite('PmaSeleniumLoginTest');
-        //$suite->addTestSuite('PmaSeleniumXssTest');
-        //$suite->addTestSuite('PmaSeleniumPrivilegesTest');
+        $suite->addTestSuite('PmaSeleniumXssTest');
+        $suite->addTestSuite('PmaSeleniumPrivilegesTest');
         return $suite;
     }
 }
