@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-14 14:57+0200\n"
+"PO-Revision-Date: 2012-03-28 16:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
 "Language: uz@latin\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -118,7 +118,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr " %1$s ma`lumotlar bazasi tuzildi."
+msgstr "%1$s ma`lumotlar bazasi tuzildi."
 
 #: db_datadict.php:48 db_operations.php:367
 msgid "Database comment: "
@@ -263,7 +263,7 @@ msgstr "Ma`lumotlar bazasi nomi bo‘sh!"
 #: db_operations.php:277
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr " `\"%s\"` ma`lumotlar bazasining nomi `\"%s\"` deb o‘zgartirildi."
+msgstr "`\"%s\"` ma`lumotlar bazasining nomi `\"%s\"` deb o‘zgartirildi."
 
 #: db_operations.php:281
 #, php-format
@@ -283,7 +283,7 @@ msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 #: db_operations.php:446
 #, php-format
 msgid "Database %s has been dropped."
-msgstr " \"%s\" ma`lumotlar ombori o‘chirildi."
+msgstr "\"%s\" ma`lumotlar ombori o‘chirildi."
 
 #: db_operations.php:451
 #, fuzzy
@@ -614,7 +614,7 @@ msgstr "\"%s\" jadvali tozalandi"
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
 msgid "View %s has been dropped"
-msgstr " \"%s\" namoyishi o‘chirildi"
+msgstr "\"%s\" namoyishi o‘chirildi"
 
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
@@ -1640,14 +1640,14 @@ msgstr "Birlamchi kalit o‘chirildi"
 #: libraries/Index.class.php:475
 #, php-format
 msgid "Index %s has been dropped"
-msgstr " \"%s\" indeksi o‘chirildi"
+msgstr "\"%s\" indeksi o‘chirildi"
 
 #: libraries/Index.class.php:579
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr " %1$s va %2$s indekslari bir xil, ulardan birini o‘chirish mumkin."
+msgstr "%1$s va %2$s indekslari bir xil, ulardan birini o‘chirish mumkin."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:175
 #: libraries/server_links.inc.php:42 server_databases.php:100
@@ -1727,7 +1727,7 @@ msgstr "`\"%s\"` jadvalining nomi `\"%s\"` deb o‘zgartirildi."
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr " \"%s\" mavzusi rasmlariga to‘g‘ri yo‘l topilmadi!"
+msgstr "\"%s\" mavzusi rasmlariga to‘g‘ri yo‘l topilmadi!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
@@ -1740,17 +1740,17 @@ msgstr "Tadbiq qilish"
 #: libraries/Theme_Manager.class.php:109
 #, php-format
 msgid "Default theme %s not found!"
-msgstr " \"%s\" asl mavzusi topilmadi!"
+msgstr "\"%s\" asl mavzusi topilmadi!"
 
 #: libraries/Theme_Manager.class.php:147
 #, php-format
 msgid "Theme %s not found!"
-msgstr " \"%s\" mavzusi topilmadi!"
+msgstr "\"%s\" mavzusi topilmadi!"
 
 #: libraries/Theme_Manager.class.php:215
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr " \"%s\" mavzusi fayllariga yo‘l topilmadi!"
+msgstr "\"%s\" mavzusi fayllariga yo‘l topilmadi!"
 
 #: libraries/Theme_Manager.class.php:295 test/theme.php:160 themes.php:20
 #: themes.php:40
@@ -2055,7 +2055,7 @@ msgstr ""
 #: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr " \"%s\" ni \"%s\" versiyaga yoki kattaroq versiyaga yangilash zarur."
+msgstr "\"%s\" ni \"%s\" versiyaga yoki kattaroq versiyaga yangilash zarur."
 
 #: libraries/common.lib.php:142
 #, php-format
@@ -2224,7 +2224,7 @@ msgstr "Oxiri"
 #: libraries/common.lib.php:2446
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr " \"%s\" ma`lumotlar bazasiga o‘tish"
+msgstr "\"%s\" ma`lumotlar bazasiga o‘tish"
 
 #: libraries/common.lib.php:2465
 #, php-format
@@ -5159,7 +5159,7 @@ msgstr "Til"
 #: libraries/display_tbl.lib.php:386
 #, php-format
 msgid "%d is not valid row number."
-msgstr " %d soni to‘g‘ri qator raqami emas!"
+msgstr "%d soni to‘g‘ri qator raqami emas!"
 
 #: libraries/display_tbl.lib.php:392
 #, fuzzy
@@ -5406,7 +5406,7 @@ msgstr "Buferni o‘qishda % qoldirishlar mavjud"
 
 #: libraries/engines/innodb.lib.php:260
 msgid "Write waits in %"
-msgstr " % buferning tozalanishi kutilmoqda"
+msgstr "% buferning tozalanishi kutilmoqda"
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
@@ -5818,7 +5818,7 @@ msgstr "Jadval tuzilishi"
 
 #: libraries/export/latex.php:13
 msgid "Content of table @TABLE@"
-msgstr " @TABLE@ jadvalining mundarijasi"
+msgstr "@TABLE@ jadvalining mundarijasi"
 
 #: libraries/export/latex.php:14
 msgid "(continued)"
@@ -5826,7 +5826,7 @@ msgstr "(davomi)"
 
 #: libraries/export/latex.php:15
 msgid "Structure of table @TABLE@"
-msgstr " @TABLE@ jadvalining tuzilishi"
+msgstr "@TABLE@ jadvalining tuzilishi"
 
 #: libraries/export/latex.php:47 libraries/export/odt.php:39
 #: libraries/export/sql.php:87
@@ -6643,7 +6643,7 @@ msgstr "\"%s\" jadvali mavjud emas!"
 #: libraries/schema/Visio_Relation_Schema.class.php:256
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr " \"%s\" jadvalining koordinatalarini o‘zgartirish"
+msgstr "\"%s\" jadvalining koordinatalarini o‘zgartirish"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:752
 #: libraries/schema/Pdf_Relation_Schema.class.php:851
@@ -7403,7 +7403,7 @@ msgstr "Viki"
 
 #: main.php:218
 msgid "Official Homepage"
-msgstr " phpMyAdmin rasmiy veb-sahifasi"
+msgstr "phpMyAdmin rasmiy veb-sahifasi"
 
 #: main.php:219
 #, fuzzy
@@ -7872,7 +7872,7 @@ msgstr "Barcha"
 #: schema_edit.php:45 schema_edit.php:51 schema_edit.php:57 schema_edit.php:62
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr " <b>\"%s\"</b> jadvali topilmadi yoki <b>\"%s\"</b>da o‘rnatilmagan"
+msgstr "<b>\"%s\"</b> jadvali topilmadi yoki <b>\"%s\"</b>da o‘rnatilmagan"
 
 #: schema_export.php:47
 #, fuzzy
@@ -8223,7 +8223,7 @@ msgstr "Bironta ham foydalanuvchi topilmadi."
 #: server_privileges.php:861
 #, php-format
 msgid "The user %s already exists!"
-msgstr " \"%s\" nomli foydalanuvchi mavjud!"
+msgstr "\"%s\" nomli foydalanuvchi mavjud!"
 
 #: server_privileges.php:945
 msgid "You have added a new user."
@@ -8232,12 +8232,12 @@ msgstr "Siz yangi foydalanuvchi qo‘shdingiz."
 #: server_privileges.php:1176
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr " \"%s\" uchun privilegiyalar o‘zgartirildi."
+msgstr "\"%s\" uchun privilegiyalar o‘zgartirildi."
 
 #: server_privileges.php:1200
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr " \"%s\" foydalanuvchining privilegiyalari bekor qilindi."
+msgstr "\"%s\" foydalanuvchining privilegiyalari bekor qilindi."
 
 #: server_privileges.php:1236
 #, php-format
@@ -8353,7 +8353,7 @@ msgstr "Xuddi shunday privilegiyali yangi foydalanuvchi kiritish..."
 
 #: server_privileges.php:2088
 msgid "... keep the old one."
-msgstr " va eskisini saqlash."
+msgstr "va eskisini saqlash."
 
 #: server_privileges.php:2089
 msgid " ... delete the old one from the user tables."
@@ -8420,7 +8420,7 @@ msgstr "Guruhlash belgisi"
 #: server_processlist.php:29
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr " \"%s\" jarayoni muvaffaqiyatli yakunlandi."
+msgstr "\"%s\" jarayoni muvaffaqiyatli yakunlandi."
 
 #: server_processlist.php:31
 #, php-format
@@ -8618,7 +8618,7 @@ msgstr "Kеyingisini tashlab kеtish"
 
 #: server_replication.php:347
 msgid "errors."
-msgstr " xatoliklar."
+msgstr "xatoliklar."
 
 #: server_replication.php:362
 #, php-format
@@ -10018,7 +10018,7 @@ msgstr "SQL to‘g‘riligini tekshirish"
 #: sql.php:903
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr " `\"%s\"` jadvalidagi indekslarda muammo mavjud"
+msgstr "`\"%s\"` jadvalidagi indekslarda muammo mavjud"
 
 #: sql.php:935
 msgid "Label"
@@ -10253,7 +10253,7 @@ msgstr "Indeks turi:"
 #: tbl_indexes.php:247
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr " \"%s\" maydon(lar)ini indeksga qo‘shish"
+msgstr "\"%s\" maydon(lar)ini indeksga qo‘shish"
 
 #: tbl_indexes.php:252 tbl_structure.php:688
 msgid "Column count has to be larger than zero."
@@ -10270,7 +10270,7 @@ msgstr "Jadvalning o‘zidan o‘ziga nusxa ko‘chirish mumkin emas!"
 #: tbl_move_copy.php:54
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr " \"%s\" jadvali \"%s\" ga ko‘chirildi."
+msgstr "\"%s\" jadvali \"%s\" ga ko‘chirildi."
 
 #: tbl_move_copy.php:56
 #, php-format
@@ -10513,13 +10513,13 @@ msgstr "\"%s\" jadvali o‘chirildi"
 #: tbl_structure.php:413 tbl_structure.php:487
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr " \"%s\" ga birlamchi kalit qo‘shildi"
+msgstr "\"%s\" ga birlamchi kalit qo‘shildi"
 
 #: tbl_structure.php:428 tbl_structure.php:443 tbl_structure.php:458
 #: tbl_structure.php:500 tbl_structure.php:513 tbl_structure.php:526
 #, php-format
 msgid "An index has been added on %s"
-msgstr " \"%s\" uchun indeks qo‘shildi"
+msgstr "\"%s\" uchun indeks qo‘shildi"
 
 #: tbl_structure.php:475
 #, fuzzy
@@ -10552,7 +10552,7 @@ msgstr "Jadval boshiga"
 #: tbl_structure.php:654
 #, php-format
 msgid "After %s"
-msgstr " \"%s\" dan keyin"
+msgstr "\"%s\" dan keyin"
 
 #: tbl_structure.php:693
 #, fuzzy, php-format
