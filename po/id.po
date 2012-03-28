@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-27 16:57+0200\n"
+"PO-Revision-Date: 2012-03-27 17:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -784,7 +784,7 @@ msgstr "Log Database"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr "Nilai untuk kolom \"% s\""
+msgstr "Nilai untuk kolom \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
