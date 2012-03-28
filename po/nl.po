@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:17+0100\n"
-"PO-Revision-Date: 2012-03-26 19:06+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2012-03-27 21:31+0200\n"
+"Last-Translator: Arjen Brouwer <arjenjb@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -12502,6 +12502,15 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Ernstige fragmentatie zal waarschijnlijk Qcache_lowmem_prunes (verder) doen "
+"toenemen. Dit kan worden veroorzaakt door veel 'query cache low memory "
+"prunes' als gevolg dat {query_cache_size} te klein is. Voor een "
+"onmiddellijke maar van korte duur oplossing kun je de query cache flushen "
+"(kan de query cache voor een lange tijd op slot). Door "
+"{query_cache_min_res_unit} zorgvuldig bij te stellen naar een lagere waarde "
+"zou ook kunnen helpen, je kunt deze bijvoorbeeld instellen op de gemiddelde "
+"grootte van uw queries in de cache met behulp van deze formule: "
+"(query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
@@ -12510,6 +12519,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"De cache is momenteel gefragmenteerd met %s%%, waar 100%% fragmentatie "
+"betekent dat de query cache een afwisselend patroon van vrije en gebruikte "
+"blokken bevat. Deze waarde zou lager moeten zijn dan 20%%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
@@ -12548,6 +12560,9 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"De grootte van de query cache is hoger dan 128Mb. Grote query caches kunnen "
+"behoorlijk overhead veroorzaken noodzakelijk voor het bijhouden van de "
+"cache."
 
 #: po/advisory_rules.php:102
 msgid ""
@@ -12571,6 +12586,8 @@ msgstr "Minimum grootte query cache resultaat"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"The maximale grootte van een resultaat set in the query cache is de "
+"standaard van 1 MB."
 
 #: po/advisory_rules.php:107
 msgid ""
@@ -12602,6 +12619,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Overweeg om sort_buffer_size en/of read_rnd_buffer_size te verheugen, "
+"afhankelijk van uw systeem's geheugen limieten"
 
 #: po/advisory_rules.php:113
 #, php-format
@@ -12609,6 +12628,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%S%% van alle sorteer acties veroorzaken tijdelijke tabellen, deze waarde "
+"zou lager moeten zijn dan 10%%."
 
 #: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
@@ -12619,6 +12640,8 @@ msgstr "Frequentie van sorteringen die tijdelijke tabellen veroorzaken"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Tijdelijke tabellen gemiddelde: %s, deze waarde zou minder moeten zijn dan 1 "
+"per uur."
 
 #: po/advisory_rules.php:120
 #| msgid "Textarea rows"
@@ -12636,6 +12659,9 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Hoewel er niets mis is met een hoog aantal rij sorteringen, je zeker kunnen "
+"controleren dat queries die veel sorteren geïndexeerde kolommen gebruiken in "
+"de ORDER BY clausule, omdat dit resulteert in snellere sortering"
 
 #: po/advisory_rules.php:123
 #, php-format
@@ -12656,15 +12682,19 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Dit betekent dat joins volledige table scans uitvoeren. Het toevoegen van "
+"indexen voor de kolommen die worden gebruikt in de join condities zullen "
+"tabel joins erg versnellen"
 
 #: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tabel join gemiddelde: %s, deze waarde zou kleiner moeten zijn de 1 per uur"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Mate van het lezen van eerste index entry"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
