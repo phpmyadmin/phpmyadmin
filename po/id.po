@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-28 16:07+0200\n"
+"PO-Revision-Date: 2012-03-28 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -104,7 +104,7 @@ msgstr "Gagal mengambil header"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "Gagal membuka URL"
+msgstr "Gagal membuka URL jauh"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -939,7 +939,7 @@ msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:293
 msgid "Do you really want to "
-msgstr "Apakah anda ingin "
+msgstr "Benarkah Anda ingin untuk "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
@@ -973,7 +973,8 @@ msgstr "Anda akan MENONAKTIFKAN repositori BLOB!"
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
-"Apakah Anda yakin ingin menonaktifkan semua referensi BLOB untuk database %s?"
+"Apakah Anda yakin ingin menonaktifkan semua referensi BLOB untuk basis data "
+"%s?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
@@ -1735,7 +1736,7 @@ msgstr "Mengautentikasi..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr "Kesalahan PBMS"
+msgstr "Galat PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
@@ -1751,11 +1752,11 @@ msgstr "gagal mengambil BLOB Content-Type"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
-msgstr "Tampilan View"
+msgstr "Lihat gambar"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr "Memainkan file suara"
+msgstr "Putar audio"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
@@ -1763,7 +1764,7 @@ msgstr "Lihat video"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
-msgstr "Unduh file"
+msgstr "Unduh berkas"
 
 #: libraries/blobstreaming.lib.php:421
 #, php-format
@@ -1875,7 +1876,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Directif <tt>$cfg['PmaAbsoluteUri']</tt> WAJIB diset dalam file konfigurasi!"
+"Directif <tt>$cfg['PmaAbsoluteUri']</tt> WAJIB diset dalam berkas "
+"konfigurasi!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -6319,7 +6321,7 @@ msgstr "Tampaknya tabel kosong!"
 #: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr "Pelacakan dari %s.%s diaktifkan"
+msgstr "Pelacakan %s.%s diaktifkan."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
@@ -7096,7 +7098,7 @@ msgstr "Basis data belum dipilih."
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "Sukses menghapus database %s."
+msgstr "Sukses menghapus basis data %s."
 
 #: server_databases.php:100
 msgid "Databases statistics"
@@ -8945,7 +8947,7 @@ msgstr "Biner - jangan diedit"
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
-msgstr "Upload ke repositori BLOB"
+msgstr "Unggah ke repositori BLOB"
 
 #: tbl_change.php:1058
 msgid "Insert as new row"
@@ -9542,7 +9544,7 @@ msgstr "Aktifkan sekarang"
 #: tbl_tracking.php:668
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr "Membuat versi %s dari %s.%s"
+msgstr "Buat versi %s dari %s.%s"
 
 #: tbl_tracking.php:672
 msgid "Track these data definition statements:"
