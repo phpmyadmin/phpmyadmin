@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-27 16:58+0200\n"
+"PO-Revision-Date: 2012-03-28 16:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -304,7 +304,7 @@ msgstr "Лише дані"
 
 #: db_operations.php:498
 msgid "CREATE DATABASE before copying"
-msgstr "Перед копіюванням створити базу даних (CREATE DATABASE)"
+msgstr "Виконайте CREATE DATABASE перед копіюванням"
 
 #: db_operations.php:501 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
@@ -381,14 +381,14 @@ msgstr "використовується"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1220 tbl_printview.php:431
 #: tbl_structure.php:903
 msgid "Creation"
-msgstr "Створено"
+msgstr "Створення"
 
 #: db_printview.php:194 libraries/db_info.inc.php:104
 #: libraries/export/sql.php:596
 #: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:441
 #: tbl_structure.php:911
 msgid "Last update"
-msgstr "Поновлено"
+msgstr "Останнє оновлення"
 
 #: db_printview.php:203 libraries/db_info.inc.php:109
 #: libraries/export/sql.php:601
@@ -513,12 +513,12 @@ msgstr "точну фразу"
 
 #: db_search.php:67 db_search.php:310
 msgid "as regular expression"
-msgstr "регулярний вираз"
+msgstr "як регулярний вираз"
 
 #: db_search.php:229
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Результати пошуку \"<i>%s</i>\" %s:"
+msgstr "Результати пошуку для \"<i>%s</i>\" %s:"
 
 #: db_search.php:247
 #, php-format
@@ -555,8 +555,8 @@ msgstr "Видалити"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Всього:</b> <i>%s</i> співпадіння"
-msgstr[1] "<b>Всього:</b> <i>%s</i> співпадінь"
-msgstr[2] "<b>Всього:</b> <i>%s</i> співпадінь"
+msgstr[1] "<b>Всього:</b> <i>%s</i> співпадань"
+msgstr[2] "<b>Всього:</b> <i>%s</i> співпадань"
 
 #: db_search.php:295
 msgid "Search in database"
@@ -1021,7 +1021,7 @@ msgstr "Перезавантаження прав"
 
 #: js/messages.php:55
 msgid "Removing Selected Users"
-msgstr "Видалити відмічених користувачів"
+msgstr "Видалення відмічених користувачів"
 
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:246 tbl_tracking.php:374
@@ -1078,7 +1078,7 @@ msgstr "Зміна Кодування"
 
 #: js/messages.php:75
 msgid "Table must have at least one column"
-msgstr "Таблиця повинна мати принаймі один Стовпчик"
+msgstr "Таблиця повинна мати принаймі один стовпчик"
 
 #: js/messages.php:76
 msgid "Create Table"
@@ -1348,12 +1348,12 @@ msgstr "Субота"
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1593
 msgid "Sun"
-msgstr "Нд"
+msgstr "Нед"
 
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1595
 msgid "Mon"
-msgstr "Пн"
+msgstr "Пон"
 
 #. l10n: Short week day name
 #: js/messages.php:201 libraries/common.lib.php:1597
@@ -1363,7 +1363,7 @@ msgstr "Вт"
 #. l10n: Short week day name
 #: js/messages.php:203 libraries/common.lib.php:1599
 msgid "Wed"
-msgstr "Ср"
+msgstr "Сер"
 
 #. l10n: Short week day name
 #: js/messages.php:205 libraries/common.lib.php:1601
@@ -1438,15 +1438,15 @@ msgstr "Розмір шрифту"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "Завантажуваний файл перевищує директиву upload_max_filesize в php.ini."
+msgstr "Завантажений файл перевищує директиву upload_max_filesize в php.ini."
 
 #: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"Завантажуваний файл перевищує MAX_FILE_SIZE директиву, яка була вказана в "
-"HTML формі."
+"Завантажений файл перевищує MAX_FILE_SIZE директиву, яка була вказана в HTML "
+"формі."
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
@@ -1454,7 +1454,7 @@ msgstr "Завантажуваний файл був завантажений л
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
-msgstr "Відсутня тимчасова дирикторія."
+msgstr "Відсутня тимчасова директорія."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
@@ -1473,8 +1473,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Помилка прі переммщенні файлу, a@./Documentation.html#faq1_11@Documentation]"
-"FAQ 1.11[/a]"
+"Помилка прі переміщенні файлу, дивись "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1518,7 +1518,7 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
-"Схоже що індекси %1$s та %2$s ідентичні, тому напевне один із них може бути "
+"Схоже що індекси %1$s та %2$s ідентичні, тому один із них може бути "
 "вилученим."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:175
@@ -1561,7 +1561,7 @@ msgstr[2] "%1$d рядків вставлено."
 #: libraries/StorageEngine.class.php:194
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "Для цього механізму зберігання нама дельної інформації про статус."
+msgstr "Для цього механізму зберігання немає дельної інформації про статус."
 
 #: libraries/StorageEngine.class.php:354
 #, php-format
@@ -1580,7 +1580,7 @@ msgstr "Цей MySQL сервер не підтримує %s кодування.
 
 #: libraries/Table.class.php:1022
 msgid "Invalid database"
-msgstr "Поламана БД"
+msgstr "Неправильна база даних"
 
 #: libraries/Table.class.php:1036 tbl_get_field.php:25
 msgid "Invalid table name"
@@ -1589,7 +1589,7 @@ msgstr "Неправильна назва таблиці"
 #: libraries/Table.class.php:1066
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr "Помилка зміни назви %1$s на %2$s"
+msgstr "Помилка зміни назви таблиці %1$s на %2$s"
 
 #: libraries/Table.class.php:1149
 #, php-format
@@ -2013,7 +2013,7 @@ msgstr "Б"
 
 #: libraries/common.lib.php:1392
 msgid "KiB"
-msgstr "кБ"
+msgstr "КБ"
 
 #: libraries/common.lib.php:1392
 msgid "MiB"
@@ -2434,7 +2434,7 @@ msgstr "Відлагодити SQL"
 
 #: libraries/config/messages.inc.php:45
 msgid "Default display direction"
-msgstr "Напрямок відображення по змовчуванню"
+msgstr "Напрямок відображення по замовчуванню"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
@@ -2565,13 +2565,13 @@ msgstr "Помістити імена колонок в перший рядок"
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
 msgid "Columns enclosed by"
-msgstr "Колонки взято в"
+msgstr "Колонки захищено"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:247 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
 msgid "Columns escaped by"
-msgstr "Колонки екрануються в"
+msgstr "Колонки екрануються у"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
@@ -2642,7 +2642,7 @@ msgstr "Ключ підпису"
 #: libraries/config/messages.inc.php:132 libraries/export/odt.php:325
 #: libraries/tbl_properties.inc.php:141
 msgid "MIME type"
-msgstr "MIME-type"
+msgstr "MIME type"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 tbl_relation.php:389
@@ -2660,7 +2660,7 @@ msgstr "Зберегти на сервері"
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 msgid "Overwrite existing file(s)"
-msgstr "Заміняти існуючі файли"
+msgstr "Перезаписати існуючий файл(и)"
 
 #: libraries/config/messages.inc.php:116
 msgid "Remember file name template"
@@ -2668,7 +2668,7 @@ msgstr "Запам'ятати шаблон імені файлу"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
-msgstr "Візьміть імена таблиці та колонки в зворотні лапки"
+msgstr "Візьміть таблицю та імена колонок у зворотні лапки"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:258
 #: libraries/display_export.lib.php:346
@@ -2770,7 +2770,7 @@ msgstr "Налаштувати опції по замовчуванню"
 #: libraries/config/user_preferences.forms.php:207 libraries/export/csv.php:16
 #: libraries/import/csv.php:21
 msgid "CSV"
-msgstr "CSV дані"
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:158
 msgid "Developer"
@@ -2778,7 +2778,7 @@ msgstr "Розробник"
 
 #: libraries/config/messages.inc.php:159
 msgid "Settings for phpMyAdmin developers"
-msgstr "Параметри для розробників phpMyAdmin"
+msgstr "Налаштування для розробників phpMyAdmin"
 
 #: libraries/config/messages.inc.php:160
 msgid "Edit mode"
@@ -2821,15 +2821,15 @@ msgstr "Імпортувати властивості по замовчуван�
 
 #: libraries/config/messages.inc.php:170
 msgid "Customize default common import options"
-msgstr "Налаштувати за замовчуванням деяких параметрів імпорту"
+msgstr "Налаштувати за замовчуванням загальні параметри імпорту"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import / export"
-msgstr "Імпорт / Експорт"
+msgstr "Імпорт / експорт"
 
 #: libraries/config/messages.inc.php:172
 msgid "Set import and export directories and compression options"
-msgstr "Встанови теки імпорту та експорту  та параметри стискання"
+msgstr "Встанови теки імпорту та експорту та параметри стискання"
 
 #: libraries/config/messages.inc.php:173 libraries/export/latex.php:26
 msgid "LaTeX"
@@ -3006,7 +3006,7 @@ msgstr "Налаштування SQL запитів"
 
 #: libraries/config/messages.inc.php:218
 msgid "SQL Validator"
-msgstr "SQL валідатор"
+msgstr "SQL Валідатор"
 
 #: libraries/config/messages.inc.php:219
 msgid ""
@@ -3128,7 +3128,7 @@ msgstr "Використовуйте ключове слово LOCAL"
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/config/messages.inc.php:261
 msgid "Column names in first row"
-msgstr "Імена колонок і першому рядку"
+msgstr "Імена колонок у першому рядку"
 
 #: libraries/config/messages.inc.php:253 libraries/import/ods.php:34
 msgid "Do not import empty rows"
@@ -4546,7 +4546,7 @@ msgstr "Стискання:"
 #: libraries/export/sql.php:945 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:510 server_privileges.php:1955 server_processlist.php:96
 msgid "None"
-msgstr "Немає"
+msgstr "Жодного"
 
 #: libraries/display_export.lib.php:308
 msgid "zipped"
@@ -4684,7 +4684,7 @@ msgstr "рядків з"
 
 #: libraries/display_tbl.lib.php:397
 msgid "horizontal"
-msgstr " горизонтальному"
+msgstr "горизонтальному"
 
 #: libraries/display_tbl.lib.php:398
 msgid "horizontal (rotated headers)"
@@ -5665,7 +5665,7 @@ msgstr "Набір символів"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr " Двійковий "
+msgstr "Двійковий "
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -5912,7 +5912,7 @@ msgstr "Закладка на SQL-запит"
 
 #: libraries/relation.lib.php:135 querywindow.php:98 querywindow.php:205
 msgid "SQL history"
-msgstr "SQL-history"
+msgstr "SQL історія"
 
 #: libraries/relation.lib.php:147
 msgid "User preferences"
@@ -6056,7 +6056,7 @@ msgstr "Таблиця %s не існує!"
 #: libraries/schema/Visio_Relation_Schema.class.php:256
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr "Прошу сконфіґурувати координати таблиці %s"
+msgstr "Прошу сконфігурувати координати для таблиці %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:752
 #: libraries/schema/Pdf_Relation_Schema.class.php:851
@@ -6098,7 +6098,7 @@ msgstr "Додатково"
 
 #: libraries/schema/User_Schema.class.php:93
 msgid "Create a page"
-msgstr "Створити нову сторінку"
+msgstr "Створити сторінку"
 
 #: libraries/schema/User_Schema.class.php:99
 msgid "Page name"
@@ -6120,7 +6120,7 @@ msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
-msgstr "Прошу вибрати сторінку для редагування"
+msgstr "Будь ласка виберіть сторінку для редагування"
 
 #: libraries/schema/User_Schema.class.php:153
 msgid "Select page"
@@ -6128,7 +6128,7 @@ msgstr "Вибрати сторінку"
 
 #: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
-msgstr "Вибрати таблиці"
+msgstr "Вибрати Таблиці"
 
 #: libraries/schema/User_Schema.class.php:347
 msgid "Display relational schema"
@@ -6152,7 +6152,7 @@ msgstr "Показати розміри таблиць"
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Display all tables with the same width"
-msgstr "показувати всі таблиці однакової ширини?"
+msgstr "Показувати всі таблиці однакової ширини"
 
 #: libraries/schema/User_Schema.class.php:390
 msgid "Only show keys"
@@ -6160,11 +6160,11 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Landscape"
-msgstr "Landscape"
+msgstr "Альбомний"
 
 #: libraries/schema/User_Schema.class.php:393
 msgid "Portrait"
-msgstr "Portrait"
+msgstr "Звичайний"
 
 #: libraries/schema/User_Schema.class.php:395
 msgid "Orientation"
@@ -6208,7 +6208,7 @@ msgstr "Бінарний журнал"
 
 #: libraries/server_links.inc.php:59 server_processlist.php:21
 msgid "Processes"
-msgstr "Процеси"
+msgstr "Процесів"
 
 #: libraries/server_links.inc.php:77 server_engines.php:125
 #: server_engines.php:129 server_status.php:430 test/theme.php:104
@@ -6262,7 +6262,7 @@ msgstr "Запустіть SQL запит/запити на сервері %s"
 #: libraries/sql_query_form.lib.php:240 libraries/sql_query_form.lib.php:264
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Виконати SQL запит(и) до БД %s"
+msgstr "Виконати SQL запит/запити у базі даних %s"
 
 #: libraries/sql_query_form.lib.php:296 navigation.php:276
 #: setup/frames/index.inc.php:219
@@ -6275,7 +6275,7 @@ msgstr "Колонки"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:929 sql.php:930 sql.php:947
 msgid "Bookmark this SQL query"
-msgstr "Закладка на даний SQL-запит"
+msgstr "Закладка на даний SQL запит"
 
 #: libraries/sql_query_form.lib.php:343 sql.php:941
 msgid "Let every user access this bookmark"
@@ -6287,7 +6287,7 @@ msgstr "Замінити існуючу закладку з таким же ім
 
 #: libraries/sql_query_form.lib.php:365
 msgid "Do not overwrite this query from outside the window"
-msgstr "Не перекривати цей запит в інших вікнах"
+msgstr "Не перезаписувати цей запит з зовнішніх вікон"
 
 #: libraries/sql_query_form.lib.php:372
 msgid "Delimiter"
@@ -6397,7 +6397,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
-msgstr "Довжини/Значення*"
+msgstr "Довжина/Значення"
 
 #: libraries/tbl_properties.inc.php:104
 msgid ""
@@ -7186,12 +7186,12 @@ msgstr "Набори символів та схеми"
 
 #: server_databases.php:64
 msgid "No databases selected."
-msgstr "Не вибрано бази даних."
+msgstr "Жодної бази даних не вибрано."
 
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "%s база(и) даних успішно знищено."
+msgstr "%s баз даних успішно знищено."
 
 #: server_databases.php:100
 msgid "Databases statistics"
@@ -7216,7 +7216,7 @@ msgid ""
 "between the web server and the MySQL server."
 msgstr ""
 "Примітка: Активізація збору статистики бази даних може спричинити значний "
-"трафік між веб сервером та базою даних MySQL."
+"трафік між веб сервером та сервером MySQL."
 
 #: server_engines.php:47
 msgid "Storage Engines"
@@ -7224,16 +7224,16 @@ msgstr ""
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Переглянути dump (схему) баз даних"
+msgstr "Переглянути дамп (схему) баз даних"
 
 #: server_privileges.php:32 server_privileges.php:276
 msgid "Includes all privileges except GRANT."
-msgstr "Дозволити всі права за винятком GRANT."
+msgstr "Містить всі права за винятком GRANT."
 
 #: server_privileges.php:33 server_privileges.php:202
 #: server_privileges.php:529
 msgid "Allows altering the structure of existing tables."
-msgstr "Дозволити змінювати структуру наявних таблиць."
+msgstr "Дозволяє змінювати структуру наявних таблиць."
 
 #: server_privileges.php:34 server_privileges.php:218
 #: server_privileges.php:535
@@ -7243,7 +7243,7 @@ msgstr "Дозволяє зміну та видалення збережених
 #: server_privileges.php:35 server_privileges.php:194
 #: server_privileges.php:528
 msgid "Allows creating new databases and tables."
-msgstr "Дозволити створювати нові бази даних та таблиці."
+msgstr "Дозволяє створювати нові бази даних і таблиці."
 
 #: server_privileges.php:36 server_privileges.php:217
 #: server_privileges.php:534
@@ -7252,12 +7252,12 @@ msgstr "Дозволяє створення збережених процеду�
 
 #: server_privileges.php:37 server_privileges.php:528
 msgid "Allows creating new tables."
-msgstr "Дозволити створювати нові таблиці."
+msgstr "Дозволяє створювати нові таблиці."
 
 #: server_privileges.php:38 server_privileges.php:205
 #: server_privileges.php:532
 msgid "Allows creating temporary tables."
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Дозволяє створювати тимчасові таблиці."
 
 #: server_privileges.php:39 server_privileges.php:219
 #: server_privileges.php:568
@@ -7275,16 +7275,16 @@ msgstr ""
 #: server_privileges.php:41 server_privileges.php:193
 #: server_privileges.php:520
 msgid "Allows deleting data."
-msgstr "Дозволити знищувати дані з таблиць."
+msgstr "Дозволяє видалення даних."
 
 #: server_privileges.php:42 server_privileges.php:195
 #: server_privileges.php:531
 msgid "Allows dropping databases and tables."
-msgstr "Дозволити знищувати бази даних та таблиці."
+msgstr "Дозволяє видалення баз даних та таблиць."
 
 #: server_privileges.php:43 server_privileges.php:531
 msgid "Allows dropping tables."
-msgstr "Дозволити знищувати таблиці."
+msgstr "Дозволяє знищувати таблиці."
 
 #: server_privileges.php:44 server_privileges.php:210
 #: server_privileges.php:548
@@ -7383,7 +7383,7 @@ msgstr "Дозволити читання даних."
 #: server_privileges.php:61 server_privileges.php:203
 #: server_privileges.php:561
 msgid "Gives access to the complete list of databases."
-msgstr "Надати доступ до повного списку баз даних."
+msgstr "Надає доступ до повного списку баз даних."
 
 #: server_privileges.php:62 server_privileges.php:214
 #: server_privileges.php:216 server_privileges.php:533
@@ -7403,8 +7403,8 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 "Дозволити під'єднання, навіть якщо досягнуто максимальної кількості "
-"під'єднань; Обов'язково для більшості адміністративних операцій таких як "
-"встановлення ґлобальних змінних чи припинення процесів інших користувачів."
+"під'єднань; обов'язково для більшості адміністративних операцій таких як "
+"встановлення глобальних змінних чи припинення процесів інших користувачів."
 
 #: server_privileges.php:65 server_privileges.php:211
 #: server_privileges.php:549
@@ -7439,7 +7439,7 @@ msgstr " Зауваження: привілеї MySQL задаються по-а
 
 #: server_privileges.php:513
 msgid "Administration"
-msgstr "Адміністратор"
+msgstr "Адміністрування"
 
 #: server_privileges.php:577 server_privileges.php:1609
 msgid "Global privileges"
@@ -7459,7 +7459,7 @@ msgstr "Примітка: Встановлення цієї опції у 0 (н�
 
 #: server_privileges.php:690
 msgid "Login Information"
-msgstr "Вхідна інформація (Login)"
+msgstr "Інформація авторизації"
 
 #: server_privileges.php:784
 msgid "Do not change the password"
@@ -7478,17 +7478,17 @@ msgstr "Користувач %s вже існує!"
 
 #: server_privileges.php:945
 msgid "You have added a new user."
-msgstr "Було додано нового користувача."
+msgstr "Ви додали нового користувача."
 
 #: server_privileges.php:1176
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "Ви оновили привілеї для %s."
+msgstr "Ви оновили права для %s."
 
 #: server_privileges.php:1200
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "Ви змінили привілеї для %s"
+msgstr "Ви відмінили права для %s"
 
 #: server_privileges.php:1236
 #, php-format
@@ -7498,7 +7498,7 @@ msgstr "Пароль для %s успішно змінено."
 #: server_privileges.php:1256
 #, php-format
 msgid "Deleting %s"
-msgstr "Усунути %s"
+msgstr "Видалення %s"
 
 #: server_privileges.php:1270
 msgid "No users selected for deleting!"
@@ -7510,7 +7510,7 @@ msgstr "Перезавантаження прав"
 
 #: server_privileges.php:1291
 msgid "The selected users have been deleted successfully."
-msgstr "Відмічених користувачів успішно усунуто."
+msgstr "Вибраних користувачів успішно видалено."
 
 #: server_privileges.php:1326
 msgid "The privileges were reloaded successfully."
@@ -7518,7 +7518,7 @@ msgstr "Права успішно перезавантажено."
 
 #: server_privileges.php:1337 server_privileges.php:1729
 msgid "Edit Privileges"
-msgstr "Редагування привілеїв"
+msgstr "Редагування прав"
 
 #: server_privileges.php:1346
 msgid "Revoke"
@@ -7545,7 +7545,7 @@ msgstr "Додати нового користувача"
 
 #: server_privileges.php:1684
 msgid "Remove selected users"
-msgstr "Усунути відмічених користувачів"
+msgstr "Видалити вибраних користувачів"
 
 #: server_privileges.php:1687
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -8991,7 +8991,7 @@ msgstr ""
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr " Двійкові дані - не редагуються "
+msgstr "Двійкові дані - не редагуються "
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
