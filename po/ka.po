@@ -4,19 +4,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2010-03-12 09:14+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2012-03-28 16:15+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
-"Language: \n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
 msgid "Show all"
-msgstr "ყველას ჩვენება"
+msgstr "ყველაფრის ჩვენება"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2331
 #: libraries/display_tbl.lib.php:321 libraries/export/pdf.php:133
@@ -90,7 +91,7 @@ msgstr "აღწერილობა"
 #: browse_foreigners.php:253 browse_foreigners.php:262
 #: browse_foreigners.php:274 browse_foreigners.php:282
 msgid "Use this value"
-msgstr "გამოიყენე ეს ველი"
+msgstr "გამოიყენეთ ეს ველი"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
@@ -117,11 +118,11 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "შეიქმნა მონაცემთა ბაზა %1$s."
+msgstr "მონაცემთა ბაზა '%1$s' წარმატებით შეიქმნა"
 
 #: db_datadict.php:48 db_operations.php:367
 msgid "Database comment: "
-msgstr "მონაცემთა ბაზის კომენტარი: "
+msgstr "კომენტარი მონაცემთა ბაზაში: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1215
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:358
@@ -167,7 +168,7 @@ msgstr "ტიპი"
 #: tbl_printview.php:142 tbl_structure.php:202 tbl_tracking.php:271
 #: tbl_tracking.php:322
 msgid "Null"
-msgstr "ნული"
+msgstr "Null"
 
 #: db_datadict.php:171 db_structure.php:486 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
@@ -177,7 +178,7 @@ msgstr "ნული"
 #: libraries/tbl_properties.inc.php:105 tbl_printview.php:143
 #: tbl_structure.php:203 tbl_tracking.php:272
 msgid "Default"
-msgstr "ნაგულისხმები"
+msgstr "სტანდარტული"
 
 #: db_datadict.php:175 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:376 libraries/export/odt.php:314
@@ -451,7 +452,7 @@ msgstr "ჩვენება"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr "კრიტერია"
+msgstr "კრიტერიუმი"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
@@ -509,7 +510,7 @@ msgstr "მოთხოვნის გაგზავნა"
 #: libraries/auth/cookie.auth.lib.php:650 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:224
 msgid "Access denied"
-msgstr "წვდომა აკრძალულია"
+msgstr "მიუწვდომელია"
 
 #: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
@@ -581,7 +582,7 @@ msgstr "Word(s) or value(s) to search for (wildcard: \"%\"):"
 
 #: db_search.php:303
 msgid "Find:"
-msgstr "იპოვე:"
+msgstr "ძებნა:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
@@ -762,7 +763,7 @@ msgstr ""
 #: libraries/server_links.inc.php:50 server_processlist.php:71
 #: tbl_tracking.php:591 test/theme.php:100
 msgid "Status"
-msgstr "მდგომარეობა"
+msgstr "სტატუსი"
 
 #: db_tracking.php:90 libraries/Index.class.php:439
 #: libraries/db_structure.lib.php:44 server_databases.php:191
@@ -1015,19 +1016,19 @@ msgstr "ეს არ არის რიცხვი!"
 
 #: js/messages.php:48
 msgid "The host name is empty!"
-msgstr "ჰოსტის სახელი არაა შეყვანილი!"
+msgstr "ჰოსტის სახელის ველი ცარიელია!"
 
 #: js/messages.php:49
 msgid "The user name is empty!"
-msgstr "მომხმარებლის სახელი ცარიელია!"
+msgstr "მომხმარებლის სახელის ველი ცარიელია!"
 
 #: js/messages.php:50 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
-msgstr "პაროლი ცარიელია!"
+msgstr "პაროლის ველი ცარიელია!"
 
 #: js/messages.php:51 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
-msgstr "პაროლები არ ემთხვევა!"
+msgstr "პაროლებში შეუსაბამობაა!"
 
 #: js/messages.php:52
 #, fuzzy
