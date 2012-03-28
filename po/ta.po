@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2011-12-28 11:44+0200\n"
-"Last-Translator: any anonymous user <>\n"
+"PO-Revision-Date: 2012-03-28 16:15+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -29,7 +29,7 @@ msgstr "அனைத்தையும் காட்டு"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
 #: libraries/schema/User_Schema.class.php:361
 msgid "Page number:"
-msgstr "ஓலை என்"
+msgstr "பக்க எண்"
 
 #: browse_foreigners.php:138
 msgid ""
@@ -46,7 +46,7 @@ msgstr ""
 #: libraries/common.lib.php:3014 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
-msgstr "தேடல்"
+msgstr "தேடு"
 
 #: browse_foreigners.php:159 db_operations.php:374 db_operations.php:415
 #: db_operations.php:525 db_operations.php:553 db_search.php:358
@@ -316,11 +316,11 @@ msgstr "%sஐ சேர்க்க"
 #: db_operations.php:505 libraries/config/messages.inc.php:117
 #: tbl_operations.php:310 tbl_operations.php:554
 msgid "Add AUTO_INCREMENT value"
-msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்க்க"
+msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்"
 
 #: db_operations.php:509 tbl_operations.php:561
 msgid "Add constraints"
-msgstr "தடைகளை சேர்க்க"
+msgstr "கட்டுப்பாடுகளை சேர்க்க"
 
 #: db_operations.php:522
 msgid "Switch to copied database"
@@ -1194,7 +1194,7 @@ msgstr "ஜனவரி"
 
 #: js/messages.php:148
 msgid "February"
-msgstr "மாசி"
+msgstr "பெப்ரவரி"
 
 #: js/messages.php:149
 msgid "March"
@@ -1208,7 +1208,7 @@ msgstr "சித்திரை"
 
 #: js/messages.php:151
 msgid "May"
-msgstr "வைகாசி"
+msgstr "மே"
 
 #: js/messages.php:152
 msgid "June"
@@ -1224,7 +1224,7 @@ msgstr "ஆகஸ்ட்"
 
 #: js/messages.php:155
 msgid "September"
-msgstr "புரட்டாதி"
+msgstr "செப்டம்பர்"
 
 #: js/messages.php:156
 #, fuzzy
@@ -1234,11 +1234,11 @@ msgstr "ஐப்பசி"
 
 #: js/messages.php:157
 msgid "November"
-msgstr "கார்த்திகை"
+msgstr "நவம்பர்"
 
 #: js/messages.php:158
 msgid "December"
-msgstr "மார்கழி"
+msgstr "டிசம்பர்"
 
 #. l10n: Short month name
 #: js/messages.php:162 libraries/common.lib.php:1568
@@ -1347,27 +1347,27 @@ msgstr "ஞாயிறு"
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1595
 msgid "Mon"
-msgstr "திங்கள்"
+msgstr "திங்"
 
 #. l10n: Short week day name
 #: js/messages.php:201 libraries/common.lib.php:1597
 msgid "Tue"
-msgstr "செவ்வாய்"
+msgstr "செவ்"
 
 #. l10n: Short week day name
 #: js/messages.php:203 libraries/common.lib.php:1599
 msgid "Wed"
-msgstr "புதன்"
+msgstr "புத"
 
 #. l10n: Short week day name
 #: js/messages.php:205 libraries/common.lib.php:1601
 msgid "Thu"
-msgstr "வியாழன்"
+msgstr "வியா"
 
 #. l10n: Short week day name
 #: js/messages.php:207 libraries/common.lib.php:1603
 msgid "Fri"
-msgstr "வெள்ளி"
+msgstr "வெள்"
 
 #. l10n: Short week day name
 #: js/messages.php:209 libraries/common.lib.php:1605
@@ -1895,19 +1895,19 @@ msgstr ""
 #: libraries/common.lib.php:404
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ஆங்"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:408
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ஆங்"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:412
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ஆங்"
 
 #: libraries/common.lib.php:425 libraries/common.lib.php:427
 #: libraries/common.lib.php:429 libraries/common.lib.php:445
@@ -1965,7 +1965,7 @@ msgstr ""
 
 #: libraries/common.lib.php:1264
 msgid "Inline edit of this query"
-msgstr " வினாவிற்கான உன்வரிசை மாற்றப்பகுதி "
+msgstr "வினாவிற்கான உன்வரிசை மாற்றப்பகுதி "
 
 #: libraries/common.lib.php:1266
 msgid "Inline"
