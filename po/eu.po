@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2010-07-21 14:53+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2012-03-28 16:19+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -189,7 +189,7 @@ msgstr "Lehenetsia"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1268 tbl_printview.php:147
 msgid "Links to"
-msgstr "Estekak honi:"
+msgstr "Esteka:"
 
 #: db_datadict.php:177 db_printview.php:110
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
@@ -592,7 +592,7 @@ msgstr "Aurkitu:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
-msgstr "Hitzak \"zuriune\" karakterrarekin bereiztuta daude (\" \")."
+msgstr "Hitzak zuriune karakterrarekin berezituta daude (\" \")."
 
 #: db_search.php:321
 msgid "Inside table(s):"
@@ -783,11 +783,11 @@ msgstr "Ezabatu taula honetako jarraipen datuak"
 
 #: db_tracking.php:119 tbl_tracking.php:543 tbl_tracking.php:601
 msgid "active"
-msgstr "Aktibo"
+msgstr "aktibo"
 
 #: db_tracking.php:121 tbl_tracking.php:545 tbl_tracking.php:603
 msgid "not active"
-msgstr "Ez aktibo"
+msgstr "ez aktibo"
 
 #: db_tracking.php:134
 #, fuzzy
@@ -2106,11 +2106,11 @@ msgstr "Byte"
 
 #: libraries/common.lib.php:1392
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #: libraries/common.lib.php:1392
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #: libraries/common.lib.php:1392
 msgid "GiB"
@@ -5823,7 +5823,7 @@ msgstr "Karaktere-jokoa"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr " Binarioa "
+msgstr "Binarioa "
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -9244,7 +9244,7 @@ msgstr ""
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr " Binarioa - ez editatu! "
+msgstr "Binarioa - ez editatu! "
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
