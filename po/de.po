@@ -1598,8 +1598,7 @@ msgstr "Tabelle %s wurde umbenannt in %s."
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
-"Keinen gültiges Pfad für Grafiken des Oberflächendesigns \"%s\" gefunden!"
+msgstr "Keinen gültigen Pfad für Grafiken des Oberflächendesigns %s gefunden!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
