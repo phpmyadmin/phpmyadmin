@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-28 15:53+0200\n"
+"PO-Revision-Date: 2012-03-28 16:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -3308,7 +3308,7 @@ msgstr "一個指令可分配到的記憶體大小，例 [kbd]32MB[kbd] ([kbd]0[
 
 #: libraries/config/messages.inc.php:314
 msgid "Memory limit"
-msgstr "記憶體限制"
+msgstr "內存限制"
 
 #: libraries/config/messages.inc.php:315
 msgid "These are Edit, Inline edit, Copy and Delete links"
@@ -3424,15 +3424,15 @@ msgstr "查詢視窗高度 (單位：像素)"
 
 #: libraries/config/messages.inc.php:342
 msgid "Query window height"
-msgstr "查詢視窗高度"
+msgstr "查詢窗口高度"
 
 #: libraries/config/messages.inc.php:343
 msgid "Query window width (in pixels)"
-msgstr "查詢視窗寬度 (單位：像素)"
+msgstr "查詢窗口寬度 (單位：像素)"
 
 #: libraries/config/messages.inc.php:344
 msgid "Query window width"
-msgstr "查詢視窗寬度"
+msgstr "查詢窗口寬度"
 
 #: libraries/config/messages.inc.php:345
 msgid "Select which functions will be used for character set conversion"
@@ -3464,7 +3464,7 @@ msgstr "伺服器上用來儲存匯出檔案的資料夾"
 
 #: libraries/config/messages.inc.php:353
 msgid "Save directory"
-msgstr "儲存資料夾"
+msgstr "保存文件夾"
 
 #: libraries/config/messages.inc.php:354
 msgid "Leave blank if not used"
@@ -3555,7 +3555,7 @@ msgstr "怎樣連線到伺服器，如果不確定，請選擇 tcp"
 
 #: libraries/config/messages.inc.php:373
 msgid "Connection type"
-msgstr "連線方式"
+msgstr "連接方式"
 
 #: libraries/config/messages.inc.php:374
 msgid "Control user password"
@@ -3701,7 +3701,7 @@ msgstr "MySQL 伺服器監聽的連接埠，留空爲預設"
 
 #: libraries/config/messages.inc.php:403
 msgid "Server port"
-msgstr "伺服器連接埠"
+msgstr "伺服器端口"
 
 #: libraries/config/messages.inc.php:404
 msgid ""
@@ -3713,7 +3713,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:405
 msgid "Relation table"
-msgstr "關聯表"
+msgstr "關係表"
 
 #: libraries/config/messages.inc.php:406
 msgid "SQL command to fetch available databases"
@@ -3744,7 +3744,7 @@ msgstr "MySQL 伺服器監聽的連線埠，留空爲預設"
 
 #: libraries/config/messages.inc.php:412
 msgid "Server socket"
-msgstr "伺服器連線埠 (socket)"
+msgstr "伺服器套接字 (socket)"
 
 #: libraries/config/messages.inc.php:413
 msgid "Enable SSL for connection to MySQL server"
@@ -3771,7 +3771,7 @@ msgstr "描述顯示欄位的表，不使用請留空，預設：[kbd]pma_table_
 
 #: libraries/config/messages.inc.php:418
 msgid "Display columns table"
-msgstr "顯示欄位表"
+msgstr "顯示字段表"
 
 #: libraries/config/messages.inc.php:419
 msgid ""
@@ -3902,7 +3902,7 @@ msgstr "定義在編輯/插入模式中是否顯示欄位類型一列"
 
 #: libraries/config/messages.inc.php:445
 msgid "Show field types"
-msgstr "顯示欄位類型"
+msgstr "顯示字段類型"
 
 #: libraries/config/messages.inc.php:446
 msgid "Display the function fields in edit/insert mode"
@@ -4015,7 +4015,7 @@ msgstr "如果您有自己的帳號，請在這裏輸入 (預設爲 [kbd]anonymo
 #: libraries/config/messages.inc.php:472 tbl_tracking.php:406
 #: tbl_tracking.php:457
 msgid "Username"
-msgstr "帳號"
+msgstr "使用者名"
 
 #: libraries/config/messages.inc.php:473
 msgid ""
@@ -4045,7 +4045,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:478
 msgid "Textarea columns"
-msgstr "文字框列"
+msgstr "文本框列"
 
 #: libraries/config/messages.inc.php:479
 msgid ""
@@ -4069,7 +4069,7 @@ msgstr "未選擇時瀏覽器視窗的標題"
 
 #: libraries/config/messages.inc.php:484
 msgid "Default title"
-msgstr "預設標題"
+msgstr "默認標題"
 
 #: libraries/config/messages.inc.php:485
 msgid "Title of browser window when a server is selected"
@@ -4505,7 +4505,7 @@ msgstr "bzip 壓縮"
 
 #: libraries/display_export.lib.php:321
 msgid "View output as text"
-msgstr "直接顯示爲文字"
+msgstr "直接顯示為文本"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
@@ -4670,7 +4670,7 @@ msgstr "關聯鍵"
 
 #: libraries/display_tbl.lib.php:587
 msgid "Relational display column"
-msgstr "關聯顯示欄位"
+msgstr "關聯顯示字段"
 
 #: libraries/display_tbl.lib.php:594
 msgid "Show binary contents"
@@ -4734,7 +4734,7 @@ msgstr "顯示圖表"
 
 #: libraries/display_tbl.lib.php:2391
 msgid "Create view"
-msgstr "建立 view"
+msgstr "新建視圖"
 
 #: libraries/display_tbl.lib.php:2506
 msgid "Link not found"
@@ -5425,7 +5425,7 @@ msgstr "觸發器"
 
 #: libraries/export/sql.php:885
 msgid "Structure for view"
-msgstr " view結構"
+msgstr "view結構"
 
 #: libraries/export/sql.php:894
 msgid "Stand-in structure for view"
@@ -5441,7 +5441,7 @@ msgstr "物件建立選項 (推薦全選)"
 
 #: libraries/export/xml.php:40
 msgid "Views"
-msgstr " view"
+msgstr "view"
 
 #: libraries/export/xml.php:47
 msgid "Export contents"
@@ -6141,7 +6141,7 @@ msgstr "二進制日誌"
 
 #: libraries/server_links.inc.php:59 server_processlist.php:21
 msgid "Processes"
-msgstr "程序"
+msgstr "處理"
 
 #: libraries/server_links.inc.php:77 server_engines.php:125
 #: server_engines.php:129 server_status.php:430 test/theme.php:104
@@ -6204,7 +6204,7 @@ msgstr "清除"
 
 #: libraries/sql_query_form.lib.php:301
 msgid "Columns"
-msgstr "欄位"
+msgstr "字段"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:929 sql.php:930 sql.php:947
 msgid "Bookmark this SQL query"
@@ -6415,11 +6415,11 @@ msgstr "分區定義"
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:640
 #, php-format
 msgid "Add %s column(s)"
-msgstr "新增 %s 個欄位"
+msgstr "增加 %s 個字段"
 
 #: libraries/tbl_properties.inc.php:784 tbl_structure.php:634
 msgid "You have to add at least one column."
-msgstr "至少要新增一個欄位"
+msgstr "至少要增加一個字段。"
 
 #: libraries/tbl_properties.inc.php:796
 msgid "+ Add a new value"
@@ -6637,7 +6637,7 @@ msgstr "貢獻"
 
 #: main.php:220
 msgid "Get support"
-msgstr "取得支援"
+msgstr "獲取支持"
 
 #: main.php:221
 msgid "List of changes"
@@ -6710,7 +6710,7 @@ msgstr ""
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
-msgstr "phpMyAdmin 進階功能未全部設定，部分功能不可用。要查出原因請%s點這裏%s"
+msgstr "phpMyAdmin 高級功能未全部設定，部分功能不可用。要查出原因請%s點這裡%s。"
 
 #: main.php:316
 msgid ""
@@ -6752,7 +6752,7 @@ msgstr "請輸入部分或完整的資料表名稱"
 #: navigation.php:308 navigation.php:309
 msgctxt "short form"
 msgid "Create table"
-msgstr "建立資料表"
+msgstr "新建資料表"
 
 #: navigation.php:314 navigation.php:486
 msgid "Please select a database"
@@ -8665,11 +8665,11 @@ msgstr "顯示"
 
 #: setup/frames/index.inc.php:216
 msgid "Load"
-msgstr "載入"
+msgstr "加載"
 
 #: setup/frames/index.inc.php:227
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin 首頁 "
+msgstr "phpMyAdmin 主頁 (外鏈，英文)"
 
 #: setup/frames/index.inc.php:228
 msgid "Donate"
@@ -8894,7 +8894,7 @@ msgstr "顯示 SQL 查詢"
 
 #: sql.php:624
 msgid "Validated SQL"
-msgstr "已檢驗的 SQL"
+msgstr "已校驗的 SQL"
 
 #: sql.php:903
 #, php-format
@@ -9188,7 +9188,7 @@ msgstr "已強制更新表 %s "
 
 #: tbl_operations.php:664
 msgid "Flush the table (FLUSH)"
-msgstr "重新整理表 (FLUSH)"
+msgstr "刷新表 (FLUSH)"
 
 #: tbl_operations.php:673
 msgid "Delete data or table"
@@ -9568,7 +9568,7 @@ msgstr "設定檔案己更新"
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr " view名"
+msgstr "view名"
 
 #: view_operations.php:91
 msgid "Rename view to"
