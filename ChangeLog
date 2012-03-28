@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.4.10.2 (2012-03-28)
+- [security] Fixed local path disclosure vulnerability, see PMASA-2012-2
+
 3.4.10.1 (2012-02-18)
 - [security] XSS in replication setup, see PMASA-2012-1
 
