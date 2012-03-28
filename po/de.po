@@ -1921,7 +1921,7 @@ msgstr "Sie sollten auf %s %s oder neuer aktualisieren."
 #: libraries/common.lib.php:142
 #, php-format
 msgid "Max: %s%s"
-msgstr "Maximale Dateigröße: %s%s"
+msgstr "Maximal: %s%s"
 
 #. l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:404
