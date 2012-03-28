@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2012-03-28 16:13+0200\n"
+"PO-Revision-Date: 2012-03-28 16:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
@@ -4775,10 +4775,9 @@ msgid "Relational key"
 msgstr "Sąryšių raktas"
 
 #: libraries/display_tbl.lib.php:587
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Ryšių schema"
+msgstr "Ryšių rodymo stulpelis"
 
 #: libraries/display_tbl.lib.php:594
 msgid "Show binary contents"
@@ -4841,10 +4840,9 @@ msgid "Display chart"
 msgstr "Rodyti diagramą"
 
 #: libraries/display_tbl.lib.php:2391
-#, fuzzy
 #| msgid "Create User"
 msgid "Create view"
-msgstr "Sukurti naudotoją"
+msgstr "Sukurti rodinį"
 
 #: libraries/display_tbl.lib.php:2506
 msgid "Link not found"
@@ -4867,9 +4865,8 @@ msgid "Data files"
 msgstr "Duomenų failai"
 
 #: libraries/engines/innodb.lib.php:29
-#, fuzzy
 msgid "Autoextend increment"
-msgstr "Automatiškai prasiplečiantis prieaugis"
+msgstr "Automatinis didėjimas"
 
 #: libraries/engines/innodb.lib.php:30
 msgid ""
@@ -4931,9 +4928,8 @@ msgid "Latched pages"
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:224
-#, fuzzy
 msgid "Buffer Pool Activity"
-msgstr "Buferio pool'o dydis"
+msgstr "Buferio pool'o veikla"
 
 #: libraries/engines/innodb.lib.php:228
 msgid "Read requests"
@@ -5108,10 +5104,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Sąryšiai"
+msgstr "Susijusios nuorodos"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
@@ -5539,9 +5534,8 @@ msgid "Structure for view"
 msgstr "Struktūra peržiūrėjimui"
 
 #: libraries/export/sql.php:894
-#, fuzzy
 msgid "Stand-in structure for view"
-msgstr "Tik struktūra"
+msgstr "Tik struktūra rodiniui"
 
 #: libraries/export/xml.php:17 libraries/import/xml.php:28
 msgid "XML"
@@ -5700,7 +5694,6 @@ msgstr ""
 "klaidas ir bandyti dar kartą."
 
 #: libraries/kanji-encoding.lib.php:142
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -6128,10 +6121,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Duomenų bazės %s schema - %s puslapis"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "Failas %s neturi jokio raktinio id"
+msgstr "Šis puslapis neturi jokių lentelių!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
@@ -6164,10 +6156,9 @@ msgid "Create a page"
 msgstr "Sukurti naują puslapį"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Puslapis:"
+msgstr "Puslapio vardas"
 
 #: libraries/schema/User_Schema.class.php:103
 msgid "Automatic layout based on"
@@ -6333,10 +6324,9 @@ msgid "Clear"
 msgstr "Išvalyti"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Stulpelių vardai"
+msgstr "Stulpeliai"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:929 sql.php:930 sql.php:947
 msgid "Bookmark this SQL query"
@@ -6524,7 +6514,6 @@ msgid "Get more editing space"
 msgstr "Padidinti redagavimo erdvę"
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -6631,7 +6620,6 @@ msgid ""
 msgstr ""
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -6655,17 +6643,16 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"LINUX VARTOTOJAMS: Paleidžiama išorinė aplikacija ir duomenys imami iš "
-"standartinio įvedimo. Išvedama iš aplikacijos gauta informacija. Nutylint: "
-"bus Tidy korektiškam HTML kodo išvedimui. Saugumo sumetimais Jūs turite "
-"paredaguoti libraries/transformations/text_plain__external.inc.php failą ir "
-"įvesti tas aplikacijas, kurias naudosite. Pirmas parametras yra leidžiamų "
-"aplikacijų kiekis, kurias naudosite. Antras parametras yra specifiniai "
-"aplikacijų raktai. Jeigu trečias parametras lygus 1, tai išvedama "
-"informacija bus apdorota su htmlspecialchars() (nutylint: reikšmė lygi 1). "
-"Jeigu ketvirtas parametras lygus 1, tai išvedimo lentelės celė turės "
-"atributą NOWRAP, tam kad išvedama būtų atvaizduota be perkėlimų į kitas "
-"eilutes (nutylint: reikšmė lygi 1)."
+"TIK LINUX: Paleidžiama išorinė programa ir duomenys imami iš standartinio "
+"įvedimo. Grąžinama iš programos standartinio išvedimo. Numatytasis yra Tidy "
+"pretty-print HTML kodui. Dėl saugumo, Jūs turite rankomis paredaguoti "
+"libraries/transformations/text_plain__external.inc.php failą ir išvardinti "
+"tuos įrankius kuriuos norite padaryti prieinamus. Pirmas parametras yra "
+"programos kurią norite naudoti skaičius. Antras parametras yra programos "
+"parametrai. Jeigu trečias parametras lygus 1, tai išvedama informacija bus "
+"apdorota su htmlspecialchars() (pagal numatymą reikšmė 1). Jeigu ketvirtas "
+"parametras lygus 1, tai išvengs žodžių karpymo ir garantuos, kad visas "
+"išvedimas bus vienoje eilutėje (pagal numatymą reikšmė 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 #, fuzzy
@@ -7038,10 +7025,9 @@ msgstr "Sąryšis ištrintas"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Eksportuoti"
+msgstr "Išskyrus"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
@@ -7051,15 +7037,13 @@ msgid "subquery"
 msgstr "užklausą vykdoma"
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 msgid "Rename to"
-msgstr "Pervadinti lentelę į"
+msgstr "Pervadinti į"
 
 #: pmd_general.php:482 pmd_general.php:581
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Naudotojo vardas"
+msgstr "Naujas vardas"
 
 #: pmd_general.php:485 pmd_general.php:700
 #, fuzzy
@@ -7102,34 +7086,29 @@ msgid "Page creation failed"
 msgstr "Puslapio kūrimas nepavyko"
 
 #: pmd_pdf.php:89
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "puslapiai"
+msgstr "Puslapis"
 
 #: pmd_pdf.php:99
-#, fuzzy
 #| msgid "Import from file"
 msgid "Import from selected page"
-msgstr "Importuoti iš failo"
+msgstr "Importuoti iš pasirinkto puslapio"
 
 #: pmd_pdf.php:100
-#, fuzzy
 #| msgid "No rows selected"
 msgid "Export to selected page"
-msgstr "Nepasirinkti įrašai"
+msgstr "Eksportuoti pasirinktą puslapį"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Sukurti naują indeksą"
+msgstr "Sukurti puslapį ir eksportuoti į jį"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Naudotojo vardas"
+msgstr "Naujas puslapio vardas:"
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -7168,16 +7147,14 @@ msgid "Modifications have been saved"
 msgstr "Pakeitimai išsaugoti"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Pateiktoje formoje yra klaidų"
+msgstr "Nepavyko išsaugoti nustatymų, išsiųstoje formoje yra klaidų"
 
 #: prefs_manage.php:80
-#, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
-msgstr "Nepavyko užkrauti numatytų nustatymų failo iš: %1$s"
+msgstr "Nepavyko importuoti konfigūracijos"
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
@@ -7458,9 +7435,8 @@ msgstr ""
 # gal labiau kartu vykstančių
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
-#, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Riboti prisijungimų kiekį per valandą (kartu vykstančių)."
+msgstr "Riboti skaičių lygiagrečių prisijungimų kurį naudotojai gali turėti."
 
 #: server_privileges.php:55 server_privileges.php:198
 #: server_privileges.php:558
@@ -7928,28 +7904,24 @@ msgid "Reset slave"
 msgstr "Paleisti iš naujo pavaldųjį serverį (reset slave)"
 
 #: server_replication.php:327
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "Tik SQL gija %s"
+msgstr "Pradėti tik SQL giją"
 
 #: server_replication.php:329
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
-msgstr "Tik SQL gija %s"
+msgstr "Sustabdyti tik SQL giją"
 
 #: server_replication.php:332
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "Tik IO %s gija"
+msgstr "Pradėti tik IO giją"
 
 #: server_replication.php:334
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
-msgstr "Tik IO %s gija"
+msgstr "Sustabdyti tik IO giją"
 
 #: server_replication.php:339
 msgid "Error management:"
@@ -8114,9 +8086,8 @@ msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
 #: server_status.php:70
-#, fuzzy
 msgid "The number of free pages."
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Tuščių puslapių skaičius."
 
 #: server_status.php:71
 msgid ""
@@ -8177,19 +8148,16 @@ msgid "The number of fsync() operations so far."
 msgstr ""
 
 #: server_status.php:81
-#, fuzzy
 msgid "The current number of pending fsync() operations."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Esamu momentu laukiančių fsync() operacijų skaičius."
 
 #: server_status.php:82
-#, fuzzy
 msgid "The current number of pending reads."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Esamu momentu laukiančių skaitymų skaičius."
 
 #: server_status.php:83
-#, fuzzy
 msgid "The current number of pending writes."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Esamu momentu laukiančių rašymų skaičius."
 
 #: server_status.php:84
 msgid "The amount of data read so far, in bytes."
@@ -8247,9 +8215,8 @@ msgid "The number of bytes written to the log file."
 msgstr ""
 
 #: server_status.php:97
-#, fuzzy
 msgid "The number of pages created."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Sukurtų puslapių skaičius."
 
 #: server_status.php:98
 msgid ""
@@ -8258,14 +8225,12 @@ msgid ""
 msgstr ""
 
 #: server_status.php:99
-#, fuzzy
 msgid "The number of pages read."
-msgstr "Duomenų nuskaitymų skaičius."
+msgstr "Puslapių skaitymų skaičius."
 
 #: server_status.php:100
-#, fuzzy
 msgid "The number of pages written."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Įrašytų puslapių skaičius."
 
 #: server_status.php:101
 msgid "The number of row locks currently being waited for."
@@ -8359,18 +8324,16 @@ msgid ""
 msgstr ""
 
 #: server_status.php:120
-#, fuzzy
 msgid "The number of files that are open."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Failų kurie yra atidaryti skaičius."
 
 #: server_status.php:121
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 
 #: server_status.php:122
-#, fuzzy
 msgid "The number of tables that are open."
-msgstr "Duomenų įrašymų skaičius."
+msgstr "Lentelių kurios yra atidarytos skaičius."
 
 #: server_status.php:123
 msgid "The number of free memory blocks in query cache."
@@ -8381,9 +8344,8 @@ msgid "The amount of free memory for query cache."
 msgstr ""
 
 #: server_status.php:125
-#, fuzzy
 msgid "The number of cache hits."
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Podėlio kreipimųsi skaičius."
 
 #: server_status.php:126
 msgid "The number of queries added to the cache."
@@ -8483,9 +8445,8 @@ msgid "The number of sorts that were done with ranges."
 msgstr ""
 
 #: server_status.php:145
-#, fuzzy
 msgid "The number of sorted rows."
-msgstr "Įkeltų eilučių skaičius"
+msgstr "Surikiuotų eilučių skaičius."
 
 #: server_status.php:146
 msgid "The number of sorts that were done by scanning the table."
@@ -8547,9 +8508,8 @@ msgid "Temporary data"
 msgstr "Laikini duomenys"
 
 #: server_status.php:380
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "Naudoti užlaikytus įterpimus"
+msgstr "Užlaikyti įterpimai"
 
 #: server_status.php:381
 #, fuzzy
@@ -8713,14 +8673,12 @@ msgid "Replication status"
 msgstr "Dauginimo būsena"
 
 #: server_synchronize.php:92
-#, fuzzy
 msgid "Could not connect to the source"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Nepavyko prisijungti prie šaltinio (angl. source)"
 
 #: server_synchronize.php:95
-#, fuzzy
 msgid "Could not connect to the target"
-msgstr "Nepavyko prisijungti prie MySQL serverio"
+msgstr "Nepavyko prisijungti prie adresato (angl. target)"
 
 #: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:76
 #: tbl_get_field.php:19
@@ -9013,7 +8971,7 @@ msgstr ""
 "sugeneruotas. Jis naudojamas užšifruoti slapukus; jums nereikia jo atsiminti."
 
 #: setup/lib/index.lib.php:253
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
 #| "and decompression[/a] requires functions (%s) which are unavailable on "
@@ -9022,8 +8980,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 glaudinimas ir "
-"išskleidimas[/a] reikalauja funkcijų (%s) kurios nėra galima Jūsų sistemoje."
+"%sBzip2 glaudinimas ir išskleidimas%s reikalauja funkcijų (%s) kurios nėra "
+"galimos Jūsų sistemoje."
 
 #: setup/lib/index.lib.php:255
 msgid ""
@@ -9032,14 +8990,13 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:256
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
-"Jūs turėtumėte naudoti SSL prisijungimus jeigu Jūsų serveris juos palaiko"
+msgstr "Šis %snustatymas%s turėtų būti įjungtas jeigu Jūsų serveris jį palaiko."
 
 #: setup/lib/index.lib.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 #| "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -9048,8 +9005,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip suspaudimui ir "
-"išspaudimui[/a] reikalingos funkcijos (%s) neprieinamos šioje sistemoje."
+"%sGZip suspaudimui ir išspaudimui%s reikalingos funkcijos (%s) neprieinamos "
+"šioje sistemoje."
 
 #: setup/lib/index.lib.php:260
 #, php-format
@@ -9145,26 +9102,25 @@ msgstr ""
 "Jūs turėtumėte naudoti SSL prisijungimus jeigu Jūsų serveris juos palaiko"
 
 #: setup/lib/index.lib.php:307
-#, fuzzy
 #| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
-msgstr "Jūs turėtumėte naudoti mysqli dėl našumo (efektyvumo) priežasčių"
+msgstr "Turėtumėte naudoti mysqli dėl našumo (efektyvumo) priežasčių."
 
 #: setup/lib/index.lib.php:332
 msgid "You allow for connecting to the server without a password."
 msgstr "Jūs leidžiate prisijungti prie serverio be slaptažodžio."
 
 #: setup/lib/index.lib.php:352
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Raktas per daug trumpas, jis turėtų turėti bent 8 simbolius"
+msgstr "Raktas per trumpas, jis privalo turėti bent 8 simbolius."
 
 #: setup/lib/index.lib.php:359
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "Raktas turi turėti raidžių, skaičių [em]ir[/em] specialiųjų ženklų"
+msgstr ""
+"Raktas turėtų būti sudarytas iš raidžių, skaičių [em]ir[/em] specialiųjų "
+"ženklų."
 
 #: sql.php:87 tbl_change.php:253 tbl_select.php:26 tbl_select.php:27
 #: tbl_select.php:30 tbl_select.php:33
@@ -9190,10 +9146,9 @@ msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
 
 #: sql.php:624
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Patikrinti SQL užklausą"
+msgstr "Patikrintas SQL"
 
 #: sql.php:903
 #, php-format
@@ -9616,10 +9571,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Vykdyti „užklausą pagal pavyzdį“ (pakaitos simbolis: „%“)"
 
 #: tbl_select.php:233
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Pasirinkite laukus (nors vieną)"
+msgstr "Pasirinkite stulpelius (bent vieną):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -9638,16 +9592,14 @@ msgid "Browse distinct values"
 msgstr "Peržiūrėti skirtingas reikšmes"
 
 #: tbl_structure.php:166 tbl_structure.php:167
-#, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Add primary key"
-msgstr "Pridedamas pirminis raktas"
+msgstr "Pridėti pirminį raktą"
 
 #: tbl_structure.php:168 tbl_structure.php:169
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "Keisti žurnalą(us) (indeksą)"
+msgstr "Pridėti indeksą"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
@@ -9658,11 +9610,10 @@ msgid "Add FULLTEXT index"
 msgstr "Pridėti FULLTEXT indeksą"
 
 #: tbl_structure.php:389
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
-msgstr "Nėra"
+msgstr "Jokio"
 
 #: tbl_structure.php:402
 #, php-format
@@ -9681,10 +9632,9 @@ msgid "An index has been added on %s"
 msgstr "Indeksas sukurtas %s stulpeliui"
 
 #: tbl_structure.php:475
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Rodyti versijas"
+msgstr "Rodyti daugiau veiksmų"
 
 #: tbl_structure.php:604 tbl_structure.php:606
 msgid "Relation view"
@@ -9695,10 +9645,9 @@ msgid "Propose table structure"
 msgstr "Analizuoti lentelės struktūrą"
 
 #: tbl_structure.php:638
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add column"
-msgstr "Pridėti stulpelį(-ius)"
+msgstr "Pridėti stulpelį"
 
 #: tbl_structure.php:652
 msgid "At End of Table"
@@ -9879,7 +9828,6 @@ msgid "Available transformations"
 msgstr "Galimos transformacijos"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -9898,9 +9846,8 @@ msgid "VIEW name"
 msgstr "VIEW pavadinimas"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Pervadinti lentelę į"
+msgstr "Pervadinti rodinį į"
 
 #~ msgid "Excel 97-2003 XLS Workbook"
 #~ msgstr "Excel 97-2003 XLS darbaknygė"
