@@ -1512,7 +1512,7 @@ msgstr "Der Primärschlüssel wurde gelöscht"
 #: libraries/Index.class.php:475
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "Index %s wurde entfernt."
+msgstr "Index %s wurde entfernt"
 
 #: libraries/Index.class.php:579
 #, php-format
