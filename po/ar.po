@@ -4,21 +4,21 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-14 14:14+0100\n"
-"PO-Revision-Date: 2011-09-24 21:48+0200\n"
-"Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
+"PO-Revision-Date: 2012-03-28 16:08+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Pootle 2.0.5\n"
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
 msgid "Show all"
-msgstr "شاهد الكل"
+msgstr "عرض الكل"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2331
 #: libraries/display_tbl.lib.php:321 libraries/export/pdf.php:133
@@ -35,15 +35,15 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"لم يمكن تحديث نافذة المتصفح المستهدفة. يبدو أنك أغلقت الرئيسية أو أن مستعرضك "
-"يمنع التحديث عبر النوافذ بسبب إعدادات الأمان."
+"لا يمكن تحديث نافذة المتصفح المستهدفة,, يبدو أنك أغلقت الرئيسية أو أن "
+"مستعرضك يمنع التحديث عبر النوافذ بسبب إعدادات الأمان."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:2827
 #: libraries/common.lib.php:2834 libraries/common.lib.php:3013
 #: libraries/common.lib.php:3014 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
-msgstr "ابحث"
+msgstr "بحث"
 
 #: browse_foreigners.php:159 db_operations.php:374 db_operations.php:415
 #: db_operations.php:525 db_operations.php:553 db_search.php:358
@@ -75,7 +75,7 @@ msgstr "ابحث"
 #: tbl_structure.php:660 tbl_structure.php:696 tbl_tracking.php:390
 #: tbl_tracking.php:507 view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "&nbsp;تنفيذ&nbsp;"
+msgstr "تنفيذ"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
 #: libraries/Index.class.php:441 tbl_tracking.php:315
@@ -118,7 +118,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "تم إنشاء قاعدة بيانات %1$s."
+msgstr "تم إنشاء قاعدة البيانات %1$s."
 
 #: db_datadict.php:48 db_operations.php:367
 msgid "Database comment: "
@@ -128,7 +128,7 @@ msgstr "ملاحظة قاعدة البيانات: "
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:358
 #: tbl_printview.php:127
 msgid "Table comments"
-msgstr "تعليقات على الجدول"
+msgstr "تعليقات الجدول"
 
 #: db_datadict.php:167 db_qbe.php:196 libraries/Index.class.php:445
 #: libraries/export/htmlword.php:247 libraries/export/latex.php:374
@@ -155,7 +155,7 @@ msgstr "عمود"
 #: tbl_structure.php:199 tbl_structure.php:753 tbl_tracking.php:269
 #: tbl_tracking.php:316
 msgid "Type"
-msgstr "النوع"
+msgstr "نوع"
 
 #: db_datadict.php:170 libraries/Index.class.php:448
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:374
@@ -176,7 +176,7 @@ msgstr "خالي"
 #: libraries/tbl_properties.inc.php:105 tbl_printview.php:143
 #: tbl_structure.php:203 tbl_tracking.php:272
 msgid "Default"
-msgstr "افتراضي"
+msgstr "إفتراضي"
 
 #: db_datadict.php:175 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:376 libraries/export/odt.php:314
@@ -235,7 +235,7 @@ msgstr "نعم"
 
 #: db_datadict.php:315 db_printview.php:264 tbl_printview.php:495
 msgid "Print"
-msgstr "اطبع"
+msgstr "طباعة"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
@@ -244,7 +244,7 @@ msgstr "عرض بنية قاعدة البيانات"
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:370 navigation.php:303
 msgid "No tables found in database."
-msgstr "لا توجد جداول متوفره في قاعدة البيانات هذه!."
+msgstr "لا توجد جداول في قاعدة البيانات هذه!."
 
 #: db_export.php:44 db_search.php:340 server_export.php:26
 msgid "Select All"
@@ -279,15 +279,15 @@ msgstr "حذف قاعدة البيانات"
 #: db_operations.php:446
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "قاعدة بيانات %s محذوفه."
+msgstr "تم حذف قاعدة البيانات %s ."
 
 #: db_operations.php:451
 msgid "Drop the database (DROP)"
-msgstr "إزاله قاعدة البيانات"
+msgstr "حذف قاعدة البيانات"
 
 #: db_operations.php:481
 msgid "Copy database to"
-msgstr "إنسخ قاعدة البيانات إلى"
+msgstr "نسخ قاعدة البيانات إلى"
 
 #: db_operations.php:488 tbl_operations.php:544 tbl_tracking.php:383
 msgid "Structure only"
@@ -303,7 +303,7 @@ msgstr "بيانات فقط"
 
 #: db_operations.php:498
 msgid "CREATE DATABASE before copying"
-msgstr "إنشاء قاعدة البيانات قبل النسخ"
+msgstr "إنشاء قاعدة البيانات قبل عملية النسخ"
 
 #: db_operations.php:501 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:127
@@ -319,7 +319,7 @@ msgstr "أضف قيمة AUTO_INCREMENT"
 
 #: db_operations.php:509 tbl_operations.php:561
 msgid "Add constraints"
-msgstr "أضف قيودا"
+msgstr "أضف قيود"
 
 #: db_operations.php:522
 msgid "Switch to copied database"
@@ -356,7 +356,7 @@ msgstr "بناء الارتباطات"
 #: server_privileges.php:2065 server_synchronize.php:418
 #: server_synchronize.php:861 tbl_tracking.php:587 test/theme.php:74
 msgid "Table"
-msgstr "الجدول"
+msgstr "جدول"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
@@ -368,7 +368,7 @@ msgstr "صفوف"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:186
 msgid "Size"
-msgstr "الحجم"
+msgstr "حجم"
 
 #: db_printview.php:160 db_structure.php:442 libraries/export/sql.php:636
 #: libraries/export/sql.php:967
@@ -422,7 +422,7 @@ msgstr "الباني المرئي"
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:871
 msgid "Sort"
-msgstr "تصنيف"
+msgstr "ترتيب"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:510 libraries/display_tbl.lib.php:832
@@ -449,7 +449,7 @@ msgstr "المعايير"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr "Ins"
+msgstr "إدخال"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
@@ -457,7 +457,7 @@ msgstr "و"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr "Del"
+msgstr "حذف"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:307
@@ -479,27 +479,27 @@ msgstr "إضافه/حذف عمود"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
-msgstr "تجديد استعلام"
+msgstr "تجديد الإستعلام"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr "استخدم الجدول"
+msgstr "إستخدم الجداول"
 
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "في قاعدة البيانات SQL-إستعلام <b>%s</b>:"
+msgstr "إستعلام SQL في قاعدة البيانات <b>%s</b>:"
 
 #: db_qbe.php:956 libraries/common.lib.php:1187
 msgid "Submit Query"
-msgstr "إرسال الاستعلام"
+msgstr "إرسال الإستعلام"
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:650 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:224
 msgid "Access denied"
-msgstr "غير مسموح"
+msgstr "ممنوع الوصول"
 
 #: db_search.php:64 db_search.php:307
 msgid "at least one of the words"
@@ -515,12 +515,12 @@ msgstr "الجملة بالضبط"
 
 #: db_search.php:67 db_search.php:310
 msgid "as regular expression"
-msgstr "كصيغة مطابقة"
+msgstr "كتعبير قياسي"
 
 #: db_search.php:229
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "ابحث في النتائج عن \"<i>%s</i>\" %s:"
+msgstr "نتائج البحث عن \"<i>%s</i>\" %s:"
 
 #: db_search.php:247
 #, php-format
@@ -568,7 +568,7 @@ msgstr[5] "<b>المجموع:</b> <i>%s</i>تطابق"
 
 #: db_search.php:295
 msgid "Search in database"
-msgstr "ابحث في قاعدة البيانات"
+msgstr "بحث في قاعدة البيانات"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
@@ -580,7 +580,7 @@ msgstr "ابحث:"
 
 #: db_search.php:307 db_search.php:308
 msgid "Words are separated by a space character (\" \")."
-msgstr "الكلمات مفصولة بحرف مسافة (\" \")."
+msgstr "الكلمات مفصولة بمسافة (\" \")."
 
 #: db_search.php:321
 msgid "Inside table(s):"
@@ -597,7 +597,7 @@ msgstr "لا توجد جداول في قاعدة البيانات هذه!."
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
 msgid "Table %s has been emptied"
-msgstr "جدول %s أفرغت محتوياتها"
+msgstr "تم إفراغ محتويات الجدول %s"
 
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
@@ -607,7 +607,7 @@ msgstr "تم إزالة %s  من العرض"
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "جدول %s حذفت"
+msgstr "تم إزالة الجدول %s"
 
 #: db_structure.php:319 tbl_create.php:295
 msgid "Tracking is active."
@@ -650,13 +650,13 @@ msgstr "%s هو محرك التخزين الإفتراضي لخادم MySQL"
 #: server_databases.php:261 server_privileges.php:1666 tbl_structure.php:552
 #: tbl_structure.php:561
 msgid "With selected:"
-msgstr ": على المحدد"
+msgstr "مع المحدد:"
 
 #: db_structure.php:512 libraries/display_tbl.lib.php:2214
 #: server_databases.php:258 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:555
 msgid "Check All"
-msgstr "اختر الكل"
+msgstr "تحديد الكل"
 
 #: db_structure.php:516 libraries/display_tbl.lib.php:2215
 #: libraries/replication_gui.lib.php:35 server_databases.php:260
@@ -666,7 +666,7 @@ msgstr "إلغاء تحديد الكل"
 
 #: db_structure.php:521
 msgid "Check tables having overhead"
-msgstr "تحقق من overhead"
+msgstr "تحقق من الجداول التي تحمل عبء زائد"
 
 #: db_structure.php:529 libraries/config/messages.inc.php:162
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2232
@@ -685,7 +685,7 @@ msgstr "عرض نسخة للطباعة"
 #: db_structure.php:535 libraries/common.lib.php:3020
 #: libraries/common.lib.php:3021
 msgid "Empty"
-msgstr "إفراغ محتوى"
+msgstr "إفراغ"
 
 #: db_structure.php:537 db_tracking.php:104 libraries/Index.class.php:487
 #: libraries/common.lib.php:3018 libraries/common.lib.php:3019
@@ -701,7 +701,7 @@ msgstr "التحقق من الجدول"
 #: db_structure.php:541 tbl_operations.php:649 tbl_structure.php:803
 #: tbl_structure.php:805
 msgid "Optimize table"
-msgstr "ضغط الجدول"
+msgstr "تحسين الجدول"
 
 #: db_structure.php:543 tbl_operations.php:636
 msgid "Repair table"
@@ -748,7 +748,7 @@ msgstr "محدث"
 #: libraries/server_links.inc.php:50 server_processlist.php:71
 #: tbl_tracking.php:591 test/theme.php:100
 msgid "Status"
-msgstr "وضع"
+msgstr "الحالة"
 
 #: db_tracking.php:90 libraries/Index.class.php:439
 #: libraries/db_structure.lib.php:44 server_databases.php:191
@@ -828,9 +828,7 @@ msgstr "لا توجد مساحة كافية لحفظ الملف %s."
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr ""
-"المف %s موجود أصلا على الخادم. غير الاسم أو حدد خيار التسجيل على الملف "
-"الموجود."
+msgstr "الملف %s موجود على الخادم بالفعل , غير الاسم أو حدد خيار الكتابة عليه."
 
 #: export.php:309 export.php:313
 #, php-format
@@ -854,7 +852,7 @@ msgstr ""
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
 msgid "File could not be read"
-msgstr "لم يمكن قراءة الملف"
+msgstr "لا يمكن قراءة الملف"
 
 #: import.php:286 import.php:295 import.php:314 import.php:323
 #: libraries/File.class.php:681 libraries/File.class.php:689
@@ -917,7 +915,7 @@ msgstr ""
 #: tbl_operations.php:224 tbl_relation.php:282 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "الخاص بك تم تنفيذه بنجاح SQL-استعلام"
+msgstr "تم تنفيذ إستعلام SQL  بنجاح"
 
 #: import_status.php:30 libraries/common.lib.php:682
 #: libraries/schema/Export_Relation_Schema.class.php:215 user_password.php:123
@@ -933,7 +931,7 @@ msgstr "phpMyAdmin أكثر تفهما مع مستعرض <b>الإطارات</b>
 #: server_synchronize.php:734 server_synchronize.php:762
 #: server_synchronize.php:790 server_synchronize.php:802
 msgid "Click to select"
-msgstr "اضغط للاختيار"
+msgstr "إضغط للإختيار"
 
 #: js/messages.php:26
 msgid "Click to unselect"
@@ -941,7 +939,7 @@ msgstr "إضغط لإلغاء الإختيار"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:195
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "معطل \"حذف قاعدة بيانات\"الأمر "
+msgstr "أمر \"حذف قاعدة البيانات\" معطل."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:293
 msgid "Do you really want to "
@@ -982,7 +980,7 @@ msgstr "هل تريد حقاً إلغاء كل مراجع BLOB  في قاعدة 
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "يوجد قيمه مفقوده بالنموذج !"
+msgstr "يوجد قيمة مفقودة بالنموذج !"
 
 #: js/messages.php:45
 msgid "This is not a number!"
@@ -990,19 +988,19 @@ msgstr "هذا ليس رقم!"
 
 #: js/messages.php:48
 msgid "The host name is empty!"
-msgstr "اسم المستضيف فارغ!"
+msgstr "إسم المستضيف فارغ!"
 
 #: js/messages.php:49
 msgid "The user name is empty!"
-msgstr "اسم المستخدم فارغ!"
+msgstr "إسم المستخدم فارغ!"
 
 #: js/messages.php:50 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
-msgstr "كلمة السر فارغة !"
+msgstr "كلمة المرور فارغة !"
 
 #: js/messages.php:51 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
-msgstr "كلمتا السر غير متشابهتان !"
+msgstr "كلمتا المرور غير متشابهتان !"
 
 #: js/messages.php:52
 msgid "Add a New User"
@@ -1023,13 +1021,13 @@ msgstr "حذف المستخدمين المحددين"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:246 tbl_tracking.php:374
 msgid "Close"
-msgstr "أغلق"
+msgstr "أغلاق"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
-msgstr "ألغ"
+msgstr "ألغاء"
 
 #: js/messages.php:63
 msgid "Loading"
@@ -1104,7 +1102,7 @@ msgstr "تعديل سريع"
 #: libraries/import.lib.php:1174 libraries/schema/User_Schema.class.php:168
 #: setup/frames/index.inc.php:125
 msgid "Edit"
-msgstr "تحرير"
+msgstr "تعديل"
 
 #: js/messages.php:90 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:318
@@ -1117,7 +1115,7 @@ msgstr "حفظ"
 #: js/messages.php:91 libraries/display_tbl.lib.php:606 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
-msgstr "أخف"
+msgstr "أخفاء"
 
 #: js/messages.php:94
 msgid "Hide search criteria"
@@ -1158,7 +1156,7 @@ msgstr "توليد كلمة مرور"
 
 #: js/messages.php:111 libraries/replication_gui.lib.php:365
 msgid "Generate"
-msgstr "ولد"
+msgstr "توليد"
 
 #: js/messages.php:112
 msgid "Change Password"
@@ -1475,7 +1473,7 @@ msgstr ""
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
-msgstr "فهرس غير معرف!"
+msgstr "لم يتم تعريف الفهرس!"
 
 #: libraries/Index.class.php:432 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:311
@@ -1486,7 +1484,7 @@ msgstr "فهارس"
 #: tbl_structure.php:155 tbl_structure.php:159 tbl_structure.php:571
 #: tbl_tracking.php:317
 msgid "Unique"
-msgstr "مميز"
+msgstr "فريد"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:318
 msgid "Packed"
@@ -1507,7 +1505,7 @@ msgstr "لقد تم حذف المفتاح الأساسي"
 #: libraries/Index.class.php:475
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "فهرسة محذوفة %s"
+msgstr "تم حذف الفهرس %s"
 
 #: libraries/Index.class.php:579
 #, php-format
@@ -1689,7 +1687,7 @@ msgstr "اسم المستخدم:"
 
 #: libraries/auth/cookie.auth.lib.php:253
 msgid "Password:"
-msgstr "كلمة السر:"
+msgstr "كلمة المرور:"
 
 #: libraries/auth/cookie.auth.lib.php:260
 msgid "Server Choice"
@@ -1720,7 +1718,7 @@ msgstr "لا يمكن الدخول إلى خادم MySQL"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "خطأ اسم المستخدم/كلمة السر. الدخول ممنوع."
+msgstr "خطأ في اسم المستخدم أو كلمة السر. الوصول ممنوع."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -1809,7 +1807,7 @@ msgstr "مجموع كلي"
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:776
 msgid "Overhead"
-msgstr "الفوقي"
+msgstr "الحمل الزائد"
 
 #: libraries/build_html_for_db.lib.php:93
 msgid "Jump to database"
@@ -1909,7 +1907,7 @@ msgstr "اسلوب مصادقة غير صحيح في الإعدادات:"
 #: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "عليك التحديث إلى %s %s أو لاحقا."
+msgstr "عليك الترقية إلى %s%s أو لاحقا."
 
 #: libraries/common.lib.php:142
 #, php-format
@@ -1920,19 +1918,19 @@ msgstr "كبير: %s%s"
 #: libraries/common.lib.php:404
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "إنجليزي"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:408
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "إنجليزي"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:412
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "إنجليزي"
 
 #: libraries/common.lib.php:425 libraries/common.lib.php:427
 #: libraries/common.lib.php:429 libraries/common.lib.php:445
@@ -1949,7 +1947,7 @@ msgstr "مستندات وثائقية"
 #: libraries/common.lib.php:605 libraries/header_printview.inc.php:60
 #: server_processlist.php:72 server_status.php:372
 msgid "SQL query"
-msgstr "استعلام-SQL"
+msgstr "استعلام SQL"
 
 #: libraries/common.lib.php:641
 msgid "MySQL said: "
@@ -1961,7 +1959,7 @@ msgstr "فشل الإتصال بمدقق SQL!"
 
 #: libraries/common.lib.php:1138 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
-msgstr "اشرح SQL"
+msgstr "شرح SQL"
 
 #: libraries/common.lib.php:1142
 msgid "Skip Explain SQL"
@@ -1978,15 +1976,15 @@ msgstr "أنشئ كود PHP"
 #: libraries/common.lib.php:1197 libraries/config/messages.inc.php:464
 #: server_status.php:467
 msgid "Refresh"
-msgstr "حدث"
+msgstr "تحديث"
 
 #: libraries/common.lib.php:1206
 msgid "Skip Validate SQL"
-msgstr "تخطي التأكد من SQL"
+msgstr "تخطي تدقيق SQL"
 
 #: libraries/common.lib.php:1209 libraries/config/messages.inc.php:467
 msgid "Validate SQL"
-msgstr "التحقق من استعلام SQL"
+msgstr "التدقيق في استعلام SQL"
 
 #: libraries/common.lib.php:1264
 msgid "Inline edit of this query"
@@ -2074,7 +2072,7 @@ msgstr "نهاية"
 #: libraries/common.lib.php:2446
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "إذهب إلى قاعدة بيانات &quot;%s&quot;."
+msgstr "الذهاب إلى قاعدة البيانات &quot;%s&quot;."
 
 #: libraries/common.lib.php:2465
 #, php-format
@@ -2284,7 +2282,7 @@ msgstr "السماح للمستخدمين بتخصيص هذه القيمة"
 #: libraries/schema/User_Schema.class.php:471 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1103
 msgid "Reset"
-msgstr "إلغاء"
+msgstr "إعادة تعيين"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
@@ -2580,7 +2578,7 @@ msgstr "خطوط تنتهي بـ"
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:238
 #: libraries/import/csv.php:85 libraries/import/ldi.php:43
 msgid "Lines terminated by"
-msgstr "خطوط مفصولة بـ"
+msgstr "أسطر تنتهي بـ"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
@@ -2608,7 +2606,7 @@ msgstr "إفراغ الجدول"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
-msgstr "أضف عنوانا للجدول"
+msgstr "أضف عنواناً للجدول"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:99
 #: libraries/export/latex.php:49 libraries/export/latex.php:73
@@ -2633,7 +2631,7 @@ msgstr "نوع MIME"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 tbl_relation.php:389
 msgid "Relations"
-msgstr "الروابط"
+msgstr "العلاقات"
 
 #: libraries/config/messages.inc.php:103
 msgid "Export method"
@@ -2646,7 +2644,7 @@ msgstr "حفظ في الخادم"
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 msgid "Overwrite existing file(s)"
-msgstr "خزن على الملفات الموجودة أصلا"
+msgstr "خزن على الملفات الموجودة"
 
 #: libraries/config/messages.inc.php:116
 msgid "Remember file name template"
@@ -2795,7 +2793,7 @@ msgstr "تعيين بعض الخيارات شائعة الإستخدام"
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "استورد"
+msgstr "استيراد"
 
 #: libraries/config/messages.inc.php:169
 msgid "Import defaults"
@@ -2815,7 +2813,7 @@ msgstr "حدد عناوين الإستيراد والتصدير و  خيارات
 
 #: libraries/config/messages.inc.php:173 libraries/export/latex.php:26
 msgid "LaTeX"
-msgstr "لاتكس"
+msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:176
 msgid "Databases display options"
@@ -5319,7 +5317,7 @@ msgstr "إصدارة المزود"
 #: libraries/export/latex.php:146 libraries/export/sql.php:345
 #: libraries/export/xml.php:113
 msgid "PHP Version"
-msgstr " PHP إصدارة"
+msgstr "PHP إصدارة"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
@@ -5510,7 +5508,7 @@ msgstr "أنشئ بواسطة"
 #: libraries/import.lib.php:153 sql.php:626 tbl_change.php:179
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL قام بإرجاع نتيجة إعداد فارغه (مثلا صف صفري)."
+msgstr "قام MySQL  بإرجاع نتيجة فارغة."
 
 #: libraries/import.lib.php:1141
 msgid ""
@@ -6201,7 +6199,7 @@ msgstr "سجل ثنائي"
 
 #: libraries/server_links.inc.php:59 server_processlist.php:21
 msgid "Processes"
-msgstr "معالَجات"
+msgstr "عمليات"
 
 #: libraries/server_links.inc.php:77 server_engines.php:125
 #: server_engines.php:129 server_status.php:430 test/theme.php:104
@@ -7609,7 +7607,7 @@ msgstr "أضف اسم مستخدم جديد بنفس الصلاحيات و..."
 
 #: server_privileges.php:2088
 msgid "... keep the old one."
-msgstr " ... أبق القديم."
+msgstr "... أبق القديم."
 
 #: server_privileges.php:2089
 msgid " ... delete the old one from the user tables."
@@ -9303,7 +9301,7 @@ msgstr "إعادة بناء"
 
 #: tbl_operations.php:745
 msgid "Repair"
-msgstr "صلح"
+msgstr "إصلاح"
 
 #: tbl_operations.php:757
 msgid "Remove partitioning"
@@ -9319,11 +9317,11 @@ msgstr "شاهد الجدول"
 
 #: tbl_printview.php:307 tbl_structure.php:750
 msgid "Space usage"
-msgstr "المساحة المستغلة"
+msgstr "المساحة المستخدمة"
 
 #: tbl_printview.php:311 tbl_structure.php:754
 msgid "Usage"
-msgstr "المساحة"
+msgstr "الإستخدام"
 
 #: tbl_printview.php:338 tbl_structure.php:781
 msgid "Effective"
@@ -9378,7 +9376,7 @@ msgstr "لايوجد صفوف مختارة"
 
 #: tbl_select.php:109
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "تجعل \"استعلام بواسطة المثال\" (wildcard: \"%\")"
+msgstr "عمل \"استعلام بواسطة المثال\" (بدل: \"%\")"
 
 #: tbl_select.php:233
 msgid "Select columns (at least one):"
@@ -9386,7 +9384,7 @@ msgstr "اختيار الأعمدة (واحد على الأقل):"
 
 #: tbl_select.php:251
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "أضف شروط البحث (جسم من الفقره \"where\" clause):"
+msgstr "أضف شروط البحث (الفقرة \"where\" ):"
 
 #: tbl_select.php:258
 msgid "Number of rows per page"
@@ -9429,13 +9427,13 @@ msgstr "تم حذف العمود %s"
 #: tbl_structure.php:413 tbl_structure.php:487
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "لقد أُضيف المفتاح الأساسي في %s"
+msgstr "تم إضافة المفتاح الأساسي في %s"
 
 #: tbl_structure.php:428 tbl_structure.php:443 tbl_structure.php:458
 #: tbl_structure.php:500 tbl_structure.php:513 tbl_structure.php:526
 #, php-format
 msgid "An index has been added on %s"
-msgstr "لقد أُضيف الفهرس في %s"
+msgstr "تم إضافة الفهرس في %s"
 
 #: tbl_structure.php:475
 msgid "Show more actions"
@@ -9443,7 +9441,7 @@ msgstr "عرض المزيد من العمليات"
 
 #: tbl_structure.php:604 tbl_structure.php:606
 msgid "Relation view"
-msgstr "عرض الروابط"
+msgstr "عرض العلاقات"
 
 #: tbl_structure.php:613 tbl_structure.php:615
 msgid "Propose table structure"
@@ -9638,7 +9636,7 @@ msgstr "ليس لديك الحقوق الكافية بأن تكون هنا ال�
 
 #: user_password.php:110
 msgid "The profile has been updated."
-msgstr "لقد تم تجديد العرض الجانبي."
+msgstr "لقد تم تجديد الملف الشخصي."
 
 #: view_create.php:141
 msgid "VIEW name"
