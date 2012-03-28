@@ -3169,7 +3169,7 @@ msgstr "Anzahl der auf einmal einfügbaren Datensätze"
 
 #: libraries/config/messages.inc.php:264
 msgid "Number of inserted rows"
-msgstr "Anzahl der eingefügten Zeilen."
+msgstr "Anzahl der eingefügten Datensätze"
 
 #: libraries/config/messages.inc.php:265
 msgid "Target for quick access icon"
