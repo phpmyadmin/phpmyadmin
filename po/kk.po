@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-21 12:37-0400\n"
-"PO-Revision-Date: 2012-03-26 20:10+0200\n"
+"PO-Revision-Date: 2012-03-28 17:49+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -38,9 +38,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"Барлық бетті жаңарту мүмкін емес. Мүмкін сіз,қосымша бетті жапқансыз немесе "
-"сіздің браузеріңіз екі бет арасындағы жаңартылуды қауімсіздік үшін бұғаттап "
-"тастауда."
+"Барлық бетті жаңарту болмай тұр. Мүмкін сіз, қосымша бетін жауып қойғансыз "
+"немесе сіздің браузеріңіз екі бет арасындағы жаңартылуды өзінің баптауында, "
+"қауіпсіздік үшін бұғаттап тастауда."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:3164
 #: libraries/common.lib.php:3171 libraries/common.lib.php:3381
@@ -107,7 +107,7 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s файлы табылмады. Барлық қосымша ақпарат, www.phpmyadmin.net сайтында "
+"%s файлы табылмады. Барлық қосымша ақпараттар, www.phpmyadmin.net сайтында "
 "орналасқан."
 
 #: db_create.php:73
@@ -117,7 +117,7 @@ msgstr "%1$s мәлімет қоры құрылды."
 
 #: db_datadict.php:49 db_operations.php:390
 msgid "Database comment: "
-msgstr "Мәлімет қорына түсініктеме:"
+msgstr "Мәліметтер қорына түсініктеме:"
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
@@ -239,7 +239,7 @@ msgstr "Мәлімет қорының дамп (схемасын) көру"
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:373 navigation.php:292
 msgid "No tables found in database."
-msgstr ""
+msgstr "Мәліметтер қорында, ешбір кестелер табылмады."
 
 #: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
@@ -247,78 +247,78 @@ msgstr "Бәрін белгілеу"
 
 #: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
-msgstr "ерекшеленгендерді алып тастау"
+msgstr "Eрекшеленгендерді алып тастау"
 
 #: db_operations.php:61 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Мәліметтер қорының аты көрсетілмеген."
 
 #: db_operations.php:300
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "Мәліметтер қорының атауы, мына атауға %с, қайта қойылды."
 
 #: db_operations.php:304
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "%s мәлімет қоры, мына жерге %s көшірілді."
 
 #: db_operations.php:432
 msgid "Rename database to"
-msgstr ""
+msgstr "Мәліметтер қорының атауын қайта қою."
 
 #: db_operations.php:458
 msgid "Remove database"
-msgstr ""
+msgstr "Мәліметтер қорын өшіру"
 
 #: db_operations.php:470
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "%s  мәліметтер қоры өшірілді."
 
 #: db_operations.php:475
 msgid "Drop the database (DROP)"
-msgstr ""
+msgstr "(DROP)Мәліметтер қорын өшіру."
 
 #: db_operations.php:504
 msgid "Copy database to"
-msgstr ""
+msgstr "Мәліметтер қорының көшірілуі"
 
 #: db_operations.php:511 tbl_operations.php:554 tbl_tracking.php:436
 msgid "Structure only"
-msgstr ""
+msgstr "Тек қана құрылым"
 
 #: db_operations.php:512 tbl_operations.php:555 tbl_tracking.php:438
 msgid "Structure and data"
-msgstr ""
+msgstr "Құрылым және мәліметтер"
 
 #: db_operations.php:513 tbl_operations.php:556 tbl_tracking.php:437
 msgid "Data only"
-msgstr ""
+msgstr "Тек қана мәліметтер"
 
 #: db_operations.php:521
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "Көшірмес бұрын, мәліметтер қорын құрып алыңыз(CREATE DATABASE)"
 
 #: db_operations.php:524 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:137 tbl_operations.php:562
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Қосу %s "
 
 #: db_operations.php:528 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:564
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "AUTO_INCREMENT қосу"
 
 #: db_operations.php:532 tbl_operations.php:571
 msgid "Add constraints"
-msgstr ""
+msgstr "Шектеу қою"
 
 #: db_operations.php:545
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Көшірілген мәліметтер қорына өту"
 
 #: db_operations.php:568 libraries/Index.class.php:454
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
@@ -328,14 +328,14 @@ msgstr ""
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:271
 #: tbl_tracking.php:337
 msgid "Collation"
-msgstr ""
+msgstr "Салыстыру"
 
 #: db_operations.php:581
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr ""
+msgstr "Кейбір ұлғаймалы мүмкіндіктеріне PhpMyAdmin қол жетімсіз."
 
 #: db_operations.php:615
 msgid "Edit or export relational schema"
@@ -358,36 +358,36 @@ msgstr ""
 #: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
 #: tbl_structure.php:882
 msgid "Rows"
-msgstr ""
+msgstr "Қатарлар"
 
 #: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:214
 msgid "Size"
-msgstr ""
+msgstr "Мөлшері"
 
 #: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:806
 msgid "in use"
-msgstr ""
+msgstr "қолданыста"
 
 #: db_printview.php:184 libraries/db_info.inc.php:77
 #: libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
 #: tbl_structure.php:914
 msgid "Creation"
-msgstr ""
+msgstr "Құру"
 
 #: db_printview.php:193 libraries/db_info.inc.php:82
 #: libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:922
 msgid "Last update"
-msgstr ""
+msgstr "Соңғы жаңартылым"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
 #: libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:930
 msgid "Last check"
-msgstr ""
+msgstr "Соңғы тексеріс"
 
 #: db_printview.php:219 db_structure.php:520
 #, php-format
@@ -398,7 +398,7 @@ msgstr[1] ""
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "Сұраныс орындалуы үшін, көрсетілімдегі баған/бағандар таңдалуы тиіс"
 
 #: db_qbe.php:186
 #, php-format
@@ -408,7 +408,7 @@ msgstr ""
 #: db_qbe.php:222 libraries/db_structure.lib.php:91
 #: libraries/display_tbl.lib.php:1003
 msgid "Sort"
-msgstr ""
+msgstr "Сұрыптау"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:98
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:566
@@ -416,7 +416,7 @@ msgstr ""
 #: server_databases.php:177 server_databases.php:194 tbl_operations.php:279
 #: tbl_select.php:247
 msgid "Ascending"
-msgstr ""
+msgstr "Өсу бойынша"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:99
 #: libraries/db_structure.lib.php:108 libraries/display_tbl.lib.php:571
@@ -424,82 +424,82 @@ msgstr ""
 #: server_databases.php:177 server_databases.php:194 tbl_operations.php:280
 #: tbl_select.php:248
 msgid "Descending"
-msgstr ""
+msgstr "Кему бойынша"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:427
 #: tbl_change.php:294 tbl_tracking.php:666
 msgid "Show"
-msgstr ""
+msgstr "Көрсету"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr ""
+msgstr "Белгі"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr ""
+msgstr "Қою"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
-msgstr ""
+msgstr "Және"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr ""
+msgstr "Өшіру"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:467 tbl_change.php:939 tbl_indexes.php:283
 #: tbl_select.php:221
 msgid "Or"
-msgstr ""
+msgstr "Немесе"
 
 #: db_qbe.php:529
 msgid "Modify"
-msgstr ""
+msgstr "Өзгерту"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "Белгі қатарларын Қосу/Өшіру"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "Бағандарды Қосу/Өшіру"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
-msgstr ""
+msgstr "Жаңартылуға жіберілген сұраныс"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr ""
+msgstr "Кестелерді қолдану"
 
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "<b>%s</b> мәліметтер қорына SQL сұранысы"
 
 #: db_qbe.php:955 libraries/common.lib.php:1252
 msgid "Submit Query"
-msgstr ""
+msgstr "Сұранысты жіберу"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
 #: libraries/auth/cookie.auth.lib.php:581 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
-msgstr ""
+msgstr "Рұқсат жоқ"
 
 #: db_search.php:43 db_search.php:286
 msgid "at least one of the words"
-msgstr ""
+msgstr "Кез-келген сөз"
 
 #: db_search.php:44 db_search.php:287
 msgid "all words"
-msgstr ""
+msgstr "Барлық сөздер"
 
 #: db_search.php:45 db_search.php:288
 msgid "the exact phrase"
-msgstr ""
+msgstr "дәл сәйкестiк"
 
 #: db_search.php:46 db_search.php:289
 msgid "as regular expression"
@@ -508,7 +508,7 @@ msgstr ""
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "\"<i>%s</i>\" %s іздеу нәтижесі:"
 
 #: db_search.php:227
 #, php-format
@@ -521,7 +521,7 @@ msgstr[1] ""
 #: libraries/common.lib.php:3379 libraries/common.lib.php:3380
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
-msgstr ""
+msgstr "Шолу"
 
 #: db_search.php:239
 #, php-format
@@ -549,19 +549,19 @@ msgstr[1] ""
 
 #: db_search.php:274
 msgid "Search in database"
-msgstr ""
+msgstr "Мәліметтер қорынан іздеу"
 
 #: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "Іздеу үшін сөз немесе мағына (топтық таңба \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
-msgstr ""
+msgstr "Сайт бойынша іздеу:"
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
-msgstr ""
+msgstr "Сөз, бос орынмен бөлінеді (\" \")."
 
 #: db_search.php:300
 msgid "Inside tables:"
