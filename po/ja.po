@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-20 07:33+0200\n"
-"Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
+"PO-Revision-Date: 2012-03-29 11:41+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -523,7 +523,7 @@ msgstr "\"<i>%s</i>\" の検索結果 %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s 件（テーブル <i>%s</i>)"
+msgstr[0] "%s 件 (テーブル <i>%s</i>)"
 
 #: db_search.php:254 libraries/common.lib.php:2829
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
@@ -1584,7 +1584,7 @@ msgstr "テーブル名を %1$s から %2$s に変更するときにエラーが
 #: libraries/Table.class.php:1149
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "テーブル %s を %s にリネームしました"
+msgstr "テーブル %s の名称を %s に変更しました"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -1870,9 +1870,7 @@ msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> はかならず設定ファイルで設定する必要がありま"
-"す!"
+msgstr "<tt>$cfg['PmaAbsoluteUri']</tt> は<b>必ず</b>設定ファイルに設定しなければなりません！"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -9762,18 +9760,17 @@ msgstr "テーブル `%s` に対しての追跡レポート"
 #: tbl_tracking.php:183
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
-"バージョン %s を作成しました。%s.%s の SQL コマンド追跡機能はアクティブです。"
+msgstr "世代 %s を作成しました。%s.%s の SQL コマンド追跡機能はアクティブです。"
 
 #: tbl_tracking.php:191
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr "%s.%s への SQL コマンド追跡、バージョン %s を非アクティブにしました。"
+msgstr "%s.%s への SQL コマンド追跡、世代 %s を非アクティブにしました。"
 
 #: tbl_tracking.php:199
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr "%s.%s への SQL コマンド追跡、バージョン %s をアクティブにしました。"
+msgstr "%s.%s への SQL コマンド追跡、世代 %s をアクティブにしました。"
 
 #: tbl_tracking.php:209
 msgid "SQL statements executed."
