@@ -3439,7 +3439,7 @@ msgstr "Varijabla"
 #: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\" requires %s extension"
+msgstr ""
 
 #: libraries/config/FormDisplay.class.php:727
 #, php-format

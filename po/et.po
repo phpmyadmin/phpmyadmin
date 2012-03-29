@@ -882,7 +882,7 @@ msgstr "\"%s\" veeru väärtus"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Use OpenStreetMaps as Base Layer"
+msgstr ""
 
 #: gis_data_editor.php:134
 msgid "SRID"
@@ -2611,7 +2611,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr "Failed to use Blowfish from mcrypt!"
+msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
@@ -3656,11 +3656,11 @@ msgstr "Keela võõrvõtme kontrollid"
 
 #: libraries/config/messages.inc.php:130
 msgid "Use hexadecimal for BLOB"
-msgstr "Use hexadecimal for BLOB"
+msgstr ""
 
 #: libraries/config/messages.inc.php:132
 msgid "Use ignore inserts"
-msgstr "Use ignore inserts"
+msgstr ""
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
@@ -4110,7 +4110,7 @@ msgstr "Ära kasuta AUTO_INCREMENT null-väärtuste jaoks"
 
 #: libraries/config/messages.inc.php:266
 msgid "Initial state for sliders"
-msgstr "Initial state for sliders"
+msgstr ""
 
 #: libraries/config/messages.inc.php:267
 msgid "How many rows can be inserted at one time"
@@ -4564,7 +4564,7 @@ msgstr "Luba sisse logida 'root' kasutajana"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
@@ -5145,10 +5145,6 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
-"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
-"used to split/nest the tables according to the $cfg"
-"['LeftFrameTableSeparator'] directive, so only the folder is called like the "
-"alias, the table name itself stays unchanged"
 
 #: libraries/config/messages.inc.php:480
 msgid "Display table comment instead of its name"
@@ -5279,10 +5275,6 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
-"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
-"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
@@ -5923,7 +5915,7 @@ msgstr "Näita BLOB sisu"
 
 #: libraries/display_tbl.lib.php:687
 msgid "Hide browser transformation"
-msgstr "Hide browser transformation"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
@@ -5973,7 +5965,7 @@ msgstr "Näita diagrammi"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
-msgstr "Visualize GIS data"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:2701
 msgid "Create view"
@@ -6267,7 +6259,7 @@ msgstr "Seotud lingid"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr "The PrimeBase Media Streaming Blog by Barry Leslie"
+msgstr ""
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
@@ -6460,7 +6452,7 @@ msgstr "NULL asendaja:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Remove carriage return/line feed characters within columns"
+msgstr ""
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
@@ -6545,7 +6537,7 @@ msgstr "PHP versioon"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr "MediaWiki Table"
+msgstr ""
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -6739,7 +6731,7 @@ msgstr "Ava uus phpMyAdmini aken"
 
 #: libraries/gis_visualization.lib.php:134
 msgid "No data found for GIS visualization."
-msgstr "No data found for GIS visualization."
+msgstr ""
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
@@ -8288,16 +8280,6 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"LINUX ONLY: Launches an external application and feeds it the column data "
-"via standard input. Returns the standard output of the application. The "
-"default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
 msgid ""
@@ -9892,9 +9874,6 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
-"table with a given name. This is called discovery. Handler_discover "
-"indicates the number of time tables have been discovered."
 
 #: server_status.php:1317
 msgid ""
@@ -10000,10 +9979,6 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"The number of pages busy because they have been allocated for administrative "
-"overhead such as row locks or the adaptive hash index. This value can also "
-"be calculated as Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: server_status.php:1332
 msgid "Total size of buffer pool, in pages."
@@ -10117,7 +10092,7 @@ msgstr "fsync() poolt logi failisse tehtud kirjutamiste hulk."
 
 #: server_status.php:1353
 msgid "The number of pending log file fsyncs."
-msgstr "The number of pending log file fsyncs."
+msgstr ""
 
 #: server_status.php:1354
 msgid "Pending log file writes."
@@ -11292,7 +11267,7 @@ msgstr "Vaata tabeli tõmmist (skeemi)"
 
 #: tbl_gis_visualization.php:112
 msgid "Display GIS Visualization"
-msgstr "Display GIS Visualization"
+msgstr ""
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
@@ -12056,7 +12031,7 @@ msgstr ""
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
-msgstr "'source' found in version_comment"
+msgstr ""
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
@@ -12069,7 +12044,7 @@ msgstr ""
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
-msgstr "'percona' found in version_comment"
+msgstr ""
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
@@ -12221,14 +12196,6 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
-"This might be caused by many Query cache low memory prunes due to "
-"{query_cache_size} being too small. For a immediate but short lived fix you "
-"can flush the query cache (might lock the query cache for a long time). "
-"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
-"too, e.g. you can set it to the average size of your queries in the cache "
-"using this formula: (query_cache_size - qcache_free_memory) / "
-"qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
@@ -12243,7 +12210,7 @@ msgstr ""
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr "Query cache low memory prunes"
+msgstr ""
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12810,8 +12777,6 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
-"This generally happens in case of general system overload as it is pretty "
-"simple operations. You might want to monitor your system load carefully."
 
 #: po/advisory_rules.php:218
 #, php-format
