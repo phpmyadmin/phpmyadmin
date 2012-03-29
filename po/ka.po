@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 11:40+0200\n"
+"PO-Revision-Date: 2012-03-29 11:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -139,10 +139,9 @@ msgstr "ცხრილის კომენტარები"
 #: tbl_change.php:309 tbl_indexes.php:185 tbl_printview.php:139
 #: tbl_relation.php:392 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:268 tbl_tracking.php:319
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "სვეტების სახელები"
+msgstr "სვეტები"
 
 #: db_datadict.php:168 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -727,9 +726,8 @@ msgid "Data Dictionary"
 msgstr "მონაცემების ლექსიკონი"
 
 #: db_tracking.php:79
-#, fuzzy
 msgid "Tracked tables"
-msgstr "დაბლოკილი ცხრილების გამოტოვება"
+msgstr "ნანახი ცხრილები"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:482
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
@@ -750,9 +748,8 @@ msgid "Last version"
 msgstr "Create relation"
 
 #: db_tracking.php:87 tbl_tracking.php:589
-#, fuzzy
 msgid "Created"
-msgstr "შექმნა"
+msgstr "შეიქმნა"
 
 #: db_tracking.php:88 tbl_tracking.php:590
 msgid "Updated"
@@ -784,23 +781,20 @@ msgid "not active"
 msgstr ""
 
 #: db_tracking.php:134
-#, fuzzy
 msgid "Versions"
-msgstr "სპარსული"
+msgstr "ვერსია"
 
 #: db_tracking.php:135 tbl_tracking.php:374 tbl_tracking.php:621
 msgid "Tracking report"
 msgstr ""
 
 #: db_tracking.php:136 tbl_tracking.php:246 tbl_tracking.php:623
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "მხოლოდ სტრუქტურა"
+msgstr "სნეიფშუთის სტრუქტურა"
 
 #: db_tracking.php:181
-#, fuzzy
 msgid "Untracked tables"
-msgstr "დაბლოკილი ცხრილების გამოტოვება"
+msgstr "Untracked tables"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:626
 #: tbl_structure.php:628
@@ -1862,10 +1856,9 @@ msgid "PBMS error"
 msgstr ""
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
-msgstr "MySQL კავშირის კოლაცია"
+msgstr "PBMS -სთან კავშირი ვერ ხერხდება:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
@@ -2393,10 +2386,9 @@ msgid "SQL Validator is disabled"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:773
-#, fuzzy
 #| msgid "PHP extension to use"
 msgid "SOAP extension not found"
-msgstr "გამოსაყენებელი PHP გაფართოება"
+msgstr "SOAP გაფართოება არ იქნა ნაპოვნი"
 
 #: libraries/config/FormDisplay.class.php:781
 #, fuzzy, php-format
@@ -2623,14 +2615,12 @@ msgid "Default table tab"
 msgstr "Default table tab"
 
 #: libraries/config/messages.inc.php:54
-#, fuzzy
 msgid "Show binary contents as HEX by default"
-msgstr "ორობითი შიგთავსის ჩვენება"
+msgstr "ორობითის ჩვენება HEX ფორმატში იყოს ნაგულისხმევი"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:598
-#, fuzzy
 msgid "Show binary contents as HEX"
-msgstr "ორობითი შიგთავსის ჩვენება"
+msgstr "აჩვენეთ ორობით შინაარსი როგორც HEX"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
@@ -2892,9 +2882,8 @@ msgid "Enclose export in a transaction"
 msgstr "Enclose export in a transaction"
 
 #: libraries/config/messages.inc.php:138
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "Export defaults"
+msgstr "ექსპორტის დრო UT- ში"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
@@ -4088,9 +4077,8 @@ msgid "Server socket"
 msgstr "Server socket"
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr "MySQL სერვერთან კავშირის შეკუმშვა"
+msgstr "SSL კავშირის ჩართვა MySQL სერვერზე"
 
 #: libraries/config/messages.inc.php:414
 msgid "Use SSL"
@@ -4562,10 +4550,9 @@ msgid "Cookie authentication"
 msgstr "Host authentication order"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "Host authentication order"
+msgstr "HTTP ავტორიზაცია"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
@@ -8411,20 +8398,18 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:327
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "მხოლოდ სტრუქტურა"
+msgstr "მხოლოდ SQL თემების გაშვება"
 
 #: server_replication.php:329
 msgid "Stop SQL Thread only"
 msgstr ""
 
 #: server_replication.php:332
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "მხოლოდ სტრუქტურა"
+msgstr "გაეშვას მხოლოდ IO სტრუქტურა"
 
 #: server_replication.php:334
 msgid "Stop IO Thread only"
@@ -10116,9 +10101,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:708
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "მონაცემთა ბაზები არაა"
+msgstr "მაგიდების წაშლა (DROP)"
 
 #: tbl_operations.php:730
 msgid "Partition maintenance"
