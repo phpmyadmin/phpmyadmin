@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-28 16:08+0200\n"
+"PO-Revision-Date: 2012-03-29 11:48+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -100,11 +100,11 @@ msgstr "لايوجد خادم بث مثبت"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr "فشل لإحضار العنونه"
+msgstr "فشل إحضار الترويسة"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "فشل فتح عنوان الموقع عن بعد"
+msgstr "فشل فتح الموقع البعيد"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -943,7 +943,7 @@ msgstr "أمر \"حذف قاعدة البيانات\" معطل."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:293
 msgid "Do you really want to "
-msgstr "هل تريد حقا "
+msgstr "هل تريد حقا"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
