@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-28 15:27+0200\n"
+"PO-Revision-Date: 2012-03-29 11:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -939,7 +939,7 @@ msgstr "\"DROP DATABASE\" käsud on keelatud."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:293
 msgid "Do you really want to "
-msgstr "Kas te tõesti tahate "
+msgstr "Kas tõesti tahad "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
@@ -1581,7 +1581,7 @@ msgstr "Esines viga %1$s tabeli ümbernimetamisel nimeks %2$s"
 #: libraries/Table.class.php:1149
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "Tabel %s on ümber nimetatud %s"
+msgstr "%s tabeli uueks nimeks sai %s"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -1868,8 +1868,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> konstant peab teie konfiguratsioonifailis "
-"määratud olema!"
+"<tt>$cfg['PmaAbsoluteUri']</tt> väärtus PEAB sinu seadistusfailis olema "
+"määratud!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -7318,7 +7318,7 @@ msgstr "Ühtegi andmebaasi ei ole valitud."
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "andmebaasid %s kustutati õnnestunult."
+msgstr "%s andmebaas(i) kustutati edukalt."
 
 #: server_databases.php:100
 msgid "Databases statistics"
