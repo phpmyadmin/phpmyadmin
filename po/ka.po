@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-29 16:45+0200\n"
-"Last-Translator: rati gvelesiani <admin@smartweb.ge>\n"
+"PO-Revision-Date: 2012-03-29 16:53+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
@@ -261,10 +261,9 @@ msgid "Rename database to"
 msgstr ""
 
 #: db_operations.php:458
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Rename database to"
+msgstr ""
 
 #: db_operations.php:470
 #, php-format
@@ -327,7 +326,7 @@ msgid "Collation"
 msgstr "კოლაცია"
 
 #: db_operations.php:581
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -335,14 +334,11 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"The additional features for working with linked tables have been "
-"deactivated. To find out why click %shere%s."
 
 #: db_operations.php:615
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Relational schema"
+msgstr ""
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
@@ -393,22 +389,21 @@ msgid "Last check"
 msgstr "Last check"
 
 #: db_printview.php:219 db_structure.php:520
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s table(s)"
-msgstr[1] "%s table(s)"
+msgstr[0] ""
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
 msgstr ""
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Switch to copied table"
+msgstr ""
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:91
 #: libraries/display_tbl.lib.php:1014
@@ -463,10 +458,9 @@ msgid "Modify"
 msgstr "შეცვლა"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Add/Delete Criteria Row"
+msgstr ""
 
 #: db_qbe.php:618
 #, fuzzy
@@ -534,10 +528,10 @@ msgid "Browse"
 msgstr "არჩევა"
 
 #: db_search.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "Dumping data for table"
+msgstr ""
 
 #: db_search.php:239 libraries/display_tbl.lib.php:1437
 #: libraries/display_tbl.lib.php:2478
