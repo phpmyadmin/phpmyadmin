@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-28 16:05+0200\n"
+"PO-Revision-Date: 2012-03-29 11:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -96,7 +96,7 @@ msgstr "Použiť túto hodnotu"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr "Nie je nastavený žiadny streamovacie server!"
+msgstr "Nie je nastavený žiadny streamovací server!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
@@ -104,7 +104,7 @@ msgstr "Chyba pri čítaní hlavičiek"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "Nepodarilo sa otvoriť vzdialene URL"
+msgstr "Nepodarilo sa otvoriť vzdialenú URL adresu"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -1882,8 +1882,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Direktíva <tt>$cfg['PmaAbsoluteUri']</tt> v konfiguračnom súbore MUSÍ byť "
-"nastavená!"
+"Direktíva <tt>$cfg['PmaAbsoluteUri']</tt> MUSÍ byť nastavená v konfiguračnom "
+"súbore!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -7255,7 +7255,7 @@ msgstr "Neboli vybrané žiadne databázy."
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "Úspešne zrušených databáz: %s."
+msgstr "%s databáz bolo úspešne zrušených."
 
 #: server_databases.php:100
 msgid "Databases statistics"
