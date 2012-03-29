@@ -6951,7 +6951,7 @@ msgstr "غلطی:ریلیشن شامل نہیں ہوا"
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr "FOREIGN KEY relation added"
+msgstr ""
 
 #: pmd_relation_new.php:84
 msgid "Internal relation added"
@@ -6963,7 +6963,7 @@ msgstr "ریلیشن حذف ہو گیا"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
-msgstr "Error saving coordinates for Designer."
+msgstr ""
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"

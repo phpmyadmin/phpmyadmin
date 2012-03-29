@@ -5349,7 +5349,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr "The PrimeBase XT Blog by Paul McCullagh"
+msgstr ""
 
 #: libraries/engines/pbxt.lib.php:130
 msgid "The PrimeBase Media Streaming (PBMS) home page"
@@ -6647,7 +6647,7 @@ msgstr "Datalager"
 
 #: libraries/tbl_properties.inc.php:756
 msgid "PARTITION definition"
-msgstr "PARTITION definition"
+msgstr ""
 
 #: libraries/tbl_properties.inc.php:780 tbl_structure.php:640
 #, php-format
@@ -9475,7 +9475,7 @@ msgstr "Gentegn"
 #: tbl_create.php:56
 #, php-format
 msgid "Table %s already exists!"
-msgstr "Table %s already exists!"
+msgstr ""
 
 #: tbl_create.php:242
 #, php-format
@@ -9777,7 +9777,7 @@ msgstr "Vis flere operationer"
 
 #: tbl_structure.php:604 tbl_structure.php:606
 msgid "Relation view"
-msgstr "Relation view"
+msgstr ""
 
 #: tbl_structure.php:613 tbl_structure.php:615
 msgid "Propose table structure"

@@ -575,7 +575,7 @@ msgstr[1] "<b>Cemi:</b> <i>%s</i> uyğunluq"
 
 #: db_search.php:295
 msgid "Search in database"
-msgstr "Search in database"
+msgstr ""
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
@@ -591,7 +591,7 @@ msgstr "Sözler boşluq ifadesi (\" \") ile ayrılmışdır."
 
 #: db_search.php:321
 msgid "Inside table(s):"
-msgstr "Inside table(s):"
+msgstr ""
 
 #: db_search.php:351
 #, fuzzy
@@ -3210,7 +3210,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:242 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
 msgid "Replace table data with file"
-msgstr "Replace table data with file"
+msgstr ""
 
 #: libraries/config/messages.inc.php:244
 msgid ""
@@ -5411,7 +5411,7 @@ msgstr "Sxemi çıxarılan cedvel"
 #: libraries/export/htmlword.php:188 libraries/export/odt.php:245
 #: libraries/export/sql.php:862 libraries/export/texytext.php:170
 msgid "Table structure for table"
-msgstr "Table structure for table"
+msgstr ""
 
 #: libraries/export/latex.php:13
 msgid "Content of table @TABLE@"
@@ -6169,7 +6169,7 @@ msgstr "Her hansı istifadeçi"
 #: server_privileges.php:766 server_privileges.php:790
 #: server_privileges.php:2008 server_privileges.php:2038
 msgid "Use text field"
-msgstr "Use text field"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:304 server_privileges.php:746
 msgid "Any host"
@@ -6185,7 +6185,7 @@ msgstr "Bu Host"
 
 #: libraries/replication_gui.lib.php:320 server_privileges.php:761
 msgid "Use Host Table"
-msgstr "Use Host Table"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:333 server_privileges.php:774
 msgid ""
@@ -6236,7 +6236,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:877
 #: libraries/schema/Pdf_Relation_Schema.class.php:1118
 msgid "Relational schema"
-msgstr "Relational schema"
+msgstr ""
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1093
 msgid "Table of contents"
@@ -6291,7 +6291,7 @@ msgstr "Hamısını Seç"
 
 #: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
-msgstr "Select Tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:347
 #, fuzzy
@@ -6495,8 +6495,6 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
-"There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
 
 #: libraries/sqlparser.lib.php:169
 msgid ""
@@ -6510,15 +6508,6 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
-"There is a chance that you may have found a bug in the SQL parser. Please "
-"examine your query closely, and check that the quotes are correct and not "
-"mis-matched. Other possible failure causes may be that you are uploading a "
-"file with binary outside of a quoted text area. You can also try your query "
-"on the MySQL command line interface. The MySQL server error output below, if "
-"there is any, may also help you in diagnosing the problem. If you still have "
-"problems or if the parser fails where the command line interface succeeds, "
-"please reduce your SQL query input to the single query that causes problems, "
-"and submit a bug report with the data chunk in the CUT section below:"
 
 #: libraries/sqlparser.lib.php:171
 msgid "BEGIN CUT"
@@ -6542,15 +6531,15 @@ msgstr ""
 
 #: libraries/sqlparser.lib.php:367
 msgid "Unclosed quote"
-msgstr "Unclosed quote"
+msgstr ""
 
 #: libraries/sqlparser.lib.php:519
 msgid "Invalid Identifer"
-msgstr "Invalid Identifer"
+msgstr ""
 
 #: libraries/sqlparser.lib.php:636
 msgid "Unknown Punctuation String"
-msgstr "Unknown Punctuation String"
+msgstr ""
 
 #: libraries/sqlvalidator.lib.php:67
 #, php-format
@@ -6907,7 +6896,7 @@ msgstr "İstifadeçi"
 
 #: main.php:171
 msgid "MySQL charset"
-msgstr "MySQL charset"
+msgstr ""
 
 #: main.php:183
 msgid "Web server"
@@ -7265,7 +7254,7 @@ msgstr ""
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
-msgstr "Modifications have been saved"
+msgstr ""
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
@@ -7368,7 +7357,7 @@ msgstr "Sahe sayı"
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:58
 #: server_processlist.php:60
 msgid "Truncate Shown Queries"
-msgstr "Truncate Shown Queries"
+msgstr ""
 
 #: server_binlog.php:177 server_binlog.php:179 server_processlist.php:58
 #: server_processlist.php:60
@@ -7517,38 +7506,37 @@ msgstr ""
 #: server_privileges.php:46 server_privileges.php:199
 #: server_privileges.php:523
 msgid "Allows importing data from and exporting data into files."
-msgstr "Allows importing data from and exporting data into files."
+msgstr ""
 
 #: server_privileges.php:47 server_privileges.php:554
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
-"Allows adding users and privileges without reloading the privilege tables."
 
 #: server_privileges.php:48 server_privileges.php:201
 #: server_privileges.php:530
 msgid "Allows creating and dropping indexes."
-msgstr "Allows creating and dropping indexes."
+msgstr ""
 
 #: server_privileges.php:49 server_privileges.php:191
 #: server_privileges.php:454 server_privileges.php:518
 msgid "Allows inserting and replacing data."
-msgstr "Allows inserting and replacing data."
+msgstr ""
 
 #: server_privileges.php:50 server_privileges.php:206
 #: server_privileges.php:563
 msgid "Allows locking tables for the current thread."
-msgstr "Allows locking tables for the current thread."
+msgstr ""
 
 #: server_privileges.php:51 server_privileges.php:628
 #: server_privileges.php:630
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr ""
 
 #: server_privileges.php:52 server_privileges.php:616
 #: server_privileges.php:618
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
+msgstr ""
 
 #: server_privileges.php:53 server_privileges.php:622
 #: server_privileges.php:624
@@ -7556,8 +7544,6 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
 
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
@@ -7573,12 +7559,12 @@ msgstr ""
 #: server_privileges.php:56 server_privileges.php:200
 #: server_privileges.php:460 server_privileges.php:564
 msgid "Has no effect in this MySQL version."
-msgstr "Has no effect in this MySQL version."
+msgstr ""
 
 #: server_privileges.php:57 server_privileges.php:196
 #: server_privileges.php:559
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "Allows reloading server settings and flushing the server's caches."
+msgstr ""
 
 #: server_privileges.php:58 server_privileges.php:208
 #: server_privileges.php:566
@@ -7588,17 +7574,17 @@ msgstr "Gives the right to the user to ask where the slaves / masters are."
 #: server_privileges.php:59 server_privileges.php:207
 #: server_privileges.php:567
 msgid "Needed for the replication slaves."
-msgstr "Needed for the replication slaves."
+msgstr ""
 
 #: server_privileges.php:60 server_privileges.php:190
 #: server_privileges.php:451 server_privileges.php:517
 msgid "Allows reading data."
-msgstr "Allows reading data."
+msgstr ""
 
 #: server_privileges.php:61 server_privileges.php:203
 #: server_privileges.php:561
 msgid "Gives access to the complete list of databases."
-msgstr "Gives access to the complete list of databases."
+msgstr ""
 
 #: server_privileges.php:62 server_privileges.php:214
 #: server_privileges.php:216 server_privileges.php:533
@@ -7608,7 +7594,7 @@ msgstr ""
 #: server_privileges.php:63 server_privileges.php:197
 #: server_privileges.php:560
 msgid "Allows shutting down the server."
-msgstr "Allows shutting down the server."
+msgstr ""
 
 #: server_privileges.php:64 server_privileges.php:204
 #: server_privileges.php:557
@@ -7630,7 +7616,7 @@ msgstr "Allows creating and dropping indexes."
 #: server_privileges.php:66 server_privileges.php:192
 #: server_privileges.php:457 server_privileges.php:519
 msgid "Allows changing data."
-msgstr "Allows changing data."
+msgstr ""
 
 #: server_privileges.php:67 server_privileges.php:270
 msgid "No privileges."
@@ -7667,7 +7653,7 @@ msgstr "Me'lumat Bazasına Mexsus Selahiyyetler"
 
 #: server_privileges.php:612
 msgid "Resource limits"
-msgstr "Resource limits"
+msgstr ""
 
 #: server_privileges.php:613
 msgid "Note: Setting these options to 0 (zero) removes the limit."
@@ -7699,12 +7685,12 @@ msgstr "Yeni istifadeçi elave etdiniz."
 #: server_privileges.php:1176
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "You have updated the privileges for %s."
+msgstr ""
 
 #: server_privileges.php:1200
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "You have revoked the privileges for %s"
+msgstr ""
 
 #: server_privileges.php:1236
 #, php-format
@@ -7722,15 +7708,15 @@ msgstr ""
 
 #: server_privileges.php:1273
 msgid "Reloading the privileges"
-msgstr "Reloading the privileges"
+msgstr ""
 
 #: server_privileges.php:1291
 msgid "The selected users have been deleted successfully."
-msgstr "The selected users have been deleted successfully."
+msgstr ""
 
 #: server_privileges.php:1326
 msgid "The privileges were reloaded successfully."
-msgstr "The privileges were reloaded successfully."
+msgstr ""
 
 #: server_privileges.php:1337 server_privileges.php:1729
 msgid "Edit Privileges"
@@ -7747,7 +7733,7 @@ msgstr "Her hansı"
 
 #: server_privileges.php:1470
 msgid "User overview"
-msgstr "User overview"
+msgstr ""
 
 #: server_privileges.php:1611 server_privileges.php:1803
 #: server_privileges.php:2153
@@ -7761,12 +7747,11 @@ msgstr "Yeni İstifadeçi elave Et"
 
 #: server_privileges.php:1684
 msgid "Remove selected users"
-msgstr "Remove selected users"
+msgstr ""
 
 #: server_privileges.php:1687
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
-"Revoke all active privileges from the users and delete them afterwards."
 
 #: server_privileges.php:1688 server_privileges.php:1689
 #: server_privileges.php:1690
@@ -7788,7 +7773,7 @@ msgstr ""
 
 #: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."
-msgstr "The selected user was not found in the privilege table."
+msgstr ""
 
 #: server_privileges.php:1804
 msgid "Column-specific privileges"
@@ -7862,7 +7847,7 @@ msgstr "&quot;%s&quot; bazası üçün selahiyyetleri gözden keçir."
 #: server_privileges.php:2146
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
-msgstr "Users having access to &quot;%s&quot;"
+msgstr ""
 
 #: server_privileges.php:2254
 msgid "global"
@@ -9399,7 +9384,7 @@ msgstr "Yeni indeks qur"
 
 #: tbl_indexes.php:160
 msgid "Modify an index"
-msgstr "Modify an index"
+msgstr ""
 
 #: tbl_indexes.php:165
 msgid ""
@@ -9425,7 +9410,7 @@ msgstr ""
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr "Can't move table to same one!"
+msgstr ""
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
@@ -9545,7 +9530,7 @@ msgstr ""
 
 #: tbl_operations.php:783
 msgid "Check referential integrity:"
-msgstr "Check referential integrity:"
+msgstr ""
 
 #: tbl_printview.php:72
 msgid "Show tables"
@@ -9687,7 +9672,7 @@ msgstr "PHPInfo() me'lumatını göster"
 
 #: tbl_structure.php:604 tbl_structure.php:606
 msgid "Relation view"
-msgstr "Relation view"
+msgstr ""
 
 #: tbl_structure.php:613 tbl_structure.php:615
 msgid "Propose table structure"

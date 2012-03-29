@@ -2036,7 +2036,7 @@ msgstr "הסברת SQL"
 
 #: libraries/common.lib.php:1142
 msgid "Skip Explain SQL"
-msgstr "Skip Explain SQL"
+msgstr ""
 
 #: libraries/common.lib.php:1176
 msgid "Without PHP Code"
@@ -6167,7 +6167,7 @@ msgstr "מארח זה"
 
 #: libraries/replication_gui.lib.php:320 server_privileges.php:761
 msgid "Use Host Table"
-msgstr "Use Host Table"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:333 server_privileges.php:774
 msgid ""
@@ -9302,7 +9302,7 @@ msgstr "לא ניתן לשנות שם אינדקס אל PRIMARY!"
 
 #: tbl_indexes.php:90
 msgid "No index parts defined!"
-msgstr "No index parts defined!"
+msgstr ""
 
 #: tbl_indexes.php:158
 msgid "Create a new index"

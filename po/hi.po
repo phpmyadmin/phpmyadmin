@@ -3523,7 +3523,7 @@ msgstr "रूट लॉगिन की अनुमति"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
 
 #: libraries/config/messages.inc.php:361
 msgid "HTTP Realm"
@@ -4187,7 +4187,7 @@ msgstr "signon प्रमाणीकरण"
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
 msgid "CSV using LOAD DATA"
-msgstr "CSV using LOAD DATA"
+msgstr ""
 
 #: libraries/config/setup.forms.php:249 libraries/config/setup.forms.php:342
 #: libraries/config/user_preferences.forms.php:152
@@ -7204,12 +7204,12 @@ msgstr ""
 #: server_privileges.php:51 server_privileges.php:628
 #: server_privileges.php:630
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr ""
 
 #: server_privileges.php:52 server_privileges.php:616
 #: server_privileges.php:618
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
+msgstr ""
 
 #: server_privileges.php:53 server_privileges.php:622
 #: server_privileges.php:624
@@ -7217,8 +7217,6 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
 
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
@@ -7426,7 +7424,7 @@ msgstr "यूसर से सभी सक्रिय विशेषाध�
 #: server_privileges.php:1688 server_privileges.php:1689
 #: server_privileges.php:1690
 msgid "Drop the databases that have the same names as the users."
-msgstr "Drop the databases that have the same names as the users."
+msgstr ""
 
 #: server_privileges.php:1711
 #, php-format
@@ -8338,8 +8336,6 @@ msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
 msgstr ""
-"<b>Server traffic</b>: These tables show the network traffic statistics of "
-"this MySQL server since its startup."
 
 #: server_status.php:515
 msgid "Traffic"
@@ -8386,8 +8382,6 @@ msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
-"<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
-"server."
 
 #: server_status.php:627
 msgid "per minute"
