@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-22 19:13+0200\n"
-"Last-Translator: Bartosz Feński <fenio@debian.org>\n"
+"PO-Revision-Date: 2012-03-29 11:41+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -526,9 +526,9 @@ msgstr "Wyniki wyszukiwania dla \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s trafień wewnątrz tabeli <i>%s</i>"
-msgstr[1] "%s trafienia wewnątrz tabeli <i>%s</i>"
-msgstr[2] "%s trafień wewnątrz tabeli <i>%s</i>"
+msgstr[0] "%s dopasowań wewnątrz tabeli <i>%s</i>"
+msgstr[1] "%s dopasowania wewnątrz tabeli <i>%s</i>"
+msgstr[2] "%s dopasowań wewnątrz tabeli <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2829
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
@@ -948,7 +948,7 @@ msgstr "Instrukcje \"DROP DATABASE\" są wyłączone."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:242 sql.php:293
 msgid "Do you really want to "
-msgstr "Czy na pewno wykonać "
+msgstr "Czy na pewno chcesz zniszczyć bazę danych? "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:242 sql.php:278
 msgid "You are about to DESTROY a complete database!"
@@ -6594,7 +6594,7 @@ msgstr "Tabela wydaje się być pusta!"
 #: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr "Monitorowanie %s.%s zostało aktywowane."
+msgstr "Śledzenie %s. %s jest aktywne."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
@@ -9886,17 +9886,17 @@ msgstr "Raport śledzenia tabeli `%s`"
 #: tbl_tracking.php:183
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr "Wersja %s została utworzona, monitorowanie %s.%s jest aktywne."
+msgstr "Wersja %s jest tworzona, śledzenie %s. %s jest aktywna."
 
 #: tbl_tracking.php:191
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr "Monitorowanie %s.%s , wersja %s jest dezaktywowana."
+msgstr "Śledzenie dla %s. %s, wersja %s jest nieaktywna."
 
 #: tbl_tracking.php:199
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr "Monitorowanie %s.%s , wersja %s jest aktywna."
+msgstr "Śledzenie dla %s. %s, wersja %s jest aktywna."
 
 #: tbl_tracking.php:209
 msgid "SQL statements executed."
