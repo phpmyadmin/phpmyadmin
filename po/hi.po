@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-28 16:15+0200\n"
+"PO-Revision-Date: 2012-03-29 11:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1815,8 +1815,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "क्वेरी निष्पादन समय की तुलना"
 
 #: libraries/chart.lib.php:83
+#, fuzzy
 msgid "Query results"
-msgstr "क्वेरी परिणाम"
+msgstr "SQLपरिणाम"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
