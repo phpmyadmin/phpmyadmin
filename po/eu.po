@@ -3792,7 +3792,7 @@ msgstr "Sortu/Eguneratu/Egiaztatu datak"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use delayed inserts"
-msgstr "Use delayed inserts"
+msgstr ""
 
 #: libraries/config/messages.inc.php:127 libraries/export/sql.php:81
 msgid "Disable foreign key checks"

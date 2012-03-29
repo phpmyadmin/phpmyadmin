@@ -3087,7 +3087,7 @@ msgstr "%B %d, %Y at %I:%M %p"
 #: libraries/common.lib.php:1981
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s days, %s hours, %s minutes and %s seconds"
+msgstr ""
 
 #: libraries/common.lib.php:2072
 msgid "Missing parameter:"
@@ -9114,12 +9114,12 @@ msgstr ""
 #: server_privileges.php:53 server_privileges.php:728
 #: server_privileges.php:730
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr ""
 
 #: server_privileges.php:54 server_privileges.php:716
 #: server_privileges.php:718
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
+msgstr ""
 
 #: server_privileges.php:55 server_privileges.php:722
 #: server_privileges.php:724
@@ -9127,8 +9127,6 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
 
 #: server_privileges.php:56 server_privileges.php:734
 #: server_privileges.php:736
