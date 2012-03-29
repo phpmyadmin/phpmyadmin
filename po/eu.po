@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 16:36+0200\n"
+"PO-Revision-Date: 2012-03-29 16:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -811,9 +811,8 @@ msgid "Track table"
 msgstr "Taularen jarraipena egin"
 
 #: db_tracking.php:229
-#, fuzzy
 msgid "Database Log"
-msgstr "Datu-basea"
+msgstr "Datu-base egunkaria"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
@@ -901,9 +900,8 @@ msgid "The bookmark has been deleted."
 msgstr "Gordetako kontsulta ezabatu da."
 
 #: import.php:400
-#, fuzzy
 msgid "Showing bookmark"
-msgstr "Erakutsi laster-markak"
+msgstr "Erakutsi laster-marka"
 
 #: import.php:402 sql.php:890
 #, fuzzy, php-format
@@ -978,10 +976,9 @@ msgid "Dropping Procedure"
 msgstr "Prozesuak"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Datuak txertatu eta ordezkatzea baimentzen du."
+msgstr "Jarraipen datuak ezabatzen"
 
 #: js/messages.php:36
 #, fuzzy
