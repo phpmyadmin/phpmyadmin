@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-21 12:37-0400\n"
+"POT-Creation-Date: 2012-03-29 10:12+0200\n"
 "PO-Revision-Date: 2012-03-22 09:27+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.8\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:346
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
 msgid "Show all"
 msgstr "Εμφάνιση όλων"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:43
-#: libraries/common.lib.php:2483
+#: libraries/common.lib.php:2484
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
-#: libraries/select_lang.lib.php:500
+#: libraries/select_lang.lib.php:504
 msgid "Page number:"
 msgstr "Σελίδα:"
 
@@ -38,9 +38,9 @@ msgstr ""
 "κλείσατε το μητρικό παράθυρο ή ο φυλλομετρητής σας δεν επιτρέπει τις "
 "ανανεώσεις μεταξύ παραθύρων λόγω ρυθμίσεων ασφαλείας."
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3164
-#: libraries/common.lib.php:3171 libraries/common.lib.php:3381
-#: libraries/common.lib.php:3382 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3165
+#: libraries/common.lib.php:3172 libraries/common.lib.php:3382
+#: libraries/common.lib.php:3383 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Αναζήτηση"
@@ -50,8 +50,8 @@ msgstr "Αναζήτηση"
 #: db_structure.php:621 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
 #: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1405
-#: libraries/common.lib.php:2456 libraries/core.lib.php:526
+#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1406
+#: libraries/common.lib.php:2457 libraries/core.lib.php:526
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
@@ -68,27 +68,27 @@ msgstr "Αναζήτηση"
 #: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:167
 #: navigation.php:205 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:813
-#: server_privileges.php:1929 server_privileges.php:2293
-#: server_privileges.php:2340 server_privileges.php:2372
+#: server_privileges.php:1928 server_privileges.php:2292
+#: server_privileges.php:2339 server_privileges.php:2371
 #: server_replication.php:263 server_replication.php:346
 #: server_replication.php:377 server_synchronize.php:1391 tbl_change.php:371
 #: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
 #: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:260
 #: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:443
-#: tbl_tracking.php:581 tbl_zoom_select.php:331 view_create.php:181
+#: tbl_tracking.php:581 tbl_zoom_select.php:331 view_create.php:173
 #: view_operations.php:99
 msgid "Go"
 msgstr "Εκτέλεση"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
-#: libraries/Index.class.php:448 tbl_tracking.php:331
+#: libraries/Index.class.php:454 tbl_tracking.php:331
 msgid "Keyname"
 msgstr "Όνομα κλειδιού"
 
 #: browse_foreigners.php:175 browse_foreigners.php:177
-#: server_collations.php:54 server_collations.php:66 server_engines.php:55
-#: server_plugins.php:147 server_status.php:1481
+#: server_collations.php:47 server_collations.php:59 server_engines.php:47
+#: server_plugins.php:139 server_status.php:1473
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -121,7 +121,7 @@ msgstr "Σχόλιο βάσης: "
 msgid "Table comments"
 msgstr "Σχόλια πίνακα"
 
-#: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:452
+#: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:458
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:394
 #: libraries/export/odt.php:300 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
@@ -133,7 +133,7 @@ msgstr "Σχόλια πίνακα"
 msgid "Column"
 msgstr "Στήλη"
 
-#: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:449
+#: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:395 libraries/export/odt.php:303
 #: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
@@ -143,13 +143,13 @@ msgstr "Στήλη"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
-#: server_privileges.php:2386 tbl_change.php:316 tbl_change.php:349
+#: server_privileges.php:2385 tbl_change.php:316 tbl_change.php:349
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:767 tbl_tracking.php:270 tbl_tracking.php:332
 msgid "Type"
 msgstr "Τύπος"
 
-#: db_datadict.php:165 libraries/Index.class.php:455
+#: db_datadict.php:165 libraries/Index.class.php:461
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:396
 #: libraries/export/odt.php:306 libraries/export/texytext.php:230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
@@ -190,24 +190,24 @@ msgid "Comments"
 msgstr "Σχόλια"
 
 #: db_datadict.php:233 js/messages.php:244 libraries/Index.class.php:356
-#: libraries/Index.class.php:383 libraries/Index.class.php:689
+#: libraries/Index.class.php:383 libraries/Index.class.php:701
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:299
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1569 server_privileges.php:1579
 #: server_privileges.php:1852 server_privileges.php:1863
-#: server_privileges.php:2205 server_privileges.php:2210
-#: server_privileges.php:2503 sql.php:328 sql.php:392 tbl_printview.php:190
+#: server_privileges.php:2204 server_privileges.php:2209
+#: server_privileges.php:2502 sql.php:328 sql.php:392 tbl_printview.php:190
 #: tbl_structure.php:349 tbl_tracking.php:293 tbl_tracking.php:348
 #: tbl_tracking.php:353
 msgid "No"
 msgstr "Όχι"
 
 #: db_datadict.php:233 js/messages.php:243 libraries/Index.class.php:357
-#: libraries/Index.class.php:382 libraries/Index.class.php:689
+#: libraries/Index.class.php:382 libraries/Index.class.php:701
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
@@ -215,14 +215,14 @@ msgstr "Όχι"
 #: libraries/mult_submits.inc.php:88 libraries/mult_submits.inc.php:97
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:107
 #: libraries/mult_submits.inc.php:112 libraries/mult_submits.inc.php:271
-#: libraries/mult_submits.inc.php:284 libraries/mult_submits.inc.php:298
-#: libraries/mult_submits.inc.php:305
+#: libraries/mult_submits.inc.php:284 libraries/mult_submits.inc.php:308
+#: libraries/mult_submits.inc.php:315
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:94 server_privileges.php:1567
 #: server_privileges.php:1577 server_privileges.php:1849
-#: server_privileges.php:1863 server_privileges.php:2205
-#: server_privileges.php:2208 server_privileges.php:2503 sql.php:391
+#: server_privileges.php:1863 server_privileges.php:2204
+#: server_privileges.php:2207 server_privileges.php:2502 sql.php:391
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
 #: tbl_tracking.php:293 tbl_tracking.php:346 tbl_tracking.php:351
 msgid "Yes"
@@ -316,11 +316,11 @@ msgstr "Προσθήκη περιορισμών"
 msgid "Switch to copied database"
 msgstr "Αλλαγή στο αντίγραφο της βάσης δεδομένων"
 
-#: db_operations.php:568 libraries/Index.class.php:454
+#: db_operations.php:568 libraries/Index.class.php:460
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
-#: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
+#: server_collations.php:46 server_collations.php:58 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:271
 #: tbl_tracking.php:337
 msgid "Collation"
@@ -344,8 +344,8 @@ msgstr "Επεξεργασία ή εξαγωγή σχεσιακού σχήματ
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:165 libraries/rte/rte_list.lib.php:59
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1980
-#: server_privileges.php:2038 server_privileges.php:2307
+#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1979
+#: server_privileges.php:2037 server_privileges.php:2306
 #: server_synchronize.php:448 server_synchronize.php:960 tbl_tracking.php:661
 msgid "Table"
 msgstr "Πίνακας"
@@ -404,13 +404,13 @@ msgid "Switch to %svisual builder%s"
 msgstr "Αλλαγή στον %sεικονικός μάστορας%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:91
-#: libraries/display_tbl.lib.php:1003
+#: libraries/display_tbl.lib.php:1014
 msgid "Sort"
 msgstr "Ταξινόμηση"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:98
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:566
-#: libraries/display_tbl.lib.php:959 libraries/display_tbl.lib.php:962
+#: libraries/display_tbl.lib.php:970 libraries/display_tbl.lib.php:973
 #: server_databases.php:177 server_databases.php:194 tbl_operations.php:279
 #: tbl_select.php:247
 msgid "Ascending"
@@ -418,7 +418,7 @@ msgstr "Αύξουσα"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:99
 #: libraries/db_structure.lib.php:108 libraries/display_tbl.lib.php:571
-#: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:963
+#: libraries/display_tbl.lib.php:969 libraries/display_tbl.lib.php:974
 #: server_databases.php:177 server_databases.php:194 tbl_operations.php:280
 #: tbl_select.php:248
 msgid "Descending"
@@ -476,7 +476,7 @@ msgstr "Χρήση Πινάκων"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1252
+#: db_qbe.php:955 libraries/common.lib.php:1253
 msgid "Submit Query"
 msgstr "Υποβολή ερωτήματος"
 
@@ -510,15 +510,13 @@ msgstr "Αποτελέσματα αναζήτησης για «<i>%s</i>» %s:"
 
 #: db_search.php:227
 #, php-format
-#| msgid "%s match inside table <i>%s</i>"
-#| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%1$s απατέλεσμα στον πίνακα <i>%2$s</i>"
 msgstr[1] "%1$s αποτελέσματα στον πίνακα <i>%2$s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3166
-#: libraries/common.lib.php:3379 libraries/common.lib.php:3380
+#: db_search.php:234 libraries/common.lib.php:3167
+#: libraries/common.lib.php:3380 libraries/common.lib.php:3381
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Περιήγηση"
@@ -528,13 +526,13 @@ msgstr "Περιήγηση"
 msgid "Delete the matches for the %s table?"
 msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τον πίνακα %s;"
 
-#: db_search.php:239 libraries/display_tbl.lib.php:1426
-#: libraries/display_tbl.lib.php:2467
+#: db_search.php:239 libraries/display_tbl.lib.php:1437
+#: libraries/display_tbl.lib.php:2478
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
 #: libraries/schema/User_Schema.class.php:338
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:417
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:431
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
 #: tbl_tracking.php:453 tbl_tracking.php:474 tbl_tracking.php:531
 msgid "Delete"
@@ -603,14 +601,14 @@ msgstr "Η παρακολούθηση είναι ενεργοποιημένη."
 msgid "Tracking is not active."
 msgstr "Η παρακολούθηση δεν είναι ενεργοποιημένη."
 
-#: db_structure.php:462 libraries/display_tbl.lib.php:2350
+#: db_structure.php:462 libraries/display_tbl.lib.php:2361
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s."
 
 #: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:165
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -619,7 +617,7 @@ msgstr "Προβολή"
 
 #: db_structure.php:527 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:92 server_replication.php:31
-#: server_replication.php:192 server_status.php:597
+#: server_replication.php:192 server_status.php:589
 msgid "Replication"
 msgstr "Αναπαραγωγή"
 
@@ -634,20 +632,20 @@ msgstr ""
 "Η %s είναι η προεπιλεγμένη μηχανή αποθήκευσης σε αυτόν τον διακομιστή MySQL."
 
 #: db_structure.php:567 db_structure.php:584 db_structure.php:585
-#: libraries/display_tbl.lib.php:2492 libraries/display_tbl.lib.php:2497
+#: libraries/display_tbl.lib.php:2503 libraries/display_tbl.lib.php:2508
 #: libraries/mult_submits.inc.php:27 server_databases.php:278
 #: server_databases.php:283 server_privileges.php:1886
 #: server_privileges.php:1894 tbl_structure.php:557 tbl_structure.php:566
 msgid "With selected:"
 msgstr "Με τους επιλεγμένους:"
 
-#: db_structure.php:570 libraries/display_tbl.lib.php:2487
+#: db_structure.php:570 libraries/display_tbl.lib.php:2498
 #: server_databases.php:280 server_privileges.php:751
 #: server_privileges.php:1889 tbl_structure.php:560
 msgid "Check All"
 msgstr "Επιλογή όλων"
 
-#: db_structure.php:574 libraries/display_tbl.lib.php:2488
+#: db_structure.php:574 libraries/display_tbl.lib.php:2499
 #: libraries/replication_gui.lib.php:35 server_databases.php:282
 #: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
@@ -657,29 +655,29 @@ msgstr "Απεπιλογή όλων"
 msgid "Check tables having overhead"
 msgstr "Επιλογή πινάκων με περίσσεια"
 
-#: db_structure.php:587 libraries/common.lib.php:3392
-#: libraries/common.lib.php:3393 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3393
+#: libraries/common.lib.php:3394 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
-#: libraries/display_tbl.lib.php:2510 libraries/display_tbl.lib.php:2651
+#: libraries/display_tbl.lib.php:2521 libraries/display_tbl.lib.php:2662
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1535 server_privileges.php:1898
-#: server_status.php:1610 setup/frames/menu.inc.php:21
+#: server_status.php:1602 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Εξαγωγή"
 
 #: db_structure.php:589 db_structure.php:645
-#: libraries/display_tbl.lib.php:2600 tbl_structure.php:613
+#: libraries/display_tbl.lib.php:2611 tbl_structure.php:613
 msgid "Print view"
 msgstr "Εμφάνιση για εκτύπωση"
 
-#: db_structure.php:593 libraries/common.lib.php:3388
-#: libraries/common.lib.php:3389
+#: db_structure.php:593 libraries/common.lib.php:3389
+#: libraries/common.lib.php:3390
 msgid "Empty"
 msgstr "Άδειασμα"
 
 #: db_structure.php:595 db_tracking.php:105 enum_editor.php:116
-#: libraries/Index.class.php:498 libraries/common.lib.php:3386
-#: libraries/common.lib.php:3387 server_databases.php:284
+#: libraries/Index.class.php:504 libraries/common.lib.php:3387
+#: libraries/common.lib.php:3388 server_databases.php:284
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "Διαγραφή"
@@ -726,8 +724,8 @@ msgstr "Παρακολουθούμενοι πίνακες"
 #: libraries/export/sql.php:609 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:148
 #: libraries/header_printview.inc.php:59 server_databases.php:176
-#: server_privileges.php:1975 server_privileges.php:2038
-#: server_privileges.php:2301 server_status.php:1239
+#: server_privileges.php:1974 server_privileges.php:2037
+#: server_privileges.php:2300 server_status.php:1231
 #: server_synchronize.php:1359 server_synchronize.php:1363
 #: tbl_tracking.php:660
 msgid "Database"
@@ -747,15 +745,15 @@ msgstr "Ενημερώθηκε"
 
 #: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1242 sql.php:932 tbl_tracking.php:665
+#: server_status.php:1234 sql.php:932 tbl_tracking.php:665
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: db_tracking.php:91 libraries/Index.class.php:446
+#: db_tracking.php:91 libraries/Index.class.php:452
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
 #: server_databases.php:209 server_privileges.php:1823
-#: server_privileges.php:2042 server_privileges.php:2389 tbl_structure.php:211
+#: server_privileges.php:2041 server_privileges.php:2388 tbl_structure.php:211
 msgid "Action"
 msgstr "Ενέργεια"
 
@@ -795,21 +793,21 @@ msgstr "Παρακολούθηση πίνακα"
 msgid "Database Log"
 msgstr "Καταγραφή Βάσης Δεδομένων"
 
-#: enum_editor.php:23 js/messages.php:262
+#: enum_editor.php:23 js/messages.php:265
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
 msgstr "Επεξεργαστής ENUM/SET"
 
-#: enum_editor.php:28 js/messages.php:264
+#: enum_editor.php:28 js/messages.php:267
 msgid "Values for a new column"
 msgstr "Τιμές για νέα στήλη"
 
-#: enum_editor.php:30 js/messages.php:263
+#: enum_editor.php:30 js/messages.php:266
 #, php-format
 msgid "Values for column %s"
 msgstr "Τιμές για τη στήλη %s"
 
-#: enum_editor.php:34 js/messages.php:265
+#: enum_editor.php:34 js/messages.php:268
 msgid "Enter each value in a separate field"
 msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο"
 
@@ -869,7 +867,7 @@ msgstr "Μη έγκυρος τύπος εξαγωγής"
 msgid "Value for the column \"%s\""
 msgstr "Τιμή για τη στήλη «%s»"
 
-#: gis_data_editor.php:113 tbl_gis_visualization.php:172
+#: gis_data_editor.php:113 tbl_gis_visualization.php:164
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 
@@ -877,45 +875,45 @@ msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:151 js/messages.php:319
+#: gis_data_editor.php:151 js/messages.php:322
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
 msgstr "Γεωμετρία"
 
-#: gis_data_editor.php:172 js/messages.php:315
+#: gis_data_editor.php:172 js/messages.php:318
 msgid "Point"
 msgstr "Σημείο"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
-#: gis_data_editor.php:297 js/messages.php:313
+#: gis_data_editor.php:297 js/messages.php:316
 msgid "X"
 msgstr "Χ"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
-#: gis_data_editor.php:299 js/messages.php:314
+#: gis_data_editor.php:299 js/messages.php:317
 msgid "Y"
 msgstr "Υ"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
-#: js/messages.php:316
+#: js/messages.php:319
 #, php-format
 msgid "Point %d"
 msgstr "Σημείο %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
-#: js/messages.php:322
+#: js/messages.php:325
 msgid "Add a point"
 msgstr "Προσθήκη σημείου"
 
-#: gis_data_editor.php:220 js/messages.php:317
+#: gis_data_editor.php:220 js/messages.php:320
 msgid "Linestring"
 msgstr "Κείμενο γραμμής"
 
-#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:321
+#: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
 msgid "Outer Ring"
 msgstr "Εξωτερικός δακτύλιος"
 
-#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:320
+#: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
 msgid "Inner Ring"
 msgstr "Εσωτερικός δακτύλιος"
 
@@ -923,15 +921,15 @@ msgstr "Εσωτερικός δακτύλιος"
 msgid "Add a linestring"
 msgstr "Προσθήκη κειμένου γραμμής"
 
-#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:323
+#: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
 msgid "Add an inner ring"
 msgstr "Προσθήκη εσωτερικού δακτυλίου"
 
-#: gis_data_editor.php:266 js/messages.php:318
+#: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
 msgstr "Πολύγωνο"
 
-#: gis_data_editor.php:306 js/messages.php:324
+#: gis_data_editor.php:306 js/messages.php:327
 msgid "Add a polygon"
 msgstr "Προσθήκη πολυγώνου"
 
@@ -950,11 +948,11 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:216 import.php:468
 msgid "Showing bookmark"
@@ -989,8 +987,8 @@ msgid ""
 msgstr ""
 "Δεν ελήφθησαν δεδομένα για εισαγωγή. Είτε δεν υποβλήθηκε αρχείο είτε το "
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
-"της ΡΗΡ. Δείτε τις [a@./Documentation.html#faq1_16@Documentation]ΣΑΕ "
-"1.16[/a]."
+"της ΡΗΡ. Δείτε τις [a@./Documentation.html#faq1_16@Documentation]ΣΑΕ 1.16[/"
+"a]."
 
 #: import.php:415
 msgid ""
@@ -1032,14 +1030,14 @@ msgstr ""
 "και αν αυξήσετε τα χρονικά όρια της php."
 
 #: import.php:521 libraries/Message.class.php:177
-#: libraries/display_tbl.lib.php:2387 libraries/rte/rte_routines.lib.php:1209
+#: libraries/display_tbl.lib.php:2398 libraries/rte/rte_routines.lib.php:1209
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:229
-#: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
+#: tbl_relation.php:284 tbl_row_action.php:118 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς"
 
 #: import_status.php:42 libraries/common.lib.php:710
-#: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
+#: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:101
 msgid "Back"
 msgstr "Επιστροφή"
 
@@ -1054,7 +1052,6 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:293 sql.php:386
-#| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
 msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα;"
 
@@ -1116,16 +1113,16 @@ msgstr "Το όνομα του συστήματος είναι κενό!"
 msgid "The user name is empty!"
 msgstr "Το όνομα του χρήστη είναι κενό!"
 
-#: js/messages.php:53 server_privileges.php:1402 user_password.php:50
+#: js/messages.php:53 server_privileges.php:1402 user_password.php:42
 msgid "The password is empty!"
 msgstr "Ο κωδικός πρόσβασης είναι κενός!"
 
-#: js/messages.php:54 server_privileges.php:1400 user_password.php:53
+#: js/messages.php:54 server_privileges.php:1400 user_password.php:45
 msgid "The passwords aren't the same!"
 msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι!"
 
-#: js/messages.php:55 server_privileges.php:1914 server_privileges.php:1938
-#: server_privileges.php:2350 server_privileges.php:2544
+#: js/messages.php:55 server_privileges.php:1913 server_privileges.php:1937
+#: server_privileges.php:2349 server_privileges.php:2543
 msgid "Add user"
 msgstr "Προσθήκη χρήστη"
 
@@ -1142,23 +1139,23 @@ msgstr "Διαγραφή των επιλεγμένων χρηστών"
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: js/messages.php:61 js/messages.php:274 libraries/Index.class.php:476
-#: libraries/common.lib.php:649 libraries/common.lib.php:1228
-#: libraries/common.lib.php:3390 libraries/common.lib.php:3391
-#: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1390
+#: js/messages.php:61 js/messages.php:277 libraries/Index.class.php:482
+#: libraries/common.lib.php:649 libraries/common.lib.php:1229
+#: libraries/common.lib.php:3391 libraries/common.lib.php:3392
+#: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1401
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: js/messages.php:62 server_status.php:803
+#: js/messages.php:62 server_status.php:795
 msgid "Live traffic chart"
 msgstr "Διάγραμμα τρέχουσας κυκλοφορίας"
 
-#: js/messages.php:63 server_status.php:806
+#: js/messages.php:63 server_status.php:798
 msgid "Live conn./process chart"
 msgstr "Διάγραμμα τρέχουσας σύνδεσης/διαδικασίας"
 
-#: js/messages.php:64 server_status.php:824
+#: js/messages.php:64 server_status.php:816
 msgid "Live query chart"
 msgstr "Διάγραμμα τρέχοντος ερωτήματος"
 
@@ -1169,23 +1166,23 @@ msgstr "Στατικά δεδομένα"
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:237
-#: server_status.php:1126 server_status.php:1187 tbl_printview.php:310
+#: server_status.php:1118 server_status.php:1179 tbl_printview.php:310
 #: tbl_structure.php:804
 msgid "Total"
 msgstr "Σύνολο"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:70 server_status.php:603 server_status.php:1022
+#: js/messages.php:70 server_status.php:595 server_status.php:1014
 msgid "Other"
 msgstr "Άλλα"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/common.lib.php:1483
+#: js/messages.php:72 libraries/common.lib.php:1484
 msgid ","
 msgstr "."
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/common.lib.php:1485
+#: js/messages.php:74 libraries/common.lib.php:1486
 msgid "."
 msgstr ","
 
@@ -1205,7 +1202,7 @@ msgstr "Κυκλοφορία Διακομιστή (σε KB)"
 msgid "Connections since last refresh"
 msgstr "Συνδέσεις από την τελευταία ανανέωση"
 
-#: js/messages.php:80 js/messages.php:118 server_status.php:1235
+#: js/messages.php:80 js/messages.php:118 server_status.php:1227
 msgid "Processes"
 msgstr "Διεργασίες"
 
@@ -1223,7 +1220,7 @@ msgstr "Ερωτήσεις από την τελευταία ανανέωση"
 msgid "Questions (executed statements by the server)"
 msgstr "Ερωτήσεις (εκτελεσμένες δηλώσεις από τον διακομιστή)"
 
-#: js/messages.php:87 server_status.php:785
+#: js/messages.php:87 server_status.php:777
 msgid "Query statistics"
 msgstr "Στατιστικά ερωτήματος"
 
@@ -1241,8 +1238,7 @@ msgstr ""
 "Η ρύθμιση ταξινόμησης διαγραμμάτων στον τοπικό χώρο αποθήκευσης των "
 "φυλλομετρητών σας δεν είναι πλέον συμβατός με τη νεότερη έκδοση του διαλόγου "
 "εποπτείας.Είναι πολύ πιθανό ότι η τρέχουσα ρύθμιση δεν θα λειτουργεί πλέον. "
-"Επαναφέρτε τις ρυθμίσεις σας στις προεπιλεγμένες στο μενού "
-"<i>Ρυθμίσεις</i>."
+"Επαναφέρτε τις ρυθμίσεις σας στις προεπιλεγμένες στο μενού <i>Ρυθμίσεις</i>."
 
 #: js/messages.php:93
 msgid "Query cache efficiency"
@@ -1269,14 +1265,14 @@ msgid "System swap"
 msgstr "Αδράνεια συστήματος"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1433
-#: server_status.php:1690
+#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
+#: server_status.php:1682
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1431
-#: server_status.php:1690
+#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1432
+#: server_status.php:1682
 msgid "KiB"
 msgstr "KB"
 
@@ -1328,32 +1324,32 @@ msgstr "Σταλθέντα Bytes"
 msgid "Bytes received"
 msgstr "Ληφθέντα Bytes"
 
-#: js/messages.php:117 server_status.php:1145
+#: js/messages.php:117 server_status.php:1137
 msgid "Connections"
 msgstr "Συνδέσεις"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:121 libraries/common.lib.php:1429
+#: js/messages.php:121 libraries/common.lib.php:1430
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:124 libraries/common.lib.php:1435
+#: js/messages.php:124 libraries/common.lib.php:1436
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:125 libraries/common.lib.php:1437
+#: js/messages.php:125 libraries/common.lib.php:1438
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:126 libraries/common.lib.php:1439
+#: js/messages.php:126 libraries/common.lib.php:1440
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:127 libraries/common.lib.php:1441
+#: js/messages.php:127 libraries/common.lib.php:1442
 msgid "EiB"
 msgstr "EB"
 
@@ -1367,12 +1363,12 @@ msgstr "%d πίνακας(ες)"
 msgid "Questions"
 msgstr "Ερωτήσεις"
 
-#: js/messages.php:132 server_status.php:1100
+#: js/messages.php:132 server_status.php:1092
 msgid "Traffic"
 msgstr "Κίνηση"
 
 #: js/messages.php:133 libraries/server_links.inc.php:73
-#: server_status.php:1565
+#: server_status.php:1557
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -1394,8 +1390,8 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2191 server_status.php:1268 server_status.php:1707
+#: libraries/tbl_properties.inc.php:530 pmd_general.php:518
+#: server_privileges.php:2190 server_status.php:1260 server_status.php:1699
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
 msgid "None"
 msgstr "Καμία"
@@ -1498,7 +1494,7 @@ msgstr "Αλλαγή ρυθμίσεων"
 msgid "Current settings"
 msgstr "Τρέχουσες ρυθμίσεις"
 
-#: js/messages.php:164 server_status.php:1655
+#: js/messages.php:164 server_status.php:1647
 msgid "Chart Title"
 msgstr "Τίτλος Διαγράμματος"
 
@@ -1565,8 +1561,7 @@ msgstr "Μετάβαση στον πίνακα Καταγραφής"
 #: js/messages.php:179
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση "
-"χρόνου."
+"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση χρόνου."
 
 #: js/messages.php:181
 msgid "Analyzing..."
@@ -1576,8 +1571,8 @@ msgstr "Ανάλυση..."
 msgid "Explain output"
 msgstr "Επεξήγηση προϊόντος"
 
-#: js/messages.php:184 js/messages.php:490 libraries/rte/rte_list.lib.php:62
-#: server_status.php:1241 sql.php:933
+#: js/messages.php:184 js/messages.php:493 libraries/rte/rte_list.lib.php:62
+#: server_status.php:1233 sql.php:933
 msgid "Time"
 msgstr "Χρόνος"
 
@@ -1668,7 +1663,7 @@ msgstr ""
 #: js/messages.php:208 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1610 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1602 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Εισαγωγή"
 
@@ -1708,9 +1703,9 @@ msgstr "Χρησιμοποιημένη μεταβλητή / τύπος"
 msgid "Test"
 msgstr "Έλεγχος"
 
-#: js/messages.php:226 pmd_general.php:382 pmd_general.php:419
-#: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
-#: pmd_general.php:717 pmd_general.php:780 pmd_general.php:811
+#: js/messages.php:226 pmd_general.php:396 pmd_general.php:433
+#: pmd_general.php:553 pmd_general.php:601 pmd_general.php:677
+#: pmd_general.php:731 pmd_general.php:794 pmd_general.php:825
 msgid "Cancel"
 msgstr "Άκυρο"
 
@@ -1734,9 +1729,9 @@ msgstr "Διαγραφή Στήλης"
 msgid "Adding Primary Key"
 msgstr "Προσθήκη Πρωτεύοντος Κλειδιού"
 
-#: js/messages.php:234 pmd_general.php:380 pmd_general.php:537
-#: pmd_general.php:585 pmd_general.php:661 pmd_general.php:715
-#: pmd_general.php:778
+#: js/messages.php:234 pmd_general.php:394 pmd_general.php:551
+#: pmd_general.php:599 pmd_general.php:675 pmd_general.php:729
+#: pmd_general.php:792
 msgid "OK"
 msgstr "Εντάξει"
 
@@ -1776,166 +1771,183 @@ msgstr "Απόκρυψη ευρετηρίων"
 msgid "Show indexes"
 msgstr "Εμφάνιση ευρετηρίων"
 
-#: js/messages.php:252
+#: js/messages.php:250 libraries/mult_submits.inc.php:301
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Foreign key check:"
+msgstr "Απενεργοποίηση ελέγχων μη διακριτών κλειδιών"
+
+#: js/messages.php:251 libraries/mult_submits.inc.php:305
+#, fuzzy
+#| msgid "Enabled"
+msgid "(Enabled)"
+msgstr "Ενεργοποιημένη"
+
+#: js/messages.php:252 libraries/mult_submits.inc.php:305
+#, fuzzy
+#| msgid "Disabled"
+msgid "(Disabled)"
+msgstr "Απενεργοποιημένη"
+
+#: js/messages.php:255
 msgid "Searching"
 msgstr "Αναζήτηση"
 
-#: js/messages.php:253
+#: js/messages.php:256
 msgid "Hide search results"
 msgstr "Απόκρυψη αποτελεσμάτων αναζήτησης"
 
-#: js/messages.php:254
+#: js/messages.php:257
 msgid "Show search results"
 msgstr "Προβολή αποτελεσμάτων αναζήτησης"
 
-#: js/messages.php:255
+#: js/messages.php:258
 msgid "Browsing"
 msgstr "Αναζήτηση"
 
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Deleting"
 msgstr "Διαγραφή"
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
-"Ο ορισμός μιας αποθηκευμένης συνάρτησης πρέπει να περιέχει μια δήλωση "
-"RETURN!"
+"Ο ορισμός μιας αποθηκευμένης συνάρτησης πρέπει να περιέχει μια δήλωση RETURN!"
 
-#: js/messages.php:266
+#: js/messages.php:269
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Προσθήκη %d τιμής(ών)"
 
-#: js/messages.php:269
+#: js/messages.php:272
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr "Σημείωση: Αν το αρχείο περιέχει πολλούς πίνακες, θα ενωθουν σε έναν"
 
-#: js/messages.php:272
+#: js/messages.php:275
 msgid "Hide query box"
 msgstr "Απόκρυψη παραθύρου ερωτήματος"
 
-#: js/messages.php:273
+#: js/messages.php:276
 msgid "Show query box"
 msgstr "Προβολή παραθύρου ερωτήματος"
 
-#: js/messages.php:275 tbl_row_action.php:28
+#: js/messages.php:278 tbl_row_action.php:20
 msgid "No rows selected"
 msgstr "Δεν επιλέχθηκαν γραμμές"
 
-#: js/messages.php:276 libraries/common.lib.php:2781
-#: libraries/display_tbl.lib.php:2501 querywindow.php:87 tbl_structure.php:149
+#: js/messages.php:279 libraries/common.lib.php:2782
+#: libraries/display_tbl.lib.php:2512 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Αλλαγή"
 
-#: js/messages.php:277
+#: js/messages.php:280
 msgid "Query execution time"
 msgstr "Χρόνος εκτέλεσης ερωτήματος"
 
-#: js/messages.php:280 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:713 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:229 tbl_change.php:1057
-#: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
+#: tbl_gis_visualization.php:185 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: js/messages.php:283
+#: js/messages.php:286
 msgid "Hide search criteria"
 msgstr "Απόκρυψη κριτηρίων αναζήτησης"
 
-#: js/messages.php:284
+#: js/messages.php:287
 msgid "Show search criteria"
 msgstr "Προβολή κριτηρίων αναζήτησης"
 
-#: js/messages.php:287 libraries/tbl_select.lib.php:110
+#: js/messages.php:290 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
 msgstr "Εστιασμένη Αναζήτηση"
 
-#: js/messages.php:289
+#: js/messages.php:292
 msgid "Each point represents a data row."
 msgstr "Κάθε σημείο αναπαρειστά μια εγγραφή δεδομένων."
 
-#: js/messages.php:291
+#: js/messages.php:294
 msgid "Hovering over a point will show its label."
 msgstr "Η μετάβαση πάνω από ένα σημείο θα δείξει την ετικέτα του."
 
-#: js/messages.php:293
+#: js/messages.php:296
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr "Χρησιμοποιείστε τη ροδέλα του ποντικιού για μεγέθυνση και σμίκρυνση."
 
-#: js/messages.php:295
+#: js/messages.php:298
 msgid "Click and drag the mouse to navigate the plot."
 msgstr "Πατήστε και σύρτε το ποντίκι για πλοήγηση."
 
-#: js/messages.php:297
+#: js/messages.php:300
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 "Πατήστε στην επαναφορά εστίασης για να επιστρέψετε στην αρχική κατάσταση."
 
-#: js/messages.php:299
+#: js/messages.php:302
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Πατήστε ένα σημείο δεδομένων για να δείτε και πιθανά να επεξεργαστείτε τη "
 "γραμμή δεδομένων."
 
-#: js/messages.php:301
+#: js/messages.php:304
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Ο χώρος εργασίας μπορεί να αλλάξει μέγεθος σύρωντας την κάτω δεξιά γωνία."
 
-#: js/messages.php:303
+#: js/messages.php:306
 msgid "Strings are converted into integer for plotting"
 msgstr "Τα κείμενα μετατρέπονται σε ακεραίους για την εκτύπωση"
 
-#: js/messages.php:305
+#: js/messages.php:308
 msgid "Select two columns"
 msgstr "Επιλογή δύο στηλών"
 
-#: js/messages.php:306
+#: js/messages.php:309
 msgid "Select two different columns"
 msgstr "Επιλογή δύο διαφορετικών στηλών"
 
-#: js/messages.php:307
+#: js/messages.php:310
 msgid "Query results"
 msgstr "Ααποτελέσματα ερωτήματος"
 
-#: js/messages.php:308
+#: js/messages.php:311
 msgid "Data point content"
 msgstr "Περιεχόμενο δείκτη δεδομένων"
 
-#: js/messages.php:311 tbl_change.php:331 tbl_indexes.php:228
+#: js/messages.php:314 tbl_change.php:331 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "Παράληψη"
 
-#: js/messages.php:312 libraries/display_tbl.lib.php:1391
+#: js/messages.php:315 libraries/display_tbl.lib.php:1402
 msgid "Copy"
 msgstr "Αντιγραφή"
 
-#: js/messages.php:327
+#: js/messages.php:330
 msgid "Add columns"
 msgstr "Προσθήκη στηλών"
 
-#: js/messages.php:330
+#: js/messages.php:333
 msgid "Select referenced key"
 msgstr "Επιλέξτε αναφερθέν κλειδί"
 
-#: js/messages.php:331
+#: js/messages.php:334
 msgid "Select Foreign Key"
 msgstr "Επιλέξτε Μη Διακριτό Κλειδί"
 
-#: js/messages.php:332
+#: js/messages.php:335
 msgid "Please select the primary key or a unique key"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
 
-#: js/messages.php:333 pmd_general.php:77 tbl_relation.php:541
+#: js/messages.php:336 pmd_general.php:91 tbl_relation.php:541
 msgid "Choose column to display"
 msgstr "Επιλέξτε στήλη για εμφάνιση"
 
-#: js/messages.php:334
+#: js/messages.php:337
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1943,15 +1955,15 @@ msgstr ""
 "Δεν αποθηκεύσατε τις αλλαγές στο προϊόν. Θα χαθούν αν δεν τις αποθηκεύσετε. "
 "Θέλετε να συνεχίσετε;"
 
-#: js/messages.php:337
+#: js/messages.php:340
 msgid "Add an option for column "
 msgstr "Προσθήκη επιλογής για τη στήλη "
 
-#: js/messages.php:340
+#: js/messages.php:343
 msgid "Press escape to cancel editing"
 msgstr "Πατήστε το escape για ακύρωση της επεξεργασίας"
 
-#: js/messages.php:341
+#: js/messages.php:344
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1959,23 +1971,23 @@ msgstr ""
 "Έχετε επεξεργαστεί ορισμένα δεδομένα και δεν έχουν αποθηκευτεί. Θέλετε να "
 "αφήσετε τη σελίδα χωρίς αποθήκευση των δεδομένων;"
 
-#: js/messages.php:342
+#: js/messages.php:345
 msgid "Drag to reorder"
 msgstr "Σύρτε για ανακατανομή"
 
-#: js/messages.php:343
+#: js/messages.php:346
 msgid "Click to sort"
 msgstr "Πατήστε για ταξινόμηση"
 
-#: js/messages.php:344
+#: js/messages.php:347
 msgid "Click to mark/unmark"
 msgstr "Πατήστε για εναλλαγή επισήμανσης"
 
-#: js/messages.php:345
+#: js/messages.php:348
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "Πατήστε το προς τα κάτω βέλος<br />για εναλλαγή της εμφάνισης στηλών"
 
-#: js/messages.php:347
+#: js/messages.php:350
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1984,34 +1996,34 @@ msgstr ""
 "την επεξεργασία και επιλογή καννάβου Επεξεργασία, Αντιγραφή και Διαγραφή "
 "ίσως να μη λειτουργούν μετά την αποθήκευση."
 
-#: js/messages.php:348
+#: js/messages.php:351
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 "Μπορείτε επίσης να επεξεργαστείτε στήλες<br />πατώντας κατευθείαν στα "
 "περιεχόμενά τους."
 
-#: js/messages.php:349
+#: js/messages.php:352
 msgid "Go to link"
 msgstr "Μετάβαση στο σύνδεσμο"
 
-#: js/messages.php:352
+#: js/messages.php:355
 msgid "Generate password"
 msgstr "Δημιουργία κωδικού πρόσβασης"
 
-#: js/messages.php:353 libraries/replication_gui.lib.php:369
+#: js/messages.php:356 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "Παραγωγή"
 
-#: js/messages.php:354
+#: js/messages.php:357
 msgid "Change Password"
 msgstr "Αλλαγή Κωδικού Πρόσβασης"
 
-#: js/messages.php:357 tbl_structure.php:465
+#: js/messages.php:360 tbl_structure.php:465
 msgid "More"
 msgstr "Περισσότερα"
 
-#: js/messages.php:360 setup/lib/index.lib.php:170
+#: js/messages.php:363 setup/lib/index.lib.php:170
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2021,266 +2033,266 @@ msgstr ""
 "εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:362
+#: js/messages.php:365
 msgid ", latest stable version:"
 msgstr ", τελευταία έκδοση:"
 
-#: js/messages.php:363
+#: js/messages.php:366
 msgid "up to date"
 msgstr "ενημερωμένο"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:382
+#: js/messages.php:385
 msgid "Done"
 msgstr "Ολοκληρώθηκε"
 
-#: js/messages.php:386
+#: js/messages.php:389
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Προηγούμενο"
 
-#: js/messages.php:391
+#: js/messages.php:394
 msgctxt "Next month"
 msgid "Next"
 msgstr "Επόμενο"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:394
+#: js/messages.php:397
 msgid "Today"
 msgstr "Σήμερα"
 
-#: js/messages.php:397
+#: js/messages.php:400
 msgid "January"
 msgstr "Ιανουαρίου"
 
-#: js/messages.php:398
+#: js/messages.php:401
 msgid "February"
 msgstr "Φεβρουαρίου"
 
-#: js/messages.php:399
+#: js/messages.php:402
 msgid "March"
 msgstr "Μαρτίου"
 
-#: js/messages.php:400
+#: js/messages.php:403
 msgid "April"
 msgstr "Απριλίου"
 
-#: js/messages.php:401
+#: js/messages.php:404
 msgid "May"
 msgstr "Μαΐου"
 
-#: js/messages.php:402
+#: js/messages.php:405
 msgid "June"
 msgstr "Ιουνίου"
 
-#: js/messages.php:403
+#: js/messages.php:406
 msgid "July"
 msgstr "Ιουλίου"
 
-#: js/messages.php:404
+#: js/messages.php:407
 msgid "August"
 msgstr "Αυγούστου"
 
-#: js/messages.php:405
+#: js/messages.php:408
 msgid "September"
 msgstr "Σεπτεμβρίου"
 
-#: js/messages.php:406
+#: js/messages.php:409
 msgid "October"
 msgstr "Οκτωβρίου"
 
-#: js/messages.php:407
+#: js/messages.php:410
 msgid "November"
 msgstr "Νοεμβρίου"
 
-#: js/messages.php:408
+#: js/messages.php:411
 msgid "December"
 msgstr "Δεκεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:412 libraries/common.lib.php:1641
+#: js/messages.php:415 libraries/common.lib.php:1642
 msgid "Jan"
 msgstr "Ιαν"
 
 #. l10n: Short month name
-#: js/messages.php:414 libraries/common.lib.php:1643
+#: js/messages.php:417 libraries/common.lib.php:1644
 msgid "Feb"
 msgstr "Φεβ"
 
 #. l10n: Short month name
-#: js/messages.php:416 libraries/common.lib.php:1645
+#: js/messages.php:419 libraries/common.lib.php:1646
 msgid "Mar"
 msgstr "Μαρ"
 
 #. l10n: Short month name
-#: js/messages.php:418 libraries/common.lib.php:1647
+#: js/messages.php:421 libraries/common.lib.php:1648
 msgid "Apr"
 msgstr "Απρ"
 
 #. l10n: Short month name
-#: js/messages.php:420 libraries/common.lib.php:1649
+#: js/messages.php:423 libraries/common.lib.php:1650
 msgctxt "Short month name"
 msgid "May"
 msgstr "Μάη"
 
 #. l10n: Short month name
-#: js/messages.php:422 libraries/common.lib.php:1651
+#: js/messages.php:425 libraries/common.lib.php:1652
 msgid "Jun"
 msgstr "Ιουν"
 
 #. l10n: Short month name
-#: js/messages.php:424 libraries/common.lib.php:1653
+#: js/messages.php:427 libraries/common.lib.php:1654
 msgid "Jul"
 msgstr "Ιουλ"
 
 #. l10n: Short month name
-#: js/messages.php:426 libraries/common.lib.php:1655
+#: js/messages.php:429 libraries/common.lib.php:1656
 msgid "Aug"
 msgstr "Αυγ"
 
 #. l10n: Short month name
-#: js/messages.php:428 libraries/common.lib.php:1657
+#: js/messages.php:431 libraries/common.lib.php:1658
 msgid "Sep"
 msgstr "Σεπ"
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1659
+#: js/messages.php:433 libraries/common.lib.php:1660
 msgid "Oct"
 msgstr "Οκτ"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1661
+#: js/messages.php:435 libraries/common.lib.php:1662
 msgid "Nov"
 msgstr "Νοε"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1663
+#: js/messages.php:437 libraries/common.lib.php:1664
 msgid "Dec"
 msgstr "Δεκ"
 
-#: js/messages.php:437
+#: js/messages.php:440
 msgid "Sunday"
 msgstr "Κυριακή"
 
-#: js/messages.php:438
+#: js/messages.php:441
 msgid "Monday"
 msgstr "Δευτέρα"
 
-#: js/messages.php:439
+#: js/messages.php:442
 msgid "Tuesday"
 msgstr "Τρίτη"
 
-#: js/messages.php:440
+#: js/messages.php:443
 msgid "Wednesday"
 msgstr "Τετάρτη"
 
-#: js/messages.php:441
+#: js/messages.php:444
 msgid "Thursday"
 msgstr "Πέμπτη"
 
-#: js/messages.php:442
+#: js/messages.php:445
 msgid "Friday"
 msgstr "Παρασκευή"
 
-#: js/messages.php:443
+#: js/messages.php:446
 msgid "Saturday"
 msgstr "Σάββατο"
 
 #. l10n: Short week day name
-#: js/messages.php:447
+#: js/messages.php:450
 msgid "Sun"
 msgstr "Κυρ"
 
 #. l10n: Short week day name
-#: js/messages.php:449 libraries/common.lib.php:1668
+#: js/messages.php:452 libraries/common.lib.php:1669
 msgid "Mon"
 msgstr "Δευ"
 
 #. l10n: Short week day name
-#: js/messages.php:451 libraries/common.lib.php:1670
+#: js/messages.php:454 libraries/common.lib.php:1671
 msgid "Tue"
 msgstr "Τρί"
 
 #. l10n: Short week day name
-#: js/messages.php:453 libraries/common.lib.php:1672
+#: js/messages.php:456 libraries/common.lib.php:1673
 msgid "Wed"
 msgstr "Τετ"
 
 #. l10n: Short week day name
-#: js/messages.php:455 libraries/common.lib.php:1674
+#: js/messages.php:458 libraries/common.lib.php:1675
 msgid "Thu"
 msgstr "Πέμ"
 
 #. l10n: Short week day name
-#: js/messages.php:457 libraries/common.lib.php:1676
+#: js/messages.php:460 libraries/common.lib.php:1677
 msgid "Fri"
 msgstr "Παρ"
 
 #. l10n: Short week day name
-#: js/messages.php:459 libraries/common.lib.php:1678
+#: js/messages.php:462 libraries/common.lib.php:1679
 msgid "Sat"
 msgstr "Σάβ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:463
+#: js/messages.php:466
 msgid "Su"
 msgstr "Κυ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:465
+#: js/messages.php:468
 msgid "Mo"
 msgstr "Δε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:467
+#: js/messages.php:470
 msgid "Tu"
 msgstr "Τρ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:469
+#: js/messages.php:472
 msgid "We"
 msgstr "Τε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:471
+#: js/messages.php:474
 msgid "Th"
 msgstr "Πε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:473
+#: js/messages.php:476
 msgid "Fr"
 msgstr "Πα"
 
 #. l10n: Minimal week day name
-#: js/messages.php:475
+#: js/messages.php:478
 msgid "Sa"
 msgstr "Σα"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:477
+#: js/messages.php:480
 msgid "Wk"
 msgstr "Wiki"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:480
+#: js/messages.php:483
 msgid "calendar-month-year"
 msgstr "ημερολόγιο-μήνας-έτος"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:482
+#: js/messages.php:485
 msgctxt "Year suffix"
 msgid "none"
 msgstr "κανένα"
 
-#: js/messages.php:491
+#: js/messages.php:494
 msgid "Hour"
 msgstr "Ώρα"
 
-#: js/messages.php:492
+#: js/messages.php:495
 msgid "Minute"
 msgstr "Λεπτό"
 
-#: js/messages.php:493
+#: js/messages.php:496
 msgid "Second"
 msgstr "Δευτερόλεπτο"
 
@@ -2291,16 +2303,16 @@ msgstr ""
 "Αποτυχία διαμόρφωσης κειμένου για τον κανόνα «%s». Η PHP έδωσε το ακόλουθο "
 "σφάλμα: %s"
 
-#: libraries/Advisor.class.php:326 server_status.php:952
+#: libraries/Advisor.class.php:326 server_status.php:944
 msgid "per second"
 msgstr "ανά δευτερόλεπτο"
 
-#: libraries/Advisor.class.php:329 server_status.php:947
+#: libraries/Advisor.class.php:329 server_status.php:939
 msgid "per minute"
 msgstr "ανά λεπτό"
 
-#: libraries/Advisor.class.php:332 server_status.php:943 server_status.php:979
-#: server_status.php:1101 server_status.php:1146
+#: libraries/Advisor.class.php:332 server_status.php:935 server_status.php:971
+#: server_status.php:1093 server_status.php:1138
 msgid "per hour"
 msgstr "ανά ώρα"
 
@@ -2338,8 +2350,8 @@ msgstr "Το αρχείο δεν ήταν αρχείο αποστολής."
 #: libraries/File.class.php:256
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Το προς αποστολή αρχείο υπερβαίνει την οδηγία upload_max_filesize στο "
-"php.ini."
+"Το προς αποστολή αρχείο υπερβαίνει την οδηγία upload_max_filesize στο php."
+"ini."
 
 #: libraries/File.class.php:259
 msgid ""
@@ -2374,8 +2386,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις "
-"[a@./Documentation.html#faq1_11@Documentation]ΣΑΕ 1.11[/a]"
+"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [a@./Documentation."
+"html#faq1_11@Documentation]ΣΑΕ 1.11[/a]"
 
 #: libraries/File.class.php:449
 msgid "Error while moving uploaded file."
@@ -2389,41 +2401,42 @@ msgstr "Αδύνατη η ανάγνωση (μετακίνηση) του αρχ�
 msgid "No index defined!"
 msgstr "Δεν ορίστηκε ευρετήριο!"
 
-#: libraries/Index.class.php:431 libraries/build_html_for_db.lib.php:41
-#: tbl_structure.php:693 tbl_tracking.php:327
+#: libraries/Index.class.php:432 libraries/Index.class.php:442
+#: libraries/build_html_for_db.lib.php:41 tbl_structure.php:693
+#: tbl_tracking.php:327
 msgid "Indexes"
 msgstr "Ευρετήρια"
 
-#: libraries/Index.class.php:450 libraries/tbl_properties.inc.php:472
+#: libraries/Index.class.php:456 libraries/tbl_properties.inc.php:472
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
 #: tbl_tracking.php:333
 msgid "Unique"
 msgstr "Μοναδικό"
 
-#: libraries/Index.class.php:451 tbl_tracking.php:334
+#: libraries/Index.class.php:457 tbl_tracking.php:334
 msgid "Packed"
 msgstr "Συμπιεσμένο"
 
-#: libraries/Index.class.php:453 tbl_tracking.php:336
+#: libraries/Index.class.php:459 tbl_tracking.php:336
 msgid "Cardinality"
 msgstr "Μοναδικότητα"
 
-#: libraries/Index.class.php:456 libraries/rte/rte_events.lib.php:480
+#: libraries/Index.class.php:462 libraries/rte/rte_events.lib.php:480
 #: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:275
 #: tbl_tracking.php:339
 msgid "Comment"
 msgstr "Σχόλιο"
 
-#: libraries/Index.class.php:482
+#: libraries/Index.class.php:488
 msgid "The primary key has been dropped"
 msgstr "Το πρωτεύον κλειδί διεγράφη"
 
-#: libraries/Index.class.php:486
+#: libraries/Index.class.php:492
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "Το ευρετήριο %s διεγράφη"
 
-#: libraries/Index.class.php:583
+#: libraries/Index.class.php:595
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -2434,7 +2447,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:387 libraries/config/messages.inc.php:179
 #: libraries/server_links.inc.php:43 server_databases.php:119
-#: server_privileges.php:1975
+#: server_privileges.php:1974
 msgid "Databases"
 msgstr "Βάσεις δεδομένων"
 
@@ -2522,7 +2535,6 @@ msgstr "Σφάλμα μετονομασίας του πίνακα %1$s σε %2$s
 
 #: libraries/Table.class.php:1257
 #, php-format
-#| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Ο πίνακας %1$s μετονομάσθηκε σε %2$s."
 
@@ -2595,12 +2607,11 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
-"να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε "
-"ένα."
+"να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
 
 #: libraries/auth/config.auth.lib.php:110
 msgid ""
@@ -2712,7 +2723,7 @@ msgstr "κοινόχρηστο"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
-#: server_status.php:599
+#: server_status.php:591
 msgid "Tables"
 msgstr "Πίνακες"
 
@@ -2763,11 +2774,11 @@ msgstr "δυνατή αξιοποίηση"
 msgid "numeric key detected"
 msgstr "ανιχνεύτηκε αριθμητικό κλειδί"
 
-#: libraries/common.inc.php:606
+#: libraries/common.inc.php:599
 msgid "Failed to read configuration file"
 msgstr "Αδύνατη η ανάγνωση του αρχείου ρυθμίσεων"
 
-#: libraries/common.inc.php:607
+#: libraries/common.inc.php:600
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -2775,12 +2786,12 @@ msgstr ""
 "Αυτό σημαίνει, συνήθως, ότι υπάρχει συντακτικό λάθος, για αυτό ελέγξτε τα "
 "σφάλματα που εμφανίζονται παρακάτω."
 
-#: libraries/common.inc.php:615
+#: libraries/common.inc.php:608
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρύθμισης από: «%1$s»"
 
-#: libraries/common.inc.php:621
+#: libraries/common.inc.php:614
 msgid ""
 "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
@@ -2788,29 +2799,29 @@ msgstr ""
 "Η εντολή <code>$cfg['PmaAbsoluteUri']</code> ΠΡΕΠΕΙ να οριστεί στο αρχείο "
 "ρυθμίσεων!"
 
-#: libraries/common.inc.php:651
+#: libraries/common.inc.php:644
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Μη έγκυρο ευρετήριο διακομιστή: %s"
 
-#: libraries/common.inc.php:658
+#: libraries/common.inc.php:651
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Μη έγκυρο όνομα διακομιστή για τον διακομιστή %1$s. Ξαναδείτε τις ρυθμίσεις "
 "σας."
 
-#: libraries/common.inc.php:667 libraries/config/messages.inc.php:508
-#: libraries/header.inc.php:134 main.php:171 server_status.php:784
+#: libraries/common.inc.php:660 libraries/config/messages.inc.php:508
+#: libraries/header.inc.php:134 main.php:171 server_status.php:776
 #: server_synchronize.php:1339
 msgid "Server"
 msgstr "Διακομιστής"
 
-#: libraries/common.inc.php:850
+#: libraries/common.inc.php:843
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ορίστηκε εσφαλμένη μέθοδος πιστοποίησης στη ρύθμιση:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:961
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη."
@@ -2846,12 +2857,12 @@ msgstr "en"
 #: libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
 #: libraries/sql_query_form.lib.php:398 libraries/sql_query_form.lib.php:401
-#: main.php:238 server_variables.php:129
+#: main.php:238 server_variables.php:122
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
 #: libraries/common.lib.php:627 libraries/header_printview.inc.php:62
-#: server_status.php:586 server_status.php:1244
+#: server_status.php:578 server_status.php:1236
 msgid "SQL query"
 msgstr "Εντολή SQL"
 
@@ -2868,128 +2879,128 @@ msgstr "Εντολή SQL"
 msgid "MySQL said: "
 msgstr "Η MySQL επέστρεψε το μήνυμα: "
 
-#: libraries/common.lib.php:1161
+#: libraries/common.lib.php:1162
 msgid "Failed to connect to SQL validator!"
 msgstr "Αδύνατη η σύνδεση στο εγκυροποιητή SQL!"
 
-#: libraries/common.lib.php:1202 libraries/config/messages.inc.php:485
+#: libraries/common.lib.php:1203 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
 msgstr "Ανάλυση SQL"
 
-#: libraries/common.lib.php:1206
+#: libraries/common.lib.php:1207
 msgid "Skip Explain SQL"
 msgstr "Χωρίς ανάλυση SQL"
 
-#: libraries/common.lib.php:1241
+#: libraries/common.lib.php:1242
 msgid "Without PHP Code"
 msgstr "χωρίς κώδικα PHP"
 
-#: libraries/common.lib.php:1244 libraries/config/messages.inc.php:487
+#: libraries/common.lib.php:1245 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "Δημιουργία κώδικα PHP"
 
-#: libraries/common.lib.php:1264 libraries/config/messages.inc.php:486
-#: server_status.php:795 server_status.php:817 server_status.php:837
+#: libraries/common.lib.php:1265 libraries/config/messages.inc.php:486
+#: server_status.php:787 server_status.php:809 server_status.php:829
 msgid "Refresh"
 msgstr "Ανανέωση"
 
-#: libraries/common.lib.php:1274
+#: libraries/common.lib.php:1275
 msgid "Skip Validate SQL"
 msgstr "Παράβλεψη επικύρωσης SQL"
 
-#: libraries/common.lib.php:1277 libraries/config/messages.inc.php:489
+#: libraries/common.lib.php:1278 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "Επικύρωση SQL"
 
-#: libraries/common.lib.php:1336
+#: libraries/common.lib.php:1337
 msgid "Inline edit of this query"
 msgstr "Εσωτερική επεξεργασία αυτού του ερωτήματος"
 
-#: libraries/common.lib.php:1338
+#: libraries/common.lib.php:1339
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Εσωτερικό"
 
-#: libraries/common.lib.php:1404 sql.php:928
+#: libraries/common.lib.php:1405 sql.php:928
 msgid "Profiling"
 msgstr "Δημιουργία προφίλ"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1666
+#: libraries/common.lib.php:1667
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Κυρ"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1682
+#: libraries/common.lib.php:1683
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y στις %H:%M:%S"
 
-#: libraries/common.lib.php:2016
+#: libraries/common.lib.php:2017
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s μέρες, %s ώρες, %s λεπτά %s δευτερόλεπτα"
 
-#: libraries/common.lib.php:2109
+#: libraries/common.lib.php:2110
 msgid "Missing parameter:"
 msgstr "Απολεσθείσα παράμετρος:"
 
-#: libraries/common.lib.php:2492 libraries/common.lib.php:2495
+#: libraries/common.lib.php:2493 libraries/common.lib.php:2496
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "Αρχή"
 
-#: libraries/common.lib.php:2493 libraries/common.lib.php:2496
+#: libraries/common.lib.php:2494 libraries/common.lib.php:2497
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Προηγούμενη"
 
-#: libraries/common.lib.php:2523 libraries/common.lib.php:2526
+#: libraries/common.lib.php:2524 libraries/common.lib.php:2527
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "Επόμενη"
 
-#: libraries/common.lib.php:2524 libraries/common.lib.php:2527
+#: libraries/common.lib.php:2525 libraries/common.lib.php:2528
 #: libraries/display_tbl.lib.php:390
 msgctxt "Last page"
 msgid "End"
 msgstr "Τέλος"
 
-#: libraries/common.lib.php:2594
+#: libraries/common.lib.php:2595
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Μεταπήδηση στην βάση «%s»."
 
-#: libraries/common.lib.php:2614
+#: libraries/common.lib.php:2615
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Η λειτουργία %s έχει επηρρεαστεί από ένα γνωστό σφάλμα, για αυτό δείτε %s"
 
-#: libraries/common.lib.php:2788
+#: libraries/common.lib.php:2789
 msgid "Click to toggle"
 msgstr "Πατήστε για εναλλαγή"
 
-#: libraries/common.lib.php:3162 libraries/common.lib.php:3169
-#: libraries/common.lib.php:3385 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3163 libraries/common.lib.php:3170
+#: libraries/common.lib.php:3386 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:590 pmd_general.php:140
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:154
 #: server_privileges.php:681 server_replication.php:343 tbl_tracking.php:265
 msgid "Structure"
 msgstr "Δομή"
 
-#: libraries/common.lib.php:3163 libraries/common.lib.php:3170
+#: libraries/common.lib.php:3164 libraries/common.lib.php:3171
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2997,43 +3008,43 @@ msgstr "Δομή"
 msgid "SQL"
 msgstr "Κώδικας SQL"
 
-#: libraries/common.lib.php:3165 libraries/common.lib.php:3383
-#: libraries/common.lib.php:3384 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3166 libraries/common.lib.php:3384
+#: libraries/common.lib.php:3385 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Προσθήκη"
 
-#: libraries/common.lib.php:3172 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3173 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Λειτουργίες"
 
-#: libraries/common.lib.php:3317 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3318 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "Περιηγηθείτε στον υπολογιστή σας:"
 
-#: libraries/common.lib.php:3336
+#: libraries/common.lib.php:3337
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Επιλογή από το φάκελο αποστολής του διακομίστή ιστού <b>%s</b>:"
 
-#: libraries/common.lib.php:3357 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3358 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:936
 msgid "The directory you set for upload work cannot be reached"
 msgstr ""
 "Ο υποκατάλογος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί"
 
-#: libraries/common.lib.php:3366
+#: libraries/common.lib.php:3367
 msgid "There are no files to upload"
 msgstr "Δεν υπάρχουν αρχεία προς αποστολή"
 
-#: libraries/common.lib.php:3394 libraries/common.lib.php:3395
+#: libraries/common.lib.php:3395 libraries/common.lib.php:3396
 msgid "Execute"
 msgstr "Εκτέλεση"
 
-#: libraries/common.lib.php:3870
+#: libraries/common.lib.php:3871
 msgid "Print"
 msgstr "Εκτύπωση"
 
@@ -3295,8 +3306,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Ορίζει ποιος τύπος πεδίων φόρμας πρέπει να χρησιμοποιηθεί για πεδία CHAR και "
-"VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, "
-"[kbd]textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
+"VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, [kbd]textarea[/"
+"kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -3488,7 +3499,7 @@ msgid "Character set of the file"
 msgstr "Σύνολο χαρακτήρων αρχείου"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
-#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:842
+#: tbl_gis_visualization.php:173 tbl_printview.php:335 tbl_structure.php:842
 msgid "Format"
 msgstr "Μορφοποίηση"
 
@@ -3678,9 +3689,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Ταξινόμηση για αντικείμενα σε αναδυόμενο μενού foreing key; "
-"[kbd]content[/kbd] είναι τα αναφερθέντα δεδομένα, [kbd]id[/kbd] είναι η τιμή "
-"κλειδιού"
+"Ταξινόμηση για αντικείμενα σε αναδυόμενο μενού foreing key; [kbd]content[/"
+"kbd] είναι τα αναφερθέντα δεδομένα, [kbd]id[/kbd] είναι η τιμή κλειδιού"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key dropdown order"
@@ -3956,10 +3966,9 @@ msgid ""
 msgstr ""
 "Αν θέλετε να χρησιμοποιήσετε την υπηρεσία Εγκυροποίησης SQL, πρέπει να "
 "γνωρίζετε ότι [strong]όλες οι δηλώσεις SQL αποθηκεύονται ανώνυμα για "
-"στατιστικούς "
-"λόγους[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Εγκυροποιητής SQL "
-"Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright Database Technology. Με "
-"επιφύλαξη παντός δικαιώματος.[/em]"
+"στατιστικούς λόγους[/strong].[br][em][a@http://sqlvalidator.mimer.com/]"
+"Εγκυροποιητής SQL Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright Database "
+"Technology. Με επιφύλαξη παντός δικαιώματος.[/em]"
 
 #: libraries/config/messages.inc.php:224
 msgid "Startup"
@@ -4175,7 +4184,8 @@ msgstr "Διαχωριστικό δέντρου πινάκων"
 
 #: libraries/config/messages.inc.php:284
 msgid "URL where logo in the navigation frame will point to"
-msgstr "Ο Σϋνδεσμος URL όπου θα τοποιθετηθεί στο λογότυπο στο πλαίσιο πλοήγησης"
+msgstr ""
+"Ο Σϋνδεσμος URL όπου θα τοποιθετηθεί στο λογότυπο στο πλαίσιο πλοήγησης"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
@@ -4237,9 +4247,9 @@ msgid ""
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
 "Αν οριστεί ως TRUE, με την αποσύνδεση διαγράφονται τα cookies για όλους τους "
-"διακομιστές; όταν οριστεί ως FALSE, η αποσύνδεση επηρεάζει μόνο τον "
-"τρέχοντα διακομιστή. Ορίζοντάς το σε FALSE είναι εύκολο να ξεχάσετε να "
-"αποσυνδεθείτε από άλλους διακομιστές όταν συνδέεστε σε πολλούς."
+"διακομιστές; όταν οριστεί ως FALSE, η αποσύνδεση επηρεάζει μόνο τον τρέχοντα "
+"διακομιστή. Ορίζοντάς το σε FALSE είναι εύκολο να ξεχάσετε να αποσυνδεθείτε "
+"από άλλους διακομιστές όταν συνδέεστε σε πολλούς."
 
 #: libraries/config/messages.inc.php:297
 msgid "Delete all cookies on logout"
@@ -4355,8 +4365,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. "
-"[kbd]32M[/kbd] ([kbd]0[/kbd] για απεριόριστη)"
+"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. [kbd]32M"
+"[/kbd] ([kbd]0[/kbd] για απεριόριστη)"
 
 #: libraries/config/messages.inc.php:320
 msgid "Memory limit"
@@ -4390,7 +4400,8 @@ msgstr "Γραμμή πλοήγησης με εικονίδια"
 
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr "Χρήση εξαγόμενου GZip buffering για αυξημένη ταχύτητα σε μεταφορές HTTP"
+msgstr ""
+"Χρήση εξαγόμενου GZip buffering για αυξημένη ταχύτητα σε μεταφορές HTTP"
 
 #: libraries/config/messages.inc.php:328
 msgid "GZip output buffering"
@@ -4598,9 +4609,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Αφήστε κενό αν δεν υπάρχει "
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]σελιδοδείκτης[/a] υποστήριξης, "
-"προτείνεται: [kbd]pma_bookmark[/kbd]"
+"Αφήστε κενό αν δεν υπάρχει [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"σελιδοδείκτης[/a] υποστήριξης, προτείνεται: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
@@ -4646,8 +4656,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Ρυθμίστηκε ένας ειδικός χρήστης MySQL με περιορισμένα δικαιώματα. "
-"Περισσότερες πληροφορίες είναι διαθέσιμες στο "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"Περισσότερες πληροφορίες είναι διαθέσιμες στο [a@http://wiki.phpmyadmin.net/"
+"pma/controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user"
@@ -4678,8 +4688,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή. Προτείνεται: "
-"[kbd]pma_designer_coords[/kbd]"
+"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή. Προτείνεται: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -4690,9 +4700,9 @@ msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Περισσότερες πληροφορίες στο "
-"[a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] και στο "
-"[a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Περισσότερες πληροφορίες στο [a@http://sf.net/support/tracker.php?"
+"aid=1849494]PMA bug tracker[/a] και στο [a@http://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/config/messages.inc.php:392
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -4790,8 +4800,8 @@ msgstr "Κωδικός πρόσβασης για ρυθμισμένη επικύ
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: "
-"[kbd]pma_pdf_pages[/kbd]"
+"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: [kbd]pma_pdf_pages"
+"[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
@@ -4804,9 +4814,9 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "Η βάση δεδομένων που χρησιμοποιείται για συσχετίσεις, σελιδοδείκτες και "
-"χαρακτηριστικά PDF. Δείτε το "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] για λεπτομέρειες. Αφήστε "
-"κενό για να μην υπάρχει υποστήριξη. Προτείνεται: [kbd]phpmyadmin[/kbd]"
+"χαρακτηριστικά PDF. Δείτε το [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"a] για λεπτομέρειες. Αφήστε κενό για να μην υπάρχει υποστήριξη. Προτείνεται: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "Database name"
@@ -4838,9 +4848,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"Αφήστε το κενό για να μην υπάρχει υποστήριξη "
-"[a@http://wiki.phpmyadmin.net/pma/relation]συνδέσμων-συσχετίσεων[/a], σας "
-"προτείνεται: [kbd]pma_relation[/kbd]"
+"Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/"
+"pma/relation]συνδέσμων-συσχετίσεων[/a], σας προτείνεται: [kbd]pma_relation[/"
+"kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -4892,8 +4902,8 @@ msgstr "Χρήση SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: "
-"[kbd]pma_table_coords[/kbd]"
+"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
@@ -4998,8 +5008,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: "
-"[kbd]pma_userconfig[/kbd]"
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
+"pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -5077,8 +5087,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Ορίζει αν θα εμφανίζονται οι τύποι των πεδίων σε κατάσταση "
-"επεξεργασίας/εισαγωγής"
+"Ορίζει αν θα εμφανίζονται οι τύποι των πεδίων σε κατάσταση επεξεργασίας/"
+"εισαγωγής"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show field types"
@@ -5105,8 +5115,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης "
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
+"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης [a@http://php.net/"
+"manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show phpinfo() link"
@@ -5220,8 +5230,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ "
-"(προεπιλογή:[kbd]anonymous[/kbd])"
+"Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ (προεπιλογή:[kbd]"
+"anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:494 tbl_tracking.php:472
 #: tbl_tracking.php:529
@@ -5233,8 +5243,8 @@ msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
-"Προτείνεται ένα όνομα βάσης δεδομένων στη φόρμα «Δημιουργία Βάσης δεδομένων» "
-"(αν είναι δυνατό) ή διατήρηση του πεδίου άδειου"
+"Προτείνεται ένα όνομα βάσης δεδομένων στη φόρμα «Δημιουργία Βάσης "
+"δεδομένων» (αν είναι δυνατό) ή διατήρηση του πεδίου άδειου"
 
 #: libraries/config/messages.inc.php:496
 msgid "Suggest new database name"
@@ -5304,8 +5314,8 @@ msgid ""
 msgstr ""
 "Εισάγει διευθύνσεις ως [kbd]IP: αξιόπιστη κεφαλίδα HTTP[/kbd]. Το παρακάτω "
 "παράδειγμα ορίζει ότι το phpMyAdmin πρέπει να εμπιστεύεται μια κεφαλίδα "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) προερχόμενη από τη διεύθυνση "
-"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) προερχόμενη από τη διεύθυνση 1.2.3.4:"
+"[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
@@ -5313,7 +5323,8 @@ msgstr "Λίστα αξιόπιστων διευθύνσεων IP για να ε
 
 #: libraries/config/messages.inc.php:513
 msgid "Directory on server where you can upload files for import"
-msgstr "Φάκελος στο διακομιστή όπου μπορείτε να αποστείλετε αρχεία για εισαγωγή"
+msgstr ""
+"Φάκελος στο διακομιστή όπου μπορείτε να αποστείλετε αρχεία για εισαγωγή"
 
 #: libraries/config/messages.inc.php:514
 msgid "Upload directory"
@@ -5376,9 +5387,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Ενεργοποίηση της συμπίεσης "
-"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] για λειτουργίες "
-"εισαγωγής και εξαγωγής"
+"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]"
+"ZIP[/a] για λειτουργίες εισαγωγής και εξαγωγής"
 
 #: libraries/config/messages.inc.php:525
 msgid "ZIP"
@@ -5470,8 +5480,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:262
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
-"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
-"σύνδεσης"
+"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης σύνδεσης"
 
 #: libraries/config/validate.lib.php:295
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -5541,8 +5550,8 @@ msgid "Designer"
 msgstr "Σχεδιαστής"
 
 #: libraries/db_links.inc.php:92 server_privileges.php:178
-#: server_privileges.php:1649 server_privileges.php:2039
-#: server_privileges.php:2387
+#: server_privileges.php:1649 server_privileges.php:2038
+#: server_privileges.php:2386
 msgid "Privileges"
 msgstr "Δικαιώματα"
 
@@ -5561,13 +5570,13 @@ msgstr "Συμβάντα"
 msgid "Triggers"
 msgstr "Δείκτες"
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2222
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2233
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Ίσως είναι κατά προσέγγιση. Δείτε τις "
-"[a@./Documentation.html#faq3_11@Documentation]ΣΑΕ 3.11[/a]"
+"Ίσως είναι κατά προσέγγιση. Δείτε τις [a@./Documentation."
+"html#faq3_11@Documentation]ΣΑΕ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:115 libraries/dbi/mysql.dbi.lib.php:118
 #: libraries/dbi/mysqli.dbi.lib.php:187
@@ -5575,7 +5584,7 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Ανεπιτυχής σύνδεση του χρήστη ελέγχου όπως ορίστηκε στη ρύθμισή σας."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
-#: user_password.php:105 user_password.php:123
+#: user_password.php:97 user_password.php:115
 msgid "Change password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
@@ -5612,7 +5621,7 @@ msgstr "Δημιουργία"
 msgid "No Privileges"
 msgstr "Χωρίς Δικαιώματα"
 
-#: libraries/display_create_table.lib.php:46 pmd_general.php:71
+#: libraries/display_create_table.lib.php:46 pmd_general.php:85
 #: server_synchronize.php:454 server_synchronize.php:966
 msgid "Create table"
 msgstr "Δημιουργία πίνακα"
@@ -5721,8 +5730,8 @@ msgstr ", το @TABLE@ θα γίνει το όνομα του πίνακα"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -5829,8 +5838,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"Το όνομα του συμπιεσμένου αρχείου πρέπει να έχει επέκταση: "
-"<b>.[format].[compression]</b>. Παράδειγμα: <b>.sql.zip</b>"
+"Το όνομα του συμπιεσμένου αρχείου πρέπει να έχει επέκταση: <b>.[format]."
+"[compression]</b>. Παράδειγμα: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -5971,53 +5980,53 @@ msgstr "Καλά Γνωστό Κείμενο"
 msgid "Well Known Binary"
 msgstr "Καλά Γνωστό Δυαδικό"
 
-#: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
+#: libraries/display_tbl.lib.php:1417 libraries/display_tbl.lib.php:1429
 msgid "The row has been deleted"
 msgstr "Η εγγραφή έχει διαγραφεί"
 
-#: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2467
-#: server_status.php:1264
+#: libraries/display_tbl.lib.php:1456 libraries/display_tbl.lib.php:2478
+#: server_status.php:1256
 msgid "Kill"
 msgstr "Τερματισμός"
 
-#: libraries/display_tbl.lib.php:2326
+#: libraries/display_tbl.lib.php:2337
 msgid "in query"
 msgstr "στην εντολή"
 
-#: libraries/display_tbl.lib.php:2358
+#: libraries/display_tbl.lib.php:2369
 msgid "Showing rows"
 msgstr "Εμφάνιση εγγραφών"
 
-#: libraries/display_tbl.lib.php:2368
+#: libraries/display_tbl.lib.php:2379
 msgid "total"
 msgstr "συνολικά"
 
-#: libraries/display_tbl.lib.php:2376 sql.php:766
+#: libraries/display_tbl.lib.php:2387 sql.php:766
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα"
 
-#: libraries/display_tbl.lib.php:2579
+#: libraries/display_tbl.lib.php:2590
 msgid "Query results operations"
 msgstr "Λειτουργίες αποτελεσμάτων ερωτήματος"
 
-#: libraries/display_tbl.lib.php:2608
+#: libraries/display_tbl.lib.php:2619
 msgid "Print view (with full texts)"
 msgstr "Προβολή εκτύπωσης (με πλήρη κείμενα)"
 
-#: libraries/display_tbl.lib.php:2658 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2669 tbl_chart.php:78
 msgid "Display chart"
 msgstr "Εμφάνιση διαγράμματος"
 
-#: libraries/display_tbl.lib.php:2674
+#: libraries/display_tbl.lib.php:2685
 msgid "Visualize GIS data"
 msgstr "Οπτικοποίηση δεδομένων GIS"
 
-#: libraries/display_tbl.lib.php:2695
+#: libraries/display_tbl.lib.php:2706
 msgid "Create view"
 msgstr "Δημιουργία προβολής"
 
-#: libraries/display_tbl.lib.php:2802
+#: libraries/display_tbl.lib.php:2813
 msgid "Link not found"
 msgstr "Δεν βρέθηκε η σύνδεση"
 
@@ -6066,7 +6075,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Buffer Pool"
 
-#: libraries/engines/innodb.lib.php:131 server_status.php:647
+#: libraries/engines/innodb.lib.php:131 server_status.php:639
 msgid "InnoDB Status"
 msgstr "Κατάσταση InnoDB"
 
@@ -6364,8 +6373,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
 "%sΙστοσελίδα του PrimeBase XT%s."
@@ -6465,8 +6474,8 @@ msgstr "Διαθέσιμοι τύποι MIME"
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:884
 #: server_privileges.php:887 server_privileges.php:943
-#: server_privileges.php:1818 server_privileges.php:2385
-#: server_status.php:1238
+#: server_privileges.php:1818 server_privileges.php:2384
+#: server_status.php:1230
 msgid "Host"
 msgstr "Φιλοξενητής"
 
@@ -6583,8 +6592,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "συμπεριλαμβάνει ονόματα στηλών σε κάθε δήλωση <code>INSERT</code><br /> "
-"&nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name "
-"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"&nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name (col_A,col_B,"
+"col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:276
 msgid ""
@@ -6705,7 +6714,8 @@ msgstr "Δημιουργήθηκε από"
 #: libraries/import.lib.php:159 libraries/rte/rte_routines.lib.php:1253
 #: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
+msgstr ""
+"Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
 
 #: libraries/import.lib.php:1139
 msgid ""
@@ -6807,7 +6817,7 @@ msgid "Table name"
 msgstr "Ονομασία πίνακας"
 
 #: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:351
-#: view_create.php:147
+#: view_create.php:139
 msgid "Column names"
 msgstr "Ονόματα στηλών"
 
@@ -6897,7 +6907,7 @@ msgstr "Προσθήκη προθέματος πίνακα"
 msgid "Add prefix"
 msgstr "Προσθήκη προθέματος"
 
-#: libraries/mult_submits.inc.php:496 tbl_replace.php:341
+#: libraries/mult_submits.inc.php:513 tbl_replace.php:330
 msgid "No change"
 msgstr "Χωρίς αλλαγή"
 
@@ -7106,7 +7116,7 @@ msgstr "Αποσύνδεση"
 msgid "Reload navigation frame"
 msgstr "Επαναφόρτωση πλαισίου πλοήγησης"
 
-#: libraries/plugin_interface.lib.php:307
+#: libraries/plugin_interface.lib.php:284
 msgid "This format has no options"
 msgstr "Αυτή η μορφή δεν έχει επιλογές"
 
@@ -7115,7 +7125,6 @@ msgid "not OK"
 msgstr "άκυρο"
 
 #: libraries/relation.lib.php:80
-#| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "Εντάξει"
@@ -7181,8 +7190,8 @@ msgstr "Γρήγορα βήματα για εγκατάσταση χαρακτη
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
-"Δημιουργία των απαραίτητων πινάκων με το αρχείο "
-"<code>examples/create_tables.sql</code>."
+"Δημιουργία των απαραίτητων πινάκων με το αρχείο <code>examples/create_tables."
+"sql</code>."
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."
@@ -7244,14 +7253,14 @@ msgid "Slave status"
 msgstr "Κατάσταση δευτερεύοντος"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:394
-#: server_status.php:1479 server_variables.php:123
+#: server_status.php:1471 server_variables.php:116
 msgid "Variable"
 msgstr "Μεταβλητή"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1377 libraries/tbl_select.lib.php:87
-#: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
-#: pmd_general.php:769 server_status.php:1480 tbl_change.php:365
+#: pmd_general.php:484 pmd_general.php:543 pmd_general.php:666
+#: pmd_general.php:783 server_status.php:1472 tbl_change.php:365
 #: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:453
 msgid "Value"
 msgstr "Τιμή"
@@ -7279,7 +7288,7 @@ msgstr "Οποιοσδήποτε χρήστης"
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
 #: libraries/replication_gui.lib.php:352 server_privileges.php:867
 #: server_privileges.php:937 server_privileges.php:961
-#: server_privileges.php:2250 server_privileges.php:2280
+#: server_privileges.php:2249 server_privileges.php:2279
 msgid "Use text field"
 msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
 
@@ -7434,7 +7443,7 @@ msgstr "Πρέπει να δώσετε έναν έγκυρο τύπο συμβά
 msgid "You must provide an event definition."
 msgstr "Πρέπει να δώσετε έναν προσδιορισμό συμβάντος."
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2541
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2540
 msgid "New"
 msgstr "Νέο"
 
@@ -7577,7 +7586,8 @@ msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτ�
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "%d εγγραφή επηρεάστηκε από την τελευταία δήλωση μέσα στη διαδικασία"
-msgstr[1] "%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία"
+msgstr[1] ""
+"%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία"
 
 #: libraries/rte/rte_routines.lib.php:1230
 #, php-format
@@ -7692,7 +7702,8 @@ msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Καμιά ενέργεια με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
+msgstr ""
+"Καμιά ενέργεια με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
@@ -7868,12 +7879,12 @@ msgid "Toggle scratchboard"
 msgstr "Εναλλαγή πίνακα σχεδιασμού"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:489
+#: libraries/select_lang.lib.php:493
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:507 libraries/select_lang.lib.php:516
-#: libraries/select_lang.lib.php:525
+#: libraries/select_lang.lib.php:511 libraries/select_lang.lib.php:520
+#: libraries/select_lang.lib.php:529
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Άγνωστη γλώσσα: %1$s."
@@ -7892,12 +7903,12 @@ msgid "Synchronize"
 msgstr "Συγχρονισμός"
 
 #: libraries/server_links.inc.php:86 server_binlog.php:77
-#: server_status.php:592
+#: server_status.php:584
 msgid "Binary log"
 msgstr "Δυαδικό αρχείο καταγραφής"
 
-#: libraries/server_links.inc.php:97 server_engines.php:107
-#: server_engines.php:111 server_status.php:645
+#: libraries/server_links.inc.php:97 server_engines.php:99
+#: server_engines.php:103 server_status.php:637
 msgid "Variables"
 msgstr "Μεταβλητές"
 
@@ -7905,8 +7916,8 @@ msgstr "Μεταβλητές"
 msgid "Charsets"
 msgstr "Σύνολο χαρακτήρων"
 
-#: libraries/server_links.inc.php:106 server_plugins.php:47
-#: server_plugins.php:80
+#: libraries/server_links.inc.php:106 server_plugins.php:39
+#: server_plugins.php:72
 msgid "Plugins"
 msgstr "Πρόσθετα"
 
@@ -8070,7 +8081,6 @@ msgstr "Ο πίνακας φαίνεται να είναι άδειος!"
 
 #: libraries/tbl_links.inc.php:126
 #, php-format
-#| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
 msgstr "Παρακολούθηση του %s ενεργοποιήθηκε."
 
@@ -8161,7 +8171,7 @@ msgstr "Προσθήκη %s στήλης(ών)"
 msgid "You have to add at least one column."
 msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα πεδίο."
 
-#: libraries/tbl_properties.inc.php:663 server_engines.php:54
+#: libraries/tbl_properties.inc.php:663 server_engines.php:46
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "Μηχανή αποθήκευσης"
@@ -8170,9 +8180,9 @@ msgstr "Μηχανή αποθήκευσης"
 msgid "PARTITION definition"
 msgstr "Ορισμός PARTITION"
 
-#: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
-#: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
-#: pmd_general.php:753
+#: libraries/tbl_select.lib.php:86 pmd_general.php:495 pmd_general.php:515
+#: pmd_general.php:637 pmd_general.php:650 pmd_general.php:713
+#: pmd_general.php:767
 msgid "Operator"
 msgstr "Τελεστής"
 
@@ -8264,15 +8274,15 @@ msgstr ""
 "ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
 "«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
 "τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
-"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο "
-"libraries/transformations/text_plain__external.inc.php και να εισάγετε τις "
-"εφαρμογές που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο "
-"αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή "
-"είναι οι παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το "
-"αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη "
-"τιμή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί "
-"περιεχομένου ούτως ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην "
-"διάταξη (Προεπιλεγμένη τιμή: 1)."
+"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
+"transformations/text_plain__external.inc.php και να εισάγετε τις εφαρμογές "
+"που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο αριθμός της "
+"εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή είναι οι "
+"παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το αποτέλεσμα "
+"χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη τιμή: 1). Η "
+"τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί περιεχομένου ούτως "
+"ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη "
+"(Προεπιλεγμένη τιμή: 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
 msgid ""
@@ -8399,8 +8409,8 @@ msgid "Protocol version"
 msgstr "Έκδοση πρωτοκόλλου"
 
 #: main.php:179 server_privileges.php:1662 server_privileges.php:1817
-#: server_privileges.php:1965 server_privileges.php:2384
-#: server_status.php:1237
+#: server_privileges.php:1964 server_privileges.php:2383
+#: server_status.php:1229
 msgid "User"
 msgstr "Χρήστης"
 
@@ -8481,11 +8491,10 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"Η παράμετρος PHP "
-"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@]session.gc_maxlifetime[/a] είναι μικρότερη από την ρυθμισμένη "
-"εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή σας θα λήξει "
-"νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
+"Η παράμετρος PHP [a@http://php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@]session.gc_maxlifetime[/a] είναι μικρότερη από την "
+"ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή σας "
+"θα λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
 
 #: main.php:300
 msgid ""
@@ -8567,109 +8576,109 @@ msgstr "Δημιουργία πίνακα"
 msgid "Please select a database"
 msgstr "Παρακαλώ επιλέξτε μία βάση δεδομένων"
 
-#: pmd_general.php:64
+#: pmd_general.php:78
 msgid "Show/Hide left menu"
 msgstr "Εμφάνιση/Απόκρυψη αριστερού μενού"
 
-#: pmd_general.php:68
+#: pmd_general.php:82
 msgid "Save position"
 msgstr "Αποθήκευση θέσης"
 
-#: pmd_general.php:74 pmd_general.php:346
+#: pmd_general.php:88 pmd_general.php:360
 msgid "Create relation"
 msgstr "Δημιουργία συσχέτισης"
 
-#: pmd_general.php:80
+#: pmd_general.php:94
 msgid "Reload"
 msgstr "Επαναφόρτωση"
 
-#: pmd_general.php:83
+#: pmd_general.php:97
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: pmd_general.php:87
+#: pmd_general.php:101
 msgid "Angular links"
 msgstr "Γωνιακοί σύνδεσμοι"
 
-#: pmd_general.php:87
+#: pmd_general.php:101
 msgid "Direct links"
 msgstr "Άμεσοι σύνδεσμοι"
 
-#: pmd_general.php:91
+#: pmd_general.php:105
 msgid "Snap to grid"
 msgstr "Συγκράτηση στο πλέγμα"
 
-#: pmd_general.php:95
+#: pmd_general.php:109
 msgid "Small/Big All"
 msgstr "Όλα Μικρά/Μεγάλα"
 
-#: pmd_general.php:98
+#: pmd_general.php:112
 msgid "Toggle small/big"
 msgstr "Εναλλαγή μικρά/μεγάλα"
 
-#: pmd_general.php:99
+#: pmd_general.php:113
 msgid "Toggle relation lines"
 msgstr "Εναλλαγή γραμμών συσχέτισης"
 
-#: pmd_general.php:104 pmd_pdf.php:76
+#: pmd_general.php:118 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Εισαγωγή/Εξαγωγή συντεταγμένων για σχέδιο PDF"
 
-#: pmd_general.php:110
+#: pmd_general.php:124
 msgid "Build Query"
 msgstr "Δημιουργία ερωτήματος"
 
-#: pmd_general.php:115
+#: pmd_general.php:129
 msgid "Move Menu"
 msgstr "Μενου μετακίνησης"
 
-#: pmd_general.php:126
+#: pmd_general.php:140
 msgid "Hide/Show all"
 msgstr "Απόκρυψη/Προβολή όλων"
 
-#: pmd_general.php:130
+#: pmd_general.php:144
 msgid "Hide/Show Tables with no relation"
 msgstr "Απόκρυψη/Εμφάνιση Πινάκων χωρίς συσχέτιση"
 
-#: pmd_general.php:147 tbl_change.php:349 tbl_change.php:361
+#: pmd_general.php:161 tbl_change.php:349 tbl_change.php:361
 msgid "Hide"
 msgstr "Απόκρυψη"
 
-#: pmd_general.php:170
+#: pmd_general.php:184
 msgid "Number of tables"
 msgstr "Αριθμός πινάκων"
 
-#: pmd_general.php:412
+#: pmd_general.php:426
 msgid "Delete relation"
 msgstr "Διαγραφή συσχέτισης"
 
-#: pmd_general.php:454 pmd_general.php:513
+#: pmd_general.php:468 pmd_general.php:527
 msgid "Relation operator"
 msgstr "Λειτουργός συσχέτισης"
 
-#: pmd_general.php:464 pmd_general.php:523 pmd_general.php:646
-#: pmd_general.php:763
+#: pmd_general.php:478 pmd_general.php:537 pmd_general.php:660
+#: pmd_general.php:777
 msgid "Except"
 msgstr "Εξαίρεση"
 
-#: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
-#: pmd_general.php:769
+#: pmd_general.php:484 pmd_general.php:543 pmd_general.php:666
+#: pmd_general.php:783
 msgid "subquery"
 msgstr "υποερώτημα"
 
-#: pmd_general.php:474 pmd_general.php:570
+#: pmd_general.php:488 pmd_general.php:584
 msgid "Rename to"
 msgstr "Μετονομασία σε"
 
-#: pmd_general.php:476 pmd_general.php:575
+#: pmd_general.php:490 pmd_general.php:589
 msgid "New name"
 msgstr "Νέο όνομα"
 
-#: pmd_general.php:479 pmd_general.php:694
+#: pmd_general.php:493 pmd_general.php:708
 msgid "Aggregate"
 msgstr "Άθροιση"
 
-#: pmd_general.php:804
+#: pmd_general.php:818
 msgid "Active options"
 msgstr "Ενεργές επιλογές"
 
@@ -8789,8 +8798,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Μπορείτε να ορίσετε περισσότερες ρυθμίσεις αλλάζοντας το αρχείο "
-"config.inc.php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
+"Μπορείτε να ορίσετε περισσότερες ρυθμίσεις αλλάζοντας το αρχείο config.inc."
+"php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
@@ -8831,17 +8840,17 @@ msgstr "Το αρχείο δεν υπάρχει"
 msgid "Select binary log to view"
 msgstr "Επιλέξτε δυαδικό αρχείο καταγραφής για προβολή"
 
-#: server_binlog.php:103 server_status.php:601
+#: server_binlog.php:103 server_status.php:593
 msgid "Files"
 msgstr "Αρχεία"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1248
-#: server_status.php:1250
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1240
+#: server_status.php:1242
 msgid "Truncate Shown Queries"
 msgstr "Αποκοπή εμφανιζόμενων ερωτημάτων"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1248
-#: server_status.php:1250
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1240
+#: server_status.php:1242
 msgid "Show Full Queries"
 msgstr "Πλήρης εμφάνιση ερωτημάτων"
 
@@ -8861,7 +8870,7 @@ msgstr "Αρχική θέση"
 msgid "Information"
 msgstr "Πληροφορία"
 
-#: server_collations.php:39
+#: server_collations.php:32
 msgid "Character Sets and Collations"
 msgstr "Σύνολα και Συνθέσεις Χαρακτήρων"
 
@@ -8871,7 +8880,6 @@ msgstr "Δεν έχετε επιλέξει βάσεις δεδομένων."
 
 #: server_databases.php:99
 #, php-format
-#| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d βάση δεδομένων διεγράφηκε επιτυχώς."
@@ -8902,7 +8910,7 @@ msgstr ""
 "Σημείωση: Η ενεργοποίηση στατιστικών μπορεί να προκαλέσει μεγάλη μεταφορά "
 "δεδομένων μεταξύ του διακομιστή ιστού και του διακομιστή MySQL."
 
-#: server_engines.php:45
+#: server_engines.php:37
 msgid "Storage Engines"
 msgstr "Μηχανές αποθήκευσης"
 
@@ -8910,39 +8918,39 @@ msgstr "Μηχανές αποθήκευσης"
 msgid "View dump (schema) of databases"
 msgstr "Εμφάνισης σκαριφήματος (σχήματος) βάσεων δεδομένων"
 
-#: server_plugins.php:81
+#: server_plugins.php:73
 msgid "Modules"
 msgstr "Πρότυπα"
 
-#: server_plugins.php:102
+#: server_plugins.php:94
 msgid "Begin"
 msgstr "Αρχή"
 
-#: server_plugins.php:111
+#: server_plugins.php:103
 msgid "Plugin"
 msgstr "Πρόσθετο"
 
-#: server_plugins.php:112 server_plugins.php:146
+#: server_plugins.php:104 server_plugins.php:138
 msgid "Module"
 msgstr "Πρότυπο"
 
-#: server_plugins.php:113 server_plugins.php:148
+#: server_plugins.php:105 server_plugins.php:140
 msgid "Library"
 msgstr "Βιβλιοθήκη"
 
-#: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:662
+#: server_plugins.php:106 server_plugins.php:141 tbl_tracking.php:662
 msgid "Version"
 msgstr "Έκδοση"
 
-#: server_plugins.php:115 server_plugins.php:150
+#: server_plugins.php:107 server_plugins.php:142
 msgid "Author"
 msgstr "Δημιουργός"
 
-#: server_plugins.php:116 server_plugins.php:151
+#: server_plugins.php:108 server_plugins.php:143
 msgid "License"
 msgstr "Άδεια"
 
-#: server_plugins.php:182
+#: server_plugins.php:174
 msgid "disabled"
 msgstr "Απενεργοποιημένο"
 
@@ -9068,8 +9076,7 @@ msgstr ""
 #: server_privileges.php:803
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
-"Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο "
-"χρήστης."
+"Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο χρήστης."
 
 #: server_privileges.php:114 server_privileges.php:286
 #: server_privileges.php:726
@@ -9151,7 +9158,7 @@ msgid "None"
 msgstr "Κανένα"
 
 #: server_privileges.php:603 server_privileges.php:748
-#: server_privileges.php:2035 server_privileges.php:2041
+#: server_privileges.php:2034 server_privileges.php:2040
 msgid "Table-specific privileges"
 msgstr "Δικαιώματα πινάκων"
 
@@ -9168,7 +9175,7 @@ msgstr "Διαχείριση"
 msgid "Global privileges"
 msgstr "Γενικά δικαιώματα"
 
-#: server_privileges.php:747 server_privileges.php:2035
+#: server_privileges.php:747 server_privileges.php:2034
 msgid "Database-specific privileges"
 msgstr "Δικαιώματα βάσης δεδομένων"
 
@@ -9179,8 +9186,7 @@ msgstr "Όρια πόρων"
 #: server_privileges.php:780
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
-"Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο "
-"περιορισμός."
+"Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός."
 
 #: server_privileges.php:858
 msgid "Login Information"
@@ -9190,7 +9196,7 @@ msgstr "Πληροφορίες Σύνδεσης"
 msgid "Do not change the password"
 msgstr "Διατήρηση κωδικού πρόσβασης"
 
-#: server_privileges.php:1007 server_privileges.php:2527
+#: server_privileges.php:1007 server_privileges.php:2526
 msgid "No user found."
 msgstr "Δεν βρέθηκαν χρήστες."
 
@@ -9239,7 +9245,7 @@ msgstr "Οι επιλεγμένοι χρήστες διεγράφησαν επι
 msgid "The privileges were reloaded successfully."
 msgstr "Τα δικαιώματα επαναφορτώθηκαν επιτυχώς."
 
-#: server_privileges.php:1518 server_privileges.php:1964
+#: server_privileges.php:1518 server_privileges.php:1963
 msgid "Edit Privileges"
 msgstr "Επεξεργασία Δικαιωμάτων"
 
@@ -9248,23 +9254,20 @@ msgid "Revoke"
 msgstr "Ανάκληση"
 
 #: server_privileges.php:1543
-#| msgid "Export"
 msgid "Export all"
 msgstr "Εξαγωγή όλων"
 
 #: server_privileges.php:1562 server_privileges.php:1844
-#: server_privileges.php:2477
+#: server_privileges.php:2476
 msgid "Any"
 msgstr "Οποιοδήποτε"
 
 #: server_privileges.php:1642
-#| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "Δικαιώματα για όλους του χρήστες"
 
 #: server_privileges.php:1654
 #, php-format
-#| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Δικαιώματα για %s"
 
@@ -9272,32 +9275,32 @@ msgstr "Δικαιώματα για %s"
 msgid "Users overview"
 msgstr "Επισκόπηση χρηστών"
 
-#: server_privileges.php:1822 server_privileges.php:2040
-#: server_privileges.php:2388
+#: server_privileges.php:1822 server_privileges.php:2039
+#: server_privileges.php:2387
 msgid "Grant"
 msgstr "Χορήγηση"
 
-#: server_privileges.php:1919
+#: server_privileges.php:1918
 msgid "Remove selected users"
 msgstr "Διαγραφή των επιλεγμένων χρηστών"
 
-#: server_privileges.php:1922
+#: server_privileges.php:1921
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Ανάκληση όλων των ενεργών δικαιώματα από τους χρήστες και διαγραφή τους."
 
-#: server_privileges.php:1923 server_privileges.php:1924
-#: server_privileges.php:1925
+#: server_privileges.php:1922 server_privileges.php:1923
+#: server_privileges.php:1924
 msgid "Drop the databases that have the same names as the users."
 msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδια ονόματα με χρήστες."
 
-#: server_privileges.php:1946
+#: server_privileges.php:1945
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -9305,50 +9308,50 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, θα πρέπει να %sεπαναφορτώσετε "
 "τα δικαιώματα%s πριν συνεχίσετε."
 
-#: server_privileges.php:1999
+#: server_privileges.php:1998
 msgid "The selected user was not found in the privilege table."
 msgstr "Ο επιλεγμένος χρήστης δεν βρέθηκε στον πίνακα δικαιωμάτων."
 
-#: server_privileges.php:2041
+#: server_privileges.php:2040
 msgid "Column-specific privileges"
 msgstr "Δικαιώματα πεδίων"
 
-#: server_privileges.php:2247
+#: server_privileges.php:2246
 msgid "Add privileges on the following database"
 msgstr "Προσθήκη δικαιωμάτων στην ακόλουθη βάση δεδομένων"
 
-#: server_privileges.php:2265
+#: server_privileges.php:2264
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Οι χαρακτήρες μπαλαντέρ _ και % πρέπει να γραφούν μπροστά με \\ για να "
 "χρησιμοποιηθούν"
 
-#: server_privileges.php:2268
+#: server_privileges.php:2267
 msgid "Add privileges on the following table"
 msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακα"
 
-#: server_privileges.php:2325
+#: server_privileges.php:2324
 msgid "Change Login Information / Copy User"
 msgstr "Αλλαγή Στοιχείων Πρόσβασης / Αντιγραφή Χρήστη"
 
-#: server_privileges.php:2328
+#: server_privileges.php:2327
 msgid "Create a new user with the same privileges and ..."
 msgstr "Δημιουργία νέου χρήστη με τα ίδια δικαιώματα και ..."
 
-#: server_privileges.php:2330
+#: server_privileges.php:2329
 msgid "... keep the old one."
 msgstr "... διατήρηση του παλιού χρήστη."
 
-#: server_privileges.php:2331
+#: server_privileges.php:2330
 msgid "... delete the old one from the user tables."
 msgstr "... διαγραφή του παλιού χρήστη από τους πίνακες χρηστών."
 
-#: server_privileges.php:2332
+#: server_privileges.php:2331
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr "... ανάκληση των δικαιωμάτων του παλιού χρήστη και διαγραφή του."
 
-#: server_privileges.php:2333
+#: server_privileges.php:2332
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -9356,42 +9359,42 @@ msgstr ""
 "... διαγραφή του παλιού χρήστη από τους πίνακες χρηστών και επαναφόρτωση των "
 "δικαιωμάτων."
 
-#: server_privileges.php:2356
+#: server_privileges.php:2355
 msgid "Database for user"
 msgstr "Βάση δεδομένων για χρήστη"
 
-#: server_privileges.php:2358
+#: server_privileges.php:2357
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 "Δημιουργία βάσης δεδομένων με το ίδιο όνομα και με πλήρη δικαιώματα χρήσης"
 
-#: server_privileges.php:2360
+#: server_privileges.php:2359
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Πλήρη δικαιώματα σε όνομα μπαλαντέρ (username\\_%)"
 
-#: server_privileges.php:2364
+#: server_privileges.php:2363
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Πλήρη δικαιώματα στη βάση δεδομένων «%s»"
 
-#: server_privileges.php:2380
+#: server_privileges.php:2379
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Χρήστες με πρόσβαση στη βάση «%s»"
 
-#: server_privileges.php:2489
+#: server_privileges.php:2488
 msgid "global"
 msgstr "γενικός"
 
-#: server_privileges.php:2491
+#: server_privileges.php:2490
 msgid "database-specific"
 msgstr "σχετιζόμενος με βάση δεδομένων"
 
-#: server_privileges.php:2493
+#: server_privileges.php:2492
 msgid "wildcard"
 msgstr "μπαλαντέρ"
 
-#: server_privileges.php:2536
+#: server_privileges.php:2535
 msgid "User has been added."
 msgstr "Ο χρήστης προστέθηκε."
 
@@ -9426,7 +9429,7 @@ msgstr ""
 "Αυτός ο διακομιστής έχει ρυθμιστεί ως πρωτεύων σε μια αναπαραγωγική "
 "διαδικασία."
 
-#: server_replication.php:212 server_status.php:622
+#: server_replication.php:212 server_status.php:614
 msgid "Show master status"
 msgstr "Προβολή κατάστασης πρωτεύοντος"
 
@@ -9578,12 +9581,12 @@ msgstr ""
 "Αυτός ο διακομιστής δεν ρυθμίστηκε ως δευτερεύων σε μια διαδικασία "
 "αναπαραγωγής. Θέλετε να τον <a href=\"%s\">ρυθμίσετε</a>;"
 
-#: server_status.php:455
+#: server_status.php:447
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Η λειτουργία %s διεκόπη."
 
-#: server_status.php:457
+#: server_status.php:449
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -9591,115 +9594,115 @@ msgstr ""
 "Το phpMyAdmin δεν μπόρεσε να διακόψει τη λειτουργία %s. Μπορεί να έχει ήδη "
 "σταματήσει."
 
-#: server_status.php:589
+#: server_status.php:581
 msgid "Handler"
 msgstr "Χειριστής"
 
-#: server_status.php:590
+#: server_status.php:582
 msgid "Query cache"
 msgstr "Λανθάνουσα μνήμη ερωτήματος"
 
-#: server_status.php:591
+#: server_status.php:583
 msgid "Threads"
 msgstr "Διεργασίες"
 
-#: server_status.php:593
+#: server_status.php:585
 msgid "Temporary data"
 msgstr "Προσωρινά δεδομένα"
 
-#: server_status.php:594
+#: server_status.php:586
 msgid "Delayed inserts"
 msgstr "Καθυστερημένες εισαγωγές"
 
-#: server_status.php:595
+#: server_status.php:587
 msgid "Key cache"
 msgstr "Λανθάνουσα μνήμη κλειδιού"
 
-#: server_status.php:596
+#: server_status.php:588
 msgid "Joins"
 msgstr "Ενώσεις"
 
-#: server_status.php:598
+#: server_status.php:590
 msgid "Sorting"
 msgstr "Ταξινόμηση"
 
-#: server_status.php:600
+#: server_status.php:592
 msgid "Transaction coordinator"
 msgstr "Συντονιστής κινήσεων"
 
-#: server_status.php:612
+#: server_status.php:604
 msgid "Flush (close) all tables"
 msgstr "Εκκαθάριση (κλείσιμο) όλων των πινάκων"
 
-#: server_status.php:614
+#: server_status.php:606
 msgid "Show open tables"
 msgstr "Εμφάνιση ανοιχτών πινάκων"
 
-#: server_status.php:619
+#: server_status.php:611
 msgid "Show slave hosts"
 msgstr "Εμφάνιση δευτερευόντων διακομιστών"
 
-#: server_status.php:625
+#: server_status.php:617
 msgid "Show slave status"
 msgstr "Εμφάνιση κατάστασης δευτερεύοντος"
 
-#: server_status.php:630
+#: server_status.php:622
 msgid "Flush query cache"
 msgstr "Εκκαθάριση λανθάνουσας μνήμης ερωτημάτων"
 
-#: server_status.php:779
+#: server_status.php:771
 msgid "Runtime Information"
 msgstr "Πληροφορίες εκτέλεσης"
 
-#: server_status.php:786
+#: server_status.php:778
 msgid "All status variables"
 msgstr "Όλες οι μεταβλητές κατάστασης"
 
-#: server_status.php:787
+#: server_status.php:779
 msgid "Monitor"
 msgstr "Εποπτεία"
 
-#: server_status.php:788
+#: server_status.php:780
 msgid "Advisor"
 msgstr "Σύμβουλος"
 
-#: server_status.php:798 server_status.php:820
+#: server_status.php:790 server_status.php:812
 msgid "Refresh rate: "
 msgstr "Ρυθμός ανανέωσης: "
 
-#: server_status.php:833 server_variables.php:115
+#: server_status.php:825 server_variables.php:108
 msgid "Filters"
 msgstr "Φίλτρα"
 
-#: server_status.php:841 server_variables.php:117
+#: server_status.php:833 server_variables.php:110
 msgid "Containing the word:"
 msgstr "Να περιλαμβάνει τη λέξη:"
 
-#: server_status.php:846
+#: server_status.php:838
 msgid "Show only alert values"
 msgstr "Εμφάνιση μόνο τιμών ειδοποίησης"
 
-#: server_status.php:850
+#: server_status.php:842
 msgid "Filter by category..."
 msgstr "Φιλτράρισμα ανά κατηγορία..."
 
-#: server_status.php:864
+#: server_status.php:856
 msgid "Show unformatted values"
 msgstr "Εμφάνιση μη διαμορφομένων τιμών"
 
-#: server_status.php:868
+#: server_status.php:860
 msgid "Related links:"
 msgstr "Σχετικοί σύνδεσμοι:"
 
-#: server_status.php:901
+#: server_status.php:893
 msgid "Run analyzer"
 msgstr "Αναλυτής εκτέλεσης"
 
-#: server_status.php:902
+#: server_status.php:894
 msgid "Instructions"
 msgstr "Οδηγίες"
 
-#: server_status.php:909
+#: server_status.php:901
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
@@ -9707,7 +9710,7 @@ msgstr ""
 "Το σύστημα Συμβούλου μπορεί να παρέχει προτάσεις για μεταβλητές διακομιστή "
 "αναλύοντας τις μεταβλητές κατάστασης διακομιστή."
 
-#: server_status.php:911
+#: server_status.php:903
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
@@ -9716,7 +9719,7 @@ msgstr ""
 "Σημειώστε ότι αυτό το σύστημα παρέχει προτάσεις βάσει σε απλούς υπολογισμούς "
 "και βασικούς κανόνες που μπορεί να μην εφαρμόζονται στο σύστημά σας."
 
-#: server_status.php:913
+#: server_status.php:905
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
@@ -9726,7 +9729,7 @@ msgstr ""
 "τεημνρίωση) και πως να αναιρέσετε την αλλαγή. Εσφαλμένη ρύθμιση ίσως έχει "
 "σοβαρή επίδραση στην απόδοση."
 
-#: server_status.php:915
+#: server_status.php:907
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
@@ -9737,31 +9740,31 @@ msgstr ""
 "αν δεν υπήρχε ουσιαστική βελτίωση."
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:937
+#: server_status.php:929
 #, php-format
 msgid "Questions since startup: %s"
 msgstr "Ερωτήσεις από την εκκίνηση: %s"
 
-#: server_status.php:973 tbl_printview.php:328 tbl_structure.php:833
+#: server_status.php:965 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
 msgstr "Δηλώσεις"
 
 #. l10n: # = Amount of queries
-#: server_status.php:976
+#: server_status.php:968
 msgid "#"
 msgstr "#"
 
-#: server_status.php:1049
+#: server_status.php:1041
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "Κυκλοφορία δικτύου από την εκκίνηση: %s"
 
-#: server_status.php:1058
+#: server_status.php:1050
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Αυτός ο διακομιστής MySQL λειτουργεί για %1$s. Ξεκίνησε στις %2$s."
 
-#: server_status.php:1069
+#: server_status.php:1061
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -9769,19 +9772,19 @@ msgstr ""
 "Αυτός ο διακομιστής λειτουργεί ως <b>πρωτεύων</b> και <b>δευτερεύων</b> σε "
 "μια <b>αναπαραγωγική</b> διαδικασία."
 
-#: server_status.php:1071
+#: server_status.php:1063
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Αυτός ο διακομιστής λειτουργεί ως <b>πρωτεύων</b> σε μια "
-"<b>αναπαραγωγική</b> διαδικασία."
+"Αυτός ο διακομιστής λειτουργεί ως <b>πρωτεύων</b> σε μια <b>αναπαραγωγική</"
+"b> διαδικασία."
 
-#: server_status.php:1073
+#: server_status.php:1065
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Αυτός ο διακομιστής έχει ρυθμιστεί ως <b>πρωτεύων</b> σε μια "
 "<b>αναπαραγωγική</b> διαδικασία."
 
-#: server_status.php:1076
+#: server_status.php:1068
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -9789,11 +9792,11 @@ msgstr ""
 "Για περισσότερες πληροφορίες για την κατάσταση αναπαραγωγής στο διακομιστή, "
 "επισκεφτείτε τον <a href=\"#replication\">τομέα αναπαραγωγής</a>."
 
-#: server_status.php:1085
+#: server_status.php:1077
 msgid "Replication status"
 msgstr "Κατάσταση αναπαραγωγής"
 
-#: server_status.php:1100
+#: server_status.php:1092
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9802,35 +9805,35 @@ msgstr ""
 "έτσι αυτές οι στατιστικές όπως αναφέρονται από τον διακομιστή μπορεί να "
 "είναι εσφαλμένες."
 
-#: server_status.php:1106
+#: server_status.php:1098
 msgid "Received"
 msgstr "Ελήφθησαν"
 
-#: server_status.php:1116
+#: server_status.php:1108
 msgid "Sent"
 msgstr "Εστάλησαν"
 
-#: server_status.php:1152
+#: server_status.php:1144
 msgid "max. concurrent connections"
 msgstr "μέγιστος αριθμός ταυτόχρονων συνδέσεων"
 
-#: server_status.php:1159
+#: server_status.php:1151
 msgid "Failed attempts"
 msgstr "Αποτυχημένες προσπάθειες"
 
-#: server_status.php:1173
+#: server_status.php:1165
 msgid "Aborted"
 msgstr "Ακυρωμένες συνδέσεις"
 
-#: server_status.php:1236
+#: server_status.php:1228
 msgid "ID"
 msgstr "Κωδικός"
 
-#: server_status.php:1240
+#: server_status.php:1232
 msgid "Command"
 msgstr "Εντολή"
 
-#: server_status.php:1302
+#: server_status.php:1294
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -9838,12 +9841,12 @@ msgstr ""
 "Ο αριθμός των συνδέσεων που διακόπηκαν επειδή ο πελάτης παρετήθηκε χωρίς να "
 "κλείσει σωστά τη σύνδεση."
 
-#: server_status.php:1303
+#: server_status.php:1295
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr ""
 "Ο αριθμός των αποτυχημένων προσπαθειών για σύνδεση στο διακομιστή MySQL."
 
-#: server_status.php:1304
+#: server_status.php:1296
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9853,20 +9856,20 @@ msgstr ""
 "μνήμη καταγραφής που υπερβαίνει την τιμή binlog_cache_size και χρησιμοποιούν "
 "ένα προσωρινό αρχείο για αποθήκευση δηλώσεων από τη συναλλαγή."
 
-#: server_status.php:1305
+#: server_status.php:1297
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Ο αριθμός των συναλλαγών που χρησιμοποίησαν την προσωρινή δυαδική λανθάνουσα "
 "μνήμη καταγραφής."
 
-#: server_status.php:1306
+#: server_status.php:1298
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 "Ο αριθμός των προσπαθειών για σύνδεση (επιτυχημένων ή όχι) στο διακομιστή "
 "MySQL."
 
-#: server_status.php:1307
+#: server_status.php:1299
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9878,11 +9881,11 @@ msgstr ""
 "είναι μεγάλο, ίσως θέλετε να αυξήσετε την τιμή  tmp_table_size ώστε οι "
 "προσωρινοί πίνακες να είναι στη μνήμη και όχι στο δίσκο."
 
-#: server_status.php:1308
+#: server_status.php:1300
 msgid "How many temporary files mysqld has created."
 msgstr "Πόσα προσωρινά αρχεία δημιούργησε το mysqld."
 
-#: server_status.php:1309
+#: server_status.php:1301
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -9890,7 +9893,7 @@ msgstr ""
 "Ο αριθμός των προσωρινών πινάκων στη μνήμη που δημιουργήθηκαν αυτόματα από "
 "τον διακομιστή κατά την εκτέλεσε δηλώσεων."
 
-#: server_status.php:1310
+#: server_status.php:1302
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9898,7 +9901,7 @@ msgstr ""
 "Ο αριθμός των εγεγγραμμένων γραμμών με την εντολή INSERT DELAYED για τις "
 "οποίες υπήρξε κάποιο σφάλμα (πιθανόν διπλό κλειδί)."
 
-#: server_status.php:1311
+#: server_status.php:1303
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -9907,23 +9910,23 @@ msgstr ""
 "διαφορετικός πίνακας στον οποίο κάποιος χρησιμοποιεί την εντολή INSERT "
 "DELAYED χρησιμοποιεί της δική του διεργασία."
 
-#: server_status.php:1312
+#: server_status.php:1304
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Ο αριθμός των INSERT DELAYED γραμμών που εγγράφτηκαν."
 
-#: server_status.php:1313
+#: server_status.php:1305
 msgid "The number of executed FLUSH statements."
 msgstr "Ο αριθμός των εκτελεσθέντων δηλώσεων FLUSH."
 
-#: server_status.php:1314
+#: server_status.php:1306
 msgid "The number of internal COMMIT statements."
 msgstr "Ο αριθμός των εσωτερικών δηλώσεων COMMIT."
 
-#: server_status.php:1315
+#: server_status.php:1307
 msgid "The number of times a row was deleted from a table."
 msgstr "Οι φορές που διαγράφτηκε μια γραμμή από έναν πίνακα."
 
-#: server_status.php:1316
+#: server_status.php:1308
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -9934,7 +9937,7 @@ msgstr ""
 "ανακάλυψη. Το Handler_discover δείχνει τον αριθμό των πινάκων χρόνου που "
 "βρέθηκαν."
 
-#: server_status.php:1317
+#: server_status.php:1309
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -9945,7 +9948,7 @@ msgstr ""
 "ευρετηρίου. Παράδειγμα: SELECT col1 FROM foo, υποθέτοντας ότι το col1 έχει "
 "ευρετήριο."
 
-#: server_status.php:1318
+#: server_status.php:1310
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -9954,7 +9957,7 @@ msgstr ""
 "είναι υψηλός, είναι ένας καλός δείκτης ότι τα ερωτήματά σας και οι πίνακές "
 "σας έχουν κάνει σωστά ευρετήρια."
 
-#: server_status.php:1319
+#: server_status.php:1311
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9964,7 +9967,7 @@ msgstr ""
 "κλειδιού. Αυτό αυξάνετε αν κάνετε ερώτημα σε μια στήλη ευρετηρίου με ένα "
 "περιορισμό ευρετηρίου ή αν κάνετε μια σάρωση ευρετηρίου."
 
-#: server_status.php:1320
+#: server_status.php:1312
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9973,7 +9976,7 @@ msgstr ""
 "η μέθοδος ανάγνωσης χρησιμοποιείτε κυρίως για βελτιστοποίηση της εντολής "
 "ORDER BY ... DESC."
 
-#: server_status.php:1321
+#: server_status.php:1313
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9986,7 +9989,7 @@ msgstr ""
 "σαρώνει ολόκληρους πίνακες ή έχετε ενώσεις που δεν χρησιμοποιούν σωστά τα "
 "κλειδιά."
 
-#: server_status.php:1322
+#: server_status.php:1314
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9998,37 +10001,37 @@ msgstr ""
 "ότι οι πίνακες σας δεν έχουν σωστά ευρετήρια ή ότι τα ερωτήματά σας δεν "
 "έχουν γραφτεί ώστε να λαμβάνουν υπόψη τα ευρετήρια που έχετε."
 
-#: server_status.php:1323
+#: server_status.php:1315
 msgid "The number of internal ROLLBACK statements."
 msgstr "Ο αριθμός των εσωτερικών δηλώσεων ROLLBACK."
 
-#: server_status.php:1324
+#: server_status.php:1316
 msgid "The number of requests to update a row in a table."
 msgstr "Ο αριθμός των αιτήσεων για ενημέρωση μιας γραμμής σε έναν πίνακα."
 
-#: server_status.php:1325
+#: server_status.php:1317
 msgid "The number of requests to insert a row in a table."
 msgstr "Ο αριθμός των αιτήσεων για εισαγωγή μιας γραμμής σε έναν πίνακα."
 
-#: server_status.php:1326
+#: server_status.php:1318
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Ο αριθμός των σελίδων που περιέχουν δεδομένα (καθαρά και μη)."
 
-#: server_status.php:1327
+#: server_status.php:1319
 msgid "The number of pages currently dirty."
 msgstr "Ο αριθμός των μη καθαρώ σελίδων."
 
-#: server_status.php:1328
+#: server_status.php:1320
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 "Ο αριθμός των σελίδων του buffer pool για τις οποίες υπήρξε αίτηση για "
 "εκκαθάριση."
 
-#: server_status.php:1329
+#: server_status.php:1321
 msgid "The number of free pages."
 msgstr "Ο αριθμός των ελεύθερων σελίδων."
 
-#: server_status.php:1330
+#: server_status.php:1322
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -10038,7 +10041,7 @@ msgstr ""
 "σελίδες που έχουν ήδη αναγνωστεί ή εγγραφεί ή που δεν μπορούν να "
 "εκκαθαριστούν ή απομακρυνθούν για κάποιο άλλο λόγο."
 
-#: server_status.php:1331
+#: server_status.php:1323
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -10046,15 +10049,15 @@ msgid ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 "Ο αριθμός των απασχολούμενων σελίδων γιατί έχουν δεσμευτεί για διαχειριστική "
-"υπερκεφαλή όπως κλειδώματα γραμμής ή το υιοθετημένο ευρετήριο μνήμης. Αυτή "
-"η τιμή μπορεί να υπολογιστεί ως Innodb_buffer_pool_pages_total - "
+"υπερκεφαλή όπως κλειδώματα γραμμής ή το υιοθετημένο ευρετήριο μνήμης. Αυτή η "
+"τιμή μπορεί να υπολογιστεί ως Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: server_status.php:1332
+#: server_status.php:1324
 msgid "Total size of buffer pool, in pages."
 msgstr "Συνολικό μέγεθος του buffer pool, σε σελίδες."
 
-#: server_status.php:1333
+#: server_status.php:1325
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -10063,7 +10066,7 @@ msgstr ""
 "συμβαίνει όταν ένα ερώτημα πρόκειται να σαρώσει ένα μεγάλο τμήμα πίνακα αλλά "
 "με τυχαία σειρά."
 
-#: server_status.php:1334
+#: server_status.php:1326
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -10071,11 +10074,11 @@ msgstr ""
 "Ο αριθμός των διαδοχικών αναγνώσεων κεφαλίδων της InnoDB που ξεκίνησαν. Αυτό "
 "συμβείναι όταν η InnoDB εκτελεί μια διαδοχική πλήρη σάρωση πίνακα."
 
-#: server_status.php:1335
+#: server_status.php:1327
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Ο αριθμός των λογικών αιτήσεων ανάγνωσης που έκαν η InnoDB."
 
-#: server_status.php:1336
+#: server_status.php:1328
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -10083,7 +10086,7 @@ msgstr ""
 "Ο αριθμός των λογικών αναγνώσεων που η InnoDB δεν μπόρεσε να ικανοποιήσει "
 "από το buffer pool και έπρεπε να κάνει ανάγνωση μονής σελίδας."
 
-#: server_status.php:1337
+#: server_status.php:1329
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -10098,55 +10101,55 @@ msgstr ""
 "αναμονών. Αν το μέγεθος του buffer pool έχει οριστεί σωστά, αυτή η τιμή "
 "πρέπει να είναι μικρή."
 
-#: server_status.php:1338
+#: server_status.php:1330
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Ο αριθμός των εγγραφών που έγιναν στο buffer pool της InnoDB."
 
-#: server_status.php:1339
+#: server_status.php:1331
 msgid "The number of fsync() operations so far."
 msgstr "Ο αριθμός των λειτουργιών του fsync() μέχρι στιγμής."
 
-#: server_status.php:1340
+#: server_status.php:1332
 msgid "The current number of pending fsync() operations."
 msgstr "Ο τρέχων αριθμός των εκκρεμών λειτουργιών του fsync()."
 
-#: server_status.php:1341
+#: server_status.php:1333
 msgid "The current number of pending reads."
 msgstr "Ο τρέχων αριθμός των εκκρεμών αναγνώσεων."
 
-#: server_status.php:1342
+#: server_status.php:1334
 msgid "The current number of pending writes."
 msgstr "Ο τρέχων αριθμός των εκκρεμών εγγραφών."
 
-#: server_status.php:1343
+#: server_status.php:1335
 msgid "The amount of data read so far, in bytes."
 msgstr "Το πλήθος των δεδομένων που αναγνώστηκε μέχρι στιγμής σε bytes."
 
-#: server_status.php:1344
+#: server_status.php:1336
 msgid "The total number of data reads."
 msgstr "Ο συνολικός αριθμός των αναγνώσεων δεδομένων."
 
-#: server_status.php:1345
+#: server_status.php:1337
 msgid "The total number of data writes."
 msgstr "Ο συνολικός αριθμός των εγγραφών δεδομένων."
 
-#: server_status.php:1346
+#: server_status.php:1338
 msgid "The amount of data written so far, in bytes."
 msgstr "Το πλήθος των εγεγγραμμένων δεδομένων μέχρι στιγμής, σε bytes."
 
-#: server_status.php:1347
+#: server_status.php:1339
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Ο αριθμός των εγγραφών διπλοεγγραφής που έγιναν και ο αριθμός των σελίδων "
 "που γράφτηκαν για αυτό το σκοπό."
 
-#: server_status.php:1348
+#: server_status.php:1340
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Ο αριθμός των εγγραφών διπλοεγγραφής που έγιναν και ο αριθμός των σελίδων "
 "που γράφτηκαν για αυτό το σκοπό."
 
-#: server_status.php:1349
+#: server_status.php:1341
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -10154,35 +10157,36 @@ msgstr ""
 "Ο αριθμός των αναμονών που έγιναν εξαιτίας του μικρού μεγέθος του buffer "
 "καταγραφής και έπρεπε να αναμένεται να εκκαθαριστεί πριν συνεχίσει."
 
-#: server_status.php:1350
+#: server_status.php:1342
 msgid "The number of log write requests."
 msgstr "Ο αριθμός των αιτήσεων εγγραφής καταγραφής."
 
-#: server_status.php:1351
+#: server_status.php:1343
 msgid "The number of physical writes to the log file."
 msgstr "Ο αριθμός των φυσικών εγγραφών στο αρχείο καταγραφής."
 
-#: server_status.php:1352
+#: server_status.php:1344
 msgid "The number of fsync() writes done to the log file."
-msgstr "Ο αριθμός των εγγραφών fsync() που ολοκληρώθηκαν στο αρχείο καταγραφής."
+msgstr ""
+"Ο αριθμός των εγγραφών fsync() που ολοκληρώθηκαν στο αρχείο καταγραφής."
 
-#: server_status.php:1353
+#: server_status.php:1345
 msgid "The number of pending log file fsyncs."
 msgstr "Ο αριθμός των εκκρεμών fsyncs στο αρχείο καταγραφής."
 
-#: server_status.php:1354
+#: server_status.php:1346
 msgid "Pending log file writes."
 msgstr "Εκκρεμείς εγγραφές αρχείου καταγραφής."
 
-#: server_status.php:1355
+#: server_status.php:1347
 msgid "The number of bytes written to the log file."
 msgstr "Ο αριθμός των εγεγγραμμένων bytes στο αρχείο καταγραφής."
 
-#: server_status.php:1356
+#: server_status.php:1348
 msgid "The number of pages created."
 msgstr "Ο αριθμός των δημιουργηθέντων σελίδων."
 
-#: server_status.php:1357
+#: server_status.php:1349
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -10191,56 +10195,55 @@ msgstr ""
 "υπολογίζονται σε σελίδες. Το μέγεθος της σελίδας επιτρέπει την εύκολη "
 "μετατροπή σε bytes."
 
-#: server_status.php:1358
+#: server_status.php:1350
 msgid "The number of pages read."
 msgstr "Ο αριθμός των αναγνωσμένων σελίδων."
 
-#: server_status.php:1359
+#: server_status.php:1351
 msgid "The number of pages written."
 msgstr "Ο αριθμός των εγεγγραμμένων σελίδων."
 
-#: server_status.php:1360
+#: server_status.php:1352
 msgid "The number of row locks currently being waited for."
 msgstr "Ο αριθμός των κλειδωμάτων γραμμής που είναι τώρα σε αναμονή."
 
-#: server_status.php:1361
+#: server_status.php:1353
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 "Ο μέσος χρόνος απόκτησης ενός κλειδώματος γραμμής σε χιλιοστοδευτερόλεπτα."
 
-#: server_status.php:1362
+#: server_status.php:1354
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 "Ο συνολικός απαιτούμενος χρόνος απόκτησης κλειδώματος γραμμής σε "
 "χιλιοστοδευτερόλεπτα."
 
-#: server_status.php:1363
+#: server_status.php:1355
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
-"Ο μέγιστος χρόνος απόκτησης ενός κλειδώματος γραμμής σε "
-"χιλιοστοδευτερόλεπτα."
+"Ο μέγιστος χρόνος απόκτησης ενός κλειδώματος γραμμής σε χιλιοστοδευτερόλεπτα."
 
-#: server_status.php:1364
+#: server_status.php:1356
 msgid "The number of times a row lock had to be waited for."
 msgstr "Οι φορές που πρέπει να αναμένεται ένα κλείδωμα γραμμής."
 
-#: server_status.php:1365
+#: server_status.php:1357
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Ο αριθμός των διαγραμμένων γραμμών από πίνακες InnoDB."
 
-#: server_status.php:1366
+#: server_status.php:1358
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Ο αριθμός των εισαχθέντων γραμμών σε πίνακες InnoDB."
 
-#: server_status.php:1367
+#: server_status.php:1359
 msgid "The number of rows read from InnoDB tables."
 msgstr "Ο αριθμός των αναγνωσμένων γραμμών από πίνακες InnoDB."
 
-#: server_status.php:1368
+#: server_status.php:1360
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Ο αριθμός των ενημερωμένων γραμμών σε πίνακες InnoDB."
 
-#: server_status.php:1369
+#: server_status.php:1361
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -10249,7 +10252,7 @@ msgstr ""
 "αλλά δεν έχει ακόμα εκκαθαριστεί στο δίσκο. Ήταν γνωστός ως "
 "Not_flushed_key_blocks."
 
-#: server_status.php:1370
+#: server_status.php:1362
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -10258,7 +10261,7 @@ msgstr ""
 "Μπορείτε να χρησιμοποιήσετε αυτή τη τιμή για να προσδιορίσετε πόση "
 "λανθάνουσα μνήμη κλειδιού χρησιμοποιείται."
 
-#: server_status.php:1371
+#: server_status.php:1363
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -10268,19 +10271,17 @@ msgstr ""
 "τιμή είναι ένα έντονο σημάδι που δείχνει τον μέγιστο αριθμό μπλοκς που είναι "
 "σε χρήση με μια φορά."
 
-#: server_status.php:1372
-#| msgid "Percentage of used open files limit"
+#: server_status.php:1364
 msgid "Percentage of used key cache (calculated value)"
 msgstr ""
 "Ποσοστό της χρησιμοποιημένης λανθάνουσας μνήμης κλειδιού (υπολογισμένη τιμή)"
 
-#: server_status.php:1373
+#: server_status.php:1365
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
-"Ο αριθμός των αιτήσεων ανάγνωσης ενός μπλοκ κλειδιού από τη λανθάνουσα "
-"μνήμη."
+"Ο αριθμός των αιτήσεων ανάγνωσης ενός μπλοκ κλειδιού από τη λανθάνουσα μνήμη."
 
-#: server_status.php:1374
+#: server_status.php:1366
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -10291,7 +10292,7 @@ msgstr ""
 "μικρή. Ο βαθμό απώλειας λανθάνουσας μνήμης μπορεί να υπολογιστεί ως "
 "Key_reads/Key_read_requests."
 
-#: server_status.php:1375
+#: server_status.php:1367
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -10299,23 +10300,22 @@ msgstr ""
 "Η λανθάνουσα μνήμη κλειδιού κακώς υπολογίστηκε ως βαθμός φυσικών αναγνώσεων "
 "σε σχέση με τα αιτήματα ανάγνωσης (υπολογισμένη τιμή)"
 
-#: server_status.php:1376
+#: server_status.php:1368
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
 "Ο αριθμός των αιτήσεων εγγραφής ενός μπλοκ κλειδιού στη λανθάνουσα μνήμη."
 
-#: server_status.php:1377
+#: server_status.php:1369
 msgid "The number of physical writes of a key block to disk."
 msgstr "Ο αριθμός των φυσικών εγγραφών ενός κλειδιού στο δίσκο."
 
-#: server_status.php:1378
+#: server_status.php:1370
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
-"Ποσοστό φυσικών εγγραφών σε σχέση με τα αιτήματα εγγραφής (υπολογισμένη "
-"τιμή)"
+"Ποσοστό φυσικών εγγραφών σε σχέση με τα αιτήματα εγγραφής (υπολογισμένη τιμή)"
 
-#: server_status.php:1379
+#: server_status.php:1371
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -10326,7 +10326,7 @@ msgstr ""
 "διαφορετικών σχεδίων ερωτημάτων για το ίδιο ερώτημα. Η προεπιλεγμένη τιμή 0 "
 "σημαίνει ότι κανένα ερώτημα δεν μεταφράστηκε ακόμα."
 
-#: server_status.php:1380
+#: server_status.php:1372
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -10334,12 +10334,12 @@ msgstr ""
 "Ο μέγιστος αριθμός συνδέσεων που ήταν σε σύνδεση ταυτόχρονα από την εκκίνηση "
 "του διακομιστή."
 
-#: server_status.php:1381
+#: server_status.php:1373
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Ο αριθμός των γραμμών σε αναμονή για εγγραφή στις σειρές INSERT DELAYED."
 
-#: server_status.php:1382
+#: server_status.php:1374
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -10347,21 +10347,21 @@ msgstr ""
 "Ο αριθμός των πινάκων που ανοίχτηκαν. Αν οι ανοιγμένοι πίνακες είναι "
 "μεγάλοι, η τιμή λανθάνουσας μνήμης πινάκων είναι πιθανον μικρή."
 
-#: server_status.php:1383
+#: server_status.php:1375
 msgid "The number of files that are open."
 msgstr "Ο αριθμός των αρχείων που είναι ανοιχτά."
 
-#: server_status.php:1384
+#: server_status.php:1376
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Ο αριθμός των ροών που είναι ανοιχτές (χρησιμοποιούνται κυρίως για "
 "καταγραφή)."
 
-#: server_status.php:1385
+#: server_status.php:1377
 msgid "The number of tables that are open."
 msgstr "Ο αριθμός των πινάκων που είναι ανοιχτοί."
 
-#: server_status.php:1386
+#: server_status.php:1378
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -10371,19 +10371,19 @@ msgstr ""
 "ίσως κρύβουν θέματα συγκρότησης, που μπορούν να διορθωθούν χρησιμοποιώντας "
 "την εντολή FLUSH QUERY CACHE."
 
-#: server_status.php:1387
+#: server_status.php:1379
 msgid "The amount of free memory for query cache."
 msgstr "Το μέγεθος της ελεύθερης μνήμης για λανθάνουσα μνήμη ερωτημάτων."
 
-#: server_status.php:1388
+#: server_status.php:1380
 msgid "The number of cache hits."
 msgstr "Ο αριθμός των προσπελάσεων λανθάνουσας μνήμης."
 
-#: server_status.php:1389
+#: server_status.php:1381
 msgid "The number of queries added to the cache."
 msgstr "Ο αριθμός των ερωτημάτων που προστέθηκαν στην λανθάνουσα μνήμη."
 
-#: server_status.php:1390
+#: server_status.php:1382
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10397,7 +10397,7 @@ msgstr ""
 "χρησιμοποιούμενη στρατηγική (LRU) για να αποφασίσει ποια ερωτήματα να "
 "απομακρύνει από τη λανθάνουσα μνήμη."
 
-#: server_status.php:1391
+#: server_status.php:1383
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -10405,19 +10405,19 @@ msgstr ""
 "Ο αριθμός των μη λανθανόντων ερωτημάτων (μη απομνημονεύσιμα ή δεν "
 "απομνημονεύονται λόγω της ρύθμισης query_cache_type)."
 
-#: server_status.php:1392
+#: server_status.php:1384
 msgid "The number of queries registered in the cache."
 msgstr "Ο αριθμός των καταχωρημένων ερωτημάτων στη λανθάνουσα μνήμη."
 
-#: server_status.php:1393
+#: server_status.php:1385
 msgid "The total number of blocks in the query cache."
 msgstr "Ο συνολικός αριθμός των μπλοκς στη λανθάνουσα μνήμη ερωτημάτων."
 
-#: server_status.php:1394
+#: server_status.php:1386
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Η κατάσταση της ασφαλούς αναπαραγωγής (δεν έχει εφαρμοστεί)."
 
-#: server_status.php:1395
+#: server_status.php:1387
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -10425,13 +10425,13 @@ msgstr ""
 "Ο αριθμός των ενώσεων που δεν χρησιμοποιούν ευρετήρια. Αν η τιμή είναι 0, "
 "πρέπει να ελέγχετε προσεκτικά τα ευρετήρια των πινάκων σας."
 
-#: server_status.php:1396
+#: server_status.php:1388
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Ο αριθμός των ενώσεων που χρησιμοποιήσαν μια αναζήτηση εύρους σε έναν πίνακα "
 "παραπομπής."
 
-#: server_status.php:1397
+#: server_status.php:1389
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -10440,7 +10440,7 @@ msgstr ""
 "κάθε γραμμή. (Αν αυτό δεν είναι 0, πρέπει να ελέγχετε προσεκτικά τα "
 "ευρετήρια των πινάκων σας.)"
 
-#: server_status.php:1398
+#: server_status.php:1390
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -10448,17 +10448,17 @@ msgstr ""
 "Ο αριθμός των ενώσεων που χρησιμοποιούν εύρη στον πρώτο πίνακα. (Κανονικά "
 "δεν είναι κρίσιμος αν δεν είναι μεγάλος.)"
 
-#: server_status.php:1399
+#: server_status.php:1391
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Ο αριθμός των ενώσεων που έκαναν μια πλήρη σάρωση του πρώτου πίνακα."
 
-#: server_status.php:1400
+#: server_status.php:1392
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 "Ο αριθμός των προσωρινών πινάκων που είναι τώρα ανοιχτοί από τη δευτερεύουσα "
 "συνεργασία SQL."
 
-#: server_status.php:1401
+#: server_status.php:1393
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -10466,13 +10466,13 @@ msgstr ""
 "Συνολικές φορές (από την εκκίνηση) που η διεργασία δευτερεύουσας "
 "αναπαραγωγής SQL έχει ξαναδοκιμάσει συναλλαγές."
 
-#: server_status.php:1402
+#: server_status.php:1394
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Αυτό είναι ΑΝΟΙΧΤΟ, αν αυτός ο διακομιστής είναι δευτερεύων που συνδέεται σε "
 "πρωτεύωντα."
 
-#: server_status.php:1403
+#: server_status.php:1395
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -10480,14 +10480,14 @@ msgstr ""
 "Ο αριθμός των διεργασιών που έλαβαν περισσότερα από slow_launch_time "
 "δευτερόλεπτα να δημιουργηθούν."
 
-#: server_status.php:1404
+#: server_status.php:1396
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Ο αριθμός των ερωτημάτων που έλαβαν περισσότερα από long_query_time "
 "δευτερόλεπτα."
 
-#: server_status.php:1405
+#: server_status.php:1397
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -10497,23 +10497,23 @@ msgstr ""
 "ταξινόμησης. Αν ο αριθμός είναι μεγάλος, πρέπει να αυξήσετε την τιμή της "
 "μεταβλητής συστήματος sort_buffer_size."
 
-#: server_status.php:1406
+#: server_status.php:1398
 msgid "The number of sorts that were done with ranges."
 msgstr "Ο αριθμός των ταξινομήσεων που έγιναν με εύρη."
 
-#: server_status.php:1407
+#: server_status.php:1399
 msgid "The number of sorted rows."
 msgstr "Ο αριθμός των ταξινομημένων γραμμών."
 
-#: server_status.php:1408
+#: server_status.php:1400
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Ο αριθμός των ταξινομήσεων που έγιναν σαρώνοντας τον πίνακα."
 
-#: server_status.php:1409
+#: server_status.php:1401
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Οι φορές που ένα κλείδωμα πινακα ανακτήθηκε άμεσα."
 
-#: server_status.php:1410
+#: server_status.php:1402
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10525,7 +10525,7 @@ msgstr ""
 "απόδοσης, πρέπει πρώτα να βελτιώσετε τα ερωτήματά σας και μετά χωρίστε τον "
 "πίνακα ή τους πίνακες ή χρησιμοποιείστε αναπαραγωγή."
 
-#: server_status.php:1411
+#: server_status.php:1403
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10535,11 +10535,11 @@ msgstr ""
 "λανθάνουσας μνήμης μπορεί να υπολογιστεί ως Threads_created/Connections. Αν "
 "η τιμή είναι κόκκινη πρέπει να αυξήσετε την τιμή thread_cache_size."
 
-#: server_status.php:1412
+#: server_status.php:1404
 msgid "The number of currently open connections."
 msgstr "Ο αριθμός των τρέχοντων ανοιγμένων συνδέσεων."
 
-#: server_status.php:1413
+#: server_status.php:1405
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10551,48 +10551,47 @@ msgstr ""
 "thread_cache_size. (Κανονικά αυτό δεν δίνει μια σημαντική βελτίωση απόδοσης "
 "αν έχετε μια καλή εφαρμογή διεργασίας.)"
 
-#: server_status.php:1414
-#| msgid "Thread cache hit rate %%"
+#: server_status.php:1406
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Βαθμός λανθάνουσας μνήμης νήματος (υπολογισμένη τιμή)"
 
-#: server_status.php:1415
+#: server_status.php:1407
 msgid "The number of threads that are not sleeping."
 msgstr "Ο αριθμός των διεργασιών που δεν είναι σε νάρκη."
 
-#: server_status.php:1561
+#: server_status.php:1553
 msgid "Start Monitor"
 msgstr "Έναρξη Εποπτείας"
 
-#: server_status.php:1570
+#: server_status.php:1562
 msgid "Instructions/Setup"
 msgstr "Οδηγίες/Εγκατάσταση"
 
-#: server_status.php:1575
+#: server_status.php:1567
 msgid "Done rearranging/editing charts"
 msgstr "Ολοκληρώθηκε η επανατοποθέτηση/επεξεργασία διαγραμμάτων"
 
-#: server_status.php:1582 server_status.php:1653
+#: server_status.php:1574 server_status.php:1645
 msgid "Add chart"
 msgstr "Προσθήκη διαγράμματος"
 
-#: server_status.php:1584
+#: server_status.php:1576
 msgid "Rearrange/edit charts"
 msgstr "Επανατοποθέτηση/επεξεργασία διαγραμμάτων"
 
-#: server_status.php:1588
+#: server_status.php:1580
 msgid "Refresh rate"
 msgstr "Ρυθμός ανανέωσης"
 
-#: server_status.php:1593
+#: server_status.php:1585
 msgid "Chart columns"
 msgstr "Στήλες διαγράμματος"
 
-#: server_status.php:1609
+#: server_status.php:1601
 msgid "Chart arrangement"
 msgstr "Διευθέτηση διαγράμματος"
 
-#: server_status.php:1609
+#: server_status.php:1601
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -10600,15 +10599,15 @@ msgstr ""
 "Η διευθέτηση των διαγραμμάτων αποθηκεύεται στον τοπικό χώρο αποθήκευσης των "
 "φυλλομετρητών. Ίσως θέλετε να το εξάγετε αν έχετε πολύπλοκη ρύθμιση."
 
-#: server_status.php:1610
+#: server_status.php:1602
 msgid "Reset to default"
 msgstr "Επαναφορά προεπιλογής"
 
-#: server_status.php:1614
+#: server_status.php:1606
 msgid "Monitor Instructions"
 msgstr "Οδηγίες Εποπτείας"
 
-#: server_status.php:1615
+#: server_status.php:1607
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10623,7 +10622,7 @@ msgstr ""
 "παράγει πολλά δεδομένα και αυξάνει τη χρήση πόρων του διακομιστή μέχρι και "
 "15%"
 
-#: server_status.php:1620
+#: server_status.php:1612
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10636,11 +10635,11 @@ msgstr ""
 "MySQL 5.1.6 και νεότερη. Μπορείτε να χρησιμοποιήσετε παρόλα αυτά τα "
 "χαρακτηριστικά διαγραμμάτων του διακομιστή."
 
-#: server_status.php:1633
+#: server_status.php:1625
 msgid "Using the monitor:"
 msgstr "Χρήση της εποπτείας:"
 
-#: server_status.php:1635
+#: server_status.php:1627
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10651,7 +10650,7 @@ msgstr ""
 "ρυθμό ανανέωσης στη «Ρυθμίσεις», ή να απομακρύνεται οποιοδήποτε διάγραμμα "
 "χρηισιμποιώντας το εικονίδιο διαγραφής στο αντίστοιχο διάγραμμα."
 
-#: server_status.php:1637
+#: server_status.php:1629
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10664,11 +10663,11 @@ msgstr ""
 "επιβεβαιώσετε, θα φορτωθεί ένας πίνακας ομαδοποιημένων ερωτημάτων, οπού εκεί "
 "μπορείτε να πατήσετε οποιαδήποτε δήλωση SELECTγια περαιτέρω ανάλυση."
 
-#: server_status.php:1644
+#: server_status.php:1636
 msgid "Please note:"
 msgstr "Σημειώστε:"
 
-#: server_status.php:1646
+#: server_status.php:1638
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10682,88 +10681,88 @@ msgstr ""
 "απενεργοποίησετε το general_log και να αδειάσετε τον πίνακά του μόλις δεν "
 "είναι απαραίτητη η εποπτεία."
 
-#: server_status.php:1658
+#: server_status.php:1650
 msgid "Preset chart"
 msgstr "Προκαθορισμός διαγράμματος"
 
-#: server_status.php:1662
+#: server_status.php:1654
 msgid "Status variable(s)"
 msgstr "Μεταβλητή(ές) κατάστασης"
 
-#: server_status.php:1664
+#: server_status.php:1656
 msgid "Select series:"
 msgstr "Επιλογή σειρών:"
 
-#: server_status.php:1666
+#: server_status.php:1658
 msgid "Commonly monitored"
 msgstr "Συχνά εποπτευόμενα"
 
-#: server_status.php:1681
+#: server_status.php:1673
 msgid "or type variable name:"
 msgstr "ή όνομα τύπου μεταβλητής:"
 
-#: server_status.php:1685
+#: server_status.php:1677
 msgid "Display as differential value"
 msgstr "Προβολή ως διαφορική τιμή"
 
-#: server_status.php:1687
+#: server_status.php:1679
 msgid "Apply a divisor"
 msgstr "Εφαρμογή διαιρέτη"
 
-#: server_status.php:1694
+#: server_status.php:1686
 msgid "Append unit to data values"
 msgstr "Προσάρτηση μονάδας στις τιμές δεδομένων"
 
-#: server_status.php:1700
+#: server_status.php:1692
 msgid "Add this series"
 msgstr "Προσθήκη αυτής της σειράς"
 
-#: server_status.php:1702
+#: server_status.php:1694
 msgid "Clear series"
 msgstr "Εκκαθάριση σειράς"
 
-#: server_status.php:1705
+#: server_status.php:1697
 msgid "Series in Chart:"
 msgstr "Σειρά σε Διάγραμμα:"
 
-#: server_status.php:1718
+#: server_status.php:1710
 msgid "Log statistics"
 msgstr "Στατιστικά καταγραφών"
 
-#: server_status.php:1719
+#: server_status.php:1711
 msgid "Selected time range:"
 msgstr "Επιλεγμένο εύρος χρόνου:"
 
-#: server_status.php:1724
+#: server_status.php:1716
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Λήψη μόνο των δηλώσεων SELECT,INSERT,UPDATE και DELETE"
 
-#: server_status.php:1729
+#: server_status.php:1721
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 "Απομάκρυνση δεδομένων μεταβλητών στις δηλώσεις INSERT για καλύτερη "
 "ομαδοποιήση"
 
-#: server_status.php:1734
+#: server_status.php:1726
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Επιλέξτε από ποια καταγραφή θέλετε να δημιουργούνται τα στατιστικά."
 
-#: server_status.php:1736
+#: server_status.php:1728
 msgid "Results are grouped by query text."
 msgstr "Τα αποτελέσματα ομαδοποιηούνται ανα κείμενο ερωτήματος."
 
-#: server_status.php:1741
+#: server_status.php:1733
 msgid "Query analyzer"
 msgstr "Αναλυτής ερωτήματος"
 
-#: server_status.php:1781
+#: server_status.php:1773
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d δευτερόλεπτο"
 msgstr[1] "%d δευτερόλεπτο"
 
-#: server_status.php:1783
+#: server_status.php:1775
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -10886,19 +10885,19 @@ msgstr ""
 "Η βάση δεδομένων προορισμού θα συγχρονιστεί πλήρως με τη βάση δεδομένων "
 "προέλευσης. Η βάση δεδομένων προέλευσης θα παραμείνει ως έχει."
 
-#: server_variables.php:80
+#: server_variables.php:73
 msgid "Setting variable failed"
 msgstr "Ο ορισμός της μεταβλητής απέτυχε"
 
-#: server_variables.php:99
+#: server_variables.php:92
 msgid "Server variables and settings"
 msgstr "Ρυθμίσεις και μεταβλητές του διακομιστή"
 
-#: server_variables.php:126 server_variables.php:152
+#: server_variables.php:119 server_variables.php:145
 msgid "Session value"
 msgstr "Τιμή συνεδρίας"
 
-#: server_variables.php:126
+#: server_variables.php:119
 msgid "Global value"
 msgstr "Προεπιλεγμένη τιμή"
 
@@ -10909,8 +10908,8 @@ msgstr "Λήψη"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
-"Λανθασμένο σύνολο φόρμας, ελέγξτε τη ακολουθία $formsets στο "
-"setup/frames/form.inc.php"
+"Λανθασμένο σύνολο φόρμας, ελέγξτε τη ακολουθία $formsets στο setup/frames/"
+"form.inc.php"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -10923,9 +10922,9 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
-"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην "
-"[a@Documentation.html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα μπορείτε "
-"μόνο να τον λάβετε ή να τον προβάλετε."
+"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [a@Documentation."
+"html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα μπορείτε μόνο να τον "
+"λάβετε ή να τον προβάλετε."
 
 #: setup/frames/index.inc.php:57
 msgid ""
@@ -10942,8 +10941,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@%"
-"s]αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
+"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@%s]"
+"αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
 
 #: setup/frames/index.inc.php:65
 msgid "Insecure connection"
@@ -11196,8 +11195,8 @@ msgstr ""
 "Ορίζετε τον τύπο πιστοποίησης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
 "χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
 "Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή "
-"[kbd]http[/kbd]."
+"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή [kbd]"
+"http[/kbd]."
 
 #: setup/lib/index.lib.php:291
 #, php-format
@@ -11256,7 +11255,7 @@ msgstr "Αναζήτηση μη διακριτών τιμών"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
-#: sql.php:738 tbl_replace.php:397
+#: sql.php:738 tbl_replace.php:386
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
@@ -11265,7 +11264,7 @@ msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
 
-#: sql.php:758 tbl_replace.php:371
+#: sql.php:758 tbl_replace.php:360
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
@@ -11340,64 +11339,64 @@ msgstr ""
 msgid "Continue insertion with %s rows"
 msgstr "Συνέχιση εισαγωγής με %s εγγραφές"
 
-#: tbl_chart.php:89
+#: tbl_chart.php:81
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Μπάρα"
 
-#: tbl_chart.php:91
+#: tbl_chart.php:83
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Στήλη"
 
-#: tbl_chart.php:93
+#: tbl_chart.php:85
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Γραμμή"
 
-#: tbl_chart.php:95
+#: tbl_chart.php:87
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Καμπύλη γραμμή"
 
-#: tbl_chart.php:97
+#: tbl_chart.php:89
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Πίτα"
 
-#: tbl_chart.php:100
+#: tbl_chart.php:92
 msgid "Stacked"
 msgstr "Σταθεροποιημένο"
 
-#: tbl_chart.php:103
+#: tbl_chart.php:95
 msgid "Chart title"
 msgstr "Τίτλος διαγράμματος"
 
-#: tbl_chart.php:109
+#: tbl_chart.php:101
 msgid "X-Axis:"
 msgstr "Άξονας Χ:"
 
-#: tbl_chart.php:124
+#: tbl_chart.php:116
 msgid "Series:"
 msgstr "Σειρές:"
 
-#: tbl_chart.php:126
+#: tbl_chart.php:118
 msgid "The remaining columns"
 msgstr "Οι απομένουσες στήλες"
 
-#: tbl_chart.php:139
+#: tbl_chart.php:131
 msgid "X-Axis label:"
 msgstr "Ετικέτα άξονα Χ:"
 
-#: tbl_chart.php:141
+#: tbl_chart.php:133
 msgid "X Values"
 msgstr "Τιμές Χ"
 
-#: tbl_chart.php:142
+#: tbl_chart.php:134
 msgid "Y-Axis label:"
 msgstr "Ετικέτα άξονα Υ:"
 
-#: tbl_chart.php:143
+#: tbl_chart.php:135
 msgid "Y Values"
 msgstr "Τιμές Υ"
 
@@ -11415,39 +11414,39 @@ msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
 msgid "View dump (schema) of table"
 msgstr "Εμφάνιση σκαριφήματος (σχήματος) του πίνακα"
 
-#: tbl_gis_visualization.php:112
+#: tbl_gis_visualization.php:104
 msgid "Display GIS Visualization"
 msgstr "Εμφάνιση Οπτικοποίησης GIS"
 
-#: tbl_gis_visualization.php:128
+#: tbl_gis_visualization.php:120
 msgid "Width"
 msgstr "Πλάτος"
 
-#: tbl_gis_visualization.php:132
+#: tbl_gis_visualization.php:124
 msgid "Height"
 msgstr "Ύψος"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:128
 msgid "Label column"
 msgstr "Στήλη ετικέτας"
 
-#: tbl_gis_visualization.php:138
+#: tbl_gis_visualization.php:130
 msgid "-- None --"
 msgstr "-- Τίποτα --"
 
-#: tbl_gis_visualization.php:151
+#: tbl_gis_visualization.php:143
 msgid "Spatial column"
 msgstr "Χωρική στήλη"
 
-#: tbl_gis_visualization.php:175
+#: tbl_gis_visualization.php:167
 msgid "Redraw"
 msgstr "Επανασχεδίαση"
 
-#: tbl_gis_visualization.php:177
+#: tbl_gis_visualization.php:169
 msgid "Save to file"
 msgstr "Αποθήκευση σε αρχείο"
 
-#: tbl_gis_visualization.php:178
+#: tbl_gis_visualization.php:170
 msgid "File name"
 msgstr "Ονομασία αρχείου"
 
@@ -11785,19 +11784,16 @@ msgstr "Αναφορά παρακολούθησης για τον πίνακα �
 
 #: tbl_tracking.php:174
 #, php-format
-#| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Η έκδοση %1$s δημιουργήθηκε, η παρακολούθηση του %2$s ενεργοποιήθηκε."
 
 #: tbl_tracking.php:186
 #, php-format
-#| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Παρακολούθηση του %1$s απενεργοποιήθηκε στην έκδοση %2$s."
 
 #: tbl_tracking.php:198
 #, php-format
-#| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Παρακολούθηση του %1$s ενεργοποιήθηκε στην έκδοση %2$s."
 
@@ -11844,7 +11840,6 @@ msgstr "Δηλώσεις παρακολούθησης"
 
 #: tbl_tracking.php:445 tbl_tracking.php:573
 #, php-format
-#| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Εμφάνιση %1$s με ημερομηνίες από %2$s έως %3$s από χρήστη %4$s %5$s"
 
@@ -11896,7 +11891,6 @@ msgstr "Εμφάνιση εκδόσεων"
 
 #: tbl_tracking.php:714
 #, php-format
-#| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
 msgstr "Απενεργοποιήση παρακολούθησης για το %s"
 
@@ -11906,7 +11900,6 @@ msgstr "Απενεργοποιήση τώρα"
 
 #: tbl_tracking.php:727
 #, php-format
-#| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
 msgstr "Ενεργοποίηση παρακολούθησης για το %s"
 
@@ -11916,7 +11909,6 @@ msgstr "Ενεργοποιήση τώρα"
 
 #: tbl_tracking.php:742
 #, php-format
-#| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
 msgstr "Δημιουργία έκδοσης %1$s του %2$s"
 
@@ -11982,15 +11974,15 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: user_password.php:34
+#: user_password.php:26
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Δεν έχετε αρκετά δικαιώματα να είσαστε εδώ τώρα!"
 
-#: user_password.php:96
+#: user_password.php:88
 msgid "The profile has been updated."
 msgstr "Τα στοιχεία ανανεώθηκαν."
 
-#: view_create.php:141
+#: view_create.php:133
 msgid "VIEW name"
 msgstr "Όνομα VIEW"
 
@@ -12297,9 +12289,9 @@ msgid ""
 msgstr ""
 "Χρησιμοποιείτε τη λανθάνουσα μνήμη Ερωτήματος της MySQL σε μια βάση "
 "δεδομένων με μεγάλη κυκλοφορία. Ίσως πρέπει να σκεφτείτε να χρησιμοποιήσετε "
-"το <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\">memcached</a> αντί της λανθάνουσας μνήμης Ερωτήματος της "
-"MySQL, ειδικά αν έχετε πολλούς δευτερεύοντες."
+"το <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html"
+"\">memcached</a> αντί της λανθάνουσας μνήμης Ερωτήματος της MySQL, ειδικά αν "
+"έχετε πολλούς δευτερεύοντες."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12340,7 +12332,8 @@ msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr "Λιγότερο από το 80%% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
+msgstr ""
+"Λιγότερο από το 80%% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
 
 #: po/advisory_rules.php:87
 msgid ""
@@ -12353,8 +12346,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Η τρέχουσα αναλογία της ελεύθερης λανθάνουσας μνήμης ερωτήματος προς τη "
 "συνολική λανθάνουσα μνήμη ερωτήματος είναι %s%%. Πρέπει να είναι περισσότερο "
@@ -12431,8 +12424,8 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Ο βαθμός απομακρυσμένων ερωτημάτων προς τα εισερχόμενα ερωτήματα είναι %s%%. "
-"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: 0,1"
-"%%)"
+"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: "
+"0,1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12516,8 +12509,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "Το %s%% όλων των ταξινομήσεων προκαλεί προσωρινούς πίνακες, αυτή η τιμή "
 "πρέπει να είναι κάτω από 10%%."
@@ -12629,8 +12622,8 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
-"Αυτό δείχνει ότι πολλά ερωτήματα χρειάζεται να ταξινομήσουν αποτελέσματα "
-"και/ή να εκτελέσουν μια πλήρη σάρωση πίνακα, συμπεριλαμβανομένης της ένωσης "
+"Αυτό δείχνει ότι πολλά ερωτήματα χρειάζεται να ταξινομήσουν αποτελέσματα και/"
+"ή να εκτελέσουν μια πλήρη σάρωση πίνακα, συμπεριλαμβανομένης της ένωσης "
 "ερωτημάτων που δεν χρησιμοποιούν ευρετήρια. Προσθέστε ευρετήρια όπου "
 "μπουρούν να εφαρμοστούν."
 
@@ -12717,9 +12710,9 @@ msgstr ""
 "από την τιμή αυτών των μεταβλητών. Για να το αποτρέψετε αυτό θα πρέπει να "
 "ξαναγράψετε τα ερωτήματά σας για να αποφύγετε αυτές τις συνθήκες (Εντός ενός "
 "προσωρινού πίνακα: Παρουσία μιας στήλης BLOB ή TEXT ή παρουσία μιας στήλης "
-"μεγαλύτερης από 512 bytes) όπως αναφέρθηκεν στην αρχή ενός <a href=\"http://w"
-"ww.facebook.com/note.php?note_id=10150111255065841&comments\">Άρθρου από την "
-"Ομάδα Pythian</a>"
+"μεγαλύτερης από 512 bytes) όπως αναφέρθηκεν στην αρχή ενός <a href=\"http://"
+"www.facebook.com/note.php?note_id=10150111255065841&comments\">Άρθρου από "
+"την Ομάδα Pythian</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12749,9 +12742,9 @@ msgstr ""
 "από την τιμή αυτών των μεταβλητών. Για να το αποτρέψετε αυτό θα πρέπει να "
 "ξαναγράψετε τα ερωτήματά σας για να αποφύγετε αυτές τις συνθήκες (Εντός ενός "
 "προσωρινού πίνακα: Παρουσία μιας στήλης BLOB ή TEXT ή παρουσία μιας στήλης "
-"μεγαλύτερης από 512 bytes) όπως αναφέρθηκεν στην <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
-"tables.html\">τεκμηρίωση της MySQL</a>"
+"μεγαλύτερης από 512 bytes) όπως αναφέρθηκεν στην <a href=\"http://dev.mysql."
+"com/doc/refman/5.5/en/internal-temporary-tables.html\">τεκμηρίωση της MySQL</"
+"a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12924,8 +12917,7 @@ msgstr "Πολλά κλειδώματα πίνακα δεν έγιναν απο�
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
-"Βελτιστοποίηση ερωτημάτων και/ή χρήση InnoDB για μείωση αναμονής "
-"κλειδώματος."
+"Βελτιστοποίηση ερωτημάτων και/ή χρήση InnoDB για μείωση αναμονής κλειδώματος."
 
 #: po/advisory_rules.php:198
 #, php-format
@@ -13077,8 +13069,8 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
-"Οι συνδέσεις συνήθως ματαιώνονται όταν δεν μπορούν να πιστοποιηθούν. <a "
-"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"Οι συνδέσεις συνήθως ματαιώνονται όταν δεν μπορούν να πιστοποιηθούν. <a href="
+"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
 "source-of-aborted_connects/\">Αυτό το άρθρο</a> ίσως σας βοηθήσει να "
 "ανιχνεύσετε την προέλευση."
 
@@ -13086,8 +13078,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από 1"
-"%%"
+"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από "
+"1%%"
 
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
@@ -13186,9 +13178,9 @@ msgstr ""
 "να αλλάξετε την τιμή αυτής της μεταβλητής. Χρειάζεται να τερματίσετε τον "
 "διακομιστή, να απομακρύνεται τα αρχεία καταγραφής InnoDB, να ορίσετε νέα "
 "τιμή στο my.cnf, να εκκινήσετε τον διακομιστή και μετά να ελέγξετε τις "
-"καταγραφές σφαλμάτων αν όλα πήγαν καλά. Δείτε επίσης <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">αυτό το άρθρο ιστολογίου</a>"
+"καταγραφές σφαλμάτων αν όλα πήγαν καλά. Δείτε επίσης <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">αυτό το άρθρο ιστολογίου</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13223,14 +13215,14 @@ msgstr ""
 "Είναι συνήθως αρκετό να ορίσετε το innodb_log_file_size στο 25%% του "
 "μεγέθους του {innodb_buffer_pool_size}. Ένα πολύ μεγάλο innodb_log_file_size "
 "επιβραδύνει το χρόνο επαναφοράς σημαντικά μετά από μια κατάρευση βάσης "
-"δεδομένων. Δείτε επίσης <a "
-"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">αυτό το άρθρο</a>. Χρειάζεται να τερματίσετε τον "
-"διακομιστή, να απομακρύνετε τα αρχεία καταγραφής της InnoDB, να ορίσετε τη "
-"νέα τιμή στο my.cnf, να εκκινήσετε τον διακομιστή και μετά να ελέγξετε τις "
-"καταγραφές σφαλμάτων αν όλα πήγαν καλά. Δείτε επίσης <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">αυτό το άρθρο ιστολογίου</a>"
+"δεδομένων. Δείτε επίσης <a href=\"http://www.mysqlperformanceblog."
+"com/2006/07/03/choosing-proper-innodb_log_file_size/\">αυτό το άρθρο</a>. "
+"Χρειάζεται να τερματίσετε τον διακομιστή, να απομακρύνετε τα αρχεία "
+"καταγραφής της InnoDB, να ορίσετε τη νέα τιμή στο my.cnf, να εκκινήσετε τον "
+"διακομιστή και μετά να ελέγξετε τις καταγραφές σφαλμάτων αν όλα πήγαν καλά. "
+"Δείτε επίσης <a href=\"http://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">αυτό το άρθρο "
+"ιστολογίου</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13264,12 +13256,12 @@ msgstr ""
 "διακομιστές βάσεων δεδομένων που χρησιμοποιούν μόνο InnoDB ως μηχανή "
 "αποθήκευσης και δεν έχουν άλλες υπηρεσίες (π.χ. ένα διακομιστή ιστού) να "
 "εκτελούνται, μπορείτε να ορίσετε αυτή την τιμή ως και το 80%% της διαθέσιμης "
-"μνήμης σας. Αν δεν είναι αυτή η περίπτωση, θα πρέπει να δείτε προσεκτικά "
-"την κατανάλωση μνήμης από τις άλλες υπηρεσίες σας και τους μη-InnoDB-Πίνακες "
-"και να ορίσετε αυτή την μεταβλητή ανάλογα. Αν οριστεί πολύ ψηλά, το σύστημα "
-"σας θα αρχίσει τις ανταλλαγές, κάτι που θα μειώσει την απόδοση σημαντικά. "
-"Δείτε επίσης <a href=\"http://www.mysqlperformanceblog.com/2007/11/03"
-"/choosing-innodb_buffer_pool_size/\">αυτό το άρθρο</a>"
+"μνήμης σας. Αν δεν είναι αυτή η περίπτωση, θα πρέπει να δείτε προσεκτικά την "
+"κατανάλωση μνήμης από τις άλλες υπηρεσίες σας και τους μη-InnoDB-Πίνακες και "
+"να ορίσετε αυτή την μεταβλητή ανάλογα. Αν οριστεί πολύ ψηλά, το σύστημα σας "
+"θα αρχίσει τις ανταλλαγές, κάτι που θα μειώσει την απόδοση σημαντικά. Δείτε "
+"επίσης <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">αυτό το άρθρο</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
@@ -13299,9 +13291,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Ο ορισμός του {concurrent_insert} σε 1 μειώνει τη διαμάχη μεταξύ αναγνώσεων "
-"και εγγραφών για ένα πίνακα. Δείτε επίσης την <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
-"inserts.html\">τεκμηρίωση της MySQL</a>"
+"και εγγραφών για ένα πίνακα. Δείτε επίσης την <a href=\"http://dev.mysql.com/"
+"doc/refman/5.5/en/concurrent-inserts.html\">τεκμηρίωση της MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
@@ -13343,7 +13334,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων %s;"
+#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων "
+#~ "%s;"
 
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Άγνωστο σφάλμα κατά την αποστολή αρχείου."
@@ -13398,9 +13390,9 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "indicate the unit of the value. A value in bytes is assumed when no unit "
 #~ "is specified."
 #~ msgstr ""
-#~ "Το μέγιστο μέγεθος ενός αρχείου απόθεσης BLOB. Μπορείτε να χρησιμοποιήσετε "
-#~ "Kb, MB ή GB για να δείξετε τις μονάδες της τιμής. Η τιμή θεωρείτε σε Bytes "
-#~ "όταν δεν οριστούν μονάδες."
+#~ "Το μέγιστο μέγεθος ενός αρχείου απόθεσης BLOB. Μπορείτε να "
+#~ "χρησιμοποιήσετε Kb, MB ή GB για να δείξετε τις μονάδες της τιμής. Η τιμή "
+#~ "θεωρείτε σε Bytes όταν δεν οριστούν μονάδες."
 
 #~ msgid "Temp Blob Timeout"
 #~ msgstr "Χρόνος λήξης Προσωρινού BLOB"
@@ -13410,9 +13402,9 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "removed after this time, unless they are referenced by a record in the "
 #~ "database."
 #~ msgstr ""
-#~ "Ο χρόνος λήξης, σε δευτερόλεπτα για προσωρινά BLOBs. Τα απεσταλμένα δεδομένα "
-#~ "BLOB απομακρύνονται μετά από αυτό το χρόνο, εκτός και αν οριστούν από μια "
-#~ "εγγραφή στη βάση δεδομένων."
+#~ "Ο χρόνος λήξης, σε δευτερόλεπτα για προσωρινά BLOBs. Τα απεσταλμένα "
+#~ "δεδομένα BLOB απομακρύνονται μετά από αυτό το χρόνο, εκτός και αν "
+#~ "οριστούν από μια εγγραφή στη βάση δεδομένων."
 
 #~ msgid "Temp Log Threshold"
 #~ msgstr "Όριο αρχείου προσωρινής καταγραφής"
@@ -13453,8 +13445,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "Documentation and further information about PBMS can be found on %sThe "
 #~ "PrimeBase Media Streaming home page%s."
 #~ msgstr ""
-#~ "Τεκμηρίωση και περισσότερες πληροφορίες για το PBMS μπορεί να βρεθεί στην %"
-#~ "sΙστοσελίδα του PrimeBase Media Streaming%s."
+#~ "Τεκμηρίωση και περισσότερες πληροφορίες για το PBMS μπορεί να βρεθεί στην "
+#~ "%sΙστοσελίδα του PrimeBase Media Streaming%s."
 
 #~ msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
 #~ msgstr "Το Ιστολόγιο του PrimeBase Media Streaming από τον Barry Leslie"
@@ -13483,7 +13475,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "εγγραφές στο «table_uiprefs» και αυτόματα διαγράφονται παλαιές εγγραφές"
 
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
-#~ msgstr "Μέγιστος αριθμός εγγραφών που αποθηκεύονται στον πίνακα «table_uiprefs»"
+#~ msgstr ""
+#~ "Μέγιστος αριθμός εγγραφών που αποθηκεύονται στον πίνακα «table_uiprefs»"
 
 #~ msgid "Click to unselect"
 #~ msgstr "Πατήστε για απεπιλογή"
@@ -13504,7 +13497,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Δημιουργία Πίνακα"
 
 #~ msgid "(or the local Drizzle server's socket is not correctly configured)"
-#~ msgstr "(ή η τοπική υποδοχή του διακομιστή Drizzle δεν έχει ρυθμιστεί σωστά)"
+#~ msgstr ""
+#~ "(ή η τοπική υποδοχή του διακομιστή Drizzle δεν έχει ρυθμιστεί σωστά)"
 
 #~ msgid ""
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
@@ -13539,9 +13533,9 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "column, click the \"Choose column to display\" icon, then click on the "
 #~ "appropriate column name."
 #~ msgstr ""
-#~ "Η προβαλλόμενη στήλη εμφανίζεται ως ροζ. Για να ορίσετε ή όχι μια στήλη ως "
-#~ "εμφανιζόμενη στήλη, πατήστε το εικονίδιο «Επιλογή στήλης για προβολή» και "
-#~ "μετά πατήστε το κατάλληλο όνομα στήλης."
+#~ "Η προβαλλόμενη στήλη εμφανίζεται ως ροζ. Για να ορίσετε ή όχι μια στήλη "
+#~ "ως εμφανιζόμενη στήλη, πατήστε το εικονίδιο «Επιλογή στήλης για προβολή» "
+#~ "και μετά πατήστε το κατάλληλο όνομα στήλης."
 
 #~ msgid "memcached usage"
 #~ msgstr "Χρήση χώρου"
@@ -13596,8 +13590,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Δεν υποστηρίζονται θέματα, για αυτό ελέξτε τις ρυθμίσεις σας και/ή τα θέματά "
-#~ "σας στο φάκελο %s."
+#~ "Δεν υποστηρίζονται θέματα, για αυτό ελέξτε τις ρυθμίσεις σας και/ή τα "
+#~ "θέματά σας στο φάκελο %s."
 
 #~ msgid "The following queries have been executed:"
 #~ msgstr "Τα ακόλουθα ερωτήματα εκτελέστηκαν:"
@@ -13661,13 +13655,13 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "Το phpMyAdmin δεν μπόρεσε να διαβάσει το αρχείο ρυθμίσεων!<br />Αυτό μπορεί "
-#~ "να συμβεί εάν η php βρει κάποιο λάθος στο αρχείο ή εάν η php δεν μπορεί να "
-#~ "βρει το αρχείο.<br />Τρέξτε το αρχείο ρυθμίσεων κατευθείαν χρησιμοποιώντας "
-#~ "το ακόλουθο σύνδεσμο και διαβάστε τα μήνυματα λάθους που θα επιστρέψει η "
-#~ "php. Στις περισσότερες περιπτώσεις κάπου λείπουν εισαγωγικά (\") ή "
-#~ "ερωτηματικά (;).<br />Εάν η php επιστρέψει μια λευκή σελίδα, όλα είναι "
-#~ "σωστά."
+#~ "Το phpMyAdmin δεν μπόρεσε να διαβάσει το αρχείο ρυθμίσεων!<br />Αυτό "
+#~ "μπορεί να συμβεί εάν η php βρει κάποιο λάθος στο αρχείο ή εάν η php δεν "
+#~ "μπορεί να βρει το αρχείο.<br />Τρέξτε το αρχείο ρυθμίσεων κατευθείαν "
+#~ "χρησιμοποιώντας το ακόλουθο σύνδεσμο και διαβάστε τα μήνυματα λάθους που "
+#~ "θα επιστρέψει η php. Στις περισσότερες περιπτώσεις κάπου λείπουν "
+#~ "εισαγωγικά (\") ή ερωτηματικά (;).<br />Εάν η php επιστρέψει μια λευκή "
+#~ "σελίδα, όλα είναι σωστά."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Συμβάν διαγραφής"
@@ -13688,10 +13682,12 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Απαιτείται η επέκταση GD για τα διαγράμματα."
 
 #~ msgid "JSON encoder is needed for chart tooltips."
-#~ msgstr "Ο κωδικοποιητής JSON απαιτείται για τις επεξηγήσεις των διαγραμμάτων."
+#~ msgstr ""
+#~ "Ο κωδικοποιητής JSON απαιτείται για τις επεξηγήσεις των διαγραμμάτων."
 
 #~ msgid "The number of free memory blocks in query cache."
-#~ msgstr "Ο αριθμός των ελεύθερων μπλοκ μνήμης στη λανθάνουσα μνήμη ερωτημάτων."
+#~ msgstr ""
+#~ "Ο αριθμός των ελεύθερων μπλοκ μνήμης στη λανθάνουσα μνήμη ερωτημάτων."
 
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
@@ -13715,8 +13711,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Στατιστικά ερωτημάτων</b>: Από την έναρξη λειτουργίας, %s ερωτήματα έχουν "
-#~ "σταλεί στον διακομιστή."
+#~ "<b>Στατιστικά ερωτημάτων</b>: Από την έναρξη λειτουργίας, %s ερωτήματα "
+#~ "έχουν σταλεί στον διακομιστή."
 
 #~ msgid "Note: Generating the query chart can take a long time."
 #~ msgstr ""
@@ -13730,8 +13726,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr ""
-#~ "Το αποτέλεσμα δεν μπορεί να χρησιμοποιηθεί σε διάγραμμα. Δείτε τις "
-#~ "[a@./Documentation.html#faq6_29@Documentation]ΣΑΕ 6.29[/a]"
+#~ "Το αποτέλεσμα δεν μπορεί να χρησιμοποιηθεί σε διάγραμμα. Δείτε τις [a@./"
+#~ "Documentation.html#faq6_29@Documentation]ΣΑΕ 6.29[/a]"
 
 #~ msgid "Title"
 #~ msgstr "Τίτλος"
@@ -13761,16 +13757,16 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgid ""
 #~ "When drawing a radar chart all values are normalized to a range [0..10]."
 #~ msgstr ""
-#~ "Όταν σχεδιάζετε ένα διάγραμμα ραντάρ, όλες οι τιμές κανονικοποιούνται σε ένα "
-#~ "εύρος [0..10]."
+#~ "Όταν σχεδιάζετε ένα διάγραμμα ραντάρ, όλες οι τιμές κανονικοποιούνται σε "
+#~ "ένα εύρος [0..10]."
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Σημειώστε ότι δεν μπορεί κάθε πίνακας αποτελεσμάτων να μπει σε διάγραμμα. "
-#~ "Δείτε τις <a href=\"./Documentation.html#faq6_29\" target=\"Documentation\">ΣΑΕ "
-#~ "6.29</a>"
+#~ "Δείτε τις <a href=\"./Documentation.html#faq6_29\" target=\"Documentation"
+#~ "\">ΣΑΕ 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "Προσθήκη νέου Χρήστη"
