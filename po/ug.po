@@ -2636,7 +2636,7 @@ msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىشتە �
 #: libraries/Table.class.php:1252
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىش غەلبىلىك بولدى."
+msgstr "%s بۇ جەدۋەل ئىسمىنى %s غا ئۆزگەرتىش غەلبىلىك بولدى."
 
 #: libraries/Table.class.php:1384
 msgid "Could not save table UI preferences"
