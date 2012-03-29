@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-28 08:57+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-03-29 13:47+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1774,22 +1774,19 @@ msgid "Show indexes"
 msgstr "Indexen tonen"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:301
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "controle op vreemde sleutels uitschakelen"
+msgstr "Controle op vreemde sleutels :"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Ingeschakeld"
+msgstr "(Ingeschakeld)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Uitgeschakeld"
+msgstr "(Uitgeschakeld)"
 
 #: js/messages.php:255
 msgid "Searching"
@@ -2451,7 +2448,7 @@ msgstr ""
 #: libraries/server_links.inc.php:43 server_databases.php:119
 #: server_privileges.php:1974
 msgid "Databases"
-msgstr "Databases"
+msgstr "Databanken"
 
 #: libraries/Message.class.php:196 libraries/common.lib.php:615
 #: libraries/core.lib.php:216 libraries/import.lib.php:142 tbl_change.php:935
@@ -3432,7 +3429,7 @@ msgstr "Toon een databank overzicht als een lijst in plaats van een afrolmenu"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display databases as a list"
-msgstr "Toon databases als een lijst"
+msgstr "Toon databanken als een lijst"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show server listing as a list instead of a drop down"
@@ -3788,7 +3785,7 @@ msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:180
 msgid "Databases display options"
-msgstr "Weergave opties voor databases"
+msgstr "Weergaveopties voor databanken"
 
 #: libraries/config/messages.inc.php:181 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
@@ -4152,16 +4149,16 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
-"Enkel de lichte versie; toon databases als een boomstructuur "
+"Enkel de lichte versie; toon databanken als een boomstructuur "
 "(scheidingsteken zoals hieronder aangegeven)"
 
 #: libraries/config/messages.inc.php:278
 msgid "Display databases in a tree"
-msgstr "Toon databases als een boom"
+msgstr "Toon databanken als een boom"
 
 #: libraries/config/messages.inc.php:279
 msgid "Disable this if you want to see all databases at once"
-msgstr "Schaken dit uit wanneer u alle databases in een keer wil zien"
+msgstr "Schakel dit uit wanneer u alle databanken in een keer wil zien"
 
 #: libraries/config/messages.inc.php:280
 msgid "Use light version"
@@ -4321,7 +4318,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum databases"
-msgstr "Maximum aantal databases"
+msgstr "Maximum aantal databanken"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
@@ -4416,7 +4413,7 @@ msgstr "Standaard sorteer volgorde"
 
 #: libraries/config/messages.inc.php:331
 msgid "Use persistent connections to MySQL databases"
-msgstr "Gebruik persistente connecties voor MySQL databases"
+msgstr "Gebruik persistente connecties voor MySQL databanken"
 
 #: libraries/config/messages.inc.php:332
 msgid "Persistent connections"
@@ -4707,12 +4704,12 @@ msgstr "PHP-extensie"
 #: libraries/config/messages.inc.php:395
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
-"Verberg databases die aan de hier opgegeven reguliere expressie (PCRE) "
+"Verberg databanken die aan de hier opgegeven reguliere expressie (PCRE) "
 "voldoen"
 
 #: libraries/config/messages.inc.php:396
 msgid "Hide databases"
-msgstr "Verberg databases"
+msgstr "Verberg databanken"
 
 #: libraries/config/messages.inc.php:397
 msgid ""
@@ -4774,7 +4771,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
-msgstr "Toon enkel de opgesomde databases"
+msgstr "Toon enkel de opgesomde databanken"
 
 #: libraries/config/messages.inc.php:408 libraries/config/messages.inc.php:449
 msgid "Leave empty if not using config auth"
@@ -4847,7 +4844,7 @@ msgstr "Relatie tabel"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
-msgstr "SQL-commando om de beschikbare databases op te vragen"
+msgstr "SQL-commando om de beschikbare databanken op te vragen"
 
 #: libraries/config/messages.inc.php:421
 msgid "SHOW DATABASES command"
@@ -5180,7 +5177,7 @@ msgstr "Toon tabel opmerking in een tooltip"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
-"Markeer in gebruik zijnde tabellen, waardoor het mogelijk om een databases "
+"Markeer in gebruik zijnde tabellen, waardoor het mogelijk om een databanken "
 "die deze tabellen bevat te tonen"
 
 #: libraries/config/messages.inc.php:483
@@ -5634,7 +5631,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:85
 msgid "Exporting databases from the current server"
-msgstr "Exporteer meerdere databases vanuit de huidige server"
+msgstr "Exporteer meerdere databanken vanuit de huidige server"
 
 #: libraries/display_export.lib.php:87
 #, php-format
@@ -6519,7 +6516,7 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
-"Voeg een tijdstip toe waarop databases aangemaakt, laatst bijgewerkt en "
+"Voeg een tijdstip toe waarop databanken aangemaakt, laatst bijgewerkt en "
 "laatst bekeken werden"
 
 #: libraries/export/sql.php:100
@@ -8547,7 +8544,7 @@ msgstr ""
 
 #: navigation.php:178 server_databases.php:299 server_synchronize.php:1376
 msgid "No databases"
-msgstr "Geen databases"
+msgstr "Geen databanken"
 
 #: navigation.php:266
 msgid "Filter tables by name"
@@ -8866,7 +8863,7 @@ msgstr "Karakter Sets en Collaties"
 
 #: server_databases.php:83
 msgid "No databases selected."
-msgstr "Er zijn geen databases geselecteerd."
+msgstr "Er zijn geen databanken geselecteerd."
 
 #: server_databases.php:99
 #, php-format
@@ -8890,14 +8887,14 @@ msgstr "Slave replicatie"
 
 #: server_databases.php:290 server_databases.php:291
 msgid "Enable Statistics"
-msgstr "Statistieken aanzetten"
+msgstr "Statistieken inschakelen"
 
 #: server_databases.php:293
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Attentie: Het aanzeten van databank statistieken kan zorgen voor veel "
+"Let op: Inschakelen van databank statistieken kan zorgen voor veel "
 "dataverkeer tussen de webserver en de MySQL-server."
 
 #: server_engines.php:37
@@ -8906,7 +8903,7 @@ msgstr "Opslag Engines"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Bekijk dump (schema) van de databases"
+msgstr "Bekijk dump (schema) van de databanken"
 
 #: server_plugins.php:73
 msgid "Modules"
@@ -8961,7 +8958,7 @@ msgstr "Maakt het mogelijk om stored routines te bewerken en te verwijderen."
 #: server_privileges.php:94 server_privileges.php:270
 #: server_privileges.php:696
 msgid "Allows creating new databases and tables."
-msgstr "Maakt het mogelijk om nieuwe databases en tabellen te maken."
+msgstr "Maakt het mogelijk om nieuwe databanken en tabellen te maken."
 
 #: server_privileges.php:95 server_privileges.php:356
 #: server_privileges.php:702
@@ -8997,7 +8994,7 @@ msgstr "Maakt het mogelijk om data te verwijderen."
 #: server_privileges.php:101 server_privileges.php:274
 #: server_privileges.php:699
 msgid "Allows dropping databases and tables."
-msgstr "Maakt het mogelijk om databases en tabellen te verwijderen."
+msgstr "Maakt het mogelijk om databanken en tabellen te verwijderen."
 
 #: server_privileges.php:102 server_privileges.php:699
 msgid "Allows dropping tables."
@@ -9106,7 +9103,7 @@ msgstr "Maakt het lezen van data mogelijk."
 #: server_privileges.php:120 server_privileges.php:306
 #: server_privileges.php:729
 msgid "Gives access to the complete list of databases."
-msgstr "Geeft toegang tot de complete lijst van databases."
+msgstr "Geeft toegang tot de complete lijst van databanken."
 
 #: server_privileges.php:121 server_privileges.php:347
 #: server_privileges.php:352 server_privileges.php:701
@@ -9285,7 +9282,7 @@ msgstr ""
 #: server_privileges.php:1922 server_privileges.php:1923
 #: server_privileges.php:1924
 msgid "Drop the databases that have the same names as the users."
-msgstr "Verwijder de databases die dezelfde naam hebben als de gebruikers."
+msgstr "Verwijder de databanken die dezelfde naam hebben als de gebruikers."
 
 #: server_privileges.php:1945
 #, php-format
@@ -9449,21 +9446,21 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 "Deze server is niet ingesteld als master in een replicatie proces. U kunt "
-"kiezen om alle databases te repliceren en enkele te negeren (handig indien u "
-"de meerderheid van uw databases wil repliceren) of u kiest ervoor om alleen "
-"enkele geselecteerde databases te repliceren:"
+"kiezen om alle databanken te repliceren en enkele te negeren (handig indien "
+"u de meerderheid van uw databanken wil repliceren) of u kiest ervoor om "
+"alleen enkele geselecteerde databanken te repliceren:"
 
 #: server_replication.php:249
 msgid "Replicate all databases; Ignore:"
-msgstr "Repliceer alle databases; Negeer:"
+msgstr "Repliceer alle databanken; Negeer:"
 
 #: server_replication.php:250
 msgid "Ignore all databases; Replicate:"
-msgstr "Negeer alle databases; Repliceer enkel:"
+msgstr "Negeer alle databanken; Repliceer enkel:"
 
 #: server_replication.php:253
 msgid "Please select databases:"
-msgstr "Selecteer uit de onderstaande databases:"
+msgstr "Selecteer uit de onderstaande databanken:"
 
 #: server_replication.php:256
 msgid ""
@@ -9502,7 +9499,7 @@ msgstr "Slave status tabel"
 
 #: server_replication.php:339
 msgid "Synchronize databases with master"
-msgstr "Synchronizeer databases met master"
+msgstr "Synchroniseer databanken met master"
 
 #: server_replication.php:350
 msgid "Control slave:"
@@ -10812,7 +10809,7 @@ msgstr "Geselecteerde wijzigingen toepassen"
 
 #: server_synchronize.php:481 server_synchronize.php:993
 msgid "Synchronize Databases"
-msgstr "Synchronizeer databases"
+msgstr "Synchroniseer databanken"
 
 #: server_synchronize.php:495
 msgid "Selected target tables have been synchronized with source tables."
@@ -12365,6 +12362,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"U kan overwegen om {query_cache_size} te verhogen, hou er wel rekening mee "
+"dat de overhead voor het beheren van de cache waarschijnlijk hoger wordt, "
+"doe dit dus in kleine stappen en hou de resultaten in de gaten."
 
 #: po/advisory_rules.php:98
 #, php-format
