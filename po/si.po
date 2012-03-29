@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-25 17:41+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -816,8 +816,8 @@ msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත�
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"%s ගොනුව මේ වන විටත් සේවාදායකයෙහි පවතී, ගොනු නාමය වෙනස් කරන්න නැතහොත් ඉක්මවා "
-"ලිවීමේ හැකියාව සලකා බලන්න."
+"%s ගොනුව මේ වන විටත් සේවාදායකයෙහි පවතී, ගොනු නාමය වෙනස් කරන්න නැතහොත් ඉක්මවා ලිවීමේ "
+"හැකියාව සලකා බලන්න."
 
 #: export.php:309 export.php:313
 #, php-format
@@ -835,8 +835,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"ඔබ උඩුගත කරන ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා "
-"කරුණාකර %sලියකියවිලි%s බලන්න."
+"ඔබ උඩුගත කරන ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා කරුණාකර %sලියකියවිලි"
+"%s බලන්න."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -860,9 +860,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"ආනයනය සඳහා දත්ත කිසිවක් නොලැබුණි. ගොනුව ආනයනය සඳහා යොමු නොකිරීම හෝ යොමු කල "
-"ගොනුවේ විශාලත්වය PHP වින්‍යාසයන්හි අනුමත ප්‍රමාණයට වැඩ විශාල වීම මීට හේතු "
-"විය හැකිය. [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] බලන්න."
+"ආනයනය සඳහා දත්ත කිසිවක් නොලැබුණි. ගොනුව ආනයනය සඳහා යොමු නොකිරීම හෝ යොමු කල ගොනුවේ "
+"විශාලත්වය PHP වින්‍යාසයන්හි අනුමත ප්‍රමාණයට වැඩ විශාල වීම මීට හේතු විය හැකිය. [a@./"
+"Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] බලන්න."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1661,8 +1661,7 @@ msgstr "phpMyAdmin ලියකියවිලි"
 #: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
-"ඔබට සේවාදායකය/IP ලිපිනය සහ පොර්ට් අංකය හිස්තැනක් මගින් වෙන්කර ඇතුල් කල හැක."
+msgstr "ඔබට සේවාදායකය/IP ලිපිනය සහ පොර්ට් අංකය හිස්තැනක් මගින් වෙන්කර ඇතුල් කල හැක."
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
@@ -1868,8 +1867,7 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<tt>$cfg['PmaAbsoluteUri']</tt> සඳහා අගය ඔබගේ වින්‍යාස ගොනුවේ අඩංගු විය "
-"යුතුමය!"
+"<tt>$cfg['PmaAbsoluteUri']</tt> සඳහා අගය ඔබගේ වින්‍යාස ගොනුවේ අඩංගු විය යුතුමය!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -2469,7 +2467,6 @@ msgid "Edit SQL queries in popup window"
 msgstr ""
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "කවුළුව තුල සංස්කරණය කරන්න"
 
@@ -2583,7 +2580,6 @@ msgstr "ගොනු නාම ටෙම්ප්ලේටය"
 #: libraries/config/messages.inc.php:141 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "වගු නික්ෂේපනය"
 
@@ -2986,7 +2982,6 @@ msgid "Choose how you want tabs to work"
 msgstr "ටැබ් ක්‍රියා කල යුතු ආකාරය තෝරන්න"
 
 #: libraries/config/messages.inc.php:224
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "පෙළ ක්ෂේත්‍රයන්"
 
@@ -3131,7 +3126,6 @@ msgid "Display servers selection"
 msgstr "සේවාදායක තේරීම පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:270
-#| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
 msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු වගු ගණන"
 
@@ -3148,8 +3142,8 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
-"සැහැල්ලු ප්‍රකාරය පමණි; දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වන්න (පහත සඳහන් "
-"වෙන්කරණය මත තීරණය වේ)"
+"සැහැල්ලු ප්‍රකාරය පමණි; දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වන්න (පහත සඳහන් වෙන්කරණය මත "
+"තීරණය වේ)"
 
 #: libraries/config/messages.inc.php:274
 msgid "Display databases in a tree"
@@ -3188,8 +3182,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"සබැඳි පිටුව ප්‍රධාන කවුළුව ([kbd]main[/kbd]) තුල හෝ නව කවුළුවක් "
-"([kbd]new[/kbd]) තුල විවෘත කරන්න"
+"සබැඳි පිටුව ප්‍රධාන කවුළුව ([kbd]main[/kbd]) තුල හෝ නව කවුළුවක් ([kbd]new[/kbd]) තුල "
+"විවෘත කරන්න"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link target"
@@ -3773,7 +3767,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:418
-#| msgid "Displaying Column Comments"
 msgid "Display columns table"
 msgstr "පෙන්විය යුතු තීර පිළිබඳ දත්ත ඇතුලත් වගුව"
 
@@ -3901,7 +3894,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:445
-#| msgid "Show open tables"
 msgid "Show field types"
 msgstr "ක්ෂේත්‍රයේ වර්ගය පෙන්වන්න"
 
@@ -4038,7 +4030,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:478
-#| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "පෙළ පෙදෙසේ පළල"
 
@@ -4336,7 +4327,6 @@ msgid "Password Hashing"
 msgstr "Password Hashing"
 
 #: libraries/display_change_password.lib.php:65
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 අනුකූල"
 
@@ -4360,7 +4350,6 @@ msgid "Create table on database %s"
 msgstr "%s දත්තගබඩාවේ නව වගුවක් සාදන්න"
 
 #: libraries/display_create_table.lib.php:55
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "තීර ගණන"
 
@@ -4498,7 +4487,6 @@ msgid "bzipped"
 msgstr "bzipp කරන ලද"
 
 #: libraries/display_export.lib.php:321
-#| msgid "Save as file"
 msgid "View output as text"
 msgstr "ප්‍රතිදානය පෙළ ලෙස දර්ශනය කරන්න"
 
@@ -4661,12 +4649,10 @@ msgid "Options"
 msgstr "විකල්ප"
 
 #: libraries/display_tbl.lib.php:551 libraries/display_tbl.lib.php:569
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "අර්ධ පෙළ"
 
 #: libraries/display_tbl.lib.php:552 libraries/display_tbl.lib.php:573
-#| msgid "Full Texts"
 msgid "Full texts"
 msgstr "පූර්ණ පෙළ"
 
@@ -4675,7 +4661,6 @@ msgid "Relational key"
 msgstr "සබැඳි යතුර"
 
 #: libraries/display_tbl.lib.php:587
-#| msgid "Relational schema"
 msgid "Relational display column"
 msgstr "සබැඳි දර්ශන තීරය"
 
@@ -5010,7 +4995,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#| msgid "Relations"
 msgid "Related Links"
 msgstr "අදාල සබැඳි"
 
@@ -5178,7 +5162,6 @@ msgstr "පේළි අවසන් කිරීමේ සළකුණ:"
 #: libraries/export/csv.php:25 libraries/export/excel.php:22
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:79
 #: libraries/export/ods.php:23 libraries/export/odt.php:59
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "NULL වෙනුවට භාවිතා කරන්න:"
 
@@ -5233,12 +5216,10 @@ msgstr "වගු සිරස් තලය"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
-#| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
 msgstr "අන්‍ය යතුරු සබඳතා පෙන්වන්න"
 
 #: libraries/export/latex.php:59 libraries/export/odt.php:45
-#| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "විස්තර පෙන්වන්න"
 
@@ -5302,7 +5283,6 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:35
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "හෙඩිමට වෙනත් විස්තර එක් කරන්න (\\n පේළි වි‍භේදනය):"
 
@@ -5583,7 +5563,6 @@ msgid ""
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:142
-#| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "නැත"
@@ -6613,7 +6592,6 @@ msgstr ""
 "(Default: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#| msgid "General relation features"
 msgid "Manage your settings"
 msgstr "සිටුවම් පරිපාලනය"
 
@@ -7045,7 +7023,6 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:239
-#| msgid "Import files"
 msgid "Import from file"
 msgstr "ගොනුවකින් ආනයනය කරන්න"
 
@@ -8535,8 +8512,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"සේවාදායකයේ අනුරූකරණ තත්වය පිළිබඳ වැඩි විස්තර සඳහා කරුණාකර <a "
-"href=#replication>අනුරූකරණ අංශය</a> වෙත යන්න."
+"සේවාදායකයේ අනුරූකරණ තත්වය පිළිබඳ වැඩි විස්තර සඳහා කරුණාකර <a href=#replication>අනුරූකරණ "
+"අංශය</a> වෙත යන්න."
 
 #: server_status.php:510
 msgid ""

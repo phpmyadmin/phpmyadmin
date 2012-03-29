@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-28 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -112,8 +112,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Berkas %s tidak ditemukan dalam sistem ini, harap kunjungi "
-"www.phpmyadmin.net untuk informasi lebih lanjut."
+"Berkas %s tidak ditemukan dalam sistem ini, harap kunjungi www.phpmyadmin."
+"net untuk informasi lebih lanjut."
 
 #: db_create.php:58
 #, php-format
@@ -608,8 +608,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat %"
-"sdokumentasi%s"
+"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat "
+"%sdokumentasi%s"
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:137
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
@@ -835,8 +835,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Harap lihat %"
-"sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
+"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Harap lihat "
+"%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -862,8 +862,8 @@ msgid ""
 msgstr ""
 "Tidak ada data untuk diimpor. Kemungkinan karena tidak ada berkas yang "
 "diambil atau ukuran berkas melebihi ukuran maksimum yang diizinkan oleh "
-"konfigurasi PHP Anda. Lihat "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"konfigurasi PHP Anda. Lihat [a@./Documentation.html#faq1_16@Documentation]"
+"FAQ 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1639,8 +1639,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan %"
-"1$ssetup script%2$s untuk membuatnya."
+"Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan "
+"%1$ssetup script%2$s untuk membuatnya."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -6374,9 +6374,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Harap masukkan nilai untuk pilihan transformasi dengan menggunakan format "
-"sbb.: 'a', 100, b,'c'...<br />Bila sebuah Backslash (\"\\\") atau Single Quote "
-"(\"'\") diperlukan di antara nilai tersebut, harap gunakan tanda Backslash "
-"(contoh: '\\\\xyz' atau 'a\\'b')."
+"sbb.: 'a', 100, b,'c'...<br />Bila sebuah Backslash (\"\\\") atau Single "
+"Quote (\"'\") diperlukan di antara nilai tersebut, harap gunakan tanda "
+"Backslash (contoh: '\\\\xyz' atau 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"

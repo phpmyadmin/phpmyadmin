@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-27 16:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: bangla <bn@li.org>\n"
@@ -952,7 +952,6 @@ msgid "Dropping Procedure"
 msgstr "Procedures"
 
 #: js/messages.php:35
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "ট্র্যাকিং তথ্য মুছে ফেলা হচ্ছে"
 
@@ -972,8 +971,7 @@ msgstr "আপনি একটি BLOB সংগ্রহস্থল নিষ�
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
-"আপনি কি নিশ্চিত যে আপনি %s ডাটাবেসের জন্য সব BLOB রেফারেন্স নিষ্ক্রিয় করতে "
-"চান?"
+"আপনি কি নিশ্চিত যে আপনি %s ডাটাবেসের জন্য সব BLOB রেফারেন্স নিষ্ক্রিয় করতে চান?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
@@ -1011,12 +1009,10 @@ msgid "Create User"
 msgstr "Server version"
 
 #: js/messages.php:54
-#| msgid "Reload privileges"
 msgid "Reloading Privileges"
 msgstr "বিশেষাধিকার রিলোড"
 
 #: js/messages.php:55
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "নির্ধারিত ব্যবহারীসমূহ মূছা হচ্ছে"
 
@@ -6468,7 +6464,6 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:99
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "সেটিংস"
 

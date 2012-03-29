@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-28 00:10+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -1115,12 +1115,10 @@ msgid "Hide"
 msgstr "Kätke"
 
 #: js/messages.php:94
-#| msgid "Hide query box"
 msgid "Hide search criteria"
 msgstr "Piilota hakukriteerit"
 
 #: js/messages.php:95
-#| msgid "Show query box"
 msgid "Show search criteria"
 msgstr "Näytä hakukriteerit"
 
@@ -1176,7 +1174,6 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:120
-#| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr ", viimeisin vakaa versio:"
 
@@ -2133,7 +2130,6 @@ msgid "Open"
 msgstr "Avaa"
 
 #: libraries/config.values.php:74
-#| msgid "Close"
 msgid "Closed"
 msgstr "Suljettu"
 
@@ -2284,7 +2280,6 @@ msgid "Improves efficiency of screen refresh"
 msgstr "Parantaa näytön päivittämisen tehokkuutta"
 
 #: libraries/config/messages.inc.php:18
-#| msgid "Enabled"
 msgid "Enable Ajax"
 msgstr "Käytä Ajaxia"
 
@@ -2371,7 +2366,6 @@ msgstr ""
 "- sallii kentissä uudet rivit"
 
 #: libraries/config/messages.inc.php:33
-#| msgid "CHAR fields editing"
 msgid "CHAR columns editing"
 msgstr "CHAR-sarakkeiden muokkaus"
 
@@ -2498,17 +2492,14 @@ msgid "Edit SQL queries in popup window"
 msgstr "Muokkaa SQL-kyselyitä uudessa ikkunassa"
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "Muokkaa ikkunassa"
 
 #: libraries/config/messages.inc.php:62
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "Näytä virheet"
 
 #: libraries/config/messages.inc.php:63
-#| msgid "Ignore errors"
 msgid "Gather errors"
 msgstr "Kerää virheet"
 
@@ -2517,7 +2508,6 @@ msgid "Show icons for warning, error and information messages"
 msgstr "Näytä varoitus-, virhe- ja tietoviestien kuvakkeet"
 
 #: libraries/config/messages.inc.php:65
-#| msgid "Ignore errors"
 msgid "Iconic errors"
 msgstr "Virheet kuvakkeineen"
 
@@ -2558,21 +2548,18 @@ msgstr "Pakkaus"
 #: libraries/export/excel.php:24 libraries/export/htmlword.php:29
 #: libraries/export/latex.php:71 libraries/export/ods.php:24
 #: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Aseta sarakkeiden nimet ensimmäiselle riville"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:246 libraries/import/csv.php:75
 #: libraries/import/ldi.php:41
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Sarakkeiden rajausmerkki"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:240
 #: libraries/config/messages.inc.php:247 libraries/import/csv.php:80
 #: libraries/import/ldi.php:42
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Koodinvaihtomerkki"
 
@@ -2591,7 +2578,6 @@ msgstr "Poista CRLF-merkit sarakkeista"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
 #: libraries/import/ldi.php:40
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Sarakkeiden erotusmerkki"
 
@@ -2601,7 +2587,6 @@ msgid "Lines terminated by"
 msgstr "Rivien erotinmerkki"
 
 #: libraries/config/messages.inc.php:80
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel-muokkaus"
 
@@ -2622,7 +2607,6 @@ msgstr "Taulunimen pohja"
 #: libraries/config/messages.inc.php:141 libraries/export/htmlword.php:23
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
-#| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "Luo tauluvedos"
 
@@ -2656,7 +2640,6 @@ msgid "Relations"
 msgstr "Relaatiot"
 
 #: libraries/config/messages.inc.php:103
-#| msgid "Export type"
 msgid "Export method"
 msgstr "Vientimetodi"
 
@@ -2715,7 +2698,6 @@ msgid "Maximal length of created query"
 msgstr "Luodun kyselyn enimmäispituus"
 
 #: libraries/config/messages.inc.php:136
-#| msgid "Export tables"
 msgid "Export type"
 msgstr "Viennin tyyppi"
 
@@ -2724,7 +2706,6 @@ msgid "Enclose export in a transaction"
 msgstr "Lisää transaktio"
 
 #: libraries/config/messages.inc.php:138
-#| msgid "Export contents"
 msgid "Export time in UTC"
 msgstr "Viennin aika UTC:nä"
 
@@ -2768,7 +2749,6 @@ msgstr "Mukauta selaustilaa"
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
 #: libraries/config/messages.inc.php:187 libraries/config/messages.inc.php:215
 #: libraries/config/messages.inc.php:227
-#| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Mukauta oletusvalintoja"
 
@@ -2810,7 +2790,6 @@ msgid "Features"
 msgstr "Ominaisuudet"
 
 #: libraries/config/messages.inc.php:166
-#| msgid "Generate"
 msgid "General"
 msgstr "Yleiset"
 
@@ -2874,7 +2853,6 @@ msgid "Main frame"
 msgstr "Pääkehys"
 
 #: libraries/config/messages.inc.php:184
-#| msgid "Microsoft Excel 2000"
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
@@ -2893,7 +2871,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Asetukset, jotka eivät sovi muualle"
 
 #: libraries/config/messages.inc.php:190
-#| msgid "Page number:"
 msgid "Page titles"
 msgstr "Sivun otsikot"
 
@@ -2932,12 +2909,10 @@ msgid "Basic settings"
 msgstr "Perusasetukset"
 
 #: libraries/config/messages.inc.php:197
-#| msgid "Authentication type"
 msgid "Authentication"
 msgstr "Todennus"
 
 #: libraries/config/messages.inc.php:198
-#| msgid "Authentication type"
 msgid "Authentication settings"
 msgstr "Todennuksen valinnat"
 
@@ -2958,7 +2933,6 @@ msgid "Enter server connection parameters"
 msgstr "Anna palvelimen yhteysparametrit"
 
 #: libraries/config/messages.inc.php:202
-#| msgid "Configuration file"
 msgid "Configuration storage"
 msgstr "Asetusmuisti"
 
@@ -3017,12 +2991,10 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Mukauta SQL-kyselykentässä näytettäviä linkkejä"
 
 #: libraries/config/messages.inc.php:217
-#| msgid "SQL queries"
 msgid "SQL queries settings"
 msgstr "SQL-kyselyjen asetukset"
 
 #: libraries/config/messages.inc.php:218
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "SQL-tarkistin"
 
@@ -3051,7 +3023,6 @@ msgid "Choose how you want tabs to work"
 msgstr "Valitse haluamasi välilehtien toiminta"
 
 #: libraries/config/messages.inc.php:224
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "Tekstikentät"
 
@@ -3066,7 +3037,6 @@ msgid "Texy! text"
 msgstr "Texy!-teksti"
 
 #: libraries/config/messages.inc.php:228
-#| msgid "Warning"
 msgid "Warnings"
 msgstr "Varoitukset"
 
@@ -3152,17 +3122,14 @@ msgid "Do not import empty rows"
 msgstr "Älä tuo tyhjiä riviä"
 
 #: libraries/config/messages.inc.php:254
-#| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Tuo valuutta-arvot ($5.00 muotoon 5.00)"
 
 #: libraries/config/messages.inc.php:255
-#| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Tuo prosenttiyksiköt sopivin desimaaliluvuin (12.00% muotoon .12)"
 
 #: libraries/config/messages.inc.php:256
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Alusta ohitettavien kyselyjen määrä"
 
@@ -3171,7 +3138,6 @@ msgid "Partial import: skip queries"
 msgstr "Osittainen tuonti: ohita kyselyjä"
 
 #: libraries/config/messages.inc.php:259
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Älä käytä nolla-arvoissa AUTO_INCREMENT:iä"
 
@@ -3559,17 +3525,14 @@ msgid "Query window height (in pixels)"
 msgstr "Kyselyikkunan korkeus (pikseleissä)"
 
 #: libraries/config/messages.inc.php:342
-#| msgid "Query window"
 msgid "Query window height"
 msgstr "Kyselyikkunan korkeus"
 
 #: libraries/config/messages.inc.php:343
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Kyselyikkunan leveys (pikseleinä)"
 
 #: libraries/config/messages.inc.php:344
-#| msgid "Query window"
 msgid "Query window width"
 msgstr "Kyselyikkunan leveys"
 
@@ -4081,9 +4044,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"Huomaa, että tämän käyttöönotolla ei ole vaikutusta "
-"[kbd]config[/kbd]-todennusta käytettäessä, koska salasana lukee suoraan "
-"asetustiedostossa; tämä ei estä saman komennon suorittamista suoraan."
+"Huomaa, että tämän käyttöönotolla ei ole vaikutusta [kbd]config[/kbd]-"
+"todennusta käytettäessä, koska salasana lukee suoraan asetustiedostossa; "
+"tämä ei estä saman komennon suorittamista suoraan."
 
 #: libraries/config/messages.inc.php:442
 msgid "Show password change form"
@@ -4575,7 +4538,6 @@ msgid "Password Hashing"
 msgstr "Salasanan salaus"
 
 #: libraries/display_change_password.lib.php:65
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 -yhteensopiva"
 
@@ -4753,17 +4715,14 @@ msgid "None"
 msgstr "Ei mitään"
 
 #: libraries/display_export.lib.php:308
-#| msgid "\"zipped\""
 msgid "zipped"
 msgstr "ZIP-pakattu"
 
 #: libraries/display_export.lib.php:310
-#| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "GZIP-pakattu"
 
 #: libraries/display_export.lib.php:312
-#| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "BZIP-pakattu"
 
@@ -5030,12 +4989,10 @@ msgid "Print view (with full texts)"
 msgstr "Tulostusversio (kokonaisin tekstein)"
 
 #: libraries/display_tbl.lib.php:2372 tbl_chart.php:81
-#| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Näytä kaavio"
 
 #: libraries/display_tbl.lib.php:2391
-#| msgid "Create User"
 msgid "Create view"
 msgstr "Luo näkymä"
 
@@ -5597,7 +5554,6 @@ msgstr "Sarakkeiden kommentit näkyvissä"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#| msgid "Available MIME types"
 msgid "Display MIME types"
 msgstr "Näytä MIME-tyypit"
 
@@ -5640,7 +5596,6 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Luo raportin, joka sisältää yhden taulun tiedot)"
 
 #: libraries/export/pdf.php:24
-#| msgid "Report title"
 msgid "Report title:"
 msgstr "Raportin otsikko:"
 
@@ -6414,7 +6369,6 @@ msgid "Create a page"
 msgstr "Luo uusi sivu"
 
 #: libraries/schema/User_Schema.class.php:99
-#| msgid "Page number:"
 msgid "Page name"
 msgstr "Sivun nimi"
 
@@ -6485,7 +6439,6 @@ msgid "Portrait"
 msgstr "Pystytasossa"
 
 #: libraries/schema/User_Schema.class.php:395
-#| msgid "Creation"
 msgid "Orientation"
 msgstr "Suunta"
 
@@ -6593,7 +6546,6 @@ msgid "Clear"
 msgstr "Tyhjennä"
 
 #: libraries/sql_query_form.lib.php:301
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Sarakkeet"
 
@@ -7119,7 +7071,6 @@ msgid "Official Homepage"
 msgstr "phpMyAdminin kotisivut"
 
 #: main.php:219
-#| msgid "Attributes"
 msgid "Contribute"
 msgstr "Osallistu"
 
@@ -7128,7 +7079,6 @@ msgid "Get support"
 msgstr "Hanki tukea"
 
 #: main.php:221
-#| msgid "No change"
 msgid "List of changes"
 msgstr "Muutoslista"
 
@@ -7368,7 +7318,6 @@ msgid "Rename to"
 msgstr "Nimeä taulu uudelleen"
 
 #: pmd_general.php:482 pmd_general.php:581
-#| msgid "User name"
 msgid "New name"
 msgstr "Uusi nimi"
 
@@ -7485,9 +7434,9 @@ msgid "Modifications have been saved"
 msgstr "Muutokset tallennettu"
 
 #: prefs_forms.php:78
-#| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Asetuksia ei voitu tallentaa, sillä lähetetyssä lomakkeessa on virheitä"
+msgstr ""
+"Asetuksia ei voitu tallentaa, sillä lähetetyssä lomakkeessa on virheitä"
 
 #: prefs_manage.php:80
 #, fuzzy
@@ -9244,7 +9193,6 @@ msgid "Enter manually"
 msgstr "Syötä käsin"
 
 #: server_synchronize.php:1139
-#| msgid "Insecure connection"
 msgid "Current connection"
 msgstr "Nykyinen yhteys"
 

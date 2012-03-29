@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-28 15:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -862,8 +862,8 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 "Importimisest andmeid vastu ei võetud. Faili nime kas ei saadetud või faili "
-"maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
-"[a@./Documentation.html#faq1_16@Documentation]KKK 1.16[/a]."
+"maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata [a@./"
+"Documentation.html#faq1_16@Documentation]KKK 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1633,8 +1633,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"Arvatavasti ei loonud sa seadistuse faili. Võid selle loomiseks kasutada %"
-"1$spaigaldaja skripti%2$s."
+"Arvatavasti ei loonud sa seadistuse faili. Võid selle loomiseks kasutada "
+"%1$spaigaldaja skripti%2$s."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -4917,8 +4917,7 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"Mälupuhvri maht, mida InnoDB kasutab oma andmete ja indeksite "
-"puhverdamiseks."
+"Mälupuhvri maht, mida InnoDB kasutab oma andmete ja indeksite puhverdamiseks."
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
@@ -6558,8 +6557,7 @@ msgid ""
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 "Saadavalolevate transformatsiooni valikute ja nende MIME-tüüpi "
-"transformatsioonide nimekirja jaoks vajuta %stransformatsiooni kirjeldusele%"
-"s"
+"transformatsioonide nimekirja jaoks vajuta %stransformatsiooni kirjeldusele%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -7458,8 +7456,7 @@ msgstr ""
 #: server_privileges.php:618
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
-"Piirab päringute hulka, mida kasutaja võib tunni aja jooksul serverile "
-"saata."
+"Piirab päringute hulka, mida kasutaja võib tunni aja jooksul serverile saata."
 
 #: server_privileges.php:53 server_privileges.php:622
 #: server_privileges.php:624
@@ -7578,7 +7575,8 @@ msgstr "Ressursi piirangud"
 
 #: server_privileges.php:613
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Märkus: Nende valikute muutmisel väärtuseks 0 (null) eemaldab piirangu."
+msgstr ""
+"Märkus: Nende valikute muutmisel väärtuseks 0 (null) eemaldab piirangu."
 
 #: server_privileges.php:690
 msgid "Login Information"
@@ -8099,8 +8097,8 @@ msgid ""
 msgstr ""
 "Fikseeritud asukohal põhineva rea lugemise taotluste hulk. See on kõrge, kui "
 "teed palju päringuid, mis vajavad tulemuste sorteerimist. Tõenäoliselt teed "
-"palju päringuid, millega peab MySQL kontrolliga terveid tabeleid või "
-"kasutad liitmisi, mis ei kasuta võtmeid korralikult."
+"palju päringuid, millega peab MySQL kontrolliga terveid tabeleid või kasutad "
+"liitmisi, mis ei kasuta võtmeid korralikult."
 
 #: server_status.php:63
 msgid ""
@@ -8173,8 +8171,8 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"InnoDB algatatud \"juhuslike\" ettelugemiste hulk. See juhtub siis, kui päring "
-"peab kontrollima palju tabeleid, aga juhuslikus järjekorras."
+"InnoDB algatatud \"juhuslike\" ettelugemiste hulk. See juhtub siis, kui "
+"päring peab kontrollima palju tabeleid, aga juhuslikus järjekorras."
 
 #: server_status.php:75
 msgid ""

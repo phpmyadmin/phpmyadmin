@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-28 16:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -110,7 +110,9 @@ msgstr "원격 URL 열기에 실패했습니다"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "%s 파일은 이 시스템에서 이용할 수 없습니다. www.phpmyadmin.net에 방문하여 정보를 확인하시기 바랍니다."
+msgstr ""
+"%s 파일은 이 시스템에서 이용할 수 없습니다. www.phpmyadmin.net에 방문하여 정"
+"보를 확인하시기 바랍니다."
 
 #: db_create.php:58
 #, php-format
@@ -1859,7 +1861,8 @@ msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr "환경설정 파일에 <tt>$cfg['PmaAbsoluteUri']</tt> 변수가 정의되어야 합니다!"
+msgstr ""
+"환경설정 파일에 <tt>$cfg['PmaAbsoluteUri']</tt> 변수가 정의되어야 합니다!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -6368,7 +6371,9 @@ msgstr ""
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
-msgstr "질의 검사기가 초기화되지 않았습니다. %s문서%s에서 설명한 필수 PHP 확장모듈을 설치했는지 확인해 보십시오."
+msgstr ""
+"질의 검사기가 초기화되지 않았습니다. %s문서%s에서 설명한 필수 PHP 확장모듈을 "
+"설치했는지 확인해 보십시오."
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6698,8 +6703,9 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"환경설정파일에 MySQL 관리자 암호가 없습니다. 이같은 기본설정상태로 MySQL 서버가 작동한다면 누구나 침입할 수 있으므로, "
-"'root'유저에 암호를 설정하여 이 보안 취약점을 수정하시기 바랍니다."
+"환경설정파일에 MySQL 관리자 암호가 없습니다. 이같은 기본설정상태로 MySQL 서버"
+"가 작동한다면 누구나 침입할 수 있으므로, 'root'유저에 암호를 설정하여 이 보"
+"안 취약점을 수정하시기 바랍니다."
 
 #: main.php:253
 msgid ""

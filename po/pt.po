@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-28 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
@@ -36,8 +36,7 @@ msgid ""
 msgstr ""
 "A janela de destino no seu browser não pode ser actualizada. Talvez tenha "
 "fechado a janela que a originou, ou as configurações de segurança do seu "
-"browser encontram-se definidas para não permitir actualizações entre "
-"janelas."
+"browser encontram-se definidas para não permitir actualizações entre janelas."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:2827
 #: libraries/common.lib.php:2834 libraries/common.lib.php:3013

@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-20 07:33+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -34,7 +34,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"ターゲットとなるブラウザウィンドウを更新できませんでした。親ウィンドウを閉じたか、ブラウザのセキュリティ設定でクロスウィンドウの更新をブロックしているも"
+"ターゲットとなるブラウザウィンドウを更新できませんでした。親ウィンドウを閉じ"
+"たか、ブラウザのセキュリティ設定でクロスウィンドウの更新をブロックしているも"
 "のと思われます"
 
 #: browse_foreigners.php:156 libraries/common.lib.php:2827
@@ -110,7 +111,9 @@ msgstr "リモート URL を開けませんでした。"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "ファイル %s は、このシステムでは使用できません。詳細については www.phpmyadmin.net をご覧ください。"
+msgstr ""
+"ファイル %s は、このシステムでは使用できません。詳細については www."
+"phpmyadmin.net をご覧ください。"
 
 #: db_create.php:58
 #, php-format
@@ -338,7 +341,9 @@ msgstr "照合順序"
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr "phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧ください。"
+msgstr ""
+"phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧く"
+"ださい。"
 
 #: db_operations.php:594
 msgid "Edit or export relational schema"
@@ -795,7 +800,8 @@ msgstr "成形結果"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "結合された値 (成形結果) を「長さ／値」項目にコピー＆ペーストしてください。"
+msgstr ""
+"結合された値 (成形結果) を「長さ／値」項目にコピー＆ペーストしてください。"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -810,7 +816,9 @@ msgstr "空き容量不足でファイル %s を保存できません"
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr "サーバ上に既存のファイル %s があります。ファイル名を変更するか、上書きオプションを有効にしてください"
+msgstr ""
+"サーバ上に既存のファイル %s があります。ファイル名を変更するか、上書きオプ"
+"ションを有効にしてください"
 
 #: export.php:309 export.php:313
 #, php-format
@@ -827,7 +835,9 @@ msgstr "ダンプをファイル %s に保存しました"
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
-msgstr "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュメント%s をご覧ください"
+msgstr ""
+"アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
+"メント%s をご覧ください"
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -841,7 +851,9 @@ msgstr "ファイルを読み込めませんでした"
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
-msgstr "サポートされていない圧縮形式 (%s) のファイルを読み込もうとしました。この形式はサポートされていないか設定で無効にされています。"
+msgstr ""
+"サポートされていない圧縮形式 (%s) のファイルを読み込もうとしました。この形式"
+"はサポートされていないか設定で無効にされています。"
 
 #: import.php:336
 msgid ""
@@ -849,13 +861,15 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"インポートするデータを受信できませんでした。ファイル名が送信されていないか、ファイルサイズが PHP "
-"の設定で許可された最大値を超えています。[a@./Documentation.html#faq1_16@Documentation]FAQ "
-"1.16[/a] をご覧ください。"
+"インポートするデータを受信できませんでした。ファイル名が送信されていないか、"
+"ファイルサイズが PHP の設定で許可された最大値を超えています。[a@./"
+"Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] をご覧ください。"
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "インポートプラグインが読み込めません。正しくインストールされているか確認してください！"
+msgstr ""
+"インポートプラグインが読み込めません。正しくインストールされているか確認して"
+"ください！"
 
 #: import.php:396
 msgid "The bookmark has been deleted."
@@ -879,14 +893,17 @@ msgstr "インポートは正常終了しました。%d 個のクエリを実行
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
-msgstr "スクリプトがタイムアウトしました。インポートを完了させたいのであれば同じファイルを再送信すればインポートが再開されます。"
+msgstr ""
+"スクリプトがタイムアウトしました。インポートを完了させたいのであれば同じファ"
+"イルを再送信すればインポートが再開されます。"
 
 #: import.php:425
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"ただし、最後に実行したときはまったくデータを解析できませんでした。ふつうは PHP の時間制限を伸ばさない限りこのデータのインポートはできません"
+"ただし、最後に実行したときはまったくデータを解析できませんでした。ふつうは "
+"PHP の時間制限を伸ばさない限りこのデータのインポートはできません"
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2115 libraries/sql_query_form.lib.php:139
@@ -954,7 +971,9 @@ msgstr "BLOB 格納を無効にしようとしています!"
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr "データベース %s に対する全ての BLOB 参照を無効にしようとしていますが、よろしいですか？"
+msgstr ""
+"データベース %s に対する全ての BLOB 参照を無効にしようとしていますが、よろし"
+"いですか？"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
@@ -1150,8 +1169,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin の新しいバージョンが提供されています。アップグレードの検討をお奨めします。最新バージョンは %s で、%s "
-"にリリースされています。"
+"phpMyAdmin の新しいバージョンが提供されています。アップグレードの検討をお奨め"
+"します。最新バージョンは %s で、%s にリリースされています。"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:120
@@ -1413,13 +1432,17 @@ msgstr "フォントサイズ"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "アップロードしたファイルは php.ini に指定されている設定項目 upload_max_filesize の値を超えています。"
+msgstr ""
+"アップロードしたファイルは php.ini に指定されている設定項目 "
+"upload_max_filesize の値を超えています。"
 
 #: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr "アップロードしたファイルは HTML フォームに指定されている設定項目 MAX_FILE_SIZE の値を超えています。"
+msgstr ""
+"アップロードしたファイルは HTML フォームに指定されている設定項目 "
+"MAX_FILE_SIZE の値を超えています。"
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
@@ -1446,8 +1469,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"アップロードされたファイルの移動に失敗しました。[a@./Documentation.html#faq1_11@Documentation]FAQ "
-"1.11[/a] をご覧ください。"
+"アップロードされたファイルの移動に失敗しました。[a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a] をご覧ください。"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1490,7 +1513,9 @@ msgstr "インデックス %s を削除しました"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr "インデックス %1$s と %2$s は同一のもののようです。一方は削除してもよいかもしれません。"
+msgstr ""
+"インデックス %1$s と %2$s は同一のもののようです。一方は削除してもよいかもし"
+"れません。"
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:175
 #: libraries/server_links.inc.php:42 server_databases.php:100
@@ -1610,7 +1635,9 @@ msgstr "%s へようこそ"
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
-msgstr "設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2$s を利用して設定ファイルを作成してください"
+msgstr ""
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -1619,8 +1646,9 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"MySQL サーバに接続しようとしましたが拒否されました。config.inc.php のホスト、ユーザ名、パスワードが MySQL "
-"サーバの管理者から与えられた情報と一致するか確認してください"
+"MySQL サーバに接続しようとしましたが拒否されました。config.inc.php のホスト、"
+"ユーザ名、パスワードが MySQL サーバの管理者から与えられた情報と一致するか確認"
+"してください"
 
 #: libraries/auth/cookie.auth.lib.php:230
 msgid "Log in"
@@ -1637,7 +1665,8 @@ msgstr "phpMyAdmin のドキュメント"
 #: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr "「ホスト名／IP アドレス」と「ポート」を空白で区切って入力することができます。"
+msgstr ""
+"「ホスト名／IP アドレス」と「ポート」を空白で区切って入力することができます。"
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
@@ -1663,7 +1692,9 @@ msgstr "クッキーを有効にしてください"
 #: libraries/auth/signon.auth.lib.php:222
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr "パスワード無しログインは設定 (AllowNoPassword 参照) によって禁止されています。"
+msgstr ""
+"パスワード無しログインは設定 (AllowNoPassword 参照) によって禁止されていま"
+"す。"
 
 #: libraries/auth/cookie.auth.lib.php:652
 #: libraries/auth/signon.auth.lib.php:226
@@ -1679,7 +1710,8 @@ msgstr "MySQL サーバにログインできません"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "ユーザ名ないしパスワードが間違っています。<br />アクセスは拒否されました"
+msgstr ""
+"ユーザ名ないしパスワードが間違っています。<br />アクセスは拒否されました"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -1824,9 +1856,10 @@ msgid ""
 "semicolon is missing somewhere.<br />If you receive a blank page, everything "
 "is fine."
 msgstr ""
-"phpMyAdmin の設定ファイルを読み込めませんでした! <br />文法エラーが発生したか、ファイルが見つかりません。<br "
-"/>下のリンクから直接設定ファイルを読み込んで PHP "
-"のエラーメッセージを確認してください。たいていの場合はどこかに引用符やセミコロンの抜けがあります。<br />空白のページが表示されれば問題ありません。"
+"phpMyAdmin の設定ファイルを読み込めませんでした! <br />文法エラーが発生した"
+"か、ファイルが見つかりません。<br />下のリンクから直接設定ファイルを読み込ん"
+"で PHP のエラーメッセージを確認してください。たいていの場合はどこかに引用符や"
+"セミコロンの抜けがあります。<br />空白のページが表示されれば問題ありません。"
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -2255,7 +2288,9 @@ msgstr "Ajax を有効にする"
 #: libraries/config/messages.inc.php:19
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
-msgstr "有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の MySQL サーバを入力できるようになります。"
+msgstr ""
+"有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の "
+"MySQL サーバを入力できるようになります。"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -2267,8 +2302,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
-"有効にすると、フレームに対して異なるドメインに置かれているページを許可します。このことは、クロスフレームスクリプト攻撃を可能にする潜在的な[strong"
-"]セキュリティホール[/strong]にもなりえます。"
+"有効にすると、フレームに対して異なるドメインに置かれているページを許可しま"
+"す。このことは、クロスフレームスクリプト攻撃を可能にする潜在的な[strong]セ"
+"キュリティホール[/strong]にもなりえます。"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -2282,7 +2318,8 @@ msgstr "一般ユーザに「データベースを削除する」リンクを表
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr "[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ"
+msgstr ""
+"[kbd]cookie[/kbd] 認証においてクッキーの暗号化に使用される非公開パスフレーズ"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -2309,8 +2346,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"圧縮を有効にします。"
+"インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
+"Bzip2]bzip2[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
@@ -2322,8 +2359,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"CHAR と VARCHAR 型のカラムに対しての編集用のフォームパーツのタイプを定義します。[kbd]input[/kbd] "
-"は入力文字数を制限することができます。[kbd]textarea[/kbd] は改行を入力すことができます。"
+"CHAR と VARCHAR 型のカラムに対しての編集用のフォームパーツのタイプを定義しま"
+"す。[kbd]input[/kbd] は入力文字数を制限することができます。[kbd]textarea[/"
+"kbd] は改行を入力すことができます。"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -2354,8 +2392,9 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
-"エクスポートの際、バッファに溜まり次第 gzip/bzip2 圧縮していく方法です。あまり多くのメモリを必要とはしません。gzip/bzip2 "
-"ファイル作成で問題が発生した場合、この機能は無効になります。"
+"エクスポートの際、バッファに溜まり次第 gzip/bzip2 圧縮していく方法です。あま"
+"り多くのメモリを必要とはしません。gzip/bzip2 ファイル作成で問題が発生した場"
+"合、この機能は無効になります。"
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
@@ -2370,7 +2409,9 @@ msgstr "設定ファイル"
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
-msgstr "データを失う作業をしようとしたとき、「本当に実行しますか?...」という警告を出すかどうか。"
+msgstr ""
+"データを失う作業をしようとしたとき、「本当に実行しますか?...」という警告を出"
+"すかどうか。"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
@@ -2389,8 +2430,8 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
-"[kbd]horizontal[/kbd]（水平）、[kbd]vertical[/kbd]（垂直）、数字のいずれか。数字は、垂直モデルが適用される最大の"
-"カラム数。"
+"[kbd]horizontal[/kbd]（水平）、[kbd]vertical[/kbd]（垂直）、数字のいずれか。"
+"数字は、垂直モデルが適用される最大のカラム数。"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
@@ -2472,7 +2513,8 @@ msgstr "エラー等のアイコン化"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr "スクリプトの実行が許されている秒数を設定します。([kbd]0[/kbd] で制限なし)"
+msgstr ""
+"スクリプトの実行が許されている秒数を設定します。([kbd]0[/kbd] で制限なし)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
@@ -2666,7 +2708,8 @@ msgstr "エクスポート時間を UTC（協定世界時）にする"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
-msgstr "phpMyAdmin を使用している間、強制的にセキュリティで保護された接続をします。"
+msgstr ""
+"phpMyAdmin を使用している間、強制的にセキュリティで保護された接続をします。"
 
 #: libraries/config/messages.inc.php:147
 msgid "Force SSL connection"
@@ -2677,8 +2720,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"外部キーのドロップダウンボックス内のソート順。[kbd]content[/kbd] は参照しているデータ、[kbd]id[/kbd] "
-"はキー値を表しています。"
+"外部キーのドロップダウンボックス内のソート順。[kbd]content[/kbd] は参照してい"
+"るデータ、[kbd]id[/kbd] はキー値を表しています。"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -2772,7 +2815,8 @@ msgstr "インポート/エクスポート"
 
 #: libraries/config/messages.inc.php:172
 msgid "Set import and export directories and compression options"
-msgstr "インポートとエクスポートのディレクトリおよび圧縮オプションを設定してください"
+msgstr ""
+"インポートとエクスポートのディレクトリおよび圧縮オプションを設定してください"
 
 #: libraries/config/messages.inc.php:173 libraries/export/latex.php:26
 msgid "LaTeX"
@@ -2833,8 +2877,8 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
-"ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変数は[a@Documentation.html#cfg_TitleTable"
-"]ドキュメント[/a]を参照してください。"
+"ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変"
+"数は[a@Documentation.html#cfg_TitleTable]ドキュメント[/a]を参照してください。"
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation_header.inc.php:83
@@ -2855,7 +2899,9 @@ msgstr "セキュリティ"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
-msgstr "phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するものではないことをご了承ください。"
+msgstr ""
+"phpMyAdmin は、ユーザインタフェースだけであり、その機能は MySQL を制限するも"
+"のではないことをご了承ください。"
 
 #: libraries/config/messages.inc.php:196
 msgid "Basic settings"
@@ -2877,7 +2923,9 @@ msgstr "サーバ設定"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
-msgstr "高度なサーバ設定。これらのオプションは、よく知らないのであれば変更しないでください。"
+msgstr ""
+"高度なサーバ設定。これらのオプションは、よく知らないのであれば変更しないでく"
+"ださい。"
 
 #: libraries/config/messages.inc.php:201
 msgid "Enter server connection parameters"
@@ -2893,8 +2941,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。ドキュメントの [a@Documentation.html"
-"#linked-tables]phpMyAdmin 環境保管領域[/a]参照。"
+"追加された機能にアクセスするには phpMyAdmin 環境保管領域を設定してください。"
+"ドキュメントの [a@Documentation.html#linked-tables]phpMyAdmin 環境保管領域[/"
+"a]参照。"
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
@@ -2904,7 +2953,9 @@ msgstr "変更追跡機能"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr "データベースで行われた変更の追跡機能です。これには、phpMyAdmin 環境保管領域が必要です。"
+msgstr ""
+"データベースで行われた変更の追跡機能です。これには、phpMyAdmin 環境保管領域が"
+"必要です。"
 
 #: libraries/config/messages.inc.php:206
 msgid "Customize export options"
@@ -2950,9 +3001,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"SQL 検証サービスを使用する場合、[strong]すべての SQL 文は統計目的のために匿名で格納されていること[/strong]に注意する必要があり"
-"ます。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
-"Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+"SQL 検証サービスを使用する場合、[strong]すべての SQL 文は統計目的のために匿名"
+"で格納されていること[/strong]に注意する必要があります。[br][em][a@http://"
+"sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 Upright "
+"Database Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
@@ -2995,8 +3047,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/Gzip]gzip[/a] "
-"圧縮を有効にします。"
+"インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
+"Gzip]gzip[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:231
 msgid "GZip"
@@ -3010,7 +3062,9 @@ msgstr "iconv のための追加パラメータ"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
-msgstr "有効にした場合、クエリの 1 つが失敗しても phpMyAdmin はマルチクエリの実行を続けます。"
+msgstr ""
+"有効にした場合、クエリの 1 つが失敗しても phpMyAdmin はマルチクエリの実行を続"
+"けます。"
 
 #: libraries/config/messages.inc.php:234
 msgid "Ignore multiple statement errors"
@@ -3022,7 +3076,8 @@ msgid ""
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"制限時間が近くなったときにスクリプト側でインポートを中断できるようにします。大きなファイルをインポートする場合には便利ですが、トランザクションが壊れるこ"
+"制限時間が近くなったときにスクリプト側でインポートを中断できるようにします。"
+"大きなファイルをインポートする場合には便利ですが、トランザクションが壊れるこ"
 "ともあります。"
 
 #: libraries/config/messages.inc.php:236
@@ -3043,7 +3098,9 @@ msgstr "テーブルデータを差し替えるファイル"
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
-msgstr "デフォルトの形式。このリストは対象（データベース、テーブル）に依存しているので注意してください。SQL は常に利用可能です。"
+msgstr ""
+"デフォルトの形式。このリストは対象（データベース、テーブル）に依存しているの"
+"で注意してください。SQL は常に利用可能です。"
 
 #: libraries/config/messages.inc.php:245
 msgid "Format of imported file"
@@ -3130,7 +3187,8 @@ msgstr "データベースツリーの区切り"
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
-msgstr "軽快モードのみ。下の項目で定義する区切りが合った場合、ツリー表示になります。"
+msgstr ""
+"軽快モードのみ。下の項目で定義する区切りが合った場合、ツリー表示になります。"
 
 #: libraries/config/messages.inc.php:274
 msgid "Display databases in a tree"
@@ -3169,7 +3227,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"メインウィンドウ ([kbd]main[/kbd]) もしくは新しいウィンドウ ([kbd]new[/kbd]) にリンクされたページを開きます。"
+"メインウィンドウ ([kbd]main[/kbd]) もしくは新しいウィンドウ ([kbd]new[/kbd]) "
+"にリンクされたページを開きます。"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link target"
@@ -3206,8 +3265,10 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"チェックした場合、ログアウト時に全てのサーバのクッキーを削除します。チェックを外した場合は、現在のサーバに対してだけログアウトが行われます。このチェック"
-"を外すと、複数のサーバに接続している時、他のサーバからのログアウト作業を忘れやすくなります。"
+"チェックした場合、ログアウト時に全てのサーバのクッキーを削除します。チェック"
+"を外した場合は、現在のサーバに対してだけログアウトが行われます。このチェック"
+"を外すと、複数のサーバに接続している時、他のサーバからのログアウト作業を忘れ"
+"やすくなります。"
 
 #: libraries/config/messages.inc.php:291
 msgid "Delete all cookies on logout"
@@ -3217,7 +3278,9 @@ msgstr "ログアウト時に全てのクッキーを削除する"
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
-msgstr "cookie 認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義します。"
+msgstr ""
+"cookie 認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義しま"
+"す。"
 
 #: libraries/config/messages.inc.php:293
 msgid "Recall user name"
@@ -3230,8 +3293,10 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-"ブラウザに保存されるログインクッキーの有効期限（秒数）を定義します。デフォルトの 0 は、セッションが存在している間だけ保存されていることを意味し、ブラ"
-"ウザのウィンドウが閉じられるとすぐに削除されます。これは、信頼されていない環境で使う場合に推奨します。"
+"ブラウザに保存されるログインクッキーの有効期限（秒数）を定義します。デフォル"
+"トの 0 は、セッションが存在している間だけ保存されていることを意味し、ブラウザ"
+"のウィンドウが閉じられるとすぐに削除されます。これは、信頼されていない環境で"
+"使う場合に推奨します。"
 
 #: libraries/config/messages.inc.php:295
 msgid "Login cookie store"
@@ -3283,7 +3348,9 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
-msgstr "結果セットの表示行数。結果セットの行数の方が多い場合は「前へ／次へ」のリンクが表示されます。"
+msgstr ""
+"結果セットの表示行数。結果セットの行数の方が多い場合は「前へ／次へ」のリンク"
+"が表示されます。"
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum number of rows to display"
@@ -3301,7 +3368,9 @@ msgstr "テーブルの最大数"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
-msgstr "cookie 認証で mcrypt 拡張がなかった場合、警告を表示します。チェックを入れるとこのメッセージは表示されません。"
+msgstr ""
+"cookie 認証で mcrypt 拡張がなかった場合、警告を表示します。チェックを入れると"
+"このメッセージは表示されません。"
 
 #: libraries/config/messages.inc.php:312
 msgid "mcrypt warning"
@@ -3311,7 +3380,9 @@ msgstr "mcrypt 警告"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
-msgstr "割り当てが許可されているスクリプトのバイト数。例：[kbd]32M[/kbd] ([kbd]0[/kbd] で制限無し)"
+msgstr ""
+"割り当てが許可されているスクリプトのバイト数。例：[kbd]32M[/kbd] ([kbd]0[/"
+"kbd] で制限無し)"
 
 #: libraries/config/messages.inc.php:314
 msgid "Memory limit"
@@ -3358,8 +3429,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] とは TIME、DATE、DATETIME、TIMESTAMP 型のカラムに対しては DESC、それ以外は ASC "
-"の並び順にします。"
+"[kbd]SMART[/kbd] とは TIME、DATE、DATETIME、TIMESTAMP 型のカラムに対しては "
+"DESC、それ以外は ASC の並び順にします。"
 
 #: libraries/config/messages.inc.php:325
 msgid "Default sorting order"
@@ -3379,8 +3450,8 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
-"phpMyAdmin "
-"環境保管領域に必要なテーブルを見つけることができなかった場合、データベースの構造詳細ページに表示されるデフォルトの警告を無効にします。"
+"phpMyAdmin 環境保管領域に必要なテーブルを見つけることができなかった場合、デー"
+"タベースの構造詳細ページに表示されるデフォルトの警告を無効にします。"
 
 #: libraries/config/messages.inc.php:329
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -3405,7 +3476,8 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "データベースを基準としたクエリの履歴を必要とするなら有効にします (phpMyAdmin "
-"環境保管領域の設定が必要です)。無効にした場合、クエリ履歴の表示に JavaScript を利用します (ウィンドウを閉じると履歴は消えます)。"
+"環境保管領域の設定が必要です)。無効にした場合、クエリ履歴の表示に JavaScript "
+"を利用します (ウィンドウを閉じると履歴は消えます)。"
 
 #: libraries/config/messages.inc.php:335
 msgid "Permanent query history"
@@ -3453,7 +3525,9 @@ msgstr "コード変換エンジン"
 
 #: libraries/config/messages.inc.php:347
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr "カラム名ヘッダを何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
+msgstr ""
+"カラム名ヘッダを何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になりま"
+"す。"
 
 #: libraries/config/messages.inc.php:348
 msgid "Repeat headers"
@@ -3513,8 +3587,8 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
-"[a@http://swekey.com]SweKey ハードウェア認証[/a]用の設定ファイルのパス "
-"(ドキュメントルートには配置しないこと。/etc/swekey.conf がいいでしょう。)"
+"[a@http://swekey.com]SweKey ハードウェア認証[/a]用の設定ファイルのパス (ド"
+"キュメントルートには配置しないこと。/etc/swekey.conf がいいでしょう。)"
 
 #: libraries/config/messages.inc.php:363
 msgid "SweKey config file"
@@ -3533,8 +3607,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]ブックマーク[/a]機能を使わない場合は空欄にします。[kbd]p"
-"ma_bookmark[/kbd] としておくのがいいでしょう。"
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]ブックマーク[/a]機能を使わない場合"
+"は空欄にします。[kbd]pma_bookmark[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:367
 msgid "Bookmark table"
@@ -3545,7 +3619,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。[kbd]pma_column_info[/kbd] としておくのがいいでしょう。"
+"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。[kbd]"
+"pma_column_info[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:369
 msgid "Column information table"
@@ -3561,7 +3636,8 @@ msgstr "圧縮通信を行う"
 
 #: libraries/config/messages.inc.php:372
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr "サーバへの接続方法。確信がなければ [kbd]tcp[/kbd] のままにしてください。"
+msgstr ""
+"サーバへの接続方法。確信がなければ [kbd]tcp[/kbd] のままにしてください。"
 
 #: libraries/config/messages.inc.php:373
 msgid "Connection type"
@@ -3576,8 +3652,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
-"権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a] を参照してください。"
+"権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は [a@http://"
+"wiki.phpmyadmin.net/pma/controluser]wiki[/a] を参照してください。"
 
 #: libraries/config/messages.inc.php:376
 msgid "Control user"
@@ -3595,7 +3671,9 @@ msgstr "テーブル数"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
-msgstr "デザイナを使わない場合は空欄にします。[kbd]pma_designer_coords[/kbd] としておくのがいいでしょう。"
+msgstr ""
+"デザイナを使わない場合は空欄にします。[kbd]pma_designer_coords[/kbd] としてお"
+"くのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:380
 msgid "Designer table"
@@ -3606,8 +3684,8 @@ msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"詳細は [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] と "
-"[a@http://bugs.mysql.com/19588]MySQL Bugs[/a]。"
+"詳細は [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] "
+"と [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]。"
 
 #: libraries/config/messages.inc.php:382
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -3633,7 +3711,9 @@ msgstr "非表示にするデータベース"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
-msgstr "SQL クエリの履歴機能を使わない場合は空欄にします。[kbd]pma_history[/kbd] としておくのがいいでしょう。"
+msgstr ""
+"SQL クエリの履歴機能を使わない場合は空欄にします。[kbd]pma_history[/kbd] とし"
+"ておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:388
 msgid "SQL query history table"
@@ -3667,11 +3747,12 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
-"MySQL のワイルドカード文字 (% および _) "
-"を使用することができますが、それらを実際の文字として使いたい場合はエスケープします。すなわち、[kbd]'my_db'[/kbd] ではなく "
-"[kbd]'my\\_db'[/kbd] "
-"と記述します。また、このオプションを使うことでデータベースの表示順を望むようにソートすることができます。望む順番に名前を入力していき、最後に "
-"[kbd]'*'[/kbd] とだけ入力しておきます。[kbd]'*'[/kbd] は残ったものをアルファベット順に並べて表示する働きをします。"
+"MySQL のワイルドカード文字 (% および _) を使用することができますが、それらを"
+"実際の文字として使いたい場合はエスケープします。すなわち、[kbd]'my_db'[/kbd] "
+"ではなく [kbd]'my\\_db'[/kbd] と記述します。また、このオプションを使うことで"
+"データベースの表示順を望むようにソートすることができます。望む順番に名前を入"
+"力していき、最後に [kbd]'*'[/kbd] とだけ入力しておきます。[kbd]'*'[/kbd] は"
+"残ったものをアルファベット順に並べて表示する働きをします。"
 
 #: libraries/config/messages.inc.php:395
 msgid "Show only listed databases"
@@ -3688,7 +3769,9 @@ msgstr "config 認証用のパスワード"
 #: libraries/config/messages.inc.php:398
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
-msgstr "PDF スキーマを使用しない場合は空欄のままにします。[kbd]pma_pdf_pages[/kbd] としておくのがいいでしょう。"
+msgstr ""
+"PDF スキーマを使用しない場合は空欄のままにします。[kbd]pma_pdf_pages[/kbd] と"
+"しておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:399
 msgid "PDF schema: pages table"
@@ -3700,9 +3783,10 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
-"リレーション、ブックマーク、PDF機能に使用されるデータベース。詳細な情報については "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] "
-"を参照してください。これらの機能を使わない場合は空欄にします。[kbd]phpmyadmin[/kbd] としておくのがいいでしょう。"
+"リレーション、ブックマーク、PDF機能に使用されるデータベース。詳細な情報につい"
+"ては [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] を参照してください。こ"
+"れらの機能を使わない場合は空欄にします。[kbd]phpmyadmin[/kbd] としておくのが"
+"いいでしょう。"
 
 #: libraries/config/messages.inc.php:401
 msgid "Database name"
@@ -3710,7 +3794,8 @@ msgstr "データベース名"
 
 #: libraries/config/messages.inc.php:402
 msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr "MySQL サーバで開いているポート。デフォルトにしたい場合は空欄のままにします。"
+msgstr ""
+"MySQL サーバで開いているポート。デフォルトにしたい場合は空欄のままにします。"
 
 #: libraries/config/messages.inc.php:403
 msgid "Server port"
@@ -3721,8 +3806,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/relation]リレーションリンク[/a]機能を使わない場合は空欄にします。[kb"
-"d]pma_relation[/kbd] としておくのがいいでしょう。"
+"[a@http://wiki.phpmyadmin.net/pma/relation]リレーションリンク[/a]機能を使わな"
+"い場合は空欄にします。[kbd]pma_relation[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:405
 msgid "Relation table"
@@ -3741,7 +3826,8 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
-"設定例は[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認証モード[/a]を参照してください。"
+"設定例は[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認証モード[/a]を"
+"参照してください。"
 
 #: libraries/config/messages.inc.php:409
 msgid "Signon session name"
@@ -3753,7 +3839,9 @@ msgstr "サインオン URL"
 
 #: libraries/config/messages.inc.php:411
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr "MySQL サーバで開いているソケット。デフォルトにしたい場合は空欄のままにします。"
+msgstr ""
+"MySQL サーバで開いているソケット。デフォルトにしたい場合は空欄のままにしま"
+"す。"
 
 #: libraries/config/messages.inc.php:412
 msgid "Server socket"
@@ -3770,7 +3858,9 @@ msgstr "SSL の使用"
 #: libraries/config/messages.inc.php:415
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
-msgstr "PDF スキーマを使用しない場合は空欄にします。[kbd]pma_table_coords[/kbd] としておくのがいいでしょう。"
+msgstr ""
+"PDF スキーマを使用しない場合は空欄にします。[kbd]pma_table_coords[/kbd] とし"
+"ておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:416
 msgid "PDF schema: table coordinates"
@@ -3781,7 +3871,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"表示するカラムを記述するためのテーブル。使用しない場合は空欄にします。[kbd]pma_table_info[/kbd] としておくのがいいでしょう。"
+"表示するカラムを記述するためのテーブル。使用しない場合は空欄にします。[kbd]"
+"pma_table_info[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:418
 msgid "Display columns table"
@@ -3791,7 +3882,9 @@ msgstr "表示するカラムためのテーブル"
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
-msgstr "データベースを作成するときにログの最初の行に DROP DATABASE IF EXISTS 文を追加するかどうか。"
+msgstr ""
+"データベースを作成するときにログの最初の行に DROP DATABASE IF EXISTS 文を追加"
+"するかどうか。"
 
 #: libraries/config/messages.inc.php:420
 msgid "Add DROP DATABASE"
@@ -3801,7 +3894,9 @@ msgstr "DROP DATABASE を追加"
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
-msgstr "テーブルを作成するときにログの最初の行に DROP TABLE IF EXISTS 文を追加するかどうか。"
+msgstr ""
+"テーブルを作成するときにログの最初の行に DROP TABLE IF EXISTS 文を追加するか"
+"どうか。"
 
 #: libraries/config/messages.inc.php:422
 msgid "Add DROP TABLE"
@@ -3811,7 +3906,9 @@ msgstr "DROP TABLE を追加"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr "ビューを作成するときにログの最初の行に DROP VIEW IF EXISTS 文を追加するかどうか。"
+msgstr ""
+"ビューを作成するときにログの最初の行に DROP VIEW IF EXISTS 文を追加するかどう"
+"か。"
 
 #: libraries/config/messages.inc.php:424
 msgid "Add DROP VIEW"
@@ -3829,7 +3926,9 @@ msgstr "追跡するコマンド"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
-msgstr "SQL コマンドの追跡機能を使わない場合は空欄にします。[kbd]pma_tracking[/kbd] としておくのがいいでしょう。"
+msgstr ""
+"SQL コマンドの追跡機能を使わない場合は空欄にします。[kbd]pma_tracking[/kbd] "
+"としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:428
 msgid "SQL query tracking table"
@@ -3839,20 +3938,21 @@ msgstr "SQL コマンド追跡テーブル"
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr "SQL コマンドの追跡機能が、テーブルやビューに対して自動的に世代を作成するかどうか。"
+msgstr ""
+"SQL コマンドの追跡機能が、テーブルやビューに対して自動的に世代を作成するかど"
+"うか。"
 
 #: libraries/config/messages.inc.php:430
 msgid "Automatically create versions"
 msgstr "世代の自動作成"
 
 #: libraries/config/messages.inc.php:431
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
-msgstr "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_userconfig[/kbd] としておくのがいいでしょう。"
+msgstr ""
+"データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_userconfig[/"
+"kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:432
 msgid "User preferences storage table"
@@ -3867,7 +3967,8 @@ msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr ""
-"pma_* テーブルが最新のものであることがわかっている場合、無効にします。これは、互換性チェックをしないことにより、パフォーマンスを向上させます。"
+"pma_* テーブルが最新のものであることがわかっている場合、無効にします。これ"
+"は、互換性チェックをしないことにより、パフォーマンスを向上させます。"
 
 #: libraries/config/messages.inc.php:436
 msgid "Verbose check"
@@ -3877,7 +3978,9 @@ msgstr "冗長なチェック"
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr "このサーバのわかりやすい説明。ホスト名をそのまま表示させる場合には、空欄のままにします。"
+msgstr ""
+"このサーバのわかりやすい説明。ホスト名をそのまま表示させる場合には、空欄のま"
+"まにします。"
 
 #: libraries/config/messages.inc.php:438
 msgid "Verbose name of this server"
@@ -3897,8 +4000,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"これを有効にしても、[kbd]config[/kbd] 認証モードでは効果がないことに注意してください。なぜならパスワードが設定ファイルに直接書き込まれ"
-"ているからです。これは同じコマンドを直接実行する機能を制限するものではありません。"
+"これを有効にしても、[kbd]config[/kbd] 認証モードでは効果がないことに注意して"
+"ください。なぜならパスワードが設定ファイルに直接書き込まれているからです。こ"
+"れは同じコマンドを直接実行する機能を制限するものではありません。"
 
 #: libraries/config/messages.inc.php:442
 msgid "Show password change form"
@@ -3931,7 +4035,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] の結果へのリンクを表示します"
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] の結果へのリンク"
+"を表示します"
 
 #: libraries/config/messages.inc.php:449
 msgid "Show phpinfo() link"
@@ -3943,7 +4048,8 @@ msgstr "詳細な MySQL サーバ情報を表示する"
 
 #: libraries/config/messages.inc.php:451
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
-msgstr "phpMyAdmin によって生成される SQL クエリを表示するかどうかを定義します。"
+msgstr ""
+"phpMyAdmin によって生成される SQL クエリを表示するかどうかを定義します。"
 
 #: libraries/config/messages.inc.php:452
 msgid "Show SQL queries"
@@ -3961,7 +4067,9 @@ msgstr "統計を表示する"
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
-msgstr "ツールチップが有効でデータベースのコメントが設定されている場合、名前とコメントを入れ替えて表示する形なります。"
+msgstr ""
+"ツールチップが有効でデータベースのコメントが設定されている場合、名前とコメン"
+"トを入れ替えて表示する形なります。"
 
 #: libraries/config/messages.inc.php:456
 msgid "Display database comment instead of its name"
@@ -3974,8 +4082,10 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
-"[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアスは、$cfg['LeftFrameTableSeparator'] の指示に応"
-"じてテーブルを分割/入れ子するために使用されます。そのフォルダはエイリアスのように呼び出されるだけで、テーブル名自体はそのまま変わることありません。"
+"[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアスは、$cfg"
+"['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子するために使用"
+"されます。そのフォルダはエイリアスのように呼び出されるだけで、テーブル名自体"
+"はそのまま変わることありません。"
 
 #: libraries/config/messages.inc.php:458
 msgid "Display table comment instead of its name"
@@ -3988,7 +4098,9 @@ msgstr "ツールチップにテーブルのコメントを表示する"
 #: libraries/config/messages.inc.php:460
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
-msgstr "使われているテーブルには印をして、テーブルがロックされていても可能であればデータベースを閲覧します。"
+msgstr ""
+"使われているテーブルには印をして、テーブルがロックされていても可能であれば"
+"データベースを閲覧します。"
 
 #: libraries/config/messages.inc.php:461
 msgid "Skip locked tables"
@@ -4012,7 +4124,9 @@ msgstr "パスワード"
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
-msgstr "[strong]注意：[/strong] PHP SOAP 拡張か PEAR SOAP がインストールされている必要があります。"
+msgstr ""
+"[strong]注意：[/strong] PHP SOAP 拡張か PEAR SOAP がインストールされている必"
+"要があります。"
 
 #: libraries/config/messages.inc.php:470
 msgid "Enable SQL Validator"
@@ -4022,7 +4136,9 @@ msgstr "SQL 検証を有効にする"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
-msgstr "ユーザ名を所持している場合は、ここに記述します（デフォルトは [kbd]anonymous[/kbd]）。"
+msgstr ""
+"ユーザ名を所持している場合は、ここに記述します（デフォルトは [kbd]anonymous[/"
+"kbd]）。"
 
 #: libraries/config/messages.inc.php:472 tbl_tracking.php:406
 #: tbl_tracking.php:457
@@ -4033,7 +4149,9 @@ msgstr "ユーザ名"
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
-msgstr "「データベースの作成」フォームで (可能であれば) データベース名を提案します。そうでなければ、テキスト入力項目を空欄にします。"
+msgstr ""
+"「データベースの作成」フォームで (可能であれば) データベース名を提案します。"
+"そうでなければ、テキスト入力項目を空欄にします。"
 
 #: libraries/config/messages.inc.php:474
 msgid "Suggest new database name"
@@ -4041,7 +4159,9 @@ msgstr "新しいデータベース名の提案"
 
 #: libraries/config/messages.inc.php:475
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr "Suhosin が検出された場合、警告をメインページに表示します。チェックを入れるとこのメッセージは表示されません。"
+msgstr ""
+"Suhosin が検出された場合、警告をメインページに表示します。チェックを入れると"
+"このメッセージは表示されません。"
 
 #: libraries/config/messages.inc.php:476
 msgid "Suhosin warning"
@@ -4051,7 +4171,9 @@ msgstr "Suhosin 警告"
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
-msgstr "編集モードでの textarea の 1 行の文字数。SQL クエリ用のでは 2 倍、クエリウィンドウに対しては 1.25 倍になります。"
+msgstr ""
+"編集モードでの textarea の 1 行の文字数。SQL クエリ用のでは 2 倍、クエリウィ"
+"ンドウに対しては 1.25 倍になります。"
 
 #: libraries/config/messages.inc.php:478
 msgid "Textarea columns"
@@ -4061,7 +4183,9 @@ msgstr "textarea の 1 行の文字数"
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
-msgstr "編集モードでの textarea の行数。SQL クエリ用のでは 2 倍、クエリウィンドウに対しては 1.25 倍になります。"
+msgstr ""
+"編集モードでの textarea の行数。SQL クエリ用のでは 2 倍、クエリウィンドウに対"
+"しては 1.25 倍になります。"
 
 #: libraries/config/messages.inc.php:480
 msgid "Textarea rows"
@@ -4094,9 +4218,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
-"入力プロキシは「[kbd]IP アドレス: 信頼された HTTP ヘッダ[/kbd]」と記述します。以下の例は、phpMyAdmin は IP アドレス "
-"1.2.3.4 のプロキシから HTTP_X_FORWARDED_FOR (X-Forwarded-For) "
-"ヘッダを信頼するように指定することになります。[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"入力プロキシは「[kbd]IP アドレス: 信頼された HTTP ヘッダ[/kbd]」と記述しま"
+"す。以下の例は、phpMyAdmin は IP アドレス 1.2.3.4 のプロキシから "
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) ヘッダを信頼するように指定することにな"
+"ります。[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:490
 msgid "List of trusted proxies for IP allow/deny"
@@ -4122,7 +4247,9 @@ msgstr "データベース検索を使用する"
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
-msgstr "無効にすると、右端のチェックボックスに関係なく、ユーザが以下のオプションを設定することはできません。"
+msgstr ""
+"無効にすると、右端のチェックボックスに関係なく、ユーザが以下のオプションを設"
+"定することはできません。"
 
 #: libraries/config/messages.inc.php:496
 msgid "Enable the Developer tab in settings"
@@ -4134,7 +4261,8 @@ msgid ""
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
-"マルチクエリにおいてそれぞれのクエリが影響を与えた行数を表示します。デフォルトでは表示されます。どのように複数のクエリに表示を含めるかは、ソース "
+"マルチクエリにおいてそれぞれのクエリが影響を与えた行数を表示します。デフォル"
+"トでは表示されます。どのように複数のクエリに表示を含めるかは、ソース "
 "libraries/import.lib.php を参照してください。"
 
 #: libraries/config/messages.inc.php:498
@@ -4162,8 +4290,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"インポートおよびエクスポートの操作に対して "
-"[a@http://ja.wikipedia.org/wiki/ZIP_(ファイルフォーマット)]ZIP[/a] 圧縮を有効にします。"
+"インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
+"ZIP_(ファイルフォーマット)]ZIP[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:503
 msgid "ZIP"
@@ -4320,7 +4448,8 @@ msgstr "正確な数字とは限りません。FAQ 3.11 をご覧ください"
 
 #: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr "設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました"
+msgstr ""
+"設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました"
 
 #: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysql.dbi.lib.php:363
 #: libraries/dbi/mysqli.dbi.lib.php:417
@@ -4384,7 +4513,9 @@ msgstr "カラム数"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
-msgstr "エクスポートプラグインをロードできません。正しくインストールされているか確認してください!"
+msgstr ""
+"エクスポートプラグインをロードできません。正しくインストールされているか確認"
+"してください!"
 
 #: libraries/display_export.lib.php:80
 msgid "Exporting databases from the current server"
@@ -4476,8 +4607,10 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用することができます。また、埋め込み変数変換も行われます（%"
-"3$s変換されます。）。その他のテキストはそのまま使われます。詳細については、%4$sFAQ%5$s を参照してください。"
+"この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
+"することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
+"す。）。その他のテキストはそのまま使われます。詳細については、%4$sFAQ%5$s を"
+"参照してください。"
 
 #: libraries/display_export.lib.php:268
 msgid "use this for future exports"
@@ -4527,7 +4660,9 @@ msgstr "フォーマット特有のオプション:"
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
-msgstr "下にスクロールして選択したフォーマットのオプションで必要事項を記入し、他のフォーマットのオプションは無視してください。"
+msgstr ""
+"下にスクロールして選択したフォーマットのオプションで必要事項を記入し、他の"
+"フォーマットのオプションは無視してください。"
 
 #: libraries/display_export.lib.php:340 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
@@ -4539,8 +4674,9 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"アップロードされているファイルが最大許容サイズよりもおそらく大きい、もしくは、WebKit がベースのブラウザ (Safari、Google "
-"Chrome、Arora など) の既知のバグです。"
+"アップロードされているファイルが最大許容サイズよりもおそらく大きい、もしく"
+"は、WebKit がベースのブラウザ (Safari、Google Chrome、Arora など) の既知のバ"
+"グです。"
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
@@ -4550,7 +4686,9 @@ msgstr "ファイルが処理されています。しばらくお待ちくださ
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr "しばらくお待ちください。ファイルがアップロードされています。アップロードに関する機能は利用できません。"
+msgstr ""
+"しばらくお待ちください。ファイルがアップロードされています。アップロードに関"
+"する機能は利用できません。"
 
 #: libraries/display_import.lib.php:129
 msgid "Importing into the current server"
@@ -4579,7 +4717,9 @@ msgstr "ファイルは圧縮されていないもの、もしくは、%s で圧
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
-msgstr "圧縮ファイルの名前は<b>.[フォーマット].[圧縮形式]</b>で終わっていること。例：<b>.sql.zip</b>"
+msgstr ""
+"圧縮ファイルの名前は<b>.[フォーマット].[圧縮形式]</b>で終わっていること。例："
+"<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -4593,7 +4733,8 @@ msgstr "部分インポート:"
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
-msgstr "直前のインポートはタイムアウトしました。再送信すると位置 %d から再開されます"
+msgstr ""
+"直前のインポートはタイムアウトしました。再送信すると位置 %d から再開されます"
 
 #: libraries/display_import.lib.php:221
 msgid ""
@@ -4601,8 +4742,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"制限時間が近くなったときに、スクリプト側でインポートを中断できるようにする。<i>(大きなファイルをインポートする場合には便利ですが、トランザクションが"
-"壊れることもあります。)</i>"
+"制限時間が近くなったときに、スクリプト側でインポートを中断できるようにする。"
+"<i>(大きなファイルをインポートする場合には便利ですが、トランザクションが壊れ"
+"ることもあります。)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -4783,7 +4925,9 @@ msgstr "バッファプールの大きさ"
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
-msgstr "InnoDB がテーブルのデータやインデックスをキャッシュするのに使うメモリバッファ量"
+msgstr ""
+"InnoDB がテーブルのデータやインデックスをキャッシュするのに使うメモリバッファ"
+"量"
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
@@ -4862,8 +5006,8 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
-"MAX_ROWS オプションを指定せずに MyISAM テーブルを作成するときに CREATE TABLE が使用するデフォルトのポインタサイズ "
-"(バイト単位)"
+"MAX_ROWS オプションを指定せずに MyISAM テーブルを作成するときに CREATE TABLE "
+"が使用するデフォルトのポインタサイズ (バイト単位)"
 
 #: libraries/engines/myisam.lib.php:27
 msgid "Automatic recovery mode"
@@ -4873,7 +5017,9 @@ msgstr "自動修復モード"
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
-msgstr "クラッシュした MyISAM テーブルを自動修復するときのモード (サーバ起動オプション --myisam-recover で設定されるもの)"
+msgstr ""
+"クラッシュした MyISAM テーブルを自動修復するときのモード (サーバ起動オプショ"
+"ン --myisam-recover で設定されるもの)"
 
 #: libraries/engines/myisam.lib.php:31
 msgid "Maximum size for temporary sort files"
@@ -4885,8 +5031,8 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
-"MyISAM インデックスを再作成するとき (REPAIR TABLE や ALTER TABLE、LOAD DATA INFILE の最中) "
-"に利用できる一時ファイルの最大サイズ"
+"MyISAM インデックスを再作成するとき (REPAIR TABLE や ALTER TABLE、LOAD DATA "
+"INFILE の最中) に利用できる一時ファイルの最大サイズ"
 
 #: libraries/engines/myisam.lib.php:36
 msgid "Maximum size for temporary files on index creation"
@@ -4898,8 +5044,9 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
-"MyISAM "
-"のインデックスを高速生成するときに利用される一時ファイルとキーキャッシュの差がここで指定した値以上に大きくなる場合は、キーキャッシュ法が使われます"
+"MyISAM のインデックスを高速生成するときに利用される一時ファイルとキーキャッ"
+"シュの差がここで指定した値以上に大きくなる場合は、キーキャッシュ法が使われま"
+"す"
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
@@ -4909,7 +5056,9 @@ msgstr "スレッドの修復"
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
-msgstr "この値が 1 より大きい場合は MyISAM テーブルのインデックスも修復中にソートプロセスによって (スレッドごとに) 同時作成されます"
+msgstr ""
+"この値が 1 より大きい場合は MyISAM テーブルのインデックスも修復中にソートプロ"
+"セスによって (スレッドごとに) 同時作成されます"
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
@@ -4920,8 +5069,8 @@ msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
-"REPAIR TABLE の最中に MyISAM のインデックスをソートするとき、あるいは CREATE INDEX や ALTER TABLE "
-"でインデックスを作成するときに割り当てられるバッファ"
+"REPAIR TABLE の最中に MyISAM のインデックスをソートするとき、あるいは CREATE "
+"INDEX や ALTER TABLE でインデックスを作成するときに割り当てられるバッファ"
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
@@ -4940,7 +5089,9 @@ msgstr "ポート"
 msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
-msgstr "PBMS ストリームに基づいた通信用のポートです。この値を 0 に設定すると、デーモンとの HTTP 通信を無効にします。"
+msgstr ""
+"PBMS ストリームに基づいた通信用のポートです。この値を 0 に設定すると、デーモ"
+"ンとの HTTP 通信を無効にします。"
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
@@ -4952,7 +5103,8 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
-"BLOB の格納ファイルの最大サイズです。単位には、Kb、MB、GB を使用することができます。単位が指定されなかった場合には、バイト値と見なされます。"
+"BLOB の格納ファイルの最大サイズです。単位には、Kb、MB、GB を使用することがで"
+"きます。単位が指定されなかった場合には、バイト値と見なされます。"
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
@@ -4963,8 +5115,9 @@ msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
-"一時的な BLOB の有効期間 (秒数)。アップロードされた BLOB "
-"データはこの時間を経過した後に削除されますが、データベース内のレコードで参照されている場合はこの限りではありません。"
+"一時的な BLOB の有効期間 (秒数)。アップロードされた BLOB データはこの時間を経"
+"過した後に削除されますが、データベース内のレコードで参照されている場合はこの"
+"限りではありません。"
 
 #: libraries/engines/pbms.lib.php:50
 msgid "Temp Log Threshold"
@@ -4976,8 +5129,8 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
-"一時的な BLOB ログファイルの最大サイズです。単位には、Kb、MB、GB "
-"を使用することができます。単位が指定されなかった場合には、バイト値と見なされます。"
+"一時的な BLOB ログファイルの最大サイズです。単位には、Kb、MB、GB を使用するこ"
+"とができます。単位が指定されなかった場合には、バイト値と見なされます。"
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
@@ -4988,8 +5141,9 @@ msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
-"接続維持フラグをセットして、非アクティブな接続に対してのタイムアウトを設定します。この時間経過した後に接続が閉じられます。時間の単位はミリ秒 "
-"(1/1000) です。"
+"接続維持フラグをセットして、非アクティブな接続に対してのタイムアウトを設定し"
+"ます。この時間経過した後に接続が閉じられます。時間の単位はミリ秒 (1/1000) で"
+"す。"
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
@@ -5000,15 +5154,17 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
-"「:」で区切られたメタデータヘッダのリスト。データベースが作成されたときに、pbms_metadata_header "
-"テーブルを初期化するために使われます。"
+"「:」で区切られたメタデータヘッダのリスト。データベースが作成されたときに、"
+"pbms_metadata_header テーブルを初期化するために使われます。"
 
 #: libraries/engines/pbms.lib.php:94
 #, php-format
 msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
-msgstr "PBMS に関するドキュメントおよび詳細な情報は、%sPrimeBase Media Streaming オフィシャルサイト%sにあります。"
+msgstr ""
+"PBMS に関するドキュメントおよび詳細な情報は、%sPrimeBase Media Streaming オ"
+"フィシャルサイト%sにあります。"
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 msgid "Related Links"
@@ -5031,7 +5187,8 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"インデックスキャッシュに割り当てるメモリ量。デフォルト値は 32MB です。ここで割り当てたメモリはインデックスページのキャッシュにのみ利用されます。"
+"インデックスキャッシュに割り当てるメモリ量。デフォルト値は 32MB です。ここで"
+"割り当てたメモリはインデックスページのキャッシュにのみ利用されます。"
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
@@ -5043,8 +5200,9 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"テーブルデータをキャッシュするのに使うレコードキャッシュに割り当てるメモリ量。デフォルト値は 32MB です。このメモリはハンドルデータファイル "
-"(.xtd) や行ポインタファイル (.xtr) の変更をキャッシュするのに利用されます。"
+"テーブルデータをキャッシュするのに使うレコードキャッシュに割り当てるメモリ"
+"量。デフォルト値は 32MB です。このメモリはハンドルデータファイル (.xtd) や行"
+"ポインタファイル (.xtr) の変更をキャッシュするのに利用されます。"
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
@@ -5054,7 +5212,9 @@ msgstr "ログキャッシュの大きさ"
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
-msgstr "トランザクションログデータをキャッシュするのに使うトランザクションログキャッシュに割り当てるメモリ量。デフォルトは 16MB です。"
+msgstr ""
+"トランザクションログデータをキャッシュするのに使うトランザクションログキャッ"
+"シュに割り当てるメモリ量。デフォルトは 16MB です。"
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
@@ -5064,7 +5224,9 @@ msgstr "ログファイルの閾値"
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
-msgstr "トランザクションログがどこまで増えたらロールオーバーして新しいログを作成するか。デフォルト値は 16MB です。"
+msgstr ""
+"トランザクションログがどこまで増えたらロールオーバーして新しいログを作成する"
+"か。デフォルト値は 16MB です。"
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"
@@ -5074,7 +5236,9 @@ msgstr "トランザクションバッファの大きさ"
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
-msgstr "グローバルトランザクションログバッファの大きさ(このエンジンはこの大きさのバッファを2つ割り当てます）。デフォルトは 1MB です。"
+msgstr ""
+"グローバルトランザクションログバッファの大きさ(このエンジンはこの大きさのバッ"
+"ファを2つ割り当てます）。デフォルトは 1MB です。"
 
 #: libraries/engines/pbxt.lib.php:47
 msgid "Checkpoint frequency"
@@ -5084,7 +5248,9 @@ msgstr "チェックポイント頻度"
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
-msgstr "チェックポイントを実行する前にトランザクションログに書き込むデータ量。デフォルト値は 24MB です。"
+msgstr ""
+"チェックポイントを実行する前にトランザクションログに書き込むデータ量。デフォ"
+"ルト値は 24MB です。"
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
@@ -5097,8 +5263,10 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
-"データログファイルの大きさの最大値。デフォルト値は 64MB です。PBXT は最大 32000 個のデータログを作成できますが、これはあらゆるテーブル"
-"が使うものですので、この変数の値を大きくするとデータベースに保存できるデータの総数を増やすことができます。"
+"データログファイルの大きさの最大値。デフォルト値は 64MB です。PBXT は最大 "
+"32000 個のデータログを作成できますが、これはあらゆるテーブルが使うものですの"
+"で、この変数の値を大きくするとデータベースに保存できるデータの総数を増やすこ"
+"とができます。"
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
@@ -5108,7 +5276,9 @@ msgstr "ガベージ閾値"
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
-msgstr "データログファイルのガベージが何％になったら圧縮するか。1 から 99 までの値をとります。デフォルトは 50 です。"
+msgstr ""
+"データログファイルのガベージが何％になったら圧縮するか。1 から 99 までの値を"
+"とります。デフォルトは 50 です。"
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Log buffer size"
@@ -5120,8 +5290,9 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
-"データログを書き出すときに使うバッファの大きさ。デフォルトは 256MB "
-"です。このエンジンはスレッドごとにバッファをひとつ割り当てます(そのスレッドがデータログを書き出す必要がある場合のみ)。"
+"データログを書き出すときに使うバッファの大きさ。デフォルトは 256MB です。この"
+"エンジンはスレッドごとにバッファをひとつ割り当てます(そのスレッドがデータログ"
+"を書き出す必要がある場合のみ)。"
 
 #: libraries/engines/pbxt.lib.php:67
 msgid "Data file grow size"
@@ -5150,15 +5321,18 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"システムが保存するトランザクションログファイル (pbxt/system/xlog*.xt) "
-"の数。ログの数がそれ以上になると古いログが削除されます。それができない場合は、ログファイル名の変更が行われ、最大番号の 1 つ次の番号が付けられます。"
+"システムが保存するトランザクションログファイル (pbxt/system/xlog*.xt) の数。"
+"ログの数がそれ以上になると古いログが削除されます。それができない場合は、ログ"
+"ファイル名の変更が行われ、最大番号の 1 つ次の番号が付けられます。"
 
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
-msgstr "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイト%sにあります。"
+msgstr ""
+"PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
+"ト%sにあります。"
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -5299,7 +5473,9 @@ msgstr "PHP 配列"
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
-msgstr "コメントの表示<i>（エクスポート日時、PHP や サーバ のバージョンなどの情報が含まれます）</i>"
+msgstr ""
+"コメントの表示<i>（エクスポート日時、PHP や サーバ のバージョンなどの情報が含"
+"まれます）</i>"
 
 #: libraries/export/sql.php:35
 msgid "Additional custom header comment (\\n splits lines):"
@@ -5360,8 +5536,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"全ての <code>INSERT</code> 文にカラム名を含める <br /> &nbsp; &nbsp; &nbsp; 例: "
-"<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"全ての <code>INSERT</code> 文にカラム名を含める <br /> &nbsp; &nbsp; &nbsp; "
+"例: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:155
 msgid ""
@@ -5369,8 +5545,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"全ての <code>INSERT</code> 文を複数行挿入で行う<br /> &nbsp; &nbsp; &nbsp; 例: "
-"<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"全ての <code>INSERT</code> 文を複数行挿入で行う<br /> &nbsp; &nbsp; &nbsp; "
+"例: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:156
 msgid ""
@@ -5385,8 +5561,8 @@ msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"上のどちらでもない<br /> &nbsp; &nbsp; &nbsp; 例: <code>INSERT INTO tbl_name VALUES "
-"(1,2,3)</code>"
+"上のどちらでもない<br /> &nbsp; &nbsp; &nbsp; 例: <code>INSERT INTO tbl_name "
+"VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:167
 msgid ""
@@ -5399,8 +5575,8 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"TIMESTAMP のカラムを "
-"UTC（協定世界時）でダンプする<i>(ダンプするサーバと読み込ませるサーバのタイムゾーンが異なる場合に有効です。)</i>"
+"TIMESTAMP のカラムを UTC（協定世界時）でダンプする<i>(ダンプするサーバと読み"
+"込ませるサーバのタイムゾーンが異なる場合に有効です。)</i>"
 
 #: libraries/export/sql.php:209 libraries/export/xml.php:34
 msgid "Procedures"
@@ -5476,7 +5652,8 @@ msgstr "返り値が空でした (行数 0)"
 #: libraries/import.lib.php:1141
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr "以下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
+msgstr ""
+"以下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
 
 #: libraries/import.lib.php:1142
 msgid "View a structure`s contents by clicking on its name"
@@ -5485,7 +5662,8 @@ msgstr "名前をクリックすることで構造内容を表示します。"
 #: libraries/import.lib.php:1143
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr "「オプション」のリンクをクリックすることで対応する設定の変更が行えます。"
+msgstr ""
+"「オプション」のリンクをクリックすることで対応する設定の変更が行えます。"
 
 #: libraries/import.lib.php:1144
 msgid "Edit its structure by following the \"Structure\" link"
@@ -5511,7 +5689,9 @@ msgstr "ビューに移動"
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
-msgstr "ファイルの最初の行にテーブルのカラム名が含まれている。<i>(これをチェックしなかった場合、最初の行はデータの一部と見なされます。)</i>"
+msgstr ""
+"ファイルの最初の行にテーブルのカラム名が含まれている。<i>(これをチェックしな"
+"かった場合、最初の行はデータの一部と見なされます。)</i>"
 
 #: libraries/import/csv.php:39
 msgid ""
@@ -5519,8 +5699,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
-"ファイルの各行のデータがデータベースの同じ順序でない場合、対応するカラム名をここに記述します。カラム名は、カンマで区切る必要があり、引用符では囲みません"
-"。"
+"ファイルの各行のデータがデータベースの同じ順序でない場合、対応するカラム名を"
+"ここに記述します。カラム名は、カンマで区切る必要があり、引用符では囲みませ"
+"ん。"
 
 #: libraries/import/csv.php:41
 msgid "Column names: "
@@ -5537,7 +5718,9 @@ msgstr "CSV インポートのパラメータが不正です: %s"
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
-msgstr "指定されたカラム (%s) は無効です。カラム名のスペルが正しいか、カンマで区切られていないか、引用符で囲まれていないかを確認してください。"
+msgstr ""
+"指定されたカラム (%s) は無効です。カラム名のスペルが正しいか、カンマで区切ら"
+"れていないか、引用符で囲まれていないかを確認してください。"
 
 #: libraries/import/csv.php:189 libraries/import/csv.php:436
 #, php-format
@@ -5587,7 +5770,9 @@ msgstr "値がゼロのものに対して <code>AUTO_INCREMENT</code> を使用�
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
-msgstr "指定された XML ファイルは、不完全もしくはフォーマットが正しくありません。問題を修正して再度試してみてください。"
+msgstr ""
+"指定された XML ファイルは、不完全もしくはフォーマットが正しくありません。問題"
+"を修正して再度試してみてください。"
 
 #: libraries/kanji-encoding.lib.php:142
 msgctxt "None encoding conversion"
@@ -5877,8 +6062,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"設定ファイル (<code>config.inc.php</code>) "
-"で高度な機能を有効にします。<code>config.sample.inc.php</code> にある設定例をコピーするといいでしょう。"
+"設定ファイル (<code>config.inc.php</code>) で高度な機能を有効にします。"
+"<code>config.sample.inc.php</code> にある設定例をコピーするといいでしょう。"
 
 #: libraries/relation.lib.php:156
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -5901,8 +6086,8 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
-"念のため、設定ファイル (my.cnf) 内でサーバ ID がユニークであるか確認してください。もしそうでないならば、[mysqld] "
-"セクションに以下の行を追加してください。"
+"念のため、設定ファイル (my.cnf) 内でサーバ ID がユニークであるか確認してくだ"
+"さい。もしそうでないならば、[mysqld] セクションに以下の行を追加してください。"
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
@@ -5940,7 +6125,9 @@ msgstr "サーバ ID"
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
-msgstr "--report-host=host_name オプションで起動したスレーブだけが、このリストに表示されます。"
+msgstr ""
+"--report-host=host_name オプションで起動したスレーブだけが、このリストに表示"
+"されます。"
 
 #: libraries/replication_gui.lib.php:242 server_replication.php:193
 msgid "Add slave replication user"
@@ -5977,7 +6164,9 @@ msgstr "ホストテーブルを使う"
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
-msgstr "ホストテーブルが使用されている場合、この項目は無視され、代わりに使用されているホストテーブルに格納されている値を設定します。"
+msgstr ""
+"ホストテーブルが使用されている場合、この項目は無視され、代わりに使用されてい"
+"るホストテーブルに格納されている値を設定します。"
 
 #: libraries/replication_gui.lib.php:362
 msgid "Generate Password"
@@ -6119,7 +6308,9 @@ msgstr "用紙サイズ"
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
-msgstr "このページには存在しないテーブルへの参照があります。これらの参照を削除しますか?"
+msgstr ""
+"このページには存在しないテーブルへの参照があります。これらの参照を削除します"
+"か?"
 
 #: libraries/schema/User_Schema.class.php:470
 msgid "Toggle scratchboard"
@@ -6256,7 +6447,9 @@ msgstr "ウェブサーバ上のアップロードディレクトリ"
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
-msgstr "SQL にエラーがあるようです。下に MySQL サーバのエラー出力が出ているようなら問題の解析に役立つかもしれません"
+msgstr ""
+"SQL にエラーがあるようです。下に MySQL サーバのエラー出力が出ているようなら問"
+"題の解析に役立つかもしれません"
 
 #: libraries/sqlparser.lib.php:169
 msgid ""
@@ -6270,11 +6463,15 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
-"SQL パーサにバグが見つかることもありえますが、まずはクエリをよく見て引用符の数や種類に間違いがないか確認してください。クォートされていないテキスト領"
-"域にバイナリファイルをアップロードしたからクエリが失敗したということもありえます。MySQL "
-"のコマンドラインインタフェースを利用してクエリを実行してみてもよいでしょう。下に MySQL サーバのエラー出力が出ているようなら問題の解析に役立つかも"
-"しれません。それでも解決しないか、コマンドラインでは成功するのにパーサでは失敗する場合は、SQL "
-"クエリの入力データを実際に問題を起こしているクエリひとつに絞り込んでから、以下の「CUT」セクションにデータを添えてバグ報告を送ってください:"
+"SQL パーサにバグが見つかることもありえますが、まずはクエリをよく見て引用符の"
+"数や種類に間違いがないか確認してください。クォートされていないテキスト領域に"
+"バイナリファイルをアップロードしたからクエリが失敗したということもありえま"
+"す。MySQL のコマンドラインインタフェースを利用してクエリを実行してみてもよい"
+"でしょう。下に MySQL サーバのエラー出力が出ているようなら問題の解析に役立つか"
+"もしれません。それでも解決しないか、コマンドラインでは成功するのにパーサでは"
+"失敗する場合は、SQL クエリの入力データを実際に問題を起こしているクエリひとつ"
+"に絞り込んでから、以下の「CUT」セクションにデータを添えてバグ報告を送ってくだ"
+"さい:"
 
 #: libraries/sqlparser.lib.php:171
 msgid "BEGIN CUT"
@@ -6313,7 +6510,9 @@ msgstr "無効な句読点文字です"
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
-msgstr "SQL の検証機能を初期化できません。%sドキュメント%s の記載通りに必要な PHP 拡張がインストールされているか確認してください"
+msgstr ""
+"SQL の検証機能を初期化できません。%sドキュメント%s の記載通りに必要な PHP 拡"
+"張がインストールされているか確認してください"
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
@@ -6335,15 +6534,17 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"カラム種別が「enum」ないし「set」の場合の値の書式: 'a','b','c'...<br "
-"/>バックスラッシュ(\"\\\")やシングルクォート(\"'\")を含める必要がある場合は ( \\\\xyz や a\\'b のように) "
-"その前にバックスラッシュを付けてください"
+"カラム種別が「enum」ないし「set」の場合の値の書式: 'a','b','c'...<br />バック"
+"スラッシュ(\"\\\")やシングルクォート(\"'\")を含める必要がある場合は ( \\"
+"\\xyz や a\\'b のように) その前にバックスラッシュを付けてください"
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
-msgstr "デフォルト値にはひとつの値のみ入力してください。バックスラッシュによるエスケープや引用符を含めることはできません。例: a"
+msgstr ""
+"デフォルト値にはひとつの値のみ入力してください。バックスラッシュによるエス"
+"ケープや引用符を含めることはできません。例: a"
 
 #: libraries/tbl_properties.inc.php:115 libraries/tbl_properties.inc.php:528
 #: tbl_printview.php:323 tbl_structure.php:154 tbl_structure.php:158
@@ -6356,7 +6557,9 @@ msgstr "インデックス"
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
-msgstr "利用可能な変換オプションや MIME タイプの変換の一覧については %s変換機能の説明%s をご覧ください"
+msgstr ""
+"利用可能な変換オプションや MIME タイプの変換の一覧については %s変換機能の説"
+"明%s をご覧ください"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6369,8 +6572,9 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") やシングルクォート (\"'\") "
-"を値に含める必要がある場合は ( \\\\xyz や a\\'b のように) バックスラッシュでエスケープしてください"
+"変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") やシ"
+"ングルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b のよう"
+"に) バックスラッシュでエスケープしてください"
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
@@ -6404,7 +6608,9 @@ msgstr "全文"
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
-msgstr "この変換機能には説明がありません。<br />%s の動作については作者にご確認ください"
+msgstr ""
+"この変換機能には説明がありません。<br />%s の動作については作者にご確認くださ"
+"い"
 
 #: libraries/tbl_properties.inc.php:727 server_engines.php:56
 #: tbl_operations.php:366
@@ -6439,23 +6645,27 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"カラムのバイナリデータをダウンロードするリンクを表示します。1 つ目のオプションにバイナリファイルのファイル名を指定することもできますし、2 "
-"つ目のオプションにファイル名を保持しているカラムの名前を渡すこともできます。2 つ目のオプションを使う場合は 1 "
-"つ目のオプションは空文字列にする必要があります"
+"カラムのバイナリデータをダウンロードするリンクを表示します。1 つ目のオプショ"
+"ンにバイナリファイルのファイル名を指定することもできますし、2 つ目のオプショ"
+"ンにファイル名を保持しているカラムの名前を渡すこともできます。2 つ目のオプ"
+"ションを使う場合は 1 つ目のオプションは空文字列にする必要があります"
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
-"データを 16 進数で表記します。オプションとして最初のパラメータにスペースを追加する頻度を指定することもできます (デフォルトは 2 ニブルごとです)"
+"データを 16 進数で表記します。オプションとして最初のパラメータにスペースを追"
+"加する頻度を指定することもできます (デフォルトは 2 ニブルごとです)"
 
 #: libraries/transformations/image_jpeg__inline.inc.php:9
 #: libraries/transformations/image_png__inline.inc.php:9
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
-msgstr "クリック可能なサムネイルを表示します。オプションとして幅と高さの最大値をピクセル単位で指定できます。アスペクト比はそのまま維持されます"
+msgstr ""
+"クリック可能なサムネイルを表示します。オプションとして幅と高さの最大値をピク"
+"セル単位で指定できます。アスペクト比はそのまま維持されます"
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
@@ -6472,11 +6682,13 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"TIME、TIMESTAMP、DATETIME、あるいは Unix タイムスタンプの値が入っている項目を書式に合わせて表示します。1 "
-"つ目のオプションはタイムスタンプに加算する時差です (デフォルト: 0)。2 つ目のオプションには日時の書式文字列を指定します。3 "
-"つ目のオプションはローカルの日時とみなすか UTC (協定世界時) とみなすかです (\"local\" ないし \"utc\" "
-"という文字列を指定してください)。この値によって日時の表記が変わります。\"local\" の場合は PHP の strftime() "
-"関数の説明をご覧ください。\"utc\" の場合は gmdate() を利用します。"
+"TIME、TIMESTAMP、DATETIME、あるいは Unix タイムスタンプの値が入っている項目を"
+"書式に合わせて表示します。1 つ目のオプションはタイムスタンプに加算する時差で"
+"す (デフォルト: 0)。2 つ目のオプションには日時の書式文字列を指定します。3 つ"
+"目のオプションはローカルの日時とみなすか UTC (協定世界時) とみなすかです "
+"(\"local\" ないし \"utc\" という文字列を指定してください)。この値によって日時"
+"の表記が変わります。\"local\" の場合は PHP の strftime() 関数の説明をご覧くだ"
+"さい。\"utc\" の場合は gmdate() を利用します。"
 
 #: libraries/transformations/text_plain__external.inc.php:9
 msgid ""
@@ -6491,20 +6703,23 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"LINUX のみ: 外部アプリケーションを起動して標準入力経由でカラムデータを渡します。アプリケーションの標準出力が返ります。デフォルトは Tidy "
-"です (これは HTML コードを綺麗にするためのものです)。セキュリティ上の理由から "
-"libraries/transformations/text_plain__external.inc.php "
-"を自分で編集して利用したいツールを明記しておく必要があります。最初のオプションは利用したいプログラムの数で、2 "
-"つ目のオプションはプログラムのパラメータです。3 つ目のオプションが 1 に設定されている場合は htmlspecialchars() "
-"を用いて出力を変換します (デフォルトは 1 です)。4 つ目のオプションが 1 に設定されている場合は禁則処理をせず出力全体が 1 "
-"行に収まるようにします (デフォルトは 1 です)。"
+"LINUX のみ: 外部アプリケーションを起動して標準入力経由でカラムデータを渡しま"
+"す。アプリケーションの標準出力が返ります。デフォルトは Tidy です (これは "
+"HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/"
+"transformations/text_plain__external.inc.php を自分で編集して利用したいツール"
+"を明記しておく必要があります。最初のオプションは利用したいプログラムの数で、"
+"2 つ目のオプションはプログラムのパラメータです。3 つ目のオプションが 1 に設定"
+"されている場合は htmlspecialchars() を用いて出力を変換します (デフォルトは 1 "
+"です)。4 つ目のオプションが 1 に設定されている場合は禁則処理をせず出力全体が "
+"1 行に収まるようにします (デフォルトは 1 です)。"
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"カラムの内容をそのまま、htmlspecialchars()を通さずに表示します。この場合、カラムには正しい HTML が含まれているものと仮定します"
+"カラムの内容をそのまま、htmlspecialchars()を通さずに表示します。この場合、カ"
+"ラムには正しい HTML が含まれているものと仮定します"
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
 msgid ""
@@ -6512,8 +6727,9 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"画像とリンクを表示します。カラムにはファイル名を入れてください。1 つ目のオプションは \"http://www.example.com/\" "
-"のようなURLの先頭部分です。2 つ目と3 つ目のオプションには幅と高さをピクセル単位で指定します"
+"画像とリンクを表示します。カラムにはファイル名を入れてください。1 つ目のオプ"
+"ションは \"http://www.example.com/\" のようなURLの先頭部分です。2 つ目と3 つ"
+"目のオプションには幅と高さをピクセル単位で指定します"
 
 #: libraries/transformations/text_plain__link.inc.php:9
 msgid ""
@@ -6521,14 +6737,17 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"リンクを表示します。カラムにはファイル名を入れてください。1 つ目のオプションは \"http://www.example.com/\" のような URL "
-"の先頭部分、2 つ目のオプションはリンクのタイトルです"
+"リンクを表示します。カラムにはファイル名を入れてください。1 つ目のオプション"
+"は \"http://www.example.com/\" のような URL の先頭部分、2 つ目のオプションは"
+"リンクのタイトルです"
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
-msgstr "(IPv4) インターネットアドレスをインターネット標準ドット表記 (例:xxx.xxx.xxx.xxx) に変換する"
+msgstr ""
+"(IPv4) インターネットアドレスをインターネット標準ドット表記 (例:xxx.xxx.xxx."
+"xxx) に変換する"
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
@@ -6542,9 +6761,10 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"...\")."
 msgstr ""
-"文字列の一部のみを表示します。1 つ目のオプションは文字列の先頭から何文字スキップするか (デフォルトは 0 です)、2 "
-"つ目のオプションは表示するテキストの文字数です (デフォルトは文字列の末尾までです)。3 "
-"つ目のオプションは文字列を切り詰めるときに前／後に補う省略記号です (デフォルトは ... です)"
+"文字列の一部のみを表示します。1 つ目のオプションは文字列の先頭から何文字ス"
+"キップするか (デフォルトは 0 です)、2 つ目のオプションは表示するテキストの文"
+"字数です (デフォルトは文字列の末尾までです)。3 つ目のオプションは文字列を切り"
+"詰めるときに前／後に補う省略記号です (デフォルトは ... です)"
 
 #: libraries/user_preferences.inc.php:32
 msgid "Manage your settings"
@@ -6559,7 +6779,9 @@ msgstr "設定を保存しました"
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
-msgstr "環境設定は、現在のセッションでのみ有効です。この設定を永続的に有効にするには、%sphpMyAdmin 環境保管領域%sが必要です。"
+msgstr ""
+"環境設定は、現在のセッションでのみ有効です。この設定を永続的に有効にするに"
+"は、%sphpMyAdmin 環境保管領域%sが必要です。"
 
 #: libraries/user_preferences.lib.php:142
 msgid "Could not save configuration"
@@ -6570,8 +6792,9 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
-"お使いのブラウザは、このドメインに対しての phpMyAdmin の環境設定を (Web Storage に) "
-"保存しています。現在のセッションにその設定を読み込んでもよろしいですか？"
+"お使いのブラウザは、このドメインに対しての phpMyAdmin の環境設定を (Web "
+"Storage に) 保存しています。現在のセッションにその設定を読み込んでもよろしい"
+"ですか？"
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
@@ -6655,8 +6878,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"お使いの設定ファイルに MySQL のデフォルト特権アカウントに相当する設定 (root ユーザでパスワード無し) が含まれています。お使いの "
-"MySQL サーバはこのデフォルト設定で動作しているため不正アクセス可能な状態になっています。このセキュリティホールは必ず閉ざしてください。"
+"お使いの設定ファイルに MySQL のデフォルト特権アカウントに相当する設定 (root "
+"ユーザでパスワード無し) が含まれています。お使いの MySQL サーバはこのデフォル"
+"ト設定で動作しているため不正アクセス可能な状態になっています。このセキュリ"
+"ティホールは必ず閉ざしてください。"
 
 #: main.php:253
 msgid ""
@@ -6664,8 +6889,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin "
-"はこのオプションに対応していないため、データが破壊されることがあります!"
+"PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
+"プションに対応していないため、データが破壊されることがあります!"
 
 #: main.php:261
 msgid ""
@@ -6673,8 +6898,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"PHP の mbstring 拡張が見つかりませんでした。マルチバイト文字セットを使用しているようですが、mbstring 拡張がないと "
-"phpMyAdmin は文字列を正しく分割できないため予期しない結果になることがあります"
+"PHP の mbstring 拡張が見つかりませんでした。マルチバイト文字セットを使用して"
+"いるようですが、mbstring 拡張がないと phpMyAdmin は文字列を正しく分割できない"
+"ため予期しない結果になることがあります"
 
 #: main.php:269
 msgid ""
@@ -6683,22 +6909,25 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"お使いの PHP のパラメータ "
-"[a@http://php.net/manual/ja/session.configuration.php#ini.session.gc-"
-"maxlifetime@]session.gc_maxlifetime[/a] が、phpMyAdmin "
-"に設定されているクッキーの有効期間より短くなっています。このため、phpMyAdmin に設定されているよりも早くログインの期限が切れます。"
+"お使いの PHP のパラメータ [a@http://php.net/manual/ja/session.configuration."
+"php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] が、phpMyAdmin に"
+"設定されているクッキーの有効期間より短くなっています。このため、phpMyAdmin に"
+"設定されているよりも早くログインの期限が切れます。"
 
 #: main.php:276
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"ログインクッキーの保存期間が、phpMyAdmin に設定されているクッキーの有効期間よりも短くなっています。このため、phpMyAdmin "
-"に設定されているよりも早くログインの期限が切れます。"
+"ログインクッキーの保存期間が、phpMyAdmin に設定されているクッキーの有効期間よ"
+"りも短くなっています。このため、phpMyAdmin に設定されているよりも早くログイン"
+"の期限が切れます。"
 
 #: main.php:284
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "設定ファイルに、暗号化 (blowfish_secret) 用の非公開パスフレーズの設定を必要とするようになりました。"
+msgstr ""
+"設定ファイルに、暗号化 (blowfish_secret) 用の非公開パスフレーズの設定を必要と"
+"するようになりました。"
 
 #: main.php:292
 msgid ""
@@ -6706,8 +6935,9 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
-"セットアップスクリプトで使用される [code]config[/code] ディレクトリが、まだ phpMyAdmin "
-"ディレクトリに存在しています。phpMyAdmin を設定し終えたら、それは削除するべきです。"
+"セットアップスクリプトで使用される [code]config[/code] ディレクトリが、まだ "
+"phpMyAdmin ディレクトリに存在しています。phpMyAdmin を設定し終えたら、それは"
+"削除するべきです。"
 
 #: main.php:301
 #, php-format
@@ -6715,7 +6945,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効になっています。理由については%sこちら%sをご覧ください。"
+"phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効"
+"になっています。理由については%sこちら%sをご覧ください。"
 
 #: main.php:316
 msgid ""
@@ -6723,8 +6954,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
-"お使いのブラウザでは Javascript のサポートが不足しているか無効になっているので、phpMyAdmin "
-"のいくつかの機能が失われます。例えば、ナビゲーションフレームが自動的に更新されません。"
+"お使いのブラウザでは Javascript のサポートが不足しているか無効になっているの"
+"で、phpMyAdmin のいくつかの機能が失われます。例えば、ナビゲーションフレームが"
+"自動的に更新されません。"
 
 #: main.php:331
 #, php-format
@@ -6732,15 +6964,17 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"お使いになっている PHP の MySQL ライブラリのバージョン %s が MySQL サーバのバージョン %s "
-"と異なります。これは予期しない不具合を起こす可能性があります。"
+"お使いになっている PHP の MySQL ライブラリのバージョン %s が MySQL サーバの"
+"バージョン %s と異なります。これは予期しない不具合を起こす可能性があります。"
 
 #: main.php:343
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
-msgstr "Suhosin が稼働しているため問題が発生する可能性があります。詳しくは%sドキュメント%sをご覧ください。"
+msgstr ""
+"Suhosin が稼働しているため問題が発生する可能性があります。詳しくは%sドキュメ"
+"ント%sをご覧ください。"
 
 #: navigation.php:187 server_databases.php:277 server_synchronize.php:1212
 msgid "No databases"
@@ -6881,7 +7115,8 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"表示するカラムはピンク色で表示されます。表示非表示を切り替える場合は「表示するカラムを選択する」というアイコンをクリックしてから適切なカラム名をクリック"
+"表示するカラムはピンク色で表示されます。表示非表示を切り替える場合は「表示す"
+"るカラムを選択する」というアイコンをクリックしてから適切なカラム名をクリック"
 "ください。"
 
 #: pmd_pdf.php:34
@@ -6950,7 +7185,8 @@ msgstr "修正を保存しました"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "設定を保存することはできません。送信された内容にエラーが含まれています。"
+msgstr ""
+"設定を保存することはできません。送信された内容にエラーが含まれています。"
 
 #: prefs_manage.php:80
 msgid "Could not import configuration"
@@ -6978,7 +7214,9 @@ msgstr "ブラウザ (Web Storage) から設定を読み込む"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr "設定をブラウザ (Web Storage) から読み込みます。ローカルの保存場所ですがクッキーではありません。"
+msgstr ""
+"設定をブラウザ (Web Storage) から読み込みます。ローカルの保存場所ですがクッ"
+"キーではありません。"
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
@@ -6997,7 +7235,9 @@ msgstr "現在の設定とマージする"
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
-msgstr "%sセットアップスクリプト%sを使用するなどして config.inc.php を変更することにより、より多くの設定を行うことができます。"
+msgstr ""
+"%sセットアップスクリプト%sを使用するなどして config.inc.php を変更することに"
+"より、より多くの設定を行うことができます。"
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7005,7 +7245,9 @@ msgstr "ブラウザ (Web Storage) に保存する"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr "設定がブラウザ (Web Storage) に保存されます。ローカルの保存場所ですがクッキーではありません。"
+msgstr ""
+"設定がブラウザ (Web Storage) に保存されます。ローカルの保存場所ですがクッキー"
+"ではありません。"
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
@@ -7026,7 +7268,8 @@ msgstr "全部"
 #: schema_edit.php:45 schema_edit.php:51 schema_edit.php:57 schema_edit.php:62
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr "テーブル <b>%s</b> が見つかりません。あるいは %s には設定されていません"
+msgstr ""
+"テーブル <b>%s</b> が見つかりません。あるいは %s には設定されていません"
 
 #: schema_export.php:47
 msgid "File doesn't exist"
@@ -7104,7 +7347,9 @@ msgstr "統計を有効にする"
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
-msgstr "注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量が激増することがあります"
+msgstr ""
+"注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量"
+"が激増することがあります"
 
 #: server_engines.php:47
 msgid "Storage Engines"
@@ -7222,7 +7467,8 @@ msgstr "単位時間内にサーバに送信可能なクエリ数を制限する
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
-msgstr "単位時間内に実行可能なテーブルないしデータベースの編集コマンド数を制限する"
+msgstr ""
+"単位時間内に実行可能なテーブルないしデータベースの編集コマンド数を制限する"
 
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
@@ -7281,7 +7527,8 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-"最大接続数に達しているときでも接続を許可する。グローバル変数の設定や他のユーザのスレッドを停止するといった管理操作をする場合はたいていこの設定が必要にな"
+"最大接続数に達しているときでも接続を許可する。グローバル変数の設定や他のユー"
+"ザのスレッドを停止するといった管理操作をする場合はたいていこの設定が必要にな"
 "ります"
 
 #: server_privileges.php:65 server_privileges.php:211
@@ -7438,8 +7685,10 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手作業で特権を更新した場合は phpMyAdmin "
-"が利用しているテーブルの内容とサーバの特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み込み%s をしてください"
+"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
+"作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
+"特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み"
+"込み%s をしてください"
 
 #: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."
@@ -7455,7 +7704,9 @@ msgstr "データベースに特権を追加"
 
 #: server_privileges.php:2023
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
-msgstr "_ や % というワイルドカードを文字として使用するときは \\ でエスケープしてください。"
+msgstr ""
+"_ や % というワイルドカードを文字として使用するときは \\ でエスケープしてくだ"
+"さい。"
 
 #: server_privileges.php:2026
 msgid "Add privileges on the following table"
@@ -7558,7 +7809,8 @@ msgstr "マスタ %s に接続していません"
 #: server_replication.php:63
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr "マスタのログの位置が読み込めません。マスター上の特権問題の可能性があります。"
+msgstr ""
+"マスタのログの位置が読み込めません。マスター上の特権問題の可能性があります。"
 
 #: server_replication.php:69
 msgid "Unable to change master"
@@ -7586,7 +7838,9 @@ msgstr "接続しているスレーブの表示"
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
-msgstr "このサーバのレプリケーションプロセスには、マスタが設定されていません。<a href=\"%s\">設定</a>を行いますか？"
+msgstr ""
+"このサーバのレプリケーションプロセスには、マスタが設定されていません。<a "
+"href=\"%s\">設定</a>を行いますか？"
 
 #: server_replication.php:216
 msgid "Master configuration"
@@ -7600,9 +7854,12 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
-"このサーバは、レプリケーションプロセスのマスタサーバとして構成されていません。以下のいずれかを選択できます。１つは、特定のデータベースを無視して残り全て"
-"のデータベースをレプリケーションするモード（データベースの大部分をレプリケーションする場合に便利です。）。もう１つは、デフォルトで全てのデータベースを無"
-"視して、特定のデータベースだけのレプリケーションを許可するモード。以下よりいずれかのモードを選択してください。"
+"このサーバは、レプリケーションプロセスのマスタサーバとして構成されていませ"
+"ん。以下のいずれかを選択できます。１つは、特定のデータベースを無視して残り全"
+"てのデータベースをレプリケーションするモード（データベースの大部分をレプリ"
+"ケーションする場合に便利です。）。もう１つは、デフォルトで全てのデータベース"
+"を無視して、特定のデータベースだけのレプリケーションを許可するモード。以下よ"
+"りいずれかのモードを選択してください。"
 
 #: server_replication.php:220
 msgid "Replicate all databases; Ignore:"
@@ -7620,7 +7877,9 @@ msgstr "データベースを選択してください:"
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
-msgstr "my.cnf の [mysqld] セクションの最後に以下の行を追加し、その後、MySQL サーバを再起動してください。"
+msgstr ""
+"my.cnf の [mysqld] セクションの最後に以下の行を追加し、その後、MySQL サーバを"
+"再起動してください。"
 
 #: server_replication.php:229
 msgid ""
@@ -7628,8 +7887,9 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"MySQL サーバが再起動したら、「実行」ボタンをクリックしてください。その後、このサーバ<b>が</b>マスタとして設定されていることを知らせるメッセ"
-"ージが表示されます。"
+"MySQL サーバが再起動したら、「実行」ボタンをクリックしてください。その後、こ"
+"のサーバ<b>が</b>マスタとして設定されていることを知らせるメッセージが表示され"
+"ます。"
 
 #: server_replication.php:292
 msgid "Slave SQL Thread not running!"
@@ -7642,7 +7902,9 @@ msgstr "スレーブの IO スレッドが実行していません！"
 #: server_replication.php:304
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr "サーバはレプリケーションプロセスではスレーブとして設定されています。どのようにしたいですか？"
+msgstr ""
+"サーバはレプリケーションプロセスではスレーブとして設定されています。どのよう"
+"にしたいですか？"
 
 #: server_replication.php:307
 msgid "See slave status table"
@@ -7690,7 +7952,8 @@ msgstr "管理エラー:"
 
 #: server_replication.php:341
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr "エラーのスキップは、マスタとスレーブの同期を切ることになるかもしれません！"
+msgstr ""
+"エラーのスキップは、マスタとスレーブの同期を切ることになるかもしれません！"
 
 #: server_replication.php:343
 msgid "Skip current error"
@@ -7710,7 +7973,9 @@ msgstr "個"
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
-msgstr "このサーバのレプリケーションプロセスには、スレーブが設定されていません。<a href=\"%s\">設定</a>を行いますか？"
+msgstr ""
+"このサーバのレプリケーションプロセスには、スレーブが設定されていません。<a "
+"href=\"%s\">設定</a>を行いますか？"
 
 #: server_status.php:46
 msgid ""
@@ -7718,8 +7983,8 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"一時バイナリログキャッシュを利用したものの binlog_cache_size "
-"の値を超過したため一時ファイルにステートメントを保存したトランザクション数"
+"一時バイナリログキャッシュを利用したものの binlog_cache_size の値を超過したた"
+"め一時ファイルにステートメントを保存したトランザクション数"
 
 #: server_status.php:47
 msgid "The number of transactions that used the temporary binary log cache."
@@ -7732,8 +7997,9 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
-"ステートメント実行中にサーバがディスク上に自動生成した一時テーブル数。Created_tmp_disk_tables の値が大きい場合は "
-"tmp_table_size の値を増やしてディスク上ではなくメモリ上に一時テーブルを構築した方がよいかもしれません。"
+"ステートメント実行中にサーバがディスク上に自動生成した一時テーブル数。"
+"Created_tmp_disk_tables の値が大きい場合は tmp_table_size の値を増やしてディ"
+"スク上ではなくメモリ上に一時テーブルを構築した方がよいかもしれません。"
 
 #: server_status.php:49
 msgid "How many temporary files mysqld has created."
@@ -7749,14 +8015,16 @@ msgstr "ステートメント実行中にサーバが自動生成したメモリ
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
-msgstr "何らかのエラー (たぶんキーの重複) が発生したため INSERT DELAYED された行数"
+msgstr ""
+"何らかのエラー (たぶんキーの重複) が発生したため INSERT DELAYED された行数"
 
 #: server_status.php:52
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
-"使用中の INSERT DELAYED ハンドラのスレッド数。INSERT DELAYED を適用するテーブルの数だけ固有のスレッドが用意されます"
+"使用中の INSERT DELAYED ハンドラのスレッド数。INSERT DELAYED を適用するテーブ"
+"ルの数だけ固有のスレッドが用意されます"
 
 #: server_status.php:53
 msgid "The number of INSERT DELAYED rows written."
@@ -7780,8 +8048,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"MySQL サーバは NDB クラスタストレージエンジンに特定の名前を持つテーブルについての情報を持っているか問い合わせることができます。これを開示と言"
-"いますが、Handler_discover はその開示されたタイムテーブルの数です"
+"MySQL サーバは NDB クラスタストレージエンジンに特定の名前を持つテーブルについ"
+"ての情報を持っているか問い合わせることができます。これを開示と言いますが、"
+"Handler_discover はその開示されたタイムテーブルの数です"
 
 #: server_status.php:58
 msgid ""
@@ -7789,14 +8058,17 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"インデックスの最初のエントリを読み込んだ回数。この値が高い場合はサーバが何度もインデックスの全スキャンを実行しているものと思われます。例えば "
-"SELECT col1 FROM foo を実行した場合 (col1 はインデックスに含まれているものとします)"
+"インデックスの最初のエントリを読み込んだ回数。この値が高い場合はサーバが何度"
+"もインデックスの全スキャンを実行しているものと思われます。例えば SELECT col1 "
+"FROM foo を実行した場合 (col1 はインデックスに含まれているものとします)"
 
 #: server_status.php:59
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
-msgstr "キーに基づいて行を読み込んだリクエストの数。この値が高い場合はクエリとテーブルが適切にインデックスされているものと考えられます"
+msgstr ""
+"キーに基づいて行を読み込んだリクエストの数。この値が高い場合はクエリとテーブ"
+"ルが適切にインデックスされているものと考えられます"
 
 #: server_status.php:60
 msgid ""
@@ -7804,13 +8076,16 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
-"キーの順序通りに次の行を読み込んだリクエストの数。この値はインデックス列のクエリに範囲指定をしているか、インデックススキャンを行っているときに増加します"
+"キーの順序通りに次の行を読み込んだリクエストの数。この値はインデックス列のク"
+"エリに範囲指定をしているか、インデックススキャンを行っているときに増加します"
 
 #: server_status.php:61
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
-msgstr "キーの順序通りに前の行を読み込んだリクエストの数。この読み込みは主に ORDER BY ... DESC の最適化に利用されます"
+msgstr ""
+"キーの順序通りに前の行を読み込んだリクエストの数。この読み込みは主に ORDER "
+"BY ... DESC の最適化に利用されます"
 
 #: server_status.php:62
 msgid ""
@@ -7819,8 +8094,10 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
-"決まった位置を基準に行を読み込んだリクエストの数。この値が高いのは結果をソートする必要があるクエリを大量に実行している場合です。おそらくテーブル全体をス"
-"キャンしなければならないクエリを大量に行っているか、結合の際のキーの使い方に不適切なところがあります"
+"決まった位置を基準に行を読み込んだリクエストの数。この値が高いのは結果をソー"
+"トする必要があるクエリを大量に実行している場合です。おそらくテーブル全体をス"
+"キャンしなければならないクエリを大量に行っているか、結合の際のキーの使い方に"
+"不適切なところがあります"
 
 #: server_status.php:63
 msgid ""
@@ -7829,7 +8106,8 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"データファイルの次の行を読み込んだリクエストの数。この値が高いのはテーブルスキャンを大量に実行しているためです。一般にこれはテーブルのインデックスが不適"
+"データファイルの次の行を読み込んだリクエストの数。この値が高いのはテーブルス"
+"キャンを大量に実行しているためです。一般にこれはテーブルのインデックスが不適"
 "切か、クエリがインデックスを利用するように書かれていないことを意味します"
 
 #: server_status.php:64
@@ -7846,7 +8124,8 @@ msgstr "テーブル内に行を挿入したリクエストの数"
 
 #: server_status.php:67
 msgid "The number of pages containing data (dirty or clean)."
-msgstr "データが含まれるページの数 (ダーティページ、クリーンページの別を問わず)"
+msgstr ""
+"データが含まれるページの数 (ダーティページ、クリーンページの別を問わず)"
 
 #: server_status.php:68
 msgid "The number of pages currently dirty."
@@ -7866,8 +8145,9 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"InnoDB バッファプールでラッチされているページ数。これは現在読み込んでいる、あるいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュした"
-"り削除したりできなくなっているページの数です"
+"InnoDB バッファプールでラッチされているページ数。これは現在読み込んでいる、あ"
+"るいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュしたり削除し"
+"たりできなくなっているページの数です"
 
 #: server_status.php:72
 msgid ""
@@ -7876,9 +8156,10 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"行ロックやアダプティブハッシュインデックスといった管理オーバヘッドのせいでビジーになっているページ数。この値は "
-"Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
-"Innodb_buffer_pool_pages_data という式でも計算できます"
+"行ロックやアダプティブハッシュインデックスといった管理オーバヘッドのせいでビ"
+"ジーになっているページ数。この値は Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data という式でも計"
+"算できます"
 
 #: server_status.php:73
 msgid "Total size of buffer pool, in pages."
@@ -7888,13 +8169,17 @@ msgstr "ページのバッファプールサイズの合計"
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
-msgstr "InnoDB が開始したランダム読み込みの回数。これはクエリがテーブルの大部分をランダムな順番でスキャンするときに発生します"
+msgstr ""
+"InnoDB が開始したランダム読み込みの回数。これはクエリがテーブルの大部分をラン"
+"ダムな順番でスキャンするときに発生します"
 
 #: server_status.php:75
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
-msgstr "InnoDB が開始したシーケンシャル読み込みの回数。これは InnoDB がシーケンシャルなテーブル全スキャンを行うときに発生します。"
+msgstr ""
+"InnoDB が開始したシーケンシャル読み込みの回数。これは InnoDB がシーケンシャル"
+"なテーブル全スキャンを行うときに発生します。"
 
 #: server_status.php:76
 msgid "The number of logical read requests InnoDB has done."
@@ -7904,7 +8189,9 @@ msgstr "InnoDB が実行した論理読み込みリクエストの数"
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
-msgstr "InnoDB がバッファプールの内容を利用できず、シングルページ読み込みを行わなければならなかった論理読み込みの回数"
+msgstr ""
+"InnoDB がバッファプールの内容を利用できず、シングルページ読み込みを行わなけれ"
+"ばならなかった論理読み込みの回数"
 
 #: server_status.php:78
 msgid ""
@@ -7914,9 +8201,11 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
-"通常 InnoDB バッファプールへの書き込みはバックグラウンドで行われますが、ページの読み込みないし作成を行う必要があるのにクリーンなページが得られな"
-"い場合は、まずそのページがフラッシュされるのを待つ必要があります。このカウンタは、そのウェイトの回数をカウントするものです。バッファプールの値が適切に設"
-"定されていれば、この値は小さいはずです"
+"通常 InnoDB バッファプールへの書き込みはバックグラウンドで行われますが、ペー"
+"ジの読み込みないし作成を行う必要があるのにクリーンなページが得られない場合"
+"は、まずそのページがフラッシュされるのを待つ必要があります。このカウンタは、"
+"そのウェイトの回数をカウントするものです。バッファプールの値が適切に設定され"
+"ていれば、この値は小さいはずです"
 
 #: server_status.php:79
 msgid "The number writes done to the InnoDB buffer pool."
@@ -7966,7 +8255,9 @@ msgstr "二重書き込みの実行回数と二重書き込みが発生したペ
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
-msgstr "ログバッファが小さすぎてフラッシュしないと作業を続行できなくなったために発生したウェイトの回数"
+msgstr ""
+"ログバッファが小さすぎてフラッシュしないと作業を続行できなくなったために発生"
+"したウェイトの回数"
 
 #: server_status.php:91
 msgid "The number of log write requests."
@@ -8001,8 +8292,8 @@ msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
-"コンパイル時の InnoDB のページサイズ "
-"(デフォルト:16KB)。多くの値がページ単位で計算されますが、この値を使えば簡単にバイト単位に変換できます"
+"コンパイル時の InnoDB のページサイズ (デフォルト:16KB)。多くの値がページ単位"
+"で計算されますが、この値を使えば簡単にバイト単位に変換できます"
 
 #: server_status.php:99
 msgid "The number of pages read."
@@ -8052,20 +8343,26 @@ msgstr "InnoDB テーブルで更新された行数"
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr "変更されてからディスクにフラッシュされていないキーキャッシュのキーブロックの数。以前は Not_flushed_key_blocks でした"
+msgstr ""
+"変更されてからディスクにフラッシュされていないキーキャッシュのキーブロックの"
+"数。以前は Not_flushed_key_blocks でした"
 
 #: server_status.php:111
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
-msgstr "キーキャッシュの未使用ブロックの数。キーキャッシュの使用率を調べるときに使えます"
+msgstr ""
+"キーキャッシュの未使用ブロックの数。キーキャッシュの使用率を調べるときに使え"
+"ます"
 
 #: server_status.php:112
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
-msgstr "キーキャッシュの使用済みブロックの数。この値はこれまで一度に使用されたブロックの最大数です"
+msgstr ""
+"キーキャッシュの使用済みブロックの数。この値はこれまで一度に使用されたブロッ"
+"クの最大数です"
 
 #: server_status.php:113
 msgid "The number of requests to read a key block from the cache."
@@ -8077,8 +8374,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
-"ディスクからキーブロックを物理読み込みした回数。Key_reads が大きいのはおそらく key_buffer_size "
-"が小さすぎるためです。キャッシュミスの割合は Key_reads/Key_read_requests で計算できます"
+"ディスクからキーブロックを物理読み込みした回数。Key_reads が大きいのはおそら"
+"く key_buffer_size が小さすぎるためです。キャッシュミスの割合は Key_reads/"
+"Key_read_requests で計算できます"
 
 #: server_status.php:115
 msgid "The number of requests to write a key block to the cache."
@@ -8094,8 +8392,9 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
-"クエリオプティマイザーの計算による、最後にコンパイルされたクエリの総コスト。クエリのプランを変えたときにコストがどう変わるか比較するときに便利です。デフ"
-"ォルト値の 0 はまだ一度もクエリをコンパイルしていないという意味です"
+"クエリオプティマイザーの計算による、最後にコンパイルされたクエリの総コスト。"
+"クエリのプランを変えたときにコストがどう変わるか比較するときに便利です。デ"
+"フォルト値の 0 はまだ一度もクエリをコンパイルしていないという意味です"
 
 #: server_status.php:118
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -8105,7 +8404,9 @@ msgstr "INSERT DELAYED キューの中で書き込まれるのを待っている
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
-msgstr "開いているテーブルの数。開いているテーブルが多い場合はおそらくテーブルキャッシュの値が小さすぎます"
+msgstr ""
+"開いているテーブルの数。開いているテーブルが多い場合はおそらくテーブルキャッ"
+"シュの値が小さすぎます"
 
 #: server_status.php:120
 msgid "The number of files that are open."
@@ -8142,14 +8443,18 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
-"新しいクエリをキャッシュするためにメモリを解放するべくキャッシュから削除されたクエリの数。この情報はクエリキャッシュのサイズを調整するときに便利です。ク"
-"エリキャッシュは最後に使われた時刻が最も古いものから削除する (LRU) 戦略に従って削除するクエリを決めます。"
+"新しいクエリをキャッシュするためにメモリを解放するべくキャッシュから削除され"
+"たクエリの数。この情報はクエリキャッシュのサイズを調整するときに便利です。ク"
+"エリキャッシュは最後に使われた時刻が最も古いものから削除する (LRU) 戦略に従っ"
+"て削除するクエリを決めます。"
 
 #: server_status.php:128
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
-msgstr "キャッシュされなかった (キャッシュできないか query_cache_type の設定でキャッシュしないことになっている) クエリの数"
+msgstr ""
+"キャッシュされなかった (キャッシュできないか query_cache_type の設定でキャッ"
+"シュしないことになっている) クエリの数"
 
 #: server_status.php:129
 msgid "The number of queries registered in the cache."
@@ -8172,7 +8477,9 @@ msgstr "フェイルセーフレプリケーションの状態 (未実装)"
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
-msgstr "インデックスを利用しなかった結合の数。この値が 0 でない場合はテーブルのインデックスをよく確認してください"
+msgstr ""
+"インデックスを利用しなかった結合の数。この値が 0 でない場合はテーブルのイン"
+"デックスをよく確認してください"
 
 #: server_status.php:134
 msgid "The number of joins that used a range search on a reference table."
@@ -8182,13 +8489,17 @@ msgstr "参照テーブルで範囲検索をした結合の数"
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr "キーが指定されていなかったため一行ずつキーが使われているか確認した結合の数（0 でない場合はテーブルのインデックスをよく確認してください）"
+msgstr ""
+"キーが指定されていなかったため一行ずつキーが使われているか確認した結合の数"
+"（0 でない場合はテーブルのインデックスをよく確認してください）"
 
 #: server_status.php:136
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
-msgstr "最初のテーブルで範囲指定された結合の数 (この値は大きくてもふつう問題ありません)"
+msgstr ""
+"最初のテーブルで範囲指定された結合の数 (この値は大きくてもふつう問題ありませ"
+"ん)"
 
 #: server_status.php:137
 msgid "The number of joins that did a full scan of the first table."
@@ -8202,7 +8513,9 @@ msgstr "スレーブの SQL スレッドが現在開いている一時テーブ�
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
-msgstr "レプリケーションスレーブの SQL スレッドがトランザクションを再試行した回数(起動時からの合計)"
+msgstr ""
+"レプリケーションスレーブの SQL スレッドがトランザクションを再試行した回数(起"
+"動時からの合計)"
 
 #: server_status.php:140
 msgid "This is ON if this server is a slave that is connected to a master."
@@ -8225,8 +8538,8 @@ msgid ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
-"ソートアルゴリズムが実行しなければならなかったマージの回数。この値が高い場合は sort_buffer_size "
-"システム変数の値を増やした方がよいでしょう"
+"ソートアルゴリズムが実行しなければならなかったマージの回数。この値が高い場合"
+"は sort_buffer_size システム変数の値を増やした方がよいでしょう"
 
 #: server_status.php:144
 msgid "The number of sorts that were done with ranges."
@@ -8251,8 +8564,9 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
-"テーブルロックをすぐに取得できずウェイトが発生した回数。この値が高く、パフォーマンスに問題が生じている場合は、まずクエリを最適化してください。それでもだ"
-"めならテーブルを分割するか、レプリケーションを利用してください"
+"テーブルロックをすぐに取得できずウェイトが発生した回数。この値が高く、パ"
+"フォーマンスに問題が生じている場合は、まずクエリを最適化してください。それで"
+"もだめならテーブルを分割するか、レプリケーションを利用してください"
 
 #: server_status.php:149
 msgid ""
@@ -8260,8 +8574,9 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"スレッドキャッシュ内のスレッド数。キャッシュのヒット率は Threads_created/Connections "
-"で計算できます。この値が赤くなっている場合は thread_cache_size を大きくしてください"
+"スレッドキャッシュ内のスレッド数。キャッシュのヒット率は Threads_created/"
+"Connections で計算できます。この値が赤くなっている場合は thread_cache_size を"
+"大きくしてください"
 
 #: server_status.php:150
 msgid "The number of currently open connections."
@@ -8274,8 +8589,9 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
-"接続処理のために作成されたスレッドの数。Threads_created が大きい場合は thread_cache_size "
-"の値を増やした方がよいかもしれません (スレッドの実装に問題がない場合はふつうあまりパフォーマンスは向上しません)"
+"接続処理のために作成されたスレッドの数。Threads_created が大きい場合は "
+"thread_cache_size の値を増やした方がよいかもしれません (スレッドの実装に問題"
+"がない場合はふつうあまりパフォーマンスは向上しません)"
 
 #: server_status.php:152
 msgid "The number of threads that are not sleeping."
@@ -8359,15 +8675,21 @@ msgstr "この MySQL サーバの稼働時間: %s (起動時刻: %s)"
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>と<b>スレーブ</b>として動作しています。"
+msgstr ""
+"この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>と<b>ス"
+"レーブ</b>として動作しています。"
 
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>として動作しています。"
+msgstr ""
+"この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>として動作"
+"しています。"
 
 #: server_status.php:490
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>スレーブ</b>として動作しています。"
+msgstr ""
+"この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>スレーブ</b>として動"
+"作しています。"
 
 #: server_status.php:493
 msgid ""
@@ -8381,7 +8703,9 @@ msgstr ""
 msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
-msgstr "<b>サーバトラフィック</b>: これらの表は MySQL サーバ起動以後のネットワークトラフィックの統計です"
+msgstr ""
+"<b>サーバトラフィック</b>: これらの表は MySQL サーバ起動以後のネットワークト"
+"ラフィックの統計です"
 
 #: server_status.php:515
 msgid "Traffic"
@@ -8391,7 +8715,9 @@ msgstr "トラフィック"
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
-msgstr "処理が集中するサーバではバイトカウンタが超過することがあるため、MySQL サーバが報告してくる統計は不正確なことがあります"
+msgstr ""
+"処理が集中するサーバではバイトカウンタが超過することがあるため、MySQL サーバ"
+"が報告してくる統計は不正確なことがあります"
 
 #: server_status.php:516 server_status.php:561 server_status.php:626
 #: server_status.php:687
@@ -8427,7 +8753,8 @@ msgstr "中断"
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
-msgstr "<b>クエリ統計</b>: 起動時から数えて %s 個のクエリをサーバに送信しました"
+msgstr ""
+"<b>クエリ統計</b>: 起動時から数えて %s 個のクエリをサーバに送信しました"
 
 #: server_status.php:627
 msgid "per minute"
@@ -8560,7 +8887,9 @@ msgstr "ソケット"
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
-msgstr "対象先のデータベースが完全に元のデータベースと同期されます。元のデータベースは変更されません。"
+msgstr ""
+"対象先のデータベースが完全に元のデータベースと同期されます。元のデータベース"
+"は変更されません。"
 
 #: server_variables.php:39
 msgid "Server variables and settings"
@@ -8588,22 +8917,27 @@ msgid ""
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"[a@../Documentation.html#setup_script]ドキュメント[/a]で説明されるように phpMyAdmin "
-"のトップレベルディレクトリにウェブサーバで書き込める [em]config[/em] "
-"フォルダを作成してください。そうしない場合は、ダウンロードするか表示するかのみになります。"
+"[a@../Documentation.html#setup_script]ドキュメント[/a]で説明されるように "
+"phpMyAdmin のトップレベルディレクトリにウェブサーバで書き込める [em]config[/"
+"em] フォルダを作成してください。そうしない場合は、ダウンロードするか表示する"
+"かのみになります。"
 
 #: setup/frames/index.inc.php:57
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
-msgstr "セキュリティで保護された接続を使用していません。全てのデータ（パスワードのように、潜在的な機密情報を含む）が暗号化されずに転送されています！"
+msgstr ""
+"セキュリティで保護された接続を使用していません。全てのデータ（パスワードのよ"
+"うに、潜在的な機密情報を含む）が暗号化されずに転送されています！"
 
 #: setup/frames/index.inc.php:60
 #, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
-msgstr "サーバが HTTPS 要求を受け入れるように構成されている場合、[a@%s]このリンク[/a]をたどり安全な接続を使用するようにしてください。"
+msgstr ""
+"サーバが HTTPS 要求を受け入れるように構成されている場合、[a@%s]このリンク[/a]"
+"をたどり安全な接続を使用するようにしてください。"
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
@@ -8692,13 +9026,16 @@ msgstr "フォームを表示する"
 #: setup/lib/index.lib.php:119
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
-msgstr "URL ラッパ、cURL、いずれも利用できません。バージョンチェックが行えません。"
+msgstr ""
+"URL ラッパ、cURL、いずれも利用できません。バージョンチェックが行えません。"
 
 #: setup/lib/index.lib.php:126
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
-msgstr "バージョンの読み込みに失敗しました。オフラインであるか、アップグレードサーバが応答しません。"
+msgstr ""
+"バージョンの読み込みに失敗しました。オフラインであるか、アップグレードサーバ"
+"が応答しません。"
 
 #: setup/lib/index.lib.php:143
 msgid "Got invalid version string from server"
@@ -8714,8 +9051,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Git 版を使用されていますので、[kbd]git pull[/kbd] で更新を行ってください。(^^)[br]最新の安定バージョンは %s で、%s "
-"にリリースされています。"
+"Git 版を使用されていますので、[kbd]git pull[/kbd] で更新を行ってください。"
+"(^^)[br]最新の安定バージョンは %s で、%s にリリースされています。"
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
@@ -8729,10 +9066,11 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"この%sオプション%sは無効にするべきです。そうしなければ、いずれかの MySQL サーバへのブルートフォース (総当たり) "
-"ログインによる攻撃を許すことになります。これが必要と思われる場合には、%s信頼されたプロキシリスト%"
-"sを使用します。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続されている場合には、IP "
-"アドレスを基にした保護は信頼性が高いとはいえません。"
+"この%sオプション%sは無効にするべきです。そうしなければ、いずれかの MySQL サー"
+"バへのブルートフォース (総当たり) ログインによる攻撃を許すことになります。こ"
+"れが必要と思われる場合には、%s信頼されたプロキシリスト%sを使用します。しかし"
+"ながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続され"
+"ている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
 
 #: setup/lib/index.lib.php:252
 msgid ""
@@ -8740,33 +9078,42 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
-"blowfish 暗号のパスフレーズなしで cookie 認証が有効にされましたので、パスフレーズを自動的に生成しました。パスフレーズはクッキーを暗号化"
-"するために内部で使用されるもので、外部に知られないようにしておく必要はありますが、管理者がそれを覚えておく必要はありません。"
+"blowfish 暗号のパスフレーズなしで cookie 認証が有効にされましたので、パスフ"
+"レーズを自動的に生成しました。パスフレーズはクッキーを暗号化するために内部で"
+"使用されるもので、外部に知られないようにしておく必要はありますが、管理者がそ"
+"れを覚えておく必要はありません。"
 
 #: setup/lib/index.lib.php:253
 #, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
-msgstr "%sBzip2の圧縮と解凍%sには関数 (%s) が必要です。それらがこのシステムでは使用できません。"
+msgstr ""
+"%sBzip2の圧縮と解凍%sには関数 (%s) が必要です。それらがこのシステムでは使用で"
+"きません。"
 
 #: setup/lib/index.lib.php:255
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
-msgstr "このディレクトリが、他のユーザにより外部からアクセスも読み書きできてしまうことを防ぐために、この値は二重にチェックするべきです。"
+msgstr ""
+"このディレクトリが、他のユーザにより外部からアクセスも読み書きできてしまうこ"
+"とを防ぐために、この値は二重にチェックするべきです。"
 
 #: setup/lib/index.lib.php:256
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "ウェブサーバでサポートしている場合、この%sオプション%sを有効にするべきです。"
+msgstr ""
+"ウェブサーバでサポートしている場合、この%sオプション%sを有効にするべきです。"
 
 #: setup/lib/index.lib.php:258
 #, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
-msgstr "%sGZipの圧縮と解凍%sには関数 (%s) が必要です。それらがこのシステムでは使用できません。"
+msgstr ""
+"%sGZipの圧縮と解凍%sには関数 (%s) が必要です。それらがこのシステムでは使用で"
+"きません。"
 
 #: setup/lib/index.lib.php:260
 #, php-format
@@ -8775,8 +9122,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
-"%sログインクッキーの有効期間%sが 1440 秒を超えています。%ssession.gc_maxlifetime%s がその値 (現在 %d) "
-"より低い場合、セッションがランダムに無効化される原因となります。"
+"%sログインクッキーの有効期間%sが 1440 秒を超えています。%ssession."
+"gc_maxlifetime%s がその値 (現在 %d) より低い場合、セッションがランダムに無効"
+"化される原因となります。"
 
 #: setup/lib/index.lib.php:262
 #, php-format
@@ -8784,8 +9132,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"%sログインクッキーの有効期間%sは最大で 1800 秒 (30 分) に設定する必要があります。1800 "
-"より大きい値は、偽装などのセキュリティリスクを引き起こす可能性があります。"
+"%sログインクッキーの有効期間%sは最大で 1800 秒 (30 分) に設定する必要がありま"
+"す。1800 より大きい値は、偽装などのセキュリティリスクを引き起こす可能性があり"
+"ます。"
 
 #: setup/lib/index.lib.php:264
 #, php-format
@@ -8793,8 +9142,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"cookie 認証を使用していて且つ%sログインクッキーの保存期間%sを 0 にしていない場合、%sログインクッキーの有効期間%"
-"sは保存期間の値以下に設定する必要があります。"
+"cookie 認証を使用していて且つ%sログインクッキーの保存期間%sを 0 にしていない"
+"場合、%sログインクッキーの有効期間%sは保存期間の値以下に設定する必要がありま"
+"す。"
 
 #: setup/lib/index.lib.php:266
 #, php-format
@@ -8804,9 +9154,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%sホスト認証%s設定および%s信頼されたプロキシのリスト"
-"%s）を使用してください。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続されている場合には、IP "
-"アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: setup/lib/index.lib.php:268
 #, php-format
@@ -8817,10 +9169,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"[kbd]config[/kbd] "
-"認証タイプを設定し、自動ログインのためにユーザ名とパスワードを含めています。このことは、実働しているホストにとって望ましい方法とはいえません。誰かに "
-"phpMyAdmin の URL を知られるもしくは推測されると、管理ツールである phpMyAdmin に直接アクセスできてしまいます。ですから、%"
-"s認証タイプ%sを [kbd]cookie[/kbd] か [kbd]http[/kbd] に設定してください。"
+"[kbd]config[/kbd] 認証タイプを設定し、自動ログインのためにユーザ名とパスワー"
+"ドを含めています。このことは、実働しているホストにとって望ましい方法とはいえ"
+"ません。誰かに phpMyAdmin の URL を知られるもしくは推測されると、管理ツールで"
+"ある phpMyAdmin に直接アクセスできてしまいます。ですから、%s認証タイプ%sを "
+"[kbd]cookie[/kbd] か [kbd]http[/kbd] に設定してください。"
 
 #: setup/lib/index.lib.php:270
 #, php-format
@@ -8952,7 +9305,9 @@ msgstr "次の行を編集する"
 #: tbl_change.php:1099
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
-msgstr "次の値に移動するときは TAB キーを使ってください。CTRL＋カーソルキーを使うと自由に移動できます"
+msgstr ""
+"次の値に移動するときは TAB キーを使ってください。CTRL＋カーソルキーを使うと自"
+"由に移動できます"
 
 #: tbl_change.php:1137
 #, php-format
@@ -8968,8 +9323,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"このクエリの結果は、グラフに使用することができませんでした。[a@./Documentation.html#faq6_29@Documentation]"
-"FAQ 6.29[/a] を参照してください。"
+"このクエリの結果は、グラフに使用することができませんでした。[a@./"
+"Documentation.html#faq6_29@Documentation]FAQ 6.29[/a] を参照してください。"
 
 #: tbl_chart.php:90
 msgid "Width"
@@ -9038,20 +9393,23 @@ msgstr "連結したイメージにする"
 msgid ""
 "For compatibility reasons the chart image is segmented by default, select "
 "this to draw the whole chart in one image."
-msgstr "互換性の理由から、グラフイメージはデフォルトで分割されています。1つのイメージでグラフ全体を描画する場合、チェックしてください。"
+msgstr ""
+"互換性の理由から、グラフイメージはデフォルトで分割されています。1つのイメージ"
+"でグラフ全体を描画する場合、チェックしてください。"
 
 #: tbl_chart.php:166
 msgid ""
 "When drawing a radar chart all values are normalized to a range [0..10]."
-msgstr "レーダグラフを描画する時は、全ての値が範囲 [0..10] に正規化されています。"
+msgstr ""
+"レーダグラフを描画する時は、全ての値が範囲 [0..10] に正規化されています。"
 
 #: tbl_chart.php:173
 msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
-"必ずしも、テーブルの結果を全てグラフにできるとは限りません。<a href=\"./Documentation.html#faq6_29\" "
-"target=\"Documentation\">FAQ 6.29</a>参照。"
+"必ずしも、テーブルの結果を全てグラフにできるとは限りません。<a href=\"./"
+"Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>参照。"
 
 #: tbl_chart.php:181
 msgid "Redraw"
@@ -9095,8 +9453,8 @@ msgstr "インデックスを修正する"
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
-"(<b>主キーは必ず</b> \"PRIMARY\" という名前でなければなりません。また<b>主キー以外に</b> \"PRIMARY\" "
-"という名前を<b>使ってはなりません</b>！)"
+"(<b>主キーは必ず</b> \"PRIMARY\" という名前でなければなりません。また<b>主"
+"キー以外に</b> \"PRIMARY\" という名前を<b>使ってはなりません</b>！)"
 
 #: tbl_indexes.php:168
 msgid "Index name:"
@@ -9274,7 +9632,9 @@ msgstr " 行のサイズ "
 #: tbl_relation.php:269
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "%1$s に外部キーを作成するときにエラーが発生しました (データ型を確認してください)"
+msgstr ""
+"%1$s に外部キーを作成するときにエラーが発生しました (データ型を確認してくださ"
+"い)"
 
 #: tbl_relation.php:395
 msgid "Internal relation"
@@ -9284,7 +9644,8 @@ msgstr "内部リレーション"
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr "対応する外部リレーションが存在する場合、内部リレーションは必要ありません。"
+msgstr ""
+"対応する外部リレーションが存在する場合、内部リレーションは必要ありません。"
 
 #: tbl_relation.php:403
 msgid "Foreign key constraint"
@@ -9422,15 +9783,20 @@ msgstr "SQL 文が実行されました。"
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
-msgstr "作成された一時的なデータベースを使用してダンプを実行することができます。これを実行できる特権を持っていることを確認してください。"
+msgstr ""
+"作成された一時的なデータベースを使用してダンプを実行することができます。これ"
+"を実行できる特権を持っていることを確認してください。"
 
 #: tbl_tracking.php:217
 msgid "Comment out these two lines if you do not need them."
-msgstr "一時的なデータベースに対して実行しない場合は、この2行をコメントアウトします。"
+msgstr ""
+"一時的なデータベースに対して実行しない場合は、この2行をコメントアウトします。"
 
 #: tbl_tracking.php:226
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "SQL 文をエクスポートしました。ダンプしたものをコピーするか実行するかしてください。"
+msgstr ""
+"SQL 文をエクスポートしました。ダンプしたものをコピーするか実行するかしてくだ"
+"さい。"
 
 #: tbl_tracking.php:257
 #, php-format
@@ -9468,7 +9834,8 @@ msgstr "SQL 文のダンプ"
 
 #: tbl_tracking.php:504
 msgid "This option will replace your table and contained data."
-msgstr "このオプションは、テーブルやそれに含まれるデータを置き換えるかもしれません。"
+msgstr ""
+"このオプションは、テーブルやそれに含まれるデータを置き換えるかもしれません。"
 
 #: tbl_tracking.php:504
 msgid "SQL execution"
@@ -9598,7 +9965,9 @@ msgstr "変更後のビュー名称"
 #~ msgid ""
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
-#~ msgstr "リンクテーブルを処理するための追加機能が無効になっています。理由については%sこちら%sをご覧ください"
+#~ msgstr ""
+#~ "リンクテーブルを処理するための追加機能が無効になっています。理由について"
+#~ "は%sこちら%sをご覧ください"
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "重複している行を無視する"
@@ -9618,16 +9987,18 @@ msgstr "変更後のビュー名称"
 #~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
 #~ "\\'b')."
 #~ msgstr ""
-#~ "変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") やシングルクォート (\"'\") "
-#~ "を値に含める必要がある場合は ( \\\\xyz や a\\'b のように) バックスラッシュでエスケープしてください"
+#~ "変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") や"
+#~ "シングルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b "
+#~ "のように) バックスラッシュでエスケープしてください"
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
 #~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
-#~ "変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") やシングルクォート (\"'\") "
-#~ "を値に含める必要がある場合は ( \\\\xyz や a\\'b のように) バックスラッシュでエスケープしてください"
+#~ "変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") や"
+#~ "シングルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b "
+#~ "のように) バックスラッシュでエスケープしてください"
 
 #~ msgid "server name"
 #~ msgstr "サーバ名"
@@ -9696,24 +10067,25 @@ msgstr "変更後のビュー名称"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできません。PHP "
-#~ "の設定を確認してください"
+#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできま"
+#~ "せん。PHP の設定を確認してください"
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "
 #~ "conversion. Either configure PHP to enable these extensions or disable "
 #~ "charset conversion in phpMyAdmin."
 #~ msgstr ""
-#~ "文字セットの変換に必要な iconv ないし GNU recode 拡張をロードできません。PHP 側でこの拡張を有効にするか、phpMyAdmin "
-#~ "側で文字セットの変換を無効にしてください"
+#~ "文字セットの変換に必要な iconv ないし GNU recode 拡張をロードできません。"
+#~ "PHP 側でこの拡張を有効にするか、phpMyAdmin 側で文字セットの変換を無効にし"
+#~ "てください"
 
 #~ msgid ""
 #~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
 #~ "the necessary extensions appear to be loaded. Check your PHP "
 #~ "configuration."
 #~ msgstr ""
-#~ "必要な拡張はロードされているようですが、iconv や libiconv、recode_string の関数を利用できません。PHP "
-#~ "の設定を確認してください"
+#~ "必要な拡張はロードされているようですが、iconv や libiconv、recode_string "
+#~ "の関数を利用できません。PHP の設定を確認してください"
 
 #~ msgid "Field"
 #~ msgstr "フィールド"
@@ -9777,13 +10149,15 @@ msgstr "変更後のビュー名称"
 #~ "PHP and/or webserver log file and configure your PHP installation "
 #~ "properly."
 #~ msgstr ""
-#~ "エラーが出たためセッションを開始できませんでした。PHP やウェブサーバのログファイルに出ているエラーを確認して、PHP を正しく設定してください。"
+#~ "エラーが出たためセッションを開始できませんでした。PHP やウェブサーバのログ"
+#~ "ファイルに出ているエラーを確認して、PHP を正しく設定してください。"
 
 #~ msgid ""
 #~ "However on last run no data has been parsed, this usually means "
 #~ "phpMyAdmin won"
 #~ msgstr ""
-#~ "ただし、最後に実行したときはまったくデータを解析できませんでした。ふつうは PHP の時間制限を伸ばさない限りこのデータのインポートはできません"
+#~ "ただし、最後に実行したときはまったくデータを解析できませんでした。ふつう"
+#~ "は PHP の時間制限を伸ばさない限りこのデータのインポートはできません"
 
 #~ msgctxt "None action"
 #~ msgid "None"
@@ -9794,7 +10168,8 @@ msgstr "変更後のビュー名称"
 #~ msgstr "なし"
 
 #~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える"
+#~ msgstr ""
+#~ "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える"
 
 #~ msgid "The %s table doesn"
 #~ msgstr "\"%s\" テーブルは存在しません!"
@@ -9809,8 +10184,8 @@ msgstr "変更後のビュー名称"
 #~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
 #~ "Please check your PHP configuration."
 #~ msgstr ""
-#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできません。PHP "
-#~ "の設定を確認してください"
+#~ "[a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロードできま"
+#~ "せん。PHP の設定を確認してください"
 
 #~ msgid "(or the local MySQL server"
 #~ msgstr "MySQL サーバにログインできません"
@@ -9823,11 +10198,15 @@ msgstr "変更後のビュー名称"
 #~ "query on the MySQL command line interface. The MySQL server error output "
 #~ "be . "
 #~ msgstr ""
-#~ "SQL パーサにバグが見つかることもありえますが、まずはクエリをよく見て引用符の数や種類に間違いがないか確認してください。クォートされていないテキスト領"
-#~ "域にバイナリファイルをアップロードしたからクエリが失敗したということもありえます。MySQL "
-#~ "のコマンドラインインタフェースを利用してクエリを実行してみてもよいでしょう。下に MySQL サーバのエラー出力が出ているようなら問題の解析に役立つかも"
-#~ "しれません。それでも解決しないか、コマンドラインでは成功するのにパーサでは失敗する場合は、SQL "
-#~ "クエリの入力データを実際に問題を起こしているクエリひとつに絞り込んでから、以下の「CUT」セクションにデータを添えてバグ報告を送ってください:"
+#~ "SQL パーサにバグが見つかることもありえますが、まずはクエリをよく見て引用符"
+#~ "の数や種類に間違いがないか確認してください。クォートされていないテキスト領"
+#~ "域にバイナリファイルをアップロードしたからクエリが失敗したということもあり"
+#~ "えます。MySQL のコマンドラインインタフェースを利用してクエリを実行してみて"
+#~ "もよいでしょう。下に MySQL サーバのエラー出力が出ているようなら問題の解析"
+#~ "に役立つかもしれません。それでも解決しないか、コマンドラインでは成功するの"
+#~ "にパーサでは失敗する場合は、SQL クエリの入力データを実際に問題を起こしてい"
+#~ "るクエリひとつに絞り込んでから、以下の「CUT」セクションにデータを添えてバ"
+#~ "グ報告を送ってください:"
 
 #~ msgctxt "$strStrucCSV"
 #~ msgid "CSV"
@@ -9838,7 +10217,9 @@ msgstr "変更後のビュー名称"
 
 #~ msgid ""
 #~ "This is the cleanest way, but reloading the privileges may take a while."
-#~ msgstr "これはもっともクリーンな方法ですが、特権のリロードに時間がかかることがあります"
+#~ msgstr ""
+#~ "これはもっともクリーンな方法ですが、特権のリロードに時間がかかることがあり"
+#~ "ます"
 
 #~ msgid "has been altered."
 #~ msgstr "を変更しました"
@@ -9849,14 +10230,17 @@ msgstr "変更後のビュー名称"
 #~ msgid ""
 #~ "The &quot;deleted&quot; users will still be able to access the server as "
 #~ "usual until the privileges are reloaded."
-#~ msgstr "特権がリロードされるまでは「削除」されたユーザもふつうにサーバにアクセスできます"
+#~ msgstr ""
+#~ "特権がリロードされるまでは「削除」されたユーザもふつうにサーバにアクセスで"
+#~ "きます"
 
 #~ msgid "Just delete the users from the privilege tables."
 #~ msgstr "特権テーブルからユーザを削除するだけにする"
 
 #~ msgid ""
 #~ "Allows running stored procedures; has no effect in this MySQL version."
-#~ msgstr "ストアードプロシジャの実行を許可する (このバージョンの MySQL では無効です)"
+#~ msgstr ""
+#~ "ストアードプロシジャの実行を許可する (このバージョンの MySQL では無効です)"
 
 #~ msgid "Process list"
 #~ msgstr "プロセス一覧"

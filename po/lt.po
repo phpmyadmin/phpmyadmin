@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-28 16:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -4775,7 +4775,6 @@ msgid "Relational key"
 msgstr "Sąryšių raktas"
 
 #: libraries/display_tbl.lib.php:587
-#| msgid "Relational schema"
 msgid "Relational display column"
 msgstr "Ryšių rodymo stulpelis"
 
@@ -4840,7 +4839,6 @@ msgid "Display chart"
 msgstr "Rodyti diagramą"
 
 #: libraries/display_tbl.lib.php:2391
-#| msgid "Create User"
 msgid "Create view"
 msgstr "Sukurti rodinį"
 
@@ -5104,7 +5102,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#| msgid "Relations"
 msgid "Related Links"
 msgstr "Susijusios nuorodos"
 
@@ -5694,7 +5691,6 @@ msgstr ""
 "klaidas ir bandyti dar kartą."
 
 #: libraries/kanji-encoding.lib.php:142
-#| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Nėra"
@@ -6121,7 +6117,6 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Duomenų bazės %s schema - %s puslapis"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
-#| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
 msgstr "Šis puslapis neturi jokių lentelių!"
 
@@ -6156,7 +6151,6 @@ msgid "Create a page"
 msgstr "Sukurti naują puslapį"
 
 #: libraries/schema/User_Schema.class.php:99
-#| msgid "Page number:"
 msgid "Page name"
 msgstr "Puslapio vardas"
 
@@ -6324,7 +6318,6 @@ msgid "Clear"
 msgstr "Išvalyti"
 
 #: libraries/sql_query_form.lib.php:301
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Stulpeliai"
 
@@ -6514,7 +6507,6 @@ msgid "Get more editing space"
 msgstr "Padidinti redagavimo erdvę"
 
 #: libraries/tbl_properties.inc.php:396
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Nėra"
@@ -6620,17 +6612,6 @@ msgid ""
 msgstr ""
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the field data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/transformations/"
-#| "text_plain__external.inc.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -7025,7 +7006,6 @@ msgstr "Sąryšis ištrintas"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#| msgid "Export"
 msgid "Except"
 msgstr "Išskyrus"
 
@@ -7041,7 +7021,6 @@ msgid "Rename to"
 msgstr "Pervadinti į"
 
 #: pmd_general.php:482 pmd_general.php:581
-#| msgid "User name"
 msgid "New name"
 msgstr "Naujas vardas"
 
@@ -7086,27 +7065,22 @@ msgid "Page creation failed"
 msgstr "Puslapio kūrimas nepavyko"
 
 #: pmd_pdf.php:89
-#| msgid "pages"
 msgid "Page"
 msgstr "Puslapis"
 
 #: pmd_pdf.php:99
-#| msgid "Import from file"
 msgid "Import from selected page"
 msgstr "Importuoti iš pasirinkto puslapio"
 
 #: pmd_pdf.php:100
-#| msgid "No rows selected"
 msgid "Export to selected page"
 msgstr "Eksportuoti pasirinktą puslapį"
 
 #: pmd_pdf.php:102
-#| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "Sukurti puslapį ir eksportuoti į jį"
 
 #: pmd_pdf.php:111
-#| msgid "User name"
 msgid "New page name: "
 msgstr "Naujas puslapio vardas:"
 
@@ -7147,12 +7121,10 @@ msgid "Modifications have been saved"
 msgstr "Pakeitimai išsaugoti"
 
 #: prefs_forms.php:78
-#| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
 msgstr "Nepavyko išsaugoti nustatymų, išsiųstoje formoje yra klaidų"
 
 #: prefs_manage.php:80
-#| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
 msgstr "Nepavyko importuoti konfigūracijos"
 
@@ -7904,22 +7876,18 @@ msgid "Reset slave"
 msgstr "Paleisti iš naujo pavaldųjį serverį (reset slave)"
 
 #: server_replication.php:327
-#| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
 msgstr "Pradėti tik SQL giją"
 
 #: server_replication.php:329
-#| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
 msgstr "Sustabdyti tik SQL giją"
 
 #: server_replication.php:332
-#| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
 msgstr "Pradėti tik IO giją"
 
 #: server_replication.php:334
-#| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
 msgstr "Sustabdyti tik IO giją"
 
@@ -8972,10 +8940,6 @@ msgstr ""
 
 #: setup/lib/index.lib.php:253
 #, php-format
-#| msgid ""
-#| "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression "
-#| "and decompression[/a] requires functions (%s) which are unavailable on "
-#| "this system."
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
@@ -8991,16 +8955,12 @@ msgstr ""
 
 #: setup/lib/index.lib.php:256
 #, php-format
-#| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "Šis %snustatymas%s turėtų būti įjungtas jeigu Jūsų serveris jį palaiko."
+msgstr ""
+"Šis %snustatymas%s turėtų būti įjungtas jeigu Jūsų serveris jį palaiko."
 
 #: setup/lib/index.lib.php:258
 #, php-format
-#| msgid ""
-#| "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
-#| "decompression[/a] requires functions (%s) which are unavailable on this "
-#| "system."
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
@@ -9102,7 +9062,6 @@ msgstr ""
 "Jūs turėtumėte naudoti SSL prisijungimus jeigu Jūsų serveris juos palaiko"
 
 #: setup/lib/index.lib.php:307
-#| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
 msgstr "Turėtumėte naudoti mysqli dėl našumo (efektyvumo) priežasčių."
 
@@ -9111,12 +9070,10 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Jūs leidžiate prisijungti prie serverio be slaptažodžio."
 
 #: setup/lib/index.lib.php:352
-#| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
 msgstr "Raktas per trumpas, jis privalo turėti bent 8 simbolius."
 
 #: setup/lib/index.lib.php:359
-#| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "Raktas turėtų būti sudarytas iš raidžių, skaičių [em]ir[/em] specialiųjų "
@@ -9146,7 +9103,6 @@ msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
 
 #: sql.php:624
-#| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Patikrintas SQL"
 
@@ -9571,7 +9527,6 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Vykdyti „užklausą pagal pavyzdį“ (pakaitos simbolis: „%“)"
 
 #: tbl_select.php:233
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Pasirinkite stulpelius (bent vieną):"
 
@@ -9592,12 +9547,10 @@ msgid "Browse distinct values"
 msgstr "Peržiūrėti skirtingas reikšmes"
 
 #: tbl_structure.php:166 tbl_structure.php:167
-#| msgid "Adding Primary Key"
 msgid "Add primary key"
 msgstr "Pridėti pirminį raktą"
 
 #: tbl_structure.php:168 tbl_structure.php:169
-#| msgid "Apply index(s)"
 msgid "Add index"
 msgstr "Pridėti indeksą"
 
@@ -9610,7 +9563,6 @@ msgid "Add FULLTEXT index"
 msgstr "Pridėti FULLTEXT indeksą"
 
 #: tbl_structure.php:389
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Jokio"
@@ -9632,7 +9584,6 @@ msgid "An index has been added on %s"
 msgstr "Indeksas sukurtas %s stulpeliui"
 
 #: tbl_structure.php:475
-#| msgid "Show versions"
 msgid "Show more actions"
 msgstr "Rodyti daugiau veiksmų"
 
@@ -9645,7 +9596,6 @@ msgid "Propose table structure"
 msgstr "Analizuoti lentelės struktūrą"
 
 #: tbl_structure.php:638
-#| msgid "Add column(s)"
 msgid "Add column"
 msgstr "Pridėti stulpelį"
 
@@ -9828,7 +9778,6 @@ msgid "Available transformations"
 msgstr "Galimos transformacijos"
 
 #: transformation_overview.php:47
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Paaiškinimas"

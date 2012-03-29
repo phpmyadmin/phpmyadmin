@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-28 16:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -1188,7 +1188,6 @@ msgstr "Concluído"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:140
-#| msgid "Previous"
 msgid "Prev"
 msgstr "Anterior"
 
@@ -1472,8 +1471,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Erro ao mover o arquivo carregado, veja "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Erro ao mover o arquivo carregado, veja [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1991,7 +1990,6 @@ msgid "Inline edit of this query"
 msgstr "Na linha de edição da presente consulta"
 
 #: libraries/common.lib.php:1266
-#| msgid "Engines"
 msgid "Inline"
 msgstr "Em linha"
 
@@ -2125,7 +2123,8 @@ msgstr "Selecionar a partir do diretório de upload do servidor <b>%s</b>:"
 #: libraries/common.lib.php:2990 libraries/sql_query_form.lib.php:500
 #: tbl_change.php:962
 msgid "The directory you set for upload work cannot be reached"
-msgstr "O diretório que você especificou para subir arquivos não foi encontrado"
+msgstr ""
+"O diretório que você especificou para subir arquivos não foi encontrado"
 
 #: libraries/common.lib.php:2998
 msgid "There are no files to upload"
@@ -4107,9 +4106,9 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 "Ao definir este [kbd]aninhamento[/kbd], o alias da tabela é apenas usado "
-"para dividir/aninhar as tabelas de acordo com a "
-"$cfg['LeftFrameTableSeparator'] diretiva, somente a pasta é chamada pelo "
-"alias, o nome da tabela continua inalterado"
+"para dividir/aninhar as tabelas de acordo com a $cfg"
+"['LeftFrameTableSeparator'] diretiva, somente a pasta é chamada pelo alias, "
+"o nome da tabela continua inalterado"
 
 #: libraries/config/messages.inc.php:458
 msgid "Display table comment instead of its name"
@@ -4174,8 +4173,8 @@ msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
-"Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados%"
-"quot; (se possível) ou manter o campo texto vazio"
+"Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados"
+"%quot; (se possível) ou manter o campo texto vazio"
 
 #: libraries/config/messages.inc.php:474
 msgid "Suggest new database name"
@@ -4184,8 +4183,7 @@ msgstr "Sugerir nome para o banco de dados"
 #: libraries/config/messages.inc.php:475
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
-"Um aviso é mostrado na página principal se uma falha de segurança é "
-"detectada"
+"Um aviso é mostrado na página principal se uma falha de segurança é detectada"
 
 #: libraries/config/messages.inc.php:476
 msgid "Suhosin warning"
@@ -4198,7 +4196,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:478
-#| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "Colunas da área de texto"
 
@@ -4496,7 +4493,6 @@ msgid "Password Hashing"
 msgstr "Hashing da senha"
 
 #: libraries/display_change_password.lib.php:65
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "Compatível com MySQL 4.0"
 
@@ -4520,7 +4516,6 @@ msgid "Create table on database %s"
 msgstr "Criar nova tabela no Banco de Dados %s"
 
 #: libraries/display_create_table.lib.php:55
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Número de colunas"
 

@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:14+0100\n"
+"POT-Creation-Date: 2012-03-29 10:03+0200\n"
 "PO-Revision-Date: 2012-03-28 14:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -613,8 +613,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s."
 
 #: db_structure.php:419 db_structure.php:433 libraries/header.inc.php:137
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
@@ -841,8 +841,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -869,8 +869,8 @@ msgid ""
 msgstr ""
 "Δεν ελήφθησαν δεδομένα για εισαγωγή. Είτε δεν υποβλήθηκε αρχείο είτε το "
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
-"της ΡΗΡ. Δείτε τις [a@./Documentation.html#faq1_16@Documentation]ΣΑΕ "
-"1.16[/a]."
+"της ΡΗΡ. Δείτε τις [a@./Documentation.html#faq1_16@Documentation]ΣΑΕ 1.16[/"
+"a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1442,8 +1442,8 @@ msgstr "Μέγεθος γραμματοσειράς"
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Το προς αποστολή αρχείο υπερβαίνει την οδηγία upload_max_filesize στο "
-"php.ini."
+"Το προς αποστολή αρχείο υπερβαίνει την οδηγία upload_max_filesize στο php."
+"ini."
 
 #: libraries/File.class.php:313
 msgid ""
@@ -1478,8 +1478,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις "
-"[a@./Documentation.html#faq1_11@Documentation]ΣΑΕ 1.11[/a]"
+"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [a@./Documentation."
+"html#faq1_11@Documentation]ΣΑΕ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1651,8 +1651,7 @@ msgid ""
 "%1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
-"να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε "
-"ένα."
+"να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -1880,8 +1879,7 @@ msgstr ""
 "βρει το αρχείο.<br />Τρέξτε το αρχείο ρυθμίσεων κατευθείαν χρησιμοποιώντας "
 "το ακόλουθο σύνδεσμο και διαβάστε τα μήνυματα λάθους που θα επιστρέψει η "
 "php. Στις περισσότερες περιπτώσεις κάπου λείπουν εισαγωγικά (\") ή "
-"ερωτηματικά (;).<br />Εάν η php επιστρέψει μια λευκή σελίδα, όλα είναι "
-"σωστά."
+"ερωτηματικά (;).<br />Εάν η php επιστρέψει μια λευκή σελίδα, όλα είναι σωστά."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -2390,8 +2388,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Ορίζει ποιος τύπος πεδίων φόρμας πρέπει να χρησιμοποιηθεί για πεδία CHAR και "
-"VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, "
-"[kbd]textarea[/kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
+"VARCHAR: [kbd]input[/kbd] - επιτρέπει περιορισμό του μήκους, [kbd]textarea[/"
+"kbd] - επιτρέπει αλλαγή γραμμών στα πεδία"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -2751,9 +2749,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Ταξινόμηση για αντικείμενα σε αναδυόμενο μενού foreing key; "
-"[kbd]content[/kbd] είναι τα αναφερθέντα δεδομένα, [kbd]id[/kbd] είναι η τιμή "
-"κλειδιού"
+"Ταξινόμηση για αντικείμενα σε αναδυόμενο μενού foreing key; [kbd]content[/"
+"kbd] είναι τα αναφερθέντα δεδομένα, [kbd]id[/kbd] είναι η τιμή κλειδιού"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -3035,10 +3032,9 @@ msgid ""
 msgstr ""
 "Αν θέλετε να χρησιμοποιήσετε την υπηρεσία Εγκυροποίησης SQL, πρέπει να "
 "γνωρίζετε ότι [strong]όλες οι δηλώσεις SQL αποθηκεύονται ανώνυμα για "
-"στατιστικούς "
-"λόγους[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Εγκυροποιητής SQL "
-"Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright Database Technology. Με "
-"επιφύλαξη παντός δικαιώματος.[/em]"
+"στατιστικούς λόγους[/strong].[br][em][a@http://sqlvalidator.mimer.com/]"
+"Εγκυροποιητής SQL Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright Database "
+"Technology. Με επιφύλαξη παντός δικαιώματος.[/em]"
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
@@ -3254,7 +3250,8 @@ msgstr "Διαχωριστικό δέντρου πινάκων"
 
 #: libraries/config/messages.inc.php:280
 msgid "URL where logo in the navigation frame will point to"
-msgstr "Ο Σϋνδεσμος URL όπου θα τοποιθετηθεί στο λογότυπο στο πλαίσιο πλοήγησης"
+msgstr ""
+"Ο Σϋνδεσμος URL όπου θα τοποιθετηθεί στο λογότυπο στο πλαίσιο πλοήγησης"
 
 #: libraries/config/messages.inc.php:281
 msgid "Logo link URL"
@@ -3306,9 +3303,9 @@ msgid ""
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
 "Αν οριστεί ως TRUE, με την αποσύνδεση διαγράφονται τα cookies για όλους τους "
-"διακομιστές; όταν οριστεί ως FALSE, η αποσύνδεση επηρεάζει μόνο τον "
-"τρέχοντα διακομιστή. Ορίζοντάς το σε FALSE είναι εύκολο να ξεχάσετε να "
-"αποσυνδεθείτε από άλλους διακομιστές όταν συνδέεστε σε πολλούς."
+"διακομιστές; όταν οριστεί ως FALSE, η αποσύνδεση επηρεάζει μόνο τον τρέχοντα "
+"διακομιστή. Ορίζοντάς το σε FALSE είναι εύκολο να ξεχάσετε να αποσυνδεθείτε "
+"από άλλους διακομιστές όταν συνδέεστε σε πολλούς."
 
 #: libraries/config/messages.inc.php:291
 msgid "Delete all cookies on logout"
@@ -3424,8 +3421,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. "
-"[kbd]32M[/kbd] ([kbd]0[/kbd] για απεριόριστη)"
+"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. [kbd]32M"
+"[/kbd] ([kbd]0[/kbd] για απεριόριστη)"
 
 #: libraries/config/messages.inc.php:314
 msgid "Memory limit"
@@ -3465,7 +3462,8 @@ msgstr "Γραμμή πλοήγησης με εικονίδια"
 
 #: libraries/config/messages.inc.php:322
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr "Χρήση εξαγόμενου GZip buffering για αυξημένη ταχύτητα σε μεταφορές HTTP"
+msgstr ""
+"Χρήση εξαγόμενου GZip buffering για αυξημένη ταχύτητα σε μεταφορές HTTP"
 
 #: libraries/config/messages.inc.php:323
 msgid "GZip output buffering"
@@ -3659,9 +3657,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Αφήστε κενό αν δεν υπάρχει "
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]σελιδοδείκτης[/a] υποστήριξης, "
-"προτείνεται: [kbd]pma_bookmark[/kbd]"
+"Αφήστε κενό αν δεν υπάρχει [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"σελιδοδείκτης[/a] υποστήριξης, προτείνεται: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:367
 msgid "Bookmark table"
@@ -3707,8 +3704,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Ρυθμίστηκε ένας ειδικός χρήστης MySQL με περιορισμένα δικαιώματα. "
-"Περισσότερες πληροφορίες είναι διαθέσιμες στο "
-"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"Περισσότερες πληροφορίες είναι διαθέσιμες στο [a@http://wiki.phpmyadmin.net/"
+"pma/controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:376
 msgid "Control user"
@@ -3727,8 +3724,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή. Προτείνεται: "
-"[kbd]pma_designer_coords[/kbd]"
+"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή. Προτείνεται: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:380
 msgid "Designer table"
@@ -3739,9 +3736,9 @@ msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Περισσότερες πληροφορίες στο "
-"[a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] και στο "
-"[a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Περισσότερες πληροφορίες στο [a@http://sf.net/support/tracker.php?"
+"aid=1849494]PMA bug tracker[/a] και στο [a@http://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/config/messages.inc.php:382
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -3827,8 +3824,8 @@ msgstr "Κωδικός πρόσβασης για ρυθμισμένη επικύ
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: "
-"[kbd]pma_pdf_pages[/kbd]"
+"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: [kbd]pma_pdf_pages"
+"[/kbd]"
 
 #: libraries/config/messages.inc.php:399
 msgid "PDF schema: pages table"
@@ -3841,9 +3838,9 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "Η βάση δεδομένων που χρησιμοποιείται για συσχετίσεις, σελιδοδείκτες και "
-"χαρακτηριστικά PDF. Δείτε το "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] για λεπτομέρειες. Αφήστε "
-"κενό για να μην υπάρχει υποστήριξη. Προτείνεται: [kbd]phpmyadmin[/kbd]"
+"χαρακτηριστικά PDF. Δείτε το [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/"
+"a] για λεπτομέρειες. Αφήστε κενό για να μην υπάρχει υποστήριξη. Προτείνεται: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:401
 msgid "Database name"
@@ -3863,9 +3860,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"Αφήστε το κενό για να μην υπάρχει υποστήριξη "
-"[a@http://wiki.phpmyadmin.net/pma/relation]συνδέσμων-συσχετίσεων[/a], σας "
-"προτείνεται: [kbd]pma_relation[/kbd]"
+"Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/"
+"pma/relation]συνδέσμων-συσχετίσεων[/a], σας προτείνεται: [kbd]pma_relation[/"
+"kbd]"
 
 #: libraries/config/messages.inc.php:405
 msgid "Relation table"
@@ -3917,8 +3914,8 @@ msgstr "Χρήση SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: "
-"[kbd]pma_table_coords[/kbd]"
+"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:416
 msgid "PDF schema: table coordinates"
@@ -4011,8 +4008,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: "
-"[kbd]pma_userconfig[/kbd]"
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
+"pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "User preferences storage table"
@@ -4078,8 +4075,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Ορίζει αν θα εμφανίζονται οι τύποι των πεδίων σε κατάσταση "
-"επεξεργασίας/εισαγωγής"
+"Ορίζει αν θα εμφανίζονται οι τύποι των πεδίων σε κατάσταση επεξεργασίας/"
+"εισαγωγής"
 
 #: libraries/config/messages.inc.php:445
 msgid "Show field types"
@@ -4098,8 +4095,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης "
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
+"Εμφανίζει σύνδεσμο για την τεκμηρίωση της συνάρτησης [a@http://php.net/"
+"manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:449
 msgid "Show phpinfo() link"
@@ -4203,8 +4200,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ "
-"(προεπιλογή:[kbd]anonymous[/kbd])"
+"Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ (προεπιλογή:[kbd]"
+"anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:472 tbl_tracking.php:406
 #: tbl_tracking.php:457
@@ -4216,8 +4213,8 @@ msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
-"Προτείνεται ένα όνομα βάσης δεδομένων στη φόρμα «Δημιουργία Βάσης δεδομένων» "
-"(αν είναι δυνατό) ή διατήρηση του πεδίου άδειου"
+"Προτείνεται ένα όνομα βάσης δεδομένων στη φόρμα «Δημιουργία Βάσης "
+"δεδομένων» (αν είναι δυνατό) ή διατήρηση του πεδίου άδειου"
 
 #: libraries/config/messages.inc.php:474
 msgid "Suggest new database name"
@@ -4287,8 +4284,8 @@ msgid ""
 msgstr ""
 "Εισάγει διευθύνσεις ως [kbd]IP: αξιόπιστη κεφαλίδα HTTP[/kbd]. Το παρακάτω "
 "παράδειγμα ορίζει ότι το phpMyAdmin πρέπει να εμπιστεύεται μια κεφαλίδα "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) προερχόμενη από τη διεύθυνση "
-"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) προερχόμενη από τη διεύθυνση 1.2.3.4:"
+"[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:490
 msgid "List of trusted proxies for IP allow/deny"
@@ -4296,7 +4293,8 @@ msgstr "Λίστα αξιόπιστων διευθύνσεων IP για να ε
 
 #: libraries/config/messages.inc.php:491
 msgid "Directory on server where you can upload files for import"
-msgstr "Φάκελος στο διακομιστή όπου μπορείτε να αποστείλετε αρχεία για εισαγωγή"
+msgstr ""
+"Φάκελος στο διακομιστή όπου μπορείτε να αποστείλετε αρχεία για εισαγωγή"
 
 #: libraries/config/messages.inc.php:492
 msgid "Upload directory"
@@ -4359,9 +4357,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Ενεργοποίηση της συμπίεσης "
-"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] για λειτουργίες "
-"εισαγωγής και εξαγωγής"
+"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]"
+"ZIP[/a] για λειτουργίες εισαγωγής και εξαγωγής"
 
 #: libraries/config/messages.inc.php:503
 msgid "ZIP"
@@ -4445,8 +4442,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:242
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
-"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
-"σύνδεσης"
+"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης σύνδεσης"
 
 #: libraries/config/validate.lib.php:276
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -4521,8 +4517,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Ίσως είναι κατά προσέγγιση. Δείτε τις "
-"[a@./Documentation.html#faq3_11@Documentation]ΣΑΕ 3.11[/a]"
+"Ίσως είναι κατά προσέγγιση. Δείτε τις [a@./Documentation."
+"html#faq3_11@Documentation]ΣΑΕ 3.11[/a]"
 
 #: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
@@ -4794,8 +4790,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"Το όνομα του συμπιεσμένου αρχείου πρέπει να έχει επέκταση: "
-"<b>.[format].[compression]</b>. Παράδειγμα: <b>.sql.zip</b>"
+"Το όνομα του συμπιεσμένου αρχείου πρέπει να έχει επέκταση: <b>.[format]."
+"[compression]</b>. Παράδειγμα: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -5250,8 +5246,8 @@ msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBMS μπορεί να βρεθεί στην %"
-"sΙστοσελίδα του PrimeBase Media Streaming%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBMS μπορεί να βρεθεί στην "
+"%sΙστοσελίδα του PrimeBase Media Streaming%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 msgid "Related Links"
@@ -5635,8 +5631,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "συμπεριλαμβάνει ονόματα στηλών σε κάθε δήλωση <code>INSERT</code><br /> "
-"&nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name "
-"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"&nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name (col_A,col_B,"
+"col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:155
 msgid ""
@@ -5750,7 +5746,8 @@ msgstr "Δημιουργήθηκε από"
 #: libraries/import.lib.php:153 sql.php:626 tbl_change.php:179
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
+msgstr ""
+"Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
 
 #: libraries/import.lib.php:1141
 msgid ""
@@ -6820,15 +6817,15 @@ msgstr ""
 "ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
 "«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
 "τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
-"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο "
-"libraries/transformations/text_plain__external.inc.php και να εισάγετε τις "
-"εφαρμογές που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο "
-"αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή "
-"είναι οι παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το "
-"αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη "
-"τιμή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί "
-"περιεχομένου ούτως ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην "
-"διάταξη (Προεπιλεγμένη τιμή: 1)."
+"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
+"transformations/text_plain__external.inc.php και να εισάγετε τις εφαρμογές "
+"που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο αριθμός της "
+"εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή είναι οι "
+"παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το αποτέλεσμα "
+"χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη τιμή: 1). Η "
+"τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί περιεχομένου ούτως "
+"ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη "
+"(Προεπιλεγμένη τιμή: 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 msgid ""
@@ -7029,11 +7026,10 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"Η παράμετρος PHP "
-"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@]session.gc_maxlifetime[/a] είναι μικρότερη από την ρυθμισμένη "
-"εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή σας θα λήξει "
-"νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
+"Η παράμετρος PHP [a@http://php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@]session.gc_maxlifetime[/a] είναι μικρότερη από την "
+"ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή σας "
+"θα λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
 
 #: main.php:276
 msgid ""
@@ -7357,8 +7353,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Μπορείτε να ορίσετε περισσότερες ρυθμίσεις αλλάζοντας το αρχείο "
-"config.inc.php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
+"Μπορείτε να ορίσετε περισσότερες ρυθμίσεις αλλάζοντας το αρχείο config.inc."
+"php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7601,8 +7597,7 @@ msgstr ""
 #: server_privileges.php:636
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
-"Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο "
-"χρήστης."
+"Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο χρήστης."
 
 #: server_privileges.php:55 server_privileges.php:198
 #: server_privileges.php:558
@@ -7712,8 +7707,7 @@ msgstr "Όρια πόρων"
 #: server_privileges.php:613
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
-"Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο "
-"περιορισμός."
+"Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός."
 
 #: server_privileges.php:690
 msgid "Login Information"
@@ -8318,8 +8312,8 @@ msgid ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 "Ο αριθμός των απασχολούμενων σελίδων γιατί έχουν δεσμευτεί για διαχειριστική "
-"υπερκεφαλή όπως κλειδώματα γραμμής ή το υιοθετημένο ευρετήριο μνήμης. Αυτή "
-"η τιμή μπορεί να υπολογιστεί ως Innodb_buffer_pool_pages_total - "
+"υπερκεφαλή όπως κλειδώματα γραμμής ή το υιοθετημένο ευρετήριο μνήμης. Αυτή η "
+"τιμή μπορεί να υπολογιστεί ως Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: server_status.php:73
@@ -8436,7 +8430,8 @@ msgstr "Ο αριθμός των φυσικών εγγραφών στο αρχε
 
 #: server_status.php:93
 msgid "The number of fsync() writes done to the log file."
-msgstr "Ο αριθμός των εγγραφών fsync() που ολοκληρώθηκαν στο αρχείο καταγραφής."
+msgstr ""
+"Ο αριθμός των εγγραφών fsync() που ολοκληρώθηκαν στο αρχείο καταγραφής."
 
 #: server_status.php:94
 msgid "The number of pending log file fsyncs."
@@ -8489,8 +8484,7 @@ msgstr ""
 #: server_status.php:104
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
-"Ο μέγιστος χρόνος απόκτησης ενός κλειδώματος γραμμής σε "
-"χιλιοστοδευτερόλεπτα."
+"Ο μέγιστος χρόνος απόκτησης ενός κλειδώματος γραμμής σε χιλιοστοδευτερόλεπτα."
 
 #: server_status.php:105
 msgid "The number of times a row lock had to be waited for."
@@ -8543,8 +8537,7 @@ msgstr ""
 #: server_status.php:113
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
-"Ο αριθμός των αιτήσεων ανάγνωσης ενός μπλοκ κλειδιού από τη λανθάνουσα "
-"μνήμη."
+"Ο αριθμός των αιτήσεων ανάγνωσης ενός μπλοκ κλειδιού από τη λανθάνουσα μνήμη."
 
 #: server_status.php:114
 msgid ""
@@ -8882,8 +8875,8 @@ msgstr ""
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Αυτός ο διακομιστής λειτουργεί ως <b>πρωτεύων</b> σε μια "
-"<b>αναπαραγωγική</b> διαδικασία."
+"Αυτός ο διακομιστής λειτουργεί ως <b>πρωτεύων</b> σε μια <b>αναπαραγωγική</"
+"b> διαδικασία."
 
 #: server_status.php:490
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
@@ -9127,9 +9120,9 @@ msgid ""
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
 "Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
-"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην "
-"[a@Documentation.html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα μπορείτε "
-"μόνο να τον λάβετε ή να τον προβάλετε."
+"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [a@Documentation."
+"html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα μπορείτε μόνο να τον "
+"λάβετε ή να τον προβάλετε."
 
 #: setup/frames/index.inc.php:57
 msgid ""
@@ -9146,8 +9139,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@%"
-"s]αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
+"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@%s]"
+"αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
@@ -9383,8 +9376,8 @@ msgstr ""
 "Ορίζετε τον τύπο πιστοποίησης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
 "χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
 "Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή "
-"[kbd]http[/kbd]."
+"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή [kbd]"
+"http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, php-format
@@ -9545,8 +9538,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Το αποτέλεσμα δεν μπορεί να χρησιμοποιηθεί σε διάγραμμα. Δείτε τις "
-"[a@./Documentation.html#faq6_29@Documentation]ΣΑΕ 6.29[/a]"
+"Το αποτέλεσμα δεν μπορεί να χρησιμοποιηθεί σε διάγραμμα. Δείτε τις [a@./"
+"Documentation.html#faq6_29@Documentation]ΣΑΕ 6.29[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"
@@ -9632,8 +9625,8 @@ msgid ""
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
 "Σημειώστε ότι δεν μπορεί κάθε πίνακας αποτελεσμάτων να μπει σε διάγραμμα. "
-"Δείτε τις <a href=\"./Documentation.html#faq6_29\" target=\"Documentation\">ΣΑΕ "
-"6.29</a>"
+"Δείτε τις <a href=\"./Documentation.html#faq6_29\" target=\"Documentation"
+"\">ΣΑΕ 6.29</a>"
 
 #: tbl_chart.php:181
 msgid "Redraw"
