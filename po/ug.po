@@ -98,7 +98,7 @@ msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr "No blob streaming server configured!"
+msgstr ""
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
@@ -854,8 +854,6 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"You attempted to load file with unsupported compression (%s). Either support "
-"for it is not implemented or disabled by your configuration."
 
 #: import.php:336
 msgid ""
@@ -863,9 +861,6 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"No data was received to import. Either no file name was submitted, or the "
-"file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -894,16 +889,12 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"Script timeout passed, if you want to finish import, please resubmit same "
-"file and import will resume."
 
 #: import.php:425
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"However on last run no data has been parsed, this usually means phpMyAdmin "
-"won't be able to finish this import unless you increase php time limits."
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2115 libraries/sql_query_form.lib.php:139
@@ -1490,8 +1481,6 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1535,8 +1524,6 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:175
 #: libraries/server_links.inc.php:42 server_databases.php:100
@@ -1610,7 +1597,7 @@ msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىش غە�
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "No valid image path for theme %s found!"
+msgstr ""
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
@@ -1657,8 +1644,6 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -1667,10 +1652,6 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
-"connection. You should check the host, username and password in your "
-"configuration and make sure that they correspond to the information given by "
-"the administrator of the MySQL server."
 
 #: libraries/auth/cookie.auth.lib.php:230
 msgid "Log in"
@@ -1687,7 +1668,7 @@ msgstr "phpMyAdmin ھۆججىتى"
 #: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr "You can enter hostname/IP address and port separated by space."
+msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
@@ -1719,7 +1700,7 @@ msgstr "پارولسىز كىرىش چەكلەنگەن (پارولسىز كىر�
 #: libraries/auth/signon.auth.lib.php:226
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr "No activity within %s seconds; please log in again"
+msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:662
 #: libraries/auth/cookie.auth.lib.php:664
@@ -1734,7 +1715,7 @@ msgstr "كىرگۈزگەن ئىسلەتكۈچى ئىسمى\\پارول خاتا�
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr "File %s does not contain any key id"
+msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:159
 #: libraries/auth/swekey/swekey.auth.lib.php:182
@@ -1743,7 +1724,7 @@ msgstr "قاتتىق دېتال تەكشۈرۈشتىن ئۆتمىدى."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
-msgstr "No valid authentication key plugged"
+msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:204
 msgid "Authenticating..."
@@ -1964,7 +1945,7 @@ msgstr "MySQL جاۋابى:"
 
 #: libraries/common.lib.php:1097
 msgid "Failed to connect to SQL validator!"
-msgstr "Failed to connect to SQL validator!"
+msgstr ""
 
 #: libraries/common.lib.php:1138 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
@@ -1997,7 +1978,7 @@ msgstr "SQL دەلىللەش"
 
 #: libraries/common.lib.php:1264
 msgid "Inline edit of this query"
-msgstr "Inline edit of this query"
+msgstr ""
 
 #: libraries/common.lib.php:1266
 msgid "Inline"

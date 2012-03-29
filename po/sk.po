@@ -8711,8 +8711,6 @@ msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
-"<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
-"server."
 
 #: server_status.php:627
 msgid "per minute"

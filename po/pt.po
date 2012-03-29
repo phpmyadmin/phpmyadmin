@@ -7451,12 +7451,12 @@ msgstr ""
 #: server_privileges.php:51 server_privileges.php:628
 #: server_privileges.php:630
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr ""
 
 #: server_privileges.php:52 server_privileges.php:616
 #: server_privileges.php:618
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
+msgstr ""
 
 #: server_privileges.php:53 server_privileges.php:622
 #: server_privileges.php:624
@@ -7464,8 +7464,6 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
 
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
@@ -8602,8 +8600,6 @@ msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
 msgstr ""
-"<b>Server traffic</b>: These tables show the network traffic statistics of "
-"this MySQL server since its startup."
 
 #: server_status.php:515
 msgid "Traffic"
@@ -8650,8 +8646,6 @@ msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
-"<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
-"server."
 
 #: server_status.php:627
 msgid "per minute"

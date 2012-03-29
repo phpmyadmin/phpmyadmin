@@ -2026,7 +2026,7 @@ msgstr "Terangkan Kod SQL"
 
 #: libraries/common.lib.php:1142
 msgid "Skip Explain SQL"
-msgstr "Skip Explain SQL"
+msgstr ""
 
 #: libraries/common.lib.php:1176
 msgid "Without PHP Code"
@@ -7411,12 +7411,12 @@ msgstr ""
 #: server_privileges.php:51 server_privileges.php:628
 #: server_privileges.php:630
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr ""
 
 #: server_privileges.php:52 server_privileges.php:616
 #: server_privileges.php:618
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
+msgstr ""
 
 #: server_privileges.php:53 server_privileges.php:622
 #: server_privileges.php:624
@@ -7424,8 +7424,6 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
 
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
@@ -9302,7 +9300,7 @@ msgstr "Nama jadual  adalah kosong"
 
 #: tbl_operations.php:260
 msgid "Alter table order by"
-msgstr "Alter table order by"
+msgstr ""
 
 #: tbl_operations.php:269
 msgid "(singly)"

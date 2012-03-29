@@ -7285,12 +7285,12 @@ msgstr "현재 쓰레드에 대한 테이블 잠금(lock) 허용."
 #: server_privileges.php:51 server_privileges.php:628
 #: server_privileges.php:630
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr ""
 
 #: server_privileges.php:52 server_privileges.php:616
 #: server_privileges.php:618
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
+msgstr ""
 
 #: server_privileges.php:53 server_privileges.php:622
 #: server_privileges.php:624
@@ -7298,8 +7298,6 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
 
 #: server_privileges.php:54 server_privileges.php:634
 #: server_privileges.php:636
@@ -9118,7 +9116,7 @@ msgstr "인덱스 이름을 기본 키로 바꿀 수 없습니다!"
 
 #: tbl_indexes.php:90
 msgid "No index parts defined!"
-msgstr "No index parts defined!"
+msgstr ""
 
 #: tbl_indexes.php:158
 msgid "Create a new index"

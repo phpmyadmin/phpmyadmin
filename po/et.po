@@ -2673,11 +2673,11 @@ msgstr "Keela võõrvõtme kontrollid"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
-msgstr "Use hexadecimal for BLOB"
+msgstr ""
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
-msgstr "Use ignore inserts"
+msgstr ""
 
 #: libraries/config/messages.inc.php:130
 msgid "Syntax to use when inserting data"
@@ -3133,7 +3133,7 @@ msgstr "Ära kasuta AUTO_INCREMENT null-väärtuste jaoks"
 
 #: libraries/config/messages.inc.php:262
 msgid "Initial state for sliders"
-msgstr "Initial state for sliders"
+msgstr ""
 
 #: libraries/config/messages.inc.php:263
 msgid "How many rows can be inserted at one time"
@@ -3571,7 +3571,7 @@ msgstr "Luba sisse logida 'root' kasutajana"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
 
 #: libraries/config/messages.inc.php:361
 msgid "HTTP Realm"
@@ -4077,10 +4077,6 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
-"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
-"used to split/nest the tables according to the $cfg"
-"['LeftFrameTableSeparator'] directive, so only the folder is called like the "
-"alias, the table name itself stays unchanged"
 
 #: libraries/config/messages.inc.php:458
 msgid "Display table comment instead of its name"
@@ -4211,10 +4207,6 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
-"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
-"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:490
 msgid "List of trusted proxies for IP allow/deny"
@@ -5161,7 +5153,7 @@ msgstr "Seotud lingid"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr "The PrimeBase Media Streaming Blog by Barry Leslie"
+msgstr ""
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
@@ -5354,7 +5346,7 @@ msgstr "NULL asendaja:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Remove carriage return/line feed characters within columns"
+msgstr ""
 
 #: libraries/export/excel.php:32
 msgid "Excel edition:"
@@ -5439,7 +5431,7 @@ msgstr "PHP versioon"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr "MediaWiki Table"
+msgstr ""
 
 #: libraries/export/pdf.php:17
 msgid "PDF"
@@ -6704,16 +6696,6 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"LINUX ONLY: Launches an external application and feeds it the column data "
-"via standard input. Returns the standard output of the application. The "
-"default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 msgid ""
@@ -8049,9 +8031,6 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
-"table with a given name. This is called discovery. Handler_discover "
-"indicates the number of time tables have been discovered."
 
 #: server_status.php:58
 msgid ""
@@ -8157,10 +8136,6 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"The number of pages busy because they have been allocated for administrative "
-"overhead such as row locks or the adaptive hash index. This value can also "
-"be calculated as Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: server_status.php:73
 msgid "Total size of buffer pool, in pages."
@@ -8274,7 +8249,7 @@ msgstr "fsync() poolt logi failisse tehtud kirjutamiste hulk."
 
 #: server_status.php:94
 msgid "The number of pending log file fsyncs."
-msgstr "The number of pending log file fsyncs."
+msgstr ""
 
 #: server_status.php:95
 msgid "Pending log file writes."

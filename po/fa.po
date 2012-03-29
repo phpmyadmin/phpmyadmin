@@ -489,7 +489,7 @@ msgstr "پرس و جوي SQL از پايگاه داده <b>%s</b>:"
 
 #: db_qbe.php:956 libraries/common.lib.php:1187
 msgid "Submit Query"
-msgstr "Submit Query"
+msgstr ""
 
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -2092,7 +2092,7 @@ msgstr "%d %B %Y ساعت %I:%M %p"
 #: libraries/common.lib.php:1923
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s days, %s hours, %s minutes and %s seconds"
+msgstr ""
 
 #: libraries/common.lib.php:2340 libraries/common.lib.php:2343
 #: libraries/display_tbl.lib.php:288 server_status.php:757
@@ -4827,7 +4827,7 @@ msgstr "in query"
 
 #: libraries/display_tbl.lib.php:2086
 msgid "Showing rows"
-msgstr "Showing rows"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:2096
 msgid "total"
@@ -6186,7 +6186,7 @@ msgstr "Select Tables"
 
 #: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
-msgstr "Select Tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:347
 #, fuzzy
@@ -6855,7 +6855,7 @@ msgstr ""
 
 #: navigation.php:187 server_databases.php:277 server_synchronize.php:1212
 msgid "No databases"
-msgstr "No databases"
+msgstr ""
 
 #: navigation.php:277
 msgid "Filter"

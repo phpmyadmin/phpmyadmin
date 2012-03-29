@@ -5037,7 +5037,7 @@ msgstr "Pagine occupate"
 
 #: libraries/engines/innodb.lib.php:213
 msgid "Latched pages"
-msgstr "Latched pages"
+msgstr ""
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Buffer Pool Activity"
@@ -5211,7 +5211,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
-msgstr "Max Keep Alive"
+msgstr ""
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
