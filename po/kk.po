@@ -254,7 +254,7 @@ msgid "The database name is empty!"
 msgstr "Мәліметтер қорының аты көрсетілмеген."
 
 #: db_operations.php:300
-#, php-format
+#, php-format, fuzzy
 msgid "Database %s has been renamed to %s"
 msgstr "Мәліметтер қорының атауы, мына атауға %с, қайта қойылды."
 
@@ -331,7 +331,7 @@ msgid "Collation"
 msgstr "Салыстыру"
 
 #: db_operations.php:581
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
