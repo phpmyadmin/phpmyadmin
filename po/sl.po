@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-21 21:46+0200\n"
+"PO-Revision-Date: 2012-03-29 14:33+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
@@ -1766,22 +1766,19 @@ msgid "Show indexes"
 msgstr "Pokaži indekse"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:301
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Onemogoči preverjanja tujih ključev"
+msgstr "Preverjanje tujih ključev:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Omogočeno"
+msgstr "(Omogočeno)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Onemogočeno"
+msgstr "(Onemogočeno)"
 
 #: js/messages.php:255
 msgid "Searching"
