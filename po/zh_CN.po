@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-28 16:18+0200\n"
+"PO-Revision-Date: 2012-03-29 11:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -1660,7 +1660,7 @@ msgstr "查询分析"
 
 #: js/messages.php:218
 msgid "Advisor system"
-msgstr "顾问系统"
+msgstr "建议系统"
 
 #: js/messages.php:219
 msgid "Possible performance issues"
@@ -12589,7 +12589,7 @@ msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert(并发插入)被设置为0"
+msgstr "concurrent_insert 被设为 0"
 
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "在数据表列表中最多显示的数据表个数"
