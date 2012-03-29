@@ -11735,7 +11735,7 @@ msgstr ""
 
 #: po/advisory_rules.php:30
 msgid "Slow query logging"
-msgstr "Slow query logging"
+msgstr ""
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."

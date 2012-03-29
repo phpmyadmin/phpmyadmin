@@ -257,7 +257,7 @@ msgstr "\"%s\" biremlege \"%s\" itep ataldı"
 #: db_operations.php:304
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "Database %s has been copied to %s"
+msgstr ""
 
 #: db_operations.php:432
 msgid "Rename database to"
@@ -708,7 +708,7 @@ msgstr "Tüşämä tikşerü"
 
 #: db_structure.php:600 tbl_operations.php:669 tbl_structure.php:816
 msgid "Optimize table"
-msgstr "Optimize table"
+msgstr ""
 
 #: db_structure.php:602 tbl_operations.php:654
 msgid "Repair table"
@@ -890,7 +890,7 @@ msgstr ""
 #: export.php:330 export.php:334
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "The web server does not have permission to save the file %s."
+msgstr ""
 
 #: export.php:674
 #, php-format
@@ -1075,7 +1075,7 @@ msgstr "Kire"
 
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
+msgstr ""
 
 #: js/messages.php:27 libraries/import.lib.php:105 sql.php:285
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1089,7 +1089,7 @@ msgstr "Sin çınlap ta bonı eşlärgä teliseñme: "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:291 sql.php:371
 msgid "You are about to DESTROY a complete database!"
-msgstr "You are about to DESTROY a complete database!"
+msgstr ""
 
 #: js/messages.php:32
 #, fuzzy
@@ -2832,7 +2832,7 @@ msgstr "Server Saylaw"
 
 #: libraries/auth/cookie.auth.lib.php:276 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
-msgstr "Cookies must be enabled past this point."
+msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:579
 #: libraries/auth/signon.auth.lib.php:236
@@ -2960,8 +2960,6 @@ msgid ""
 "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
-"configuration file!"
 
 #: libraries/common.inc.php:644
 #, fuzzy, php-format
@@ -2987,7 +2985,7 @@ msgstr ""
 #: libraries/common.inc.php:961
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "You should upgrade to %s %s or later."
+msgstr ""
 
 #: libraries/common.lib.php:195
 #, php-format
@@ -6760,11 +6758,11 @@ msgstr "Funksí"
 
 #: libraries/export/sql.php:870
 msgid "Constraints for dumped tables"
-msgstr "Constraints for dumped tables"
+msgstr ""
 
 #: libraries/export/sql.php:879
 msgid "Constraints for table"
-msgstr "Constraints for table"
+msgstr ""
 
 #: libraries/export/sql.php:979
 msgid "MIME TYPES FOR TABLE"
@@ -7911,7 +7909,7 @@ msgstr "\"%s\" atlı tüşämä yuq äle!"
 #: libraries/schema/Visio_Relation_Schema.class.php:270
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr "Please configure the coordinates for table %s"
+msgstr ""
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
@@ -8047,7 +8045,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:507
 msgid "Toggle scratchboard"
-msgstr "Toggle scratchboard"
+msgstr ""
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:493
@@ -8188,8 +8186,6 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
-"There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
 
 #: libraries/sqlparser.lib.php:176
 msgid ""
@@ -8203,15 +8199,6 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
-"There is a chance that you may have found a bug in the SQL parser. Please "
-"examine your query closely, and check that the quotes are correct and not "
-"mis-matched. Other possible failure causes may be that you are uploading a "
-"file with binary outside of a quoted text area. You can also try your query "
-"on the MySQL command line interface. The MySQL server error output below, if "
-"there is any, may also help you in diagnosing the problem. If you still have "
-"problems or if the parser fails where the command line interface succeeds, "
-"please reduce your SQL query input to the single query that causes problems, "
-"and submit a bug report with the data chunk in the CUT section below:"
 
 #: libraries/sqlparser.lib.php:178
 msgid "BEGIN CUT"
@@ -8243,7 +8230,7 @@ msgstr "Tanıtması Yaraqsız"
 
 #: libraries/sqlparser.lib.php:654
 msgid "Unknown Punctuation String"
-msgstr "Unknown Punctuation String"
+msgstr ""
 
 #: libraries/sqlvalidator.lib.php:67
 #, php-format
@@ -8305,7 +8292,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:137
 msgid "Transformation options"
-msgstr "Transformation options"
+msgstr ""
 
 #: libraries/tbl_properties.inc.php:138
 msgid ""
@@ -8722,7 +8709,6 @@ msgstr ""
 #: main.php:308
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
-"The configuration file now needs a secret passphrase (blowfish_secret)."
 
 #: main.php:316
 msgid ""
@@ -9210,7 +9196,7 @@ msgstr "Biredä bulğan tüşämä tözeleşen üzgärtü xoquqı."
 #: server_privileges.php:93 server_privileges.php:360
 #: server_privileges.php:703
 msgid "Allows altering and dropping stored routines."
-msgstr "Allows altering and dropping stored routines."
+msgstr ""
 
 #: server_privileges.php:94 server_privileges.php:270
 #: server_privileges.php:696
@@ -9269,7 +9255,7 @@ msgstr "Eçke funksílar eşlätterergä birä."
 #: server_privileges.php:105 server_privileges.php:290
 #: server_privileges.php:691
 msgid "Allows importing data from and exporting data into files."
-msgstr "Allows importing data from and exporting data into files."
+msgstr ""
 
 #: server_privileges.php:106 server_privileges.php:722
 msgid ""
@@ -9290,17 +9276,17 @@ msgstr "Eçtälek östäw/almaştıru xoquqı."
 #: server_privileges.php:109 server_privileges.php:318
 #: server_privileges.php:731
 msgid "Allows locking tables for the current thread."
-msgstr "Allows locking tables for the current thread."
+msgstr ""
 
 #: server_privileges.php:110 server_privileges.php:795
 #: server_privileges.php:797
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr ""
 
 #: server_privileges.php:111 server_privileges.php:783
 #: server_privileges.php:785
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
+msgstr ""
 
 #: server_privileges.php:112 server_privileges.php:789
 #: server_privileges.php:791
@@ -9308,8 +9294,6 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
 
 #: server_privileges.php:113 server_privileges.php:801
 #: server_privileges.php:803
@@ -9325,12 +9309,12 @@ msgstr ""
 #: server_privileges.php:115 server_privileges.php:294
 #: server_privileges.php:627 server_privileges.php:732
 msgid "Has no effect in this MySQL version."
-msgstr "Has no effect in this MySQL version."
+msgstr ""
 
 #: server_privileges.php:116 server_privileges.php:278
 #: server_privileges.php:727
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "Allows reloading server settings and flushing the server's caches."
+msgstr ""
 
 #: server_privileges.php:117 server_privileges.php:326
 #: server_privileges.php:734
@@ -9340,7 +9324,7 @@ msgstr "Gives the right to the user to ask where the slaves / masters are."
 #: server_privileges.php:118 server_privileges.php:322
 #: server_privileges.php:735
 msgid "Needed for the replication slaves."
-msgstr "Needed for the replication slaves."
+msgstr ""
 
 #: server_privileges.php:119 server_privileges.php:254
 #: server_privileges.php:612 server_privileges.php:685
@@ -9350,7 +9334,7 @@ msgstr "Eçtälekne uqu xoquqı."
 #: server_privileges.php:120 server_privileges.php:306
 #: server_privileges.php:729
 msgid "Gives access to the complete list of databases."
-msgstr "Gives access to the complete list of databases."
+msgstr ""
 
 #: server_privileges.php:121 server_privileges.php:347
 #: server_privileges.php:352 server_privileges.php:701
@@ -9451,12 +9435,12 @@ msgstr "Yana qullanuçı östälände."
 #: server_privileges.php:1359
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "You have updated the privileges for %s."
+msgstr ""
 
 #: server_privileges.php:1381
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "You have revoked the privileges for %s"
+msgstr ""
 
 #: server_privileges.php:1417
 #, php-format
@@ -9575,33 +9559,30 @@ msgstr "Kiläse tüşämä öçen xoquqlar östäw"
 
 #: server_privileges.php:2324
 msgid "Change Login Information / Copy User"
-msgstr "Change Login Information / Copy User"
+msgstr ""
 
 #: server_privileges.php:2327
 msgid "Create a new user with the same privileges and ..."
-msgstr "Create a new user with the same privileges and ..."
+msgstr ""
 
 #: server_privileges.php:2329
 msgid "... keep the old one."
-msgstr "... keep the old one."
+msgstr ""
 
 #: server_privileges.php:2330
 msgid "... delete the old one from the user tables."
-msgstr "... delete the old one from the user tables."
+msgstr ""
 
 #: server_privileges.php:2331
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... revoke all active privileges from the old one and delete it afterwards."
 
 #: server_privileges.php:2332
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... delete the old one from the user tables and reload the privileges "
-"afterwards."
 
 #: server_privileges.php:2355
 msgid "Database for user"
@@ -10042,7 +10023,7 @@ msgstr ""
 
 #: server_status.php:1151
 msgid "Failed attempts"
-msgstr "Failed attempts"
+msgstr ""
 
 #: server_status.php:1165
 msgid "Aborted"
@@ -11264,7 +11245,7 @@ msgstr "Biremleklär yuq"
 #: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:99
 #: tbl_zoom_select.php:158
 msgid "Browse foreign values"
-msgstr "Browse foreign values"
+msgstr ""
 
 #: sql.php:250
 #, php-format
@@ -11504,7 +11485,7 @@ msgstr "Açqıçnı \"PRIMARY\" itep atap bulmí!"
 
 #: tbl_indexes.php:91
 msgid "No index parts defined!"
-msgstr "No index parts defined!"
+msgstr ""
 
 #: tbl_indexes.php:173 tbl_structure.php:169 tbl_structure.php:170
 msgid "Add index"
@@ -11540,7 +11521,7 @@ msgstr "Ber ük at belän tüşämä küçerep bulmí!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr "Can't copy table to same one!"
+msgstr ""
 
 #: tbl_move_copy.php:54
 #, php-format
@@ -11550,7 +11531,7 @@ msgstr "\"%s\" atlı tüşämä \"%s\" kebek ataldı."
 #: tbl_move_copy.php:56
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr "Table %s has been copied to %s."
+msgstr ""
 
 #: tbl_move_copy.php:81
 msgid "The table name is empty!"
@@ -12038,7 +12019,7 @@ msgstr ""
 
 #: transformation_overview.php:42
 msgid "Available transformations"
-msgstr "Available transformations"
+msgstr ""
 
 #: transformation_overview.php:47
 #, fuzzy
@@ -12053,7 +12034,7 @@ msgstr "Bonda bulu öçen, xoquqlarıñ citmi!"
 
 #: user_password.php:88
 msgid "The profile has been updated."
-msgstr "The profile has been updated."
+msgstr ""
 
 #: view_create.php:133
 msgid "VIEW name"
