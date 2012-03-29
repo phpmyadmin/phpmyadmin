@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 11:48+0200\n"
+"PO-Revision-Date: 2012-03-29 11:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1836,8 +1836,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "lekérdezések futási idejének összehasonlítása (mikromásodpercekben)"
 
 #: libraries/chart.lib.php:83
+#, fuzzy
 msgid "Query results"
-msgstr "Lekérdezés eredményei"
+msgstr "Műveletek a lekérdezési eredménnyel"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
@@ -3495,14 +3496,15 @@ msgid "Protect binary columns"
 msgstr "A bináris mezők védelme"
 
 #: libraries/config/messages.inc.php:334
+#, fuzzy
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
 "Engedélyezze, ha adatbázis alapú lekérdezési előzményeket szeretne (pmadb "
-"szükséges hozzá). Ha letiltja, akkor JS-rutinokat használ fel a lekérdezési "
-"előzmények megjelenítéséhez (ablak bezárásakor elvész)."
+"szükséges hozzá). Ha letiltja, akkor JS-eljárásokat használ fel a "
+"lekérdezési előzmények megjelenítéséhez (ablak bezárásakor elvész)."
 
 #: libraries/config/messages.inc.php:335
 msgid "Permanent query history"
