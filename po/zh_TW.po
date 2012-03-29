@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-28 16:00+0200\n"
+"PO-Revision-Date: 2012-03-29 11:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -94,15 +94,15 @@ msgstr "使用此值"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr "尚未設定二進制大物件 (BLOB) 串流伺服器！"
+msgstr "未設定BLOB 串流伺服器"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr "取得頭失敗"
+msgstr "文件表頭資訊取得失敗"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "開啟遠程 URL 失敗"
+msgstr "開啟遠端 URL 失敗"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -949,7 +949,7 @@ msgstr "這個作業將會執行較長的時間, 請問使否確定執行?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "您正準備停用 BLOB 容器！"
+msgstr "您將要停用BLOB儲存格式"
 
 #: js/messages.php:41
 #, php-format
@@ -1702,7 +1702,7 @@ msgstr "PBMS 錯誤"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
-msgstr "PBMS 連線失敗："
+msgstr "PBMS 連線失敗"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
@@ -1797,8 +1797,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr "查詢執行時間對比 (單位：微秒)"
 
 #: libraries/chart.lib.php:83
+#, fuzzy
 msgid "Query results"
-msgstr "查詢結果"
+msgstr "查詢結果選項"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
