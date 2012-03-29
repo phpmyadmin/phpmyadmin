@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-14 14:46+0200\n"
+"PO-Revision-Date: 2012-03-29 11:48+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
 "Language: ug\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -587,7 +587,7 @@ msgstr "سانداندا جەدۋەل يوق"
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
 msgid "Table %s has been emptied"
-msgstr " %s جەدۋەل تازىلاندى"
+msgstr "%s جەدۋەل تازىلاندى"
 
 #: db_structure.php:312 tbl_operations.php:701
 #, php-format
@@ -1891,7 +1891,7 @@ msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr " <tt>$cfg['PmaAbsoluteUri']</tt> نى تەڭشەڭ !تەڭشەك ھۆججىتى ئىچىدىكى"
+msgstr "<tt>$cfg['PmaAbsoluteUri']</tt> نى تەڭشەڭ !تەڭشەك ھۆججىتى ئىچىدىكى"
 
 #: libraries/common.inc.php:630
 #, php-format
