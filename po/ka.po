@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 11:47+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-03-29 16:45+0200\n"
+"Last-Translator: rati gvelesiani <admin@smartweb.ge>\n"
 "Language-Team: georgian <ka@li.org>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
@@ -96,10 +96,9 @@ msgid "No blob streaming server configured!"
 msgstr ""
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Failed to write file to disk."
+msgstr "Failed to fetch headers"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -111,6 +110,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s ფაილი მიუწვდომელია ამ სისტემაში, გთხოვთ ეწვიოთ www.phpmyadmin.net -ს "
+"დამატებითი ინფორმაციისთვის."
 
 #: db_create.php:58
 #, php-format
