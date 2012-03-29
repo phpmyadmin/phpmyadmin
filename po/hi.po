@@ -4669,7 +4669,7 @@ msgstr "रूट लॉगिन की अनुमति"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
@@ -5420,7 +5420,7 @@ msgstr "signon प्रमाणीकरण"
 #: libraries/config/setup.forms.php:251
 #: libraries/config/user_preferences.forms.php:151 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
-msgstr "CSV using LOAD DATA"
+msgstr ""
 
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:159
@@ -9107,12 +9107,12 @@ msgstr ""
 #: server_privileges.php:53 server_privileges.php:728
 #: server_privileges.php:730
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr ""
 
 #: server_privileges.php:54 server_privileges.php:716
 #: server_privileges.php:718
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Limits the number of queries the user may send to the server per hour."
+msgstr ""
 
 #: server_privileges.php:55 server_privileges.php:722
 #: server_privileges.php:724
@@ -9120,8 +9120,6 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
 
 #: server_privileges.php:56 server_privileges.php:734
 #: server_privileges.php:736
@@ -9326,7 +9324,7 @@ msgstr "यूसर से सभी सक्रिय विशेषाध�
 #: server_privileges.php:1782 server_privileges.php:1783
 #: server_privileges.php:1784
 msgid "Drop the databases that have the same names as the users."
-msgstr "Drop the databases that have the same names as the users."
+msgstr ""
 
 #: server_privileges.php:1805
 #, php-format
