@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:17+0100\n"
+"POT-Creation-Date: 2012-03-29 10:07+0200\n"
 "PO-Revision-Date: 2012-03-16 21:31+0200\n"
 "Last-Translator: alexukf <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "Caută"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:356
 #: libraries/sql_query_form.lib.php:418 libraries/sql_query_form.lib.php:471
-#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
+#: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:746
 #: server_privileges.php:1788 server_privileges.php:2152
@@ -131,7 +131,7 @@ msgid "Database comment: "
 msgstr "Comentarii referitoare la baza de date: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
-#: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
+#: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "Comentarii tabel"
@@ -337,7 +337,7 @@ msgstr "Schimbă la tabela copiată"
 #: db_operations.php:548 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
+#: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:325
@@ -698,7 +698,7 @@ msgstr "Verificare depășit"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1606
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exportă"
@@ -1358,13 +1358,13 @@ msgstr ""
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "MiB"
 msgstr "MiO"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "KiB"
 msgstr "KiO"
 
@@ -1471,7 +1471,7 @@ msgid "Traffic"
 msgstr "Trafic"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1555
+#: server_status.php:1561
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
@@ -1500,7 +1500,7 @@ msgstr ""
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2050 server_status.php:1268 server_status.php:1697
+#: server_privileges.php:2050 server_status.php:1268 server_status.php:1703
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Nici unul(a)"
@@ -1602,7 +1602,7 @@ msgstr "Modificați setările"
 msgid "Current settings"
 msgstr "Setările curente"
 
-#: js/messages.php:168 server_status.php:1645
+#: js/messages.php:168 server_status.php:1651
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart Title"
@@ -1783,7 +1783,7 @@ msgstr ""
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1600 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1606 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importă"
 
@@ -1959,7 +1959,7 @@ msgstr "Durata de execuție a interogării"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:713 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:229 tbl_change.php:1025
 #: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
@@ -3181,7 +3181,7 @@ msgstr "Click pentru a selecta"
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1125 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:591 pmd_general.php:140
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:140
 #: server_privileges.php:614 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
 msgstr "Structură"
@@ -4197,9 +4197,9 @@ msgid ""
 msgstr ""
 "Dacă doriţi să utilizaţi serviciul de Validare SQL, ar trebui să fiți "
 "conştienţi de faptul că [strong] toate declaraţiile SQL sunt stocate anonim "
-"cu scopuri statistice [/strong]. [br] [em] "
-"[a@http://sqlvalidator.mimer.com/] Mimer SQL Validator [/ a], Copyright 2002 "
-"Upright Database Technology. Toate drepturile rezervate.[/em]"
+"cu scopuri statistice [/strong]. [br] [em] [a@http://sqlvalidator.mimer."
+"com/] Mimer SQL Validator [/ a], Copyright 2002 Upright Database Technology. "
+"Toate drepturile rezervate.[/em]"
 
 #: libraries/config/messages.inc.php:224
 #, fuzzy
@@ -7268,7 +7268,7 @@ msgstr "Invalid field count in CSV input on line %d."
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:568
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
 #: server_synchronize.php:441 server_synchronize.php:913
 msgid "Table name"
 msgstr "Denumire tabel"
@@ -8702,33 +8702,24 @@ msgstr "Primar"
 msgid "Fulltext"
 msgstr "Tot textul"
 
-#: libraries/tbl_properties.inc.php:535 transformation_overview.php:57
-#, php-format
-msgid ""
-"No description is available for this transformation.<br />Please ask the "
-"author what %s does."
-msgstr ""
-"Nu este disponibilă nici o descriere pentru această transformare.<br /"
-">Întrebați autorul de funcțiile îndeplinite de %s."
-
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
+#: libraries/tbl_properties.inc.php:573 tbl_structure.php:652
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "Adaugă %s cîmp(uri)"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
+#: libraries/tbl_properties.inc.php:575 tbl_structure.php:646
 #, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Trebuie să adăugați cel puțin un cîmp."
 
-#: libraries/tbl_properties.inc.php:664 server_engines.php:54
+#: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "Motor de stocare"
 
-#: libraries/tbl_properties.inc.php:693
+#: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
 msgstr "Definiție PARTIȚIE"
 
@@ -8749,6 +8740,15 @@ msgstr "Caută"
 #| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "Inserare"
+
+#: libraries/transformations.lib.php:134
+#, php-format
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr ""
+"Nu este disponibilă nici o descriere pentru această transformare.<br /"
+">Întrebați autorul de funcțiile îndeplinite de %s."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 #, fuzzy
@@ -11096,64 +11096,64 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "The number of threads that are not sleeping."
 
-#: server_status.php:1551
+#: server_status.php:1557
 #, fuzzy
 #| msgid "Start"
 msgid "Start Monitor"
 msgstr "Dum"
 
-#: server_status.php:1560
+#: server_status.php:1566
 #, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
 msgstr "Introducere"
 
-#: server_status.php:1565
+#: server_status.php:1571
 msgid "Done rearranging/editing charts"
 msgstr ""
 
-#: server_status.php:1572 server_status.php:1643
+#: server_status.php:1578 server_status.php:1649
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add chart"
 msgstr "Adaugă %s cîmp(uri)"
 
-#: server_status.php:1574
+#: server_status.php:1580
 msgid "Rearrange/edit charts"
 msgstr ""
 
-#: server_status.php:1578
+#: server_status.php:1584
 #, fuzzy
 msgid "Refresh rate"
 msgstr "Reîncarcă"
 
-#: server_status.php:1583
+#: server_status.php:1589
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
 msgstr "Adaugă/șterge coloane"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid "Chart arrangement"
 msgstr ""
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1600
+#: server_status.php:1606
 msgid "Reset to default"
 msgstr ""
 
-#: server_status.php:1604
+#: server_status.php:1610
 #, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
 msgstr "Introducere"
 
-#: server_status.php:1605
+#: server_status.php:1611
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -11162,7 +11162,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1610
+#: server_status.php:1616
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -11170,18 +11170,18 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1623
+#: server_status.php:1629
 msgid "Using the monitor:"
 msgstr ""
 
-#: server_status.php:1625
+#: server_status.php:1631
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: server_status.php:1627
+#: server_status.php:1633
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11189,11 +11189,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status.php:1634
+#: server_status.php:1640
 msgid "Please note:"
 msgstr ""
 
-#: server_status.php:1636
+#: server_status.php:1642
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11201,93 +11201,93 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: server_status.php:1648
+#: server_status.php:1654
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Preset chart"
 msgstr "Redenumire bază de date în"
 
-#: server_status.php:1652
+#: server_status.php:1658
 msgid "Status variable(s)"
 msgstr ""
 
-#: server_status.php:1654
+#: server_status.php:1660
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
 msgstr "Selectează tabele"
 
-#: server_status.php:1656
+#: server_status.php:1662
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status.php:1671
+#: server_status.php:1677
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
 msgstr "Denumire de tabel nevalidă"
 
-#: server_status.php:1675
+#: server_status.php:1681
 msgid "Display as differential value"
 msgstr ""
 
-#: server_status.php:1677
+#: server_status.php:1683
 msgid "Apply a divisor"
 msgstr ""
 
-#: server_status.php:1684
+#: server_status.php:1690
 msgid "Append unit to data values"
 msgstr ""
 
-#: server_status.php:1690
+#: server_status.php:1696
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
 msgstr "Adaugă un server nou"
 
-#: server_status.php:1692
+#: server_status.php:1698
 msgid "Clear series"
 msgstr ""
 
-#: server_status.php:1695
+#: server_status.php:1701
 #, fuzzy
 msgid "Series in Chart:"
 msgstr "Comanda SQL"
 
-#: server_status.php:1708
+#: server_status.php:1714
 #, fuzzy
 msgid "Log statistics"
 msgstr "Statisticile rîndului"
 
-#: server_status.php:1709
+#: server_status.php:1715
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
 msgstr "Selectează tabele"
 
-#: server_status.php:1714
+#: server_status.php:1720
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1719
+#: server_status.php:1725
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1724
+#: server_status.php:1730
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status.php:1726
+#: server_status.php:1732
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status.php:1731
+#: server_status.php:1737
 #, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
 msgstr "Tip interogare"
 
-#: server_status.php:1771
+#: server_status.php:1777
 #, fuzzy, php-format
 #| msgid "per second"
 msgid "%d second"
@@ -11296,7 +11296,7 @@ msgstr[0] "pe secundă"
 msgstr[1] "pe secundă"
 msgstr[2] "pe secundă"
 
-#: server_status.php:1773
+#: server_status.php:1779
 #, fuzzy, php-format
 #| msgid "in use"
 msgid "%d minute"

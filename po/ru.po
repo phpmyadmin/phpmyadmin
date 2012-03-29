@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:17+0100\n"
+"POT-Creation-Date: 2012-03-29 10:07+0200\n"
 "PO-Revision-Date: 2012-03-24 10:29+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -67,7 +67,7 @@ msgstr "Поиск"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:356
 #: libraries/sql_query_form.lib.php:418 libraries/sql_query_form.lib.php:471
-#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
+#: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:746
 #: server_privileges.php:1788 server_privileges.php:2152
@@ -131,7 +131,7 @@ msgid "Database comment: "
 msgstr "Комментарий к базе данных:"
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
-#: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
+#: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "Комментарий к таблице"
@@ -334,7 +334,7 @@ msgstr "Переключиться на скопированную базу да
 #: db_operations.php:548 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
+#: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:325
@@ -678,7 +678,7 @@ msgstr "Отметить требующие оптимизации"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1606
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Экспорт"
@@ -1290,13 +1290,13 @@ msgstr "Система подкачки"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "MiB"
 msgstr "МБ"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "KiB"
 msgstr "КБ"
 
@@ -1392,7 +1392,7 @@ msgid "Traffic"
 msgstr "Трафик"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1555
+#: server_status.php:1561
 msgid "Settings"
 msgstr "Настройки"
 
@@ -1415,7 +1415,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2050 server_status.php:1268 server_status.php:1697
+#: server_privileges.php:2050 server_status.php:1268 server_status.php:1703
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Нет"
@@ -1517,7 +1517,7 @@ msgstr "Изменить настройки"
 msgid "Current settings"
 msgstr "Текущие настройки"
 
-#: js/messages.php:168 server_status.php:1645
+#: js/messages.php:168 server_status.php:1651
 msgid "Chart Title"
 msgstr "Заголовок графика"
 
@@ -1684,7 +1684,7 @@ msgstr ""
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1600 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1606 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Импорт"
 
@@ -1851,7 +1851,7 @@ msgstr "Время выполнения запроса"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:713 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:229 tbl_change.php:1025
 #: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
@@ -3036,7 +3036,7 @@ msgstr "Кликните для переключения"
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1125 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:591 pmd_general.php:140
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:140
 #: server_privileges.php:614 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
 msgstr "Структура"
@@ -5610,8 +5610,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Может быть приблизительно. Смотрите "
-"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
+"Может быть приблизительно. Смотрите [a@./Documentation."
+"html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
 #: libraries/dbi/mysqli.dbi.lib.php:186
@@ -6947,7 +6947,7 @@ msgstr "Несоответствие количества столбцов в CS
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:568
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
 #: server_synchronize.php:441 server_synchronize.php:913
 msgid "Table name"
 msgstr "Имя таблицы"
@@ -8283,30 +8283,21 @@ msgstr "Первичный"
 msgid "Fulltext"
 msgstr "Полнотекстовый"
 
-#: libraries/tbl_properties.inc.php:535 transformation_overview.php:57
-#, php-format
-msgid ""
-"No description is available for this transformation.<br />Please ask the "
-"author what %s does."
-msgstr ""
-"На данный момент описание отсутствует.<br />Работа используемой функции "
-"отображения преобразования %s, будет в скором времени описана."
-
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
+#: libraries/tbl_properties.inc.php:573 tbl_structure.php:652
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Добавить %s поле(я)"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
+#: libraries/tbl_properties.inc.php:575 tbl_structure.php:646
 msgid "You have to add at least one column."
 msgstr "Необходимо добавить хотя бы одно поле."
 
-#: libraries/tbl_properties.inc.php:664 server_engines.php:54
+#: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "Тип таблиц"
 
-#: libraries/tbl_properties.inc.php:693
+#: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
 msgstr "Определение разделов (PARTITION)"
 
@@ -8323,6 +8314,15 @@ msgstr "Поиск в таблице"
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 msgid "Edit/Insert"
 msgstr "Редактировать/Вставить"
+
+#: libraries/transformations.lib.php:134
+#, php-format
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr ""
+"На данный момент описание отсутствует.<br />Работа используемой функции "
+"отображения преобразования %s, будет в скором времени описана."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -10413,7 +10413,8 @@ msgstr "Количество открытых файлов."
 
 #: server_status.php:1381
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr "Количество открытых потоков (в основном применяется к файлам журналов)."
+msgstr ""
+"Количество открытых потоков (в основном применяется к файлам журналов)."
 
 #: server_status.php:1382
 msgid "The number of tables that are open."
@@ -10618,39 +10619,39 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Количество процессов, находящихся в активном состоянии."
 
-#: server_status.php:1551
+#: server_status.php:1557
 msgid "Start Monitor"
 msgstr "Запустить монитор"
 
-#: server_status.php:1560
+#: server_status.php:1566
 msgid "Instructions/Setup"
 msgstr "Инструкции/Настройки"
 
-#: server_status.php:1565
+#: server_status.php:1571
 msgid "Done rearranging/editing charts"
 msgstr "Завершено редактирование графиков"
 
-#: server_status.php:1572 server_status.php:1643
+#: server_status.php:1578 server_status.php:1649
 msgid "Add chart"
 msgstr "Добавить график"
 
-#: server_status.php:1574
+#: server_status.php:1580
 msgid "Rearrange/edit charts"
 msgstr "Упорядочить/отредактировать графики"
 
-#: server_status.php:1578
+#: server_status.php:1584
 msgid "Refresh rate"
 msgstr "Частота обновления"
 
-#: server_status.php:1583
+#: server_status.php:1589
 msgid "Chart columns"
 msgstr "Столбцы графика"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid "Chart arrangement"
 msgstr "Расположение гарфика"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -10658,15 +10659,15 @@ msgstr ""
 "Расположения графиков сохраняются в локальном хранилище браузера. При "
 "наличии сложной настройки, вы можете осуществить ее экспорт."
 
-#: server_status.php:1600
+#: server_status.php:1606
 msgid "Reset to default"
 msgstr "Восстановить изначальное значение"
 
-#: server_status.php:1604
+#: server_status.php:1610
 msgid "Monitor Instructions"
 msgstr "Инструкции мониторинга"
 
-#: server_status.php:1605
+#: server_status.php:1611
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10680,7 +10681,7 @@ msgstr ""
 "general_log. Будьте внимательны, включение general_log производит увеличение "
 "хранимых данных и увеличивает нагрузку на сервер до 15%."
 
-#: server_status.php:1610
+#: server_status.php:1616
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10692,11 +10693,11 @@ msgstr ""
 "phpMyAdmin. Сохранение журналов в таблицу поддерживается MySQL 5.1.6 и выше. "
 "Однако, вы все еще можете использовать функции графиков сервера."
 
-#: server_status.php:1623
+#: server_status.php:1629
 msgid "Using the monitor:"
 msgstr "Использование мониторинга:"
 
-#: server_status.php:1625
+#: server_status.php:1631
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10707,7 +10708,7 @@ msgstr ""
 "настройках, или удалить график используя соответствующую иконку на каждом из "
 "них."
 
-#: server_status.php:1627
+#: server_status.php:1633
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10719,11 +10720,11 @@ msgstr ""
 "будет загружена таблица сгруппированных запросов, где вы сможете кликнуть на "
 "любые выражения SELECT, для их последующего анализа."
 
-#: server_status.php:1634
+#: server_status.php:1640
 msgid "Please note:"
 msgstr "Примечание:"
 
-#: server_status.php:1636
+#: server_status.php:1642
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10736,79 +10737,79 @@ msgstr ""
 "небольшие промежутки времени, а так же отключать general_log и очищать его "
 "таблицу, когда мониторинг больше не требуется."
 
-#: server_status.php:1648
+#: server_status.php:1654
 msgid "Preset chart"
 msgstr "Заготовки графиков"
 
-#: server_status.php:1652
+#: server_status.php:1658
 msgid "Status variable(s)"
 msgstr "Переменные состояния"
 
-#: server_status.php:1654
+#: server_status.php:1660
 msgid "Select series:"
 msgstr "Выберите серии:"
 
-#: server_status.php:1656
+#: server_status.php:1662
 msgid "Commonly monitored"
 msgstr "Частый мониторинг"
 
-#: server_status.php:1671
+#: server_status.php:1677
 msgid "or type variable name:"
 msgstr "или задайте имя переменной:"
 
-#: server_status.php:1675
+#: server_status.php:1681
 msgid "Display as differential value"
 msgstr "Отобразить в виде значения разницы"
 
-#: server_status.php:1677
+#: server_status.php:1683
 msgid "Apply a divisor"
 msgstr "Применить делитель"
 
-#: server_status.php:1684
+#: server_status.php:1690
 msgid "Append unit to data values"
 msgstr "Добавить к значениям единицу измерения"
 
-#: server_status.php:1690
+#: server_status.php:1696
 msgid "Add this series"
 msgstr "Добавить данные серии"
 
-#: server_status.php:1692
+#: server_status.php:1698
 msgid "Clear series"
 msgstr "Очистить серии"
 
-#: server_status.php:1695
+#: server_status.php:1701
 msgid "Series in Chart:"
 msgstr "Серии в графике:"
 
-#: server_status.php:1708
+#: server_status.php:1714
 msgid "Log statistics"
 msgstr "Статистика журналов"
 
-#: server_status.php:1709
+#: server_status.php:1715
 msgid "Selected time range:"
 msgstr "Выбранный диапазон времени:"
 
-#: server_status.php:1714
+#: server_status.php:1720
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Выполнять только выражения SELECT,INSERT,UPDATE и DELETE"
 
-#: server_status.php:1719
+#: server_status.php:1725
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Для лучшей группировки, удалить данные переменной в запросах INSERT"
 
-#: server_status.php:1724
+#: server_status.php:1730
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Выберите из какого журнала должна генерироваться статистика."
 
-#: server_status.php:1726
+#: server_status.php:1732
 msgid "Results are grouped by query text."
 msgstr "Результаты сгруппированы по тексту запроса."
 
-#: server_status.php:1731
+#: server_status.php:1737
 msgid "Query analyzer"
 msgstr "Анализ запроса"
 
-#: server_status.php:1771
+#: server_status.php:1777
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
@@ -10816,7 +10817,7 @@ msgstr[0] "%d секунда"
 msgstr[1] "%d секунды"
 msgstr[2] "%d секунд"
 
-#: server_status.php:1773
+#: server_status.php:1779
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
