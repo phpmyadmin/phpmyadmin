@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:17+0100\n"
+"POT-Creation-Date: 2012-03-29 10:07+0200\n"
 "PO-Revision-Date: 2012-03-20 17:23+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -66,7 +66,7 @@ msgstr "Cerca"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:356
 #: libraries/sql_query_form.lib.php:418 libraries/sql_query_form.lib.php:471
-#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
+#: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:746
 #: server_privileges.php:1788 server_privileges.php:2152
@@ -117,8 +117,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"L'arxiu %s no es troba en aquest sistema, si us plau, visita "
-"www.phpmyadmin.net per a més informació."
+"L'arxiu %s no es troba en aquest sistema, si us plau, visita www.phpmyadmin."
+"net per a més informació."
 
 #: db_create.php:60
 #, php-format
@@ -130,7 +130,7 @@ msgid "Database comment: "
 msgstr "Comentaris de la base de dades: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
-#: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
+#: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "Comentaris de la taula"
@@ -333,7 +333,7 @@ msgstr "Canvia a la base de dades copiada"
 #: db_operations.php:548 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
+#: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:325
@@ -672,7 +672,7 @@ msgstr "Comprova taules desfragmentades"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1606
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exporta"
@@ -1257,8 +1257,8 @@ msgid ""
 msgstr ""
 "La configuració del dispositiu gràfic en l'emmagatzematge local dels "
 "navegadors ja no és compatible amb la versió més recent del quadre de diàleg "
-"del monitor. És molt probable que la seva configuració actual ja no "
-"funcioni més. Si us plau, restableixi la configuració per defecte al menú "
+"del monitor. És molt probable que la seva configuració actual ja no funcioni "
+"més. Si us plau, restableixi la configuració per defecte al menú "
 "<i>Configuració</i>."
 
 #: js/messages.php:97
@@ -1287,13 +1287,13 @@ msgstr "Intercanvi del sistema"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "KiB"
 msgstr "KB"
 
@@ -1389,7 +1389,7 @@ msgid "Traffic"
 msgstr "Tràfic"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1555
+#: server_status.php:1561
 msgid "Settings"
 msgstr "Configuració"
 
@@ -1412,7 +1412,7 @@ msgstr "Afegeix al menys una variable a la serie"
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2050 server_status.php:1268 server_status.php:1697
+#: server_privileges.php:2050 server_status.php:1268 server_status.php:1703
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Res"
@@ -1513,7 +1513,7 @@ msgstr "Canviar configuracions"
 msgid "Current settings"
 msgstr "Configuracions actuals"
 
-#: js/messages.php:168 server_status.php:1645
+#: js/messages.php:168 server_status.php:1651
 msgid "Chart Title"
 msgstr "Títol del gràfic"
 
@@ -1681,7 +1681,7 @@ msgstr ""
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1600 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1606 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importa"
 
@@ -1847,7 +1847,7 @@ msgstr "Temps d'execució de la consulta"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:713 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:229 tbl_change.php:1025
 #: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
@@ -2672,7 +2672,6 @@ msgid "Wrong username/password. Access denied."
 msgstr "Usuari i/o clau erronis. Accés denegat."
 
 #: libraries/auth/signon.auth.lib.php:88
-#| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
 msgstr "No es pot trobar l'script d'ordres d'inici de sessió d'autenticació:"
 
@@ -2707,7 +2706,6 @@ msgid "PBMS get BLOB info failed:"
 msgstr "Ha fallat l'obtenció d'ínformació BLOB per a PBMS:"
 
 #: libraries/blobstreaming.lib.php:373
-#| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
 msgstr "Ha fallat l'obtenció del Content-Type BLOB PBMS"
 
@@ -2790,7 +2788,6 @@ msgid "numeric key detected"
 msgstr ""
 
 #: libraries/common.inc.php:607
-#| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
 msgstr "No es pot llegir l'arxiu de configuració"
 
@@ -2956,13 +2953,11 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dies, %s hores, %s minuts i %s segons"
 
 #: libraries/common.lib.php:2072
-#| msgid "Routines"
 msgid "Missing parameter:"
 msgstr "Falta paràmetre:"
 
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Inici"
@@ -2970,7 +2965,6 @@ msgstr "Inici"
 #: libraries/common.lib.php:2456 libraries/common.lib.php:2459
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Pàgina anterior"
@@ -2978,14 +2972,12 @@ msgstr "Pàgina anterior"
 #: libraries/common.lib.php:2486 libraries/common.lib.php:2489
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Pàgina següent"
 
 #: libraries/common.lib.php:2487 libraries/common.lib.php:2490
 #: libraries/display_tbl.lib.php:390
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "Darrera pàgina"
@@ -3001,7 +2993,6 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La funcionalitat %s es veu afectada per un error conegut, veieu %s"
 
 #: libraries/common.lib.php:2751
-#| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "Prem per canviar"
 
@@ -3013,7 +3004,7 @@ msgstr "Prem per canviar"
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1125 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:591 pmd_general.php:140
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:140
 #: server_privileges.php:614 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
 msgstr "Estructura"
@@ -3080,7 +3071,6 @@ msgid "Left"
 msgstr ""
 
 #: libraries/config.values.php:47
-#| msgid "Height"
 msgid "Right"
 msgstr "Dreta"
 
@@ -3336,7 +3326,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#| msgid "Customize text input fields"
 msgid "Minimum size for input field"
 msgstr "Mida mínima per a camps d'entrada"
 
@@ -3347,7 +3336,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "Mida màxima pera camps d'entrada"
 
@@ -3464,7 +3452,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:63
-#| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
 msgstr "Desactivar manteniment múltiple de taules"
 
@@ -4224,12 +4211,10 @@ msgid "Enable highlighting"
 msgstr "Activa resaltat"
 
 #: libraries/config/messages.inc.php:290
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Màxim nombre de taules usades recentment; 0 per desactivar"
 
 #: libraries/config/messages.inc.php:291
-#| msgid "Untracked tables"
 msgid "Recently used tables"
 msgstr "Taules usades recentment"
 
@@ -4386,7 +4371,6 @@ msgid "Memory limit"
 msgstr "Límit de memoria"
 
 #: libraries/config/messages.inc.php:321
-#| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
 msgstr "Aixó són enllaços a Edició, Còpia i Esborrat"
 
@@ -4527,7 +4511,6 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
 #: libraries/config/messages.inc.php:353
-#| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "Recordar l'ordenació de les taules"
 
@@ -4679,7 +4662,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Control user"
 msgid "Control host"
 msgstr "Servidor de control"
 
@@ -4764,7 +4746,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:403
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "Màxim nombre de preferències de taules a desar"
 
@@ -4838,9 +4819,6 @@ msgid "Server port"
 msgstr "Port del servidor"
 
 #: libraries/config/messages.inc.php:416
-#| msgid ""
-#| "blank for no user preferences storage in database, suggested: d]_config[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
@@ -4849,7 +4827,6 @@ msgstr ""
 "entre sessions, suggerit: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
-#| msgid "Recall user name"
 msgid "Recently used table"
 msgstr "Taula usada recentment"
 
@@ -4931,18 +4908,14 @@ msgid "Display columns table"
 msgstr "Taula de descripció de columnes"
 
 #: libraries/config/messages.inc.php:433
-#| msgid ""
-#| "blank for no user preferences storage in database, suggested: d]_config[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar la \"persistència\" de preferències d'interfase "
-"de taules entre sessions, suggerit: [kbd]pma_table_uiprefs[/kbd]"
+"Deixa en blanc per desactivar la \"persistència\" de preferències "
+"d'interfase de taules entre sessions, suggerit: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
-#| msgid "User preferences storage table"
 msgid "UI preferences table"
 msgstr "Preferències d'interfase de taula"
 
@@ -5017,9 +4990,6 @@ msgid "Automatically create versions"
 msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:447
-#| msgid ""
-#| "blank for no user preferences storage in database, suggested: d]_config[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -5095,7 +5065,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:461
-#| msgid "Default display direction"
 msgid "Show display direction"
 msgstr "Mostrar direcció de visualització"
 
@@ -5124,7 +5093,6 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:467
-#| msgid "Show grid"
 msgid "Show hint"
 msgstr "Mostra ajudes"
 
@@ -5158,7 +5126,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#| msgid "Hide query box"
 msgid "Retain query box"
 msgstr "Mantenir el quadre de consultes"
 
@@ -5471,7 +5438,6 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
 msgstr "No es pot connectar al servidor Drizzle"
 
@@ -5520,7 +5486,6 @@ msgid "possible deep recursion attack"
 msgstr ""
 
 #: libraries/database_interface.lib.php:1813
-#| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5529,7 +5494,6 @@ msgstr ""
 "configurat correctament)."
 
 #: libraries/database_interface.lib.php:1816
-#| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "El servidor no respon."
 
@@ -5620,7 +5584,6 @@ msgstr "Compatible amb MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#| msgid "Create new database"
 msgid "Create database"
 msgstr "Crear base de dades"
 
@@ -5893,12 +5856,10 @@ msgid "Language"
 msgstr "Idioma"
 
 #: libraries/display_tbl.lib.php:406
-#| msgid "Save directory"
 msgid "Save edited data"
 msgstr "Desar dades editades"
 
 #: libraries/display_tbl.lib.php:412
-#| msgid "Textarea columns"
 msgid "Restore column order"
 msgstr "Reataurar ordre de columnes"
 
@@ -5908,17 +5869,14 @@ msgid "%d is not valid row number."
 msgstr "%d no és un num. vàlid de fila."
 
 #: libraries/display_tbl.lib.php:428
-#| msgid "Textarea rows"
 msgid "Start row"
 msgstr "Fila d'inici"
 
 #: libraries/display_tbl.lib.php:430
-#| msgid "Number of rows:"
 msgid "Number of rows"
 msgstr "Nombre de files"
 
 #: libraries/display_tbl.lib.php:435
-#| msgid "More"
 msgid "Mode"
 msgstr "Mode"
 
@@ -5985,7 +5943,6 @@ msgid "Show BLOB contents"
 msgstr "Mostra contingut BLOB"
 
 #: libraries/display_tbl.lib.php:687
-#| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "Amagar transformació del navegador"
 
@@ -6678,9 +6635,6 @@ msgid "Add statements:"
 msgstr "Afegir instruccions:"
 
 #: libraries/export/sql.php:211
-#| msgid ""
-#| "e table and field names with backquotes <i>(Protects field and le names "
-#| "med with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -6793,7 +6747,6 @@ msgid "Stand-in structure for view"
 msgstr "Estructura de suport per a vistes"
 
 #: libraries/export/sql.php:1112
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "Error llegint dades:"
 
@@ -6819,7 +6772,6 @@ msgid "Open new phpMyAdmin window"
 msgstr "Obrir nova finestra de phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:134
-#| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
 msgstr "No s'han trobat dades per a visualització GIS."
 
@@ -6846,7 +6798,6 @@ msgid ""
 msgstr "Les següents estructures han estat creades o bé alterades. Aquí pots:"
 
 #: libraries/import.lib.php:1101
-#| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "Veure el contingut d'una estructura prement sobre el seu nom"
 
@@ -6858,37 +6809,31 @@ msgstr ""
 "\"Opcions\""
 
 #: libraries/import.lib.php:1103
-#| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Editar estructura seguint l'enllaç \"Estructura\""
 
 #: libraries/import.lib.php:1106
 #, php-format
-#| msgid "Go to database"
 msgid "Go to database: %s"
 msgstr "Anar a la base de dades %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
-#| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "Editar configuració de %s"
 
 #: libraries/import.lib.php:1127
 #, php-format
-#| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "Anar a la taula: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
-#| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Estructura de %s"
 
 #: libraries/import.lib.php:1136
 #, php-format
-#| msgid "Go to view"
 msgid "Go to view: %s"
 msgstr "Anar a la vista: %s"
 
@@ -6944,7 +6889,7 @@ msgstr "Comptador de columnes incorrecte en l'entrada CSV a la línia %d."
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:568
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
 #: server_synchronize.php:441 server_synchronize.php:913
 msgid "Table name"
 msgstr "Nom de taula"
@@ -6997,7 +6942,6 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:376
-#| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
 msgstr "L'arxiu importat no té dades"
 
@@ -7020,7 +6964,6 @@ msgid "Convert to Kana"
 msgstr "Converteix a Kana"
 
 #: libraries/mult_submits.inc.php:254
-#| msgid "Fr"
 msgid "From"
 msgstr "De"
 
@@ -7038,7 +6981,6 @@ msgid "Add table prefix"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:270
-#| msgid "Add index"
 msgid "Add prefix"
 msgstr "Afegir prefix"
 
@@ -7301,7 +7243,6 @@ msgid "SQL history"
 msgstr "Historial SQL"
 
 #: libraries/relation.lib.php:136
-#| msgid "Persistent connections"
 msgid "Persistent recently used tables"
 msgstr "Taules persistents usades recentment"
 
@@ -7453,7 +7394,6 @@ msgstr "Genera una Contrasenya"
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
 #, php-format
-#| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
 msgstr "Ha fallat la següent consulta: \"%s\""
 
@@ -7468,13 +7408,11 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:121
 #, php-format
-#| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
 msgstr "S'ha modificat l'esdeveniment %1$s."
 
 #: libraries/rte/rte_events.lib.php:133
 #, php-format
-#| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
 msgstr "S'ha creat l'esdeveniment %1$s."
 
@@ -7484,7 +7422,6 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:185
-#| msgid "Edit server"
 msgid "Edit event"
 msgstr "Editar esdeveniment"
 
@@ -7492,18 +7429,15 @@ msgstr "Editar esdeveniment"
 #: libraries/rte/rte_routines.lib.php:1276
 #: libraries/rte/rte_routines.lib.php:1312
 #: libraries/rte/rte_triggers.lib.php:187
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Error processant a la petició"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
 #: libraries/rte/rte_triggers.lib.php:302
-#| msgid "Details..."
 msgid "Details"
 msgstr "Detalls"
 
 #: libraries/rte/rte_events.lib.php:374
-#| msgid "Event type"
 msgid "Event name"
 msgstr "Nom d'esdeveniment"
 
@@ -7513,7 +7447,6 @@ msgstr "Tipus d'event"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
 #, php-format
-#| msgid "Change"
 msgid "Change to %s"
 msgstr "Canviar a %s"
 
@@ -7526,25 +7459,21 @@ msgid "Execute every"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:449
-#| msgid "Startup"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Inici"
 
 #: libraries/rte/rte_events.lib.php:457
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Final"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:354
-#| msgid "Description"
 msgid "Definition"
 msgstr "Definició"
 
 #: libraries/rte/rte_events.lib.php:471
-#| msgid "complete inserts"
 msgid "On completion preserve"
 msgstr "Preservar al completar"
 
@@ -7595,7 +7524,6 @@ msgid "Event scheduler status"
 msgstr ""
 
 #: libraries/rte/rte_list.lib.php:54
-#| msgid "Return type"
 msgid "Returns"
 msgstr "Retorna"
 
@@ -7613,7 +7541,6 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1005
 #, php-format
-#| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
 msgstr "tipus de rutina invàlid: \"%s\""
 
@@ -7623,23 +7550,19 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
-#| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "S'ha modificat la rutina %1$s."
 
 #: libraries/rte/rte_routines.lib.php:284
 #, php-format
-#| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "S'ha creat la rutina %1$s."
 
 #: libraries/rte/rte_routines.lib.php:344
-#| msgid "Edit mode"
 msgid "Edit routine"
 msgstr "Editar rutina"
 
 #: libraries/rte/rte_routines.lib.php:831
-#| msgid "Routines"
 msgid "Routine name"
 msgstr "Nom de rutina"
 
@@ -7648,7 +7571,6 @@ msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:859
-#| msgid "Direct links"
 msgid "Direction"
 msgstr "Direcció"
 
@@ -7657,12 +7579,10 @@ msgid "Length/Values"
 msgstr "Longitud/Valors*"
 
 #: libraries/rte/rte_routines.lib.php:877
-#| msgid "Add index"
 msgid "Add parameter"
 msgstr "Afegir paràmetre"
 
 #: libraries/rte/rte_routines.lib.php:881
-#| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "Elimina el darrer paràmetre"
 
@@ -7671,12 +7591,10 @@ msgid "Return type"
 msgstr "Tipus de retorn"
 
 #: libraries/rte/rte_routines.lib.php:892
-#| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Retornar Longitud/Valors"
 
 #: libraries/rte/rte_routines.lib.php:898
-#| msgid "Table options"
 msgid "Return options"
 msgstr "Retornar opcions"
 
@@ -7685,7 +7603,6 @@ msgid "Is deterministic"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:938
-#| msgid "Security"
 msgid "Security type"
 msgstr "Tipus de seguretat"
 
@@ -7730,7 +7647,6 @@ msgstr[1] ""
 
 #: libraries/rte/rte_routines.lib.php:1226
 #, php-format
-#| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Resultats de l'execució de la rutina %s"
 
@@ -7741,7 +7657,6 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/rte/rte_routines.lib.php:1362
-#| msgid "Routines"
 msgid "Routine parameters"
 msgstr "Paràmetres de rutina"
 
@@ -7756,28 +7671,23 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
-#| msgid "Column %s has been dropped"
 msgid "Trigger %1$s has been modified."
 msgstr "S'ha modificat el disparador %1$s."
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, php-format
-#| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
 msgstr "Disparador %1$s creat."
 
 #: libraries/rte/rte_triggers.lib.php:161
-#| msgid "Add a new server"
 msgid "Edit trigger"
 msgstr "Editar disparador"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#| msgid "Triggers"
 msgid "Trigger name"
 msgstr "Nom del disparador"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Temps"
@@ -7795,7 +7705,6 @@ msgid "You must provide a valid event for the trigger"
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:421
-#| msgid "Invalid table name"
 msgid "You must provide a valid table name"
 msgstr "Has de donar un nom de taula vàlid"
 
@@ -7804,98 +7713,80 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:18
-#| msgid "Add index"
 msgid "Add routine"
 msgstr "Afegir rutina"
 
 #: libraries/rte/rte_words.lib.php:20
 #, php-format
-#| msgid "Export defaults"
 msgid "Export of routine %s"
 msgstr "Exportar la rutina %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#| msgid "Routines"
 msgid "routine"
 msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:22
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
 msgstr "No tens prou permisos per crear una rutina"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
-#| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "No s'ha trobat una rutina de nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:24
-#| msgid "There are no files to upload"
 msgid "There are no routines to display."
 msgstr "No hi han rutines per mostrar."
 
 #: libraries/rte/rte_words.lib.php:30
-#| msgid "Add a new server"
 msgid "Add trigger"
 msgstr "Afegir disparador"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
-#| msgid "Export contents"
 msgid "Export of trigger %s"
 msgstr "Exportar disparador %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#| msgid "Triggers"
 msgid "trigger"
 msgstr "disparador"
 
 #: libraries/rte/rte_words.lib.php:34
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
 msgstr "No tens prou permisos per crear un disparador"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
-#| msgid "No tables found in database"
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
-#| msgid "There are no files to upload"
 msgid "There are no triggers to display."
 msgstr "No hi ha disparadors per mostrar."
 
 #: libraries/rte/rte_words.lib.php:42
-#| msgid "Add a new server"
 msgid "Add event"
 msgstr "Afegir esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
-#| msgid "Export contents"
 msgid "Export of event %s"
 msgstr "Exportar esdeveniment %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#| msgid "Event"
 msgid "event"
 msgstr "esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:46
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
 msgstr "No tens prou permisos per crear un esdeveniment"
 
 #: libraries/rte/rte_words.lib.php:47
 #, php-format
-#| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
 msgstr "No s'ha trobat un esdeveniment amb nom %1$s a la base de dades %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
-#| msgid "There are no files to upload"
 msgid "There are no events to display."
 msgstr "No hi ha esdeveniments per mostrar."
 
@@ -8058,7 +7949,6 @@ msgid "Current Server"
 msgstr "Servidor actual"
 
 #: libraries/server_links.inc.php:60
-#| msgid "User"
 msgid "Users"
 msgstr "Usuaris"
 
@@ -8328,30 +8218,21 @@ msgstr "Principal"
 msgid "Fulltext"
 msgstr "Text sencer"
 
-#: libraries/tbl_properties.inc.php:535 transformation_overview.php:57
-#, php-format
-msgid ""
-"No description is available for this transformation.<br />Please ask the "
-"author what %s does."
-msgstr ""
-"No hi ha cap descripció disponible per a aquesta transformació.<br />Demana "
-"a l'autor qué fa %s."
-
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
+#: libraries/tbl_properties.inc.php:573 tbl_structure.php:652
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Afegeix %s columna(es)"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
+#: libraries/tbl_properties.inc.php:575 tbl_structure.php:646
 msgid "You have to add at least one column."
 msgstr "Has d'afegir al menys una columna."
 
-#: libraries/tbl_properties.inc.php:664 server_engines.php:54
+#: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "Motor d'emmagatzematge"
 
-#: libraries/tbl_properties.inc.php:693
+#: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
 msgstr "Definició de PARTICIÓ"
 
@@ -8362,14 +8243,21 @@ msgid "Operator"
 msgstr "Operador"
 
 #: libraries/tbl_select.lib.php:103
-#| msgid "Search"
 msgid "Table Search"
 msgstr "Cerca de taules"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "Edita/Insereix"
+
+#: libraries/transformations.lib.php:134
+#, php-format
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr ""
+"No hi ha cap descripció disponible per a aquesta transformació.<br />Demana "
+"a l'autor qué fa %s."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -8546,7 +8434,6 @@ msgid "General Settings"
 msgstr "Paràmetres Generals"
 
 #: main.php:109
-#| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "Ordenació de la connexió del servidor"
 
@@ -8559,7 +8446,6 @@ msgid "More settings"
 msgstr "Més paràmetres"
 
 #: main.php:169
-#| msgid "Database for user"
 msgid "Database server"
 msgstr "Servidor de base de dades"
 
@@ -8568,7 +8454,6 @@ msgid "Software"
 msgstr ""
 
 #: main.php:173
-#| msgid "Show versions"
 msgid "Software version"
 msgstr "Versió de programari"
 
@@ -8583,7 +8468,6 @@ msgid "User"
 msgstr "Usuari"
 
 #: main.php:184
-#| msgid "Server socket"
 msgid "Server charset"
 msgstr "Joc de caracters del servidor"
 
@@ -8592,7 +8476,6 @@ msgid "Web server"
 msgstr "Servidor web"
 
 #: main.php:209
-#| msgid "Use light version"
 msgid "Database client version"
 msgstr "Versió del client de base de dades"
 
@@ -8733,7 +8616,6 @@ msgid "No databases"
 msgstr "No hi ha bases de dades"
 
 #: navigation.php:270
-#| msgid "filter tables by name"
 msgid "Filter tables by name"
 msgstr "filtrar taules pel nom"
 
@@ -8787,7 +8669,6 @@ msgid "Toggle small/big"
 msgstr "Canviar petit/gran"
 
 #: pmd_general.php:99
-#| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "Canviar línies de relació"
 
@@ -9117,7 +8998,6 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "desactivat"
 
@@ -9420,7 +9300,6 @@ msgid "Any"
 msgstr "Qualsevol"
 
 #: server_privileges.php:1565
-#| msgid "User overview"
 msgid "Users overview"
 msgstr "Vista global d'usuaris"
 
@@ -9546,7 +9425,6 @@ msgid "wildcard"
 msgstr "comodins"
 
 #: server_privileges.php:2406
-#| msgid "View %s has been dropped"
 msgid "User has been added."
 msgstr "Usuari afegit."
 
@@ -9572,7 +9450,6 @@ msgstr "No es pot canviar el mestre"
 
 #: server_replication.php:72
 #, php-format
-#| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
 msgstr "S'ha canviat correctament el servidor mestre a %s"
 
@@ -9802,7 +9679,6 @@ msgid "Runtime Information"
 msgstr "Informació d'execució"
 
 #: server_status.php:786
-#| msgid "See slave status table"
 msgid "All status variables"
 msgstr "Totes les variables d'estat"
 
@@ -9815,7 +9691,6 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:798 server_status.php:820
-#| msgid "Refresh"
 msgid "Refresh rate: "
 msgstr "Velocitat de refresc: "
 
@@ -9824,12 +9699,10 @@ msgid "Filters"
 msgstr "Filtres"
 
 #: server_status.php:841 server_variables.php:117
-#| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "Incloent la paraula:"
 
 #: server_status.php:846
-#| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "Mostra només valors d'alerta"
 
@@ -9838,17 +9711,14 @@ msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:864
-#| msgid "Show open tables"
 msgid "Show unformatted values"
 msgstr "Mostra valors sense format"
 
 #: server_status.php:868
-#| msgid "Related Links"
 msgid "Related links:"
 msgstr "Enllaços relacionats:"
 
 #: server_status.php:901
-#| msgid "Query type"
 msgid "Run analyzer"
 msgstr "Executar analitzador"
 
@@ -9886,7 +9756,6 @@ msgstr ""
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:937
 #, php-format
-#| msgid "Customize startup page"
 msgid "Questions since startup: %s"
 msgstr "Consultes des de l'inici: %s"
 
@@ -9906,7 +9775,6 @@ msgstr ""
 
 #: server_status.php:1058
 #, php-format
-#| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Aquest servidor MySQL és en marxa durant %1$s. Es va iniciar en %2$s."
 
@@ -9985,7 +9853,6 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1303
-#| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "La quantitat d'intents fallits de connexió al servidor MySQL."
 
@@ -10648,58 +10515,53 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "El nombre de fils que no estàn dormint."
 
-#: server_status.php:1551
-#| msgid "Textarea rows"
+#: server_status.php:1557
 msgid "Start Monitor"
 msgstr "Començar monitorització"
 
-#: server_status.php:1560
+#: server_status.php:1566
 msgid "Instructions/Setup"
 msgstr ""
 
-#: server_status.php:1565
+#: server_status.php:1571
 msgid "Done rearranging/editing charts"
 msgstr ""
 
-#: server_status.php:1572 server_status.php:1643
-#| msgid "Add index"
+#: server_status.php:1578 server_status.php:1649
 msgid "Add chart"
 msgstr "Afegir gràfic"
 
-#: server_status.php:1574
+#: server_status.php:1580
 msgid "Rearrange/edit charts"
 msgstr ""
 
-#: server_status.php:1578
+#: server_status.php:1584
 msgid "Refresh rate"
 msgstr "Velocitat de refresc"
 
-#: server_status.php:1583
-#| msgid "Textarea columns"
+#: server_status.php:1589
 msgid "Chart columns"
 msgstr "Columnes del gràfic"
 
-#: server_status.php:1599
-#| msgid "Error management:"
+#: server_status.php:1605
 msgid "Chart arrangement"
 msgstr "Ordenació del gràfic"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1600
-#| msgid "Restore default value"
+#: server_status.php:1606
 msgid "Reset to default"
 msgstr "Restaura el valor per defecte"
 
-#: server_status.php:1604
+#: server_status.php:1610
 msgid "Monitor Instructions"
 msgstr "Instruccions de Monitorització"
 
-#: server_status.php:1605
+#: server_status.php:1611
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10708,7 +10570,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1610
+#: server_status.php:1616
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10716,18 +10578,18 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1623
+#: server_status.php:1629
 msgid "Using the monitor:"
 msgstr ""
 
-#: server_status.php:1625
+#: server_status.php:1631
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: server_status.php:1627
+#: server_status.php:1633
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10735,11 +10597,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status.php:1634
+#: server_status.php:1640
 msgid "Please note:"
 msgstr ""
 
-#: server_status.php:1636
+#: server_status.php:1642
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10747,98 +10609,87 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: server_status.php:1648
-#| msgid "Remove database"
+#: server_status.php:1654
 msgid "Preset chart"
 msgstr "Gràfic predefinit"
 
-#: server_status.php:1652
-#| msgid "See slave status table"
+#: server_status.php:1658
 msgid "Status variable(s)"
 msgstr "Variable(s) d'estat"
 
-#: server_status.php:1654
-#| msgid "Select Tables"
+#: server_status.php:1660
 msgid "Select series:"
 msgstr "Seleccionar series:"
 
-#: server_status.php:1656
+#: server_status.php:1662
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status.php:1671
-#| msgid "Invalid table name"
+#: server_status.php:1677
 msgid "or type variable name:"
 msgstr "o escriu el nom de variable:"
 
-#: server_status.php:1675
+#: server_status.php:1681
 msgid "Display as differential value"
 msgstr ""
 
-#: server_status.php:1677
+#: server_status.php:1683
 msgid "Apply a divisor"
 msgstr ""
 
-#: server_status.php:1684
+#: server_status.php:1690
 msgid "Append unit to data values"
 msgstr ""
 
-#: server_status.php:1690
-#| msgid "Add a new server"
+#: server_status.php:1696
 msgid "Add this series"
 msgstr "Afegir aquesta serie"
 
-#: server_status.php:1692
+#: server_status.php:1698
 msgid "Clear series"
 msgstr ""
 
-#: server_status.php:1695
-#| msgid "SQL queries"
+#: server_status.php:1701
 msgid "Series in Chart:"
 msgstr "Series al gràfic:"
 
-#: server_status.php:1708
-#| msgid "Show statistics"
+#: server_status.php:1714
 msgid "Log statistics"
 msgstr "Estadístiques del registre"
 
-#: server_status.php:1709
-#| msgid "Select page"
+#: server_status.php:1715
 msgid "Selected time range:"
 msgstr "Rang de temps seleccionat:"
 
-#: server_status.php:1714
+#: server_status.php:1720
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1719
+#: server_status.php:1725
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1724
+#: server_status.php:1730
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status.php:1726
+#: server_status.php:1732
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status.php:1731
-#| msgid "Query type"
+#: server_status.php:1737
 msgid "Query analyzer"
 msgstr "Analitzador de consultes"
 
-#: server_status.php:1771
+#: server_status.php:1777
 #, php-format
-#| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d segon"
 msgstr[1] "%d segons"
 
-#: server_status.php:1773
+#: server_status.php:1779
 #, php-format
-#| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minut"
@@ -11020,7 +10871,6 @@ msgid "Insecure connection"
 msgstr "Connexió insegura"
 
 #: setup/frames/index.inc.php:94
-#| msgid "Configuration storage"
 msgid "Configuration saved."
 msgstr "Configuració desada."
 
@@ -11283,7 +11133,6 @@ msgstr ""
 "en aquest sistema."
 
 #: setup/lib/index.lib.php:324
-#| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
 "Hauries de fer servir connexions SSL si el teu servidor de base de dades ho "
@@ -11306,7 +11155,6 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "La clau pot contenir lletres, numeros [em]i[/em] caràcters especials."
 
 #: setup/validate.php:22
-#| msgid "No databases"
 msgid "Wrong data"
 msgstr "Dades incorrectes"
 
@@ -11352,7 +11200,8 @@ msgstr "S'ha modificat la taula %1$s correctament"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr " A causa de la seva longitud,<br /> aquesta columna no pot ser editable"
+msgstr ""
+" A causa de la seva longitud,<br /> aquesta columna no pot ser editable"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
@@ -11411,31 +11260,26 @@ msgid "Continue insertion with %s rows"
 msgstr "Continua l'inserció amb %s files"
 
 #: tbl_chart.php:89
-#| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Barra"
 
 #: tbl_chart.php:91
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Columna"
 
 #: tbl_chart.php:93
-#| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Línia"
 
 #: tbl_chart.php:95
-#| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Ranures"
 
 #: tbl_chart.php:97
-#| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Pastis"
@@ -11445,7 +11289,6 @@ msgid "Stacked"
 msgstr "Apilat"
 
 #: tbl_chart.php:103
-#| msgid "Report title:"
 msgid "Chart title"
 msgstr "Títol del gràfic"
 
@@ -11454,32 +11297,26 @@ msgid "X-Axis:"
 msgstr ""
 
 #: tbl_chart.php:124
-#| msgid "SQL queries"
 msgid "Series:"
 msgstr "Series:"
 
 #: tbl_chart.php:126
-#| msgid "Textarea columns"
 msgid "The remaining columns"
 msgstr "Columnes restants"
 
 #: tbl_chart.php:139
-#| msgid "X Axis label"
 msgid "X-Axis label:"
 msgstr "Etiqueta de l'eix X:"
 
 #: tbl_chart.php:141
-#| msgid "Value"
 msgid "X Values"
 msgstr "Valors X"
 
 #: tbl_chart.php:142
-#| msgid "Y Axis label"
 msgid "Y-Axis label:"
 msgstr "Etiqueta de l'eix Y:"
 
 #: tbl_chart.php:143
-#| msgid "Value"
 msgid "Y Values"
 msgstr "Valors Y"
 
@@ -11498,7 +11335,6 @@ msgid "View dump (schema) of table"
 msgstr "Veure un bolcat (esquema) de la taula"
 
 #: tbl_gis_visualization.php:112
-#| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "Mostra visualització GIS"
 
@@ -11511,17 +11347,14 @@ msgid "Height"
 msgstr "Alt"
 
 #: tbl_gis_visualization.php:136
-#| msgid "Textarea columns"
 msgid "Label column"
 msgstr "Etiqueta de columna"
 
 #: tbl_gis_visualization.php:138
-#| msgid "- none -"
 msgid "-- None --"
 msgstr "-- cap --"
 
 #: tbl_gis_visualization.php:151
-#| msgid "Log file count"
 msgid "Spatial column"
 msgstr "Columna espacial"
 
@@ -11530,12 +11363,10 @@ msgid "Redraw"
 msgstr "Redibuixa"
 
 #: tbl_gis_visualization.php:177
-#| msgid "Save as file"
 msgid "Save to file"
 msgstr "Desa a un arxiu"
 
 #: tbl_gis_visualization.php:178
-#| msgid "Table name"
 msgid "File name"
 msgstr "Nom de l'arxiu"
 
@@ -11556,7 +11387,6 @@ msgid "Add index"
 msgstr "Afegir índex"
 
 #: tbl_indexes.php:175
-#| msgid "Edit mode"
 msgid "Edit index"
 msgstr "Editar índex"
 
@@ -11697,7 +11527,6 @@ msgid "Check referential integrity:"
 msgstr "Comprova la integritat referencial:"
 
 #: tbl_printview.php:72
-#| msgid "Show tables"
 msgid "Showing tables"
 msgstr "Mostrant taules"
 
@@ -11796,7 +11625,6 @@ msgid "Add unique index"
 msgstr "Afegir índex únic"
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#| msgid "Add index"
 msgid "Add SPATIAL index"
 msgstr "Afegir índex espacial (SPATIAL)"
 
@@ -11831,7 +11659,6 @@ msgid "Show more actions"
 msgstr "Mostra més accions"
 
 #: tbl_structure.php:607
-#| msgid "Print view"
 msgid "Edit view"
 msgstr "Editar vista"
 
@@ -11915,17 +11742,14 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Instantània de la versió %s (codi SQL)"
 
 #: tbl_tracking.php:388
-#| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
 msgstr "Definició de seguiment de dades eliminat correctament"
 
 #: tbl_tracking.php:390 tbl_tracking.php:407
-#| msgid "Gather errors"
 msgid "Query error"
 msgstr "Error de consulta"
 
 #: tbl_tracking.php:405
-#| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
 msgstr "manipulació de seguiment de dades eliminat correctament"
 
@@ -11939,12 +11763,10 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Mostra %s amb dates des de %s fins a  %s per l'usuari %s %s"
 
 #: tbl_tracking.php:438
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
 msgstr "Esborra les dades de seguiment de l'informe"
 
 #: tbl_tracking.php:449
-#| msgid "No databases"
 msgid "No data"
 msgstr "No hi ha dades"
 
@@ -12021,13 +11843,12 @@ msgid "Create version"
 msgstr "Crea versió"
 
 #: tbl_zoom_select.php:135
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
-"Fer una \"consulta segons exemple\" (comodí: \"%\") per a dos columnes diferents"
+"Fer una \"consulta segons exemple\" (comodí: \"%\") per a dos columnes "
+"diferents"
 
 #: tbl_zoom_select.php:145
-#| msgid "Hide search criteria"
 msgid "Additional search criteria"
 msgstr "Criteri de cerca addicionals"
 
@@ -12036,7 +11857,6 @@ msgid "Use this column to label each point"
 msgstr ""
 
 #: tbl_zoom_select.php:296
-#| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "Màxim nombre de files a dibuixar"
 
@@ -12045,7 +11865,6 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:417
-#| msgid "Control user"
 msgid "How to use"
 msgstr "Cóm utilitzar"
 
@@ -12107,7 +11926,6 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: po/advisory_rules.php:10
-#| msgid "Versions"
 msgid "Questions below 1,000"
 msgstr "Menys de 1000 consultes"
 
@@ -12125,12 +11943,10 @@ msgstr ""
 
 #: po/advisory_rules.php:13
 #, php-format
-#| msgid "Current connection"
 msgid "Current amount of Questions: %s"
 msgstr "Quantitat actual de consultes: %s"
 
 #: po/advisory_rules.php:15
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
 msgstr "Percentatge de consultes lentes"
 
@@ -12151,7 +11967,6 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-#| msgid "Flush query cache"
 msgid "Slow query rate"
 msgstr "Freqüència de consultes lentes"
 
@@ -12168,7 +11983,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#| msgid "SQL queries"
 msgid "Long query time"
 msgstr "Temps de consultes lentes"
 
@@ -12190,7 +12004,6 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: po/advisory_rules.php:30
-#| msgid "Show query box"
 msgid "Slow query logging"
 msgstr "Registre de consultes lentes"
 
@@ -12209,7 +12022,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:35
-#| msgid "Select Tables"
 msgid "Release Series"
 msgstr "Serie de versions"
 
@@ -12225,12 +12037,10 @@ msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
-#| msgid "Create version"
 msgid "Current version: %s"
 msgstr "Versió actual: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#| msgid "Version"
 msgid "Minor Version"
 msgstr "Versió menor"
 
@@ -12249,12 +12059,10 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Es necessari actualitzar a una versió estable de MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#| msgid "Description"
 msgid "Distribution"
 msgstr "Distribució"
 
@@ -12295,7 +12103,6 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "Arquitectura MySQL"
 
@@ -12316,7 +12123,6 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:70
-#| msgid "Query cache"
 msgid "Query cache disabled"
 msgstr "Memòria cau de consultes desactivat"
 

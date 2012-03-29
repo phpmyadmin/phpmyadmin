@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:17+0100\n"
+"POT-Creation-Date: 2012-03-29 10:07+0200\n"
 "PO-Revision-Date: 2012-03-15 15:00+0200\n"
 "Last-Translator: Roberto Mathias <betorsm@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -66,7 +66,7 @@ msgstr "Procurar"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:356
 #: libraries/sql_query_form.lib.php:418 libraries/sql_query_form.lib.php:471
-#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
+#: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:746
 #: server_privileges.php:1788 server_privileges.php:2152
@@ -130,7 +130,7 @@ msgid "Database comment: "
 msgstr "Comentário do Banco de Dados: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
-#: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
+#: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "Comentários da tabela"
@@ -333,7 +333,7 @@ msgstr "Mudar para o Banco de Dados copiado"
 #: db_operations.php:548 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
+#: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:325
@@ -673,7 +673,7 @@ msgstr "Verificar sobre-carga"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1606
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exportar"
@@ -1288,13 +1288,13 @@ msgstr "Área de Troca (Swap) do sistema"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "KiB"
 msgstr "KB"
 
@@ -1390,7 +1390,7 @@ msgid "Traffic"
 msgstr "Tráfego"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1555
+#: server_status.php:1561
 msgid "Settings"
 msgstr "Configurações"
 
@@ -1419,7 +1419,7 @@ msgstr "Por favor adicione no mínimo uma variável à série"
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2050 server_status.php:1268 server_status.php:1697
+#: server_privileges.php:2050 server_status.php:1268 server_status.php:1703
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Nenhum"
@@ -1524,7 +1524,7 @@ msgstr "Configurações atuais"
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or
 # "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it
 # depends of the context.
-#: js/messages.php:168 server_status.php:1645
+#: js/messages.php:168 server_status.php:1651
 msgid "Chart Title"
 msgstr "Título do Relatório/Gráfico ou Tabela"
 
@@ -1691,7 +1691,7 @@ msgstr ""
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1600 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1606 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importar"
 
@@ -1858,7 +1858,7 @@ msgstr "Tempo de execução da busca"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:713 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:229 tbl_change.php:1025
 #: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
@@ -3037,7 +3037,7 @@ msgstr "Clique para alternar"
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1125 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:591 pmd_general.php:140
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:140
 #: server_privileges.php:614 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
 msgstr "Estrutura"
@@ -5198,9 +5198,9 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 "Ao definir este [kbd]aninhamento[/kbd], o alias da tabela é apenas usado "
-"para dividir/aninhar as tabelas de acordo com a "
-"$cfg['LeftFrameTableSeparator'] diretiva, somente a pasta é chamada pelo "
-"alias, o nome da tabela continua inalterado"
+"para dividir/aninhar as tabelas de acordo com a $cfg"
+"['LeftFrameTableSeparator'] diretiva, somente a pasta é chamada pelo alias, "
+"o nome da tabela continua inalterado"
 
 #: libraries/config/messages.inc.php:480
 msgid "Display table comment instead of its name"
@@ -5265,8 +5265,8 @@ msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
-"Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados%"
-"quot; (se possível) ou manter o campo texto vazio"
+"Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados"
+"%quot; (se possível) ou manter o campo texto vazio"
 
 #: libraries/config/messages.inc.php:496
 msgid "Suggest new database name"
@@ -5275,8 +5275,7 @@ msgstr "Sugerir nome para o banco de dados"
 #: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
-"Um aviso é mostrado na página principal se uma falha de segurança é "
-"detectada"
+"Um aviso é mostrado na página principal se uma falha de segurança é detectada"
 
 #: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
@@ -5289,7 +5288,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:500
-#| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "Colunas da área de texto"
 
@@ -5606,7 +5604,6 @@ msgid "Password Hashing"
 msgstr "Hashing da senha"
 
 #: libraries/display_change_password.lib.php:65
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "Compatível com MySQL 4.0"
 
@@ -5640,7 +5637,6 @@ msgid "Name"
 msgstr "Nome"
 
 #: libraries/display_create_table.lib.php:55
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Número de colunas"
 
@@ -6909,7 +6905,7 @@ msgstr "Contador de campo inválido na linha %d da entrada CSV."
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:568
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
 #: server_synchronize.php:441 server_synchronize.php:913
 msgid "Table name"
 msgstr "Nome da Tabela"
@@ -8339,33 +8335,24 @@ msgstr "Primária"
 msgid "Fulltext"
 msgstr "Texto completo"
 
-#: libraries/tbl_properties.inc.php:535 transformation_overview.php:57
-#, php-format
-msgid ""
-"No description is available for this transformation.<br />Please ask the "
-"author what %s does."
-msgstr ""
-"Sem descrição disponível para essa transformação.<br />Pergunte ao autor o "
-"que %s faz."
-
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
+#: libraries/tbl_properties.inc.php:573 tbl_structure.php:652
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "Adicionar %s campo(s)"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
+#: libraries/tbl_properties.inc.php:575 tbl_structure.php:646
 #, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Você deve adicionar pelo menos um campo."
 
-#: libraries/tbl_properties.inc.php:664 server_engines.php:54
+#: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "Storage Engine"
 
-#: libraries/tbl_properties.inc.php:693
+#: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
 msgstr "Definição da PARTIÇÃO"
 
@@ -8386,6 +8373,15 @@ msgstr "Procurar"
 #| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "Inserir"
+
+#: libraries/transformations.lib.php:134
+#, php-format
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr ""
+"Sem descrição disponível para essa transformação.<br />Pergunte ao autor o "
+"que %s faz."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -10705,65 +10701,65 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "O número de processos que não estão dormindo."
 
-#: server_status.php:1551
+#: server_status.php:1557
 #, fuzzy
 msgid "Start Monitor"
 msgstr "Status"
 
-#: server_status.php:1560
+#: server_status.php:1566
 #, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
 msgstr "Introdução"
 
-#: server_status.php:1565
+#: server_status.php:1571
 msgid "Done rearranging/editing charts"
 msgstr ""
 
-#: server_status.php:1572 server_status.php:1643
+#: server_status.php:1578 server_status.php:1649
 #, fuzzy
 #| msgid "Add index"
 msgid "Add chart"
 msgstr "Adicionar índice"
 
-#: server_status.php:1574
+#: server_status.php:1580
 msgid "Rearrange/edit charts"
 msgstr ""
 
-#: server_status.php:1578
+#: server_status.php:1584
 #, fuzzy
 msgid "Refresh rate"
 msgstr "Atualizar"
 
-#: server_status.php:1583
+#: server_status.php:1589
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
 msgstr "Adicionar/Remover colunas"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid "Chart arrangement"
 msgstr ""
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1600
+#: server_status.php:1606
 #, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Restaurar valor padrão"
 
-#: server_status.php:1604
+#: server_status.php:1610
 #, fuzzy
 #| msgid "1. Introduction"
 msgid "Monitor Instructions"
 msgstr "1. Introdução"
 
-#: server_status.php:1605
+#: server_status.php:1611
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10772,7 +10768,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1610
+#: server_status.php:1616
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10780,20 +10776,20 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1623
+#: server_status.php:1629
 #, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
 msgstr "Pausar o monitoramento"
 
-#: server_status.php:1625
+#: server_status.php:1631
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: server_status.php:1627
+#: server_status.php:1633
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10801,11 +10797,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status.php:1634
+#: server_status.php:1640
 msgid "Please note:"
 msgstr ""
 
-#: server_status.php:1636
+#: server_status.php:1642
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10816,95 +10812,95 @@ msgstr ""
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or
 # "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it
 # depends of the context.
-#: server_status.php:1648
+#: server_status.php:1654
 #, fuzzy
 #| msgid "Remove database"
 msgid "Preset chart"
 msgstr "Remover Gráfico/Tabela ou Relatório"
 
-#: server_status.php:1652
+#: server_status.php:1658
 msgid "Status variable(s)"
 msgstr ""
 
-#: server_status.php:1654
+#: server_status.php:1660
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
 msgstr "Tabelas selecionadas"
 
-#: server_status.php:1656
+#: server_status.php:1662
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status.php:1671
+#: server_status.php:1677
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
 msgstr "Nome de tabela inválida"
 
-#: server_status.php:1675
+#: server_status.php:1681
 msgid "Display as differential value"
 msgstr ""
 
-#: server_status.php:1677
+#: server_status.php:1683
 msgid "Apply a divisor"
 msgstr ""
 
-#: server_status.php:1684
+#: server_status.php:1690
 msgid "Append unit to data values"
 msgstr ""
 
-#: server_status.php:1690
+#: server_status.php:1696
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
 msgstr "Adicionar novo servidor"
 
-#: server_status.php:1692
+#: server_status.php:1698
 msgid "Clear series"
 msgstr ""
 
-#: server_status.php:1695
+#: server_status.php:1701
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
 msgstr "Consultas SQL"
 
-#: server_status.php:1708
+#: server_status.php:1714
 #, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
 msgstr "Mostrar estatísticas"
 
-#: server_status.php:1709
+#: server_status.php:1715
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
 msgstr "Tabelas selecionadas"
 
-#: server_status.php:1714
+#: server_status.php:1720
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1719
+#: server_status.php:1725
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1724
+#: server_status.php:1730
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status.php:1726
+#: server_status.php:1732
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status.php:1731
+#: server_status.php:1737
 #, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
 msgstr "Tipo de consulta"
 
-#: server_status.php:1771
+#: server_status.php:1777
 #, fuzzy, php-format
 #| msgid "Second"
 msgid "%d second"
@@ -10912,7 +10908,7 @@ msgid_plural "%d seconds"
 msgstr[0] "Segundo"
 msgstr[1] "Segundo"
 
-#: server_status.php:1773
+#: server_status.php:1779
 #, fuzzy, php-format
 #| msgid "Minute"
 msgid "%d minute"

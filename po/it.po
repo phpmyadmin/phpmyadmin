@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:17+0100\n"
+"POT-Creation-Date: 2012-03-29 10:07+0200\n"
 "PO-Revision-Date: 2012-03-23 15:39+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "Cerca"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:356
 #: libraries/sql_query_form.lib.php:418 libraries/sql_query_form.lib.php:471
-#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
+#: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:746
 #: server_privileges.php:1788 server_privileges.php:2152
@@ -131,7 +131,7 @@ msgid "Database comment: "
 msgstr "Commento del database: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
-#: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
+#: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "Commenti alla tabella"
@@ -334,7 +334,7 @@ msgstr "Passa al database copiato"
 #: db_operations.php:548 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
+#: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:325
@@ -674,7 +674,7 @@ msgstr "Controllo addizionale"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1606
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Esporta"
@@ -1292,13 +1292,13 @@ msgstr "Swap"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "KiB"
 msgstr "KiB"
 
@@ -1394,7 +1394,7 @@ msgid "Traffic"
 msgstr "Traffico"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1555
+#: server_status.php:1561
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -1417,7 +1417,7 @@ msgstr "Aggiungi almeno una variabile alla serie"
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2050 server_status.php:1268 server_status.php:1697
+#: server_privileges.php:2050 server_status.php:1268 server_status.php:1703
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Nessuno"
@@ -1518,7 +1518,7 @@ msgstr "Modifica impostazioni"
 msgid "Current settings"
 msgstr "Impostazioni attuali"
 
-#: js/messages.php:168 server_status.php:1645
+#: js/messages.php:168 server_status.php:1651
 msgid "Chart Title"
 msgstr "Titolo del diagramma"
 
@@ -1687,7 +1687,7 @@ msgstr ""
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1600 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1606 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importa"
 
@@ -1857,7 +1857,7 @@ msgstr "Tempo di esecuzione della query"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:713 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:229 tbl_change.php:1025
 #: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
@@ -3042,7 +3042,7 @@ msgstr "Clicca per alternare"
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1125 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:591 pmd_general.php:140
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:140
 #: server_privileges.php:614 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
 msgstr "Struttura"
@@ -6976,7 +6976,7 @@ msgstr "Il numero dei campi non é valido nell'input CSV alla linea %d."
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:568
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
 #: server_synchronize.php:441 server_synchronize.php:913
 msgid "Table name"
 msgstr "Nome tabella"
@@ -8325,30 +8325,21 @@ msgstr "Primaria"
 msgid "Fulltext"
 msgstr "Testo completo"
 
-#: libraries/tbl_properties.inc.php:535 transformation_overview.php:57
-#, php-format
-msgid ""
-"No description is available for this transformation.<br />Please ask the "
-"author what %s does."
-msgstr ""
-"Nessuna descrizione è disponibile per questa trasformazione.<br />Prego, "
-"chiedere all'autore cosa %s faccia."
-
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
+#: libraries/tbl_properties.inc.php:573 tbl_structure.php:652
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Aggiungi %s campo/i"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
+#: libraries/tbl_properties.inc.php:575 tbl_structure.php:646
 msgid "You have to add at least one column."
 msgstr "Devi aggiungere almeno un campo."
 
-#: libraries/tbl_properties.inc.php:664 server_engines.php:54
+#: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "Motore di Memorizzazione"
 
-#: libraries/tbl_properties.inc.php:693
+#: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
 msgstr "Definizione PARTITION"
 
@@ -8365,6 +8356,15 @@ msgstr "Ricerca nella Tabella"
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 msgid "Edit/Insert"
 msgstr "Modifica/Inserisci"
+
+#: libraries/transformations.lib.php:134
+#, php-format
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr ""
+"Nessuna descrizione è disponibile per questa trasformazione.<br />Prego, "
+"chiedere all'autore cosa %s faccia."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -10667,39 +10667,39 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Il numero di processi non in attesa."
 
-#: server_status.php:1551
+#: server_status.php:1557
 msgid "Start Monitor"
 msgstr "Avvia monitoraggio"
 
-#: server_status.php:1560
+#: server_status.php:1566
 msgid "Instructions/Setup"
 msgstr "Istruzioni/Configurazione"
 
-#: server_status.php:1565
+#: server_status.php:1571
 msgid "Done rearranging/editing charts"
 msgstr "Ho finito di modificare/muovere i grafici"
 
-#: server_status.php:1572 server_status.php:1643
+#: server_status.php:1578 server_status.php:1649
 msgid "Add chart"
 msgstr "Aggiungi grafico"
 
-#: server_status.php:1574
+#: server_status.php:1580
 msgid "Rearrange/edit charts"
 msgstr "Muovi/modifica i grafici"
 
-#: server_status.php:1578
+#: server_status.php:1584
 msgid "Refresh rate"
 msgstr "Ritmo di aggiornamenti"
 
-#: server_status.php:1583
+#: server_status.php:1589
 msgid "Chart columns"
 msgstr "Numero di grafici per rigo"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid "Chart arrangement"
 msgstr "Disposizione dei grafici"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -10707,15 +10707,15 @@ msgstr ""
 "La configurazione dei grafici è memorizzata nella memoria locale dei "
 "browser. Potreste voler esportarla se avete una configurazione complicata."
 
-#: server_status.php:1600
+#: server_status.php:1606
 msgid "Reset to default"
 msgstr "Ripristina i valori predefiniti"
 
-#: server_status.php:1604
+#: server_status.php:1610
 msgid "Monitor Instructions"
 msgstr "Istruzioni per monitoraggio"
 
-#: server_status.php:1605
+#: server_status.php:1611
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10729,7 +10729,7 @@ msgstr ""
 "slow_query_log oppure general_log. Notate comunque che general_log produce "
 "molti dati e aumenta il carico del server fino al 15%"
 
-#: server_status.php:1610
+#: server_status.php:1616
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10742,11 +10742,11 @@ msgstr ""
 "potete ancora utilizzare le funzionalità di generazione dei grafici del "
 "server."
 
-#: server_status.php:1623
+#: server_status.php:1629
 msgid "Using the monitor:"
 msgstr "Utilizzo del monitor:"
 
-#: server_status.php:1625
+#: server_status.php:1631
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10757,7 +10757,7 @@ msgstr ""
 "sotto 'Impostazioni' oppure rimuovere alcuni grafici usando l'icona "
 "dentellata su ogni grafico."
 
-#: server_status.php:1627
+#: server_status.php:1633
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10770,11 +10770,11 @@ msgstr ""
 "raggruppate nella quale potete cliccare su ogni comando SELECT che appare "
 "per l'analisi successiva."
 
-#: server_status.php:1634
+#: server_status.php:1640
 msgid "Please note:"
 msgstr "Nota:"
 
-#: server_status.php:1636
+#: server_status.php:1642
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10786,88 +10786,88 @@ msgstr ""
 "compito intensivo per cui si consiglia di selezionare solo un intervallo "
 "temporale piccolo e disabilitare il general_log e svuotare la sua tabella."
 
-#: server_status.php:1648
+#: server_status.php:1654
 msgid "Preset chart"
 msgstr "Valori predefiniti del grafico"
 
-#: server_status.php:1652
+#: server_status.php:1658
 msgid "Status variable(s)"
 msgstr "Variabili di stato"
 
-#: server_status.php:1654
+#: server_status.php:1660
 msgid "Select series:"
 msgstr "Seleziona serie:"
 
-#: server_status.php:1656
+#: server_status.php:1662
 msgid "Commonly monitored"
 msgstr "Monitorate di solito"
 
-#: server_status.php:1671
+#: server_status.php:1677
 msgid "or type variable name:"
 msgstr "or scrivi il nome di una variabile:"
 
-#: server_status.php:1675
+#: server_status.php:1681
 msgid "Display as differential value"
 msgstr "Visualizzare come valore differenziale"
 
-#: server_status.php:1677
+#: server_status.php:1683
 msgid "Apply a divisor"
 msgstr "Applica un divisore"
 
-#: server_status.php:1684
+#: server_status.php:1690
 msgid "Append unit to data values"
 msgstr "Aggiungi un unitá ai valori dei dati"
 
-#: server_status.php:1690
+#: server_status.php:1696
 msgid "Add this series"
 msgstr "Aggiungi questa serie"
 
-#: server_status.php:1692
+#: server_status.php:1698
 msgid "Clear series"
 msgstr "Cancella la serie"
 
-#: server_status.php:1695
+#: server_status.php:1701
 msgid "Series in Chart:"
 msgstr "Serie del grafico:"
 
-#: server_status.php:1708
+#: server_status.php:1714
 msgid "Log statistics"
 msgstr "Registra statistiche"
 
-#: server_status.php:1709
+#: server_status.php:1715
 msgid "Selected time range:"
 msgstr "Intervallo di tempo selezionato:"
 
-#: server_status.php:1714
+#: server_status.php:1720
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Recupera solamente comandi SELECT,INSERT,UPDATE e DELETE"
 
-#: server_status.php:1719
+#: server_status.php:1725
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 "Rimuovi dati variabili dai comandi INSERT per ottenere un miglior "
 "raggruppamento"
 
-#: server_status.php:1724
+#: server_status.php:1730
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Scegli il log dal quale generare le statistiche."
 
-#: server_status.php:1726
+#: server_status.php:1732
 msgid "Results are grouped by query text."
 msgstr "I risultati verranno raggruppati secondo il testo di query."
 
-#: server_status.php:1731
+#: server_status.php:1737
 msgid "Query analyzer"
 msgstr "Analyzer della query"
 
-#: server_status.php:1771
+#: server_status.php:1777
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d secondo"
 msgstr[1] "%d secondi"
 
-#: server_status.php:1773
+#: server_status.php:1779
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -11012,8 +11012,8 @@ msgstr "Scarica"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
-"Formset non corretto, controllate il vettore $formsets nel file "
-"setup/frames/form.inc.php"
+"Formset non corretto, controllate il vettore $formsets nel file setup/frames/"
+"form.inc.php"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -12296,9 +12296,9 @@ msgid ""
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
 "Se non avete compilato dal sorgente, potete usare un pacchetto modificato da "
-"una distribuzione. Il manuale MySQL risulta accurato solo per gli "
-"eseguibili ufficiali MySQL, non per tutti i pacchetti delle distribuzioni "
-"(come RedHat, Debian/Ubuntu ecc.)."
+"una distribuzione. Il manuale MySQL risulta accurato solo per gli eseguibili "
+"ufficiali MySQL, non per tutti i pacchetti delle distribuzioni (come RedHat, "
+"Debian/Ubuntu ecc.)."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
@@ -12310,7 +12310,8 @@ msgstr "Il manuale MySQL è accurato solo per gli eseguibili ufficiali MySQL."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr "La documentazione Percona si trova su http://www.percona.com/docs/wiki/"
+msgstr ""
+"La documentazione Percona si trova su http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
@@ -12367,8 +12368,8 @@ msgid ""
 msgstr ""
 "E' noto che la cache delle query può migliorare notevolmente le prestazioni "
 "se configurata correttamente. Abilitatela impostando {query_cache_size} a un "
-"valore in MiB di due cifre e impostando {query_cache_type} a 'ON'. "
-"<b>Nota:</b> Se state usando memcached, ignorate questo suggerimento."
+"valore in MiB di due cifre e impostando {query_cache_type} a 'ON'. <b>Nota:</"
+"b> Se state usando memcached, ignorate questo suggerimento."
 
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12391,10 +12392,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "State usando la cache delle query MySQL con un traffico di database "
-"piuttosto alto. Potrebbe essere utile prendere in considerazione <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\">memcached</a> invece della cache delle query MySQL, "
-"soprattutto se avete slave multipli."
+"piuttosto alto. Potrebbe essere utile prendere in considerazione <a href="
+"\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> "
+"invece della cache delle query MySQL, soprattutto se avete slave multipli."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12452,8 +12452,8 @@ msgid ""
 "%%. It should be above 80%%"
 msgstr ""
 "Il rapporto corrente tra la memoria libera nella cache delle query e la "
-"dimensione totale della cache delle query è %s%%. Dovrebbe essere sopra l'80"
-"%%"
+"dimensione totale della cache delle query è %s%%. Dovrebbe essere sopra "
+"l'80%%"
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
@@ -12576,8 +12576,8 @@ msgid ""
 msgstr ""
 "Cambiare {query_cache_limit} (di solito incrementandolo) potrebbe migliorare "
 "l'efficienza. Questa variabile determina la dimensione massima per la quale "
-"il risultato di una query può essere inserito nella cache delle query. Se "
-"ci sono troppi risultati di query con dimensione superiore a 1 MiB che sono "
+"il risultato di una query può essere inserito nella cache delle query. Se ci "
+"sono troppi risultati di query con dimensione superiore a 1 MiB che sono "
 "facilmente memorizzabili nella cache (molte letture, poche scritture) allora "
 "aumentare {query_cache_limit} incrementa l'efficienza. Laddove molti "
 "risultati di query siano più grandi di 1 MiB e non possono essere "
@@ -12802,9 +12802,9 @@ msgstr ""
 "disco, indipendentemente dal valore di queste variabili. Per eliminarle "
 "dovrete riscrivere le query per evitare queste condizioni (All'interno delle "
 "tabelle temporanee: Presenza di un campo BLOB o di un TEXT o presenza di un "
-"campo più grande di 512 byte) come menzionato all'inizio di un <a href=\"htt"
-"p://www.facebook.com/note.php?note_id=10150111255065841&comments\">Articolo "
-"del Pythian Group</a>"
+"campo più grande di 512 byte) come menzionato all'inizio di un <a href="
+"\"http://www.facebook.com/note.php?note_id=10150111255065841&comments"
+"\">Articolo del Pythian Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12834,9 +12834,9 @@ msgstr ""
 "disco, indipendentemente dal valore di queste variabili. Per eliminarle "
 "dovrete riscrivere le query per evitare queste condizioni (All'interno delle "
 "tabelle temporanee: Presenza di un campo BLOB o di un TEXT o presenza di un "
-"campo più grande di 512 byte) come menzionato nella <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
-"tables.html\">Documentazione MySQL</a>"
+"campo più grande di 512 byte) come menzionato nella <a href=\"http://dev."
+"mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\">Documentazione "
+"MySQL</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12994,8 +12994,7 @@ msgstr "La frequenza di apertura di file è alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
-"Tasso di file aperti: %s, questo valore dovrebbe essere inferiore a 5 "
-"all'ora"
+"Tasso di file aperti: %s, questo valore dovrebbe essere inferiore a 5 all'ora"
 
 #: po/advisory_rules.php:195
 #, php-format
@@ -13268,11 +13267,10 @@ msgstr ""
 "il tempo necessario per recuperare i database in seguito a crash, quindi "
 "sarebbe opportuno non andare molto oltre 256 MiB. È necessario tener conto "
 "che non è possibile una veloce modifica di questo parametro. Occorre fermare "
-"il server, rimuovere i file log InnoDB, impostare il nuovo valore in "
-"my.cnf, avviare il server, quindi assicurarsi dell'assenza di errori nei "
-"log. Vedi anche <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">questo articolo di blog</a>"
+"il server, rimuovere i file log InnoDB, impostare il nuovo valore in my.cnf, "
+"avviare il server, quindi assicurarsi dell'assenza di errori nei log. Vedi "
+"anche <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
+"increase-innodblogfilesize-proper-way.html\">questo articolo di blog</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13307,14 +13305,13 @@ msgstr ""
 "Solitamente è sufficiente impostare innodb_log_file_size al 25%% della "
 "dimensione di {innodb_buffer_pool_size}. Un innodb_log_file_size molto "
 "grande rallenta considerevolmente il tempo di ripristino in seguito ad un "
-"crash del database. Vedere anche <a "
-"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">questo articolo</a>. È necessario fermare il server, "
-"rimuovere i file log InnoDB, impostare il nuovo valore in my.cnf, avviare il "
-"server, quindi controllare nei log degli errori se tutto è andato "
-"correttamente. Consultare anche <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">questo articolo di blog</a>"
+"crash del database. Vedere anche <a href=\"http://www.mysqlperformanceblog."
+"com/2006/07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. "
+"È necessario fermare il server, rimuovere i file log InnoDB, impostare il "
+"nuovo valore in my.cnf, avviare il server, quindi controllare nei log degli "
+"errori se tutto è andato correttamente. Consultare anche <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">questo articolo di blog</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13383,9 +13380,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Impostare {concurrent_insert} a 1 riduce i conflitti tra letture e scritture "
-"su una data tabella. V. anche la <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
-"inserts.html\">Documentazione MySQL</a>"
+"su una data tabella. V. anche la <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">Documentazione MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
@@ -13413,14 +13409,15 @@ msgstr "concurrent_insert è impostato a 0"
 #~ msgstr "Crea tabella"
 
 #~ msgid "(or the local Drizzle server's socket is not correctly configured)"
-#~ msgstr "(o il socket del server locale MySQL non è correttamente configurato)"
+#~ msgstr ""
+#~ "(o il socket del server locale MySQL non è correttamente configurato)"
 
 #~ msgid ""
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 #~ "maximum number for which vertical model is used"
 #~ msgstr ""
-#~ "[kbd]orizzontale[/kbd], [kbd]verticale[/kbd] oppure un numero che indica la "
-#~ "massima quantità per cui verrà utilizzata la modalità verticale"
+#~ "[kbd]orizzontale[/kbd], [kbd]verticale[/kbd] oppure un numero che indica "
+#~ "la massima quantità per cui verrà utilizzata la modalità verticale"
 
 #~ msgid "Display direction for altering/creating columns"
 #~ msgstr "Visualizza la direzione per alterare/creare i campi"
@@ -13445,9 +13442,9 @@ msgstr "concurrent_insert è impostato a 0"
 #~ "column, click the \"Choose column to display\" icon, then click on the "
 #~ "appropriate column name."
 #~ msgstr ""
-#~ "Il campi da visualizzato é mostrato in rosa. Per impostare/togliere un campo "
-#~ "come campo da mostrare, clicca l'icona \"Scegli il campo da mostrare\", e poi "
-#~ "clicca sul nome del campo."
+#~ "Il campi da visualizzato é mostrato in rosa. Per impostare/togliere un "
+#~ "campo come campo da mostrare, clicca l'icona \"Scegli il campo da mostrare"
+#~ "\", e poi clicca sul nome del campo."
 
 #~ msgid "memcached usage"
 #~ msgstr "Spazio utilizzato"
@@ -13502,8 +13499,8 @@ msgstr "concurrent_insert è impostato a 0"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Nessun supporto per i temi, si prega di controllare la configurazione e/o i "
-#~ "temi nella cartella %s."
+#~ "Nessun supporto per i temi, si prega di controllare la configurazione e/o "
+#~ "i temi nella cartella %s."
 
 #~ msgid "The following queries have been executed:"
 #~ msgstr "Le seguenti query sono state eseguite:"
@@ -13553,12 +13550,13 @@ msgstr "concurrent_insert è impostato a 0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "phpMyAdmin non riesce a leggere il file di configurazione!<br />Questo può "
-#~ "accadere se il php trova un parse error in esso oppure il php non trova il "
-#~ "file.<br />Richiamate il file di configurazione direttamente utilizzando il "
-#~ "link sotto e leggete il/i messaggio/i di errore del php che ricevete. Nella "
-#~ "maggior parte dei casi ci sono un apostrofo o una virgoletta mancanti.<br "
-#~ "/>Se ricevete una pagina bianca, allora è tutto a posto."
+#~ "phpMyAdmin non riesce a leggere il file di configurazione!<br />Questo "
+#~ "può accadere se il php trova un parse error in esso oppure il php non "
+#~ "trova il file.<br />Richiamate il file di configurazione direttamente "
+#~ "utilizzando il link sotto e leggete il/i messaggio/i di errore del php "
+#~ "che ricevete. Nella maggior parte dei casi ci sono un apostrofo o una "
+#~ "virgoletta mancanti.<br />Se ricevete una pagina bianca, allora è tutto a "
+#~ "posto."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Cancellazione Evento"
@@ -13606,11 +13604,12 @@ msgstr "concurrent_insert è impostato a 0"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Query delle Statistiche</b>: Dall'avvio, %s query sono state effettuate "
-#~ "sul server."
+#~ "<b>Query delle Statistiche</b>: Dall'avvio, %s query sono state "
+#~ "effettuate sul server."
 
 #~ msgid "Note: Generating the query chart can take a long time."
-#~ msgstr "Nota: La creazione del diagramma potrebbe richiedere un lungo tempo."
+#~ msgstr ""
+#~ "Nota: La creazione del diagramma potrebbe richiedere un lungo tempo."
 
 #~ msgid "Chart generated successfully."
 #~ msgstr "Diagramma creato con successo."
@@ -13644,22 +13643,22 @@ msgstr "concurrent_insert è impostato a 0"
 #~ "For compatibility reasons the chart image is segmented by default, select "
 #~ "this to draw the whole chart in one image."
 #~ msgstr ""
-#~ "Per ragioni di compatibilitá il diagramma é segmentato di default, seleziona "
-#~ "questo per creare l'intero diagramma in un immagine."
+#~ "Per ragioni di compatibilitá il diagramma é segmentato di default, "
+#~ "seleziona questo per creare l'intero diagramma in un immagine."
 
 #~ msgid ""
 #~ "When drawing a radar chart all values are normalized to a range [0..10]."
 #~ msgstr ""
-#~ "Durante la creazione di diagrammi radar tutti i valori sono normalizzati ad "
-#~ "un intervallo [0..10]."
+#~ "Durante la creazione di diagrammi radar tutti i valori sono normalizzati "
+#~ "ad un intervallo [0..10]."
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "Nota che non tutta la tabella dei risultati può essere inserita nel grafico. "
-#~ "Vedi <a href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ "
-#~ "6.29</a>"
+#~ "Nota che non tutta la tabella dei risultati può essere inserita nel "
+#~ "grafico. Vedi <a href=\"./Documentation.html#faq6_29\" target="
+#~ "\"Documentation\">FAQ 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "Aggiungi un nuovo Utente"

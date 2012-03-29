@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-14 14:17+0100\n"
+"POT-Creation-Date: 2012-03-29 10:07+0200\n"
 "PO-Revision-Date: 2012-03-28 08:57+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -65,7 +65,7 @@ msgstr "Zoeken"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:93 libraries/sql_query_form.lib.php:356
 #: libraries/sql_query_form.lib.php:418 libraries/sql_query_form.lib.php:471
-#: libraries/tbl_properties.inc.php:575 main.php:115 navigation.php:171
+#: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:746
 #: server_privileges.php:1788 server_privileges.php:2152
@@ -129,7 +129,7 @@ msgid "Database comment: "
 msgstr "Databank opmerking: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
-#: libraries/tbl_properties.inc.php:662 tbl_operations.php:366
+#: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "Tabelopmerkingen"
@@ -332,7 +332,7 @@ msgstr "Overschakelen naar de gekopiëerde databank"
 #: db_operations.php:548 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:668 libraries/tbl_select.lib.php:85
+#: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:259
 #: tbl_tracking.php:325
@@ -671,7 +671,7 @@ msgstr "Selecteer tabellen met overhead"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1600
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1606
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exporteer"
@@ -877,7 +877,6 @@ msgstr "Ongeldig export type"
 
 #: gis_data_editor.php:84
 #, php-format
-#| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "Waarde voor kolom \"%s\""
 
@@ -916,7 +915,6 @@ msgstr "Punt %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:326
-#| msgid "Add index"
 msgid "Add a point"
 msgstr "Voeg een punt toe"
 
@@ -1295,13 +1293,13 @@ msgstr "Systeem wisselbestand"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
-#: server_status.php:1680
+#: server_status.php:1686
 msgid "KiB"
 msgstr "KiB"
 
@@ -1397,7 +1395,7 @@ msgid "Traffic"
 msgstr "Verkeer"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1555
+#: server_status.php:1561
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -1420,7 +1418,7 @@ msgstr "Gelieve tenminste één variable toe te voegen aan de reeks"
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2050 server_status.php:1268 server_status.php:1697
+#: server_privileges.php:2050 server_status.php:1268 server_status.php:1703
 #: tbl_zoom_select.php:151 tbl_zoom_select.php:278
 msgid "None"
 msgstr "Geen"
@@ -1521,13 +1519,12 @@ msgstr "Instellingen wijzigen"
 msgid "Current settings"
 msgstr "Huidige instellingen"
 
-#: js/messages.php:168 server_status.php:1645
+#: js/messages.php:168 server_status.php:1651
 msgid "Chart Title"
 msgstr "Grafiek titel"
 
 #. l10n: As in differential values
 #: js/messages.php:170
-#| msgid "Difference"
 msgid "Differential"
 msgstr "Verschil"
 
@@ -1612,7 +1609,6 @@ msgid "Profiling results"
 msgstr "Profiling resultaten"
 
 #: js/messages.php:191
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabel"
@@ -1693,7 +1689,7 @@ msgstr ""
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1600 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1606 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importeer"
 
@@ -1862,7 +1858,7 @@ msgstr "Query uitvoertijd"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/tbl_properties.inc.php:714 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:713 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:229 tbl_change.php:1025
 #: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
@@ -2059,13 +2055,11 @@ msgid "Done"
 msgstr "Klaar"
 
 #: js/messages.php:390
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Vorige"
 
 #: js/messages.php:395
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Volgende"
@@ -3001,7 +2995,6 @@ msgstr "Ontbrekende parameter:"
 
 #: libraries/common.lib.php:2455 libraries/common.lib.php:2458
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Begin"
@@ -3009,7 +3002,6 @@ msgstr "Begin"
 #: libraries/common.lib.php:2456 libraries/common.lib.php:2459
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Vorige"
@@ -3017,14 +3009,12 @@ msgstr "Vorige"
 #: libraries/common.lib.php:2486 libraries/common.lib.php:2489
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Volgende"
 
 #: libraries/common.lib.php:2487 libraries/common.lib.php:2490
 #: libraries/display_tbl.lib.php:390
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "Einde"
@@ -3051,7 +3041,7 @@ msgstr "Klik om te wisselen"
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1125 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:591 pmd_general.php:140
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:140
 #: server_privileges.php:614 server_replication.php:313 tbl_tracking.php:253
 msgid "Structure"
 msgstr "Structuur"
@@ -4717,7 +4707,6 @@ msgstr ""
 "gedefinieerde machine te gebruiken"
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Control user"
 msgid "Control host"
 msgstr "Controle machine"
 
@@ -4825,10 +4814,10 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "U kunt gebruik maken van MySQL jokertekens (% en _), escape deze tekens "
-"indien u ze letterlijk wil gebruiken. Gebruik bijvoorbeeld "
-"[kbd]'mijn\\_db'[/kbd] en niet [kbd]'mijn_db'[/kbd]. Met deze optie kan u "
-"databank lijsten sorteren door hun naam op volgorde in te voeren en met "
-"[kbd]*[/kbd] te eindigen om de rest op alfabetische volgorde te tonen."
+"indien u ze letterlijk wil gebruiken. Gebruik bijvoorbeeld [kbd]'mijn\\_db'[/"
+"kbd] en niet [kbd]'mijn_db'[/kbd]. Met deze optie kan u databank lijsten "
+"sorteren door hun naam op volgorde in te voeren en met [kbd]*[/kbd] te "
+"eindigen om de rest op alfabetische volgorde te tonen."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
@@ -4862,8 +4851,8 @@ msgid ""
 msgstr ""
 "Databank die wordt gebruikt om relaties, bookmarks en PDF eigenschappen op "
 "te slaan. Zie [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
-"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: "
-"[kbd]phpmyadmin[/kbd]"
+"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: [kbd]"
+"phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "Database name"
@@ -6352,9 +6341,9 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
-"Een metadata hoofdingenlijst met \":\" als lijstscheidingsteken, die gebruikt "
-"wordt om de pbms_metadata_header tabel te initiliaseren bij aanmaak van een "
-"databank."
+"Een metadata hoofdingenlijst met \":\" als lijstscheidingsteken, die "
+"gebruikt wordt om de pbms_metadata_header tabel te initiliaseren bij aanmaak "
+"van een databank."
 
 #: libraries/engines/pbms.lib.php:94
 #, php-format
@@ -6881,7 +6870,6 @@ msgid ""
 msgstr "Een instelling veranderen door op \"Opties\" te klikken"
 
 #: libraries/import.lib.php:1103
-#| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Klik op de \"Structuur\"-koppeling om de structuur aan te passen"
 
@@ -6962,7 +6950,7 @@ msgstr "Verkeerd aantal velden in CSV invoer op regel %d."
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:568
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
 #: server_synchronize.php:441 server_synchronize.php:913
 msgid "Table name"
 msgstr "Tabelnaam"
@@ -7546,7 +7534,6 @@ msgid "Start"
 msgstr "Begin"
 
 #: libraries/rte/rte_events.lib.php:457
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Einde"
@@ -8309,30 +8296,21 @@ msgstr "Primaire sleutel"
 msgid "Fulltext"
 msgstr "Volledige tekst"
 
-#: libraries/tbl_properties.inc.php:535 transformation_overview.php:57
-#, php-format
-msgid ""
-"No description is available for this transformation.<br />Please ask the "
-"author what %s does."
-msgstr ""
-"Geen beschrijving beschikbaar voor deze transformatie.<br />Raadpleeg de "
-"maker over wat %s doet."
-
-#: libraries/tbl_properties.inc.php:574 tbl_structure.php:652
+#: libraries/tbl_properties.inc.php:573 tbl_structure.php:652
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Voeg %s kolom(men) toe"
 
-#: libraries/tbl_properties.inc.php:576 tbl_structure.php:646
+#: libraries/tbl_properties.inc.php:575 tbl_structure.php:646
 msgid "You have to add at least one column."
 msgstr "U moet minimaal een kolom toevoegen."
 
-#: libraries/tbl_properties.inc.php:664 server_engines.php:54
+#: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr "Opslag Engine"
 
-#: libraries/tbl_properties.inc.php:693
+#: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
 msgstr "PARTITION definitie"
 
@@ -8349,6 +8327,15 @@ msgstr "In de tabel zoeken"
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 msgid "Edit/Insert"
 msgstr "Aanpassen/Invoegen"
+
+#: libraries/transformations.lib.php:134
+#, php-format
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr ""
+"Geen beschrijving beschikbaar voor deze transformatie.<br />Raadpleeg de "
+"maker over wat %s doet."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -8634,11 +8621,10 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"De PHP parameter "
-"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@]session.gc_maxlifetime[/a] is korter dan de ingestelde cookie "
-"geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
-"phpMyAdmin is ingesteld."
+"De PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is korter dan de "
+"ingestelde cookie geldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
+"eerder dan in phpMyAdmin is ingesteld."
 
 #: main.php:300
 msgid ""
@@ -10005,7 +9991,8 @@ msgstr ""
 #: server_status.php:1306
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr "Het aantal verbindingspogingen (succesvol of niet) met de MySQL server."
+msgstr ""
+"Het aantal verbindingspogingen (succesvol of niet) met de MySQL server."
 
 #: server_status.php:1307
 msgid ""
@@ -10655,43 +10642,39 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr "Het aantal threads dat actief bezig is."
 
-#: server_status.php:1551
-#| msgid "Textarea rows"
+#: server_status.php:1557
 msgid "Start Monitor"
 msgstr "Start bewaking"
 
-#: server_status.php:1560
-#| msgid "Introduction"
+#: server_status.php:1566
 msgid "Instructions/Setup"
 msgstr "Instructies/Setup"
 
-#: server_status.php:1565
+#: server_status.php:1571
 msgid "Done rearranging/editing charts"
 msgstr "Klaar met herschikken/bewerken van de grafieken"
 
-#: server_status.php:1572 server_status.php:1643
-#| msgid "Add prefix"
+#: server_status.php:1578 server_status.php:1649
 msgid "Add chart"
 msgstr "Voeg een grafiek toe"
 
-#: server_status.php:1574
+#: server_status.php:1580
 msgid "Rearrange/edit charts"
 msgstr "Herschikken/bewerken van de grafieken"
 
-#: server_status.php:1578
+#: server_status.php:1584
 msgid "Refresh rate"
 msgstr "Vernieuwingsfrequentie"
 
-#: server_status.php:1583
-#| msgid "Textarea columns"
+#: server_status.php:1589
 msgid "Chart columns"
 msgstr "Grafiek kolommen"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid "Chart arrangement"
 msgstr "Grafiekschikking"
 
-#: server_status.php:1599
+#: server_status.php:1605
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -10700,17 +10683,15 @@ msgstr ""
 "browser. Eventueel kan u dit exporteren, als u een ingewikkelde configuratie "
 "heeft."
 
-#: server_status.php:1600
-#| msgid "Restore default value"
+#: server_status.php:1606
 msgid "Reset to default"
 msgstr "Standaardwaarde herstellen"
 
-#: server_status.php:1604
-#| msgid "Introduction"
+#: server_status.php:1610
 msgid "Monitor Instructions"
 msgstr "Bewakingsinstructies"
 
-#: server_status.php:1605
+#: server_status.php:1611
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10722,10 +10703,10 @@ msgstr ""
 "configuratie en het opsporen van tijdrovende SQL queries. Voor dit laatste "
 "moet u de log_output configuratie parameter instellen op 'TABLE' en ofwel "
 "slow_query_log, ofwel general_log geactiveerd hebben. Merk echter op dat "
-"general_log veel gegevens genereert en dat de belasting van de server tot 15"
-"% kan stijgen"
+"general_log veel gegevens genereert en dat de belasting van de server tot "
+"15% kan stijgen"
 
-#: server_status.php:1610
+#: server_status.php:1616
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10737,11 +10718,11 @@ msgstr ""
 "naar een tabel wordt ondersteund vanaf MySQL 5.1.6. U kunt wel de grafiek "
 "functionaliteit gebruiken."
 
-#: server_status.php:1623
+#: server_status.php:1629
 msgid "Using the monitor:"
 msgstr "Gebruik van de monitor:"
 
-#: server_status.php:1625
+#: server_status.php:1631
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10752,7 +10733,7 @@ msgstr ""
 "'Instellingen', of gelijk welke grafiek verwijderen via het tandwiel icoon "
 "bij iedere grafiek."
 
-#: server_status.php:1627
+#: server_status.php:1633
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10765,109 +10746,105 @@ msgstr ""
 "queries geladen, daar kun je op één van de SELECT statements klikken om deze "
 "verder te analyseren."
 
-#: server_status.php:1634
+#: server_status.php:1640
 msgid "Please note:"
 msgstr "Hou rekening met :"
 
-#: server_status.php:1636
+#: server_status.php:1642
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Het inschakelen van de general_log kan de serverbelasting verhogen met 5-15%"
-". Wees er ook bewust van dat het genereren van statistieken uit de logs een "
-"belastende taak is, daarom is het aan te readen om alleen een kleine periode "
-"te selecteren, en de general_log uit te schakelen en de tabel te legen "
-"zodra het monitoren niet meer nodig is."
+"Het inschakelen van de general_log kan de serverbelasting verhogen met "
+"5-15%. Wees er ook bewust van dat het genereren van statistieken uit de logs "
+"een belastende taak is, daarom is het aan te readen om alleen een kleine "
+"periode te selecteren, en de general_log uit te schakelen en de tabel te "
+"legen zodra het monitoren niet meer nodig is."
 
-#: server_status.php:1648
-#| msgid "Remove database"
+#: server_status.php:1654
 msgid "Preset chart"
 msgstr "Grafiek instellen"
 
-#: server_status.php:1652
+#: server_status.php:1658
 msgid "Status variable(s)"
 msgstr "Status variabele(n)"
 
-#: server_status.php:1654
+#: server_status.php:1660
 msgid "Select series:"
 msgstr "Selecteer series:"
 
-#: server_status.php:1656
+#: server_status.php:1662
 msgid "Commonly monitored"
 msgstr "Algemeen bewaakt"
 
-#: server_status.php:1671
+#: server_status.php:1677
 msgid "or type variable name:"
 msgstr "of naam type variabele:"
 
-#: server_status.php:1675
+#: server_status.php:1681
 msgid "Display as differential value"
 msgstr "Verschil weergeven"
 
-#: server_status.php:1677
+#: server_status.php:1683
 msgid "Apply a divisor"
 msgstr "Een scheiding toepassen"
 
-#: server_status.php:1684
+#: server_status.php:1690
 msgid "Append unit to data values"
 msgstr "Eenheid toevoegen aan gegevenswaarden"
 
-#: server_status.php:1690
-#| msgid "Add a new server"
+#: server_status.php:1696
 msgid "Add this series"
 msgstr "Deze serie toevoegen"
 
-#: server_status.php:1692
+#: server_status.php:1698
 msgid "Clear series"
 msgstr "Reeks leegmaken"
 
-#: server_status.php:1695
+#: server_status.php:1701
 msgid "Series in Chart:"
 msgstr "Series in Grafiek:"
 
-#: server_status.php:1708
-#| msgid "Show statistics"
+#: server_status.php:1714
 msgid "Log statistics"
 msgstr "Logstatistieken"
 
-#: server_status.php:1709
+#: server_status.php:1715
 msgid "Selected time range:"
 msgstr "Geselcteerde tijdspanne:"
 
-#: server_status.php:1714
+#: server_status.php:1720
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Enkel SELECT, INSERT, UPDATE en DELETE opdrachten opvragen"
 
-#: server_status.php:1719
+#: server_status.php:1725
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 "Variabele gegevens verwijderen uit INSERT opdrachten om beter te kunnen "
 "groeperen"
 
-#: server_status.php:1724
+#: server_status.php:1730
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Kies het logbestand waarvan je de statistieken wil genereren."
 
-#: server_status.php:1726
+#: server_status.php:1732
 msgid "Results are grouped by query text."
 msgstr "Resultaten worden gegroepeerd door de tekst van de SQL-query."
 
-#: server_status.php:1731
-#| msgid "Query type"
+#: server_status.php:1737
 msgid "Query analyzer"
 msgstr "Query Analyser"
 
-#: server_status.php:1771
+#: server_status.php:1777
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d seconde"
 msgstr[1] "%d seconden"
 
-#: server_status.php:1773
+#: server_status.php:1779
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -11008,8 +10985,8 @@ msgstr "Download"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
-"Ongeldige formset, gelieve het $formsets array na te kijken in "
-"setup/frames/form.inc.php"
+"Ongeldige formset, gelieve het $formsets array na te kijken in setup/frames/"
+"form.inc.php"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
@@ -11192,10 +11169,10 @@ msgid ""
 msgstr ""
 "Deze %soptie%s zou uitgeschakeld moeten zijn gezien het de mogelijkheid "
 "geeft aan kwaadwillenden om op grote schaal aanmeldinspogingen uit te voeren "
-"op willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan %"
-"strusted proxies list%s. Echter, IP-adres gebaseerde beveiliging is mogelijk "
-"niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt "
-"waar ook vele andere klanten gebruik van maken."
+"op willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan "
+"%strusted proxies list%s. Echter, IP-adres gebaseerde beveiliging is "
+"mogelijk niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw "
+"provider komt waar ook vele andere klanten gebruik van maken."
 
 #: setup/lib/index.lib.php:276
 msgid ""
@@ -11296,8 +11273,8 @@ msgstr ""
 "U gebruikt het [kbd]config[/kbd] authenticatie type en heeft de te gebruiken "
 "gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
 "Dit is niet aanbevolen voor productie systemen gezien iemand die het URL van "
-"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatie "
-"type%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
+"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatie type"
+"%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:294
 #, php-format
@@ -11318,7 +11295,6 @@ msgstr ""
 "dit systeem."
 
 #: setup/lib/index.lib.php:324
-#| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
 msgstr "Gebruik SSL verbindingen als uw databankserver dit ondersteunt."
 
@@ -11340,7 +11316,6 @@ msgstr ""
 "Sleutel hoort letters, cijfers [em]en[/em] speciale tekens te bevatten."
 
 #: setup/validate.php:22
-#| msgid "No data"
 msgid "Wrong data"
 msgstr "Verkeerde gegevens"
 
@@ -11445,19 +11420,16 @@ msgid "Continue insertion with %s rows"
 msgstr "Herstart invoegen met %s rijen"
 
 #: tbl_chart.php:89
-#| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Balk"
 
 #: tbl_chart.php:91
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolom"
 
 #: tbl_chart.php:93
-#| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Lijn"
@@ -11465,13 +11437,11 @@ msgstr "Lijn"
 # "Inline" vertaalt naar "rechtstreeks in het document", als het ware binnen
 # iets anders.
 #: tbl_chart.php:95
-#| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
 
 #: tbl_chart.php:97
-#| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Taart"
@@ -11493,7 +11463,6 @@ msgid "Series:"
 msgstr "Series:"
 
 #: tbl_chart.php:126
-#| msgid "Textarea columns"
 msgid "The remaining columns"
 msgstr "De overblijvende kolommen"
 
@@ -11502,7 +11471,6 @@ msgid "X-Axis label:"
 msgstr "X-as label:"
 
 #: tbl_chart.php:141
-#| msgid "Value"
 msgid "X Values"
 msgstr "X-waarden"
 
@@ -11511,7 +11479,6 @@ msgid "Y-Axis label:"
 msgstr "Y-as label:"
 
 #: tbl_chart.php:143
-#| msgid "Value"
 msgid "Y Values"
 msgstr "Y-waarden"
 
@@ -11530,7 +11497,6 @@ msgid "View dump (schema) of table"
 msgstr "Bekijk een dump (schema) van tabel"
 
 #: tbl_gis_visualization.php:112
-#| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "GIS visualisatie tonen"
 
@@ -11543,7 +11509,6 @@ msgid "Height"
 msgstr "Hoogte"
 
 #: tbl_gis_visualization.php:136
-#| msgid "Textarea columns"
 msgid "Label column"
 msgstr "Kolom naam geven"
 
@@ -11552,7 +11517,6 @@ msgid "-- None --"
 msgstr "-- Geen --"
 
 #: tbl_gis_visualization.php:151
-#| msgid "Total count"
 msgid "Spatial column"
 msgstr "Plaatshoudende kolom"
 
@@ -11561,12 +11525,10 @@ msgid "Redraw"
 msgstr "Hertekenen"
 
 #: tbl_gis_visualization.php:177
-#| msgid "Save as file"
 msgid "Save to file"
 msgstr "Opslaan naar bestand"
 
 #: tbl_gis_visualization.php:178
-#| msgid "Table name"
 msgid "File name"
 msgstr "Bestandsnaam"
 
@@ -11587,7 +11549,6 @@ msgid "Add index"
 msgstr "Voeg index toe"
 
 #: tbl_indexes.php:175
-#| msgid "Edit mode"
 msgid "Edit index"
 msgstr "Index bewerken"
 
@@ -11728,7 +11689,6 @@ msgid "Check referential integrity:"
 msgstr "Controleer referentiële integriteit:"
 
 #: tbl_printview.php:72
-#| msgid "Show tables"
 msgid "Showing tables"
 msgstr "Toon tabellen"
 
@@ -11827,7 +11787,6 @@ msgid "Add unique index"
 msgstr "Voeg een unieke index toe"
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#| msgid "Add index"
 msgid "Add SPATIAL index"
 msgstr "Voeg een SPATIAL index toe"
 
@@ -11862,7 +11821,6 @@ msgid "Show more actions"
 msgstr "Geef meer acties weer"
 
 #: tbl_structure.php:607
-#| msgid "Print view"
 msgid "Edit view"
 msgstr "View bewerken"
 
@@ -12049,14 +12007,12 @@ msgid "Create version"
 msgstr "Versie aanmaken"
 
 #: tbl_zoom_select.php:135
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Voer een \"query als voorbeeld\" (wildcard: \"%\") uit op twee verschillende "
 "kolommen"
 
 #: tbl_zoom_select.php:145
-#| msgid "Hide search criteria"
 msgid "Additional search criteria"
 msgstr "Bijkomende zoekcriteria"
 
@@ -12065,7 +12021,6 @@ msgid "Use this column to label each point"
 msgstr "Gebruik deze kolom om ieder punt een naam te geven"
 
 #: tbl_zoom_select.php:296
-#| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "Maximum aantal af te drukken regels"
 
@@ -12074,7 +12029,6 @@ msgid "Browse/Edit the points"
 msgstr "Doorzoek/bewerk de punten"
 
 #: tbl_zoom_select.php:417
-#| msgid "Control user"
 msgid "How to use"
 msgstr "Hoe te gebruiken"
 
@@ -12167,7 +12121,6 @@ msgid "Current amount of Questions: %s"
 msgstr "Huidige aantal Questions: %s"
 
 #: po/advisory_rules.php:15
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
 msgstr "Percentage trage queries"
 
@@ -12193,7 +12146,6 @@ msgstr ""
 "Het aandeel trage queries moet minder dan 5%% zijn, jouw waarde is %s%%."
 
 #: po/advisory_rules.php:20
-#| msgid "Flush query cache"
 msgid "Slow query rate"
 msgstr "Aandeel trage queries"
 
@@ -12214,7 +12166,6 @@ msgstr ""
 "zijn."
 
 #: po/advisory_rules.php:25
-#| msgid "SQL queries"
 msgid "Long query time"
 msgstr "Tijd trage queries"
 
@@ -12240,7 +12191,6 @@ msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time is momenteel ingesteld op %d seconde(n)."
 
 #: po/advisory_rules.php:30
-#| msgid "Show query box"
 msgid "Slow query logging"
 msgstr "Logs van trage queries"
 
@@ -12262,7 +12212,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries is uitgeschakeld"
 
 #: po/advisory_rules.php:35
-#| msgid "Select Tables"
 msgid "Release Series"
 msgstr "Groep van uitgebrachte versies"
 
@@ -12284,7 +12233,6 @@ msgid "Current version: %s"
 msgstr "Huidige versie: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#| msgid "Version"
 msgid "Minor Version"
 msgstr "Versie met kleine wijzigingen"
 
@@ -12309,7 +12257,6 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "U moet upgraden naar een stabiele versie van MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#| msgid "Description"
 msgid "Distribution"
 msgstr "Distributie"
 
@@ -12341,8 +12288,7 @@ msgstr ""
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
-"Percona documentatie kan gevonden worden op "
-"http://www.percona.com/docs/wiki/"
+"Percona documentatie kan gevonden worden op http://www.percona.com/docs/wiki/"
 
 #: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
@@ -12358,7 +12304,6 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "De versie tekenreeks (%s) komt overeen met het Drizzle versiepatroon"
 
 #: po/advisory_rules.php:65
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "MySQL Architectuur"
 
@@ -12383,7 +12328,6 @@ msgid "Available memory on this host: %s"
 msgstr "Beschikbaar geheugen op deze machine: %s"
 
 #: po/advisory_rules.php:70
-#| msgid "Query cache"
 msgid "Query cache disabled"
 msgstr "Query cache is uitgeschakeld"
 
@@ -12409,7 +12353,6 @@ msgstr ""
 "query_cache_size is ingesteld op 0 of query_cache_type is ingesteld op 'OFF'"
 
 #: po/advisory_rules.php:75
-#| msgid "Query cache"
 msgid "Query caching method"
 msgstr "Query cache methode"
 
@@ -12425,9 +12368,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "U gebruikt MySQL Query cache op een druk gebruikte databank. U kan overwegen "
-"om <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\">memcached</a> te gebruiken in plaats van MySQL Query cache, "
-"vooral als u verschillende slaves heeft."
+"om <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html"
+"\">memcached</a> te gebruiken in plaats van MySQL Query cache, vooral als u "
+"verschillende slaves heeft."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12483,7 +12426,6 @@ msgstr ""
 "cache grootte is %s%%. Dit zou meer dan 80%% moeten zijn"
 
 #: po/advisory_rules.php:90
-#| msgid "Query cache"
 msgid "Query cache fragmentation"
 msgstr "Query cache versnippering"
 
@@ -12528,7 +12470,6 @@ msgid "Query cache low memory prunes"
 msgstr ""
 
 #: po/advisory_rules.php:96
-#| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12551,7 +12492,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#| msgid "Query cache"
 msgid "Query cache max size"
 msgstr "Maximum grootte query cache"
 
@@ -12561,8 +12501,7 @@ msgid ""
 "significant overhead that is required to maintain the cache."
 msgstr ""
 "De grootte van de query cache is hoger dan 128Mb. Grote query caches kunnen "
-"behoorlijk overhead veroorzaken noodzakelijk voor het bijhouden van de "
-"cache."
+"behoorlijk overhead veroorzaken noodzakelijk voor het bijhouden van de cache."
 
 #: po/advisory_rules.php:102
 msgid ""
@@ -12578,7 +12517,6 @@ msgid "Current query cache size: %s"
 msgstr "Huidige query cache grootte : %s"
 
 #: po/advisory_rules.php:105
-#| msgid "Query results"
 msgid "Query cache min result size"
 msgstr "Minimum grootte query cache resultaat"
 
@@ -12610,7 +12548,6 @@ msgid "Percentage of sorts that cause temporary tables"
 msgstr "Percentage van sorteringen die tijdelijke tabellen veroorzaken"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
 msgstr "Te veel sorteringen veroorzaken tijdelijke tabellen."
 
@@ -12644,7 +12581,6 @@ msgstr ""
 "per uur."
 
 #: po/advisory_rules.php:120
-#| msgid "Textarea rows"
 msgid "Sort rows"
 msgstr "Sorteer regels"
 
@@ -12669,7 +12605,6 @@ msgid "Sorted rows average: %s"
 msgstr "Gemiddelde aantal gesorteerde regels : %s"
 
 #: po/advisory_rules.php:125
-#| msgid "There are no files to upload"
 msgid "Rate of joins without indexes"
 msgstr "Aandeel JOINS zonder index"
 
@@ -12738,7 +12673,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:140
-#| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
 msgstr "Aandeel van het lezen van de volgende regel"
 
@@ -12780,7 +12714,6 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:150
-#| msgid "Where to show the table row links"
 msgid "Percentage of temp tables on disk"
 msgstr "Percentage tijdelijke tabellen op de harde schijf"
 
@@ -12831,7 +12764,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:160
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
 msgstr "MyISAM sleutel buffer grootte"
 
@@ -12875,7 +12807,6 @@ msgstr ""
 "dan 95%%"
 
 #: po/advisory_rules.php:170
-#| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Percentage van de MyISAM sleutel buffer die gebruikt wordt"
 
@@ -12903,12 +12834,10 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#| msgid "Create table"
 msgid "Rate of table open"
 msgstr "Aandeel open tabellen"
 
 #: po/advisory_rules.php:181
-#| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
 msgstr "Het aandeel geopende tabellen is hoog."
 
@@ -12924,7 +12853,6 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:185
-#| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
 msgstr "Limietpercentage voor geopende bestanden die in gebruik zijn"
 
@@ -12947,12 +12875,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#| msgid "Format of imported file"
 msgid "Rate of open files"
 msgstr "Aandeel geopende bestanden"
 
 #: po/advisory_rules.php:191
-#| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
 msgstr "Het aandeel geopende bestanden is hoog."
 
@@ -12967,7 +12893,6 @@ msgid "Immediate table locks %%"
 msgstr "Onmiddellijke tabelgrendels %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#| msgid " number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
 msgstr "Te veel tabel locks werden niet onmiddellijk toegestaan."
 
@@ -12990,7 +12915,6 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:205
-#| msgid "Key cache"
 msgid "Thread cache"
 msgstr "Thread cache"
 
@@ -13014,7 +12938,6 @@ msgid "Thread cache hit rate %%"
 msgstr ""
 
 #: po/advisory_rules.php:211
-#| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
 msgstr "Thread cache werkt niet efficiënt."
 
@@ -13032,7 +12955,6 @@ msgid "Threads that are slow to launch"
 msgstr ""
 
 #: po/advisory_rules.php:216
-#| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
 msgstr "Er zijn te veel threads die te traag gestart worden."
 
@@ -13067,7 +12989,6 @@ msgid "slow_launch_time is set to %s"
 msgstr ""
 
 #: po/advisory_rules.php:225
-#| msgid "Persistent connections"
 msgid "Percentage of used connections"
 msgstr "Percentage van gebruikte verbindingen"
 
@@ -13094,7 +13015,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:230
-#| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
 msgstr "Percentage van afgebroken verbindingen"
 
@@ -13116,7 +13036,6 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:235
-#| msgid "Persistent connections"
 msgid "Rate of aborted connections"
 msgstr "Aandeel van afgebroken verbindingen"
 
@@ -13127,7 +13046,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:240
-#| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
 msgstr "Percentage van afgebroken clients"
 
@@ -13152,7 +13070,6 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: po/advisory_rules.php:245
-#| msgid "Format of imported file"
 msgid "Rate of aborted clients"
 msgstr "Aantal afgebroken clients"
 
@@ -13178,12 +13095,10 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: po/advisory_rules.php:255
-#| msgid "Buffer pool size"
 msgid "InnoDB log size"
 msgstr "Grootte InnoDB logbestand"
 
 #: po/advisory_rules.php:256
-#| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -13212,9 +13127,9 @@ msgstr ""
 "ingesteld kan worden. De server moet uitgeschakeld worden, de InnoDB log "
 "bestanden moeten worden verwijderd, de nieuwe waarde moet worden ingesteld "
 "in my.cnf, de server herstart en dan moeten de foutenlogs bekeken worden om "
-"te zien of alles goed ging. Bekijk ook <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">deze blog</a>"
+"te zien of alles goed ging. Bekijk ook <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">deze blog</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13247,14 +13162,13 @@ msgstr ""
 "Doorgaans is het voldoende om innodb_log_file_size in te stellen op 25%% van "
 "{innodb_buffer_pool_size}. \n"
 "Een grote innodb_log_file_size verlengt de hersteltijd na een databank crash "
-"enorm. Bekijk ook <a href=\"http://www.mysqlperformanceblog.com/2006/07/03"
-"/choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
+"enorm. Bekijk ook <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
 "De server moet uitgeschakeld worden, de InnoDB log bestanden moeten worden "
 "verwijderd, de nieuwe waarde moet worden ingesteld in my.cnf, de server "
 "herstart en dan moeten de foutenlogs bekeken worden om te zien of alles goed "
-"ging. Bekijk ook <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">deze blog</a>"
+"ging. Bekijk ook <a href=\"http://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">deze blog</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13291,9 +13205,9 @@ msgstr ""
 "zorgvuldig het geheugengebruik van de andere diensten en niet-InnoDB "
 "tabellen inschatten en deze waarde gepast instellen. Als deze te hoog wordt "
 "ingesteld, kan het systeem swapgeheugen beginnen gebruiken, waardoor de "
-"performantie erg verminderd. Bekijk ook <a "
-"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">dit article</a>"
+"performantie erg verminderd. Bekijk ook <a href=\"http://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">dit "
+"article</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
