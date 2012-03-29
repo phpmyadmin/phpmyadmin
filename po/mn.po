@@ -4,14 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2010-03-12 09:17+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2012-03-29 11:41+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: mongolian <mn@li.org>\n"
-"Language: \n"
+"Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -5844,7 +5845,7 @@ msgstr "Кодлол"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr " Хоёртын "
+msgstr "Хоёртын "
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -7670,7 +7671,7 @@ msgstr "Байхгүй"
 #: server_privileges.php:443 server_privileges.php:580
 #: server_privileges.php:1798 server_privileges.php:1804
 msgid "Table-specific privileges"
-msgstr " Хүснэгтийн тусгай онцгой эрхүүд"
+msgstr "Хүснэгтийн тусгай онцгой эрхүүд"
 
 #: server_privileges.php:444 server_privileges.php:588
 #: server_privileges.php:1610
@@ -7687,7 +7688,7 @@ msgstr "Глобал онцгой эрх"
 
 #: server_privileges.php:579 server_privileges.php:1798
 msgid "Database-specific privileges"
-msgstr " Онцгой эрх, өгөгдлийн сангийн эрх"
+msgstr "Онцгой эрх, өгөгдлийн сангийн эрх"
 
 #: server_privileges.php:612
 msgid "Resource limits"
@@ -9280,7 +9281,7 @@ msgstr ""
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr " Хоёртын өгөгдөл - засагдахгүй "
+msgstr "Хоёртын өгөгдөл - засагдахгүй "
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
@@ -9496,7 +9497,7 @@ msgstr "Адил нэр байсан тул хүснэгтийг зөөсөнг�
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr " Адил нэртэй хүснэгт рүү хуулж чадсангүй!"
+msgstr "Адил нэртэй хүснэгт рүү хуулж чадсангүй!"
 
 #: tbl_move_copy.php:54
 #, php-format
