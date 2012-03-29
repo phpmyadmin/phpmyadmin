@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-27 16:59+0200\n"
+"PO-Revision-Date: 2012-03-29 16:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -11658,7 +11658,7 @@ msgstr "Rediger view"
 
 #: tbl_structure.php:624
 msgid "Relation view"
-msgstr ""
+msgstr "Relation view"
 
 #: tbl_structure.php:632
 msgid "Propose table structure"
