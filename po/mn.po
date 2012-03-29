@@ -514,7 +514,7 @@ msgstr "яг цав өгүүлбэр"
 
 #: db_search.php:46 db_search.php:289
 msgid "as regular expression"
-msgstr "as regular expression"
+msgstr ""
 
 #: db_search.php:209
 #, php-format
@@ -6174,8 +6174,6 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-"The increment size for extending the size of an autoextending tablespace "
-"when it becomes full."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
@@ -6746,7 +6744,7 @@ msgstr "Асгарсан хүснэгтийг хүчлэх"
 
 #: libraries/export/sql.php:879
 msgid "Constraints for table"
-msgstr "Constraints for table"
+msgstr ""
 
 #: libraries/export/sql.php:979
 msgid "MIME TYPES FOR TABLE"
@@ -8174,8 +8172,6 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
-"There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
 
 #: libraries/sqlparser.lib.php:176
 msgid ""
@@ -8189,15 +8185,6 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
-"There is a chance that you may have found a bug in the SQL parser. Please "
-"examine your query closely, and check that the quotes are correct and not "
-"mis-matched. Other possible failure causes may be that you are uploading a "
-"file with binary outside of a quoted text area. You can also try your query "
-"on the MySQL command line interface. The MySQL server error output below, if "
-"there is any, may also help you in diagnosing the problem. If you still have "
-"problems or if the parser fails where the command line interface succeeds, "
-"please reduce your SQL query input to the single query that causes problems, "
-"and submit a bug report with the data chunk in the CUT section below:"
 
 #: libraries/sqlparser.lib.php:178
 msgid "BEGIN CUT"
@@ -9070,7 +9057,7 @@ msgstr "Файлууд"
 #: server_binlog.php:150 server_binlog.php:152 server_status.php:1240
 #: server_status.php:1242
 msgid "Truncate Shown Queries"
-msgstr "Truncate Shown Queries"
+msgstr ""
 
 #: server_binlog.php:158 server_binlog.php:160 server_status.php:1240
 #: server_status.php:1242
@@ -9181,7 +9168,7 @@ msgstr "Хаагдсан"
 
 #: server_privileges.php:91 server_privileges.php:426
 msgid "Includes all privileges except GRANT."
-msgstr "Includes all privileges except GRANT."
+msgstr ""
 
 #: server_privileges.php:92 server_privileges.php:302
 #: server_privileges.php:697
@@ -9321,7 +9308,7 @@ msgstr "Gives the right to the user to ask where the slaves / masters are."
 #: server_privileges.php:118 server_privileges.php:322
 #: server_privileges.php:735
 msgid "Needed for the replication slaves."
-msgstr "Needed for the replication slaves."
+msgstr ""
 
 #: server_privileges.php:119 server_privileges.php:254
 #: server_privileges.php:612 server_privileges.php:685
@@ -11271,7 +11258,7 @@ msgstr "ӨС байхгүй"
 #: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:99
 #: tbl_zoom_select.php:158
 msgid "Browse foreign values"
-msgstr "Browse foreign values"
+msgstr ""
 
 #: sql.php:250
 #, php-format

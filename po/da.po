@@ -6358,7 +6358,7 @@ msgstr "Relaterede links"
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr "The PrimeBase XT Blog by Paul McCullagh"
+msgstr ""
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
@@ -8151,7 +8151,7 @@ msgstr "Datalager"
 
 #: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
-msgstr "PARTITION definition"
+msgstr ""
 
 #: libraries/tbl_select.lib.php:86 pmd_general.php:495 pmd_general.php:515
 #: pmd_general.php:637 pmd_general.php:650 pmd_general.php:713
@@ -11315,7 +11315,7 @@ msgstr "Y-værdier"
 #: tbl_create.php:31
 #, php-format
 msgid "Table %s already exists!"
-msgstr "Table %s already exists!"
+msgstr ""
 
 #: tbl_create.php:227
 #, php-format
@@ -11658,7 +11658,7 @@ msgstr "Rediger view"
 
 #: tbl_structure.php:624
 msgid "Relation view"
-msgstr "Relation view"
+msgstr ""
 
 #: tbl_structure.php:632
 msgid "Propose table structure"

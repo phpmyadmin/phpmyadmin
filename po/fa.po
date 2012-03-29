@@ -480,7 +480,7 @@ msgstr "پرس و جوي SQL از پايگاه داده <b>%s</b>:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1253
 msgid "Submit Query"
-msgstr "Submit Query"
+msgstr ""
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
@@ -3037,7 +3037,7 @@ msgstr "%d %B %Y ساعت %I:%M %p"
 #: libraries/common.lib.php:2017
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s days, %s hours, %s minutes and %s seconds"
+msgstr ""
 
 #: libraries/common.lib.php:2110
 msgid "Missing parameter:"
@@ -5984,7 +5984,7 @@ msgstr "in query"
 
 #: libraries/display_tbl.lib.php:2369
 msgid "Showing rows"
-msgstr "Showing rows"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:2379
 msgid "total"
@@ -7778,7 +7778,7 @@ msgstr "Select Tables"
 
 #: libraries/schema/User_Schema.class.php:244
 msgid "Select Tables"
-msgstr "Select Tables"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:382
 #, fuzzy
@@ -8468,7 +8468,7 @@ msgstr ""
 
 #: navigation.php:178 server_databases.php:299 server_synchronize.php:1376
 msgid "No databases"
-msgstr "No databases"
+msgstr ""
 
 #: navigation.php:266
 #, fuzzy

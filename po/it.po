@@ -6117,7 +6117,7 @@ msgstr "Pagine occupate"
 
 #: libraries/engines/innodb.lib.php:203
 msgid "Latched pages"
-msgstr "Latched pages"
+msgstr ""
 
 #: libraries/engines/innodb.lib.php:214
 msgid "Buffer Pool Activity"
