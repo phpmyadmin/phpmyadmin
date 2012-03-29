@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 16:10+0200\n"
+"PO-Revision-Date: 2012-03-29 16:19+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -584,7 +584,7 @@ msgstr "Dentro de la columna:"
 
 #: db_structure.php:59
 msgid "No tables found in database"
-msgstr "No se han encontrado tablas en la base de datos."
+msgstr "No se han encontrado tablas en la base de datos"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
@@ -6631,7 +6631,7 @@ msgstr "FIN DEL VOLCADO"
 
 #: libraries/sqlparser.lib.php:364
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Agregar comilla invertida al final de la consulta automáticamente"
+msgstr "¡Comilla invertida agregada al final de la consulta automáticamente!"
 
 #: libraries/sqlparser.lib.php:367
 msgid "Unclosed quote"
@@ -7378,7 +7378,7 @@ msgstr ""
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
-msgstr "No se encontraron configuraciones guardadas."
+msgstr "¡No se encontraron configuraciones guardadas!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
@@ -7409,7 +7409,7 @@ msgstr ""
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr "Se reemplazarán las configuraciones existentes."
+msgstr "¡Se reemplazarán las configuraciones existentes!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
@@ -8721,8 +8721,8 @@ msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
-"El número de vínculos (joins) que usaron rangos en la primera tabla "
-"(normalmente no es crítico aun cuando sea grande)."
+"El número de vínculos («joins») con rangos en la primera tabla (normalmente "
+"no es crítico aún cuando sea grande)."
 
 #: server_status.php:137
 msgid "The number of joins that did a full scan of the first table."
@@ -9502,7 +9502,7 @@ msgstr "Función"
 
 #: tbl_change.php:758
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr "Debido a su longitud,<br /> esta columna podría no ser editable"
+msgstr "Debido a su longitud,<br /> esta columna podría no ser editable "
 
 #: tbl_change.php:875
 msgid "Remove BLOB Repository Reference"
