@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-20 17:44+0200\n"
-"Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
+"PO-Revision-Date: 2012-03-29 11:41+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.7\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:341 server_privileges.php:1583
@@ -1851,7 +1851,7 @@ msgstr "Comparación del tiempo de ejecución de Consulta (en microsegundos)"
 
 #: libraries/chart.lib.php:83
 msgid "Query results"
-msgstr "Resultados de la Consulta"
+msgstr "Resultados de la consulta"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
@@ -4521,7 +4521,7 @@ msgstr "Rutinas"
 
 #: libraries/db_routines.inc.php:37
 msgid "Return type"
-msgstr "Muestre el tipo"
+msgstr "Retornar el tipo"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1964
 msgid ""
@@ -5929,7 +5929,7 @@ msgstr "Juego de caracteres"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:552
 msgid "Binary"
-msgstr " Binario"
+msgstr "Binario"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -6667,7 +6667,7 @@ msgstr "Seguimiento de %s.%s activado."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
-msgstr "Longitud/Valores*"
+msgstr "Longitud/Valores"
 
 #: libraries/tbl_properties.inc.php:104
 msgid ""
@@ -9512,7 +9512,7 @@ msgstr "Eliminar referencia al repositorio BLOB"
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
-msgstr " Binario - no editar"
+msgstr "Binario - no editar"
 
 #: tbl_change.php:929
 msgid "Upload to BLOB repository"
