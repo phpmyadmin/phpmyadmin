@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-23 20:43+0200\n"
+"PO-Revision-Date: 2012-03-29 21:03+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1755,22 +1755,19 @@ msgid "Show indexes"
 msgstr "Visa index"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:301
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Inaktivera kontroller av främmande nycklar"
+msgstr "Kontroll av sekundärnyckel:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Aktiverat"
+msgstr "(Aktiverad)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Inaktiverad"
+msgstr "(Inaktiverad)"
 
 #: js/messages.php:255
 msgid "Searching"
