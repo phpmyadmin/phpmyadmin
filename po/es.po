@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-29 15:53+0200\n"
+"PO-Revision-Date: 2012-03-29 16:15+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -575,7 +575,7 @@ msgstr "Dentro de la columna:"
 
 #: db_structure.php:86
 msgid "No tables found in database"
-msgstr "No se han encontrado tablas en la base de datos."
+msgstr "No se han encontrado tablas en la base de datos"
 
 #: db_structure.php:239 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
@@ -1006,8 +1006,7 @@ msgstr ""
 #: import.php:439 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"No se pudieron cargar los plugins de importación, por favor revise su "
-"instalación"
+"No se pudieron cargar los plugins de importación. ¡Revise su instalación!"
 
 #: import.php:470 sql.php:967
 #, php-format
@@ -1960,7 +1959,7 @@ msgstr ""
 
 #: js/messages.php:340
 msgid "Add an option for column "
-msgstr "Añadir una opción para la columna"
+msgstr "Añadir una opción para la columna "
 
 #: js/messages.php:343
 msgid "Press escape to cancel editing"
@@ -2524,7 +2523,7 @@ msgstr ""
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "estado de tabla desconocido:"
+msgstr "estado de tabla desconocido: "
 
 #: libraries/Table.class.php:1125
 msgid "Invalid database"
@@ -2703,7 +2702,7 @@ msgstr ""
 
 #: libraries/auth/signon.auth.lib.php:89
 msgid "Can not find signon authentication script:"
-msgstr "No se pudo encontrar el script de autenticación «signon»"
+msgstr "No se pudo encontrar el script de autenticación «signon»:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
@@ -4017,7 +4016,7 @@ msgstr "Personalizar los campos de entrada de texto"
 
 #: libraries/config/messages.inc.php:230 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr "Texto Texy!"
+msgstr "Texto «Texy!»"
 
 #: libraries/config/messages.inc.php:232
 msgid "Warnings"
@@ -5659,8 +5658,7 @@ msgstr "Número de columnas"
 
 #: libraries/display_export.lib.php:40
 msgid "Could not load export plugins, please check your installation!"
-msgstr ""
-"No se cargaron los plugins de exportación. Por favor revise su instalación."
+msgstr "No se cargaron los plugins de exportación. ¡Revise su instalación!"
 
 #: libraries/display_export.lib.php:85
 msgid "Exporting databases from the current server"
@@ -6810,7 +6808,7 @@ msgstr ""
 
 #: libraries/import/csv.php:42
 msgid "Column names: "
-msgstr "Nombre de las columnas:"
+msgstr "Nombre de las columnas: "
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -7772,7 +7770,7 @@ msgstr "No existen eventos para mostrar."
 #: libraries/schema/Visio_Relation_Schema.class.php:219
 #, php-format
 msgid "The %s table doesn't exist!"
-msgstr "La tabla %s no existe"
+msgstr "¡La tabla %s no existe!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:265
 #: libraries/schema/Eps_Relation_Schema.class.php:469
@@ -7793,11 +7791,11 @@ msgstr "Esquema de la base de datos %s - Página %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
-msgstr "Esta página no contiene ninguna tabla"
+msgstr "¡Esta página no contiene ninguna tabla!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "ERROR DE ESQUEMA:"
+msgstr "ERROR DE ESQUEMA: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -8023,7 +8021,7 @@ msgstr "Delimitador"
 
 #: libraries/sql_query_form.lib.php:350
 msgid "Show this query here again"
-msgstr "Mostrar esta consulta otra vez "
+msgstr "Mostrar esta consulta otra vez"
 
 #: libraries/sql_query_form.lib.php:413
 msgid "View only"
@@ -8084,7 +8082,7 @@ msgstr "FIN DEL VOLCADO"
 
 #: libraries/sqlparser.lib.php:383
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Agregar comilla invertida al final de la consulta automáticamente"
+msgstr "¡Comilla invertida agregada al final de la consulta automáticamente!"
 
 #: libraries/sqlparser.lib.php:386
 msgid "Unclosed quote"
@@ -8746,7 +8744,7 @@ msgstr "Crear una página y exportar a ella"
 
 #: pmd_pdf.php:107
 msgid "New page name: "
-msgstr "Nuevo nombre de página:"
+msgstr "Nuevo nombre de página: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
@@ -8820,7 +8818,7 @@ msgstr ""
 
 #: prefs_manage.php:252
 msgid "You have no saved settings!"
-msgstr "No se encontraron configuraciones guardadas."
+msgstr "¡No se encontraron configuraciones guardadas!"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
@@ -8851,7 +8849,7 @@ msgstr ""
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
-msgstr "Se reemplazarán las configuraciones existentes."
+msgstr "¡Se reemplazarán las configuraciones existentes!"
 
 #: prefs_manage.php:321
 msgid "You can reset all your settings and restore them to default values."
@@ -9205,7 +9203,7 @@ msgstr "Privilegios específicos para la tabla"
 #: server_privileges.php:1821
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr ""
-" Nota: Los nombres de los privilegios de MySQL están expresados en inglés "
+"Nota: Los nombres de los privilegios de MySQL están expresados en inglés"
 
 #: server_privileges.php:681
 msgid "Administration"
@@ -9713,7 +9711,7 @@ msgstr "Consejero"
 
 #: server_status.php:790 server_status.php:812
 msgid "Refresh rate: "
-msgstr "Velocidad de actualización:"
+msgstr "Velocidad de actualización: "
 
 #: server_status.php:825 server_variables.php:108
 msgid "Filters"
@@ -10482,8 +10480,8 @@ msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
-"El número de vínculos (joins) que usaron rangos en la primera tabla "
-"(normalmente no es crítico aun cuando sea grande)."
+"El número de vínculos («joins») con rangos en la primera tabla (normalmente "
+"no es crítico aún cuando sea grande)."
 
 #: server_status.php:1391
 msgid "The number of joins that did a full scan of the first table."
@@ -10713,11 +10711,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Activar «general_log» puede aumentar la carga en el servidor hasta un 5-15%. "
+"Activar «general_log» puede aumentar la carga en el servidor en 5-15%. "
 "También esté al tanto que generar estadísticas de los registros es una tarea "
 "muy intensiva por lo que se recomienda seleccionar un período de tiempo lo "
 "más pequeño posible y desactivar «general_log» y vaciar sus tablas una vez "
-"que ya no se necesite monitorizar.        "
+"que ya no se necesite monitorizar."
 
 #: server_status.php:1650
 msgid "Preset chart"
@@ -10982,7 +10980,7 @@ msgstr "Conexión insegura"
 
 #: setup/frames/index.inc.php:94
 msgid "Configuration saved."
-msgstr "Configuración guardada"
+msgstr "Configuración guardada."
 
 #: setup/frames/index.inc.php:95
 msgid ""
@@ -11669,7 +11667,7 @@ msgstr "Longitud de la fila"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Tamaño de la fila "
+msgstr "Tamaño de la fila"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
@@ -12081,7 +12079,7 @@ msgid ""
 "in the slow query log"
 msgstr ""
 "Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen "
-"en el registro de consultas lentas."
+"en el registro de consultas lentas"
 
 #: po/advisory_rules.php:18
 #, php-format
@@ -12178,7 +12176,7 @@ msgstr "Versión actual: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 msgid "Minor Version"
-msgstr "Versión menor:"
+msgstr "Versión menor"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -12403,9 +12401,8 @@ msgstr ""
 "tiempo). Ajustar cuidadosamente «query_cache_min_res_unit» a un valor menor "
 "podría ayudar también; por ejemplo, podría definirlo como el tamaño promedio "
 "de las consultas en el caché utilizando la siguiente fórmula: "
-"(«query_cache_size» - «qcache_free_memory») / "
-"«qcache_queries_in_cache» ((tamaño_caché - memoria_libre_caché) / "
-"cantidad_consultas_en_caché)."
+"(«query_cache_size» - «qcache_free_memory») / «qcache_queries_in_cache» "
+"((tamaño_caché - memoria_libre_caché) / cantidad_consultas_en_caché)"
 
 #: po/advisory_rules.php:93
 #, php-format
@@ -13194,9 +13191,9 @@ msgstr ""
 "puede simplemente cambiar el valor de esta variable. Necesitará cerrar el "
 "servidor, eliminar los archivos de registro InnoDB, definir el nuevo valor "
 "en el archivo my.cnf, iniciar el servidor y luego revisar los mensajes de "
-"error para asegurarse que no hubo inconvenientens. Revise también <a href="
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">este artículo</a>."
+"error para asegurarse que no hubo inconvenientens. Revise también <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">este artículo</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13231,14 +13228,14 @@ msgstr ""
 "Normalmente es suficiente definir innodb_log_file_size a el 25%% del valor "
 "de {innodb_buffer_pool_size}. Un valor muy alto de innodb_log_file_size "
 "reduce considerablemente la velocidad de la recuperación luego de una caída "
-"de la base de datos. Revise también <a href=\"http://www."
-"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
-"\">este artículo</a>. Necesitará cerrar el servidor, eliminar los archivos "
-"de registros InnoDB, definir el nuevo valor en el archivo 'my.cnf', iniciar "
-"el servidor y luego verificar los registros de error para asegurarse que no "
-"hubo inconvenientes. Revise también <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">este artículo</a>."
+"de la base de datos. Revise también <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">este artículo</a>. Necesitará cerrar el servidor, "
+"eliminar los archivos de registros InnoDB, definir el nuevo valor en el "
+"archivo 'my.cnf', iniciar el servidor y luego verificar los registros de "
+"error para asegurarse que no hubo inconvenientes. Revise también <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">este artículo</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
