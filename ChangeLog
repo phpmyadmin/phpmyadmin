@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
+- bug #3511471 [interface] View name not seen in navi panel (MySQL 5.1)
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
