@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 11:52+0200\n"
+"PO-Revision-Date: 2012-03-29 16:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -757,9 +757,8 @@ msgid "Last version"
 msgstr "Azken bertsioa"
 
 #: db_tracking.php:87 tbl_tracking.php:589
-#, fuzzy
 msgid "Created"
-msgstr "Sortu"
+msgstr "Sortua"
 
 #: db_tracking.php:88 tbl_tracking.php:590
 msgid "Updated"
@@ -791,18 +790,16 @@ msgid "not active"
 msgstr "ez aktibo"
 
 #: db_tracking.php:134
-#, fuzzy
 msgid "Versions"
-msgstr "Eragiketak"
+msgstr "Bertsioak"
 
 #: db_tracking.php:135 tbl_tracking.php:374 tbl_tracking.php:621
 msgid "Tracking report"
 msgstr "Jarraipen informea "
 
 #: db_tracking.php:136 tbl_tracking.php:246 tbl_tracking.php:623
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Egitura soilik"
+msgstr "Egitura kaptura"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
@@ -810,9 +807,8 @@ msgstr "Jarraipen gabeko taulak"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:626
 #: tbl_structure.php:628
-#, fuzzy
 msgid "Track table"
-msgstr "Taula egiaztatu"
+msgstr "Taularen jarraipena egin"
 
 #: db_tracking.php:229
 #, fuzzy
