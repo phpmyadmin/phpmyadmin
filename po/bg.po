@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 11:40+0200\n"
+"PO-Revision-Date: 2012-03-29 11:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -104,7 +104,7 @@ msgstr "Неуспешно зареждане на заглавки"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "Отваряенто на отдалечения адрес се провали"
+msgstr "Неуспешно отваряне на отдалечен адрес"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -970,7 +970,7 @@ msgstr "Операцията може да продължи дълго. Да п�
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "На път сте да ИЗКЛЮЧИТЕ BLOB хранилището!"
+msgstr "На път сте да ЗАБРАНИТЕ BLOB хранилище!"
 
 #: js/messages.php:41
 #, php-format
@@ -1829,8 +1829,9 @@ msgid "Query execution time comparison (in microseconds)"
 msgstr ""
 
 #: libraries/chart.lib.php:83
+#, fuzzy
 msgid "Query results"
-msgstr "Резулати от заявка"
+msgstr "Операции с резултата от заявката"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
@@ -7036,7 +7037,7 @@ msgstr "Няма избрани БД."
 #: server_databases.php:75
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "%s бази от данни бяха изтрити успешно."
+msgstr "%s БД бяха изтрити успешно."
 
 #: server_databases.php:100
 msgid "Databases statistics"
