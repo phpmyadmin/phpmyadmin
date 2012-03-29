@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-28 16:04+0200\n"
+"PO-Revision-Date: 2012-03-29 11:48+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -520,8 +520,8 @@ msgstr "Søgeresultater for \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s hit i tabel <i>%s</i>"
-msgstr[1] "%s hits i tabel <i>%s</i>"
+msgstr[0] "%s sammenfald i tabel <i>%s</i>"
+msgstr[1] "%s sammenfald i tabel <i>%s</i>"
 
 #: db_search.php:254 libraries/common.lib.php:2829
 #: libraries/common.lib.php:3011 libraries/common.lib.php:3012
@@ -1747,7 +1747,7 @@ msgstr "Det lykkedes ikke at oprette forbindelse til PBMS:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr "PBMS hent BLOB info mislykkedes"
+msgstr "PBMS hent BLOB info mislykkedes:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
@@ -9907,7 +9907,7 @@ msgstr "Version"
 #: tbl_tracking.php:640
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr "Deaktiver tracking af %s.%s"
+msgstr "Deaktiver sporing af %s.%s"
 
 #: tbl_tracking.php:642
 msgid "Deactivate now"
@@ -9916,7 +9916,7 @@ msgstr "Deaktiver nu"
 #: tbl_tracking.php:653
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr "Aktiver tracking af %s.%s"
+msgstr "Aktiver sporing af %s.%s"
 
 #: tbl_tracking.php:655
 msgid "Activate now"
