@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-28 16:15+0200\n"
+"PO-Revision-Date: 2012-03-29 11:52+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "Language: ta\n"
@@ -1341,8 +1341,9 @@ msgstr "சனி"
 
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1593
+#, fuzzy
 msgid "Sun"
-msgstr "ஞாயிறு"
+msgstr "ஞாயி"
 
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1595
