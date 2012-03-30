@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-29 13:47+0200\n"
+"PO-Revision-Date: 2012-03-30 18:31+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12346,7 +12346,7 @@ msgstr ""
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Snoeien van het query cache bij laag geheugen"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12372,6 +12372,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"De verhouding van verwijderde queries tot ingevoegde queries is %s%%. Hoe "
+"lager deze waarde is, hoe beter. (Deze regel wordt geactiveerd vanaf 0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12420,6 +12422,15 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"{query_cache_limit} wijzigen (doorgaans door te verhogen) kan de efficiëntie "
+"verhogen. Deze variabele bepaalt de maximumgrootte van een query-resultaat "
+"voor het in de query cache opgenomen mag worden. Als er veel query "
+"resultaten  groter dan 1 MiB zijn, die een goeie kandidaat zijn om gecached "
+"te worden (veel keer gelezen, weinig geschreven), dan zal het verhogen van "
+"{query_cache_limit} de efficiëntie verhogen. Maar in het geval dat er veel "
+"query resultaten groter dan 1 MiB zijn, die geen goede kandidaat zijn om "
+"gecached te worden (vaak gewijzigd door wijziging van tabellen), dan zal het "
+"verhogen van {query_cache_limit} mogelijk nadelig zijn voor de efficiëntie."
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
@@ -12515,7 +12526,7 @@ msgstr "Mate van het lezen van eerste index entry"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Mate van het lezen van de eerste index is hoog."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12526,6 +12537,14 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Dit wijst doorgaans op veelvuldige doorlopen van de volledige index. "
+"Volledige doorlopen van de index is sneller dan het doorlopen van de tabel, "
+"maar vereist veel rekenkracht bij grote tabellen; als deze tabellen een "
+"groot aantal UPDATEs of DELETEs hebben of gehad hebben, dan kan het "
+"uitvoeren van 'OPTIMIZE TABLE' het aantal keer dat een index volledig "
+"doorlopen wordt, verminderen, en/of de snelheid waarmee dit gebeurt, "
+"vergroten. Volledig doorlopen van de index kan ook verminderd worden door "
+"queries te herschrijven."
 
 #: po/advisory_rules.php:133
 #, php-format
