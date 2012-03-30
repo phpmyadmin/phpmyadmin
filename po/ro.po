@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-16 21:31+0200\n"
-"Last-Translator: alexukf <alex.ukf@gmail.com>\n"
+"PO-Revision-Date: 2012-03-30 03:43+0200\n"
+"Last-Translator: Alex Marin <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Weblate 0.7\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -4879,7 +4879,7 @@ msgstr ""
 # Gazdă de control
 #: libraries/config/messages.inc.php:386
 msgid "Control host"
-msgstr "Control host"
+msgstr "Gazdă de control"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -5831,7 +5831,7 @@ msgstr "Re-tastează"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
-msgstr "Password Hashing"
+msgstr "Criptare Parola"
 
 #: libraries/display_change_password.lib.php:65
 msgid "MySQL 4.0 compatible"
@@ -6404,8 +6404,9 @@ msgid "Write requests"
 msgstr "Cereri de scriere"
 
 #: libraries/engines/innodb.lib.php:230
+#, fuzzy
 msgid "Read misses"
-msgstr "Read misses"
+msgstr "Citiri gresite"
 
 #: libraries/engines/innodb.lib.php:236
 msgid "Write waits"
@@ -8237,7 +8238,7 @@ msgstr "dezactivare scratchboard"
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:493
 msgid "ltr"
-msgstr "ltr"
+msgstr "ssd"
 
 #: libraries/select_lang.lib.php:511 libraries/select_lang.lib.php:520
 #: libraries/select_lang.lib.php:529
@@ -10082,8 +10083,9 @@ msgid "Transaction coordinator"
 msgstr "Coordonator tranzacție"
 
 #: server_status.php:604
+#, fuzzy
 msgid "Flush (close) all tables"
-msgstr "Flush (close) all tables"
+msgstr "Aruncă (închide) toate tabelele"
 
 #: server_status.php:606
 msgid "Show open tables"
@@ -11796,7 +11798,7 @@ msgstr "Alterare „ordonare tabel după”"
 
 #: tbl_operations.php:277
 msgid "(singly)"
-msgstr "(singly)"
+msgstr "(individual)"
 
 #: tbl_operations.php:297
 msgid "Move table to (database<b>.</b>table):"
@@ -13409,7 +13411,7 @@ msgstr "conexiuni concurente (maxim)"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Activează concurrent_insert setându-i valoarea la 1"
 
 #: po/advisory_rules.php:272
 msgid ""
@@ -13420,7 +13422,7 @@ msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert is set to 0"
 
 #, fuzzy
 #~ msgctxt "Correctly setup"
