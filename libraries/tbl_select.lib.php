@@ -129,7 +129,7 @@ function PMA_tbl_getSubTabs()
  * @param int    $foreignMaxLimit Max limit of displaying foreign elements
  * @param array  $fields          Array of search criteria inputs
  * @param bool   $in_fbs          Whether we are in 'function based search'
- * @param bool   $in_zoom_search_edit  Whether we are in zoom search edit 
+ * @param bool   $in_zoom_search_edit  Whether we are in zoom search edit
  *
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
@@ -381,34 +381,5 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
     } // end if
 
     return $w;
-}
-
-/**
- * Formats a SVG plot for the query results.
- *
- * @param array $data      Data for the status chart
- * @param array &$settings Settings used to generate the chart
- *
- * @return string HTML and JS code for the SVG plot
- */
-function PMA_SVG_scatter_plot($data, &$settings)
-{
-    include_once './libraries/svg_plot/pma_scatter_plot.php';
-
-    if (empty($data)) {
-        // empty data
-        return '';
-    } else {
-        $scatter_plot = new PMA_Scatter_Plot($data, $settings);
-
-        if ($settings != null) {
-            foreach ($scatter_plot->getSettings() as $setting => $val) {
-                if (! isset($settings[$setting])) {
-                    $settings[$setting] = $val;
-                }
-            }
-        }
-        return $scatter_plot->asSVG();
-    }
 }
 ?>
