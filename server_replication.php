@@ -209,11 +209,13 @@ if ($server_master_status) {
         echo '<legend>' . __('Master replication') . '</legend>';
         echo __('This server is configured as master in a replication process.');
         echo '<ul>';
-        echo '  <li><a href="#" id="master_status_href">' . __('Show master status') . '</a></li>';
+        echo '  <li><a href="#" id="master_status_href">' . __('Show master status') . '</a>';
         PMA_replication_print_status_table('master', true, false);
+        echo '  </li>';
 
-        echo '  <li><a href="#" id="master_slaves_href">' . __('Show connected slaves') . '</a></li>';
+        echo '  <li><a href="#" id="master_slaves_href">' . __('Show connected slaves') . '</a>';
         PMA_replication_print_slaves_table(true);
+        echo '  </li>';
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['mr_adduser'] = true;
@@ -333,8 +335,9 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         echo __('Server is configured as slave in a replication process. Would you like to:');
         echo '<br />';
         echo '<ul>';
-        echo ' <li><a href="#" id="slave_status_href">' . __('See slave status table') . '</a></li>';
+        echo ' <li><a href="#" id="slave_status_href">' . __('See slave status table') . '</a>';
         echo PMA_replication_print_status_table('slave', true, false);
+        echo ' </li>';
         if (isset($_SESSION['replication']['m_correct']) && $_SESSION['replication']['m_correct'] == true) {
             echo ' <li><a href="#" id="slave_synchronization_href">' . __('Synchronize databases with master') . '</a></li>';
             echo ' <div id="slave_synchronization_gui" style="display: none">';
@@ -382,6 +385,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         echo ' </li>';
         echo ' <li><a href="' . $reconfiguremaster_link . '">' . __('Change or reconfigure master server') . '</a></li>';
         echo '</ul>';
+        echo '</div>';
 
     } elseif (! isset($GLOBALS['sl_configure'])) {
         $_url_params = $GLOBALS['url_params'];
@@ -390,7 +394,6 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
 
         echo sprintf(__('This server is not configured as slave in a replication process. Would you like to <a href="%s">configure</a> it?'), PMA_generate_common_url($_url_params));
     }
-    echo '</div>';
     echo '</fieldset>';
 }
 if (isset($GLOBALS['sl_configure'])) {
