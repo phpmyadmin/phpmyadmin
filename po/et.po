@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 11:47+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-03-29 23:03+0200\n"
+"Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -412,7 +412,7 @@ msgstr "Mine"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "visual builder"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:871
@@ -785,11 +785,11 @@ msgstr "Andmebaasi logi"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" veeru väärtused"
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:794
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Sisesta iga väärtus eraldi väljale."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
@@ -1740,7 +1740,7 @@ msgstr "PBMS ei saanud BLOB infot:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "get BLOB Content-Type failed"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1832,7 +1832,7 @@ msgstr "Päringu tulemused"
 
 #: libraries/chart.lib.php:109
 msgid "No data found for the chart."
-msgstr ""
+msgstr "Diagrammi jaoks andmeid ei leitud."
 
 #: libraries/chart.lib.php:249
 msgid "GD extension is needed for charts."
@@ -5656,18 +5656,16 @@ msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1147
-#, fuzzy
 msgid "Go to database"
-msgstr "Pole andmebaase"
+msgstr "Mine andmebaasi"
 
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 msgid "settings"
 msgstr "sätted"
 
 #: libraries/import.lib.php:1169
-#, fuzzy
 msgid "Go to table"
-msgstr "Pole andmebaase"
+msgstr "Mine tabelisse"
 
 #: libraries/import.lib.php:1178
 msgid "Go to view"
@@ -6622,9 +6620,8 @@ msgid "You have to add at least one column."
 msgstr "Pead lisama vähemalt ühe veeru."
 
 #: libraries/tbl_properties.inc.php:796
-#, fuzzy
 msgid "+ Add a new value"
-msgstr "Lisa uus kasutaja"
+msgstr "+ Lisa uus väärtus"
 
 #: libraries/tbl_triggers.lib.php:28
 msgid "Event"
@@ -6965,10 +6962,9 @@ msgid "Filter"
 msgstr "Filter"
 
 #: navigation.php:277
-#, fuzzy
 #| msgid "table name"
 msgid "filter tables by name"
-msgstr "tabeli nimi"
+msgstr "filtreeri tabeleid nime järgi"
 
 #: navigation.php:308 navigation.php:309
 msgctxt "short form"
@@ -9229,10 +9225,9 @@ msgid "Function"
 msgstr "Funktsioon"
 
 #: tbl_change.php:758
-#, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
-msgstr " Oma suuruse tõttu<br /> võib see väli olla mittemuudetav "
+msgstr "Oma suuruse tõttu<br /> võib see veerg olla mittemuudetav "
 
 #: tbl_change.php:875
 msgid "Remove BLOB Repository Reference"
@@ -9347,10 +9342,9 @@ msgid "Pie"
 msgstr "Sektor"
 
 #: tbl_chart.php:144
-#, fuzzy
 #| msgid "Query type"
 msgid "Bar type"
-msgstr "Päringu tüüp"
+msgstr "Rea tüüp"
 
 #: tbl_chart.php:146
 msgid "Stacked"
