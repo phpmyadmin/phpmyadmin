@@ -22,6 +22,22 @@ $GLOBALS['js_include'][] = 'tbl_relation.js';
 require_once 'libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_sql.php';
 
+/**
+ * Sets globals from $_POST
+ */
+$post_params = array(
+    'destination',
+    'destination_foreign',
+    'display_field',
+    'fields_name',
+    'on_delete',
+    'on_update'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
 
 /**
  * Gets tables informations
