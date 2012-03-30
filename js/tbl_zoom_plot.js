@@ -516,7 +516,7 @@ $(document).ready(function() {
         title: PMA_messages['strDataPointContent'],
         modal: true,
         buttons: buttonOptions,
-        width: $('#dataDisplay').width() + 24,
+        width: $('#dataDisplay').width() + 80,
         open: function () {
             $(this).find('input[type=checkbox]').css('margin', '0.5em');
         }
