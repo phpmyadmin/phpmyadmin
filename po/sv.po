@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-29 21:06+0200\n"
+"PO-Revision-Date: 2012-03-29 21:07+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6239,10 +6239,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
-msgstr ""
-"\n"
-"\n"
-"Max Keep Alive"
+msgstr "Max håll aktiv"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
