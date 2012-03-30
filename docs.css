@@ -63,11 +63,8 @@ ul#footer {
     color: #c19e66;
 }
 
-abbr, acronym {
+abbr {
     border-bottom: 1px dotted;
-}
-
-abbr, acronym {
     cursor: help;
 }
 
