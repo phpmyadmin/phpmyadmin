@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-29 13:47+0200\n"
+"PO-Revision-Date: 2012-03-30 19:06+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12467,7 +12467,7 @@ msgstr ""
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Snoeien van het query cache bij laag geheugen"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12493,6 +12493,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"De verhouding van verwijderde queries tot ingevoegde queries is %s%%. Hoe "
+"lager deze waarde is, hoe beter. (Deze regel wordt geactiveerd vanaf 0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12541,6 +12543,15 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"{query_cache_limit} wijzigen (doorgaans door te verhogen) kan de efficiëntie "
+"verhogen. Deze variabele bepaalt de maximumgrootte van een query-resultaat "
+"voor het in de query cache opgenomen mag worden. Als er veel query "
+"resultaten  groter dan 1 MiB zijn, die een goeie kandidaat zijn om gecached "
+"te worden (veel keer gelezen, weinig geschreven), dan zal het verhogen van "
+"{query_cache_limit} de efficiëntie verhogen. Maar in het geval dat er veel "
+"query resultaten groter dan 1 MiB zijn, die geen goede kandidaat zijn om "
+"gecached te worden (vaak gewijzigd door wijziging van tabellen), dan zal het "
+"verhogen van {query_cache_limit} mogelijk nadelig zijn voor de efficiëntie."
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
@@ -12636,7 +12647,7 @@ msgstr "Mate van het lezen van eerste index entry"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Mate van het lezen van de eerste index is hoog."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12647,19 +12658,29 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Dit wijst doorgaans op veelvuldige doorzoeken van de volledige index. "
+"Volledige doorzoeken van de index is sneller dan het doorzoeken van een "
+"tabel, maar vereist veel rekenkracht bij grote tabellen; als deze tabellen "
+"een groot aantal UPDATEs of DELETEs hebben of gehad hebben, dan kan het "
+"uitvoeren van 'OPTIMIZE TABLE' het aantal keer dat een index volledig "
+"doorzocht wordt, verminderen, en/of de snelheid waarmee dit gebeurt, "
+"vergroten. Volledig doorzoeken van de index kan ook verminderd worden door "
+"queries te herschrijven."
 
 #: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Gemiddelde van het doorlopen van de index : %s, deze waarde moet kleiner "
+"zijn dan 1 keer per uur"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Mate van het lezen van een vaste positie"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "De mate van het lezen van gegevens van een vaste positie is hoog."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12667,6 +12688,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Dit wijst erop dat veel queries resultaten moeten sorteren en/of een tabel "
+"volledig doorzoeken, inbegrepen JOIN queries die geen gebruik maken van "
+"indexen. Voeg indexen toe waar nodig."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12674,6 +12698,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Gemiddelde mate van het lezen van een vaste positie : %s, deze waarde is "
+"best kleiner dan 1 keer per uur"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
@@ -12688,20 +12714,24 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Dit wijst erop dat veel queries tabellen volledig doorzoeken. Voeg indexen "
+"toe waar nodig."
 
 #: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van het lezen van de volgende tabel regel : %s, deze waarde zou kleiner "
+"moeten zijn dan 1 keer per uur"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size ten opzichte van max_heap_table_size"
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size en max_heap_table_size zijn verschillend."
 
 #: po/advisory_rules.php:147
 msgid ""
@@ -12710,11 +12740,15 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Als u bewust een van de volgende waarden hebt gewijzigd : De server gebruikt "
+"de laagste waarde van een van deze om de maximumgrootte van tabellen in het "
+"geheugen te bepalen. Als u de limitet voor tabellen in het geheugen wil "
+"verhogen, moet u de andere waarde ook verhogen."
 
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "De huidige waarden zijn tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
@@ -12725,6 +12759,8 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Veel tijdelijke tabellen worden naar harde schijf geschreven in plaats van "
+"in het geheugen bewaard te worden."
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12736,6 +12772,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Verhogen van {max_heap_table_size} en {tmp_table_size} kan helpen. Hoewel "
+"sommige tijdelijke tabellen altijd naar de harde schijf geschreven worden, "
+"onafhankelijk van de waarde van deze variabelen. Om dit te vermijden zullen "
+"deze queries herschreven moeten worden, om deze voorwaarden te vermijden "
+"(bij tijdelijke tabellen: Gebruik van een BLOB of TEXT kolom of een kolom "
+"groter dan 512 bytes) zoals vermeld wordt in een <a href=\"http://www.faceboo"
+"k.com/note.php?note_id=10150111255065841&comments\">artikel van de Pythian "
+"Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12743,6 +12787,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% van alle tijdelijke tabellen wordt bewaard op de harde schijf, dit zou "
+"minder 25%% moeten zijn"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
@@ -12758,6 +12804,14 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Verhogen van {max_heap_table_size} en {tmp_table_size} kan helpen. Hoewel "
+"sommige tijdelijke tabellen altijd naar de harde schijf geschreven worden, "
+"onafhankelijk van de waarde van deze variabelen. Om dit te vermijden zullen "
+"deze queries herschreven moeten worden, om deze voorwaarden te vermijden "
+"(bij tijdelijke tabellen: Gebruik van een BLOB of TEXT kolom of een kolom "
+"groter dan 512 bytes) zoals vermeld wordt in de <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">MySQL Documentatie</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12765,6 +12819,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Mate van tijdelijke tabellen die op harde schijf bewaard worden : %s, deze "
+"waar zou kleiner moeten zijn dan 1 keer per uur"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12773,16 +12829,20 @@ msgstr "MyISAM sleutel buffer grootte"
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"De sleutel buffer is niet ingesteld. MyISAM indexen zullen niet gecached "
+"worden."
 
 #: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Stel {key_buffer_size} in afhankelijk van de grootte van uw MyISAM indexen. "
+"64M is een goed begin."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size is 0"
 
 #: po/advisory_rules.php:165
 #, php-format
@@ -12800,6 +12860,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Verklein best de grootte van {key_buffer_size}, herbekijk uw tabellen om te "
+"zien of indexen verwijderd werden, of bekijk queries en verwachtingen over "
+"welke indexen gebruikt zouden moeten worden."
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12817,24 +12880,27 @@ msgstr "Percentage van de MyISAM sleutel buffer die gebruikt wordt"
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
+"%% MyISAM sleutel buffer gebruikt: %s%%, dit zou groter dan 95%% moeten zijn"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Percentage van lezen van de index uit het geheugen"
 
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "Het %% van indexen dat de MyISAM sleutel buffer gebruikt, is laag."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Verhoog best {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Lezen van de index uit geheugen : %s%%, deze waarde zou hogere moeten liggen "
+"dan 95%%"
 
 #: po/advisory_rules.php:180
 msgid "Rate of table open"
