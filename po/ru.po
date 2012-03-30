@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-24 10:29+0200\n"
+"PO-Revision-Date: 2012-03-30 20:24+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
@@ -1770,22 +1770,19 @@ msgid "Show indexes"
 msgstr "Отображать индексы"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:301
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Отключить проверку внешних ключей"
+msgstr "Проверка внешних ключей:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Доступно"
+msgstr "(Включено)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Недоступно"
+msgstr "(Отключено)"
 
 #: js/messages.php:255
 msgid "Searching"
