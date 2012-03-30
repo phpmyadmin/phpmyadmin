@@ -9,9 +9,21 @@ if (! defined('PHPMYADMIN')) {
 }
 
 $request_params = array(
+    'clause_is_unique',
+    'goto',
+    'js_frame',
+    'mult_btn',
+    'original_sql_query',
+    'query_type',
+    'reload',
+    'rows_to_delete',
+    'selected',
     'selected_fld',
+    'selected_recent_table',
+    'sql_query',
     'submit_mult',
-    'table_type'
+    'table_type',
+    'url_query'
 );
 
 foreach ($request_params as $one_request_param) {
