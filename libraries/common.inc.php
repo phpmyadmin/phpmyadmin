@@ -427,6 +427,31 @@ $goto_whitelist = array(
 );
 
 /**
+ * @global boolean $GLOBALS['is_ajax_request']
+ *
+ * Check if the current request is an AJAX request, and set is_ajax_request
+ * accordingly.  Suppress headers, footers and unnecessary output if set to
+ * true
+ */
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+    $GLOBALS['is_ajax_request'] = true;
+} else {
+    $GLOBALS['is_ajax_request'] = false;
+}
+
+/**
+ * @global  boolean $GLOBALS['grid_edit']
+ *
+ * Set to true if this is a request made during an grid edit process.  This
+ * request is made to retrieve the non-truncated/transformed values.
+ */
+if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
+    $GLOBALS['grid_edit'] = true;
+} else {
+    $GLOBALS['grid_edit'] = false;
+}
+
+/**
  * check $__redirect against whitelist
  */
 if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
@@ -847,9 +872,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         include_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
         if (!PMA_auth_check()) {
-            /* Force generating of new session on login */
-            PMA_secureSession();
-            PMA_auth();
+            if ($GLOBALS['is_ajax_request']) {
+                /* Send back a JSON response if the request was made via AJAX */
+                PMA_ajaxResponse(
+                    PMA_message::error(__("Your session has expired. Please login again.")),
+                    false
+                );
+                // exit();
+            } else {
+                /* Force generating of new session on login */
+                PMA_secureSession();
+                PMA_auth();
+            }
         } else {
             PMA_auth_set_user();
         }
@@ -1020,32 +1054,6 @@ $GLOBALS['PMA_Config']->set('default_server', '');
 
 /* Tell tracker that it can actually work */
 PMA_Tracker::enable();
-
-/**
- * @global boolean $GLOBALS['is_ajax_request']
- * @todo should this be moved to the variables init section above?
- *
- * Check if the current request is an AJAX request, and set is_ajax_request
- * accordingly.  Suppress headers, footers and unnecessary output if set to
- * true
- */
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    $GLOBALS['is_ajax_request'] = true;
-} else {
-    $GLOBALS['is_ajax_request'] = false;
-}
-
-/**
- * @global  boolean $GLOBALS['grid_edit']
- *
- * Set to true if this is a request made during an grid edit process.  This
- * request is made to retrieve the non-truncated/transformed values.
- */
-if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
-    $GLOBALS['grid_edit'] = true;
-} else {
-    $GLOBALS['grid_edit'] = false;
-}
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
