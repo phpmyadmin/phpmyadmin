@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-31 17:51+0200\n"
+"PO-Revision-Date: 2012-03-31 19:18+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -34,8 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ බ්‍රව්සරයේ "
-"ආරක්ෂක සැකසුම් cross-window යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය හැක."
+"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ "
+"ඔබගේ බ්‍රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස "
+"සකසා තිබීම මීට හේතු විය හැක."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:3165
 #: libraries/common.lib.php:3172 libraries/common.lib.php:3382
@@ -2865,7 +2866,7 @@ msgstr "ඉරිදා"
 #: libraries/common.lib.php:1683
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y දින %I:%M %p ට"
 
 #: libraries/common.lib.php:2017
 #, php-format
@@ -4828,11 +4829,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
-msgstr ""
+msgstr "මුරපදය වෙනස් කිරීමේ පෝරමය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:459
 msgid "Show create database form"
-msgstr ""
+msgstr "දත්තගබඩාවක් සෑදීමේ පෝරමය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:460
 msgid ""
@@ -5312,7 +5313,7 @@ msgstr "නැවත ටයිප් කරන්න"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
-msgstr "Password Hashing"
+msgstr "මුරපදය hash කිරීම"
 
 #: libraries/display_change_password.lib.php:65
 msgid "MySQL 4.0 compatible"
@@ -5727,7 +5728,7 @@ msgstr "ප්‍රස්තාරගත කරන්න"
 
 #: libraries/display_tbl.lib.php:2685
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "ජ්‍යාමිතික දත්ත නිරූපණය"
 
 #: libraries/display_tbl.lib.php:2706
 msgid "Create view"
@@ -5735,7 +5736,7 @@ msgstr "දසුනක් සාදන්න"
 
 #: libraries/display_tbl.lib.php:2813
 msgid "Link not found"
-msgstr ""
+msgstr "සබැඳිය හමු නොවිණි"
 
 #: libraries/engines/bdb.lib.php:20 main.php:237
 msgid "Version information"
@@ -7817,6 +7818,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
+"ක්ලික් කල හැකි පින්තුරයක් පෙන්වයි; විකල්ප පික්සල් වලින් උපරිම පළල සහ උස විය "
+"යුතුය. පෙර තිබූ උසට පළල අනුපාතය සුරැකේ."
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
