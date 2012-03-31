@@ -17,7 +17,7 @@ function PMA_transformation_text_plain__append($buffer, $options = array(), $met
         $options[0] = '';
     }
 
-    $newtext = $buffer . $options[0];  //just append the option to the original text
+    $newtext = $buffer . htmlspecialchars($options[0]);  //just append the option to the original text
 
     return $newtext;
 }
