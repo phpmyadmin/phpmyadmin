@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-30 19:06+0200\n"
+"PO-Revision-Date: 2012-03-31 22:08+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12915,11 +12915,15 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Openen van tabellen vereist toegang tot de harde schijf, wat kostelijk is. "
+"Verhogen van {table_open_cache} kan dit mogelijk vermijden."
 
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Mate van geopende tabellen : %s, deze waarde zou minder moeten zijn dan 10 "
+"per uur"
 
 #: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
@@ -12930,18 +12934,25 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Het aantal geopende bestanden komt in de buurt van het maximum aantal "
+"geopende bestanden. U kan een \"Teveel geopende bestanden\" foutmelding "
+"krijgen."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Overweeg om {open_files_limit} te verhogen, en controleer de foutenlog na "
+"herstarten nadat open_files_limit gewijzigd werd."
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Het aantal geopende bestanden is %s%% van de limiet. Dit zou minder dan 85%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
@@ -12955,33 +12966,41 @@ msgstr "Het aandeel geopende bestanden is hoog."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Mate van geopende bestanden: %s, deze waarde zou minder dan 5 per uur moeten "
+"zijn"
 
 #: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
-msgstr "Onmiddellijke tabelgrendels %%"
+msgstr "Onmiddellijke tabelvergrendelingen %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
-msgstr "Te veel tabel locks werden niet onmiddellijk toegestaan."
+msgstr "Te veel tabelvergrendelingen werden niet onmiddellijk toegestaan."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimaliseer queries en/of gebruik InnoDB om wachten op vergrendeling te "
+"verminderen."
 
 #: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
+"Onmiddellijke tabelvergrendelingen : %s%%, deze waarde zou groter dan 95%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Mate van wachten op tabelvergrendelingen"
 
 #: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van wachten op tabelvergrendelingen: %s, deze waarde zou kleiner moeten "
+"zijn dan 1 per uur"
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
@@ -12992,19 +13011,21 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Thread cache is uitgeschakeld, dit veroorzaakt meer overhead van nieuwe "
+"verbinding naar MySQL."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "Schakel thread cache in door {thread_cache_size} > 0 in te stellen."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "De thread cache is ingesteld op 0"
 
 #: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr ""
+msgstr "Gebruik van de thread cache %%"
 
 #: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
@@ -13012,16 +13033,18 @@ msgstr "Thread cache werkt niet efficiënt."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Verhoog {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Gebruik van de thread cache: %s%%, deze waarde zou groter moeten zijn dan 80"
+"%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Threads die traag worden opgestart"
 
 #: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
@@ -13032,30 +13055,36 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Dit gebeurt meestal wanneer het systeem overbelast is. Bekijk de belasting "
+"van uw systeem nauwkeurig."
 
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
+"%s thread(s) deden er langer dan %s seconden over om op te starten, dit zou "
+"0 moeten zijn"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Trage lanceertijd"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads is hoger dan 2sec"
 
 #: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Stel slow_launch_time in op 1 of 2 sec om op een goede manier traag "
+"startende threads te tellen"
 
 #: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr ""
+msgstr "slow_launch_time is ingesteld op %s"
 
 #: po/advisory_rules.php:225
 msgid "Percentage of used connections"
@@ -13066,6 +13095,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"Het maximum aantal gebruikte verbindingen is bijna gelijk aan de waarde van "
+"max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
@@ -13082,6 +13113,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections is %s%% van max_connections, dit zou kleiner dan 80%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
@@ -13089,7 +13122,7 @@ msgstr "Percentage van afgebroken verbindingen"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Te veel verbindingen werden afgebroken."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
@@ -13098,11 +13131,17 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Verbindingen worden meestal afgebroken wanneer deze niet toegelaten zijn. <a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">Dit artikel</a> kan u helpen om de oorzaak te "
+"vinden."
 
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% van alle verbindingen werden afgebroken. Deze waarde zou kleiner moeten "
+"zijn dan 1%%"
 
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
@@ -13113,6 +13152,8 @@ msgstr "Aandeel van afgebroken verbindingen"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van afgebroken verbindingen is %s, deze waarde zou minder dan 1 per uur "
+"moeten zijn"
 
 #: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
@@ -13120,7 +13161,7 @@ msgstr "Percentage van afgebroken clients"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Te veel clients werden afgebroken."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -13137,6 +13178,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% van alle clients werden afgebroken. Deze waarde zou minder dan 2%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
@@ -13146,10 +13189,12 @@ msgstr "Aantal afgebroken clients"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van afgebroken clients is %s, deze waarde zou minder dan 1 per uur "
+"moeten zijn"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Is InnoDB uitgeschakeld?"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
@@ -13157,11 +13202,11 @@ msgstr "InnoDB is niet ingeschakeld."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB is doorgaans de beste keuze als tabel engine."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb is ingesteld op 'value'"
 
 #: po/advisory_rules.php:255
 msgid "InnoDB log size"
@@ -13206,14 +13251,16 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"De grootte van de InnoDB log is %s%% in vergelijking met de grootte van de "
+"InnoDB buffer pool, deze zou kleiner moeten zijn dan 20%%"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Maximum grootte van de InnoDB log"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "De InnoDB log is veel te groot."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13242,7 +13289,7 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "De maximumgrootte van de InnoDB log is %s MiB"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
@@ -13250,7 +13297,7 @@ msgstr "InnoDB buffer pool grootte"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Uw InnoDB buffer pool is betrekkelijk klein."
 
 #: po/advisory_rules.php:267
 #, php-format
@@ -13286,6 +13333,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"U gebruikt momenteel %s%% van het geheugen voorzien voor de InnoDB buffer "
+"pool. Deze regel wordt geactiveerd als u minder dan 60%% toewijst, hoewel "
+"dat dit perfect geschikt kan zijn voor uw systeem als u niet veel InnoDB "
+"tabellen heeft of andere diensten die op deze machine lopen."
 
 #: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"
@@ -13301,10 +13352,14 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"{concurrent_insert} instellen op 1 vermindert geschillen tussen lezers en "
+"schrijversvoor een bepaalde tabel. Bekijk ook de <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"documentatie</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert is ingesteld op 0"
 
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "Het maximum aantal tabellen dat wordt getoond in de tabellen lijst"
