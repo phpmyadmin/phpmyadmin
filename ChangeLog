@@ -14,10 +14,12 @@ phpMyAdmin - ChangeLog
 + Patch #3506552 Contest-2: Show index information in the data dictionary
 + Patch #3510656 Contest-1: Ignoring foreign keys while dropping tables
 - Bug #3509686 Reverting sort on joined column does not work
++ New transformation: append string
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
 - bug #3511471 [interface] View name not seen in navi panel (MySQL 5.1)
+- bug #3512916 [display] Right frame reloads after displaying SQL result(zero rows)
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
