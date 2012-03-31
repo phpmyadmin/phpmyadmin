@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-31 18:35+0200\n"
+"PO-Revision-Date: 2012-03-31 22:23+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -430,7 +430,7 @@ msgstr "Toon"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr "Criteria"
+msgstr "Criterium"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
@@ -3062,7 +3062,7 @@ msgstr "Rechts"
 
 #: libraries/config.values.php:76
 msgid "Open"
-msgstr "Open"
+msgstr "Geopend"
 
 #: libraries/config.values.php:77
 msgid "Closed"
@@ -3664,7 +3664,7 @@ msgstr "Maximale lengte van de gemaakte query"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export type"
-msgstr "Export type"
+msgstr "Export-type"
 
 #: libraries/config/messages.inc.php:141 libraries/export/sql.php:73
 msgid "Enclose export in a transaction"
@@ -4182,7 +4182,7 @@ msgstr "URL van het logo in het navigatie frame"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
-msgstr "Logo link URL"
+msgstr "URL voor de link van het logo"
 
 #: libraries/config/messages.inc.php:286
 msgid ""
@@ -5977,7 +5977,7 @@ msgstr "stop proces"
 
 #: libraries/display_tbl.lib.php:2337
 msgid "in query"
-msgstr "in query"
+msgstr "in de query"
 
 #: libraries/display_tbl.lib.php:2369
 msgid "Showing rows"
@@ -7951,7 +7951,7 @@ msgstr "Voer SQL query/queries uit op databank %s"
 #: libraries/sql_query_form.lib.php:267 navigation.php:265
 #: setup/frames/index.inc.php:233
 msgid "Clear"
-msgstr "Clear"
+msgstr "Leegmaken"
 
 #: libraries/sql_query_form.lib.php:272
 msgid "Columns"
@@ -8405,7 +8405,7 @@ msgstr "Karakterset server"
 
 #: main.php:196
 msgid "Web server"
-msgstr "Web server"
+msgstr "Webserver"
 
 #: main.php:209
 msgid "Database client version"
@@ -8421,7 +8421,7 @@ msgstr "Laat informatie over PHP zien"
 
 #: main.php:242
 msgid "Official Homepage"
-msgstr "Officiële phpMyAdmin Website"
+msgstr "Officiële phpMyAdmin website"
 
 #: main.php:243
 msgid "Contribute"
@@ -9515,7 +9515,7 @@ msgstr "Stop volledig"
 
 #: server_replication.php:354
 msgid "Reset slave"
-msgstr "Reset slave"
+msgstr "Slave herinstellen"
 
 #: server_replication.php:356
 msgid "Start SQL Thread only"
@@ -10970,7 +10970,7 @@ msgstr "Laden"
 
 #: setup/frames/index.inc.php:241
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin homepage"
+msgstr "phpMyAdmin website"
 
 #: setup/frames/index.inc.php:242
 msgid "Donate"
@@ -12957,11 +12957,13 @@ msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Stel slow_launch_time in op 1 of 2 sec om op een goede manier traag "
+"startende threads te tellen"
 
 #: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr ""
+msgstr "slow_launch_time is ingesteld op %s"
 
 #: po/advisory_rules.php:225
 msgid "Percentage of used connections"
@@ -12972,6 +12974,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"Het maximum aantal gebruikte verbindingen is bijna gelijk aan de waarde van "
+"max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
@@ -12988,6 +12992,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections is %s%% van max_connections, dit zou kleiner dan 80%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
@@ -12995,7 +13001,7 @@ msgstr "Percentage van afgebroken verbindingen"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Te veel verbindingen werden afgebroken."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
@@ -13004,11 +13010,17 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Verbindingen worden meestal afgebroken wanneer deze niet toegelaten zijn. <a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">Dit artikel</a> kan u helpen om de oorzaak te "
+"vinden."
 
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% van alle verbindingen werden afgebroken. Deze waarde zou kleiner moeten "
+"zijn dan 1%%"
 
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
@@ -13019,6 +13031,8 @@ msgstr "Aandeel van afgebroken verbindingen"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van afgebroken verbindingen is %s, deze waarde zou minder dan 1 per uur "
+"moeten zijn"
 
 #: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
@@ -13026,7 +13040,7 @@ msgstr "Percentage van afgebroken clients"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Te veel clients werden afgebroken."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -13043,6 +13057,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% van alle clients werden afgebroken. Deze waarde zou minder dan 2%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
@@ -13052,10 +13068,12 @@ msgstr "Aantal afgebroken clients"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van afgebroken clients is %s, deze waarde zou minder dan 1 per uur "
+"moeten zijn"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Is InnoDB uitgeschakeld?"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
@@ -13063,11 +13081,11 @@ msgstr "InnoDB is niet ingeschakeld."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB is doorgaans de beste keuze als tabel engine."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb is ingesteld op 'value'"
 
 #: po/advisory_rules.php:255
 msgid "InnoDB log size"
@@ -13112,14 +13130,16 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"De grootte van de InnoDB log is %s%% in vergelijking met de grootte van de "
+"InnoDB buffer pool, deze zou kleiner moeten zijn dan 20%%"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Maximum grootte van de InnoDB log"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "De InnoDB log is veel te groot."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13148,7 +13168,7 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "De maximumgrootte van de InnoDB log is %s MiB"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
@@ -13156,7 +13176,7 @@ msgstr "InnoDB buffer pool grootte"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Uw InnoDB buffer pool is betrekkelijk klein."
 
 #: po/advisory_rules.php:267
 #, php-format
@@ -13192,6 +13212,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"U gebruikt momenteel %s%% van het geheugen voorzien voor de InnoDB buffer "
+"pool. Deze regel wordt geactiveerd als u minder dan 60%% toewijst, hoewel "
+"dat dit perfect geschikt kan zijn voor uw systeem als u niet veel InnoDB "
+"tabellen heeft of andere diensten die op deze machine lopen."
 
 #: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"
@@ -13207,10 +13231,14 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"{concurrent_insert} instellen op 1 vermindert geschillen tussen lezers en "
+"schrijversvoor een bepaalde tabel. Bekijk ook de <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"documentatie</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert is ingesteld op 0"
 
 #, fuzzy
 #~ msgid "Tracking for %1$s, version %2$s is deactivated."
