@@ -231,7 +231,7 @@ foreach ($tables as $table) {
     <td<?php echo $type_nowrap; ?> lang="en" dir="ltr"><?php echo $type; ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $attribute; ?></td>*/ ?>
     <td><?php echo (($row['Null'] == 'NO') ? __('No') : __('Yes')); ?></td>
-    <td nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>
+    <td class="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $row['Extra']; ?></td>*/ ?>
         <?php
         if ($have_rel) {
