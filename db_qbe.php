@@ -600,9 +600,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
 ?>
 </fieldset>
 <fieldset class="tblFooters">
-<table cellpadding="2" cellspacing="1">
-<tr>
-    <td class="nowrap">
+    <div class="floatleft">
         <?php echo __('Add/Delete criteria rows'); ?>:
         <select size="1" name="add_row">
             <option value="-3">-3</option>
@@ -613,9 +611,9 @@ echo PMA_generate_common_hidden_inputs($url_params);
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
-    </td>
-    <td style="width: 10px">&nbsp;</td>
-    <td class="nowrap"><?php echo __('Add/Delete columns'); ?>:
+    </div>
+    <div class="floatleft">
+        <?php echo __('Add/Delete columns'); ?>:
         <select size="1" name="add_col">
             <option value="-3">-3</option>
             <option value="-2">-2</option>
@@ -625,12 +623,11 @@ echo PMA_generate_common_hidden_inputs($url_params);
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
-    </td>
-    <td style="width: 10px">&nbsp;</td>
+    </div>
     <!-- Generates a query -->
-    <td><input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" /></td>
-</tr>
-</table>
+    <div class="floatleft">
+        <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
+    </div>
 </fieldset>
 
 <div class="floatleft">
