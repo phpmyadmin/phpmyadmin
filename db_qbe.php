@@ -633,37 +633,36 @@ echo PMA_generate_common_hidden_inputs($url_params);
 </table>
 </fieldset>
 
-<table>
-<tr><td>
-        <fieldset>
-            <legend><?php echo __('Use Tables'); ?></legend>
+<div class="floatleft">
+    <fieldset>
+        <legend><?php echo __('Use Tables'); ?></legend>
 <?php
 $options = '';
 $numTableListOptions = 0;
 foreach ($tbl_names as $key => $val) {
-    $options .= '                        ';
+    $options .= '                    ';
     $options .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
         . str_replace(' ', '&nbsp;', htmlspecialchars($key)) . '</option>' . "\n";
     $numTableListOptions++;
 }
 ?>
-            <select name="TableList[]" multiple="multiple" id="listTable"
-                size="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>">
-                <?php echo $options; ?>
-            </select>
-        </fieldset>
-        <fieldset class="tblFooters">
-            <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
-        </fieldset>
-    </td>
-    <td style="width: 20px">&nbsp;</td>
-    <td>
-        <fieldset>
-            <legend><?php echo sprintf(__('SQL query on database <b>%s</b>:'), PMA_getDbLink($db)); ?>
-                </legend>
-            <textarea cols="80" name="sql_query" id="textSqlquery"
-                rows="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>"
-                dir="<?php echo $text_dir; ?>">
+        <select name="TableList[]" multiple="multiple" id="listTable"
+            size="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>">
+            <?php echo $options; ?>
+        </select>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
+    </fieldset>
+</div>
+
+<div class="floatleft">
+    <fieldset>
+        <legend><?php echo sprintf(__('SQL query on database <b>%s</b>:'), PMA_getDbLink($db)); ?>
+            </legend>
+        <textarea cols="80" name="sql_query" id="textSqlquery"
+            rows="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>"
+            dir="<?php echo $text_dir; ?>">
 <?php
 // 1. SELECT
 $last_select = 0;
@@ -949,14 +948,12 @@ if (!empty($qry_orderby)) {
     echo 'ORDER BY ' . htmlspecialchars($qry_orderby) . "\n";
 }
 ?>
-        </textarea>
-        </fieldset>
-        <fieldset class="tblFooters">
-            <input type="submit" name="submit_sql" value="<?php echo __('Submit Query'); ?>" />
-        </fieldset>
-    </td>
-</tr>
-</table>
+    </textarea>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input type="submit" name="submit_sql" value="<?php echo __('Submit Query'); ?>" />
+    </fieldset>
+</div>
 </form>
 <?php
 /**
