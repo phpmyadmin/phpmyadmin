@@ -267,7 +267,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
  * 2. Displays the main search form
  */
 ?>
-<a name="db_search"></a>
+<a id="db_search"></a>
 <form id="db_search_form"<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> method="post" action="db_search.php" name="db_search">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db']); ?>
 <fieldset>
