@@ -305,7 +305,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
             $new_table_string .= '<td class="value">' . $tbl_stats['Rows'] . '</td>' . "\n";
 
-            $new_table_string .= '<td nowrap="nowrap">' . $tbl_stats['Engine'] . '</td>' . "\n";
+            $new_table_string .= '<td class="nowrap">' . $tbl_stats['Engine'] . '</td>' . "\n";
 
             $new_table_string .= '<td> <dfn title="' . PMA_getCollationDescr($tbl_stats['Collation']) . '">'. $tbl_stats['Collation'] .'</dfn></td>' . "\n";
 

@@ -189,7 +189,7 @@ foreach ($tables as $table) {
             $type_nowrap  = '';
 
         } else {
-            $type_nowrap  = ' nowrap="nowrap"';
+            $type_nowrap  = ' class="nowrap"';
         }
         $type = htmlspecialchars($extracted_fieldspec['print_type']);
         $attribute     = $extracted_fieldspec['attribute'];
@@ -219,7 +219,7 @@ foreach ($tables as $table) {
         }
         ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-    <td nowrap="nowrap">
+    <td class="nowrap">
         <?php
         if (isset($pk_array[$row['Field']])) {
             echo '<u>' . htmlspecialchars($field_name) . '</u>';

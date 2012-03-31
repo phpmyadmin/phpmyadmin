@@ -363,6 +363,14 @@ th.right, td.right {
     text-align: right;
 }
 
+th.vtop, td.vtop {
+    vertical-align: top;
+}
+
+th.vbottom, td.vbottom {
+    vertical-align: bottom;
+}
+
 .paddingtop {
     padding-top: 1em;
 }

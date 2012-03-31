@@ -139,7 +139,7 @@ if ($num_tables == 0) {
             }
             ?>
     </td>
-    <td nowrap="nowrap">
+    <td class="nowrap">
         <?php echo $sts_data['ENGINE']; ?>
     </td>
             <?php
@@ -148,7 +148,7 @@ if ($num_tables == 0) {
                 $sum_size += $tblsize;
                 list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, 1);
                 ?>
-    <td class="right" nowrap="nowrap">
+    <td class="right nowrap">
         <?php echo $formated_size . ' ' . $unit; ?>
     </td>
                 <?php
@@ -218,7 +218,7 @@ if ($num_tables == 0) {
     <th class="center">
         <?php echo sprintf(_ngettext('%s table', '%s tables', $num_tables), PMA_formatNumber($num_tables, 0)); ?>
     </th>
-    <th class="right" nowrap="nowrap">
+    <th class="right nowrap">
         <?php echo PMA_formatNumber($sum_entries, 0); ?>
     </th>
     <th class="center">
@@ -228,7 +228,7 @@ if ($num_tables == 0) {
     if ($cfg['ShowStats']) {
         list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
         ?>
-    <th class="right" nowrap="nowrap">
+    <th class="right nowrap">
         <?php echo $sum_formated . ' ' . $unit; ?>
     </th>
         <?php

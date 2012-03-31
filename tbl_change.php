@@ -470,12 +470,12 @@ foreach ($rows as $row_id => $vrow) {
                     $table_fields[$i]['first_timestamp'] = true;
                 }
                 $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
-                $table_fields[$i]['wrap']  = ' nowrap="nowrap"';
+                $table_fields[$i]['wrap']  = ' nowrap';
                 break;
 
             default:
                 $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
-                $table_fields[$i]['wrap']  = ' nowrap="nowrap"';
+                $table_fields[$i]['wrap']  = ' nowrap';
                 break;
             }
         }
@@ -513,7 +513,7 @@ foreach ($rows as $row_id => $vrow) {
                 <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
             </td>
 <?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
-             <td class="center"<?php echo $field['wrap']; ?>><span class="column_type"><?php echo $field['pma_type']; ?></span>
+             <td class="center<?php echo $field['wrap']; ?>"><span class="column_type"><?php echo $field['pma_type']; ?></span>
              </td>
 
          <?php } //End if
@@ -1049,7 +1049,7 @@ foreach ($rows as $row_id => $vrow) {
     <fieldset id="actions_panel">
     <table cellpadding="5" cellspacing="0">
     <tr>
-        <td valign="middle" nowrap="nowrap">
+        <td valign="middle" class="nowrap">
             <select name="submit_type" class="control_at_footer" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
 <?php
 if (isset($where_clause)) {
@@ -1073,7 +1073,7 @@ if (! isset($after_insert)) {
         <td valign="middle">
             &nbsp;&nbsp;&nbsp;<strong><?php echo __('and then'); ?></strong>&nbsp;&nbsp;&nbsp;
         </td>
-        <td valign="middle" nowrap="nowrap">
+        <td valign="middle" class="nowrap">
             <select name="after_insert">
                 <option value="back" <?php echo ($after_insert == 'back' ? 'selected="selected"' : ''); ?>><?php echo __('Go back to previous page'); ?></option>
                 <option value="new_insert" <?php echo ($after_insert == 'new_insert' ? 'selected="selected"' : ''); ?>><?php echo __('Insert another new row'); ?></option>

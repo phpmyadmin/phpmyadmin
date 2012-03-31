@@ -30,9 +30,21 @@ th, td {
     padding: .2em;
 }
 
+th.vtop, td.vtop {
+    vertical-align: top;
+}
+
+th.vbottom, td.vbottom {
+    vertical-align: bottom;
+}
+
 th {
     font-weight: bold;
     background: #e5e5e5;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 .hide {
