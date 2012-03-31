@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-31 16:49+0200\n"
+"PO-Revision-Date: 2012-03-31 17:51+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5562,7 +5562,6 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "the interruption of an import in case the script detects it is se to the  "
 #| "timeout limit. This might be good way to import large es, however it "
@@ -5572,9 +5571,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be good way to import large files, "
-"however it can break transactions.)</i>"
+"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. "
+"<i>(විශාල ගොනු ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම "
+"සිදුවිය හැක.)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -7482,7 +7481,7 @@ msgstr ""
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:493
 msgid "ltr"
-msgstr "ltr"
+msgstr "වමේ සිට දකුණට"
 
 #: libraries/select_lang.lib.php:511 libraries/select_lang.lib.php:520
 #: libraries/select_lang.lib.php:529
@@ -7821,7 +7820,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "මෙම පින්තුරය බාගත කිරීම සඳහා සබැඳියක් පෙන්වයි."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
@@ -7882,7 +7881,6 @@ msgstr ""
 "පෙන්වයි. එනම් මෙම තීරුවේ වලංගු HTML අඩංගු බවට උපකල්පනය කෙරේ."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "ys an image and a link; the field contains the filename. The first ion "
 #| "isURL prefix like \"http://www.example.com/\". The second and rd options  "
@@ -7892,9 +7890,9 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
+"පින්තූරයක හා සබැඳියක් පෙන්වයි; ක්ෂේත්‍රයේ අඩංගු විය යුත්තේ ගොනුවේ නාමයයි. "
+"පළවන විකල්පය URLය සඳහා \"http://www.example.com/\" වැනි උපසර්ගයකි. දෙවන සහ "
+"තෙවන විකල්ප පික්සල් වලින් පළල සහ උස විය යුතුය."
 
 #: libraries/transformations/text_plain__link.inc.php:10
 #| msgid ""
@@ -8492,7 +8490,7 @@ msgstr ""
 
 #: server_plugins.php:94
 msgid "Begin"
-msgstr "Begin"
+msgstr "අරඹන්න"
 
 #: server_plugins.php:103
 msgid "Plugin"
@@ -10083,7 +10081,7 @@ msgstr "ලොග සංඛ්‍ය ලේඛන"
 #: server_status.php:1711
 #| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr "තෝරාගත් කල පරාසය:"
+msgstr "තෝරාගත් කාල පරාසය:"
 
 #: server_status.php:1716
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -10657,7 +10655,7 @@ msgstr "රේඛා"
 #| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "Spline"
+msgstr "සුනම්‍ය රේඛා"
 
 #: tbl_chart.php:89
 #| msgid "Pie"
