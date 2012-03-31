@@ -614,7 +614,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
             <option value="3">3</option>
         </select>
     </td>
-    <td width="10">&nbsp;</td>
+    <td style="width: 10px">&nbsp;</td>
     <td class="nowrap"><?php echo __('Add/Delete columns'); ?>:
         <select size="1" name="add_col">
             <option value="-3">-3</option>
@@ -626,7 +626,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
             <option value="3">3</option>
         </select>
     </td>
-    <td width="10">&nbsp;</td>
+    <td style="width: 10px">&nbsp;</td>
     <!-- Generates a query -->
     <td><input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" /></td>
 </tr>
@@ -656,7 +656,7 @@ foreach ($tbl_names as $key => $val) {
             <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
         </fieldset>
     </td>
-    <td width="20">&nbsp;</td>
+    <td style="width: 20px">&nbsp;</td>
     <td>
         <fieldset>
             <legend><?php echo sprintf(__('SQL query on database <b>%s</b>:'), PMA_getDbLink($db)); ?>
