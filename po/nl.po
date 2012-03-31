@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-31 22:08+0200\n"
+"PO-Revision-Date: 2012-03-31 22:23+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -444,7 +444,7 @@ msgstr "Toon"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr "Criteria"
+msgstr "Criterium"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
@@ -3112,7 +3112,7 @@ msgstr "Rechts"
 
 #: libraries/config.values.php:76
 msgid "Open"
-msgstr "Open"
+msgstr "Geopend"
 
 #: libraries/config.values.php:77
 msgid "Closed"
@@ -3714,7 +3714,7 @@ msgstr "Maximale lengte van de gemaakte query"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export type"
-msgstr "Export type"
+msgstr "Export-type"
 
 #: libraries/config/messages.inc.php:141 libraries/export/sql.php:73
 msgid "Enclose export in a transaction"
@@ -4232,7 +4232,7 @@ msgstr "URL van het logo in het navigatie frame"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
-msgstr "Logo link URL"
+msgstr "URL voor de link van het logo"
 
 #: libraries/config/messages.inc.php:286
 msgid ""
@@ -6026,7 +6026,7 @@ msgstr "stop proces"
 
 #: libraries/display_tbl.lib.php:2332
 msgid "in query"
-msgstr "in query"
+msgstr "in de query"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
@@ -8098,7 +8098,7 @@ msgstr "Voer SQL query/queries uit op databank %s"
 #: libraries/sql_query_form.lib.php:260 navigation.php:269
 #: setup/frames/index.inc.php:233
 msgid "Clear"
-msgstr "Clear"
+msgstr "Leegmaken"
 
 #: libraries/sql_query_form.lib.php:265
 msgid "Columns"
@@ -8552,7 +8552,7 @@ msgstr "Karakterset server"
 
 #: main.php:196
 msgid "Web server"
-msgstr "Web server"
+msgstr "Webserver"
 
 #: main.php:209
 msgid "Database client version"
@@ -8568,7 +8568,7 @@ msgstr "Laat informatie over PHP zien"
 
 #: main.php:242
 msgid "Official Homepage"
-msgstr "Officiële phpMyAdmin Website"
+msgstr "Officiële phpMyAdmin website"
 
 #: main.php:243
 msgid "Contribute"
@@ -9652,7 +9652,7 @@ msgstr "Stop volledig"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr "Reset slave"
+msgstr "Slave herinstellen"
 
 #: server_replication.php:326
 msgid "Start SQL Thread only"
@@ -11084,7 +11084,7 @@ msgstr "Laden"
 
 #: setup/frames/index.inc.php:241
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin homepage"
+msgstr "phpMyAdmin website"
 
 #: setup/frames/index.inc.php:242
 msgid "Donate"
