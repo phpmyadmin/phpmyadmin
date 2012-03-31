@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-30 19:06+0200\n"
+"PO-Revision-Date: 2012-03-31 18:35+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12794,11 +12794,15 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Openen van tabellen vereist toegang tot de harde schijf, wat kostelijk is. "
+"Verhogen van {table_open_cache} kan dit mogelijk vermijden."
 
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Mate van geopende tabellen : %s, deze waarde zou minder moeten zijn dan 10 "
+"per uur"
 
 #: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
@@ -12809,18 +12813,25 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Het aantal geopende bestanden komt in de buurt van het maximum aantal "
+"geopende bestanden. U kan een \"Teveel geopende bestanden\" foutmelding "
+"krijgen."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Overweeg om {open_files_limit} te verhogen, en controleer de foutenlog na "
+"herstarten nadat open_files_limit gewijzigd werd."
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Het aantal geopende bestanden is %s%% van de limiet. Dit zou minder dan 85%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
@@ -12834,33 +12845,41 @@ msgstr "Het aandeel geopende bestanden is hoog."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Mate van geopende bestanden: %s, deze waarde zou minder dan 5 per uur moeten "
+"zijn"
 
 #: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
-msgstr "Onmiddellijke tabelgrendels %%"
+msgstr "Onmiddellijke tabelvergrendelingen %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
-msgstr "Te veel tabel locks werden niet onmiddellijk toegestaan."
+msgstr "Te veel tabelvergrendelingen werden niet onmiddellijk toegestaan."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimaliseer queries en/of gebruik InnoDB om wachten op vergrendeling te "
+"verminderen."
 
 #: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
+"Onmiddellijke tabelvergrendelingen : %s%%, deze waarde zou groter dan 95%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Mate van wachten op tabelvergrendelingen"
 
 #: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van wachten op tabelvergrendelingen: %s, deze waarde zou kleiner moeten "
+"zijn dan 1 per uur"
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
@@ -12871,19 +12890,21 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Thread cache is uitgeschakeld, dit veroorzaakt meer overhead van nieuwe "
+"verbinding naar MySQL."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "Schakel thread cache in door {thread_cache_size} > 0 in te stellen."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "De thread cache is ingesteld op 0"
 
 #: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr ""
+msgstr "Gebruik van de thread cache %%"
 
 #: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
@@ -12891,16 +12912,18 @@ msgstr "Thread cache werkt niet efficiënt."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Verhoog {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Gebruik van de thread cache: %s%%, deze waarde zou groter moeten zijn dan 80"
+"%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Threads die traag worden opgestart"
 
 #: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
@@ -12911,19 +12934,23 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Dit gebeurt meestal wanneer het systeem overbelast is. Bekijk de belasting "
+"van uw systeem nauwkeurig."
 
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
+"%s thread(s) deden er langer dan %s seconden over om op te starten, dit zou "
+"0 moeten zijn"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Trage lanceertijd"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads is hoger dan 2sec"
 
 #: po/advisory_rules.php:222
 msgid ""
