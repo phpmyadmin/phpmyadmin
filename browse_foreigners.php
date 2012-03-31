@@ -249,7 +249,7 @@ if (is_array($foreignData['disp_row'])) {
 
         ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <td nowrap="nowrap">
+        <td class="nowrap">
         <?php
         echo ($key_ordered_current_equals_data ? '<strong>' : '')
             .'<a href="#" title="' . __('Use this value')
@@ -278,7 +278,7 @@ if (is_array($foreignData['disp_row'])) {
             . '\', \'' . PMA_jsFormat($val_ordered_current_key, false) . '\'); return false;">'
             . $val_ordered_current_val . '</a>' . ($val_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
-        <td nowrap="nowrap">
+        <td class="nowrap">
         <?php
         echo ($val_ordered_current_equals_data ? '<strong>' : '') . '<a href="#" title="'
         . __('Use this value') .  ($val_ordered_current_val_title != '' ? ': ' . $val_ordered_current_val_title : '')

@@ -130,7 +130,7 @@ foreach ($serverVars as $name => $value) {
     $row_class = ($odd_row ? 'odd' : 'even') . ' ' . ($has_session_value ? 'diffSession' : '');
     ?>
 <tr class="<?php echo $row_class; ?>">
-    <th nowrap="nowrap"><?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
+    <th class="nowrap"><?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
     <td class="value"><?php echo formatVariable($name, $value); ?></td>
     <td class="value"><?php
     // To display variable documentation link

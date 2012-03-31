@@ -475,9 +475,9 @@ foreach ($tables as $keyname => $each_table) {
     ?>
     <td class="value tbl_rows"><?php echo $row_count_pre . PMA_formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
         <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
-    <td nowrap="nowrap"><?php echo ($table_is_view ? __('View') : $each_table['ENGINE']); ?></td>
+    <td class="nowrap"><?php echo ($table_is_view ? __('View') : $each_table['ENGINE']); ?></td>
             <?php if (isset($collation)) { ?>
-    <td nowrap="nowrap"><?php echo $collation ?></td>
+    <td class="nowrap"><?php echo $collation ?></td>
             <?php } ?>
         <?php } ?>
 
@@ -514,7 +514,7 @@ if ($is_show_stats) {
 </tbody>
 <tbody id="tbl_summary_row">
 <tr><th></th>
-    <th nowrap="nowrap" class="tbl_num">
+    <th class="tbl_num nowrap">
         <?php
             echo sprintf(
                 _ngettext('%s table', '%s tables', $num_tables),

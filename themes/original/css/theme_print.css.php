@@ -9,8 +9,8 @@
 ?>
 /* For printview */
 body, table, th, td {
-    color:             #000000;
-    background-color:  #ffffff;
+    color: #000;
+    background: #fff;
 }
 
 img {
@@ -18,23 +18,33 @@ img {
 }
 
 table, th, td {
-    border-width:      0.1em;
-    border-color:      #000000;
-    border-style:      solid;
+    border: .1em solid #000;
 }
 
 table {
-    border-collapse:   collapse;
-    border-spacing:    0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 th, td {
-    padding:           0.2em;
+    padding: .2em;
+}
+
+th.vtop, td.vtop {
+    vertical-align: top;
+}
+
+th.vbottom, td.vbottom {
+    vertical-align: bottom;
 }
 
 th {
-    font-weight:       bold;
-    background-color:  #e5e5e5;
+    font-weight: bold;
+    background: #e5e5e5;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 .hide {

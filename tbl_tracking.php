@@ -494,7 +494,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     <td><small><?php echo htmlspecialchars($entry['date']);?></small></td>
                     <td><small><?php echo htmlspecialchars($entry['username']); ?></small></td>
                     <td><?php echo $statement; ?></td>
-                    <td nowrap="nowrap"><a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>&amp;delete_ddlog=<?php echo $i-1; ?>"><?php echo $drop_image_or_text; ?></a></td>
+                    <td class="nowrap"><a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>&amp;delete_ddlog=<?php echo $i-1; ?>"><?php echo $drop_image_or_text; ?></a></td>
                 </tr>
         <?php
                 if ($style == 'even') {
@@ -550,7 +550,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     <td><small><?php echo htmlspecialchars($entry['date']); ?></small></td>
                     <td><small><?php echo htmlspecialchars($entry['username']); ?></small></td>
                     <td><?php echo $statement; ?></td>
-                    <td nowrap="nowrap"><a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>&amp;delete_dmlog=<?php echo $i-$ddlog_count; ?>"><?php echo $drop_image_or_text; ?></a></td>
+                    <td class="nowrap"><a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>&amp;delete_dmlog=<?php echo $i-$ddlog_count; ?>"><?php echo $drop_image_or_text; ?></a></td>
                 </tr>
         <?php
                 if ($style == 'even') {

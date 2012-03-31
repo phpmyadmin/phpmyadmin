@@ -367,11 +367,11 @@ for ($y = 0; $y <= $row; $y++) {
         $chk['and'] = '';
         ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+    <td class="<?php echo $cell_align_right; ?> nowrap">
         <!-- Row controls -->
         <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-            <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td class="<?php echo $cell_align_right; ?> nowrap">
                 <small><?php echo __('Ins'); ?>:</small>
                 <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
             </td>
@@ -384,7 +384,7 @@ for ($y = 0; $y <= $row; $y++) {
             </td>
         </tr>
         <tr>
-            <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td class="<?php echo $cell_align_right; ?> nowrap">
                 <small><?php echo __('Del'); ?>:</small>
                 <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
             </td>
@@ -449,11 +449,11 @@ for ($y = 0; $y <= $row; $y++) {
     echo "\n";
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+    <td class="<?php echo $cell_align_right; ?> nowrap">
         <!-- Row controls -->
         <table cellpadding="0" cellspacing="0">
         <tr>
-            <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td class="<?php echo $cell_align_right; ?> nowrap">
                 <small><?php echo __('Ins'); ?>:</small>
                 <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
             </td>
@@ -465,7 +465,7 @@ for ($y = 0; $y <= $row; $y++) {
             </td>
         </tr>
         <tr>
-            <td class="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td class="<?php echo $cell_align_right; ?> nowrap">
                 <small><?php echo __('Del'); ?>:</small>
                 <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
             </td>
@@ -602,7 +602,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
 <fieldset class="tblFooters">
 <table cellpadding="2" cellspacing="1">
 <tr>
-    <td nowrap="nowrap">
+    <td class="nowrap">
         <?php echo __('Add/Delete criteria rows'); ?>:
         <select size="1" name="add_row">
             <option value="-3">-3</option>
@@ -615,7 +615,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
         </select>
     </td>
     <td width="10">&nbsp;</td>
-    <td nowrap="nowrap"><?php echo __('Add/Delete columns'); ?>:
+    <td class="nowrap"><?php echo __('Add/Delete columns'); ?>:
         <select size="1" name="add_col">
             <option value="-3">-3</option>
             <option value="-2">-2</option>

@@ -10,7 +10,7 @@
 /* For printview */
 body, table, th, td {
     color: #000;
-    background-color: #fff;
+    background: #fff;
 }
 
 img {
@@ -30,9 +30,21 @@ th, td {
     padding: .2em;
 }
 
+th.vtop, td.vtop {
+    vertical-align: top;
+}
+
+th.vbottom, td.vbottom {
+    vertical-align: bottom;
+}
+
 th {
     font-weight: bold;
-    background-color: #e5e5e5;
+    background: #e5e5e5;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 .hide {

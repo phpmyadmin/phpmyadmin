@@ -63,11 +63,8 @@ ul#footer {
     color: #c19e66;
 }
 
-abbr, acronym {
+abbr {
     border-bottom: 1px dotted;
-}
-
-abbr, acronym {
     cursor: help;
 }
 
@@ -210,4 +207,9 @@ p.footnote {
 
 p.footnote:first-line {
     margin-left: -2%;
+}
+
+em.big {
+    font-style: normal;
+    font-size: 1.2em;
 }

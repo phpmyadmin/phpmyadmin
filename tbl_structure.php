@@ -251,7 +251,7 @@ foreach ($fields as $row) {
     if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
         $type_nowrap  = '';
     } else {
-        $type_nowrap  = ' nowrap="nowrap"';
+        $type_nowrap  = ' class="nowrap"';
     }
     $type         = $extracted_fieldspec['print_type'];
     if (empty($type)) {
@@ -342,12 +342,12 @@ foreach ($fields as $row) {
     <td class="right">
         <?php echo $rownum; ?>
     </td>
-    <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
+    <th class="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
     <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
-    <td nowrap="nowrap" class="column_attribute"><?php echo $attribute; ?></td>
+    <td class="column_attribute nowrap"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
-    <td nowrap="nowrap"><?php
+    <td class="nowrap"><?php
     if (isset($row['Default'])) {
         if ($extracted_fieldspec['type'] == 'bit') {
             // here, $row['Default'] contains something like b'010'
@@ -358,7 +358,7 @@ foreach ($fields as $row) {
     } else {
         echo '<i>' . _pgettext('None for default', 'None') . '</i>';
     } ?></td>
-    <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
+    <td class="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
     <td class="replaced_by_more center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
             <?php echo $titles['BrowseDistinctValues']; ?></a>
@@ -444,7 +444,7 @@ foreach ($fields as $row) {
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
             ?>
-    <td nowrap="nowrap" class="replaced_by_more center">
+    <td class="replaced_by_more center nowrap">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
             <?php $fulltext_enabled = true; ?>
@@ -453,7 +453,7 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
         ?>
-    <td nowrap="nowrap" class="replaced_by_more center">
+    <td class="replaced_by_more center nowrap">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
         <?php $fulltext_enabled = false; ?>
     </td>
