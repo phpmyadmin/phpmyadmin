@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-30 03:36+0200\n"
+"PO-Revision-Date: 2012-03-30 11:30+0200\n"
 "Last-Translator: Alex Marin <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -115,6 +115,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Fișierul %s nu este disponibil pe acest sistem, vă rugam să vizitați "
+"www.phpmyadmin.net pentru mai multe informații."
 
 #: db_create.php:58
 #, php-format
@@ -140,10 +142,9 @@ msgstr "Comentarii tabel"
 #: tbl_change.php:309 tbl_indexes.php:185 tbl_printview.php:139
 #: tbl_relation.php:392 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:268 tbl_tracking.php:319
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Denumirile coloanelor"
+msgstr "Coloană"
 
 #: db_datadict.php:168 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -285,9 +286,8 @@ msgid "Database %s has been dropped."
 msgstr "Baza de date %s a fost aruncată."
 
 #: db_operations.php:451
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Nu sînt baze de date"
+msgstr "Ștergeți baza de date (DROP)"
 
 #: db_operations.php:481
 msgid "Copy database to"
@@ -340,7 +340,7 @@ msgid "Collation"
 msgstr "Interclasare"
 
 #: db_operations.php:559
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The additional features for working with linked tables have been "
 #| "deactivated. To find out why click %shere%s."
@@ -349,13 +349,12 @@ msgid ""
 "click %shere%s."
 msgstr ""
 "Opțiunile adiționale pentru folosirea tabelelor intercalate au fost "
-"dezactivate. Pentru a afla de ce ...  %shere%s."
+"dezactivate. Pentru a afla de ce, click  %saici%s."
 
 #: db_operations.php:594
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Schema relațională"
+msgstr "Editați sau exportați schema relațională"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:488 libraries/db_structure.lib.php:37
@@ -406,11 +405,11 @@ msgid "Last check"
 msgstr "Ultima verficare"
 
 #: db_printview.php:220 db_structure.php:465
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabele"
+msgstr[0] "%s tabelă"
 msgstr[1] "%s tabele"
 msgstr[2] "%s tabele"
 
@@ -483,10 +482,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Adaugă/șterge criteriu"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Adaugă/șterge coloane"
+msgstr "Adaugă/Șterge coloane"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
@@ -549,9 +547,9 @@ msgid "Browse"
 msgstr "Navigare"
 
 #: db_search.php:259
-#, fuzzy, php-format
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Șterge datele urmărite din acest tabel"
+msgstr "Ștergeți potrivirile pentru tabelul %s?"
 
 #: db_search.php:259 libraries/display_tbl.lib.php:1255
 #: libraries/display_tbl.lib.php:2194
@@ -598,10 +596,9 @@ msgid "Inside column:"
 msgstr "In interiorul coloanei::"
 
 #: db_structure.php:59
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Nu s-a găsit nici un tabel în baza de date."
+msgstr "Nu s-a găsit niciun tabel în baza de date"
 
 #: db_structure.php:299 tbl_operations.php:684
 #, php-format
@@ -788,7 +785,6 @@ msgid "Versions"
 msgstr "Versiuni"
 
 #: db_tracking.php:135 tbl_tracking.php:374 tbl_tracking.php:621
-#, fuzzy
 msgid "Tracking report"
 msgstr "Raport de monitorizare"
 
@@ -803,9 +799,8 @@ msgstr "Tabele fără monitorizare"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:626
 #: tbl_structure.php:628
-#, fuzzy
 msgid "Track table"
-msgstr "Tabele monitorizate"
+msgstr "Monitorizează tabel"
 
 #: db_tracking.php:229
 #, fuzzy
@@ -827,11 +822,11 @@ msgstr ""
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Ieșire"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Copiază si lipește valorile unite în câmpul \"Lungime/Valori\""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -5105,7 +5100,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
-msgstr "Buffer Pool"
+msgstr "Zonă Tampon"
 
 #: libraries/engines/innodb.lib.php:135 server_status.php:432
 msgid "InnoDB Status"
@@ -8843,7 +8838,7 @@ msgstr "Inserări întîrziate"
 
 #: server_status.php:381
 msgid "Key cache"
-msgstr "Key cache"
+msgstr "Cache cheie"
 
 #: server_status.php:382
 msgid "Joins"
