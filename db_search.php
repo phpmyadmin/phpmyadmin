@@ -267,7 +267,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
  * 2. Displays the main search form
  */
 ?>
-<a name="db_search"></a>
+<a id="db_search"></a>
 <form id="db_search_form"<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> method="post" action="db_search.php" name="db_search">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db']); ?>
 <fieldset>
@@ -278,7 +278,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
         <td><input type="text" name="search_str" size="60"
                 value="<?php echo $searched; ?>" /></td>
     </tr>
-    <tr><td class="right" valign="top">
+    <tr><td class="right vtop">
             <?php echo __('Find:'); ?></td>
             <td><?php
 
@@ -296,7 +296,7 @@ unset($choices);
             ?>
             </td>
     </tr>
-    <tr><td class="right" valign="top">
+    <tr><td class="right vtop">
             <?php echo __('Inside tables:'); ?></td>
         <td rowspan="2">
 <?php
@@ -323,7 +323,7 @@ $alter_select
 ?>
         </td>
     </tr>
-    <tr><td class="right" valign="bottom">
+    <tr><td class="right vbottom">
             <?php echo $alter_select; ?></td>
     </tr>
     <tr><td class="right">

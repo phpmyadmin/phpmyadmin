@@ -265,7 +265,7 @@ foreach ($the_tables as $key => $table) {
     <tr>
 
         <!-- Space usage -->
-        <td valign="top">
+        <td class="vtop">
             <big><?php echo __('Space usage') . ':'; ?></big>
             <table width="100%">
             <tr>
@@ -321,7 +321,7 @@ foreach ($the_tables as $key => $table) {
         <td width="20">&nbsp;</td>
 
         <!-- Rows Statistic -->
-        <td valign="top">
+        <td class="vtop">
             <big><?php echo __('Row Statistics') . ':'; ?></big>
             <table width="100%">
             <tr>

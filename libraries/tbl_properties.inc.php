@@ -657,7 +657,7 @@ function addField()
 if ($action == 'tbl_create.php') {
     ?>
     <table>
-    <tr valign="top">
+    <tr class="vtop">
         <th><?php echo __('Table comments'); ?>:&nbsp;</th>
         <td width="25">&nbsp;</td>
         <th><?php echo __('Storage Engine'); ?>:
@@ -688,7 +688,7 @@ if ($action == 'tbl_create.php') {
     <?php
     if (PMA_Partition::havePartitioning()) {
         ?>
-    <tr valign="top">
+    <tr class="vtop">
         <th><?php echo __('PARTITION definition'); ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitioning', 'Partitioning'); ?>
         </th>
     </tr>

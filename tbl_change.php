@@ -1049,7 +1049,7 @@ foreach ($rows as $row_id => $vrow) {
     <fieldset id="actions_panel">
     <table cellpadding="5" cellspacing="0">
     <tr>
-        <td valign="middle" class="nowrap">
+        <td class="nowrap vmiddle">
             <select name="submit_type" class="control_at_footer" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
 <?php
 if (isset($where_clause)) {
@@ -1070,10 +1070,10 @@ if (! isset($after_insert)) {
 }
 ?>
         </td>
-        <td valign="middle">
+        <td class="vmiddle">
             &nbsp;&nbsp;&nbsp;<strong><?php echo __('and then'); ?></strong>&nbsp;&nbsp;&nbsp;
         </td>
-        <td valign="middle" class="nowrap">
+        <td class="nowrap vmiddle">
             <select name="after_insert">
                 <option value="back" <?php echo ($after_insert == 'back' ? 'selected="selected"' : ''); ?>><?php echo __('Go back to previous page'); ?></option>
                 <option value="new_insert" <?php echo ($after_insert == 'new_insert' ? 'selected="selected"' : ''); ?>><?php echo __('Insert another new row'); ?></option>
@@ -1101,7 +1101,7 @@ if (isset($where_clause)) {
         <td>
 <?php echo PMA_showHint(__('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')); ?>
         </td>
-        <td colspan="3" class="right" valign="middle">
+        <td colspan="3" class="right vmiddle">
             <input type="submit" class="control_at_footer" value="<?php echo __('Go'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
             <input type="reset" class="control_at_footer" value="<?php echo __('Reset'); ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />
         </td>
