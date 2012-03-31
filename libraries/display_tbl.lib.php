@@ -781,7 +781,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             <?php
             // end horizontal/horizontalflipped mode
         } else {
-            $vertical_display['textbtn'] = '    <th ' . $rowspan . ' valign="middle">' . "\n"
+            $vertical_display['textbtn'] = '    <th ' . $rowspan . ' class="vmiddle">' . "\n"
                                          . '        ' . "\n"
                                          . '    </th>' . "\n";
         } // end vertical mode
@@ -1034,12 +1034,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
                     $th_class[] = 'marker';
                 }
-                echo ' class="' . implode(' ', $th_class) . '"';
+                echo ' class="' . implode(' ', $th_class);
 
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
-                    echo ' valign="bottom"';
+                    echo ' vbottom';
                 }
-                echo '>' . $order_link . $comments . '</th>';
+                echo '">' . $order_link . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
                 . 'class="draggable'
@@ -1062,10 +1062,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 if ($condition_field) {
                     $th_class[] = 'condition';
                 }
-                echo ' class="' . implode(' ', $th_class) . '"';
+                echo ' class="' . implode(' ', $th_class);
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
-                    echo ' valign="bottom"';
+                    echo ' vbottom';
                 }
+                echo '"';
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
                     && $GLOBALS['cfg']['HeaderFlipType'] == 'css'
                 ) {
@@ -1107,7 +1108,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             <?php
             // end horizontal/horizontalflipped mode
         } else {
-            $vertical_display['textbtn'] = '    <th ' . $rowspan . ' valign="middle">' . "\n"
+            $vertical_display['textbtn'] = '    <th ' . $rowspan . ' class="vmiddle">' . "\n"
                                          . '        ' . "\n"
                                          . '    </th>' . "\n";
         } // end vertical mode

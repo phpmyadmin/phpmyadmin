@@ -167,11 +167,15 @@ th.right, td.right {
     text-align: right;
 }
 
-th.vtop, td.vtop {
+tr.vtop, th.vtop, td.vtop {
     vertical-align: top;
 }
 
-th.vbottom, td.vbottom {
+tr.vmiddle, th.vmiddle, td.vmiddle {
+    vertical-align: middle;
+}
+
+tr.vbottom, th.vbottom, td.vbottom {
     vertical-align: bottom;
 }
 
