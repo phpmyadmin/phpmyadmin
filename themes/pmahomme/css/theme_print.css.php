@@ -10,7 +10,7 @@
 /* For printview */
 body, table, th, td {
     color: #000;
-    background-color: #fff;
+    background: #fff;
 }
 
 img {
@@ -32,7 +32,7 @@ th, td {
 
 th {
     font-weight: bold;
-    background-color: #e5e5e5;
+    background: #e5e5e5;
 }
 
 .hide {
