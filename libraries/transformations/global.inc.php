@@ -27,11 +27,15 @@
  */
 function PMA_transformation_global_html_replace($buffer, $options = array(), $meta = '')
 {
-    if (!isset($options['string'])) {
+    if ( ! isset($options['string']) ) {
         $options['string'] = '';
     }
 
-    if (isset($options['regex']) && isset($options['regex_replace'])) {
+    if (
+          isset($options['regex'])
+          &&
+          isset($options['regex_replace'])
+    ) {
         $buffer = preg_replace('@' . str_replace('@', '\@', $options['regex']) . '@si', $options['regex_replace'], $buffer);
     }
 
