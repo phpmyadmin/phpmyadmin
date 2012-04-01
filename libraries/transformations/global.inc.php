@@ -25,7 +25,7 @@
 /**
  *
  */
-function PMA_transformation_global_html_replace($buffer, $options = array(), $meta = '')
+function PMA_transformation_global_html_replace($buffer, $options = array())
 {
     if ( ! isset($options['string']) ) {
         $options['string'] = '';
