@@ -20,8 +20,7 @@ function PMA_transformation_[ENTER_FILENAME_HERE]_info()
 
 function PMA_transformation_[ENTER_FILENAME_HERE]($buffer, $options = array(), $meta = '') 
 {
-    // possibly use a global transform and feed it with special options:
-    // include('./libraries/transformations/global.inc.php');
+    // possibly use a global transform and feed it with special options
 
     // further operations on $buffer using the $options[] array.
 
