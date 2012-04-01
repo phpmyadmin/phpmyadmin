@@ -1334,11 +1334,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             // document.write conflicts with jQuery, hence used $().append()
             echo "<script type=\"text/javascript\">\n" .
                 "//<![CDATA[\n" .
-                "$('.tools form').last().after('[<a href=\"#\" title=\"" .
+                "$('.tools form').last().after('[ <a href=\"#\" title=\"" .
                 PMA_escapeJsString(__('Inline edit of this query')) .
                 "\" class=\"inline_edit_sql\">" .
                 PMA_escapeJsString(_pgettext('Inline edit query', 'Inline')) .
-                "</a>]');\n" .
+                "</a> ]');\n" .
                 "//]]>\n" .
                 "</script>";
         }
