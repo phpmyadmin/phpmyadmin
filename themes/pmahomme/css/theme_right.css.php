@@ -351,6 +351,14 @@ select[multiple] {
     margin-<?php echo $right; ?>: 1em;
 }
 
+table.nospacing {
+    border-spacing: 0;
+}
+
+table.nopadding tr th, table.nopadding tr td {
+    padding: 0;
+}
+
 th.left, td.left {
     text-align: left;
 }
@@ -2313,6 +2321,7 @@ iframe.IE_hack {
     display: none;
     border: 0;
     filter: alpha(opacity=0);
+    overflow: hidden;
 }
 
 /* config forms */
@@ -2601,7 +2610,7 @@ fieldset .disabled-field td {
     cursor: pointer;
     font-size: .8em;
     text-align: center;
-    line-height: 1.55em;
+    line-height: 1.4em;
     height: 1.55em;
     overflow: hidden;
     border-right: .1em solid #888;

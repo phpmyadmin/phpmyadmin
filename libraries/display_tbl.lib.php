@@ -297,7 +297,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     ?>
 
 <!-- Navigation bar -->
-<table cellpadding="0" cellspacing="0" class="navigation">
+<table class="navigation nospacing nopadding">
 <tr>
     <td class="navigation_separator"></td>
     <?php

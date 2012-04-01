@@ -106,9 +106,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                 document.write('<form action="import.php" method="post" enctype="multipart/form-data" name="import"<?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo ' target="import_upload_iframe"'; ?>>');
                 //]]>
     </script>
-    <noscript>
-        <form action="import.php" method="post" enctype="multipart/form-data" name="import">
-    </noscript>
+    <form action="import.php" method="post" enctype="multipart/form-data" name="import">
     <input type="hidden" name="<?php echo $ID_KEY; ?>" value="<?php echo $upload_id ; ?>" />
     <?php
     if ($import_type == 'server') {
@@ -252,7 +250,6 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         <?php echo PMA_pluginGetOptions('Import', $import_list); ?>
     </div>
         <div class="clearfloat"></div>
-    </div>
     <?php
     // Encoding setting form appended by Y.Kawada
     if (function_exists('PMA_set_enc_form')) { ?>
@@ -267,3 +264,4 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
     </div>
 </form>
+</div>

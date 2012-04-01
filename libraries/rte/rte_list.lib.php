@@ -46,12 +46,18 @@ function PMA_RTE_getList($type, $items)
     $retval .= "    <table class='data$class2'>\n";
     $retval .= "        <!-- TABLE HEADERS -->\n";
     $retval .= "        <tr>\n";
+    // th cells with a colspan need corresponding td cells, according to W3C
     switch ($type) {
     case 'routine':
         $retval .= "            <th>" . __('Name') . "</th>\n";
         $retval .= "            <th colspan='4'>" . __('Action') . "</th>\n";
         $retval .= "            <th>" . __('Type') . "</th>\n";
         $retval .= "            <th>" . __('Returns') . "</th>\n";
+        $retval .= "        </tr>\n";
+        $retval .= "        <tr style='display: none'>\n"; // see comment above
+        for($i = 0; $i < 7; $i++) {
+            $retval .= "            <td></td>\n";
+        }
         break;
     case 'trigger':
         $retval .= "            <th>" . __('Name') . "</th>\n";
@@ -61,12 +67,22 @@ function PMA_RTE_getList($type, $items)
         $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
         $retval .= "            <th>" . __('Time') . "</th>\n";
         $retval .= "            <th>" . __('Event') . "</th>\n";
+        $retval .= "        </tr>\n";
+        $retval .= "        <tr style='display: none'>\n"; // see comment above
+        for($i = 0; $i < (empty($table) ? 7 : 6); $i++) {
+            $retval .= "            <td></td>\n";
+        }
         break;
     case 'event':
         $retval .= "            <th>" . __('Name') . "</th>\n";
         $retval .= "            <th>" . __('Status') . "</th>\n";
         $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
         $retval .= "            <th>" . __('Type') . "</th>\n";
+        $retval .= "        </tr>\n";
+        $retval .= "        <tr style='display: none'>\n"; // see comment above
+        for($i = 0; $i < 6; $i++) {
+            $retval .= "            <td></td>\n";
+        }
         break;
     default:
         break;

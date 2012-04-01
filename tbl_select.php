@@ -261,13 +261,9 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
 </fieldset>
 </form>
 <div id="sqlqueryresults"></div>
+</fieldset>
     <?php
     include 'libraries/footer.inc.php';
-?>
-
-</fieldset>
-
-<?php
 } else {
     /**
      * Selection criteria have been submitted -> do the work

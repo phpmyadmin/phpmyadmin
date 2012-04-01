@@ -208,7 +208,7 @@ $i = 0;
 <?php if ($db_is_information_schema || $tbl_is_view) { ?>
     <th><?php echo __('View'); ?></th>
 <?php } else { /* see functions.js, displayMoreTableOpts() */?>
-    <th colspan="7" class="action"><?php echo __('Action'); ?></th>
+    <th colspan="9" class="action"><?php echo __('Action'); ?></th>
 <?php } ?>
 </tr>
 </thead>
@@ -671,7 +671,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     ?>
 <input type="submit" value="<?php echo __('Go'); ?>" />
 </form>
-<iframe class="IE_hack" scrolling="no"></iframe>
+<iframe class="IE_hack"></iframe>
 <hr />
 <div id="index_div" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> >
     <?php
@@ -758,7 +758,7 @@ if ($cfg['ShowStats']) {
 
     <fieldset>
     <legend><?php echo __('Information'); ?></legend>
-    <a name="showusage"></a>
+    <a id="showusage"></a>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
     <table id="tablespaceusage" class="data">
     <caption class="tblHeaders"><?php echo __('Space usage'); ?></caption>

@@ -81,4 +81,5 @@ $(document).ready(function() {
     $("#scroll_to_options_msg").hide();
     $(".format_specific_options").css({ "border": 0, "margin": 0, "padding": 0 });
     $(".format_specific_options h3").remove();
+    //$("form[name=import] *").unwrap();
 });

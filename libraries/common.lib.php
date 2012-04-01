@@ -1054,9 +1054,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 
     // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
     // check for it's presence before using it
-    echo '<div id="result_query" '
-        . ( isset($GLOBALS['cell_align_left']) ? 'style="text-align: ' . $GLOBALS['cell_align_left'] . '" ' : '' )
-        . '">' . "\n";
+    echo '<div id="result_query"'
+        . ( isset($GLOBALS['cell_align_left']) ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"' : '' )
+        . '>' . "\n";
 
     if ($message instanceof PMA_Message) {
         if (isset($GLOBALS['special_message'])) {
@@ -2790,21 +2790,24 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
         $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
         $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
         $retval .= "                 alt='' />\n";
-        $retval .= "            <table cellspacing='0' cellpadding='0'><tr>\n";
+        $retval .= "            <table class='nospacing nopadding'>\n";
         $retval .= "                <tbody>\n";
+        $retval .= "                <tr>\n";
         $retval .= "                <td class='toggleOn'>\n";
         $retval .= "                    <span class='hide'>$link_on</span>\n";
         $retval .= "                    <div>";
-        $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "</div>\n";
+        $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "\n";
+        $retval .= "                    </div>\n";
         $retval .= "                </td>\n";
         $retval .= "                <td><div>&nbsp;</div></td>\n";
         $retval .= "                <td class='toggleOff'>\n";
         $retval .= "                    <span class='hide'>$link_off</span>\n";
         $retval .= "                    <div>";
-        $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "</div>\n";
+        $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "\n";
         $retval .= "                    </div>\n";
+        $retval .= "                </tr>\n";
         $retval .= "                </tbody>\n";
-        $retval .= "            </tr></table>\n";
+        $retval .= "            </table>\n";
         $retval .= "            <span class='hide callback'>$callback</span>\n";
         $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
         $retval .= "        </div>\n";
@@ -3316,7 +3319,13 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
  */
 function PMA_browseUploadFile($max_upload_size)
 {
-    echo '<label for="radio_import_file">' . __("Browse your computer:") . '</label>';
+    if ($GLOBALS['is_upload'] && !empty($GLOBALS['cfg']['UploadDir'])) {
+        echo '<label for="radio_import_file">';
+    }
+    else {
+        echo '<label for="input_import_file">';
+    }
+    echo __("Browse your computer:") . '</label>';
     echo '<div id="upload_form_status" style="display: none;"></div>';
     echo '<div id="upload_form_status_info" style="display: none;"></div>';
     echo '<input type="file" name="import_file" id="input_import_file" />';
