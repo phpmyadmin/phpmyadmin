@@ -53,7 +53,11 @@ $GLOBALS['js_include'][] = 'get_image.js.php?theme=' . urlencode($_SESSION['PMA_
 // avoid loading twice a js file
 $GLOBALS['js_include'] = array_unique($GLOBALS['js_include']);
 foreach ($GLOBALS['js_include'] as $js_script_file) {
-    echo PMA_includeJS($js_script_file);
+    $ie_conditional = false;
+    if (is_array($js_script_file)) {
+        list($js_script_file, $ie_conditional) = $js_script_file;
+    }
+    echo PMA_includeJS($js_script_file, $ie_conditional);
 }
 // Below javascript Updates the title of the frameset if possible
 ?>

@@ -245,16 +245,16 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
                     <div class="localStorage-supported">
                         <?php echo __('Settings will be imported from your browser\'s local storage.') ?>
                         <br />
-                        <span class="localStorage-exists">
+                        <div class="localStorage-exists">
                             <?php echo __('Saved on: @DATE@') ?>
-                        </span>
-                        <span class="localStorage-empty">
+                        </div>
+                        <div class="localStorage-empty">
                             <?php  PMA_Message::notice(__('You have no saved settings!'))->display() ?>
-                        </span>
+                        </div>
                     </div>
-                    <span class="localStorage-unsupported">
+                    <div class="localStorage-unsupported">
                         <?php PMA_Message::notice(__('This feature is not supported by your web browser'))->display() ?>
-                    </span>
+                    </div>
                 </div>
 
                 <input type="checkbox" id="import_merge" name="import_merge" />
@@ -306,9 +306,9 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
                             <br /><b><?php echo __('Existing settings will be overwritten!') ?></b>
                         </span>
                     </span>
-                    <span class="localStorage-unsupported">
+                    <div class="localStorage-unsupported">
                         <?php PMA_Message::notice(__('This feature is not supported by your web browser'))->display() ?>
-                    </span>
+                    </div>
                 </div>
                 <br />
                 <input type="submit" name="submit_export" value="<?php echo __('Go'); ?>" />

@@ -369,7 +369,7 @@ for ($y = 0; $y <= $row; $y++) {
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
     <td class="<?php echo $cell_align_right; ?> nowrap">
         <!-- Row controls -->
-        <table cellpadding="0" cellspacing="0" border="0">
+        <table class="nospacing nopadding" border="0">
         <tr>
             <td class="<?php echo $cell_align_right; ?> nowrap">
                 <small><?php echo __('Ins'); ?>:</small>
@@ -451,7 +451,7 @@ for ($y = 0; $y <= $row; $y++) {
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
     <td class="<?php echo $cell_align_right; ?> nowrap">
         <!-- Row controls -->
-        <table cellpadding="0" cellspacing="0">
+        <table class="nospacing nopadding">
         <tr>
             <td class="<?php echo $cell_align_right; ?> nowrap">
                 <small><?php echo __('Ins'); ?>:</small>

@@ -185,7 +185,7 @@ if (isset($my_tables)) {
     <table id="noversions" class="data">
     <thead>
     <tr>
-        <th width="300"><?php echo __('Table');?></th>
+        <th style="width: 300px"><?php echo __('Table');?></th>
         <th></th>
     </tr>
     </thead>

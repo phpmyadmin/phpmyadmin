@@ -473,9 +473,9 @@ class PMA_Index
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
                 $this_params['index'] = $index->getName();
-                $r .= '<td class="edit_index ';
+                $r .= '<td class="edit_index';
                 if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $r .= 'ajax" ';
+                    $r .= ' ajax';
                 }
                 $r .= '" ' . $row_span . '>'
                    . '    <a href="tbl_indexes.php' . PMA_generate_common_url($this_params)
