@@ -23,25 +23,32 @@
  */
 
 /**
+ * Replaces "[__BUFFER__]" occurences found in $options['string'] with the text
+ * in $buffer, after performing a regular expression search and replace on 
+ * $buffer using $options['regex'] and $options['regex_replace'].
  *
+ * @param string $buffer        text that will be replaced in $options['string'],
+ *                              after being formatted
+ * @param array  $options       the options required to format $buffer
+ *               = array (
+ *                 'string'          => 'string',    // text containing "[__BUFFER__]"
+ *                 'regex'           => 'mixed',     // the pattern to search for
+ *                 'regex_replace'   => 'mixed',     // string or array of strings to replace with
+ *               );
+ *
+ * @return string containing the text with all the replacements
  */
-function PMA_transformation_global_plain($buffer, $options = array(), $meta = '')
+function PMA_transformation_global_html_replace($buffer, $options = array())
 {
-    return htmlspecialchars($buffer);
-}
-
-function PMA_transformation_global_html($buffer, $options = array(), $meta = '')
-{
-    return $buffer;
-}
-
-function PMA_transformation_global_html_replace($buffer, $options = array(), $meta = '')
-{
-    if (!isset($options['string'])) {
+    if ( ! isset($options['string']) ) {
         $options['string'] = '';
     }
 
-    if (isset($options['regex']) && isset($options['regex_replace'])) {
+    if (
+          isset($options['regex'])
+          &&
+          isset($options['regex_replace'])
+    ) {
         $buffer = preg_replace('@' . str_replace('@', '\@', $options['regex']) . '@si', $options['regex_replace'], $buffer);
     }
 
