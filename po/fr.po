@@ -1,12 +1,12 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-27 15:44+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: french <fr@li.org>\n"
+"PO-Revision-Date: 2012-04-01 15:03+0200\n"
+"Last-Translator: Cédric Corazza <cedric.corazza@wanadoo.fr>\n"
+"Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5899,7 +5899,7 @@ msgstr "Croate"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Czech"
-msgstr "Tchèque"
+msgstr "Tch&egrave;que"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Danish"
@@ -5951,11 +5951,11 @@ msgstr "Lituanien"
 
 #: libraries/mysql_charsets.lib.php:279 libraries/mysql_charsets.lib.php:382
 msgid "Korean"
-msgstr "Coréen"
+msgstr "Cor&eacute;en"
 
 #: libraries/mysql_charsets.lib.php:282
 msgid "Persian"
-msgstr "Perse"
+msgstr "Farsi"
 
 #: libraries/mysql_charsets.lib.php:285
 msgid "Polish"
@@ -5975,7 +5975,7 @@ msgstr "Slovaque"
 
 #: libraries/mysql_charsets.lib.php:297
 msgid "Slovenian"
-msgstr "Slovène"
+msgstr "Slov&egrave;ne"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Spanish"
@@ -5987,11 +5987,11 @@ msgstr "Espagnol traditionnel"
 
 #: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:403
 msgid "Swedish"
-msgstr "Suédois"
+msgstr "Su&eacute;dois"
 
 #: libraries/mysql_charsets.lib.php:309 libraries/mysql_charsets.lib.php:406
 msgid "Thai"
-msgstr "Thaï"
+msgstr "Tha&iuml;"
 
 #: libraries/mysql_charsets.lib.php:312 libraries/mysql_charsets.lib.php:400
 msgid "Turkish"
@@ -6037,11 +6037,11 @@ msgstr "Arabe"
 
 #: libraries/mysql_charsets.lib.php:385
 msgid "Hebrew"
-msgstr "Hébreu"
+msgstr "H&eacute;breu"
 
 #: libraries/mysql_charsets.lib.php:388
 msgid "Georgian"
-msgstr "Géorgien"
+msgstr "G&eacute;orgien"
 
 #: libraries/mysql_charsets.lib.php:391
 msgid "Greek"
@@ -7210,8 +7210,8 @@ msgid ""
 "appropriate column name."
 msgstr ""
 "La colonne descriptive est montrée en rose. Pour indiquer qu'une colonne est "
-"ou n'est plus la colonne descriptive, cliquer l'icône «Colonne descriptive», "
-"puis cliquer sur le nom de colonne approprié."
+"ou n'est plus la colonne descriptive, cliquer l'icône «Colonne "
+"descriptive», puis cliquer sur le nom de colonne approprié."
 
 #: pmd_pdf.php:34
 msgid "Page has been created"
