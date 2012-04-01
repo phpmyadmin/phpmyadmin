@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-30 12:48+0200\n"
+"PO-Revision-Date: 2012-03-31 10:17+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9450,7 +9450,7 @@ msgstr "Radar"
 
 #: tbl_chart.php:138
 msgid "Pie"
-msgstr "Pie"
+msgstr "Dilim"
 
 #: tbl_chart.php:144
 msgid "Bar type"
