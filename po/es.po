@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 16:20+0200\n"
+"PO-Revision-Date: 2012-03-31 18:05+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8854,7 +8854,7 @@ msgstr "Datos temporales"
 
 #: server_status.php:380
 msgid "Delayed inserts"
-msgstr "Delayed inserts"
+msgstr "Inserciones demoradas («delayed inserts»)"
 
 #: server_status.php:381
 msgid "Key cache"
