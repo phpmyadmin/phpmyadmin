@@ -723,16 +723,32 @@ function PMA_linkURL($url)
  * Returns HTML code to include javascript file.
  *
  * @param string $url Location of javascript, relative to js/ folder.
+ * @param optional string $ie_conditional true - wrap with IE conditional comment
+ *                                        'lt 9' etc. - wrap for specific IE version
  *
  * @return string HTML code for javascript inclusion.
  */
-function PMA_includeJS($url)
+function PMA_includeJS($url, $ie_conditional = false)
 {
-    if (strpos($url, '?') === false) {
-        return '<script src="js/' . $url . '?ts=' . filemtime('./js/' . $url) . '" type="text/javascript"></script>' . "\n";
-    } else {
-        return '<script src="js/' . $url . '" type="text/javascript"></script>' . "\n";
+    $include = '';
+    if ($ie_conditional !== false) {
+        if ($ie_conditional === true) {
+            $include .= '<!--[if IE]>' . "\n    ";
+        }
+        else {
+            $include .= '<!--[if IE ' . $ie_conditional . ']>' . "\n    ";
+        }
     }
+    if (strpos($url, '?') === false) {
+        $include .= '<script src="js/' . $url . '?ts=' . filemtime('js/' . $url) . '" type="text/javascript"></script>' . "\n";
+    }
+    else {
+        $include .= '<script src="js/' . $url . '" type="text/javascript"></script>' . "\n";
+    }
+    if ($ie_conditional !== false) {
+        $include .= '<![endif]-->' . "\n";
+    }
+    return $include;
 }
 
 /**
