@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-25 17:41+0200\n"
+"PO-Revision-Date: 2012-03-31 19:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -34,8 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ බ්‍රව්සරයේ "
-"ආරක්ෂක සැකසුම් cross-window යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය හැක."
+"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ "
+"ඔබගේ බ්‍රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස "
+"සකසා තිබීම මීට හේතු විය හැක."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:2827
 #: libraries/common.lib.php:2834 libraries/common.lib.php:3013
@@ -2015,7 +2016,7 @@ msgstr "."
 #: libraries/common.lib.php:1609
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y දින %I:%M %p ට"
 
 #: libraries/common.lib.php:1923
 #, php-format
@@ -2025,7 +2026,7 @@ msgstr "දින %s, පැය %s, මිනිත්තු %s සහ තප්
 #: libraries/common.lib.php:2340 libraries/common.lib.php:2343
 #: libraries/display_tbl.lib.php:288 server_status.php:757
 msgid "Begin"
-msgstr "Begin"
+msgstr "අරඹන්න"
 
 #: libraries/common.lib.php:2341 libraries/common.lib.php:2344
 #: libraries/display_tbl.lib.php:289 server_binlog.php:154
@@ -2495,7 +2496,7 @@ msgstr "ආකෘතිය"
 
 #: libraries/config/messages.inc.php:71
 msgid "Compression"
-msgstr "Compression"
+msgstr "හැකිළීම"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:79
 #: libraries/config/messages.inc.php:87 libraries/config/messages.inc.php:91
@@ -2594,7 +2595,7 @@ msgstr "MIME වර්ගය"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 tbl_relation.php:389
 msgid "Relations"
-msgstr "Relations"
+msgstr "සබඳතා"
 
 #: libraries/config/messages.inc.php:103
 msgid "Export method"
@@ -3789,10 +3790,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "ප්‍රකාශය"
+msgstr "අවධානය සක්‍රීය කල යුතු ප්‍රකාශ"
 
 #: libraries/config/messages.inc.php:427
 msgid ""
@@ -3865,11 +3865,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:442
 msgid "Show password change form"
-msgstr ""
+msgstr "මුරපදය වෙනස් කිරීමේ පෝරමය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:443
 msgid "Show create database form"
-msgstr ""
+msgstr "දත්තගබඩාවක් සෑදීමේ පෝරමය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:444
 msgid ""
@@ -4148,7 +4148,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:244 libraries/export/ods.php:17
 #: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
-msgstr "Open Document Spreadsheet"
+msgstr "Open Document පැතුරුම්පත"
 
 #: libraries/config/setup.forms.php:256
 #: libraries/config/user_preferences.forms.php:159
@@ -4180,7 +4180,7 @@ msgstr "මෛක්‍රොසොෆ්ට් වර්ඩ් 2000"
 #: libraries/config/setup.forms.php:346
 #: libraries/config/user_preferences.forms.php:248 libraries/export/odt.php:21
 msgid "Open Document Text"
-msgstr "Open Document Text"
+msgstr "Open Document පෙළ"
 
 #: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
 msgid "Could not connect to MySQL server"
@@ -4308,7 +4308,7 @@ msgstr "නැවත ටයිප් කරන්න"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
-msgstr "Password Hashing"
+msgstr "මුරපදය hash කිරීම"
 
 #: libraries/display_change_password.lib.php:65
 msgid "MySQL 4.0 compatible"
@@ -4556,7 +4556,6 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4566,9 +4565,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be good way to import large files, "
-"however it can break transactions.)</i>"
+"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. "
+"<i>(විශාල ගොනු ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම "
+"සිදුවිය හැක.)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -4658,7 +4657,7 @@ msgstr "BLOB දත්ත පෙන්වන්න"
 #: libraries/display_tbl.lib.php:606 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
 msgid "Browser transformation"
-msgstr "Browser transformation"
+msgstr "බ්‍රව්සර රූපාන්තරනය"
 
 #: libraries/display_tbl.lib.php:1220
 msgid "Copy"
@@ -4713,7 +4712,7 @@ msgstr "දසුනක් සාදන්න"
 
 #: libraries/display_tbl.lib.php:2506
 msgid "Link not found"
-msgstr ""
+msgstr "සබැඳිය හමු නොවිණි"
 
 #: libraries/engines/bdb.lib.php:20 main.php:213
 msgid "Version information"
@@ -4757,7 +4756,7 @@ msgstr "Buffer Pool"
 
 #: libraries/engines/innodb.lib.php:135 server_status.php:432
 msgid "InnoDB Status"
-msgstr "InnoDB Status"
+msgstr "InnoDB තත්වය"
 
 #: libraries/engines/innodb.lib.php:163
 msgid "Buffer Pool Usage"
@@ -5174,10 +5173,9 @@ msgid "Object creation options"
 msgstr "Transformation options"
 
 #: libraries/export/latex.php:51 libraries/export/latex.php:75
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "වගු සිරස් තලය"
+msgstr "වගු සිරස් තලය (සබැඳි)"
 
 #: libraries/export/latex.php:56 libraries/export/odt.php:42
 #: libraries/export/sql.php:40
@@ -5190,10 +5188,9 @@ msgstr "විස්තර පෙන්වන්න"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:44
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Available MIME types"
+msgstr "MIME වර්ග පෙන්වන්න"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:341
 #: libraries/export/xml.php:106 libraries/header_printview.inc.php:56
@@ -5426,9 +5423,8 @@ msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1147
-#, fuzzy
 msgid "Go to database"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "දත්තගබඩාව වෙත යන්න"
 
 # සිටුවම් = settings. Source: Glossary of Information Technology Terms - ICTA
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
@@ -5436,9 +5432,8 @@ msgid "settings"
 msgstr "සිටුවම්"
 
 #: libraries/import.lib.php:1169
-#, fuzzy
 msgid "Go to table"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "වගුව වෙත යන්න"
 
 #: libraries/import.lib.php:1178
 msgid "Go to view"
@@ -5482,10 +5477,10 @@ msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
 #: libraries/import/csv.php:324
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Invalid field count in CSV input on line %d."
+msgstr "CSV අදානයේ %d පේළියේ වැරදි තීර ගණනකි."
 
 #: libraries/import/docsql.php:27
 msgid "DocSQL"
@@ -5939,10 +5934,10 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:851
 #: libraries/schema/Svg_Relation_Schema.class.php:738
 #: libraries/schema/Visio_Relation_Schema.class.php:503
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema of the %s database - Page %s"
+msgstr "%s දත්තගබඩාවේ ක්‍රමානුරූපය - %sවන පිටුව"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 msgid "This page does not contain any tables!"
@@ -5999,20 +5994,18 @@ msgid "Please choose a page to edit"
 msgstr "සංස්කරණය සඳහා පිටුවක් තෝරාගන්න"
 
 #: libraries/schema/User_Schema.class.php:153
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "වගු තෝරන්න"
+msgstr "පිටුව තෝරන්න"
 
 #: libraries/schema/User_Schema.class.php:212
 msgid "Select Tables"
 msgstr "වගු තෝරන්න"
 
 #: libraries/schema/User_Schema.class.php:347
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Relational schema"
+msgstr "ක්‍රමානුරූපය පෙන්වන්න"
 
 #: libraries/schema/User_Schema.class.php:357
 msgid "Select Export Relational Type"
@@ -6047,10 +6040,9 @@ msgid "Portrait"
 msgstr "සිරස් දිශානතිය"
 
 #: libraries/schema/User_Schema.class.php:395
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "සෑදීම"
+msgstr "දිශානතිය"
 
 #: libraries/schema/User_Schema.class.php:408
 msgid "Paper size"
@@ -6069,7 +6061,7 @@ msgstr ""
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:487
 msgid "ltr"
-msgstr "ltr"
+msgstr "වමේ සිට දකුණට"
 
 #: libraries/select_lang.lib.php:492 libraries/select_lang.lib.php:498
 #: libraries/select_lang.lib.php:504
@@ -6150,10 +6142,9 @@ msgid "Clear"
 msgstr "මකන්න"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "තීර නම්"
+msgstr "තීර"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:929 sql.php:930 sql.php:947
 msgid "Bookmark this SQL query"
@@ -6324,7 +6315,6 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:396
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -6378,7 +6368,6 @@ msgid "Event"
 msgstr "සිද්ධිය"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -6390,10 +6379,10 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
+"තීරයේ ද්වීමය දත්ත බාගත කිරීම සඳහා සබැඳියක් පෙන්වයි. පළමු විකල්පය ගොනුව සඳහා "
+"නාමයක් සඳහන් කිරීමට භාවිතා කල හැකි අතර දෙවන විකල්පය ගොනුව සඳහා නාමයක් ලබාගත "
+"යුතු තීරය සඳහන් කිරීමට භාවිතා කල හැක. ඔබ දෙවන විකල්පය භාවිතා කරන්නේ නම් පළමු "
+"විකල්පය හිස්ව තැබිය යුතුය."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
@@ -6407,10 +6396,12 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
+"ක්ලික් කල හැකි පින්තුරයක් පෙන්වයි; විකල්ප පික්සල් වලින් උපරිම පළල සහ උස විය "
+"යුතුය. පෙර තිබූ උසට පළල අනුපාතය සුරැකේ."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "මෙම පින්තුරය බාගත කිරීම සඳහා සබැඳියක් පෙන්වයි."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 msgid ""
@@ -6461,7 +6452,6 @@ msgstr ""
 "(Default 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays the contents of the field as-is, without running it through "
 #| "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
@@ -6469,11 +6459,10 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+"තීරයේ අන්තර්ගතය htmlspecialchars() භාවිතා කිරීමෙන් තොරව ඇති සැටියෙන්ම "
+"පෙන්වයි. එනම් මෙම තීරුවේ වලංගු HTML අඩංගු බවට උපකල්පනය කෙරේ."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays an image and a link; the field contains the filename. The first "
 #| "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -6483,12 +6472,11 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
+"පින්තූරයක හා සබැඳියක් පෙන්වයි; ක්ෂේත්‍රයේ අඩංගු විය යුත්තේ ගොනුවේ නාමයයි. "
+"පළවන විකල්පය URLය සඳහා \"http://www.example.com/\" වැනි උපසර්ගයකි. දෙවන සහ "
+"තෙවන විකල්ප පික්සල් වලින් පළල සහ උස විය යුතුය."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -6498,9 +6486,9 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
+"සබැඳියක් පෙන්වයි; ක්ෂේත්‍රයේ අඩංගු විය යුත්තේ ගොනුවේ නාමයයි. පළවන විකල්පය "
+"URLය සඳහා \"http://www.example.com/\" වැනි උපසර්ගයකි. දෙවන විකල්පය සබැඳිය සඳහා "
+"පෙන්විය යුතු පෙළයි."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
@@ -6558,10 +6546,9 @@ msgid "Error in ZIP archive:"
 msgstr "ZIP ආරක්ෂණයේ දෝෂයක් ඇත:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "General relation features"
+msgstr "සාමාන්‍ය සිටුවම්"
 
 #: main.php:103
 msgid "MySQL connection collation"
@@ -6717,16 +6704,14 @@ msgid "Filter"
 msgstr "පෙරහන්න"
 
 #: navigation.php:277
-#, fuzzy
 #| msgid "table name"
 msgid "filter tables by name"
-msgstr "වගුවේ නම"
+msgstr "වගු නමින් පෙරහන්න"
 
 #: navigation.php:308 navigation.php:309
-#, fuzzy
 msgctxt "short form"
 msgid "Create table"
-msgstr "නව පිටුවක් සාදන්න"
+msgstr "වගුවක් සාදන්න"
 
 #: navigation.php:314 navigation.php:486
 msgid "Please select a database"
@@ -6745,9 +6730,8 @@ msgid "Create table"
 msgstr "වගුව සාදන්න"
 
 #: pmd_general.php:84 pmd_general.php:352
-#, fuzzy
 msgid "Create relation"
-msgstr "සර්වරයේ සංස්කරණය"
+msgstr "සම්බන්දතාවයක් සාදන්න"
 
 #: pmd_general.php:90
 msgid "Reload"
@@ -6790,18 +6774,16 @@ msgid "Move Menu"
 msgstr ""
 
 #: pmd_general.php:137
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "සියල්ල පෙන්වන්න"
+msgstr "සියල්ල පෙන්වන්න/සඟවන්න"
 
 #: pmd_general.php:141
 msgid "Hide/Show Tables with no relation"
 msgstr ""
 
 #: pmd_general.php:181
-#, fuzzy
 msgid "Number of tables"
-msgstr "ක්ෂේත්‍ර ගණන"
+msgstr "වගු ගණන"
 
 #: pmd_general.php:418
 msgid "Delete relation"
@@ -6814,22 +6796,19 @@ msgstr "Relation view"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "අපනයනය"
+msgstr "හැර"
 
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "in query"
+msgstr "උප විමසුම"
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 msgid "Rename to"
-msgstr "වගුව බවට නම වෙනස් කරන්න"
+msgstr "නව නාමය"
 
 #: pmd_general.php:482 pmd_general.php:581
 msgid "New name"
@@ -6913,9 +6892,8 @@ msgid "Internal relation added"
 msgstr "අභ්‍යන්තර සබඳතා එක් කරන ලදි"
 
 #: pmd_relation_upd.php:55
-#, fuzzy
 msgid "Relation deleted"
-msgstr "Relation view"
+msgstr "සම්බන්දතාවය ඉවත් කරන ලදී"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
@@ -7265,9 +7243,8 @@ msgstr ""
 
 #: server_privileges.php:65 server_privileges.php:211
 #: server_privileges.php:549
-#, fuzzy
 msgid "Allows creating and dropping triggers"
-msgstr "Allows creating and dropping indexes."
+msgstr "ප්‍රේරක සැදීමට හා ඉවත් කිරීමට අවසර ලබා දෙයි"
 
 #: server_privileges.php:66 server_privileges.php:192
 #: server_privileges.php:457 server_privileges.php:519
