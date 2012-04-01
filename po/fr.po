@@ -1,12 +1,12 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-29 22:28+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: french <fr@li.org>\n"
+"PO-Revision-Date: 2012-04-01 15:03+0200\n"
+"Last-Translator: Cédric Corazza <cedric.corazza@wanadoo.fr>\n"
+"Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6922,7 +6922,7 @@ msgstr "Croate"
 
 #: libraries/mysql_charsets.lib.php:245
 msgid "Czech"
-msgstr "Tchèque"
+msgstr "Tch&egrave;que"
 
 #: libraries/mysql_charsets.lib.php:248
 msgid "Danish"
@@ -6974,11 +6974,11 @@ msgstr "Lituanien"
 
 #: libraries/mysql_charsets.lib.php:281 libraries/mysql_charsets.lib.php:384
 msgid "Korean"
-msgstr "Coréen"
+msgstr "Cor&eacute;en"
 
 #: libraries/mysql_charsets.lib.php:284
 msgid "Persian"
-msgstr "Perse"
+msgstr "Farsi"
 
 #: libraries/mysql_charsets.lib.php:287
 msgid "Polish"
@@ -6998,7 +6998,7 @@ msgstr "Slovaque"
 
 #: libraries/mysql_charsets.lib.php:299
 msgid "Slovenian"
-msgstr "Slovène"
+msgstr "Slov&egrave;ne"
 
 #: libraries/mysql_charsets.lib.php:302
 msgid "Spanish"
@@ -7010,11 +7010,11 @@ msgstr "Espagnol traditionnel"
 
 #: libraries/mysql_charsets.lib.php:308 libraries/mysql_charsets.lib.php:405
 msgid "Swedish"
-msgstr "Suédois"
+msgstr "Su&eacute;dois"
 
 #: libraries/mysql_charsets.lib.php:311 libraries/mysql_charsets.lib.php:408
 msgid "Thai"
-msgstr "Thaï"
+msgstr "Tha&iuml;"
 
 #: libraries/mysql_charsets.lib.php:314 libraries/mysql_charsets.lib.php:402
 msgid "Turkish"
@@ -7060,11 +7060,11 @@ msgstr "Arabe"
 
 #: libraries/mysql_charsets.lib.php:387
 msgid "Hebrew"
-msgstr "Hébreu"
+msgstr "H&eacute;breu"
 
 #: libraries/mysql_charsets.lib.php:390
 msgid "Georgian"
-msgstr "Géorgien"
+msgstr "G&eacute;orgien"
 
 #: libraries/mysql_charsets.lib.php:393
 msgid "Greek"
@@ -13428,8 +13428,8 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ "column, click the \"Choose column to display\" icon, then click on the "
 #~ "appropriate column name."
 #~ msgstr ""
-#~ "La colonne descriptive est montrée en rose. Pour indiquer qu'une colonne "
-#~ "est ou n'est plus la colonne descriptive, cliquer l'icône «Colonne "
+#~ "La colonne descriptive est montrée en rose. Pour indiquer qu'une colonne est "
+#~ "ou n'est plus la colonne descriptive, cliquer l'icône «Colonne "
 #~ "descriptive», puis cliquer sur le nom de colonne approprié."
 
 #~ msgid "memcached usage"
