@@ -454,7 +454,7 @@ div.footnotes {
     padding:            0.1em 0.1em 0.1em 36px;
         <?php } else { ?>
     background-position: 99% 50%;
-    padding:            10px 5% 10px 10px;
+    padding:            0.1em 46px 0.1em 0.1em;
         <?php } ?>
     <?php } else { ?>
     padding:            0.3em;
@@ -475,8 +475,8 @@ div.success {
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
-    background-position: 97% 50%;
-    padding:            0.2em 25px 0.2em 0.2em;
+    background-position: 99% 50%;
+    padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
     <?php } ?>
 }
@@ -499,8 +499,8 @@ div.footnotes {
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
-    background-position: 97% 50%;
-    padding:            0.2em 25px 0.2em 0.2em;
+    background-position: 99% 50%;
+    padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
     <?php } ?>
 }
@@ -523,8 +523,8 @@ div.error {
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
-    background-position: 97% 50%;
-    padding:            0.2em 25px 0.2em 0.2em;
+    background-position: 99% 50%;
+    padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
     <?php } ?>
 }
