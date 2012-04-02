@@ -3,6 +3,14 @@
 /**
  * Set of functions used with the relation and pdf feature
  *
+ * This file also provides basic functions to use in other plungins!
+ * These are declared in the 'GLOBAL Plugin functions' section
+ *
+ * Please use short and expressive names. For now, special characters which aren't allowed in
+ * filenames or functions should not be used.
+ *
+ * Please provide a comment for your function, what it does and what parameters are available.
+ * 
  * @package PhpMyAdmin
  */
 
@@ -252,4 +260,45 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         return false;
     }
 } // end of 'PMA_setMIME()' function
+
+
+/**
+ * GLOBAL Plugin functions
+ */
+
+
+/**
+ * Replaces "[__BUFFER__]" occurences found in $options['string'] with the text
+ * in $buffer, after performing a regular expression search and replace on 
+ * $buffer using $options['regex'] and $options['regex_replace'].
+ * 
+ * @param string $buffer        text that will be replaced in $options['string'],
+ *                              after being formatted
+ * @param array  $options       the options required to format $buffer
+ *               = array (
+ *                 'string'          => 'string',    // text containing "[__BUFFER__]"
+ *                 'regex'           => 'mixed',     // the pattern to search for
+ *                 'regex_replace'   => 'mixed',     // string or array of strings to replace with
+ *               );
+ *
+ * @return string containing the text with all the replacements
+ */
+function PMA_transformation_global_html_replace($buffer, $options = array())
+{
+    if ( ! isset($options['string']) ) {
+        $options['string'] = '';
+    }
+
+    if (
+          isset($options['regex'])
+          &&
+          isset($options['regex_replace'])
+    ) {
+        $buffer = preg_replace('@' . str_replace('@', '\@', $options['regex']) . '@si', $options['regex_replace'], $buffer);
+    }
+
+    // Replace occurences of [__BUFFER__] with actual text
+    $return = str_replace("[__BUFFER__]", $buffer, $options['string']);
+    return $return;
+}
 ?>

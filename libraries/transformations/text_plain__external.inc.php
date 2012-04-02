@@ -29,8 +29,7 @@ function PMA_transformation_text_plain__external_nowrap($options = array())
 
 function PMA_transformation_text_plain__external($buffer, $options = array(), $meta = '')
 {
-    // possibly use a global transform and feed it with special options:
-    // include './libraries/transformations/global.inc.php';
+    // possibly use a global transform and feed it with special options
 
     // further operations on $buffer using the $options[] array.
 
