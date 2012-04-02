@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-04-01 15:03+0200\n"
-"Last-Translator: Cédric Corazza <cedric.corazza@wanadoo.fr>\n"
+"PO-Revision-Date: 2012-04-02 00:28+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -97,7 +97,7 @@ msgstr "Utiliser cette valeur"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr "Aucun serveur blob streaming configuré!"
+msgstr "Aucun serveur blob streaming configuré !"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
@@ -561,7 +561,7 @@ msgstr "Effectuer une nouvelle recherche dans la base de données"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Mot(s) ou valeur(s) à rechercher (passe-partout: «%») :"
+msgstr "Mot(s) ou valeur(s) à rechercher (passe-partout: «%») : "
 
 #: db_search.php:303
 msgid "Find:"
@@ -573,7 +573,7 @@ msgstr "Séparer les mots par un espace (« »)."
 
 #: db_search.php:321
 msgid "Inside table(s):"
-msgstr "Dans la(les) table(s) :"
+msgstr "Dans la(les) table(s) : "
 
 #: db_search.php:351
 msgid "Inside column:"
@@ -1751,11 +1751,11 @@ msgstr "Erreur PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
-msgstr "La connexion PBMS a échoué :"
+msgstr "La connexion PBMS a échoué : "
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr "L'accès aux informations BLOB de PBMS a échoué :"
+msgstr "L'accès aux informations BLOB de PBMS a échoué : "
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
@@ -6507,7 +6507,7 @@ msgstr "Délimiteur"
 
 #: libraries/sql_query_form.lib.php:380
 msgid " Show this query here again "
-msgstr "Afficher à nouveau la requête après exécution"
+msgstr "Afficher à nouveau la requête après exécution "
 
 #: libraries/sql_query_form.lib.php:439
 msgid "Submit"
@@ -7671,7 +7671,7 @@ msgstr "Privilèges spécifiques à une table"
 #: server_privileges.php:444 server_privileges.php:588
 #: server_privileges.php:1610
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr " Veuillez noter que les noms de privilèges sont exprimés en anglais"
+msgstr " Veuillez noter que les noms de privilèges sont exprimés en anglais "
 
 #: server_privileges.php:513
 msgid "Administration"
@@ -9017,7 +9017,7 @@ msgstr "La base cible a été synchronizée avec la base source"
 
 #: server_synchronize.php:998
 msgid "The following queries have been executed:"
-msgstr "Ces requêtes ont été exécutées :"
+msgstr "Ces requêtes ont été exécutées : "
 
 #: server_synchronize.php:1131
 msgid "Enter manually"
@@ -9413,7 +9413,7 @@ msgstr "Fonction"
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
 "Il est possible que cette colonne<br />ne soit pas éditable<br />en raison "
-"de sa longueur"
+"de sa longueur "
 
 #: tbl_change.php:875
 msgid "Remove BLOB Repository Reference"
