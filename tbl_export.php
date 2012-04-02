@@ -11,8 +11,6 @@
 require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'export.js';
-$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
-$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 /**
  * Gets tables informations and displays top links

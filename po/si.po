@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-25 17:47+0200\n"
+"PO-Revision-Date: 2012-03-31 19:18+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -34,8 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ බ්‍රව්සරයේ "
-"ආරක්ෂක සැකසුම් cross-window යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය හැක."
+"ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ "
+"ඔබගේ බ්‍රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස "
+"සකසා තිබීම මීට හේතු විය හැක."
 
 #: browse_foreigners.php:160 libraries/common.lib.php:3127
 #: libraries/common.lib.php:3134 libraries/common.lib.php:3343
@@ -2911,7 +2912,7 @@ msgstr "ඉරිදා"
 #: libraries/common.lib.php:1648
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y දින %I:%M %p ට"
 
 #: libraries/common.lib.php:1981
 #, php-format
@@ -3455,7 +3456,7 @@ msgstr "ආකෘතිය"
 
 #: libraries/config/messages.inc.php:75
 msgid "Compression"
-msgstr "Compression"
+msgstr "හැකිළීම"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:83
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:95
@@ -3554,7 +3555,7 @@ msgstr "MIME වර්ගය"
 #: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
 #: libraries/config/messages.inc.php:138 tbl_relation.php:392
 msgid "Relations"
-msgstr "Relations"
+msgstr "සබඳතා"
 
 #: libraries/config/messages.inc.php:107
 msgid "Export method"
@@ -4799,10 +4800,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:442
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "ප්‍රකාශය"
+msgstr "අවධානය සක්‍රීය කල යුතු ප්‍රකාශ"
 
 #: libraries/config/messages.inc.php:443
 msgid ""
@@ -4875,11 +4875,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
-msgstr ""
+msgstr "මුරපදය වෙනස් කිරීමේ පෝරමය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:459
 msgid "Show create database form"
-msgstr ""
+msgstr "දත්තගබඩාවක් සෑදීමේ පෝරමය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:460
 msgid ""
@@ -5185,7 +5185,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:251 libraries/export/ods.php:18
 #: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
-msgstr "Open Document Spreadsheet"
+msgstr "Open Document පැතුරුම්පත"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:166
@@ -5217,7 +5217,7 @@ msgstr "මෛක්‍රොසොෆ්ට් වර්ඩ් 2000"
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:255 libraries/export/odt.php:22
 msgid "Open Document Text"
-msgstr "Open Document Text"
+msgstr "Open Document පෙළ"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
@@ -5358,7 +5358,7 @@ msgstr "නැවත ටයිප් කරන්න"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
-msgstr "Password Hashing"
+msgstr "මුරපදය hash කිරීම"
 
 #: libraries/display_change_password.lib.php:65
 msgid "MySQL 4.0 compatible"
@@ -5608,7 +5608,6 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "the interruption of an import in case the script detects it is se to the  "
 #| "timeout limit. This might be good way to import large es, however it "
@@ -5618,9 +5617,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be good way to import large files, "
-"however it can break transactions.)</i>"
+"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. "
+"<i>(විශාල ගොනු ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම "
+"සිදුවිය හැක.)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -5774,7 +5773,7 @@ msgstr "ප්‍රස්තාරගත කරන්න"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "ජ්‍යාමිතික දත්ත නිරූපණය"
 
 #: libraries/display_tbl.lib.php:2701
 msgid "Create view"
@@ -5782,7 +5781,7 @@ msgstr "දසුනක් සාදන්න"
 
 #: libraries/display_tbl.lib.php:2808
 msgid "Link not found"
-msgstr ""
+msgstr "සබැඳිය හමු නොවිණි"
 
 #: libraries/engines/bdb.lib.php:20 main.php:237
 msgid "Version information"
@@ -5826,7 +5825,7 @@ msgstr "Buffer Pool"
 
 #: libraries/engines/innodb.lib.php:131 server_status.php:647
 msgid "InnoDB Status"
-msgstr "InnoDB Status"
+msgstr "InnoDB තත්වය"
 
 #: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
@@ -6243,10 +6242,9 @@ msgid "Object creation options"
 msgstr "Transformation options"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "වගු සිරස් තලය"
+msgstr "වගු සිරස් තලය (සබැඳි)"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
@@ -6259,10 +6257,9 @@ msgstr "විස්තර පෙන්වන්න"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:63
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Available MIME types"
+msgstr "MIME වර්ග පෙන්වන්න"
 
 #: libraries/export/latex.php:132 libraries/export/sql.php:482
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:59
@@ -6564,10 +6561,10 @@ msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
 #: libraries/import/csv.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Invalid field count in CSV input on line %d."
+msgstr "CSV අදානයේ %d පේළියේ වැරදි තීර ගණනකි."
 
 #: libraries/import/docsql.php:28
 msgid "DocSQL"
@@ -6662,10 +6659,9 @@ msgid "Add table prefix"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:270
-#, fuzzy
 #| msgid "Add index"
 msgid "Add prefix"
-msgstr "සුචිය එක් කරන්න"
+msgstr "උපසර්ගයක් එක් කරන්න"
 
 #: libraries/mult_submits.inc.php:482 tbl_replace.php:356
 msgid "No change"
@@ -6908,7 +6904,7 @@ msgstr "තීර විස්තර පෙන්වීම"
 #: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
 #: transformation_overview.php:46
 msgid "Browser transformation"
-msgstr "Browser transformation"
+msgstr "බ්‍රව්සර රූපාන්තරනය"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -7482,10 +7478,10 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #: libraries/schema/Visio_Relation_Schema.class.php:537
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema of the %s database - Page %s"
+msgstr "%s දත්තගබඩාවේ ක්‍රමානුරූපය - %sවන පිටුව"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
@@ -7541,20 +7537,18 @@ msgid "Please choose a page to edit"
 msgstr "සංස්කරණය සඳහා පිටුවක් තෝරාගන්න"
 
 #: libraries/schema/User_Schema.class.php:178
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "වගු තෝරන්න"
+msgstr "පිටුව තෝරන්න"
 
 #: libraries/schema/User_Schema.class.php:244
 msgid "Select Tables"
 msgstr "වගු තෝරන්න"
 
 #: libraries/schema/User_Schema.class.php:382
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Relational schema"
+msgstr "ක්‍රමානුරූපය පෙන්වන්න"
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Select Export Relational Type"
@@ -7589,10 +7583,9 @@ msgid "Portrait"
 msgstr "සිරස් දිශානතිය"
 
 #: libraries/schema/User_Schema.class.php:430
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "සෑදීම"
+msgstr "දිශානතිය"
 
 #: libraries/schema/User_Schema.class.php:443
 msgid "Paper size"
@@ -7611,7 +7604,7 @@ msgstr ""
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:478
 msgid "ltr"
-msgstr "ltr"
+msgstr "වමේ සිට දකුණට"
 
 #: libraries/select_lang.lib.php:495 libraries/select_lang.lib.php:501
 #: libraries/select_lang.lib.php:507
@@ -7698,10 +7691,9 @@ msgid "Clear"
 msgstr "මකන්න"
 
 #: libraries/sql_query_form.lib.php:265
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "තීර නම්"
+msgstr "තීර"
 
 #: libraries/sql_query_form.lib.php:300 sql.php:975 sql.php:992
 msgid "Bookmark this SQL query"
@@ -7860,7 +7852,6 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:351
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -7920,7 +7911,6 @@ msgid ""
 msgstr ""
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "ys a link to download the binary data of the field. You can use the st "
 #| "ion to specify the filename, or use the second option as the e of a "
@@ -7932,10 +7922,10 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Displays a link to download the binary data of the field. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a field which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
+"තීරයේ ද්වීමය දත්ත බාගත කිරීම සඳහා සබැඳියක් පෙන්වයි. පළමු විකල්පය ගොනුව සඳහා "
+"නාමයක් සඳහන් කිරීමට භාවිතා කල හැකි අතර දෙවන විකල්පය ගොනුව සඳහා නාමයක් ලබාගත "
+"යුතු තීරය සඳහන් කිරීමට භාවිතා කල හැක. ඔබ දෙවන විකල්පය භාවිතා කරන්නේ නම් පළමු "
+"විකල්පය හිස්ව තැබිය යුතුය."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:10
 msgid ""
@@ -7949,10 +7939,12 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
+"ක්ලික් කල හැකි පින්තුරයක් පෙන්වයි; විකල්ප පික්සල් වලින් උපරිම පළල සහ උස විය "
+"යුතුය. පෙර තිබූ උසට පළල අනුපාතය සුරැකේ."
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "මෙම පින්තුරය බාගත කිරීම සඳහා සබැඳියක් පෙන්වයි."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
@@ -8002,7 +7994,6 @@ msgstr ""
 "(Default 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "ys the contents of the field as-is, without running it through ecialchars"
 #| "(). That is, the field is assumed to contain valid HTML."
@@ -8010,11 +8001,10 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Displays the contents of the field as-is, without running it through "
-"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+"තීරයේ අන්තර්ගතය htmlspecialchars() භාවිතා කිරීමෙන් තොරව ඇති සැටියෙන්ම "
+"පෙන්වයි. එනම් මෙම තීරුවේ වලංගු HTML අඩංගු බවට උපකල්පනය කෙරේ."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "ys an image and a link; the field contains the filename. The first ion "
 #| "isURL prefix like \"http://www.example.com/\". The second and rd options  "
@@ -8024,12 +8014,11 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Displays an image and a link; the field contains the filename. The first "
-"option is a URL prefix like \"http://www.example.com/\". The second and "
-"third options are the width and the height in pixels."
+"පින්තූරයක හා සබැඳියක් පෙන්වයි; ක්ෂේත්‍රයේ අඩංගු විය යුත්තේ ගොනුවේ නාමයයි. "
+"පළවන විකල්පය URLය සඳහා \"http://www.example.com/\" වැනි උපසර්ගයකි. දෙවන සහ "
+"තෙවන විකල්ප පික්සල් වලින් පළල සහ උස විය යුතුය."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "ys a link; the field contains the filename. The first option is a  "
 #| "prefixke \"http://www.example.com/\". The second option is a title  the "
@@ -8039,9 +8028,9 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Displays a link; the field contains the filename. The first option is a URL "
-"prefix like \"http://www.example.com/\". The second option is a title for "
-"the link."
+"සබැඳියක් පෙන්වයි; ක්ෂේත්‍රයේ අඩංගු විය යුත්තේ ගොනුවේ නාමයයි. පළවන විකල්පය "
+"URLය සඳහා \"http://www.example.com/\" වැනි උපසර්ගයකි. දෙවන විකල්පය සබැඳිය සඳහා "
+"පෙන්විය යුතු පෙළයි."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid ""
@@ -8099,16 +8088,14 @@ msgid "Error in ZIP archive:"
 msgstr "ZIP ආරක්ෂණයේ දෝෂයක් ඇත:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "General relation features"
+msgstr "සාමාන්‍ය සිටුවම්"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL සම්බන්ධතා collation"
+msgstr "සේවාදායක සම්බන්ධතා collation"
 
 #: main.php:124
 msgid "Appearance Settings"
@@ -8120,10 +8107,9 @@ msgid "More settings"
 msgstr "තවත් සිටුවම්"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "භාවිතා කරන්නා සඳහා දත්තගබඩාව"
+msgstr "දත්තගබඩා සේවාදායකය"
 
 #: main.php:172
 msgid "Software"
@@ -8266,16 +8252,14 @@ msgid "No databases"
 msgstr "දත්තගබඩා නොමැත"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "table name"
 msgid "Filter tables by name"
-msgstr "වගුවේ නම"
+msgstr "වගු නමින් පෙරහන්න"
 
 #: navigation.php:303 navigation.php:304
-#, fuzzy
 msgctxt "short form"
 msgid "Create table"
-msgstr "නව පිටුවක් සාදන්න"
+msgstr "වගුවක් සාදන්න"
 
 #: navigation.php:309 navigation.php:473
 msgid "Please select a database"
@@ -8290,9 +8274,8 @@ msgid "Save position"
 msgstr "ස්ථාපිතය සුරකින්න"
 
 #: pmd_general.php:74 pmd_general.php:346
-#, fuzzy
 msgid "Create relation"
-msgstr "සර්වරයේ සංස්කරණය"
+msgstr "සම්බන්දතාවයක් සාදන්න"
 
 #: pmd_general.php:80
 msgid "Reload"
@@ -8323,10 +8306,9 @@ msgid "Toggle small/big"
 msgstr ""
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Toggle relation lines"
-msgstr "පිටුව සෑදීම අසමත් විය"
+msgstr "සබඳතා දක්වන ඉරි පෙන්වන්න/සඟවන්න"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
@@ -8341,9 +8323,8 @@ msgid "Move Menu"
 msgstr ""
 
 #: pmd_general.php:126
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "සියල්ල පෙන්වන්න"
+msgstr "සියල්ල පෙන්වන්න/සඟවන්න"
 
 #: pmd_general.php:130
 msgid "Hide/Show Tables with no relation"
@@ -8354,9 +8335,8 @@ msgid "Hide"
 msgstr "සඟවන්න"
 
 #: pmd_general.php:170
-#, fuzzy
 msgid "Number of tables"
-msgstr "ක්ෂේත්‍ර ගණන"
+msgstr "වගු ගණන"
 
 #: pmd_general.php:412
 msgid "Delete relation"
@@ -8369,22 +8349,19 @@ msgstr "Relation view"
 
 #: pmd_general.php:464 pmd_general.php:523 pmd_general.php:646
 #: pmd_general.php:763
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "අපනයනය"
+msgstr "හැර"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "in query"
+msgstr "උප විමසුම"
 
 #: pmd_general.php:474 pmd_general.php:570
-#, fuzzy
 msgid "Rename to"
-msgstr "වගුව බවට නම වෙනස් කරන්න"
+msgstr "නව නාමය"
 
 #: pmd_general.php:476 pmd_general.php:575
 msgid "New name"
@@ -8451,9 +8428,8 @@ msgid "Internal relation added"
 msgstr "අභ්‍යන්තර සබඳතා එක් කරන ලදි"
 
 #: pmd_relation_upd.php:58
-#, fuzzy
 msgid "Relation deleted"
-msgstr "Relation view"
+msgstr "සම්බන්දතාවය ඉවත් කරන ලදී"
 
 #: pmd_save_pos.php:45
 msgid "Error saving coordinates for Designer."
@@ -8635,7 +8611,7 @@ msgstr ""
 
 #: server_plugins.php:102
 msgid "Begin"
-msgstr "Begin"
+msgstr "අරඹන්න"
 
 #: server_plugins.php:111
 msgid "Plugin"
@@ -8662,10 +8638,9 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
-msgstr "අක්‍රිය"
+msgstr "අක්‍රීයයි"
 
 #: server_privileges.php:34 server_privileges.php:369
 msgid "Includes all privileges except GRANT."
@@ -8837,9 +8812,8 @@ msgstr ""
 
 #: server_privileges.php:67 server_privileges.php:281
 #: server_privileges.php:650
-#, fuzzy
 msgid "Allows creating and dropping triggers"
-msgstr "Allows creating and dropping indexes."
+msgstr "ප්‍රේරක සැදීමට හා ඉවත් කිරීමට අවසර ලබා දෙයි"
 
 #: server_privileges.php:68 server_privileges.php:205
 #: server_privileges.php:555 server_privileges.php:620
@@ -8956,10 +8930,9 @@ msgid "Any"
 msgstr "ඕනෑම"
 
 #: server_privileges.php:1565
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "භාවිත කරන්නන් පිළිබඳ දළ විශ්ලේෂණය"
+msgstr "භාවිතා කරන්නන් පිළිබඳ දළ විශ්ලේෂණය"
 
 #: server_privileges.php:1705 server_privileges.php:1899
 #: server_privileges.php:2258
@@ -9078,10 +9051,9 @@ msgid "wildcard"
 msgstr "wildcard"
 
 #: server_privileges.php:2406
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "%s දසුන හලන ලදි"
+msgstr "භාවිතා කරන්නා එක් කරන ලදි."
 
 #: server_replication.php:49
 msgid "Unknown error"
@@ -9102,7 +9074,7 @@ msgid "Unable to change master"
 msgstr "Master වෙනස් කල නොහැක"
 
 #: server_replication.php:72
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
 msgstr "Master සේවාදායකය %s වෙත සාර්ථකව වෙනස් කරන ලදි"
@@ -9360,10 +9332,9 @@ msgid "Show unformatted values"
 msgstr "ආකෘතික අගයන් පෙන්වන්න"
 
 #: server_status.php:868
-#, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
-msgstr "Relations"
+msgstr "අදාල සබැඳි:"
 
 #: server_status.php:901
 msgid "Run analyzer"
@@ -9495,10 +9466,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "The number of fsync() writes done to the log file."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "The number of fsync() writes done to the log file."
+msgstr "MySQL සේවාදායකය හා සම්බන්ද වීමට ගත් අසාර්ථක උත්සාහ ගණන."
 
 #: server_status.php:1304
 msgid ""
@@ -10073,10 +10043,9 @@ msgid "Chart columns"
 msgstr "ප්‍රස්ථාරයේ තීර"
 
 #: server_status.php:1605
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "දෝෂ කළමනාකරණය:"
+msgstr "ප්‍රස්ථාර සැකසුම"
 
 #: server_status.php:1605
 msgid ""
@@ -10141,32 +10110,28 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1654
-#, fuzzy
 #| msgid "Remove database"
 msgid "Preset chart"
-msgstr "දත්තගබඩාව ඉවත් කරන්න"
+msgstr "පෙරසැදි ප්‍රස්ථාර"
 
 #: server_status.php:1658
-#, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
-msgstr "slave තත්ව වගුව බලන්න"
+msgstr "තත්ව විචල්‍ය(ය)"
 
 #: server_status.php:1660
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "වගු තෝරන්න"
+msgstr "ශ්‍රේණිය තෝරන්න:"
 
 #: server_status.php:1662
 msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1677
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "වලංගු නොවන වගු නම"
+msgstr "හෝ විචල්‍ය නාමය යතුරු කරන්න:"
 
 #: server_status.php:1681
 msgid "Display as differential value"
@@ -10181,31 +10146,27 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1696
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "නව සේවාදායකයක් එක් කරන්න"
+msgstr "මෙම ශ්‍රේණිය එක් කරන්න"
 
 #: server_status.php:1698
 msgid "Clear series"
 msgstr ""
 
 #: server_status.php:1701
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "SQL විමසුම"
+msgstr "ප්‍රස්ථාරයේ ශ්‍රේණි:"
 
 #: server_status.php:1714
-#, fuzzy
 msgid "Log statistics"
-msgstr "පේළි සංඛ්‍ය ලේඛන"
+msgstr "ලොග සංඛ්‍ය ලේඛන"
 
 #: server_status.php:1715
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr "වගු තෝරන්න"
+msgstr "තෝරාගත් කාල පරාසය:"
 
 #: server_status.php:1720
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -10224,26 +10185,25 @@ msgid "Results are grouped by query text."
 msgstr ""
 
 #: server_status.php:1737
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "විමසුම් වර්ගය"
+msgstr "විමසුම් විශ්ලේශකය"
 
 #: server_status.php:1777
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "තත්පර"
-msgstr[1] "තත්පර"
+msgstr[0] "තත්පර %dක්"
+msgstr[1] "තත්පර %dක්"
 
 #: server_status.php:1779
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "මිනිත්තු"
-msgstr[1] "මිනිත්තු"
+msgstr[0] "මිනිත්තු %dක්"
+msgstr[1] "මිනිත්තු %dක්"
 
 #: server_synchronize.php:99
 msgid "Could not connect to the source"
@@ -10328,9 +10288,8 @@ msgid "Target database has been synchronized with source database"
 msgstr "ඉලක්ක දත්තගබඩා මූලාශ්‍ර දත්තගබඩා සමඟ සමමුහුර්ත කර ඇත"
 
 #: server_synchronize.php:1046
-#, fuzzy
 msgid "Executed queries"
-msgstr "SQL විමසුම"
+msgstr "ක්‍රියාත්මක කරන ලද විමසුම්"
 
 #: server_synchronize.php:1202
 msgid "Enter manually"
@@ -10414,10 +10373,9 @@ msgid "Insecure connection"
 msgstr "අනාරක්ෂිත සම්බන්දතාවය"
 
 #: setup/frames/index.inc.php:94
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "වින්‍යාස ගබඩාව"
+msgstr "වින්‍යාසය සුරකින ලදි."
 
 #: setup/frames/index.inc.php:95
 msgid ""
@@ -10644,10 +10602,9 @@ msgid ""
 msgstr "%sZip දිගහැරුමට%s (%s) කෘත්‍ය අවශ්‍ය අතර එය ඔබගේ පද්ධතියේ නොමැත."
 
 #: setup/lib/index.lib.php:324
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "ඔබගේ වෙබ් සේවාදායකයේ SSL සහයෝගය ඇත්නම් එය භාවිත කල යුතුය."
+msgstr "ඔබගේ දත්තගබඩා සේවාදායකයේ SSL සහයෝගය ඇත්නම් එය භාවිත කල යුතුය."
 
 #: setup/lib/index.lib.php:337
 msgid "You should use mysqli for performance reasons."
@@ -10666,10 +10623,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "මූලයේ අක්ෂර, ඉලක්කම් [em]සහ[/em] විශේෂ සලකුණු තිබිය යුතුය."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "වැරදි දත්ත"
 
 #: sql.php:109 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:58
 msgid "Browse foreign values"
@@ -10770,35 +10726,30 @@ msgid "Continue insertion with %s rows"
 msgstr "පේළි %s බැගින් තවදුරටත් ඇතුල් කරන්න"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "තීර"
 
 #: tbl_chart.php:91
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "තීර"
+msgstr "ස්ථම්භ"
 
 #: tbl_chart.php:93
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "රේඛා"
 
 #: tbl_chart.php:95
-#, fuzzy
 #| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
-msgstr "පේළිගත"
+msgstr "සුනම්‍ය රේඛා"
 
 #: tbl_chart.php:97
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
@@ -10809,50 +10760,43 @@ msgid "Stacked"
 msgstr "ගොඩ ගසන ලද"
 
 #: tbl_chart.php:103
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "වාර්තා මාතෘකාව:"
+msgstr "ප්‍රස්ථාර මාතෘකාව"
 
 #: tbl_chart.php:109
 msgid "X-Axis:"
 msgstr ""
 
 #: tbl_chart.php:124
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "SQL විමසුම"
+msgstr "ශ්‍රේණි:"
 
 #: tbl_chart.php:126
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "The remaining columns"
-msgstr "ක්ෂේත්‍ර තීර එක් කරන්න/ඉවත් කරන්න"
+msgstr "ඉතිරි තීර"
 
 #: tbl_chart.php:139
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "X අක්ෂයේ ලේබලය"
+msgstr "X-අක්ෂයේ ලේබලය:"
 
 #: tbl_chart.php:141
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "අගය"
+msgstr "X අගයන්"
 
 #: tbl_chart.php:142
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Y අක්ෂයේ ලේබලය"
+msgstr "Y-අක්ෂයේ ලේබලය:"
 
 #: tbl_chart.php:143
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "අගය"
+msgstr "Y අගයන්"
 
 #: tbl_create.php:31
 #, php-format
@@ -10921,10 +10865,9 @@ msgid "Add index"
 msgstr "සුචිය එක් කරන්න"
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "සංස්කරණ ප්‍රකාරය"
+msgstr "සුචිය සංස්කරණය කරන්න"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
@@ -11063,10 +11006,9 @@ msgid "Check referential integrity:"
 msgstr ""
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "වගු පෙන්වන්න"
+msgstr "වගු පෙන්වමින්"
 
 #: tbl_printview.php:269 tbl_structure.php:764
 msgid "Space usage"
@@ -11194,10 +11136,9 @@ msgid "Show more actions"
 msgstr "තවත් ක්‍රියාවන් පෙන්වන්න"
 
 #: tbl_structure.php:607
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "මුද්‍රණ දර්ශනය"
+msgstr "දසුන සංස්කරණය කරන්න"
 
 #: tbl_structure.php:624
 msgid "Relation view"
@@ -11281,10 +11222,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:390 tbl_tracking.php:407
-#, fuzzy
 #| msgid "Query type"
 msgid "Query error"
-msgstr "විමසුම් වර්ගය"
+msgstr "විමසුම් දෝෂය"
 
 #: tbl_tracking.php:405
 msgid "Tracking data manipulation successfully deleted"
@@ -11300,16 +11240,14 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "%s පෙන්වන්න, %s දින සිට %s දින දක්වා %s %s භාවිතා කරන්නා විසින්"
 
 #: tbl_tracking.php:438
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "මෙම වගුවේ අවධානය පිළිබඳ දත්ත ඉවත් කරන්න"
+msgstr "අවධානය පිළිබඳ දත්ත පේළිය වාර්තාවෙන් ඉවත් කරන්න"
 
 #: tbl_tracking.php:449
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "දත්තගබඩා නොමැත"
+msgstr "දත්ත නොමැත"
 
 #: tbl_tracking.php:459 tbl_tracking.php:516
 msgid "Date"
