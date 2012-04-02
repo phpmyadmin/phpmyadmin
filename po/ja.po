@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-04-01 13:04+0200\n"
+"PO-Revision-Date: 2012-04-02 00:59+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8524,11 +8524,11 @@ msgstr "アクティブオプション"
 
 #: pmd_pdf.php:30
 msgid "Page has been created"
-msgstr "ページが作成されました。"
+msgstr "ページが作成されました"
 
 #: pmd_pdf.php:33
 msgid "Page creation failed"
-msgstr "ページの作成に失敗しました。"
+msgstr "ページの作成に失敗しました"
 
 #: pmd_pdf.php:85
 msgid "Page"
@@ -8560,11 +8560,11 @@ msgstr "推奨"
 
 #: pmd_relation_new.php:27
 msgid "Error: relation already exists."
-msgstr "エラー: リレーションはすでに存在しています"
+msgstr "エラー: リレーションはすでに存在しています。"
 
 #: pmd_relation_new.php:59 pmd_relation_new.php:84
 msgid "Error: Relation not added."
-msgstr "エラー: リレーションを追加できませんでした"
+msgstr "エラー: リレーションを追加できませんでした。"
 
 #: pmd_relation_new.php:60
 msgid "FOREIGN KEY relation added"
@@ -8580,7 +8580,7 @@ msgstr "リレーションを削除しました"
 
 #: pmd_save_pos.php:45
 msgid "Error saving coordinates for Designer."
-msgstr "デザイナの座標を保存するときにエラーが発生しました"
+msgstr "デザイナの座標を保存するときにエラーが発生しました。"
 
 #: pmd_save_pos.php:53
 msgid "Modifications have been saved"
@@ -8593,7 +8593,7 @@ msgstr ""
 
 #: prefs_manage.php:78
 msgid "Could not import configuration"
-msgstr "設定がインポートできませんでした。"
+msgstr "設定がインポートできませんでした"
 
 #: prefs_manage.php:110
 msgid "Configuration contains incorrect data for some fields."
@@ -8627,7 +8627,7 @@ msgstr "保存されている設定はありません！"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
-msgstr "この機能はブラウザよってサポートされていません。"
+msgstr "この機能はブラウザよってサポートされていません"
 
 #: prefs_manage.php:261
 msgid "Merge with current configuration"
@@ -8718,7 +8718,7 @@ msgstr "文字セットと照合順序"
 
 #: server_databases.php:83
 msgid "No databases selected."
-msgstr "データベースが選択されていません"
+msgstr "データベースが選択されていません。"
 
 #: server_databases.php:99
 #, fuzzy, php-format
@@ -8748,9 +8748,7 @@ msgstr "統計を有効にする"
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
-msgstr ""
-"注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量"
-"が激増することがあります"
+msgstr "注意: データベースの統計を有効にするとウェブサーバと MySQL サーバの間の通信量が激増することがあります。"
 
 #: server_engines.php:37
 msgid "Storage Engines"
@@ -8848,7 +8846,7 @@ msgstr "データの削除を許可する"
 #: server_privileges.php:101 server_privileges.php:274
 #: server_privileges.php:699
 msgid "Allows dropping databases and tables."
-msgstr "データベースとテーブルの削除を許可す"
+msgstr "データベースとテーブルの削除を許可する"
 
 #: server_privileges.php:102 server_privileges.php:699
 msgid "Allows dropping tables."
@@ -8920,7 +8918,7 @@ msgstr "全ユーザのプロセスを閲覧できるようにする"
 #: server_privileges.php:115 server_privileges.php:294
 #: server_privileges.php:627 server_privileges.php:732
 msgid "Has no effect in this MySQL version."
-msgstr "このバージョンの MySQL では無効です"
+msgstr "このバージョンの MySQL では無効です。"
 
 #: server_privileges.php:116 server_privileges.php:278
 #: server_privileges.php:727
@@ -8935,7 +8933,7 @@ msgstr "スレーブ/マスタの照会を許可する"
 #: server_privileges.php:118 server_privileges.php:322
 #: server_privileges.php:735
 msgid "Needed for the replication slaves."
-msgstr "レプリケーションスレーブでは有効にする必要があります"
+msgstr "レプリケーションスレーブでは有効にする必要があります。"
 
 #: server_privileges.php:119 server_privileges.php:254
 #: server_privileges.php:612 server_privileges.php:685
@@ -8964,9 +8962,8 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-"最大接続数に達しているときでも接続を許可する。グローバル変数の設定や他のユー"
-"ザのスレッドを停止するといった管理操作をする場合はたいていこの設定が必要にな"
-"ります"
+"最大接続数に達しているときでも接続を許可する。グローバル変数の設定や他のユーザのスレッドを停止するといった管理操作をする場合はたいていこの設定が必要にな"
+"ります。"
 
 #: server_privileges.php:124 server_privileges.php:338
 #: server_privileges.php:717
@@ -8980,7 +8977,7 @@ msgstr "データの修正を許可する"
 
 #: server_privileges.php:126 server_privileges.php:420
 msgid "No privileges."
-msgstr "特権はありません"
+msgstr "特権はありません。"
 
 #: server_privileges.php:472 server_privileges.php:473
 msgctxt "None privileges"
@@ -9015,7 +9012,7 @@ msgstr "リソースの制限"
 
 #: server_privileges.php:780
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "注意: オプションを 0 (ゼロ)に設定すると制限を解除します"
+msgstr "注意: オプションを 0 (ゼロ)に設定すると制限を解除します。"
 
 #: server_privileges.php:858
 msgid "Login Information"
@@ -9027,7 +9024,7 @@ msgstr "パスワードは変更しない"
 
 #: server_privileges.php:1007 server_privileges.php:2526
 msgid "No user found."
-msgstr "ユーザが存在しません"
+msgstr "ユーザが存在しません。"
 
 #: server_privileges.php:1051
 #, php-format
@@ -9036,12 +9033,12 @@ msgstr "ユーザ %s は既に存在します!"
 
 #: server_privileges.php:1135
 msgid "You have added a new user."
-msgstr "新しいユーザを追加しました"
+msgstr "新しいユーザを追加しました。"
 
 #: server_privileges.php:1359
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "%s の特権を更新しました"
+msgstr "%s の特権を更新しました。"
 
 #: server_privileges.php:1381
 #, php-format
@@ -9051,7 +9048,7 @@ msgstr "%s の特権を取り消しました"
 #: server_privileges.php:1417
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "%s のパスワードは正しく変更されました"
+msgstr "%s のパスワードは正しく変更されました。"
 
 #: server_privileges.php:1437
 #, php-format
@@ -9068,11 +9065,11 @@ msgstr "特権を再読み込みしています"
 
 #: server_privileges.php:1472
 msgid "The selected users have been deleted successfully."
-msgstr "選択したユーザを正しく削除しました"
+msgstr "選択したユーザを正しく削除しました。"
 
 #: server_privileges.php:1507
 msgid "The privileges were reloaded successfully."
-msgstr "特権を正常に再読み込みしました"
+msgstr "特権を正常に再読み込みしました。"
 
 #: server_privileges.php:1518 server_privileges.php:1963
 msgid "Edit Privileges"
@@ -9135,14 +9132,12 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
-"作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
-"特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み"
-"込み%s をしてください"
+"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手作業で特権を更新した場合は phpMyAdmin "
+"が利用しているテーブルの内容とサーバの特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み込み%s をしてください。"
 
 #: server_privileges.php:1998
 msgid "The selected user was not found in the privilege table."
-msgstr "特権テーブルには選択したユーザがいません"
+msgstr "特権テーブルには選択したユーザがいません。"
 
 #: server_privileges.php:2040
 msgid "Column-specific privileges"
@@ -9225,7 +9220,7 @@ msgstr "ワイルドカード"
 
 #: server_privileges.php:2535
 msgid "User has been added."
-msgstr "ビュー %s を破棄しました"
+msgstr "ビュー %s を破棄しました。"
 
 #: server_replication.php:79
 msgid "Unknown error"
@@ -9234,7 +9229,7 @@ msgstr "不明なエラーです"
 #: server_replication.php:86
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "マスタ %s に接続していません"
+msgstr "マスタ %s に接続していません。"
 
 #: server_replication.php:93
 msgid ""
@@ -9410,13 +9405,13 @@ msgstr ""
 #: server_status.php:447
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "スレッド %s は正常終了しました"
+msgstr "スレッド %s は正常終了しました。"
 
 #: server_status.php:449
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "スレッド %s の終了に失敗しました。すでに閉じているようです"
+msgstr "スレッド %s の終了に失敗しました。すでに閉じているようです。"
 
 #: server_status.php:581
 msgid "Handler"
@@ -9624,9 +9619,7 @@ msgstr "レプリケーションステータス"
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
-msgstr ""
-"処理が集中するサーバではバイトカウンタが超過することがあるため、MySQL サーバ"
-"が報告してくる統計は不正確なことがあります"
+msgstr "処理が集中するサーバではバイトカウンタが超過することがあるため、MySQL サーバが報告してくる統計は不正確なことがあります。"
 
 #: server_status.php:1098
 msgid "Received"
@@ -9717,8 +9710,7 @@ msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
-"使用中の INSERT DELAYED ハンドラのスレッド数。INSERT DELAYED を適用するテーブ"
-"ルの数だけ固有のスレッドが用意されます"
+"使用中の INSERT DELAYED ハンドラのスレッド数。INSERT DELAYED を適用するテーブルの数だけ固有のスレッドが用意されます。"
 
 #: server_status.php:1304
 msgid "The number of INSERT DELAYED rows written."
@@ -9742,9 +9734,8 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"MySQL サーバは NDB クラスタストレージエンジンに特定の名前を持つテーブルについ"
-"ての情報を持っているか問い合わせることができます。これを開示と言いますが、"
-"Handler_discover はその開示されたタイムテーブルの数です"
+"MySQL サーバは NDB クラスタストレージエンジンに特定の名前を持つテーブルについての情報を持っているか問い合わせることができます。これを開示と言"
+"いますが、Handler_discover はその開示されたタイムテーブルの数です。"
 
 #: server_status.php:1309
 msgid ""
@@ -9752,17 +9743,14 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"インデックスの最初のエントリを読み込んだ回数。この値が高い場合はサーバが何度"
-"もインデックスの全スキャンを実行しているものと思われます。例えば SELECT col1 "
-"FROM foo を実行した場合 (col1 はインデックスに含まれているものとします)"
+"インデックスの最初のエントリを読み込んだ回数。この値が高い場合はサーバが何度もインデックスの全スキャンを実行しているものと思われます。例えば "
+"SELECT col1 FROM foo を実行した場合 (col1 はインデックスに含まれているものとします)。"
 
 #: server_status.php:1310
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
-msgstr ""
-"キーに基づいて行を読み込んだリクエストの数。この値が高い場合はクエリとテーブ"
-"ルが適切にインデックスされているものと考えられます"
+msgstr "キーに基づいて行を読み込んだリクエストの数。この値が高い場合はクエリとテーブルが適切にインデックスされているものと考えられます。"
 
 #: server_status.php:1311
 msgid ""
@@ -9770,16 +9758,14 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
-"キーの順序通りに次の行を読み込んだリクエストの数。この値はインデックス列のク"
-"エリに範囲指定をしているか、インデックススキャンを行っているときに増加します"
+"キーの順序通りに次の行を読み込んだリクエストの数。この値はインデックス列のクエリに範囲指定をしているか、インデックススキャンを行っているときに増加します"
+"。"
 
 #: server_status.php:1312
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
-msgstr ""
-"キーの順序通りに前の行を読み込んだリクエストの数。この読み込みは主に ORDER "
-"BY ... DESC の最適化に利用されます"
+msgstr "キーの順序通りに前の行を読み込んだリクエストの数。この読み込みは主に ORDER BY ... DESC の最適化に利用されます。"
 
 #: server_status.php:1313
 msgid ""
@@ -9788,10 +9774,8 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
-"決まった位置を基準に行を読み込んだリクエストの数。この値が高いのは結果をソー"
-"トする必要があるクエリを大量に実行している場合です。おそらくテーブル全体をス"
-"キャンしなければならないクエリを大量に行っているか、結合の際のキーの使い方に"
-"不適切なところがあります"
+"決まった位置を基準に行を読み込んだリクエストの数。この値が高いのは結果をソートする必要があるクエリを大量に実行している場合です。おそらくテーブル全体をス"
+"キャンしなければならないクエリを大量に行っているか、結合の際のキーの使い方に不適切なところがあります。"
 
 #: server_status.php:1314
 msgid ""
@@ -9800,9 +9784,8 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"データファイルの次の行を読み込んだリクエストの数。この値が高いのはテーブルス"
-"キャンを大量に実行しているためです。一般にこれはテーブルのインデックスが不適"
-"切か、クエリがインデックスを利用するように書かれていないことを意味します"
+"データファイルの次の行を読み込んだリクエストの数。この値が高いのはテーブルスキャンを大量に実行しているためです。一般にこれはテーブルのインデックスが不適"
+"切か、クエリがインデックスを利用するように書かれていないことを意味します。"
 
 #: server_status.php:1315
 msgid "The number of internal ROLLBACK statements."
@@ -9839,9 +9822,8 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"InnoDB バッファプールでラッチされているページ数。これは現在読み込んでいる、あ"
-"るいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュしたり削除し"
-"たりできなくなっているページの数です"
+"InnoDB バッファプールでラッチされているページ数。これは現在読み込んでいる、あるいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュした"
+"り削除したりできなくなっているページの数です。"
 
 #: server_status.php:1323
 msgid ""
@@ -9850,10 +9832,9 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"行ロックやアダプティブハッシュインデックスといった管理オーバヘッドのせいでビ"
-"ジーになっているページ数。この値は Innodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data という式でも計"
-"算できます"
+"行ロックやアダプティブハッシュインデックスといった管理オーバヘッドのせいでビジーになっているページ数。この値は "
+"Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
+"Innodb_buffer_pool_pages_data という式でも計算できます。"
 
 #: server_status.php:1324
 msgid "Total size of buffer pool, in pages."
@@ -9863,9 +9844,7 @@ msgstr "ページのバッファプールサイズの合計"
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
-msgstr ""
-"InnoDB が開始したランダム読み込みの回数。これはクエリがテーブルの大部分をラン"
-"ダムな順番でスキャンするときに発生します"
+msgstr "InnoDB が開始したランダム読み込みの回数。これはクエリがテーブルの大部分をランダムな順番でスキャンするときに発生します。"
 
 #: server_status.php:1326
 msgid ""
@@ -9895,11 +9874,9 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
-"通常 InnoDB バッファプールへの書き込みはバックグラウンドで行われますが、ペー"
-"ジの読み込みないし作成を行う必要があるのにクリーンなページが得られない場合"
-"は、まずそのページがフラッシュされるのを待つ必要があります。このカウンタは、"
-"そのウェイトの回数をカウントするものです。バッファプールの値が適切に設定され"
-"ていれば、この値は小さいはずです"
+"通常 InnoDB バッファプールへの書き込みはバックグラウンドで行われますが、ページの読み込みないし作成を行う必要があるのにクリーンなページが得られな"
+"い場合は、まずそのページがフラッシュされるのを待つ必要があります。このカウンタは、そのウェイトの回数をカウントするものです。バッファプールの値が適切に設"
+"定されていれば、この値は小さいはずです。"
 
 #: server_status.php:1330
 msgid "The number writes done to the InnoDB buffer pool."
@@ -9986,8 +9963,8 @@ msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
-"コンパイル時の InnoDB のページサイズ (デフォルト:16KB)。多くの値がページ単位"
-"で計算されますが、この値を使えば簡単にバイト単位に変換できます"
+"コンパイル時の InnoDB のページサイズ "
+"(デフォルト:16KB)。多くの値がページ単位で計算されますが、この値を使えば簡単にバイト単位に変換できます。"
 
 #: server_status.php:1350
 msgid "The number of pages read."
@@ -10652,7 +10629,7 @@ msgstr "グローバル値"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:227
 msgid "Download"
-msgstr "ダウンロードする"
+msgstr "ダウンロード"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
