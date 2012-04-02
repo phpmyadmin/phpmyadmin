@@ -77,7 +77,7 @@ if (!empty($_POST) && isset($_POST['bug_encoded'])) {
     $bug_encoded = $_POST['bug_encoded'];
 }
 
-if (!empty($bug_encoded)) {
+if (!empty($bug_encoded) && is_string($bug_encoded)) {
     if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
         $bug_encoded = stripslashes($bug_encoded);
     }
