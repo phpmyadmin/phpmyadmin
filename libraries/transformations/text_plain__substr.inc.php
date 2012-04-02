@@ -16,8 +16,7 @@ function PMA_transformation_text_plain__substr_info()
  */
 function PMA_transformation_text_plain__substr($buffer, $options = array(), $meta = '')
 {
-    // possibly use a global transform and feed it with special options:
-    // include './libraries/transformations/global.inc.php';
+    // possibly use a global transform and feed it with special options
 
     // further operations on $buffer using the $options[] array.
     if (!isset($options[0]) ||  $options[0] == '') {
