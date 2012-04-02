@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-03-26 22:33+0200\n"
+"PO-Revision-Date: 2012-04-02 22:57+0200\n"
 "Last-Translator: Everton R <everton@tconibo.org>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -509,13 +509,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Resultados da pesquisa para \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] "%s resultado dentro da tabela <i>%s</i>"
-msgstr[1] "%s resultados dentro da tabela <i>%s</i>"
+msgstr[0] "%1$s resultado dentro da tabela <i>%2$s</i>"
+msgstr[1] "%1$s resultados dentro da tabela <i>%2$s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3167
 #: libraries/common.lib.php:3380 libraries/common.lib.php:3381
@@ -1777,22 +1777,19 @@ msgid "Show indexes"
 msgstr "Mostrar índices"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:301
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Desabilitar verificação de chaves estrangeiras"
+msgstr "Verificação de chave estrangeira:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Habilitado"
+msgstr "(Habilitado)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Desabilitado"
+msgstr "(Desabilitado)"
 
 #: js/messages.php:255
 msgid "Searching"
