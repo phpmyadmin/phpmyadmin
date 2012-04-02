@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-29 16:20+0200\n"
+"PO-Revision-Date: 2012-03-31 18:07+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -9795,7 +9795,7 @@ msgstr "Datos temporales"
 
 #: server_status.php:594
 msgid "Delayed inserts"
-msgstr "Delayed inserts"
+msgstr "Inserciones demoradas («delayed inserts»)"
 
 #: server_status.php:595
 msgid "Key cache"
@@ -10918,7 +10918,7 @@ msgstr[1] "%d segundos"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minuto"
-msgstr[1] "%d minutes"
+msgstr[1] "%d minutos"
 
 #: server_synchronize.php:99
 msgid "Could not connect to the source"

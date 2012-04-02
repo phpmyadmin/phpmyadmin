@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-29 13:47+0200\n"
+"PO-Revision-Date: 2012-03-31 22:23+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -444,7 +444,7 @@ msgstr "Toon"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr "Criteria"
+msgstr "Criterium"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
@@ -3112,7 +3112,7 @@ msgstr "Rechts"
 
 #: libraries/config.values.php:76
 msgid "Open"
-msgstr "Open"
+msgstr "Geopend"
 
 #: libraries/config.values.php:77
 msgid "Closed"
@@ -3714,7 +3714,7 @@ msgstr "Maximale lengte van de gemaakte query"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export type"
-msgstr "Export type"
+msgstr "Export-type"
 
 #: libraries/config/messages.inc.php:141 libraries/export/sql.php:73
 msgid "Enclose export in a transaction"
@@ -4232,7 +4232,7 @@ msgstr "URL van het logo in het navigatie frame"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link URL"
-msgstr "Logo link URL"
+msgstr "URL voor de link van het logo"
 
 #: libraries/config/messages.inc.php:286
 msgid ""
@@ -6026,7 +6026,7 @@ msgstr "stop proces"
 
 #: libraries/display_tbl.lib.php:2332
 msgid "in query"
-msgstr "in query"
+msgstr "in de query"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
@@ -8098,7 +8098,7 @@ msgstr "Voer SQL query/queries uit op databank %s"
 #: libraries/sql_query_form.lib.php:260 navigation.php:269
 #: setup/frames/index.inc.php:233
 msgid "Clear"
-msgstr "Clear"
+msgstr "Leegmaken"
 
 #: libraries/sql_query_form.lib.php:265
 msgid "Columns"
@@ -8552,7 +8552,7 @@ msgstr "Karakterset server"
 
 #: main.php:196
 msgid "Web server"
-msgstr "Web server"
+msgstr "Webserver"
 
 #: main.php:209
 msgid "Database client version"
@@ -8568,7 +8568,7 @@ msgstr "Laat informatie over PHP zien"
 
 #: main.php:242
 msgid "Official Homepage"
-msgstr "Officiële phpMyAdmin Website"
+msgstr "Officiële phpMyAdmin website"
 
 #: main.php:243
 msgid "Contribute"
@@ -9652,7 +9652,7 @@ msgstr "Stop volledig"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr "Reset slave"
+msgstr "Slave herinstellen"
 
 #: server_replication.php:326
 msgid "Start SQL Thread only"
@@ -11084,7 +11084,7 @@ msgstr "Laden"
 
 #: setup/frames/index.inc.php:241
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin homepage"
+msgstr "phpMyAdmin website"
 
 #: setup/frames/index.inc.php:242
 msgid "Donate"
@@ -12467,7 +12467,7 @@ msgstr ""
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Snoeien van het query cache bij laag geheugen"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12493,6 +12493,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"De verhouding van verwijderde queries tot ingevoegde queries is %s%%. Hoe "
+"lager deze waarde is, hoe beter. (Deze regel wordt geactiveerd vanaf 0.1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12541,6 +12543,15 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"{query_cache_limit} wijzigen (doorgaans door te verhogen) kan de efficiëntie "
+"verhogen. Deze variabele bepaalt de maximumgrootte van een query-resultaat "
+"voor het in de query cache opgenomen mag worden. Als er veel query "
+"resultaten  groter dan 1 MiB zijn, die een goeie kandidaat zijn om gecached "
+"te worden (veel keer gelezen, weinig geschreven), dan zal het verhogen van "
+"{query_cache_limit} de efficiëntie verhogen. Maar in het geval dat er veel "
+"query resultaten groter dan 1 MiB zijn, die geen goede kandidaat zijn om "
+"gecached te worden (vaak gewijzigd door wijziging van tabellen), dan zal het "
+"verhogen van {query_cache_limit} mogelijk nadelig zijn voor de efficiëntie."
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
@@ -12636,7 +12647,7 @@ msgstr "Mate van het lezen van eerste index entry"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Mate van het lezen van de eerste index is hoog."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12647,19 +12658,29 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Dit wijst doorgaans op veelvuldige doorzoeken van de volledige index. "
+"Volledige doorzoeken van de index is sneller dan het doorzoeken van een "
+"tabel, maar vereist veel rekenkracht bij grote tabellen; als deze tabellen "
+"een groot aantal UPDATEs of DELETEs hebben of gehad hebben, dan kan het "
+"uitvoeren van 'OPTIMIZE TABLE' het aantal keer dat een index volledig "
+"doorzocht wordt, verminderen, en/of de snelheid waarmee dit gebeurt, "
+"vergroten. Volledig doorzoeken van de index kan ook verminderd worden door "
+"queries te herschrijven."
 
 #: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Gemiddelde van het doorlopen van de index : %s, deze waarde moet kleiner "
+"zijn dan 1 keer per uur"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Mate van het lezen van een vaste positie"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "De mate van het lezen van gegevens van een vaste positie is hoog."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12667,6 +12688,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Dit wijst erop dat veel queries resultaten moeten sorteren en/of een tabel "
+"volledig doorzoeken, inbegrepen JOIN queries die geen gebruik maken van "
+"indexen. Voeg indexen toe waar nodig."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12674,6 +12698,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Gemiddelde mate van het lezen van een vaste positie : %s, deze waarde is "
+"best kleiner dan 1 keer per uur"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
@@ -12688,20 +12714,24 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Dit wijst erop dat veel queries tabellen volledig doorzoeken. Voeg indexen "
+"toe waar nodig."
 
 #: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van het lezen van de volgende tabel regel : %s, deze waarde zou kleiner "
+"moeten zijn dan 1 keer per uur"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size ten opzichte van max_heap_table_size"
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size en max_heap_table_size zijn verschillend."
 
 #: po/advisory_rules.php:147
 msgid ""
@@ -12710,11 +12740,15 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Als u bewust een van de volgende waarden hebt gewijzigd : De server gebruikt "
+"de laagste waarde van een van deze om de maximumgrootte van tabellen in het "
+"geheugen te bepalen. Als u de limitet voor tabellen in het geheugen wil "
+"verhogen, moet u de andere waarde ook verhogen."
 
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "De huidige waarden zijn tmp_table_size: %s, max_heap_table_size: %s"
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
@@ -12725,6 +12759,8 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Veel tijdelijke tabellen worden naar harde schijf geschreven in plaats van "
+"in het geheugen bewaard te worden."
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12736,6 +12772,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Verhogen van {max_heap_table_size} en {tmp_table_size} kan helpen. Hoewel "
+"sommige tijdelijke tabellen altijd naar de harde schijf geschreven worden, "
+"onafhankelijk van de waarde van deze variabelen. Om dit te vermijden zullen "
+"deze queries herschreven moeten worden, om deze voorwaarden te vermijden "
+"(bij tijdelijke tabellen: Gebruik van een BLOB of TEXT kolom of een kolom "
+"groter dan 512 bytes) zoals vermeld wordt in een <a href=\"http://www.faceboo"
+"k.com/note.php?note_id=10150111255065841&comments\">artikel van de Pythian "
+"Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12743,6 +12787,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% van alle tijdelijke tabellen wordt bewaard op de harde schijf, dit zou "
+"minder 25%% moeten zijn"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
@@ -12758,6 +12804,14 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Verhogen van {max_heap_table_size} en {tmp_table_size} kan helpen. Hoewel "
+"sommige tijdelijke tabellen altijd naar de harde schijf geschreven worden, "
+"onafhankelijk van de waarde van deze variabelen. Om dit te vermijden zullen "
+"deze queries herschreven moeten worden, om deze voorwaarden te vermijden "
+"(bij tijdelijke tabellen: Gebruik van een BLOB of TEXT kolom of een kolom "
+"groter dan 512 bytes) zoals vermeld wordt in de <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">MySQL Documentatie</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12765,6 +12819,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Mate van tijdelijke tabellen die op harde schijf bewaard worden : %s, deze "
+"waar zou kleiner moeten zijn dan 1 keer per uur"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12773,16 +12829,20 @@ msgstr "MyISAM sleutel buffer grootte"
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"De sleutel buffer is niet ingesteld. MyISAM indexen zullen niet gecached "
+"worden."
 
 #: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Stel {key_buffer_size} in afhankelijk van de grootte van uw MyISAM indexen. "
+"64M is een goed begin."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size is 0"
 
 #: po/advisory_rules.php:165
 #, php-format
@@ -12800,6 +12860,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Verklein best de grootte van {key_buffer_size}, herbekijk uw tabellen om te "
+"zien of indexen verwijderd werden, of bekijk queries en verwachtingen over "
+"welke indexen gebruikt zouden moeten worden."
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12817,24 +12880,27 @@ msgstr "Percentage van de MyISAM sleutel buffer die gebruikt wordt"
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
+"%% MyISAM sleutel buffer gebruikt: %s%%, dit zou groter dan 95%% moeten zijn"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Percentage van lezen van de index uit het geheugen"
 
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "Het %% van indexen dat de MyISAM sleutel buffer gebruikt, is laag."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Verhoog best {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Lezen van de index uit geheugen : %s%%, deze waarde zou hogere moeten liggen "
+"dan 95%%"
 
 #: po/advisory_rules.php:180
 msgid "Rate of table open"
@@ -12849,11 +12915,15 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Openen van tabellen vereist toegang tot de harde schijf, wat kostelijk is. "
+"Verhogen van {table_open_cache} kan dit mogelijk vermijden."
 
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Mate van geopende tabellen : %s, deze waarde zou minder moeten zijn dan 10 "
+"per uur"
 
 #: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
@@ -12864,18 +12934,25 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Het aantal geopende bestanden komt in de buurt van het maximum aantal "
+"geopende bestanden. U kan een \"Teveel geopende bestanden\" foutmelding "
+"krijgen."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Overweeg om {open_files_limit} te verhogen, en controleer de foutenlog na "
+"herstarten nadat open_files_limit gewijzigd werd."
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Het aantal geopende bestanden is %s%% van de limiet. Dit zou minder dan 85%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
@@ -12889,33 +12966,41 @@ msgstr "Het aandeel geopende bestanden is hoog."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Mate van geopende bestanden: %s, deze waarde zou minder dan 5 per uur moeten "
+"zijn"
 
 #: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
-msgstr "Onmiddellijke tabelgrendels %%"
+msgstr "Onmiddellijke tabelvergrendelingen %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
-msgstr "Te veel tabel locks werden niet onmiddellijk toegestaan."
+msgstr "Te veel tabelvergrendelingen werden niet onmiddellijk toegestaan."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimaliseer queries en/of gebruik InnoDB om wachten op vergrendeling te "
+"verminderen."
 
 #: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
+"Onmiddellijke tabelvergrendelingen : %s%%, deze waarde zou groter dan 95%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Mate van wachten op tabelvergrendelingen"
 
 #: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van wachten op tabelvergrendelingen: %s, deze waarde zou kleiner moeten "
+"zijn dan 1 per uur"
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
@@ -12926,19 +13011,21 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Thread cache is uitgeschakeld, dit veroorzaakt meer overhead van nieuwe "
+"verbinding naar MySQL."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "Schakel thread cache in door {thread_cache_size} > 0 in te stellen."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "De thread cache is ingesteld op 0"
 
 #: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr ""
+msgstr "Gebruik van de thread cache %%"
 
 #: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
@@ -12946,16 +13033,18 @@ msgstr "Thread cache werkt niet efficiënt."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Verhoog {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Gebruik van de thread cache: %s%%, deze waarde zou groter moeten zijn dan 80"
+"%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Threads die traag worden opgestart"
 
 #: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
@@ -12966,30 +13055,36 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Dit gebeurt meestal wanneer het systeem overbelast is. Bekijk de belasting "
+"van uw systeem nauwkeurig."
 
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
+"%s thread(s) deden er langer dan %s seconden over om op te starten, dit zou "
+"0 moeten zijn"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Trage lanceertijd"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_threads is hoger dan 2sec"
 
 #: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Stel slow_launch_time in op 1 of 2 sec om op een goede manier traag "
+"startende threads te tellen"
 
 #: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr ""
+msgstr "slow_launch_time is ingesteld op %s"
 
 #: po/advisory_rules.php:225
 msgid "Percentage of used connections"
@@ -13000,6 +13095,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"Het maximum aantal gebruikte verbindingen is bijna gelijk aan de waarde van "
+"max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
@@ -13016,6 +13113,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections is %s%% van max_connections, dit zou kleiner dan 80%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
@@ -13023,7 +13122,7 @@ msgstr "Percentage van afgebroken verbindingen"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Te veel verbindingen werden afgebroken."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
@@ -13032,11 +13131,17 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Verbindingen worden meestal afgebroken wanneer deze niet toegelaten zijn. <a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">Dit artikel</a> kan u helpen om de oorzaak te "
+"vinden."
 
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% van alle verbindingen werden afgebroken. Deze waarde zou kleiner moeten "
+"zijn dan 1%%"
 
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
@@ -13047,6 +13152,8 @@ msgstr "Aandeel van afgebroken verbindingen"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van afgebroken verbindingen is %s, deze waarde zou minder dan 1 per uur "
+"moeten zijn"
 
 #: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
@@ -13054,7 +13161,7 @@ msgstr "Percentage van afgebroken clients"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Te veel clients werden afgebroken."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -13071,6 +13178,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% van alle clients werden afgebroken. Deze waarde zou minder dan 2%% "
+"moeten zijn"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
@@ -13080,10 +13189,12 @@ msgstr "Aantal afgebroken clients"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Mate van afgebroken clients is %s, deze waarde zou minder dan 1 per uur "
+"moeten zijn"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Is InnoDB uitgeschakeld?"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
@@ -13091,11 +13202,11 @@ msgstr "InnoDB is niet ingeschakeld."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB is doorgaans de beste keuze als tabel engine."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb is ingesteld op 'value'"
 
 #: po/advisory_rules.php:255
 msgid "InnoDB log size"
@@ -13140,14 +13251,16 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"De grootte van de InnoDB log is %s%% in vergelijking met de grootte van de "
+"InnoDB buffer pool, deze zou kleiner moeten zijn dan 20%%"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Maximum grootte van de InnoDB log"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "De InnoDB log is veel te groot."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13176,7 +13289,7 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "De maximumgrootte van de InnoDB log is %s MiB"
 
 #: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
@@ -13184,7 +13297,7 @@ msgstr "InnoDB buffer pool grootte"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Uw InnoDB buffer pool is betrekkelijk klein."
 
 #: po/advisory_rules.php:267
 #, php-format
@@ -13220,6 +13333,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"U gebruikt momenteel %s%% van het geheugen voorzien voor de InnoDB buffer "
+"pool. Deze regel wordt geactiveerd als u minder dan 60%% toewijst, hoewel "
+"dat dit perfect geschikt kan zijn voor uw systeem als u niet veel InnoDB "
+"tabellen heeft of andere diensten die op deze machine lopen."
 
 #: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"
@@ -13235,10 +13352,14 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"{concurrent_insert} instellen op 1 vermindert geschillen tussen lezers en "
+"schrijversvoor een bepaalde tabel. Bekijk ook de <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"documentatie</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert is ingesteld op 0"
 
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "Het maximum aantal tabellen dat wordt getoond in de tabellen lijst"
