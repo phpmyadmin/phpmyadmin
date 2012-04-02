@@ -16,8 +16,7 @@ function PMA_transformation_application_octetstream__hex_info()
  */
 function PMA_transformation_application_octetstream__hex($buffer, $options = array(), $meta = '')
 {
-    // possibly use a global transform and feed it with special options:
-    // include './libraries/transformations/global.inc.php';
+    // possibly use a global transform and feed it with special options
     if (!isset($options[0])) {
         $options[0] = 2;
     } else {
