@@ -77,7 +77,7 @@ if (!empty($_POST) && isset($_POST['bug_encoded'])) {
     $bug_encoded = $_POST['bug_encoded'];
 }
 
-if (!empty($bug_encoded)) {
+if (!empty($bug_encoded) && is_string($bug_encoded)) {
     if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
         $bug_encoded = stripslashes($bug_encoded);
     }
@@ -86,9 +86,9 @@ if (!empty($bug_encoded)) {
     $bug_decoded     = base64_decode($bug_encoded);
     if (substr($bug_encoded, 0, 2) == 'eN') {
         if (function_exists('gzuncompress')) {
-                $result  = PMA_printDecodedBug(gzuncompress($bug_decoded));
-            } else {
-                $result  = 'Error: &quot;gzuncompress()&quot; is unavailable!' . "\n";
+            $result  = PMA_printDecodedBug(gzuncompress($bug_decoded));
+        } else {
+            $result  = 'Error: &quot;gzuncompress()&quot; is unavailable!' . "\n";
         }
     } else {
         $result  = PMA_printDecodedBug($bug_decoded);
