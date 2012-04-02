@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-04-02 09:39+0200\n"
-"Last-Translator: Abdurahman Taskibaev <tas362@mail.ru>\n"
+"PO-Revision-Date: 2012-04-02 10:44+0200\n"
+"Last-Translator: jandos omirb3k <jandos_om@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -339,7 +339,7 @@ msgstr "Кейбір ұлғаймалы мүмкіндіктеріне PhpMyAdmi
 
 #: db_operations.php:615
 msgid "Edit or export relational schema"
-msgstr ""
+msgstr "Түзетуші немесе експорттаушы арасындағы байланыс схемасы"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
@@ -571,12 +571,13 @@ msgid "Inside tables:"
 msgstr "Кесте бойынша:"
 
 #: db_search.php:330
+#, fuzzy
 msgid "Inside column:"
-msgstr ""
+msgstr "Бағана іші"
 
 #: db_structure.php:86
 msgid "No tables found in database"
-msgstr ""
+msgstr "Мәліметтер қорында кесте табылмады"
 
 #: db_structure.php:239 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
@@ -604,7 +605,7 @@ msgstr ""
 
 #: db_structure.php:354 tbl_create.php:284
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Бақылауды белсендендірілу"
 
 #: db_structure.php:462 libraries/display_tbl.lib.php:2361
 #, php-format
@@ -631,7 +632,7 @@ msgstr ""
 #: db_structure.php:538 libraries/StorageEngine.class.php:338
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s - MySQL сервері кестесінің мәліметтердіі үнсіз орнату."
 
 #: db_structure.php:567 db_structure.php:584 db_structure.php:585
 #: libraries/display_tbl.lib.php:2503 libraries/display_tbl.lib.php:2508
@@ -651,7 +652,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:35 server_databases.php:282
 #: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
-msgstr ""
+msgstr "Барлық белгілерді алып тастау"
 
 #: db_structure.php:579
 msgid "Check tables having overhead"
@@ -12071,4 +12072,4 @@ msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "Паралельді_кірістірмелерді анықтау"
