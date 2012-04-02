@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-02 00:59+0200\n"
+"PO-Revision-Date: 2012-04-02 12:42+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9782,12 +9782,12 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"一時バイナリログキャッシュを利用したものの binlog_cache_size の値を超過したた"
-"め一時ファイルにステートメントを保存したトランザクション数"
+"一時バイナリログキャッシュを利用したものの binlog_cache_size "
+"の値を超過したため一時ファイルにステートメントを保存したトランザクション数。"
 
 #: server_status.php:1305
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "一時バイナリログキャッシュを使用したトランザクション数"
+msgstr "一時バイナリログキャッシュを使用したトランザクション数。"
 
 #: server_status.php:1306
 msgid ""
@@ -9807,20 +9807,19 @@ msgstr ""
 
 #: server_status.php:1308
 msgid "How many temporary files mysqld has created."
-msgstr "mysqld が生成した一時ファイル数"
+msgstr "mysqld が生成した一時ファイル数。"
 
 #: server_status.php:1309
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
-msgstr "ステートメント実行中にサーバが自動生成したメモリ上の一時テーブル数"
+msgstr "ステートメント実行中にサーバが自動生成したメモリ上の一時テーブル数。"
 
 #: server_status.php:1310
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
-msgstr ""
-"何らかのエラー (たぶんキーの重複) が発生したため INSERT DELAYED された行数"
+msgstr "何らかのエラー (たぶんキーの重複) が発生したため INSERT DELAYED された行数。"
 
 #: server_status.php:1311
 msgid ""
@@ -9831,19 +9830,19 @@ msgstr ""
 
 #: server_status.php:1312
 msgid "The number of INSERT DELAYED rows written."
-msgstr "INSERT DELAYED で書き込まれた行数"
+msgstr "INSERT DELAYED で書き込まれた行数。"
 
 #: server_status.php:1313
 msgid "The number of executed FLUSH statements."
-msgstr "FLUSH 文の実行回数"
+msgstr "FLUSH 文の実行回数。"
 
 #: server_status.php:1314
 msgid "The number of internal COMMIT statements."
-msgstr "内部で COMMIT 文を実行した回数"
+msgstr "内部で COMMIT 文を実行した回数。"
 
 #: server_status.php:1315
 msgid "The number of times a row was deleted from a table."
-msgstr "テーブルから行を削除した回数"
+msgstr "テーブルから行を削除した回数。"
 
 #: server_status.php:1316
 msgid ""
@@ -9906,32 +9905,31 @@ msgstr ""
 
 #: server_status.php:1323
 msgid "The number of internal ROLLBACK statements."
-msgstr "内部で ROLLBACK 文を実行した回数"
+msgstr "内部で ROLLBACK 文を実行した回数。"
 
 #: server_status.php:1324
 msgid "The number of requests to update a row in a table."
-msgstr "テーブル内の行を更新したリクエストの数"
+msgstr "テーブル内の行を更新したリクエストの数。"
 
 #: server_status.php:1325
 msgid "The number of requests to insert a row in a table."
-msgstr "テーブル内に行を挿入したリクエストの数"
+msgstr "テーブル内に行を挿入したリクエストの数。"
 
 #: server_status.php:1326
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
-"データが含まれるページの数 (ダーティページ、クリーンページの別を問わず)"
+msgstr "データが含まれるページの数 (ダーティページ、クリーンページの別を問わず)。"
 
 #: server_status.php:1327
 msgid "The number of pages currently dirty."
-msgstr "現在のダーティページの数"
+msgstr "現在のダーティページの数。"
 
 #: server_status.php:1328
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "フラッシュリクエストを受けたバッファプールのページ数"
+msgstr "フラッシュリクエストを受けたバッファプールのページ数。"
 
 #: server_status.php:1329
 msgid "The number of free pages."
-msgstr "空きページ数"
+msgstr "空きページ数。"
 
 #: server_status.php:1330
 msgid ""
@@ -9955,7 +9953,7 @@ msgstr ""
 
 #: server_status.php:1332
 msgid "Total size of buffer pool, in pages."
-msgstr "ページのバッファプールサイズの合計"
+msgstr "ページのバッファプールサイズの合計。"
 
 #: server_status.php:1333
 msgid ""
@@ -9973,15 +9971,13 @@ msgstr ""
 
 #: server_status.php:1335
 msgid "The number of logical read requests InnoDB has done."
-msgstr "InnoDB が実行した論理読み込みリクエストの数"
+msgstr "InnoDB が実行した論理読み込みリクエストの数。"
 
 #: server_status.php:1336
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
-msgstr ""
-"InnoDB がバッファプールの内容を利用できず、シングルページ読み込みを行わなけれ"
-"ばならなかった論理読み込みの回数"
+msgstr "InnoDB がバッファプールの内容を利用できず、シングルページ読み込みを行わなければならなかった論理読み込みの回数。"
 
 #: server_status.php:1337
 msgid ""
@@ -9997,83 +9993,81 @@ msgstr ""
 
 #: server_status.php:1338
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr "InnoDB バッファプールへの書き込み回数"
+msgstr "InnoDB バッファプールへの書き込み回数。"
 
 #: server_status.php:1339
 msgid "The number of fsync() operations so far."
-msgstr "これまでに fsync() を実行した回数"
+msgstr "これまでに fsync() を実行した回数。"
 
 #: server_status.php:1340
 msgid "The current number of pending fsync() operations."
-msgstr "現在保留されている fsync() の回数"
+msgstr "現在保留されている fsync() の回数。"
 
 #: server_status.php:1341
 msgid "The current number of pending reads."
-msgstr "現在保留されている読み込みの数"
+msgstr "現在保留されている読み込みの数。"
 
 #: server_status.php:1342
 msgid "The current number of pending writes."
-msgstr "現在保留されている書き込みの数"
+msgstr "現在保留されている書き込みの数。"
 
 #: server_status.php:1343
 msgid "The amount of data read so far, in bytes."
-msgstr "これまでのデータ読み込み量 (単位:バイト)"
+msgstr "これまでのデータ読み込み量 (単位:バイト)。"
 
 #: server_status.php:1344
 msgid "The total number of data reads."
-msgstr "データ読み込み回数の合計"
+msgstr "データ読み込み回数の合計。"
 
 #: server_status.php:1345
 msgid "The total number of data writes."
-msgstr "データ書き込み回数の合計"
+msgstr "データ書き込み回数の合計。"
 
 #: server_status.php:1346
 msgid "The amount of data written so far, in bytes."
-msgstr "これまでのデータの書き込み量 (単位:バイト)"
+msgstr "これまでのデータの書き込み量 (単位:バイト)。"
 
 #: server_status.php:1347
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr "二重書き込みの実行回数と二重書き込みが発生したページ数"
+msgstr "二重書き込みの実行回数と二重書き込みが発生したページ数。"
 
 #: server_status.php:1348
 msgid "The number of doublewrite operations that have been performed."
-msgstr "二重書き込みの実行回数と二重書き込みが発生したページ数"
+msgstr "二重書き込みの実行回数と二重書き込みが発生したページ数。"
 
 #: server_status.php:1349
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
-msgstr ""
-"ログバッファが小さすぎてフラッシュしないと作業を続行できなくなったために発生"
-"したウェイトの回数"
+msgstr "ログバッファが小さすぎてフラッシュしないと作業を続行できなくなったために発生したウェイトの回数。"
 
 #: server_status.php:1350
 msgid "The number of log write requests."
-msgstr "ログ書き込みリクエストの数"
+msgstr "ログ書き込みリクエストの数。"
 
 #: server_status.php:1351
 msgid "The number of physical writes to the log file."
-msgstr "ログファイルへの物理書き込みの回数"
+msgstr "ログファイルへの物理書き込みの回数。"
 
 #: server_status.php:1352
 msgid "The number of fsync() writes done to the log file."
-msgstr "ログファイルへの fsync 書き込みの回数"
+msgstr "ログファイルへの fsync 書き込みの回数。"
 
 #: server_status.php:1353
 msgid "The number of pending log file fsyncs."
-msgstr "保留中のログファイルへの fsync 回数"
+msgstr "保留中のログファイルへの fsync 回数。"
 
 #: server_status.php:1354
 msgid "Pending log file writes."
-msgstr "保留中のログファイルへの書き込み回数"
+msgstr "保留中のログファイルへの書き込み回数。"
 
 #: server_status.php:1355
 msgid "The number of bytes written to the log file."
-msgstr "ログファイルに書き込んだバイト数"
+msgstr "ログファイルに書き込んだバイト数。"
 
 #: server_status.php:1356
 msgid "The number of pages created."
-msgstr "作成されたページ数"
+msgstr "作成されたページ数。"
 
 #: server_status.php:1357
 msgid ""
@@ -10085,76 +10079,70 @@ msgstr ""
 
 #: server_status.php:1358
 msgid "The number of pages read."
-msgstr "読み込んだページ数"
+msgstr "読み込んだページ数。"
 
 #: server_status.php:1359
 msgid "The number of pages written."
-msgstr "書き込んだページ数"
+msgstr "書き込んだページ数。"
 
 #: server_status.php:1360
 msgid "The number of row locks currently being waited for."
-msgstr "現在待機中の行ロックの数"
+msgstr "現在待機中の行ロックの数。"
 
 #: server_status.php:1361
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "行ロック取得に要する平均時間 (単位:ミリ秒)"
+msgstr "行ロック取得に要する平均時間 (単位:ミリ秒)。"
 
 #: server_status.php:1362
 msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr "行ロック取得に要した時間の合計 (単位:ミリ秒)"
+msgstr "行ロック取得に要した時間の合計 (単位:ミリ秒)。"
 
 #: server_status.php:1363
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "行ロック取得に要した時間の最大値 (単位:ミリ秒)"
+msgstr "行ロック取得に要した時間の最大値 (単位:ミリ秒)。"
 
 #: server_status.php:1364
 msgid "The number of times a row lock had to be waited for."
-msgstr "行ロック取得時に待機した回数"
+msgstr "行ロック取得時に待機した回数。"
 
 #: server_status.php:1365
 msgid "The number of rows deleted from InnoDB tables."
-msgstr "InnoDB テーブルから削除した行数"
+msgstr "InnoDB テーブルから削除した行数。"
 
 #: server_status.php:1366
 msgid "The number of rows inserted in InnoDB tables."
-msgstr "InnoDB テーブルに挿入した行数"
+msgstr "InnoDB テーブルに挿入した行数。"
 
 #: server_status.php:1367
 msgid "The number of rows read from InnoDB tables."
-msgstr "InnoDB テーブルから読み込んだ行数"
+msgstr "InnoDB テーブルから読み込んだ行数。"
 
 #: server_status.php:1368
 msgid "The number of rows updated in InnoDB tables."
-msgstr "InnoDB テーブルで更新された行数"
+msgstr "InnoDB テーブルで更新された行数。"
 
 #: server_status.php:1369
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr ""
-"変更されてからディスクにフラッシュされていないキーキャッシュのキーブロックの"
-"数。以前は Not_flushed_key_blocks でした"
+msgstr "変更されてからディスクにフラッシュされていないキーキャッシュのキーブロックの数。以前は Not_flushed_key_blocks でした。"
 
 #: server_status.php:1370
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
-msgstr ""
-"キーキャッシュの未使用ブロックの数。キーキャッシュの使用率を調べるときに使え"
-"ます"
+msgstr "キーキャッシュの未使用ブロックの数。キーキャッシュの使用率を調べるときに使えます。"
 
 #: server_status.php:1371
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
-msgstr ""
-"キーキャッシュの使用済みブロックの数。この値はこれまで一度に使用されたブロッ"
-"クの最大数です"
+msgstr "キーキャッシュの使用済みブロックの数。この値はこれまで一度に使用されたブロックの最大数です。"
 
 #: server_status.php:1372
 msgid "The number of requests to read a key block from the cache."
-msgstr "キャッシュからキーブロックを読み込んだリクエストの数"
+msgstr "キャッシュからキーブロックを読み込んだリクエストの数。"
 
 #: server_status.php:1373
 msgid ""
@@ -10162,17 +10150,16 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
-"ディスクからキーブロックを物理読み込みした回数。Key_reads が大きいのはおそら"
-"く key_buffer_size が小さすぎるためです。キャッシュミスの割合は Key_reads/"
-"Key_read_requests で計算できます"
+"ディスクからキーブロックを物理読み込みした回数。Key_reads が大きいのはおそらく key_buffer_size "
+"が小さすぎるためです。キャッシュミスの割合は Key_reads/Key_read_requests で計算できます。"
 
 #: server_status.php:1374
 msgid "The number of requests to write a key block to the cache."
-msgstr "キャッシュにキーブロックを書き込んだリクエストの数"
+msgstr "キャッシュにキーブロックを書き込んだリクエストの数。"
 
 #: server_status.php:1375
 msgid "The number of physical writes of a key block to disk."
-msgstr "ディスクにキーブロックを物理書き込みした回数"
+msgstr "ディスクにキーブロックを物理書き込みした回数。"
 
 #: server_status.php:1376
 msgid ""
@@ -10180,9 +10167,8 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
-"クエリオプティマイザーの計算による、最後にコンパイルされたクエリの総コスト。"
-"クエリのプランを変えたときにコストがどう変わるか比較するときに便利です。デ"
-"フォルト値の 0 はまだ一度もクエリをコンパイルしていないという意味です"
+"クエリオプティマイザーの計算による、最後にコンパイルされたクエリの総コスト。クエリのプランを変えたときにコストがどう変わるか比較するときに便利です。デフ"
+"ォルト値の 0 はまだ一度もクエリをコンパイルしていないという意味です。"
 
 #: server_status.php:1377
 msgid ""
@@ -10192,27 +10178,25 @@ msgstr "サーバが起動してからの同時接続の最大数。"
 
 #: server_status.php:1378
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr "INSERT DELAYED キューの中で書き込まれるのを待っている行数"
+msgstr "INSERT DELAYED キューの中で書き込まれるのを待っている行数。"
 
 #: server_status.php:1379
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
-msgstr ""
-"開いているテーブルの数。開いているテーブルが多い場合はおそらくテーブルキャッ"
-"シュの値が小さすぎます"
+msgstr "開いているテーブルの数。開いているテーブルが多い場合はおそらくテーブルキャッシュの値が小さすぎます。"
 
 #: server_status.php:1380
 msgid "The number of files that are open."
-msgstr "開いているファイルの数"
+msgstr "開いているファイルの数。"
 
 #: server_status.php:1381
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr "開いているストリームの数 (主にログの記録用です)"
+msgstr "開いているストリームの数 (主にログの記録用です)。"
 
 #: server_status.php:1382
 msgid "The number of tables that are open."
-msgstr "開いているテーブルの数"
+msgstr "開いているテーブルの数。"
 
 #: server_status.php:1383
 msgid ""
@@ -10226,15 +10210,15 @@ msgstr ""
 
 #: server_status.php:1384
 msgid "The amount of free memory for query cache."
-msgstr "クエリキャッシュの空きメモリ量"
+msgstr "クエリキャッシュの空きメモリ量。"
 
 #: server_status.php:1385
 msgid "The number of cache hits."
-msgstr "キャッシュのヒット数"
+msgstr "キャッシュのヒット数。"
 
 #: server_status.php:1386
 msgid "The number of queries added to the cache."
-msgstr "キャッシュに追加されたクエリの数"
+msgstr "キャッシュに追加されたクエリの数。"
 
 #: server_status.php:1387
 msgid ""
@@ -10252,33 +10236,29 @@ msgstr ""
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
-msgstr ""
-"キャッシュされなかった (キャッシュできないか query_cache_type の設定でキャッ"
-"シュしないことになっている) クエリの数"
+msgstr "キャッシュされなかった (キャッシュできないか query_cache_type の設定でキャッシュしないことになっている) クエリの数。"
 
 #: server_status.php:1389
 msgid "The number of queries registered in the cache."
-msgstr "キャッシュに登録されているクエリの数"
+msgstr "キャッシュに登録されているクエリの数。"
 
 #: server_status.php:1390
 msgid "The total number of blocks in the query cache."
-msgstr "クエリキャッシュの総ブロック数"
+msgstr "クエリキャッシュの総ブロック数。"
 
 #: server_status.php:1391
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "フェイルセーフレプリケーションの状態 (未実装)"
+msgstr "フェイルセーフレプリケーションの状態 (未実装)。"
 
 #: server_status.php:1392
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
-msgstr ""
-"インデックスを利用しなかった結合の数。この値が 0 でない場合はテーブルのイン"
-"デックスをよく確認してください"
+msgstr "インデックスを利用しなかった結合の数。この値が 0 でない場合はテーブルのインデックスをよく確認してください。"
 
 #: server_status.php:1393
 msgid "The number of joins that used a range search on a reference table."
-msgstr "参照テーブルで範囲検索をした結合の数"
+msgstr "参照テーブルで範囲検索をした結合の数。"
 
 #: server_status.php:1394
 msgid ""
@@ -10298,34 +10278,32 @@ msgstr ""
 
 #: server_status.php:1396
 msgid "The number of joins that did a full scan of the first table."
-msgstr "最初のテーブルを全スキャンした結合の数"
+msgstr "最初のテーブルを全スキャンした結合の数。"
 
 #: server_status.php:1397
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr "スレーブの SQL スレッドが現在開いている一時テーブルの数"
+msgstr "スレーブの SQL スレッドが現在開いている一時テーブルの数。"
 
 #: server_status.php:1398
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
-msgstr ""
-"レプリケーションスレーブの SQL スレッドがトランザクションを再試行した回数(起"
-"動時からの合計)"
+msgstr "レプリケーションスレーブの SQL スレッドがトランザクションを再試行した回数(起動時からの合計)。"
 
 #: server_status.php:1399
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "このサーバがマスタに接続するスレーブである場合は ON になります"
+msgstr "このサーバがマスタに接続するスレーブである場合は ON になります。"
 
 #: server_status.php:1400
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
-msgstr "slow_launch_time で指定された秒数以上に作成時間がかかったスレッドの数"
+msgstr "slow_launch_time で指定された秒数以上に作成時間がかかったスレッドの数。"
 
 #: server_status.php:1401
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr "long_query_time で指定された秒数以上に時間のかかったクエリの数"
+msgstr "long_query_time で指定された秒数以上に時間のかかったクエリの数。"
 
 #: server_status.php:1402
 msgid ""
@@ -10333,24 +10311,24 @@ msgid ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
-"ソートアルゴリズムが実行しなければならなかったマージの回数。この値が高い場合"
-"は sort_buffer_size システム変数の値を増やした方がよいでしょう"
+"ソートアルゴリズムが実行しなければならなかったマージの回数。この値が高い場合は sort_buffer_size "
+"システム変数の値を増やした方がよいでしょう。"
 
 #: server_status.php:1403
 msgid "The number of sorts that were done with ranges."
-msgstr "範囲指定付きでソートが行われた回数"
+msgstr "範囲指定付きでソートが行われた回数。"
 
 #: server_status.php:1404
 msgid "The number of sorted rows."
-msgstr "ソート済の行数"
+msgstr "ソート済の行数。"
 
 #: server_status.php:1405
 msgid "The number of sorts that were done by scanning the table."
-msgstr "テーブルをスキャンしたときに実行されたソートの回数"
+msgstr "テーブルをスキャンしたときに実行されたソートの回数。"
 
 #: server_status.php:1406
 msgid "The number of times that a table lock was acquired immediately."
-msgstr "テーブルロックをすぐに取得できた回数"
+msgstr "テーブルロックをすぐに取得できた回数。"
 
 #: server_status.php:1407
 msgid ""
@@ -10359,9 +10337,8 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
-"テーブルロックをすぐに取得できずウェイトが発生した回数。この値が高く、パ"
-"フォーマンスに問題が生じている場合は、まずクエリを最適化してください。それで"
-"もだめならテーブルを分割するか、レプリケーションを利用してください"
+"テーブルロックをすぐに取得できずウェイトが発生した回数。この値が高く、パフォーマンスに問題が生じている場合は、まずクエリを最適化してください。それでもだ"
+"めならテーブルを分割するか、レプリケーションを利用してください。"
 
 #: server_status.php:1408
 msgid ""
@@ -10369,13 +10346,12 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"スレッドキャッシュ内のスレッド数。キャッシュのヒット率は Threads_created/"
-"Connections で計算できます。この値が赤くなっている場合は thread_cache_size を"
-"大きくしてください"
+"スレッドキャッシュ内のスレッド数。キャッシュのヒット率は Threads_created/Connections "
+"で計算できます。この値が赤くなっている場合は thread_cache_size を大きくしてください。"
 
 #: server_status.php:1409
 msgid "The number of currently open connections."
-msgstr "現在開いている接続の数"
+msgstr "現在開いている接続の数。"
 
 #: server_status.php:1410
 msgid ""
@@ -10390,7 +10366,7 @@ msgstr ""
 
 #: server_status.php:1411
 msgid "The number of threads that are not sleeping."
-msgstr "スリープしていないスレッドの数"
+msgstr "スリープしていないスレッドの数。"
 
 #: server_status.php:1557
 msgid "Start Monitor"
@@ -10596,11 +10572,11 @@ msgstr[0] "%d 分"
 
 #: server_synchronize.php:99
 msgid "Could not connect to the source"
-msgstr "元のデータベースに接続できませんでした。"
+msgstr "元のデータベースに接続できませんでした"
 
 #: server_synchronize.php:102
 msgid "Could not connect to the target"
-msgstr "対象先のデータベースに接続できませんでした。"
+msgstr "対象先のデータベースに接続できませんでした"
 
 #: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:55
 #: tbl_get_field.php:19
@@ -10850,11 +10826,11 @@ msgstr "警告"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Submitted form contains errors"
-msgstr "送信された内容にエラーが含まれています。"
+msgstr "送信された内容にエラーが含まれています"
 
 #: setup/lib/form_processing.lib.php:45
 msgid "Try to revert erroneous fields to their default values"
-msgstr "間違っている入力項目をデフォルト値に戻してみてください。"
+msgstr "間違っている入力項目をデフォルト値に戻してみてください"
 
 #: setup/lib/form_processing.lib.php:48
 msgid "Ignore errors"
@@ -10880,11 +10856,11 @@ msgstr ""
 
 #: setup/lib/index.lib.php:152
 msgid "Got invalid version string from server"
-msgstr "サーバから取得したバージョン文字列は無効なものです。"
+msgstr "サーバから取得したバージョン文字列は無効なものです"
 
 #: setup/lib/index.lib.php:162
 msgid "Unparsable version string"
-msgstr "解析できないバージョン文字列です。"
+msgstr "解析できないバージョン文字列です"
 
 #: setup/lib/index.lib.php:180
 #, php-format
@@ -11317,12 +11293,12 @@ msgstr "同じテーブルにはコピーできません!"
 #: tbl_move_copy.php:54
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr "テーブル %s を %s に移動しました"
+msgstr "テーブル %s を %s に移動しました。"
 
 #: tbl_move_copy.php:56
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr "テーブル %s を %s にコピーしました"
+msgstr "テーブル %s を %s にコピーしました。"
 
 #: tbl_move_copy.php:81
 msgid "The table name is empty!"
@@ -11643,7 +11619,7 @@ msgstr "世代 %s のスナップショット (SQL コード)"
 
 #: tbl_tracking.php:388
 msgid "Tracking data definition successfully deleted"
-msgstr "追跡データ定義コマンドの削除に成功しました。"
+msgstr "追跡データ定義コマンドの削除に成功しました"
 
 #: tbl_tracking.php:390 tbl_tracking.php:407
 msgid "Query error"
@@ -11651,7 +11627,7 @@ msgstr "クエリエラー"
 
 #: tbl_tracking.php:405
 msgid "Tracking data manipulation successfully deleted"
-msgstr "追跡データ操作コマンドの削除に成功しました。"
+msgstr "追跡データ操作コマンドの削除に成功しました"
 
 #: tbl_tracking.php:417
 msgid "Tracking statements"
@@ -11795,7 +11771,7 @@ msgstr "特権不足でアクセスできません!"
 
 #: user_password.php:96
 msgid "The profile has been updated."
-msgstr "プロファイルを更新しました"
+msgstr "プロファイルを更新しました。"
 
 #: view_create.php:141
 msgid "VIEW name"
