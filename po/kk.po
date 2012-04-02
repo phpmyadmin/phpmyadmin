@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-04-02 10:44+0200\n"
-"Last-Translator: jandos omirb3k <jandos_om@yahoo.com>\n"
+"PO-Revision-Date: 2012-04-02 11:52+0200\n"
+"Last-Translator: Abdurahman Taskibaev <tas362@mail.ru>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -666,7 +666,7 @@ msgstr ""
 #: prefs_manage.php:286 server_privileges.php:1535 server_privileges.php:1898
 #: server_status.php:1602 setup/frames/menu.inc.php:21
 msgid "Export"
-msgstr ""
+msgstr "Экспорт"
 
 #: db_structure.php:589 db_structure.php:645
 #: libraries/display_tbl.lib.php:2611 tbl_structure.php:613
@@ -687,7 +687,7 @@ msgstr ""
 
 #: db_structure.php:597 tbl_operations.php:612
 msgid "Check table"
-msgstr ""
+msgstr "Кестені тексеру"
 
 #: db_structure.php:600 tbl_operations.php:669 tbl_structure.php:816
 msgid "Optimize table"
@@ -703,11 +703,11 @@ msgstr ""
 
 #: db_structure.php:607
 msgid "Add prefix to table"
-msgstr ""
+msgstr "Кестеге префикс қосу"
 
 #: db_structure.php:609 libraries/mult_submits.inc.php:260
 msgid "Replace table prefix"
-msgstr ""
+msgstr "Кестениң префиксін ауыстыру"
 
 #: db_structure.php:611 libraries/mult_submits.inc.php:260
 msgid "Copy table with prefix"
@@ -719,7 +719,7 @@ msgstr ""
 
 #: db_tracking.php:80
 msgid "Tracked tables"
-msgstr ""
+msgstr "Қадағаланатын кестелер"
 
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
@@ -732,7 +732,7 @@ msgstr ""
 #: server_synchronize.php:1359 server_synchronize.php:1363
 #: tbl_tracking.php:660
 msgid "Database"
-msgstr ""
+msgstr "Дерекқор"
 
 #: db_tracking.php:87
 msgid "Last version"
