@@ -352,7 +352,7 @@ if ($GLOBALS['PMA_Config']->get('ForceSSL')
             $GLOBALS['PMA_Config']->get('PmaAbsoluteUri'))
         . PMA_generate_common_url($_GET, 'text'));
     // delete the current session, otherwise we get problems (see bug #2397877)
-    PMA_removeCookie($GLOBALS['session_name']);
+    $GLOBALS['PMA_Config']->PMA_removeCookie($GLOBALS['session_name']);
     exit;
 }
 
