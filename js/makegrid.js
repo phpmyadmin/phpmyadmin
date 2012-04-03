@@ -1426,6 +1426,20 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 })
                 .mouseleave(function(e) {
                     g.showReorderHint = false;
+                })
+                .dblclick(function(e) {
+                    if ($(this).find("input").length) {
+                        $(this).find("span").hide().end().find("input").show().focus().select();
+                    }
+                    else {
+                        var $input = $("<input/>")
+                            .val($(this).find("span").text())
+                            .blur(function (e) {
+                                $(this).hide().parent().find("span").show();
+                            });
+                        $(this).append($input).find("span").hide();
+                        $input.focus().select();
+                    }
                 });
             // restore column order when the restore button is clicked
             $('.restore_column').click(function() {

@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - Bug #3509686 Reverting sort on joined column does not work
 + New transformation: append string
 + rfe #3507804 Session upload progress (PHP 5.4)
++ rfe #3488185 draggable columns vs copy column name
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
