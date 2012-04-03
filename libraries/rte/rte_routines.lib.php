@@ -685,8 +685,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "                       name='item_param_length[$index]' type='text'\n";
     $retval .= "                       value='{$routine['item_param_length'][$i]}' />\n";
     $retval .= "                <div class='enum_hint'>\n";
-    $retval .= "                    <a class='open_enum_editor' target='_blank'\n";
-    $retval .= "                       href='enum_editor.php?" . PMA_generate_common_url() . "&amp;values=" . $routine['item_param_length'][$i] . "&amp;field=" . $routine['item_param_name'][$i] . "'>\n";
+    $retval .= "                    <a href='#' class='open_enum_editor'>\n";
     $retval .= "                        " . PMA_getImage('b_edit', '', array('title'=>__('ENUM/SET editor'))) . "\n";
     $retval .= "                    </a>\n";
     $retval .= "                </div>\n";
