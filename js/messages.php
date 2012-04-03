@@ -345,11 +345,14 @@ $js_messages['strSaveCellWarning'] = __('You have edited some data and they have
 $js_messages['strColOrderHint'] = __('Drag to reorder');
 $js_messages['strSortHint'] = __('Click to sort');
 $js_messages['strColMarkHint'] = __('Click to mark/unmark');
+$js_messages['strColNameCopyHint'] = __('Double-click to copy column name');
 $js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
 $js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
 $js_messages['strGoToLink'] = __('Go to link');
+$js_messages['strColNameCopyTitle'] = __('Copy column name');
+$js_messages['strColNameCopyText'] = __('Right-click the column name to copy it to your clipboard.');
 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');

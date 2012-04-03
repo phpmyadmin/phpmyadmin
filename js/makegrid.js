@@ -40,6 +40,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         reorderHint: '',            // string, hint for column reordering
         sortHint: '',               // string, hint for column sorting
         markHint: '',               // string, hint for column marking
+        copyHint: '',               // string, hint for copy column name
         colVisibHint: '',           // string, hint for column visibility drop-down
         showReorderHint: false,
         showSortHint: false,
@@ -441,6 +442,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     text += text.length > 0 ? '<br />' : '';
                     text += g.colVisibHint;
                 }
+                text += text.length > 0 ? '<br />' : '';
+                text += g.copyHint;
 
                 // hide the hint if no text and the event is mouseenter
                 if (g.qtip) {
@@ -1428,18 +1431,21 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.showReorderHint = false;
                 })
                 .dblclick(function(e) {
-                    if ($(this).find("input").length) {
-                        $(this).find("span").hide().end().find("input").show().focus().select();
-                    }
-                    else {
-                        var $input = $("<input/>")
-                            .val($(this).find("span").text())
-                            .blur(function (e) {
-                                $(this).hide().parent().find("span").show();
-                            });
-                        $(this).append($input).find("span").hide();
-                        $input.focus().select();
-                    }
+                    e.preventDefault();
+                    $("<div/>")
+                    .prop("title", PMA_messages["strColNameCopyTitle"])
+                    .addClass("modal-copy")
+                    .text(PMA_messages["strColNameCopyText"])
+                    .append(
+                        $("<input/>")
+                        .prop("readonly", true)
+                        .val($(this).data("column"))
+                        )
+                    .dialog({
+                        resizable: false,
+                        modal: true
+                    })
+                    .find("input").focus().select();
                 });
             // restore column order when the restore button is clicked
             $('.restore_column').click(function() {
@@ -1685,6 +1691,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     // assign the hints
     g.sortHint = PMA_messages['strSortHint'];
     g.markHint = PMA_messages['strColMarkHint'];
+    g.copyHint = PMA_messages['strColNameCopyHint'];
 
     // assign common hidden inputs
     var $common_hidden_inputs = $('.common_hidden_inputs');
