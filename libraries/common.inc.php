@@ -330,14 +330,22 @@ if (isset($_COOKIE)
  * check HTTPS connection
  */
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
-    && ! $GLOBALS['PMA_Config']->get('is_https')
-) {
+  && !$GLOBALS['PMA_Config']->get('is_https')) {
+    // Make sure the SSL port isn't modified from the default 443
+    if($GLOBALS['PMA_Config']->get('SSLPort'))
+      $port_number = $GLOBALS['PMA_Config']->get('SSLPort');
+    else
+      $port_number = 443;
+
+    $url_find    = array('/^http/', '/:\d+/');
+    $url_replace = array('https', ':'.$port_number);
+
     PMA_sendHeaderLocation(
-        preg_replace('/^http/', 'https', $GLOBALS['PMA_Config']->get('PmaAbsoluteUri'))
-        . PMA_generate_common_url($_GET, 'text')
-    );
+        preg_replace($url_find, $url_replace,
+            $GLOBALS['PMA_Config']->get('PmaAbsoluteUri'))
+        . PMA_generate_common_url($_GET, 'text'));
     // delete the current session, otherwise we get problems (see bug #2397877)
-    $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
+    $GLOBALS['PMA_Config']->PMA_removeCookie($GLOBALS['session_name']);
     exit;
 }
 
