@@ -1039,12 +1039,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                     echo ' vbottom';
                 }
-                echo '">' . $order_link . $comments . '</th>';
+                echo '" data-column="' . htmlspecialchars($fields_meta[$i]->name) . '">' 
+                    . $order_link . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
                 . 'class="draggable'
                 . ($condition_field ? ' condition' : '')
-                . '">' . "\n"
+                . '" data-column="' . htmlspecialchars($fields_meta[$i]->name) . '">' . "\n"
                 . $order_link . $comments . '    </th>' . "\n";
         } // end if (2.1)
 
@@ -1072,7 +1073,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 ) {
                     echo ' style="direction: ltr; writing-mode: tb-rl;"';
                 }
-                echo '>';
+                echo ' data-column="' . htmlspecialchars($fields_meta[$i]->name) . '">';
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
                     && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'
                 ) {
@@ -1085,7 +1086,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $vertical_display['desc'][] = '    <th '
                 . 'class="draggable'
                 . ($condition_field ? ' condition"' : '')
-                . '">' . "\n"
+                . '" data-column="' . htmlspecialchars($fields_meta[$i]->name) . '">' . "\n"
                 . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
                 . $comments . '    </th>';
         } // end else (2.2)

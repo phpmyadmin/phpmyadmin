@@ -2328,25 +2328,16 @@ span.CodeMirror-selected {
     position: static;
 }
 
-.pma_table th.draggable {
-    position: relative;
-}
-
-.pma_table th.draggable input {
-    font-weight: inherit;
-    position: absolute;
-    top: -.2em;
-    left: 0;
-    width: 100%;
-    background: transparent;
-    border: 0;
-    outline: none;
-    text-align: center;
-}
-
 .pma_table th.draggable span, .pma_table tbody td span {
     display: block;
     overflow: hidden;
+}
+
+.modal-copy input {
+    display: block;
+    width: 100%;
+    margin-top: 1.5em;
+    padding: .3em 0;
 }
 
 .cRsz {
