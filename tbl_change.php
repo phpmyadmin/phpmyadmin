@@ -376,7 +376,7 @@ foreach ($rows as $row_id => $vrow) {
 <?php
     // Sets a multiplier used for input-field counts (as zero cannot be used, advance the counter plus one)
     $m_rows = $o_rows + 1;
-    //store the default value foe CharEditing
+    //store the default value for CharEditing
     $default_char_editing  = $cfg['CharEditing'];
     
     $odd_row = true;
@@ -950,10 +950,10 @@ foreach ($rows as $row_id => $vrow) {
             // ignore this column to avoid changing it
             if ($field['is_char']) {
                 $fieldsize = $extracted_fieldspec['spec_in_brackets'];
-                if($fieldsize > $cfg['MaxSizeForInputField']) {
+                if ($fieldsize > $cfg['MaxSizeForInputField']) {
                     /**
-                     * This case happens for CHAR or VARCHAR field which has 
-                     * lager field size than Maximum size for input field.
+                     * This case happens for CHAR or VARCHAR columns which have
+                     * a size larger than the maximum size for input field.
                      */
                     $cfg['CharEditing'] = 'textarea';  
                 } 
