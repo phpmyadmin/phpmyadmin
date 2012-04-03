@@ -2847,6 +2847,21 @@ span.CodeMirror-selected {
     position: static;
 }
 
+.pma_table th.draggable {
+    position: relative;
+}
+
+.pma_table th.draggable input {
+    font-weight: inherit;
+    position: absolute;
+    top: 0;
+    left: .2em;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
 .pma_table th.draggable span,
 .pma_table tbody td span {
     display: block;
