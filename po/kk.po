@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-04-04 20:18+0200\n"
+"PO-Revision-Date: 2012-04-04 21:50+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -344,7 +344,7 @@ msgstr ""
 
 #: db_operations.php:615
 msgid "Edit or export relational schema"
-msgstr "Түзетуші немесе экспорттаушы арасындағы байланыс схемасы"
+msgstr "Байланыс схемасын түзету немесе экспорттау"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
@@ -355,7 +355,7 @@ msgstr "Түзетуші немесе экспорттаушы арасында�
 #: server_privileges.php:2037 server_privileges.php:2306
 #: server_synchronize.php:448 server_synchronize.php:960 tbl_tracking.php:661
 msgid "Table"
-msgstr "Үстел"
+msgstr "Кесте"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:64
@@ -392,17 +392,17 @@ msgstr "Соңғы жаңартылым"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
 #: tbl_structure.php:930
 msgid "Last check"
-msgstr "Соңғы тексеріс"
+msgstr "Соңғы тексерім"
 
 #: db_printview.php:219 db_structure.php:520
-#, fuzzy, php-format
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] ""
 "Singular\n"
-"%s кесте\n"
+"%s кестесімен\n"
 "Plural\n"
-"%s кестелер"
+"%s кестелерімен"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -484,7 +484,7 @@ msgstr "Кестелерді қолдану"
 #: db_qbe.php:658
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "<b>%s</b> мәліметтер қорына SQL сұранысы"
+msgstr "<b>%s</b> дерекқорына SQL сұранысы"
 
 #: db_qbe.php:951 libraries/common.lib.php:1254
 msgid "Submit Query"
@@ -557,7 +557,7 @@ msgstr[1] ""
 
 #: db_search.php:274
 msgid "Search in database"
-msgstr "Мәліметтер қорынан іздеу"
+msgstr "Дерекқорынан іздеу"
 
 #: db_search.php:277
 msgid "Words or values to search for (wildcard: \"%\"):"
@@ -582,7 +582,7 @@ msgstr "Бағана іші"
 
 #: db_structure.php:86
 msgid "No tables found in database"
-msgstr "Мәліметтер қорында кесте табылмады"
+msgstr "Дерекқорында, ешбір кесте табылмады"
 
 #: db_structure.php:239 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
@@ -628,11 +628,11 @@ msgstr ""
 #: libraries/server_links.inc.php:92 server_replication.php:31
 #: server_replication.php:192 server_status.php:589
 msgid "Replication"
-msgstr ""
+msgstr "Репликация"
 
 #: db_structure.php:531
 msgid "Sum"
-msgstr ""
+msgstr "Барлығы"
 
 #: db_structure.php:538 libraries/StorageEngine.class.php:338
 #, php-format
