@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:12+0200\n"
-"PO-Revision-Date: 2012-04-02 11:52+0200\n"
-"Last-Translator: Abdurahman Taskibaev <tas362@mail.ru>\n"
+"PO-Revision-Date: 2012-04-04 07:10+0200\n"
+"Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -99,7 +99,7 @@ msgstr "Сипаттама"
 #: browse_foreigners.php:255 browse_foreigners.php:264
 #: browse_foreigners.php:276 browse_foreigners.php:284
 msgid "Use this value"
-msgstr "Осы мәнді қолдану керек"
+msgstr "Осы мәнді қолданыңыз"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -113,11 +113,11 @@ msgstr ""
 #: db_create.php:73
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s мәлімет қоры құрылды."
+msgstr "%1$s дерекқоры құрылды."
 
 #: db_datadict.php:49 db_operations.php:390
 msgid "Database comment: "
-msgstr "Мәліметтер қорына түсініктеме:"
+msgstr "Дерекқорына түсініктеме:"
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
@@ -161,8 +161,9 @@ msgstr "Типі"
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:364
 #: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:272
 #: tbl_tracking.php:338 tbl_zoom_select.php:452
+#, fuzzy
 msgid "Null"
-msgstr "Null"
+msgstr "Бос/Null"
 
 #: db_datadict.php:166 db_structure.php:544 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:397 libraries/export/odt.php:309
@@ -234,16 +235,16 @@ msgstr "Иә"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr "Мәлімет қорының дамп (схемасын) көру"
+msgstr "Мәліметтер қорының дамп (схемасын) көру"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:373 navigation.php:292
 msgid "No tables found in database."
-msgstr "Мәліметтер қорында, ешбір кестелер табылмады."
+msgstr "Дерекқорында, ешбір кестелер табылмады."
 
 #: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
-msgstr "Бәрін белгілеу"
+msgstr "Барлығын ерекшелеу"
 
 #: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
@@ -254,9 +255,9 @@ msgid "The database name is empty!"
 msgstr "Мәліметтер қорының аты көрсетілмеген."
 
 #: db_operations.php:300
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Мәліметтер қорының атауы, мына атауға %с, қайта қойылды."
+msgstr "Дерекқорының атауы, мына атауға %с, қайта қойылды."
 
 #: db_operations.php:304
 #, php-format
