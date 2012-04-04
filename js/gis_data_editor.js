@@ -96,7 +96,7 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
     var smallScripts = [ 'js/jquery/jquery.svg.js',
                      'js/jquery/jquery.sprintf.js',
                      'js/jquery/jquery.mousewheel.js',
-                     'js/jquery/jquery.event.drag-2.0.min.js',
+                     'js/jquery/jquery.event.drag-2.0.js',
                      'js/tbl_gis_visualization.js' ];
 
     for (i = 0; i < smallScripts.length; i++) {

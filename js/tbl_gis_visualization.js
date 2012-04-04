@@ -4,7 +4,7 @@
  * @requires    jquery
  * @requires    jquery/jquery.svg.js
  * @requires    jquery/jquery.mousewheel.js
- * @requires    jquery/jquery.event.drag-2.0.min.js
+ * @requires    jquery/jquery.event.drag-2.0.js
  */
 
 var x = 0;

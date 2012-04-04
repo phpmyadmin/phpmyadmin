@@ -18,7 +18,7 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.js';
 $GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
 $GLOBALS['js_include'][] = 'OpenStreetMap.js';
 
