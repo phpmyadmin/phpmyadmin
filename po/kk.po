@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-04-04 16:34+0200\n"
+"PO-Revision-Date: 2012-04-04 20:18+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -286,20 +286,22 @@ msgid "Copy database to"
 msgstr "Дерекқорының көшірілуі"
 
 #: db_operations.php:511 tbl_operations.php:554 tbl_tracking.php:436
+#, fuzzy
 msgid "Structure only"
 msgstr "Тек қана құрылым"
 
 #: db_operations.php:512 tbl_operations.php:555 tbl_tracking.php:438
+#, fuzzy
 msgid "Structure and data"
 msgstr "Құрылым және мәліметтер"
 
 #: db_operations.php:513 tbl_operations.php:556 tbl_tracking.php:437
 msgid "Data only"
-msgstr "Тек қана мәліметтер"
+msgstr "Тек мәліметтер ғана"
 
 #: db_operations.php:521
 msgid "CREATE DATABASE before copying"
-msgstr "Көшірмес бұрын, мәліметтер қорын құрып алыңыз(CREATE DATABASE)"
+msgstr "Көшірмес бұрын, дерекқорын құрып алыңыз(CREATE DATABASE)"
 
 #: db_operations.php:524 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
@@ -319,7 +321,7 @@ msgstr "Шектеу қою"
 
 #: db_operations.php:545
 msgid "Switch to copied database"
-msgstr "Көшірілген мәліметтер қорына өту"
+msgstr "Көшірілген дерекқорына өту"
 
 #: db_operations.php:568 libraries/Index.class.php:460
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
@@ -336,11 +338,13 @@ msgstr "Салыстыру"
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr "Кейбір ұлғаймалы мүмкіндіктеріне PhpMyAdmin қол жетімсіз."
+msgstr ""
+"Кейбір ұлғаймалы мүмкіндіктеріне байланысты, PhpMyAdmin қол жетімсіз. "
+"Себебін анықтау үшін %sмұнда%s басыңыз."
 
 #: db_operations.php:615
 msgid "Edit or export relational schema"
-msgstr "Түзетуші немесе експорттаушы арасындағы байланыс схемасы"
+msgstr "Түзетуші немесе экспорттаушы арасындағы байланыс схемасы"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
