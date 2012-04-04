@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-03-29 21:03+0200\n"
+"PO-Revision-Date: 2012-04-04 19:03+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1952,7 +1952,7 @@ msgstr "Klicka för att markera/avmarkera"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Dubbelklicka för att kopiera kolumnnamn"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1979,14 +1979,13 @@ msgid "Go to link"
 msgstr "Gå till länk"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Kolumn-namn"
+msgstr "Kopiera kolumnnamn"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Högerklicka på kolumnnamnet för att kopiera det till urklipp."
 
 #: js/messages.php:358
 msgid "Generate password"
@@ -8143,6 +8142,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Lägger till text till en sträng. Det enda alternativet är den text som ska "
+"läggas till (inom enkla citattecken, default är tom sträng)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
