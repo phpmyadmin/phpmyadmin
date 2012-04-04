@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-29 10:12+0200\n"
+"POT-Creation-Date: 2012-04-04 11:29+0200\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: latvian <lv@li.org>\n"
@@ -13,13 +13,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:349
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
 msgid "Show all"
 msgstr "Rādīt visu"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:43
-#: libraries/common.lib.php:2484
+#: libraries/common.lib.php:2485
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -37,26 +37,26 @@ msgstr ""
 "vai arī Jūsu pārlūkprogramma bloķe starplogu saskarsmi Jūsu drošības "
 "iestādījumu dēļ."
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3165
-#: libraries/common.lib.php:3172 libraries/common.lib.php:3382
-#: libraries/common.lib.php:3383 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3169
+#: libraries/common.lib.php:3176 libraries/common.lib.php:3392
+#: libraries/common.lib.php:3393 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Meklēt"
 
 #: browse_foreigners.php:159 db_operations.php:398 db_operations.php:438
 #: db_operations.php:548 db_operations.php:575 db_search.php:337
-#: db_structure.php:621 enum_editor.php:121 gis_data_editor.php:133
-#: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:225
-#: libraries/Config.class.php:1326 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1406
-#: libraries/common.lib.php:2457 libraries/core.lib.php:526
+#: db_structure.php:621 gis_data_editor.php:133 gis_data_editor.php:166
+#: gis_data_editor.php:315 js/messages.php:225 libraries/Config.class.php:1326
+#: libraries/Theme_Manager.class.php:309
+#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1407
+#: libraries/common.lib.php:2458 libraries/core.lib.php:526
 #: libraries/display_create_table.lib.php:61
-#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:267
+#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:264
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
-#: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
-#: libraries/rte/rte_routines.lib.php:1455
+#: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:969
+#: libraries/rte/rte_routines.lib.php:1454
 #: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
@@ -64,14 +64,14 @@ msgstr "Meklēt"
 #: libraries/schema/User_Schema.class.php:487
 #: libraries/select_server.lib.php:94 libraries/sql_query_form.lib.php:362
 #: libraries/sql_query_form.lib.php:424 libraries/sql_query_form.lib.php:479
-#: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:167
+#: libraries/tbl_properties.inc.php:570 main.php:115 navigation.php:167
 #: navigation.php:205 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:813
 #: server_privileges.php:1928 server_privileges.php:2292
 #: server_privileges.php:2339 server_privileges.php:2371
-#: server_replication.php:263 server_replication.php:346
-#: server_replication.php:377 server_synchronize.php:1391 tbl_change.php:371
-#: tbl_change.php:1105 tbl_change.php:1142 tbl_indexes.php:288
+#: server_replication.php:265 server_replication.php:349
+#: server_replication.php:380 server_synchronize.php:1391 tbl_change.php:371
+#: tbl_change.php:1115 tbl_change.php:1152 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
 #: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:260
 #: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:443
@@ -113,7 +113,7 @@ msgid "Database comment: "
 msgstr "Datubāzes komentārs: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
-#: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
+#: libraries/tbl_properties.inc.php:657 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
 msgstr "Komentārs tabulai"
@@ -125,7 +125,7 @@ msgstr "Komentārs tabulai"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
 #: tbl_change.php:337 tbl_indexes.php:213 tbl_printview.php:136
-#: tbl_relation.php:395 tbl_tracking.php:269 tbl_tracking.php:335
+#: tbl_relation.php:411 tbl_tracking.php:269 tbl_tracking.php:335
 #: tbl_zoom_select.php:451
 #, fuzzy
 #| msgid "Column names"
@@ -135,10 +135,10 @@ msgstr "Kolonnu nosaukumi"
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:395 libraries/export/odt.php:303
-#: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
-#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:836
-#: libraries/rte/rte_routines.lib.php:861
-#: libraries/rte/rte_routines.lib.php:1373
+#: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:54
+#: libraries/rte/rte_list.lib.php:80 libraries/rte/rte_routines.lib.php:835
+#: libraries/rte/rte_routines.lib.php:860
+#: libraries/rte/rte_routines.lib.php:1372
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
@@ -193,7 +193,7 @@ msgstr "Komentāri"
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:309
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:321
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1569 server_privileges.php:1579
@@ -210,12 +210,12 @@ msgstr "Nē"
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:299
 #: libraries/export/latex.php:460 libraries/export/odt.php:357
-#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:56
-#: libraries/mult_submits.inc.php:88 libraries/mult_submits.inc.php:97
-#: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:107
-#: libraries/mult_submits.inc.php:112 libraries/mult_submits.inc.php:271
-#: libraries/mult_submits.inc.php:284 libraries/mult_submits.inc.php:308
-#: libraries/mult_submits.inc.php:315
+#: libraries/export/texytext.php:278 libraries/mult_submits.inc.php:68
+#: libraries/mult_submits.inc.php:100 libraries/mult_submits.inc.php:109
+#: libraries/mult_submits.inc.php:114 libraries/mult_submits.inc.php:119
+#: libraries/mult_submits.inc.php:124 libraries/mult_submits.inc.php:283
+#: libraries/mult_submits.inc.php:296 libraries/mult_submits.inc.php:320
+#: libraries/mult_submits.inc.php:327
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:94 server_privileges.php:1567
@@ -321,7 +321,7 @@ msgstr "Pārslēgties uz nokopēto datubāzi"
 #: db_operations.php:568 libraries/Index.class.php:460
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
+#: libraries/tbl_properties.inc.php:663 libraries/tbl_select.lib.php:85
 #: server_collations.php:46 server_collations.php:58 tbl_operations.php:382
 #: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:271
 #: tbl_tracking.php:337
@@ -349,7 +349,7 @@ msgstr "Relāciju shēma"
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
-#: libraries/header.inc.php:165 libraries/rte/rte_list.lib.php:59
+#: libraries/header.inc.php:165 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1979
 #: server_privileges.php:2037 server_privileges.php:2306
@@ -455,7 +455,7 @@ msgid "Del"
 msgstr "Dzēst"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:467 tbl_change.php:939 tbl_indexes.php:283
+#: server_privileges.php:467 tbl_change.php:941 tbl_indexes.php:283
 #: tbl_select.php:221
 msgid "Or"
 msgstr "Vai"
@@ -464,32 +464,32 @@ msgstr "Vai"
 msgid "Modify"
 msgstr "Labot"
 
-#: db_qbe.php:606
+#: db_qbe.php:604
 #, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Pievienot/Dzēst ierakstu"
 
-#: db_qbe.php:618
+#: db_qbe.php:616
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Pievienot/Dzēst laukus (kolonnas)"
 
-#: db_qbe.php:631 db_qbe.php:656
+#: db_qbe.php:629 db_qbe.php:652
 msgid "Update Query"
 msgstr "Atjaunot vaicājumu"
 
-#: db_qbe.php:639
+#: db_qbe.php:635
 msgid "Use Tables"
 msgstr "Lietot tabulas"
 
-#: db_qbe.php:662
+#: db_qbe.php:658
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL vaicājums uz datubāzes <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1253
+#: db_qbe.php:951 libraries/common.lib.php:1254
 msgid "Submit Query"
 msgstr "Izpildīt vaicājumu"
 
@@ -529,8 +529,8 @@ msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%s rezultāti tabulā <i>%s</i>"
 msgstr[1] "%s rezultāti tabulā <i>%s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3167
-#: libraries/common.lib.php:3380 libraries/common.lib.php:3381
+#: db_search.php:234 libraries/common.lib.php:3171
+#: libraries/common.lib.php:3390 libraries/common.lib.php:3391
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Apskatīt"
@@ -541,8 +541,8 @@ msgstr "Apskatīt"
 msgid "Delete the matches for the %s table?"
 msgstr "Dati tabulai"
 
-#: db_search.php:239 libraries/display_tbl.lib.php:1437
-#: libraries/display_tbl.lib.php:2478
+#: db_search.php:239 libraries/display_tbl.lib.php:1439
+#: libraries/display_tbl.lib.php:2480
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
@@ -625,7 +625,7 @@ msgstr ""
 msgid "Tracking is not active."
 msgstr ""
 
-#: db_structure.php:462 libraries/display_tbl.lib.php:2361
+#: db_structure.php:462 libraries/display_tbl.lib.php:2363
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -654,20 +654,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 
 #: db_structure.php:567 db_structure.php:584 db_structure.php:585
-#: libraries/display_tbl.lib.php:2503 libraries/display_tbl.lib.php:2508
-#: libraries/mult_submits.inc.php:27 server_databases.php:278
+#: libraries/display_tbl.lib.php:2505 libraries/display_tbl.lib.php:2510
+#: libraries/mult_submits.inc.php:39 server_databases.php:278
 #: server_databases.php:283 server_privileges.php:1886
 #: server_privileges.php:1894 tbl_structure.php:557 tbl_structure.php:566
 msgid "With selected:"
 msgstr "Ar iezīmēto:"
 
-#: db_structure.php:570 libraries/display_tbl.lib.php:2498
+#: db_structure.php:570 libraries/display_tbl.lib.php:2500
 #: server_databases.php:280 server_privileges.php:751
 #: server_privileges.php:1889 tbl_structure.php:560
 msgid "Check All"
 msgstr "Iezīmēt visu"
 
-#: db_structure.php:574 libraries/display_tbl.lib.php:2499
+#: db_structure.php:574 libraries/display_tbl.lib.php:2501
 #: libraries/replication_gui.lib.php:35 server_databases.php:282
 #: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
@@ -677,10 +677,10 @@ msgstr "Neiezīmēt neko"
 msgid "Check tables having overhead"
 msgstr "Iezīmēt tabulas ar pārtēriņu"
 
-#: db_structure.php:587 libraries/common.lib.php:3393
-#: libraries/common.lib.php:3394 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3403
+#: libraries/common.lib.php:3404 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
-#: libraries/display_tbl.lib.php:2521 libraries/display_tbl.lib.php:2662
+#: libraries/display_tbl.lib.php:2523 libraries/display_tbl.lib.php:2664
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1535 server_privileges.php:1898
 #: server_status.php:1602 setup/frames/menu.inc.php:21
@@ -688,19 +688,19 @@ msgid "Export"
 msgstr "Eksports"
 
 #: db_structure.php:589 db_structure.php:645
-#: libraries/display_tbl.lib.php:2611 tbl_structure.php:613
+#: libraries/display_tbl.lib.php:2613 tbl_structure.php:613
 msgid "Print view"
 msgstr "Izdrukas versija"
 
-#: db_structure.php:593 libraries/common.lib.php:3389
-#: libraries/common.lib.php:3390
+#: db_structure.php:593 libraries/common.lib.php:3399
+#: libraries/common.lib.php:3400
 msgid "Empty"
 msgstr "Iztukšot"
 
-#: db_structure.php:595 db_tracking.php:105 enum_editor.php:116
-#: libraries/Index.class.php:504 libraries/common.lib.php:3387
-#: libraries/common.lib.php:3388 server_databases.php:284
-#: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
+#: db_structure.php:595 db_tracking.php:105 libraries/Index.class.php:504
+#: libraries/common.lib.php:3397 libraries/common.lib.php:3398
+#: server_databases.php:284 tbl_structure.php:150 tbl_structure.php:151
+#: tbl_structure.php:573
 msgid "Drop"
 msgstr "Likvidēt"
 
@@ -724,13 +724,13 @@ msgstr "Analizēt tabulu"
 msgid "Add prefix to table"
 msgstr ""
 
-#: db_structure.php:609 libraries/mult_submits.inc.php:260
+#: db_structure.php:609 libraries/mult_submits.inc.php:272
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "Aizvietot tabulas datus ar datiem no faila"
 
-#: db_structure.php:611 libraries/mult_submits.inc.php:260
+#: db_structure.php:611 libraries/mult_submits.inc.php:272
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
@@ -771,14 +771,14 @@ msgid "Updated"
 msgstr ""
 
 #: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
-#: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
+#: libraries/rte/rte_list.lib.php:78 libraries/server_links.inc.php:51
 #: server_status.php:1234 sql.php:932 tbl_tracking.php:665
 msgid "Status"
 msgstr "Statuss"
 
 #: db_tracking.php:91 libraries/Index.class.php:452
-#: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
-#: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
+#: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
+#: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: server_databases.php:209 server_privileges.php:1823
 #: server_privileges.php:2041 server_privileges.php:2388 tbl_structure.php:211
 msgid "Action"
@@ -823,38 +823,6 @@ msgstr "Pārbaudīt tabulu"
 #, fuzzy
 msgid "Database Log"
 msgstr "Datubāze"
-
-#: enum_editor.php:23 js/messages.php:265
-#: libraries/rte/rte_routines.lib.php:690
-msgid "ENUM/SET editor"
-msgstr ""
-
-#: enum_editor.php:28 js/messages.php:267
-msgid "Values for a new column"
-msgstr ""
-
-#: enum_editor.php:30 js/messages.php:266
-#, fuzzy, php-format
-#| msgid "Number of rows per page"
-msgid "Values for column %s"
-msgstr "Rindu skaits vienā lapā"
-
-#: enum_editor.php:34 js/messages.php:268
-msgid "Enter each value in a separate field"
-msgstr ""
-
-#: enum_editor.php:123
-#, fuzzy
-msgid "Add a value"
-msgstr "Pievienot jaunu lietotāju"
-
-#: enum_editor.php:129 gis_data_editor.php:317
-msgid "Output"
-msgstr ""
-
-#: enum_editor.php:130
-msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
 
 #: export.php:38
 #, fuzzy
@@ -985,6 +953,10 @@ msgstr "Pievienot %s lauku(s)"
 msgid "Add geometry"
 msgstr "Pievienot jaunu lietotāju"
 
+#: gis_data_editor.php:317
+msgid "Output"
+msgstr ""
+
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
@@ -1059,9 +1031,9 @@ msgid ""
 msgstr ""
 
 #: import.php:521 libraries/Message.class.php:177
-#: libraries/display_tbl.lib.php:2398 libraries/rte/rte_routines.lib.php:1209
+#: libraries/display_tbl.lib.php:2400 libraries/rte/rte_routines.lib.php:1208
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:229
-#: tbl_relation.php:284 tbl_row_action.php:118 view_operations.php:60
+#: tbl_relation.php:300 tbl_row_action.php:118 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Jūsu SQL vaicājums tika veiksmīgi izpildīts"
 
@@ -1079,13 +1051,13 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" komanda ir aizliegta."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:293 sql.php:386
+#: js/messages.php:30 libraries/mult_submits.inc.php:305 sql.php:386
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
 msgstr "Vai Jūs tiešām gribat "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:291 sql.php:371
+#: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:371
 msgid "You are about to DESTROY a complete database!"
 msgstr "Jūs taisaties LIKVIDĒT veselu datubāzi!"
 
@@ -1188,9 +1160,9 @@ msgid "Close"
 msgstr ""
 
 #: js/messages.php:61 js/messages.php:277 libraries/Index.class.php:482
-#: libraries/common.lib.php:649 libraries/common.lib.php:1229
-#: libraries/common.lib.php:3391 libraries/common.lib.php:3392
-#: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1401
+#: libraries/common.lib.php:649 libraries/common.lib.php:1230
+#: libraries/common.lib.php:3401 libraries/common.lib.php:3402
+#: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1403
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
 msgstr "Labot"
@@ -1228,12 +1200,12 @@ msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/common.lib.php:1484
+#: js/messages.php:72 libraries/common.lib.php:1485
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/common.lib.php:1486
+#: js/messages.php:74 libraries/common.lib.php:1487
 msgid "."
 msgstr "."
 
@@ -1320,13 +1292,13 @@ msgid "System swap"
 msgstr ""
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
+#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1435
 #: server_status.php:1682
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1432
+#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1433
 #: server_status.php:1682
 msgid "KiB"
 msgstr "KB"
@@ -1390,27 +1362,27 @@ msgid "Connections"
 msgstr "Konekcijas"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:121 libraries/common.lib.php:1430
+#: js/messages.php:121 libraries/common.lib.php:1431
 msgid "B"
 msgstr "baiti"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:124 libraries/common.lib.php:1436
+#: js/messages.php:124 libraries/common.lib.php:1437
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:125 libraries/common.lib.php:1438
+#: js/messages.php:125 libraries/common.lib.php:1439
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:126 libraries/common.lib.php:1440
+#: js/messages.php:126 libraries/common.lib.php:1441
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:127 libraries/common.lib.php:1442
+#: js/messages.php:127 libraries/common.lib.php:1443
 msgid "EiB"
 msgstr "EB"
 
@@ -1457,7 +1429,7 @@ msgstr ""
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:530 pmd_general.php:518
+#: libraries/tbl_properties.inc.php:526 pmd_general.php:518
 #: server_privileges.php:2190 server_status.php:1260 server_status.php:1699
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
 msgid "None"
@@ -1632,7 +1604,7 @@ msgstr ""
 msgid "Explain output"
 msgstr "Izskaidrot SQL"
 
-#: js/messages.php:184 js/messages.php:493 libraries/rte/rte_list.lib.php:62
+#: js/messages.php:184 js/messages.php:496 libraries/rte/rte_list.lib.php:68
 #: server_status.php:1233 sql.php:933
 msgid "Time"
 msgstr "Laiks"
@@ -1731,7 +1703,7 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:208 libraries/config/messages.inc.php:172
-#: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
+#: libraries/db_links.inc.php:82 libraries/display_import.lib.php:124
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1602 setup/frames/menu.inc.php:20
 #, fuzzy
@@ -1867,19 +1839,19 @@ msgstr "Pievienot jaunu lauku"
 msgid "Show indexes"
 msgstr "Rādīt režģi"
 
-#: js/messages.php:250 libraries/mult_submits.inc.php:301
+#: js/messages.php:250 libraries/mult_submits.inc.php:313
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
 msgstr "Nepārbaudīt ārējās atslēgas"
 
-#: js/messages.php:251 libraries/mult_submits.inc.php:305
+#: js/messages.php:251 libraries/mult_submits.inc.php:317
 #, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
 msgstr "Ieslēgts"
 
-#: js/messages.php:252 libraries/mult_submits.inc.php:305
+#: js/messages.php:252 libraries/mult_submits.inc.php:317
 #, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
@@ -1917,6 +1889,24 @@ msgstr "Dzēšam %s"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
+#: js/messages.php:265 libraries/rte/rte_routines.lib.php:689
+msgid "ENUM/SET editor"
+msgstr ""
+
+#: js/messages.php:266
+#, fuzzy, php-format
+#| msgid "Number of rows per page"
+msgid "Values for column %s"
+msgstr "Rindu skaits vienā lapā"
+
+#: js/messages.php:267
+msgid "Values for a new column"
+msgstr ""
+
+#: js/messages.php:268
+msgid "Enter each value in a separate field"
+msgstr ""
+
 #: js/messages.php:269
 #, fuzzy, php-format
 msgid "Add %d value(s)"
@@ -1941,8 +1931,8 @@ msgstr "SQL vaicājums"
 msgid "No rows selected"
 msgstr "Rindas nav iezīmētas"
 
-#: js/messages.php:279 libraries/common.lib.php:2782
-#: libraries/display_tbl.lib.php:2512 querywindow.php:87 tbl_structure.php:149
+#: js/messages.php:279 libraries/common.lib.php:2783
+#: libraries/display_tbl.lib.php:2514 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
 msgstr "Labot"
@@ -1953,9 +1943,9 @@ msgstr ""
 
 #: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
-#: libraries/tbl_properties.inc.php:713 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:229 tbl_change.php:1057
-#: tbl_gis_visualization.php:185 tbl_indexes.php:280 tbl_relation.php:559
+#: libraries/tbl_properties.inc.php:709 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:229 tbl_change.php:1067
+#: tbl_gis_visualization.php:185 tbl_indexes.php:280 tbl_relation.php:575
 msgid "Save"
 msgstr "Saglabāt"
 
@@ -2034,7 +2024,7 @@ msgstr "Satura rādītājs"
 msgid "Ignore"
 msgstr "Ignorēt"
 
-#: js/messages.php:315 libraries/display_tbl.lib.php:1402
+#: js/messages.php:315 libraries/display_tbl.lib.php:1404
 msgid "Copy"
 msgstr ""
 
@@ -2056,7 +2046,7 @@ msgstr ""
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:336 pmd_general.php:91 tbl_relation.php:541
+#: js/messages.php:336 pmd_general.php:91 tbl_relation.php:557
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
@@ -2095,48 +2085,62 @@ msgid "Click to mark/unmark"
 msgstr ""
 
 #: js/messages.php:348
+msgid "Double-click to copy column name"
+msgstr ""
+
+#: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:350
+#: js/messages.php:351
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:351
+#: js/messages.php:352
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:352
+#: js/messages.php:353
 msgid "Go to link"
 msgstr ""
 
+#: js/messages.php:354
+#, fuzzy
+#| msgid "Column names"
+msgid "Copy column name"
+msgstr "Kolonnu nosaukumi"
+
 #: js/messages.php:355
+msgid "Right-click the column name to copy it to your clipboard."
+msgstr ""
+
+#: js/messages.php:358
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Mainīt paroli"
 
-#: js/messages.php:356 libraries/replication_gui.lib.php:369
+#: js/messages.php:359 libraries/replication_gui.lib.php:369
 #, fuzzy
 msgid "Generate"
 msgstr "Uzģenerēja"
 
-#: js/messages.php:357
+#: js/messages.php:360
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Mainīt paroli"
 
-#: js/messages.php:360 tbl_structure.php:465
+#: js/messages.php:363 tbl_structure.php:465
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "P"
 
-#: js/messages.php:363 setup/lib/index.lib.php:170
+#: js/messages.php:366 setup/lib/index.lib.php:170
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2144,30 +2148,30 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:365
+#: js/messages.php:368
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:366
+#: js/messages.php:369
 #, fuzzy
 msgid "up to date"
 msgstr "Nav datubāzu"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:385
+#: js/messages.php:388
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Nav"
 
-#: js/messages.php:389
+#: js/messages.php:392
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Iepriekšējie"
 
-#: js/messages.php:394
+#: js/messages.php:397
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2175,96 +2179,96 @@ msgid "Next"
 msgstr "Nākamie"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:397
+#: js/messages.php:400
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Kopā"
 
-#: js/messages.php:400
+#: js/messages.php:403
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binārais"
 
-#: js/messages.php:401
+#: js/messages.php:404
 msgid "February"
 msgstr ""
 
-#: js/messages.php:402
+#: js/messages.php:405
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:403
+#: js/messages.php:406
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:404
+#: js/messages.php:407
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:405
+#: js/messages.php:408
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jūn"
 
-#: js/messages.php:406
+#: js/messages.php:409
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jūl"
 
-#: js/messages.php:407
+#: js/messages.php:410
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Aug"
 
-#: js/messages.php:408
+#: js/messages.php:411
 msgid "September"
 msgstr ""
 
-#: js/messages.php:409
+#: js/messages.php:412
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:410
+#: js/messages.php:413
 msgid "November"
 msgstr ""
 
-#: js/messages.php:411
+#: js/messages.php:414
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:415 libraries/common.lib.php:1642
+#: js/messages.php:418 libraries/common.lib.php:1643
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:417 libraries/common.lib.php:1644
+#: js/messages.php:420 libraries/common.lib.php:1645
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1646
+#: js/messages.php:422 libraries/common.lib.php:1647
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1648
+#: js/messages.php:424 libraries/common.lib.php:1649
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1650
+#: js/messages.php:426 libraries/common.lib.php:1651
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2272,78 +2276,78 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1652
+#: js/messages.php:428 libraries/common.lib.php:1653
 msgid "Jun"
 msgstr "Jūn"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1654
+#: js/messages.php:430 libraries/common.lib.php:1655
 msgid "Jul"
 msgstr "Jūl"
 
 #. l10n: Short month name
-#: js/messages.php:429 libraries/common.lib.php:1656
+#: js/messages.php:432 libraries/common.lib.php:1657
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:431 libraries/common.lib.php:1658
+#: js/messages.php:434 libraries/common.lib.php:1659
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:433 libraries/common.lib.php:1660
+#: js/messages.php:436 libraries/common.lib.php:1661
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/common.lib.php:1662
+#: js/messages.php:438 libraries/common.lib.php:1663
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/common.lib.php:1664
+#: js/messages.php:440 libraries/common.lib.php:1665
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:440
+#: js/messages.php:443
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Sv"
 
-#: js/messages.php:441
+#: js/messages.php:444
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "P"
 
-#: js/messages.php:442
+#: js/messages.php:445
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "O"
 
-#: js/messages.php:443
+#: js/messages.php:446
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:444
+#: js/messages.php:447
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:445
+#: js/messages.php:448
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pk"
 
-#: js/messages.php:446
+#: js/messages.php:449
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:450
+#: js/messages.php:453
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2351,113 +2355,113 @@ msgid "Sun"
 msgstr "Sv"
 
 #. l10n: Short week day name
-#: js/messages.php:452 libraries/common.lib.php:1669
+#: js/messages.php:455 libraries/common.lib.php:1670
 msgid "Mon"
 msgstr "P"
 
 #. l10n: Short week day name
-#: js/messages.php:454 libraries/common.lib.php:1671
+#: js/messages.php:457 libraries/common.lib.php:1672
 msgid "Tue"
 msgstr "O"
 
 #. l10n: Short week day name
-#: js/messages.php:456 libraries/common.lib.php:1673
+#: js/messages.php:459 libraries/common.lib.php:1674
 msgid "Wed"
 msgstr "T"
 
 #. l10n: Short week day name
-#: js/messages.php:458 libraries/common.lib.php:1675
+#: js/messages.php:461 libraries/common.lib.php:1676
 msgid "Thu"
 msgstr "C"
 
 #. l10n: Short week day name
-#: js/messages.php:460 libraries/common.lib.php:1677
+#: js/messages.php:463 libraries/common.lib.php:1678
 msgid "Fri"
 msgstr "Pk"
 
 #. l10n: Short week day name
-#: js/messages.php:462 libraries/common.lib.php:1679
+#: js/messages.php:465 libraries/common.lib.php:1680
 msgid "Sat"
 msgstr "S"
 
 #. l10n: Minimal week day name
-#: js/messages.php:466
+#: js/messages.php:469
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Sv"
 
 #. l10n: Minimal week day name
-#: js/messages.php:468
+#: js/messages.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "P"
 
 #. l10n: Minimal week day name
-#: js/messages.php:470
+#: js/messages.php:473
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "O"
 
 #. l10n: Minimal week day name
-#: js/messages.php:472
+#: js/messages.php:475
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "T"
 
 #. l10n: Minimal week day name
-#: js/messages.php:474
+#: js/messages.php:477
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "C"
 
 #. l10n: Minimal week day name
-#: js/messages.php:476
+#: js/messages.php:479
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pk"
 
 #. l10n: Minimal week day name
-#: js/messages.php:478
+#: js/messages.php:481
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "S"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:480
+#: js/messages.php:483
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:483
+#: js/messages.php:486
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:485
+#: js/messages.php:488
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Nav"
 
-#: js/messages.php:494
+#: js/messages.php:497
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:495
+#: js/messages.php:498
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "lietošanā"
 
-#: js/messages.php:496
+#: js/messages.php:499
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2555,7 +2559,7 @@ msgstr ""
 msgid "Cannot read (moved) upload file."
 msgstr ""
 
-#: libraries/Index.class.php:427 tbl_relation.php:522
+#: libraries/Index.class.php:427 tbl_relation.php:538
 msgid "No index defined!"
 msgstr "Nav definēti indeksi!"
 
@@ -2565,7 +2569,7 @@ msgstr "Nav definēti indeksi!"
 msgid "Indexes"
 msgstr "Indeksi"
 
-#: libraries/Index.class.php:456 libraries/tbl_properties.inc.php:472
+#: libraries/Index.class.php:456 libraries/tbl_properties.inc.php:468
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
 #: tbl_tracking.php:333
 msgid "Unique"
@@ -2580,7 +2584,7 @@ msgid "Cardinality"
 msgstr "Kardinalitāte"
 
 #: libraries/Index.class.php:462 libraries/rte/rte_events.lib.php:480
-#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:275
+#: libraries/rte/rte_routines.lib.php:956 tbl_tracking.php:275
 #: tbl_tracking.php:339
 #, fuzzy
 msgid "Comment"
@@ -2609,8 +2613,8 @@ msgid "Databases"
 msgstr "Datubāzes"
 
 #: libraries/Message.class.php:196 libraries/common.lib.php:615
-#: libraries/core.lib.php:216 libraries/import.lib.php:142 tbl_change.php:935
-#: tbl_operations.php:229 tbl_relation.php:282 view_operations.php:60
+#: libraries/core.lib.php:216 libraries/import.lib.php:142 tbl_change.php:937
+#: tbl_operations.php:229 tbl_relation.php:298 view_operations.php:60
 msgid "Error"
 msgstr "Kļūda"
 
@@ -2883,7 +2887,7 @@ msgstr "Tabulas"
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/export/latex.php:212 libraries/export/sql.php:1113
-#: server_privileges.php:681 server_replication.php:344 tbl_printview.php:276
+#: server_privileges.php:681 server_replication.php:347 tbl_printview.php:276
 #: tbl_structure.php:773
 msgid "Data"
 msgstr "Dati"
@@ -3018,83 +3022,83 @@ msgstr "SQL vaicājums"
 #: libraries/rte/rte_routines.lib.php:258
 #: libraries/rte/rte_routines.lib.php:268
 #: libraries/rte/rte_routines.lib.php:282
-#: libraries/rte/rte_routines.lib.php:1260
+#: libraries/rte/rte_routines.lib.php:1259
 #: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
 msgid "MySQL said: "
 msgstr "MySQL teica: "
 
-#: libraries/common.lib.php:1162
+#: libraries/common.lib.php:1163
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/common.lib.php:1203 libraries/config/messages.inc.php:485
+#: libraries/common.lib.php:1204 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
 msgstr "Izskaidrot SQL"
 
-#: libraries/common.lib.php:1207
+#: libraries/common.lib.php:1208
 msgid "Skip Explain SQL"
 msgstr "Neizskaidrot SQL"
 
-#: libraries/common.lib.php:1242
+#: libraries/common.lib.php:1243
 msgid "Without PHP Code"
 msgstr "Bez PHP koda"
 
-#: libraries/common.lib.php:1245 libraries/config/messages.inc.php:487
+#: libraries/common.lib.php:1246 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "Izveidot PHP kodu"
 
-#: libraries/common.lib.php:1265 libraries/config/messages.inc.php:486
+#: libraries/common.lib.php:1266 libraries/config/messages.inc.php:486
 #: server_status.php:787 server_status.php:809 server_status.php:829
 msgid "Refresh"
 msgstr "Atjaunot"
 
-#: libraries/common.lib.php:1275
+#: libraries/common.lib.php:1276
 msgid "Skip Validate SQL"
 msgstr "Nepārbaudīt SQL"
 
-#: libraries/common.lib.php:1278 libraries/config/messages.inc.php:489
+#: libraries/common.lib.php:1279 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "Pārbaudīt SQL"
 
-#: libraries/common.lib.php:1337
+#: libraries/common.lib.php:1338
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1339
+#: libraries/common.lib.php:1340
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr ""
 
-#: libraries/common.lib.php:1405 sql.php:928
+#: libraries/common.lib.php:1406 sql.php:928
 msgid "Profiling"
 msgstr ""
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1667
+#: libraries/common.lib.php:1668
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Sv"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1683
-#: libraries/transformations/text_plain__dateformat.inc.php:35
+#: libraries/common.lib.php:1684
+#: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d.%m.%Y %H:%M"
 
-#: libraries/common.lib.php:2017
+#: libraries/common.lib.php:2018
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dienas, %s stundas, %s minūtes un %s sekundes"
 
-#: libraries/common.lib.php:2110
+#: libraries/common.lib.php:2111
 #, fuzzy
 #| msgid "Add new field"
 msgid "Missing parameter:"
 msgstr "Pievienot jaunu lauku"
 
-#: libraries/common.lib.php:2493 libraries/common.lib.php:2496
+#: libraries/common.lib.php:2494 libraries/common.lib.php:2497
 #: libraries/display_tbl.lib.php:306
 #, fuzzy
 #| msgid "Begin"
@@ -3102,7 +3106,7 @@ msgctxt "First page"
 msgid "Begin"
 msgstr "Sākums"
 
-#: libraries/common.lib.php:2494 libraries/common.lib.php:2497
+#: libraries/common.lib.php:2495 libraries/common.lib.php:2498
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 #, fuzzy
@@ -3111,7 +3115,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Iepriekšējie"
 
-#: libraries/common.lib.php:2524 libraries/common.lib.php:2527
+#: libraries/common.lib.php:2525 libraries/common.lib.php:2528
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
 #, fuzzy
@@ -3120,7 +3124,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Nākamie"
 
-#: libraries/common.lib.php:2525 libraries/common.lib.php:2528
+#: libraries/common.lib.php:2526 libraries/common.lib.php:2529
 #: libraries/display_tbl.lib.php:390
 #, fuzzy
 #| msgid "End"
@@ -3128,34 +3132,34 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Beigas"
 
-#: libraries/common.lib.php:2595
+#: libraries/common.lib.php:2596
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "pāriet pie datubāzes &quot;%s&quot;."
 
-#: libraries/common.lib.php:2615
+#: libraries/common.lib.php:2616
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/common.lib.php:2789
+#: libraries/common.lib.php:2790
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/common.lib.php:3163 libraries/common.lib.php:3170
-#: libraries/common.lib.php:3386 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3167 libraries/common.lib.php:3174
+#: libraries/common.lib.php:3396 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:590 pmd_general.php:154
-#: server_privileges.php:681 server_replication.php:343 tbl_tracking.php:265
+#: libraries/tbl_properties.inc.php:586 pmd_general.php:154
+#: server_privileges.php:681 server_replication.php:346 tbl_tracking.php:265
 msgid "Structure"
 msgstr "Struktūra"
 
-#: libraries/common.lib.php:3164 libraries/common.lib.php:3171
+#: libraries/common.lib.php:3168 libraries/common.lib.php:3175
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3163,43 +3167,43 @@ msgstr "Struktūra"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3166 libraries/common.lib.php:3384
-#: libraries/common.lib.php:3385 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3170 libraries/common.lib.php:3394
+#: libraries/common.lib.php:3395 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Pievienot"
 
-#: libraries/common.lib.php:3173 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3177 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Darbības"
 
-#: libraries/common.lib.php:3318 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3328 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:3337
+#: libraries/common.lib.php:3347
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "web servera augšupielādes direktorija"
 
-#: libraries/common.lib.php:3358 libraries/sql_query_form.lib.php:458
-#: tbl_change.php:936
+#: libraries/common.lib.php:3368 libraries/sql_query_form.lib.php:458
+#: tbl_change.php:938
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Direktoija, kuru norādijāt augšupielādei, nav pieejama"
 
-#: libraries/common.lib.php:3367
+#: libraries/common.lib.php:3377
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:3395 libraries/common.lib.php:3396
+#: libraries/common.lib.php:3405 libraries/common.lib.php:3406
 msgid "Execute"
 msgstr ""
 
-#: libraries/common.lib.php:3871
+#: libraries/common.lib.php:3881
 msgid "Print"
 msgstr "Drukāt"
 
@@ -3383,7 +3387,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:356
 #: libraries/schema/User_Schema.class.php:508 prefs_manage.php:318
-#: prefs_manage.php:323 tbl_change.php:1106
+#: prefs_manage.php:323 tbl_change.php:1116
 msgid "Reset"
 msgstr "Atcelt"
 
@@ -3769,7 +3773,7 @@ msgid "MIME type"
 msgstr "MIME tips"
 
 #: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
-#: libraries/config/messages.inc.php:138 tbl_relation.php:392
+#: libraries/config/messages.inc.php:138 tbl_relation.php:408
 msgid "Relations"
 msgstr "Relācijas"
 
@@ -5614,14 +5618,14 @@ msgstr ""
 msgid "Triggers"
 msgstr ""
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2233
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2235
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr "Var būt aptuvens skaits. Skatīt FAQ 3.11"
 
 #: libraries/dbi/drizzle.dbi.lib.php:115 libraries/dbi/mysql.dbi.lib.php:118
-#: libraries/dbi/mysqli.dbi.lib.php:187
+#: libraries/dbi/mysqli.dbi.lib.php:190
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -5673,10 +5677,10 @@ msgstr "Nav privilēģiju"
 msgid "Create table"
 msgstr "Izveidot jaunu lapu"
 
-#: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
-#: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
-#: libraries/rte/rte_routines.lib.php:860
-#: libraries/rte/rte_routines.lib.php:1372 libraries/tbl_properties.inc.php:92
+#: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:52
+#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_list.lib.php:77
+#: libraries/rte/rte_routines.lib.php:859
+#: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_properties.inc.php:92
 #: setup/frames/index.inc.php:127 tbl_structure.php:201
 msgid "Name"
 msgstr "Nosaukums"
@@ -5805,8 +5809,8 @@ msgstr ""
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:279 libraries/display_import.lib.php:188
-#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:474
+#: libraries/display_export.lib.php:279 libraries/display_import.lib.php:186
+#: libraries/display_import.lib.php:199 libraries/sql_query_form.lib.php:474
 msgid "Character set of the file:"
 msgstr "Tabulas kodējums:"
 
@@ -5840,7 +5844,7 @@ msgstr "Arhivēts ar bzip"
 msgid "View output as text"
 msgstr "Saglabāt kā failu"
 
-#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:244
+#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:242
 #: libraries/export/codegen.php:38
 #, fuzzy
 #| msgid "Format"
@@ -5859,7 +5863,7 @@ msgid ""
 "options for other formats."
 msgstr ""
 
-#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:260
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:257
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -5880,65 +5884,65 @@ msgid ""
 "not available."
 msgstr ""
 
-#: libraries/display_import.lib.php:129
+#: libraries/display_import.lib.php:127
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
 msgstr "Nevar pieslēgties MySQL serverim"
 
-#: libraries/display_import.lib.php:131
+#: libraries/display_import.lib.php:129
 #, fuzzy, php-format
 msgid "Importing into the database \"%s\""
 msgstr "Nav datubāzu"
 
-#: libraries/display_import.lib.php:133
+#: libraries/display_import.lib.php:131
 #, fuzzy, php-format
 msgid "Importing into the table \"%s\""
 msgstr "Nav datubāzu"
 
-#: libraries/display_import.lib.php:139
+#: libraries/display_import.lib.php:137
 msgid "File to Import:"
 msgstr ""
 
-#: libraries/display_import.lib.php:156
+#: libraries/display_import.lib.php:154
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
-#: libraries/display_import.lib.php:158
+#: libraries/display_import.lib.php:156
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
 
-#: libraries/display_import.lib.php:178
+#: libraries/display_import.lib.php:176
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/display_import.lib.php:208
+#: libraries/display_import.lib.php:206
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
 msgstr "Daļēji teksti"
 
-#: libraries/display_import.lib.php:214
+#: libraries/display_import.lib.php:212
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: libraries/display_import.lib.php:221
+#: libraries/display_import.lib.php:219
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
 
-#: libraries/display_import.lib.php:228
+#: libraries/display_import.lib.php:226
 msgid "Number of rows to skip, starting from the first row:"
 msgstr ""
 
-#: libraries/display_import.lib.php:250
+#: libraries/display_import.lib.php:248
 msgid "Format-Specific Options:"
 msgstr ""
 
@@ -6013,7 +6017,7 @@ msgstr "Kārtot pēc atslēgas"
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:862
 #: tbl_select.php:200 tbl_structure.php:858
 #, fuzzy
 msgid "Options"
@@ -6064,56 +6068,56 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1417 libraries/display_tbl.lib.php:1429
+#: libraries/display_tbl.lib.php:1419 libraries/display_tbl.lib.php:1431
 msgid "The row has been deleted"
 msgstr "Ieraksts tika dzēsts"
 
-#: libraries/display_tbl.lib.php:1456 libraries/display_tbl.lib.php:2478
+#: libraries/display_tbl.lib.php:1458 libraries/display_tbl.lib.php:2480
 #: server_status.php:1256
 msgid "Kill"
 msgstr "Nogalināt"
 
-#: libraries/display_tbl.lib.php:2337
+#: libraries/display_tbl.lib.php:2339
 msgid "in query"
 msgstr "vaicājumā"
 
-#: libraries/display_tbl.lib.php:2369
+#: libraries/display_tbl.lib.php:2371
 msgid "Showing rows"
 msgstr "Parādu rindas"
 
-#: libraries/display_tbl.lib.php:2379
+#: libraries/display_tbl.lib.php:2381
 msgid "total"
 msgstr "kopā"
 
-#: libraries/display_tbl.lib.php:2387 sql.php:766
+#: libraries/display_tbl.lib.php:2389 sql.php:766
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Vaicājums ilga %01.4f s"
 
-#: libraries/display_tbl.lib.php:2590
+#: libraries/display_tbl.lib.php:2592
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2619
+#: libraries/display_tbl.lib.php:2621
 msgid "Print view (with full texts)"
 msgstr "Drukas skats (ar pilniem tekstiem)"
 
-#: libraries/display_tbl.lib.php:2669 tbl_chart.php:78
+#: libraries/display_tbl.lib.php:2671 tbl_chart.php:78
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Rādīt PDF shēmu"
 
-#: libraries/display_tbl.lib.php:2685
+#: libraries/display_tbl.lib.php:2687
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2706
+#: libraries/display_tbl.lib.php:2708
 #, fuzzy
 msgid "Create view"
 msgstr "Servera versija"
 
-#: libraries/display_tbl.lib.php:2813
+#: libraries/display_tbl.lib.php:2815
 msgid "Link not found"
 msgstr "Links nav atrasts"
 
@@ -6763,7 +6767,7 @@ msgstr "SQL rezultāts"
 msgid "Generated by"
 msgstr "Uzģenerēja"
 
-#: libraries/import.lib.php:159 libraries/rte/rte_routines.lib.php:1253
+#: libraries/import.lib.php:159 libraries/rte/rte_routines.lib.php:1252
 #: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL atgrieza tukšo rezultātu (0 rindas)."
@@ -6858,7 +6862,7 @@ msgstr ""
 msgid "DocSQL"
 msgstr ""
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:563
 #: server_synchronize.php:453 server_synchronize.php:965
 msgid "Table name"
 msgstr ""
@@ -6933,32 +6937,32 @@ msgstr "Nav"
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:263
+#: libraries/mult_submits.inc.php:275
 #, fuzzy
 #| msgid "Fri"
 msgid "From"
 msgstr "Pk"
 
-#: libraries/mult_submits.inc.php:266
+#: libraries/mult_submits.inc.php:278
 msgid "To"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:271 libraries/mult_submits.inc.php:284
+#: libraries/mult_submits.inc.php:283 libraries/mult_submits.inc.php:296
 #: libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Nosūtīt"
 
-#: libraries/mult_submits.inc.php:276
+#: libraries/mult_submits.inc.php:288
 msgid "Add table prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:279
+#: libraries/mult_submits.inc.php:291
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add prefix"
 msgstr "Pievienot jaunu lauku"
 
-#: libraries/mult_submits.inc.php:513 tbl_replace.php:330
+#: libraries/mult_submits.inc.php:525 tbl_replace.php:330
 msgid "No change"
 msgstr "Netika labots"
 
@@ -6967,7 +6971,7 @@ msgid "Charset"
 msgstr "Kodējums"
 
 #: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:415
-#: tbl_change.php:616
+#: tbl_change.php:618
 msgid "Binary"
 msgstr "Binārais"
 
@@ -7267,7 +7271,7 @@ msgstr "Bez apraksta"
 msgid "Slave configuration"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:54 server_replication.php:383
+#: libraries/replication_gui.lib.php:54 server_replication.php:386
 msgid "Change or reconfigure master server"
 msgstr ""
 
@@ -7304,7 +7308,7 @@ msgid "Variable"
 msgstr "Mainīgais"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1377 libraries/tbl_select.lib.php:87
+#: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:87
 #: pmd_general.php:484 pmd_general.php:543 pmd_general.php:666
 #: pmd_general.php:783 server_status.php:1472 tbl_change.php:365
 #: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:453
@@ -7321,7 +7325,7 @@ msgid ""
 "this list."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:246 server_replication.php:222
+#: libraries/replication_gui.lib.php:246 server_replication.php:224
 msgid "Add slave replication user"
 msgstr ""
 
@@ -7366,7 +7370,7 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:252
 #: libraries/rte/rte_routines.lib.php:257
 #: libraries/rte/rte_routines.lib.php:281
-#: libraries/rte/rte_routines.lib.php:1259
+#: libraries/rte/rte_routines.lib.php:1258
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
 #, php-format
@@ -7404,15 +7408,15 @@ msgid "Edit event"
 msgstr "Nosūtīts"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
-#: libraries/rte/rte_routines.lib.php:1282
-#: libraries/rte/rte_routines.lib.php:1318
+#: libraries/rte/rte_routines.lib.php:1281
+#: libraries/rte/rte_routines.lib.php:1317
 #: libraries/rte/rte_triggers.lib.php:187
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
 msgstr "Procesi"
 
-#: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
+#: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:827
 #: libraries/rte/rte_triggers.lib.php:302
 msgid "Details"
 msgstr ""
@@ -7427,7 +7431,7 @@ msgstr "Notikuma tips"
 msgid "Event type"
 msgstr "Notikuma tips"
 
-#: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
+#: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:848
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
@@ -7456,7 +7460,7 @@ msgctxt "End of recurring event"
 msgid "End"
 msgstr "Beigas"
 
-#: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
+#: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:354
 #, fuzzy
 #| msgid "Description"
@@ -7469,12 +7473,12 @@ msgstr "Apraksts"
 msgid "On completion preserve"
 msgstr "Pilnas INSERT izteiksmes"
 
-#: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
+#: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:932
 #: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
+#: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:996
 #: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
@@ -7515,13 +7519,13 @@ msgstr ""
 msgid "Event scheduler status"
 msgstr ""
 
-#: libraries/rte/rte_list.lib.php:54
+#: libraries/rte/rte_list.lib.php:55
 #, fuzzy
 #| msgid "Table options"
 msgid "Returns"
 msgstr "Tabulas opcijas"
 
-#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
+#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:340
 #, fuzzy
 msgid "Event"
 msgstr "Nosūtīts"
@@ -7534,7 +7538,7 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:245
-#: libraries/rte/rte_routines.lib.php:1005
+#: libraries/rte/rte_routines.lib.php:1004
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr ""
@@ -7558,119 +7562,119 @@ msgstr "Tabula %s tika izdzēsta"
 msgid "Edit routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:831
+#: libraries/rte/rte_routines.lib.php:830
 #, fuzzy
 #| msgid "Column names"
 msgid "Routine name"
 msgstr "Kolonnu nosaukumi"
 
-#: libraries/rte/rte_routines.lib.php:854
+#: libraries/rte/rte_routines.lib.php:853
 msgid "Parameters"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:859
+#: libraries/rte/rte_routines.lib.php:858
 #, fuzzy
 #| msgid "Creation"
 msgid "Direction"
 msgstr "Izveidošana"
 
-#: libraries/rte/rte_routines.lib.php:862 libraries/tbl_properties.inc.php:98
+#: libraries/rte/rte_routines.lib.php:861 libraries/tbl_properties.inc.php:98
 msgid "Length/Values"
 msgstr "Garums/Vērtības*"
 
-#: libraries/rte/rte_routines.lib.php:877
+#: libraries/rte/rte_routines.lib.php:876
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add parameter"
 msgstr "Pievienot jaunu lauku"
 
-#: libraries/rte/rte_routines.lib.php:881
+#: libraries/rte/rte_routines.lib.php:880
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove last parameter"
 msgstr "Pārsaukt datubāzi par"
 
-#: libraries/rte/rte_routines.lib.php:886
+#: libraries/rte/rte_routines.lib.php:885
 msgid "Return type"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:892
+#: libraries/rte/rte_routines.lib.php:891
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Garums/Vērtības*"
 
-#: libraries/rte/rte_routines.lib.php:898
+#: libraries/rte/rte_routines.lib.php:897
 #, fuzzy
 #| msgid "Table options"
 msgid "Return options"
 msgstr "Tabulas opcijas"
 
-#: libraries/rte/rte_routines.lib.php:929
+#: libraries/rte/rte_routines.lib.php:928
 msgid "Is deterministic"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:938
+#: libraries/rte/rte_routines.lib.php:937
 #, fuzzy
 #| msgid "Query type"
 msgid "Security type"
 msgstr "Vaicājuma tips"
 
-#: libraries/rte/rte_routines.lib.php:945
+#: libraries/rte/rte_routines.lib.php:944
 msgid "SQL data access"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1010
+#: libraries/rte/rte_routines.lib.php:1009
 msgid "You must provide a routine name"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1036
+#: libraries/rte/rte_routines.lib.php:1035
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1050
-#: libraries/rte/rte_routines.lib.php:1090
+#: libraries/rte/rte_routines.lib.php:1049
+#: libraries/rte/rte_routines.lib.php:1089
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1068
+#: libraries/rte/rte_routines.lib.php:1067
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1078
+#: libraries/rte/rte_routines.lib.php:1077
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1124
+#: libraries/rte/rte_routines.lib.php:1123
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1214
+#: libraries/rte/rte_routines.lib.php:1213
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/rte/rte_routines.lib.php:1230
+#: libraries/rte/rte_routines.lib.php:1229
 #, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1306
-#: libraries/rte/rte_routines.lib.php:1312
+#: libraries/rte/rte_routines.lib.php:1305
+#: libraries/rte/rte_routines.lib.php:1311
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1365
-#: libraries/rte/rte_routines.lib.php:1368
+#: libraries/rte/rte_routines.lib.php:1364
+#: libraries/rte/rte_routines.lib.php:1367
 msgid "Routine parameters"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1375 libraries/tbl_select.lib.php:79
+#: libraries/rte/rte_routines.lib.php:1374 libraries/tbl_select.lib.php:79
 #: tbl_change.php:305 tbl_change.php:361
 msgid "Function"
 msgstr "Funkcija"
@@ -8109,7 +8113,7 @@ msgstr "Rādīt šo vaicājumu šeit atkal "
 msgid "View only"
 msgstr "Tikai apskatīt"
 
-#: libraries/sql_query_form.lib.php:461 tbl_change.php:939
+#: libraries/sql_query_form.lib.php:461 tbl_change.php:941
 msgid "web server upload directory"
 msgstr "web servera augšupielādes direktorija"
 
@@ -8220,7 +8224,7 @@ msgstr ""
 "Noklusētajām vērtībām, lūdzu ievadiet tikai pašu vertību, bez izsargāšanās "
 "ar atpakaļējo slīpsvītru vai pēdiņām, lietojot šo formatu: a"
 
-#: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:478
+#: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:474
 #: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
 #: tbl_structure.php:577 tbl_structure.php:781
 msgid "Index"
@@ -8255,49 +8259,49 @@ msgstr ""
 msgid "ENUM or SET data too long?"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:327
+#: libraries/tbl_properties.inc.php:323
 msgid "Get more editing space"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:351
+#: libraries/tbl_properties.inc.php:347
 #, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Nav"
 
-#: libraries/tbl_properties.inc.php:352
+#: libraries/tbl_properties.inc.php:348
 msgid "As defined:"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:466 tbl_structure.php:152
+#: libraries/tbl_properties.inc.php:462 tbl_structure.php:152
 #: tbl_structure.php:157 tbl_structure.php:575
 msgid "Primary"
 msgstr "Primārā"
 
-#: libraries/tbl_properties.inc.php:485 tbl_structure.php:156
+#: libraries/tbl_properties.inc.php:481 tbl_structure.php:156
 #: tbl_structure.php:161 tbl_structure.php:584
 msgid "Fulltext"
 msgstr "Pilni teksti"
 
-#: libraries/tbl_properties.inc.php:573 tbl_structure.php:652
+#: libraries/tbl_properties.inc.php:569 tbl_structure.php:652
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "Pievienot %s lauku(s)"
 
-#: libraries/tbl_properties.inc.php:575 tbl_structure.php:646
+#: libraries/tbl_properties.inc.php:571 tbl_structure.php:646
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
 msgstr "Izvēlieties vismaz vienu kolonnu attēlošanai"
 
-#: libraries/tbl_properties.inc.php:663 server_engines.php:46
+#: libraries/tbl_properties.inc.php:659 server_engines.php:46
 #: tbl_operations.php:374
 msgid "Storage Engine"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:692
+#: libraries/tbl_properties.inc.php:688
 msgid "PARTITION definition"
 msgstr ""
 
@@ -8313,13 +8317,13 @@ msgstr "Operators"
 msgid "Table Search"
 msgstr "Meklēt"
 
-#: libraries/tbl_select.lib.php:175 tbl_change.php:1032
+#: libraries/tbl_select.lib.php:175 tbl_change.php:1042
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "Pievienot"
 
-#: libraries/transformations.lib.php:134
+#: libraries/transformations.lib.php:142
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -8361,6 +8365,12 @@ msgstr ""
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
 msgstr "Parāda linku uz šo attēlu (tieša blob lauka lajuplāde)."
+
+#: libraries/transformations/text_plain__append.inc.php:10
+msgid ""
+"Appends text to a string. The only option is the text to be appended "
+"(enclosed in single quotes, default empty string)."
+msgstr ""
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
@@ -9051,11 +9061,11 @@ msgid "Databases statistics"
 msgstr "Datubāzu statistika"
 
 #: server_databases.php:201 server_replication.php:209
-#: server_replication.php:237
+#: server_replication.php:239
 msgid "Master replication"
 msgstr ""
 
-#: server_databases.php:203 server_replication.php:276
+#: server_databases.php:203 server_replication.php:278
 msgid "Slave replication"
 msgstr ""
 
@@ -9603,22 +9613,22 @@ msgstr ""
 msgid "Show master status"
 msgstr ""
 
-#: server_replication.php:215
+#: server_replication.php:216
 msgid "Show connected slaves"
 msgstr ""
 
-#: server_replication.php:238
+#: server_replication.php:240
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
-#: server_replication.php:245
+#: server_replication.php:247
 msgid "Master configuration"
 msgstr ""
 
-#: server_replication.php:246
+#: server_replication.php:248
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -9627,111 +9637,111 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 
-#: server_replication.php:249
+#: server_replication.php:251
 msgid "Replicate all databases; Ignore:"
 msgstr ""
 
-#: server_replication.php:250
+#: server_replication.php:252
 msgid "Ignore all databases; Replicate:"
 msgstr ""
 
-#: server_replication.php:253
+#: server_replication.php:255
 #, fuzzy
 msgid "Please select databases:"
 msgstr "Lūdzu izvēlieties datubāzi"
 
-#: server_replication.php:256
+#: server_replication.php:258
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
 
-#: server_replication.php:258
+#: server_replication.php:260
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
 
-#: server_replication.php:321
+#: server_replication.php:323
 msgid "Slave SQL Thread not running!"
 msgstr ""
 
-#: server_replication.php:324
+#: server_replication.php:326
 msgid "Slave IO Thread not running!"
 msgstr ""
 
-#: server_replication.php:333
+#: server_replication.php:335
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 
-#: server_replication.php:336
+#: server_replication.php:338
 msgid "See slave status table"
 msgstr ""
 
-#: server_replication.php:339
+#: server_replication.php:342
 msgid "Synchronize databases with master"
 msgstr ""
 
-#: server_replication.php:350
+#: server_replication.php:353
 msgid "Control slave:"
 msgstr ""
 
-#: server_replication.php:353
+#: server_replication.php:356
 #, fuzzy
 msgid "Full start"
 msgstr "Pilni teksti"
 
-#: server_replication.php:353
+#: server_replication.php:356
 msgid "Full stop"
 msgstr ""
 
-#: server_replication.php:354
+#: server_replication.php:357
 msgid "Reset slave"
 msgstr ""
 
-#: server_replication.php:356
+#: server_replication.php:359
 #, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
 msgstr "Tikai struktūra"
 
-#: server_replication.php:358
+#: server_replication.php:361
 msgid "Stop SQL Thread only"
 msgstr ""
 
-#: server_replication.php:361
+#: server_replication.php:364
 #, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
 msgstr "Tikai struktūra"
 
-#: server_replication.php:363
+#: server_replication.php:366
 msgid "Stop IO Thread only"
 msgstr ""
 
-#: server_replication.php:368
+#: server_replication.php:371
 msgid "Error management:"
 msgstr ""
 
-#: server_replication.php:370
+#: server_replication.php:373
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 
-#: server_replication.php:372
+#: server_replication.php:375
 msgid "Skip current error"
 msgstr ""
 
-#: server_replication.php:373
+#: server_replication.php:376
 msgid "Skip next"
 msgstr ""
 
-#: server_replication.php:376
+#: server_replication.php:379
 msgid "errors."
 msgstr ""
 
-#: server_replication.php:391
+#: server_replication.php:395
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -11216,56 +11226,56 @@ msgstr "Nosaukums"
 msgid "Table %1$s has been altered successfully"
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: tbl_change.php:749
+#: tbl_change.php:751
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Sava garuma dēļ,<br /> šis lauks var būt nerediģējams "
 
-#: tbl_change.php:863
+#: tbl_change.php:865
 msgid "Binary - do not edit"
 msgstr "Binārais - netiek labots"
 
-#: tbl_change.php:1061
+#: tbl_change.php:1071
 msgid "Insert as new row"
 msgstr "Ievietot kā jaunu rindu"
 
-#: tbl_change.php:1062
+#: tbl_change.php:1072
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:1063
+#: tbl_change.php:1073
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:1074
+#: tbl_change.php:1084
 msgid "and then"
 msgstr ""
 
-#: tbl_change.php:1078
+#: tbl_change.php:1088
 msgid "Go back to previous page"
 msgstr "Atgriezties atpakaļ iepriekšējā lapā"
 
-#: tbl_change.php:1079
+#: tbl_change.php:1089
 msgid "Insert another new row"
 msgstr "Ievietot vēl vienu rindu"
 
-#: tbl_change.php:1083
+#: tbl_change.php:1093
 msgid "Go back to this page"
 msgstr "Atgriezties šajā lapā"
 
-#: tbl_change.php:1091
+#: tbl_change.php:1101
 msgid "Edit next row"
 msgstr ""
 
-#: tbl_change.php:1102
+#: tbl_change.php:1112
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Lietojiet TAB taustiņu, lai pārvietotos no vērtības līdz vērtībai, vai CTRL"
 "+bultiņas, lai pārvietotos jebkurā vietā"
 
-#: tbl_change.php:1140
+#: tbl_change.php:1150
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
@@ -11356,7 +11366,7 @@ msgstr "Lietotājs %s jau eksistē!"
 msgid "Table %1$s has been created."
 msgstr "Tabula %s tika izdzēsta"
 
-#: tbl_export.php:24
+#: tbl_export.php:26
 msgid "View dump (schema) of table"
 msgstr "Apskatīt tabulas dampu (shēmu)"
 
@@ -11614,24 +11624,24 @@ msgstr "Rindas izmērs "
 msgid "Next autoindex"
 msgstr ""
 
-#: tbl_relation.php:271
+#: tbl_relation.php:287
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
-#: tbl_relation.php:398
+#: tbl_relation.php:414
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Iekšējās relācijas"
 
-#: tbl_relation.php:400
+#: tbl_relation.php:416
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 
-#: tbl_relation.php:406
+#: tbl_relation.php:422
 msgid "Foreign key constraint"
 msgstr ""
 
@@ -13062,6 +13072,10 @@ msgstr ""
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Add a value"
+#~ msgstr "Pievienot jaunu lietotāju"
 
 #, fuzzy
 #~ msgctxt "Correctly setup"
