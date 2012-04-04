@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-04-03 18:33+0200\n"
+"PO-Revision-Date: 2012-04-04 17:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1957,7 +1957,7 @@ msgstr "İşaretlemek/işareti kaldırmak için tıklayın"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Sütun adını kopyalamak için çift tıklayın"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1985,14 +1985,13 @@ msgid "Go to link"
 msgstr "Bağlantıya git"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Sütun adları"
+msgstr "Sütun adını kopyala"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Sütun adını panonuza kopyalamak için sağ tuşa tıklayın."
 
 #: js/messages.php:358
 msgid "Generate password"
