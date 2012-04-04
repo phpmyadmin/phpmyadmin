@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-04-04 07:10+0200\n"
+"PO-Revision-Date: 2012-04-04 16:34+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -252,38 +252,38 @@ msgstr "Eрекшеленгендерді алып тастау"
 
 #: db_operations.php:61 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "Мәліметтер қорының аты көрсетілмеген."
+msgstr "Дерекқорының аты көрсетілмеген!"
 
 #: db_operations.php:300
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "Дерекқорының атауы, мына атауға %с, қайта қойылды."
+msgstr "%s дерекқорының атауы, мына атауға %с, қайта қойылды."
 
 #: db_operations.php:304
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr "%s мәлімет қоры, мына жерге %s көшірілді."
+msgstr "%s дерекқоры, мына жерге %s көшірілді."
 
 #: db_operations.php:432
 msgid "Rename database to"
-msgstr "Мәліметтер қорының атауын қайта қою."
+msgstr "Дерекқорының атауын қайта қою."
 
 #: db_operations.php:458
 msgid "Remove database"
-msgstr "Мәліметтер қорын өшіру"
+msgstr "Дерекқорын өшіру"
 
 #: db_operations.php:470
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "%s  мәліметтер қоры өшірілді."
+msgstr "%s дерекқоры өшірілді."
 
 #: db_operations.php:475
 msgid "Drop the database (DROP)"
-msgstr "(DROP)Мәліметтер қорын өшіру."
+msgstr "(DROP) дерекқорын өшіру"
 
 #: db_operations.php:504
 msgid "Copy database to"
-msgstr "Мәліметтер қорының көшірілуі"
+msgstr "Дерекқорының көшірілуі"
 
 #: db_operations.php:511 tbl_operations.php:554 tbl_tracking.php:436
 msgid "Structure only"
