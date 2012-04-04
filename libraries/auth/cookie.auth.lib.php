@@ -12,6 +12,14 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Remember where to redirect the user
+ * in case of an expired session.
+ */
+if (! empty($_REQUEST['target'])) {
+    $GLOBALS['target'] = $_REQUEST['target'];
+}
+
+/**
  * Swekey authentication functions.
  */
 require './libraries/auth/swekey/swekey.auth.lib.php';

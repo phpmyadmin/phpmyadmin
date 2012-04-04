@@ -59,7 +59,7 @@ if (! strlen($GLOBALS['db'])) {
 
 $url_query = PMA_generate_common_url($_GET);
 
-if (isset($_REQUEST['target']) && is_string($_REQUEST['target']) && !empty($_REQUEST['target']) && in_array($_REQUEST['target'], $goto_whitelist)) {
+if (! empty($_REQUEST['target']) && is_string($_REQUEST['target']) && in_array($_REQUEST['target'], $goto_whitelist)) {
     $main_target = $_REQUEST['target'];
 }
 
