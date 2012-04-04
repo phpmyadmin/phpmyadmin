@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-03-29 11:26+0200\n"
+"PO-Revision-Date: 2012-04-04 15:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1952,7 +1952,7 @@ msgstr "Klikněte pro označení"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Poklepejte pro zkopírování jména pole"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1978,14 +1978,13 @@ msgid "Go to link"
 msgstr "Přejít na odkaz"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Názvy polí"
+msgstr "Zkopírovat název pole"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Klikněte pravým tlačítkem myši pro zkopírování názvu pole do schránky."
 
 #: js/messages.php:358
 msgid "Generate password"
@@ -8123,6 +8122,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Přidá k hodnotě text. Jediným parametrem je text, který má být přidaný (v "
+"jednoduchých uvozovkách, výchozí je prázdný)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
