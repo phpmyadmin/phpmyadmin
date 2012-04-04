@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-03-29 14:33+0200\n"
+"PO-Revision-Date: 2012-04-05 00:42+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -1961,7 +1961,7 @@ msgstr "Kliknite za označitev/opustitev"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Dvakrat kliknite za kopiranje imena stolpca"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1987,14 +1987,15 @@ msgid "Go to link"
 msgstr "Pojdi na povezavo"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Imena stolpcev"
+msgstr "Kopiraj ime stolpca"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Z desnim miškinim gumbom kliknite na ime stolpca, da ga skopirate v "
+"odložišče."
 
 #: js/messages.php:358
 msgid "Generate password"
@@ -8168,6 +8169,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Pripone besedilo nizu. Edina možnost je pripenjanje besedila (obdanega v "
+"enojne narekovaje; privzet je prazen niz)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
