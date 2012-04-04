@@ -13415,7 +13415,6 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert este setat la 0"
 
-#~| msgid "Add a new server"
 #~ msgid "Add a value"
 #~ msgstr "Adăugați o valoare"
 
