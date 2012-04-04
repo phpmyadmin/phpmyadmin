@@ -2523,9 +2523,6 @@ $(document).ready(function() {
             .html();
         // Parse the values, escaping quotes and
         // slashes on the fly, into an array
-        //
-        // There is a PHP port of the below parser in enum_editor.php
-        // If you are fixing something here, you need to also update the PHP port.
         var values = [];
         var in_string = false;
         var curr, next, buffer = '';
