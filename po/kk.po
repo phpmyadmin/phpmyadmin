@@ -255,7 +255,7 @@ msgid "The database name is empty!"
 msgstr "Мәліметтер қорының аты көрсетілмеген."
 
 #: db_operations.php:300
-#, php-format
+#, fuzzy, php-format
 msgid "Database %s has been renamed to %s"
 msgstr "Дерекқорының атауы, мына атауға %с, қайта қойылды."
 
