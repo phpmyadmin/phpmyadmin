@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-03-31 18:07+0200\n"
-"Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
+"PO-Revision-Date: 2012-04-04 12:52+0200\n"
+"Last-Translator: David de Obregon <david.obregon@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -1975,7 +1975,7 @@ msgstr "Pulsar para marcar/desmarcar"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Haga doble click para copiar el nombre de la columna"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2004,14 +2004,15 @@ msgid "Go to link"
 msgstr "Ir al enlace"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Nombre de las columnas"
+msgstr "Copie el nombre de la columna"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Haga click con el botón derecho sobre la columna para copiarla en el "
+"portapapeles."
 
 #: js/messages.php:358
 msgid "Generate password"
