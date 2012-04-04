@@ -376,6 +376,10 @@ function PMA_auth_check()
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && isset($_REQUEST['pma_servername'])) {
             $GLOBALS['pma_auth_server'] = $_REQUEST['pma_servername'];
         }
+        // The user logged in after his session had timed out
+        if (isset($_REQUEST['target']) && !empty($_REQUEST['target'])) {
+            $GLOBALS['target'] = $_REQUEST['target'];
+        }
         return true;
     }
 
@@ -603,3 +607,4 @@ function PMA_auth_fails()
 } // end of the 'PMA_auth_fails()' function
 
 ?>
+
