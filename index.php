@@ -54,7 +54,7 @@ if (! strlen($GLOBALS['db'])) {
 } else {
     $_GET['db'] = $GLOBALS['db'];
     $_GET['table'] = $GLOBALS['table'];
-    $main_target = isset($GLOBALS['goto']) ? $GLOBALS['goto'] : $GLOBALS['cfg']['DefaultTabTable'];
+    $main_target = ! empty($GLOBALS['goto']) ? $GLOBALS['goto'] : $GLOBALS['cfg']['DefaultTabTable'];
 }
 
 $url_query = PMA_generate_common_url($_GET);
