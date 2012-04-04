@@ -13871,7 +13871,6 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está definido a 0"
 
 #, fuzzy
-#~| msgid "Add a new server"
 #~ msgid "Add a value"
 #~ msgstr "Engadir un servidor novo"
 

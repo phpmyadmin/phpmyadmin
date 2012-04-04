@@ -12272,7 +12272,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a value"
 #~ msgstr "புதிய பயனாளரை சேர்க்க"
 

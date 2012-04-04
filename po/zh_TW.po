@@ -12930,7 +12930,6 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
-#~| msgid "+ Add a new value"
 #~ msgid "Add a value"
 #~ msgstr "+ 增加"
 

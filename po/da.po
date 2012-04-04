@@ -13217,7 +13217,6 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
-#~| msgid "+ Add a value"
 #~ msgid "Add a value"
 #~ msgstr "+ Tilføj en værdi"
 
