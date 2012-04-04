@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-04-04 17:23+0200\n"
+"PO-Revision-Date: 2012-04-04 20:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3495,7 +3495,7 @@ msgstr "İlk satır içine sütun adlarını koy"
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
-msgstr "Sütunu kapsayan:"
+msgstr "Sütunu kapatan:"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:81
@@ -8183,6 +8183,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Metni dizgiye ekler. Tek seçenek, eklenmiş metindir (tek tırnakla "
+"kapatılmış, varsayılanı boş dizgi)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
