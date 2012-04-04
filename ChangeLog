@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - bug #3511471 [interface] View name not seen in navi panel (MySQL 5.1)
 - bug #3512916 [display] Right frame reloads after displaying SQL result(zero rows)
 - bug [interface] Fixed missing Codemirror for inline query edit when exporting a result set
+- bug #3514490 [auth] Multiple Navigation panels bug still present
 
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
