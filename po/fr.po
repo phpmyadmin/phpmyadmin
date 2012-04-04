@@ -35,7 +35,7 @@ msgid ""
 "cross-window updates."
 msgstr ""
 "La fenêtre demandée depuis votre navigateur ne peut être rafraîchie. Il est "
-"possible que vous ayez fermé la fenêtre source , ou encore que votre "
+"possible que vous ayez fermé la fenêtre source, ou encore que votre "
 "navigateur bloque les mises à jour entre fenêtres pour des raisons de "
 "sécurité."
 
