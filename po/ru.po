@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-03-30 20:24+0200\n"
+"PO-Revision-Date: 2012-04-04 22:26+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -1968,7 +1968,7 @@ msgstr "Кликнуть для снятия/установки отметки"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Для копирования имени поля сделайте двойной щелчок мышкой"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1995,14 +1995,15 @@ msgid "Go to link"
 msgstr "Перейти к ссылке"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Названия столбцов"
+msgstr "Скопировать имя столбца"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Для копирования имени столбца в буфер обмена, сделайте щелчок правой кнопкой "
+"мышки."
 
 #: js/messages.php:358
 msgid "Generate password"
@@ -8222,6 +8223,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Добавить текст к строке. Единственный параметр - добавляемый текст (закрытый "
+"в одиночные кавычки, по умолчанию - пустая строка)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
