@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-04-03 15:36+0200\n"
+"PO-Revision-Date: 2012-04-04 23:57+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1967,7 +1967,7 @@ msgstr "Cliquer pour marquer/enlever les marques"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Double-cliquez pour copier le nom de la colonne"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1994,14 +1994,15 @@ msgid "Go to link"
 msgstr "Suivre le lien"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Nom des colonnes"
+msgstr "Copier le nom de la colonne"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Faites un clic-droit sur le nom de la colonne pour le copier vers le presse-"
+"papier."
 
 #: js/messages.php:358
 msgid "Generate password"
@@ -8218,6 +8219,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Ajoute du texte à une chaîne. La seule option est le texte à ajouter "
+"(entouré de guillemets simples, par défaut une chaîne vide)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
