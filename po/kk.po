@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-04 11:29+0200\n"
-"PO-Revision-Date: 2012-04-04 21:50+0200\n"
-"Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
+"PO-Revision-Date: 2012-04-05 09:43+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -257,7 +257,7 @@ msgstr "Дерекқорының аты көрсетілмеген!"
 #: db_operations.php:300
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "%s дерекқорының атауы, мына атауға %с, қайта қойылды."
+msgstr "%s дерекқорының атауы, мына атауға %s, қайта қойылды"
 
 #: db_operations.php:304
 #, php-format
