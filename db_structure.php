@@ -612,14 +612,6 @@ if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
 }
 ?>
 </select>
-<script type="text/javascript">
-<!--
-// Fake js to allow the use of the <noscript> tag
-//-->
-</script>
-<noscript>
-    <input type="submit" value="<?php echo __('Go'); ?>" />
-</noscript>
 <?php echo implode("\n", $hidden_fields) . "\n"; ?>
 </div>
 </form>

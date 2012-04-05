@@ -1404,7 +1404,6 @@ function PMA_profilingCheckbox($sql_query)
         echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
         PMA_display_html_checkbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
-        echo '<noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n";
         echo '</form>' . "\n";
     }
 }
@@ -2454,8 +2453,7 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
             . ' value="' . (($i - 1) * $rows) . '">' . $i . '</option>' . "\n";
     }
 
-    $gotopage .= ' </select><noscript><input type="submit" value="'
-        . __('Go') . '" /></noscript>';
+    $gotopage .= ' </select>';
 
     return $gotopage;
 } // end function
@@ -2758,62 +2756,36 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     } else {
         $state = 'on';
     }
-    $selected1 = '';
-    $selected0 = '';
-    if ($options[1]['selected'] == true) {
-        $selected1 = " selected='selected'";
-    } else if ($options[0]['selected'] == true) {
-        $selected0 = " selected='selected'";
-    }
     // Generate output
     $retval  = "<!-- TOGGLE START -->\n";
-    if ($GLOBALS['cfg']['AjaxEnable'] && is_readable($_SESSION['PMA_Theme']->getImgPath() . 'toggle-ltr.png')) {
-        $retval .= "<noscript>\n";
-    }
-    $retval .= "<div class='wrapper'>\n";
-    $retval .= "    <form action='$action' method='post'>\n";
-    $retval .= "        <select name='$select_name'>\n";
-    $retval .= "            <option value='{$options[1]['value']}'$selected1>";
-    $retval .= "                {$options[1]['label']}\n";
-    $retval .= "            </option>\n";
-    $retval .= "            <option value='{$options[0]['value']}'$selected0>";
-    $retval .= "                {$options[0]['label']}\n";
-    $retval .= "            </option>\n";
-    $retval .= "        </select>\n";
-    $retval .= "        <input type='submit' value='" . __('Change') . "'/>\n";
-    $retval .= "    </form>\n";
+    $retval .= "<div class='wrapper toggleAjax hide'>\n";
+    $retval .= "    <div class='toggleButton'>\n";
+    $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
+    $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
+    $retval .= "                 alt='' />\n";
+    $retval .= "            <table class='nospacing nopadding'>\n";
+    $retval .= "                <tbody>\n";
+    $retval .= "                <tr>\n";
+    $retval .= "                <td class='toggleOn'>\n";
+    $retval .= "                    <span class='hide'>$link_on</span>\n";
+    $retval .= "                    <div>";
+    $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "\n";
+    $retval .= "                    </div>\n";
+    $retval .= "                </td>\n";
+    $retval .= "                <td><div>&nbsp;</div></td>\n";
+    $retval .= "                <td class='toggleOff'>\n";
+    $retval .= "                    <span class='hide'>$link_off</span>\n";
+    $retval .= "                    <div>";
+    $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "\n";
+    $retval .= "                    </div>\n";
+    $retval .= "                </tr>\n";
+    $retval .= "                </tbody>\n";
+    $retval .= "            </table>\n";
+    $retval .= "            <span class='hide callback'>$callback</span>\n";
+    $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
+    $retval .= "        </div>\n";
+    $retval .= "    </div>\n";
     $retval .= "</div>\n";
-    if ($GLOBALS['cfg']['AjaxEnable'] && is_readable($_SESSION['PMA_Theme']->getImgPath() . 'toggle-ltr.png')) {
-        $retval .= "</noscript>\n";
-        $retval .= "<div class='wrapper toggleAjax hide'>\n";
-        $retval .= "    <div class='toggleButton'>\n";
-        $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
-        $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
-        $retval .= "                 alt='' />\n";
-        $retval .= "            <table class='nospacing nopadding'>\n";
-        $retval .= "                <tbody>\n";
-        $retval .= "                <tr>\n";
-        $retval .= "                <td class='toggleOn'>\n";
-        $retval .= "                    <span class='hide'>$link_on</span>\n";
-        $retval .= "                    <div>";
-        $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "\n";
-        $retval .= "                    </div>\n";
-        $retval .= "                </td>\n";
-        $retval .= "                <td><div>&nbsp;</div></td>\n";
-        $retval .= "                <td class='toggleOff'>\n";
-        $retval .= "                    <span class='hide'>$link_off</span>\n";
-        $retval .= "                    <div>";
-        $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "\n";
-        $retval .= "                    </div>\n";
-        $retval .= "                </tr>\n";
-        $retval .= "                </tbody>\n";
-        $retval .= "            </table>\n";
-        $retval .= "            <span class='hide callback'>$callback</span>\n";
-        $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
-        $retval .= "        </div>\n";
-        $retval .= "    </div>\n";
-        $retval .= "</div>\n";
-    }
     $retval .= "<!-- TOGGLE END -->";
 
     return $retval;

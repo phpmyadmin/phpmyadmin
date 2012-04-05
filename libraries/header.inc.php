@@ -86,6 +86,10 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
             PMA_Message::notice(__('Cookies must be enabled past this point.'))->display();
         }
 
+        echo "<noscript>\n";
+        PMA_message::error(__("Javascript must be enabled past this point"))->display();
+        echo "</noscript>\n";
+
         // offer to load user preferences from localStorage
         if ($userprefs_offer_import) {
             include_once './libraries/user_preferences.lib.php';

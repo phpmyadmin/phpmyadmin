@@ -82,22 +82,6 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
         echo '</fieldset>';
     }
     ?>
-
-    <noscript>
-    <?php
-    if ($use_fieldset) {
-        echo '<fieldset class="tblFooters">';
-    }
-    ?>
-
-        <input type="submit" value="Go" />
-    <?php
-    if ($use_fieldset) {
-        echo '</fieldset>';
-    }
-    ?>
-
-    </noscript>
 </form>
     <?php
 } // End of function PMA_select_language
