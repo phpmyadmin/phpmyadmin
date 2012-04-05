@@ -288,7 +288,7 @@ class PMA_Table
     static public function sGetToolTip($db, $table)
     {
         return PMA_Table::sGetStatusInfo($db, $table, 'Comment')
-            . ' (' . PMA_Table::countRecords($db, $table) . ' ' . __('Rows') . ')';
+            . ' (' . PMA_Table::countRecords($db, $table) . ')';
     }
 
     /**
