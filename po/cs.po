@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-05 09:58+0200\n"
-"PO-Revision-Date: 2012-04-04 15:13+0200\n"
+"PO-Revision-Date: 2012-04-05 11:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -252,16 +252,16 @@ msgid "The database name is empty!"
 msgstr "Jméno databáze je prázdné!"
 
 #: db_operations.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Databáze %s byla přejmenována na %s"
+msgstr "Databáze %1$s byla přejmenována na %2$s"
 
 #: db_operations.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Databáze %s byla zkopírována na %s"
+msgstr "Databáze %1$s byla zkopírována do %2$s"
 
 #: db_operations.php:432
 msgid "Rename database to"
