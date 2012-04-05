@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-05 09:58+0200\n"
-"PO-Revision-Date: 2012-04-04 14:40+0200\n"
+"PO-Revision-Date: 2012-04-05 12:40+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -251,16 +251,16 @@ msgid "The database name is empty!"
 msgstr "Il nome del database è vuoto!"
 
 #: db_operations.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Il database %s è stato rinominato come %s"
+msgstr "Il database %1$s è stato rinominato come %2$s"
 
 #: db_operations.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Il database %s è stato copiato come %s"
+msgstr "Il database %1$s è stato copiato come %2$s"
 
 #: db_operations.php:432
 msgid "Rename database to"
@@ -8910,12 +8910,12 @@ msgid "No databases selected."
 msgstr "Nessun database selezionato."
 
 #: server_databases.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Il database %1$s é stato eliminato correttamente."
-msgstr[1] "I databases %1$s sono stati eliminati correttamente."
+msgstr[0] "%1$d database é stato eliminato correttamente."
+msgstr[1] "%1$d databasi sono stati eliminati correttamente."
 
 #: server_databases.php:119
 msgid "Databases statistics"
