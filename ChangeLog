@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 + rfe #3488185 draggable columns vs copy column name
 + Patch #3507001 Contest-4: Textarea for large character columns
 + Removed the PHP version of the ENUM editor
++ Patch #3507111 Display distinct results, linked to corresponding data rows
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered

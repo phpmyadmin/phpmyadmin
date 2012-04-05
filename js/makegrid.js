@@ -724,7 +724,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($td.find('input').hasClass('data_browse_link')) {
                     var showDataRowLink = document.createElement('div');
                     showDataRowLink.className = 'goto_link';
-                    $(showDataRowLink).append("<a href='"+$td.find('.data_browse_link').val()+"'>" + g.showDataRowLinkText + "</a>");
+                    $(showDataRowLink).append("<a href='" + $td.find('.data_browse_link').val() + "'>" + g.showDataRowLinkText + "</a>");
                     $editArea.append(showDataRowLink);
                 }
 

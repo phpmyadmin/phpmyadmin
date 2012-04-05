@@ -2865,7 +2865,7 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
         $result .= ($transform_function != $default_function ? $transform_function($data, $transform_options, $meta) : $transform_function($data, array(), $meta));
     }
     
-    // create hiidden field if results from structure table
+    // create hidden field if results from structure table
     if (isset($_GET['browse_distinct']) && ($_GET['browse_distinct'] == 1)) {
         
         $where_comparison = " = '" . $data . "'";
@@ -2880,7 +2880,7 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
                                                     . $where_comparison,
         );
         
-        $result .= "<input type='hidden' class='data_browse_link' value='".PMA_generate_common_url($_url_params_for_show_data_row)."' />";
+        $result .= '<input type="hidden" class="data_browse_link" value="' . PMA_generate_common_url($_url_params_for_show_data_row). '" />';
         
     }
     
