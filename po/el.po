@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-05 09:58+0200\n"
+"POT-Creation-Date: 2012-04-05 09:18-0400\n"
 "PO-Revision-Date: 2012-03-22 09:27+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.8\n"
 
@@ -606,11 +606,11 @@ msgstr "Η παρακολούθηση δεν είναι ενεργοποιημέ
 #: db_structure.php:462 libraries/display_tbl.lib.php:2363
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s."
 
 #: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:165
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
@@ -924,11 +924,11 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
-"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
+"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:216 import.php:468
 msgid "Showing bookmark"
@@ -1547,7 +1547,7 @@ msgstr "Ανάλυση..."
 msgid "Explain output"
 msgstr "Επεξήγηση προϊόντος"
 
-#: js/messages.php:184 js/messages.php:496 libraries/rte/rte_list.lib.php:68
+#: js/messages.php:184 js/messages.php:497 libraries/rte/rte_list.lib.php:68
 #: server_status.php:1233 sql.php:933
 msgid "Time"
 msgstr "Χρόνος"
@@ -2014,23 +2014,29 @@ msgstr "Ονόματα στηλών"
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:358
+#: js/messages.php:356
+#, fuzzy
+#| msgid "Update row(s)"
+msgid "Show data row(s)"
+msgstr "Ενημέρωση γραμμής(ών)"
+
+#: js/messages.php:359
 msgid "Generate password"
 msgstr "Δημιουργία κωδικού πρόσβασης"
 
-#: js/messages.php:359 libraries/replication_gui.lib.php:369
+#: js/messages.php:360 libraries/replication_gui.lib.php:369
 msgid "Generate"
 msgstr "Παραγωγή"
 
-#: js/messages.php:360
+#: js/messages.php:361
 msgid "Change Password"
 msgstr "Αλλαγή Κωδικού Πρόσβασης"
 
-#: js/messages.php:363 tbl_structure.php:465
+#: js/messages.php:364 tbl_structure.php:465
 msgid "More"
 msgstr "Περισσότερα"
 
-#: js/messages.php:366 setup/lib/index.lib.php:170
+#: js/messages.php:367 setup/lib/index.lib.php:170
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2040,266 +2046,266 @@ msgstr ""
 "εγκαταστήσετε. Η νεότερη έκδοση είναι η %s και δημοσιεύτηκε την %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:368
+#: js/messages.php:369
 msgid ", latest stable version:"
 msgstr ", τελευταία έκδοση:"
 
-#: js/messages.php:369
+#: js/messages.php:370
 msgid "up to date"
 msgstr "ενημερωμένο"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:388
+#: js/messages.php:389
 msgid "Done"
 msgstr "Ολοκληρώθηκε"
 
-#: js/messages.php:392
+#: js/messages.php:393
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Προηγούμενο"
 
-#: js/messages.php:397
+#: js/messages.php:398
 msgctxt "Next month"
 msgid "Next"
 msgstr "Επόμενο"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:400
+#: js/messages.php:401
 msgid "Today"
 msgstr "Σήμερα"
 
-#: js/messages.php:403
+#: js/messages.php:404
 msgid "January"
 msgstr "Ιανουαρίου"
 
-#: js/messages.php:404
+#: js/messages.php:405
 msgid "February"
 msgstr "Φεβρουαρίου"
 
-#: js/messages.php:405
+#: js/messages.php:406
 msgid "March"
 msgstr "Μαρτίου"
 
-#: js/messages.php:406
+#: js/messages.php:407
 msgid "April"
 msgstr "Απριλίου"
 
-#: js/messages.php:407
+#: js/messages.php:408
 msgid "May"
 msgstr "Μαΐου"
 
-#: js/messages.php:408
+#: js/messages.php:409
 msgid "June"
 msgstr "Ιουνίου"
 
-#: js/messages.php:409
+#: js/messages.php:410
 msgid "July"
 msgstr "Ιουλίου"
 
-#: js/messages.php:410
+#: js/messages.php:411
 msgid "August"
 msgstr "Αυγούστου"
 
-#: js/messages.php:411
+#: js/messages.php:412
 msgid "September"
 msgstr "Σεπτεμβρίου"
 
-#: js/messages.php:412
+#: js/messages.php:413
 msgid "October"
 msgstr "Οκτωβρίου"
 
-#: js/messages.php:413
+#: js/messages.php:414
 msgid "November"
 msgstr "Νοεμβρίου"
 
-#: js/messages.php:414
+#: js/messages.php:415
 msgid "December"
 msgstr "Δεκεμβρίου"
 
 #. l10n: Short month name
-#: js/messages.php:418 libraries/common.lib.php:1643
+#: js/messages.php:419 libraries/common.lib.php:1643
 msgid "Jan"
 msgstr "Ιαν"
 
 #. l10n: Short month name
-#: js/messages.php:420 libraries/common.lib.php:1645
+#: js/messages.php:421 libraries/common.lib.php:1645
 msgid "Feb"
 msgstr "Φεβ"
 
 #. l10n: Short month name
-#: js/messages.php:422 libraries/common.lib.php:1647
+#: js/messages.php:423 libraries/common.lib.php:1647
 msgid "Mar"
 msgstr "Μαρ"
 
 #. l10n: Short month name
-#: js/messages.php:424 libraries/common.lib.php:1649
+#: js/messages.php:425 libraries/common.lib.php:1649
 msgid "Apr"
 msgstr "Απρ"
 
 #. l10n: Short month name
-#: js/messages.php:426 libraries/common.lib.php:1651
+#: js/messages.php:427 libraries/common.lib.php:1651
 msgctxt "Short month name"
 msgid "May"
 msgstr "Μάη"
 
 #. l10n: Short month name
-#: js/messages.php:428 libraries/common.lib.php:1653
+#: js/messages.php:429 libraries/common.lib.php:1653
 msgid "Jun"
 msgstr "Ιουν"
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1655
+#: js/messages.php:431 libraries/common.lib.php:1655
 msgid "Jul"
 msgstr "Ιουλ"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1657
+#: js/messages.php:433 libraries/common.lib.php:1657
 msgid "Aug"
 msgstr "Αυγ"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1659
+#: js/messages.php:435 libraries/common.lib.php:1659
 msgid "Sep"
 msgstr "Σεπ"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/common.lib.php:1661
+#: js/messages.php:437 libraries/common.lib.php:1661
 msgid "Oct"
 msgstr "Οκτ"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/common.lib.php:1663
+#: js/messages.php:439 libraries/common.lib.php:1663
 msgid "Nov"
 msgstr "Νοε"
 
 #. l10n: Short month name
-#: js/messages.php:440 libraries/common.lib.php:1665
+#: js/messages.php:441 libraries/common.lib.php:1665
 msgid "Dec"
 msgstr "Δεκ"
 
-#: js/messages.php:443
+#: js/messages.php:444
 msgid "Sunday"
 msgstr "Κυριακή"
 
-#: js/messages.php:444
+#: js/messages.php:445
 msgid "Monday"
 msgstr "Δευτέρα"
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "Tuesday"
 msgstr "Τρίτη"
 
-#: js/messages.php:446
+#: js/messages.php:447
 msgid "Wednesday"
 msgstr "Τετάρτη"
 
-#: js/messages.php:447
+#: js/messages.php:448
 msgid "Thursday"
 msgstr "Πέμπτη"
 
-#: js/messages.php:448
+#: js/messages.php:449
 msgid "Friday"
 msgstr "Παρασκευή"
 
-#: js/messages.php:449
+#: js/messages.php:450
 msgid "Saturday"
 msgstr "Σάββατο"
 
 #. l10n: Short week day name
-#: js/messages.php:453
+#: js/messages.php:454
 msgid "Sun"
 msgstr "Κυρ"
 
 #. l10n: Short week day name
-#: js/messages.php:455 libraries/common.lib.php:1670
+#: js/messages.php:456 libraries/common.lib.php:1670
 msgid "Mon"
 msgstr "Δευ"
 
 #. l10n: Short week day name
-#: js/messages.php:457 libraries/common.lib.php:1672
+#: js/messages.php:458 libraries/common.lib.php:1672
 msgid "Tue"
 msgstr "Τρί"
 
 #. l10n: Short week day name
-#: js/messages.php:459 libraries/common.lib.php:1674
+#: js/messages.php:460 libraries/common.lib.php:1674
 msgid "Wed"
 msgstr "Τετ"
 
 #. l10n: Short week day name
-#: js/messages.php:461 libraries/common.lib.php:1676
+#: js/messages.php:462 libraries/common.lib.php:1676
 msgid "Thu"
 msgstr "Πέμ"
 
 #. l10n: Short week day name
-#: js/messages.php:463 libraries/common.lib.php:1678
+#: js/messages.php:464 libraries/common.lib.php:1678
 msgid "Fri"
 msgstr "Παρ"
 
 #. l10n: Short week day name
-#: js/messages.php:465 libraries/common.lib.php:1680
+#: js/messages.php:466 libraries/common.lib.php:1680
 msgid "Sat"
 msgstr "Σάβ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:469
+#: js/messages.php:470
 msgid "Su"
 msgstr "Κυ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:471
+#: js/messages.php:472
 msgid "Mo"
 msgstr "Δε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:473
+#: js/messages.php:474
 msgid "Tu"
 msgstr "Τρ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:475
+#: js/messages.php:476
 msgid "We"
 msgstr "Τε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:477
+#: js/messages.php:478
 msgid "Th"
 msgstr "Πε"
 
 #. l10n: Minimal week day name
-#: js/messages.php:479
+#: js/messages.php:480
 msgid "Fr"
 msgstr "Πα"
 
 #. l10n: Minimal week day name
-#: js/messages.php:481
+#: js/messages.php:482
 msgid "Sa"
 msgstr "Σα"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:483
+#: js/messages.php:484
 msgid "Wk"
 msgstr "Wiki"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:486
+#: js/messages.php:487
 msgid "calendar-month-year"
 msgstr "ημερολόγιο-μήνας-έτος"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:488
+#: js/messages.php:489
 msgctxt "Year suffix"
 msgid "none"
 msgstr "κανένα"
 
-#: js/messages.php:497
+#: js/messages.php:498
 msgid "Hour"
 msgstr "Ώρα"
 
-#: js/messages.php:498
+#: js/messages.php:499
 msgid "Minute"
 msgstr "Λεπτό"
 
-#: js/messages.php:499
+#: js/messages.php:500
 msgid "Second"
 msgstr "Δευτερόλεπτο"
 
@@ -2614,8 +2620,8 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
@@ -5737,8 +5743,8 @@ msgstr ", το @TABLE@ θα γίνει το όνομα του πίνακα"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -6033,7 +6039,7 @@ msgstr "Οπτικοποίηση δεδομένων GIS"
 msgid "Create view"
 msgstr "Δημιουργία προβολής"
 
-#: libraries/display_tbl.lib.php:2815
+#: libraries/display_tbl.lib.php:2817
 msgid "Link not found"
 msgstr "Δεν βρέθηκε η σύνδεση"
 
@@ -6380,11 +6386,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
-"%sΙστοσελίδα του PrimeBase XT%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην %"
+"sΙστοσελίδα του PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:127
 msgid "Related Links"
@@ -8268,8 +8274,8 @@ msgstr ""
 "επιλογή για να ορίσετε μια μορφή ημερομηνίας-ώρας. Η τρίτη επιλογή ορίζει αν "
 "θέλετε να δείτε την τοπική ή την παγκόσμια ώρα (χρήση «local» ή «utc» "
 "αντίστοιχα). Σύμφωνα με αυτό, η μορφή της ημερομηνίας έχει διαφορετική τιμή "
-"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP "
-"και για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
+"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP και "
+"για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
 msgid ""
@@ -8541,8 +8547,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε "
-"%sεδώ%s."
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε %"
+"sεδώ%s."
 
 #: main.php:337
 msgid ""
@@ -9312,8 +9318,8 @@ msgstr "Διαγραφή βάσεων δεδομένων που έχουν ίδ�
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -10630,8 +10636,8 @@ msgid ""
 msgstr ""
 "Η Εποπτεία phpMyAdmin μπορεί να σας βοηθήσει να βελτιστοποιήσετε τη ρύθμιση "
 "του διακομιστή και να καταγράφει χρονοβόρα ερωτήματα. Για το τελευταίο θα "
-"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει "
-"το slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
+"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει το "
+"slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
 "παράγει πολλά δεδομένα και αυξάνει τη χρήση πόρων του διακομιστή μέχρι και "
 "15%"
 
@@ -11160,8 +11166,8 @@ msgid ""
 "(currently %d)."
 msgstr ""
 "Αν η %sεγκυρότητα Σύνδεσης cookie%s είναι μεγαλύτερη από 1440 δευτερόλεπτα "
-"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
-"%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
+"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime%"
+"s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
 
 #: setup/lib/index.lib.php:283
 #, php-format
@@ -12003,17 +12009,17 @@ msgstr "Όνομα VIEW"
 msgid "Rename view to"
 msgstr "Μετονομασία πίνακα σε"
 
-#: po/advisory_rules.php:5
+#: po/advisory_rules.php:9
 msgid "Uptime below one day"
 msgstr "Σε λειτουργία λιγότερο από μια ημερα"
 
-#: po/advisory_rules.php:6
+#: po/advisory_rules.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
 "Είναι σε λειτουργία λιγότερο από 1 ημέρα, η ρύθμιση της απόδσης ίσως δεν "
 "είναι ακριβής."
 
-#: po/advisory_rules.php:7
+#: po/advisory_rules.php:15
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -12021,16 +12027,16 @@ msgstr ""
 "Για να έχετε πιο ακριβείς μέσους όρους προτείνεται ο διακομιστής να "
 "λειτουργεί περισσότερο από μια ημέρα πριν εκτελέσετε αυτόν τον αναλυτή"
 
-#: po/advisory_rules.php:8
+#: po/advisory_rules.php:20
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Ο χρόνος λειτουργίας είναι μόνο %s"
 
-#: po/advisory_rules.php:10
+#: po/advisory_rules.php:24
 msgid "Questions below 1,000"
 msgstr "Ερωτήσεις κάτω από 1.000"
 
-#: po/advisory_rules.php:11
+#: po/advisory_rules.php:27
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -12038,7 +12044,7 @@ msgstr ""
 "Λιγότερες από 1.000 ερωτήσεις έχουν εκτελεστεί στο διακομιστή. Οι προτάσεις "
 "ίσως να μην είναι ακριβείς."
 
-#: po/advisory_rules.php:12
+#: po/advisory_rules.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -12046,23 +12052,23 @@ msgstr ""
 "Αφήστε τον διακομιστή να εκτελείται για περισσότερο χρόνο μέχρι να "
 "εκτελεστεί μεγαλύτερος αριθμός ερωτημάτων."
 
-#: po/advisory_rules.php:13
+#: po/advisory_rules.php:35
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Τρέχουσα ποσότητα ερωτήσεων: %s"
 
-#: po/advisory_rules.php:15
+#: po/advisory_rules.php:39
 msgid "Percentage of slow queries"
 msgstr "Ποσοστό αργών ερωτημάτων"
 
-#: po/advisory_rules.php:16
+#: po/advisory_rules.php:42
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
 "Υπάρχει σημαντικός αριθμός αργών ερωτημάτων σε σχέση με τον συνολικό αριθμό "
 "των Ερωτημάτων."
 
-#: po/advisory_rules.php:17 po/advisory_rules.php:22
+#: po/advisory_rules.php:45 po/advisory_rules.php:60
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -12070,25 +12076,25 @@ msgstr ""
 "Ίσως να θέλετε να αυξήσετε το {long_query_time} ή να βελτιστοποιήσετε τα "
 "ερωτήματα που εμφανίζονται στην καταγραφή των αργών ερωτημάτων"
 
-#: po/advisory_rules.php:18
+#: po/advisory_rules.php:50
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 "Το ποσοστό των αργών ερωτημάτων πρέπει να είναι κάτω από 5%%, η τιμή σας "
 "είναι %s%%."
 
-#: po/advisory_rules.php:20
+#: po/advisory_rules.php:54
 msgid "Slow query rate"
 msgstr "Βαθμός αργών ερωτημάτων"
 
-#: po/advisory_rules.php:21
+#: po/advisory_rules.php:57
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 "Υπάρχει ένα υψηλό ποσοστό αργών ερωτημάτων σε σχέση με το χρόνο λειτουργίας "
 "του διακομιστή."
 
-#: po/advisory_rules.php:23
+#: po/advisory_rules.php:65
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -12097,11 +12103,11 @@ msgstr ""
 "Έχετε ένα αργό ρυθμό ερωτημάτων των %s aνά ώρα, πρέπει να έχετε λιγότερο από "
 "1%% ανά ώρα."
 
-#: po/advisory_rules.php:25
+#: po/advisory_rules.php:69
 msgid "Long query time"
 msgstr "Χρόνος μακρού ερωτήματος"
 
-#: po/advisory_rules.php:26
+#: po/advisory_rules.php:72
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -12109,7 +12115,7 @@ msgstr ""
 "Το long_query_time ορίστηκε στα 10 δευτερόλεπτα ή περισσότεραs, έτσι μόνο "
 "αργά ερωτήματα που κρατούν περισσότερο από 10 δευτερόλεπτα καταγράφονται."
 
-#: po/advisory_rules.php:27
+#: po/advisory_rules.php:75
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -12118,20 +12124,20 @@ msgstr ""
 "εξαρτάται από το περιβάλλον σας. Συνήθως προτείνεται μια τιμή μεταξύ 1-5 "
 "δευτερολέπτων."
 
-#: po/advisory_rules.php:28
+#: po/advisory_rules.php:80
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "Το long_query_time έχει οριστεί σε %dδ."
 
-#: po/advisory_rules.php:30
+#: po/advisory_rules.php:84
 msgid "Slow query logging"
 msgstr "Καταγραφή αργού ερωτήματος"
 
-#: po/advisory_rules.php:31
+#: po/advisory_rules.php:87
 msgid "The slow query log is disabled."
 msgstr "Η καταγραφή αργού ερωτήματος είναι απενεργοποιημένη."
 
-#: po/advisory_rules.php:32
+#: po/advisory_rules.php:90
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -12139,19 +12145,19 @@ msgstr ""
 "Ενεργοποίηση της αργής καταγραφής ερωτήματος ορίζοντας το {log_slow_queries} "
 "σε «ΕΝΕΡΓΟ». Αυτό θα βοηθήσει στη κακή εκτέλεση ερωτημάτων."
 
-#: po/advisory_rules.php:33
+#: po/advisory_rules.php:95
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "Το log_slow_queries έχει οριστεί σε «ΑΝΕΝΕΡΓΟ»"
 
-#: po/advisory_rules.php:35
+#: po/advisory_rules.php:99
 msgid "Release Series"
 msgstr "Σειρές Δημοσίευσης"
 
-#: po/advisory_rules.php:36
+#: po/advisory_rules.php:102
 msgid "The MySQL server version less then 5.1."
 msgstr "Η έκδοση διακομιστή MySQL είναι παλαιότερη της 5.1."
 
-#: po/advisory_rules.php:37
+#: po/advisory_rules.php:105
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -12159,20 +12165,21 @@ msgstr ""
 "Πρέπει να αναβαθμίσετε, καθώς η MySQL 5.1 έχει βελτιώσει την απόδοση και η "
 "MySQL 5.5 ακόμα περισσότερο."
 
-#: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
+#: po/advisory_rules.php:110 po/advisory_rules.php:125
+#: po/advisory_rules.php:140
 #, php-format
 msgid "Current version: %s"
 msgstr "Τρέχουσα έκδοση: %s"
 
-#: po/advisory_rules.php:40 po/advisory_rules.php:45
+#: po/advisory_rules.php:114 po/advisory_rules.php:129
 msgid "Minor Version"
 msgstr "Μικρή Έκδοση"
 
-#: po/advisory_rules.php:41
+#: po/advisory_rules.php:117
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Έκδοση μικρότερη από 5.1.30 (η πρώτη GA δημοσίευση της 5.1)."
 
-#: po/advisory_rules.php:42
+#: po/advisory_rules.php:120
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -12180,25 +12187,26 @@ msgstr ""
 "Πρέπει να αναβαθμίσετε, καθώς οι πρόσφατες εκδόσεις της MySQL 5.1 έχουν "
 "βελτιώσει την απόδση και οι MySQL 5.5 ακόμα περισσότερο."
 
-#: po/advisory_rules.php:46
+#: po/advisory_rules.php:132
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Έκδοση μικρότερη από 5.5.8 (η πρώτη GA δημοσίευση της 5.5)."
 
-#: po/advisory_rules.php:47
+#: po/advisory_rules.php:135
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Πρέπει να αναβαθμίσετε σε σταθερή έκδοση της MySQL 5.5"
 
-#: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
+#: po/advisory_rules.php:144 po/advisory_rules.php:159
+#: po/advisory_rules.php:174
 msgid "Distribution"
 msgstr "Διανομή"
 
-#: po/advisory_rules.php:51
+#: po/advisory_rules.php:147
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
 "Η έκδοση έχει προέλθει από τον κώδικα κια όχι από το επίσημο εκτελέσιμο της "
 "MySQL."
 
-#: po/advisory_rules.php:52
+#: po/advisory_rules.php:150
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -12209,42 +12217,42 @@ msgstr ""
 "για τα επίσημα εκτελέσιμα της MySQL και καμιά άλλη διανομή (όπως RedHat, "
 "Debian/Ubuntu κλπ)."
 
-#: po/advisory_rules.php:53
+#: po/advisory_rules.php:155
 msgid "'source' found in version_comment"
 msgstr "Βρέθηκη η «προέλευση» στο version_comment"
 
-#: po/advisory_rules.php:56 po/advisory_rules.php:61
+#: po/advisory_rules.php:162 po/advisory_rules.php:177
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
 "Το εγχειρίδιο της MySQL είναι έγκυρο μόνο για τα επίσημα εκτελέσιμα της "
 "MySQL."
 
-#: po/advisory_rules.php:57
+#: po/advisory_rules.php:165
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr "Η τεκμηρίωση του Percona είναι στο http://www.percona.com/docs/wiki/"
 
-#: po/advisory_rules.php:58
+#: po/advisory_rules.php:170
 msgid "'percona' found in version_comment"
 msgstr "Βρέθηκη η «percona» στο version_comment"
 
-#: po/advisory_rules.php:62
+#: po/advisory_rules.php:180
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "Η τεκμηρίωση του Drizzle είναι στο http://docs.drizzle.org/"
 
-#: po/advisory_rules.php:63
+#: po/advisory_rules.php:185
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "Η έκδοση (%s) ταιριάζει με το σχέιδο έκδοσης Drizzle"
 
-#: po/advisory_rules.php:65
+#: po/advisory_rules.php:189
 msgid "MySQL Architecture"
 msgstr "Αρχιτεκτονική MySQL"
 
-#: po/advisory_rules.php:66
+#: po/advisory_rules.php:192
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "Η MySQL δεν δομήθηκε ως πακέτο 64-bit."
 
-#: po/advisory_rules.php:67
+#: po/advisory_rules.php:195
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -12255,20 +12263,20 @@ msgstr ""
 "τη μνήμη. Ίσως πρέπει να σκεφτείτε να εγκαταστήσετετ την 64-bit έκδοση της "
 "MySQL."
 
-#: po/advisory_rules.php:68
+#: po/advisory_rules.php:200
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "Διαθέσιμη μνήμη σε αυτό το φιλοξενητή: %s"
 
-#: po/advisory_rules.php:70
+#: po/advisory_rules.php:204
 msgid "Query cache disabled"
 msgstr "Η λανθάνουσα μνήμη είναι απενεργοποιημένη"
 
-#: po/advisory_rules.php:71
+#: po/advisory_rules.php:207
 msgid "The query cache is not enabled."
 msgstr "Η λανθάνουσα μνήμη ερωτήματος δεν είναι ενεργοποιημένη."
 
-#: po/advisory_rules.php:72
+#: po/advisory_rules.php:210
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12277,23 +12285,23 @@ msgid ""
 msgstr ""
 "Η λανθάνουσα μνήμη ερωτήματος είναι γνωστό ότι βελτιώνει σημαντικά την "
 "απόδοση, αν ρυθμιστεί σωστά. Ενεργοποιήστε τη ορίζοντας το "
-"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε "
-"«ΟΝ». <b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
+"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε «ΟΝ». "
+"<b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
 
-#: po/advisory_rules.php:73
+#: po/advisory_rules.php:215
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "Το query_cache_size ορίστηκε σε 0 ή το query_cache_type ορίστηκε σε «OFF»"
 
-#: po/advisory_rules.php:75
+#: po/advisory_rules.php:219
 msgid "Query caching method"
 msgstr "Μέθοδος λανθάνουσας μνήμης ερωτήματος"
 
-#: po/advisory_rules.php:76
+#: po/advisory_rules.php:222
 msgid "Suboptimal caching method."
 msgstr "Ημί βέλτιστη μέθοδος λανθάνουσας μνήμης."
 
-#: po/advisory_rules.php:77
+#: po/advisory_rules.php:225
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -12306,7 +12314,7 @@ msgstr ""
 "\">memcached</a> αντί της λανθάνουσας μνήμης Ερωτήματος της MySQL, ειδικά αν "
 "έχετε πολλούς δευτερεύοντες."
 
-#: po/advisory_rules.php:78
+#: po/advisory_rules.php:230
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -12316,39 +12324,39 @@ msgstr ""
 "λαμβάνει %d ερωτήματα ανά δευτερόλεπτο. Αυτός ο κανόνας ενεργοποιείται αν "
 "υπάρχουν περισσότερα από 100 ερωτήματα το δευτερόλεπτο."
 
-#: po/advisory_rules.php:80
+#: po/advisory_rules.php:234
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "Απόδοση λανθάνουσας μνήμης ερωτήματος (%%)"
 
-#: po/advisory_rules.php:81
+#: po/advisory_rules.php:237
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 "Η λανθάνουσα μνήμη ερωτήματος δεν λειτουργεί σωστά, έχει χαμηλό βαθμό "
 "απόδοσης."
 
-#: po/advisory_rules.php:82
+#: po/advisory_rules.php:240
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Σκεφτείτε την αύξηση {query_cache_limit}."
 
-#: po/advisory_rules.php:83
+#: po/advisory_rules.php:245
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 "Ο τρέχων βαθμός απόδοσης της λανθάνουσας μνήμης ερωτήματος του %s%% είναι "
 "κάτω από 20%%"
 
-#: po/advisory_rules.php:85
+#: po/advisory_rules.php:249
 msgid "Query Cache usage"
 msgstr "Χρήση λανθάνουσας μνήμης ερωτήματος"
 
-#: po/advisory_rules.php:86
+#: po/advisory_rules.php:252
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr ""
 "Λιγότερο από το 80%% της λανθάνουσας μνήμης ερωτήματος χρησιμοποιείται."
 
-#: po/advisory_rules.php:87
+#: po/advisory_rules.php:255
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -12356,25 +12364,25 @@ msgstr ""
 "Αυτό μπορεί να οφείλεται στο ότι το {query_cache_limit} είναι πολύ χαμηλό. Η "
 "εκκαθάριση της λανθάνουσας μνήμης ερωτήματος μπορεί επίσης να βοηθήσει."
 
-#: po/advisory_rules.php:88
+#: po/advisory_rules.php:260
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Η τρέχουσα αναλογία της ελεύθερης λανθάνουσας μνήμης ερωτήματος προς τη "
 "συνολική λανθάνουσα μνήμη ερωτήματος είναι %s%%. Πρέπει να είναι περισσότερο "
 "από 80%%"
 
-#: po/advisory_rules.php:90
+#: po/advisory_rules.php:264
 msgid "Query cache fragmentation"
 msgstr "Συγκρότηση λανθάνουσας μνήμης ερωτήματος"
 
-#: po/advisory_rules.php:91
+#: po/advisory_rules.php:267
 msgid "The query cache is considerably fragmented."
 msgstr "Η λανθάνουσας μνήμης ερωτήματος είναι αρκετά συγκροτημένη."
 
-#: po/advisory_rules.php:92
+#: po/advisory_rules.php:270
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12396,7 +12404,7 @@ msgstr ""
 "λανθάνουσα μνήμη χρησιμοποιώντας αυτή τη φόρμουλα: (query_cache_size - "
 "qcache_free_memory) / qcache_queries_in_cache"
 
-#: po/advisory_rules.php:93
+#: po/advisory_rules.php:275
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12407,11 +12415,11 @@ msgstr ""
 "ότι η λανθάνουσα μνήμη ερωτήματος είναι μια εναλλακτική μορφή ελεύθερων και "
 "χρησιμοποιημένων μπλοκς. Αυτή η τιμή πρέπει να είναι κάτω από 20%%."
 
-#: po/advisory_rules.php:95
+#: po/advisory_rules.php:279
 msgid "Query cache low memory prunes"
 msgstr "Χαμηλής μνήμης κλάδοι λανθάνουσας μνήμης ερωτήματος"
 
-#: po/advisory_rules.php:96
+#: po/advisory_rules.php:282
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12419,7 +12427,7 @@ msgstr ""
 "Προγνωστικές αναζητήσεις έχουν διαγραφεί λόγο έλλειψης ελεύθερης λανθάνουσας "
 "μνήμης ερωτημάτων."
 
-#: po/advisory_rules.php:97
+#: po/advisory_rules.php:285
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -12430,21 +12438,21 @@ msgstr ""
 "μέγεθός της, για αυτό κάντε το αυτό με μικρές μεταβολές και δείτε τα "
 "αποτελέσματα."
 
-#: po/advisory_rules.php:98
+#: po/advisory_rules.php:290
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Ο βαθμός απομακρυσμένων ερωτημάτων προς τα εισερχόμενα ερωτήματα είναι %s%%. "
-"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: "
-"0,1%%)"
+"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: 0,1%"
+"%)"
 
-#: po/advisory_rules.php:100
+#: po/advisory_rules.php:294
 msgid "Query cache max size"
 msgstr "Μέγιστο μέγεθος λανθάνουσας μνήμης ερωτήματος"
 
-#: po/advisory_rules.php:101
+#: po/advisory_rules.php:297
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -12453,7 +12461,7 @@ msgstr ""
 "μνήμες μπορεί να προκαλέσουν περίσσεια που απαιτείται για τη διατήρηση της "
 "λανθάνουσας μνήμης."
 
-#: po/advisory_rules.php:102
+#: po/advisory_rules.php:300
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
@@ -12461,23 +12469,23 @@ msgstr ""
 "Ανάλογα με το περιβάλλον σας, ίσως αυξηθεί η απόδοσή του μειώνοντας αυτή την "
 "τιμή."
 
-#: po/advisory_rules.php:103
+#: po/advisory_rules.php:305
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Τρέχον μέγεθος λανθάνουσας μνήμης ερωτήματος: %s"
 
-#: po/advisory_rules.php:105
+#: po/advisory_rules.php:309
 msgid "Query cache min result size"
 msgstr "Ελάχιστο μέγεθος λανθάνουσας μνήμης ερωτήματος"
 
-#: po/advisory_rules.php:106
+#: po/advisory_rules.php:312
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "Το μέγιστο μέγεθος του συνόλου αποτελεσμάτων στη λανθάνουσα μνήμη ερωτήματος "
 "είναι η προεπιλογή του 1ΜΒ."
 
-#: po/advisory_rules.php:107
+#: po/advisory_rules.php:315
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12499,19 +12507,19 @@ msgstr ""
 "επικαιροποιημένα λόγω ενημερώσεων πίνακα), η αύξηση του {query_cache_limit} "
 "ίσως μειώσει την απόδοση."
 
-#: po/advisory_rules.php:108
+#: po/advisory_rules.php:320
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "Το query_cache_limit ορίστηκε στο 1ΜΒ"
 
-#: po/advisory_rules.php:110
+#: po/advisory_rules.php:324
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Ποσοστό ταξινομήσεων που δημιουργούν προσωρινούς πίνακες"
 
-#: po/advisory_rules.php:111 po/advisory_rules.php:116
+#: po/advisory_rules.php:327 po/advisory_rules.php:342
 msgid "Too many sorts are causing temporary tables."
 msgstr "Πάρα πολλές ταξινομήσεις δημιουργούν προσωρινούς πίνακες."
 
-#: po/advisory_rules.php:112 po/advisory_rules.php:117
+#: po/advisory_rules.php:330 po/advisory_rules.php:345
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
@@ -12519,20 +12527,20 @@ msgstr ""
 "Σκεφτείτε να αυξήσετε το sort_buffer_size και/ή το read_rnd_buffer_size, "
 "ανάλογα με τους περιορισμούς της μνήμης του συστήματός σας"
 
-#: po/advisory_rules.php:113
+#: po/advisory_rules.php:335
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "Το %s%% όλων των ταξινομήσεων προκαλεί προσωρινούς πίνακες, αυτή η τιμή "
 "πρέπει να είναι κάτω από 10%%."
 
-#: po/advisory_rules.php:115
+#: po/advisory_rules.php:339
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Επιτρέπει τη δημιουργία προσωρινών πινάκων"
 
-#: po/advisory_rules.php:118
+#: po/advisory_rules.php:350
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
@@ -12540,15 +12548,15 @@ msgstr ""
 "Μέσος όρος προσωρινών πινάκων: %s, αυτή η τιμή πρέπει να είναι κάτω από 1 "
 "ανά ώρα."
 
-#: po/advisory_rules.php:120
+#: po/advisory_rules.php:354
 msgid "Sort rows"
 msgstr "Ταξινόμηση εγγραφών"
 
-#: po/advisory_rules.php:121
+#: po/advisory_rules.php:357
 msgid "There are lots of rows being sorted."
 msgstr "Ταξινομούνται πολλές εγγραφές."
 
-#: po/advisory_rules.php:122
+#: po/advisory_rules.php:360
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12560,20 +12568,20 @@ msgstr ""
 "χρησιμοποιήσετε τις ταξινομημένες στήλες στη σύνταξη του ORDER BY, καθώς "
 "αυτό θα έχει ως αποτέλεσμα πολλή γρηγορότερη ταξινόμηση"
 
-#: po/advisory_rules.php:123
+#: po/advisory_rules.php:365
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "Μέσος όρος ταξινομημένων εγγραφών: %s"
 
-#: po/advisory_rules.php:125
+#: po/advisory_rules.php:369
 msgid "Rate of joins without indexes"
 msgstr "Βαθμός ενώσεων χωρίς ευρετήρια"
 
-#: po/advisory_rules.php:126
+#: po/advisory_rules.php:372
 msgid "There are too many joins without indexes."
 msgstr "Υπάρχουν πολλές ενώσεις χωρίς ευρετήρια."
 
-#: po/advisory_rules.php:127
+#: po/advisory_rules.php:375
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12582,22 +12590,22 @@ msgstr ""
 "ευρετηρίων για τις στήλες που χρησιμοποιούνται στις συνθήκες ένωσης θα "
 "αυξήσει δραματικά τις ενώσεις πινάκων"
 
-#: po/advisory_rules.php:128
+#: po/advisory_rules.php:380
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Μέσος όρος ενώσεων πινάκων: %s, αυτή η τιμή πρέπει να είναι μικρότερη από 1 "
 "ανά ώρα"
 
-#: po/advisory_rules.php:130
+#: po/advisory_rules.php:384
 msgid "Rate of reading first index entry"
 msgstr "Βαθμός ανάγνωσης πρώτης εισαγωγής ευρετηρίου"
 
-#: po/advisory_rules.php:131
+#: po/advisory_rules.php:387
 msgid "The rate of reading the first index entry is high."
 msgstr "Ο βαθμός ανάγνωσης της πρώτης εισαγωγής ευρετηρίου είναι υψηλός."
 
-#: po/advisory_rules.php:132
+#: po/advisory_rules.php:390
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12614,22 +12622,22 @@ msgstr ""
 "πλήρων σαρώσεων ευρετηρίου. Εκτός από αυτό, οι πλήρεις σαρώσεις ευρετηρίου "
 "μπορούν να μειωθούν ξαναγράφοντας τα ερωτήματα."
 
-#: po/advisory_rules.php:133
+#: po/advisory_rules.php:395
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Μέσος όρος σαρώσεων ευρετηρίου: %s, αυτή η τιμή πρέπει να είναι κάτω από 1 "
 "ανά ώρα"
 
-#: po/advisory_rules.php:135
+#: po/advisory_rules.php:399
 msgid "Rate of reading fixed position"
 msgstr "Βαθμός ανάγνωσης σταθερής θέσης"
 
-#: po/advisory_rules.php:136
+#: po/advisory_rules.php:402
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Ο βαθμός ανάγνωσης δεδομένων από μια σταθερή θέση είναι υψηλός."
 
-#: po/advisory_rules.php:137
+#: po/advisory_rules.php:405
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -12640,7 +12648,7 @@ msgstr ""
 "ερωτημάτων που δεν χρησιμοποιούν ευρετήρια. Προσθέστε ευρετήρια όπου "
 "μπουρούν να εφαρμοστούν."
 
-#: po/advisory_rules.php:138
+#: po/advisory_rules.php:410
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -12649,15 +12657,15 @@ msgstr ""
 "Μέσος όρος βαθμού ανάγνωσης σταθερής θέσης: %s, αυτή η τιμή πρέπει να είναι "
 "κάτω από 1 ανά ώρα"
 
-#: po/advisory_rules.php:140
+#: po/advisory_rules.php:414
 msgid "Rate of reading next table row"
 msgstr "Βαθμός ανάγνωσης επόμενης γραμμής πίνακα"
 
-#: po/advisory_rules.php:141
+#: po/advisory_rules.php:417
 msgid "The rate of reading the next table row is high."
 msgstr "Ο βαθμός ανάγνωσης της επόμενης εγγραφής του πίνακα είναι υψηλός."
 
-#: po/advisory_rules.php:142
+#: po/advisory_rules.php:420
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -12665,7 +12673,7 @@ msgstr ""
 "Αυτό δείχνει ότι πολλά ερωτήματα εκτελούν πλήρεις σαρώσεις πινάκων. "
 "Προσθέστε ευρετήρια όπου μπορούν να εφαρμοστούν."
 
-#: po/advisory_rules.php:143
+#: po/advisory_rules.php:425
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -12673,15 +12681,15 @@ msgstr ""
 "Βαθμός ανάγνωσης επόμενης εγγραφής πίνακα: %s, αυτό πρέπει να είναι κάτω από "
 "1 ανά ώρα"
 
-#: po/advisory_rules.php:145
+#: po/advisory_rules.php:429
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size εναντίον max_heap_table_size"
 
-#: po/advisory_rules.php:146
+#: po/advisory_rules.php:432
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "Το tmp_table_size και το max_heap_table_size δεν είναι τα ίδια."
 
-#: po/advisory_rules.php:147
+#: po/advisory_rules.php:435
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12693,22 +12701,22 @@ msgstr ""
 "πινάκων. Έτσι, αν επιθυμείτε να αυξήσετε το όριο εσωτερικής μνήμης πινάκων "
 "θα πρέπει να αυξήσετε και την άλλη τιμή."
 
-#: po/advisory_rules.php:148
+#: po/advisory_rules.php:440
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Οι τρέχουσες τιμές είναι tmp_table_size: %s, max_heap_table_size: %s"
 
-#: po/advisory_rules.php:150
+#: po/advisory_rules.php:444
 msgid "Percentage of temp tables on disk"
 msgstr "Ποσοστό προσωρινών πινάκων στο δίσκο"
 
-#: po/advisory_rules.php:151 po/advisory_rules.php:156
+#: po/advisory_rules.php:447 po/advisory_rules.php:462
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr "Πολλοί προσωρινοί πίνακες εγγράφονται στο δίσκό αντί για τη μνήμη."
 
-#: po/advisory_rules.php:152
+#: po/advisory_rules.php:450
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12727,7 +12735,7 @@ msgstr ""
 "www.facebook.com/note.php?note_id=10150111255065841&comments\">Άρθρου από "
 "την Ομάδα Pythian</a>"
 
-#: po/advisory_rules.php:153
+#: po/advisory_rules.php:455
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -12736,11 +12744,11 @@ msgstr ""
 "%s%% όλων των προσωρινών αρχείων εγγράφονται στο δίσκο, αυτή η τιμή πρέπει "
 "να είναι κάτω από 25%%"
 
-#: po/advisory_rules.php:155
+#: po/advisory_rules.php:459
 msgid "Temp disk rate"
 msgstr "Βαθμός προσωρινού δίσκου"
 
-#: po/advisory_rules.php:157
+#: po/advisory_rules.php:465
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12759,7 +12767,7 @@ msgstr ""
 "com/doc/refman/5.5/en/internal-temporary-tables.html\">τεκμηρίωση της MySQL</"
 "a>"
 
-#: po/advisory_rules.php:158
+#: po/advisory_rules.php:470
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -12768,16 +12776,16 @@ msgstr ""
 "Βαθμός των προσωρινών πινάκων που εγγράφονται στο δίσκο: %s, αυτή η τιμή "
 "πρέπει να είναι μικρότερη από 1 ανά ώρα"
 
-#: po/advisory_rules.php:160
+#: po/advisory_rules.php:474
 msgid "MyISAM key buffer size"
 msgstr "Μέγεθος buffer κλειδιού MyISAM"
 
-#: po/advisory_rules.php:161
+#: po/advisory_rules.php:477
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "Το buffer κλειδιού δεν ξεκίνησε. Κανένα ευρετήριο MyISAM δεν θα αποθηκευτεί."
 
-#: po/advisory_rules.php:162
+#: po/advisory_rules.php:480
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -12785,23 +12793,23 @@ msgstr ""
 "Ορίστε το {key_buffer_size} ανάλογα με το μέγεθος των ευρετηρίων MyISAM. 64M "
 "είναι μια καλή αρχή."
 
-#: po/advisory_rules.php:163
+#: po/advisory_rules.php:485
 msgid "key_buffer_size is 0"
 msgstr "Το key_buffer_size είναι 0"
 
-#: po/advisory_rules.php:165
+#: po/advisory_rules.php:489
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Μέγιστο %% buffer κλειδιού MyISAM που χρησιμοποιήθηκε"
 
-#: po/advisory_rules.php:166 po/advisory_rules.php:171
+#: po/advisory_rules.php:492 po/advisory_rules.php:507
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr ""
 "Το buffer κλειδιού MyISAM (λανθάνουσα ευρετηρίου) %% που χρησιμοποιείτε "
 "είναι χαμηλό."
 
-#: po/advisory_rules.php:167 po/advisory_rules.php:172
+#: po/advisory_rules.php:495 po/advisory_rules.php:510
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -12811,7 +12819,7 @@ msgstr ""
 "τους πινακές σας για να δείτε αν έχουν απομακρυνθεί τα ευρετήρια ή εξετάστε "
 "τα ερωτήματα και τις προσδοκίες για το ποια ευρετήρια χρησιμοποιούνται."
 
-#: po/advisory_rules.php:168
+#: po/advisory_rules.php:500
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -12819,48 +12827,48 @@ msgstr ""
 "μέγιστο %% buffer κλειδιού MyISAM που χρησιμοποιήθηκε: %s%%, αυτή η τιμή "
 "πρέπει να είναι πάνω από 95%%"
 
-#: po/advisory_rules.php:170
+#: po/advisory_rules.php:504
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Ποσοστό buffer κλειδιού MyISAM που χρησιμοποιήθηκε"
 
-#: po/advisory_rules.php:173
+#: po/advisory_rules.php:515
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% buffer κλειδιού MyISAM χρησιμοποιείται: %s%%, αυτή η τιμή πρέπει να είναι "
 "πάνω από 95%%"
 
-#: po/advisory_rules.php:175
+#: po/advisory_rules.php:519
 msgid "Percentage of index reads from memory"
 msgstr "Ποσοστό των αναγνώσεων ευρετηρίων από τη μνήμη"
 
-#: po/advisory_rules.php:176
+#: po/advisory_rules.php:522
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 "Το %% των ευρετηρίων που χρησιμοποιούν το buffer κλειδιού MyISAM είναι "
 "χαμηλό."
 
-#: po/advisory_rules.php:177
+#: po/advisory_rules.php:525
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Ίσως χρειστεί να αυξήσετε το {key_buffer_size}."
 
-#: po/advisory_rules.php:178
+#: po/advisory_rules.php:530
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "Αναγνώσεις ευρετηρίου από τη μνήμη: %s%%, αυτή η τιμή πρέπει να είναι πάνω "
 "από 95%%"
 
-#: po/advisory_rules.php:180
+#: po/advisory_rules.php:534
 msgid "Rate of table open"
 msgstr "Βαθμός ανοίγματος πίνακα"
 
-#: po/advisory_rules.php:181
+#: po/advisory_rules.php:537
 msgid "The rate of opening tables is high."
 msgstr "Ο βαθμός των ανοιγμένων πινάκων είναι υψηλός."
 
-#: po/advisory_rules.php:182
+#: po/advisory_rules.php:540
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -12868,18 +12876,18 @@ msgstr ""
 "Το άνοιγμα ερωτημάτων πινάκων απαιτεί I/O δίσκου που κοστίζει. Η αύξηση του "
 "{table_open_cache} ίσως το αποτρέψει αυτό."
 
-#: po/advisory_rules.php:183
+#: po/advisory_rules.php:545
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Βαθμός ανοιγμένων πινάκων: %s, αυτή η τιμή πρέπει να είναι μικρότερη από 10 "
 "ανά ώρα"
 
-#: po/advisory_rules.php:185
+#: po/advisory_rules.php:549
 msgid "Percentage of used open files limit"
 msgstr "Ποσοστό του ορίου χρησιμοποιημένων ανοιχτών αρχείων"
 
-#: po/advisory_rules.php:186
+#: po/advisory_rules.php:552
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -12887,7 +12895,7 @@ msgstr ""
 "Ο αριθμός των ανοιγμένων αρχείων προσεγγίζει τον μέγιστο αριθμό ανοιγμένων "
 "αρχείων. Ίσως λάβετ το σφάλμα «Πολλά ανοιχτά αρχεία»."
 
-#: po/advisory_rules.php:187 po/advisory_rules.php:192
+#: po/advisory_rules.php:555 po/advisory_rules.php:570
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
@@ -12895,7 +12903,7 @@ msgstr ""
 "Σκεφτείτε να αυξήσετε το {open_files_limit}, και ελέξτε την καταγραφή "
 "σφαλμάτων αφού κάνετε επανεκκίνηση μετά την αλλαγή του open_files_limit."
 
-#: po/advisory_rules.php:188
+#: po/advisory_rules.php:560
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
@@ -12903,57 +12911,57 @@ msgstr ""
 "Ο αριθμός των ανοιγμένων αρχείων είναι στο %s%% του ορίου. Πρέπει να είναι "
 "κάτω από το 85%%"
 
-#: po/advisory_rules.php:190
+#: po/advisory_rules.php:564
 msgid "Rate of open files"
 msgstr "Βαθμός ανοιχτών αρχείων"
 
-#: po/advisory_rules.php:191
+#: po/advisory_rules.php:567
 msgid "The rate of opening files is high."
 msgstr "Ο βαθμός των ανοιγμένων αρχείων είναι υψηλός."
 
-#: po/advisory_rules.php:193
+#: po/advisory_rules.php:575
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Βαθμός ανοιγμένων αρχείων: %s, αυτή η τιμή πρέπει να είναι λιγότερο από 5 "
 "ανά ώρα"
 
-#: po/advisory_rules.php:195
+#: po/advisory_rules.php:579
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "Άμεσα κλειδώματα πίνακα %%"
 
-#: po/advisory_rules.php:196 po/advisory_rules.php:201
+#: po/advisory_rules.php:582 po/advisory_rules.php:597
 msgid "Too many table locks were not granted immediately."
 msgstr "Πολλά κλειδώματα πίνακα δεν έγιναν αποδεκτά αμέσως."
 
-#: po/advisory_rules.php:197 po/advisory_rules.php:202
+#: po/advisory_rules.php:585 po/advisory_rules.php:600
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Βελτιστοποίηση ερωτημάτων και/ή χρήση InnoDB για μείωση αναμονής κλειδώματος."
 
-#: po/advisory_rules.php:198
+#: po/advisory_rules.php:590
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 "Άμεσα κλειδώματα πίνακα: %s%%, αυτή η τιμή πρέπει να είναι πάνω από 95%%"
 
-#: po/advisory_rules.php:200
+#: po/advisory_rules.php:594
 msgid "Table lock wait rate"
 msgstr "Βαθμός αναμονής κλειδώματος πίνακα"
 
-#: po/advisory_rules.php:203
+#: po/advisory_rules.php:605
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Βαθμός αναμονής κλειδώματος πίνακα: %s, αυτή η τιμή πρέπει να είναι κάτω από "
 "1 ανά ώρα"
 
-#: po/advisory_rules.php:205
+#: po/advisory_rules.php:609
 msgid "Thread cache"
 msgstr "Λανθάνουσα μνήμη νήματος"
 
-#: po/advisory_rules.php:206
+#: po/advisory_rules.php:612
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -12961,45 +12969,45 @@ msgstr ""
 "Η λανθάνουσα μνήμη νήματος είναι απενεργποιημένη με αποτέλεσμα περισσότερη "
 "περίσσεια από νέες συνδέσεις στη MySQL."
 
-#: po/advisory_rules.php:207
+#: po/advisory_rules.php:615
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "Ενεργοποιήστε τη λανθάνουσα μνήμη νήματος ορίζοντας το {thread_cache_size} > "
 "0."
 
-#: po/advisory_rules.php:208
+#: po/advisory_rules.php:620
 msgid "The thread cache is set to 0"
 msgstr "Η λανθάνουσα μνήμη νήματος έχει οριστεί σε 0"
 
-#: po/advisory_rules.php:210
+#: po/advisory_rules.php:624
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "Βαθμός νήματος λανθάνουσας μνήμης νήματος %%"
 
-#: po/advisory_rules.php:211
+#: po/advisory_rules.php:627
 msgid "Thread cache is not efficient."
 msgstr "Η λανθάνουσα μνήμη νήματος δεν είναι επαρκής."
 
-#: po/advisory_rules.php:212
+#: po/advisory_rules.php:630
 msgid "Increase {thread_cache_size}."
 msgstr "Αύξηση του {thread_cache_size}."
 
-#: po/advisory_rules.php:213
+#: po/advisory_rules.php:635
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "Βαθμός λανθάνουσας μνήμης νήματος: %s%%, αυτή η τιμή πρέπει να είναι πάνω "
 "από 80%%"
 
-#: po/advisory_rules.php:215
+#: po/advisory_rules.php:639
 msgid "Threads that are slow to launch"
 msgstr "Νήματα που είναι αργά στην προσπέλαση"
 
-#: po/advisory_rules.php:216
+#: po/advisory_rules.php:642
 msgid "There are too many threads that are slow to launch."
 msgstr "Υπάρχουν πολλές διεργασίες που έχουν αργή προσπέλαση."
 
-#: po/advisory_rules.php:217
+#: po/advisory_rules.php:645
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -13008,22 +13016,22 @@ msgstr ""
 "είναι απλές διαδικασίες. Ίσως θέλετε να εποπτεύσετε τη φόρτωση του "
 "συστήματός σας προσεκτικά."
 
-#: po/advisory_rules.php:218
+#: po/advisory_rules.php:650
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 "%s νήμα(τα) χρειάστηακν περισσότερα από t%s δευτερόλεπτα για να ξεκινήσουν, "
 "έπρεπε να είναι 0"
 
-#: po/advisory_rules.php:220
+#: po/advisory_rules.php:654
 msgid "Slow launch time"
 msgstr "Αργός χρόνος προσπέλασης"
 
-#: po/advisory_rules.php:221
+#: po/advisory_rules.php:657
 msgid "Slow_launch_threads is above 2s"
 msgstr "Το Slow_launch_threads είναι πάνω από 2s"
 
-#: po/advisory_rules.php:222
+#: po/advisory_rules.php:660
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
@@ -13031,16 +13039,16 @@ msgstr ""
 "Ορίστε το slow_launch_time σε 1s ή 2s για σωστό μέτρημα νημάτων που είναι "
 "αργά στην προσπέλαση"
 
-#: po/advisory_rules.php:223
+#: po/advisory_rules.php:665
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "Το slow_launch_time έχει οριστεί σε %s"
 
-#: po/advisory_rules.php:225
+#: po/advisory_rules.php:669
 msgid "Percentage of used connections"
 msgstr "Ποσοστό χρησιμοποιημένων συνδέσεων"
 
-#: po/advisory_rules.php:226
+#: po/advisory_rules.php:672
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
@@ -13048,7 +13056,7 @@ msgstr ""
 "Ο μέγιστος αριθμός χρησιμοποιημένων συνδέσεων πλησιάζει την τιμή των "
 "max_connections."
 
-#: po/advisory_rules.php:227
+#: po/advisory_rules.php:675
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -13059,7 +13067,7 @@ msgstr ""
 "νωρίτερα. Σιγουρευτείτε ότι ο κώδικας κλείνει τους χειριστές βάσεων "
 "δεδομένων σωστά."
 
-#: po/advisory_rules.php:228
+#: po/advisory_rules.php:680
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -13067,15 +13075,15 @@ msgstr ""
 "Οι Max_used_connections είναι στο %s%% των max_connections, έπρεπε να είναι "
 "κάτω από 80%%"
 
-#: po/advisory_rules.php:230
+#: po/advisory_rules.php:684
 msgid "Percentage of aborted connections"
 msgstr "Ποσοστό παρατημένων συνδέσεων"
 
-#: po/advisory_rules.php:231 po/advisory_rules.php:236
+#: po/advisory_rules.php:687 po/advisory_rules.php:702
 msgid "Too many connections are aborted."
 msgstr "Πάρα πολλές παρατημένες συνδέσεις."
 
-#: po/advisory_rules.php:232 po/advisory_rules.php:237
+#: po/advisory_rules.php:690 po/advisory_rules.php:705
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -13087,18 +13095,18 @@ msgstr ""
 "source-of-aborted_connects/\">Αυτό το άρθρο</a> ίσως σας βοηθήσει να "
 "ανιχνεύσετε την προέλευση."
 
-#: po/advisory_rules.php:233
+#: po/advisory_rules.php:695
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από "
-"1%%"
+"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από 1%"
+"%"
 
-#: po/advisory_rules.php:235
+#: po/advisory_rules.php:699
 msgid "Rate of aborted connections"
 msgstr "Βαθμός παρατημένων συνδέσεων"
 
-#: po/advisory_rules.php:238
+#: po/advisory_rules.php:710
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -13106,15 +13114,15 @@ msgstr ""
 "Ο βαθμός ματαιωμένων συνδέσεων είναι στο %s, αυτή η τιμή πρέπει να είναι "
 "κάτω από 1 ανά ώρα"
 
-#: po/advisory_rules.php:240
+#: po/advisory_rules.php:714
 msgid "Percentage of aborted clients"
 msgstr "Ποσοστό παρατημένων πελατών"
 
-#: po/advisory_rules.php:241 po/advisory_rules.php:246
+#: po/advisory_rules.php:717 po/advisory_rules.php:732
 msgid "Too many clients are aborted."
 msgstr "Πάρα πολλοί πελάτες ματαιώθηκαν."
 
-#: po/advisory_rules.php:242 po/advisory_rules.php:247
+#: po/advisory_rules.php:720 po/advisory_rules.php:735
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -13125,44 +13133,44 @@ msgstr ""
 "όταν δεν κλείνει σωστά ένας χειριστής βάσης δεδομένων. Ελέξτε το δίκτυο και "
 "τον κώδικά σας."
 
-#: po/advisory_rules.php:243
+#: po/advisory_rules.php:725
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "%s%% όλων των πελατών ματαιώθηκε. Αυτη η τιμή πρέπει να είναι κάτω από 2%%"
 
-#: po/advisory_rules.php:245
+#: po/advisory_rules.php:729
 msgid "Rate of aborted clients"
 msgstr "Βαθμός παρατημένων πελατών"
 
-#: po/advisory_rules.php:248
+#: po/advisory_rules.php:740
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Ο βαθμός ματαιωμένου πελάτη είναι στο %s, αυτή η τιμή πρέπει να είναι κάτω "
 "από 1 ανά ώρα"
 
-#: po/advisory_rules.php:250
+#: po/advisory_rules.php:744
 msgid "Is InnoDB disabled?"
 msgstr "Είναι απενεργποιημένη η InnoDB;"
 
-#: po/advisory_rules.php:251
+#: po/advisory_rules.php:747
 msgid "You do not have InnoDB enabled."
 msgstr "Δεν έχετε ενεργοποημένη την InnoDB."
 
-#: po/advisory_rules.php:252
+#: po/advisory_rules.php:750
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "Η InnoDB ε΄ναι συνήθς η καλύτερη επιλογή για μηχανές πινάκων."
 
-#: po/advisory_rules.php:253
+#: po/advisory_rules.php:755
 msgid "have_innodb is set to 'value'"
 msgstr "Το have_innodb έχει οριστεί σε «τιμή»"
 
-#: po/advisory_rules.php:255
+#: po/advisory_rules.php:759
 msgid "InnoDB log size"
 msgstr "Μέγεθος καταγραφής InnoDB"
 
-#: po/advisory_rules.php:256
+#: po/advisory_rules.php:762
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -13170,7 +13178,7 @@ msgstr ""
 "Το μέγεθος αρχείου καταγραφής της InnoDB δεν είναι κατάλληλο μέγεθος, σε "
 "σχέση με το InnoDB buffer pool."
 
-#: po/advisory_rules.php:257
+#: po/advisory_rules.php:765
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -13195,7 +13203,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">αυτό το άρθρο ιστολογίου</a>"
 
-#: po/advisory_rules.php:258
+#: po/advisory_rules.php:770
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -13204,15 +13212,15 @@ msgstr ""
 "Το μέγεθος καταγραφής InnoDB είναι στο %s%% σε σχέση με το μέγεθος του "
 "InnoDB buffer pool, δεν θα πρέπει να είναι κάτω από 20%%"
 
-#: po/advisory_rules.php:260
+#: po/advisory_rules.php:774
 msgid "Max InnoDB log size"
 msgstr "Μέγιστο μέγεθος καταγραφής InnoDB"
 
-#: po/advisory_rules.php:261
+#: po/advisory_rules.php:777
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Το μεγεθος του αρχείου καταγραφής της InnoDB είναι ανεπαρκώς μεγάλο."
 
-#: po/advisory_rules.php:262
+#: po/advisory_rules.php:780
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -13237,20 +13245,20 @@ msgstr ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">αυτό το άρθρο "
 "ιστολογίου</a>"
 
-#: po/advisory_rules.php:263
+#: po/advisory_rules.php:785
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Το απόλυτο μέγεθος καταγραφής της InnoDB είναι %s MB"
 
-#: po/advisory_rules.php:265
+#: po/advisory_rules.php:789
 msgid "InnoDB buffer pool size"
 msgstr "Μέγεθος InnoDB buffer pool"
 
-#: po/advisory_rules.php:266
+#: po/advisory_rules.php:792
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Το InnoDB buffer pool είναι αρκετά μικρό."
 
-#: po/advisory_rules.php:267
+#: po/advisory_rules.php:795
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -13276,7 +13284,7 @@ msgstr ""
 "επίσης <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">αυτό το άρθρο</a>"
 
-#: po/advisory_rules.php:268
+#: po/advisory_rules.php:800
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -13289,15 +13297,15 @@ msgstr ""
 "απολύτως επαρκές για το σύστημά σας, αν δεν έχετε πολλούς πίνακες InnoDB ή "
 "άλλες υπηρεσίες να εκτελούνται στο ίδιο μηχάνημα."
 
-#: po/advisory_rules.php:270
+#: po/advisory_rules.php:804
 msgid "MyISAM concurrent inserts"
 msgstr "Ταυτόχρονες εισαγωγές MyISAM"
 
-#: po/advisory_rules.php:271
+#: po/advisory_rules.php:807
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Ενεργοποιήστε το concurrent_insert ορίζοντας στο 1"
 
-#: po/advisory_rules.php:272
+#: po/advisory_rules.php:810
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
@@ -13307,7 +13315,7 @@ msgstr ""
 "και εγγραφών για ένα πίνακα. Δείτε επίσης την <a href=\"http://dev.mysql.com/"
 "doc/refman/5.5/en/concurrent-inserts.html\">τεκμηρίωση της MySQL</a>"
 
-#: po/advisory_rules.php:273
+#: po/advisory_rules.php:815
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
@@ -13354,8 +13362,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων "
-#~ "%s;"
+#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων %"
+#~ "s;"
 
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Άγνωστο σφάλμα κατά την αποστολή αρχείου."
