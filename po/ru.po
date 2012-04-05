@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-04 11:29+0200\n"
+"POT-Creation-Date: 2012-04-05 09:58+0200\n"
 "PO-Revision-Date: 2012-04-04 22:26+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -51,7 +51,7 @@ msgstr "Поиск"
 #: db_structure.php:621 gis_data_editor.php:133 gis_data_editor.php:166
 #: gis_data_editor.php:315 js/messages.php:225 libraries/Config.class.php:1326
 #: libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1407
+#: libraries/auth/cookie.auth.lib.php:256 libraries/common.lib.php:1407
 #: libraries/common.lib.php:2458 libraries/core.lib.php:526
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:264
@@ -251,13 +251,15 @@ msgid "The database name is empty!"
 msgstr "Не указано имя базы данных!"
 
 #: db_operations.php:300
-#, php-format
-msgid "Database %s has been renamed to %s"
+#, fuzzy, php-format
+#| msgid "Database %s has been renamed to %s"
+msgid "Database %1$s has been renamed to %2$s"
 msgstr "База данных %s переименована в %s"
 
 #: db_operations.php:304
-#, php-format
-msgid "Database %s has been copied to %s"
+#, fuzzy, php-format
+#| msgid "Database %s has been copied to %s"
+msgid "Database %1$s has been copied to %2$s"
 msgstr "База данных %s была скопирована в %s"
 
 #: db_operations.php:432
@@ -351,11 +353,11 @@ msgstr "Редакция или экспорт схемы связей"
 msgid "Table"
 msgstr "Таблица"
 
-#: db_printview.php:102 libraries/build_html_for_db.lib.php:31
-#: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:64
-#: libraries/import.lib.php:153 navigation.php:587 navigation.php:608
-#: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
-#: tbl_structure.php:882
+#: db_printview.php:102 libraries/Table.class.php:291
+#: libraries/build_html_for_db.lib.php:31 libraries/db_structure.lib.php:42
+#: libraries/header_printview.inc.php:64 libraries/import.lib.php:153
+#: navigation.php:587 navigation.php:608 tbl_printview.php:353
+#: tbl_structure.php:363 tbl_structure.php:469 tbl_structure.php:882
 msgid "Rows"
 msgstr "Строки"
 
@@ -485,7 +487,7 @@ msgstr "Выполнить запрос"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
-#: libraries/auth/cookie.auth.lib.php:581 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:589 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "В доступе отказано"
@@ -1995,7 +1997,6 @@ msgid "Go to link"
 msgstr "Перейти к ссылке"
 
 #: js/messages.php:354
-#| msgid "Column names"
 msgid "Copy column name"
 msgstr "Скопировать имя столбца"
 
@@ -2599,7 +2600,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Соединение невозможно! Неверные настройки."
 
 #: libraries/auth/config.auth.lib.php:86
-#: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:182 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Добро пожаловать в %s"
@@ -2625,62 +2626,62 @@ msgstr ""
 "php и удостоверьтесь, что они соответствуют данным полученным от "
 "администратора сервера MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:36
+#: libraries/auth/cookie.auth.lib.php:44
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Невозможно использование Blowfish из mcrypt!"
 
-#: libraries/auth/cookie.auth.lib.php:200
+#: libraries/auth/cookie.auth.lib.php:208
 msgid "Log in"
 msgstr "Авторизация"
 
-#: libraries/auth/cookie.auth.lib.php:202
-#: libraries/auth/cookie.auth.lib.php:204
+#: libraries/auth/cookie.auth.lib.php:210
+#: libraries/auth/cookie.auth.lib.php:212
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "Документация phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:214
-#: libraries/auth/cookie.auth.lib.php:215
+#: libraries/auth/cookie.auth.lib.php:222
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Вы можете ввести хост/IP адрес и порт разделенные пробелом."
 
-#: libraries/auth/cookie.auth.lib.php:214
+#: libraries/auth/cookie.auth.lib.php:222
 msgid "Server:"
 msgstr "Сервер:"
 
-#: libraries/auth/cookie.auth.lib.php:219
+#: libraries/auth/cookie.auth.lib.php:227
 msgid "Username:"
 msgstr "Пользователь:"
 
-#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "Password:"
 msgstr "Пароль:"
 
-#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:238
 msgid "Server Choice"
 msgstr "Выбор сервера"
 
-#: libraries/auth/cookie.auth.lib.php:276 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:284 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Для полноценной работы необходима поддержка cookies браузером."
 
-#: libraries/auth/cookie.auth.lib.php:579
+#: libraries/auth/cookie.auth.lib.php:587
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "Вход без пароля запрещен при конфигурации (смотрите AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:583
+#: libraries/auth/cookie.auth.lib.php:591
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "Отсутствие активности более %s секунд, пожалуйста, авторизуйтесь заново"
 
-#: libraries/auth/cookie.auth.lib.php:593
-#: libraries/auth/cookie.auth.lib.php:595
+#: libraries/auth/cookie.auth.lib.php:601
+#: libraries/auth/cookie.auth.lib.php:603
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Невозможно подключиться к серверу MySQL"

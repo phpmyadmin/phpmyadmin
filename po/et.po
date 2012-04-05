@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-04 11:29+0200\n"
+"POT-Creation-Date: 2012-04-05 09:58+0200\n"
 "PO-Revision-Date: 2012-03-21 23:50+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "Otsi"
 #: db_structure.php:621 gis_data_editor.php:133 gis_data_editor.php:166
 #: gis_data_editor.php:315 js/messages.php:225 libraries/Config.class.php:1326
 #: libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:248 libraries/common.lib.php:1407
+#: libraries/auth/cookie.auth.lib.php:256 libraries/common.lib.php:1407
 #: libraries/common.lib.php:2458 libraries/core.lib.php:526
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:264
@@ -251,13 +251,15 @@ msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
 #: db_operations.php:300
-#, php-format
-msgid "Database %s has been renamed to %s"
+#, fuzzy, php-format
+#| msgid "Database %s has been renamed to %s"
+msgid "Database %1$s has been renamed to %2$s"
 msgstr "%s andmebaasi uueks nimeks on %s"
 
 #: db_operations.php:304
-#, php-format
-msgid "Database %s has been copied to %s"
+#, fuzzy, php-format
+#| msgid "Database %s has been copied to %s"
+msgid "Database %1$s has been copied to %2$s"
 msgstr "%s andmebaas on kopeeritud kohta %s"
 
 #: db_operations.php:432
@@ -351,11 +353,11 @@ msgstr "Muuda või ekspordi seoseskeemi"
 msgid "Table"
 msgstr "Tabel"
 
-#: db_printview.php:102 libraries/build_html_for_db.lib.php:31
-#: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:64
-#: libraries/import.lib.php:153 navigation.php:587 navigation.php:608
-#: tbl_printview.php:353 tbl_structure.php:363 tbl_structure.php:469
-#: tbl_structure.php:882
+#: db_printview.php:102 libraries/Table.class.php:291
+#: libraries/build_html_for_db.lib.php:31 libraries/db_structure.lib.php:42
+#: libraries/header_printview.inc.php:64 libraries/import.lib.php:153
+#: navigation.php:587 navigation.php:608 tbl_printview.php:353
+#: tbl_structure.php:363 tbl_structure.php:469 tbl_structure.php:882
 msgid "Rows"
 msgstr "Ridu"
 
@@ -483,7 +485,7 @@ msgstr "Saada päring"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
-#: libraries/auth/cookie.auth.lib.php:581 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:589 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "Ligipääs keelatud"
@@ -2584,7 +2586,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Ei saa ühendust: vigased sätted."
 
 #: libraries/auth/config.auth.lib.php:86
-#: libraries/auth/cookie.auth.lib.php:174 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:182 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Tere tulemast %s'i"
@@ -2610,62 +2612,62 @@ msgstr ""
 "veenduma, et need vastavad MySQL serveri administraatori käest saadud "
 "andmetega."
 
-#: libraries/auth/cookie.auth.lib.php:36
+#: libraries/auth/cookie.auth.lib.php:44
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:200
+#: libraries/auth/cookie.auth.lib.php:208
 msgid "Log in"
 msgstr "Logi sisse"
 
-#: libraries/auth/cookie.auth.lib.php:202
-#: libraries/auth/cookie.auth.lib.php:204
+#: libraries/auth/cookie.auth.lib.php:210
+#: libraries/auth/cookie.auth.lib.php:212
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmini dokumentatsioon"
 
-#: libraries/auth/cookie.auth.lib.php:214
-#: libraries/auth/cookie.auth.lib.php:215
+#: libraries/auth/cookie.auth.lib.php:222
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Saad tühikuga eraldades sisestada hostinime/IP-aadressi ja porti."
 
-#: libraries/auth/cookie.auth.lib.php:214
+#: libraries/auth/cookie.auth.lib.php:222
 msgid "Server:"
 msgstr "Server:"
 
-#: libraries/auth/cookie.auth.lib.php:219
+#: libraries/auth/cookie.auth.lib.php:227
 msgid "Username:"
 msgstr "Kasutajanimi:"
 
-#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "Password:"
 msgstr "Parool:"
 
-#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:238
 msgid "Server Choice"
 msgstr "Serveri valik"
 
-#: libraries/auth/cookie.auth.lib.php:276 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:284 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Küpsised peavad olema lubatud."
 
-#: libraries/auth/cookie.auth.lib.php:579
+#: libraries/auth/cookie.auth.lib.php:587
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Paroolita sisselogimine on seadistuses keelatud (vaata AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:583
+#: libraries/auth/cookie.auth.lib.php:591
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s sekundi jooksul aktiivsust polnud. Palun logi uuesti sisse"
 
-#: libraries/auth/cookie.auth.lib.php:593
-#: libraries/auth/cookie.auth.lib.php:595
+#: libraries/auth/cookie.auth.lib.php:601
+#: libraries/auth/cookie.auth.lib.php:603
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Ei saa MySQL serverisse sisse logida"
