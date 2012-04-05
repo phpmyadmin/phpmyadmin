@@ -197,7 +197,7 @@ if (! $GLOBALS['server']) {
     <form method="post" action="index.php" target="_parent" id="left">
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
-        echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
+        echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n"
             .'</form>' . "\n"
             . '</div>' . "\n";
     } else {
