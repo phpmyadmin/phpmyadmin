@@ -297,11 +297,11 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $sql_query .= "\n" . $local_query;
             PMA_DBI_query($local_query);
 
-            $message = PMA_Message::success(__('Database %s has been renamed to %s'));
+            $message = PMA_Message::success(__('Database %1$s has been renamed to %2$s'));
             $message->addParam($db);
             $message->addParam($newname);
         } elseif (! $_error) {
-            $message = PMA_Message::success(__('Database %s has been copied to %s'));
+            $message = PMA_Message::success(__('Database %1$s has been copied to %2$s'));
             $message->addParam($db);
             $message->addParam($newname);
         }
