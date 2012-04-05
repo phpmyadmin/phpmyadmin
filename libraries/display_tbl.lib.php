@@ -2784,6 +2784,8 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
 function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated )
 {
 
+    global $db;
+    
     $result = ' class="' . PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated, $transform_function, $default_function) . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
@@ -2862,6 +2864,26 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
     } else {
         $result .= ($transform_function != $default_function ? $transform_function($data, $transform_options, $meta) : $transform_function($data, array(), $meta));
     }
+    
+    // create hidden field if results from structure table
+    if (isset($_GET['browse_distinct']) && ($_GET['browse_distinct'] == 1)) {
+        
+        $where_comparison = " = '" . $data . "'";
+        
+        $_url_params_for_show_data_row = array(
+                                'db'    => $db,
+                                'table' => $meta->orgtable,
+                                'pos'   => '0',
+                                'sql_query' => 'SELECT * FROM '
+                                                    . PMA_backquote($db) . '.' . PMA_backquote($meta->orgtable)
+                                                    . ' WHERE ' . PMA_backquote($meta->orgname)
+                                                    . $where_comparison,
+        );
+        
+        $result .= '<input type="hidden" class="data_browse_link" value="' . PMA_generate_common_url($_url_params_for_show_data_row). '" />';
+        
+    }
+    
     $result .= '</td>' . "\n";
 
     return $result;
