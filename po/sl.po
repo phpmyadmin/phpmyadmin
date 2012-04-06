@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-06 21:02+0200\n"
+"PO-Revision-Date: 2012-04-06 21:04+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -2620,7 +2620,7 @@ msgstr "Uporaba Blowfish iz mcrypt je spodletela!"
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Po tej točki mora biti JavaScript omogočen."
+msgstr "Po tej točki mora biti JavaScript omogočen"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
