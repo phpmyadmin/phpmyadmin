@@ -154,11 +154,6 @@ function PMA_auth()
 if (top != self) {
     window.top.location.href=location;
 }
-// reveal the login form to users with JS enabled
-$(document).ready(function () {
-    $('form.login').show();
-    $('div.language').show();
-});
 //]]>
 </script>
 </head>
@@ -196,11 +191,7 @@ $(document).ready(function () {
         PMA_Message::rawError($conn_error)->display();
     }
 
-    echo "<noscript>\n";
-    PMA_message::error(__("Javascript must be enabled past this point"))->display();
-    echo "</noscript>\n";
-
-    echo "<div class='language hide'>";
+    echo "<div class='language'>";
     // Displays the languages form
     if (empty($GLOBALS['cfg']['Lang'])) {
         include_once './libraries/display_select_lang.lib.php';
@@ -212,7 +203,7 @@ $(document).ready(function () {
     ?>
 <br />
 <!-- Login form -->
-<form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login hide">
+<form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login">
     <fieldset>
     <legend>
 <?php
