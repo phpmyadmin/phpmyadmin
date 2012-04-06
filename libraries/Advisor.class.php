@@ -283,10 +283,10 @@ class Advisor
                     $ruleLine = 1;
                     $j++;
                     $rules[$j] = array( 'name' => $match[1]);
-                    $lines[$j] = array( 'name' => $i);
+                    $lines[$j] = array( 'name' => $i + 1);
                     if (isset($match[3])) {
                         $rules[$j]['precondition'] = $match[3];
-                        $lines[$j]['precondition'] = $i;
+                        $lines[$j]['precondition'] = $i + 1;
                     }
                 } else {
                     $errors[] = 'Invalid rule declaration on line '.($i+1);
@@ -310,7 +310,7 @@ class Advisor
                     continue;
                 }
                 $rules[$j][$ruleSyntax[$ruleLine]] = chop(substr($line, 1));
-                $lines[$j][$ruleSyntax[$ruleLine]] = $i;
+                $lines[$j][$ruleSyntax[$ruleLine]] = $i + 1;
                 $ruleLine += 1;
             }
 
