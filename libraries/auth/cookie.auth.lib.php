@@ -191,10 +191,6 @@ if (top != self) {
         PMA_Message::rawError($conn_error)->display();
     }
 
-    echo "<noscript>\n";
-    PMA_message::error(__("Javascript must be enabled past this point"))->display();
-    echo "</noscript>\n";
-
     echo "<div class='language'>";
     // Displays the languages form
     if (empty($GLOBALS['cfg']['Lang'])) {
