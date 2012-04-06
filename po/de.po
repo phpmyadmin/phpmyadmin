@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 10:52+0200\n"
-"PO-Revision-Date: 2012-04-06 13:03+0200\n"
+"PO-Revision-Date: 2012-04-06 13:07+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -1617,7 +1617,7 @@ msgstr ""
 
 #: js/messages.php:202
 msgid "Reload page"
-msgstr "Neuladen"
+msgstr "Neu laden"
 
 #: js/messages.php:204
 msgid "Affected rows:"
@@ -1635,7 +1635,7 @@ msgid ""
 "config..."
 msgstr ""
 "Aufbau der Diagramme mit der importierten Konfiguration ist fehlgeschlagen. "
-"Falle auf Standardeinstellungen zurück..."
+"Setze auf Standardeinstellungen zurück..."
 
 #: js/messages.php:208 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:124
@@ -1722,7 +1722,7 @@ msgstr "Datenbanken werden umbenannt"
 
 #: js/messages.php:239
 msgid "Reload Database"
-msgstr "Lade Datenbank neu"
+msgstr "Datenbank neu laden"
 
 #: js/messages.php:240
 msgid "Copying Database"
@@ -1776,7 +1776,7 @@ msgstr "Suchergebnisse ausblenden"
 
 #: js/messages.php:257
 msgid "Show search results"
-msgstr "Zeige Suchergebnisse"
+msgstr "Suchergebnisse anzeigen"
 
 #: js/messages.php:258
 msgid "Browsing"
@@ -1818,7 +1818,7 @@ msgstr "%d Wert(e) hinzufügen"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
-"Hinweis: Wenn die Date mehrere Tabellen enthält, werden diese in einer "
+"Hinweis: Wenn die Datei mehrere Tabellen enthält, werden diese in einer "
 "einzigen Tabelle zusammengefasst"
 
 #: js/messages.php:275
@@ -1877,7 +1877,7 @@ msgstr ""
 
 #: js/messages.php:298
 msgid "Click and drag the mouse to navigate the plot."
-msgstr "Klicken und ziehen Sie mit der Maus, um in der Grafik zu navigieren."
+msgstr "Klicken und ziehen Sie die Maus, um in der Grafik zu navigieren."
 
 #: js/messages.php:300
 msgid "Click reset zoom link to come back to original state."
@@ -1949,8 +1949,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
-"Sie haben die Änderungen im Layout nicht gespeichert. Sie werden verworfen "
-"wenn Sie diese nicht speichern. Wünschen Sie fortzufahren?"
+"Sie haben die Änderungen im Layout nicht gespeichert. Sie gehen verloren "
+"wenn Sie nicht speichern. Möchten Sie fortfahren?"
 
 #: js/messages.php:340
 msgid "Add an option for column "
