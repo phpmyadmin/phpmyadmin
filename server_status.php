@@ -26,7 +26,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         switch($_REQUEST['type']) {
         // Process and Connections realtime chart
         case 'proc':
-            $c = PMA_DBI_fetch_result("SHOW GLOBAL STATUS WHERE Variable_name = 'Connections'", 0, 1);
+            $c = PMA_DBI_fetch_result(
+                "SHOW GLOBAL STATUS WHERE Variable_name = 'Connections'", 0, 1
+            );
             $result = PMA_DBI_query('SHOW PROCESSLIST');
             $num_procs = PMA_DBI_num_rows($result);
 
@@ -106,7 +108,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                         switch ($dataPoint['type']) {
                         /* We only collect the status and server variables here to
-                         * read them all in one query, and only afterwards assign them.
+                         * read them all in one query,
+                         * and only afterwards assign them.
                          * Also do some white list filtering on the names
                         */
                         case 'servervar':
@@ -123,7 +126,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                         case 'proc':
                             $result = PMA_DBI_query('SHOW PROCESSLIST');
-                            $ret[$chart_id][$node_id][$point_id]['value'] = PMA_DBI_num_rows($result);
+                            $ret[$chart_id][$node_id][$point_id]['value']
+                                = PMA_DBI_num_rows($result);
                             break;
 
                         case 'cpu':
@@ -136,10 +140,13 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                             }
 
                             if (PHP_OS == 'Linux') {
-                                $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
-                                $ret[$chart_id][$node_id][$point_id]['busy'] = $cpuload['busy'];
+                                $ret[$chart_id][$node_id][$point_id]['idle']
+                                    = $cpuload['idle'];
+                                $ret[$chart_id][$node_id][$point_id]['busy']
+                                    = $cpuload['busy'];
                             } else
-                                $ret[$chart_id][$node_id][$point_id]['value'] = $cpuload['loadavg'];
+                                $ret[$chart_id][$node_id][$point_id]['value']
+                                    = $cpuload['loadavg'];
 
                             break;
 
@@ -152,7 +159,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 $memory  = $sysinfo->memory();
                             }
 
-                            $ret[$chart_id][$node_id][$point_id]['value'] = $memory[$pName];
+                            $ret[$chart_id][$node_id][$point_id]['value']
+                                = $memory[$pName];
                             break;
                         } /* switch */
                     } /* foreach */
@@ -185,10 +193,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     foreach ($nodeDataPoints as $point_id => $dataPoint) {
                         switch($dataPoint['type']) {
                         case 'statusvar':
-                            $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
+                            $ret[$chart_id][$node_id][$point_id]['value']
+                                = $statusVarValues[$dataPoint['name']];
                             break;
                         case 'servervar':
-                            $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
+                            $ret[$chart_id][$node_id][$point_id]['value']
+                                = $serverVarValues[$dataPoint['name']];
                             break;
                         }
                     }
@@ -211,10 +221,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $end = intval($_REQUEST['time_end']);
 
         if ($_REQUEST['type'] == 'slow') {
-            $q = 'SELECT start_time, user_host, Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, '.
-                 'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, db, sql_text, COUNT(sql_text) AS \'#\' '.
-                 'FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME(' . $start . ') '.
-                 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
+            $q = 'SELECT start_time, user_host, ';
+            $q .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
+            $q .= 'Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, ';
+            $q .= 'SUM(rows_sent) AS rows_sent, ';
+            $q .= 'SUM(rows_examined) AS rows_examined, db, sql_text, ';
+            $q .= 'COUNT(sql_text) AS \'#\' ';
+            $q .= 'FROM `mysql`.`slow_log` ';
+            $q .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
+            $q .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
 
             $result = PMA_DBI_try_query($q);
 
@@ -222,17 +237,20 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $type = '';
 
             while ($row = PMA_DBI_fetch_assoc($result)) {
-                $type = strtolower(substr($row['sql_text'], 0, strpos($row['sql_text'], ' ')));
+                $type = strtolower(
+                    substr($row['sql_text'], 0, strpos($row['sql_text'], ' '))
+                );
 
                 switch($type) {
                 case 'insert':
                 case 'update':
-                    // Cut off big inserts and updates, but append byte count therefor
+                    //Cut off big inserts and updates, but append byte count instead
                     if (strlen($row['sql_text']) > 220) {
+                        $implode_sql_text = implode(
+                            ' ', PMA_formatByteDown(strlen($row['sql_text']), 2, 2)
+                        );
                         $row['sql_text'] = substr($row['sql_text'], 0, 200)
-                            . '... ['
-                            .  implode(' ', PMA_formatByteDown(strlen($row['sql_text']), 2, 2))
-                            . ']';
+                            . '... [' . $implode_sql_text . ']';
                     }
                     break;
                 default:
@@ -256,12 +274,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         if ($_REQUEST['type'] == 'general') {
             $limitTypes = (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes'])
-                            ? 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ' : '';
+                ? 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ' : '';
 
-            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' '.
-                 'FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
-                 'AND event_time > FROM_UNIXTIME(' . $start . ') AND event_time < FROM_UNIXTIME(' . $end . ') '.
-                 $limitTypes . 'GROUP by argument'; // HAVING count > 1';
+            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, ';
+            $q .= 'server_id, argument, count(argument) as \'#\' ';
+            $q .= 'FROM `mysql`.`general_log` ';
+            $q .= 'WHERE command_type=\'Query\' ';
+            $q .= 'AND event_time > FROM_UNIXTIME(' . $start . ') ';
+            $q .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
+            $q .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
             $result = PMA_DBI_try_query($q);
 
@@ -270,7 +291,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $insertTables = array();
             $insertTablesFirst = -1;
             $i = 0;
-            $removeVars = isset($_REQUEST['removeVariables']) && $_REQUEST['removeVariables'];
+            $removeVars = isset($_REQUEST['removeVariables'])
+                && $_REQUEST['removeVariables'];
 
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 preg_match('/^(\w+)\s/', $row['argument'], $match);
@@ -287,7 +309,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     if ($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
-                            $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
+                            $return['rows'][$insertTablesFirst]['#']
+                                = $insertTables[$matches[2]];
 
                             // Add a ... to the end of this query to indicate that there's been other queries
                             if ($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.') {
