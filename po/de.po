@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-04-06 14:11+0200\n"
+"PO-Revision-Date: 2012-04-06 15:19+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -3121,7 +3121,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:245
 msgid "Format of imported file"
-msgstr "Dateiformat"
+msgstr "Format der importierten Datei"
 
 #: libraries/config/messages.inc.php:249 libraries/import/ldi.php:45
 msgid "Use LOCAL keyword"
