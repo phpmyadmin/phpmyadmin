@@ -258,6 +258,7 @@ class Advisor
         $file = file('libraries/advisory_rules.txt');
         $errors = array();
         $rules = array();
+        $lines = array();
         $ruleSyntax = array('name', 'formula', 'test', 'issue', 'recommendation', 'justification');
         $numRules = count($ruleSyntax);
         $numLines = count($file);
@@ -282,8 +283,10 @@ class Advisor
                     $ruleLine = 1;
                     $j++;
                     $rules[$j] = array( 'name' => $match[1]);
+                    $lines[$j] = array( 'name' => $i);
                     if (isset($match[3])) {
                         $rules[$j]['precondition'] = $match[3];
+                        $lines[$j]['precondition'] = $i;
                     }
                 } else {
                     $errors[] = 'Invalid rule declaration on line '.($i+1);
@@ -306,7 +309,9 @@ class Advisor
                         . Expected tab, but found \''.$line[0].'\'';
                     continue;
                 }
-                $rules[$j][$ruleSyntax[$ruleLine++]] = chop(substr($line, 1));
+                $rules[$j][$ruleSyntax[$ruleLine]] = chop(substr($line, 1));
+                $lines[$j][$ruleSyntax[$ruleLine]] = $i;
+                $ruleLine += 1;
             }
 
             // Rule complete
@@ -315,7 +320,7 @@ class Advisor
             }
         }
 
-        return array('rules' => $rules, 'errors' => $errors);
+        return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
     }
 }
 
