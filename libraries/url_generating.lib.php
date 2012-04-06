@@ -135,7 +135,7 @@ function PMA_getHiddenFields($values, $pre = '')
  * Generates text with URL parameters.
  *
  * <code>
- * // OLD derepecated style
+ * // OLD (deprecated) style
  * // note the ?
  * echo 'script.php?' . PMA_generate_common_url('mysql', 'rights');
  * // produces with cookies enabled:
