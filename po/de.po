@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-31 00:40+0100\n"
-"Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
+"PO-Revision-Date: 2012-04-06 12:59+0200\n"
+"Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Das Ziel-Browserfenster konnte nicht aktualisiert werden. Möglicherweise "
 "wurde das Ursprungsfenster geschlossen oder der Browser verhindert den "
-"Zugriff aufgrund von Ihren Sicherheitseinstellungen."
+"Zugriff aufgrund Ihrer Sicherheitseinstellungen."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:2827
 #: libraries/common.lib.php:2834 libraries/common.lib.php:3013
@@ -310,7 +310,7 @@ msgstr "Vor dem Kopieren CREATE DATABASE ausführen"
 #: libraries/config/messages.inc.php:133 tbl_operations.php:552
 #, php-format
 msgid "Add %s"
-msgstr "Füge %s hinzu"
+msgstr "%s hinzufügen"
 
 #: db_operations.php:505 libraries/config/messages.inc.php:117
 #: tbl_operations.php:310 tbl_operations.php:554
@@ -632,9 +632,7 @@ msgstr "Gesamt"
 #: db_structure.php:481 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
-"%s die Storage-Engine die standardmäßig auf diesem MySQL-Server eingestellt "
-"ist."
+msgstr "%s ist die Standard Storage-Engine dieses MySQL-Servers."
 
 #: db_structure.php:509 db_structure.php:526 db_structure.php:527
 #: libraries/display_tbl.lib.php:2219 libraries/display_tbl.lib.php:2224
@@ -751,7 +749,7 @@ msgstr "Aktion"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "Lösche die Verlaufsdaten für diese Tabelle"
+msgstr "Lösche die Verlaufsdaten dieser Tabelle"
 
 #: db_tracking.php:119 tbl_tracking.php:543 tbl_tracking.php:601
 msgid "active"
@@ -857,8 +855,8 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 "Sie haben versucht, eine Datei zu laden, die mit einem nicht unterstützten "
-"Verfahren komprimiert wurde (%s). Entweder ist die Unterstützung für "
-"selbiges nicht implementiert oder in Ihrer Konfiguration deaktiviert."
+"Verfahren komprimiert wurde (%s). Entweder ist das Verfahren nicht "
+"implementiert oder in Ihrer Konfiguration deaktiviert."
 
 #: import.php:336
 msgid ""
@@ -970,8 +968,7 @@ msgstr "Primary Key/Index wird gelöscht"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
-"Diese Operation könnte einige Zeit beanspruchen. Trotzdem weitermachen?"
+msgstr "Diese Operation könnte einige Zeit beanspruchen. Trotzdem fortfahren ?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -996,7 +993,7 @@ msgstr "Es wurde kein Host angegeben!"
 
 #: js/messages.php:49
 msgid "The user name is empty!"
-msgstr "Kein Benutzername eingegeben!"
+msgstr "Es wurde kein Benutzername eingegeben!"
 
 #: js/messages.php:50 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
@@ -1025,7 +1022,7 @@ msgstr "Die ausgewählten Benutzer werden gelöscht"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:246 tbl_tracking.php:374
 msgid "Close"
-msgstr "Schliesse"
+msgstr "Schliessen"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
