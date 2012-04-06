@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-04-06 12:59+0200\n"
+"PO-Revision-Date: 2012-04-06 14:11+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -1062,7 +1062,7 @@ msgstr "Datenbanken werden umbenannt"
 
 #: js/messages.php:72
 msgid "Reload Database"
-msgstr "Lade Datenbank neu"
+msgstr "Datenbank neu laden"
 
 #: js/messages.php:73
 msgid "Copying Database"
@@ -1175,7 +1175,7 @@ msgid ""
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 "Es ist eine neuere Version von phpMyAdmin verfügbar. Ein Update wird "
-"vorgeschlagen. Die aktuelle Version ist %s, erschienen am %s."
+"empfohlen. Die aktuelle Version ist %s, erschienen am %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:120
@@ -1449,7 +1449,7 @@ msgstr ""
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
-msgstr "Die Datei wurde teilweise übertragen."
+msgstr "Die Datei wurde nur teilweise übertragen."
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
@@ -1461,11 +1461,11 @@ msgstr "Datei konnte gespeichert werden."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
-msgstr "Dateihochladen durch eine Erweiterung gestoppt."
+msgstr "Hochladen der Datei wurde durch die Erweiterung gestoppt."
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr "Unbekannter Fehler beim Dateihochladen."
+msgstr "Unbekannter Fehler beim hochladen der Datei."
 
 #: libraries/File.class.php:559
 msgid ""
@@ -1644,9 +1644,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"Eine mögliche Ursache wäre, dass Sie noch keine Konfigurationsdatei angelegt "
-"haben. Verwenden Sie in diesem Fall doch das %1$sSetup-Skript%2$s, um eine "
-"solche zu erstellen."
+"Sie haben möglicherweise noch keine Konfigurationsdatei erstellt. Sei können "
+"das %1$sSetup-Skript%2$s verwenden, um eine zu erstellen."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -1655,10 +1654,10 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin hat versucht eine Verbindung zum MySQL-Server aufzubauen, jedoch "
-"hat dieser die Verbindung zurückgewiesen. Sie sollten Ihre Einstellungen für "
-"Host, Benutzername und Passwort in Ihrer config.inc.php überprüfen und sich "
-"vergewissern, dass diese den Informationen, welche Sie vom Administrator "
+"phpMyAdmin hat versucht eine Verbindung zum MySQL-Server aufzubauen und die "
+"Verbindung wurde zurückgewiesen. Sie sollten Ihre Einstellungen für Host, "
+"Benutzername und Passwort in Ihrer config.inc.php überprüfen und sich "
+"vergewissern, dass diese den Informationen, die Sie vom Administrator "
 "erhalten haben, entsprechen."
 
 #: libraries/auth/cookie.auth.lib.php:230
@@ -1705,7 +1704,8 @@ msgstr "Ab diesem Punkt müssen Cookies aktiviert sein."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"Login ohne Passwort ist verboten (siehe AllowNoPassword in der Konfiguration)"
+"Login ohne Passwort ist verboten (siehe AllowNoPassword) in der "
+"Konfiguration"
 
 #: libraries/auth/cookie.auth.lib.php:652
 #: libraries/auth/signon.auth.lib.php:226
@@ -1924,19 +1924,19 @@ msgstr "Maximal: %s%s"
 #: libraries/common.lib.php:404
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "de"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:408
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "de"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:412
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "de"
 
 #: libraries/common.lib.php:425 libraries/common.lib.php:427
 #: libraries/common.lib.php:429 libraries/common.lib.php:445
@@ -3600,11 +3600,11 @@ msgstr "Erlaube root Login"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "HTTP Basic Auth Realm Name , der bei HTTP Auth angezeigt wird"
+msgstr "HTTP Basic Auth Bereich Name der bei HTTP Auth angezeigt wird"
 
 #: libraries/config/messages.inc.php:361
 msgid "HTTP Realm"
-msgstr "HTTP Realm"
+msgstr "HTTP Bereich"
 
 #: libraries/config/messages.inc.php:362
 msgid ""
@@ -6048,7 +6048,7 @@ msgstr "unbekannt"
 #: libraries/navigation_header.inc.php:60
 #: libraries/navigation_header.inc.php:61
 msgid "Home"
-msgstr "Home"
+msgstr "Startseite"
 
 #: libraries/navigation_header.inc.php:70
 #: libraries/navigation_header.inc.php:73
