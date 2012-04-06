@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 10:52+0200\n"
-"PO-Revision-Date: 2012-04-05 16:17+0200\n"
+"PO-Revision-Date: 2012-04-06 11:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2605,10 +2605,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Při použití funkce Blowfish z knihovny mcrypt došlo k chybě!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Přihlášení vyžaduje povolené cookies."
+msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript."
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
