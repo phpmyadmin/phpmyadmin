@@ -163,9 +163,6 @@ if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
         .'<form method="post" action="index.php" target="_parent">' . "\n"
         .PMA_generate_common_hidden_inputs() . "\n"
         .PMA_RecentTable::getInstance()->getHtmlSelect()
-        .'<noscript>' . "\n"
-        .'<input type="submit" name="Go" value="' . __('Go') . '" />' . "\n"
-        .'</noscript>' . "\n"
         .'</form>' . "\n"
         .'</div>' . "\n";
 }
@@ -200,10 +197,7 @@ if (! $GLOBALS['server']) {
     <form method="post" action="index.php" target="_parent" id="left">
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
-        echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
-        echo '<noscript>' . "\n"
-            .'<input type="submit" name="Go" value="' . __('Go') . '" />' . "\n"
-            .'</noscript>' . "\n"
+        echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n"
             .'</form>' . "\n"
             . '</div>' . "\n";
     } else {

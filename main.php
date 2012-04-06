@@ -112,7 +112,6 @@ if ($server > 0
            . '            </label>' . "\n"
 
            . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
-           . '            <noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n"
            . '        </form>' . "\n"
            . '    </li>' . "\n";
     } // end of if ($server > 0 && !PMA_DRIZZLE)
@@ -329,15 +328,6 @@ if ($server > 0) {
         $message->display();
     } // end if
 }
-
-/**
- * Show notice when javascript support is missing.
- */
-echo '<noscript>';
-$message = PMA_Message::notice(__('Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.'));
-$message->isError(true);
-$message->display();
-echo '</noscript>';
 
 /**
  * Warning about different MySQL library and server version

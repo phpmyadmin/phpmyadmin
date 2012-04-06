@@ -1322,9 +1322,6 @@ class PMA_Config
             . ' method="post" action="index.php" target="_parent">' . "\n"
             . PMA_generate_common_hidden_inputs() . "\n"
             . PMA_Config::_getFontsizeSelection() . "\n"
-            . '<noscript>' . "\n"
-            . '<input type="submit" value="' . __('Go') . '" />' . "\n"
-            . '</noscript>' . "\n"
             . '</form>';
     }
 

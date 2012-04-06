@@ -306,7 +306,6 @@ class PMA_Theme_Manager
         $select_box .=  '</select>';
 
         if ($form) {
-            $select_box .=  '<noscript><input type="submit" value="' . __('Go') . '" /></noscript>';
             $select_box .=  '</form>';
         }
 
