@@ -1507,7 +1507,7 @@ function printVariablesTable()
             <th class="name"><?php
             echo htmlspecialchars(str_replace('_', ' ', $name));
             /* Fields containing % are calculated, they can not be described in MySQL documentation */
-            if (strpos($name, '%') === FALSE) {
+            if (strpos($name, '%') === false) {
                  echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name);
             }
             ?>
