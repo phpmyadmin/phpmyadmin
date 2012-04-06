@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 10:52+0200\n"
-"PO-Revision-Date: 2012-04-06 13:02+0200\n"
+"PO-Revision-Date: 2012-04-06 13:03+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -1560,7 +1560,7 @@ msgstr "Gesamt Zeit:"
 
 #: js/messages.php:186
 msgid "Profiling results"
-msgstr "Messergebnisse"
+msgstr "Profiler Ergebnisse"
 
 #: js/messages.php:187
 msgctxt "Display format"
