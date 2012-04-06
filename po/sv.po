@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 10:52+0200\n"
-"PO-Revision-Date: 2012-04-04 19:03+0200\n"
+"PO-Revision-Date: 2012-04-06 12:16+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -245,16 +245,16 @@ msgid "The database name is empty!"
 msgstr "Databasens namn är tomt!"
 
 #: db_operations.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Databasen %s har bytt namn till %s"
+msgstr "Databasen %1$s har bytt namn till %2$s"
 
 #: db_operations.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Databas %s har kopierats till %s"
+msgstr "Databasen %1$s har kopierats till %2$s"
 
 #: db_operations.php:432
 msgid "Rename database to"
@@ -1983,10 +1983,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Högerklicka på kolumnnamnet för att kopiera det till urklipp."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Uppdatera rad(er)"
+msgstr "Visa datarad(er)"
 
 #: js/messages.php:359
 msgid "Generate password"
@@ -2607,10 +2606,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Misslyckades med att använda Blowfish från mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Kakor (cookies) måste tillåtas för att gå vidare."
+msgstr "Javascript måste vara aktiverat efter detta"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
