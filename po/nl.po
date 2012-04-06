@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-31 22:23+0200\n"
+"PO-Revision-Date: 2012-04-06 09:39+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -5658,7 +5658,7 @@ msgstr "Geen rechten"
 #: libraries/display_create_table.lib.php:46 pmd_general.php:71
 #: server_synchronize.php:442 server_synchronize.php:914
 msgid "Create table"
-msgstr "Maak tabel"
+msgstr "Tabel aanmaken"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
@@ -8700,7 +8700,7 @@ msgstr "Tabellen filteren op naam"
 #: navigation.php:303 navigation.php:304
 msgctxt "short form"
 msgid "Create table"
-msgstr "Maak tabel"
+msgstr "Tabel aanmaken"
 
 #: navigation.php:309 navigation.php:473
 msgid "Please select a database"
