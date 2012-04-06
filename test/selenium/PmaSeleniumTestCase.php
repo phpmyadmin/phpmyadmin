@@ -4,7 +4,7 @@
  * Selenium parent class for TestCases
  *
  * @package PhpMyAdmin-test
- * @group Selenium
+ * @subpackage Selenium
  */
 
 class PmaSeleniumTestCase
@@ -15,55 +15,57 @@ class PmaSeleniumTestCase
     private $selenium;
     private $config;
 
-    public function __construct($selenium) {
+    public function __construct($selenium)
+    {
         $this->txtUsername = 'input_username';
         $this->txtPassword = 'input_password';
         $this->btnLogin = 'input_go';
-	$this->config = new TestConfig();
+        $this->config = new TestConfig();
         $this->selenium = $selenium;
-
     }
 
-     /**
+    /**
      * perform a login
-     * @param <type> $username
-     * @param <type> $password
+     *
+     * @param string $username Username
+     * @param string $password Password
+     *
+     * @return void
      */
-    public function login($username, $password) {
-
+    public function login($username, $password)
+    {
         $this->selenium->open($this->config->getLoginURL());
         $this->selenium->type($this->txtUsername, $username);
         $this->selenium->type($this->txtPassword, $password);
         $this->selenium->click($this->btnLogin);
         $this->selenium->waitForPageToLoad($this->config->getTimeoutValue());
-        
     }
 
     /**
      *
      * @return boolean
      */
-    public function isSuccessLogin() {
-	    if($this->selenium->isElementPresent("//*[@id=\"serverinfo\"]")){
-		    return true;
-	    } else {
-		    return false;
-	    }
-    }
-    
-    /**
-     *
-     * @return boolean
-     */
-    public function isUnsuccessLogin() {
-	    $val = $this->selenium->getValue('input_go');
-	    if($this->selenium->isElementPresent("//html/body/div/div[@class='error']")){
-		    return true;
-	    } else {
-		    return false;
-	    }
+    public function isSuccessLogin()
+    {
+        if ($this->selenium->isElementPresent("//*[@id=\"serverinfo\"]")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    /**
+    *
+    * @return boolean
+    */
+    public function isUnsuccessLogin()
+    {
+        $val = $this->selenium->getValue('input_go');
+        if ($this->selenium->isElementPresent("//html/body/div/div[@class='error']")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
-
 ?>
