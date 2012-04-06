@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-06 13:01+0200\n"
+"PO-Revision-Date: 2012-04-06 13:03+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -1511,7 +1511,7 @@ msgid ""
 "database administrator."
 msgstr ""
 "Sie können diese Variablen nicht ändern. Bitte melden Sie sich mit einem "
-"Root-Benutzer ein, oder kontaktieren Sie Ihren Datenbank-Administrator."
+"Root-Benutzer an, oder kontaktieren Sie Ihren Datenbank-Administrator."
 
 #: js/messages.php:165
 msgid "Change settings"
@@ -1610,7 +1610,7 @@ msgstr "Gesamt Zeit:"
 
 #: js/messages.php:190
 msgid "Profiling results"
-msgstr "Messergebnisse"
+msgstr "Profiler Ergebnisse"
 
 #: js/messages.php:191
 msgctxt "Display format"
