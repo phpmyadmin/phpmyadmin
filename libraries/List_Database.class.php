@@ -383,7 +383,7 @@ require_once './libraries/List.class.php';
 
         $return = '<select name="db" id="lightm_db" lang="en" dir="ltr"'
             . ' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
-            . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
+            . '<option value="" dir="' . htmlspecialchars($GLOBALS['text_dir']) . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
@@ -403,7 +403,7 @@ require_once './libraries/List.class.php';
                 }
                 $return .= '>' . htmlspecialchars($cut ? $db['disp_name_cut'] : $db['disp_name']);
                 if (! empty($db['num_tables'])) {
-                    $return .= ' (' . $db['num_tables'] . ')';
+                    $return .= ' (' . htmlspecialchars($db['num_tables']) . ')';
                 }
                 $return .= '</option>' . "\n";
             }

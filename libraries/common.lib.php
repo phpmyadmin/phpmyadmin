@@ -2747,8 +2747,9 @@ function PMA_generate_slider_effect($id, $message)
 function PMA_toggleButton($action, $select_name, $options, $callback)
 {
     // Do the logic first
-    $link_on = "$action&amp;$select_name=" . urlencode($options[1]['value']);
-    $link_off = "$action&amp;$select_name=" . urlencode($options[0]['value']);
+    $link = "$action&amp;" . urlencode($select_name) . "=";
+    $link_on = $link . urlencode($options[1]['value']);
+    $link_off = $link . urlencode($options[0]['value']);
     if ($options[1]['selected'] == true) {
         $state = 'on';
     } else if ($options[0]['selected'] == true) {
@@ -2761,7 +2762,8 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     $retval .= "<div class='wrapper toggleAjax hide'>\n";
     $retval .= "    <div class='toggleButton'>\n";
     $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
-    $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
+    $retval .= "           <img src='" . htmlspecialchars($GLOBALS['pmaThemeImage']);
+    $retval .= "toggle-" . htmlspecialchars($GLOBALS['text_dir']) . ".png'\n";
     $retval .= "                 alt='' />\n";
     $retval .= "            <table class='nospacing nopadding'>\n";
     $retval .= "                <tbody>\n";
@@ -2769,20 +2771,22 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     $retval .= "                <td class='toggleOn'>\n";
     $retval .= "                    <span class='hide'>$link_on</span>\n";
     $retval .= "                    <div>";
-    $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "\n";
+    $retval .= str_replace(' ', '&nbsp;', htmlspecialchars($options[1]['label'])) . "\n";
     $retval .= "                    </div>\n";
     $retval .= "                </td>\n";
     $retval .= "                <td><div>&nbsp;</div></td>\n";
     $retval .= "                <td class='toggleOff'>\n";
     $retval .= "                    <span class='hide'>$link_off</span>\n";
     $retval .= "                    <div>";
-    $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "\n";
+    $retval .= str_replace(' ', '&nbsp;', htmlspecialchars($options[0]['label'])) . "\n";
     $retval .= "                    </div>\n";
     $retval .= "                </tr>\n";
     $retval .= "                </tbody>\n";
     $retval .= "            </table>\n";
-    $retval .= "            <span class='hide callback'>$callback</span>\n";
-    $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
+    $retval .= "            <span class='hide callback'>";
+    $retval .= htmlspecialchars($callback) . "</span>\n";
+    $retval .= "            <span class='hide text_direction'>";
+    $retval .= htmlspecialchars($GLOBALS['text_dir']) . "</span>\n";
     $retval .= "        </div>\n";
     $retval .= "    </div>\n";
     $retval .= "</div>\n";
