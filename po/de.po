@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-06 16:01+0200\n"
+"PO-Revision-Date: 2012-04-06 17:14+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -245,16 +245,16 @@ msgid "The database name is empty!"
 msgstr "Der Datenbankname ist leer!"
 
 #: db_operations.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Datenbank %s wurde umbenannt zu %s"
+msgstr "Datenbank %1$s wurde umbenannt in %2$s"
 
 #: db_operations.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Datenbank %s wurde nach %s kopiert"
+msgstr "Datenbank %1$s wurde nach %2$s kopiert"
 
 #: db_operations.php:432
 msgid "Rename database to"
@@ -1028,10 +1028,9 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" - Anweisungen wurden deaktiviert."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:305 sql.php:386
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "Möchten Sie wirklich diese Abfrage ausführen "
+msgstr "Möchten Sie diese Abfrage wirklich ausführen?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:371
 msgid "You are about to DESTROY a complete database!"
@@ -1749,22 +1748,19 @@ msgid "Show indexes"
 msgstr "Indexes anzeigen"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:313
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Fremdschlüsselüberprüfung deaktivieren"
+msgstr "Fremdschlüsselüberprüfung:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Aktiviert"
+msgstr "(Aktiviert)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Deaktiviert"
+msgstr "(Deaktiviert)"
 
 #: js/messages.php:255
 msgid "Searching"
@@ -1982,7 +1978,7 @@ msgstr "Klicken zum aus- bzw. abwählen"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Doppelklicken Sie um den Spaltenname zu kopieren"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2012,20 +2008,19 @@ msgid "Go to link"
 msgstr "Gehe zur Verknüpfung"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Spaltennamen"
+msgstr "Spaltennamen kopieren"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Klicken Sie auf den Spaltennamen, um ihn in die Zwischenablage zu kopieren."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Zeile(n) aktualisieren"
+msgstr "Zeige Daten Zeile(n)"
 
 #: js/messages.php:359
 msgid "Generate password"
@@ -2651,10 +2646,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Benutzung von Blowfish des mcrypt-Pakets fehlgeschlagen!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Ab diesem Punkt müssen Cookies aktiviert sein."
+msgstr "Javascript muss ab hier aktiviert sein"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -6564,7 +6558,7 @@ msgstr ""
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "TRUNCATE Tabelle vor dem Einfügen"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -8100,10 +8094,10 @@ msgid "Table seems to be empty!"
 msgstr "Die Tabelle scheint leer zu sein!"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Tracking der Tabelle %s.%s ist aktiviert."
+msgstr "Tracking von %s ist aktiviert."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
@@ -8264,6 +8258,9 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Fügt Text in eine Zeichenfolge ein. Die einzige Option ist das der Text "
+"angefügt werden (eingeschlossen in einfache Anführungszeichen, standardgemäß "
+"leere Zeichenfolge)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
@@ -10312,6 +10309,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Schlüssel-Zwischenspeicher Fehlberechnung als Verhältnis zwischen "
+"physikalischen Lese-Operationen und Lese-Anfragen (berechneter Wert)"
 
 #: server_status.php:1368
 msgid "The number of requests to write a key block to the cache."
@@ -10328,6 +10327,8 @@ msgstr ""
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Prozentsatz der physikalischen Schreib-Operationen im Vergleich zu Schreib-"
+"Anfragen (berechneter Wert)"
 
 #: server_status.php:1371
 msgid ""
@@ -10565,7 +10566,7 @@ msgstr ""
 
 #: server_status.php:1406
 msgid "Thread cache hit rate (calculated value)"
-msgstr ""
+msgstr "Prozess-Zwischenspeicher Erfolgsrate (berechneter Wert)"
 
 #: server_status.php:1407
 msgid "The number of threads that are not sleeping."
@@ -11789,22 +11790,22 @@ msgid "Tracking report for table `%s`"
 msgstr "Verlaufs-Report für Tabelle %s"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Version %s ist erstellt, Tracking von %s.%s ist aktiviert."
+msgstr "Version %1$s wurde erstellt, Tracking von %2$s ist aktiviert."
 
 #: tbl_tracking.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Tracking der Tabelle %s.%s ist aktiviert."
+msgstr "Tracking für %1$s wurde deaktiviert bei Version %2$s."
 
 #: tbl_tracking.php:198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Tracking der Tabelle %s.%s ist aktiviert."
+msgstr "Tracking für %1$s wurde aktiviert bei Version %2$s."
 
 #: tbl_tracking.php:211
 msgid "SQL statements executed."
@@ -12473,6 +12474,15 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Verändern von {query_cache_limit} (in der Regel durch erhöhen) kann die "
+"Effizienz steigern. Diese Variable bestimmt die maximale Größe eines "
+"Abfrageergebnis das in den Abfrage-Cache eingefügt werden soll. Wenn es "
+"viele Abfrageergebnisse über 1 MiB gibt die sich auch zwischenspeichern "
+"lassen (viele Lesevorgänge, wenig schreibt) dann kann ein erhöhen von "
+"{query_cache_limit} die Effizienz erhöhen. Während bei viele "
+"Abfrageergebnisse über 1 MiB die nicht sehr gut zwischenspeicherbar sind "
+"(oft aufgrund von Aktualisierungen der Tabelle ungültig) ein Erhöhen von "
+"{query_cache_limit} die Effizienz reduzieren kann."
 
 #: libraries/advisory_rules.txt:184
 msgid "query_cache_limit is set to 1 MiB"
@@ -12581,6 +12591,14 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Dies bedeutet in der Regel häufig vollständige Indexscans. Vollständige "
+"Indexscans sind schneller als Tablenscans aber sie kosten viele CPU-Zyklen "
+"in großen Tabellen, wenn diese Tabellen ein große Mengen von "
+"Aktualisierungen und Löschungen haben oder hatten. Ein Ausführen von "
+"\"OPTIMIZE TABLE\" auf diese Tabllen kann die Menge verringern und/oder die "
+"Geschwindigkeit der  vollständige Indexscans beschleunigen. Abgesehen davon "
+"können vollständige Indexscans nur durch umschreiben der Abfragen reduziert "
+"werden."
 
 #: libraries/advisory_rules.txt:222
 #, php-format
@@ -12910,7 +12928,7 @@ msgid "Table lock wait rate"
 msgstr "Tabellen Sperre Warte Rate"
 
 #: libraries/advisory_rules.txt:337
-#, fuzzy, php-format
+#, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Tabellen Sperre Warte Rate: %s, dieser Wert sollte weniger als 1 pro Stunde "
@@ -13126,7 +13144,7 @@ msgstr "InnoDB ist in der Regel die bessere Wahl für Tabelle Designer."
 
 #: libraries/advisory_rules.txt:411
 msgid "have_innodb is set to 'value'"
-msgstr "have_innodb ist auf 'value' eingestellt."
+msgstr "have_innodb ist auf 'value' eingestellt"
 
 #: libraries/advisory_rules.txt:413
 #| msgid "Buffer pool size"
@@ -13155,6 +13173,17 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Vor allem auf einem System mit einer Menge von Schreibzugriffen auf InnoDB-"
+"Tabellen sollten Sie innodb_log_file_size auf 25%% von "
+"{innodb_buffer_pool_size} setzen. Jedoch, je größer dieser Wert, desto "
+"länger wird die Wiederherstellungszeit bei Datenbank Abstürzen, so dass "
+"dieser Wert nicht viel höher als 256 MiB gsetzt werden sollte. Bitte "
+"beachten Sie jedoch, dass Sie nicht einfach den Wert dieser Variablen ändern "
+"können. Sie müssen den Server herunterfahren, die InnoDB-Logdateien "
+"löschen, den neuen Wert in my.cnf eintragen, den Server neu starten und dann "
+"das Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: libraries/advisory_rules.txt:418
 #, php-format
@@ -13186,6 +13215,17 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"Es üblicherweise ausreichend innodb_log_file_size auf 25%% der Größe von "
+"{Innodb_buffer_pool_size} einzustellen. Eine sehr große innodb_log_file_size "
+"verlangsamt die Wiederherstellungszeit nach einem Datenbank Absturz "
+"erheblich. Siehe auch <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">diesen Artikels</a>. Sie müssen den Server "
+"herunterfahren, die InnoDB-Logdateien löschen, den neuen Wert in my.cnf "
+"eintragen, den Server neu starten und dann das Fehlerprotokoll überprüfen ob "
+"alles gut ging. Siehe auch <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: libraries/advisory_rules.txt:425
 #, php-format
@@ -13215,6 +13255,18 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"Der InnoDB-Pufferpool hat tiefgreifende Auswirkungen auf die Leistung für "
+"InnoDB-Tabellen. Weisen Sie dieser Puffer alle Ihren verbleibenden "
+"Arbeitsspeicher zuweisen. Für Datenbankserver, die ausschließlich InnoDB "
+"Tabellen als Speicher verwenden und keine anderen Dienste (z. B. ein "
+"Webserver) ausgeführt, können Sie diesen auf bis zu 80%% Ihres verfügbaren "
+"Speichers festlegen. Wenn dieses nicht der Fall ist, müssen Sie sorgfältig "
+"den Speicherverbrauch von anderen Diensten und nicht-InnoDB-Tabellen "
+"bewerten und stellen Sie diese Variable entsprechend ein. Wenn der Wert zu "
+"hoch ist, startet Ihr System Speicher auf die Festplatte auszulagen, was die "
+"Leistung erheblich senkt. Siehe auch <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">diesen Artikel</a>"
 
 #: libraries/advisory_rules.txt:432
 #, php-format
