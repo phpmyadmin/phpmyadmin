@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-06 16:06+0200\n"
+"PO-Revision-Date: 2012-04-06 18:03+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -808,8 +808,8 @@ msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත�
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"%s ගොනුව මේ වන විටත් සේවාදායකයෙහි පවතී, ගොනු නාමය වෙනස් කරන්න නැතහොත් ඉක්මවා ලිවීමේ "
-"හැකියාව සලකා බලන්න."
+"%s ගොනුව මේ වන විටත් සේවාදායකයෙහි පවතී, ගොනු නාමය වෙනස් කරන්න නැතහොත් උඩින් "
+"ලිවීමේ හැකියාව සලකා බලන්න."
 
 #: export.php:330 export.php:334
 #, php-format
@@ -3366,7 +3366,7 @@ msgstr "ද්වීමය දත්ත HEX ලෙස පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show database listing as a list instead of a drop down"
-msgstr "දත්තගබඩා ලැයිස්තුවක් ලෙස පෙන්වන්න"
+msgstr "දත්තගබඩා පතනයක් ලෙස නොව ලැයිස්තුවක් ලෙස පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display databases as a list"
@@ -3374,17 +3374,19 @@ msgstr "දත්තගබඩා ලැයිස්තුවක් ලෙස ප
 
 #: libraries/config/messages.inc.php:60
 msgid "Show server listing as a list instead of a drop down"
-msgstr "සේවාදායකයන් ලැයිස්තුවක් ලෙස පෙන්වන්න"
+msgstr "සේවාදායකයන් පතනයක් ලෙස නොව ලැයිස්තුවක් ලෙස පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
-msgstr ""
+msgstr "සේවාදායකයන් ලැයිස්තුවක් ලෙස පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:62
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"දත්තගබඩාවක් තුල තෝරාගත් වගු කිහිපයක් සඳහා අලුත්වැඩියා කිරීම, ප්‍රශස්තකරණය "
+"වැනි නඩත්තු කටයුතු එක වර සිදු කිරීම අක්‍රීය කරන්න."
 
 #: libraries/config/messages.inc.php:63
 msgid "Disable multi table maintenance"
@@ -3392,7 +3394,7 @@ msgstr "වගු කිහිපයක් එක වර නඩත්තු ක�
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "SQL විමසුම් උත්පතන කවුළුව තුල සංස්කරණය කරන්න"
 
 #: libraries/config/messages.inc.php:65
 msgid "Edit in window"
@@ -3404,7 +3406,7 @@ msgstr "දෝෂ පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:67
 msgid "Gather errors"
-msgstr ""
+msgstr "දෝෂ රැස්කරන්න"
 
 #: libraries/config/messages.inc.php:68
 msgid "Show icons for warning, error and information messages"
@@ -3412,17 +3414,19 @@ msgstr "තොරතුරු, අනතුරු ඇඟවීම් හා ද�
 
 #: libraries/config/messages.inc.php:69
 msgid "Iconic errors"
-msgstr "icon සහිත දෝෂ"
+msgstr "අයිකන සහිත දෝෂ"
 
 #: libraries/config/messages.inc.php:70
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"විධානාවලියක් ක්‍රියාත්මක වීමට ලබා දෙන කාලය සඳහා අගයක් සිටුවයි (අසීමිත කාලයක් "
+"සඳහා [kbd]0[/kbd] භාවිතා කරන්න)"
 
 #: libraries/config/messages.inc.php:71
 msgid "Maximum execution time"
-msgstr ""
+msgstr "උපරිම ක්‍රියාත්මක කාලය"
 
 #: libraries/config/messages.inc.php:72 prefs_manage.php:297
 msgid "Save as file"
@@ -3470,11 +3474,11 @@ msgstr "තීර මගහැරීමේ සළකුණ"
 #: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:147
 #: libraries/config/messages.inc.php:149 libraries/export/texytext.php:27
 msgid "Replace NULL by"
-msgstr ""
+msgstr "NULL වෙනුවට භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "තීර තුල ඇති CRLF අනුලකුණු ඉවත් කරන්න"
 
 #: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
@@ -3522,7 +3526,7 @@ msgstr "වගු සිරස් තලය"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:104
 msgid "Continued table caption"
-msgstr ""
+msgstr "සබැඳි වගු සිරස්තල"
 
 #: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
@@ -3551,7 +3555,7 @@ msgstr "සේවාදායකයේ සුරකින්න"
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:119
 #: libraries/display_export.lib.php:193 libraries/display_export.lib.php:219
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "වත්මන් ගොනු(ව) උඩින් ලියන්න"
 
 #: libraries/config/messages.inc.php:120
 msgid "Remember file name template"
@@ -3564,11 +3568,11 @@ msgstr "වගු සහ තීර නම් පසු-උදෘත මගින
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "SQL ගැලපුම් ප්‍රකාරය"
 
 #: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "<code>CREATE TABLE</code> විකල්ප:"
 
 #: libraries/config/messages.inc.php:125
 msgid "Creation/Update/Check dates"
@@ -3584,11 +3588,11 @@ msgstr "අන්‍ය මූල පරීක්ෂා අක්‍රිය �
 
 #: libraries/config/messages.inc.php:130
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "BLOB සඳහා hexadecimal භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:132
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "දෝෂ නොසලකා ඇතුල් කිරීම් භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
@@ -3596,7 +3600,7 @@ msgstr "දත්ත ඇතුළු කිරීමේදී භාවිතා
 
 #: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "නිර්මිත විමසුමේ උපරිම දිග"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export type"
@@ -3604,7 +3608,7 @@ msgstr "අපනයන වර්ගය"
 
 #: libraries/config/messages.inc.php:141 libraries/export/sql.php:73
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "අපනයන transaction යක් තුල අඩංගු කරන්න"
 
 #: libraries/config/messages.inc.php:142
 msgid "Export time in UTC"
@@ -3623,14 +3627,16 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"අන්‍ය-මූල පතන කොටුව තුල භාවිතා කල යුතු අනුපිළිවෙල; [kbd]content[/kbd] යොමුවේ "
+"දත්ත සඳහා, [kbd]id[/kbd] යතුරේ අගය සඳහා"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "අන්‍ය-මූල පතන කොටුවේ අනුපිළිවෙල"
 
 #: libraries/config/messages.inc.php:154
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "අයිතම ගණන අඩු නම් පතනයක් භාවිතා කෙරෙයි"
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key limit"
@@ -3759,7 +3765,7 @@ msgstr "අනෙකුත් ප්‍රධාන සිටුවම්"
 
 #: libraries/config/messages.inc.php:193
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "වෙනත් කිසිඳු තැනකට නොගැලපුණු සිටුවම්"
 
 #: libraries/config/messages.inc.php:194
 msgid "Page titles"
@@ -3831,6 +3837,8 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"අමතර විශේෂාංග භාවිතා කිරීම සඳහා phpMyAdmin වින්‍යාස ගබඩාව සකසන්න. ලියකියවිලි "
+"වල [a@Documentation.html#linked-tables]phpMyAdmin වින්‍යාස ගබඩාව[/a] බලන්න"
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
@@ -3841,6 +3849,8 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"දත්තගබඩා වල සිදු කරන වෙනස්කම් පිලිබඳ දත්ත තබා ගනියි. phpMyAdmin වින්‍යාස "
+"ගබඩාව අවශ්‍ය වේ."
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize export options"
@@ -3913,7 +3923,7 @@ msgstr "පෙළ ආදාන ක්ෂේත්‍රයන් රිසි �
 
 #: libraries/config/messages.inc.php:230 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! පෙළ"
 
 #: libraries/config/messages.inc.php:232
 msgid "Warnings"
@@ -3944,10 +3954,12 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"සක්‍රීය කළහොත් විමසුම් වැඩි ගණනක් එකවර ක්‍රියාත්මක කිරීමේදී එක විමසුමක් "
+"අසමත් වුවද ඉතිරි විමසුම් ක්‍රියාත්මක කරවයි"
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "විමසුම් වැඩි ගණනකදී දෝෂ නොසලකන්න"
 
 #: libraries/config/messages.inc.php:239
 msgid ""
@@ -4113,11 +4125,11 @@ msgstr "ලාංඡනයේ සබැඳුම"
 
 #: libraries/config/messages.inc.php:288
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "කර්සරයෙන් දැක්වෙන සේවාදායකය ඉස්මතු කරන්න"
 
 #: libraries/config/messages.inc.php:289
 msgid "Enable highlighting"
-msgstr ""
+msgstr "ඉස්මතු කිරීම සක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
@@ -4133,16 +4145,16 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:293
 msgid "Light tabs"
-msgstr ""
+msgstr "සැහැල්ලු ටැබ"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr ""
+msgstr "වගු පිරික්සීමේදී සංඛ්‍යාමය නොවන තීරුවක පෙන්විය යුතු උපරිම අනුලකුණු ගණන"
 
 #: libraries/config/messages.inc.php:295
 msgid "Limit column characters"
-msgstr ""
+msgstr "තීරුවක අනුලකුණු සීමා කරන්න"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
@@ -6131,7 +6143,7 @@ msgstr "Transformation options"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
 msgid "Table caption (continued)"
-msgstr "වගු සිරස් තලය (සබැඳි)"
+msgstr "වගු සිරස්තලය (සබැඳි)"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
