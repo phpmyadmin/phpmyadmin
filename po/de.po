@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-31 00:40+0100\n"
-"Last-Translator: Frank TheRabbit <frank.the.rabbit@gmx.net>\n"
+"PO-Revision-Date: 2012-04-06 13:01+0200\n"
+"Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Das Ziel-Browserfenster konnte nicht aktualisiert werden. Möglicherweise "
 "wurde das Ursprungsfenster geschlossen oder der Browser verhindert den "
-"Zugriff aufgrund von Ihren Sicherheitseinstellungen."
+"Zugriff aufgrund Ihrer Sicherheitseinstellungen."
 
 #: browse_foreigners.php:160 libraries/common.lib.php:3127
 #: libraries/common.lib.php:3134 libraries/common.lib.php:3343
@@ -315,7 +315,7 @@ msgstr "Vor dem Kopieren CREATE DATABASE ausführen"
 #: libraries/config/messages.inc.php:137 tbl_operations.php:562
 #, php-format
 msgid "Add %s"
-msgstr "Füge %s hinzu"
+msgstr "%s hinzufügen"
 
 #: db_operations.php:508 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:564
@@ -642,9 +642,7 @@ msgstr "Gesamt"
 #: db_structure.php:532 libraries/StorageEngine.class.php:338
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
-"%s die Storage-Engine die standardmäßig auf diesem MySQL-Server eingestellt "
-"ist."
+msgstr "%s ist die Standard Storage-Engine dieses MySQL-Servers."
 
 #: db_structure.php:561 db_structure.php:578 db_structure.php:579
 #: libraries/display_tbl.lib.php:2498 libraries/display_tbl.lib.php:2503
@@ -774,7 +772,7 @@ msgstr "Aktion"
 
 #: db_tracking.php:102 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "Lösche die Verlaufsdaten für diese Tabelle"
+msgstr "Lösche die Verlaufsdaten dieser Tabelle"
 
 #: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
 msgid "active"
@@ -824,7 +822,7 @@ msgstr "Werte für die Spalte %s"
 
 #: enum_editor.php:34 js/messages.php:269
 msgid "Enter each value in a separate field"
-msgstr "Jeden Wert in einem eigenen Feld eingeben"
+msgstr "Geben Sie jeden Wert in einem eigenen Feld ein"
 
 #: enum_editor.php:123
 msgid "Add a value"
@@ -997,8 +995,8 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 "Sie haben versucht, eine Datei zu laden, die mit einem nicht unterstützten "
-"Verfahren komprimiert wurde (%s). Entweder ist die Unterstützung für "
-"selbiges nicht implementiert oder in Ihrer Konfiguration deaktiviert."
+"Verfahren komprimiert wurde (%s). Entweder ist das Verfahren nicht "
+"implementiert oder in Ihrer Konfiguration deaktiviert."
 
 #: import.php:349
 msgid ""
@@ -1098,8 +1096,7 @@ msgstr "Primary Key/Index wird gelöscht"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
-"Diese Operation könnte einige Zeit beanspruchen. Trotzdem weitermachen?"
+msgstr "Diese Operation könnte einige Zeit beanspruchen. Trotzdem fortfahren ?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -1142,7 +1139,7 @@ msgstr "Es wurde kein Host angegeben!"
 
 #: js/messages.php:56
 msgid "The user name is empty!"
-msgstr "Kein Benutzername eingegeben!"
+msgstr "Es wurde kein Benutzername eingegeben!"
 
 #: js/messages.php:57 server_privileges.php:1316 user_password.php:50
 msgid "The password is empty!"
@@ -1168,7 +1165,7 @@ msgstr "Die ausgewählten Benutzer werden gelöscht"
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:415
 msgid "Close"
-msgstr "Schliesse"
+msgstr "Schliessen"
 
 #: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1195
@@ -1219,15 +1216,15 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr "KiB gesendet seit der letzten Aktualisierung"
+msgstr "KiB seit der letzten Aktualisierung gesendet"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr "KiB empfangen seit der letzten Aktualisierung"
+msgstr "KiB seit der letzten Aktualisierung empfangen"
 
 #: js/messages.php:82
 msgid "Server traffic (in KiB)"
-msgstr "Server Traffic (in KiB)"
+msgstr "Server-Datenverkehr (in KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
@@ -1266,11 +1263,11 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"Die Diagramm-Anordnung in Ihrem lokalen Browserspeicher ist nicht mehr "
-"kompatibel zur neueren Version des Monitor Dialogs. Es ist sehr "
-"wahrscheinlich, dass Ihre derzeitigen Einstellungen nicht mehr funktionieren "
-"werden. Bitte setzen Sie die Konfiguration im <i>Einstellungen</i> Menü auf "
-"die Standardwerte zurück."
+"Die Diagram Anordnung in Ihrem lokalen Browser Speicher ist nicht mehr "
+"kompatibel zur neuen Version des Monitor Dialogs. Es ist sehr "
+"wahrscheinlich, dass Ihre aktuellen Einstellungen nicht mehr funktionieren. "
+"Bitte setzen Sie die Konfiguration im <i>Einstellungen</i> Menü auf die "
+"Standardwerte zurück."
 
 #: js/messages.php:97
 msgid "Query cache efficiency"
@@ -2006,14 +2003,13 @@ msgstr ""
 "umzustellen"
 
 #: js/messages.php:351
-#, fuzzy
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"Diese Tabelle enthält keine eindeutige Spalte. Optionen in Bezug zur Gitter-"
-"Bearbeitungsfunktion, Kontrollkästchen, Bearbeiten, Kopieren und Löschen von "
-"Links können nach dem Speichern eventuell nicht funktionieren."
+"Diese Tabelle enthält keine eindeutige (\"unique\") Spalte. Optionen in Bezug "
+"zur Gitter-Bearbeitungsfunktion, Kontrollkästchen, Bearbeiten, Kopieren und "
+"Löschen von Links können nach dem Speichern eventuell nicht funktionieren."
 
 #: js/messages.php:352
 msgid ""
@@ -10773,6 +10769,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"Um Abfragen aus den Logs anzuzeigen, wählen Sie die relevante Zeitspanne in "
+"einem Diagramm durch Drücken der linken Maustaste und markieren Sie einen "
+"Bereich des Diagramms durch Ziehen. Dadurch wird eine Tabelle von "
+"gruppierten Abfragen geladen. Sie können auf jedes SELECT Anweisung klicken, "
+"um diese weiter zu analysieren."
 
 #: server_status.php:1640
 msgid "Please note:"
@@ -12301,6 +12302,10 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Wenn Sie den Quellcode nicht kompiliert haben, könnte es sein, dass Sie ein "
+"Paket verwenden, welches durch eine Distribution verändert wurde. Die MySQL-"
+"Dokumentation ist nur für offizielle MySQL Binaries gültig, nicht für Paket-"
+"Distributionen (z.B. RedHat, Debian/Ubuntu, etc)."
 
 #: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
@@ -12343,6 +12348,10 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Ihre Speicherkapazität beträgt mehr als 3 GiB (vorausgesetzt der Server "
+"läuft auf localhost), deshalb kann MySQL vermutlich nicht den ganzen "
+"Speicher benutzen. Es wird empfohlen, dass Sie die 64-bit Version von MySQL "
+"installieren."
 
 #: po/advisory_rules.php:68
 #, php-format
@@ -12388,6 +12397,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Sie verwenden den MySQL-Anfragen-Cache mit einer relativ hohen Traffic-"
+"Datenbank. Es wäre überlegenswert, <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\"> "
+"Memcached</a> statt MySQL Query Cache verwenden vor allem, wenn Sie mehrere "
+"Slaves einsetzen."
 
 #: po/advisory_rules.php:78
 #, php-format
