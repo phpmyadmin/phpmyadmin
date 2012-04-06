@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-23 12:02+0200\n"
+"PO-Revision-Date: 2012-04-05 16:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -8845,7 +8845,7 @@ msgstr "Aplikovat klíče"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Update row(s)"
-msgstr "Aktuallizovat řádky"
+msgstr "Aktualizovat řádky"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Insert row(s)"
