@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-04 19:57+0200\n"
+"PO-Revision-Date: 2012-04-05 20:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6353,8 +6353,8 @@ msgid ""
 msgstr ""
 "Bu, önbellek tablosu verisi olarak kullanılmak üzere kayıt önbelleğine "
 "ayrılmış veri miktarıdır. Varsayılan değer 32MB'tır. Bu bellek, tanıtıcı "
-"veri (.xtd) ve sıra işaretçisi (.xtr) dosyalarında önbellek değişimleri için "
-"kullanılır."
+"veri (.xtd) ve satır işaretçisi (.xtr) dosyalarında önbellek değişimleri "
+"için kullanılır."
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
@@ -10812,11 +10812,11 @@ msgstr "İndeks(leri)i uygula"
 
 #: server_synchronize.php:448 server_synchronize.php:920
 msgid "Update row(s)"
-msgstr "Sıra(ları)yı güncelle"
+msgstr "Satır(ları)ı güncelle"
 
 #: server_synchronize.php:449 server_synchronize.php:921
 msgid "Insert row(s)"
-msgstr "Sıra(ları) ekle"
+msgstr "Satır(ları)ı ekle"
 
 #: server_synchronize.php:460 server_synchronize.php:933
 msgid "Would you like to delete all the previous rows from target tables?"
