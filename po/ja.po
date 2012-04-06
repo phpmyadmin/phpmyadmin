@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-05 09:18-0400\n"
+"POT-Creation-Date: 2012-04-06 10:02+0200\n"
 "PO-Revision-Date: 2012-04-02 12:42+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 0.8\n"
 
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "すべて表示"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:43
-#: libraries/common.lib.php:2485
+#: libraries/common.lib.php:2483
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -38,46 +38,41 @@ msgstr ""
 "たか、ブラウザのセキュリティ設定でクロスウィンドウの更新をブロックしているも"
 "のと思われます。"
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3169
-#: libraries/common.lib.php:3176 libraries/common.lib.php:3392
-#: libraries/common.lib.php:3393 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3141
+#: libraries/common.lib.php:3148 libraries/common.lib.php:3364
+#: libraries/common.lib.php:3365 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "検索"
 
 #: browse_foreigners.php:159 db_operations.php:398 db_operations.php:438
 #: db_operations.php:548 db_operations.php:575 db_search.php:337
-#: db_structure.php:621 gis_data_editor.php:133 gis_data_editor.php:166
-#: gis_data_editor.php:315 js/messages.php:225 libraries/Config.class.php:1326
-#: libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:256 libraries/common.lib.php:1407
-#: libraries/common.lib.php:2458 libraries/core.lib.php:526
-#: libraries/display_create_table.lib.php:61
+#: gis_data_editor.php:133 gis_data_editor.php:166 gis_data_editor.php:315
+#: js/messages.php:225 libraries/auth/cookie.auth.lib.php:275
+#: libraries/core.lib.php:526 libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:264
-#: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
-#: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
-#: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:969
+#: libraries/display_tbl.lib.php:704 libraries/replication_gui.lib.php:76
+#: libraries/replication_gui.lib.php:375 libraries/rte/rte_events.lib.php:493
+#: libraries/rte/rte_routines.lib.php:969
 #: libraries/rte/rte_routines.lib.php:1454
 #: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
 #: libraries/schema/User_Schema.class.php:446
 #: libraries/schema/User_Schema.class.php:487
-#: libraries/select_server.lib.php:94 libraries/sql_query_form.lib.php:362
-#: libraries/sql_query_form.lib.php:424 libraries/sql_query_form.lib.php:479
-#: libraries/tbl_properties.inc.php:570 main.php:115 navigation.php:167
-#: navigation.php:205 pmd_pdf.php:120 prefs_manage.php:263
-#: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:813
-#: server_privileges.php:1928 server_privileges.php:2292
-#: server_privileges.php:2339 server_privileges.php:2371
-#: server_replication.php:265 server_replication.php:349
-#: server_replication.php:380 server_synchronize.php:1391 tbl_change.php:371
-#: tbl_change.php:1115 tbl_change.php:1152 tbl_indexes.php:288
-#: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
-#: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:260
-#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:443
-#: tbl_tracking.php:581 tbl_zoom_select.php:331 view_create.php:173
-#: view_operations.php:99
+#: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:424
+#: libraries/sql_query_form.lib.php:479 libraries/tbl_properties.inc.php:570
+#: pmd_pdf.php:120 prefs_manage.php:263 prefs_manage.php:314
+#: server_binlog.php:109 server_privileges.php:813 server_privileges.php:1928
+#: server_privileges.php:2292 server_privileges.php:2339
+#: server_privileges.php:2371 server_replication.php:265
+#: server_replication.php:349 server_replication.php:380
+#: server_synchronize.php:1391 tbl_change.php:371 tbl_change.php:1115
+#: tbl_indexes.php:288 tbl_operations.php:284 tbl_operations.php:321
+#: tbl_operations.php:525 tbl_operations.php:587 tbl_operations.php:790
+#: tbl_select.php:260 tbl_structure.php:672 tbl_structure.php:707
+#: tbl_tracking.php:443 tbl_tracking.php:581 tbl_zoom_select.php:331
+#: view_create.php:173 view_operations.php:99
 msgid "Go"
 msgstr "実行"
 
@@ -233,7 +228,7 @@ msgid "View dump (schema) of database"
 msgstr "データベースのダンプ (スキーマ) 表示"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:373 navigation.php:292
+#: export.php:373 navigation.php:286
 msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません。"
 
@@ -344,7 +339,7 @@ msgstr "リレーショナルスキーマを編集またはエクスポートす
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
-#: libraries/header.inc.php:165 libraries/rte/rte_list.lib.php:65
+#: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1979
 #: server_privileges.php:2037 server_privileges.php:2306
@@ -355,7 +350,7 @@ msgstr "テーブル"
 #: db_printview.php:102 libraries/Table.class.php:291
 #: libraries/build_html_for_db.lib.php:31 libraries/db_structure.lib.php:42
 #: libraries/header_printview.inc.php:64 libraries/import.lib.php:153
-#: navigation.php:587 navigation.php:608 tbl_printview.php:353
+#: navigation.php:581 navigation.php:602 tbl_printview.php:353
 #: tbl_structure.php:363 tbl_structure.php:469 tbl_structure.php:882
 msgid "Rows"
 msgstr "行"
@@ -405,13 +400,13 @@ msgid "Switch to %svisual builder%s"
 msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:91
-#: libraries/display_tbl.lib.php:1014
+#: libraries/display_tbl.lib.php:1013
 msgid "Sort"
 msgstr "ソート"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:98
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:566
-#: libraries/display_tbl.lib.php:970 libraries/display_tbl.lib.php:973
+#: libraries/display_tbl.lib.php:969 libraries/display_tbl.lib.php:972
 #: server_databases.php:177 server_databases.php:194 tbl_operations.php:279
 #: tbl_select.php:247
 msgid "Ascending"
@@ -419,7 +414,7 @@ msgstr "昇順"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:99
 #: libraries/db_structure.lib.php:108 libraries/display_tbl.lib.php:571
-#: libraries/display_tbl.lib.php:969 libraries/display_tbl.lib.php:974
+#: libraries/display_tbl.lib.php:968 libraries/display_tbl.lib.php:973
 #: server_databases.php:177 server_databases.php:194 tbl_operations.php:280
 #: tbl_select.php:248
 msgid "Descending"
@@ -483,7 +478,7 @@ msgstr "クエリを実行する"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
-#: libraries/auth/cookie.auth.lib.php:589 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:608 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "アクセスは拒否されました"
@@ -517,8 +512,8 @@ msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%s 件 (テーブル <i>%s</i>)"
 
-#: db_search.php:234 libraries/common.lib.php:3171
-#: libraries/common.lib.php:3390 libraries/common.lib.php:3391
+#: db_search.php:234 libraries/common.lib.php:3143
+#: libraries/common.lib.php:3362 libraries/common.lib.php:3363
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "表示"
@@ -528,8 +523,8 @@ msgstr "表示"
 msgid "Delete the matches for the %s table?"
 msgstr "テーブル %s に対して条件に一致したものを削除しますか？"
 
-#: db_search.php:239 libraries/display_tbl.lib.php:1439
-#: libraries/display_tbl.lib.php:2480
+#: db_search.php:239 libraries/display_tbl.lib.php:1438
+#: libraries/display_tbl.lib.php:2479
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
@@ -602,14 +597,14 @@ msgstr "SQL コマンドの追跡はアクティブです。"
 msgid "Tracking is not active."
 msgstr "SQL コマンドの追跡は非アクティブです。"
 
-#: db_structure.php:462 libraries/display_tbl.lib.php:2363
+#: db_structure.php:462 libraries/display_tbl.lib.php:2362
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
-#: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:165
+#: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:169
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
 msgid "View"
 msgstr "ビュー"
@@ -630,20 +625,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s はこの MySQL サーバのデフォルトストレージエンジンです。"
 
 #: db_structure.php:567 db_structure.php:584 db_structure.php:585
-#: libraries/display_tbl.lib.php:2505 libraries/display_tbl.lib.php:2510
+#: libraries/display_tbl.lib.php:2504 libraries/display_tbl.lib.php:2509
 #: libraries/mult_submits.inc.php:39 server_databases.php:278
 #: server_databases.php:283 server_privileges.php:1886
 #: server_privileges.php:1894 tbl_structure.php:557 tbl_structure.php:566
 msgid "With selected:"
 msgstr "チェックしたものを:"
 
-#: db_structure.php:570 libraries/display_tbl.lib.php:2500
+#: db_structure.php:570 libraries/display_tbl.lib.php:2499
 #: server_databases.php:280 server_privileges.php:751
 #: server_privileges.php:1889 tbl_structure.php:560
 msgid "Check All"
 msgstr "すべてチェックする"
 
-#: db_structure.php:574 libraries/display_tbl.lib.php:2501
+#: db_structure.php:574 libraries/display_tbl.lib.php:2500
 #: libraries/replication_gui.lib.php:35 server_databases.php:282
 #: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
@@ -653,28 +648,28 @@ msgstr "すべてのチェックを外す"
 msgid "Check tables having overhead"
 msgstr "オーバーヘッドのあるテーブルを確認する"
 
-#: db_structure.php:587 libraries/common.lib.php:3403
-#: libraries/common.lib.php:3404 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3375
+#: libraries/common.lib.php:3376 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
-#: libraries/display_tbl.lib.php:2523 libraries/display_tbl.lib.php:2664
+#: libraries/display_tbl.lib.php:2522 libraries/display_tbl.lib.php:2663
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1535 server_privileges.php:1898
 #: server_status.php:1602 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "エクスポート"
 
-#: db_structure.php:589 db_structure.php:645
-#: libraries/display_tbl.lib.php:2613 tbl_structure.php:613
+#: db_structure.php:589 db_structure.php:637
+#: libraries/display_tbl.lib.php:2612 tbl_structure.php:613
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: db_structure.php:593 libraries/common.lib.php:3399
-#: libraries/common.lib.php:3400
+#: db_structure.php:593 libraries/common.lib.php:3371
+#: libraries/common.lib.php:3372
 msgid "Empty"
 msgstr "空にする"
 
 #: db_structure.php:595 db_tracking.php:105 libraries/Index.class.php:504
-#: libraries/common.lib.php:3397 libraries/common.lib.php:3398
+#: libraries/common.lib.php:3369 libraries/common.lib.php:3370
 #: server_databases.php:284 tbl_structure.php:150 tbl_structure.php:151
 #: tbl_structure.php:573
 msgid "Drop"
@@ -708,7 +703,7 @@ msgstr "テーブル名の接頭辞を付け替える"
 msgid "Copy table with prefix"
 msgstr "接頭辞を付け替えてテーブルをコピーする"
 
-#: db_structure.php:648 libraries/schema/User_Schema.class.php:423
+#: db_structure.php:640 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
 msgstr "データ辞書"
 
@@ -720,7 +715,7 @@ msgstr "SQL コマンドを追跡しているテーブル"
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:609 libraries/export/texytext.php:66
-#: libraries/export/xml.php:292 libraries/header.inc.php:148
+#: libraries/export/xml.php:292 libraries/header.inc.php:152
 #: libraries/header_printview.inc.php:59 server_databases.php:176
 #: server_privileges.php:1974 server_privileges.php:2037
 #: server_privileges.php:2300 server_status.php:1231
@@ -844,7 +839,7 @@ msgid "SRID"
 msgstr "空間参照識別子"
 
 #: gis_data_editor.php:151 js/messages.php:322
-#: libraries/display_tbl.lib.php:693
+#: libraries/display_tbl.lib.php:692
 msgid "Geometry"
 msgstr "空間データ"
 
@@ -920,8 +915,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください。"
@@ -999,7 +994,7 @@ msgstr ""
 "の時間制限を伸ばさない限りこのデータのインポートはできません。"
 
 #: import.php:521 libraries/Message.class.php:177
-#: libraries/display_tbl.lib.php:2400 libraries/rte/rte_routines.lib.php:1208
+#: libraries/display_tbl.lib.php:2399 libraries/rte/rte_routines.lib.php:1208
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:229
 #: tbl_relation.php:300 tbl_row_action.php:118 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1110,8 +1105,8 @@ msgstr "閉じる"
 
 #: js/messages.php:61 js/messages.php:277 libraries/Index.class.php:482
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
-#: libraries/common.lib.php:3401 libraries/common.lib.php:3402
-#: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1403
+#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
+#: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1402
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
 msgstr "編集"
@@ -1146,12 +1141,12 @@ msgid "Other"
 msgstr "その他"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/common.lib.php:1485
+#: js/messages.php:72 libraries/common.lib.php:1484
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/common.lib.php:1487
+#: js/messages.php:74 libraries/common.lib.php:1486
 msgid "."
 msgstr "."
 
@@ -1233,13 +1228,13 @@ msgid "System swap"
 msgstr "システムスワップ"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1435
+#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
 #: server_status.php:1682
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1433
+#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1432
 #: server_status.php:1682
 msgid "KiB"
 msgstr "KiB"
@@ -1297,27 +1292,27 @@ msgid "Connections"
 msgstr "接続"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:121 libraries/common.lib.php:1431
+#: js/messages.php:121 libraries/common.lib.php:1430
 msgid "B"
 msgstr "バイト"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:124 libraries/common.lib.php:1437
+#: js/messages.php:124 libraries/common.lib.php:1436
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:125 libraries/common.lib.php:1439
+#: js/messages.php:125 libraries/common.lib.php:1438
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:126 libraries/common.lib.php:1441
+#: js/messages.php:126 libraries/common.lib.php:1440
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:127 libraries/common.lib.php:1443
+#: js/messages.php:127 libraries/common.lib.php:1442
 msgid "EiB"
 msgstr "EiB"
 
@@ -1817,9 +1812,8 @@ msgstr "クエリボックスを表示"
 msgid "No rows selected"
 msgstr "行が選択されていません"
 
-#: js/messages.php:279 libraries/common.lib.php:2783
-#: libraries/display_tbl.lib.php:2514 querywindow.php:87 tbl_structure.php:149
-#: tbl_structure.php:572
+#: js/messages.php:279 libraries/display_tbl.lib.php:2513 querywindow.php:87
+#: tbl_structure.php:149 tbl_structure.php:572
 msgid "Change"
 msgstr "変更"
 
@@ -1900,7 +1894,7 @@ msgstr "データポインタの内容"
 msgid "Ignore"
 msgstr "無視"
 
-#: js/messages.php:315 libraries/display_tbl.lib.php:1404
+#: js/messages.php:315 libraries/display_tbl.lib.php:1403
 msgid "Copy"
 msgstr "コピー"
 
@@ -2107,63 +2101,63 @@ msgid "December"
 msgstr "12 月"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1643
+#: js/messages.php:419 libraries/common.lib.php:1642
 msgid "Jan"
 msgstr "1 月"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1645
+#: js/messages.php:421 libraries/common.lib.php:1644
 msgid "Feb"
 msgstr "2 月"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1647
+#: js/messages.php:423 libraries/common.lib.php:1646
 msgid "Mar"
 msgstr "3 月"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1649
+#: js/messages.php:425 libraries/common.lib.php:1648
 msgid "Apr"
 msgstr "4 月"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1651
+#: js/messages.php:427 libraries/common.lib.php:1650
 msgctxt "Short month name"
 msgid "May"
 msgstr "5 月"
 
 #. l10n: Short month name
-#: js/messages.php:429 libraries/common.lib.php:1653
+#: js/messages.php:429 libraries/common.lib.php:1652
 msgid "Jun"
 msgstr "6 月"
 
 #. l10n: Short month name
-#: js/messages.php:431 libraries/common.lib.php:1655
+#: js/messages.php:431 libraries/common.lib.php:1654
 msgid "Jul"
 msgstr "7 月"
 
 #. l10n: Short month name
-#: js/messages.php:433 libraries/common.lib.php:1657
+#: js/messages.php:433 libraries/common.lib.php:1656
 msgid "Aug"
 msgstr "8 月"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/common.lib.php:1659
+#: js/messages.php:435 libraries/common.lib.php:1658
 msgid "Sep"
 msgstr "9 月"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/common.lib.php:1661
+#: js/messages.php:437 libraries/common.lib.php:1660
 msgid "Oct"
 msgstr "10 月"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/common.lib.php:1663
+#: js/messages.php:439 libraries/common.lib.php:1662
 msgid "Nov"
 msgstr "11 月"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/common.lib.php:1665
+#: js/messages.php:441 libraries/common.lib.php:1664
 msgid "Dec"
 msgstr "12 月"
 
@@ -2201,32 +2195,32 @@ msgid "Sun"
 msgstr "日"
 
 #. l10n: Short week day name
-#: js/messages.php:456 libraries/common.lib.php:1670
+#: js/messages.php:456 libraries/common.lib.php:1669
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name
-#: js/messages.php:458 libraries/common.lib.php:1672
+#: js/messages.php:458 libraries/common.lib.php:1671
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name
-#: js/messages.php:460 libraries/common.lib.php:1674
+#: js/messages.php:460 libraries/common.lib.php:1673
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name
-#: js/messages.php:462 libraries/common.lib.php:1676
+#: js/messages.php:462 libraries/common.lib.php:1675
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name
-#: js/messages.php:464 libraries/common.lib.php:1678
+#: js/messages.php:464 libraries/common.lib.php:1677
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name
-#: js/messages.php:466 libraries/common.lib.php:1680
+#: js/messages.php:466 libraries/common.lib.php:1679
 msgid "Sat"
 msgstr "土"
 
@@ -2592,7 +2586,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "接続できません。設定が無効です。"
 
 #: libraries/auth/config.auth.lib.php:86
-#: libraries/auth/cookie.auth.lib.php:182 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:195 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s へようこそ"
@@ -2600,11 +2594,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください。"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください。"
 
 #: libraries/auth/config.auth.lib.php:110
 msgid ""
@@ -2621,45 +2615,51 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "mcrypt から Blowfish を使おうとして失敗しました！"
 
-#: libraries/auth/cookie.auth.lib.php:208
+#: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
+#, fuzzy
+#| msgid "Cookies must be enabled past this point."
+msgid "Javascript must be enabled past this point"
+msgstr "クッキーを有効にしてください。"
+
+#: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
 msgstr "ログイン"
 
-#: libraries/auth/cookie.auth.lib.php:210
-#: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:231
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin のドキュメント"
 
-#: libraries/auth/cookie.auth.lib.php:222
-#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:241
+#: libraries/auth/cookie.auth.lib.php:242
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "「ホスト名／IP アドレス」と「ポート」を空白で区切って入力することができます。"
 
-#: libraries/auth/cookie.auth.lib.php:222
+#: libraries/auth/cookie.auth.lib.php:241
 msgid "Server:"
 msgstr "サーバ"
 
-#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:246
 msgid "Username:"
 msgstr "ユーザ名:"
 
-#: libraries/auth/cookie.auth.lib.php:231
+#: libraries/auth/cookie.auth.lib.php:250
 msgid "Password:"
 msgstr "パスワード:"
 
-#: libraries/auth/cookie.auth.lib.php:238
+#: libraries/auth/cookie.auth.lib.php:257
 msgid "Server Choice"
 msgstr "サーバの選択"
 
-#: libraries/auth/cookie.auth.lib.php:284 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:303 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "クッキーを有効にしてください。"
 
-#: libraries/auth/cookie.auth.lib.php:587
+#: libraries/auth/cookie.auth.lib.php:606
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -2667,14 +2667,14 @@ msgstr ""
 "パスワード無しログインは設定 (AllowNoPassword 参照) によって禁止されていま"
 "す。"
 
-#: libraries/auth/cookie.auth.lib.php:591
+#: libraries/auth/cookie.auth.lib.php:610
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s 秒以上操作をしませんでした。ログインし直してください。"
 
-#: libraries/auth/cookie.auth.lib.php:601
-#: libraries/auth/cookie.auth.lib.php:603
+#: libraries/auth/cookie.auth.lib.php:620
+#: libraries/auth/cookie.auth.lib.php:622
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL サーバにログインできません"
@@ -2799,7 +2799,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "サーバ %1$s のホスト名が不正です。設定を確認してください。"
 
 #: libraries/common.inc.php:660 libraries/config/messages.inc.php:508
-#: libraries/header.inc.php:134 main.php:171 server_status.php:776
+#: libraries/header.inc.php:138 main.php:170 server_status.php:776
 #: server_synchronize.php:1339
 msgid "Server"
 msgstr "サーバ"
@@ -2844,7 +2844,7 @@ msgstr "en"
 #: libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
 #: libraries/sql_query_form.lib.php:398 libraries/sql_query_form.lib.php:401
-#: main.php:238 server_variables.php:122
+#: main.php:237 server_variables.php:122
 msgid "Documentation"
 msgstr "ドキュメント"
 
@@ -2913,68 +2913,68 @@ msgid "Profiling"
 msgstr "プロファイリング"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1668
+#: libraries/common.lib.php:1667
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "日"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1684
+#: libraries/common.lib.php:1683
 #: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %B %d 日 %H:%M"
 
-#: libraries/common.lib.php:2018
+#: libraries/common.lib.php:2017
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 日 %s 時間 %s 分 %s 秒"
 
-#: libraries/common.lib.php:2111
+#: libraries/common.lib.php:2110
 msgid "Missing parameter:"
 msgstr "パラメータがありません："
 
-#: libraries/common.lib.php:2494 libraries/common.lib.php:2497
+#: libraries/common.lib.php:2492 libraries/common.lib.php:2495
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "先頭"
 
-#: libraries/common.lib.php:2495 libraries/common.lib.php:2498
+#: libraries/common.lib.php:2493 libraries/common.lib.php:2496
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
-#: libraries/common.lib.php:2525 libraries/common.lib.php:2528
+#: libraries/common.lib.php:2523 libraries/common.lib.php:2526
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
 
-#: libraries/common.lib.php:2526 libraries/common.lib.php:2529
+#: libraries/common.lib.php:2524 libraries/common.lib.php:2527
 #: libraries/display_tbl.lib.php:390
 msgctxt "Last page"
 msgid "End"
 msgstr "最後"
 
-#: libraries/common.lib.php:2596
+#: libraries/common.lib.php:2594
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "データベース「%s」に移動する"
 
-#: libraries/common.lib.php:2616
+#: libraries/common.lib.php:2614
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/common.lib.php:2790
+#: libraries/common.lib.php:2763
 msgid "Click to toggle"
 msgstr "クリックでオン／オフ切り替え"
 
-#: libraries/common.lib.php:3167 libraries/common.lib.php:3174
-#: libraries/common.lib.php:3396 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3139 libraries/common.lib.php:3146
+#: libraries/common.lib.php:3368 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2986,7 +2986,7 @@ msgstr "クリックでオン／オフ切り替え"
 msgid "Structure"
 msgstr "構造"
 
-#: libraries/common.lib.php:3168 libraries/common.lib.php:3175
+#: libraries/common.lib.php:3140 libraries/common.lib.php:3147
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2994,42 +2994,42 @@ msgstr "構造"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3170 libraries/common.lib.php:3394
-#: libraries/common.lib.php:3395 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3142 libraries/common.lib.php:3366
+#: libraries/common.lib.php:3367 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "挿入"
 
-#: libraries/common.lib.php:3177 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3149 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/common.lib.php:3328 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3300 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "アップロードファイル:"
 
-#: libraries/common.lib.php:3347
+#: libraries/common.lib.php:3319
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ウェブサーバ上のアップロードディレクトリ <b>%s</b> から選択する："
 
-#: libraries/common.lib.php:3368 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3340 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:938
 msgid "The directory you set for upload work cannot be reached"
 msgstr "指定したアップロードディレクトリが利用できません"
 
-#: libraries/common.lib.php:3377
+#: libraries/common.lib.php:3349
 msgid "There are no files to upload"
 msgstr "アップロードファイルがありません"
 
-#: libraries/common.lib.php:3405 libraries/common.lib.php:3406
+#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
 msgid "Execute"
 msgstr "実行"
 
-#: libraries/common.lib.php:3881
+#: libraries/common.lib.php:3853
 msgid "Print"
 msgstr "印刷"
 
@@ -3176,7 +3176,7 @@ msgstr "SOAP 拡張が見つかりません"
 msgid "maximum %s"
 msgstr "最大 %s"
 
-#: libraries/config/FormDisplay.tpl.php:141 main.php:239
+#: libraries/config/FormDisplay.tpl.php:141 main.php:238
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -3400,7 +3400,7 @@ msgstr "デフォルトのテーブルタブ"
 msgid "Show binary contents as HEX by default"
 msgstr "デフォルトではバイナリの内容を 16 進数で表示します。"
 
-#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:679
+#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:678
 msgid "Show binary contents as HEX"
 msgstr "バイナリの内容を 16 進数で表示する"
 
@@ -5503,7 +5503,7 @@ msgstr "イベント"
 msgid "Triggers"
 msgstr "トリガ"
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2235
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2234
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5663,8 +5663,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -5859,7 +5859,7 @@ msgstr "%s 行毎にヘッダを表示"
 msgid "Sort by key"
 msgstr "キーでソート"
 
-#: libraries/display_tbl.lib.php:627 libraries/export/codegen.php:41
+#: libraries/display_tbl.lib.php:626 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
 #: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
@@ -5876,93 +5876,93 @@ msgstr "キーでソート"
 msgid "Options"
 msgstr "オプション"
 
-#: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:650
+#: libraries/display_tbl.lib.php:631 libraries/display_tbl.lib.php:649
 msgid "Partial texts"
 msgstr "部分テキスト"
 
-#: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
+#: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:653
 msgid "Full texts"
 msgstr "全文"
 
-#: libraries/display_tbl.lib.php:667
+#: libraries/display_tbl.lib.php:666
 msgid "Relational key"
 msgstr "リレーションキー"
 
-#: libraries/display_tbl.lib.php:668
+#: libraries/display_tbl.lib.php:667
 msgid "Relational display column"
 msgstr "リレーション表示カラム"
 
-#: libraries/display_tbl.lib.php:675
+#: libraries/display_tbl.lib.php:674
 msgid "Show binary contents"
 msgstr "バイナリの内容を表示する"
 
-#: libraries/display_tbl.lib.php:677
+#: libraries/display_tbl.lib.php:676
 msgid "Show BLOB contents"
 msgstr "BLOB の内容を表示する"
 
-#: libraries/display_tbl.lib.php:687
+#: libraries/display_tbl.lib.php:686
 msgid "Hide browser transformation"
 msgstr "ブラウザ変換機能を隠す"
 
-#: libraries/display_tbl.lib.php:694
+#: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
 msgstr "空間データをテキストで表示"
 
-#: libraries/display_tbl.lib.php:695
+#: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
 msgstr "空間データをバイナリで表示"
 
-#: libraries/display_tbl.lib.php:1419 libraries/display_tbl.lib.php:1431
+#: libraries/display_tbl.lib.php:1418 libraries/display_tbl.lib.php:1430
 msgid "The row has been deleted"
 msgstr "行を削除しました"
 
-#: libraries/display_tbl.lib.php:1458 libraries/display_tbl.lib.php:2480
+#: libraries/display_tbl.lib.php:1457 libraries/display_tbl.lib.php:2479
 #: server_status.php:1256
 msgid "Kill"
 msgstr "停止"
 
-#: libraries/display_tbl.lib.php:2339
+#: libraries/display_tbl.lib.php:2338
 msgid "in query"
 msgstr "行/クエリ"
 
-#: libraries/display_tbl.lib.php:2371
+#: libraries/display_tbl.lib.php:2370
 msgid "Showing rows"
 msgstr "行の表示"
 
-#: libraries/display_tbl.lib.php:2381
+#: libraries/display_tbl.lib.php:2380
 msgid "total"
 msgstr "合計"
 
-#: libraries/display_tbl.lib.php:2389 sql.php:766
+#: libraries/display_tbl.lib.php:2388 sql.php:766
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "クエリの実行時間 %01.4f 秒"
 
-#: libraries/display_tbl.lib.php:2592
+#: libraries/display_tbl.lib.php:2591
 msgid "Query results operations"
 msgstr "クエリ結果操作"
 
-#: libraries/display_tbl.lib.php:2621
+#: libraries/display_tbl.lib.php:2620
 msgid "Print view (with full texts)"
 msgstr "印刷用画面 (全テキストを含む)"
 
-#: libraries/display_tbl.lib.php:2671 tbl_chart.php:78
+#: libraries/display_tbl.lib.php:2670 tbl_chart.php:78
 msgid "Display chart"
 msgstr "グラフで表示する"
 
-#: libraries/display_tbl.lib.php:2687
+#: libraries/display_tbl.lib.php:2686
 msgid "Visualize GIS data"
 msgstr "空間情報のデータを視覚化する"
 
-#: libraries/display_tbl.lib.php:2708
+#: libraries/display_tbl.lib.php:2707
 msgid "Create view"
 msgstr "ビューを作成する"
 
-#: libraries/display_tbl.lib.php:2817
+#: libraries/display_tbl.lib.php:2816
 msgid "Link not found"
 msgstr "リンク先が見つかりません"
 
-#: libraries/engines/bdb.lib.php:20 main.php:237
+#: libraries/engines/bdb.lib.php:20 main.php:236
 msgid "Version information"
 msgstr "バージョン情報"
 
@@ -6295,8 +6295,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -7863,7 +7863,7 @@ msgstr "サーバ %s 上でクエリを実行する"
 msgid "Run SQL query/queries on database %s"
 msgstr "データベース %s 上でクエリを実行する"
 
-#: libraries/sql_query_form.lib.php:267 navigation.php:265
+#: libraries/sql_query_form.lib.php:267 navigation.php:259
 #: setup/frames/index.inc.php:233
 msgid "Clear"
 msgstr "クリア"
@@ -8283,73 +8283,73 @@ msgstr "一般設定"
 msgid "Server connection collation"
 msgstr "サーバ接続の照合順序"
 
-#: main.php:124
+#: main.php:123
 msgid "Appearance Settings"
 msgstr "外観の設定"
 
-#: main.php:153 prefs_manage.php:272
+#: main.php:152 prefs_manage.php:272
 msgid "More settings"
 msgstr "詳細設定"
 
-#: main.php:169
+#: main.php:168
 msgid "Database server"
 msgstr "データベースサーバ"
 
-#: main.php:172
+#: main.php:171
 msgid "Software"
 msgstr "ソフトウェア"
 
-#: main.php:173
+#: main.php:172
 msgid "Software version"
 msgstr "ソフトウェアバージョン"
 
-#: main.php:175
+#: main.php:174
 msgid "Protocol version"
 msgstr "プロトコルバージョン"
 
-#: main.php:179 server_privileges.php:1662 server_privileges.php:1817
+#: main.php:178 server_privileges.php:1662 server_privileges.php:1817
 #: server_privileges.php:1964 server_privileges.php:2383
 #: server_status.php:1229
 msgid "User"
 msgstr "ユーザ"
 
-#: main.php:184
+#: main.php:183
 msgid "Server charset"
 msgstr "サーバの文字セット"
 
-#: main.php:196
+#: main.php:195
 msgid "Web server"
 msgstr "ウェブサーバ"
 
-#: main.php:209
+#: main.php:208
 msgid "Database client version"
 msgstr "データベースクライアントのバージョン"
 
-#: main.php:213
+#: main.php:212
 msgid "PHP extension"
 msgstr "PHP 拡張"
 
-#: main.php:221
+#: main.php:220
 msgid "Show PHP information"
 msgstr "PHP 情報"
 
-#: main.php:242
+#: main.php:241
 msgid "Official Homepage"
 msgstr "phpMyAdmin オフィシャルサイト"
 
-#: main.php:243
+#: main.php:242
 msgid "Contribute"
 msgstr "phpMyAdmin に協力するには"
 
-#: main.php:244
+#: main.php:243
 msgid "Get support"
 msgstr "サポート"
 
-#: main.php:245
+#: main.php:244
 msgid "List of changes"
 msgstr "更新履歴"
 
-#: main.php:269
+#: main.php:268
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8361,7 +8361,7 @@ msgstr ""
 "ト設定で動作しているため不正アクセス可能な状態になっています。このセキュリ"
 "ティホールは必ず閉ざしてください。"
 
-#: main.php:277
+#: main.php:276
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8370,7 +8370,7 @@ msgstr ""
 "PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
 "プションに対応していないため、データが破壊されることがあります!"
 
-#: main.php:285
+#: main.php:284
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -8380,7 +8380,7 @@ msgstr ""
 "いるようですが、mbstring 拡張がないと phpMyAdmin は文字列を正しく分割できない"
 "ため予期しない結果になることがあります。"
 
-#: main.php:293
+#: main.php:292
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -8392,7 +8392,7 @@ msgstr ""
 "設定されているクッキーの有効期間より短くなっています。このため、phpMyAdmin に"
 "設定されているよりも早くログインの期限が切れます。"
 
-#: main.php:300
+#: main.php:299
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -8401,13 +8401,13 @@ msgstr ""
 "りも短くなっています。このため、phpMyAdmin に設定されているよりも早くログイン"
 "の期限が切れます。"
 
-#: main.php:308
+#: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "設定ファイルに、暗号化 (blowfish_secret) 用の非公開パスフレーズの設定を必要と"
 "するようになりました。"
 
-#: main.php:316
+#: main.php:315
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -8417,7 +8417,7 @@ msgstr ""
 "phpMyAdmin ディレクトリに存在しています。phpMyAdmin を設定し終えたら、それは"
 "削除するべきです。"
 
-#: main.php:322
+#: main.php:321
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -8426,17 +8426,7 @@ msgstr ""
 "phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効"
 "になっています。理由については%sこちら%sをご覧ください。"
 
-#: main.php:337
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
-"お使いのブラウザでは Javascript のサポートが不足しているか無効になっているの"
-"で、phpMyAdmin のいくつかの機能が失われます。例えば、ナビゲーションフレームが"
-"自動的に更新されません。"
-
-#: main.php:356
+#: main.php:346
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -8445,7 +8435,7 @@ msgstr ""
 "お使いになっている PHP の MySQL ライブラリのバージョン %s が MySQL サーバの"
 "バージョン %s と異なります。これは予期しない不具合を起こす可能性があります。"
 
-#: main.php:380
+#: main.php:370
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -8454,20 +8444,20 @@ msgstr ""
 "Suhosin が稼働しているため問題が発生する可能性があります。詳しくは%sドキュメ"
 "ント%sをご覧ください。"
 
-#: navigation.php:178 server_databases.php:299 server_synchronize.php:1376
+#: navigation.php:175 server_databases.php:299 server_synchronize.php:1376
 msgid "No databases"
 msgstr "データベースが存在しません"
 
-#: navigation.php:266
+#: navigation.php:260
 msgid "Filter tables by name"
 msgstr "名前でテーブルをフィルタする"
 
-#: navigation.php:299 navigation.php:300
+#: navigation.php:293 navigation.php:294
 msgctxt "short form"
 msgid "Create table"
 msgstr "テーブルを作成する"
 
-#: navigation.php:305 navigation.php:469
+#: navigation.php:299 navigation.php:463
 msgid "Please select a database"
 msgstr "データベースを選択してください"
 
@@ -9187,8 +9177,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -10981,10 +10971,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: setup/lib/index.lib.php:289
 #, php-format
@@ -11790,17 +11781,17 @@ msgstr "ビューの名前"
 msgid "Rename view to"
 msgstr "変更後のビュー名称"
 
-#: po/advisory_rules.php:9
+#: po/advisory_rules.php:5
 msgid "Uptime below one day"
 msgstr "稼働時間が 1 日未満"
 
-#: po/advisory_rules.php:12
+#: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
 "稼働時間が 1 日未満です。パフォーマンスチューニングが正確でない可能性がありま"
 "す。"
 
-#: po/advisory_rules.php:15
+#: po/advisory_rules.php:7
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -11808,16 +11799,16 @@ msgstr ""
 "統計データをより正確にするために、サーバを 1 日以上稼動させてから解析すること"
 "をお勧めします。"
 
-#: po/advisory_rules.php:20
+#: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
 msgstr "%s しか稼動していません。"
 
-#: po/advisory_rules.php:24
+#: po/advisory_rules.php:10
 msgid "Questions below 1,000"
 msgstr "問い合わせ数が 1,000 未満"
 
-#: po/advisory_rules.php:27
+#: po/advisory_rules.php:11
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -11825,7 +11816,7 @@ msgstr ""
 "このサーバで実行された問い合わせ数が 1000 未満と、十分といえる量がありませ"
 "ん。推奨事項は正確でない場合があります。"
 
-#: po/advisory_rules.php:30
+#: po/advisory_rules.php:12
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -11833,21 +11824,21 @@ msgstr ""
 "実行されたクエリが十分な量になるまで、長時間サーバを稼動させたほうがいいで"
 "しょう。"
 
-#: po/advisory_rules.php:35
+#: po/advisory_rules.php:13
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "現在の問い合わせ総数: %s"
 
-#: po/advisory_rules.php:39
+#: po/advisory_rules.php:15
 msgid "Percentage of slow queries"
 msgstr "スロークエリの比率"
 
-#: po/advisory_rules.php:42
+#: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr "クエリの全体量に対して長時間処理であるスロークエリが多く存在します。"
 
-#: po/advisory_rules.php:45 po/advisory_rules.php:60
+#: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -11855,23 +11846,23 @@ msgstr ""
 "{long_query_time} を増やすか、クエリログからスロークエリを見つけ出し最適化し"
 "てみてください。"
 
-#: po/advisory_rules.php:50
+#: po/advisory_rules.php:18
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 "スロークエリの割合は 5%% 未満がいいと言われています。現在は %s%% です。"
 
-#: po/advisory_rules.php:54
+#: po/advisory_rules.php:20
 msgid "Slow query rate"
 msgstr "スロークエリの割合"
 
-#: po/advisory_rules.php:57
+#: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 "サーバの稼働時間と比較して長時間処理であるスロークエリの比率が高いです。"
 
-#: po/advisory_rules.php:65
+#: po/advisory_rules.php:23
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -11880,11 +11871,11 @@ msgstr ""
 "現在のスロークエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%% "
 "未満がいいと言われています。"
 
-#: po/advisory_rules.php:69
+#: po/advisory_rules.php:25
 msgid "Long query time"
 msgstr "長いクエリ時間"
 
-#: po/advisory_rules.php:72
+#: po/advisory_rules.php:26
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -11892,7 +11883,7 @@ msgstr ""
 "long_query_time は 10 秒以上に設定されています。従って、10 秒を超えるものがス"
 "ロークエリとしてログに記録されます。"
 
-#: po/advisory_rules.php:75
+#: po/advisory_rules.php:27
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -11900,20 +11891,20 @@ msgstr ""
 "環境によっては、{long_query_time} を低い値に設定するほうがいいでしょう。通"
 "常、1～5 秒の値が推奨されます。"
 
-#: po/advisory_rules.php:80
+#: po/advisory_rules.php:28
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time は現在 %d 秒に設定されています。"
 
-#: po/advisory_rules.php:84
+#: po/advisory_rules.php:30
 msgid "Slow query logging"
 msgstr "スロークエリログ"
 
-#: po/advisory_rules.php:87
+#: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
 msgstr "スロークエリログが無効になっています。"
 
-#: po/advisory_rules.php:90
+#: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -11921,19 +11912,19 @@ msgstr ""
 "{log_slow_queries} を「ON」に設定することで、スロークエリログが有効になりま"
 "す。これは、パフォーマンスの悪いクエリの切り分けに役立つでしょう。"
 
-#: po/advisory_rules.php:95
+#: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries が「OFF」に設定されています。"
 
-#: po/advisory_rules.php:99
+#: po/advisory_rules.php:35
 msgid "Release Series"
 msgstr "バージョン系統"
 
-#: po/advisory_rules.php:102
+#: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
 msgstr "MySQL サーバのバージョンが 5.1 未満です。"
 
-#: po/advisory_rules.php:105
+#: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -11941,21 +11932,20 @@ msgstr ""
 "アップグレードを推奨します。MySQL 5.1 はパフォーマンスが向上していますし、"
 "MySQL 5.5 であれば更に向上しています。"
 
-#: po/advisory_rules.php:110 po/advisory_rules.php:125
-#: po/advisory_rules.php:140
+#: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
 msgid "Current version: %s"
 msgstr "現在のバージョン: %s"
 
-#: po/advisory_rules.php:114 po/advisory_rules.php:129
+#: po/advisory_rules.php:40 po/advisory_rules.php:45
 msgid "Minor Version"
 msgstr "マイナーバージョン"
 
-#: po/advisory_rules.php:117
+#: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "バージョン 5.1.30 (5.1 の 最初の安定版) 未満です。"
 
-#: po/advisory_rules.php:120
+#: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -11963,26 +11953,25 @@ msgstr ""
 "アップグレードを推奨します。最新バージョンの MySQL 5.1 はパフォーマンスが向上"
 "していますし、MySQL 5.5 であれば更に向上しています。"
 
-#: po/advisory_rules.php:132
+#: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 未満です。"
 
-#: po/advisory_rules.php:135
+#: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "安定版 MySQL 5.5 へのアップグレードを推奨します。"
 
-#: po/advisory_rules.php:144 po/advisory_rules.php:159
-#: po/advisory_rules.php:174
+#: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 msgid "Distribution"
 msgstr "ディストリビューション"
 
-#: po/advisory_rules.php:147
+#: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
 "ご使用のバージョンはソースからコンパイルされたもので、MySQL オフィッシャルの"
 "バイナリではありません。"
 
-#: po/advisory_rules.php:150
+#: po/advisory_rules.php:52
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -11994,44 +11983,44 @@ msgstr ""
 "(RedHat、Debian/Ubuntu などのような) ディストリビューションのパッケージに対し"
 "ては多少異なる部分もあります。"
 
-#: po/advisory_rules.php:155
+#: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
 msgstr ""
 "バージョンコメント (version_comment) に 「source」という文字があります。"
 
-#: po/advisory_rules.php:162 po/advisory_rules.php:177
+#: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
 "MySQL のマニュアルは、MySQL オフィッシャルのバイナリに対してだけ厳格になって"
 "います。"
 
-#: po/advisory_rules.php:165
+#: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr "Percona ドキュメントは http://www.percona.com/docs/wiki/ にあります。"
 
-#: po/advisory_rules.php:170
+#: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
 msgstr ""
 "バージョンコメント (version_comment) に 「percona」という文字があります。"
 
-#: po/advisory_rules.php:180
+#: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "Drizzle ドキュメントは http://docs.drizzle.org/ にあります。"
 
-#: po/advisory_rules.php:185
+#: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています。"
 
-#: po/advisory_rules.php:189
+#: po/advisory_rules.php:65
 msgid "MySQL Architecture"
 msgstr "MySQL 仕様"
 
-#: po/advisory_rules.php:192
+#: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL が、64 ビットのパッケージとしてコンパイルされていません。"
 
-#: po/advisory_rules.php:195
+#: po/advisory_rules.php:67
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -12041,20 +12030,20 @@ msgstr ""
 "モリを十分活用できないでしょう。64 ビット版の MySQL の導入を検討してみてくだ"
 "さい。"
 
-#: po/advisory_rules.php:200
+#: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "このホスト上の利用可能メモリ: %s"
 
-#: po/advisory_rules.php:204
+#: po/advisory_rules.php:70
 msgid "Query cache disabled"
 msgstr "クエリキャッシュが無効"
 
-#: po/advisory_rules.php:207
+#: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
 msgstr "クエリキャッシュが有効になっていません。"
 
-#: po/advisory_rules.php:210
+#: po/advisory_rules.php:72
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12066,21 +12055,21 @@ msgstr ""
 "2 桁 MiB にして、{query_cache_type} を「ON」に設定してください。<b>注：</"
 "b>memcached を使用している場合は、この事象に関することは無視してください。"
 
-#: po/advisory_rules.php:215
+#: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "query_cache_size が 0 に設定されているか、query_cache_type が「OFF」に設定さ"
 "れています。"
 
-#: po/advisory_rules.php:219
+#: po/advisory_rules.php:75
 msgid "Query caching method"
 msgstr "クエリのキャッシュ方式"
 
-#: po/advisory_rules.php:222
+#: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
 msgstr "準最適キャッシュ方式です。"
 
-#: po/advisory_rules.php:225
+#: po/advisory_rules.php:77
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -12093,7 +12082,7 @@ msgstr ""
 "ると思われます。これは、マルチスレーブを使用している場合は、特に推奨されま"
 "す。"
 
-#: po/advisory_rules.php:230
+#: po/advisory_rules.php:78
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -12102,35 +12091,35 @@ msgstr ""
 "クエリキャッシュが有効で、サーバが毎秒 %d 個のクエリを受信しています。毎秒 "
 "100 個を超えるのクエリがある場合、このルールが適用されます。"
 
-#: po/advisory_rules.php:234
+#: po/advisory_rules.php:80
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "クエリキャッシュ効率 (%%)"
 
-#: po/advisory_rules.php:237
+#: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 "クエリキャッシュが有効に機能していません。キャッシュのヒット率が低いです。"
 
-#: po/advisory_rules.php:240
+#: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
 msgstr "{query_cache_limit} の増加を検討してください。"
 
-#: po/advisory_rules.php:245
+#: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "現在のクエリキャッシュのヒット率が %s%% と、20%% を下回っています。"
 
-#: po/advisory_rules.php:249
+#: po/advisory_rules.php:85
 msgid "Query Cache usage"
 msgstr "クエリキャッシュの使用状況"
 
-#: po/advisory_rules.php:252
+#: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr "クエリキャッシュの利用率が 80%% 未満です。"
 
-#: po/advisory_rules.php:255
+#: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -12138,24 +12127,24 @@ msgstr ""
 "これは、{query_cache_limit} が低すぎることが原因であると考えられます。クエリ"
 "キャッシュをフラッシュすることでも改善されるかもしれません。"
 
-#: po/advisory_rules.php:260
+#: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
 "す。この値は、80%% 以上がいいと言われています。"
 
-#: po/advisory_rules.php:264
+#: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
 msgstr "クエリキャッシュの断片化"
 
-#: po/advisory_rules.php:267
+#: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
 msgstr "クエリキャッシュが非常に断片化しています。"
 
-#: po/advisory_rules.php:270
+#: po/advisory_rules.php:92
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12175,7 +12164,7 @@ msgstr ""
 "て、クエリキャッシュの 1 つ当たりの平均使用サイズ ( = (query_cache_size - "
 "qcache_free_memory) / qcache_queries_in_cache ) などがあります。"
 
-#: po/advisory_rules.php:275
+#: po/advisory_rules.php:93
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12186,11 +12175,11 @@ msgstr ""
 "が空きと使用済みブロックが交互に現れるパターンになっていることを意味していま"
 "す。この値は、20%% 未満がいいと言われています。"
 
-#: po/advisory_rules.php:279
+#: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
 msgstr "小さなクエリキャッシュメモリの切り詰め"
 
-#: po/advisory_rules.php:282
+#: po/advisory_rules.php:96
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12198,7 +12187,7 @@ msgstr ""
 "キャッシュされたクエリは、クエリキャッシュメモリが小さいためキャッシュから削"
 "除されます。"
 
-#: po/advisory_rules.php:285
+#: po/advisory_rules.php:97
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -12208,7 +12197,7 @@ msgstr ""
 "け、キャッシュ維持に対するオーバヘッドも増加したように感じるかもしれません。"
 "少しずつ増やして、結果をモニタするようにしてみてください。"
 
-#: po/advisory_rules.php:290
+#: po/advisory_rules.php:98
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -12217,11 +12206,11 @@ msgstr ""
 "追加クエリに対する削除クエリの割合は、%s%% です。この値は低いほど良いです (こ"
 "こでは 0.1%% を超えたらで判断しています)。"
 
-#: po/advisory_rules.php:294
+#: po/advisory_rules.php:100
 msgid "Query cache max size"
 msgstr "クエリキャッシュの最大サイズ"
 
-#: po/advisory_rules.php:297
+#: po/advisory_rules.php:101
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -12229,7 +12218,7 @@ msgstr ""
 "クエリキャッシュサイズが 128 MiB を超えています。クエリキャッシュが大きいと、"
 "キャッシュ維持に必要となるオーバヘッドがかさむようになります。"
 
-#: po/advisory_rules.php:300
+#: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
@@ -12237,22 +12226,22 @@ msgstr ""
 "使用されている環境によりますが、この値を減らすとパフォーマンスがよくなること"
 "があります。"
 
-#: po/advisory_rules.php:305
+#: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "現在のクエリキャッシュサイズ: %s"
 
-#: po/advisory_rules.php:309
+#: po/advisory_rules.php:105
 msgid "Query cache min result size"
 msgstr "クエリキャッシュの最小結果サイズ"
 
-#: po/advisory_rules.php:312
+#: po/advisory_rules.php:106
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "クエリキャッシュにおける結果セットの上限サイズは、デフォルトの 1 MiB です。"
 
-#: po/advisory_rules.php:315
+#: po/advisory_rules.php:107
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12272,19 +12261,19 @@ msgstr ""
 "クエリの結果が多くあるのであれば、{query_cache_limit} を増加させるで効率が悪"
 "くかもしれません。"
 
-#: po/advisory_rules.php:320
+#: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit は 1 MiB に設定されています。"
 
-#: po/advisory_rules.php:324
+#: po/advisory_rules.php:110
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "ソート時に一時テーブルが使われる比率"
 
-#: po/advisory_rules.php:327 po/advisory_rules.php:342
+#: po/advisory_rules.php:111 po/advisory_rules.php:116
 msgid "Too many sorts are causing temporary tables."
 msgstr "一時テーブルが多くのソートで使われています。"
 
-#: po/advisory_rules.php:330 po/advisory_rules.php:345
+#: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
@@ -12293,20 +12282,20 @@ msgstr ""
 "read_rnd_buffer_size のいずれかもしくは両方を増加させることを検討してくださ"
 "い。"
 
-#: po/advisory_rules.php:335
+#: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
 "言われています。"
 
-#: po/advisory_rules.php:339
+#: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
 msgstr "ソート時に一時テーブルが使われる割合"
 
-#: po/advisory_rules.php:350
+#: po/advisory_rules.php:118
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
@@ -12314,15 +12303,15 @@ msgstr ""
 "一時テーブル使用率の平均：%s。この値は、1 時間当たり 1 未満がいいと言われてい"
 "ます。"
 
-#: po/advisory_rules.php:354
+#: po/advisory_rules.php:120
 msgid "Sort rows"
 msgstr "行のソート"
 
-#: po/advisory_rules.php:357
+#: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
 msgstr "ソートされている行が多く存在します。"
 
-#: po/advisory_rules.php:360
+#: po/advisory_rules.php:122
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12333,20 +12322,20 @@ msgstr ""
 "クエリに対して、ORDER BY 節にインデックスのあるカラムを使うのを検討する程度で"
 "いいでしょう。そのクエリ結果のソートは、とても速くなるかもしれません。"
 
-#: po/advisory_rules.php:365
+#: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "ソートされている行の平均：%s"
 
-#: po/advisory_rules.php:369
+#: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"
 msgstr "インデックスを使用しない結合の割合"
 
-#: po/advisory_rules.php:372
+#: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
 msgstr "インデックスを使用しない結合が多くあります。"
 
-#: po/advisory_rules.php:375
+#: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12355,21 +12344,21 @@ msgstr ""
 "件に合ったカラムにインデックスを追加することで、テーブル結合のスピードは大幅"
 "に上がるでしょう。"
 
-#: po/advisory_rules.php:380
+#: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "テーブル結合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
 
-#: po/advisory_rules.php:384
+#: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
 msgstr "最初のインデックスエントリを読み込む割合"
 
-#: po/advisory_rules.php:387
+#: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
 msgstr "最初のインデックスエントリを読み込む割合が高いです。"
 
-#: po/advisory_rules.php:390
+#: po/advisory_rules.php:132
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12386,22 +12375,22 @@ msgstr ""
 "しれません。また、インデックスの全スキャンは、クエリを書き直すことでも減らす"
 "ことが可能です。"
 
-#: po/advisory_rules.php:395
+#: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "インデックススキャンの平均：%s。この値は、1 時間当たり 1 未満がいいと言われて"
 "います。"
 
-#: po/advisory_rules.php:399
+#: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
 msgstr "決まった位置を読み込む割合"
 
-#: po/advisory_rules.php:402
+#: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
 msgstr "決まった位置のデータを読み込む割合が高いです。"
 
-#: po/advisory_rules.php:405
+#: po/advisory_rules.php:137
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -12411,7 +12400,7 @@ msgstr ""
 "ソート、テーブルの全スキャン、のいずれかもしくは両方を必要としていることを示"
 "しています。該当箇所にインデックスを追加してください。"
 
-#: po/advisory_rules.php:410
+#: po/advisory_rules.php:138
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -12420,15 +12409,15 @@ msgstr ""
 "決まった位置を読み込む割合の平均：%s。この値は、1 時間当たり 1 未満がいいと言"
 "われています。"
 
-#: po/advisory_rules.php:414
+#: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
 msgstr "テーブルの次行を読み込む割合"
 
-#: po/advisory_rules.php:417
+#: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
 msgstr "テーブルの次行を読み込む割合が高いです。"
 
-#: po/advisory_rules.php:420
+#: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -12436,7 +12425,7 @@ msgstr ""
 "多くのクエリがテーブルの全スキャンを行っていることを示しています。該当箇所に"
 "インデックスを追加してください。"
 
-#: po/advisory_rules.php:425
+#: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -12444,15 +12433,15 @@ msgstr ""
 "テーブルの次行を読み込む割合：%s。この値は、1 時間当たり 1 未満がいいと言われ"
 "ています。"
 
-#: po/advisory_rules.php:429
+#: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size と max_heap_table_size の関係"
 
-#: po/advisory_rules.php:432
+#: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size と max_heap_table_size が同じ値ではありません。"
 
-#: po/advisory_rules.php:435
+#: po/advisory_rules.php:147
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12463,23 +12452,23 @@ msgstr ""
 "バはいずれか低いほうの値を使用します。ですから、メモリ内テーブルの制限を増や"
 "したいのであれば、もう一方の値も増やしたほうがいいでしょう。"
 
-#: po/advisory_rules.php:440
+#: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 "両者の現在の値は、tmp_table_size が %s、max_heap_table_size が %s です。"
 
-#: po/advisory_rules.php:444
+#: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
 msgstr "一時テーブルがディスク上に展開される比率"
 
-#: po/advisory_rules.php:447 po/advisory_rules.php:462
+#: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr "多くの一時テーブルが、メモリではなくディスク上に展開されています。"
 
-#: po/advisory_rules.php:450
+#: po/advisory_rules.php:152
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12497,7 +12486,7 @@ msgstr ""
 "note_id=10150111255065841&comments\">The Pythian Group の記事 (英語)</a>に詳"
 "しく記載されています。"
 
-#: po/advisory_rules.php:455
+#: po/advisory_rules.php:153
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -12506,11 +12495,11 @@ msgstr ""
 "全一時テーブルの内 %s%% がディスク上に展開されています。この値は、25%% 未満が"
 "いいと言われています。"
 
-#: po/advisory_rules.php:459
+#: po/advisory_rules.php:155
 msgid "Temp disk rate"
 msgstr "一時テーブルがディスク上に展開される割合"
 
-#: po/advisory_rules.php:465
+#: po/advisory_rules.php:157
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12528,7 +12517,7 @@ msgstr ""
 "internal-temporary-tables.html\">MySQL ドキュメント</a>に詳しく記載されていま"
 "す。"
 
-#: po/advisory_rules.php:470
+#: po/advisory_rules.php:158
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -12537,17 +12526,17 @@ msgstr ""
 "ディスク書き込みを伴う一時テーブル割合：%s。この値は、1 時間当たり 1 未満がい"
 "いと言われています。"
 
-#: po/advisory_rules.php:474
+#: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
 msgstr "MyISAM キーバッファのサイズ"
 
-#: po/advisory_rules.php:477
+#: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "キーバッファが初期化されていません。おそらく、MyISAM インデックスはキャッシュ"
 "されていません。"
 
-#: po/advisory_rules.php:480
+#: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -12555,21 +12544,21 @@ msgstr ""
 "お使いの MyISAM インデックスのサイズに合わせた {key_buffer_size} を設定してく"
 "ださい。最初の設定としては、64M からがいいでしょう。"
 
-#: po/advisory_rules.php:485
+#: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size は 0 です。"
 
-#: po/advisory_rules.php:489
+#: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "使われていた MyISAM キーバッファの最大比率"
 
-#: po/advisory_rules.php:492 po/advisory_rules.php:507
+#: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "MyISAM キーバッファ（インデックスキャッシュ）の使用率が低いです。"
 
-#: po/advisory_rules.php:495 po/advisory_rules.php:510
+#: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -12579,7 +12568,7 @@ msgstr ""
 "でインデックスが削除されていないかよく確認してください。また、クエリあるいは"
 "インデックスの使用が想定されるものがないか確認してみてください。"
 
-#: po/advisory_rules.php:500
+#: po/advisory_rules.php:168
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -12587,46 +12576,46 @@ msgstr ""
 "使われていた MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がいいと"
 "言われています。"
 
-#: po/advisory_rules.php:504
+#: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM キーバッファの使用比率"
 
-#: po/advisory_rules.php:515
+#: po/advisory_rules.php:173
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われていま"
 "す。"
 
-#: po/advisory_rules.php:519
+#: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
 msgstr "メモリから読み込まれるインデックスの比率"
 
-#: po/advisory_rules.php:522
+#: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr "MyISAM キーバッファを使用するインデックスの比率が低いです。"
 
-#: po/advisory_rules.php:525
+#: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
 msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
 
-#: po/advisory_rules.php:530
+#: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "メモリから読み込まれるインデックスの比率: %s%%。この値は、95%% 以上がいいと言"
 "われています。"
 
-#: po/advisory_rules.php:534
+#: po/advisory_rules.php:180
 msgid "Rate of table open"
 msgstr "テーブルを開く割合"
 
-#: po/advisory_rules.php:537
+#: po/advisory_rules.php:181
 msgid "The rate of opening tables is high."
 msgstr "テーブルを開く割合が高いです。"
 
-#: po/advisory_rules.php:540
+#: po/advisory_rules.php:182
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -12634,18 +12623,18 @@ msgstr ""
 "テーブルを開くというのは、負荷がかかるディスクへの入出力を行うということで"
 "す。{table_open_cache} を大きくすることで、これを緩和できることがあります。"
 
-#: po/advisory_rules.php:545
+#: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "テーブルを開く割合：%s。この値は、1 時間当たり 10 未満がいいと言われていま"
 "す。"
 
-#: po/advisory_rules.php:549
+#: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
 msgstr "開いているファイルの上限に対する比率"
 
-#: po/advisory_rules.php:552
+#: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -12653,7 +12642,7 @@ msgstr ""
 "開いているファイルの数が最大になりつつあります。エラー「開いているファイルが"
 "多すぎます」になるかもしれません。"
 
-#: po/advisory_rules.php:555 po/advisory_rules.php:570
+#: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
@@ -12661,7 +12650,7 @@ msgstr ""
 "{open_files_limit} 増やすことを検討してください。open_files_limit を変更して"
 "再起動した場合は、エラーログを確認するようにしてください。"
 
-#: po/advisory_rules.php:560
+#: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
@@ -12669,59 +12658,59 @@ msgstr ""
 "開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいいと言"
 "われています。"
 
-#: po/advisory_rules.php:564
+#: po/advisory_rules.php:190
 msgid "Rate of open files"
 msgstr "開いているファイルの割合"
 
-#: po/advisory_rules.php:567
+#: po/advisory_rules.php:191
 msgid "The rate of opening files is high."
 msgstr "開いているファイルの割合が高いです。"
 
-#: po/advisory_rules.php:575
+#: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "開いているファイルの割合：%s。この値は、1 時間当たり 5 未満がいいと言われてい"
 "ます。"
 
-#: po/advisory_rules.php:579
+#: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "速やかに行われたテーブルロックの比率"
 
-#: po/advisory_rules.php:582 po/advisory_rules.php:597
+#: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
 msgstr "テーブルロック要求に対して速やかに取得できないことが多いです。"
 
-#: po/advisory_rules.php:585 po/advisory_rules.php:600
+#: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "テーブルの最適化もしくは InnoDB のロック待ち時間の減少、のいずれかもしくは両"
 "方を行ってください。"
 
-#: po/advisory_rules.php:590
+#: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 "速やかに行われたテーブルロック: %s%%。この値は、95%% 以上がいいと言われていま"
 "す。"
 
-#: po/advisory_rules.php:594
+#: po/advisory_rules.php:200
 msgid "Table lock wait rate"
 msgstr "テーブルロックの待つ割合"
 
-#: po/advisory_rules.php:605
+#: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "テーブルロックの待つ割合: %s。この値は、1 時間当たり 1 未満がいいと言われてい"
 "ます。"
 
-#: po/advisory_rules.php:609
+#: po/advisory_rules.php:205
 msgid "Thread cache"
 msgstr "スレッドキャッシュ"
 
-#: po/advisory_rules.php:612
+#: po/advisory_rules.php:206
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -12729,45 +12718,45 @@ msgstr ""
 "スレッドキャッシュが無効になっているため、MySQL への新たな接続に対してのオー"
 "バヘッドが大きくなります。"
 
-#: po/advisory_rules.php:615
+#: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "{thread_cache_size} に 0 より大きな値を設定して、スレッドキャッシュを有効にし"
 "てください。"
 
-#: po/advisory_rules.php:620
+#: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
 msgstr "スレッドキャッシュは 0 に設定されています。"
 
-#: po/advisory_rules.php:624
+#: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "スレッドキャッシュのヒット率"
 
-#: po/advisory_rules.php:627
+#: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
 msgstr "スレッドキャッシュが効果的に機能していません。"
 
-#: po/advisory_rules.php:630
+#: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} を増やしてください。"
 
-#: po/advisory_rules.php:635
+#: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "スレッドキャッシュのヒット率: %s%%。この値は、80%% 以上がいいと言われていま"
 "す。"
 
-#: po/advisory_rules.php:639
+#: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
 msgstr "起動が遅いスレッド"
 
-#: po/advisory_rules.php:642
+#: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
 msgstr "起動が遅いスレッドが多く存在します。"
 
-#: po/advisory_rules.php:645
+#: po/advisory_rules.php:217
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -12775,22 +12764,22 @@ msgstr ""
 "一般的に、比較的単純な操作なわりには、システム全体に負荷がかかっている状態で"
 "す。お使いのシステムの負荷を入念にモニタしてみてください。"
 
-#: po/advisory_rules.php:650
+#: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 "%s スレッドの開始に %s 秒以上かかっています。この値は、0 がいいと言われていま"
 "す。"
 
-#: po/advisory_rules.php:654
+#: po/advisory_rules.php:220
 msgid "Slow launch time"
 msgstr "遅い起動時間"
 
-#: po/advisory_rules.php:657
+#: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads が 2 秒を超えています。"
 
-#: po/advisory_rules.php:660
+#: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
@@ -12798,16 +12787,16 @@ msgstr ""
 "起動が遅いスレッドなくなるように、slow_launch_time を 1 秒か 2 秒に設定してく"
 "ださい。"
 
-#: po/advisory_rules.php:665
+#: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time は %s に設定されています。"
 
-#: po/advisory_rules.php:669
+#: po/advisory_rules.php:225
 msgid "Percentage of used connections"
 msgstr "使用されている接続の比率"
 
-#: po/advisory_rules.php:672
+#: po/advisory_rules.php:226
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
@@ -12815,7 +12804,7 @@ msgstr ""
 "使用されている接続数が max_connections の値に達すると、閉じられてしまう接続が"
 "発生します。"
 
-#: po/advisory_rules.php:675
+#: po/advisory_rules.php:227
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -12826,23 +12815,23 @@ msgstr ""
 "コード上において、データベースが適切に閉じられているかも確認してみてくださ"
 "い。"
 
-#: po/advisory_rules.php:680
+#: po/advisory_rules.php:228
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections は max_connections の %s%% になっています。この値は、80%"
-"% 未満がいいと言われています。"
+"Max_used_connections は max_connections の %s%% になっています。この値は、"
+"80%% 未満がいいと言われています。"
 
-#: po/advisory_rules.php:684
+#: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
 msgstr "中断された接続の比率"
 
-#: po/advisory_rules.php:687 po/advisory_rules.php:702
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "中断された接続が多いです。"
 
-#: po/advisory_rules.php:690 po/advisory_rules.php:705
+#: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12854,18 +12843,18 @@ msgstr ""
 "source-of-aborted_connects/\">この記事 (英語)</a> は、原因を突き止めるのに参"
 "考になるかもしれません。"
 
-#: po/advisory_rules.php:695
+#: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 "全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われていま"
 "す。"
 
-#: po/advisory_rules.php:699
+#: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "中断された接続の割合"
 
-#: po/advisory_rules.php:710
+#: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -12873,15 +12862,15 @@ msgstr ""
 "中断された接続の割合は %s です。この値は、1 時間当たり 1 未満がいいと言われて"
 "います。"
 
-#: po/advisory_rules.php:714
+#: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
 msgstr "クライアントによって中断された比率"
 
-#: po/advisory_rules.php:717 po/advisory_rules.php:732
+#: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
 msgstr "中断されたクライアントが多いです。"
 
-#: po/advisory_rules.php:720 po/advisory_rules.php:735
+#: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -12892,45 +12881,45 @@ msgstr ""
 "を適切に閉じていないコードが原因と考えられます。ネットワークとコードを確認し"
 "てください。"
 
-#: po/advisory_rules.php:725
+#: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "全クライアントの内 %s%% が中断されています。この値は、2%% 未満がいいと言われ"
 "ています。"
 
-#: po/advisory_rules.php:729
+#: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
 msgstr "中断されたクライアントの割合"
 
-#: po/advisory_rules.php:740
+#: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "中断されたクライアントの割合: %s。この値は、1 時間当たり 1 未満がいいと言われ"
 "ています。"
 
-#: po/advisory_rules.php:744
+#: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB が無効？"
 
-#: po/advisory_rules.php:747
+#: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB を有効にできていません。"
 
-#: po/advisory_rules.php:750
+#: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "一般的に、InnoDB はテーブル用のエンジンとして適切な選択となりえます。"
 
-#: po/advisory_rules.php:755
+#: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb は 'value' に設定されています。"
 
-#: po/advisory_rules.php:759
+#: po/advisory_rules.php:255
 msgid "InnoDB log size"
 msgstr "InnoDB のログサイズ"
 
-#: po/advisory_rules.php:762
+#: po/advisory_rules.php:256
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -12938,7 +12927,7 @@ msgstr ""
 "InnoDB のログサイズが適切ではありません。この値は InnoDB バッファプールと関連"
 "があります。"
 
-#: po/advisory_rules.php:765
+#: po/advisory_rules.php:257
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -12962,7 +12951,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください。"
 
-#: po/advisory_rules.php:770
+#: po/advisory_rules.php:258
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -12972,15 +12961,15 @@ msgstr ""
 "きさに対して %s%% です。この値は、20%% 未満にしないほうがいいと言われていま"
 "す。"
 
-#: po/advisory_rules.php:774
+#: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
 msgstr "InnoDB の最大ログサイズ"
 
-#: po/advisory_rules.php:777
+#: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB ログファイルの大きさが、十分にありません。"
 
-#: po/advisory_rules.php:780
+#: po/advisory_rules.php:262
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -13005,20 +12994,20 @@ msgstr ""
 "innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
 "さい。"
 
-#: po/advisory_rules.php:785
+#: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "使用されている InnoDB のログサイズの総計は、%s MiB です。"
 
-#: po/advisory_rules.php:789
+#: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB のバッファプールの大きさ"
 
-#: po/advisory_rules.php:792
+#: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "ご使用されている InnoDB のバッファプールはかなり小さいです。"
 
-#: po/advisory_rules.php:795
+#: po/advisory_rules.php:267
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -13044,7 +13033,7 @@ msgstr ""
 "mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">こち"
 "らの記事 (英語)</a> も参考にしてください。"
 
-#: po/advisory_rules.php:800
+#: po/advisory_rules.php:268
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -13052,20 +13041,20 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが 60%"
-"% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを使"
-"用していない、もしくは同マシン上で他のサービスを稼動させていないのであれば、"
-"ご使用のシステムではこの設定で十分かもしれません。"
+"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが "
+"60%% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを"
+"使用していない、もしくは同マシン上で他のサービスを稼動させていないのであれ"
+"ば、ご使用のシステムではこの設定で十分かもしれません。"
 
-#: po/advisory_rules.php:804
+#: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM における同時挿入"
 
-#: po/advisory_rules.php:807
+#: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "concurrent_insert に 1 を設定して、同時挿入を有効にしてください。"
 
-#: po/advisory_rules.php:810
+#: po/advisory_rules.php:272
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
@@ -13075,9 +13064,18 @@ msgstr ""
 "を減らすことができます。<a href=\"http://dev.mysql.com/doc/refman/5.1/ja/"
 "concurrent-inserts.html\">MySQL ドキュメント</a>もご覧になってください。"
 
-#: po/advisory_rules.php:815
+#: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
+
+#~ msgid ""
+#~ "Javascript support is missing or disabled in your browser, some "
+#~ "phpMyAdmin functionality will be missing. For example navigation frame "
+#~ "will not refresh automatically."
+#~ msgstr ""
+#~ "お使いのブラウザでは Javascript のサポートが不足しているか無効になっている"
+#~ "ので、phpMyAdmin のいくつかの機能が失われます。例えば、ナビゲーションフ"
+#~ "レームが自動的に更新されません。"
 
 #~ msgid "Add a value"
 #~ msgstr "値を追加する"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-05 09:18-0400\n"
+"POT-Creation-Date: 2012-04-06 10:02+0200\n"
 "PO-Revision-Date: 2012-04-05 15:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "Tout afficher"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:43
-#: libraries/common.lib.php:2485
+#: libraries/common.lib.php:2483
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -39,46 +39,41 @@ msgstr ""
 "navigateur bloque les mises à jour entre fenêtres pour des raisons de "
 "sécurité."
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3169
-#: libraries/common.lib.php:3176 libraries/common.lib.php:3392
-#: libraries/common.lib.php:3393 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3141
+#: libraries/common.lib.php:3148 libraries/common.lib.php:3364
+#: libraries/common.lib.php:3365 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Rechercher"
 
 #: browse_foreigners.php:159 db_operations.php:398 db_operations.php:438
 #: db_operations.php:548 db_operations.php:575 db_search.php:337
-#: db_structure.php:621 gis_data_editor.php:133 gis_data_editor.php:166
-#: gis_data_editor.php:315 js/messages.php:225 libraries/Config.class.php:1326
-#: libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:256 libraries/common.lib.php:1407
-#: libraries/common.lib.php:2458 libraries/core.lib.php:526
-#: libraries/display_create_table.lib.php:61
+#: gis_data_editor.php:133 gis_data_editor.php:166 gis_data_editor.php:315
+#: js/messages.php:225 libraries/auth/cookie.auth.lib.php:275
+#: libraries/core.lib.php:526 libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:352 libraries/display_import.lib.php:264
-#: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
-#: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
-#: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:969
+#: libraries/display_tbl.lib.php:704 libraries/replication_gui.lib.php:76
+#: libraries/replication_gui.lib.php:375 libraries/rte/rte_events.lib.php:493
+#: libraries/rte/rte_routines.lib.php:969
 #: libraries/rte/rte_routines.lib.php:1454
 #: libraries/rte/rte_triggers.lib.php:373
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
 #: libraries/schema/User_Schema.class.php:446
 #: libraries/schema/User_Schema.class.php:487
-#: libraries/select_server.lib.php:94 libraries/sql_query_form.lib.php:362
-#: libraries/sql_query_form.lib.php:424 libraries/sql_query_form.lib.php:479
-#: libraries/tbl_properties.inc.php:570 main.php:115 navigation.php:167
-#: navigation.php:205 pmd_pdf.php:120 prefs_manage.php:263
-#: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:813
-#: server_privileges.php:1928 server_privileges.php:2292
-#: server_privileges.php:2339 server_privileges.php:2371
-#: server_replication.php:265 server_replication.php:349
-#: server_replication.php:380 server_synchronize.php:1391 tbl_change.php:371
-#: tbl_change.php:1115 tbl_change.php:1152 tbl_indexes.php:288
-#: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
-#: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:260
-#: tbl_structure.php:672 tbl_structure.php:707 tbl_tracking.php:443
-#: tbl_tracking.php:581 tbl_zoom_select.php:331 view_create.php:173
-#: view_operations.php:99
+#: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:424
+#: libraries/sql_query_form.lib.php:479 libraries/tbl_properties.inc.php:570
+#: pmd_pdf.php:120 prefs_manage.php:263 prefs_manage.php:314
+#: server_binlog.php:109 server_privileges.php:813 server_privileges.php:1928
+#: server_privileges.php:2292 server_privileges.php:2339
+#: server_privileges.php:2371 server_replication.php:265
+#: server_replication.php:349 server_replication.php:380
+#: server_synchronize.php:1391 tbl_change.php:371 tbl_change.php:1115
+#: tbl_indexes.php:288 tbl_operations.php:284 tbl_operations.php:321
+#: tbl_operations.php:525 tbl_operations.php:587 tbl_operations.php:790
+#: tbl_select.php:260 tbl_structure.php:672 tbl_structure.php:707
+#: tbl_tracking.php:443 tbl_tracking.php:581 tbl_zoom_select.php:331
+#: view_create.php:173 view_operations.php:99
 msgid "Go"
 msgstr "Exécuter"
 
@@ -234,7 +229,7 @@ msgid "View dump (schema) of database"
 msgstr "Voir une exportation (schéma) de la base de données"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:373 navigation.php:292
+#: export.php:373 navigation.php:286
 msgid "No tables found in database."
 msgstr "Aucune table n'a été trouvée dans cette base."
 
@@ -252,13 +247,11 @@ msgstr "Le nom de la base de données est vide !"
 
 #: db_operations.php:300
 #, php-format
-#| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
 msgstr "La base de données %1$s a été renommée en %2$s"
 
 #: db_operations.php:304
 #, php-format
-#| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
 msgstr "La base de données %1$s a été copiée sur %2$s"
 
@@ -345,7 +338,7 @@ msgstr "Éditer ou exporter un schéma relationnel"
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
-#: libraries/header.inc.php:165 libraries/rte/rte_list.lib.php:65
+#: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1979
 #: server_privileges.php:2037 server_privileges.php:2306
@@ -356,7 +349,7 @@ msgstr "Table"
 #: db_printview.php:102 libraries/Table.class.php:291
 #: libraries/build_html_for_db.lib.php:31 libraries/db_structure.lib.php:42
 #: libraries/header_printview.inc.php:64 libraries/import.lib.php:153
-#: navigation.php:587 navigation.php:608 tbl_printview.php:353
+#: navigation.php:581 navigation.php:602 tbl_printview.php:353
 #: tbl_structure.php:363 tbl_structure.php:469 tbl_structure.php:882
 msgid "Rows"
 msgstr "Lignes"
@@ -407,13 +400,13 @@ msgid "Switch to %svisual builder%s"
 msgstr "Passer au %smode visuel%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:91
-#: libraries/display_tbl.lib.php:1014
+#: libraries/display_tbl.lib.php:1013
 msgid "Sort"
 msgstr "Tri"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:98
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:566
-#: libraries/display_tbl.lib.php:970 libraries/display_tbl.lib.php:973
+#: libraries/display_tbl.lib.php:969 libraries/display_tbl.lib.php:972
 #: server_databases.php:177 server_databases.php:194 tbl_operations.php:279
 #: tbl_select.php:247
 msgid "Ascending"
@@ -421,7 +414,7 @@ msgstr "Croissant"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:99
 #: libraries/db_structure.lib.php:108 libraries/display_tbl.lib.php:571
-#: libraries/display_tbl.lib.php:969 libraries/display_tbl.lib.php:974
+#: libraries/display_tbl.lib.php:968 libraries/display_tbl.lib.php:973
 #: server_databases.php:177 server_databases.php:194 tbl_operations.php:280
 #: tbl_select.php:248
 msgid "Descending"
@@ -485,7 +478,7 @@ msgstr "Exécuter la requête"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:97
-#: libraries/auth/cookie.auth.lib.php:589 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:608 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "Accès refusé"
@@ -518,8 +511,8 @@ msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%1$s correspondance dans la table <i>%2$s</i>"
 msgstr[1] "%1$s correspondances dans la table <i>%2$s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3171
-#: libraries/common.lib.php:3390 libraries/common.lib.php:3391
+#: db_search.php:234 libraries/common.lib.php:3143
+#: libraries/common.lib.php:3362 libraries/common.lib.php:3363
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Afficher"
@@ -529,8 +522,8 @@ msgstr "Afficher"
 msgid "Delete the matches for the %s table?"
 msgstr "Supprimer de la table %s les occurences ?"
 
-#: db_search.php:239 libraries/display_tbl.lib.php:1439
-#: libraries/display_tbl.lib.php:2480
+#: db_search.php:239 libraries/display_tbl.lib.php:1438
+#: libraries/display_tbl.lib.php:2479
 #: libraries/schema/User_Schema.class.php:197
 #: libraries/schema/User_Schema.class.php:273
 #: libraries/schema/User_Schema.class.php:308
@@ -604,16 +597,16 @@ msgstr "Le suivi est actif."
 msgid "Tracking is not active."
 msgstr "Le suivi n'est pas activé."
 
-#: db_structure.php:462 libraries/display_tbl.lib.php:2363
+#: db_structure.php:462 libraries/display_tbl.lib.php:2362
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Cette vue contient au moins ce nombre de lignes. Veuillez référer à %"
-"sdocumentation%s."
+"Cette vue contient au moins ce nombre de lignes. Veuillez référer à "
+"%sdocumentation%s."
 
-#: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:165
+#: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:169
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:209
 msgid "View"
 msgstr "Vue"
@@ -634,20 +627,20 @@ msgid "%s is the default storage engine on this MySQL server."
 msgstr "Sur ce serveur MySQL, le moteur de stockage par défaut est %s."
 
 #: db_structure.php:567 db_structure.php:584 db_structure.php:585
-#: libraries/display_tbl.lib.php:2505 libraries/display_tbl.lib.php:2510
+#: libraries/display_tbl.lib.php:2504 libraries/display_tbl.lib.php:2509
 #: libraries/mult_submits.inc.php:39 server_databases.php:278
 #: server_databases.php:283 server_privileges.php:1886
 #: server_privileges.php:1894 tbl_structure.php:557 tbl_structure.php:566
 msgid "With selected:"
 msgstr "Pour la sélection : "
 
-#: db_structure.php:570 libraries/display_tbl.lib.php:2500
+#: db_structure.php:570 libraries/display_tbl.lib.php:2499
 #: server_databases.php:280 server_privileges.php:751
 #: server_privileges.php:1889 tbl_structure.php:560
 msgid "Check All"
 msgstr "Tout cocher"
 
-#: db_structure.php:574 libraries/display_tbl.lib.php:2501
+#: db_structure.php:574 libraries/display_tbl.lib.php:2500
 #: libraries/replication_gui.lib.php:35 server_databases.php:282
 #: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
@@ -657,28 +650,28 @@ msgstr "Tout décocher"
 msgid "Check tables having overhead"
 msgstr "Cocher tables avec pertes"
 
-#: db_structure.php:587 libraries/common.lib.php:3403
-#: libraries/common.lib.php:3404 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3375
+#: libraries/common.lib.php:3376 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
-#: libraries/display_tbl.lib.php:2523 libraries/display_tbl.lib.php:2664
+#: libraries/display_tbl.lib.php:2522 libraries/display_tbl.lib.php:2663
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1535 server_privileges.php:1898
 #: server_status.php:1602 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exporter"
 
-#: db_structure.php:589 db_structure.php:645
-#: libraries/display_tbl.lib.php:2613 tbl_structure.php:613
+#: db_structure.php:589 db_structure.php:637
+#: libraries/display_tbl.lib.php:2612 tbl_structure.php:613
 msgid "Print view"
 msgstr "Version imprimable"
 
-#: db_structure.php:593 libraries/common.lib.php:3399
-#: libraries/common.lib.php:3400
+#: db_structure.php:593 libraries/common.lib.php:3371
+#: libraries/common.lib.php:3372
 msgid "Empty"
 msgstr "Vider"
 
 #: db_structure.php:595 db_tracking.php:105 libraries/Index.class.php:504
-#: libraries/common.lib.php:3397 libraries/common.lib.php:3398
+#: libraries/common.lib.php:3369 libraries/common.lib.php:3370
 #: server_databases.php:284 tbl_structure.php:150 tbl_structure.php:151
 #: tbl_structure.php:573
 msgid "Drop"
@@ -712,7 +705,7 @@ msgstr "Remplacer le préfixe de table"
 msgid "Copy table with prefix"
 msgstr "Copier la table avec un préfixe"
 
-#: db_structure.php:648 libraries/schema/User_Schema.class.php:423
+#: db_structure.php:640 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
 msgstr "Dictionnaire de données"
 
@@ -724,7 +717,7 @@ msgstr "Tables faisant l'objet d'un suivi"
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:609 libraries/export/texytext.php:66
-#: libraries/export/xml.php:292 libraries/header.inc.php:148
+#: libraries/export/xml.php:292 libraries/header.inc.php:152
 #: libraries/header_printview.inc.php:59 server_databases.php:176
 #: server_privileges.php:1974 server_privileges.php:2037
 #: server_privileges.php:2300 server_status.php:1231
@@ -850,7 +843,7 @@ msgid "SRID"
 msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:322
-#: libraries/display_tbl.lib.php:693
+#: libraries/display_tbl.lib.php:692
 msgid "Geometry"
 msgstr "Géométrie"
 
@@ -920,14 +913,14 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Choisissez «GeomFromText» dans la colonne «Fonction» et collez la chaîne dans "
-"le champ «Valeur»"
+"Choisissez «GeomFromText» dans la colonne «Fonction» et collez la chaîne "
+"dans le champ «Valeur»"
 
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -1007,7 +1000,7 @@ msgstr ""
 "limite de temps de PHP ne soit augmentée."
 
 #: import.php:521 libraries/Message.class.php:177
-#: libraries/display_tbl.lib.php:2400 libraries/rte/rte_routines.lib.php:1208
+#: libraries/display_tbl.lib.php:2399 libraries/rte/rte_routines.lib.php:1208
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:229
 #: tbl_relation.php:300 tbl_row_action.php:118 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1118,8 +1111,8 @@ msgstr "Fermer"
 
 #: js/messages.php:61 js/messages.php:277 libraries/Index.class.php:482
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
-#: libraries/common.lib.php:3401 libraries/common.lib.php:3402
-#: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1403
+#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
+#: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1402
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
 msgstr "Modifier"
@@ -1154,12 +1147,12 @@ msgid "Other"
 msgstr "Autres"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/common.lib.php:1485
+#: js/messages.php:72 libraries/common.lib.php:1484
 msgid ","
 msgstr "  "
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/common.lib.php:1487
+#: js/messages.php:74 libraries/common.lib.php:1486
 msgid "."
 msgstr ","
 
@@ -1242,13 +1235,13 @@ msgid "System swap"
 msgstr "Zone d'échange"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1435
+#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
 #: server_status.php:1682
 msgid "MiB"
 msgstr "Mio"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1433
+#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1432
 #: server_status.php:1682
 msgid "KiB"
 msgstr "Kio"
@@ -1306,27 +1299,27 @@ msgid "Connections"
 msgstr "Connexions"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:121 libraries/common.lib.php:1431
+#: js/messages.php:121 libraries/common.lib.php:1430
 msgid "B"
 msgstr "o"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:124 libraries/common.lib.php:1437
+#: js/messages.php:124 libraries/common.lib.php:1436
 msgid "GiB"
 msgstr "Gio"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:125 libraries/common.lib.php:1439
+#: js/messages.php:125 libraries/common.lib.php:1438
 msgid "TiB"
 msgstr "Tio"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:126 libraries/common.lib.php:1441
+#: js/messages.php:126 libraries/common.lib.php:1440
 msgid "PiB"
 msgstr "Pio"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:127 libraries/common.lib.php:1443
+#: js/messages.php:127 libraries/common.lib.php:1442
 msgid "EiB"
 msgstr "Eio"
 
@@ -1818,9 +1811,8 @@ msgstr "Montrer zone SQL"
 msgid "No rows selected"
 msgstr "Aucune ligne n'a été sélectionnée"
 
-#: js/messages.php:279 libraries/common.lib.php:2783
-#: libraries/display_tbl.lib.php:2514 querywindow.php:87 tbl_structure.php:149
-#: tbl_structure.php:572
+#: js/messages.php:279 libraries/display_tbl.lib.php:2513 querywindow.php:87
+#: tbl_structure.php:149 tbl_structure.php:572
 msgid "Change"
 msgstr "Modifier"
 
@@ -1907,7 +1899,7 @@ msgstr "Données reliées à ce point"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: js/messages.php:315 libraries/display_tbl.lib.php:1404
+#: js/messages.php:315 libraries/display_tbl.lib.php:1403
 msgid "Copy"
 msgstr "Copier"
 
@@ -2006,7 +1998,6 @@ msgstr ""
 "papier."
 
 #: js/messages.php:356
-#| msgid "Update row(s)"
 msgid "Show data row(s)"
 msgstr "Afficher les lignes correspondantes"
 
@@ -2113,63 +2104,63 @@ msgid "December"
 msgstr "Décembre"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1643
+#: js/messages.php:419 libraries/common.lib.php:1642
 msgid "Jan"
 msgstr "Janvier"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1645
+#: js/messages.php:421 libraries/common.lib.php:1644
 msgid "Feb"
 msgstr "Février"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1647
+#: js/messages.php:423 libraries/common.lib.php:1646
 msgid "Mar"
 msgstr "Mars"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1649
+#: js/messages.php:425 libraries/common.lib.php:1648
 msgid "Apr"
 msgstr "Avril"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1651
+#: js/messages.php:427 libraries/common.lib.php:1650
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:429 libraries/common.lib.php:1653
+#: js/messages.php:429 libraries/common.lib.php:1652
 msgid "Jun"
 msgstr "Juin"
 
 #. l10n: Short month name
-#: js/messages.php:431 libraries/common.lib.php:1655
+#: js/messages.php:431 libraries/common.lib.php:1654
 msgid "Jul"
 msgstr "Juillet"
 
 #. l10n: Short month name
-#: js/messages.php:433 libraries/common.lib.php:1657
+#: js/messages.php:433 libraries/common.lib.php:1656
 msgid "Aug"
 msgstr "Août"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/common.lib.php:1659
+#: js/messages.php:435 libraries/common.lib.php:1658
 msgid "Sep"
 msgstr "Septembre"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/common.lib.php:1661
+#: js/messages.php:437 libraries/common.lib.php:1660
 msgid "Oct"
 msgstr "Octobre"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/common.lib.php:1663
+#: js/messages.php:439 libraries/common.lib.php:1662
 msgid "Nov"
 msgstr "Novembre"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/common.lib.php:1665
+#: js/messages.php:441 libraries/common.lib.php:1664
 msgid "Dec"
 msgstr "Décembre"
 
@@ -2207,32 +2198,32 @@ msgid "Sun"
 msgstr "Dim"
 
 #. l10n: Short week day name
-#: js/messages.php:456 libraries/common.lib.php:1670
+#: js/messages.php:456 libraries/common.lib.php:1669
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:458 libraries/common.lib.php:1672
+#: js/messages.php:458 libraries/common.lib.php:1671
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:460 libraries/common.lib.php:1674
+#: js/messages.php:460 libraries/common.lib.php:1673
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:462 libraries/common.lib.php:1676
+#: js/messages.php:462 libraries/common.lib.php:1675
 msgid "Thu"
 msgstr "Jeu"
 
 #. l10n: Short week day name
-#: js/messages.php:464 libraries/common.lib.php:1678
+#: js/messages.php:464 libraries/common.lib.php:1677
 msgid "Fri"
 msgstr "Ven"
 
 #. l10n: Short week day name
-#: js/messages.php:466 libraries/common.lib.php:1680
+#: js/messages.php:466 libraries/common.lib.php:1679
 msgid "Sat"
 msgstr "Sam"
 
@@ -2604,7 +2595,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Connexion impossible: paramètres incorrects."
 
 #: libraries/auth/config.auth.lib.php:86
-#: libraries/auth/cookie.auth.lib.php:182 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:195 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Bienvenue dans %s"
@@ -2612,8 +2603,8 @@ msgstr "Bienvenue dans %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -2634,46 +2625,52 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Impossible d'utiliser Blowfish depuis mcrypt !"
 
-#: libraries/auth/cookie.auth.lib.php:208
+#: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
+#, fuzzy
+#| msgid "Cookies must be enabled past this point."
+msgid "Javascript must be enabled past this point"
+msgstr "Vous devez accepter les cookies pour poursuivre."
+
+#: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
 msgstr "Connexion"
 
-#: libraries/auth/cookie.auth.lib.php:210
-#: libraries/auth/cookie.auth.lib.php:212
+#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:231
 #: libraries/navigation_header.inc.php:91
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
 msgstr "Documentation de phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:222
-#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:241
+#: libraries/auth/cookie.auth.lib.php:242
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Vous pouvez entrer le nom du serveur ou son adresse IP, ainsi que le port "
 "séparé par un espace."
 
-#: libraries/auth/cookie.auth.lib.php:222
+#: libraries/auth/cookie.auth.lib.php:241
 msgid "Server:"
 msgstr "Serveur : "
 
-#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:246
 msgid "Username:"
 msgstr "Utilisateur : "
 
-#: libraries/auth/cookie.auth.lib.php:231
+#: libraries/auth/cookie.auth.lib.php:250
 msgid "Password:"
 msgstr "Mot de passe : "
 
-#: libraries/auth/cookie.auth.lib.php:238
+#: libraries/auth/cookie.auth.lib.php:257
 msgid "Server Choice"
 msgstr "Choix du serveur"
 
-#: libraries/auth/cookie.auth.lib.php:284 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:303 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Vous devez accepter les cookies pour poursuivre."
 
-#: libraries/auth/cookie.auth.lib.php:587
+#: libraries/auth/cookie.auth.lib.php:606
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -2681,14 +2678,14 @@ msgstr ""
 "La configuration interdit une connexion sans mot de passe (voir "
 "AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:591
+#: libraries/auth/cookie.auth.lib.php:610
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Aucune activité depuis %s secondes ou plus, veuillez vous reconnecter"
 
-#: libraries/auth/cookie.auth.lib.php:601
-#: libraries/auth/cookie.auth.lib.php:603
+#: libraries/auth/cookie.auth.lib.php:620
+#: libraries/auth/cookie.auth.lib.php:622
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Connexion au serveur MySQL non permise"
@@ -2815,7 +2812,7 @@ msgstr ""
 "configuration."
 
 #: libraries/common.inc.php:660 libraries/config/messages.inc.php:508
-#: libraries/header.inc.php:134 main.php:171 server_status.php:776
+#: libraries/header.inc.php:138 main.php:170 server_status.php:776
 #: server_synchronize.php:1339
 msgid "Server"
 msgstr "Serveur"
@@ -2861,7 +2858,7 @@ msgstr "fr"
 #: libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
 #: libraries/sql_query_form.lib.php:398 libraries/sql_query_form.lib.php:401
-#: main.php:238 server_variables.php:122
+#: main.php:237 server_variables.php:122
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -2930,68 +2927,68 @@ msgid "Profiling"
 msgstr "Profilage"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1668
+#: libraries/common.lib.php:1667
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Dim"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1684
+#: libraries/common.lib.php:1683
 #: libraries/transformations/text_plain__dateformat.inc.php:34
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%A %d %B %Y à %H:%M"
 
-#: libraries/common.lib.php:2018
+#: libraries/common.lib.php:2017
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s jours, %s heures, %s minutes et %s secondes"
 
-#: libraries/common.lib.php:2111
+#: libraries/common.lib.php:2110
 msgid "Missing parameter:"
 msgstr "Paramètre manquant : "
 
-#: libraries/common.lib.php:2494 libraries/common.lib.php:2497
+#: libraries/common.lib.php:2492 libraries/common.lib.php:2495
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "Début"
 
-#: libraries/common.lib.php:2495 libraries/common.lib.php:2498
+#: libraries/common.lib.php:2493 libraries/common.lib.php:2496
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Précédent"
 
-#: libraries/common.lib.php:2525 libraries/common.lib.php:2528
+#: libraries/common.lib.php:2523 libraries/common.lib.php:2526
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "Suivant"
 
-#: libraries/common.lib.php:2526 libraries/common.lib.php:2529
+#: libraries/common.lib.php:2524 libraries/common.lib.php:2527
 #: libraries/display_tbl.lib.php:390
 msgctxt "Last page"
 msgid "End"
 msgstr "Fin"
 
-#: libraries/common.lib.php:2596
+#: libraries/common.lib.php:2594
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Aller à la base de données &quot;%s&quot;."
 
-#: libraries/common.lib.php:2616
+#: libraries/common.lib.php:2614
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La fonctionnalité %s est affectée par une anomalie connue, voir %s"
 
-#: libraries/common.lib.php:2790
+#: libraries/common.lib.php:2763
 msgid "Click to toggle"
 msgstr "Cliquer pour basculer"
 
-#: libraries/common.lib.php:3167 libraries/common.lib.php:3174
-#: libraries/common.lib.php:3396 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3139 libraries/common.lib.php:3146
+#: libraries/common.lib.php:3368 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -3003,7 +3000,7 @@ msgstr "Cliquer pour basculer"
 msgid "Structure"
 msgstr "Structure"
 
-#: libraries/common.lib.php:3168 libraries/common.lib.php:3175
+#: libraries/common.lib.php:3140 libraries/common.lib.php:3147
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3011,43 +3008,43 @@ msgstr "Structure"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3170 libraries/common.lib.php:3394
-#: libraries/common.lib.php:3395 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3142 libraries/common.lib.php:3366
+#: libraries/common.lib.php:3367 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Insérer"
 
-#: libraries/common.lib.php:3177 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3149 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Opérations"
 
-#: libraries/common.lib.php:3328 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3300 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "Parcourir : "
 
-#: libraries/common.lib.php:3347
+#: libraries/common.lib.php:3319
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 "Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> : "
 
-#: libraries/common.lib.php:3368 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3340 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:938
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Le répertoire de transfert est inaccessible"
 
-#: libraries/common.lib.php:3377
+#: libraries/common.lib.php:3349
 msgid "There are no files to upload"
 msgstr "Aucun fichier n'est disponible pour le transfert"
 
-#: libraries/common.lib.php:3405 libraries/common.lib.php:3406
+#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
 msgid "Execute"
 msgstr "Exécuter"
 
-#: libraries/common.lib.php:3881
+#: libraries/common.lib.php:3853
 msgid "Print"
 msgstr "Imprimer"
 
@@ -3194,7 +3191,7 @@ msgstr "Extension SOAP absente"
 msgid "maximum %s"
 msgstr "maximum %s"
 
-#: libraries/config/FormDisplay.tpl.php:141 main.php:239
+#: libraries/config/FormDisplay.tpl.php:141 main.php:238
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -3424,7 +3421,7 @@ msgstr "Onglet par défaut pour tables"
 msgid "Show binary contents as HEX by default"
 msgstr "Montrer par défaut le contenu binaire en hexadécimal"
 
-#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:679
+#: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:678
 msgid "Show binary contents as HEX"
 msgstr "Montrer le contenu binaire en hexadécimal"
 
@@ -5550,7 +5547,7 @@ msgstr "Événements"
 msgid "Triggers"
 msgstr "Déclencheurs"
 
-#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2235
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2234
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -5710,8 +5707,8 @@ msgstr ", @TABLE@ sera remplacé par le nom de la table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -5907,7 +5904,7 @@ msgstr "En-têtes à intervalle de %s lignes"
 msgid "Sort by key"
 msgstr "Trier sur l'index"
 
-#: libraries/display_tbl.lib.php:627 libraries/export/codegen.php:41
+#: libraries/display_tbl.lib.php:626 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
 #: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
@@ -5924,93 +5921,93 @@ msgstr "Trier sur l'index"
 msgid "Options"
 msgstr "Options"
 
-#: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:650
+#: libraries/display_tbl.lib.php:631 libraries/display_tbl.lib.php:649
 msgid "Partial texts"
 msgstr "Textes réduits"
 
-#: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
+#: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:653
 msgid "Full texts"
 msgstr "Textes complets"
 
-#: libraries/display_tbl.lib.php:667
+#: libraries/display_tbl.lib.php:666
 msgid "Relational key"
 msgstr "Relations : clés"
 
-#: libraries/display_tbl.lib.php:668
+#: libraries/display_tbl.lib.php:667
 msgid "Relational display column"
 msgstr "Relations : colonnes descriptives"
 
-#: libraries/display_tbl.lib.php:675
+#: libraries/display_tbl.lib.php:674
 msgid "Show binary contents"
 msgstr "Montrer le contenu binaire"
 
-#: libraries/display_tbl.lib.php:677
+#: libraries/display_tbl.lib.php:676
 msgid "Show BLOB contents"
 msgstr "Montrer le contenu BLOB"
 
-#: libraries/display_tbl.lib.php:687
+#: libraries/display_tbl.lib.php:686
 msgid "Hide browser transformation"
 msgstr "Masquer les transformations"
 
-#: libraries/display_tbl.lib.php:694
+#: libraries/display_tbl.lib.php:693
 msgid "Well Known Text"
 msgstr "Well Known Text"
 
-#: libraries/display_tbl.lib.php:695
+#: libraries/display_tbl.lib.php:694
 msgid "Well Known Binary"
 msgstr "Well Known Binary"
 
-#: libraries/display_tbl.lib.php:1419 libraries/display_tbl.lib.php:1431
+#: libraries/display_tbl.lib.php:1418 libraries/display_tbl.lib.php:1430
 msgid "The row has been deleted"
 msgstr "La ligne a été effacée"
 
-#: libraries/display_tbl.lib.php:1458 libraries/display_tbl.lib.php:2480
+#: libraries/display_tbl.lib.php:1457 libraries/display_tbl.lib.php:2479
 #: server_status.php:1256
 msgid "Kill"
 msgstr "Supprimer"
 
-#: libraries/display_tbl.lib.php:2339
+#: libraries/display_tbl.lib.php:2338
 msgid "in query"
 msgstr "dans la requête"
 
-#: libraries/display_tbl.lib.php:2371
+#: libraries/display_tbl.lib.php:2370
 msgid "Showing rows"
 msgstr "Affichage des lignes"
 
-#: libraries/display_tbl.lib.php:2381
+#: libraries/display_tbl.lib.php:2380
 msgid "total"
 msgstr "total"
 
-#: libraries/display_tbl.lib.php:2389 sql.php:766
+#: libraries/display_tbl.lib.php:2388 sql.php:766
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Traitement en %01.4f sec"
 
-#: libraries/display_tbl.lib.php:2592
+#: libraries/display_tbl.lib.php:2591
 msgid "Query results operations"
 msgstr "Opérations sur les résultats de la requête"
 
-#: libraries/display_tbl.lib.php:2621
+#: libraries/display_tbl.lib.php:2620
 msgid "Print view (with full texts)"
 msgstr "Version imprimable (avec textes complets)"
 
-#: libraries/display_tbl.lib.php:2671 tbl_chart.php:78
+#: libraries/display_tbl.lib.php:2670 tbl_chart.php:78
 msgid "Display chart"
 msgstr "Afficher le graphique"
 
-#: libraries/display_tbl.lib.php:2687
+#: libraries/display_tbl.lib.php:2686
 msgid "Visualize GIS data"
 msgstr "Visualiser les données GIS"
 
-#: libraries/display_tbl.lib.php:2708
+#: libraries/display_tbl.lib.php:2707
 msgid "Create view"
 msgstr "Créer une vue"
 
-#: libraries/display_tbl.lib.php:2817
+#: libraries/display_tbl.lib.php:2816
 msgid "Link not found"
 msgstr "Lien absent"
 
-#: libraries/engines/bdb.lib.php:20 main.php:237
+#: libraries/engines/bdb.lib.php:20 main.php:236
 msgid "Version information"
 msgstr "Version"
 
@@ -6353,8 +6350,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentation de PBXT et des informations additionnelles sont disponibles "
 "sur %sle site de PrimeBase XT%s."
@@ -7945,7 +7942,7 @@ msgstr "Exécuter une ou des requêtes SQL sur le serveur %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Exécuter une ou des requêtes SQL sur la base %s"
 
-#: libraries/sql_query_form.lib.php:267 navigation.php:265
+#: libraries/sql_query_form.lib.php:267 navigation.php:259
 #: setup/frames/index.inc.php:233
 msgid "Clear"
 msgstr "Vider"
@@ -8055,8 +8052,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Le validateur SQL n'a pas pu être initialisé. Vérifiez que les extensions "
-"PHP nécessaires ont bien été installées tel que décrit dans la %"
-"sdocumentation%s."
+"PHP nécessaires ont bien été installées tel que décrit dans la "
+"%sdocumentation%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8375,73 +8372,73 @@ msgstr "Paramètres généraux"
 msgid "Server connection collation"
 msgstr "Interclassement pour la connexion au serveur"
 
-#: main.php:124
+#: main.php:123
 msgid "Appearance Settings"
 msgstr "Paramètres d'affichage"
 
-#: main.php:153 prefs_manage.php:272
+#: main.php:152 prefs_manage.php:272
 msgid "More settings"
 msgstr "Plus de paramètres"
 
-#: main.php:169
+#: main.php:168
 msgid "Database server"
 msgstr "Serveur de base de données"
 
-#: main.php:172
+#: main.php:171
 msgid "Software"
 msgstr "Logiciel"
 
-#: main.php:173
+#: main.php:172
 msgid "Software version"
 msgstr "Version du logiciel"
 
-#: main.php:175
+#: main.php:174
 msgid "Protocol version"
 msgstr "Version du protocole"
 
-#: main.php:179 server_privileges.php:1662 server_privileges.php:1817
+#: main.php:178 server_privileges.php:1662 server_privileges.php:1817
 #: server_privileges.php:1964 server_privileges.php:2383
 #: server_status.php:1229
 msgid "User"
 msgstr "Utilisateur"
 
-#: main.php:184
+#: main.php:183
 msgid "Server charset"
 msgstr "Jeu de caractères du serveur"
 
-#: main.php:196
+#: main.php:195
 msgid "Web server"
 msgstr "Serveur web"
 
-#: main.php:209
+#: main.php:208
 msgid "Database client version"
 msgstr "Version du client de base de données"
 
-#: main.php:213
+#: main.php:212
 msgid "PHP extension"
 msgstr "Extension PHP"
 
-#: main.php:221
+#: main.php:220
 msgid "Show PHP information"
 msgstr "Afficher les informations relatives à PHP"
 
-#: main.php:242
+#: main.php:241
 msgid "Official Homepage"
 msgstr "Site officiel"
 
-#: main.php:243
+#: main.php:242
 msgid "Contribute"
 msgstr "Contribuer"
 
-#: main.php:244
+#: main.php:243
 msgid "Get support"
 msgstr "Obtenir de l'aide"
 
-#: main.php:245
+#: main.php:244
 msgid "List of changes"
 msgstr "Liste des changements"
 
-#: main.php:269
+#: main.php:268
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8453,7 +8450,7 @@ msgstr ""
 "serveur MySQL est donc ouvert aux intrusions, et vous devriez corriger ce "
 "problème de sécurité."
 
-#: main.php:277
+#: main.php:276
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8463,7 +8460,7 @@ msgstr ""
 "option est incompatible avec phpMyAdmin et peut nuire au traitement des "
 "données !"
 
-#: main.php:285
+#: main.php:284
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -8474,7 +8471,7 @@ msgstr ""
 "phpMyAdmin est incapable de gérer correctement les caractères et il peut en "
 "résulter des problèmes."
 
-#: main.php:293
+#: main.php:292
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
@@ -8486,7 +8483,7 @@ msgstr ""
 "que la durée du cookie configurée dans phpMyAdmin; donc, votre session de "
 "travail expirera plus tôt."
 
-#: main.php:300
+#: main.php:299
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -8495,13 +8492,13 @@ msgstr ""
 "LoginCookieValidity; donc, votre session de travail expirera plus tôt que la "
 "valeur configurée dans phpMyAdmin."
 
-#: main.php:308
+#: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Vous devez ajouter dans le fichier de configuration une phrase de passe "
 "secrète (blowfish_secret)."
 
-#: main.php:316
+#: main.php:315
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -8511,7 +8508,7 @@ msgstr ""
 "présent dans votre répertoire phpMyAdmin. Vous devriez le supprimer quand "
 "vous aurez terminé la configuration de phpMyAdmin."
 
-#: main.php:322
+#: main.php:321
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -8521,17 +8518,7 @@ msgstr ""
 "certaines fonctionnalités ont été désactivée. Pour en connaître la raison, "
 "cliquez %sici%s."
 
-#: main.php:337
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
-"Javascript est désactivé ou manquant dans votre fureteur, certaines "
-"fonctions de phpMyAdmin seront manquantes. Par exemple le cadre de "
-"navigation ne sera pas mis à jour automatiquement."
-
-#: main.php:356
+#: main.php:346
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -8540,7 +8527,7 @@ msgstr ""
 "La version de votre bibliothèque MySQL (%s) de PHP diffère de la version de "
 "votre serveur MySQL (%s). Ceci peut occasionner un comportement imprévisible."
 
-#: main.php:380
+#: main.php:370
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -8549,20 +8536,20 @@ msgstr ""
 "Ce serveur utilise Suhosin. Veuillez vous référer à la %sdocumentation%s "
 "pour en connaître les conséquences possibles."
 
-#: navigation.php:178 server_databases.php:299 server_synchronize.php:1376
+#: navigation.php:175 server_databases.php:299 server_synchronize.php:1376
 msgid "No databases"
 msgstr "Aucune base de données"
 
-#: navigation.php:266
+#: navigation.php:260
 msgid "Filter tables by name"
 msgstr "Filtrer par nom de table"
 
-#: navigation.php:299 navigation.php:300
+#: navigation.php:293 navigation.php:294
 msgctxt "short form"
 msgid "Create table"
 msgstr "Nouvelle table"
 
-#: navigation.php:305 navigation.php:469
+#: navigation.php:299 navigation.php:463
 msgid "Please select a database"
 msgstr "Choisissez une base de données"
 
@@ -9297,8 +9284,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -11043,8 +11030,8 @@ msgid ""
 msgstr ""
 "Cette %soption%s ne devrait pas être activée car elle permet à un attaquant "
 "de tenter de forcer l'entrée sur tout serveur MySQL. Si vous en avez "
-"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance%"
-"s."
+"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance"
+"%s."
 
 #: setup/lib/index.lib.php:273
 msgid ""
@@ -11096,8 +11083,8 @@ msgid ""
 msgstr ""
 "Le paramètre %sLogin cookie validity%s avec une valeur de plus de 1440 "
 "secondes peut causer des interruptions de la session de travail si le "
-"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement %"
-"d)."
+"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement "
+"%d)."
 
 #: setup/lib/index.lib.php:283
 #, php-format
@@ -11116,8 +11103,8 @@ msgid ""
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Si vous utilisez l'authentification cookie et que le paramètre %sLogin "
-"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%"
-"s doit avoir une valeur plus petite ou égale à celui-ci."
+"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity"
+"%s doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: setup/lib/index.lib.php:287
 #, php-format
@@ -11127,8 +11114,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des paramètres de protection - %"
-"sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
+"Si vous l'estimez nécessaire, utilisez des paramètres de protection - "
+"%sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
 "Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
 "appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
 "compris, sont connectés."
@@ -11936,17 +11923,17 @@ msgstr "Nom de la vue"
 msgid "Rename view to"
 msgstr "Changer le nom de la vue pour"
 
-#: po/advisory_rules.php:9
+#: po/advisory_rules.php:5
 msgid "Uptime below one day"
 msgstr "Le temps de disponibilité est inférieur à un jour"
 
-#: po/advisory_rules.php:12
+#: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
 "Le système est en marche depuis moins d'un jour, les conseils de performance "
 "peuvent être inexacts."
 
-#: po/advisory_rules.php:15
+#: po/advisory_rules.php:7
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -11954,16 +11941,16 @@ msgstr ""
 "Pour obtenir de meilleurs résultats, il est recommandé de laisser le serveur "
 "en marche plus d'un jour avant d'utiliser l'analyseur"
 
-#: po/advisory_rules.php:20
+#: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Le temps de disponibilité n'est que %s"
 
-#: po/advisory_rules.php:24
+#: po/advisory_rules.php:10
 msgid "Questions below 1,000"
 msgstr "Moins de 1000 questions"
 
-#: po/advisory_rules.php:27
+#: po/advisory_rules.php:11
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -11971,7 +11958,7 @@ msgstr ""
 "Moins de 1000 questions ont été traitées par ce serveur. Les recommandations "
 "peuvent être inexactes."
 
-#: po/advisory_rules.php:30
+#: po/advisory_rules.php:12
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -11979,23 +11966,23 @@ msgstr ""
 "Laissez le serveur fonctionner plus longtemps jusqu'à ce qu'il ait traité un "
 "plus grand nombre de requêtes."
 
-#: po/advisory_rules.php:35
+#: po/advisory_rules.php:13
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Nombre actuel de questions: %s"
 
-#: po/advisory_rules.php:39
+#: po/advisory_rules.php:15
 msgid "Percentage of slow queries"
 msgstr "Pourcentage de requêtes lentes"
 
-#: po/advisory_rules.php:42
+#: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
 "Il y a un grand nombre de requêtes lentes par rapport au nombre total de "
 "requêtes."
 
-#: po/advisory_rules.php:45 po/advisory_rules.php:60
+#: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -12003,24 +11990,24 @@ msgstr ""
 "Veuillez augmenter la valeur du paramètre {long_query_time} ou optimiser les "
 "requêtes qui apparaissent dans le journal de requêtes lentes"
 
-#: po/advisory_rules.php:50
+#: po/advisory_rules.php:18
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 "Le taux de requêtes lentes devrait être sous 5%%, dans votre cas c'est %s%%."
 
-#: po/advisory_rules.php:54
+#: po/advisory_rules.php:20
 msgid "Slow query rate"
 msgstr "Taux de requêtes lentes"
 
-#: po/advisory_rules.php:57
+#: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 "Le pourcentage de requêtes lentes par rapport au temps de disponibilité du "
 "serveur est élevé."
 
-#: po/advisory_rules.php:65
+#: po/advisory_rules.php:23
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -12029,11 +12016,11 @@ msgstr ""
 "Le taux de requêtes lentes est de %s par heure, vous devriez en avoir moins "
 "de 1%% par heure."
 
-#: po/advisory_rules.php:69
+#: po/advisory_rules.php:25
 msgid "Long query time"
 msgstr "Durée des longues requêtes"
 
-#: po/advisory_rules.php:72
+#: po/advisory_rules.php:26
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -12041,7 +12028,7 @@ msgstr ""
 "Le paramètre long_query_time est de 10 secondes ou plus, donc seules les "
 "requêtes lentes prenant plus de 10 secondes sont mises au journal."
 
-#: po/advisory_rules.php:75
+#: po/advisory_rules.php:27
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -12050,20 +12037,20 @@ msgstr ""
 "votre environnement. Habituellement une valeur entre 1 et 5 secondes fait "
 "l'affaire."
 
-#: po/advisory_rules.php:80
+#: po/advisory_rules.php:28
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time est actuellement  %d seconde(s)."
 
-#: po/advisory_rules.php:84
+#: po/advisory_rules.php:30
 msgid "Slow query logging"
 msgstr "Journalisation des requêtes longues"
 
-#: po/advisory_rules.php:87
+#: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
 msgstr "Le journal des requêtes longues est désactivé."
 
-#: po/advisory_rules.php:90
+#: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -12071,19 +12058,19 @@ msgstr ""
 "Activez la journalisation des requêtes longues en réglant {log_slow_queries} "
 "à 'ON'. Ceci aidera à dépanner les problèmes de lenteur des requêtes."
 
-#: po/advisory_rules.php:95
+#: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries a une valeur de 'OFF'"
 
-#: po/advisory_rules.php:99
+#: po/advisory_rules.php:35
 msgid "Release Series"
 msgstr "Famille de versions"
 
-#: po/advisory_rules.php:102
+#: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
 msgstr "La version du serveur MySQL est antérieure à 5.1."
 
-#: po/advisory_rules.php:105
+#: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -12091,22 +12078,21 @@ msgstr ""
 "Vous devriez mettre à jour, puisque MySQL 5.1 a une meilleure performance et "
 "MySQL 5.5 est encore meilleur."
 
-#: po/advisory_rules.php:110 po/advisory_rules.php:125
-#: po/advisory_rules.php:140
+#: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
 msgid "Current version: %s"
 msgstr "Version courante : %s"
 
-#: po/advisory_rules.php:114 po/advisory_rules.php:129
+#: po/advisory_rules.php:40 po/advisory_rules.php:45
 msgid "Minor Version"
 msgstr "Version mineure"
 
-#: po/advisory_rules.php:117
+#: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr ""
 "La version est inférieure à 5.1.30 (la première version stable de 5.1)."
 
-#: po/advisory_rules.php:120
+#: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -12114,26 +12100,25 @@ msgstr ""
 "Vous devriez mettre à jour, puisque les versions récentes MySQL 5.1 ont une "
 "meilleure performance et MySQL 5.5 est encore meilleur."
 
-#: po/advisory_rules.php:132
+#: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "La version est inférieure à 5.5.8 (la première version stable de 5.5)."
 
-#: po/advisory_rules.php:135
+#: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Vous devriez mettre à jour vers une version stable de MySQL 5.5"
 
-#: po/advisory_rules.php:144 po/advisory_rules.php:159
-#: po/advisory_rules.php:174
+#: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 msgid "Distribution"
 msgstr "Distribution"
 
-#: po/advisory_rules.php:147
+#: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
 "Le serveur a été compilé à partir de la source et n'est pas une version "
 "officielle de MySQL."
 
-#: po/advisory_rules.php:150
+#: po/advisory_rules.php:52
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -12143,44 +12128,44 @@ msgstr ""
 "paquet provenant d'un distributeur. Le manuel MySQL n'est précis que pour "
 "les versions compilées officielles de MySQL."
 
-#: po/advisory_rules.php:155
+#: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
 msgstr "Le mot «source» a été trouvé dans version_comment"
 
-#: po/advisory_rules.php:162 po/advisory_rules.php:177
+#: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
 "Le manuel MySQL n'est précis que pour les versions compilées officielles de "
 "MySQL."
 
-#: po/advisory_rules.php:165
+#: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
 "La documentation de Percona est disponible au http://www.percona.com/docs/"
 "wiki/"
 
-#: po/advisory_rules.php:170
+#: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
 msgstr "Le mot «percona» a été trouvé dans version_comment"
 
-#: po/advisory_rules.php:180
+#: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "La documentation de Drizzle est disponible au http://docs.drizzle.org/"
 
-#: po/advisory_rules.php:185
+#: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "La version (%s) correspond au schème des versions de Drizzle"
 
-#: po/advisory_rules.php:189
+#: po/advisory_rules.php:65
 msgid "MySQL Architecture"
 msgstr "Architecture MySQL"
 
-#: po/advisory_rules.php:192
+#: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL n'est pas compilé en paquet 64 bits."
 
-#: po/advisory_rules.php:195
+#: po/advisory_rules.php:67
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -12190,20 +12175,20 @@ msgstr ""
 "localhost), donc MySQL ne peut utliser toute la mémoire. Il est suggéré "
 "d'installer une version 64-bits de MySQL."
 
-#: po/advisory_rules.php:200
+#: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "Mémoire disponible sur cet hôte : %s"
 
-#: po/advisory_rules.php:204
+#: po/advisory_rules.php:70
 msgid "Query cache disabled"
 msgstr "Cache des requêtes désactivée"
 
-#: po/advisory_rules.php:207
+#: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
 msgstr "La cache des requêtes est désactivée."
 
-#: po/advisory_rules.php:210
+#: po/advisory_rules.php:72
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12215,19 +12200,19 @@ msgstr ""
 "9 Mio et {query_cache_type} à 'ON'. <b>Note:</b> Si vous utilisez memcached, "
 "ignorez cet avis."
 
-#: po/advisory_rules.php:215
+#: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size a une valeur de 0 ou query_cache_type est à 'OFF'"
 
-#: po/advisory_rules.php:219
+#: po/advisory_rules.php:75
 msgid "Query caching method"
 msgstr "Méthode de cache des requêtes"
 
-#: po/advisory_rules.php:222
+#: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
 msgstr "Méthode de cache non efficace."
 
-#: po/advisory_rules.php:225
+#: po/advisory_rules.php:77
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -12239,7 +12224,7 @@ msgstr ""
 "com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> à la place, "
 "spécialement si vous utilisez de nombreux serveurs esclaves."
 
-#: po/advisory_rules.php:230
+#: po/advisory_rules.php:78
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -12248,37 +12233,37 @@ msgstr ""
 "La cache de requêtes est activée et le serveur traite %d requêtes par "
 "seconde. Cette règle intervient s'il y a plus de 100 requêtes par seconde."
 
-#: po/advisory_rules.php:234
+#: po/advisory_rules.php:80
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "Efficacité de la cache de requêtes (%%)"
 
-#: po/advisory_rules.php:237
+#: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 "La cache de requêtes ne fonctionne pas efficacement, son taux de réussite "
 "est bas."
 
-#: po/advisory_rules.php:240
+#: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Il est suggéré d'augmenter {query_cache_limit}."
 
-#: po/advisory_rules.php:245
+#: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 "Le taux actuel de réussite de la cache de requêtes (%s%%) est sous les 20%%"
 
-#: po/advisory_rules.php:249
+#: po/advisory_rules.php:85
 msgid "Query Cache usage"
 msgstr "Utilisation de la cache des requêtes"
 
-#: po/advisory_rules.php:252
+#: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr "Moins de 80%% de la cache des requêtes est utilisé."
 
-#: po/advisory_rules.php:255
+#: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -12286,24 +12271,24 @@ msgstr ""
 "Ceci peut être causé par une trop faible valeur de {query_cache_limit}. "
 "Initialiser la cache des requêtes pourrait également aider."
 
-#: po/advisory_rules.php:260
+#: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Le ratio actuel de mémoire libre pour la cache de requêtes par rapport à la "
 "mémoire totale de la cache est de %s%%. Il devrait se situer à plus de 80%%"
 
-#: po/advisory_rules.php:264
+#: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
 msgstr "Fragmentation de la cache des requêtes"
 
-#: po/advisory_rules.php:267
+#: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
 msgstr "La cache des requêtes est très fragmentée."
 
-#: po/advisory_rules.php:270
+#: po/advisory_rules.php:92
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12322,7 +12307,7 @@ msgstr ""
 "{query_cache_min_res_unit} à la baisse peut également aider; utilisez la "
 "valeur  (query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
-#: po/advisory_rules.php:275
+#: po/advisory_rules.php:93
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12333,11 +12318,11 @@ msgstr ""
 "contient des blocs libres et occupés en alternance. Cette valeur devrait "
 "être sous les 20%%."
 
-#: po/advisory_rules.php:279
+#: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
 msgstr "Élagages de mémoire de la cache de requêtes"
 
-#: po/advisory_rules.php:282
+#: po/advisory_rules.php:96
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12345,7 +12330,7 @@ msgstr ""
 "Les requêtes en cache sont enlevées en raison d'un manque de mémoire dans la "
 "cache de requêtes."
 
-#: po/advisory_rules.php:285
+#: po/advisory_rules.php:97
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -12355,21 +12340,21 @@ msgstr ""
 "de maintenance de la cache va augmenter selon sa taille, alors effectuez "
 "cette augmentation petit à petit et surveillez les résultats."
 
-#: po/advisory_rules.php:290
+#: po/advisory_rules.php:98
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s%"
-"%. Il est souhaitable que cette valeur soit faible (Limite pour cette règle: "
-"0.1%%)"
+"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s"
+"%%. Il est souhaitable que cette valeur soit faible (Limite pour cette "
+"règle: 0.1%%)"
 
-#: po/advisory_rules.php:294
+#: po/advisory_rules.php:100
 msgid "Query cache max size"
 msgstr "Taille maximum de la cache des requêtes"
 
-#: po/advisory_rules.php:297
+#: po/advisory_rules.php:101
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -12377,7 +12362,7 @@ msgstr ""
 "La taille de la cache de requêtes dépasse 128 Mio. Ceci peut causer une "
 "surcharge dans sa maintenance."
 
-#: po/advisory_rules.php:300
+#: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
@@ -12385,23 +12370,23 @@ msgstr ""
 "Selon votre environnement, la réduction de cette valeur pourrait améliorer "
 "la performance."
 
-#: po/advisory_rules.php:305
+#: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Taille actuelle de la cache des requêtes : %s"
 
-#: po/advisory_rules.php:309
+#: po/advisory_rules.php:105
 msgid "Query cache min result size"
 msgstr "Taille minimum de résultats de la cache de requêtes"
 
-#: po/advisory_rules.php:312
+#: po/advisory_rules.php:106
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "La taille maximum d'un jeu de résultats dans la cache de requêtes est la "
 "valeur par défaut de 1 Mio."
 
-#: po/advisory_rules.php:315
+#: po/advisory_rules.php:107
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12419,19 +12404,19 @@ msgstr ""
 "alors une augmentation de {query_cache_limit} va aider. Dans le cas "
 "contraire, cette augmentation va réduire l'efficacité."
 
-#: po/advisory_rules.php:320
+#: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit a une valeur de 1Mio"
 
-#: po/advisory_rules.php:324
+#: po/advisory_rules.php:110
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Pourcentage des tris qui requièrent des tables temporaires"
 
-#: po/advisory_rules.php:327 po/advisory_rules.php:342
+#: po/advisory_rules.php:111 po/advisory_rules.php:116
 msgid "Too many sorts are causing temporary tables."
 msgstr "Faire trop de tris cause la création de tables temporaires."
 
-#: po/advisory_rules.php:330 po/advisory_rules.php:345
+#: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
@@ -12439,20 +12424,20 @@ msgstr ""
 "Augmentez sort_buffer_size et/ou read_rnd_buffer_size, selon la mémoire "
 "disponible"
 
-#: po/advisory_rules.php:335
+#: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% de tous les tris causent la création de tables temporaires, cette "
 "valeur devrait être sous les 10%%."
 
-#: po/advisory_rules.php:339
+#: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Proportion des tris qui nécessitent une table temporaire"
 
-#: po/advisory_rules.php:350
+#: po/advisory_rules.php:118
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
@@ -12460,15 +12445,15 @@ msgstr ""
 "Moyenne du nombre de tables temporaires : %s, cette valeur devrait être "
 "moins de 1 par heure."
 
-#: po/advisory_rules.php:354
+#: po/advisory_rules.php:120
 msgid "Sort rows"
 msgstr "Lignes triées"
 
-#: po/advisory_rules.php:357
+#: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
 msgstr "Un grand nombre de lignes sont en train d'être triées."
 
-#: po/advisory_rules.php:360
+#: po/advisory_rules.php:122
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12479,20 +12464,20 @@ msgstr ""
 "requêtes qui demandent un tri utilisent des colonnes indexées dans la clause "
 "ORDER BY, ce qui va grandement accélérer les tris"
 
-#: po/advisory_rules.php:365
+#: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "Moyenne des lignes triées : %s"
 
-#: po/advisory_rules.php:369
+#: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"
 msgstr "Taux des jointures sans index"
 
-#: po/advisory_rules.php:372
+#: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
 msgstr "Il y a trop de jointures sans index."
 
-#: po/advisory_rules.php:375
+#: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12501,22 +12486,22 @@ msgstr ""
 "complet. L'ajout d'index sur les colonnes utilisées dans les critères de "
 "jointure va accélérer les jointures"
 
-#: po/advisory_rules.php:380
+#: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Moyenne de jointures de tables : %s, cette valeur devrait être moins de 1 "
 "par heure"
 
-#: po/advisory_rules.php:384
+#: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
 msgstr "Taux de lecture de la première entrée d'index"
 
-#: po/advisory_rules.php:387
+#: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
 msgstr "Le taux de lecture de la première entrée d'index est élevé."
 
-#: po/advisory_rules.php:390
+#: po/advisory_rules.php:132
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12531,22 +12516,22 @@ msgstr ""
 "nombre de UPDATE et DELETE, faire un 'OPTIMIZE TABLE' peut améliorer les "
 "choses. Sinon, il s'agit de récrire les requêtes."
 
-#: po/advisory_rules.php:395
+#: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Moyenne de balayage des index : %s, cette valeur devrait être moins de 1 par "
 "heure"
 
-#: po/advisory_rules.php:399
+#: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
 msgstr "Taux de lecture d'une position fixe"
 
-#: po/advisory_rules.php:402
+#: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Le taux de lecture de données à partir d'une position fixe est élevé."
 
-#: po/advisory_rules.php:405
+#: po/advisory_rules.php:137
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -12556,7 +12541,7 @@ msgstr ""
 "balayage complet de table, incluant des jointures qui n'utilisent pas "
 "d'index. Ajouter des index si possible."
 
-#: po/advisory_rules.php:410
+#: po/advisory_rules.php:138
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -12565,15 +12550,15 @@ msgstr ""
 "Taux de lecture d'une position fixe : %s, devrait être de moins de 1 par "
 "heure"
 
-#: po/advisory_rules.php:414
+#: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
 msgstr "Taux de lecture de la ligne suivante"
 
-#: po/advisory_rules.php:417
+#: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
 msgstr "Le taux de lecture de la prochaine ligne dans la table est élevé."
 
-#: po/advisory_rules.php:420
+#: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -12581,7 +12566,7 @@ msgstr ""
 "Ceci indique que plusieurs requêtes doivent effectuer un balayage complet de "
 "table. Ajouter des index si possible."
 
-#: po/advisory_rules.php:425
+#: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -12589,15 +12574,15 @@ msgstr ""
 "Taux de lecture de la prochaine ligne de table : %s, devrait être de moins "
 "de 1 par heure"
 
-#: po/advisory_rules.php:429
+#: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size versus max_heap_table_size"
 
-#: po/advisory_rules.php:432
+#: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size et max_heap_table_size n'ont pas la même valeur."
 
-#: po/advisory_rules.php:435
+#: po/advisory_rules.php:147
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12609,17 +12594,17 @@ msgstr ""
 "tables en mémoire. Si vous désirez augmenter cette taille, vous devez donc "
 "augmenter l'autre valeur."
 
-#: po/advisory_rules.php:440
+#: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 "Les valeurs courantes sont : tmp_table_size: %s, max_heap_table_size: %s"
 
-#: po/advisory_rules.php:444
+#: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
 msgstr "Pourcentage de tables temporaires sur disque"
 
-#: po/advisory_rules.php:447 po/advisory_rules.php:462
+#: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
@@ -12627,7 +12612,7 @@ msgstr ""
 "Plusieurs tables temporaires sont écrites sur disque au lieu d'être "
 "conservées en mémoire."
 
-#: po/advisory_rules.php:450
+#: po/advisory_rules.php:152
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12645,7 +12630,7 @@ msgstr ""
 "512 octets) tel que décrit dans cet <a href=\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\">arrticle par the Pythian Group</a>"
 
-#: po/advisory_rules.php:455
+#: po/advisory_rules.php:153
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -12654,11 +12639,11 @@ msgstr ""
 "%s%% de toutes les tables temporaires sont écrites sur disque, cette valeur "
 "ne devrait pas dépasser 25%%"
 
-#: po/advisory_rules.php:459
+#: po/advisory_rules.php:155
 msgid "Temp disk rate"
 msgstr "Taux d'écriture des tables temporaires sur disque"
 
-#: po/advisory_rules.php:465
+#: po/advisory_rules.php:157
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12676,7 +12661,7 @@ msgstr ""
 "512 octets) tel que décrit dans la <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/internal-temporary-tables.html\">MySQL Documentation MySQL</a>"
 
-#: po/advisory_rules.php:470
+#: po/advisory_rules.php:158
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -12685,17 +12670,17 @@ msgstr ""
 "Taux de tables temporaires écrites sur disque: %s, cette valeur devrait être "
 "moins de 1 par heure"
 
-#: po/advisory_rules.php:474
+#: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
 msgstr "Taille du tampon des clés MyISAM"
 
-#: po/advisory_rules.php:477
+#: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "Le tampon des clés n'est pas initialisé. Aucun index MyISAM ne sera mis en "
 "cache."
 
-#: po/advisory_rules.php:480
+#: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -12703,21 +12688,21 @@ msgstr ""
 "Réglez {key_buffer_size} selon la taille de vos index MyISAM. 64Mio est une "
 "bonne valeur de départ."
 
-#: po/advisory_rules.php:485
+#: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size est à 0"
 
-#: po/advisory_rules.php:489
+#: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "%% maximum du tampon de clés MyISAM qui a été utilisé"
 
-#: po/advisory_rules.php:492 po/advisory_rules.php:507
+#: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Le %% de la mémoire tampon utilisée pour les clés MyISAM est bas."
 
-#: po/advisory_rules.php:495 po/advisory_rules.php:510
+#: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -12727,7 +12712,7 @@ msgstr ""
 "les index ont été enlevés, ou examinez les requêtes pour voir quels index "
 "sont utilisés."
 
-#: po/advisory_rules.php:500
+#: po/advisory_rules.php:168
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -12735,46 +12720,46 @@ msgstr ""
 "Le %% maximum de mémoire tampon pour les clés MyISAM utilisé est de %s%%, "
 "cette valeur devrait dépasser 95%%"
 
-#: po/advisory_rules.php:504
+#: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Pourcentage de la mémoire tampon des clés MyISAM utilisée"
 
-#: po/advisory_rules.php:515
+#: po/advisory_rules.php:173
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% de mémoire tampon pour les clés MyISAM utilisée : %s%%, cette valeur "
 "devrait être au-dessus de 95%%"
 
-#: po/advisory_rules.php:519
+#: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
 msgstr "Pourcentage des lectures d'index depuis la mémoire"
 
-#: po/advisory_rules.php:522
+#: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr "Le %% des index qui utilisent la mémoire tampon MySQL est bas."
 
-#: po/advisory_rules.php:525
+#: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Veuillez augmenter {key_buffer_size}."
 
-#: po/advisory_rules.php:530
+#: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "Index lus depuis la mémoire : %s%%, cette valeur devrait être au-dessus de "
 "95%%"
 
-#: po/advisory_rules.php:534
+#: po/advisory_rules.php:180
 msgid "Rate of table open"
 msgstr "Taux d'ouverture de tables"
 
-#: po/advisory_rules.php:537
+#: po/advisory_rules.php:181
 msgid "The rate of opening tables is high."
 msgstr "Le taux d'ouverture de tables est élevé."
 
-#: po/advisory_rules.php:540
+#: po/advisory_rules.php:182
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -12782,18 +12767,18 @@ msgstr ""
 "Ouvrir des tables requiert des accès au disque, ce qui est coûteux. "
 "Augmenter {table_open_cache} pourrait remédier à la situation."
 
-#: po/advisory_rules.php:545
+#: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Taux d'ouverture des tables : %s, cette valeur ne devrait pas dépasser 10 "
 "par heure"
 
-#: po/advisory_rules.php:549
+#: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
 msgstr "Pourcentage du nombre de fichiers ouverts"
 
-#: po/advisory_rules.php:552
+#: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -12801,7 +12786,7 @@ msgstr ""
 "Le nombre de fichiers ouverts s'approche du maximum. Vous pouvez obtenir "
 "l'erreur «Trop de fichiers sont ouverts»."
 
-#: po/advisory_rules.php:555 po/advisory_rules.php:570
+#: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
@@ -12809,7 +12794,7 @@ msgstr ""
 "Veuillez augmenter {open_files_limit}, et vérifier le journal des erreurs "
 "après avoir redémarré."
 
-#: po/advisory_rules.php:560
+#: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
@@ -12817,57 +12802,57 @@ msgstr ""
 "Le nombre de fichiers ouvert est à %s%% de la limite. Ce nombre devrait être "
 "sous 85%%"
 
-#: po/advisory_rules.php:564
+#: po/advisory_rules.php:190
 msgid "Rate of open files"
 msgstr "Taux d'ouverture de fichiers"
 
-#: po/advisory_rules.php:567
+#: po/advisory_rules.php:191
 msgid "The rate of opening files is high."
 msgstr "Le taux d'ouverture de fichiers est élevé."
 
-#: po/advisory_rules.php:575
+#: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Taux d'ouverture de fichiers : %s, cette valeur devrait être moins de 5 à "
 "l'heure"
 
-#: po/advisory_rules.php:579
+#: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "%% de verrouillage de tables"
 
-#: po/advisory_rules.php:582 po/advisory_rules.php:597
+#: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
 msgstr "Trop de verrous de table n'ont pas été acquis immédiatement."
 
-#: po/advisory_rules.php:585 po/advisory_rules.php:600
+#: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Optimisez les requêtes ou passez à InnoDB pour réduire le temps d'attente de "
 "verrous."
 
-#: po/advisory_rules.php:590
+#: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Verrous de table immédiats: %s%%, cette valeur devrait dépasser 95%%"
 
-#: po/advisory_rules.php:594
+#: po/advisory_rules.php:200
 msgid "Table lock wait rate"
 msgstr "Taux d'attente de verrrouillage de tables"
 
-#: po/advisory_rules.php:605
+#: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Taux d'attente de verrrouillage de tables : %s, cette valeur devrait être de "
 "moins de 1 à l'heure"
 
-#: po/advisory_rules.php:609
+#: po/advisory_rules.php:205
 msgid "Thread cache"
 msgstr "Cache des fils d'exécution"
 
-#: po/advisory_rules.php:612
+#: po/advisory_rules.php:206
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -12875,44 +12860,44 @@ msgstr ""
 "La cache des fils d'exécution est désactivée, ce qui cause une surcharge "
 "pour les nouvelles connexions."
 
-#: po/advisory_rules.php:615
+#: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "Activez la cache des fils d'exécution en réglant {thread_cache_size} > 0."
 
-#: po/advisory_rules.php:620
+#: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
 msgstr "La taille de cache des fils d'exécution est de 0"
 
-#: po/advisory_rules.php:624
+#: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "Taux de succès de la cache des fils d'exécution en %%"
 
-#: po/advisory_rules.php:627
+#: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
 msgstr "La cache des fils d'exécution n'est pas optimale."
 
-#: po/advisory_rules.php:630
+#: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
 msgstr "Augmentez {thread_cache_size}."
 
-#: po/advisory_rules.php:635
+#: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "Taux de succès de la cache des fils d'exécution : %s%%, cette valeur devrait "
 "se situer au-dessus de 80%%"
 
-#: po/advisory_rules.php:639
+#: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
 msgstr "Fils d'exécution qui sont lents à démarrer"
 
-#: po/advisory_rules.php:642
+#: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
 msgstr "Il y a trop de fils d'exécution qui sont lents à démarrer."
 
-#: po/advisory_rules.php:645
+#: po/advisory_rules.php:217
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -12920,20 +12905,20 @@ msgstr ""
 "Ceci survient habituellement en cas de surcharge générale du système. "
 "Veuillez surveiller la charge du système."
 
-#: po/advisory_rules.php:650
+#: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s fil(s) ont pris plus de %s secondes à démarrer, devrait être 0"
 
-#: po/advisory_rules.php:654
+#: po/advisory_rules.php:220
 msgid "Slow launch time"
 msgstr "Durée d'un lancement considéré comme lent"
 
-#: po/advisory_rules.php:657
+#: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads dépasse 2s"
 
-#: po/advisory_rules.php:660
+#: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
@@ -12941,16 +12926,16 @@ msgstr ""
 "Réglez slow_launch_time à 1s ou 2s pour compter correctement le nombre de "
 "fils d'exécution qui sont lents à démarrer"
 
-#: po/advisory_rules.php:665
+#: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time est réglé à %s"
 
-#: po/advisory_rules.php:669
+#: po/advisory_rules.php:225
 msgid "Percentage of used connections"
 msgstr "Pourcentage des connexions utilisées"
 
-#: po/advisory_rules.php:672
+#: po/advisory_rules.php:226
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
@@ -12958,7 +12943,7 @@ msgstr ""
 "Le nombre maximum de connexions utilisées se rapproche de la valeur de "
 "max_connections."
 
-#: po/advisory_rules.php:675
+#: po/advisory_rules.php:227
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -12969,23 +12954,23 @@ msgstr ""
 "rapidement. Assurez-vous que les applications effectuent une fermeture "
 "correctes des bases de données."
 
-#: po/advisory_rules.php:680
+#: po/advisory_rules.php:228
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections est à %s%% de max_connections, devrait être sous les 80%"
-"%"
+"Max_used_connections est à %s%% de max_connections, devrait être sous les "
+"80%%"
 
-#: po/advisory_rules.php:684
+#: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
 msgstr "Pourcentage de connexions avortées"
 
-#: po/advisory_rules.php:687 po/advisory_rules.php:702
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "Trop de connexions ont avorté."
 
-#: po/advisory_rules.php:690 po/advisory_rules.php:705
+#: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12996,32 +12981,32 @@ msgstr ""
 "mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">Cet article</a> peut vous aider à en trouver la cause."
 
-#: po/advisory_rules.php:695
+#: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 "%s%% du total des connexions ont avorté. Cette valeur devrait être sous 1%%"
 
-#: po/advisory_rules.php:699
+#: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "Taux de connexions avortées"
 
-#: po/advisory_rules.php:710
+#: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Le taux de connexions avortées est de %s, devrait être moins de 1 à l'heure"
 
-#: po/advisory_rules.php:714
+#: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
 msgstr "Pourcentage de coupure de clients"
 
-#: po/advisory_rules.php:717 po/advisory_rules.php:732
+#: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
 msgstr "Trop de clients ont été coupés."
 
-#: po/advisory_rules.php:720 po/advisory_rules.php:735
+#: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -13032,44 +13017,44 @@ msgstr ""
 "application n'a pas fermé le lien au serveur. Vérifiez le réseau et les "
 "applications."
 
-#: po/advisory_rules.php:725
+#: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "%s%% des clients ont été coupés. Cette valeur devrait être sous les  2%%"
 
-#: po/advisory_rules.php:729
+#: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
 msgstr "Taux de coupure de clients"
 
-#: po/advisory_rules.php:740
+#: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Le taux de coupure de clients est de %s, cette valeur devrait être moins de "
 "1 à l'heure"
 
-#: po/advisory_rules.php:744
+#: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB est-il désactivé ?"
 
-#: po/advisory_rules.php:747
+#: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB n'est pas en fonction."
 
-#: po/advisory_rules.php:750
+#: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB est généralement le meilleur choix de moteur de stockage."
 
-#: po/advisory_rules.php:755
+#: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb est réglé à 'value'"
 
-#: po/advisory_rules.php:759
+#: po/advisory_rules.php:255
 msgid "InnoDB log size"
 msgstr "Taille du journal InnoDB"
 
-#: po/advisory_rules.php:762
+#: po/advisory_rules.php:256
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -13077,7 +13062,7 @@ msgstr ""
 "La taille du journal InnoDB n'est pas appropriée, en tenant compte du pool "
 "de mémoire tampon InnoDB."
 
-#: po/advisory_rules.php:765
+#: po/advisory_rules.php:257
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -13101,7 +13086,7 @@ msgstr ""
 "aussi <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
 "increase-innodblogfilesize-proper-way.html\">cet article de blogue.</a>"
 
-#: po/advisory_rules.php:770
+#: po/advisory_rules.php:258
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -13110,15 +13095,15 @@ msgstr ""
 "La taille de votre journal InnoDB est de %s%% en comparant au pool de "
 "mémoire tampon InnoDB, elle ne devrait pas être sous les 20%%"
 
-#: po/advisory_rules.php:774
+#: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
 msgstr "Taille maximum du journal InnoDB"
 
-#: po/advisory_rules.php:777
+#: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
 msgstr "La taille du journal InnoDB est trop grande."
 
-#: po/advisory_rules.php:780
+#: po/advisory_rules.php:262
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -13141,20 +13126,20 @@ msgstr ""
 "\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">cet article de blogue.</a>"
 
-#: po/advisory_rules.php:785
+#: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "La taille maximum du journal InnoDB est de %s Mio"
 
-#: po/advisory_rules.php:789
+#: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
 msgstr "Taille de la mémoire-tampon InnoDB"
 
-#: po/advisory_rules.php:792
+#: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Votre mémoire-tampon InnoDB est petite."
 
-#: po/advisory_rules.php:795
+#: po/advisory_rules.php:267
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -13179,7 +13164,7 @@ msgstr ""
 "www.mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">cet article</a>"
 
-#: po/advisory_rules.php:800
+#: po/advisory_rules.php:268
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -13192,15 +13177,15 @@ msgstr ""
 "cependant ceci peut convenir pour votre système si vous avez peu de tables "
 "InnoDB ou si d'autres services tournent sur ce serveur."
 
-#: po/advisory_rules.php:804
+#: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"
 msgstr "Insertions MyISAM simultanées"
 
-#: po/advisory_rules.php:807
+#: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Activez concurrent_insert en lui mettant une valeur de 1"
 
-#: po/advisory_rules.php:810
+#: po/advisory_rules.php:272
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
@@ -13210,9 +13195,18 @@ msgstr ""
 "l'écriture pour une même table. Voir aussi <a href=\"http://dev.mysql.com/"
 "doc/refman/5.5/en/concurrent-inserts.html\">la documentation MySQL</a>"
 
-#: po/advisory_rules.php:815
+#: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid ""
+#~ "Javascript support is missing or disabled in your browser, some "
+#~ "phpMyAdmin functionality will be missing. For example navigation frame "
+#~ "will not refresh automatically."
+#~ msgstr ""
+#~ "Javascript est désactivé ou manquant dans votre fureteur, certaines "
+#~ "fonctions de phpMyAdmin seront manquantes. Par exemple le cadre de "
+#~ "navigation ne sera pas mis à jour automatiquement."
 
 #~ msgid "Add a value"
 #~ msgstr "Ajouter une valeur"
