@@ -95,12 +95,22 @@ if (isset($_REQUEST['do_save_data'])) {
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    PMA_DBI_select_db($db) or PMA_mysqlDie(PMA_DBI_getError(), 'USE ' . PMA_backquote($db) . ';', '', $err_url);
-    $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' ' . implode(', ', $changes) . $key_query;
+    if (! PMA_DBI_select_db($db)) {
+        PMA_mysqlDie(
+            PMA_DBI_getError(),
+            'USE ' . PMA_backquote($db) . ';',
+            '',
+            $err_url
+        );
+    }
+    $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' ';
+    $sql_query .= implode(', ', $changes) . $key_query;
     $result    = PMA_DBI_try_query($sql_query);
 
     if ($result !== false) {
-        $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
+        $message = PMA_Message::success(
+            __('Table %1$s has been altered successfully')
+        );
         $message->addParam($table);
         $btnDrop = 'Fake';
 
@@ -113,8 +123,10 @@ if (isset($_REQUEST['do_save_data'])) {
         if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
             foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
                 if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
-                    PMA_REL_renameField($db, $table, $fieldcontent,
-                        $_REQUEST['field_name'][$fieldindex]);
+                    PMA_REL_renameField(
+                        $db, $table, $fieldcontent,
+                        $_REQUEST['field_name'][$fieldindex]
+                    );
                 }
             }
         }
@@ -125,11 +137,14 @@ if (isset($_REQUEST['do_save_data'])) {
          && $cfg['BrowseMIME']) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                 && strlen($_REQUEST['field_name'][$fieldindex])) {
-                    PMA_setMIME($db, $table, $_REQUEST['field_name'][$fieldindex],
+                    && strlen($_REQUEST['field_name'][$fieldindex])
+                ) {
+                    PMA_setMIME(
+                        $db, $table, $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex]);
+                        $_REQUEST['field_transformation_options'][$fieldindex]
+                    );
                 }
             }
         }
@@ -195,7 +210,10 @@ if ($abort == false) {
     // SHOW FULL COLUMNS says NULL and SHOW CREATE TABLE says NOT NULL (tested
     // in MySQL 4.0.25).
 
-    $show_create_table = PMA_DBI_fetch_value('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), 0, 1);
+    $show_create_table = PMA_DBI_fetch_value(
+        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+        0, 1
+    );
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
     unset($show_create_table);
     /**
