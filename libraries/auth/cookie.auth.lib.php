@@ -78,7 +78,15 @@ if (function_exists('mcrypt_encrypt')) {
     function PMA_blowfish_decrypt($encdata, $secret)
     {
         global $iv;
-        return trim(mcrypt_decrypt(MCRYPT_BLOWFISH, $secret, base64_decode($encdata), MCRYPT_MODE_CBC, $iv));
+        $data = base64_decode($encdata);
+        $decrypted = mcrypt_decrypt(
+            MCRYPT_BLOWFISH,
+            $secret,
+            $data,
+            MCRYPT_MODE_CBC,
+            $iv
+        );
+        return trim($decrypted);
     }
 
 } else {
