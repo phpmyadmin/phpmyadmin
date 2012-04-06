@@ -72,12 +72,16 @@ function PMA_import_uploadprogressCheck()
 
 /**
   * Checks if PHP 5.4 session upload-progress feature is available.
+  * Due to a bug in PHP 5.4's session upload feature (see /import_status.php),
+  * we need to check for cURL support.
   *
   * @return true if PHP 5.4 session upload-progress is available, false if it is not
   */
 function PMA_import_sessionCheck()
 {
-    if (PMA_PHP_INT_VERSION < 50400 || ! ini_get('session.upload_progress.enabled')) {
+    if (PMA_PHP_INT_VERSION < 50400 
+        || ! ini_get('session.upload_progress.enabled')
+        || ! function_exists('curl_exec')) {
         return false;
     }
     return true;
