@@ -38,9 +38,5 @@ for loc in $LOCS ; do
         s/VERSION/'$ver'/;
         s/Project-Id-Version: phpMyAdmin .*/Project-Id-Version: phpMyAdmin '$ver'\\n"/;
         ' po/$loc.po
-    if [ -f ../localized_docs/po/$loc.po ] ; then
-        msgmerge --previous -C ../localized_docs/po/$loc.po -U po/$loc.po po/phpmyadmin.pot
-    else
-        msgmerge --previous -U po/$loc.po po/phpmyadmin.pot
-    fi
+    msgmerge --previous -U po/$loc.po po/phpmyadmin.pot
 done
