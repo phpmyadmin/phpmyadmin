@@ -1149,7 +1149,6 @@ if ($insert_mode) {
     $tmp .= '</select>' . "\n";
     echo "\n" . sprintf(__('Continue insertion with %s rows'), $tmp);
     unset($tmp);
-    echo '<noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n";
     echo '</form>' . "\n";
 }
 

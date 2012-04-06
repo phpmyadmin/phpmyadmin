@@ -572,7 +572,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 }
                 echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"') . '>' . __('None') . '</option>';
                 echo '</select>' . "\n";
-                echo '<noscript><input type="submit" value="' . __('Go') . '" /></noscript>';
                 echo '</form>' . "\n";
             }
         }

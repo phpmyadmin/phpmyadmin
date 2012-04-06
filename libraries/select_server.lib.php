@@ -88,11 +88,6 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
 
     if ($not_only_options) {
         echo '</select>';
-        // Show submit button if we have just one server
-        // (this happens with no default)
-        echo '<noscript>';
-        echo '<input type="submit" value="' . __('Go') . '" />';
-        echo '</noscript>';
         if (! $ommit_fieldset) {
             echo '</fieldset>';
         }
