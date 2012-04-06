@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-03-31 19:18+0200\n"
+"PO-Revision-Date: 2012-04-06 16:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2541,7 +2541,7 @@ msgstr "%s තේමාව හමු නොවිණි!"
 #: libraries/Theme_Manager.class.php:217
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "%s තේමාව සඳහා තේමාව ඇති තැන හමු නොවිණි!"
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
@@ -2573,6 +2573,10 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
+"phpMyAdmin MySQL සේවාදායකය වෙත සම්බන්ධ වීමට උත්සාහ කල මුත් සේවාදායකය විසින් "
+"සම්බන්ධතාව ප්‍රතික්ෂේප කරන ලදී. ඔබ ඔබගේ වින්‍යාස ගොනුවේ, දායකය, භාවිත නාමය "
+"සහ මුරපදය සඳහා අගයන් MySQL සේවාදායකයේ පරිපාලකයා විසින් ලබා දුන් දත්ත සමග "
+"ගැලපේ දැයි පරීක්ෂා කල යුතුය."
 
 #: libraries/auth/cookie.auth.lib.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -2716,7 +2720,7 @@ msgstr "වරප්‍රසාද පරීක්ෂා කරන්න"
 
 #: libraries/common.inc.php:151
 msgid "possible exploit"
-msgstr ""
+msgstr "විය හැකි අයුතු ප්‍රයෝජන ගැනීමක්"
 
 #: libraries/common.inc.php:160
 msgid "numeric key detected"
@@ -2753,6 +2757,8 @@ msgstr "අවලංගු සේවාදායක සුචිය: %s"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
+"%1$s සේවාදායකය සඳහා වැරදි දායක නාමයක්. ඔබ ඔබගේ වින්‍යාසයන් පරීකෂා කර බැලිය "
+"යුතුය."
 
 #: libraries/common.inc.php:660 libraries/config/messages.inc.php:508
 #: libraries/header.inc.php:138 main.php:170 server_status.php:776
@@ -3172,6 +3178,8 @@ msgstr "Ajax සක්‍රිය කරන්න"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"සක්‍රීය කළහොත් භාවිතා කරන්නාට ඇතුල් වීමේ පෝරමයේ අඩංගු cookie සත්‍යාපනය සහිත "
+"ඕනෑම MySQL සේවාදායකයක් වෙත ඇතුල් විය හැක"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -3186,7 +3194,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "තෙවන පාර්ශවීය ෆ්රේමින්ග් සඳහා ඉඩ ලබා දෙන්න"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -3217,7 +3225,7 @@ msgstr "Mouse cursor එල්ල වී ඇති පේළිය ඉස්ම�
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "දක්වනය ඉස්මතු කරන්න"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
@@ -3237,6 +3245,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"CHAR සහ VARCHAR තීර සංස්කරණය සඳහා කුමක් භාවිතා කල යුතු දැයි දක්වයි; "
+"[kbd]input[/kbd] - අදානයේ දිග පාලනය කිරීමට ඉඩ ලබා දේ, [kbd]textarea[/kbd] - "
+"දත්ත පේලි කීපයක් ලෙස ඇතුලත් කිරීමට ඉඩ ලබා දේ"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -3247,6 +3258,7 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"CHAR සහ VARCHAR තීර සඳහා දත්ත ඇතුලත් කිරීමේ ක්ෂේත්‍රවල අවම ප්‍රමාණය දක්වයි"
 
 #: libraries/config/messages.inc.php:35
 msgid "Minimum size for input field"
@@ -3257,6 +3269,7 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"CHAR සහ VARCHAR තීර සඳහා දත්ත ඇතුලත් කිරීමේ ක්ෂේත්‍රවල උපරිම ප්‍රමාණය දක්වයි"
 
 #: libraries/config/messages.inc.php:37
 msgid "Maximum size for input field"
@@ -3264,33 +3277,35 @@ msgstr "දත්ත ඇතුලත් කිරීමේ ක්ෂේත්‍
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "CHAR/VARCHAR දත්ත ඇතුලත් කිරීමේ පෙළ පෙදෙසේ පළල"
 
 #: libraries/config/messages.inc.php:39
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "CHAR පෙළ පෙදෙසේ පළල"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "CHAR/VARCHAR දත්ත ඇතුලත් කිරීමේ පෙළ පෙදෙසේ උස"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "CHAR පෙළ පෙදෙසේ උස"
 
 #: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
-msgstr ""
+msgstr "වින්‍යාස ගොනුවේ අවසරයන් පරීක්ෂා කරන්න"
 
 #: libraries/config/messages.inc.php:43
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"අධික මතක භාවිතයකින් තොරව gzip/bzip2 ප්‍රතිදානයන් එවෙලේම හකුළුවන්න; මෙසේ "
+"හැකිලු ගොනු ගැටළු ගෙනදේ නම් මෙය අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
-msgstr ""
+msgstr "එවෙලේම හකුළුවන්න"
 
 #: libraries/config/messages.inc.php:45 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:167
@@ -3302,6 +3317,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"දත්ත අහිමිවීමකට පෙර අනතුරු ඇඟවීමක් (&quot;ඔබට ඇත්තටම විශ්වාසද...&quot; ආදී "
+"ලෙස) කල යුතුද යන වග"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
@@ -3317,7 +3334,7 @@ msgstr "පෙරනිමි දර්ශන දිශාව"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "දත්තගබඩාවකට ඇතුල් වීමේදී පෙන්විය යුතු ටැබය"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default database tab"
@@ -3325,7 +3342,7 @@ msgstr "පෙරනිමි දත්තගබඩා ටැබය"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "සේවාදායකයකට ඇතුල් වීමේදී පෙන්විය යුතු ටැබය"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default server tab"
@@ -3333,7 +3350,7 @@ msgstr "පෙරනිමි සේවාදායක ටැබය"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "වගුවකට ඇතුල් වීමේදී පෙන්විය යුතු ටැබය"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
@@ -3349,7 +3366,7 @@ msgstr "ද්වීමය දත්ත HEX ලෙස පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "දත්තගබඩා ලැයිස්තුවක් ලෙස පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display databases as a list"
@@ -3357,7 +3374,7 @@ msgstr "දත්තගබඩා ලැයිස්තුවක් ලෙස ප
 
 #: libraries/config/messages.inc.php:60
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "සේවාදායකයන් ලැයිස්තුවක් ලෙස පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
@@ -4174,7 +4191,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:305
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "LONGTEXT සඳහා විශාල පෙළ පෙදෙසක්"
 
 #: libraries/config/messages.inc.php:306
 msgid "Use icons on main page"
@@ -5027,7 +5044,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:502
 msgid "Textarea rows"
-msgstr ""
+msgstr "පෙළ පෙදෙසේ උස"
 
 #: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
