@@ -2,8 +2,6 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 export LC_ALL=C
 
-# Generate PHP code for advisor rules
-php ./scripts/advisor2php > po/advisory_rules.php
 
 # Update pot (template), ensure that advisor is at the end
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
@@ -17,8 +15,10 @@ xgettext \
     --debug \
     --keyword=__ --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
     --copyright-holder="phpMyAdmin devel team" \
-    `find . -name '*.php' -not -path './test/*' -not -path './po/*' | sort` \
-    po/advisory_rules.php
+    `find . -name '*.php' -not -path './test/*' -not -path './po/*' | sort`
+
+# Generate PHP code for advisor rules
+php ./scripts/advisor2php >> po/phpmyadmin.pot
 
 ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/Config.class.php`
 

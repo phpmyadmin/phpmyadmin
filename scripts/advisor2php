@@ -5,6 +5,47 @@
  * by gettext for generating po(t) files.
  */
 
+function format_string($str) {
+    return addcslashes(Advisor::escapePercent($str), '"\\');
+}
+
+$messages = array();
+$locations = array();
+
+function add_message($rules, $idx, $type) {
+    global $messages, $locations;
+    // Get message text
+    if ($type == 'justification') {
+        $msg = Advisor::splitJustification($rules['rules'][$idx])[0];
+    } else {
+        $msg = $rules['rules'][$idx][$type];
+    }
+    $line = 'libraries/advisory_rules.txt:' . $rules['lines'][$idx][$type];
+    // Avoid duplicate mesages
+    $pos = array_search($msg, $messages);
+    if ($pos === false) {
+        $messages[] = $msg;
+        $locations[] = array($line);
+    } else {
+        $locations[$pos][] = $line;
+    }
+}
+
+function print_message($idx) {
+    global $messages, $locations;
+    echo "\n";
+    echo '#: ' . implode(' ', $locations[$idx]);
+    echo "\n";
+    if (strstr($messages[$idx], '%') !== false) {
+        echo '#, php-format';
+        echo "\n";
+    }
+    echo 'msgid "' . addcslashes(Advisor::escapePercent($messages[$idx]), '"\\') . '"';
+    echo "\n";
+    echo 'msgstr ""';
+    echo "\n";
+}
+
 if (!file_exists('./libraries/Advisor.class.php')) {
     chdir('..');
 }
@@ -12,17 +53,14 @@ include './libraries/Advisor.class.php';
 
 $rules = Advisor::parseRulesFile();
 
-echo "<?php\n";
-echo "/* DO NOT EDIT! */\n";
-echo "/* This is automatically generated file from libraries/advisory_rules.txt */\n";
-
-foreach($rules['rules'] as $rule) {
-    echo "\n";
-    echo "printf(__('" . addcslashes(Advisor::escapePercent($rule['name']), "'\\") . "'));\n";
-    echo "printf(__('" . addcslashes(Advisor::escapePercent($rule['issue']), "'\\") . "'));\n";
-    echo "printf(__('" . addcslashes(Advisor::escapePercent($rule['recommendation']), "'\\") . "'));\n";
-    $jst = Advisor::splitJustification($rule);
-    echo "printf(__('" . addcslashes(Advisor::escapePercent($jst[0]), "'\\") . "'));\n";
+foreach($rules['rules'] as $idx => $rule) {
+    add_message($rules, $idx, 'name');
+    add_message($rules, $idx, 'issue');
+    add_message($rules, $idx, 'recommendation');
+    add_message($rules, $idx, 'justification');
 }
 
+foreach($messages as $idx => $rule) {
+    print_message($idx);
+}
 ?>
