@@ -2607,7 +2607,7 @@ msgstr "Při použití funkce Blowfish z knihovny mcrypt došlo k chybě!"
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript."
+msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
