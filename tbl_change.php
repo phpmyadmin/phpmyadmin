@@ -54,6 +54,9 @@ if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
 if (isset($_REQUEST['default_action'])) {
     $default_action = $_REQUEST['default_action'];
 }
+if (isset($_REQUEST['after_insert'])) {
+    $after_insert = $_REQUEST['after_insert'];
+}
 
 /**
  * file listing
