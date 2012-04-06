@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-06 13:01+0200\n"
+"PO-Revision-Date: 2012-04-06 14:32+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -1511,7 +1511,7 @@ msgid ""
 "database administrator."
 msgstr ""
 "Sie können diese Variablen nicht ändern. Bitte melden Sie sich mit einem "
-"Root-Benutzer ein, oder kontaktieren Sie Ihren Datenbank-Administrator."
+"Root-Benutzer an, oder kontaktieren Sie Ihren Datenbank-Administrator."
 
 #: js/messages.php:165
 msgid "Change settings"
@@ -1610,7 +1610,7 @@ msgstr "Gesamt Zeit:"
 
 #: js/messages.php:190
 msgid "Profiling results"
-msgstr "Messergebnisse"
+msgstr "Profiler Ergebnisse"
 
 #: js/messages.php:191
 msgctxt "Display format"
@@ -1667,7 +1667,7 @@ msgstr ""
 
 #: js/messages.php:206
 msgid "Reload page"
-msgstr "Neuladen"
+msgstr "Neu laden"
 
 #: js/messages.php:208
 msgid "Affected rows:"
@@ -1685,7 +1685,7 @@ msgid ""
 "config..."
 msgstr ""
 "Aufbau der Diagramme mit der importierten Konfiguration ist fehlgeschlagen. "
-"Falle auf Standardeinstellungen zurück..."
+"Setze auf Standardeinstellungen zurück..."
 
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
@@ -1772,7 +1772,7 @@ msgstr "Datenbanken werden umbenannt"
 
 #: js/messages.php:243
 msgid "Reload Database"
-msgstr "Lade Datenbank neu"
+msgstr "Datenbank neu laden"
 
 #: js/messages.php:244
 msgid "Copying Database"
@@ -1808,7 +1808,7 @@ msgstr "Suchergebnisse ausblenden"
 
 #: js/messages.php:258
 msgid "Show search results"
-msgstr "Zeige Suchergebnisse"
+msgstr "Suchergebnisse anzeigen"
 
 #: js/messages.php:259
 msgid "Browsing"
@@ -1833,7 +1833,7 @@ msgstr "%d Wert(e) hinzufügen"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
-"Hinweis: Wenn die Date mehrere Tabellen enthält, werden diese in einer "
+"Hinweis: Wenn die Datei mehrere Tabellen enthält, werden diese in einer "
 "einzigen Tabelle zusammengefasst"
 
 #: js/messages.php:276
@@ -1893,7 +1893,7 @@ msgstr ""
 
 #: js/messages.php:299
 msgid "Click and drag the mouse to navigate the plot."
-msgstr "Klicken und ziehen Sie mit der Maus, um in der Grafik zu navigieren."
+msgstr "Klicken und ziehen Sie die Maus, um in der Grafik zu navigieren."
 
 #: js/messages.php:301
 msgid "Click reset zoom link to come back to original state."
@@ -1965,8 +1965,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
-"Sie haben die Änderungen im Layout nicht gespeichert. Sie werden verworfen "
-"wenn Sie diese nicht speichern. Wünschen Sie fortzufahren?"
+"Sie haben die Änderungen im Layout nicht gespeichert. Sie gehen verloren "
+"wenn Sie nicht speichern. Möchten Sie fortfahren?"
 
 #: js/messages.php:341
 msgid "Add an option for column "
@@ -1986,7 +1986,7 @@ msgstr ""
 
 #: js/messages.php:346
 msgid "Drag to reorder"
-msgstr "Zur Umordnung ziehen"
+msgstr "Zur Umsortierung ziehen"
 
 #: js/messages.php:347
 msgid "Click to sort"
@@ -2045,7 +2045,7 @@ msgid ""
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 "Es ist eine neuere Version von phpMyAdmin verfügbar. Ein Update wird "
-"vorgeschlagen. Die aktuelle Version ist %s, erschienen am %s."
+"empfohlen. Die aktuelle Version ist %s, erschienen am %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:366
@@ -2347,8 +2347,8 @@ msgstr "Bestehende Konfigurationsdatei (%s) kann nicht gelesen werden."
 #: libraries/Config.class.php:752
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
-"Falsche Zugriffsrechte auf die Konfigurationdaten. Die Datei sollte nicht "
-"für alle lesbar sein!"
+"Falsche Zugriffsrechte auf die Konfigurationsdatei. Schreibzugriff sollte "
+"nicht für alle möglich sein!"
 
 #: libraries/Config.class.php:1303
 msgid "Font size"
@@ -2382,7 +2382,7 @@ msgstr ""
 
 #: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
-msgstr "Die Datei wurde teilweise übertragen."
+msgstr "Die Datei wurde nur teilweise übertragen."
 
 #: libraries/File.class.php:287
 msgid "Missing a temporary folder."
@@ -2394,11 +2394,11 @@ msgstr "Datei konnte gespeichert werden."
 
 #: libraries/File.class.php:293
 msgid "File upload stopped by extension."
-msgstr "Dateihochladen durch eine Erweiterung gestoppt."
+msgstr "Hochladen der Datei wurde durch die Erweiterung gestoppt."
 
 #: libraries/File.class.php:296
 msgid "Unknown error in file upload."
-msgstr "Unbekannter Fehler beim Dateihochladen."
+msgstr "Unbekannter Fehler beim hochladen der Datei."
 
 #: libraries/File.class.php:496
 msgid ""
@@ -2414,7 +2414,7 @@ msgstr "Fehler beim Verschieben der hochgeladenen Datei."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr "Die hochgeladene und verschobene Datei kann nicht gelesen werden."
+msgstr "Die hochgeladene (verschobene) Datei kann nicht gelesen werden."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
@@ -2499,7 +2499,7 @@ msgstr[1] "%1$d Datensätze eingefügt."
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
-msgstr "Fehler beim Erstellen der PDF:"
+msgstr "Fehler beim Erstellen der PDF Datei:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2629,9 +2629,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"Eine mögliche Ursache wäre, dass Sie noch keine Konfigurationsdatei angelegt "
-"haben. Verwenden Sie in diesem Fall doch das %1$sSetup-Skript%2$s, um eine "
-"solche zu erstellen."
+"Sie haben möglicherweise noch keine Konfigurationsdatei erstellt. Sei können "
+"das %1$sSetup-Skript%2$s verwenden, um eine zu erstellen."
 
 #: libraries/auth/config.auth.lib.php:109
 msgid ""
@@ -2640,10 +2639,10 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin hat versucht eine Verbindung zum MySQL-Server aufzubauen, jedoch "
-"hat dieser die Verbindung zurückgewiesen. Sie sollten Ihre Einstellungen für "
-"Host, Benutzername und Passwort in Ihrer config.inc.php überprüfen und sich "
-"vergewissern, dass diese den Informationen, welche Sie vom Administrator "
+"phpMyAdmin hat versucht eine Verbindung zum MySQL-Server aufzubauen und die "
+"Verbindung wurde zurückgewiesen. Sie sollten Ihre Einstellungen für Host, "
+"Benutzername und Passwort in Ihrer config.inc.php überprüfen und sich "
+"vergewissern, dass diese den Informationen, die Sie vom Administrator "
 "erhalten haben, entsprechen."
 
 #: libraries/auth/cookie.auth.lib.php:35
@@ -2694,7 +2693,8 @@ msgstr "Ab diesem Punkt müssen Cookies aktiviert sein."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"Login ohne Passwort ist verboten (siehe AllowNoPassword in der Konfiguration)"
+"Login ohne Passwort ist verboten (siehe AllowNoPassword) in der "
+"Konfiguration"
 
 #: libraries/auth/cookie.auth.lib.php:572
 #: libraries/auth/signon.auth.lib.php:239
@@ -2840,7 +2840,7 @@ msgid ""
 "shown below."
 msgstr ""
 "Dies bedeutet im Allgemeinen, dass sich ein Syntax-Fehler eingeschlichen "
-"hat. Bitte überprüfen Sie die unten gezeigten Fehler."
+"hat. Bitte überprüfen Sie die unten angezeigten Fehler."
 
 #: libraries/common.inc.php:615
 #, php-format
@@ -2891,19 +2891,19 @@ msgstr "Maximal: %s%s"
 #: libraries/common.lib.php:450
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "de"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:454
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "de"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:458
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "de"
 
 #: libraries/common.lib.php:472 libraries/common.lib.php:474
 #: libraries/common.lib.php:476 libraries/common.lib.php:494
@@ -4620,11 +4620,11 @@ msgstr "Erlaube root Login"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "HTTP Basic Auth Realm Name , der bei HTTP Auth angezeigt wird"
+msgstr "HTTP Basic Auth Bereich Name der bei HTTP Auth angezeigt wird"
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
-msgstr "HTTP Realm"
+msgstr "HTTP Bereich"
 
 #: libraries/config/messages.inc.php:370
 msgid ""
@@ -7249,7 +7249,7 @@ msgstr "Tschechoslowakisch"
 #: libraries/navigation_header.inc.php:59
 #: libraries/navigation_header.inc.php:60
 msgid "Home"
-msgstr "Home"
+msgstr "Startseite"
 
 #: libraries/navigation_header.inc.php:69
 #: libraries/navigation_header.inc.php:71
@@ -12302,7 +12302,7 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"Wenn Sie den Quellcode nicht kompiliert haben, könnte es sein, dass Sie ein "
+"Wenn Sie den Quellcode nicht kompiliert haben, kann es sein, dass Sie ein "
 "Paket verwenden, welches durch eine Distribution verändert wurde. Die MySQL-"
 "Dokumentation ist nur für offizielle MySQL Binaries gültig, nicht für Paket-"
 "Distributionen (z.B. RedHat, Debian/Ubuntu, etc)."
@@ -12484,10 +12484,13 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Der Cache ist derzeit zu %s%% fragmentiert. 100%% Fragmentierung bedeuten "
+"dass der Abfrage-Cache ein abwechselndes Muster von freien und belegten "
+"Blöcke ist. Dieser Wert sollte unter 20% liegen."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Abfrage-Cache Leerungen wegen zu wenig Speicher"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12503,6 +12506,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Sie sollten möglicherweise {Query_cache_size} erhöhen, aber denken daran, "
+"das der Aufwand für das Beibehalten des Caches mit seiner Größe erhöht. "
+"Erhöhen Sie den Wert in kleinen Schritten und beobachten Sie das Ergebnis."
 
 #: po/advisory_rules.php:98
 #, php-format
@@ -12510,6 +12516,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Das Verhältnis von entfernten Abfragen zu eingefügten Abfragen ist %s%%. Je "
+"niedriger dieser Wert ist, desto besser (diese Regeln löst aus bei 0,1%%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12577,6 +12585,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Ziehen Sie in Betracht sort_buffer_size und/oder record_rnd_buffer zu "
+"erhöhen, je nach verfügbaren Speicher Ihres Systems"
 
 #: po/advisory_rules.php:113
 #, php-format
@@ -12614,6 +12624,10 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Obwohl es nichts auszusetzen gibt an einem hohen Anteil an Zeile Sortierung, "
+"sollten Sie darauf achten, dass die Abfragen, die viel Sortierung verwenden "
+"indizierten Spalten in der ORDER BY-Klausel verwenden, da dies in viel "
+"schnelleren Sortierergebnissen resultiert"
 
 #: po/advisory_rules.php:123
 #, php-format
@@ -12633,6 +12647,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Dies bedeutet, dass joins vollständige Tabellenscans durchführen. Das "
+"Hinzufügen von Indizes für die Spalten die in der Join-Bedingungen "
+"eingesetzt werden resultiert in viel schnelleren Tabellenverknüpfungen"
 
 #: po/advisory_rules.php:128
 #, php-format
@@ -12643,11 +12660,11 @@ msgstr ""
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Lese-Rate erster Indexeintrag"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Die Lese-Rate des ersten Indexeintrag ist hoch."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12667,11 +12684,11 @@ msgstr ""
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Lese-Rate fester Positionen"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Die Lese-Rate fester Positionen ist hoch."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12679,6 +12696,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Dies deutet darauf hin, dass viele Abfragen Sortieren und/oder vollständige "
+"Tabellen-Scan benötigen, einschließlich Join-Abfragen die keine Indizes "
+"verwenden. Fügen Sie Indizes hinzu wo zutreffend."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12686,30 +12706,34 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Durchschnittliche Lese-Rate fester Positionen: %s, dieser Wert sollte "
+"kleiner als 1 pro Stunde sein"
 
 #: po/advisory_rules.php:140
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
-msgstr "Wo die Datensatz-Links angezeigt werden sollen"
+msgstr "Lese-Rate nächste Tabellenzeile"
 
 #: po/advisory_rules.php:141
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Wo die Datensatz-Links angezeigt werden sollen."
+msgstr "Lese-Rate nächste Tabellenzeile ist hoch."
 
 #: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Dies deutet darauf hin, dass viele Abfragen Full Table Scans durchführen. "
+"Fügen Sie Indizes hinzu wo zutreffend."
 
 #: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Lese-Rate nächste Tabellenzeile: %s, dieser Wert sollte kleiner als 1 pro "
+"Stunde sein"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -12847,21 +12871,24 @@ msgstr ""
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Prozentsatz der aus dem Speicher gelesenen Indize"
 
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
+"Der %% von Indizes, die den MyISAM Schlüsselpuffer verwenden ist gering."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Sie müssen möglicherweise {Key_buffer_size} erhöhen."
 
 #: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Prozentsatz der aus dem Speicher gelesenen Indize: %s%%, dieser Wert sollte "
+"größer als 95%% sein"
 
 #: po/advisory_rules.php:180
 msgid "Rate of table open"
@@ -12876,35 +12903,44 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Öffnen von Tabellen erfordert Festplatten I/O, welches langsam ist. Erhöhung "
+"von {Table_open_cache} könnte dies vermeiden."
 
 #: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Häufigkeit von Tabellenöffnungen: %s, dieser Wert sollte weniger als 10 pro "
+"Stunde sein"
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Dateiformat"
+msgstr "Prozentsatz der verwendeten offene Dateien Grenze"
 
 #: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Die Anzahl der offene Dateien nähert sich die maximale Anzahl von geöffneten "
+"Dateien.  Möglicherweise erhalten Sie \"Too many open files\"-Fehler."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Sie sollten {open_files_limit} erhöhen, und überprüfen Sie das "
+"Fehlerprotokoll beim Neustart nach der Änderung von open_files_limit."
 
 #: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Die Anzahl der geöffneten Dateien ist %s%% des Maximalwerts. Dieser Wert "
+"sollte unter 85%% liegen."
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
@@ -12918,11 +12954,12 @@ msgstr "Die Anzahl der Datei-Zugriffe ist hoch."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Geöffnete Dateien Rate: %s, dieser Wert sollte kleiner als 5 pro Stunde sein"
 
 #: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
-msgstr ""
+msgstr "Sofortige Tabellensperren %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
@@ -13237,10 +13274,14 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"{Concurrent_insert} auf 1 setzen verringert Konflikte zwischen Lese- und "
+"Schreibzugriffen auf Tabellen. Siehe auch <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"Dokumentation</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert ist auf 0 gesetzt"
 
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "Maximale Anzahl der Einträge in der Tabelle \"table_uiprefs\""
