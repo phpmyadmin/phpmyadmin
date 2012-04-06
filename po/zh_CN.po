@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-06 10:52+0200\n"
+"POT-Creation-Date: 2012-04-06 13:06+0200\n"
 "PO-Revision-Date: 2012-03-29 11:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -37,9 +37,9 @@ msgstr ""
 "无法更新目标浏览窗口。可能你已经关闭了父窗口或您浏览器的安全设置阻止了跨窗口"
 "更新。"
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3141
-#: libraries/common.lib.php:3148 libraries/common.lib.php:3364
-#: libraries/common.lib.php:3365 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3145
+#: libraries/common.lib.php:3152 libraries/common.lib.php:3368
+#: libraries/common.lib.php:3369 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "搜索"
@@ -507,8 +507,8 @@ msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "在表 <i>%2$s</i> 中找到 %1$s 个匹配"
 
-#: db_search.php:234 libraries/common.lib.php:3143
-#: libraries/common.lib.php:3362 libraries/common.lib.php:3363
+#: db_search.php:234 libraries/common.lib.php:3147
+#: libraries/common.lib.php:3366 libraries/common.lib.php:3367
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "浏览"
@@ -643,8 +643,8 @@ msgstr "全不选"
 msgid "Check tables having overhead"
 msgstr "仅选择多余"
 
-#: db_structure.php:587 libraries/common.lib.php:3375
-#: libraries/common.lib.php:3376 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3379
+#: libraries/common.lib.php:3380 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2522 libraries/display_tbl.lib.php:2663
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -658,13 +658,13 @@ msgstr "导出"
 msgid "Print view"
 msgstr "打印预览"
 
-#: db_structure.php:593 libraries/common.lib.php:3371
-#: libraries/common.lib.php:3372
+#: db_structure.php:593 libraries/common.lib.php:3375
+#: libraries/common.lib.php:3376
 msgid "Empty"
 msgstr "清空"
 
 #: db_structure.php:595 db_tracking.php:105 libraries/Index.class.php:504
-#: libraries/common.lib.php:3369 libraries/common.lib.php:3370
+#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
 #: server_databases.php:284 tbl_structure.php:150 tbl_structure.php:151
 #: tbl_structure.php:573
 msgid "Drop"
@@ -1096,7 +1096,7 @@ msgstr "关闭"
 
 #: js/messages.php:61 js/messages.php:277 libraries/Index.class.php:482
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
-#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
+#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1402
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
@@ -2918,12 +2918,12 @@ msgstr "跳转到数据库“%s”。"
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一个已知的缺陷 (bug) 影响，参见 %s"
 
-#: libraries/common.lib.php:2763
+#: libraries/common.lib.php:2764
 msgid "Click to toggle"
 msgstr "点击切换"
 
-#: libraries/common.lib.php:3139 libraries/common.lib.php:3146
-#: libraries/common.lib.php:3368 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3143 libraries/common.lib.php:3150
+#: libraries/common.lib.php:3372 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2935,7 +2935,7 @@ msgstr "点击切换"
 msgid "Structure"
 msgstr "结构"
 
-#: libraries/common.lib.php:3140 libraries/common.lib.php:3147
+#: libraries/common.lib.php:3144 libraries/common.lib.php:3151
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2943,42 +2943,42 @@ msgstr "结构"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3142 libraries/common.lib.php:3366
-#: libraries/common.lib.php:3367 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3146 libraries/common.lib.php:3370
+#: libraries/common.lib.php:3371 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "插入"
 
-#: libraries/common.lib.php:3149 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3153 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/common.lib.php:3300 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3304 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "从计算机中上传："
 
-#: libraries/common.lib.php:3319
+#: libraries/common.lib.php:3323
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
 
-#: libraries/common.lib.php:3340 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3344 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:938
 msgid "The directory you set for upload work cannot be reached"
 msgstr "用于上传的文件夹出错，无法使用"
 
-#: libraries/common.lib.php:3349
+#: libraries/common.lib.php:3353
 msgid "There are no files to upload"
 msgstr "没有可上传的文件"
 
-#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
+#: libraries/common.lib.php:3381 libraries/common.lib.php:3382
 msgid "Execute"
 msgstr "执行"
 
-#: libraries/common.lib.php:3853
+#: libraries/common.lib.php:3857
 msgid "Print"
 msgstr "打印"
 
@@ -11388,237 +11388,237 @@ msgstr "视图名"
 msgid "Rename view to"
 msgstr "将视图改名为"
 
-#: libraries/advisory_rules.txt:32
+#: libraries/advisory_rules.txt:33
 msgid "Uptime below one day"
 msgstr "运行时间少于一天"
 
-#: libraries/advisory_rules.txt:35
+#: libraries/advisory_rules.txt:36
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr "运行时间少于一天，性能调整建议可能不准确。"
 
-#: libraries/advisory_rules.txt:36
+#: libraries/advisory_rules.txt:37
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr "要获得更加准确的数据，建议在运行分析器之前先让服务器运行至少一天"
 
-#: libraries/advisory_rules.txt:37
+#: libraries/advisory_rules.txt:38
 #, php-format
 msgid "The uptime is only %s"
 msgstr "运行时间只有 %s"
 
-#: libraries/advisory_rules.txt:39
+#: libraries/advisory_rules.txt:40
 msgid "Questions below 1,000"
 msgstr "内部查询少于 1000"
 
-#: libraries/advisory_rules.txt:42
+#: libraries/advisory_rules.txt:43
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr "内部查询少于 1000 。建议可能不准确。"
 
-#: libraries/advisory_rules.txt:43
+#: libraries/advisory_rules.txt:44
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr "让服务器运行一段时间以使查询数超过该值。"
 
-#: libraries/advisory_rules.txt:44
+#: libraries/advisory_rules.txt:45
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "当前内部查询数: %s"
 
-#: libraries/advisory_rules.txt:46
+#: libraries/advisory_rules.txt:47
 msgid "Percentage of slow queries"
 msgstr "慢查询率"
 
-#: libraries/advisory_rules.txt:49
+#: libraries/advisory_rules.txt:50
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr "慢查询的数量在所有查询中所占的比例很大。"
 
-#: libraries/advisory_rules.txt:50 libraries/advisory_rules.txt:57
+#: libraries/advisory_rules.txt:51 libraries/advisory_rules.txt:58
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr "你可能需要增加 {long_query_time} 值或优化在慢查询日志中所列出的查询"
 
-#: libraries/advisory_rules.txt:51
+#: libraries/advisory_rules.txt:52
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "慢查询率应低于 5%%，当前为 %s%%。"
 
-#: libraries/advisory_rules.txt:53
+#: libraries/advisory_rules.txt:54
 msgid "Slow query rate"
 msgstr "慢查询率"
 
-#: libraries/advisory_rules.txt:56
+#: libraries/advisory_rules.txt:57
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr "慢查询率过高。"
 
-#: libraries/advisory_rules.txt:58
+#: libraries/advisory_rules.txt:59
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr "当前慢查询率为 %s 每小时，此值不应高于 1%% 每小时。"
 
-#: libraries/advisory_rules.txt:60
+#: libraries/advisory_rules.txt:61
 msgid "Long query time"
 msgstr "慢查询时间"
 
-#: libraries/advisory_rules.txt:63
+#: libraries/advisory_rules.txt:64
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
 "long_query_time 当前设为 10 秒或更长，因此超过 10 秒的查询才被记为慢查询。"
 
-#: libraries/advisory_rules.txt:64
+#: libraries/advisory_rules.txt:65
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr "建议根据您的环境将 {long_query_time} 调短。通常建议设为 1-5 秒。"
 
-#: libraries/advisory_rules.txt:65
+#: libraries/advisory_rules.txt:66
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time 当前被设为 %d 秒。"
 
-#: libraries/advisory_rules.txt:67
+#: libraries/advisory_rules.txt:68
 msgid "Slow query logging"
 msgstr "慢查询记录"
 
-#: libraries/advisory_rules.txt:70
+#: libraries/advisory_rules.txt:71
 msgid "The slow query log is disabled."
 msgstr "慢查询记录已禁用。"
 
-#: libraries/advisory_rules.txt:71
+#: libraries/advisory_rules.txt:72
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
 "请将 {log_slow_queries} 设为 'ON' 来启用慢查询记录。这将有助于解决查询问题。"
 
-#: libraries/advisory_rules.txt:72
+#: libraries/advisory_rules.txt:73
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries 被设为 'OFF'"
 
-#: libraries/advisory_rules.txt:76
+#: libraries/advisory_rules.txt:77
 #, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
 msgstr "清除所有数据"
 
-#: libraries/advisory_rules.txt:79
+#: libraries/advisory_rules.txt:80
 msgid "The MySQL server version less then 5.1."
 msgstr "MySQL 服务器版本低于 5.1。"
 
-#: libraries/advisory_rules.txt:80
+#: libraries/advisory_rules.txt:81
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr "您应该升级到 MySQL 5.1 或 5.5，以获得新版本的更高性能。"
 
-#: libraries/advisory_rules.txt:81 libraries/advisory_rules.txt:88
-#: libraries/advisory_rules.txt:95
+#: libraries/advisory_rules.txt:82 libraries/advisory_rules.txt:89
+#: libraries/advisory_rules.txt:96
 #, php-format
 msgid "Current version: %s"
 msgstr "当前版本：%s"
 
-#: libraries/advisory_rules.txt:83 libraries/advisory_rules.txt:90
+#: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Minor Version"
 msgstr "子版本"
 
-#: libraries/advisory_rules.txt:86
+#: libraries/advisory_rules.txt:87
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "版本低于 5.1.30 (5.1 的第一个 GA 版本)"
 
-#: libraries/advisory_rules.txt:87
+#: libraries/advisory_rules.txt:88
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr "您应该升级到最新的 MySQL 5.1 或 5.5，以获得新版本的更高性能。"
 
-#: libraries/advisory_rules.txt:93
+#: libraries/advisory_rules.txt:94
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "版本低于 5.5.8 (5.5 的第一个 GA 版本)"
 
-#: libraries/advisory_rules.txt:94
+#: libraries/advisory_rules.txt:95
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "您应升级到 MySQL 5.5 的稳定版本。"
 
-#: libraries/advisory_rules.txt:97 libraries/advisory_rules.txt:104
-#: libraries/advisory_rules.txt:111
+#: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
+#: libraries/advisory_rules.txt:112
 msgid "Distribution"
 msgstr "发行"
 
-#: libraries/advisory_rules.txt:100
+#: libraries/advisory_rules.txt:101
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
 
-#: libraries/advisory_rules.txt:101
+#: libraries/advisory_rules.txt:102
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
 
-#: libraries/advisory_rules.txt:102
+#: libraries/advisory_rules.txt:103
 msgid "'source' found in version_comment"
 msgstr ""
 
-#: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
+#: libraries/advisory_rules.txt:108 libraries/advisory_rules.txt:115
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
 
-#: libraries/advisory_rules.txt:108
+#: libraries/advisory_rules.txt:109
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
 
-#: libraries/advisory_rules.txt:109
+#: libraries/advisory_rules.txt:110
 msgid "'percona' found in version_comment"
 msgstr ""
 
-#: libraries/advisory_rules.txt:115
+#: libraries/advisory_rules.txt:116
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr ""
 
-#: libraries/advisory_rules.txt:116
+#: libraries/advisory_rules.txt:117
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
-#: libraries/advisory_rules.txt:118
+#: libraries/advisory_rules.txt:119
 msgid "MySQL Architecture"
 msgstr "MySQL 架构"
 
-#: libraries/advisory_rules.txt:121
+#: libraries/advisory_rules.txt:122
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL 没有以 64 位编译。"
 
-#: libraries/advisory_rules.txt:122
+#: libraries/advisory_rules.txt:123
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
 
-#: libraries/advisory_rules.txt:123
+#: libraries/advisory_rules.txt:124
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr ""
 
-#: libraries/advisory_rules.txt:129
+#: libraries/advisory_rules.txt:130
 msgid "Query cache disabled"
 msgstr "查询缓存已禁用"
 
-#: libraries/advisory_rules.txt:132
+#: libraries/advisory_rules.txt:133
 msgid "The query cache is not enabled."
 msgstr "查询缓存没有启用。"
 
-#: libraries/advisory_rules.txt:133
+#: libraries/advisory_rules.txt:134
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -11626,19 +11626,19 @@ msgid ""
 "memcached, ignore this recommendation."
 msgstr ""
 
-#: libraries/advisory_rules.txt:134
+#: libraries/advisory_rules.txt:135
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 被设为 0 或 query_cache_type 被设为 'OFF'"
 
-#: libraries/advisory_rules.txt:136
+#: libraries/advisory_rules.txt:137
 msgid "Query caching method"
 msgstr "查询缓存模式"
 
-#: libraries/advisory_rules.txt:139
+#: libraries/advisory_rules.txt:140
 msgid "Suboptimal caching method."
 msgstr ""
 
-#: libraries/advisory_rules.txt:140
+#: libraries/advisory_rules.txt:141
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -11646,62 +11646,62 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 
-#: libraries/advisory_rules.txt:141
+#: libraries/advisory_rules.txt:142
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
 
-#: libraries/advisory_rules.txt:143
+#: libraries/advisory_rules.txt:144
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "查询缓存效率 (%%)"
 
-#: libraries/advisory_rules.txt:146
+#: libraries/advisory_rules.txt:147
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "查询缓存命中率低。"
 
-#: libraries/advisory_rules.txt:147
+#: libraries/advisory_rules.txt:148
 msgid "Consider increasing {query_cache_limit}."
 msgstr "请考虑增加 {query_cache_limit}。"
 
-#: libraries/advisory_rules.txt:148
+#: libraries/advisory_rules.txt:149
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "当前查询缓存命中率为 %s%% 低于 20%%"
 
-#: libraries/advisory_rules.txt:150
+#: libraries/advisory_rules.txt:151
 msgid "Query Cache usage"
 msgstr "查询缓存使用率"
 
-#: libraries/advisory_rules.txt:153
+#: libraries/advisory_rules.txt:154
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr ""
 
-#: libraries/advisory_rules.txt:154
+#: libraries/advisory_rules.txt:155
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
 
-#: libraries/advisory_rules.txt:155
+#: libraries/advisory_rules.txt:156
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
 
-#: libraries/advisory_rules.txt:157
+#: libraries/advisory_rules.txt:158
 msgid "Query cache fragmentation"
 msgstr "查询缓存碎片"
 
-#: libraries/advisory_rules.txt:160
+#: libraries/advisory_rules.txt:161
 msgid "The query cache is considerably fragmented."
 msgstr ""
 
-#: libraries/advisory_rules.txt:161
+#: libraries/advisory_rules.txt:162
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -11713,7 +11713,7 @@ msgid ""
 "qcache_queries_in_cache"
 msgstr ""
 
-#: libraries/advisory_rules.txt:162
+#: libraries/advisory_rules.txt:163
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -11721,11 +11721,11 @@ msgid ""
 "value should be below 20%%."
 msgstr ""
 
-#: libraries/advisory_rules.txt:164
+#: libraries/advisory_rules.txt:165
 msgid "Query cache low memory prunes"
 msgstr ""
 
-#: libraries/advisory_rules.txt:167
+#: libraries/advisory_rules.txt:168
 #, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
@@ -11733,53 +11733,53 @@ msgid ""
 "cache."
 msgstr "查询缓存中空闲的内存总数。"
 
-#: libraries/advisory_rules.txt:168
+#: libraries/advisory_rules.txt:169
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
 
-#: libraries/advisory_rules.txt:169
+#: libraries/advisory_rules.txt:170
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 
-#: libraries/advisory_rules.txt:171
+#: libraries/advisory_rules.txt:172
 msgid "Query cache max size"
 msgstr "查询缓存最大值"
 
-#: libraries/advisory_rules.txt:174
+#: libraries/advisory_rules.txt:175
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
 
-#: libraries/advisory_rules.txt:175
+#: libraries/advisory_rules.txt:176
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
 
-#: libraries/advisory_rules.txt:176
+#: libraries/advisory_rules.txt:177
 #, php-format
 msgid "Current query cache size: %s"
 msgstr ""
 
-#: libraries/advisory_rules.txt:178
+#: libraries/advisory_rules.txt:179
 #, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
 msgstr "查询结果"
 
-#: libraries/advisory_rules.txt:181
+#: libraries/advisory_rules.txt:182
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 
-#: libraries/advisory_rules.txt:182
+#: libraries/advisory_rules.txt:183
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -11791,50 +11791,50 @@ msgid ""
 "might reduce efficiency."
 msgstr ""
 
-#: libraries/advisory_rules.txt:183
+#: libraries/advisory_rules.txt:184
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
-#: libraries/advisory_rules.txt:187
+#: libraries/advisory_rules.txt:188
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "使用临时表的排序率"
 
-#: libraries/advisory_rules.txt:190 libraries/advisory_rules.txt:197
+#: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
 msgid "Too many sorts are causing temporary tables."
 msgstr "过多排序引发临时表创建。"
 
-#: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
+#: libraries/advisory_rules.txt:192 libraries/advisory_rules.txt:199
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr "根据系统内存，考虑增加 sort_buffer_size 和/或 read_rnd_buffer_size"
 
-#: libraries/advisory_rules.txt:192
+#: libraries/advisory_rules.txt:193
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr "%s%% 的排序引发临时表创建，该值应低于 10%%。"
 
-#: libraries/advisory_rules.txt:194
+#: libraries/advisory_rules.txt:195
 msgid "Rate of sorts that cause temporary tables"
 msgstr "排序使用临时表的创建率"
 
-#: libraries/advisory_rules.txt:199
+#: libraries/advisory_rules.txt:200
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr "临时表创建率: %s，该值应低于 1 每小时"
 
-#: libraries/advisory_rules.txt:201
+#: libraries/advisory_rules.txt:202
 msgid "Sort rows"
 msgstr "行排序"
 
-#: libraries/advisory_rules.txt:204
+#: libraries/advisory_rules.txt:205
 msgid "There are lots of rows being sorted."
 msgstr "大量行被排序"
 
-#: libraries/advisory_rules.txt:205
+#: libraries/advisory_rules.txt:206
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -11844,40 +11844,40 @@ msgstr ""
 "大量行排序不是什么错误，但您应确保需要大量排序的查询在 ORDER BY 中使用索引字"
 "段，这将使排序加快"
 
-#: libraries/advisory_rules.txt:206
+#: libraries/advisory_rules.txt:207
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "行排序率: %s"
 
-#: libraries/advisory_rules.txt:209
+#: libraries/advisory_rules.txt:210
 msgid "Rate of joins without indexes"
 msgstr "无索引联合查询率"
 
-#: libraries/advisory_rules.txt:212
+#: libraries/advisory_rules.txt:213
 msgid "There are too many joins without indexes."
 msgstr "有太多的联合查询未使用索引"
 
-#: libraries/advisory_rules.txt:213
+#: libraries/advisory_rules.txt:214
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 "这意味着联合查询使用全表扫描。给联合条件所用的字段增加索引将极大提高查询速度"
 
-#: libraries/advisory_rules.txt:214
+#: libraries/advisory_rules.txt:215
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr "表联合率: %s，该值应低于 1 每小时"
 
-#: libraries/advisory_rules.txt:216
+#: libraries/advisory_rules.txt:217
 msgid "Rate of reading first index entry"
 msgstr "首索引入口读取率"
 
-#: libraries/advisory_rules.txt:219
+#: libraries/advisory_rules.txt:220
 msgid "The rate of reading the first index entry is high."
 msgstr "读取第一个索引入口比例过高。"
 
-#: libraries/advisory_rules.txt:220
+#: libraries/advisory_rules.txt:221
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -11890,20 +11890,20 @@ msgstr ""
 "定 CPU 周期，如果这些表有或有过大量 UPDATE 和 DELETE，运行 'OPTIMIZE TABLE' "
 "可减少全索引扫描的次数以及提高速度。其它会减少全索引扫描的是重写查询。"
 
-#: libraries/advisory_rules.txt:221
+#: libraries/advisory_rules.txt:222
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr "索引扫描率: %s，该值应低于 1 每小时"
 
-#: libraries/advisory_rules.txt:223
+#: libraries/advisory_rules.txt:224
 msgid "Rate of reading fixed position"
 msgstr "固定位置读取率"
 
-#: libraries/advisory_rules.txt:226
+#: libraries/advisory_rules.txt:227
 msgid "The rate of reading data from a fixed position is high."
 msgstr "从固定位置读取数据的比例过高。"
 
-#: libraries/advisory_rules.txt:227
+#: libraries/advisory_rules.txt:228
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -11912,42 +11912,42 @@ msgstr ""
 "这说明很多查询需要结果排序且/或执行一次全表扫描，包括无索引的联合查询。请在合"
 "适的地方添加索引。"
 
-#: libraries/advisory_rules.txt:228
+#: libraries/advisory_rules.txt:229
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr "固定位置读取率: %s，该值应低于 1 每小时"
 
-#: libraries/advisory_rules.txt:230
+#: libraries/advisory_rules.txt:231
 msgid "Rate of reading next table row"
 msgstr "下一行读取率"
 
-#: libraries/advisory_rules.txt:233
+#: libraries/advisory_rules.txt:234
 msgid "The rate of reading the next table row is high."
 msgstr "读取下一行的比例过高。"
 
-#: libraries/advisory_rules.txt:234
+#: libraries/advisory_rules.txt:235
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr "这说明很多查询都需要全表扫描。请在合适的地方添加索引。"
 
-#: libraries/advisory_rules.txt:235
+#: libraries/advisory_rules.txt:236
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: libraries/advisory_rules.txt:238
+#: libraries/advisory_rules.txt:239
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size 对比 max_heap_table_size"
 
-#: libraries/advisory_rules.txt:241
+#: libraries/advisory_rules.txt:242
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size 和 max_heap_table_size 不一致。"
 
-#: libraries/advisory_rules.txt:242
+#: libraries/advisory_rules.txt:243
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -11955,22 +11955,22 @@ msgid ""
 "other value as well."
 msgstr ""
 
-#: libraries/advisory_rules.txt:243
+#: libraries/advisory_rules.txt:244
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "当前值为 tmp_table_size: %s，max_heap_table_size: %s"
 
-#: libraries/advisory_rules.txt:245
+#: libraries/advisory_rules.txt:246
 msgid "Percentage of temp tables on disk"
 msgstr "磁盘临时表比例"
 
-#: libraries/advisory_rules.txt:248 libraries/advisory_rules.txt:255
+#: libraries/advisory_rules.txt:249 libraries/advisory_rules.txt:256
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr "很多临时表被创建在磁盘上而非内存中。"
 
-#: libraries/advisory_rules.txt:249
+#: libraries/advisory_rules.txt:250
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -11981,21 +11981,21 @@ msgid ""
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
 
-#: libraries/advisory_rules.txt:250
+#: libraries/advisory_rules.txt:251
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr "%s%% 的临时表被创建在磁盘上，该值应低于 25%%"
 
-#: libraries/advisory_rules.txt:252
+#: libraries/advisory_rules.txt:253
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
 msgstr "%s 张表"
 
-#: libraries/advisory_rules.txt:256
+#: libraries/advisory_rules.txt:257
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12006,254 +12006,254 @@ msgid ""
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 
-#: libraries/advisory_rules.txt:257
+#: libraries/advisory_rules.txt:258
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
 
-#: libraries/advisory_rules.txt:272
+#: libraries/advisory_rules.txt:273
 msgid "MyISAM key buffer size"
 msgstr "MyISAM 索引缓存大小"
 
-#: libraries/advisory_rules.txt:275
+#: libraries/advisory_rules.txt:276
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr "索引缓存未初始化。MyISAM 索引不会被缓存。"
 
-#: libraries/advisory_rules.txt:276
+#: libraries/advisory_rules.txt:277
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr "根据 MyISAM 索引大小设置 {key_buffer_size}。64M 通常可以满足普通需求。"
 
-#: libraries/advisory_rules.txt:277
+#: libraries/advisory_rules.txt:278
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 为 0"
 
-#: libraries/advisory_rules.txt:279
+#: libraries/advisory_rules.txt:280
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "排序缓存大小"
 
-#: libraries/advisory_rules.txt:282 libraries/advisory_rules.txt:290
+#: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "排序缓存大小"
 
-#: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
+#: libraries/advisory_rules.txt:284 libraries/advisory_rules.txt:292
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
 
-#: libraries/advisory_rules.txt:284
+#: libraries/advisory_rules.txt:285
 #, fuzzy, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr "排序缓存大小"
 
-#: libraries/advisory_rules.txt:287
+#: libraries/advisory_rules.txt:288
 #, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
 msgstr "排序缓存大小"
 
-#: libraries/advisory_rules.txt:292
+#: libraries/advisory_rules.txt:293
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr "MyISAM 索引缓存使用率: %s%%，该值应高于 95%%"
 
-#: libraries/advisory_rules.txt:294
+#: libraries/advisory_rules.txt:295
 msgid "Percentage of index reads from memory"
 msgstr "从内存读取索引的百分比"
 
-#: libraries/advisory_rules.txt:297
+#: libraries/advisory_rules.txt:298
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 
-#: libraries/advisory_rules.txt:298
+#: libraries/advisory_rules.txt:299
 msgid "You may need to increase {key_buffer_size}."
 msgstr "你需要增大 {key_buffer_size}"
 
-#: libraries/advisory_rules.txt:299
+#: libraries/advisory_rules.txt:300
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "从内存读取索引率: %s%%，该值应高于 95%%"
 
-#: libraries/advisory_rules.txt:303
+#: libraries/advisory_rules.txt:304
 msgid "Rate of table open"
 msgstr "表打开率"
 
-#: libraries/advisory_rules.txt:306
+#: libraries/advisory_rules.txt:307
 msgid "The rate of opening tables is high."
 msgstr "打开表的比例过高。"
 
-#: libraries/advisory_rules.txt:307
+#: libraries/advisory_rules.txt:308
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr "打开表需要很耗时的磁盘 I/O。增加 {table_open_cache} 避免多次打开。"
 
-#: libraries/advisory_rules.txt:308
+#: libraries/advisory_rules.txt:309
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "已打开表的比率: %s，该值应低于 10 每小时"
 
-#: libraries/advisory_rules.txt:310
+#: libraries/advisory_rules.txt:311
 msgid "Percentage of used open files limit"
 msgstr "打开文件限制使用率"
 
-#: libraries/advisory_rules.txt:313
+#: libraries/advisory_rules.txt:314
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
 "打开文件的数量接近打开文件的最大数量。您可能会收到 \"过多打开的文件\" 错误。"
 
-#: libraries/advisory_rules.txt:314 libraries/advisory_rules.txt:321
+#: libraries/advisory_rules.txt:315 libraries/advisory_rules.txt:322
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
 "考虑增加 {open_files_limit}，并在修改 open_files_limit 重启后检查错误日志。"
 
-#: libraries/advisory_rules.txt:315
+#: libraries/advisory_rules.txt:316
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "打开的文件数量为最大数量的 %s%%。该值应低于 85%%"
 
-#: libraries/advisory_rules.txt:317
+#: libraries/advisory_rules.txt:318
 msgid "Rate of open files"
 msgstr "打开文件的比率"
 
-#: libraries/advisory_rules.txt:320
+#: libraries/advisory_rules.txt:321
 msgid "The rate of opening files is high."
 msgstr "当前打开文件数比率很高"
 
-#: libraries/advisory_rules.txt:322
+#: libraries/advisory_rules.txt:323
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "已打开文件的比率：%s,这个值应该低于5每小时"
 
-#: libraries/advisory_rules.txt:324
+#: libraries/advisory_rules.txt:325
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "立即锁表 %%"
 
-#: libraries/advisory_rules.txt:327 libraries/advisory_rules.txt:334
+#: libraries/advisory_rules.txt:328 libraries/advisory_rules.txt:335
 msgid "Too many table locks were not granted immediately."
 msgstr "过多的锁表没有立即执行。"
 
-#: libraries/advisory_rules.txt:328 libraries/advisory_rules.txt:335
+#: libraries/advisory_rules.txt:329 libraries/advisory_rules.txt:336
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr "优化查询并/或使用 InnoDB 来减少锁等待。"
 
-#: libraries/advisory_rules.txt:329
+#: libraries/advisory_rules.txt:330
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "立即锁表率: %s%%，该值应高于 95%%"
 
-#: libraries/advisory_rules.txt:331
+#: libraries/advisory_rules.txt:332
 msgid "Table lock wait rate"
 msgstr "锁表等待率"
 
-#: libraries/advisory_rules.txt:336
+#: libraries/advisory_rules.txt:337
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "锁表等待率: %s，该值应低于 1 每小时"
 
-#: libraries/advisory_rules.txt:338
+#: libraries/advisory_rules.txt:339
 msgid "Thread cache"
 msgstr "线程缓存"
 
-#: libraries/advisory_rules.txt:341
+#: libraries/advisory_rules.txt:342
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr "线程缓存被禁用，有新连接到 MySQL 时将导致额外开销。"
 
-#: libraries/advisory_rules.txt:342
+#: libraries/advisory_rules.txt:343
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "通过设置 {thread_cache_size} 大于 0 启用线程缓存。"
 
-#: libraries/advisory_rules.txt:343
+#: libraries/advisory_rules.txt:344
 msgid "The thread cache is set to 0"
 msgstr "线程缓存被设为 0"
 
-#: libraries/advisory_rules.txt:345
+#: libraries/advisory_rules.txt:346
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "线程缓存命中率 %%"
 
-#: libraries/advisory_rules.txt:348
+#: libraries/advisory_rules.txt:349
 msgid "Thread cache is not efficient."
 msgstr "线程缓存效率低。"
 
-#: libraries/advisory_rules.txt:349
+#: libraries/advisory_rules.txt:350
 msgid "Increase {thread_cache_size}."
 msgstr "增加 {thread_cache_size}。"
 
-#: libraries/advisory_rules.txt:350
+#: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "线程缓存命中率: %s%%，该值应高于 80%%"
 
-#: libraries/advisory_rules.txt:352
+#: libraries/advisory_rules.txt:353
 msgid "Threads that are slow to launch"
 msgstr "线程启动缓慢"
 
-#: libraries/advisory_rules.txt:355
+#: libraries/advisory_rules.txt:356
 msgid "There are too many threads that are slow to launch."
 msgstr "大量线程运行缓慢。"
 
-#: libraries/advisory_rules.txt:356
+#: libraries/advisory_rules.txt:357
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr "这通常是因为系统负载过高。您需要监控您的系统负载。"
 
-#: libraries/advisory_rules.txt:357
+#: libraries/advisory_rules.txt:358
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s 个线程启动时间超过 %s 秒，该数值应为 0"
 
-#: libraries/advisory_rules.txt:359
+#: libraries/advisory_rules.txt:360
 msgid "Slow launch time"
 msgstr "慢启动时间"
 
-#: libraries/advisory_rules.txt:362
+#: libraries/advisory_rules.txt:363
 msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads 大于 2 秒"
 
-#: libraries/advisory_rules.txt:363
+#: libraries/advisory_rules.txt:364
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr "设置 slow_launch_time 为 1 秒或 2 秒以正确计算启动慢的线程数"
 
-#: libraries/advisory_rules.txt:364
+#: libraries/advisory_rules.txt:365
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time 已设为 %s"
 
-#: libraries/advisory_rules.txt:368
+#: libraries/advisory_rules.txt:369
 msgid "Percentage of used connections"
 msgstr "已用连接率"
 
-#: libraries/advisory_rules.txt:371
+#: libraries/advisory_rules.txt:372
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr "最大已用连接数接近 max_connections。"
 
-#: libraries/advisory_rules.txt:372
+#: libraries/advisory_rules.txt:373
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -12262,23 +12262,23 @@ msgstr ""
 "增加 max_connections，或减少 wait_timeout 以使没有正常关闭连接的连接更快被杀"
 "死。确保代码中正常关闭数据库连接。"
 
-#: libraries/advisory_rules.txt:373
+#: libraries/advisory_rules.txt:374
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr "Max_used_connections 为 max_connections 的 %s%%，该值应低于 80%%"
 
-#: libraries/advisory_rules.txt:375
+#: libraries/advisory_rules.txt:376
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
 msgstr "持久连接"
 
-#: libraries/advisory_rules.txt:378 libraries/advisory_rules.txt:385
+#: libraries/advisory_rules.txt:379 libraries/advisory_rules.txt:386
 msgid "Too many connections are aborted."
 msgstr ""
 
-#: libraries/advisory_rules.txt:379 libraries/advisory_rules.txt:386
+#: libraries/advisory_rules.txt:380 libraries/advisory_rules.txt:387
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12286,81 +12286,81 @@ msgid ""
 "source."
 msgstr ""
 
-#: libraries/advisory_rules.txt:380
+#: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
-#: libraries/advisory_rules.txt:382
+#: libraries/advisory_rules.txt:383
 #, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
 msgstr "持久连接"
 
-#: libraries/advisory_rules.txt:387
+#: libraries/advisory_rules.txt:388
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 
-#: libraries/advisory_rules.txt:389
+#: libraries/advisory_rules.txt:390
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
 msgstr "导入文件的格式"
 
-#: libraries/advisory_rules.txt:392 libraries/advisory_rules.txt:399
+#: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
 msgid "Too many clients are aborted."
 msgstr "太多的客户端已放弃"
 
-#: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
+#: libraries/advisory_rules.txt:394 libraries/advisory_rules.txt:401
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
 
-#: libraries/advisory_rules.txt:394
+#: libraries/advisory_rules.txt:395
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "%s%% 的客户端已取消。此值不应高于 2%%"
 
-#: libraries/advisory_rules.txt:396
+#: libraries/advisory_rules.txt:397
 msgid "Rate of aborted clients"
 msgstr "客户端的取消率"
 
-#: libraries/advisory_rules.txt:401
+#: libraries/advisory_rules.txt:402
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr "客户端取消率为 %s，此值应低于 1 每小时"
 
-#: libraries/advisory_rules.txt:405
+#: libraries/advisory_rules.txt:406
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB是否不可用？"
 
-#: libraries/advisory_rules.txt:408
+#: libraries/advisory_rules.txt:409
 msgid "You do not have InnoDB enabled."
 msgstr "您没有启用InnoDB"
 
-#: libraries/advisory_rules.txt:409
+#: libraries/advisory_rules.txt:410
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "对于表引擎来说，InnoDB是一个更好的选择"
 
-#: libraries/advisory_rules.txt:410
+#: libraries/advisory_rules.txt:411
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb被设置为'value'"
 
-#: libraries/advisory_rules.txt:412
+#: libraries/advisory_rules.txt:413
 msgid "InnoDB log size"
 msgstr "InnoDB的日志大小"
 
-#: libraries/advisory_rules.txt:415
+#: libraries/advisory_rules.txt:416
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr "InnoDB日志文件大小不合适，此关系到InnoDB缓冲池"
 
-#: libraries/advisory_rules.txt:416
+#: libraries/advisory_rules.txt:417
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -12374,22 +12374,22 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
-#: libraries/advisory_rules.txt:417
+#: libraries/advisory_rules.txt:418
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr "您的 InnoDB 日志大小为 InnoDB 缓冲池大小的 %s%%，该值不应低于 20%%"
 
-#: libraries/advisory_rules.txt:419
+#: libraries/advisory_rules.txt:420
 msgid "Max InnoDB log size"
 msgstr "InnoDB日志最大大小"
 
-#: libraries/advisory_rules.txt:422
+#: libraries/advisory_rules.txt:423
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB日志文件大小设置的不够大"
 
-#: libraries/advisory_rules.txt:423
+#: libraries/advisory_rules.txt:424
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -12410,20 +12410,20 @@ msgstr ""
 "常。参见<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
 "increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
 
-#: libraries/advisory_rules.txt:424
+#: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "你的InnoDB日志文件的绝对大小为%s MB"
 
-#: libraries/advisory_rules.txt:426
+#: libraries/advisory_rules.txt:427
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB缓冲池大小"
 
-#: libraries/advisory_rules.txt:429
+#: libraries/advisory_rules.txt:430
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "你的InnoDB缓冲池相当小"
 
-#: libraries/advisory_rules.txt:430
+#: libraries/advisory_rules.txt:431
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -12438,7 +12438,7 @@ msgid ""
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
 
-#: libraries/advisory_rules.txt:431
+#: libraries/advisory_rules.txt:432
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -12447,22 +12447,22 @@ msgid ""
 "other services running on the same machine."
 msgstr ""
 
-#: libraries/advisory_rules.txt:435
+#: libraries/advisory_rules.txt:436
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM 并发插入"
 
-#: libraries/advisory_rules.txt:438
+#: libraries/advisory_rules.txt:439
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "concurrent_insert（并发插入）被启用，且值被设置为1"
 
-#: libraries/advisory_rules.txt:439
+#: libraries/advisory_rules.txt:440
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 
-#: libraries/advisory_rules.txt:440
+#: libraries/advisory_rules.txt:441
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
 

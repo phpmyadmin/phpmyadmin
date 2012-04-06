@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-06 10:52+0200\n"
+"POT-Creation-Date: 2012-04-06 13:06+0200\n"
 "PO-Revision-Date: 2012-04-05 20:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -38,9 +38,9 @@ msgstr ""
 "olabilirsiniz ya da tarayıcınızın güvenlik ayarları pencereler arası "
 "güncellemeleri engellemek için yapılandırılmıştır."
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3141
-#: libraries/common.lib.php:3148 libraries/common.lib.php:3364
-#: libraries/common.lib.php:3365 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3145
+#: libraries/common.lib.php:3152 libraries/common.lib.php:3368
+#: libraries/common.lib.php:3369 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Ara"
@@ -508,8 +508,8 @@ msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "<i>%2$s</i> tablosu içerisinde %1$s benzeşme"
 
-#: db_search.php:234 libraries/common.lib.php:3143
-#: libraries/common.lib.php:3362 libraries/common.lib.php:3363
+#: db_search.php:234 libraries/common.lib.php:3147
+#: libraries/common.lib.php:3366 libraries/common.lib.php:3367
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Gözat"
@@ -645,8 +645,8 @@ msgstr "Hiçbirini Seçme"
 msgid "Check tables having overhead"
 msgstr "Ek yükü olan tabloları kontrol et"
 
-#: db_structure.php:587 libraries/common.lib.php:3375
-#: libraries/common.lib.php:3376 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3379
+#: libraries/common.lib.php:3380 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2522 libraries/display_tbl.lib.php:2663
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -660,13 +660,13 @@ msgstr "Dışa Aktar"
 msgid "Print view"
 msgstr "Baskı görünümü"
 
-#: db_structure.php:593 libraries/common.lib.php:3371
-#: libraries/common.lib.php:3372
+#: db_structure.php:593 libraries/common.lib.php:3375
+#: libraries/common.lib.php:3376
 msgid "Empty"
 msgstr "Boşalt"
 
 #: db_structure.php:595 db_tracking.php:105 libraries/Index.class.php:504
-#: libraries/common.lib.php:3369 libraries/common.lib.php:3370
+#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
 #: server_databases.php:284 tbl_structure.php:150 tbl_structure.php:151
 #: tbl_structure.php:573
 msgid "Drop"
@@ -1101,7 +1101,7 @@ msgstr "Kapat"
 
 #: js/messages.php:61 js/messages.php:277 libraries/Index.class.php:482
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
-#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
+#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1402
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
@@ -2961,12 +2961,12 @@ msgstr "&quot;%s&quot; veritabanına git."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s işlevselliği bilinen bir hata tarafından zarar görmüş, bakınız %s"
 
-#: libraries/common.lib.php:2763
+#: libraries/common.lib.php:2764
 msgid "Click to toggle"
 msgstr "Değiştirmek için tıklayın"
 
-#: libraries/common.lib.php:3139 libraries/common.lib.php:3146
-#: libraries/common.lib.php:3368 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3143 libraries/common.lib.php:3150
+#: libraries/common.lib.php:3372 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2978,7 +2978,7 @@ msgstr "Değiştirmek için tıklayın"
 msgid "Structure"
 msgstr "Yapı"
 
-#: libraries/common.lib.php:3140 libraries/common.lib.php:3147
+#: libraries/common.lib.php:3144 libraries/common.lib.php:3151
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2986,42 +2986,42 @@ msgstr "Yapı"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3142 libraries/common.lib.php:3366
-#: libraries/common.lib.php:3367 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3146 libraries/common.lib.php:3370
+#: libraries/common.lib.php:3371 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Ekle"
 
-#: libraries/common.lib.php:3149 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3153 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "İşlemler"
 
-#: libraries/common.lib.php:3300 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3304 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "Bilgisayarınıza gözat:"
 
-#: libraries/common.lib.php:3319
+#: libraries/common.lib.php:3323
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Web sunucusu gönderme dizininden <b>%s</b> seçin:"
 
-#: libraries/common.lib.php:3340 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3344 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:938
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor"
 
-#: libraries/common.lib.php:3349
+#: libraries/common.lib.php:3353
 msgid "There are no files to upload"
 msgstr "Göndermek için hiç dosya yok"
 
-#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
+#: libraries/common.lib.php:3381 libraries/common.lib.php:3382
 msgid "Execute"
 msgstr "Çalıştır"
 
-#: libraries/common.lib.php:3853
+#: libraries/common.lib.php:3857
 msgid "Print"
 msgstr "Yazdır"
 
@@ -11847,15 +11847,15 @@ msgstr "GÖRÜNÜM adı"
 msgid "Rename view to"
 msgstr "Görünümü yeniden şuna adlandır"
 
-#: libraries/advisory_rules.txt:32
+#: libraries/advisory_rules.txt:33
 msgid "Uptime below one day"
 msgstr "Bir günün altındaki çalışma zamanı"
 
-#: libraries/advisory_rules.txt:35
+#: libraries/advisory_rules.txt:36
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr "Çalışma zamanı 1 günden az, performans ayarlaması kesin olmayabilir."
 
-#: libraries/advisory_rules.txt:36
+#: libraries/advisory_rules.txt:37
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -11863,16 +11863,16 @@ msgstr ""
 "Daha kesin ortalamalara sahip olmak için bu çözümleyiciyi çalıştırmadan önce "
 "sunucunun bir günden daha fazla çalıştırılmasına izin vermek önerilir"
 
-#: libraries/advisory_rules.txt:37
+#: libraries/advisory_rules.txt:38
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Çalışma zamanı sadece %s"
 
-#: libraries/advisory_rules.txt:39
+#: libraries/advisory_rules.txt:40
 msgid "Questions below 1,000"
 msgstr "1,000'in altındaki sorular"
 
-#: libraries/advisory_rules.txt:42
+#: libraries/advisory_rules.txt:43
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -11880,7 +11880,7 @@ msgstr ""
 "1,000 sorudan daha azı bu sunucuya karşı çalışır. Tavsiyeler kesin "
 "olmayabilir."
 
-#: libraries/advisory_rules.txt:43
+#: libraries/advisory_rules.txt:44
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -11888,21 +11888,21 @@ msgstr ""
 "Sorguların büyük bir miktarını çalıştırana kadar uzun bir süre için "
 "sunucunun çalıştırmasına izin verir."
 
-#: libraries/advisory_rules.txt:44
+#: libraries/advisory_rules.txt:45
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Şu anki Soru miktarı: %s"
 
-#: libraries/advisory_rules.txt:46
+#: libraries/advisory_rules.txt:47
 msgid "Percentage of slow queries"
 msgstr "Yavaş sorguların yüzdesi"
 
-#: libraries/advisory_rules.txt:49
+#: libraries/advisory_rules.txt:50
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr "Sorguların tüm miktarına nazaran çok yavaş sorgular var."
 
-#: libraries/advisory_rules.txt:50 libraries/advisory_rules.txt:57
+#: libraries/advisory_rules.txt:51 libraries/advisory_rules.txt:58
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -11910,21 +11910,21 @@ msgstr ""
 "{long_query_time} değerini arttırmak isteyebilir ya da yavaş sorgu "
 "günlüğünde listelenen sorguları uyarlamak isteyebilirsiniz"
 
-#: libraries/advisory_rules.txt:51
+#: libraries/advisory_rules.txt:52
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Yavaş sorgu oranı %%5'in altında olmalıdır, sizin değeriniz %%%s."
 
-#: libraries/advisory_rules.txt:53
+#: libraries/advisory_rules.txt:54
 msgid "Slow query rate"
 msgstr "Yavaş sorgu oranı"
 
-#: libraries/advisory_rules.txt:56
+#: libraries/advisory_rules.txt:57
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr "Sunucu çalışma zamanına nazaran yavaş sorguların yüzdesi yüksek."
 
-#: libraries/advisory_rules.txt:58
+#: libraries/advisory_rules.txt:59
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -11933,11 +11933,11 @@ msgstr ""
 "Saat başına %s yavaş sorgu oranına sahipsiniz, saat başına %%1'den daha "
 "azına sahip olmalısınız."
 
-#: libraries/advisory_rules.txt:60
+#: libraries/advisory_rules.txt:61
 msgid "Long query time"
 msgstr "Uzun sorgu süresi"
 
-#: libraries/advisory_rules.txt:63
+#: libraries/advisory_rules.txt:64
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -11945,7 +11945,7 @@ msgstr ""
 "long_query_time 10 saniyeye ya da daha fazlasına ayarlı, bu nedenle sadece "
 "yavaş sorguların günlüklenmesi 10 saniyenin üzerinde bir zaman alır."
 
-#: libraries/advisory_rules.txt:64
+#: libraries/advisory_rules.txt:65
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -11953,20 +11953,20 @@ msgstr ""
 "Ortamınıza bağlı olarak {long_query_time} değerinin daha düşük bir değere "
 "ayarlanması önerilir. Genellikle 1-5 saniye değeri önerilir."
 
-#: libraries/advisory_rules.txt:65
+#: libraries/advisory_rules.txt:66
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time şimdilik %ds'ye ayarlı."
 
-#: libraries/advisory_rules.txt:67
+#: libraries/advisory_rules.txt:68
 msgid "Slow query logging"
 msgstr "Yavaş sorgu günlükleme"
 
-#: libraries/advisory_rules.txt:70
+#: libraries/advisory_rules.txt:71
 msgid "The slow query log is disabled."
 msgstr "Yavaş sorgu günlüğü etkisizleştirildi."
 
-#: libraries/advisory_rules.txt:71
+#: libraries/advisory_rules.txt:72
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -11975,19 +11975,19 @@ msgstr ""
 "etkinleştirin. Bu, kötü bir şekilde yürütülen sorguların sorunlarını "
 "gidermede yardımcı olacaktır."
 
-#: libraries/advisory_rules.txt:72
+#: libraries/advisory_rules.txt:73
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries 'OFF'a ayarlı"
 
-#: libraries/advisory_rules.txt:76
+#: libraries/advisory_rules.txt:77
 msgid "Release Series"
 msgstr "Diziyi Yayımla"
 
-#: libraries/advisory_rules.txt:79
+#: libraries/advisory_rules.txt:80
 msgid "The MySQL server version less then 5.1."
 msgstr "MySQL sunucusu sürümü 5.1'den az."
 
-#: libraries/advisory_rules.txt:80
+#: libraries/advisory_rules.txt:81
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -11995,21 +11995,21 @@ msgstr ""
 "Geliştirilmiş performansa sahip MySQL 5.1'e ve daha çok MySQL 5.5'e "
 "yükseltmelisiniz."
 
-#: libraries/advisory_rules.txt:81 libraries/advisory_rules.txt:88
-#: libraries/advisory_rules.txt:95
+#: libraries/advisory_rules.txt:82 libraries/advisory_rules.txt:89
+#: libraries/advisory_rules.txt:96
 #, php-format
 msgid "Current version: %s"
 msgstr "Şu anki sürüm: %s"
 
-#: libraries/advisory_rules.txt:83 libraries/advisory_rules.txt:90
+#: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Minor Version"
 msgstr "İkincil Sürüm"
 
-#: libraries/advisory_rules.txt:86
+#: libraries/advisory_rules.txt:87
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Sürüm, 5.1.30'dan az (5.1'in ilk GA yayımı)."
 
-#: libraries/advisory_rules.txt:87
+#: libraries/advisory_rules.txt:88
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -12017,24 +12017,24 @@ msgstr ""
 "Geliştirilmiş performansa sahip MySQL 5.1'in en son sürümüne ve daha çok "
 "MySQL 5.5'e yükseltmelisiniz."
 
-#: libraries/advisory_rules.txt:93
+#: libraries/advisory_rules.txt:94
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Sürüm, 5.5.8'den az (5.5'in ilk GA yayımı)."
 
-#: libraries/advisory_rules.txt:94
+#: libraries/advisory_rules.txt:95
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "MySQL 5.5'in sağlam sürümüne yükseltmelisiniz"
 
-#: libraries/advisory_rules.txt:97 libraries/advisory_rules.txt:104
-#: libraries/advisory_rules.txt:111
+#: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
+#: libraries/advisory_rules.txt:112
 msgid "Distribution"
 msgstr "Dağıtım"
 
-#: libraries/advisory_rules.txt:100
+#: libraries/advisory_rules.txt:101
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "Sürüm, kaynaktan derlenmiş, MySQL resmi binariden değil."
 
-#: libraries/advisory_rules.txt:101
+#: libraries/advisory_rules.txt:102
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -12045,40 +12045,40 @@ msgstr ""
 "doğrudur, herhangi bir paket dağıtımları (RedHat, Debian/Ubuntu v.s. gibi) "
 "için değil."
 
-#: libraries/advisory_rules.txt:102
+#: libraries/advisory_rules.txt:103
 msgid "'source' found in version_comment"
 msgstr "'source', version_comment içinde bulundu"
 
-#: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
+#: libraries/advisory_rules.txt:108 libraries/advisory_rules.txt:115
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "MySQL kılavuzu sadece resmi MySQL binarileri için doğrudur."
 
-#: libraries/advisory_rules.txt:108
+#: libraries/advisory_rules.txt:109
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr "Percona belgesi http://www.percona.com/docs/wiki/ adresinde"
 
-#: libraries/advisory_rules.txt:109
+#: libraries/advisory_rules.txt:110
 msgid "'percona' found in version_comment"
 msgstr "'percona', version_comment içinde bulundu"
 
-#: libraries/advisory_rules.txt:115
+#: libraries/advisory_rules.txt:116
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "Drizzle belgesi http://docs.drizzle.org/ adresinde"
 
-#: libraries/advisory_rules.txt:116
+#: libraries/advisory_rules.txt:117
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "Sürüm dizgisi (%s) Drizzle çeşitleme şemasıyla eşleşiyor"
 
-#: libraries/advisory_rules.txt:118
+#: libraries/advisory_rules.txt:119
 msgid "MySQL Architecture"
 msgstr "MySQL Yapısı"
 
-#: libraries/advisory_rules.txt:121
+#: libraries/advisory_rules.txt:122
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL, 64-bit paketi olarak derlenmez."
 
-#: libraries/advisory_rules.txt:122
+#: libraries/advisory_rules.txt:123
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -12088,20 +12088,20 @@ msgstr ""
 "varsayılıyor), bu yüzden MySQL, belleğinizin tümüne erişemeyebilir. MySQL'in "
 "64-bit sürümünü kurmayı düşünebilirsiniz."
 
-#: libraries/advisory_rules.txt:123
+#: libraries/advisory_rules.txt:124
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "Bu anamakinedeki kullanılabilir bellek: %s"
 
-#: libraries/advisory_rules.txt:129
+#: libraries/advisory_rules.txt:130
 msgid "Query cache disabled"
 msgstr "Sorgu önbelleği etkisizleştirildi"
 
-#: libraries/advisory_rules.txt:132
+#: libraries/advisory_rules.txt:133
 msgid "The query cache is not enabled."
 msgstr "Sorgu önbelleği etkinleştirilmedi."
 
-#: libraries/advisory_rules.txt:133
+#: libraries/advisory_rules.txt:134
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12113,19 +12113,19 @@ msgstr ""
 "değeri olarak ve {query_cache_type} ayarı 'ON' ayarlayarak etkinleştirin. "
 "<b>Not:</b> Eğer memcached kullanıyorsanız, bu tavsiyeyi göz ardı edin."
 
-#: libraries/advisory_rules.txt:134
+#: libraries/advisory_rules.txt:135
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 0'a ayarlı veya query_cache_type 'OFF'a ayarlı"
 
-#: libraries/advisory_rules.txt:136
+#: libraries/advisory_rules.txt:137
 msgid "Query caching method"
 msgstr "Sorgu önbellekleme yöntemi"
 
-#: libraries/advisory_rules.txt:139
+#: libraries/advisory_rules.txt:140
 msgid "Suboptimal caching method."
 msgstr "Yetersiz önbellekleme yöntemi."
 
-#: libraries/advisory_rules.txt:140
+#: libraries/advisory_rules.txt:141
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -12137,7 +12137,7 @@ msgstr ""
 "doc/refman/5.5/en/ha-memcached.html\">memcached</a> kullanmayı düşünmek "
 "değebilir, özellikle de çoklu slave'lere sahipseniz."
 
-#: libraries/advisory_rules.txt:141
+#: libraries/advisory_rules.txt:142
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -12146,34 +12146,34 @@ msgstr ""
 "Sorgu önbelleği etkin ve sunucu her saniyede %d sorgu alıyor. Eğer her "
 "saniyede 100'den fazla sorgu varsa bu kural işe yaramaz."
 
-#: libraries/advisory_rules.txt:143
+#: libraries/advisory_rules.txt:144
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "Sorgu önbelleği verimi (%%)"
 
-#: libraries/advisory_rules.txt:146
+#: libraries/advisory_rules.txt:147
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "Sorgu önbelleği verimli çalışmıyor, düşük tavan oranına sahip."
 
-#: libraries/advisory_rules.txt:147
+#: libraries/advisory_rules.txt:148
 msgid "Consider increasing {query_cache_limit}."
 msgstr "{query_cache_limit} artışını dikkate alın."
 
-#: libraries/advisory_rules.txt:148
+#: libraries/advisory_rules.txt:149
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Şu anki %%%s sorgu önbelleği tavan oranı %%20'nin altında"
 
-#: libraries/advisory_rules.txt:150
+#: libraries/advisory_rules.txt:151
 msgid "Query Cache usage"
 msgstr "Sorgu Önbelleği kullanımı"
 
-#: libraries/advisory_rules.txt:153
+#: libraries/advisory_rules.txt:154
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr "Sorgu önbelleğinin %%80'den azı değerlendirilmekte."
 
-#: libraries/advisory_rules.txt:154
+#: libraries/advisory_rules.txt:155
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -12181,7 +12181,7 @@ msgstr ""
 "Buna {query_cache_limit} çok düşük olması sebep oluyor olabilir. Sorgu "
 "önbelleğinin temizlenmesi de yardımcı olabilir."
 
-#: libraries/advisory_rules.txt:155
+#: libraries/advisory_rules.txt:156
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -12190,15 +12190,15 @@ msgstr ""
 "Boş sorgu önbellek belleğinin, toplam sorgu önbelleği boyutuna şu anki oranı "
 "%%%s. Bu %%80'in üzerinde olmalıdır"
 
-#: libraries/advisory_rules.txt:157
+#: libraries/advisory_rules.txt:158
 msgid "Query cache fragmentation"
 msgstr "Sorgu önbelleği parçalama"
 
-#: libraries/advisory_rules.txt:160
+#: libraries/advisory_rules.txt:161
 msgid "The query cache is considerably fragmented."
 msgstr "Sorgu önbelleği oldukça parçalanmış."
 
-#: libraries/advisory_rules.txt:161
+#: libraries/advisory_rules.txt:162
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12219,7 +12219,7 @@ msgstr ""
 "ayarlayabilirsiniz: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 
-#: libraries/advisory_rules.txt:162
+#: libraries/advisory_rules.txt:163
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12230,11 +12230,11 @@ msgstr ""
 "boş ve kullanılan bloklarının alternatif bir kalıp olduğu anlamına gelir. Bu "
 "değer %%20'nin altında olmalıdır."
 
-#: libraries/advisory_rules.txt:164
+#: libraries/advisory_rules.txt:165
 msgid "Query cache low memory prunes"
 msgstr "Düşük sorgu önbellek belleği azalması"
 
-#: libraries/advisory_rules.txt:167
+#: libraries/advisory_rules.txt:168
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12242,7 +12242,7 @@ msgstr ""
 "Önbelleklenen sorgular, sorgu önbellek belleğinin sorgu önbelleğinden düşük "
 "olmasından dolayı kaldırıldı."
 
-#: libraries/advisory_rules.txt:168
+#: libraries/advisory_rules.txt:169
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -12252,7 +12252,7 @@ msgstr ""
 "çıkarmayın, önbellek koruması ek yükü muhtemelen boyutunu arttırır bu yüzden "
 "bunu küçük artışlarla yapın ve sonuçlarını izleyin."
 
-#: libraries/advisory_rules.txt:169
+#: libraries/advisory_rules.txt:170
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -12261,11 +12261,11 @@ msgstr ""
 "Kaldırılan sorguların eklenen sorgulara oranı %%%s. En düşük bu değer en "
 "iyisidir (Bu kuralları atan sınır: %%0.1)"
 
-#: libraries/advisory_rules.txt:171
+#: libraries/advisory_rules.txt:172
 msgid "Query cache max size"
 msgstr "Sorgu önbelleği en fazla boyutu"
 
-#: libraries/advisory_rules.txt:174
+#: libraries/advisory_rules.txt:175
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -12273,28 +12273,28 @@ msgstr ""
 "Sorgu önbelleği boyutu 128 MiB'ın üzerinde. Büyük sorgu önbellekleri, "
 "önbelleği korumak için gereken önemli ölçüde ek yüke sebep olabilir."
 
-#: libraries/advisory_rules.txt:175
+#: libraries/advisory_rules.txt:176
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr "Ortamınıza bağlıdır, bu değeri düşürmek performansı arttırabilir."
 
-#: libraries/advisory_rules.txt:176
+#: libraries/advisory_rules.txt:177
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Şu anki sorgu önbelleği boyutu: %s"
 
-#: libraries/advisory_rules.txt:178
+#: libraries/advisory_rules.txt:179
 msgid "Query cache min result size"
 msgstr "Sorgu önbelleği en az sonuç boyutu"
 
-#: libraries/advisory_rules.txt:181
+#: libraries/advisory_rules.txt:182
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "Sorgu önbelleğinde sonuç grubunun en fazla boyutu varsayılanı 1 MiB'tır."
 
-#: libraries/advisory_rules.txt:182
+#: libraries/advisory_rules.txt:183
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12313,19 +12313,19 @@ msgstr ""
 "(tablo güncellemelerinden dolayı sıkça geçersiz kılınan) 1 MiB'ın üzerinde "
 "olması durumunda {query_cache_limit} arttırmak verimi azaltacaktır."
 
-#: libraries/advisory_rules.txt:183
+#: libraries/advisory_rules.txt:184
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit 1 MiB'a ayarlı"
 
-#: libraries/advisory_rules.txt:187
+#: libraries/advisory_rules.txt:188
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Geçici tablolara sebep olan sıralamaların yüzdesi"
 
-#: libraries/advisory_rules.txt:190 libraries/advisory_rules.txt:197
+#: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
 msgid "Too many sorts are causing temporary tables."
 msgstr "Çok fazla sıralama geçici tablolara sebep olur."
 
-#: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
+#: libraries/advisory_rules.txt:192 libraries/advisory_rules.txt:199
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
@@ -12333,7 +12333,7 @@ msgstr ""
 "sort_buffer_size ve/veya read_rnd_buffer_size artışını dikkate alın, sistem "
 "bellek sınırlarınıza bağlıdır"
 
-#: libraries/advisory_rules.txt:192
+#: libraries/advisory_rules.txt:193
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
@@ -12342,26 +12342,26 @@ msgstr ""
 "Tüm sıralamaların %%%s'i geçici tablolara sebep olur, bu değer %%10'dan "
 "düşük olmalıdır."
 
-#: libraries/advisory_rules.txt:194
+#: libraries/advisory_rules.txt:195
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Geçici tablolara sebep olan sıralamaların oranı"
 
-#: libraries/advisory_rules.txt:199
+#: libraries/advisory_rules.txt:200
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
 "Geçici tabloların ortalaması: %s, bu değer saat başına 1'den az olmalıdır."
 
-#: libraries/advisory_rules.txt:201
+#: libraries/advisory_rules.txt:202
 msgid "Sort rows"
 msgstr "Satırları sırala"
 
-#: libraries/advisory_rules.txt:204
+#: libraries/advisory_rules.txt:205
 msgid "There are lots of rows being sorted."
 msgstr "Birçok sıralanmış satır var."
 
-#: libraries/advisory_rules.txt:205
+#: libraries/advisory_rules.txt:206
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12372,20 +12372,20 @@ msgstr ""
 "indekslenmiş sütunları kullanan çok fazla sıralama gerektiren sorgulardan "
 "emin olmak isteyebilirsiniz, ki bu çok daha hızlı sıralamayla sonuçlanacaktır"
 
-#: libraries/advisory_rules.txt:206
+#: libraries/advisory_rules.txt:207
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "Sıralanmış satır ortalaması: %s"
 
-#: libraries/advisory_rules.txt:209
+#: libraries/advisory_rules.txt:210
 msgid "Rate of joins without indexes"
 msgstr "İndeksler olmaksızın birleştirme oranı"
 
-#: libraries/advisory_rules.txt:212
+#: libraries/advisory_rules.txt:213
 msgid "There are too many joins without indexes."
 msgstr "İndeksler olmaksızın çok fazla birleştirme var."
 
-#: libraries/advisory_rules.txt:213
+#: libraries/advisory_rules.txt:214
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12394,21 +12394,21 @@ msgstr ""
 "şartlarında kullanılan sütunlar için indekslerin eklenmesi tablo "
 "birleştirmelerini fazlasıyla hızlandıracaktır"
 
-#: libraries/advisory_rules.txt:214
+#: libraries/advisory_rules.txt:215
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Tablo birleştirmeleri ortalaması: %s, bu değer saat başına 1'den az olmalıdır"
 
-#: libraries/advisory_rules.txt:216
+#: libraries/advisory_rules.txt:217
 msgid "Rate of reading first index entry"
 msgstr "Okunan ilk indeks girişi oranı"
 
-#: libraries/advisory_rules.txt:219
+#: libraries/advisory_rules.txt:220
 msgid "The rate of reading the first index entry is high."
 msgstr "Okunan ilk indeks girişi oranı yüksek."
 
-#: libraries/advisory_rules.txt:220
+#: libraries/advisory_rules.txt:221
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12425,21 +12425,21 @@ msgstr ""
 "tam indeks taramaları sadece yeniden yazılan sorgular tarafından "
 "azaltılabilir."
 
-#: libraries/advisory_rules.txt:221
+#: libraries/advisory_rules.txt:222
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "İndeks taramaları ortalaması: %s, bu değer saat başına 1'den az olmalıdır"
 
-#: libraries/advisory_rules.txt:223
+#: libraries/advisory_rules.txt:224
 msgid "Rate of reading fixed position"
 msgstr "Okunan sabit konum oranı"
 
-#: libraries/advisory_rules.txt:226
+#: libraries/advisory_rules.txt:227
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Sabit konumdan okunan veri oranı yüksek."
 
-#: libraries/advisory_rules.txt:227
+#: libraries/advisory_rules.txt:228
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -12449,7 +12449,7 @@ msgstr ""
 "gerektiğini gösterir, indeksleri kullanmayan birleştirme sorgular da dahil. "
 "Uygulanabilir yerlere indeksleri ekler."
 
-#: libraries/advisory_rules.txt:228
+#: libraries/advisory_rules.txt:229
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -12458,15 +12458,15 @@ msgstr ""
 "Okunan sabit konum oranı ortalaması: %s, bu değer saat başına 1'den az "
 "olmalıdır"
 
-#: libraries/advisory_rules.txt:230
+#: libraries/advisory_rules.txt:231
 msgid "Rate of reading next table row"
 msgstr "Sonraki tablo satırını okuma oranı"
 
-#: libraries/advisory_rules.txt:233
+#: libraries/advisory_rules.txt:234
 msgid "The rate of reading the next table row is high."
 msgstr "Sonraki tablo satırını okuma oranı yüksek."
 
-#: libraries/advisory_rules.txt:234
+#: libraries/advisory_rules.txt:235
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -12474,7 +12474,7 @@ msgstr ""
 "Bu çoğu sorgunun tam tablo taraması yaptığını gösterir. Uygulanabilir "
 "yerlere indeksleri ekler."
 
-#: libraries/advisory_rules.txt:235
+#: libraries/advisory_rules.txt:236
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -12482,15 +12482,15 @@ msgstr ""
 "Okunan sonraki tablo satırı oranı: %s, bu değer saat başına 1'den az "
 "olmalıdır"
 
-#: libraries/advisory_rules.txt:238
+#: libraries/advisory_rules.txt:239
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size 'a karşı max_heap_table_size"
 
-#: libraries/advisory_rules.txt:241
+#: libraries/advisory_rules.txt:242
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size ve max_heap_table_size aynı şey değildir."
 
-#: libraries/advisory_rules.txt:242
+#: libraries/advisory_rules.txt:243
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12502,22 +12502,22 @@ msgstr ""
 "Bu yüzden eğer bellek içi tablo sınırını arttırmak isterseniz, diğer değeri "
 "de arttırmak zorunda kalacaksınız."
 
-#: libraries/advisory_rules.txt:243
+#: libraries/advisory_rules.txt:244
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Şu anki değerler tmp_table_size: %s, max_heap_table_size: %s"
 
-#: libraries/advisory_rules.txt:245
+#: libraries/advisory_rules.txt:246
 msgid "Percentage of temp tables on disk"
 msgstr "Diskteki geçici tabloların yüzdesi"
 
-#: libraries/advisory_rules.txt:248 libraries/advisory_rules.txt:255
+#: libraries/advisory_rules.txt:249 libraries/advisory_rules.txt:256
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr "Birçok geçici tablo bellekte tutulmak yerine diske yazılıyor."
 
-#: libraries/advisory_rules.txt:249
+#: libraries/advisory_rules.txt:250
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12536,7 +12536,7 @@ msgstr ""
 "kaçınmak için bunları elemek bakımından sorgularınızı yeniden yazmak zorunda "
 "kalacaksınız"
 
-#: libraries/advisory_rules.txt:250
+#: libraries/advisory_rules.txt:251
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -12545,11 +12545,11 @@ msgstr ""
 "Tüm geçici tabloların %%%s diske yazılıyor, bu değer %%25'in altında "
 "olmalıdır"
 
-#: libraries/advisory_rules.txt:252
+#: libraries/advisory_rules.txt:253
 msgid "Temp disk rate"
 msgstr "Geçici disk oranı"
 
-#: libraries/advisory_rules.txt:256
+#: libraries/advisory_rules.txt:257
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12567,7 +12567,7 @@ msgstr ""
 "da 512 bayttan büyük sütunun varlığı) kaçınmak için bunları elemek "
 "bakımından sorgularınızı yeniden yazmak zorunda kalacaksınız"
 
-#: libraries/advisory_rules.txt:257
+#: libraries/advisory_rules.txt:258
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -12576,15 +12576,15 @@ msgstr ""
 "Diske yazılan geçici tabloların oranı: %s, bu değer saat başına 1'den az "
 "olmalıdır"
 
-#: libraries/advisory_rules.txt:272
+#: libraries/advisory_rules.txt:273
 msgid "MyISAM key buffer size"
 msgstr "MyISAM anahtar arabellek boyutu"
 
-#: libraries/advisory_rules.txt:275
+#: libraries/advisory_rules.txt:276
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr "Anahtar arabellek başlatılmadı. Önbelleklenecek MyISAM indeksleri yok."
 
-#: libraries/advisory_rules.txt:276
+#: libraries/advisory_rules.txt:277
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -12592,21 +12592,21 @@ msgstr ""
 "{key_buffer_size} ayarı MyISAM indekslerinizin boyutuna bağlıdır. 64M "
 "başlangıç için iyidir."
 
-#: libraries/advisory_rules.txt:277
+#: libraries/advisory_rules.txt:278
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 0'dır"
 
-#: libraries/advisory_rules.txt:279
+#: libraries/advisory_rules.txt:280
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Şimdiye kadar kullanılan en fazla %% MyISAM anahtar arabelleği"
 
-#: libraries/advisory_rules.txt:282 libraries/advisory_rules.txt:290
+#: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Kullanılan MyISAM anahtar arabelleği (indeks önbelleği) %% düşük."
 
-#: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
+#: libraries/advisory_rules.txt:284 libraries/advisory_rules.txt:292
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -12616,7 +12616,7 @@ msgstr ""
 "kaldırılmışsa, görmek için tablolarınızı yeniden gözden geçirin ya da "
 "kullanılan indekslerle ilgili beklentileri ve sorguları gözden geçirin."
 
-#: libraries/advisory_rules.txt:284
+#: libraries/advisory_rules.txt:285
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -12624,44 +12624,44 @@ msgstr ""
 "şimdiye kadar kullanılan en fazla %% MyISAM anahtar arabelleği: %%%s, bu "
 "değer %%95'in üzerinde olmalıdır"
 
-#: libraries/advisory_rules.txt:287
+#: libraries/advisory_rules.txt:288
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Kullanılan MyISAM anahtar arabellek yüzdesi"
 
-#: libraries/advisory_rules.txt:292
+#: libraries/advisory_rules.txt:293
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "kullanılan %% MyISAM anahtar arabelleği: %%%s, bu değer %%95'in üzerinde "
 "olmalıdır"
 
-#: libraries/advisory_rules.txt:294
+#: libraries/advisory_rules.txt:295
 msgid "Percentage of index reads from memory"
 msgstr "Bellekten indeks okumaları yüzdesi"
 
-#: libraries/advisory_rules.txt:297
+#: libraries/advisory_rules.txt:298
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr "MyISAM anahtar arabelleği kullanan indekslerin %% düşük."
 
-#: libraries/advisory_rules.txt:298
+#: libraries/advisory_rules.txt:299
 msgid "You may need to increase {key_buffer_size}."
 msgstr "{key_buffer_size} değerini arttırmanız gerekebilir."
 
-#: libraries/advisory_rules.txt:299
+#: libraries/advisory_rules.txt:300
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Bellekten indeks okumaları: %%%s, bu değer %%95'in üzerinde olmalıdır"
 
-#: libraries/advisory_rules.txt:303
+#: libraries/advisory_rules.txt:304
 msgid "Rate of table open"
 msgstr "Açık tablo oranı"
 
-#: libraries/advisory_rules.txt:306
+#: libraries/advisory_rules.txt:307
 msgid "The rate of opening tables is high."
 msgstr "Açılan tabloların oranı yüksek."
 
-#: libraries/advisory_rules.txt:307
+#: libraries/advisory_rules.txt:308
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -12669,16 +12669,16 @@ msgstr ""
 "Açılan tablolar pahalı disk G/Ç gerektirir. {table_open_cache} değerini "
 "arttırmak bunu önleyebilir."
 
-#: libraries/advisory_rules.txt:308
+#: libraries/advisory_rules.txt:309
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "Açık tablo oranı: %s, bu değer saat başına 10'dan az olmalıdır"
 
-#: libraries/advisory_rules.txt:310
+#: libraries/advisory_rules.txt:311
 msgid "Percentage of used open files limit"
 msgstr "Kullanılan açık dosya sınırları yüzdesi"
 
-#: libraries/advisory_rules.txt:313
+#: libraries/advisory_rules.txt:314
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -12686,7 +12686,7 @@ msgstr ""
 "Açık dosyaların sayısı en fazla açık dosyaların sayısına yaklaşıyor. \"Çok "
 "fazla dosya açık\" hatası alabilirsiniz."
 
-#: libraries/advisory_rules.txt:314 libraries/advisory_rules.txt:321
+#: libraries/advisory_rules.txt:315 libraries/advisory_rules.txt:322
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
@@ -12694,58 +12694,58 @@ msgstr ""
 "{open_files_limit} artışını dikkate alın ve open_files_limit değerini "
 "değiştirdikten sonra yeniden başlatıldığında hata günlüğünü kontrol edin."
 
-#: libraries/advisory_rules.txt:315
+#: libraries/advisory_rules.txt:316
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "Açık dosya sayısı sınıra %%%s kaldı. Değer %%85'in altında olmalıdır"
 
-#: libraries/advisory_rules.txt:317
+#: libraries/advisory_rules.txt:318
 msgid "Rate of open files"
 msgstr "Açık dosyaların oranı"
 
-#: libraries/advisory_rules.txt:320
+#: libraries/advisory_rules.txt:321
 msgid "The rate of opening files is high."
 msgstr "Açılan dosyaların oranı yüksek."
 
-#: libraries/advisory_rules.txt:322
+#: libraries/advisory_rules.txt:323
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Açık dosya oranı: %s, bu değer saat başına 5'ten az olmalıdır"
 
-#: libraries/advisory_rules.txt:324
+#: libraries/advisory_rules.txt:325
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "Acil tablo kilitleri %%"
 
-#: libraries/advisory_rules.txt:327 libraries/advisory_rules.txt:334
+#: libraries/advisory_rules.txt:328 libraries/advisory_rules.txt:335
 msgid "Too many table locks were not granted immediately."
 msgstr "Çok fazla tablo kilidi hemen onaylanmadı."
 
-#: libraries/advisory_rules.txt:328 libraries/advisory_rules.txt:335
+#: libraries/advisory_rules.txt:329 libraries/advisory_rules.txt:336
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Sorguları uyarlayın ve/veya kilit beklemesini azaltmak için InnoDB kullanın."
 
-#: libraries/advisory_rules.txt:329
+#: libraries/advisory_rules.txt:330
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Ani tablo kilitleri: %%%s, bu değer %%95'in üzerinde olmalıdır"
 
-#: libraries/advisory_rules.txt:331
+#: libraries/advisory_rules.txt:332
 msgid "Table lock wait rate"
 msgstr "Tablo kilit bekleme oranı"
 
-#: libraries/advisory_rules.txt:336
+#: libraries/advisory_rules.txt:337
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "Tablo kilit bekleme oranı: %s, bu değer saat başına 1'den az olmalıdır"
 
-#: libraries/advisory_rules.txt:338
+#: libraries/advisory_rules.txt:339
 msgid "Thread cache"
 msgstr "İşlem önbelleği"
 
-#: libraries/advisory_rules.txt:341
+#: libraries/advisory_rules.txt:342
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -12753,41 +12753,41 @@ msgstr ""
 "İşlem önbelleği etkisizleştirildi, yeni bağlantılardan MySQL'e daha fazla ek "
 "yük olarak sonuçlanır."
 
-#: libraries/advisory_rules.txt:342
+#: libraries/advisory_rules.txt:343
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "{thread_cache_size} > 0 ayarlayarak işlem önbelleğini etkinleştirin."
 
-#: libraries/advisory_rules.txt:343
+#: libraries/advisory_rules.txt:344
 msgid "The thread cache is set to 0"
 msgstr "İşlem önbelleği 0'a ayarlı"
 
-#: libraries/advisory_rules.txt:345
+#: libraries/advisory_rules.txt:346
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "İşlem önbelleği tavan oranı %%"
 
-#: libraries/advisory_rules.txt:348
+#: libraries/advisory_rules.txt:349
 msgid "Thread cache is not efficient."
 msgstr "İşlem önbelleği verimli değil."
 
-#: libraries/advisory_rules.txt:349
+#: libraries/advisory_rules.txt:350
 msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} değerini arttır."
 
-#: libraries/advisory_rules.txt:350
+#: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "İşlem önbelleği tavan oranı: %%%s, bu değer %%80'in üzerinde olmalıdır"
 
-#: libraries/advisory_rules.txt:352
+#: libraries/advisory_rules.txt:353
 msgid "Threads that are slow to launch"
 msgstr "İşlemler çalıştırmak için yavaş"
 
-#: libraries/advisory_rules.txt:355
+#: libraries/advisory_rules.txt:356
 msgid "There are too many threads that are slow to launch."
 msgstr "Çalıştırmak için yavaş olan çok fazla işlem var."
 
-#: libraries/advisory_rules.txt:356
+#: libraries/advisory_rules.txt:357
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -12795,21 +12795,21 @@ msgstr ""
 "Bu, genel sistem aşırı yükü durumunda oldukça basit işlemlerde olsa genel "
 "olarak olur. Sistem yükünüzü dikkatlice izlemek isteyebilirsiniz."
 
-#: libraries/advisory_rules.txt:357
+#: libraries/advisory_rules.txt:358
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 "%s işlem başlamak için %s saniyeden daha uzun zaman aldı, bu 0 olmalıdır"
 
-#: libraries/advisory_rules.txt:359
+#: libraries/advisory_rules.txt:360
 msgid "Slow launch time"
 msgstr "Yavaş çalıştırma zamanı"
 
-#: libraries/advisory_rules.txt:362
+#: libraries/advisory_rules.txt:363
 msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads 2s üzerinde"
 
-#: libraries/advisory_rules.txt:363
+#: libraries/advisory_rules.txt:364
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
@@ -12817,16 +12817,16 @@ msgstr ""
 "Çalıştırması yavaş olan işlemleri doğru olarak saymak için slow_launch_time "
 "değerini 1s veya 2s olarak ayarlayın"
 
-#: libraries/advisory_rules.txt:364
+#: libraries/advisory_rules.txt:365
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time %s'e ayarlı"
 
-#: libraries/advisory_rules.txt:368
+#: libraries/advisory_rules.txt:369
 msgid "Percentage of used connections"
 msgstr "Kullanılan bağlantıların yüzdesi"
 
-#: libraries/advisory_rules.txt:371
+#: libraries/advisory_rules.txt:372
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
@@ -12834,7 +12834,7 @@ msgstr ""
 "Kullanılan bağlantıların en fazla miktarı max_connections değerine "
 "yaklaşıyor."
 
-#: libraries/advisory_rules.txt:372
+#: libraries/advisory_rules.txt:373
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -12845,7 +12845,7 @@ msgstr ""
 "kapatmaz. Kodun veritabanı işleyicilerini düzgün bir şekilde kapattığından "
 "emin olun."
 
-#: libraries/advisory_rules.txt:373
+#: libraries/advisory_rules.txt:374
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -12853,15 +12853,15 @@ msgstr ""
 "Max_used_connections, max_connections'ın %%%s değerinde, değer %%80'in "
 "altında olmalıdır"
 
-#: libraries/advisory_rules.txt:375
+#: libraries/advisory_rules.txt:376
 msgid "Percentage of aborted connections"
 msgstr "Durdurulan bağlantıların yüzdesi"
 
-#: libraries/advisory_rules.txt:378 libraries/advisory_rules.txt:385
+#: libraries/advisory_rules.txt:379 libraries/advisory_rules.txt:386
 msgid "Too many connections are aborted."
 msgstr "Çok fazla bağlantı durduruldu."
 
-#: libraries/advisory_rules.txt:379 libraries/advisory_rules.txt:386
+#: libraries/advisory_rules.txt:380 libraries/advisory_rules.txt:387
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12873,31 +12873,31 @@ msgstr ""
 "source-of-aborted_connects/\">Bu makale</a> kaynağın izini aramakta yardımcı "
 "olabilir."
 
-#: libraries/advisory_rules.txt:380
+#: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "Tüm bağlantıların %%%s'i durduruldu. Bu değer %%1'in altında olmalıdır"
 
-#: libraries/advisory_rules.txt:382
+#: libraries/advisory_rules.txt:383
 msgid "Rate of aborted connections"
 msgstr "Durdurulan bağlantıların oranı"
 
-#: libraries/advisory_rules.txt:387
+#: libraries/advisory_rules.txt:388
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Durdurulan bağlantıların oranı %s, bu değer saat başına 1'den az olmalıdır"
 
-#: libraries/advisory_rules.txt:389
+#: libraries/advisory_rules.txt:390
 msgid "Percentage of aborted clients"
 msgstr "Durdurulan istemcilerin yüzdesi"
 
-#: libraries/advisory_rules.txt:392 libraries/advisory_rules.txt:399
+#: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
 msgid "Too many clients are aborted."
 msgstr "Çok fazla istemci durduruldu."
 
-#: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
+#: libraries/advisory_rules.txt:394 libraries/advisory_rules.txt:401
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -12908,42 +12908,42 @@ msgstr ""
 "işleyicisine düzgün bir şekilde yaklaşmadığından dolayı olabilir. Ağınızı ve "
 "kodunuzu kontrol edin."
 
-#: libraries/advisory_rules.txt:394
+#: libraries/advisory_rules.txt:395
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "Tüm istemcilerin %%%s'i durduruldu. Bu değer %%2'nin altında olmalıdır"
 
-#: libraries/advisory_rules.txt:396
+#: libraries/advisory_rules.txt:397
 msgid "Rate of aborted clients"
 msgstr "Durdurulan istemcilerin oranı"
 
-#: libraries/advisory_rules.txt:401
+#: libraries/advisory_rules.txt:402
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Durdurulan istemcilerin oranı %s, bu değer saat başına 1'den az olmalıdır"
 
-#: libraries/advisory_rules.txt:405
+#: libraries/advisory_rules.txt:406
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB etkisizleştirildi mi?"
 
-#: libraries/advisory_rules.txt:408
+#: libraries/advisory_rules.txt:409
 msgid "You do not have InnoDB enabled."
 msgstr "Etkinleştirilmiş InnoDB'ye sahip değilsiniz."
 
-#: libraries/advisory_rules.txt:409
+#: libraries/advisory_rules.txt:410
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB genellikle tablo motorları için en iyi seçimdir."
 
-#: libraries/advisory_rules.txt:410
+#: libraries/advisory_rules.txt:411
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb 'value'ya ayarlı"
 
-#: libraries/advisory_rules.txt:412
+#: libraries/advisory_rules.txt:413
 msgid "InnoDB log size"
 msgstr "InnoDB günlük boyutu"
 
-#: libraries/advisory_rules.txt:415
+#: libraries/advisory_rules.txt:416
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -12951,7 +12951,7 @@ msgstr ""
 "InnoDB arabellek havuzu ile ilgili olarak InnoDB günlük dosyası boyutu uygun "
 "bir boyut değil."
 
-#: libraries/advisory_rules.txt:416
+#: libraries/advisory_rules.txt:417
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -12976,7 +12976,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">bu blog girişine</a> bakın"
 
-#: libraries/advisory_rules.txt:417
+#: libraries/advisory_rules.txt:418
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -12985,15 +12985,15 @@ msgstr ""
 "InnoDB arabellek havuzu boyutuyla ilgili olan InnoDB günlük boyutunuz %%%s, "
 "bu %%20'nin altında olmamalıdır"
 
-#: libraries/advisory_rules.txt:419
+#: libraries/advisory_rules.txt:420
 msgid "Max InnoDB log size"
 msgstr "En fazla InnoDB günlük boyutu"
 
-#: libraries/advisory_rules.txt:422
+#: libraries/advisory_rules.txt:423
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB günlük dosyası boyutu yetersiz şekilde büyük."
 
-#: libraries/advisory_rules.txt:423
+#: libraries/advisory_rules.txt:424
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -13017,20 +13017,20 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">bu blog girişine</a> bakın"
 
-#: libraries/advisory_rules.txt:424
+#: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Kesin InnoDB günlük boyutunuz %s MiB"
 
-#: libraries/advisory_rules.txt:426
+#: libraries/advisory_rules.txt:427
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB arabellek havuzu boyutu"
 
-#: libraries/advisory_rules.txt:429
+#: libraries/advisory_rules.txt:430
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoD arabellek havuzunuz oldukça küçük."
 
-#: libraries/advisory_rules.txt:430
+#: libraries/advisory_rules.txt:431
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -13055,7 +13055,7 @@ msgstr ""
 "Aynı zamanda <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
 "choosing-innodb_buffer_pool_size/\">bu makaleye</a> bakın"
 
-#: libraries/advisory_rules.txt:431
+#: libraries/advisory_rules.txt:432
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -13068,15 +13068,15 @@ msgstr ""
 "tablolara sahip değilseniz ya da aynı makinede diğer hizmetler çalışıyorsa "
 "bu sisteminiz için tamamen yeterli olabilir."
 
-#: libraries/advisory_rules.txt:435
+#: libraries/advisory_rules.txt:436
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM eşzamanlı eklemeler"
 
-#: libraries/advisory_rules.txt:438
+#: libraries/advisory_rules.txt:439
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "concurrent_insert'ü 1'e ayarlayarak bunu etkinleştirin"
 
-#: libraries/advisory_rules.txt:439
+#: libraries/advisory_rules.txt:440
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
@@ -13087,7 +13087,7 @@ msgstr ""
 "mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL Belgesine</a> "
 "bakın"
 
-#: libraries/advisory_rules.txt:440
+#: libraries/advisory_rules.txt:441
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
 

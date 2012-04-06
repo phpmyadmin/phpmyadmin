@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-06 10:52+0200\n"
+"POT-Creation-Date: 2012-04-06 13:06+0200\n"
 "PO-Revision-Date: 2012-03-21 23:50+0200\n"
 "Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -39,9 +39,9 @@ msgstr ""
 "Veebilehitseja sihtakent ei saanud uuendada. Võib-olla sulgesid ülemakna või "
 "sinu veebilehitseja turvasätted blokeerivad akna värskendamist."
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3141
-#: libraries/common.lib.php:3148 libraries/common.lib.php:3364
-#: libraries/common.lib.php:3365 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3145
+#: libraries/common.lib.php:3152 libraries/common.lib.php:3368
+#: libraries/common.lib.php:3369 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Otsi"
@@ -515,8 +515,8 @@ msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%s vaste <i>%s</i> tabelis"
 msgstr[1] "%s vastet <i>%s</i> tabelis"
 
-#: db_search.php:234 libraries/common.lib.php:3143
-#: libraries/common.lib.php:3362 libraries/common.lib.php:3363
+#: db_search.php:234 libraries/common.lib.php:3147
+#: libraries/common.lib.php:3366 libraries/common.lib.php:3367
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Vaata"
@@ -653,8 +653,8 @@ msgstr "Ära vali ühtegi"
 msgid "Check tables having overhead"
 msgstr "Kontrolli ülemisi tabeleid"
 
-#: db_structure.php:587 libraries/common.lib.php:3375
-#: libraries/common.lib.php:3376 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3379
+#: libraries/common.lib.php:3380 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2522 libraries/display_tbl.lib.php:2663
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -668,13 +668,13 @@ msgstr "Ekspordi"
 msgid "Print view"
 msgstr "Prindi vaade"
 
-#: db_structure.php:593 libraries/common.lib.php:3371
-#: libraries/common.lib.php:3372
+#: db_structure.php:593 libraries/common.lib.php:3375
+#: libraries/common.lib.php:3376
 msgid "Empty"
 msgstr "Tühjenda"
 
 #: db_structure.php:595 db_tracking.php:105 libraries/Index.class.php:504
-#: libraries/common.lib.php:3369 libraries/common.lib.php:3370
+#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
 #: server_databases.php:284 tbl_structure.php:150 tbl_structure.php:151
 #: tbl_structure.php:573
 msgid "Drop"
@@ -1110,7 +1110,7 @@ msgstr "Sulge"
 
 #: js/messages.php:61 js/messages.php:277 libraries/Index.class.php:482
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
-#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
+#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1402
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
@@ -2967,12 +2967,12 @@ msgstr "Mine &quot;%s&quot; andmebaasi."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Seda %s funktsionaalsust mõjutas tuntud viga, vaata %s"
 
-#: libraries/common.lib.php:2763
+#: libraries/common.lib.php:2764
 msgid "Click to toggle"
 msgstr "Muuda"
 
-#: libraries/common.lib.php:3139 libraries/common.lib.php:3146
-#: libraries/common.lib.php:3368 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3143 libraries/common.lib.php:3150
+#: libraries/common.lib.php:3372 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2984,7 +2984,7 @@ msgstr "Muuda"
 msgid "Structure"
 msgstr "Struktuur"
 
-#: libraries/common.lib.php:3140 libraries/common.lib.php:3147
+#: libraries/common.lib.php:3144 libraries/common.lib.php:3151
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2992,42 +2992,42 @@ msgstr "Struktuur"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3142 libraries/common.lib.php:3366
-#: libraries/common.lib.php:3367 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3146 libraries/common.lib.php:3370
+#: libraries/common.lib.php:3371 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Lisa"
 
-#: libraries/common.lib.php:3149 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3153 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Tegevused"
 
-#: libraries/common.lib.php:3300 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3304 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "Sirvi oma arvutist:"
 
-#: libraries/common.lib.php:3319
+#: libraries/common.lib.php:3323
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Vali veebiserveri üleslaadimise kataloogist <b>%s</b>:"
 
-#: libraries/common.lib.php:3340 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3344 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:938
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Valitud üleslaadimise kataloogile ei pääse ligi"
 
-#: libraries/common.lib.php:3349
+#: libraries/common.lib.php:3353
 msgid "There are no files to upload"
 msgstr "Seal pole faile, mida üles laadida"
 
-#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
+#: libraries/common.lib.php:3381 libraries/common.lib.php:3382
 msgid "Execute"
 msgstr "Teosta"
 
-#: libraries/common.lib.php:3853
+#: libraries/common.lib.php:3857
 msgid "Print"
 msgstr "Prindi"
 
@@ -11752,15 +11752,15 @@ msgstr "VIEW nimi"
 msgid "Rename view to"
 msgstr "Muuda vaate nimeks"
 
-#: libraries/advisory_rules.txt:32
+#: libraries/advisory_rules.txt:33
 msgid "Uptime below one day"
 msgstr "Tööaeg on alla ühe päeva"
 
-#: libraries/advisory_rules.txt:35
+#: libraries/advisory_rules.txt:36
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr "Tööaeg on alla 1 päeva, jõudluse häälestamine ei pruugi olla täpne."
 
-#: libraries/advisory_rules.txt:36
+#: libraries/advisory_rules.txt:37
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -11768,16 +11768,16 @@ msgstr ""
 "Täpsemate keskmiste tulemuste saavutamiseks on soovitatav lasta serveril "
 "töötada vähemalt ühe päeva enne, kui käivitada see analüüsija"
 
-#: libraries/advisory_rules.txt:37
+#: libraries/advisory_rules.txt:38
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Tööaeg on ainult %s"
 
-#: libraries/advisory_rules.txt:39
+#: libraries/advisory_rules.txt:40
 msgid "Questions below 1,000"
 msgstr "Päringuid on vähem kui 1000"
 
-#: libraries/advisory_rules.txt:42
+#: libraries/advisory_rules.txt:43
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -11785,7 +11785,7 @@ msgstr ""
 "Sellele serverile on esitatud alla 1000 päringu. Soovitused ei pruugi olla "
 "täpsed."
 
-#: libraries/advisory_rules.txt:43
+#: libraries/advisory_rules.txt:44
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -11793,22 +11793,22 @@ msgstr ""
 "Lase serveril pikemalt töötada, kuni see on teostanud suuremal hulgal "
 "päringuid."
 
-#: libraries/advisory_rules.txt:44
+#: libraries/advisory_rules.txt:45
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Praegune päringute hulk: %s"
 
-#: libraries/advisory_rules.txt:46
+#: libraries/advisory_rules.txt:47
 msgid "Percentage of slow queries"
 msgstr "Aeglaste päringute protsent"
 
-#: libraries/advisory_rules.txt:49
+#: libraries/advisory_rules.txt:50
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
 "Siin on palju aeglaseid päringuid võrreldes kõikide päringute koguhulgaga."
 
-#: libraries/advisory_rules.txt:50 libraries/advisory_rules.txt:57
+#: libraries/advisory_rules.txt:51 libraries/advisory_rules.txt:58
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -11816,22 +11816,22 @@ msgstr ""
 "Võid suurendada {long_query_time} väärtust või optimeerida aeglase päringu "
 "logis loetletud päringuid"
 
-#: libraries/advisory_rules.txt:51
+#: libraries/advisory_rules.txt:52
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Aeglase päringu protsent peaks jääma alla 5%%, sinu väärtus on %s%%."
 
-#: libraries/advisory_rules.txt:53
+#: libraries/advisory_rules.txt:54
 msgid "Slow query rate"
 msgstr "Aeglase päringu protsent"
 
-#: libraries/advisory_rules.txt:56
+#: libraries/advisory_rules.txt:57
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 "Serveri tööajaga võrreldes on siin aeglaste päringute protsent üsna suur."
 
-#: libraries/advisory_rules.txt:58
+#: libraries/advisory_rules.txt:59
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -11840,11 +11840,11 @@ msgstr ""
 "Sinu aeglase päringu protsent ühe tunni kohta on %s, see peaks olema sul ühe "
 "tunni kohta alla 1%%."
 
-#: libraries/advisory_rules.txt:60
+#: libraries/advisory_rules.txt:61
 msgid "Long query time"
 msgstr "Pika päringu aeg"
 
-#: libraries/advisory_rules.txt:63
+#: libraries/advisory_rules.txt:64
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -11852,7 +11852,7 @@ msgstr ""
 "long_query_time väärtuseks on määratud 10 sekundit või enam, seega logitakse "
 "ainult need aeglased päringud, milleks kulub vähemalt 10 sekundit."
 
-#: libraries/advisory_rules.txt:64
+#: libraries/advisory_rules.txt:65
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -11860,20 +11860,20 @@ msgstr ""
 "Sõltuvalt sinu keskkonnast on soovitatav {long_query_time} väärtus muuta "
 "madalamaks. Tavaliselt on soovitatavaks väärtuseks 1-5 sekundit."
 
-#: libraries/advisory_rules.txt:65
+#: libraries/advisory_rules.txt:66
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time on praegu %ds."
 
-#: libraries/advisory_rules.txt:67
+#: libraries/advisory_rules.txt:68
 msgid "Slow query logging"
 msgstr "Aeglase päringu logimine"
 
-#: libraries/advisory_rules.txt:70
+#: libraries/advisory_rules.txt:71
 msgid "The slow query log is disabled."
 msgstr "Aeglase päringu logimine on keelatud."
 
-#: libraries/advisory_rules.txt:71
+#: libraries/advisory_rules.txt:72
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -11881,19 +11881,19 @@ msgstr ""
 "Luba aeglase päringu logimine, määrates {log_slow_queries} väärtuseks 'ON'. "
 "See aitab lahendada halvasti sooritatud päringute probleeme."
 
-#: libraries/advisory_rules.txt:72
+#: libraries/advisory_rules.txt:73
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries väärtuseks on määratud 'OFF'"
 
-#: libraries/advisory_rules.txt:76
+#: libraries/advisory_rules.txt:77
 msgid "Release Series"
 msgstr "Väljaande seeria"
 
-#: libraries/advisory_rules.txt:79
+#: libraries/advisory_rules.txt:80
 msgid "The MySQL server version less then 5.1."
 msgstr "MySQL serveri versioon on alla 5.1."
 
-#: libraries/advisory_rules.txt:80
+#: libraries/advisory_rules.txt:81
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -11901,21 +11901,21 @@ msgstr ""
 "Sa peaksid uuendama, kuna MySQL 5.1'l on parem jõudlus ja MySQL 5.5'l on "
 "veel parem."
 
-#: libraries/advisory_rules.txt:81 libraries/advisory_rules.txt:88
-#: libraries/advisory_rules.txt:95
+#: libraries/advisory_rules.txt:82 libraries/advisory_rules.txt:89
+#: libraries/advisory_rules.txt:96
 #, php-format
 msgid "Current version: %s"
 msgstr "Praegune versioon: %s"
 
-#: libraries/advisory_rules.txt:83 libraries/advisory_rules.txt:90
+#: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Minor Version"
 msgstr "Ebaoluline versioon"
 
-#: libraries/advisory_rules.txt:86
+#: libraries/advisory_rules.txt:87
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Versioon on alla 5.1.30 (esimene 5.1'e GA väljaanne)."
 
-#: libraries/advisory_rules.txt:87
+#: libraries/advisory_rules.txt:88
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -11923,24 +11923,24 @@ msgstr ""
 "Sa peaksid uuendama, kuna uuemal MySQL 5.1 versioonil on parem jõudlus ja "
 "MySQL 5.5'l on veel parem."
 
-#: libraries/advisory_rules.txt:93
+#: libraries/advisory_rules.txt:94
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Versioon on alla 5.5.8 (esimene 5.5'e GA väljaanne)."
 
-#: libraries/advisory_rules.txt:94
+#: libraries/advisory_rules.txt:95
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Sa peaksid täiustama MySQL 5.5'e stabiilsele versioonile"
 
-#: libraries/advisory_rules.txt:97 libraries/advisory_rules.txt:104
-#: libraries/advisory_rules.txt:111
+#: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
+#: libraries/advisory_rules.txt:112
 msgid "Distribution"
 msgstr "Distributsioon"
 
-#: libraries/advisory_rules.txt:100
+#: libraries/advisory_rules.txt:101
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "Versiooni võrreldi allikaga ning see pole MySQL'i ametlik pakett."
 
-#: libraries/advisory_rules.txt:101
+#: libraries/advisory_rules.txt:102
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -11951,41 +11951,41 @@ msgstr ""
 "MySQL'i ametlike pakettide puhul, kuid mitte ükski paketi distributsioon "
 "(nagu RedHat, Debian/Ubuntu jne)."
 
-#: libraries/advisory_rules.txt:102
+#: libraries/advisory_rules.txt:103
 msgid "'source' found in version_comment"
 msgstr ""
 
-#: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
+#: libraries/advisory_rules.txt:108 libraries/advisory_rules.txt:115
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "MySQL kasutusjuhend kehtib ainult MySQL'i ametlike pakettide puhul."
 
-#: libraries/advisory_rules.txt:108
+#: libraries/advisory_rules.txt:109
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
 "Percona dokumentatsiooni leiab aadressilt http://www.percona.com/docs/wiki/"
 
-#: libraries/advisory_rules.txt:109
+#: libraries/advisory_rules.txt:110
 msgid "'percona' found in version_comment"
 msgstr ""
 
-#: libraries/advisory_rules.txt:115
+#: libraries/advisory_rules.txt:116
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "Drizzle dokumentatsiooni leiab aadressilt http://docs.drizzle.org/"
 
-#: libraries/advisory_rules.txt:116
+#: libraries/advisory_rules.txt:117
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "Versiooni sõne (%s) ühtib Drizzle versiooni skeemiga"
 
-#: libraries/advisory_rules.txt:118
+#: libraries/advisory_rules.txt:119
 msgid "MySQL Architecture"
 msgstr "MySQL'i arhitektuur"
 
-#: libraries/advisory_rules.txt:121
+#: libraries/advisory_rules.txt:122
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL ei ole kokku pandud 64-bitise paketina."
 
-#: libraries/advisory_rules.txt:122
+#: libraries/advisory_rules.txt:123
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -11995,20 +11995,20 @@ msgstr ""
 "saa MySQL kasutada kogu sinu mälu. Võib-olla kaalud 64-bitise MySQL "
 "versiooni paigaldamist."
 
-#: libraries/advisory_rules.txt:123
+#: libraries/advisory_rules.txt:124
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "Saadavalolev mälu hulk siin hostis: %s"
 
-#: libraries/advisory_rules.txt:129
+#: libraries/advisory_rules.txt:130
 msgid "Query cache disabled"
 msgstr "Päringu puhver on keelatud"
 
-#: libraries/advisory_rules.txt:132
+#: libraries/advisory_rules.txt:133
 msgid "The query cache is not enabled."
 msgstr "Päringu puhver ei ole lubatud."
 
-#: libraries/advisory_rules.txt:133
+#: libraries/advisory_rules.txt:134
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12020,21 +12020,21 @@ msgstr ""
 "MiB väärtus ja vali {query_cache_type} väärtuseks 'ON'. <b>Märkus:</b> Kui "
 "kasutad mälupuhvrit, siis on soovitatav siinolevaid juhendeid ignoreerida."
 
-#: libraries/advisory_rules.txt:134
+#: libraries/advisory_rules.txt:135
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "query_cache_size väärtuseks on määratud 0 või query_cache_type väärtuseks on "
 "määratud 'OFF'"
 
-#: libraries/advisory_rules.txt:136
+#: libraries/advisory_rules.txt:137
 msgid "Query caching method"
 msgstr "Päringu puhverdamise meetod"
 
-#: libraries/advisory_rules.txt:139
+#: libraries/advisory_rules.txt:140
 msgid "Suboptimal caching method."
 msgstr "Väheoptimaalse puhverdamise meetod."
 
-#: libraries/advisory_rules.txt:140
+#: libraries/advisory_rules.txt:141
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -12046,7 +12046,7 @@ msgstr ""
 "mysql.com/doc/refman/5.5/en/ha-memcached.html\">mälu puhvrit</a>, eriti, kui "
 "sul on palju alluvaid."
 
-#: libraries/advisory_rules.txt:141
+#: libraries/advisory_rules.txt:142
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -12055,34 +12055,34 @@ msgstr ""
 "Päringu puhver on lubatud ja server võtab vastu %d päringut sekundis. See "
 "annab endast märku, kui seal on üle 100 päringu sekundis."
 
-#: libraries/advisory_rules.txt:143
+#: libraries/advisory_rules.txt:144
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "Päringu puhvri efektiivsus (%%)"
 
-#: libraries/advisory_rules.txt:146
+#: libraries/advisory_rules.txt:147
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "Päringu puhver ei tööta efektiivselt, selle kasutushulk on madal."
 
-#: libraries/advisory_rules.txt:147
+#: libraries/advisory_rules.txt:148
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Kaalu {query_cache_limit} suurendamist."
 
-#: libraries/advisory_rules.txt:148
+#: libraries/advisory_rules.txt:149
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Praegune %s%% päringu puhvri kasutushulk on alla 20%%"
 
-#: libraries/advisory_rules.txt:150
+#: libraries/advisory_rules.txt:151
 msgid "Query Cache usage"
 msgstr "Päringu puhvri kasutus"
 
-#: libraries/advisory_rules.txt:153
+#: libraries/advisory_rules.txt:154
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr "Kasutusel on alla 80%% päringu puhvrist."
 
-#: libraries/advisory_rules.txt:154
+#: libraries/advisory_rules.txt:155
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -12090,7 +12090,7 @@ msgstr ""
 "Selle põhjuseks võib olla {query_cache_limit} liiga madal väärtus. Päringu "
 "puhvri puhastamine võib aidata."
 
-#: libraries/advisory_rules.txt:155
+#: libraries/advisory_rules.txt:156
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -12099,15 +12099,15 @@ msgstr ""
 "Praegune vaba päringu puhvri mälu võrreldes päringu puhvri kogumahuga on %s"
 "%%. See peaks olema üle 80%%"
 
-#: libraries/advisory_rules.txt:157
+#: libraries/advisory_rules.txt:158
 msgid "Query cache fragmentation"
 msgstr "Päringu puhvri killustatus"
 
-#: libraries/advisory_rules.txt:160
+#: libraries/advisory_rules.txt:161
 msgid "The query cache is considerably fragmented."
 msgstr "Päringu puhver on väga killustunud."
 
-#: libraries/advisory_rules.txt:161
+#: libraries/advisory_rules.txt:162
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12119,7 +12119,7 @@ msgid ""
 "qcache_queries_in_cache"
 msgstr ""
 
-#: libraries/advisory_rules.txt:162
+#: libraries/advisory_rules.txt:163
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12130,11 +12130,11 @@ msgstr ""
 "puhver sisaldab vaheldumisi vabu ja kasutatud plokke. See väärtus peaks "
 "olema alla 20%%."
 
-#: libraries/advisory_rules.txt:164
+#: libraries/advisory_rules.txt:165
 msgid "Query cache low memory prunes"
 msgstr ""
 
-#: libraries/advisory_rules.txt:167
+#: libraries/advisory_rules.txt:168
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12142,7 +12142,7 @@ msgstr ""
 "Puhverdatud päringud on madala päringu puhvri mälu tõttu eemaldatud päringu "
 "puhvrist."
 
-#: libraries/advisory_rules.txt:168
+#: libraries/advisory_rules.txt:169
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -12152,7 +12152,7 @@ msgstr ""
 "puhvri liigne suurendamine suurendab tõenäoliselt selle mahtu. Seega tee "
 "seda väikeste sammude kaupa ja jälgi tulemusi."
 
-#: libraries/advisory_rules.txt:169
+#: libraries/advisory_rules.txt:170
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -12161,11 +12161,11 @@ msgstr ""
 "Kustutatud päringute hulk võrreldes lisatud päringutega on %s%%. Madalam "
 "väärtus on parem (teadaande limiit: 0.1%%)"
 
-#: libraries/advisory_rules.txt:171
+#: libraries/advisory_rules.txt:172
 msgid "Query cache max size"
 msgstr "Päringu puhvri maksimaalne maht"
 
-#: libraries/advisory_rules.txt:174
+#: libraries/advisory_rules.txt:175
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -12173,7 +12173,7 @@ msgstr ""
 "Päringu puhvri maht on üle 128 MiB. Suured päringu puhvrid võivad põhjustada "
 "olulisemalt suuremat koormust, mis on vajalik puhvri haldamiseks."
 
-#: libraries/advisory_rules.txt:175
+#: libraries/advisory_rules.txt:176
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
@@ -12181,21 +12181,21 @@ msgstr ""
 "Sõltuvalt sinu keskkonnast võib selle väärtuse kahandamine suurendada "
 "jõudlust."
 
-#: libraries/advisory_rules.txt:176
+#: libraries/advisory_rules.txt:177
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Praegune päringu puhvri maht: %s"
 
-#: libraries/advisory_rules.txt:178
+#: libraries/advisory_rules.txt:179
 msgid "Query cache min result size"
 msgstr "Päringu puhvri väikseima tulemuse maht"
 
-#: libraries/advisory_rules.txt:181
+#: libraries/advisory_rules.txt:182
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr "Suurim tulemuse maht päringu puhvris on vaikimisi 1 MiB."
 
-#: libraries/advisory_rules.txt:182
+#: libraries/advisory_rules.txt:183
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12215,19 +12215,19 @@ msgstr ""
 "(tihtilugu kehtetud tabeli uuendamiste tõttu) ja kui siis suurendada "
 "{query_cache_limit} väärtust, siis võib väheneda jõudlus."
 
-#: libraries/advisory_rules.txt:183
+#: libraries/advisory_rules.txt:184
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit väärtuseks on määratud 1 MiB"
 
-#: libraries/advisory_rules.txt:187
+#: libraries/advisory_rules.txt:188
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Ajutisi tabeleid põhjustavate sorteerimiste protsent"
 
-#: libraries/advisory_rules.txt:190 libraries/advisory_rules.txt:197
+#: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
 msgid "Too many sorts are causing temporary tables."
 msgstr "Liiga palju sorteerimisi põhjustab ajutisi tabeleid."
 
-#: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
+#: libraries/advisory_rules.txt:192 libraries/advisory_rules.txt:199
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
@@ -12235,7 +12235,7 @@ msgstr ""
 "Oma süsteemimälu piirangust sõltuvalt kaalu sort_buffer_size ja/või "
 "read_rnd_buffer_size väärtuse suurendamist"
 
-#: libraries/advisory_rules.txt:192
+#: libraries/advisory_rules.txt:193
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
@@ -12244,11 +12244,11 @@ msgstr ""
 "%s%% kõikidest sorteerimistest põhjustab ajutisi tabeleid. See väärtus peaks "
 "jääma alla 10%%."
 
-#: libraries/advisory_rules.txt:194
+#: libraries/advisory_rules.txt:195
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Ajutisi tabeleid põhjustavate sorteerimiste hulk"
 
-#: libraries/advisory_rules.txt:199
+#: libraries/advisory_rules.txt:200
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
@@ -12256,15 +12256,15 @@ msgstr ""
 "Ajutiste tabelite keskmine: %s. See väärtust peaks ühe tunni kohta olema "
 "alla 1."
 
-#: libraries/advisory_rules.txt:201
+#: libraries/advisory_rules.txt:202
 msgid "Sort rows"
 msgstr "Sorteeri ridu"
 
-#: libraries/advisory_rules.txt:204
+#: libraries/advisory_rules.txt:205
 msgid "There are lots of rows being sorted."
 msgstr "Praegu sorteeritakse palju ridu."
 
-#: libraries/advisory_rules.txt:205
+#: libraries/advisory_rules.txt:206
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12275,20 +12275,20 @@ msgstr ""
 "kiirema sorteerimise tulemuse saavutamiseks kasutama ORDER BY klauslis "
 "indekseeritud veergusid"
 
-#: libraries/advisory_rules.txt:206
+#: libraries/advisory_rules.txt:207
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "Sorteeritud ridade keskmine: %s"
 
-#: libraries/advisory_rules.txt:209
+#: libraries/advisory_rules.txt:210
 msgid "Rate of joins without indexes"
 msgstr "Ilma indeksiteta liitmiste hulk"
 
-#: libraries/advisory_rules.txt:212
+#: libraries/advisory_rules.txt:213
 msgid "There are too many joins without indexes."
 msgstr "Siin on liiga palju ilma indeksiteta liitmisi."
 
-#: libraries/advisory_rules.txt:213
+#: libraries/advisory_rules.txt:214
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12296,21 +12296,21 @@ msgstr ""
 "See tähendab, et liitmised teevad kogu tabeli kontrolli. Veergude jaoks "
 "indeksite lisamisel liitmise tingimustes kiirendab tunduvalt tabeli liitmisi"
 
-#: libraries/advisory_rules.txt:214
+#: libraries/advisory_rules.txt:215
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Tabeli liitmiste keskmine: %s. See väärtus peaks ühe tunni kohta olema alla 1"
 
-#: libraries/advisory_rules.txt:216
+#: libraries/advisory_rules.txt:217
 msgid "Rate of reading first index entry"
 msgstr "Esimese indeksi sissekande lugemiste hulk"
 
-#: libraries/advisory_rules.txt:219
+#: libraries/advisory_rules.txt:220
 msgid "The rate of reading the first index entry is high."
 msgstr "Esimese indeksi sissekande lugemiste hulk on kõrge."
 
-#: libraries/advisory_rules.txt:220
+#: libraries/advisory_rules.txt:221
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12327,22 +12327,22 @@ msgstr ""
 "juhul saab terve indeksi kontrolle vähendada ainult päringute "
 "ümberkirjutamise abiga."
 
-#: libraries/advisory_rules.txt:221
+#: libraries/advisory_rules.txt:222
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Indeksi kontrollide keskmine: %s. See väärtus peaks ühe tunni kohta olema "
 "alla 1"
 
-#: libraries/advisory_rules.txt:223
+#: libraries/advisory_rules.txt:224
 msgid "Rate of reading fixed position"
 msgstr "Fikseeritud positsiooni lugemiste hulk"
 
-#: libraries/advisory_rules.txt:226
+#: libraries/advisory_rules.txt:227
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Fikseeritud positsioonist andmete lugemiste hulk on kõrge."
 
-#: libraries/advisory_rules.txt:227
+#: libraries/advisory_rules.txt:228
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -12352,7 +12352,7 @@ msgstr ""
 "kogu tabeli kontrolli, sisaldades liitmise päringuid, mis ei kasuta "
 "indekseid. Lisa indekseid, kus neid vaja."
 
-#: libraries/advisory_rules.txt:228
+#: libraries/advisory_rules.txt:229
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -12361,15 +12361,15 @@ msgstr ""
 "Fikseeritud positsiooni lugemiste hulga keskmine: %s. See väärtus peaks ühe "
 "tunni kohta olema alla 1"
 
-#: libraries/advisory_rules.txt:230
+#: libraries/advisory_rules.txt:231
 msgid "Rate of reading next table row"
 msgstr "Järgmise tabeli rea lugemiste hulk"
 
-#: libraries/advisory_rules.txt:233
+#: libraries/advisory_rules.txt:234
 msgid "The rate of reading the next table row is high."
 msgstr "Järgmise tabeli rea lugemiste hulk on kõrge."
 
-#: libraries/advisory_rules.txt:234
+#: libraries/advisory_rules.txt:235
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -12377,7 +12377,7 @@ msgstr ""
 "See viitab sellele, et paljud päringud teevad kogu tabeli kontrolle. Lisa "
 "indekseid, kus neid vaja."
 
-#: libraries/advisory_rules.txt:235
+#: libraries/advisory_rules.txt:236
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -12385,15 +12385,15 @@ msgstr ""
 "Järgmise tabeli rea lugemiste hulk: %s. See väärtus peaks ühe tunni kohta "
 "olema alla 1"
 
-#: libraries/advisory_rules.txt:238
+#: libraries/advisory_rules.txt:239
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size vs. max_heap_table_size"
 
-#: libraries/advisory_rules.txt:241
+#: libraries/advisory_rules.txt:242
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size ja max_heap_table_size ei ole üks ja seesama."
 
-#: libraries/advisory_rules.txt:242
+#: libraries/advisory_rules.txt:243
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12405,23 +12405,23 @@ msgstr ""
 "suurendada mälus olevate tabelite piirangut, peaksid suurendama ka teist "
 "väärtust."
 
-#: libraries/advisory_rules.txt:243
+#: libraries/advisory_rules.txt:244
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Praegused väärtused on tmp_table_size: %s, max_heap_table_size: %s"
 
-#: libraries/advisory_rules.txt:245
+#: libraries/advisory_rules.txt:246
 msgid "Percentage of temp tables on disk"
 msgstr "Kettal asuvate ajutiste tabelite protsent"
 
-#: libraries/advisory_rules.txt:248 libraries/advisory_rules.txt:255
+#: libraries/advisory_rules.txt:249 libraries/advisory_rules.txt:256
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
 "Paljud ajutised tabelid on mälus säilitamise asemel kirjutatud kettale."
 
-#: libraries/advisory_rules.txt:249
+#: libraries/advisory_rules.txt:250
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12439,7 +12439,7 @@ msgstr ""
 "note.php?note_id=10150111255065841&comments\"> Pythian Group artikli</a> "
 "alguses"
 
-#: libraries/advisory_rules.txt:250
+#: libraries/advisory_rules.txt:251
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -12448,11 +12448,11 @@ msgstr ""
 "%s%% kõikidest ajutistest tabelitest kirjutatakse kettale. See väärtus peaks "
 "olema alla 25%%"
 
-#: libraries/advisory_rules.txt:252
+#: libraries/advisory_rules.txt:253
 msgid "Temp disk rate"
 msgstr "Ajutise ketta hulk"
 
-#: libraries/advisory_rules.txt:256
+#: libraries/advisory_rules.txt:257
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12469,7 +12469,7 @@ msgstr ""
 "baidise veeruga), mida on mainitud <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/internal-temporary-tables.html\">MySQL dokumentatsioonis</a>"
 
-#: libraries/advisory_rules.txt:257
+#: libraries/advisory_rules.txt:258
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -12478,15 +12478,15 @@ msgstr ""
 "Kettale kirjutatavate ajutiste tabelite hulk: %s. See väärtus peaks ühe "
 "tunni kohta olema alla 1"
 
-#: libraries/advisory_rules.txt:272
+#: libraries/advisory_rules.txt:273
 msgid "MyISAM key buffer size"
 msgstr "MyISAM võtme puhvri maht"
 
-#: libraries/advisory_rules.txt:275
+#: libraries/advisory_rules.txt:276
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr "Võtme puhvrit ei tuvastatud. Ühtegi MyISAM indeksit ei puhverdata."
 
-#: libraries/advisory_rules.txt:276
+#: libraries/advisory_rules.txt:277
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -12494,21 +12494,21 @@ msgstr ""
 "Määra {key_buffer_size} väärtus sõltuvalt oma MyISAM indeksite mahust. 64M "
 "oleks hea algus."
 
-#: libraries/advisory_rules.txt:277
+#: libraries/advisory_rules.txt:278
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size on 0"
 
-#: libraries/advisory_rules.txt:279
+#: libraries/advisory_rules.txt:280
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Suurim MyISAM võtme puhvri kasutuse %%"
 
-#: libraries/advisory_rules.txt:282 libraries/advisory_rules.txt:290
+#: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "MyISAM võtme puhvri (indeksi puhver) %% kasutus on madal."
 
-#: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
+#: libraries/advisory_rules.txt:284 libraries/advisory_rules.txt:292
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -12518,7 +12518,7 @@ msgstr ""
 "et näha, kas indeksid on kustutatud või kontrolli päringuid, et teada saada, "
 "milliseid indekseid kasutatakse."
 
-#: libraries/advisory_rules.txt:284
+#: libraries/advisory_rules.txt:285
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -12526,43 +12526,43 @@ msgstr ""
 "maksimaalne MyISAM kasutatud võtme puhvri %%: %s%%. See väärtus peaks olema "
 "vähemalt 95%%"
 
-#: libraries/advisory_rules.txt:287
+#: libraries/advisory_rules.txt:288
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Kasutatud MyISAM võtme puhvri protsent"
 
-#: libraries/advisory_rules.txt:292
+#: libraries/advisory_rules.txt:293
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "Kasutatud MyISAM võtme puhvri %%: %s%%. See väärtus peaks olema vähemalt 95%%"
 
-#: libraries/advisory_rules.txt:294
+#: libraries/advisory_rules.txt:295
 msgid "Percentage of index reads from memory"
 msgstr "Mälust loetud indeksite protsent"
 
-#: libraries/advisory_rules.txt:297
+#: libraries/advisory_rules.txt:298
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr "MyISAM võtme puhvrit kasutavate indeksite %% on madal."
 
-#: libraries/advisory_rules.txt:298
+#: libraries/advisory_rules.txt:299
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Võid suurendada {key_buffer_size} väärtust."
 
-#: libraries/advisory_rules.txt:299
+#: libraries/advisory_rules.txt:300
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Mälust loetud indeksid: %s%%. See väärtus peaks olema vähemalt 95%%"
 
-#: libraries/advisory_rules.txt:303
+#: libraries/advisory_rules.txt:304
 msgid "Rate of table open"
 msgstr "Avatud tabelite hulk"
 
-#: libraries/advisory_rules.txt:306
+#: libraries/advisory_rules.txt:307
 msgid "The rate of opening tables is high."
 msgstr "Avatud tabelite hulk on kõrge."
 
-#: libraries/advisory_rules.txt:307
+#: libraries/advisory_rules.txt:308
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -12570,17 +12570,17 @@ msgstr ""
 "Tabelite avamine vajab ketta I/O'd, kuid see on kulukas. {table_open_cache} "
 "väärtuse suurendamine võib seda ära hoida."
 
-#: libraries/advisory_rules.txt:308
+#: libraries/advisory_rules.txt:309
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Avatud tabelite hulk: %s. See väärtus peaks ühe tunni kohta olema alla 10"
 
-#: libraries/advisory_rules.txt:310
+#: libraries/advisory_rules.txt:311
 msgid "Percentage of used open files limit"
 msgstr "Kasutatud avatud failide protsendi piirang"
 
-#: libraries/advisory_rules.txt:313
+#: libraries/advisory_rules.txt:314
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -12588,7 +12588,7 @@ msgstr ""
 "Avatud failide hulk läheneb maksimaalsele avatud failide hulgale.  Võid "
 "saada \"Liiga palju avatud faile\" vea."
 
-#: libraries/advisory_rules.txt:314 libraries/advisory_rules.txt:321
+#: libraries/advisory_rules.txt:315 libraries/advisory_rules.txt:322
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
@@ -12596,63 +12596,63 @@ msgstr ""
 "Kaalu {open_files_limit} väärtuse suurendamist ja pärast open_files_limit "
 "muutmist ning taaskäivitamist kontrolli vea logi."
 
-#: libraries/advisory_rules.txt:315
+#: libraries/advisory_rules.txt:316
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "Avatud failide hulk on %s%% maksimaalsest. See peaks olema alla 85%%"
 
-#: libraries/advisory_rules.txt:317
+#: libraries/advisory_rules.txt:318
 msgid "Rate of open files"
 msgstr "Avatud failide hulk"
 
-#: libraries/advisory_rules.txt:320
+#: libraries/advisory_rules.txt:321
 msgid "The rate of opening files is high."
 msgstr "Failide avamise hulk on kõrge."
 
-#: libraries/advisory_rules.txt:322
+#: libraries/advisory_rules.txt:323
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Avatud failide hulk: %s. See väärtus peaks ühe tunni kohta olema alla 5"
 
-#: libraries/advisory_rules.txt:324
+#: libraries/advisory_rules.txt:325
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "Viivitamatu tabeli lukustamiste %%"
 
-#: libraries/advisory_rules.txt:327 libraries/advisory_rules.txt:334
+#: libraries/advisory_rules.txt:328 libraries/advisory_rules.txt:335
 msgid "Too many table locks were not granted immediately."
 msgstr "Liiga palju tabeli lukustamisi, mida ei tehtud viivitamatult."
 
-#: libraries/advisory_rules.txt:328 libraries/advisory_rules.txt:335
+#: libraries/advisory_rules.txt:329 libraries/advisory_rules.txt:336
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Optimeeri päringuid ja/või kasuta InnoDB'd, et vähendada lukustamise "
 "ooteaega."
 
-#: libraries/advisory_rules.txt:329
+#: libraries/advisory_rules.txt:330
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 "Viivitamatu tabeli lukustamised: %s%%. See väärtus peaks olema vähemalt 95%%"
 
-#: libraries/advisory_rules.txt:331
+#: libraries/advisory_rules.txt:332
 msgid "Table lock wait rate"
 msgstr "Ootel olevate tabeli lukustamiste hulk"
 
-#: libraries/advisory_rules.txt:336
+#: libraries/advisory_rules.txt:337
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Ootel olevate tabeli lukustamiste hulk: %s. See väärtus peaks ühe tunni "
 "kohta olema alla 1"
 
-#: libraries/advisory_rules.txt:338
+#: libraries/advisory_rules.txt:339
 msgid "Thread cache"
 msgstr "Lõimu puhver"
 
-#: libraries/advisory_rules.txt:341
+#: libraries/advisory_rules.txt:342
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -12660,60 +12660,60 @@ msgstr ""
 "Lõimu puhver on keelatud, mille tulemusena suureneb ülekoormus uute MySQL "
 "ühenduste arvelt."
 
-#: libraries/advisory_rules.txt:342
+#: libraries/advisory_rules.txt:343
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "Kasuta lõimu puhvrit, seades {thread_cache_size} > 0."
 
-#: libraries/advisory_rules.txt:343
+#: libraries/advisory_rules.txt:344
 msgid "The thread cache is set to 0"
 msgstr "Lõimu puhvriks on määratud 0"
 
-#: libraries/advisory_rules.txt:345
+#: libraries/advisory_rules.txt:346
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "Lõimu puhvri kasutushulga %%"
 
-#: libraries/advisory_rules.txt:348
+#: libraries/advisory_rules.txt:349
 msgid "Thread cache is not efficient."
 msgstr "Lõimu puhver pole efektiivne."
 
-#: libraries/advisory_rules.txt:349
+#: libraries/advisory_rules.txt:350
 msgid "Increase {thread_cache_size}."
 msgstr "Suurenda {thread_cache_size} väärtust."
 
-#: libraries/advisory_rules.txt:350
+#: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "Lõimu puhvri kasutushulk: %s%%. See väärtus peaks olema üle 80%%"
 
-#: libraries/advisory_rules.txt:352
+#: libraries/advisory_rules.txt:353
 msgid "Threads that are slow to launch"
 msgstr "Lõimud, mis käivituvad aeglaselt"
 
-#: libraries/advisory_rules.txt:355
+#: libraries/advisory_rules.txt:356
 msgid "There are too many threads that are slow to launch."
 msgstr "Siin on liiga palju aeglase käivitumisega lõimusid."
 
-#: libraries/advisory_rules.txt:356
+#: libraries/advisory_rules.txt:357
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
 
-#: libraries/advisory_rules.txt:357
+#: libraries/advisory_rules.txt:358
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s-l lõimul kulus käivitumiseks üle %s sekundi. See peaks olema 0"
 
-#: libraries/advisory_rules.txt:359
+#: libraries/advisory_rules.txt:360
 msgid "Slow launch time"
 msgstr "Aeglane käivitumise aeg"
 
-#: libraries/advisory_rules.txt:362
+#: libraries/advisory_rules.txt:363
 msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads on üle 2s"
 
-#: libraries/advisory_rules.txt:363
+#: libraries/advisory_rules.txt:364
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
@@ -12721,23 +12721,23 @@ msgstr ""
 "Aeglase käivitumisega lõimude õigeks loendamiseks määra slow_launch_time "
 "väärtuseks 1s või 2s"
 
-#: libraries/advisory_rules.txt:364
+#: libraries/advisory_rules.txt:365
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time väärtuseks on määratud %s"
 
-#: libraries/advisory_rules.txt:368
+#: libraries/advisory_rules.txt:369
 msgid "Percentage of used connections"
 msgstr "Kasutatud ühenduste protsent"
 
-#: libraries/advisory_rules.txt:371
+#: libraries/advisory_rules.txt:372
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
 "Kasutatud ühenduste maksimaalne hulk läheneb max_connections väärtusele."
 
-#: libraries/advisory_rules.txt:372
+#: libraries/advisory_rules.txt:373
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -12747,7 +12747,7 @@ msgstr ""
 "varem sulgeda need ühendused, mis ei sulge andmebaasikäsitlejaid "
 "korralikult. Veendu, et kood sulgeb andmebaasikäsitlejad korralikult."
 
-#: libraries/advisory_rules.txt:373
+#: libraries/advisory_rules.txt:374
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -12755,15 +12755,15 @@ msgstr ""
 "Max_used_connections on %s%% max_connections väärtusest. See peaks olema "
 "alla 80%%"
 
-#: libraries/advisory_rules.txt:375
+#: libraries/advisory_rules.txt:376
 msgid "Percentage of aborted connections"
 msgstr "Katkestatud ühenduste protsent"
 
-#: libraries/advisory_rules.txt:378 libraries/advisory_rules.txt:385
+#: libraries/advisory_rules.txt:379 libraries/advisory_rules.txt:386
 msgid "Too many connections are aborted."
 msgstr "Liiga palju ühendusi on katkestatud."
 
-#: libraries/advisory_rules.txt:379 libraries/advisory_rules.txt:386
+#: libraries/advisory_rules.txt:380 libraries/advisory_rules.txt:387
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12774,17 +12774,17 @@ msgstr ""
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
 "source-of-aborted_connects/\">See artikkel</a> võib aidata sul allikat leida."
 
-#: libraries/advisory_rules.txt:380
+#: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 "%s%% kõikidest ühendustest on katkestatud. See väärtus peaks olema alla 1%%"
 
-#: libraries/advisory_rules.txt:382
+#: libraries/advisory_rules.txt:383
 msgid "Rate of aborted connections"
 msgstr "Katkestatud ühenduste hulk"
 
-#: libraries/advisory_rules.txt:387
+#: libraries/advisory_rules.txt:388
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -12792,15 +12792,15 @@ msgstr ""
 "Katkestatud ühenduse hulk on %s. See väärtus peaks ühe tunni kohta olema "
 "alla 1"
 
-#: libraries/advisory_rules.txt:389
+#: libraries/advisory_rules.txt:390
 msgid "Percentage of aborted clients"
 msgstr "Katkestatud klientide protsent"
 
-#: libraries/advisory_rules.txt:392 libraries/advisory_rules.txt:399
+#: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
 msgid "Too many clients are aborted."
 msgstr "Liiga palju kliente on lahti ühendatud."
 
-#: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
+#: libraries/advisory_rules.txt:394 libraries/advisory_rules.txt:401
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -12810,52 +12810,52 @@ msgstr ""
 "ühendust korralikult. Seda võivad põhjustada võrguprobleemid või kood ei "
 "sulge andmebaasikäsitlejat korralikult. Kontrolli oma võrku ja koodi."
 
-#: libraries/advisory_rules.txt:394
+#: libraries/advisory_rules.txt:395
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "%s%% kõikidest klientides on lahti ühendatud. See väärtus peaks olema alla "
 "2%%"
 
-#: libraries/advisory_rules.txt:396
+#: libraries/advisory_rules.txt:397
 msgid "Rate of aborted clients"
 msgstr "Lahti ühendatud klientide hulk"
 
-#: libraries/advisory_rules.txt:401
+#: libraries/advisory_rules.txt:402
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Lahti ühendatud klientide hulk on %s. See väärtus peaks ühe tunni kohta "
 "olema alla 1"
 
-#: libraries/advisory_rules.txt:405
+#: libraries/advisory_rules.txt:406
 msgid "Is InnoDB disabled?"
 msgstr "Kas InnoDB on keelatud?"
 
-#: libraries/advisory_rules.txt:408
+#: libraries/advisory_rules.txt:409
 msgid "You do not have InnoDB enabled."
 msgstr "Sul ei ole InnoDB lubatud."
 
-#: libraries/advisory_rules.txt:409
+#: libraries/advisory_rules.txt:410
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB on tavaliselt tabelimootorite jaoks parem valik."
 
-#: libraries/advisory_rules.txt:410
+#: libraries/advisory_rules.txt:411
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb väärtuseks on määratud 'value'"
 
-#: libraries/advisory_rules.txt:412
+#: libraries/advisory_rules.txt:413
 msgid "InnoDB log size"
 msgstr "InnoDB logi maht"
 
-#: libraries/advisory_rules.txt:415
+#: libraries/advisory_rules.txt:416
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
 "InnoDB logifaili maht ei ole InnoDB puhvertsooni arvestades sobivas mahus."
 
-#: libraries/advisory_rules.txt:416
+#: libraries/advisory_rules.txt:417
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -12879,7 +12879,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">selle blogi sissekannet</a>"
 
-#: libraries/advisory_rules.txt:417
+#: libraries/advisory_rules.txt:418
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -12888,15 +12888,15 @@ msgstr ""
 "Sinu InnoDB logi maht on %s%% InnoDB puhvertsooni mahust. See ei tohiks olla "
 "alla 20%%"
 
-#: libraries/advisory_rules.txt:419
+#: libraries/advisory_rules.txt:420
 msgid "Max InnoDB log size"
 msgstr "Maksimaalne InnoDB logi maht"
 
-#: libraries/advisory_rules.txt:422
+#: libraries/advisory_rules.txt:423
 msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB logi fail on liiga mahukas."
 
-#: libraries/advisory_rules.txt:423
+#: libraries/advisory_rules.txt:424
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -12919,20 +12919,20 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">selle blogi sissekannet</a>"
 
-#: libraries/advisory_rules.txt:424
+#: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Sinu absoluutne InnoDB logi maht on %s MiB"
 
-#: libraries/advisory_rules.txt:426
+#: libraries/advisory_rules.txt:427
 msgid "InnoDB buffer pool size"
 msgstr "InnoDB puhvertsooni maht"
 
-#: libraries/advisory_rules.txt:429
+#: libraries/advisory_rules.txt:430
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Sinu InnoDB puhvertsoon on üsna väike."
 
-#: libraries/advisory_rules.txt:430
+#: libraries/advisory_rules.txt:431
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -12957,7 +12957,7 @@ msgstr ""
 "mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">seda "
 "artiklit</a>"
 
-#: libraries/advisory_rules.txt:431
+#: libraries/advisory_rules.txt:432
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -12970,15 +12970,15 @@ msgstr ""
 "ole liiga palju InnoDB tabeleid või muid teenuseid, mis töötavad ühes "
 "masinas."
 
-#: libraries/advisory_rules.txt:435
+#: libraries/advisory_rules.txt:436
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM'i samaaegsed lisamised"
 
-#: libraries/advisory_rules.txt:438
+#: libraries/advisory_rules.txt:439
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Luba concurrent_insert, määrates väärtuseks 1"
 
-#: libraries/advisory_rules.txt:439
+#: libraries/advisory_rules.txt:440
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
@@ -12988,7 +12988,7 @@ msgstr ""
 "lugejate ja kirjutajate vahel. Vaata ka <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL dokumentatsiooni</a>"
 
-#: libraries/advisory_rules.txt:440
+#: libraries/advisory_rules.txt:441
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert väärtuseks on määratud 0"
 

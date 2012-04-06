@@ -18,7 +18,7 @@ xgettext \
     `find . -name '*.php' -not -path './test/*' -not -path './po/*' | sort`
 
 # Generate PHP code for advisor rules
-php ./scripts/advisor2php >> po/phpmyadmin.pot
+php ./scripts/advisor2po >> po/phpmyadmin.pot
 
 ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/Config.class.php`
 

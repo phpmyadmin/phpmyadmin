@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-06 10:52+0200\n"
+"POT-Creation-Date: 2012-04-06 13:06+0200\n"
 "PO-Revision-Date: 2012-04-05 18:53+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
@@ -38,9 +38,9 @@ msgstr ""
 "Ciljnega okna ni bilo mogoče osvežiti. Morda ste zaprli nadrejeno okno ali "
 "pa vaš brskalnik blokira osveževanje varnostnih parametrov med okni."
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3141
-#: libraries/common.lib.php:3148 libraries/common.lib.php:3364
-#: libraries/common.lib.php:3365 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3145
+#: libraries/common.lib.php:3152 libraries/common.lib.php:3368
+#: libraries/common.lib.php:3369 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Iskanje"
@@ -514,8 +514,8 @@ msgstr[1] "%1$s zadetka v tabeli <i>%2$s</i>"
 msgstr[2] "%1$s zadetki v tabeli <i>%2$s</i>"
 msgstr[3] "%1$s zadetkov v tabeli <i>%2$s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3143
-#: libraries/common.lib.php:3362 libraries/common.lib.php:3363
+#: db_search.php:234 libraries/common.lib.php:3147
+#: libraries/common.lib.php:3366 libraries/common.lib.php:3367
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Prebrskaj"
@@ -653,8 +653,8 @@ msgstr "Odznači vse"
 msgid "Check tables having overhead"
 msgstr "Preveri prekoračene"
 
-#: db_structure.php:587 libraries/common.lib.php:3375
-#: libraries/common.lib.php:3376 libraries/config/messages.inc.php:166
+#: db_structure.php:587 libraries/common.lib.php:3379
+#: libraries/common.lib.php:3380 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2522 libraries/display_tbl.lib.php:2663
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -668,13 +668,13 @@ msgstr "Izvozi"
 msgid "Print view"
 msgstr "Pogled za tiskanje"
 
-#: db_structure.php:593 libraries/common.lib.php:3371
-#: libraries/common.lib.php:3372
+#: db_structure.php:593 libraries/common.lib.php:3375
+#: libraries/common.lib.php:3376
 msgid "Empty"
 msgstr "Izprazni"
 
 #: db_structure.php:595 db_tracking.php:105 libraries/Index.class.php:504
-#: libraries/common.lib.php:3369 libraries/common.lib.php:3370
+#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
 #: server_databases.php:284 tbl_structure.php:150 tbl_structure.php:151
 #: tbl_structure.php:573
 msgid "Drop"
@@ -1109,7 +1109,7 @@ msgstr "Zapri"
 
 #: js/messages.php:61 js/messages.php:277 libraries/Index.class.php:482
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
-#: libraries/common.lib.php:3373 libraries/common.lib.php:3374
+#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1402
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
@@ -2970,12 +2970,12 @@ msgstr "Preskoči na zbirko podatkov &quot;%s&quot;."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Na funkcionalnost %s vpliva znan hrošč, glej %s"
 
-#: libraries/common.lib.php:2763
+#: libraries/common.lib.php:2764
 msgid "Click to toggle"
 msgstr "Kliknite za preklop"
 
-#: libraries/common.lib.php:3139 libraries/common.lib.php:3146
-#: libraries/common.lib.php:3368 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3143 libraries/common.lib.php:3150
+#: libraries/common.lib.php:3372 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2987,7 +2987,7 @@ msgstr "Kliknite za preklop"
 msgid "Structure"
 msgstr "Struktura"
 
-#: libraries/common.lib.php:3140 libraries/common.lib.php:3147
+#: libraries/common.lib.php:3144 libraries/common.lib.php:3151
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2995,42 +2995,42 @@ msgstr "Struktura"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3142 libraries/common.lib.php:3366
-#: libraries/common.lib.php:3367 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3146 libraries/common.lib.php:3370
+#: libraries/common.lib.php:3371 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Vstavi"
 
-#: libraries/common.lib.php:3149 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3153 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operacije"
 
-#: libraries/common.lib.php:3300 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3304 libraries/sql_query_form.lib.php:449
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "Prebrskajte svoj računalnik:"
 
-#: libraries/common.lib.php:3319
+#: libraries/common.lib.php:3323
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Izberite iz mape za nalaganje na spletnem strežniku <b>%s</b>:"
 
-#: libraries/common.lib.php:3340 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3344 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:938
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Imenik, ki ste ga določili za nalaganje, je nedosegljiv"
 
-#: libraries/common.lib.php:3349
+#: libraries/common.lib.php:3353
 msgid "There are no files to upload"
 msgstr "Nobene datoteke ni za naložiti"
 
-#: libraries/common.lib.php:3377 libraries/common.lib.php:3378
+#: libraries/common.lib.php:3381 libraries/common.lib.php:3382
 msgid "Execute"
 msgstr "Izvedi"
 
-#: libraries/common.lib.php:3853
+#: libraries/common.lib.php:3857
 msgid "Print"
 msgstr "Natisni"
 
@@ -11831,17 +11831,17 @@ msgstr "Ime VIEW"
 msgid "Rename view to"
 msgstr "Preimenuj pogled v"
 
-#: libraries/advisory_rules.txt:32
+#: libraries/advisory_rules.txt:33
 msgid "Uptime below one day"
 msgstr "Neprekinjeno delovanje krajše od enega dneva"
 
-#: libraries/advisory_rules.txt:35
+#: libraries/advisory_rules.txt:36
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
 "Neprekinjeno delovanje je krajše od enega dneva; nastavitev zmogljivosti "
 "morda ni točna."
 
-#: libraries/advisory_rules.txt:36
+#: libraries/advisory_rules.txt:37
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -11849,16 +11849,16 @@ msgstr ""
 "Za natančnejša povprečja je priporočljivo, da pred zagonom analitika pustite "
 "strežnik delovati dlje kot en dan"
 
-#: libraries/advisory_rules.txt:37
+#: libraries/advisory_rules.txt:38
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Neprekinjeno delovanje je samo %s"
 
-#: libraries/advisory_rules.txt:39
+#: libraries/advisory_rules.txt:40
 msgid "Questions below 1,000"
 msgstr "Vprašanja pod 1.000"
 
-#: libraries/advisory_rules.txt:42
+#: libraries/advisory_rules.txt:43
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -11866,7 +11866,7 @@ msgstr ""
 "Na tem strežniku je bilo zagnanih manj kot 1.000 vprašanj. Priporočila morda "
 "niso točna."
 
-#: libraries/advisory_rules.txt:43
+#: libraries/advisory_rules.txt:44
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -11874,21 +11874,21 @@ msgstr ""
 "Pustite strežniku delovati daljši čas, dokler ne izvede večje število "
 "poizvedb."
 
-#: libraries/advisory_rules.txt:44
+#: libraries/advisory_rules.txt:45
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Trenutno število vprašanj: %s"
 
-#: libraries/advisory_rules.txt:46
+#: libraries/advisory_rules.txt:47
 msgid "Percentage of slow queries"
 msgstr "Odstotek počasnih poizvedb"
 
-#: libraries/advisory_rules.txt:49
+#: libraries/advisory_rules.txt:50
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr "V primerjavi s skupnim številom poizvedb je počasnih poizvedb veliko."
 
-#: libraries/advisory_rules.txt:50 libraries/advisory_rules.txt:57
+#: libraries/advisory_rules.txt:51 libraries/advisory_rules.txt:58
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -11896,24 +11896,24 @@ msgstr ""
 "Morda boste želeli povečati {long_query_time} ali optimizirati poizvedbe, "
 "navedene v dnevniku počasnih poizvedb"
 
-#: libraries/advisory_rules.txt:51
+#: libraries/advisory_rules.txt:52
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 "Delež počasnih poizvedb bi moral biti pod 5 %%; vaša vrednost je %s %%."
 
-#: libraries/advisory_rules.txt:53
+#: libraries/advisory_rules.txt:54
 msgid "Slow query rate"
 msgstr "Delež počasnih poizvedb"
 
-#: libraries/advisory_rules.txt:56
+#: libraries/advisory_rules.txt:57
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 "Odstotek počasnih poizvedb je v primerjavi z neprekinjemin delovanjem "
 "strežnika visok."
 
-#: libraries/advisory_rules.txt:58
+#: libraries/advisory_rules.txt:59
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -11921,11 +11921,11 @@ msgid ""
 msgstr ""
 "Vaš delež počasnih poizvedb je %s na uro; moral bi biti manj od 1 %% na uro."
 
-#: libraries/advisory_rules.txt:60
+#: libraries/advisory_rules.txt:61
 msgid "Long query time"
 msgstr "Čas dolgih poizvedb"
 
-#: libraries/advisory_rules.txt:63
+#: libraries/advisory_rules.txt:64
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -11933,7 +11933,7 @@ msgstr ""
 "long_query_time je nastavljen na 10 sekund ali več, zato so zabeležene samo "
 "počasne poizvedbe, ki trajajo več kot 10 sekund."
 
-#: libraries/advisory_rules.txt:64
+#: libraries/advisory_rules.txt:65
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -11941,20 +11941,20 @@ msgstr ""
 "Predlagamo, da nastavite {long_query_time} na nižjo vrednost, odvisno od "
 "vašega okolja. Po navadi se priporoča vrednost 1–5 sekund."
 
-#: libraries/advisory_rules.txt:65
+#: libraries/advisory_rules.txt:66
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time je trenutno nastavljen na %d s."
 
-#: libraries/advisory_rules.txt:67
+#: libraries/advisory_rules.txt:68
 msgid "Slow query logging"
 msgstr "Beleženje počasnih poizvedb"
 
-#: libraries/advisory_rules.txt:70
+#: libraries/advisory_rules.txt:71
 msgid "The slow query log is disabled."
 msgstr "Dnevnik počasnih poizvedb je onemogočen."
 
-#: libraries/advisory_rules.txt:71
+#: libraries/advisory_rules.txt:72
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -11963,19 +11963,19 @@ msgstr ""
 "na 'ON'. To bo pomagalo pri odpravljanju težav s slabo delujočimi "
 "poizvedbami."
 
-#: libraries/advisory_rules.txt:72
+#: libraries/advisory_rules.txt:73
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries je nastavljen na 'OFF'"
 
-#: libraries/advisory_rules.txt:76
+#: libraries/advisory_rules.txt:77
 msgid "Release Series"
 msgstr "Serije izdaj"
 
-#: libraries/advisory_rules.txt:79
+#: libraries/advisory_rules.txt:80
 msgid "The MySQL server version less then 5.1."
 msgstr "Strežnik MySQL različice nižje od 5.1."
 
-#: libraries/advisory_rules.txt:80
+#: libraries/advisory_rules.txt:81
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -11983,21 +11983,21 @@ msgstr ""
 "Morali bi posodobiti, saj ima MySQL 5.1 izboljšano učinkovitost, MySQL 5.5 "
 "pa še bolj."
 
-#: libraries/advisory_rules.txt:81 libraries/advisory_rules.txt:88
-#: libraries/advisory_rules.txt:95
+#: libraries/advisory_rules.txt:82 libraries/advisory_rules.txt:89
+#: libraries/advisory_rules.txt:96
 #, php-format
 msgid "Current version: %s"
 msgstr "Trenutna različica: %s"
 
-#: libraries/advisory_rules.txt:83 libraries/advisory_rules.txt:90
+#: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Minor Version"
 msgstr "Manjša različica"
 
-#: libraries/advisory_rules.txt:86
+#: libraries/advisory_rules.txt:87
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Različica nižja od 5.1.30 (prvi izid GA 5.1)."
 
-#: libraries/advisory_rules.txt:87
+#: libraries/advisory_rules.txt:88
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -12005,24 +12005,24 @@ msgstr ""
 "Morali bi posodobiti, saj imajo najnovejše različice MySQL 5.1 izboljšano "
 "učinkovitost, MySQL 5.5 pa še bolj."
 
-#: libraries/advisory_rules.txt:93
+#: libraries/advisory_rules.txt:94
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Različica nižja od 5.5.8 (prvi izid GA 5.5)."
 
-#: libraries/advisory_rules.txt:94
+#: libraries/advisory_rules.txt:95
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Morali bi nadgraditi, na ustaljeno različico MySQL 5.5"
 
-#: libraries/advisory_rules.txt:97 libraries/advisory_rules.txt:104
-#: libraries/advisory_rules.txt:111
+#: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
+#: libraries/advisory_rules.txt:112
 msgid "Distribution"
 msgstr "Distribucija"
 
-#: libraries/advisory_rules.txt:100
+#: libraries/advisory_rules.txt:101
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "Različica je prevedena iz izvorne kode, in ni uradna izdaja MySQL."
 
-#: libraries/advisory_rules.txt:101
+#: libraries/advisory_rules.txt:102
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -12032,40 +12032,40 @@ msgstr ""
 "distribucijo. Priročnik MySQL je točen samo za uradne izdaje MySQL, ne za "
 "katere koli paketne distribucije (kot so RedHat, Debian/Ubuntu itn.)."
 
-#: libraries/advisory_rules.txt:102
+#: libraries/advisory_rules.txt:103
 msgid "'source' found in version_comment"
 msgstr "našel sem 'source' v version_comment"
 
-#: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
+#: libraries/advisory_rules.txt:108 libraries/advisory_rules.txt:115
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "Priročnik MySQL je točen samo za uradne izdaje MySQL."
 
-#: libraries/advisory_rules.txt:108
+#: libraries/advisory_rules.txt:109
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr "Dokumentacija Percona se nahaja na http://www.percona.com/docs/wiki/"
 
-#: libraries/advisory_rules.txt:109
+#: libraries/advisory_rules.txt:110
 msgid "'percona' found in version_comment"
 msgstr "našel sem 'percona' v version_comment"
 
-#: libraries/advisory_rules.txt:115
+#: libraries/advisory_rules.txt:116
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "Dokumentacija Drizzle se nahaja na http://docs.drizzle.org/"
 
-#: libraries/advisory_rules.txt:116
+#: libraries/advisory_rules.txt:117
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "Niz različice (%s) se ujema s shemo različic Drizzle"
 
-#: libraries/advisory_rules.txt:118
+#: libraries/advisory_rules.txt:119
 msgid "MySQL Architecture"
 msgstr "Arhitektura MySQL"
 
-#: libraries/advisory_rules.txt:121
+#: libraries/advisory_rules.txt:122
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL ni preveden kot 64-bitni paket."
 
-#: libraries/advisory_rules.txt:122
+#: libraries/advisory_rules.txt:123
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -12076,20 +12076,20 @@ msgstr ""
 "vašega pomnilnika. Morda boste želeli razmisliti o namestitvi 64-bitne "
 "različice MySQL."
 
-#: libraries/advisory_rules.txt:123
+#: libraries/advisory_rules.txt:124
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "Razpoložljiv pomnilnik na tem gostitelju: %s"
 
-#: libraries/advisory_rules.txt:129
+#: libraries/advisory_rules.txt:130
 msgid "Query cache disabled"
 msgstr "Predpomnjenje poizvedb je onemogočeno"
 
-#: libraries/advisory_rules.txt:132
+#: libraries/advisory_rules.txt:133
 msgid "The query cache is not enabled."
 msgstr "Predpomnjenje poizvedb ni omogočeno."
 
-#: libraries/advisory_rules.txt:133
+#: libraries/advisory_rules.txt:134
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12101,21 +12101,21 @@ msgstr ""
 "na dvomestno vrednost MiB in nastavite {query_cache_type} na 'ON'. "
 "<b>Pomnite:</b> Če uporabljate memcached, to priporočilo prezrite."
 
-#: libraries/advisory_rules.txt:134
+#: libraries/advisory_rules.txt:135
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "query_cache_size je nastavljen na 0 ali pa je query_cache_type nastavljen na "
 "'OFF'"
 
-#: libraries/advisory_rules.txt:136
+#: libraries/advisory_rules.txt:137
 msgid "Query caching method"
 msgstr "Način predpomnjenja poizvedb"
 
-#: libraries/advisory_rules.txt:139
+#: libraries/advisory_rules.txt:140
 msgid "Suboptimal caching method."
 msgstr "Podoptimalni način predpomnjenja."
 
-#: libraries/advisory_rules.txt:140
+#: libraries/advisory_rules.txt:141
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -12127,7 +12127,7 @@ msgstr ""
 "doc/refman/5.5/en/ha-memcached.html\">memcached</a> namesto predpomnjenja "
 "poizvedb MySQL, še posebej, če imate več podrejencev."
 
-#: libraries/advisory_rules.txt:141
+#: libraries/advisory_rules.txt:142
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -12136,35 +12136,35 @@ msgstr ""
 "Predpomnjenje poizvedb je omogočeno in strežnik prejema %d poizvedb na "
 "sekundo. To pravilo se sproži, če je več kot 100 poizvedb na sekundo."
 
-#: libraries/advisory_rules.txt:143
+#: libraries/advisory_rules.txt:144
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "Učinkovitost predpomnjenja poizvedb (%%)"
 
-#: libraries/advisory_rules.txt:146
+#: libraries/advisory_rules.txt:147
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 "Predpomnjenje poizvedb ne teče učinkovito, saj ima nizek delež zadetkov."
 
-#: libraries/advisory_rules.txt:147
+#: libraries/advisory_rules.txt:148
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Razmislite o povečanju {query_cache_limit}."
 
-#: libraries/advisory_rules.txt:148
+#: libraries/advisory_rules.txt:149
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Trenutni delež zadetkov predpomnilnika poizvedb %s %% je pod 20 %%"
 
-#: libraries/advisory_rules.txt:150
+#: libraries/advisory_rules.txt:151
 msgid "Query Cache usage"
 msgstr "Uporaba predpomnilnika poizvedb"
 
-#: libraries/advisory_rules.txt:153
+#: libraries/advisory_rules.txt:154
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr "Izkoriščanega je manj kot 80 %% predpomnilnika poizvedb."
 
-#: libraries/advisory_rules.txt:154
+#: libraries/advisory_rules.txt:155
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -12172,7 +12172,7 @@ msgstr ""
 "To morda povzroča prenizek {query_cache_limit}. Izplaknitev predpomnilnika "
 "poizvedb bo morda prav tako pomagala."
 
-#: libraries/advisory_rules.txt:155
+#: libraries/advisory_rules.txt:156
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
@@ -12181,15 +12181,15 @@ msgstr ""
 "Trenutni delež prostega pomnilnika predpomnilnika poizvedb je v primerjavi s "
 "skupnim pomnilnikom predpomnilnima poizvedb %s %%. Moral bi biti nad 80 %%"
 
-#: libraries/advisory_rules.txt:157
+#: libraries/advisory_rules.txt:158
 msgid "Query cache fragmentation"
 msgstr "Razdrobljenost predpomnilnika poizvedb"
 
-#: libraries/advisory_rules.txt:160
+#: libraries/advisory_rules.txt:161
 msgid "The query cache is considerably fragmented."
 msgstr "Predpomnilnik poizvedb je precej razdrobljen."
 
-#: libraries/advisory_rules.txt:161
+#: libraries/advisory_rules.txt:162
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12209,7 +12209,7 @@ msgstr ""
 "lahko na povprečno velikost vaših poizvedb v pomnilniku z uporabo formule: "
 "(query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
-#: libraries/advisory_rules.txt:162
+#: libraries/advisory_rules.txt:163
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12220,11 +12220,11 @@ msgstr ""
 "pomeni, da je predpomnilnik poizvedb izmeničen vzorec prostih in "
 "uporabljenih blokov. Ta vrednost bi morala biti pod 20 %%."
 
-#: libraries/advisory_rules.txt:164
+#: libraries/advisory_rules.txt:165
 msgid "Query cache low memory prunes"
 msgstr "Oklestitve predpomnilnika poizvedb ob majhnem pomnilniku"
 
-#: libraries/advisory_rules.txt:167
+#: libraries/advisory_rules.txt:168
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12232,7 +12232,7 @@ msgstr ""
 "Predpomnjene poizvedbe so odstranjene zaradi nizkega pomnilnika "
 "predpomnilnika poizvedb."
 
-#: libraries/advisory_rules.txt:168
+#: libraries/advisory_rules.txt:169
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -12242,7 +12242,7 @@ msgstr ""
 "uporaba sredstev za vzdrževanje predpomnilnika verjetno povečala z njegovo "
 "velikostjo, zato to storite v majhnih korakih in spremljajte rezultate."
 
-#: libraries/advisory_rules.txt:169
+#: libraries/advisory_rules.txt:170
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -12251,11 +12251,11 @@ msgstr ""
 "Razmerje med odstranjenimi in vstavljenimi poizvedbami je %s %%. Nižja je "
 "vrednost, boljše je. (Meja sprožitve tega pravila: 0,1 %%.)"
 
-#: libraries/advisory_rules.txt:171
+#: libraries/advisory_rules.txt:172
 msgid "Query cache max size"
 msgstr "Največja velikost predpomnilnika poizvedb"
 
-#: libraries/advisory_rules.txt:174
+#: libraries/advisory_rules.txt:175
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -12264,7 +12264,7 @@ msgstr ""
 "poizvedb lahko povzročijo precejšnje povečanje sredstev, potrebnih za "
 "vzdrževanje pomnilnika."
 
-#: libraries/advisory_rules.txt:175
+#: libraries/advisory_rules.txt:176
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
@@ -12272,23 +12272,23 @@ msgstr ""
 "Odvisno od vašega sistema bo zmanjšanje te vrednost morda povečalo "
 "zmogljivost."
 
-#: libraries/advisory_rules.txt:176
+#: libraries/advisory_rules.txt:177
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Trenutna velikost predpomnilnika poizvedb: %s"
 
-#: libraries/advisory_rules.txt:178
+#: libraries/advisory_rules.txt:179
 msgid "Query cache min result size"
 msgstr "Velikost najmanjšega rezultata predpomnilnika poizvedb"
 
-#: libraries/advisory_rules.txt:181
+#: libraries/advisory_rules.txt:182
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "Privzeta največja velikost množice podatkov v predpomnilniku poizvedb je 1 "
 "MiB."
 
-#: libraries/advisory_rules.txt:182
+#: libraries/advisory_rules.txt:183
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12308,19 +12308,19 @@ msgstr ""
 "(pogosto neveljavne zaradi posodobitev tabel), povečanje {query_cache_limit} "
 "lahko zmanjšalo učinkovitost."
 
-#: libraries/advisory_rules.txt:183
+#: libraries/advisory_rules.txt:184
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit je nastavljen na 1 MiB"
 
-#: libraries/advisory_rules.txt:187
+#: libraries/advisory_rules.txt:188
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Odstotek razvrščanj, ki so povzročila začasne tabele"
 
-#: libraries/advisory_rules.txt:190 libraries/advisory_rules.txt:197
+#: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
 msgid "Too many sorts are causing temporary tables."
 msgstr "Preveč razvrščanj povzroča začasne tabele."
 
-#: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
+#: libraries/advisory_rules.txt:192 libraries/advisory_rules.txt:199
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
@@ -12328,7 +12328,7 @@ msgstr ""
 "Razmislite o povečanju sort_buffer_size in/ali read_rnd_buffer_size, odvisno "
 "od omejitev vašega sistemskega pomnilnika"
 
-#: libraries/advisory_rules.txt:192
+#: libraries/advisory_rules.txt:193
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
@@ -12337,26 +12337,26 @@ msgstr ""
 "%s %% vseh razvrščanj povzroča začasne tabele; ta vrednost bi morala biti "
 "nižja od 10 %%."
 
-#: libraries/advisory_rules.txt:194
+#: libraries/advisory_rules.txt:195
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Delež razvrščanj, ki povzroča začasne tabele"
 
-#: libraries/advisory_rules.txt:199
+#: libraries/advisory_rules.txt:200
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
 "Povprečje začasnih tabel: %s; ta vrednost bi morala biti manj kot 1 na uro."
 
-#: libraries/advisory_rules.txt:201
+#: libraries/advisory_rules.txt:202
 msgid "Sort rows"
 msgstr "Razvrščanje vrstic"
 
-#: libraries/advisory_rules.txt:204
+#: libraries/advisory_rules.txt:205
 msgid "There are lots of rows being sorted."
 msgstr "Veliko vrstic je razvrščanih."
 
-#: libraries/advisory_rules.txt:205
+#: libraries/advisory_rules.txt:206
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12368,20 +12368,20 @@ msgstr ""
 "uporabljajo v stavku ORDER BY indeksirana polja, saj bo to sledilo v veliko "
 "hitrejše razvrščanje"
 
-#: libraries/advisory_rules.txt:206
+#: libraries/advisory_rules.txt:207
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "Povprečje razvrščenih vrstic: %s"
 
-#: libraries/advisory_rules.txt:209
+#: libraries/advisory_rules.txt:210
 msgid "Rate of joins without indexes"
 msgstr "Delež stikov brez indeksov"
 
-#: libraries/advisory_rules.txt:212
+#: libraries/advisory_rules.txt:213
 msgid "There are too many joins without indexes."
 msgstr "Obstaja preveč stikov brez indeksov."
 
-#: libraries/advisory_rules.txt:213
+#: libraries/advisory_rules.txt:214
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12389,21 +12389,21 @@ msgstr ""
 "To pomeni, da stiki izvajajo polne preglede tabel. Dodajanje indeksov za "
 "stolpce, ki se uporabljajo v pogojih stikov, bo zelo pohitrilo stike tabel"
 
-#: libraries/advisory_rules.txt:214
+#: libraries/advisory_rules.txt:215
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Povprečje stikov tabel: %s; ta vrednost bi morala biti manj kot 1 na uro"
 
-#: libraries/advisory_rules.txt:216
+#: libraries/advisory_rules.txt:217
 msgid "Rate of reading first index entry"
 msgstr "Delež branja prvega vnosa indeksa"
 
-#: libraries/advisory_rules.txt:219
+#: libraries/advisory_rules.txt:220
 msgid "The rate of reading the first index entry is high."
 msgstr "Delež branja prvega vnosa indeksa je visok."
 
-#: libraries/advisory_rules.txt:220
+#: libraries/advisory_rules.txt:221
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12419,22 +12419,22 @@ msgstr ""
 "in/ali pohitril polne preglede indeksov. Drugače pa je polne preglede "
 "indeksov mogoče zmanjšati samo s preoblikovanjem poizvedb."
 
-#: libraries/advisory_rules.txt:221
+#: libraries/advisory_rules.txt:222
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Povprečje pregledovanja indeksov: %s; ta vrednost bi morala biti manj kot 1 "
 "na uro"
 
-#: libraries/advisory_rules.txt:223
+#: libraries/advisory_rules.txt:224
 msgid "Rate of reading fixed position"
 msgstr "Delež branja stalnega položaja"
 
-#: libraries/advisory_rules.txt:226
+#: libraries/advisory_rules.txt:227
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Delež branja podatkov s stalnega položaja je visok."
 
-#: libraries/advisory_rules.txt:227
+#: libraries/advisory_rules.txt:228
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -12444,7 +12444,7 @@ msgstr ""
 "pregled tabele, vključno s poizvedbami stikov, ki ne uporabljajo indeksov. "
 "Dodajte indekse, kjer je to primerno."
 
-#: libraries/advisory_rules.txt:228
+#: libraries/advisory_rules.txt:229
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -12453,15 +12453,15 @@ msgstr ""
 "Delež povprečja branja stalnega položaja: %s; ta vrednost bi morala biti "
 "manj kot 1 na uro"
 
-#: libraries/advisory_rules.txt:230
+#: libraries/advisory_rules.txt:231
 msgid "Rate of reading next table row"
 msgstr "Delež branja naslednje vrstice v tabeli"
 
-#: libraries/advisory_rules.txt:233
+#: libraries/advisory_rules.txt:234
 msgid "The rate of reading the next table row is high."
 msgstr "Delež branja naslednje vrstice v tabeli je visok."
 
-#: libraries/advisory_rules.txt:234
+#: libraries/advisory_rules.txt:235
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -12469,7 +12469,7 @@ msgstr ""
 "To kaže, da mora veliko poizvedb izvesti polne preglede tabele. Dodajte "
 "indekse, kjer je to primerno."
 
-#: libraries/advisory_rules.txt:235
+#: libraries/advisory_rules.txt:236
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -12477,15 +12477,15 @@ msgstr ""
 "Delež branja naslednje vrstice v tabeli: %s; ta vrednost bi morala biti manj "
 "kot 1 na uro"
 
-#: libraries/advisory_rules.txt:238
+#: libraries/advisory_rules.txt:239
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size proti max_heap_table_size"
 
-#: libraries/advisory_rules.txt:241
+#: libraries/advisory_rules.txt:242
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size in max_heap_table_size nista enaki."
 
-#: libraries/advisory_rules.txt:242
+#: libraries/advisory_rules.txt:243
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12497,23 +12497,23 @@ msgstr ""
 "želite povečati omejitev tabel v pomnilniku, boste morali povečati tudi "
 "drugo vrednost."
 
-#: libraries/advisory_rules.txt:243
+#: libraries/advisory_rules.txt:244
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Trenutni vrednosti sta tmp_table_size: %s, max_heap_table_size: %s"
 
-#: libraries/advisory_rules.txt:245
+#: libraries/advisory_rules.txt:246
 msgid "Percentage of temp tables on disk"
 msgstr "Odstotek začasnih tabel na disku"
 
-#: libraries/advisory_rules.txt:248 libraries/advisory_rules.txt:255
+#: libraries/advisory_rules.txt:249 libraries/advisory_rules.txt:256
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
 "Veliko začasnih tabel je zapisanih na disk, namesto shranjenih v pomnilniku."
 
-#: libraries/advisory_rules.txt:249
+#: libraries/advisory_rules.txt:250
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12531,7 +12531,7 @@ msgstr ""
 "bajtov), kot je omenjeno na začetku <a href=\"http://www.facebook.com/note."
 "php?note_id=10150111255065841&comments\">članka skupine Pythian</a>"
 
-#: libraries/advisory_rules.txt:250
+#: libraries/advisory_rules.txt:251
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -12540,11 +12540,11 @@ msgstr ""
 "%s %% vseh začasnih tabel je zapisanih na disk; ta vrednost bi morala biti "
 "pod 25 %%"
 
-#: libraries/advisory_rules.txt:252
+#: libraries/advisory_rules.txt:253
 msgid "Temp disk rate"
 msgstr "Delež začasnih tabel na disku"
 
-#: libraries/advisory_rules.txt:256
+#: libraries/advisory_rules.txt:257
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12562,7 +12562,7 @@ msgstr ""
 "bajtov), kot je omenjeno v <a href=\"http://dev.mysql.com/doc/refman/5.5/en/"
 "internal-temporary-tables.html\">dokumentaciji MySQL</a>"
 
-#: libraries/advisory_rules.txt:257
+#: libraries/advisory_rules.txt:258
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -12571,16 +12571,16 @@ msgstr ""
 "Delež začasnih tabel, pisanih na disk: %s; ta vrednost bi morala biti manj "
 "kot 1 na uro"
 
-#: libraries/advisory_rules.txt:272
+#: libraries/advisory_rules.txt:273
 msgid "MyISAM key buffer size"
 msgstr "Velikost medpomnilnika ključev MyISAM"
 
-#: libraries/advisory_rules.txt:275
+#: libraries/advisory_rules.txt:276
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "Medpomnilnika ključev ni inicializiran. Indeksi MyISAM ne bodo predpomnjeni."
 
-#: libraries/advisory_rules.txt:276
+#: libraries/advisory_rules.txt:277
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -12588,23 +12588,23 @@ msgstr ""
 "Nastavite {key_buffer_size} glede na velikost vaših indeksov MyISAM. 64M je "
 "dober začetek."
 
-#: libraries/advisory_rules.txt:277
+#: libraries/advisory_rules.txt:278
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size je 0"
 
-#: libraries/advisory_rules.txt:279
+#: libraries/advisory_rules.txt:280
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Največji %% medpomnilnika ključev MyISAM kadar koli uporabljen"
 
-#: libraries/advisory_rules.txt:282 libraries/advisory_rules.txt:290
+#: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr ""
 "%% uporabljenega medpomnilnika ključev MyISAM (predpomnilnika indeksov) je "
 "nizek."
 
-#: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
+#: libraries/advisory_rules.txt:284 libraries/advisory_rules.txt:292
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -12614,7 +12614,7 @@ msgstr ""
 "vaše tabele in pogledati, ali so bili indeksi odstranjeni, ali preveriti "
 "poizvedbe in pričakovanja o tem, kateri indeksi se uporabljajo."
 
-#: libraries/advisory_rules.txt:284
+#: libraries/advisory_rules.txt:285
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -12622,45 +12622,45 @@ msgstr ""
 "največji %% kadar koli uporabljenega medpomnilnika ključev MyISAM: %s %%; ta "
 "vrednost bi morala biti nad 95 %%"
 
-#: libraries/advisory_rules.txt:287
+#: libraries/advisory_rules.txt:288
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Odstotek uporabljenega medpomnilnika ključev MyISAM"
 
-#: libraries/advisory_rules.txt:292
+#: libraries/advisory_rules.txt:293
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% uporabljenega medpomnilnika ključev MyISAM: %s %%; ta vrednost bi morala "
 "biti nad 95 %%"
 
-#: libraries/advisory_rules.txt:294
+#: libraries/advisory_rules.txt:295
 msgid "Percentage of index reads from memory"
 msgstr "Odstotek branj indeksov iz pomnilnika"
 
-#: libraries/advisory_rules.txt:297
+#: libraries/advisory_rules.txt:298
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr "%% indeksov, ki uporabljajo medpomnilnik ključev MyISAM, je nizek."
 
-#: libraries/advisory_rules.txt:298
+#: libraries/advisory_rules.txt:299
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Mord boste morali povečati {key_buffer_size}."
 
-#: libraries/advisory_rules.txt:299
+#: libraries/advisory_rules.txt:300
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 "Branj indeksov iz pomnilnika: %s %%; ta vrednost bi morala biti nad 95 %%"
 
-#: libraries/advisory_rules.txt:303
+#: libraries/advisory_rules.txt:304
 msgid "Rate of table open"
 msgstr "Delež odpiranj tabel"
 
-#: libraries/advisory_rules.txt:306
+#: libraries/advisory_rules.txt:307
 msgid "The rate of opening tables is high."
 msgstr "Delež odpiranj tabel je visok."
 
-#: libraries/advisory_rules.txt:307
+#: libraries/advisory_rules.txt:308
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -12668,16 +12668,16 @@ msgstr ""
 "Odpiranje tabel zahteva branje/pisanje na disk, kar je potrošno. Povečanje "
 "{table_open_cache} se bo temu morda izognilo."
 
-#: libraries/advisory_rules.txt:308
+#: libraries/advisory_rules.txt:309
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "Delež odprtih tabel: %s; ta vrednost bi morala biti manj kot 10 na uro"
 
-#: libraries/advisory_rules.txt:310
+#: libraries/advisory_rules.txt:311
 msgid "Percentage of used open files limit"
 msgstr "Odstotek omejitve uporabljenih odprtih datotek"
 
-#: libraries/advisory_rules.txt:313
+#: libraries/advisory_rules.txt:314
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -12685,7 +12685,7 @@ msgstr ""
 "Število odprtih datotek se približuje največjemu številu odprtih datotek.  "
 "Morda boste prejeli napako \"Preveč odprtih datotek\"."
 
-#: libraries/advisory_rules.txt:314 libraries/advisory_rules.txt:321
+#: libraries/advisory_rules.txt:315 libraries/advisory_rules.txt:322
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
@@ -12693,61 +12693,61 @@ msgstr ""
 "Razmislite o povečanju {open_files_limit} in preverite dnevnik napak po "
 "ponovnem zagonu, ko spremenite open_files_limit."
 
-#: libraries/advisory_rules.txt:315
+#: libraries/advisory_rules.txt:316
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr "Število odprtih datotek je na %s %% omejitve. Moralo bi biti pod 85 %%"
 
-#: libraries/advisory_rules.txt:317
+#: libraries/advisory_rules.txt:318
 msgid "Rate of open files"
 msgstr "Delež odprtih datotek"
 
-#: libraries/advisory_rules.txt:320
+#: libraries/advisory_rules.txt:321
 msgid "The rate of opening files is high."
 msgstr "Delež odprtih datotek je visok."
 
-#: libraries/advisory_rules.txt:322
+#: libraries/advisory_rules.txt:323
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Delež odprtih datotek: %s; ta vrednost bi morala biti pod 5 na uro"
 
-#: libraries/advisory_rules.txt:324
+#: libraries/advisory_rules.txt:325
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "%% takojšnjih zaklepov tabel"
 
-#: libraries/advisory_rules.txt:327 libraries/advisory_rules.txt:334
+#: libraries/advisory_rules.txt:328 libraries/advisory_rules.txt:335
 msgid "Too many table locks were not granted immediately."
 msgstr "Preveč zaklepov tabel ni bilo dodeljenih nenudoma."
 
-#: libraries/advisory_rules.txt:328 libraries/advisory_rules.txt:335
+#: libraries/advisory_rules.txt:329 libraries/advisory_rules.txt:336
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Optimizirajte poizvedbe ali uporabite InnoDB, da zmanjšate čakanje zaradi "
 "zaklepa."
 
-#: libraries/advisory_rules.txt:329
+#: libraries/advisory_rules.txt:330
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Takojšnji zaklepi tabel: %s %%; ta vrednost bi morala biti nad 95 %%"
 
-#: libraries/advisory_rules.txt:331
+#: libraries/advisory_rules.txt:332
 msgid "Table lock wait rate"
 msgstr "Delež čakanja na zaklep tabel"
 
-#: libraries/advisory_rules.txt:336
+#: libraries/advisory_rules.txt:337
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Delež čakanja na zaklep tabel: %s; ta vrednost bi morala biti manj kot 1 na "
 "uro"
 
-#: libraries/advisory_rules.txt:338
+#: libraries/advisory_rules.txt:339
 msgid "Thread cache"
 msgstr "Predpomnilnik niti"
 
-#: libraries/advisory_rules.txt:341
+#: libraries/advisory_rules.txt:342
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -12755,45 +12755,45 @@ msgstr ""
 "Predpomnilnik niti je onemogočen, kar povzroča večjo porabo sredstev pri "
 "novih povezavah z MySQL."
 
-#: libraries/advisory_rules.txt:342
+#: libraries/advisory_rules.txt:343
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "Omogočite predpomnilnik niti tako, da nastavite {thread_cache_size} na večje "
 "od 0."
 
-#: libraries/advisory_rules.txt:343
+#: libraries/advisory_rules.txt:344
 msgid "The thread cache is set to 0"
 msgstr "Predpomnilnik niti je nastavljen na 0"
 
-#: libraries/advisory_rules.txt:345
+#: libraries/advisory_rules.txt:346
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "%% deleža zadetkov predpomnilnika niti"
 
-#: libraries/advisory_rules.txt:348
+#: libraries/advisory_rules.txt:349
 msgid "Thread cache is not efficient."
 msgstr "Predpomnjenje niti ni učinkovito."
 
-#: libraries/advisory_rules.txt:349
+#: libraries/advisory_rules.txt:350
 msgid "Increase {thread_cache_size}."
 msgstr "Povečajte {thread_cache_size}."
 
-#: libraries/advisory_rules.txt:350
+#: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "Delež zadetkov predpomnilnika niti: %s %%; ta vrednost bi morala biti nad 80 "
 "%%"
 
-#: libraries/advisory_rules.txt:352
+#: libraries/advisory_rules.txt:353
 msgid "Threads that are slow to launch"
 msgstr "Niti, ki se zaganjajo počasi"
 
-#: libraries/advisory_rules.txt:355
+#: libraries/advisory_rules.txt:356
 msgid "There are too many threads that are slow to launch."
 msgstr "Obstaja preveč niti, ki se zaganjajo počasi."
 
-#: libraries/advisory_rules.txt:356
+#: libraries/advisory_rules.txt:357
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -12802,20 +12802,20 @@ msgstr ""
 "za precej preproste operacije. Morda boste želeli pazljivo spremljati "
 "obremenitev vašega sistema."
 
-#: libraries/advisory_rules.txt:357
+#: libraries/advisory_rules.txt:358
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s nit(i) je za zagon potrebovalo več kot %s sekund; moralo bi biti 0"
 
-#: libraries/advisory_rules.txt:359
+#: libraries/advisory_rules.txt:360
 msgid "Slow launch time"
 msgstr "Čas počasnega zagona"
 
-#: libraries/advisory_rules.txt:362
+#: libraries/advisory_rules.txt:363
 msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads je nad 2 s"
 
-#: libraries/advisory_rules.txt:363
+#: libraries/advisory_rules.txt:364
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
@@ -12823,23 +12823,23 @@ msgstr ""
 "Nastavite slow_launch_time na 1 s ali 2 s za pravilno preštevanje niti, ki "
 "se zaganjajo počasi"
 
-#: libraries/advisory_rules.txt:364
+#: libraries/advisory_rules.txt:365
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time je nastavljen na %s"
 
-#: libraries/advisory_rules.txt:368
+#: libraries/advisory_rules.txt:369
 msgid "Percentage of used connections"
 msgstr "Odstotek uporabljenih povezav"
 
-#: libraries/advisory_rules.txt:371
+#: libraries/advisory_rules.txt:372
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
 "Največje število uporabljenih povezav se bliža vrednosti max_connections."
 
-#: libraries/advisory_rules.txt:372
+#: libraries/advisory_rules.txt:373
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -12849,22 +12849,22 @@ msgstr ""
 "ne zaprejo upravljavca zbirk podatkov pravilno, hitreje prekinjene. "
 "Prepričajte se, da koda pravilno zapira upravljavce zbirk podatkov."
 
-#: libraries/advisory_rules.txt:373
+#: libraries/advisory_rules.txt:374
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
 "Max_used_connections je na %s %% max_connections; moralo bi biti pod 80 %%"
 
-#: libraries/advisory_rules.txt:375
+#: libraries/advisory_rules.txt:376
 msgid "Percentage of aborted connections"
 msgstr "Odstotek prekinjenih povezav"
 
-#: libraries/advisory_rules.txt:378 libraries/advisory_rules.txt:385
+#: libraries/advisory_rules.txt:379 libraries/advisory_rules.txt:386
 msgid "Too many connections are aborted."
 msgstr "Prekinjenih je preveč povezav."
 
-#: libraries/advisory_rules.txt:379 libraries/advisory_rules.txt:386
+#: libraries/advisory_rules.txt:380 libraries/advisory_rules.txt:387
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12876,31 +12876,31 @@ msgstr ""
 "source-of-aborted_connects/\">Ta članek</a> vam bo morda pomagal izslediti "
 "vir."
 
-#: libraries/advisory_rules.txt:380
+#: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "%s %% vseh povezav je prekinjenih. Ta vrednost bi morala biti pod 1 %%"
 
-#: libraries/advisory_rules.txt:382
+#: libraries/advisory_rules.txt:383
 msgid "Rate of aborted connections"
 msgstr "Delež prekinjenih povezav"
 
-#: libraries/advisory_rules.txt:387
+#: libraries/advisory_rules.txt:388
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Delež prekinjenih povezav je %s; ta vrednost bi morala biti manj kot 1 na uro"
 
-#: libraries/advisory_rules.txt:389
+#: libraries/advisory_rules.txt:390
 msgid "Percentage of aborted clients"
 msgstr "Odstotek prekinjenih odjemalcev"
 
-#: libraries/advisory_rules.txt:392 libraries/advisory_rules.txt:399
+#: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
 msgid "Too many clients are aborted."
 msgstr "Preveč odjemalcev je prekinjenih."
 
-#: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
+#: libraries/advisory_rules.txt:394 libraries/advisory_rules.txt:401
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -12910,44 +12910,44 @@ msgstr ""
 "MySQL. To je lahko zaradi omrežnih težav ali pa koda ne zapira pravilno "
 "upravljavca zbirk podatkov. Preverite svoje omrežje in kodo."
 
-#: libraries/advisory_rules.txt:394
+#: libraries/advisory_rules.txt:395
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "%s %% vseh odjemalcev je prekinjenih. Ta vrednost bi morala biti pod 2 %%"
 
-#: libraries/advisory_rules.txt:396
+#: libraries/advisory_rules.txt:397
 msgid "Rate of aborted clients"
 msgstr "Delež prekinjenih objemalcev"
 
-#: libraries/advisory_rules.txt:401
+#: libraries/advisory_rules.txt:402
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Delež prekinjenih objemalcev je %s; ta vrednost bit morala biti manj kot 1 "
 "na uro"
 
-#: libraries/advisory_rules.txt:405
+#: libraries/advisory_rules.txt:406
 msgid "Is InnoDB disabled?"
 msgstr "Je InnoDB onemogočen?"
 
-#: libraries/advisory_rules.txt:408
+#: libraries/advisory_rules.txt:409
 msgid "You do not have InnoDB enabled."
 msgstr "Nimate omogočenega InnoDB."
 
-#: libraries/advisory_rules.txt:409
+#: libraries/advisory_rules.txt:410
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB je po navadi boljša izbira za pogone tabel."
 
-#: libraries/advisory_rules.txt:410
+#: libraries/advisory_rules.txt:411
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb je nastavljeno na 'value'"
 
-#: libraries/advisory_rules.txt:412
+#: libraries/advisory_rules.txt:413
 msgid "InnoDB log size"
 msgstr "Velikost dnevnika InnoDB"
 
-#: libraries/advisory_rules.txt:415
+#: libraries/advisory_rules.txt:416
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -12955,7 +12955,7 @@ msgstr ""
 "Velikost dnevnika InnoDB v primerjavi z zalogo medpomnilnika InnoDB ni "
 "primerne velikosti."
 
-#: libraries/advisory_rules.txt:416
+#: libraries/advisory_rules.txt:417
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -12979,7 +12979,7 @@ msgstr ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na blogu</"
 "a>"
 
-#: libraries/advisory_rules.txt:417
+#: libraries/advisory_rules.txt:418
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -12988,15 +12988,15 @@ msgstr ""
 "Velikost vašega dnevnika InnoDB je v primerjavi z velikostjo zaloge "
 "medpomnilnika InnoDB %s-%%; ne bi smela biti pod 20 %%"
 
-#: libraries/advisory_rules.txt:419
+#: libraries/advisory_rules.txt:420
 msgid "Max InnoDB log size"
 msgstr "Največja velikost dnevnika InnoDB"
 
-#: libraries/advisory_rules.txt:422
+#: libraries/advisory_rules.txt:423
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Velikost datoteke dnevnika InnoDB je nezadostne velikosti."
 
-#: libraries/advisory_rules.txt:423
+#: libraries/advisory_rules.txt:424
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -13020,20 +13020,20 @@ msgstr ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na blogu</"
 "a>"
 
-#: libraries/advisory_rules.txt:424
+#: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Absolutna velikost vašega dnevnika InnoDB je %s MiB"
 
-#: libraries/advisory_rules.txt:426
+#: libraries/advisory_rules.txt:427
 msgid "InnoDB buffer pool size"
 msgstr "Velikost zaloge medpomnilnika InnoDB"
 
-#: libraries/advisory_rules.txt:429
+#: libraries/advisory_rules.txt:430
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Zaloga vašega medpomnilnika InnoDB je precej majhna."
 
-#: libraries/advisory_rules.txt:430
+#: libraries/advisory_rules.txt:431
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -13058,7 +13058,7 @@ msgstr ""
 "tudi <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">ta članek</a>"
 
-#: libraries/advisory_rules.txt:431
+#: libraries/advisory_rules.txt:432
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -13071,15 +13071,15 @@ msgstr ""
 "popolnoma primerno za vaš sistem, če nimate veliko tabel InnoDB ali na isti "
 "napravi tečejo druge storitve."
 
-#: libraries/advisory_rules.txt:435
+#: libraries/advisory_rules.txt:436
 msgid "MyISAM concurrent inserts"
 msgstr "Sočasna vstavljanja MyISAM"
 
-#: libraries/advisory_rules.txt:438
+#: libraries/advisory_rules.txt:439
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Omogočite concurrent_insert z nastavitvijo na 1"
 
-#: libraries/advisory_rules.txt:439
+#: libraries/advisory_rules.txt:440
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
@@ -13089,7 +13089,7 @@ msgstr ""
 "zapisovalci za dano tabelo. Oglejte si tudi <a href=\"http://dev.mysql.com/"
 "doc/refman/5.5/en/concurrent-inserts.html\">dokumentacijo MySQL</a>"
 
-#: libraries/advisory_rules.txt:440
+#: libraries/advisory_rules.txt:441
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
 
