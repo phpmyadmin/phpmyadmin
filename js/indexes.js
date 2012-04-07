@@ -36,7 +36,7 @@ function checkIndexType()
         $size_header.hide();
         $size_inputs.each(function(){
             $(this)
-                .attr('disabled', true)
+                .prop('disabled', true)
                 .parent('td').hide();
         });
 
@@ -46,7 +46,7 @@ function checkIndexType()
             $column_input = $(this);
             if (! initial) {
                 $column_input
-                    .attr('disabled', true)
+                    .prop('disabled', true)
                     .parent('td').hide();
             } else {
                 initial = false;
@@ -60,14 +60,14 @@ function checkIndexType()
         $size_header.show();
         $size_inputs.each(function() {
             $(this)
-                .attr('disabled', false)
+                .prop('disabled', false)
                 .parent('td').show();
         });
 
         // Enable and show the columns of the index
         $column_inputs.each(function() {
             $(this)
-                .attr('disabled', false)
+                .prop('disabled', false)
                 .parent('td').show();
         });
 

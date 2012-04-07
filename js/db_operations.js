@@ -133,8 +133,7 @@ $(document).ready(function() {
         PMA_prepareForAjaxRequest($form);
 
         PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
-
-        $.get($form.attr('action'), $form.serialize() + "&submitcollation=" + $form.find("input[name=submitcollation]").attr('value'), function(data) {
+        $.get($form.attr('action'), $form.serialize() + "&submitcollation=" + $form.find("input[name=submitcollation]").val(), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
             }

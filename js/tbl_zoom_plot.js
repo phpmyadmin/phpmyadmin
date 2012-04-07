@@ -175,8 +175,6 @@ $(document).ready(function() {
     var xType = $('#types_0').val();
     var yType = $('#types_1').val();
     var dataLabel = $('#dataLabel').val();
-    var lastX;
-    var lastY;
     var zoomRatio = 1;
 
 
@@ -316,9 +314,11 @@ $(document).ready(function() {
         var it = 4;
         var xChange = false;
         var yChange = false;
+        var key;
+
         for (key in selectedRow) {
             var oldVal = selectedRow[key];
-            var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
+            var newVal = ($('#fields_null_id_' + it).prop('checked')) ? null : $('#fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
                 newVal =  $('#fieldID_' + it).map(function(){
                     return $(this).val();
@@ -598,15 +598,15 @@ $(document).ready(function() {
                                 };
                                 $.post('tbl_zoom_select.php', post_params, function(data) {
                                     // Row is contained in data.row_info, now fill the displayResultForm with row values
-                                    for (key in data.row_info) {
+                                    for (var key in data.row_info) {
                                         $field = $('#fieldID_' + fid);
                                         $field_null = $('#fields_null_id_' + fid);
                                         if (data.row_info[key] == null) {
-                                            $field_null.attr('checked', true);
+                                            $field_null.prop('checked', true);
                                             $field.val('');
                                         } else {
-                                            $field_null.attr('checked', false);
-                                            if ($field.attr('multiple')) { // when the column is of type SET
+                                            $field_null.prop('checked', false);
+                                            if ($field.prop('multiple')) { // when the column is of type SET
                                                 $field.val(data.row_info[key].split(','));
                                             } else {
                                                 $field.val(data.row_info[key]);

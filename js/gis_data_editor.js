@@ -25,7 +25,7 @@ function prepareJSVersion() {
 
     // Change the text on the submit button
     $("input[name='gis_data[save]']")
-        .attr('value', PMA_messages['strCopy'])
+        .val(PMA_messages['strCopy'])
         .insertAfter($('#gis_data_textarea'))
         .before('<br><br>');
 
@@ -44,7 +44,7 @@ function prepareJSVersion() {
         var classes = $button.attr('class');
         $button
             .after('<a class="' + classes + '" name="' + $button.attr('name')
-                + '">+ ' + $button.attr('value') + '</a>')
+                + '">+ ' + $button.val() + '</a>')
             .remove();
     });
 }
@@ -276,11 +276,11 @@ $(document).ready(function() {
         var prefix = name.substr(0, name.length - 11);
         // Find the number of points
         var $noOfPointsInput = $("input[name='" + prefix + "[no_of_points]" + "']");
-        var noOfPoints = parseInt($noOfPointsInput.attr('value'));
+        var noOfPoints = parseInt($noOfPointsInput.val());
         // Add the new data point
         var html = addDataPoint(noOfPoints, prefix);
         $a.before(html);
-        $noOfPointsInput.attr('value', noOfPoints + 1);
+        $noOfPointsInput.val(noOfPoints + 1);
     });
 
     /**
@@ -296,7 +296,7 @@ $(document).ready(function() {
 
         // Find the number of lines
         var $noOfLinesInput = $("input[name='" + prefix + "[no_of_lines]" + "']");
-        var noOfLines = parseInt($noOfLinesInput.attr('value'));
+        var noOfLines = parseInt($noOfLinesInput.val());
 
         // Add the new linesting of inner ring based on the type
         var html = '<br>';
@@ -315,7 +315,7 @@ $(document).ready(function() {
             + PMA_messages['strAddPoint'] + '</a><br>';
 
         $a.before(html);
-        $noOfLinesInput.attr('value', noOfLines + 1);
+        $noOfLinesInput.val(noOfLines + 1);
     });
 
     /**
@@ -328,7 +328,7 @@ $(document).ready(function() {
         var prefix = name.substr(0, name.length - 13);
         // Find the number of polygons
         var $noOfPolygonsInput = $("input[name='" + prefix + "[no_of_polygons]" + "']");
-        var noOfPolygons = parseInt($noOfPolygonsInput.attr('value'));
+        var noOfPolygons = parseInt($noOfPolygonsInput.val());
 
         // Add the new polygon
         var html = PMA_messages['strPolygon'] + (noOfPolygons + 1) + ':<br>';
@@ -344,7 +344,7 @@ $(document).ready(function() {
             + PMA_messages['strAddInnerRing'] + '</a><br><br>';
 
         $a.before(html);
-        $noOfPolygonsInput.attr('value', noOfPolygons + 1);
+        $noOfPolygonsInput.val(noOfPolygons + 1);
     });
 
     /**
@@ -355,7 +355,7 @@ $(document).ready(function() {
         var prefix = 'gis_data[GEOMETRYCOLLECTION]';
         // Find the number of geoms
         var $noOfGeomsInput = $("input[name='" + prefix + "[geom_count]" + "']");
-        var noOfGeoms = parseInt($noOfGeomsInput.attr('value'));
+        var noOfGeoms = parseInt($noOfGeomsInput.val());
 
         var html1 = PMA_messages['strGeometry'] + (noOfGeoms + 1) + ':<br>';
         var $geomType = $("select[name='gis_data[" + (noOfGeoms - 1) + "][gis_type]']").clone();
@@ -368,6 +368,6 @@ $(document).ready(function() {
             + '<br><br>';
 
         $a.before(html1); $geomType.insertBefore($a); $a.before(html2);
-        $noOfGeomsInput.attr('value', noOfGeoms + 1);
+        $noOfGeomsInput.val(noOfGeoms + 1);
     });
 });
