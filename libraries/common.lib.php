@@ -1587,7 +1587,7 @@ function PMA_formatNumber(
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
 
-    // If we dont want any zeros after the comma just add the thousand seperator
+    // If we dont want any zeros after the comma just add the thousand separator
     if ($noTrailingZero) {
         $value = PMA_localizeNumber(
             preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
@@ -3515,7 +3515,7 @@ function PMA_createGISData($gis_string)
  *                          that are applicable to the provided geometry type.
  * @param bool   $binary    if set to false functions that take two geometries
  *                          as arguments will not be included.
- * @param bool   $display   if set to true seperators will be added to the
+ * @param bool   $display   if set to true separators will be added to the
  *                          output array.
  *
  * @return array names and details of the functions that can be applied on
@@ -3576,7 +3576,7 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
 
     // If we are asked for binary functions as well
     if ($binary) {
-        // section seperator
+        // section separator
         if ($display) {
             $funcs[] = array('display' => '--------');
         }

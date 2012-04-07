@@ -25,8 +25,8 @@ $(function() {
         },
         format: function(s) {
             var num = jQuery.tablesorter.formatFloat(
-                s.replace(PMA_messages['strThousandsSeperator'], '')
-                 .replace(PMA_messages['strDecimalSeperator'], '.')
+                s.replace(PMA_messages['strThousandsSeparator'], '')
+                 .replace(PMA_messages['strDecimalSeparator'], '.')
             );
 
             var factor = 1;

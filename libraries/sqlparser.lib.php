@@ -823,12 +823,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_SQP_typeCheck($toCheck, $whatWeWant)
     {
-        $typeSeperator = '_';
+        $typeSeparator = '_';
         if (strcmp($whatWeWant, $toCheck) == 0) {
             return true;
         } else {
-            if (strpos($whatWeWant, $typeSeperator) === false) {
-                return strncmp($whatWeWant, $toCheck, strpos($toCheck, $typeSeperator)) == 0;
+            if (strpos($whatWeWant, $typeSeparator) === false) {
+                return strncmp($whatWeWant, $toCheck, strpos($toCheck, $typeSeparator)) == 0;
             } else {
                 return false;
             }

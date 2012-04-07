@@ -67,9 +67,9 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                                 now.getHours(), now.getMinutes(), now.getSeconds()) 
                                 + now.getMilliseconds() - 1000;
                             var statustext = 
-                                formatBytes(complete, 1, PMA_messages.strDecimalSeperator)
+                                formatBytes(complete, 1, PMA_messages.strDecimalSeparator)
                                 + ' <?php echo PMA_jsFormat(__('of'), false); ?> ' 
-                                + formatBytes(total, 1, PMA_messages.strDecimalSeperator);
+                                + formatBytes(total, 1, PMA_messages.strDecimalSeparator);
 
                             if ($('#importmain').is(':visible')) {
                                 // show progress UI
@@ -84,7 +84,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                                 var used_time = now - import_start;
                                 var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
                                 var speed = '<?php echo PMA_jsFormat(__('%s/sec.'), false); ?>'
-                                    .replace('%s', formatBytes(complete / used_time * 1000, 1, PMA_messages.strDecimalSeperator));
+                                    .replace('%s', formatBytes(complete / used_time * 1000, 1, PMA_messages.strDecimalSeparator));
 
                                 var minutes = parseInt(seconds / 60);
                                 seconds %= 60;
