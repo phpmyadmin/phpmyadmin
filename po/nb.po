@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2011-03-07 11:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-04-07 15:43+0200\n"
+"Last-Translator: Asle Ommundsen <aommundsen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1794
@@ -394,10 +394,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Du må velge minst en kolonne for visning"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "visuell bygger"
+msgstr "Bytt til %svisuell bygger%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:91
 #: libraries/display_tbl.lib.php:1013
@@ -548,10 +548,9 @@ msgid "Search in database"
 msgstr "Søk i database"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Ord eller verdi(er) å søke etter (jokertegn: \"%\"):"
+msgstr "Ord eller verdier å søke med (jokertegn: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
@@ -562,10 +561,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Ord er separert med et mellomrom (\" \")."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "I tabell(ene):"
+msgstr "I tabellene:"
 
 #: db_search.php:330
 msgid "Inside column:"
@@ -698,10 +696,9 @@ msgid "Analyze table"
 msgstr "Analyser tabell"
 
 #: db_structure.php:607
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Gå til tabell"
+msgstr "Legg prefiks til tabell"
 
 #: db_structure.php:609 libraries/mult_submits.inc.php:272
 #, fuzzy
@@ -1401,7 +1398,7 @@ msgstr "Trafikk"
 #: js/messages.php:133 libraries/server_links.inc.php:73
 #: server_status.php:1557
 msgid "Settings"
-msgstr "Iinnstillinger"
+msgstr "Innstillinger"
 
 #: js/messages.php:134
 #, fuzzy
