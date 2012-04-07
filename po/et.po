@@ -3,10 +3,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
+"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-07 21:05+0200\n"
+"PO-Revision-Date: 2012-04-07 14:40+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -85,6 +85,7 @@ msgstr "Võtme nimi"
 #: browse_foreigners.php:175 browse_foreigners.php:177
 #: server_collations.php:47 server_collations.php:59 server_engines.php:47
 #: server_plugins.php:139 server_status.php:1473
+#, fuzzy
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -447,7 +448,7 @@ msgstr "Del"
 #: server_privileges.php:467 tbl_change.php:941 tbl_indexes.php:283
 #: tbl_select.php:221
 msgid "Or"
-msgstr "Or"
+msgstr "Või"
 
 #: db_qbe.php:529
 msgid "Modify"
@@ -504,7 +505,7 @@ msgstr "regulaaravaldisena"
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Otsingu \"<i>%s</i>\" ning \"%s\" tulemused:"
+msgstr "\"<i>%s</i>\" %s otsingu tulemused:"
 
 #: db_search.php:227
 #, fuzzy, php-format
@@ -535,6 +536,7 @@ msgstr "Kustutada %s tabeli vasted?"
 #: libraries/sql_query_form.lib.php:417 pmd_general.php:431
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
 #: tbl_tracking.php:453 tbl_tracking.php:474 tbl_tracking.php:531
+#, fuzzy
 msgid "Delete"
 msgstr "Kustuta"
 
@@ -651,7 +653,7 @@ msgstr "Ära vali ühtegi"
 
 #: db_structure.php:579
 msgid "Check tables having overhead"
-msgstr "Kontrolli ballastiga tabeleid"
+msgstr "Kontrolli ballastiga  tabeleid"
 
 #: db_structure.php:587 libraries/common.lib.php:3379
 #: libraries/common.lib.php:3380 libraries/config/messages.inc.php:166
@@ -1050,7 +1052,7 @@ msgstr "See tegevus võib võtta kaua aega. Jätkan sellegipoolest?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
-msgstr "Puudub väärtus vormis!"
+msgstr "Puuduv väärtus vormis!"
 
 #: js/messages.php:41
 msgid "This is not a number!"
@@ -2992,6 +2994,7 @@ msgstr "SQL"
 #: libraries/common.lib.php:3146 libraries/common.lib.php:3370
 #: libraries/common.lib.php:3371 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
+#, fuzzy
 msgid "Insert"
 msgstr "Lisa"
 
@@ -3056,6 +3059,7 @@ msgstr "Suletud"
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
 #: pmd_relation_new.php:66
+#, fuzzy
 msgid "Disabled"
 msgstr "Keelatud"
 
@@ -3699,8 +3703,9 @@ msgstr "Kohanda vaikimisi valikuid"
 #: libraries/config/user_preferences.forms.php:143
 #: libraries/config/user_preferences.forms.php:214 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
+#, fuzzy
 msgid "CSV"
-msgstr "CSV"
+msgstr "CSV andmed"
 
 #: libraries/config/messages.inc.php:162
 msgid "Developer"
@@ -4002,12 +4007,12 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
-"Kui see on lubatud, siis phpMyAdmin jätkab mitmekäsuliste päringute "
-"sooritamist ka sel juhul, kui üks päringutest ebaõnnestub"
+"Kui see on lubatud, siis phpMyAdmin jätkab multi-käsu päringute sooritamist "
+"ka sel juhul, kui üks päringutest ebaõnnestub"
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
-msgstr "Ignoreeri mitmekäsulise vigu"
+msgstr "Ignoreeri multi-käsu vigu"
 
 #: libraries/config/messages.inc.php:239
 msgid ""
@@ -4047,7 +4052,7 @@ msgstr "Imporditava faili formaat"
 
 #: libraries/config/messages.inc.php:253 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
-msgstr "Kasuta LOCAL võtmesõna"
+msgstr "kasuta LOCAL võtmesõna"
 
 #: libraries/config/messages.inc.php:256 libraries/config/messages.inc.php:264
 #: libraries/config/messages.inc.php:265
@@ -4260,7 +4265,7 @@ msgstr "Sisselogimise küpsise kehtivus"
 
 #: libraries/config/messages.inc.php:304
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "Kahekordista LONGTEXT veergude tekstiala laiust"
+msgstr "Kahekordista LONGTEXT veergude tekstiala suurust"
 
 #: libraries/config/messages.inc.php:305
 msgid "Bigger textarea for LONGTEXT"
@@ -4377,7 +4382,7 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - st TIME, DATE, DATETIME ja TIMESTAMP tüüpi veergude "
+"[kbd]SMART[/kbd] - s.t TIME, DATE, DATETIME ja TIMESTAMP tüüpi veergude "
 "kahanevat järjekorda. Muul juhul on need kasvavas järjekorras"
 
 #: libraries/config/messages.inc.php:330
@@ -4732,7 +4737,7 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Sa saad kasutada ka MySQL'i metamärke (% and _), kui asetad vahetult nende "
-"ette kurakaldkriipsu (\\). St kasuta [kbd]'my\\_db'[/kbd], aga mitte "
+"ette kurakaldkriipsu (\\). S.t kasuta [kbd]'my\\_db'[/kbd], aga mitte "
 "[kbd]'my_db'[/kbd]. Seda valikut kasutades saad sorteerida andmebaaside "
 "nimekirja, kui sisestad nende nimed soovitud järjekorda ning asetad lõppu "
 "[kbd]*[/kbd] märgi, et ülejäänud tähestiku järjekorda asetada."
@@ -5204,7 +5209,7 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
-"Tekstiala laius (veerud) muutmise vaates. See väärtus tõstetakse esile SQL "
+"Tekstiala suurus (veerud) muutmise vaates. See väärtus tõstetakse esile SQL "
 "päringu tekstialades (*2) ja päringu aknas (*1.25)"
 
 #: libraries/config/messages.inc.php:500
@@ -5216,7 +5221,7 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
-"Tekstiala laius (read) muutmise vaates. See väärtus tõstetakse esile SQL "
+"Tekstiala suurus (read) muutmise vaates. See väärtus tõstetakse esile SQL "
 "päringu tekstialades (*2) ja päringu aknas (*1.25)"
 
 #: libraries/config/messages.inc.php:502
@@ -5299,7 +5304,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:520
 msgid "Verbose multiple statements"
-msgstr "Sõnalised mitmikkäsud"
+msgstr "Sõnalised multi-käsud"
 
 #: libraries/config/messages.inc.php:521 setup/frames/index.inc.php:243
 msgid "Check for latest version"
@@ -5552,6 +5557,7 @@ msgstr "Ei oma õigusi"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:85
 #: server_synchronize.php:454 server_synchronize.php:966
+#, fuzzy
 msgid "Create table"
 msgstr "Loo tabel"
 
@@ -6628,7 +6634,7 @@ msgstr "Koostanud"
 #: libraries/import.lib.php:159 libraries/rte/rte_routines.lib.php:1252
 #: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL tagastas tühja tulemuse (st nulliread)."
+msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 
 #: libraries/import.lib.php:1139
 msgid ""
@@ -7044,6 +7050,7 @@ msgid "OK"
 msgstr "OK"
 
 #: libraries/relation.lib.php:81
+#, fuzzy
 msgid "Enabled"
 msgstr "Lubatud"
 
@@ -8727,7 +8734,7 @@ msgstr "Vali binaarne logi, mida soovid vaadata"
 
 #: server_binlog.php:103 server_status.php:593
 msgid "Files"
-msgstr "Failid"
+msgstr "Faili"
 
 #: server_binlog.php:150 server_binlog.php:152 server_status.php:1240
 #: server_status.php:1242
@@ -11156,7 +11163,7 @@ msgstr "Sektor"
 
 #: tbl_chart.php:92
 msgid "Stacked"
-msgstr "Virntulp"
+msgstr "Jaotatud ühe tulbana"
 
 #: tbl_chart.php:95
 msgid "Chart title"
@@ -11383,8 +11390,9 @@ msgid "Rebuild"
 msgstr "Loo uuesti"
 
 #: tbl_operations.php:773
+#, fuzzy
 msgid "Repair"
-msgstr "Paranda"
+msgstr "Paranda tabelit"
 
 #: tbl_operations.php:787
 msgid "Remove partitioning"
@@ -13226,7 +13234,7 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Muuda indeksit"
 
 #~ msgid "Column count has to be larger than zero."
-#~ msgstr "Veergude hulk peab olema nullist suurem."
+#~ msgstr "Veergude arv peab olema nullist suurem."
 
 #~ msgid "+ Restart insertion and add a new value"
 #~ msgstr "+ Ava lisamine uuesti ja lisa uus väärtus"
@@ -13248,16 +13256,16 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Näita veergude muutmise/loomise suunda"
 
 #~ msgid "Create table on database %s"
-#~ msgstr "Loo tabel andmebaasi %s"
+#~ msgstr "Loo uus tabel andmebaasi %s"
 
 #~ msgid "Data Label"
 #~ msgstr "Andmete nimi"
 
 #~ msgid "Location of the text file"
-#~ msgstr "Tekstifaili asukoht"
+#~ msgstr "tekstifaili asukoht"
 
 #~ msgid "MySQL charset"
-#~ msgstr "MySQL'i märgitabel"
+#~ msgstr "MySQLi tähetabel"
 
 #~ msgid "MySQL client version"
 #~ msgstr "MySQL kliendi versioon"
@@ -13327,8 +13335,8 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Välimuste tugi puudub. Palun kontrolli oma seadistust ja/või oma välimusi "
-#~ "kataloogis %s."
+#~ "Teemade tugi puudub, palun kontrollige oma seadeid ja/või oma teemade "
+#~ "kataloogi %s."
 
 #~ msgid "The following queries have been executed:"
 #~ msgstr "Järgnevad päringud on teostatud:"
@@ -13382,7 +13390,7 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "rida alates reast #"
 
 #~ msgid "in %s mode and repeat headers after %s cells"
-#~ msgstr "%s ja korda päiseid iga %s rea tagant"
+#~ msgstr "näita %s and korda pealkirju iga %s järel"
 
 #~ msgid "Query \"%s\" failed"
 #~ msgstr "\"%s\" päring ebaõnnestus"
@@ -13395,11 +13403,12 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "phpMyAdmin ei suutnud lugeda sinu seadistusfaili!<br />See võib juhtuda "
-#~ "siis, kui PHP leiab selles parsimise vea või PHP ei leidnud vajalikku "
-#~ "faili.<br />Palun vali alloleva lingi kaudu seadistusfail otse või loe PHP  "
-#~ "veasõnumeid, mida sulle näidatakse. Enamasti on kuskil puudu jutumärk või "
-#~ "semikoolon.<br />Kui sulle avaneb tühi leht, siis on kõik korras."
+#~ "phpMyAdmin ei suutnud lugeda Teie konfiguratsioonifaili!<br />See võib "
+#~ "juhtuda kui PHP leiab vea selles või PHP ei leia antud faili üles.<br "
+#~ "/>Palun kutsuge konfiguratsioonifail välja otseselt kasutades linki allpool "
+#~ "ja lugege PHP veateadet(eid) mis teile öeldakse. Enamustel juhtudel on "
+#~ "kuskilt puudu ülakoma või semikoolon.<br />Kui Teile kuvatakse tühi leht on "
+#~ "kõik korras."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Sündmuse kustutamine"
@@ -13408,7 +13417,7 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Toimingu kustutamine"
 
 #~ msgid "Theme / Style"
-#~ msgstr "Välimus / Stiil"
+#~ msgstr "Teema / Stiil"
 
 #~ msgid "seconds"
 #~ msgstr "sekundit"
@@ -13423,11 +13432,11 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Diagrammi kohtspikrite jaoks on vajalik JSON kooder."
 
 #~ msgid "The number of free memory blocks in query cache."
-#~ msgstr "Vabade mäluplokkide hulk päringu puhvris."
+#~ msgstr "Vabad mälu plokid päringute vahemälus."
 
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
-#~ msgstr "Lähtesta"
+#~ msgstr "Nulli"
 
 #~ msgid "Show processes"
 #~ msgstr "Näita protsesse"
@@ -13440,15 +13449,15 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ "<b>Server traffic</b>: These tables show the network traffic statistics "
 #~ "of this MySQL server since its startup."
 #~ msgstr ""
-#~ "<b>Serveri liiklus</b>: Need tabelid näitavad selle MySQL serveri "
-#~ "võrguliikluse statistikat alates serveri käivitumisest."
+#~ "<b>Serveri liiklus</b>: Need tabelid näitavad võrguliikluse statistikat "
+#~ "selle MySQL serveri jaoks alates tema käivitamisest."
 
 #~ msgid ""
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Päringu statistika</b>: Alates serveri käivitumisest on saadetud "
-#~ "serverile %s päringut."
+#~ "<b>Päringu statistika</b>: Alates stardist, %s päringut on saadetud "
+#~ "serverile."
 
 #~ msgid "Note: Generating the query chart can take a long time."
 #~ msgstr "Märkus: Päringu diagrammi koostamine võib võtta palju aega."
@@ -13530,10 +13539,10 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Meililist"
 
 #~ msgid "MySQL connection collation"
-#~ msgstr "MySQL ühenduse kodeering"
+#~ msgstr "MySQL ühenduse kollatsioon"
 
 #~ msgid "End"
-#~ msgstr "Viimane"
+#~ msgstr "Lõpp"
 
 #~ msgid "Create new database"
 #~ msgstr "Loo uus andmebaas"
@@ -13548,10 +13557,10 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Kiirmuutmine"
 
 #~ msgid " Row size "
-#~ msgstr " Rea suurus "
+#~ msgstr " rea suurus "
 
 #~ msgid " Show this query here again "
-#~ msgstr " Näita seda päringut siin uuesti "
+#~ msgstr " Näita päringut siin uuesti "
 
 #~ msgid "X Axis label"
 #~ msgstr "X-telje nimi"
@@ -13563,7 +13572,7 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Riba"
 
 #~ msgid "Line"
-#~ msgstr "Graafik"
+#~ msgstr "Joon"
 
 #~ msgid "Pie"
 #~ msgstr "Sektor"
@@ -13580,10 +13589,10 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Loo uus indeks"
 
 #~ msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-#~ msgstr "Sõna(d) või väärtus(ed), mida otsida (metamärk: \"%\"):"
+#~ msgstr "Sõna(d) või väärtus(ed) otsinguks (lühend: \"%\"):"
 
 #~ msgid "Inside table(s):"
-#~ msgstr "Tabeli(te)st:"
+#~ msgstr "Otsi tabeli(te)st:"
 
 #~ msgid "User overview"
 #~ msgstr "Kasutaja ülevaade"
