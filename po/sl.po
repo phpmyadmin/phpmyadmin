@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-06 21:04+0200\n"
+"PO-Revision-Date: 2012-04-07 20:49+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -647,7 +647,7 @@ msgstr "Označi vse"
 #: libraries/replication_gui.lib.php:35 server_databases.php:282
 #: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
-msgstr "Odznači vse"
+msgstr "Počisti vse"
 
 #: db_structure.php:579
 msgid "Check tables having overhead"
@@ -1045,7 +1045,7 @@ msgstr "Brisanje primarnega ključa/indeksa"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Ta operacija lahko traja dolgo časa. Vseeno nadaljujem?"
+msgstr "Operacija lahko traja dolgo časa. Vseeno nadaljujem?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -2399,7 +2399,7 @@ msgstr "Edinstven"
 
 #: libraries/Index.class.php:457 tbl_tracking.php:334
 msgid "Packed"
-msgstr "Stisnjeno"
+msgstr "Stisnjen"
 
 #: libraries/Index.class.php:459 tbl_tracking.php:336
 msgid "Cardinality"
@@ -2816,7 +2816,7 @@ msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
 #: libraries/common.lib.php:195
 #, php-format
 msgid "Max: %s%s"
-msgstr "Največja velikost: %s%s"
+msgstr "Največja velikost: %s %s"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:450
@@ -3183,7 +3183,7 @@ msgstr "Wiki"
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
-"Ta nastavitev je onemogočena, zato ne bo uporabljena pri vaši konfiguraciji"
+"Nastavitev je onemogočena, zato ne bo uporabljena pri vaši konfiguraciji"
 
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
@@ -3506,13 +3506,13 @@ msgstr "Postavi imena stolpcev v prvo vrstico"
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
-msgstr "Stolpci obdani z"
+msgstr "Stolpci so obdani z"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 msgid "Columns escaped by"
-msgstr "Stolpci izognjeni z"
+msgstr "Stolpci so izognjeni z"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:85
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:101
@@ -3530,12 +3530,12 @@ msgstr "Odstrani znake CRLF znotraj stolpcev"
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
-msgstr "Stolpci zaključeni z"
+msgstr "Stolpci so zaključeni z"
 
 #: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:242
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "Vrstice zaključene z"
+msgstr "Vrstice so zaključene z"
 
 #: libraries/config/messages.inc.php:84
 msgid "Excel edition"
@@ -4046,8 +4046,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
-"Privzeta oblika; pomnite, da je seznam odvisen od položaja (podatkovna "
-"zbirka, tabela) in vedno je na voljo samo SQL"
+"Privzeta oblika; pomnite, da je seznam odvisen od položaja (zbirka podatkov, "
+"tabela) in vedno je na voljo samo SQL"
 
 #: libraries/config/messages.inc.php:249
 msgid "Format of imported file"
@@ -4072,7 +4072,7 @@ msgstr "Uvozi denarne enote ($5.00 v 5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Uvozi odstotke kot ustrezne decimalne vrednosti (12.00% v ,12)"
+msgstr "Uvozi odstotke kot ustrezne decimalne vrednosti (12.00% v .12)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
@@ -4298,12 +4298,12 @@ msgstr "Uporabniki ne morejo določiti višje vrednosti"
 #: libraries/config/messages.inc.php:310
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
-"Največje število podatkovnih zbirk prikazanih v levem okvirju in na seznamu "
+"Največje število zbirk podatkov, prikazanih v levem okvirju in na seznamu "
 "zbirk podatkov"
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum databases"
-msgstr "Največ podatkovnih zbirk"
+msgstr "Največ zbirk podatkov"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
@@ -4644,7 +4644,7 @@ msgstr "Krmilni gostitelj"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
-msgstr "Preštej tabele med prikazovanjem seznama podatkovnih zbirk"
+msgstr "Preštej tabele med prikazovanjem seznama zbirk podatkov"
 
 #: libraries/config/messages.inc.php:388
 msgid "Count tables"
@@ -6442,7 +6442,7 @@ msgstr "PDF"
 
 #: libraries/export/pdf.php:24
 msgid "(Generates a report containing the data of a single table)"
-msgstr "(Ustvari poročilo, ki vsebuje podatke tabele same)"
+msgstr "(Ustvari poročilo, ki vsebuje podatke ene tabele)"
 
 #: libraries/export/pdf.php:25
 msgid "Report title:"
@@ -6483,7 +6483,7 @@ msgstr ""
 #: libraries/export/sql.php:180
 #, php-format
 msgid "Add %s statement"
-msgstr "Dodaj %s izjavo"
+msgstr "Dodaj izjavo %s"
 
 #: libraries/export/sql.php:152
 msgid "Add statements:"
@@ -6562,8 +6562,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Odloži dvojiške stolpce v šestnajstiškem zapisu <i>(na primer, \"abc\" "
-"postane 0x616263)</i>"
+"Odloži dvojiške stolpce v šestnajstiškem zapisu <i>(na primer: \"abc\" postane "
+"0x616263)</i>"
 
 #: libraries/export/sql.php:302
 msgid ""
@@ -6765,7 +6765,7 @@ msgstr "Ta vtičnik ne podpira stisnjenih uvozov!"
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Uvozi odstotke kot ustrezne decimalne vrednosti <i>(npr. 12.00% v ,12)</i>"
+"Uvozi odstotke kot ustrezne decimalne vrednosti <i>(npr. 12.00% v .12)</i>"
 
 #: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -7056,7 +7056,7 @@ msgstr "Osveži okvir navigacije"
 
 #: libraries/plugin_interface.lib.php:284
 msgid "This format has no options"
-msgstr "Za to obliko ni možnosti"
+msgstr "Oblika nima nobenih možnosti"
 
 #: libraries/relation.lib.php:76
 msgid "not OK"
@@ -7125,11 +7125,11 @@ msgstr "Hitri koraki za namestitev naprednih funkcij:"
 #: libraries/relation.lib.php:154
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
-msgstr "Ustvari potrebne tabele s <code>examples/create_tables.sql</code>."
+msgstr "Ustvarite potrebne tabele s <code>examples/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."
-msgstr "Ustvari uporabnika pma in dovoli dostop do teh tabel."
+msgstr "Ustvarite uporabnika pma in mu dodelite dostop do teh tabel."
 
 #: libraries/relation.lib.php:156
 msgid ""
@@ -7891,7 +7891,7 @@ msgstr "Izvedi poizvedbo/poizvedbe SQL na strežniku %s"
 #: libraries/sql_query_form.lib.php:213 libraries/sql_query_form.lib.php:235
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Izvedi poizvedbo/poizvedbe SQL na podatkovni zbirki %s"
+msgstr "Izvedi poizvedbo/poizvedbe SQL na zbirki podatkov %s"
 
 #: libraries/sql_query_form.lib.php:267 navigation.php:259
 #: setup/frames/index.inc.php:233
@@ -8889,7 +8889,7 @@ msgstr "Omogoča ustvarjanje in brisanje shranjenih rutin."
 #: server_privileges.php:94 server_privileges.php:270
 #: server_privileges.php:696
 msgid "Allows creating new databases and tables."
-msgstr "Omogoča ustvarjanje novih podatkovnih zbirk in tabel."
+msgstr "Omogoča ustvarjanje novih zbirk podatkov in tabel."
 
 #: server_privileges.php:95 server_privileges.php:356
 #: server_privileges.php:702
@@ -8924,7 +8924,7 @@ msgstr "Omogoča brisanje podatkov."
 #: server_privileges.php:101 server_privileges.php:274
 #: server_privileges.php:699
 msgid "Allows dropping databases and tables."
-msgstr "Omogoča brisanje podatkovnih zbirk in tabel."
+msgstr "Omogoča brisanje zbirk podatkov in tabel."
 
 #: server_privileges.php:102 server_privileges.php:699
 msgid "Allows dropping tables."
@@ -9028,7 +9028,7 @@ msgstr "Omogoča branje podatkov."
 #: server_privileges.php:120 server_privileges.php:306
 #: server_privileges.php:729
 msgid "Gives access to the complete list of databases."
-msgstr "Omogoča dostop do popolnega spiska podatkovnih zbirk."
+msgstr "Omogoča dostop do popolnega spiska zbirk podatkov."
 
 #: server_privileges.php:121 server_privileges.php:347
 #: server_privileges.php:352 server_privileges.php:701
@@ -9229,7 +9229,7 @@ msgstr "Privilegiji tipični za stolpec"
 
 #: server_privileges.php:2246
 msgid "Add privileges on the following database"
-msgstr "Dodaj privilegije na naslednji podatkovni zbirki"
+msgstr "Dodaj privilegije na naslednji zbirki podatkov"
 
 #: server_privileges.php:2264
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -9272,7 +9272,7 @@ msgstr ""
 
 #: server_privileges.php:2355
 msgid "Database for user"
-msgstr "Podatkovna zbirka za uporabnika"
+msgstr "Zbirka podatkov za uporabnika"
 
 #: server_privileges.php:2357
 msgid "Create database with same name and grant all privileges"
@@ -9336,8 +9336,7 @@ msgstr "Glavni strežnik je uspešno spremenjen v %s"
 
 #: server_replication.php:210
 msgid "This server is configured as master in a replication process."
-msgstr ""
-"Ta strežnik je konfiguriran kot glavni strežnik v postopku podvojevanja."
+msgstr "Strežnik je konfiguriran kot glavni strežnik v postopku podvojevanja."
 
 #: server_replication.php:212 server_status.php:614
 msgid "Show master status"
@@ -9353,8 +9352,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Ta strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. Ali "
-"ga želite <a href=\"%s\">konfigurirati</a>?"
+"Strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. Ga "
+"želite <a href=\"%s\">konfigurirati</a>?"
 
 #: server_replication.php:247
 msgid "Master configuration"
@@ -9368,7 +9367,7 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
-"Ta strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. "
+"Strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. "
 "Izbirate lahko med ali podvojevanjem vseh zbirk podatkov in prezrtjem "
 "nekaterih (uporabno, če želite podvojiti večino zbirk podatkov) ali "
 "prezrtjem vseh zbirk podatkov po privzetem in podvojitvijo samo določenih "
@@ -9486,8 +9485,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Ta strežnik ni konfiguriran kot podrejenec v postopku podvojevanja. Ali ga "
-"želite <a href=\"%s\">konfigurirati</a>?"
+"Strežnik ni konfiguriran kot podrejenec v postopku podvojevanja. Ga želite "
+"<a href=\"%s\">konfigurirati</a>?"
 
 #: server_status.php:447
 #, php-format
@@ -9498,7 +9497,7 @@ msgstr "Nit %s je bila prekinjena."
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "phpMyAdmin ni uspel prekiniti teme %s. Verjetno je že prekinjena."
+msgstr "phpMyAdmin ni uspel prekiniti niti %s. Verjetno je že prekinjena."
 
 #: server_status.php:581
 msgid "Handler"
@@ -9651,7 +9650,7 @@ msgstr ""
 #: server_status.php:929
 #, php-format
 msgid "Questions since startup: %s"
-msgstr "Vprašanja od zagona: %s"
+msgstr "Vprašanj od zagona: %s"
 
 #: server_status.php:965 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
@@ -10646,7 +10645,7 @@ msgstr "Ne morem se povezati s ciljem"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "Podatkovna zbirka '%s' ne obstaja."
+msgstr "Zbirka podatkov '%s' ne obstaja."
 
 #: server_synchronize.php:294
 msgid "Structure Synchronization"
@@ -10743,8 +10742,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"Ciljna podatkovna zbirka bo popolnoma sinhronizirana z izvorno podatkovno "
-"zbirko. Izvorna podatkovna zbirka bo ostala nespremenjena."
+"Ciljna zbirka podatkov bo popolnoma sinhronizirana z izvorno zbirko "
+"podatkov. Izvorna zbirka podatkov bo ostala nespremenjena."
 
 #: server_variables.php:73
 msgid "Setting variable failed"
@@ -11160,7 +11159,7 @@ msgstr "in potem"
 
 #: tbl_change.php:1088
 msgid "Go back to previous page"
-msgstr "Nazaj na prejšnjo stran"
+msgstr "Pojdi nazaj na prejšnjo stran"
 
 #: tbl_change.php:1089
 msgid "Insert another new row"
@@ -12643,7 +12642,7 @@ msgstr "%% indeksov, ki uporabljajo medpomnilnik ključev MyISAM, je nizek."
 
 #: libraries/advisory_rules.txt:299
 msgid "You may need to increase {key_buffer_size}."
-msgstr "Mord boste morali povečati {key_buffer_size}."
+msgstr "Morda boste morali povečati {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:300
 #, php-format
@@ -13051,7 +13050,7 @@ msgstr ""
 "zbirk podatkov, ki kot skladiščni pogon uporabljajo samo InnoDB in ne "
 "poganjajo drugih storitev (npr. spletnega strežnika), lahko nastavite to na "
 "do 80 %% vašega pomnilnika, ki je na voljo. Če ni težava v tem, boste morali "
-"pazljivo določiti porabo pomnilnika drugim storitvam in ne-InnoDB-tabelam "
+"pazljivo določiti porabo pomnilnika drugim storitvam in tabelam ne-InnoDB "
 "ter ustrezno nastaviti to spremenljivko. Če je nastavljena previsoko, bo vaš "
 "sistem začel izmenjevati, kar bo občutno zmanjšalo učinkovitost. Oglejte si "
 "tudi <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
