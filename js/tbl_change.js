@@ -138,17 +138,15 @@ function isDate(val,tmstmp)
 */
 function isTime(val)
 {
-    var arrayVal=val.split(":");
-    for(var a=0;a<arrayVal.length;a++)
-    {
-        if(arrayVal[a].length==1)
-            arrayVal[a]=fractionReplace(arrayVal[a]);
+    var arrayVal = val.split(":");
+    for (var a = 0, l = arrayVal.length; a < l; a++) {
+        if (arrayVal[a].length == 1) {
+            arrayVal[a] = fractionReplace(arrayVal[a]);
+        }
     }
-    val=arrayVal.join(":");
-    tmexp=new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))$/);
-        if(!tmexp.test(val))
-            return false;
-        return true;
+    val = arrayVal.join(":");
+    var tmexp = new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))$/);
+    return tmexp.test(val);
 }
 
 function verificationsAfterFieldChange(urlField, multi_edit, theType)
@@ -157,10 +155,10 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var target = evt.target || evt.srcElement;
 
     // Unchecks the corresponding "NULL" control
-    $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").attr('checked', false);
+    $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").prop('checked', false);
 
     // Unchecks the Ignore checkbox for the current row
-    $("input[name='insert_ignore_" + multi_edit + "']").attr('checked', false);
+    $("input[name='insert_ignore_" + multi_edit + "']").prop('checked', false);
     var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
 
     // Does this field come from datepicker?
@@ -259,7 +257,7 @@ $(document).ready(function() {
     $("input[name='gis_data[save]']").live('click', function(event) {
         var input_name = $('form#gis_data_editor_form').find("input[name='input_name']").val();   
         var $null_checkbox = $("input[name='" + input_name + "']").parents('tr').find('.checkbox_null');
-        $null_checkbox.attr('checked', false);
+        $null_checkbox.prop('checked', false);
     });
 
     // these were hidden via the "hide" class
@@ -441,7 +439,7 @@ $(document).ready(function() {
                     if ($this_element.is('.textfield')) {
                         // do not remove the 'value' attribute for ENUM columns
                         if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
-                            $this_element.attr('value', $this_element.closest('tr').find('span.default_value').html());
+                            $this_element.val($this_element.closest('tr').find('span.default_value').html());
                         }
                         $this_element
                         .unbind('change')
@@ -458,7 +456,7 @@ $(document).ready(function() {
                                 $changed_element.data('hashed_field'),
                                 $changed_element.data('new_row_index'),
                                 $changed_element.closest('tr').find('span.column_type').html()
-                                );
+                            );
                         });
                     }
 
@@ -478,7 +476,7 @@ $(document).ready(function() {
                                     $this_element.closest('tr').find('input:hidden').first().val(),
                                     $changed_element.data('hashed_field'),
                                     '[multi_edit][' + $changed_element.data('new_row_index') + ']'
-                                    );
+                                );
                         });
                     }
                 }) // end each
@@ -502,20 +500,21 @@ $(document).ready(function() {
                 else {
 
                     /**
-                     * @var last_checkbox   Object reference to the last checkbox in #insertForm
+                     * @var $last_checkbox   Object reference to the last checkbox in #insertForm
                      */
-                    var last_checkbox = $("#insertForm").children('input:checkbox:last');
+                    var $last_checkbox = $("#insertForm").children('input:checkbox:last');
 
-                    /** name of {@link last_checkbox} */
-                    var last_checkbox_name = $(last_checkbox).attr('name');
-                    /** index of {@link last_checkbox} */
+                    /** name of {@link $last_checkbox} */
+                    var last_checkbox_name = $last_checkbox.attr('name');
+                    /** index of {@link $last_checkbox} */
                     var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/));
-                    /** name of new {@link last_checkbox} */
+                    /** name of new {@link $last_checkbox} */
                     var new_name = last_checkbox_name.replace(/\d+/,last_checkbox_index+1);
 
-                    $(last_checkbox)
+                    $last_checkbox
                     .clone()
-                    .attr({'id':new_name, 'name': new_name, 'checked': true})
+                    .attr({'id':new_name, 'name': new_name})
+                    .prop('checked', true)
                     .add('label[for^=insert_ignore]:last')
                     .clone()
                     .attr('for', new_name)

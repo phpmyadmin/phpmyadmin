@@ -49,6 +49,6 @@ $(document).ready(function() {
         $('#slave_synchronization_gui').toggle();
         });
     $('#db_reset_href').click(function() {
-        $('#db_select option:selected').attr('selected', false);
+        $('#db_select option:selected').prop('selected', false);
         });
 });

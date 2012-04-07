@@ -228,7 +228,7 @@ $(document).ready(function() {
             // Edit index
             var url = $(this).find("a").attr("href");
             if (url.substring(0, 16) == "tbl_indexes.php?") {
-                url = url.substring(16, url.length );
+                url = url.substring(16, url.length);
             }
             var title = PMA_messages['strEditIndex'];
         }
@@ -395,7 +395,7 @@ $(document).ready(function() {
         };
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true" ,  function(data) {
+        $.get($form.attr('action') , $form.serialize()+"&ajax_request=true" ,  function(data) {
             //in the case of an error, show the error message returned.
             if (data.success != undefined && data.success == false) {
                 $div

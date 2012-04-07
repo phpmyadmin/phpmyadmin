@@ -172,7 +172,7 @@ $(document).ready(function() {
             }
 
             //We also need to post the value of the submit button in order to get this to work correctly
-            $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
+            $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").val(), function(data) {
                 if (data.success == true) {
                     // Refresh navigation, if we created a database with the name
                     // that is the same as the username of the new user
@@ -204,7 +204,7 @@ $(document).ready(function() {
                         url = url + "&ajax_request=true&db_specific=true";
 
                         /* post request for get the updated userForm table */
-                        $.post($form.attr('action' ), url, function(priv_data) {
+                        $.post($form.attr('action'), url, function(priv_data) {
 
                             /*Remove the old userForm table*/
                             if ($('#userFormDiv').length != 0) {
@@ -212,11 +212,11 @@ $(document).ready(function() {
                             } else {
                                 $("#usersForm").remove();
                             }
-                            var user_div = $('<div id="userFormDiv"></div>');
+                            var $user_div = $('<div id="userFormDiv"></div>');
                             /*If the JSON string parsed correctly*/
                             if (typeof priv_data.success != 'undefined') {
                                 if (priv_data.success == true) {
-                                    user_div
+                                    $user_div
                                      .html(priv_data.user_form)
                                      .insertAfter('#result_query');
                                 } else {
@@ -225,7 +225,7 @@ $(document).ready(function() {
                             } else {
                                 /*parse the JSON string*/
                                 var obj = $.parseJSON(priv_data);
-                                user_div
+                                $user_div
                                  .html(obj.user_form)
                                  .insertAfter('#result_query');
                             }
@@ -307,7 +307,7 @@ $(document).ready(function() {
 
         $form = $("#usersForm");
 
-        $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).attr('value') + "&ajax_request=true", function(data) {
+        $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).val() + "&ajax_request=true", function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 // Refresh navigation, if we droppped some databases with the name
@@ -399,19 +399,21 @@ $(document).ready(function() {
 
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
-        $(this).append('<input type="hidden" name="ajax_request" value="true" />');
+        var $t = $(this);
+
+        $t.append('<input type="hidden" name="ajax_request" value="true" />');
 
         /**
          * @var curr_submit_name    name of the current button being submitted
          */
-        var curr_submit_name = $(this).find('.tblFooters').find('input:submit').attr('name');
+        var curr_submit_name = $t.find('.tblFooters').find('input:submit').attr('name');
 
         /**
          * @var curr_submit_value    value of the current button being submitted
          */
-        var curr_submit_value = $(this).find('.tblFooters').find('input:submit').val();
+        var curr_submit_value = $t.find('.tblFooters').find('input:submit').val();
 
-        $.post($(this).attr('action'), $(this).serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function(data) {
+        $.post($t.attr('action'), $t.serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function(data) {
             if(data.success == true) {
 
                 PMA_ajaxShowMessage(data.message);
@@ -425,9 +427,9 @@ $(document).ready(function() {
                     .remove()
                     .end()
                     .after(data.sql_query);
-                    var notice_class = $("#floating_menubar").next("div").find('.notice');
-                    if($(notice_class).text() == '') {
-                        $(notice_class).remove();
+                    var $notice_class = $("#floating_menubar").next("div").find('.notice');
+                    if($notice_class.text() == '') {
+                        $notice_class.remove();
                     }
                 } //Show SQL Query that was executed
 
@@ -590,11 +592,11 @@ $(document).ready(function() {
      * 'Drop the databases...'
      */
     $('#checkbox_drop_users_db').click(function() {
-        $this_checkbox = $(this);
+        var $this_checkbox = $(this);
         if ($this_checkbox.is(':checked')) {
             var is_confirmed = confirm(PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\nDROP DATABASE');
             if (! is_confirmed) {
-                $this_checkbox.attr('checked', false);
+                $this_checkbox.prop('checked', false);
             }
         }
     });

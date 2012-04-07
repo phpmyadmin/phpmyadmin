@@ -1,14 +1,16 @@
 function PMA_queryAutoCommit()
 {
-    document.getElementById('sqlqueryform').target = window.opener.frame_content.name;
-    document.getElementById('sqlqueryform').submit();
+    var sqlqueryform = document.getElementById('sqlqueryform');
+    sqlqueryform.target = window.opener.frame_content.name;
+    sqlqueryform.submit();
     return;
 }
 
 function PMA_querywindowCommit(tab)
 {
-    $('#hiddenqueryform').find("input[name='querydisplay_tab']").attr("value" ,tab);
-    $('#hiddenqueryform').submit();
+    var $hiddenqueryform = $('#hiddenqueryform');
+    $hiddenqueryform.find("input[name='querydisplay_tab']").val(tab);
+    $hiddenqueryform.submit();
     return false;
 }
 
@@ -19,23 +21,26 @@ function PMA_querywindowSetFocus()
 
 function PMA_querywindowResize()
 {
+    var $el = $(this)[0];
+    var $querywindowcontainer = $('#querywindowcontainer');
+
     // for Gecko
-    if (typeof($(this)[0].sizeToContent) == 'function') {
-        $(this)[0].sizeToContent();
+    if (typeof($el.sizeToContent) == 'function') {
+        $el.sizeToContent();
         //self.scrollbars.visible = false;
         // give some more space ... to prevent 'fli(pp/ck)ing'
-        $(this)[0].resizeBy(10, 50);
+        $el.resizeBy(10, 50);
         return;
     }
 
     // for IE, Opera
-    if ($('#querywindowcontainer') != 'undefined') {
+    if ($querywindowcontainer.length) {
         // get content size
-        var newWidth  = $("#querywindowcontainer")[0].offsetWidth;
-        var newHeight = $("#querywindowcontainer")[0].offsetHeight;
+        var newWidth  = $querywindowcontainer.width();
+        var newHeight = $querywindowcontainer.height();
 
         // set size to contentsize
         // plus some offset for scrollbars, borders, statusbar, menus ...
-        $(this)[0].resizeTo(newWidth + 45, newHeight + 75);
+        $el.resizeTo(newWidth + 45, newHeight + 75);
     }
 }

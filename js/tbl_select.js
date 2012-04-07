@@ -130,9 +130,9 @@ $(document).ready(function() {
         // If the chosen function takes two geomerty objects as parameters
         var $operator = $geomFuncSelector.parents('tr').find('td:nth-child(5)').find('select');
         if ($.inArray($geomFuncSelector.val(), binaryFunctions) >= 0){
-            $operator.attr('readonly', true);
+            $operator.prop('readonly', true);
         } else {
-            $operator.attr('readonly', false);
+            $operator.prop('readonly', false);
         }
 
         // if the chosen function's output is a geometry, enable GIS editor
