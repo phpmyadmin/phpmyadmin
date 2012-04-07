@@ -14,7 +14,7 @@ function changePluginOpts()
     $(".format_specific_options").each(function() {
         $(this).hide();
     });
-    var selected_plugin_name = $("#plugins option:selected").attr("value");
+    var selected_plugin_name = $("#plugins option:selected").val();
     $("#" + selected_plugin_name + "_options").fadeIn('slow');
     if(selected_plugin_name == "csv") {
         $("#import_notification").text(PMA_messages['strImportCSV']);
@@ -38,8 +38,8 @@ function matchFile(fname)
         }
         // Only toggle if the format of the file can be imported
         if($("select[name='format'] option").filterByValue(fname_array[len - 1]).length == 1) {
-            $("#plugins option:selected").removeAttr("selected");
-            $("select[name='format'] option").filterByValue(fname_array[len - 1]).attr('selected', 'selected');
+            $("#plugins option:selected").removeProp("selected");
+            $("select[name='format'] option").filterByValue(fname_array[len - 1]).prop('selected', true);
             changePluginOpts();
         }
     }
@@ -54,11 +54,11 @@ $(document).ready(function() {
     });
 
     $("#input_import_file").change(function() {
-        matchFile($(this).attr("value"));
+        matchFile($(this).val());
     });
 
     $("#select_local_import_file").change(function() {
-        matchFile($(this).attr("value"));
+        matchFile($(this).val());
     });
 
     /*
@@ -66,12 +66,12 @@ $(document).ready(function() {
      * form is clicked, the radio button beside it becomes selected and the other form becomes disabled.
      */
     $("#input_import_file").focus(function() {
-         $("#radio_import_file").attr('checked', 'checked');
-         $("#radio_local_import_file").removeAttr('checked');
+         $("#radio_import_file").prop('checked', true);
+         $("#radio_local_import_file").removeProp('checked');
     });
     $("#select_local_import_file").focus(function() {
-         $("#radio_local_import_file").attr('checked', 'checked');
-         $("#radio_import_file").removeAttr('checked');
+         $("#radio_local_import_file").prop('checked', true);
+         $("#radio_import_file").removeProp('checked');
     });
 
     /**

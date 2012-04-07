@@ -172,7 +172,7 @@ $(document).ready(function() {
             }
 
             //We also need to post the value of the submit button in order to get this to work correctly
-            $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
+            $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").val(), function(data) {
                 if (data.success == true) {
                     // Refresh navigation, if we created a database with the name
                     // that is the same as the username of the new user
@@ -204,7 +204,7 @@ $(document).ready(function() {
                         url = url + "&ajax_request=true&db_specific=true";
 
                         /* post request for get the updated userForm table */
-                        $.post($form.attr('action' ), url, function(priv_data) {
+                        $.post($form.attr('action'), url, function(priv_data) {
 
                             /*Remove the old userForm table*/
                             if ($('#userFormDiv').length != 0) {
@@ -307,7 +307,7 @@ $(document).ready(function() {
 
         $form = $("#usersForm");
 
-        $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).attr('value') + "&ajax_request=true", function(data) {
+        $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).val() + "&ajax_request=true", function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 // Refresh navigation, if we droppped some databases with the name
@@ -594,7 +594,7 @@ $(document).ready(function() {
         if ($this_checkbox.is(':checked')) {
             var is_confirmed = confirm(PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\nDROP DATABASE');
             if (! is_confirmed) {
-                $this_checkbox.attr('checked', false);
+                $this_checkbox.prop('checked', false);
             }
         }
     });

@@ -318,7 +318,7 @@ $(document).ready(function() {
         var yChange = false;
         for (key in selectedRow) {
             var oldVal = selectedRow[key];
-            var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
+            var newVal = ($('#fields_null_id_' + it).prop('checked')) ? null : $('#fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
                 newVal =  $('#fieldID_' + it).map(function(){
                     return $(this).val();
@@ -602,11 +602,11 @@ $(document).ready(function() {
                                         $field = $('#fieldID_' + fid);
                                         $field_null = $('#fields_null_id_' + fid);
                                         if (data.row_info[key] == null) {
-                                            $field_null.attr('checked', true);
+                                            $field_null.prop('checked', true);
                                             $field.val('');
                                         } else {
-                                            $field_null.attr('checked', false);
-                                            if ($field.attr('multiple')) { // when the column is of type SET
+                                            $field_null.prop('checked', false);
+                                            if ($field.prop('multiple')) { // when the column is of type SET
                                                 $field.val(data.row_info[key].split(','));
                                             } else {
                                                 $field.val(data.row_info[key]);

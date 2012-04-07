@@ -39,7 +39,7 @@ $(function() {
         var name = location.hash.substr(1).split('=')[1];
         // Only allow variable names
         if (! name.match(/[^0-9a-zA-Z_]+/)) {
-            $('#filterText').attr('value',name).trigger('keyup');
+            $('#filterText').val(name).trigger('keyup');
         }
     }
     
@@ -141,7 +141,7 @@ function editVariable(link)
                 ajax_request: true,
                 type: 'setval',
                 varName: varName,
-                varValue: $cell.find('input').attr('value')
+                varValue: $cell.find('input').val()
             }, function(data) {
                 if (data.success) {
                     $cell.html(data.variable);
