@@ -38,7 +38,6 @@ function matchFile(fname)
         }
         // Only toggle if the format of the file can be imported
         if($("select[name='format'] option").filterByValue(fname_array[len - 1]).length == 1) {
-            $("#plugins option:selected").removeProp("selected");
             $("select[name='format'] option").filterByValue(fname_array[len - 1]).prop('selected', true);
             changePluginOpts();
         }
@@ -65,7 +64,7 @@ $(document).ready(function() {
      * When the "Browse the server" form is clicked or the "Select from the web server upload directory"
      * form is clicked, the radio button beside it becomes selected and the other form becomes disabled.
      */
-    $("#input_import_file").focus(function() {
+    $("#input_import_file").bind("focus change", function() {
          $("#radio_import_file").prop('checked', true);
          $("#radio_local_import_file").removeProp('checked');
     });
