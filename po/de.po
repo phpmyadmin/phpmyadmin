@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-06 16:48+0200\n"
+"PO-Revision-Date: 2012-04-06 16:49+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -13246,7 +13246,7 @@ msgstr "InnoDB ist in der Regel die bessere Wahl für Tabelle Designer."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr "have_innodb ist auf 'value' eingestellt."
+msgstr "have_innodb ist auf 'value' eingestellt"
 
 #: po/advisory_rules.php:255
 #| msgid "Buffer pool size"
