@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-07 16:31+0200\n"
+"PO-Revision-Date: 2012-04-07 16:53+0200\n"
 "Last-Translator: Asle Ommundsen <aommundsen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1210,17 +1210,16 @@ msgstr "Spørringer siden sist oppdatering"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Spørringer (executed statements av serveren)"
 
 #: js/messages.php:87 server_status.php:777
 msgid "Query statistics"
 msgstr "Spørringsstatistikk"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Kunne ikke lagre konfigurasjonen"
+msgstr "Lokal monitor-konfigurasjon er inkompatibel"
 
 #: js/messages.php:91
 msgid ""
@@ -1231,34 +1230,31 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Spørringsmellomlager"
+msgstr "Spørringsmellomlager effektivitet"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Spørringsmellomlager"
+msgstr "Spørringsmellomlager bruk"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Spørringsmellomlager"
+msgstr "Spørringsmellomlager brukt"
 
 #: js/messages.php:97
 msgid "System CPU Usage"
-msgstr ""
+msgstr "System CPU-bruk"
 
 #: js/messages.php:98
 msgid "System memory"
-msgstr ""
+msgstr "Systemminne"
 
 #: js/messages.php:99
 msgid "System swap"
-msgstr ""
+msgstr "System swap"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
@@ -1274,61 +1270,56 @@ msgstr "KiB"
 
 #: js/messages.php:103
 msgid "Average load"
-msgstr ""
+msgstr "Gjennomsnittlig load"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
-msgstr "Antall loggfiler"
+msgstr "Totalt minne"
 
 #: js/messages.php:105
 msgid "Cached memory"
-msgstr ""
+msgstr "Hurtigbuffer minne"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Mellomlager"
+msgstr "Mellomlager minne"
 
 #: js/messages.php:107
 msgid "Free memory"
-msgstr ""
+msgstr "Ubrukt minne"
 
 #: js/messages.php:108
 msgid "Used memory"
-msgstr ""
+msgstr "Brukt minne"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Totalt"
+msgstr "Totalt swap"
 
 #: js/messages.php:111
 msgid "Cached Swap"
-msgstr ""
+msgstr "Cached swap"
 
 #: js/messages.php:112
 msgid "Used Swap"
-msgstr ""
+msgstr "Brukt swap"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Ledige sider"
+msgstr "Ledig swap"
 
 #: js/messages.php:115
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes sendt"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Mottatt"
+msgstr "Bytes mottatt"
 
 #: js/messages.php:117 server_status.php:1137
 msgid "Connections"
@@ -1360,18 +1351,17 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s tabell"
+msgstr "%d tabell(er)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:131
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Versjoner"
+msgstr "Spørringer"
 
 #: js/messages.php:132 server_status.php:1092
 msgid "Traffic"
@@ -1383,24 +1373,22 @@ msgid "Settings"
 msgstr "Innstillinger"
 
 #: js/messages.php:134
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Fjern database"
+msgstr "Fjern graf"
 
 #: js/messages.php:135
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Rediger tittel og etiketter"
 
 #: js/messages.php:136
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Lås til ruter"
+msgstr "Legg graf til grid"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Legg minst én variabel til serien"
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
@@ -1412,35 +1400,35 @@ msgstr "Ingen"
 
 #: js/messages.php:140
 msgid "Resume monitor"
-msgstr ""
+msgstr "Gjenoppta monitor"
 
 #: js/messages.php:141
 msgid "Pause monitor"
-msgstr ""
+msgstr "Pause monitor"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log og slow_query_log er aktivert."
 
 #: js/messages.php:144
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log er aktivert."
 
 #: js/messages.php:145
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log er aktivert."
 
 #: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log og general_log er deaktivert."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output er ikke satt til TABLE."
 
 #: js/messages.php:148
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output er satt til TABLE."
 
 #: js/messages.php:149
 #, php-format
@@ -1449,17 +1437,22 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log er aktivert, men serveren loggfører kun spørringer som tar "
+"lenger enn %d sekunder. Avhengig av ditt system, er det tilrådelig å sette "
+"long_query_time til 0-2 sekunder."
 
 #: js/messages.php:150
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time er satt til %d sekund(er)."
 
 #: js/messages.php:151
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Følgende innstillinger blir lagt til globalt og endret til default ved "
+"omstart av server:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
