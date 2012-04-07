@@ -63,7 +63,7 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
         newRow.setAttribute("class", row_class);
         newRow.className = row_class;
         // Id assigned to this row element is same as the index of this table name in the  matching_tables/source_tables_uncommon array
-        newRow.setAttribute("id" , i);
+        newRow.setAttribute("id", i);
 
         var table_name_cell = document.createElement("td");
         table_name_cell.align = "center";
@@ -207,10 +207,10 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
         {
             row_class_element = table_rows[index].getAttribute('class');
             if (row_class_element == "even") {
-                table_rows[index].setAttribute("class","odd");  // for Mozilla firefox
+                table_rows[index].setAttribute("class", "odd");  // for Mozilla firefox
                 table_rows[index].className = "odd";            // for IE browser
             } else {
-                table_rows[index].setAttribute("class","even"); // for Mozilla firefox
+                table_rows[index].setAttribute("class", "even"); // for Mozilla firefox
                 table_rows[index].className = "even";           // for IE browser
             }
         }

@@ -541,10 +541,10 @@ $(document).ready(function() {
             var $checkbox = $tr.find(':checkbox');
             if ($checkbox.length) {
                 // checkbox in a row, add or remove class depending on checkbox state
-                var checked = $checkbox.attr('checked');
+                var checked = $checkbox.prop('checked');
                 if (!$(e.target).is(':checkbox, label')) {
                     checked = !checked;
-                    $checkbox.attr('checked', checked);
+                    $checkbox.prop('checked', checked);
                 }
                 if (checked) {
                     $tr.addClass('marked');
@@ -579,7 +579,7 @@ $(document).ready(function() {
                     .slice(start, end + 1)
                     .removeClass('marked')
                     .find(':checkbox')
-                    .attr('checked', false);
+                    .prop('checked', false);
             }
 
             // handle new shift click
@@ -595,7 +595,7 @@ $(document).ready(function() {
                 .slice(start, end + 1)
                 .addClass('marked')
                 .find(':checkbox')
-                .attr('checked', true);
+                .prop('checked', true);
 
             // remember the last shift clicked row
             last_shift_clicked_row = curr_row;
@@ -655,7 +655,7 @@ var marked_row = new Array;
 function markAllRows( container_id )
 {
 
-    $("#"+container_id).find("input:checkbox:enabled").attr('checked', 'checked')
+    $("#"+container_id).find("input:checkbox:enabled").prop('checked', true)
     .parents("tr").addClass("marked");
     return true;
 }
@@ -669,7 +669,7 @@ function markAllRows( container_id )
 function unMarkAllRows( container_id )
 {
 
-    $("#"+container_id).find("input:checkbox:enabled").removeAttr('checked')
+    $("#"+container_id).find("input:checkbox:enabled").removeProp('checked')
     .parents("tr").removeClass("marked");
     return true;
 }
@@ -685,10 +685,10 @@ function setCheckboxes( container_id, state )
 {
 
     if (state) {
-        $("#"+container_id).find("input:checkbox").attr('checked', 'checked');
+        $("#"+container_id).find("input:checkbox").prop('checked', true);
     }
     else {
-        $("#"+container_id).find("input:checkbox").removeAttr('checked');
+        $("#"+container_id).find("input:checkbox").removeProp('checked');
     }
 
     return true;
@@ -705,7 +705,7 @@ function setCheckboxes( container_id, state )
   */
 function setSelectOptions(the_form, the_select, do_check)
 {
-    $("form[name='"+ the_form +"'] select[name='"+the_select+"']").find("option").attr('selected', do_check);
+    $("form[name='"+ the_form +"'] select[name='"+the_select+"']").find("option").prop('selected', do_check);
     return true;
 } // end of the 'setSelectOptions()' function
 
@@ -832,8 +832,8 @@ function goToUrl(selObj, goToLocation)
   */
 function refreshDragOption(e)
 {
-    var elm = $('#' + e);
-    if (elm.css('visibility') == 'visible') {
+    var $elm = $('#' + e);
+    if ($elm.css('visibility') == 'visible') {
         refreshLayout();
         TableDragInit();
     }
@@ -844,7 +844,7 @@ function refreshDragOption(e)
   */
 function refreshLayout()
 {
-    var elm = $('#pdflayout');
+    var $elm = $('#pdflayout');
     var orientation = $('#orientation_opt').val();
     if ($('#paper_opt').length==1) {
         var paper = $('#paper_opt').val();
@@ -858,8 +858,8 @@ function refreshLayout()
         posa = 'y';
         posb = 'x';
     }
-    elm.css('width', pdfPaperSize(paper, posa) + 'px');
-    elm.css('height', pdfPaperSize(paper, posb) + 'px');
+    $elm.css('width', pdfPaperSize(paper, posa) + 'px');
+    $elm.css('height', pdfPaperSize(paper, posb) + 'px');
 }
 
 /**
@@ -867,15 +867,15 @@ function refreshLayout()
   */
 function ToggleDragDrop(e)
 {
-    var elm = $('#' + e);
-    if (elm.css('visibility') == 'hidden') {
+    var $elm = $('#' + e);
+    if ($elm.css('visibility') == 'hidden') {
         PDFinit(); /* Defined in pdf_pages.php */
-        elm.css('visibility', 'visible');
-        elm.css('display', 'block');
+        $elm.css('visibility', 'visible');
+        $elm.css('display', 'block');
         $('#showwysiwyg').val('1');
     } else {
-        elm.css('visibility', 'hidden');
-        elm.css('display', 'none');
+        $elm.css('visibility', 'hidden');
+        $elm.css('display', 'none');
         $('#showwysiwyg').val('0');
     }
 }
@@ -886,11 +886,11 @@ function ToggleDragDrop(e)
   */
 function dragPlace(no, axis, value)
 {
-    var elm = $('#table_' + no);
+    var $elm = $('#table_' + no);
     if (axis == 'x') {
-        elm.css('left', value + 'px');
+        $elm.css('left', value + 'px');
     } else {
-        elm.css('top', value + 'px');
+        $elm.css('top', value + 'px');
     }
 }
 
@@ -1110,39 +1110,38 @@ $(document).ready(function() {
 
     $("#export_type").change(function() {
         if ($("#export_type").val()=='svg') {
-            $("#show_grid_opt").attr("disabled","disabled");
-            $("#orientation_opt").attr("disabled","disabled");
-            $("#with_doc").attr("disabled","disabled");
-            $("#show_table_dim_opt").removeAttr("disabled");
-            $("#all_table_same_wide").removeAttr("disabled");
-            $("#paper_opt").removeAttr("disabled","disabled");
-            $("#show_color_opt").removeAttr("disabled","disabled");
+            $("#show_grid_opt").prop("disabled",true);
+            $("#orientation_opt").prop("disabled",true);
+            $("#with_doc").prop("disabled",true);
+            $("#show_table_dim_opt").removeProp("disabled");
+            $("#all_table_same_wide").removeProp("disabled");
+            $("#paper_opt").removeProp("disabled");
+            $("#show_color_opt").removeProp("disabled");
             //$(this).css("background-color","yellow");
         } else if ($("#export_type").val()=='dia') {
-            $("#show_grid_opt").attr("disabled","disabled");
-            $("#with_doc").attr("disabled","disabled");
-            $("#show_table_dim_opt").attr("disabled","disabled");
-            $("#all_table_same_wide").attr("disabled","disabled");
-            $("#paper_opt").removeAttr("disabled","disabled");
-            $("#show_color_opt").removeAttr("disabled","disabled");
-            $("#orientation_opt").removeAttr("disabled","disabled");
+            $("#show_grid_opt").prop("disabled",true);
+            $("#with_doc").prop("disabled",true);
+            $("#show_table_dim_opt").prop("disabled",true);
+            $("#all_table_same_wide").prop("disabled",true);
+            $("#paper_opt").removeProp("disabled");
+            $("#show_color_opt").removeProp("disabled");
+            $("#orientation_opt").removeProp("disabled");
         } else if ($("#export_type").val()=='eps') {
-            $("#show_grid_opt").attr("disabled","disabled");
-            $("#orientation_opt").removeAttr("disabled");
-            $("#with_doc").attr("disabled","disabled");
-            $("#show_table_dim_opt").attr("disabled","disabled");
-            $("#all_table_same_wide").attr("disabled","disabled");
-            $("#paper_opt").attr("disabled","disabled");
-            $("#show_color_opt").attr("disabled","disabled");
-
+            $("#show_grid_opt").prop("disabled",true);
+            $("#orientation_opt").removeProp("disabled");
+            $("#with_doc").prop("disabled",true);
+            $("#show_table_dim_opt").prop("disabled",true);
+            $("#all_table_same_wide").prop("disabled",true);
+            $("#paper_opt").prop("disabled",true);
+            $("#show_color_opt").prop("disabled",true);
         } else if ($("#export_type").val()=='pdf') {
-            $("#show_grid_opt").removeAttr("disabled");
-            $("#orientation_opt").removeAttr("disabled");
-            $("#with_doc").removeAttr("disabled","disabled");
-            $("#show_table_dim_opt").removeAttr("disabled","disabled");
-            $("#all_table_same_wide").removeAttr("disabled","disabled");
-            $("#paper_opt").removeAttr("disabled","disabled");
-            $("#show_color_opt").removeAttr("disabled","disabled");
+            $("#show_grid_opt").removeProp("disabled");
+            $("#orientation_opt").removeProp("disabled");
+            $("#with_doc").removeProp("disabled");
+            $("#show_table_dim_opt").removeProp("disabled");
+            $("#all_table_same_wide").removeProp("disabled");
+            $("#paper_opt").removeProp("disabled");
+            $("#show_color_opt").removeProp("disabled");
         } else {
             // nothing
         }
@@ -2193,7 +2192,7 @@ $(document).ready(function() {
     $("#copyTable.ajax input[name='submit_copy']").live('click', function(event) {
         event.preventDefault();
         var $form = $("#copyTable");
-        if ($form.find("input[name='switch_to_new']").attr('checked')) {
+        if ($form.find("input[name='switch_to_new']").prop('checked')) {
             $form.append('<input type="hidden" name="submit_copy" value="Go" />');
             $form.removeClass('ajax');
             $form.find("#ajax_request_hidden").remove();
@@ -2214,7 +2213,7 @@ $(document).ready(function() {
                     $("#sqlqueryresults").html(data.sql_query);
                     $("#result_query .notice").remove();
                     $("#result_query").prepend((data.message));
-                    $("#copyTable").find("select[name='target_db'] option").filterByValue(data.db).attr('selected', 'selected');
+                    $("#copyTable").find("select[name='target_db'] option").filterByValue(data.db).prop('selected', true);
 
                     //Refresh navigation frame when the table is coppied
                     if (window.parent && window.parent.frame_navigation) {
@@ -2334,8 +2333,8 @@ $(document).ready(function() {
                 .removeClass('odd even');
 
                 var $databases_count_object = $('#databases_count');
-                var databases_count = parseInt($databases_count_object.text());
-                $databases_count_object.text(++databases_count);
+                var databases_count = parseInt($databases_count_object.text()) + 1;
+                $databases_count_object.text(databases_count);
                 //Refresh navigation frame as a new database has been added
                 if (window.parent && window.parent.frame_navigation) {
                     window.parent.frame_navigation.location.reload();
@@ -2373,9 +2372,9 @@ $(document).ready(function() {
             event.preventDefault();
 
             /**
-             * @var the_form    Object referring to the change password form
+             * @var $the_form    Object referring to the change password form
              */
-            var the_form = $("#change_password_form");
+            var $the_form = $("#change_password_form");
 
             /**
              * @var this_value  String containing the value of the submit button.
@@ -2385,9 +2384,9 @@ $(document).ready(function() {
             var this_value = $(this).val();
 
             var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+            $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
 
-            $.post($(the_form).attr('action'), $(the_form).serialize() + '&change_pw='+ this_value, function(data) {
+            $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw='+ this_value, function(data) {
                 if (data.success == true) {
                     $("#floating_menubar").after(data.sql_query);
                     $("#change_password_dialog").hide().remove();
@@ -2473,7 +2472,7 @@ function PMA_hideShowDefaultValue($default_type)
         $default_type.siblings('.default_value').hide();
         if ($default_type.val() == 'NULL') {
             var $null_checkbox = $default_type.closest('tr').find('.allow_null');
-            $null_checkbox.attr('checked', true);
+            $null_checkbox.prop('checked', true);
         }
     }
 }
@@ -2483,7 +2482,7 @@ function PMA_hideShowDefaultValue($default_type)
  */
 function PMA_validateDefaultValue($null_checkbox)
 {
-    if (! $null_checkbox.attr('checked')) {
+    if (! $null_checkbox.prop('checked')) {
         $default = $null_checkbox.closest('tr').find('.default_type');
         if ($default.val() == 'NULL') {
             $default.val('NONE');
@@ -2600,8 +2599,8 @@ $(document).ready(function() {
                 value_array.push("'" + val + "'");
             });
             // get the Length/Values text field where this value belongs
-            var values_id = $(this).find("input[type='hidden']").attr("value");
-            $("input#" + values_id).attr("value", value_array.join(","));
+            var values_id = $(this).find("input[type='hidden']").val();
+            $("input#" + values_id).val(value_array.join(","));
             $(this).dialog("close");
         };
         buttonOptions[PMA_messages['strClose']] = function () {
@@ -2772,7 +2771,7 @@ function checkIndexName(form_id)
     // Index is a primary key
     if ($the_idx_type.find("option:selected").val() == 'PRIMARY') {
         $the_idx_name.val('PRIMARY');
-        $the_idx_name.attr("disabled", true);
+        $the_idx_name.prop("disabled", true);
     }
 
     // Other cases
@@ -2780,7 +2779,7 @@ function checkIndexName(form_id)
         if ($the_idx_name.val() == 'PRIMARY') {
             $the_idx_name.val("");
         }
-        $the_idx_name.attr("disabled", false);
+        $the_idx_name.prop("disabled", false);
     }
 
     return true;
@@ -2860,16 +2859,16 @@ function menuResize()
 
     // Calculate the total width used by all the shown tabs
     var total_len = more_shown ? submenu_w : 0;
-    for (var i = 0; i < $li.length-1; i++) {
+    var l = $li.length - 1;
+    for (var i = 0; i < l; i++) {
         total_len += $($li[i]).outerWidth(true);
     }
 
     // Now hide menu elements that don't fit into the menubar
-    var i = $li.length-1;
     var hidden = false; // Whether we have hidden any tabs
-    while (total_len >= wmax && --i >= 0) { // Process the tabs backwards
+    while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
         hidden = true;
-        var el = $($li[i]);
+        var el = $($li[l]);
         var el_width = el.outerWidth(true);
         el.data('width', el_width);
         if (! more_shown) {
@@ -2886,7 +2885,7 @@ function menuResize()
     // If we didn't hide any tabs, then there might be some space to show some
     if (! hidden) {
         // Show menu elements that do fit into the menubar
-        for (var i = 0; i < $li2.length; i++) {
+        for (var i = 0, l = $li2.length; i < l; i++) {
             total_len += $($li2[i]).data('width');
             // item fits or (it is the last item
             // and it would fit if More got removed)
@@ -3175,10 +3174,10 @@ $(document).ready(function() {
         var $checkbox = $('.vmarker').filter('.row_' + row_num + ':first').find(':checkbox');
         if ($checkbox.length) {
             // checkbox in a row, add or remove class depending on checkbox state
-            var checked = $checkbox.attr('checked');
+            var checked = $checkbox.prop('checked');
             if (!$(e.target).is(':checkbox, label')) {
                 checked = !checked;
-                $checkbox.attr('checked', checked);
+                $checkbox.prop('checked', checked);
             }
             // for all td of the same vertical row, toggle the marked class
             if (checked) {
@@ -3446,7 +3445,7 @@ $(document).ready(function() {
                 if ($.browser.msie || $.browser.safari) $(this).unbind('selectstart');
                 else if ($.browser.mozilla) $(this).css('MozUserSelect', 'inherit');
                 else if ($.browser.opera) $(this).unbind('mousedown');
-                else $(this).removeAttr('unselectable', 'on');
+                else $(this).removeAttr('unselectable');
             });
         }
     }; //end noSelect
@@ -3510,23 +3509,25 @@ function PMA_createqTip($elements, content, options)
  * Return value of a cell in a table.
  */
 function PMA_getCellValue(td) {
-    if ($(td).is('.null')) {
+    var $td = $(td);
+    if ($td.is('.null')) {
         return '';
-    } else if (! $(td).is('.to_be_saved') && $(td).data('original_data')) {
-        return $(td).data('original_data');
+    } else if (! $td.is('.to_be_saved') && $td.data('original_data')) {
+        return $td.data('original_data');
     } else {
-        return $(td).text();
+        return $td.text();
     }
 }
 
 /* Loads a js file, an array may be passed as well */
 loadJavascript=function(file) {
+    var $head = $('head');
     if ($.isArray(file)) {
-        for(var i=0; i<file.length; i++) {
-            $('head').append('<script type="text/javascript" src="'+file[i]+'"></script>');
+        for(var i=0, l=file.length; i<l; i++) {
+            $head.append('<script type="text/javascript" src="'+file[i]+'"></script>');
         }
     } else {
-        $('head').append('<script type="text/javascript" src="'+file+'"></script>');
+        $head.append('<script type="text/javascript" src="'+file+'"></script>');
     }
 };
 
