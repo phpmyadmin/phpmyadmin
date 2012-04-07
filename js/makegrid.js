@@ -251,11 +251,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             var $firstRowCols = $(g.t).find('tr:first th.draggable:visible');
             var $resizeHandles = $(g.cRsz).find('div').removeClass('condition');
             $('.pma_table').find('thead th:first').removeClass('before-condition');
-            for (var n = 0; n < $firstRowCols.length; n++) {
+            for (var n = 0, l = $firstRowCols.length; n < l; n++) {
                 var $col = $($firstRowCols[n]);
                 $($resizeHandles[n]).css('left', $col.position().left + $col.outerWidth(true))
                    .show();
-                if ($($firstRowCols[n]).hasClass('condition')) {
+                if ($col.hasClass('condition')) {
                     $($resizeHandles[n]).addClass('condition');
                     if (n > 0) {
                         $($resizeHandles[n-1]).addClass('condition');
@@ -1044,7 +1044,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             /**
              * @var where_clause Array containing where clause for updated fields
              */
-            var full_where_clause = Array();
+            var full_where_clause = [];
             /**
              * @var is_unique   Boolean, whether the rows in this table is unique or not
              */
@@ -1052,9 +1052,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             /**
              * multi edit variables
              */
-            var me_fields_name = Array();
-            var me_fields = Array();
-            var me_fields_null = Array();
+            var me_fields_name = [];
+            var me_fields = [];
+            var me_fields_null = [];
 
             // alert user if edited table is not unique
             if (!is_unique) {
@@ -1072,9 +1072,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                  * multi edit variables, for current row
                  * @TODO array indices are still not correct, they should be md5 of field's name
                  */
-                var fields_name = Array();
-                var fields = Array();
-                var fields_null = Array();
+                var fields_name = [];
+                var fields = [];
+                var fields_null = [];
 
                 // loop each edited cell in a row
                 $tr.find('.to_be_saved').each(function() {
@@ -1182,7 +1182,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             if (!g.saveCellsAtOnce) {
                 $(g.cEdit).find('*').prop('disabled', true);
-                var $editArea = $(g.cEdit).find('.edit_area');
                 $(g.cEdit).find('.edit_box').addClass('edit_box_posting');
             } else {
                 $('.save_edited').addClass('saving_edited_data')

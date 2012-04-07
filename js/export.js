@@ -153,7 +153,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $("#plugins").change(function() {
         var active_plugin = $("#plugins option:selected").val();
-         var force_file = $("#force_file_" + active_plugin).val();
+        var force_file = $("#force_file_" + active_plugin).val();
         if(force_file == "true") {
             $("#radio_view_as_text").prop('disabled', true);
             $("#radio_view_as_text").parent().fadeTo('fast', 0.4);

@@ -832,8 +832,8 @@ function goToUrl(selObj, goToLocation)
   */
 function refreshDragOption(e)
 {
-    var elm = $('#' + e);
-    if (elm.css('visibility') == 'visible') {
+    var $elm = $('#' + e);
+    if ($elm.css('visibility') == 'visible') {
         refreshLayout();
         TableDragInit();
     }
@@ -844,7 +844,7 @@ function refreshDragOption(e)
   */
 function refreshLayout()
 {
-    var elm = $('#pdflayout');
+    var $elm = $('#pdflayout');
     var orientation = $('#orientation_opt').val();
     if ($('#paper_opt').length==1) {
         var paper = $('#paper_opt').val();
@@ -858,8 +858,8 @@ function refreshLayout()
         posa = 'y';
         posb = 'x';
     }
-    elm.css('width', pdfPaperSize(paper, posa) + 'px');
-    elm.css('height', pdfPaperSize(paper, posb) + 'px');
+    $elm.css('width', pdfPaperSize(paper, posa) + 'px');
+    $elm.css('height', pdfPaperSize(paper, posb) + 'px');
 }
 
 /**
@@ -867,15 +867,15 @@ function refreshLayout()
   */
 function ToggleDragDrop(e)
 {
-    var elm = $('#' + e);
-    if (elm.css('visibility') == 'hidden') {
+    var $elm = $('#' + e);
+    if ($elm.css('visibility') == 'hidden') {
         PDFinit(); /* Defined in pdf_pages.php */
-        elm.css('visibility', 'visible');
-        elm.css('display', 'block');
+        $elm.css('visibility', 'visible');
+        $elm.css('display', 'block');
         $('#showwysiwyg').val('1');
     } else {
-        elm.css('visibility', 'hidden');
-        elm.css('display', 'none');
+        $elm.css('visibility', 'hidden');
+        $elm.css('display', 'none');
         $('#showwysiwyg').val('0');
     }
 }
@@ -886,11 +886,11 @@ function ToggleDragDrop(e)
   */
 function dragPlace(no, axis, value)
 {
-    var elm = $('#table_' + no);
+    var $elm = $('#table_' + no);
     if (axis == 'x') {
-        elm.css('left', value + 'px');
+        $elm.css('left', value + 'px');
     } else {
-        elm.css('top', value + 'px');
+        $elm.css('top', value + 'px');
     }
 }
 
@@ -2333,8 +2333,8 @@ $(document).ready(function() {
                 .removeClass('odd even');
 
                 var $databases_count_object = $('#databases_count');
-                var databases_count = parseInt($databases_count_object.text());
-                $databases_count_object.text(++databases_count);
+                var databases_count = parseInt($databases_count_object.text()) + 1;
+                $databases_count_object.text(databases_count);
                 //Refresh navigation frame as a new database has been added
                 if (window.parent && window.parent.frame_navigation) {
                     window.parent.frame_navigation.location.reload();
@@ -2372,9 +2372,9 @@ $(document).ready(function() {
             event.preventDefault();
 
             /**
-             * @var the_form    Object referring to the change password form
+             * @var $the_form    Object referring to the change password form
              */
-            var the_form = $("#change_password_form");
+            var $the_form = $("#change_password_form");
 
             /**
              * @var this_value  String containing the value of the submit button.
@@ -2384,9 +2384,9 @@ $(document).ready(function() {
             var this_value = $(this).val();
 
             var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $(the_form).append('<input type="hidden" name="ajax_request" value="true" />');
+            $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
 
-            $.post($(the_form).attr('action'), $(the_form).serialize() + '&change_pw='+ this_value, function(data) {
+            $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw='+ this_value, function(data) {
                 if (data.success == true) {
                     $("#floating_menubar").after(data.sql_query);
                     $("#change_password_dialog").hide().remove();
@@ -2859,16 +2859,16 @@ function menuResize()
 
     // Calculate the total width used by all the shown tabs
     var total_len = more_shown ? submenu_w : 0;
-    for (var i = 0; i < $li.length-1; i++) {
+    var l = $li.length - 1;
+    for (var i = 0; i < l; i++) {
         total_len += $($li[i]).outerWidth(true);
     }
 
     // Now hide menu elements that don't fit into the menubar
-    var i = $li.length-1;
     var hidden = false; // Whether we have hidden any tabs
-    while (total_len >= wmax && --i >= 0) { // Process the tabs backwards
+    while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
         hidden = true;
-        var el = $($li[i]);
+        var el = $($li[l]);
         var el_width = el.outerWidth(true);
         el.data('width', el_width);
         if (! more_shown) {
@@ -2885,7 +2885,7 @@ function menuResize()
     // If we didn't hide any tabs, then there might be some space to show some
     if (! hidden) {
         // Show menu elements that do fit into the menubar
-        for (var i = 0; i < $li2.length; i++) {
+        for (var i = 0, l = $li2.length; i < l; i++) {
             total_len += $($li2[i]).data('width');
             // item fits or (it is the last item
             // and it would fit if More got removed)
@@ -3509,24 +3509,25 @@ function PMA_createqTip($elements, content, options)
  * Return value of a cell in a table.
  */
 function PMA_getCellValue(td) {
-    if ($(td).is('.null')) {
+    var $td = $(td);
+    if ($td.is('.null')) {
         return '';
-    } else if (! $(td).is('.to_be_saved') && $(td).data('original_data')) {
-        return $(td).data('original_data');
+    } else if (! $td.is('.to_be_saved') && $td.data('original_data')) {
+        return $td.data('original_data');
     } else {
-        return $(td).text();
+        return $td.text();
     }
 }
 
 /* Loads a js file, an array may be passed as well */
 loadJavascript=function(file) {
-    var head = $('head');
+    var $head = $('head');
     if ($.isArray(file)) {
         for(var i=0, l=file.length; i<l; i++) {
-            head.append('<script type="text/javascript" src="'+file[i]+'"></script>');
+            $head.append('<script type="text/javascript" src="'+file[i]+'"></script>');
         }
     } else {
-        head.append('<script type="text/javascript" src="'+file+'"></script>');
+        $head.append('<script type="text/javascript" src="'+file+'"></script>');
     }
 };
 

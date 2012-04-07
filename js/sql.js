@@ -371,7 +371,7 @@ $(document).ready(function() {
 
         /*Check whether atleast one row is selected for change*/
         if ($("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
-            var div = $('<div id="change_row_dialog"></div>');
+            var $div = $('<div id="change_row_dialog"></div>');
 
             /**
              *  @var    button_options  Object that stores the options passed to jQueryUI
@@ -389,7 +389,7 @@ $(document).ready(function() {
             $.get($form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function(data) {
                 //in the case of an error, show the error message returned.
                 if (data.success != undefined && data.success == false) {
-                    div
+                    $div
                     .append(data.error)
                     .dialog({
                         title: PMA_messages['strChangeTbl'],
@@ -402,7 +402,7 @@ $(document).ready(function() {
                         buttons : button_options_error
                     }); // end dialog options
                 } else {
-                    div
+                    $div
                     .append(data)
                     .dialog({
                         title: PMA_messages['strChangeTbl'],

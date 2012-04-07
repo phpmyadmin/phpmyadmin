@@ -228,7 +228,7 @@ $(document).ready(function() {
             // Edit index
             var url = $(this).find("a").attr("href");
             if (url.substring(0, 16) == "tbl_indexes.php?") {
-                url = url.substring(16, url.length );
+                url = url.substring(16, url.length);
             }
             var title = PMA_messages['strEditIndex'];
         }

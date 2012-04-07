@@ -4,9 +4,17 @@ $(function() {
     $('div#statustabs_charting img#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
     if (! codemirror_editor) {
-        var elm = $('#sqlquery');
-        if (elm.length > 0 && typeof CodeMirror != 'undefined') {
-            codemirror_editor = CodeMirror.fromTextArea(elm[0], { lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql" });
+        var $elm = $('#sqlquery');
+        if ($elm.length > 0 && typeof CodeMirror != 'undefined') {
+            codemirror_editor = CodeMirror.fromTextArea(
+                $elm[0],
+                {
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    indentUnit: 4,
+                    mode: "text/x-mysql"
+                }
+            );
         }
     }
     // Timepicker is loaded on demand so we need to initialize datetime fields from the 'load log' dialog

@@ -159,9 +159,9 @@ function PMA_setCookie(name, value, expires, path, domain, secure)
  */
 function fast_filter(value)
 {
-    lowercase_value = value.toLowerCase();
-    $("#subel0 a[class!='tableicon']").each(function(idx,elem){
-        $elem = $(elem);
+    var lowercase_value = value.toLowerCase();
+    $("#subel0 a[class!='tableicon']").each(function(idx, elem) {
+        var $elem = $(elem);
         // .indexOf is case sensitive so convert to lowercase to compare
         if (value && $elem.html().toLowerCase().indexOf(lowercase_value) == -1) {
             $elem.parent().hide();

@@ -138,17 +138,15 @@ function isDate(val,tmstmp)
 */
 function isTime(val)
 {
-    var arrayVal=val.split(":");
-    for(var a=0;a<arrayVal.length;a++)
-    {
-        if(arrayVal[a].length==1)
-            arrayVal[a]=fractionReplace(arrayVal[a]);
+    var arrayVal = val.split(":");
+    for (var a = 0, l = arrayVal.length; a < l; a++) {
+        if (arrayVal[a].length == 1) {
+            arrayVal[a] = fractionReplace(arrayVal[a]);
+        }
     }
-    val=arrayVal.join(":");
-    tmexp=new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))$/);
-        if(!tmexp.test(val))
-            return false;
-        return true;
+    val = arrayVal.join(":");
+    var tmexp = new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))$/);
+    return tmexp.test(val);
 }
 
 function verificationsAfterFieldChange(urlField, multi_edit, theType)
@@ -458,7 +456,7 @@ $(document).ready(function() {
                                 $changed_element.data('hashed_field'),
                                 $changed_element.data('new_row_index'),
                                 $changed_element.closest('tr').find('span.column_type').html()
-                                );
+                            );
                         });
                     }
 
@@ -478,7 +476,7 @@ $(document).ready(function() {
                                     $this_element.closest('tr').find('input:hidden').first().val(),
                                     $changed_element.data('hashed_field'),
                                     '[multi_edit][' + $changed_element.data('new_row_index') + ']'
-                                    );
+                                );
                         });
                     }
                 }) // end each
@@ -502,18 +500,18 @@ $(document).ready(function() {
                 else {
 
                     /**
-                     * @var last_checkbox   Object reference to the last checkbox in #insertForm
+                     * @var $last_checkbox   Object reference to the last checkbox in #insertForm
                      */
-                    var last_checkbox = $("#insertForm").children('input:checkbox:last');
+                    var $last_checkbox = $("#insertForm").children('input:checkbox:last');
 
-                    /** name of {@link last_checkbox} */
-                    var last_checkbox_name = $(last_checkbox).attr('name');
-                    /** index of {@link last_checkbox} */
+                    /** name of {@link $last_checkbox} */
+                    var last_checkbox_name = $last_checkbox.attr('name');
+                    /** index of {@link $last_checkbox} */
                     var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/));
-                    /** name of new {@link last_checkbox} */
+                    /** name of new {@link $last_checkbox} */
                     var new_name = last_checkbox_name.replace(/\d+/,last_checkbox_index+1);
 
-                    $(last_checkbox)
+                    $last_checkbox
                     .clone()
                     .attr({'id':new_name, 'name': new_name})
                     .prop('checked', true)

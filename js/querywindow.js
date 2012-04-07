@@ -8,9 +8,9 @@ function PMA_queryAutoCommit()
 
 function PMA_querywindowCommit(tab)
 {
-    var hiddenqueryform = $('#hiddenqueryform');
-    hiddenqueryform.find("input[name='querydisplay_tab']").val(tab);
-    hiddenqueryform.submit();
+    var $hiddenqueryform = $('#hiddenqueryform');
+    $hiddenqueryform.find("input[name='querydisplay_tab']").val(tab);
+    $hiddenqueryform.submit();
     return false;
 }
 
@@ -21,26 +21,26 @@ function PMA_querywindowSetFocus()
 
 function PMA_querywindowResize()
 {
-    var el = $(this)[0];
-    var querywindowcontainer = $('#querywindowcontainer');
+    var $el = $(this)[0];
+    var $querywindowcontainer = $('#querywindowcontainer');
 
     // for Gecko
-    if (typeof(el.sizeToContent) == 'function') {
-        el.sizeToContent();
+    if (typeof($el.sizeToContent) == 'function') {
+        $el.sizeToContent();
         //self.scrollbars.visible = false;
         // give some more space ... to prevent 'fli(pp/ck)ing'
-        el.resizeBy(10, 50);
+        $el.resizeBy(10, 50);
         return;
     }
 
     // for IE, Opera
-    if (querywindowcontainer.length) {
+    if ($querywindowcontainer.length) {
         // get content size
-        var newWidth  = querywindowcontainer.width();
-        var newHeight = querywindowcontainer.height();
+        var newWidth  = $querywindowcontainer.width();
+        var newHeight = $querywindowcontainer.height();
 
         // set size to contentsize
         // plus some offset for scrollbars, borders, statusbar, menus ...
-        el.resizeTo(newWidth + 45, newHeight + 75);
+        $el.resizeTo(newWidth + 45, newHeight + 75);
     }
 }
