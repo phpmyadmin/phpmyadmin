@@ -938,7 +938,11 @@ $(document).ready(makeProfilingChart);
             echo ' <tr>' .  "\n";
             echo '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
             echo '<td class="right">' . (PMA_formatNumber($one_result['Duration'], 3, 1)) . 's</td>' .  "\n";
-            $chart_json[ucwords($one_result['Status'])] = $one_result['Duration'];
+            if (isset($chart_json[ucwords($one_result['Status'])])) {
+                $chart_json[ucwords($one_result['Status'])] += $one_result['Duration'];
+            } else {
+                $chart_json[ucwords($one_result['Status'])] = $one_result['Duration'];
+            }
         }
 
         echo '</table>' . "\n";
