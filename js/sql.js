@@ -76,7 +76,7 @@ $(document).ready(function() {
     $('input#bkm_label').keyup(function() {
         $('input#id_bkm_all_users, input#id_bkm_replace')
             .parent()
-            .toggle($(this).attr('value').length > 0);
+            .toggle($(this).val().length > 0);
     }).trigger('keyup');
 
     /**
@@ -133,7 +133,7 @@ $(document).ready(function() {
         // instead of the one related to Bookmarks, so empty the
         // id_bookmark selector to avoid misinterpretation in 
         // import.php about what needs to be done
-        $form.find("select[name=id_bookmark]").attr("value","");
+        $form.find("select[name=id_bookmark]").val("");
         // let normal event propagation happen
     });
   
@@ -371,7 +371,7 @@ $(document).ready(function() {
 
         /*Check whether atleast one row is selected for change*/
         if ($("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
-            var div = $('<div id="change_row_dialog"></div>');
+            var $div = $('<div id="change_row_dialog"></div>');
 
             /**
              *  @var    button_options  Object that stores the options passed to jQueryUI
@@ -386,10 +386,10 @@ $(document).ready(function() {
             var $form = $("#resultsForm");
             var $msgbox = PMA_ajaxShowMessage();
 
-            $.get( $form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function(data) {
+            $.get($form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function(data) {
                 //in the case of an error, show the error message returned.
                 if (data.success != undefined && data.success == false) {
-                    div
+                    $div
                     .append(data.error)
                     .dialog({
                         title: PMA_messages['strChangeTbl'],
@@ -402,7 +402,7 @@ $(document).ready(function() {
                         buttons : button_options_error
                     }); // end dialog options
                 } else {
-                    div
+                    $div
                     .append(data)
                     .dialog({
                         title: PMA_messages['strChangeTbl'],
@@ -476,9 +476,8 @@ $(document).ready(function() {
          *  @var    the_form    object referring to the insert form
          */
         var $form = $("#insertForm");
-        /**Get the submit type and the after insert type in the form*/
-        var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").attr('value');
-        var selected_after_insert = $("#insertForm").find("#actions_panel select[name=after_insert] option:selected").attr('value');
+        /**Get the submit type in the form*/
+        var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").val();
         $("#result_query").remove();
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form

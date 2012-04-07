@@ -90,7 +90,7 @@ $(function() {
     $(document).click( function(event) {
         $('.openedPopup').each(function() {
             var $cnt = $(this);
-            var pos = $(this).offset();
+            var pos = $cnt.offset();
 
             // Hide if the mouseclick is outside the popupcontent
             if (event.pageX < pos.left 
