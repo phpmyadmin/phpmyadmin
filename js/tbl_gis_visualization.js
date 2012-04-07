@@ -100,7 +100,7 @@ function loadSVG() {
 function addZoomPanControllers() {
     var $placeholder = $('#placeholder');
     if ($("#placeholder svg").length > 0) {
-        var pmaThemeImage = $('#pmaThemeImage').attr('value');
+        var pmaThemeImage = $('#pmaThemeImage').val();
         // add panning arrows
         $('<img class="button" id="left_arrow" src="' + pmaThemeImage + 'west-mini.png">').appendTo($placeholder);
         $('<img class="button" id="right_arrow" src="' + pmaThemeImage + 'east-mini.png">').appendTo($placeholder);

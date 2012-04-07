@@ -157,10 +157,10 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var target = evt.target || evt.srcElement;
 
     // Unchecks the corresponding "NULL" control
-    $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").attr('checked', false);
+    $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").prop('checked', false);
 
     // Unchecks the Ignore checkbox for the current row
-    $("input[name='insert_ignore_" + multi_edit + "']").attr('checked', false);
+    $("input[name='insert_ignore_" + multi_edit + "']").prop('checked', false);
     var $this_input = $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']");
 
     // Does this field come from datepicker?
@@ -259,7 +259,7 @@ $(document).ready(function() {
     $("input[name='gis_data[save]']").live('click', function(event) {
         var input_name = $('form#gis_data_editor_form').find("input[name='input_name']").val();   
         var $null_checkbox = $("input[name='" + input_name + "']").parents('tr').find('.checkbox_null');
-        $null_checkbox.attr('checked', false);
+        $null_checkbox.prop('checked', false);
     });
 
     // these were hidden via the "hide" class
@@ -441,7 +441,7 @@ $(document).ready(function() {
                     if ($this_element.is('.textfield')) {
                         // do not remove the 'value' attribute for ENUM columns
                         if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
-                            $this_element.attr('value', $this_element.closest('tr').find('span.default_value').html());
+                            $this_element.val($this_element.closest('tr').find('span.default_value').html());
                         }
                         $this_element
                         .unbind('change')
@@ -515,7 +515,8 @@ $(document).ready(function() {
 
                     $(last_checkbox)
                     .clone()
-                    .attr({'id':new_name, 'name': new_name, 'checked': true})
+                    .attr({'id':new_name, 'name': new_name})
+                    .prop('checked', true)
                     .add('label[for^=insert_ignore]:last')
                     .clone()
                     .attr('for', new_name)

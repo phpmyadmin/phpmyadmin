@@ -443,7 +443,7 @@ $(function() {
                 }
             }
 
-            newChart.title = $('input[name="chartTitle"]').attr('value');
+            newChart.title = $('input[name="chartTitle"]').val();
             // Add a cloned object to the chart grid
             addChart($.extend(true, {}, newChart));
 
@@ -468,7 +468,7 @@ $(function() {
             });
             $presetList.change(function() {
                 $('input#chartPreset').trigger('click');
-                $('input[name="chartTitle"]').attr('value', presetCharts[$(this).prop('value')].title);
+                $('input[name="chartTitle"]').val(presetCharts[$(this).val()].title);
             });
         }
         
@@ -729,13 +729,13 @@ $(function() {
 
     $('input[name="chartType"]').change(function() {
         $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
-        var title = $('input[name="chartTitle"]').attr('value');
+        var title = $('input[name="chartTitle"]').val();
         if (title == PMA_messages['strChartTitle'] 
            || title == $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
         ) {
             $('input[name="chartTitle"]')
                 .data('lastRadio', $(this).attr('id'))
-                .attr('value', $('label[for="' + $(this).attr('id') + '"]').text());
+                .val($('label[for="' + $(this).attr('id') + '"]').text());
         }
 
     });
@@ -749,21 +749,21 @@ $(function() {
 
     $('select[name="varChartList"]').change(function () {
         if (this.selectedIndex != 0) {
-            $('#variableInput').attr('value', this.value);
+            $('#variableInput').val(this.value);
         }
     });
 
     $('a[href="#kibDivisor"]').click(function() {
-        $('input[name="valueDivisor"]').attr('value', 1024);
-        $('input[name="valueUnit"]').attr('value', PMA_messages['strKiB']);
+        $('input[name="valueDivisor"]').val(1024);
+        $('input[name="valueUnit"]').val(PMA_messages['strKiB']);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
         return false;
     });
 
     $('a[href="#mibDivisor"]').click(function() {
-        $('input[name="valueDivisor"]').attr('value', 1024*1024);
-        $('input[name="valueUnit"]').attr('value', PMA_messages['strMiB']);
+        $('input[name="valueDivisor"]').val(1024*1024);
+        $('input[name="valueUnit"]').val(PMA_messages['strMiB']);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
         return false;
@@ -776,7 +776,7 @@ $(function() {
     });
 
     $('a[href="#submitAddSeries"]').click(function() {
-        if ($('input#variableInput').attr('value').length == 0) {
+        if ($('input#variableInput').val() == "") {
             return false;
         }
         
@@ -784,27 +784,27 @@ $(function() {
             $('#seriesPreview').html('');
 
             newChart = {
-                title: $('input[name="chartTitle"]').attr('value'),
+                title: $('input[name="chartTitle"]').val(),
                 nodes: []
             };
         }
 
         var serie = {
-            dataPoints: [{ type: 'statusvar', name: $('input#variableInput').attr('value') }],
-            name: $('input#variableInput').attr('value'),
-            display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : ''
+            dataPoints: [{ type: 'statusvar', name: $('input#variableInput').val() }],
+            name: $('input#variableInput').val(),
+            display: $('input[name="differentialValue"]').prop('checked') ? 'differential' : ''
         };
 
         if (serie.dataPoint == 'Processes') {
             serie.dataType='proc';
         }
 
-        if ($('input[name="useDivisor"]').attr('checked')) {
-            serie.valueDivisor = parseInt($('input[name="valueDivisor"]').attr('value'));
+        if ($('input[name="useDivisor"]').prop('checked')) {
+            serie.valueDivisor = parseInt($('input[name="valueDivisor"]').val());
         }
 
-        if ($('input[name="useUnit"]').attr('checked')) {
-            serie.unit = $('input[name="valueUnit"]').attr('value');
+        if ($('input[name="useUnit"]').prop('checked')) {
+            serie.unit = $('input[name="valueUnit"]').val();
         }
 
         var str = serie.display == 'differential' ? ', ' + PMA_messages['strDifferential'] : '';
@@ -815,10 +815,10 @@ $(function() {
 
         newChart.nodes.push(serie);
 
-        $('input#variableInput').attr('value', '');
-        $('input[name="differentialValue"]').attr('checked', true);
-        $('input[name="useDivisor"]').attr('checked', false);
-        $('input[name="useUnit"]').attr('checked', false);
+        $('input#variableInput').val('');
+        $('input[name="differentialValue"]').prop('checked', true);
+        $('input[name="useDivisor"]').prop('checked', false);
+        $('input[name="useUnit"]').prop('checked', false);
         $('input[name="useDivisor"]').trigger('change');
         $('input[name="useUnit"]').trigger('change');
         $('select[name="varChartList"]').get(0).selectedIndex = 0;
@@ -849,7 +849,7 @@ $(function() {
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
 
             if (runtime.charts != null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
-                $('div#emptyDialog').attr('title',PMA_messages['strIncompatibleMonitorConfig']);
+                $('div#emptyDialog').attr('title', PMA_messages['strIncompatibleMonitorConfig']);
                 $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
 
                 var dlgBtns = {};
@@ -869,8 +869,8 @@ $(function() {
             monitorSettings = defaultMonitorSettings;
         }
 
-        $('select[name="gridChartRefresh"]').attr('value', monitorSettings.gridRefresh / 1000);
-        $('select[name="chartColumns"]').attr('value', monitorSettings.columns);
+        $('select[name="gridChartRefresh"]').val(monitorSettings.gridRefresh / 1000);
+        $('select[name="chartColumns"]').val(monitorSettings.columns);
 
         if (monitorSettings.gridMaxPoints == 'auto') {
             runtime.gridMaxPoints = Math.round((monitorSettings.chartSize.width - 40) / 12);
@@ -945,9 +945,9 @@ $(function() {
         if (runtime.charts) {
             oldData = {};
             $.each(runtime.charts, function(key, chartObj) {
-                for (var i = 0; i < chartObj.nodes.length; i++) {
+                for (var i = 0, l = chartObj.nodes.length; i < l; i++) {
                     oldData[chartObj.nodes[i].dataPoint] = [];
-                    for (var j = 0; j < chartObj.chart.series[i].data.length; j++)
+                    for (var j = 0, ll = chartObj.chart.series[i].data.length; j < ll; j++)
                         oldData[chartObj.nodes[i].dataPoint].push([chartObj.chart.series[i].data[j].x, chartObj.chart.series[i].data[j].y]);
                 }
             });
@@ -958,7 +958,7 @@ $(function() {
         
         if (oldData) {
             $.each(runtime.charts, function(key, chartObj) {
-                for (var j = 0; j < chartObj.nodes.length; j++) {
+                for (var j = 0, l = chartObj.nodes.length; j < l; j++) {
                     if (oldData[chartObj.nodes[j].dataPoint]) {
                         chartObj.chart.series[j].setData(oldData[chartObj.nodes[j].dataPoint]);
                     }
@@ -979,7 +979,7 @@ $(function() {
     /* Adds a chart to the chart grid */
     function addChart(chartObj, initialize) {
         series = [];
-        for (var j = 0; j<chartObj.nodes.length; j++)
+        for (var j = 0, l = chartObj.nodes.length; j < l; j++)
             series.push(chartObj.nodes[j]);
 
         settings = {
@@ -1000,9 +1000,9 @@ $(function() {
                             max = extremesObject.max;
 
                         $('#logAnalyseDialog input[name="dateStart"]')
-                            .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(min)));
+                            .val(Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(min)));
                         $('#logAnalyseDialog input[name="dateEnd"]')
-                            .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(max)));
+                            .val(Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(max)));
 
                         var dlgBtns = { };
 
@@ -1127,13 +1127,14 @@ $(function() {
         
         dlgBtns = {};
         dlgBtns['Save'] = function() {
-            runtime.charts[chartKey].title = $('div#emptyDialog input[name="chartTitle"]').attr('value');
+            runtime.charts[chartKey].title = $('div#emptyDialog input[name="chartTitle"]').val();
             runtime.charts[chartKey].chart.setTitle({ text: runtime.charts[chartKey].title });
             
             $('div#emptyDialog input[name*="chartSerie"]').each(function() {
-                var idx = $(this).attr('name').split('-')[1];
-                runtime.charts[chartKey].nodes[idx].name = $(this).attr('value');
-                runtime.charts[chartKey].chart.series[idx].name = $(this).attr('value');
+                var $t = $(this);
+                var idx = $t.attr('name').split('-')[1];
+                runtime.charts[chartKey].nodes[idx].name = $t.val();
+                runtime.charts[chartKey].chart.series[idx].name = $t.val();
             });
             
             $(this).dialog('close');
@@ -1204,7 +1205,7 @@ $(function() {
                     return;
                 }
                 // Draw all series
-                for (var j = 0; j < elem.nodes.length; j++) {
+                for (var j = 0, l = elem.nodes.length; j < l; j++) {
                     // Update x-axis
                     if (i == 0 && j == 0) {
                         if (oldChartData == null) {
@@ -1279,7 +1280,8 @@ $(function() {
                 return undefined;
             }
             // cur and prev are datapoint arrays, but containing only 1 element for cpu-linux
-            cur = cur[0], prev = prev[0];
+            cur = cur[0];
+            prev = prev[0];
 
             var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
             var diff_idle = cur.idle - prev.idle;
@@ -1317,7 +1319,7 @@ $(function() {
         var chartID = 0;
         $.each(runtime.charts, function(key, chart) {
             runtime.dataList[chartID] = [];
-            for(var i=0; i < chart.nodes.length; i++) {
+            for(var i=0, l=chart.nodes.length; i < l; i++) {
                 runtime.dataList[chartID][i] = chart.nodes[i].dataPoints;
             }
             runtime.charts[key].chartID = chartID;
@@ -1454,7 +1456,7 @@ $(function() {
             }
             
             var rowSum = 0, totalSum = 0, i = 0, q;
-            var noVars = $('div#logTable input#noWHEREData').attr('checked');
+            var noVars = $('div#logTable input#noWHEREData').prop('checked');
             var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
             var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
             var filteredQueries = {}, filteredQueriesLines = {};
@@ -1481,67 +1483,68 @@ $(function() {
             
             // We just assume the sql text is always in the second last column, and that the total count is right of it
             $('div#logTable table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')').each(function() {
+                var $t = $(this);
                 // If query is a SELECT and user enabled or disabled to group queries ignoring data in where statements, we 
                 // need to re-calculate the sums of each row
-                if (varFilterChange && $(this).html().match(/^SELECT/i)) {
+                if (varFilterChange && $t.html().match(/^SELECT/i)) {
                     if (noVars) {
                         // Group on => Sum up identical columns, and hide all but 1
                         
-                        q = $(this).text().replace(equalsFilter, '$1=...$6').trim();
+                        q = $t.text().replace(equalsFilter, '$1=...$6').trim();
                         q = q.replace(functionFilter, ' $1(...)');
 
                         // Js does not specify a limit on property name length, so we can abuse it as index :-)
                         if (filteredQueries[q]) {
-                            filteredQueries[q] += parseInt($(this).next().text());
-                            totalSum += parseInt($(this).next().text());
+                            filteredQueries[q] += parseInt($t.next().text());
+                            totalSum += parseInt($t.next().text());
                             hide = true;
                         } else {
-                            filteredQueries[q] = parseInt($(this).next().text());;
+                            filteredQueries[q] = parseInt($t.next().text());
                             filteredQueriesLines[q] = i;
-                            $(this).text(q);
+                            $t.text(q);
                         }
                         if (isSlowLog) {
-                            countRow(q, $(this).parent().html());
+                            countRow(q, $t.parent().html());
                         }
 
                     } else {
                         // Group off: Restore original columns
 
-                        rowData = $(this).parent().data('query');
+                        rowData = $t.parent().data('query');
                         // Restore SQL text
-                        $(this).text(rowData[queryColumnName]);
+                        $t.text(rowData[queryColumnName]);
                         // Restore total count
-                        $(this).next().text(rowData[sumColumnName]);
+                        $t.next().text(rowData[sumColumnName]);
                         // Restore slow log columns
                         if (isSlowLog) {
-                            $(this).parent().children('td:nth-child(3)').text(rowData['query_time']);
-                            $(this).parent().children('td:nth-child(4)').text(rowData['lock_time']);
-                            $(this).parent().children('td:nth-child(5)').text(rowData['rows_sent']);
-                            $(this).parent().children('td:nth-child(6)').text(rowData['rows_examined']);
+                            $t.parent().children('td:nth-child(3)').text(rowData['query_time']);
+                            $t.parent().children('td:nth-child(4)').text(rowData['lock_time']);
+                            $t.parent().children('td:nth-child(5)').text(rowData['rows_sent']);
+                            $t.parent().children('td:nth-child(6)').text(rowData['rows_examined']);
                         }
                     }
                 }
 
                 // If not required to be hidden, do we need to hide because of a not matching text filter?
-                if (! hide && (textFilter != null && ! textFilter.exec($(this).text()))) {
+                if (! hide && (textFilter != null && ! textFilter.exec($t.text()))) {
                     hide = true;
                 }
 
                 // Now display or hide this column
                 if (hide) {
-                    $(this).parent().css('display', 'none');
+                    $t.parent().css('display', 'none');
                 } else {
-                    totalSum += parseInt($(this).next().text());
+                    totalSum += parseInt($t.next().text());
                     rowSum++;
 
                     odd_row = ! odd_row;
-                    $(this).parent().css('display', '');
+                    $t.parent().css('display', '');
                     if (odd_row) {
-                        $(this).parent().addClass('odd');
-                        $(this).parent().removeClass('even');
+                        $t.parent().addClass('odd');
+                        $t.parent().removeClass('even');
                     } else {
-                        $(this).parent().addClass('even');
-                        $(this).parent().removeClass('odd');
+                        $t.parent().addClass('even');
+                        $t.parent().removeClass('odd');
                     }
                 }
 
@@ -1593,9 +1596,9 @@ $(function() {
     
     /* Turns a number into a timespan (100 into 00:01:40) */
     function secToTime(timeInt) {
-        hours = Math.floor(timeInt / 3600);
+        var hours = Math.floor(timeInt / 3600);
         timeInt -= hours*3600;
-        minutes = Math.floor(timeInt / 60);
+        var minutes = Math.floor(timeInt / 60);
         timeInt -= minutes*60;
         
         if (hours < 10) {
@@ -1628,7 +1631,7 @@ $(function() {
             return value;
         };
         
-        for (var i = 0; i < rows.length; i++) {
+        for (var i = 0, l = rows.length; i < l; i++) {
             if (i == 0) {
                 $.each(rows[0], function(key, value) {
                     cols.push(key);
@@ -1642,7 +1645,7 @@ $(function() {
 
             $tBody.append($tRow = $('<tr class="noclick"></tr>'));
             var cl = '';
-            for (var j = 0; j < cols.length; j++) {
+            for (var j = 0, ll = cols.length; j < ll; j++) {
                 // Assuming the query column is the second last
                 if (j == cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
                     $tRow.append($tCell = $('<td class="linkElem">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
@@ -1766,7 +1769,7 @@ $(function() {
                 explain += ')';
             }
             explain += '<p></p>';
-            for (var i = 0; i < data.explain.length; i++) {
+            for (var i = 0, l = data.explain.length; i < l; i++) {
                 explain += '<div class="explain-' + i + '"' + (i>0? 'style="display:none;"' : '' ) + '>';
                 $.each(data.explain[i], function(key, value) {
                     value = (value == null)?'null':value;
@@ -1797,7 +1800,7 @@ $(function() {
                 var numberTable = '<table class="queryNums"><thead><tr><th>' + PMA_messages['strStatus'] + '</th><th>' + PMA_messages['strTime'] + '</th></tr></thead><tbody>';
                 var duration;
 
-                for (var i = 0; i < data.profiling.length; i++) {
+                for (var i = 0, l = data.profiling.length; i < l; i++) {
                     duration = parseFloat(data.profiling[i].duration);
 
                     chartData.push([data.profiling[i].state, duration]);

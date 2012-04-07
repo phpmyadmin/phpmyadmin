@@ -395,7 +395,7 @@ $(document).ready(function() {
         };
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true" ,  function(data) {
+        $.get($form.attr('action') , $form.serialize()+"&ajax_request=true" ,  function(data) {
             //in the case of an error, show the error message returned.
             if (data.success != undefined && data.success == false) {
                 $div

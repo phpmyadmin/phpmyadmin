@@ -223,8 +223,8 @@ $(document).ready(function() {
          */
         var $form = $("#insertForm");
         /**Get the submit type and the after insert type in the form*/
-        var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").attr('value');
-        var selected_after_insert = $("#insertForm").find("#actions_panel select[name=after_insert] option:selected").attr('value');
+        var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").val();
+        var selected_after_insert = $("#insertForm").find("#actions_panel select[name=after_insert] option:selected").val();
         $("#result_query").remove();
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
@@ -258,17 +258,17 @@ $(document).ready(function() {
      * in the drop table confirmation form
      */
     $(".fkc_switch").click(function(event){
-       if ($("#fkc_checkbox").attr('checked') == 'checked') {
-           $("#fkc_checkbox").removeAttr('checked');
+       if ($("#fkc_checkbox").prop('checked')) {
+           $("#fkc_checkbox").removeProp('checked');
            $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
            return;
        }
-       $("#fkc_checkbox").attr('checked','checked');   
+       $("#fkc_checkbox").prop('checked', true);
        $("#fkc_status").html(PMA_messages['strForeignKeyCheckEnabled']);
     });
 
     $('#fkc_checkbox').change(function () {
-        if ($(this).attr("checked")) {
+        if ($(this).prop("checked")) {
             $("#fkc_status").html(PMA_messages['strForeignKeyCheckEnabled']);
             return;
         }

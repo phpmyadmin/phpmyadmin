@@ -6,7 +6,7 @@ $(document).ready(function() {
     var currentChart = null;
     var chart_data = jQuery.parseJSON($('#querychart').html());
     chart_series = 'columns';
-    chart_xaxis_idx = $('select[name="chartXAxis"]').attr('value');
+    chart_xaxis_idx = $('select[name="chartXAxis"]').val();
 
     $('#resizer').resizable({
         minHeight:240,
@@ -31,13 +31,13 @@ $(document).ready(function() {
             height: $('#resizer').height() - 20
         },
         xAxis: {
-            title: { text: $('input[name="xaxis_label"]').attr('value') }
+            title: { text: $('input[name="xaxis_label"]').val() }
         },
         yAxis: {
-            title: { text: $('input[name="yaxis_label"]').attr('value') }
+            title: { text: $('input[name="yaxis_label"]').val() }
         },
         title: {
-            text: $('input[name="chartTitle"]').attr('value'),
+            text: $('input[name="chartTitle"]').val(),
             margin:20
         },
         plotOptions: {
@@ -48,11 +48,11 @@ $(document).ready(function() {
     $('#querychart').html('');
 
     $('input[name="chartType"]').click(function() {
-        currentSettings.chart.type = $(this).attr('value');
+        currentSettings.chart.type = $(this).val();
 
         drawChart();
 
-        if ($(this).attr('value') == 'bar' || $(this).attr('value') == 'column') {
+        if ($(this).val() == 'bar' || $(this).val() == 'column') {
             $('span.barStacked').show();
         } else {
             $('span.barStacked').hide();
@@ -69,7 +69,7 @@ $(document).ready(function() {
     });
 
     $('input[name="chartTitle"]').keyup(function() {
-        var title = $(this).attr('value');
+        var title = $(this).val();
         if (title.length == 0) {
             title = ' ';
         }
@@ -88,11 +88,11 @@ $(document).ready(function() {
 
     /* Sucks, we cannot just set axis labels, we have to redraw the chart completely */
     $('input[name="xaxis_label"]').keyup(function() {
-        currentSettings.xAxis.title.text = $(this).attr('value');
+        currentSettings.xAxis.title.text = $(this).val();
         drawChart(true);
     });
     $('input[name="yaxis_label"]').keyup(function() {
-        currentSettings.yAxis.title.text = $(this).attr('value');
+        currentSettings.yAxis.title.text = $(this).val();
         drawChart(true);
     });
 
@@ -119,7 +119,7 @@ $(document).ready(function() {
 
 function in_array(element, array)
 {
-    for (var i = 0; i < array.length; i++) {
+    for (var i = 0, l = array.length; i < l; i++) {
         if (array[i] == element) {
             return true;
         }
@@ -133,7 +133,7 @@ function PMA_queryChart(data, passedSettings)
         return;
     }
 
-    var columnNames = Array();
+    var columnNames = [];
 
     var series = new Array();
     var xaxis = { type: 'linear' };
@@ -152,7 +152,7 @@ function PMA_queryChart(data, passedSettings)
 
             if (chart_series == 'columns') {
                 var j = 0;
-                for (var i = 0; i<columnNames.length; i++)
+                for (var i = 0, l = columnNames.length; i<l; i++)
                     if (i != chart_xaxis_idx) {
                         series[j] = new Object();
                         series[j].data = new Array();
@@ -171,7 +171,7 @@ function PMA_queryChart(data, passedSettings)
                 // Get series types and build series object from the query data
                 $.each(data, function(index, element) {
                     var contains = false;
-                    for (var i = 0; i < series.length; i++) {
+                    for (var i = 0, l = series.length; i < l; i++) {
                         if (series[i].name == element[chart_series]) {
                             contains = true;
                         }
