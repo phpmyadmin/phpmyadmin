@@ -1495,10 +1495,20 @@ textarea#partitiondefinition {
 /**
   *  Progress bar styles
   */
+div.upload_progress
+{
+    width: 400px;
+    margin: 3em auto;
+    text-align: center;
+}
+
 div.upload_progress_bar_outer
 {
-    border: 1px solid black;
+    border: 1px solid #000;
     width: 202px;
+    position: relative;
+    margin: 0 auto 1em;
+    color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
 div.upload_progress_bar_inner
@@ -1507,6 +1517,27 @@ div.upload_progress_bar_inner
     width: 0;
     height: 12px;
     margin: 1px;
+    overflow: hidden;
+    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+    position: relative;
+}
+
+div.upload_progress_bar_outer div.percentage
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 202px;
+}
+
+div.upload_progress_bar_inner div.percentage
+{
+    top: -1px;
+    left: -1px;
+}
+
+div#statustext {
+    margin-top: .5em;
 }
 
 table#serverconnection_src_remote,
