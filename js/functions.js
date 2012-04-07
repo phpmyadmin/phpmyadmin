@@ -3645,6 +3645,30 @@ function toggleRowColors($start)
 }
 
 /**
+ * Formats a byte number to human-readable form
+ *
+ * @param bytes the bytes to format
+ * @param optional subdecimals the number of digits after the point
+ * @param optional pointchar the char to use as decimal point
+ */
+function formatBytes(bytes, subdecimals, pointchar) {
+    if (!subdecimals) {
+        var subdecimals = 0;
+    }
+    if (!pointchar) {
+        var pointchar = '.';
+    }
+    var units = ['B', 'KiB', 'MiB', 'GiB'];
+    for (var i = 0; bytes > 1024 && i < units.length; i++) {
+        bytes /= 1024;
+    }
+    var factor = Math.pow(10, subdecimals);
+    bytes = Math.round(bytes * factor) / factor;
+    bytes = bytes.toString().split('.').join(pointchar);
+    return bytes + ' ' + units[i];
+}
+
+/**
  * Opens pma more themes link in themes browser, in new window instead of popup
  * This way, we don't break HTML validity
  */
