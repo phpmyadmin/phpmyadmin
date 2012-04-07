@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-04-06 15:19+0200\n"
+"PO-Revision-Date: 2012-04-06 17:18+0200\n"
 "Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -4823,7 +4823,7 @@ msgstr "nebeneinander"
 #: libraries/display_tbl.lib.php:405
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr "%s angeordnet und wiederhole die Kopfzeilen nach %s Datensätzen."
+msgstr "%s angeordnet und wiederhole die Kopfzeilen nach %s Datensätzen"
 
 #: libraries/display_tbl.lib.php:499
 msgid "Sort by key"
@@ -6498,7 +6498,7 @@ msgstr "Begrenzer"
 
 #: libraries/sql_query_form.lib.php:380
 msgid " Show this query here again "
-msgstr "Diese Abfrage hier wieder anzeigen"
+msgstr " Diese Abfrage hier wieder anzeigen "
 
 #: libraries/sql_query_form.lib.php:439
 msgid "Submit"
@@ -7660,7 +7660,7 @@ msgstr "Tabellenspezifische Rechte"
 #: server_privileges.php:444 server_privileges.php:588
 #: server_privileges.php:1610
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr "MySQL-Rechte werden auf Englisch angegeben"
+msgstr " MySQL-Rechte werden auf Englisch angegeben "
 
 #: server_privileges.php:513
 msgid "Administration"
@@ -9802,7 +9802,7 @@ msgstr "Zeilenlänge"
 
 #: tbl_printview.php:411 tbl_structure.php:887
 msgid " Row size "
-msgstr "Zeilengröße"
+msgstr " Zeilengröße "
 
 #: tbl_relation.php:269
 #, php-format
