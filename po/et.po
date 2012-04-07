@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-07 14:40+0200\n"
+"PO-Revision-Date: 2012-04-07 20:49+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -85,7 +85,6 @@ msgstr "Võtme nimi"
 #: browse_foreigners.php:175 browse_foreigners.php:177
 #: server_collations.php:47 server_collations.php:59 server_engines.php:47
 #: server_plugins.php:139 server_status.php:1473
-#, fuzzy
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -247,16 +246,16 @@ msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
 #: db_operations.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "%s andmebaasi uueks nimeks on %s"
+msgstr "%1$s andmebaasi uueks nimeks on %2$s"
 
 #: db_operations.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "%s andmebaas on kopeeritud kohta %s"
+msgstr "%1$s andmebaas on kopeeritud kohta %2$s"
 
 #: db_operations.php:432
 msgid "Rename database to"
@@ -508,13 +507,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\" %s otsingu tulemused:"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] "%s vaste <i>%s</i> tabelis"
-msgstr[1] "%s vastet <i>%s</i> tabelis"
+msgstr[0] "%1$s vaste <i>%2$s</i> tabelis"
+msgstr[1] "%1$s vastet <i>%2$s</i> tabelis"
 
 #: db_search.php:234 libraries/common.lib.php:3147
 #: libraries/common.lib.php:3366 libraries/common.lib.php:3367
@@ -536,7 +535,6 @@ msgstr "Kustutada %s tabeli vasted?"
 #: libraries/sql_query_form.lib.php:417 pmd_general.php:431
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
 #: tbl_tracking.php:453 tbl_tracking.php:474 tbl_tracking.php:531
-#, fuzzy
 msgid "Delete"
 msgstr "Kustuta"
 
@@ -1021,10 +1019,9 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" käsud on keelatud."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:305 sql.php:386
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "Kas tõesti tahad "
+msgstr "Kas tõesti tahad käivitada selle päringu?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:371
 msgid "You are about to DESTROY a complete database!"
@@ -1734,22 +1731,19 @@ msgid "Show indexes"
 msgstr "Näita indekseid"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:313
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Keela võõrvõtme kontrollid"
+msgstr "Võõrvõtme kontroll:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Lubatud"
+msgstr "(Lubatud)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Keelatud"
+msgstr "(Keelatud)"
 
 #: js/messages.php:255
 msgid "Searching"
@@ -1960,7 +1954,7 @@ msgstr "Valimiseks/mittevalimiseks kliki"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Veeru nime kopeerimiseks topeltklõpsa sellel"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1986,20 +1980,18 @@ msgid "Go to link"
 msgstr "Mine lingile"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Veeru nimed"
+msgstr "Kopeeri veeru nimi"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Veeru nime kopeerimiseks lõikelauale paremklõpsa sellel."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Uuenda rida/ridu"
+msgstr "Näita andmete rida/ridu"
 
 #: js/messages.php:359
 msgid "Generate password"
@@ -2521,10 +2513,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Esines viga %1$s tabeli ümbernimetamisel nimeks %2$s"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "%s tabeli uueks nimeks sai %s"
+msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
@@ -2617,10 +2609,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Failed to use Blowfish from mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Küpsised peavad olema lubatud."
+msgstr "Javascript peab olema lubatud"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -2994,7 +2985,6 @@ msgstr "SQL"
 #: libraries/common.lib.php:3146 libraries/common.lib.php:3370
 #: libraries/common.lib.php:3371 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
-#, fuzzy
 msgid "Insert"
 msgstr "Lisa"
 
@@ -3059,7 +3049,6 @@ msgstr "Suletud"
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
 #: pmd_relation_new.php:66
-#, fuzzy
 msgid "Disabled"
 msgstr "Keelatud"
 
@@ -3703,9 +3692,8 @@ msgstr "Kohanda vaikimisi valikuid"
 #: libraries/config/user_preferences.forms.php:143
 #: libraries/config/user_preferences.forms.php:214 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
-#, fuzzy
 msgid "CSV"
-msgstr "CSV andmed"
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:162
 msgid "Developer"
@@ -5124,7 +5112,7 @@ msgstr ""
 "Kui valida selleks [kbd]nested[/kbd], siis tabeli nime aliast kasutatakse "
 "sõltuvalt $cfg['LeftFrameTableSeparator'] direktiivist ainult tabelite "
 "poolitamiseks. Seega on ainult kausta nimeks alias ja tabeli nimi jääb ise "
-"muutmata."
+"muutmata"
 
 #: libraries/config/messages.inc.php:480
 msgid "Display table comment instead of its name"
@@ -5557,7 +5545,6 @@ msgstr "Ei oma õigusi"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:85
 #: server_synchronize.php:454 server_synchronize.php:966
-#, fuzzy
 msgid "Create table"
 msgstr "Loo tabel"
 
@@ -6485,7 +6472,7 @@ msgstr ""
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Kärbi tabelit enne lisamist"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -7043,14 +7030,12 @@ msgid "not OK"
 msgstr "Ei ole korras"
 
 #: libraries/relation.lib.php:80
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "OK"
 
 #: libraries/relation.lib.php:81
-#, fuzzy
 msgid "Enabled"
 msgstr "Lubatud"
 
@@ -7989,10 +7974,10 @@ msgid "Table seems to be empty!"
 msgstr "Tabel tundub olevat tühi!"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "%s.%s jälgimine on aktiveeritud."
+msgstr "%s jälgimine on aktiveeritud."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
@@ -8152,6 +8137,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Lisab teksti sõnesse. Ainus valik on lisatav tekst (ümbritsetud ühekordsete "
+"jutumärkidega, vaikimisi tühi sõne)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
@@ -8771,12 +8758,12 @@ msgid "No databases selected."
 msgstr "Ühtegi andmebaasi ei ole valitud."
 
 #: server_databases.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s andmebaas(i) kustutati edukalt."
-msgstr[1] "%s andmebaas(i) kustutati edukalt."
+msgstr[0] "%1$d andmebaas kustutati edukalt."
+msgstr[1] "%1$d andmebaasi kustutati edukalt."
 
 #: server_databases.php:119
 msgid "Databases statistics"
@@ -9138,10 +9125,9 @@ msgid "Revoke"
 msgstr "Tühista"
 
 #: server_privileges.php:1543
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "Ekspordi"
+msgstr "Ekspordi kõik"
 
 #: server_privileges.php:1562 server_privileges.php:1844
 #: server_privileges.php:2476
@@ -9149,16 +9135,15 @@ msgid "Any"
 msgstr "Kõik"
 
 #: server_privileges.php:1642
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
-msgstr "Õigused"
+msgstr "Kõikide kasutajate õigused"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Õigused"
+msgstr "%s õigused"
 
 #: server_privileges.php:1682
 msgid "Users overview"
@@ -10115,10 +10100,9 @@ msgstr ""
 "olnud."
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Kasutatud avatud failide protsendi piirang"
+msgstr "Kasutatud võtme puhvri protsent (arvutatud väärtus)"
 
 #: server_status.php:1365
 msgid "The number of requests to read a key block from the cache."
@@ -10139,6 +10123,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Võtme puhvri puudujäägi arvutamisel võrreldakse füüsilisi lugemisi lugemise "
+"taotlustega (arvutatud väärtus)"
 
 #: server_status.php:1368
 msgid "The number of requests to write a key block to the cache."
@@ -10152,6 +10138,8 @@ msgstr "Kettale võtmeploki füüsiliste kirjutamiste hulk."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Füüsiliste kirjutamiste ja kirjutamise taotluste võrdlemise protsent "
+"(arvutatud väärtus)"
 
 #: server_status.php:1371
 msgid ""
@@ -10376,10 +10364,9 @@ msgstr ""
 "märkimisväärset jõudluse kasvu, kui sul on hea lõimu kasutus.)"
 
 #: server_status.php:1406
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Lõimu puhvri kasutushulga %%"
+msgstr "Lõimu puhvri kasutushulk (arvutatud väärtus)"
 
 #: server_status.php:1407
 msgid "The number of threads that are not sleeping."
@@ -11390,9 +11377,8 @@ msgid "Rebuild"
 msgstr "Loo uuesti"
 
 #: tbl_operations.php:773
-#, fuzzy
 msgid "Repair"
-msgstr "Paranda tabelit"
+msgstr "Paranda"
 
 #: tbl_operations.php:787
 msgid "Remove partitioning"
@@ -11576,22 +11562,22 @@ msgid "Tracking report for table `%s`"
 msgstr "`%s` tabeli jälgimise raport"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Versioon %s on loodud, %s.%s jälgimine on aktiveeritud."
+msgstr "Versioon %1$s on loodud, %2$s jälgimine on aktiveeritud."
 
 #: tbl_tracking.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "%s.%s jälgimine on aktiveeritud."
+msgstr "%1$s jälgimine deaktiveeriti versioonile %2$s."
 
 #: tbl_tracking.php:198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "%s.%s jälgimine on aktiveeritud."
+msgstr "%1$s jälgimine aktiveeriti versioonil %2$s."
 
 #: tbl_tracking.php:211
 msgid "SQL statements executed."
