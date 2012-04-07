@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-07 15:43+0200\n"
+"PO-Revision-Date: 2012-04-07 16:31+0200\n"
 "Last-Translator: Asle Ommundsen <aommundsen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -701,16 +701,14 @@ msgid "Add prefix to table"
 msgstr "Legg prefiks til tabell"
 
 #: db_structure.php:609 libraries/mult_submits.inc.php:272
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Erstatt tabell med filen"
+msgstr "Erstatt tabellprefiks"
 
 #: db_structure.php:611 libraries/mult_submits.inc.php:272
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Erstatt tabell med filen"
+msgstr "Kopier tabell med prefiks"
 
 #: db_structure.php:640 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
@@ -796,20 +794,18 @@ msgid "Database Log"
 msgstr "Databaselogg"
 
 #: export.php:38
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Spørringstype"
+msgstr "Feil type!"
 
 #: export.php:86
 msgid "Selected export type has to be saved in file!"
 msgstr "Valgte eksporteringstype krever lagring til ei fil!"
 
 #: export.php:115
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Bad parameters!"
-msgstr "Utfør indeks(er)"
+msgstr "Feil parametere!"
 
 #: export.php:176 export.php:201 export.php:672
 #, php-format
@@ -835,29 +831,28 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump har blitt lagret til fila %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "Eksport type"
+msgstr "Ugyldig eksport-type"
 
 #: gis_data_editor.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
-msgstr "Verdier for kolonnen \"%s\""
+msgstr "Verdi for kolonnen \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:164
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Bruk OpenStreetMaps som baselag"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:322
 #: libraries/display_tbl.lib.php:692
 msgid "Geometry"
-msgstr ""
+msgstr "Geometri"
 
 #: gis_data_editor.php:172 js/messages.php:318
 msgid "Point"
@@ -866,12 +861,12 @@ msgstr ""
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:316
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:317
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:319
@@ -881,52 +876,46 @@ msgstr ""
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:325
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add a point"
-msgstr "Utfør indeks(er)"
+msgstr ""
 
 #: gis_data_editor.php:220 js/messages.php:320
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Linker avsluttet med"
+msgstr "Linjestreng"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
 msgid "Outer Ring"
-msgstr ""
+msgstr "Ytre ring"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
 msgid "Inner Ring"
-msgstr ""
+msgstr "Indre ring"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Legg til en ny bruker"
+msgstr "Legg til linjestreng"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Legg til en ny bruker"
+msgstr "Legg til en indre ring"
 
 #: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
-msgstr ""
+msgstr "Polygon"
 
 #: gis_data_editor.php:306 js/messages.php:327
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Legg til kolonne(r)"
+msgstr "Legg til polygon"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "Legg til en ny tjener"
+msgstr "Legg til geometri"
 
 #: gis_data_editor.php:317
 msgid "Output"
@@ -937,6 +926,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Velg \"GeomFromText\" fra kolonnen \"Funksjon\" og lim inn teksten nedenfor inn "
+"i feltet \"Verdi\""
 
 #: import.php:86
 #, php-format
@@ -985,6 +976,7 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Kan ikke konvertere filens tegnsett uten tegnsett konverteringsbibliotek"
 
 #: import.php:439 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1049,16 +1041,14 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Du er i ferd med å SLETTE en komplett database!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Du er i ferd med å SLETTE en komplett database!"
+msgstr "Du er i ferd med å SLETTE en hel database!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Du er i ferd med å SLETTE en komplett database!"
+msgstr "Du er i ferd med å AVKORTE en hel database!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
@@ -1081,29 +1071,26 @@ msgid "This is not a number!"
 msgstr "Dette er ikke ett tall!"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add Index"
-msgstr "Utfør indeks(er)"
+msgstr "Legg til index"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Redigeringsmodus"
+msgstr "Rediger indeks"
 
 #: js/messages.php:44 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Legg til %s kolonne(r)"
+msgstr "Legg %d kolonne(r) til index"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Antall loggfiler"
+msgstr "Totalt antall"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1123,10 +1110,9 @@ msgstr "Passordene er ikke like!"
 
 #: js/messages.php:55 server_privileges.php:1913 server_privileges.php:1937
 #: server_privileges.php:2349 server_privileges.php:2543
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Alle brukere"
+msgstr "Legg til bruker"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
@@ -1150,24 +1136,22 @@ msgid "Edit"
 msgstr "Rediger"
 
 #: js/messages.php:62 server_status.php:795
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Tjenervalg"
+msgstr "Live trafikk-graf"
 
 #: js/messages.php:63 server_status.php:798
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Live tilkbl./prosess-graf"
 
 #: js/messages.php:64 server_status.php:816
-#, fuzzy
 #| msgid "Show query box"
 msgid "Live query chart"
-msgstr "Vis spørringsboks"
+msgstr "Live spørrings-graf"
 
 #: js/messages.php:66
 msgid "Static data"
-msgstr ""
+msgstr "Statistikkdata"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
@@ -1180,7 +1164,7 @@ msgstr "Totalt"
 #. l10n: Other, small valued, queries
 #: js/messages.php:70 server_status.php:595 server_status.php:1014
 msgid "Other"
-msgstr ""
+msgstr "Annet"
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/common.lib.php:1484
@@ -1194,36 +1178,34 @@ msgstr ","
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB sendt siden sist oppdatering"
 
 #: js/messages.php:77
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB mottatt siden sist oppdatering"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Tjenervalg"
+msgstr "Servertrafikk (i KiB)"
 
 #: js/messages.php:79
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Tilkoblinger siden sist oppdatering"
 
 #: js/messages.php:80 js/messages.php:118 server_status.php:1227
 msgid "Processes"
 msgstr "Prosesser"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "tilkoblinger"
+msgstr "Tilkoblinger/prosesser"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Spørringer siden sist oppdatering"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
@@ -1879,25 +1861,23 @@ msgstr ""
 
 #: js/messages.php:265 libraries/rte/rte_routines.lib.php:689
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET-editor"
 
 #: js/messages.php:266
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Verdier for kolonnen \"%s\""
+msgstr "Verdier for kolonne %s"
 
 #: js/messages.php:267
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Verdier for kolonnen \"%s\""
+msgstr "Verdier for ny kolonne"
 
 #: js/messages.php:268
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Skriv inn hver verdi i separate felter."
+msgstr "Skriv hver verdi i et eget felt"
 
 #: js/messages.php:269
 #, fuzzy, php-format
