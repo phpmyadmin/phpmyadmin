@@ -28,7 +28,7 @@ if (empty($import_list)) {
 <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none;"></iframe>
 <div id="import_form_status" style="display: none;"></div>
 <div id="importmain">
-    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
     <script type="text/javascript">
         //<![CDATA[
         $(document).ready( function() {
@@ -102,11 +102,9 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 ?>
                     }); // onclick
                 }); // domready
-
-                document.write('<form action="import.php" method="post" enctype="multipart/form-data" name="import"<?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo ' target="import_upload_iframe"'; ?>>');
                 //]]>
     </script>
-    <form action="import.php" method="post" enctype="multipart/form-data" name="import">
+    <form action="import.php" method="post" enctype="multipart/form-data" name="import"<?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo ' target="import_upload_iframe"'; ?>>
     <input type="hidden" name="<?php echo $ID_KEY; ?>" value="<?php echo $upload_id ; ?>" />
     <?php
     if ($import_type == 'server') {
