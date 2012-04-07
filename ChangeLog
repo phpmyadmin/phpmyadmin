@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.5.0.0 (not yet released)
+3.5.0.0 (2012-04-07)
 + rfe #2021981 [interface] Add support for mass prefix change.
 + "up to date" message on main page when current version is up to date
 + Update to jQuery 1.6.2
