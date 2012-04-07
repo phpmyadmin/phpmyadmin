@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-07 14:40+0200\n"
+"PO-Revision-Date: 2012-04-07 20:21+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -91,7 +91,6 @@ msgstr "Võtme nimi"
 #: browse_foreigners.php:179 browse_foreigners.php:181
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
 #: server_plugins.php:147 server_status.php:1477
-#, fuzzy
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -551,7 +550,6 @@ msgstr "Kustutada %s tabeli vasted?"
 #: libraries/sql_query_form.lib.php:411 pmd_general.php:417
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
 #: tbl_tracking.php:441 tbl_tracking.php:462 tbl_tracking.php:519
-#, fuzzy
 msgid "Delete"
 msgstr "Kustuta"
 
@@ -3022,7 +3020,6 @@ msgstr "SQL"
 #: libraries/common.lib.php:3128 libraries/common.lib.php:3345
 #: libraries/common.lib.php:3346 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
-#, fuzzy
 msgid "Insert"
 msgstr "Lisa"
 
@@ -3087,7 +3084,6 @@ msgstr "Suletud"
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
 #: pmd_relation_new.php:66
-#, fuzzy
 msgid "Disabled"
 msgstr "Keelatud"
 
@@ -3731,9 +3727,8 @@ msgstr "Kohanda vaikimisi valikuid"
 #: libraries/config/user_preferences.forms.php:143
 #: libraries/config/user_preferences.forms.php:214 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
-#, fuzzy
 msgid "CSV"
-msgstr "CSV andmed"
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:162
 msgid "Developer"
@@ -5152,7 +5147,7 @@ msgstr ""
 "Kui valida selleks [kbd]nested[/kbd], siis tabeli nime aliast kasutatakse "
 "sõltuvalt $cfg['LeftFrameTableSeparator'] direktiivist ainult tabelite "
 "poolitamiseks. Seega on ainult kausta nimeks alias ja tabeli nimi jääb ise "
-"muutmata."
+"muutmata"
 
 #: libraries/config/messages.inc.php:480
 msgid "Display table comment instead of its name"
@@ -5584,7 +5579,6 @@ msgstr "Ei oma õigusi"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:71
 #: server_synchronize.php:442 server_synchronize.php:914
-#, fuzzy
 msgid "Create table"
 msgstr "Loo tabel"
 
@@ -7170,7 +7164,6 @@ msgid "not OK"
 msgstr "Ei ole korras"
 
 #: libraries/relation.lib.php:81
-#, fuzzy
 msgid "Enabled"
 msgstr "Lubatud"
 
@@ -11477,9 +11470,8 @@ msgid "Rebuild"
 msgstr "Loo uuesti"
 
 #: tbl_operations.php:773
-#, fuzzy
 msgid "Repair"
-msgstr "Paranda tabelit"
+msgstr "Paranda"
 
 #: tbl_operations.php:787
 msgid "Remove partitioning"
