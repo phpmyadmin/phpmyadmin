@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-07 20:49+0200\n"
+"PO-Revision-Date: 2012-04-07 20:52+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -11621,10 +11621,10 @@ msgid "Tracking statements"
 msgstr "Jälgimise käsud"
 
 #: tbl_tracking.php:445 tbl_tracking.php:573
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Näita %s koos kuupäevadega alates %s kuni %s kasutajaks %s %s"
+msgstr "Näita %1$s koos kuupäevadega alates %2$s kuni %3$s kasutajaks %4$s %5$s"
 
 #: tbl_tracking.php:450
 msgid "Delete tracking data row from report"
@@ -11672,30 +11672,30 @@ msgid "Show versions"
 msgstr "Näita versioone"
 
 #: tbl_tracking.php:714
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "Deaktiveeri %s.%s jälgimine"
+msgstr "Deaktiveeri %s jälgimine"
 
 #: tbl_tracking.php:716
 msgid "Deactivate now"
 msgstr "Deaktiveeri kohe"
 
 #: tbl_tracking.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "Aktiveeri %s.%s jälgimine"
+msgstr "Aktiveeri %s jälgimine"
 
 #: tbl_tracking.php:729
 msgid "Activate now"
 msgstr "Aktiveeri kohe"
 
 #: tbl_tracking.php:742
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Loo versioon %s, %s.%s"
+msgstr "Loo versioon %1$s, %2$s"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
