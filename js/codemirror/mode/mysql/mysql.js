@@ -25,7 +25,7 @@ CodeMirror.defineMode("mysql", function(config, parserConfig) {
     // start of string?
     if (ch == '"' || ch == "'" || ch == '`')
       return chain(stream, state, tokenString(ch));
-    // is it one of the special signs []{}().,;? Seperator?
+    // is it one of the special signs []{}().,;? separator?
     else if (/[\[\]{}\(\),;\.]/.test(ch))
       return ret(ch, "separator");
     // start of a number value?
