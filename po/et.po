@@ -1,10 +1,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-03-29 23:03+0200\n"
+"PO-Revision-Date: 2012-04-07 21:05+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -111,8 +111,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s fail pole selles süsteemis saadaval. Lisateavet leiad aadressilt www."
-"phpmyadmin.net ."
+"%s fail pole selles süsteemis saadaval. Lisateavet leiad aadressilt "
+"www.phpmyadmin.net ."
 
 #: db_create.php:58
 #, php-format
@@ -138,8 +138,9 @@ msgstr "Tabeli kommentaarid"
 #: tbl_change.php:309 tbl_indexes.php:185 tbl_printview.php:139
 #: tbl_relation.php:392 tbl_select.php:112 tbl_structure.php:198
 #: tbl_tracking.php:268 tbl_tracking.php:319
+#, fuzzy
 msgid "Column"
-msgstr "Veerg"
+msgstr "Tulp"
 
 #: db_datadict.php:168 db_printview.php:104 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:25 libraries/db_routines.inc.php:36
@@ -354,6 +355,7 @@ msgstr "Muuda või ekspordi seoseskeemi"
 #: server_privileges.php:1745 server_privileges.php:1801
 #: server_privileges.php:2065 server_synchronize.php:418
 #: server_synchronize.php:861 tbl_tracking.php:587 test/theme.php:74
+#, fuzzy
 msgid "Table"
 msgstr "Tabel"
 
@@ -458,7 +460,7 @@ msgstr "Del"
 #: libraries/tbl_properties.inc.php:779 server_privileges.php:307
 #: tbl_change.php:965 tbl_indexes.php:246 tbl_select.php:251
 msgid "Or"
-msgstr "Või"
+msgstr "Or"
 
 #: db_qbe.php:529
 msgid "Modify"
@@ -515,7 +517,7 @@ msgstr "regulaaravaldisena"
 #: db_search.php:229
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "\"<i>%s</i>\" %s otsingu tulemused:"
+msgstr "Otsingu \"<i>%s</i>\" ning \"%s\" tulemused:"
 
 #: db_search.php:247
 #, php-format
@@ -559,7 +561,7 @@ msgstr "Otsi andmebaasist"
 
 #: db_search.php:298
 msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgstr "Sõna(d) või väärtus(ed) otsinguks (lühend: \"%\"):"
+msgstr "Sõna(d) või väärtus(ed), mida otsida (metamärk: \"%\"):"
 
 #: db_search.php:303
 msgid "Find:"
@@ -571,7 +573,7 @@ msgstr "Sõnad on eraldatud tühikuga (\" \")."
 
 #: db_search.php:321
 msgid "Inside table(s):"
-msgstr "Otsi tabeli(te)st:"
+msgstr "Tabeli(te)st:"
 
 #: db_search.php:351
 msgid "Inside column:"
@@ -654,7 +656,7 @@ msgstr "Ära vali ühtegi"
 
 #: db_structure.php:521
 msgid "Check tables having overhead"
-msgstr "Kontrolli ülemisi tabeleid"
+msgstr "Kontrolli ballastiga tabeleid"
 
 #: db_structure.php:529 libraries/config/messages.inc.php:162
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2232
@@ -862,8 +864,8 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 "Importimisest andmeid vastu ei võetud. Faili nime kas ei saadetud või faili "
-"maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata [a@./"
-"Documentation.html#faq1_16@Documentation]KKK 1.16[/a]."
+"maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
+"[a@./Documentation.html#faq1_16@Documentation]KKK 1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -976,7 +978,7 @@ msgstr "Oled kindel, et tahad keelata kõik BLOB viited %s andmebaasile?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "Puuduv väärtus vormis!"
+msgstr "Puudub väärtus vormis!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
@@ -1338,8 +1340,9 @@ msgstr "Laupäev"
 
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1593
+#, fuzzy
 msgid "Sun"
-msgstr "Püh"
+msgstr "Päike"
 
 #. l10n: Short week day name
 #: js/messages.php:199 libraries/common.lib.php:1595
@@ -1463,8 +1466,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Üleslaetud faili liigutamisel esines viga, vaata [a@./Documentation."
-"html#faq1_11@Documentation]KKK 1.11[/a]"
+"Üleslaetud faili liigutamisel esines viga, vaata "
+"[a@./Documentation.html#faq1_11@Documentation]KKK 1.11[/a]"
 
 #: libraries/Index.class.php:427 tbl_relation.php:519
 msgid "No index defined!"
@@ -1614,7 +1617,7 @@ msgstr "%s välimuse asukohta ei leitud!"
 #: libraries/Theme_Manager.class.php:295 test/theme.php:160 themes.php:20
 #: themes.php:40
 msgid "Theme / Style"
-msgstr "Teema / Stiil"
+msgstr "Välimus / Stiil"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -1633,8 +1636,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"Arvatavasti ei loonud sa seadistuse faili. Võid selle loomiseks kasutada "
-"%1$spaigaldaja skripti%2$s."
+"Arvatavasti ei loonud sa seadistuse faili. Võid selle loomiseks kasutada %"
+"1$spaigaldaja skripti%2$s."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -1689,8 +1692,7 @@ msgstr "Küpsised peavad olema lubatud."
 #: libraries/auth/signon.auth.lib.php:222
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
-"Paroolita sisselogimine on seadistuses keelatud (vaata AllowNoPassword)"
+msgstr "Paroolita sisselogimine on seadistuses keelatud (vaata AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:652
 #: libraries/auth/signon.auth.lib.php:226
@@ -1851,12 +1853,11 @@ msgid ""
 "semicolon is missing somewhere.<br />If you receive a blank page, everything "
 "is fine."
 msgstr ""
-"phpMyAdmin ei suutnud lugeda Teie konfiguratsioonifaili!<br />See võib "
-"juhtuda kui PHP leiab vea selles või PHP ei leia antud faili üles.<br /"
-">Palun kutsuge konfiguratsioonifail välja otseselt kasutades linki allpool "
-"ja lugege PHP veateadet(eid) mis teile öeldakse. Enamustel juhtudel on "
-"kuskilt puudu ülakoma või semikoolon.<br />Kui Teile kuvatakse tühi leht on "
-"kõik korras."
+"phpMyAdmin ei suutnud lugeda sinu seadistusfaili!<br />See võib juhtuda "
+"siis, kui PHP leiab selles parsimise vea või PHP ei leidnud vajalikku "
+"faili.<br />Palun vali alloleva lingi kaudu seadistusfail otse või loe PHP  "
+"veasõnumeid, mida sulle näidatakse. Enamasti on kuskil puudu jutumärk või "
+"semikoolon.<br />Kui sulle avaneb tühi leht, siis on kõik korras."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -1987,6 +1988,7 @@ msgstr "Profileerimine"
 
 #: libraries/common.lib.php:1354 libraries/tbl_triggers.lib.php:27
 #: server_processlist.php:70
+#, fuzzy
 msgid "Time"
 msgstr "Aeg"
 
@@ -2054,7 +2056,7 @@ msgstr "Eelmine"
 #: libraries/common.lib.php:2371 libraries/common.lib.php:2374
 #: libraries/display_tbl.lib.php:368
 msgid "End"
-msgstr "Lõpp"
+msgstr "Viimane"
 
 #: libraries/common.lib.php:2446
 #, php-format
@@ -2354,8 +2356,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Määrab ära, milliseid muutmise tüüpe saab CHAR ja VARCHAR veergude jaoks "
-"kasutada. [kbd]input[/kbd] - lubab piirata sisendi pikkust, [kbd]textarea[/"
-"kbd] - lubab veergudes kasutada uusi ridu (newlines)"
+"kasutada. [kbd]input[/kbd] - lubab piirata sisendi pikkust, "
+"[kbd]textarea[/kbd] - lubab veergudes kasutada uusi ridu (newlines)"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -2673,11 +2675,11 @@ msgstr "Keela võõrvõtme kontrollid"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Kasuta BLOBi heksadetsimaalsena"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "Use ignore inserts"
 
 #: libraries/config/messages.inc.php:130
 msgid "Syntax to use when inserting data"
@@ -2712,8 +2714,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Vali sorteerimise järjekord võõrvõtme rippmenüü kasti üksustele. [kbd]content"
-"[/kbd] on viidatud andmed, [kbd]id[/kbd] on võtme väärtus"
+"Vali sorteerimise järjekord võõrvõtme rippmenüü kasti üksustele. "
+"[kbd]content[/kbd] on viidatud andmed, [kbd]id[/kbd] on võtme väärtus"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -2791,7 +2793,7 @@ msgstr "Määra mõningaid enamasti kasutatavaid valikuid"
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "Import"
+msgstr "Impordi"
 
 #: libraries/config/messages.inc.php:169
 msgid "Import defaults"
@@ -2868,9 +2870,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
-"Täpsusta veebilehitseja pealkirja. Vaata [a@Documentation."
-"html#cfg_TitleTable]dokumentatsioonist[/a], kuidas kasutada maagilisi sõne, "
-"mida saab kasutada eriliste väärtuste saamiseks."
+"Täpsusta veebilehitseja pealkirja. Vaata "
+"[a@Documentation.html#cfg_TitleTable]dokumentatsioonist[/a], kuidas kasutada "
+"maagilisi sõne, mida saab kasutada eriliste väärtuste saamiseks."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation_header.inc.php:83
@@ -2993,10 +2995,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Kui soovid kasutada SQL valideerija teenust, siis peaksid teadma, et [strong]"
-"kõiki SQL käskusid salvestatakse anonüümselt statistika eesmärgil[/strong]."
-"[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
-"Autoriõigus 2002 Upright Database Technology. Kõik õigused on kaitstud.[/em]"
+"Kui soovid kasutada SQL valideerija teenust, siis peaksid teadma, et "
+"[strong]kõiki SQL käskusid salvestatakse anonüümselt statistika "
+"eesmärgil[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Autoriõigus 2002 Upright Database Technology. Kõik õigused on "
+"kaitstud.[/em]"
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
@@ -3055,12 +3058,12 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
-"Kui see on lubatud, siis phpMyAdmin jätkab multi-käsu päringute sooritamist "
-"ka sel juhul, kui üks päringutest ebaõnnestub"
+"Kui see on lubatud, siis phpMyAdmin jätkab mitmekäsuliste päringute "
+"sooritamist ka sel juhul, kui üks päringutest ebaõnnestub"
 
 #: libraries/config/messages.inc.php:234
 msgid "Ignore multiple statement errors"
-msgstr "Ignoreeri multi-käsu vigu"
+msgstr "Ignoreeri mitmekäsulise vigu"
 
 #: libraries/config/messages.inc.php:235
 msgid ""
@@ -3100,7 +3103,7 @@ msgstr "Imporditava faili formaat"
 
 #: libraries/config/messages.inc.php:249 libraries/import/ldi.php:45
 msgid "Use LOCAL keyword"
-msgstr "kasuta LOCAL võtmesõna"
+msgstr "Kasuta LOCAL võtmesõna"
 
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/config/messages.inc.php:261
@@ -3133,7 +3136,7 @@ msgstr "Ära kasuta AUTO_INCREMENT null-väärtuste jaoks"
 
 #: libraries/config/messages.inc.php:262
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Liugurite algne asetus"
 
 #: libraries/config/messages.inc.php:263
 msgid "How many rows can be inserted at one time"
@@ -3141,7 +3144,7 @@ msgstr "Mitu rida saab korraga lisada"
 
 #: libraries/config/messages.inc.php:264
 msgid "Number of inserted rows"
-msgstr "Lisatavate ridade hulk"
+msgstr "Lisatud ridade hulk"
 
 #: libraries/config/messages.inc.php:265
 msgid "Target for quick access icon"
@@ -3305,7 +3308,7 @@ msgstr "Sisselogimise küpsise kehtivus"
 
 #: libraries/config/messages.inc.php:298
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "Kahekordista LONGTEXT veergude tekstiala suurust"
+msgstr "Kahekordista LONGTEXT veergude tekstiala laiust"
 
 #: libraries/config/messages.inc.php:299
 msgid "Bigger textarea for LONGTEXT"
@@ -3376,8 +3379,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Baitide hulk, mida skriptil on lubatud kasutada, nt [kbd]32M[/kbd] ([kbd]0[/"
-"kbd] - piiramatu)"
+"Baitide hulk, mida skriptil on lubatud kasutada, nt [kbd]32M[/kbd] "
+"([kbd]0[/kbd] - piiramatu)"
 
 #: libraries/config/messages.inc.php:314
 msgid "Memory limit"
@@ -3426,7 +3429,7 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - s.t TIME, DATE, DATETIME ja TIMESTAMP tüüpi veergude "
+"[kbd]SMART[/kbd] - st TIME, DATE, DATETIME ja TIMESTAMP tüüpi veergude "
 "kahanevat järjekorda. Muul juhul on need kasvavas järjekorras"
 
 #: libraries/config/messages.inc.php:325
@@ -3571,7 +3574,7 @@ msgstr "Luba sisse logida 'root' kasutajana"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 
 #: libraries/config/messages.inc.php:361
 msgid "HTTP Realm"
@@ -3603,8 +3606,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui puudub [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"järjehoidja[/a] tugi, soovitatav: [kbd]pma_bookmark[/kbd]"
+"Jäta tühjaks, kui puudub "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]järjehoidja[/a] tugi, soovitatav: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:367
 msgid "Bookmark table"
@@ -3615,8 +3619,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui puuduvad kommentaarid/mime-tüübid, soovitatav: [kbd]"
-"pma_column_info[/kbd]"
+"Jäta tühjaks, kui puuduvad kommentaarid/mime-tüübid, soovitatav: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:369
 msgid "Column information table"
@@ -3647,8 +3651,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
-"Eriline MySQL kasutaja, mis on piiratud õigustega. Lisainfot saab [a@http://"
-"wiki.phpmyadmin.net/pma/controluser]vikist[/a]"
+"Eriline MySQL kasutaja, mis on piiratud õigustega. Lisainfot saab "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]vikist[/a]"
 
 #: libraries/config/messages.inc.php:376
 msgid "Control user"
@@ -3667,8 +3671,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Jäta tühjaks, kui puudub kujundaja tugi, soovitatav: [kbd]pma_designer_coords"
-"[/kbd]"
+"Jäta tühjaks, kui puudub kujundaja tugi, soovitatav: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:380
 msgid "Designer table"
@@ -3708,8 +3712,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
-"Jäta tühjaks, kuid puudub SQL päringu ajaloo tugi, soovitatav: [kbd]"
-"pma_history[/kbd]"
+"Jäta tühjaks, kuid puudub SQL päringu ajaloo tugi, soovitatav: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:388
 msgid "SQL query history table"
@@ -3744,7 +3748,7 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Sa saad kasutada ka MySQL'i metamärke (% and _), kui asetad vahetult nende "
-"ette kurakaldkriipsu (\\). S.t kasuta [kbd]'my\\_db'[/kbd], aga mitte "
+"ette kurakaldkriipsu (\\). St kasuta [kbd]'my\\_db'[/kbd], aga mitte "
 "[kbd]'my_db'[/kbd]. Seda valikut kasutades saad sorteerida andmebaaside "
 "nimekirja, kui sisestad nende nimed soovitud järjekorda ning asetad lõppu "
 "[kbd]*[/kbd] märgi, et ülejäänud tähestiku järjekorda asetada."
@@ -3765,8 +3769,8 @@ msgstr "'config' autentimise parool"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: [kbd]pma_pdf_pages[/"
-"kbd]"
+"Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:399
 msgid "PDF schema: pages table"
@@ -3779,9 +3783,9 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "Andmebaas, mida kasutada seoste, järjehoidjate ja PDF võimaluste "
-"säilitamiseks. Lisateavet leiad aadressilt [a@http://wiki.phpmyadmin.net/pma/"
-"pmadb]pmadb[/a]. Kui tugi puudub, siis jäta tühjaks, soovitatav: [kbd]"
-"phpmyadmin[/kbd]"
+"säilitamiseks. Lisateavet leiad aadressilt "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Kui tugi puudub, siis "
+"jäta tühjaks, soovitatav: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:401
 msgid "Database name"
@@ -3822,8 +3826,8 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
-"Vaata näiteks [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"autentimise tüüpe[/a]"
+"Vaata näiteks "
+"[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentimise tüüpe[/a]"
 
 #: libraries/config/messages.inc.php:409
 msgid "Signon session name"
@@ -3855,8 +3859,8 @@ msgstr "Kasuta SSL'i"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: [kbd]pma_table_coords[/"
-"kbd]"
+"Jäta tühjaks, kui puudub PDF skeemi tugi, soovitatav: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:416
 msgid "PDF schema: table coordinates"
@@ -3923,8 +3927,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
-"Jäta tühjaks, kui puudub SQL päringu jälgimise tugi, soovitatav: [kbd]"
-"pma_tracking[/kbd]"
+"Jäta tühjaks, kui puudub SQL päringu jälgimise tugi, soovitatav: "
+"[kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:428
 msgid "SQL query tracking table"
@@ -3947,8 +3951,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui kasutaja eelistusi andmebaasis ei hoita, soovitatav: [kbd]"
-"pma_userconfig[/kbd]"
+"Jäta tühjaks, kui kasutaja eelistusi andmebaasis ei hoita, soovitatav: "
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "User preferences storage table"
@@ -4077,6 +4081,10 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
+"Kui valida selleks [kbd]nested[/kbd], siis tabeli nime aliast kasutatakse "
+"sõltuvalt $cfg['LeftFrameTableSeparator'] direktiivist ainult tabelite "
+"poolitamiseks. Seega on ainult kausta nimeks alias ja tabeli nimi jääb ise "
+"muutmata."
 
 #: libraries/config/messages.inc.php:458
 msgid "Display table comment instead of its name"
@@ -4128,8 +4136,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Kui sul on enda kasutajanimi, siis täpsusta seda siin (vaikimisi on [kbd]"
-"anonymous[/kbd])"
+"Kui sul on enda kasutajanimi, siis täpsusta seda siin (vaikimisi on "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:472 tbl_tracking.php:406
 #: tbl_tracking.php:457
@@ -4161,7 +4169,7 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
-"Tekstiala suurus (veerud) muutmise vaates. See väärtus tõstetakse esile SQL "
+"Tekstiala laius (veerud) muutmise vaates. See väärtus tõstetakse esile SQL "
 "päringu tekstialades (*2) ja päringu aknas (*1.25)"
 
 #: libraries/config/messages.inc.php:478
@@ -4173,7 +4181,7 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
-"Tekstiala suurus (read) muutmise vaates. See väärtus tõstetakse esile SQL "
+"Tekstiala laius (read) muutmise vaates. See väärtus tõstetakse esile SQL "
 "päringu tekstialades (*2) ja päringu aknas (*1.25)"
 
 #: libraries/config/messages.inc.php:480
@@ -4207,6 +4215,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
+"Sisesta proksid formaadis [kbd]IP: usaldusväärse HTTP päis[/kbd]. Järgnev "
+"näide täpsustab, et phpMyAdmin peab usaldama HTTP_X_FORWARDED_FOR (X"
+"-Forwarded-For) päist, mis tuleb proksist 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:490
 msgid "List of trusted proxies for IP allow/deny"
@@ -4246,13 +4258,13 @@ msgid ""
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
-"Näita mitmekäsuliste päringute iga käsu poolt mõjutatud ridu. Loe libraries/"
-"import.lib.php failist vaikimisi väärtust, kui palju päringuid üks käsk võib "
-"sisaldada."
+"Näita mitmekäsuliste päringute iga käsu poolt mõjutatud ridu. Loe "
+"libraries/import.lib.php failist vaikimisi väärtust, kui palju päringuid üks "
+"käsk võib sisaldada."
 
 #: libraries/config/messages.inc.php:498
 msgid "Verbose multiple statements"
-msgstr "Sõnalised multi-käsud"
+msgstr "Sõnalised mitmikkäsud"
 
 #: libraries/config/messages.inc.php:499 setup/frames/index.inc.php:229
 msgid "Check for latest version"
@@ -4491,7 +4503,7 @@ msgstr "Ei oma õigusi"
 #: libraries/display_create_table.lib.php:46
 #, php-format
 msgid "Create table on database %s"
-msgstr "Loo uus tabel andmebaasi %s"
+msgstr "Loo tabel andmebaasi %s"
 
 #: libraries/display_create_table.lib.php:55
 msgid "Number of columns"
@@ -4766,7 +4778,7 @@ msgstr "vertikaalselt"
 #: libraries/display_tbl.lib.php:405
 #, php-format
 msgid "in %s mode and repeat headers after %s cells"
-msgstr "näita %s and korda pealkirju iga %s järel"
+msgstr "%s ja korda päiseid iga %s rea tagant"
 
 #: libraries/display_tbl.lib.php:499
 msgid "Sort by key"
@@ -4815,7 +4827,7 @@ msgstr "Näita BLOB sisu"
 #: libraries/display_tbl.lib.php:606 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
 msgid "Browser transformation"
-msgstr "Browser transformation"
+msgstr "Veebilehitseja transformatsioon"
 
 #: libraries/display_tbl.lib.php:1220
 msgid "Copy"
@@ -4909,7 +4921,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"Mälupuhvri maht, mida InnoDB kasutab oma andmete ja indeksite puhverdamiseks."
+"Mälupuhvri maht, mida InnoDB kasutab oma andmete ja indeksite "
+"puhverdamiseks."
 
 #: libraries/engines/innodb.lib.php:134
 msgid "Buffer Pool"
@@ -5153,7 +5166,7 @@ msgstr "Seotud lingid"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
+msgstr "The PrimeBase Media Streaming Blog by Barry Leslie"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
@@ -5300,10 +5313,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"See on süsteemi poolt hallatavate ülekannete logifailide hulk (pbxt/system/"
-"xlog*.xt). Kui logide hulk ületab seda väärtust, siis vanemad logid "
-"kustutatakse, muul juhul nimetatakse need ümber ja antakse järgmine kõrgeim "
-"number."
+"See on süsteemi poolt hallatavate ülekannete logifailide hulk "
+"(pbxt/system/xlog*.xt). Kui logide hulk ületab seda väärtust, siis vanemad "
+"logid kustutatakse, muul juhul nimetatakse need ümber ja antakse järgmine "
+"kõrgeim number."
 
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
@@ -5311,8 +5324,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"PBXT kohta leiab dokumentatsiooni ja edasist teavet %sPrimeBase XT kodulehelt"
-"%s."
+"PBXT kohta leiab dokumentatsiooni ja edasist teavet %sPrimeBase XT "
+"kodulehelt%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -5346,7 +5359,7 @@ msgstr "NULL asendaja:"
 
 #: libraries/export/csv.php:26 libraries/export/excel.php:23
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
+msgstr "Eemalda veergudest tagasijooksu/reavahetuse sümbolid"
 
 #: libraries/export/excel.php:32
 msgid "Excel edition:"
@@ -5431,7 +5444,7 @@ msgstr "PHP versioon"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWiki tabel"
 
 #: libraries/export/pdf.php:17
 msgid "PDF"
@@ -5491,8 +5504,8 @@ msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Aseta tabeli ja väljade nimed alumise ja ülemise jutumärgi vahele <i>"
-"(Kaitseb välja ja tabeli nimesid eriliste sümbolitega või võtmesõnadega "
+"Aseta tabeli ja väljade nimed alumise ja ülemise jutumärgi vahele "
+"<i>(Kaitseb välja ja tabeli nimesid eriliste sümbolitega või võtmesõnadega "
 "vormimise eest)</i>"
 
 #: libraries/export/sql.php:136
@@ -5555,8 +5568,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Tõmmista binaarsed veerud heksadetsimaalsena <i>(nt \"abc\" salvestatakse "
-"kui 0x616263)</i>"
+"Tõmmista binaarsed veerud heksadetsimaalsena <i>(nt \"abc\" salvestatakse kui "
+"0x616263)</i>"
 
 #: libraries/export/sql.php:171
 msgid ""
@@ -5635,7 +5648,7 @@ msgstr "Koostanud"
 #: libraries/import.lib.php:153 sql.php:626 tbl_change.php:179
 #: tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
+msgstr "MySQL tagastas tühja tulemuse (st nulliread)."
 
 #: libraries/import.lib.php:1141
 msgid ""
@@ -6412,7 +6425,7 @@ msgstr "Eraldaja"
 
 #: libraries/sql_query_form.lib.php:380
 msgid " Show this query here again "
-msgstr " Näita päringut siin uuesti "
+msgstr " Näita seda päringut siin uuesti "
 
 #: libraries/sql_query_form.lib.php:439
 msgid "Submit"
@@ -6424,7 +6437,7 @@ msgstr "Ainult vaata"
 
 #: libraries/sql_query_form.lib.php:491 prefs_manage.php:241
 msgid "Location of the text file"
-msgstr "tekstifaili asukoht"
+msgstr "Tekstifaili asukoht"
 
 #: libraries/sql_query_form.lib.php:503 tbl_change.php:965
 msgid "web server upload directory"
@@ -6521,10 +6534,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Kui veeru tüüp on \"enum\" või \"set\", siis palun sisesta väärtused "
-"formaadis: 'a','b','c'...<br />Kui pead nende väärtuste vahele lisama "
-"kurakaldkriipsu (\"\\\") või jutumärgi (\"'\"), siis lisa selle ette "
-"kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
+"Kui veeru tüüp on \"enum\" või \"set\", siis palun sisesta väärtused formaadis: "
+"'a','b','c'...<br />Kui pead nende väärtuste vahele lisama kurakaldkriipsu "
+"(\"\\\") või jutumärgi (\"'\"), siis lisa selle ette kurakaldkriips (nt '\\\\xyz' "
+"või 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:105
 msgid ""
@@ -6547,7 +6560,8 @@ msgid ""
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 "Saadavalolevate transformatsiooni valikute ja nende MIME-tüüpi "
-"transformatsioonide nimekirja jaoks vajuta %stransformatsiooni kirjeldusele%s"
+"transformatsioonide nimekirja jaoks vajuta %stransformatsiooni kirjeldusele%"
+"s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6693,6 +6707,17 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
+"AINULT LINUXILE: Launches an external application and feeds it the column "
+"data via standard input. Returns the standard output of the application. The "
+"default is Tidy, to pretty-print HTML code. For security reasons, you have "
+"to manually edit the file "
+"libraries/transformations/text_plain__external.inc.php and list the tools "
+"you want to make available. The first option is then the number of the "
+"program you want to use and the second option is the parameters for the "
+"program. The third option, if set to 1, will convert the output using "
+"htmlspecialchars() (Vaikimisi 1). The fourth option, if set to 1, will "
+"prevent wrapping and ensure that the output appears all on one line "
+"(Vaikimisi 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 msgid ""
@@ -6725,8 +6750,7 @@ msgstr ""
 msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
-msgstr ""
-"Teisendab (IPv4) interneti võrguaadressi punktidega eraldatud formaati."
+msgstr "Teisendab (IPv4) interneti võrguaadressi punktidega eraldatud formaati."
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
@@ -6789,7 +6813,7 @@ msgstr "Üldised sätted"
 
 #: main.php:103
 msgid "MySQL connection collation"
-msgstr "MySQL ühenduse kollatsioon"
+msgstr "MySQL ühenduse kodeering"
 
 #: main.php:119
 msgid "Appearance Settings"
@@ -6811,7 +6835,7 @@ msgstr "Kasutaja"
 
 #: main.php:171
 msgid "MySQL charset"
-msgstr "MySQLi tähetabel"
+msgstr "MySQL'i märgitabel"
 
 #: main.php:183
 msgid "Web server"
@@ -6887,10 +6911,11 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"Sinu PHP parameeter [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] on väiksem, kui "
-"phpMyAdminis seadistatud küpsise kehtivus. Seetõttu sinu sisselogimine aegub "
-"varem, kui phpMyAdminis seadistatud."
+"Sinu PHP parameeter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@]session.gc_maxlifetime[/a] on väiksem, kui phpMyAdminis "
+"seadistatud küpsise kehtivus. Seetõttu sinu sisselogimine aegub varem, kui "
+"phpMyAdminis seadistatud."
 
 #: main.php:276
 msgid ""
@@ -6922,8 +6947,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmini seadistuse salvestus ei ole lõplikult seadistatud, mõned "
-"laiendatud võimalused on aktiveerimata. Põhjuse saad teada, kui vajutad "
-"%ssiia%s."
+"laiendatud võimalused on aktiveerimata. Põhjuse saad teada, kui vajutad %"
+"ssiia%s."
 
 #: main.php:316
 msgid ""
@@ -6950,8 +6975,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
-"%sdokumentatsioonist%s."
+"Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe %"
+"sdokumentatsioonist%s."
 
 #: navigation.php:187 server_databases.php:277 server_synchronize.php:1212
 msgid "No databases"
@@ -7093,9 +7118,9 @@ msgid ""
 "column, click the \"Choose column to display\" icon, then click on the "
 "appropriate column name."
 msgstr ""
-"Näidatavad veerud näidatakse roosana. Näidatava veeru määramiseks/"
-"tühistamiseks vajuta \"Vali veerg, mida näidata\" ikoonile ja siis vajuta "
-"sobivale veeru nimele."
+"Näidatavad veerud näidatakse roosana. Näidatava veeru "
+"määramiseks/tühistamiseks vajuta \"Vali veerg, mida näidata\" ikoonile ja siis "
+"vajuta sobivale veeru nimele."
 
 #: pmd_pdf.php:34
 msgid "Page has been created"
@@ -7253,7 +7278,7 @@ msgstr "Vali binaarne logi, mida soovid vaadata"
 
 #: server_binlog.php:122 server_status.php:387
 msgid "Files"
-msgstr "Faili"
+msgstr "Failid"
 
 #: server_binlog.php:169 server_binlog.php:171 server_processlist.php:58
 #: server_processlist.php:60
@@ -7434,7 +7459,8 @@ msgstr ""
 #: server_privileges.php:618
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
-"Piirab päringute hulka, mida kasutaja võib tunni aja jooksul serverile saata."
+"Piirab päringute hulka, mida kasutaja võib tunni aja jooksul serverile "
+"saata."
 
 #: server_privileges.php:53 server_privileges.php:622
 #: server_privileges.php:624
@@ -7553,8 +7579,7 @@ msgstr "Ressursi piirangud"
 
 #: server_privileges.php:613
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Märkus: Nende valikute muutmisel väärtuseks 0 (null) eemaldab piirangu."
+msgstr "Märkus: Nende valikute muutmisel väärtuseks 0 (null) eemaldab piirangu."
 
 #: server_privileges.php:690
 msgid "Login Information"
@@ -7819,8 +7844,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"See server ei ole paljundamisel seatud ülemaks. Kas soovid seda <a href=\"%s"
-"\">teha</a>?"
+"See server ei ole paljundamisel seatud ülemaks. Kas soovid seda <a href=\"%"
+"s\">teha</a>?"
 
 #: server_replication.php:216
 msgid "Master configuration"
@@ -7866,8 +7891,8 @@ msgid ""
 "master"
 msgstr ""
 "Kui oled taaskäivitanud MySQL serveri, siis palun vajuta Mine nuppu. "
-"Seejärel peaksid nägema sõnumeid, mis teavitavad sind, et see server <b>on</"
-"b> seadistatud ülemaks"
+"Seejärel peaksid nägema sõnumeid, mis teavitavad sind, et see server "
+"<b>on</b> seadistatud ülemaks"
 
 #: server_replication.php:292
 msgid "Slave SQL Thread not running!"
@@ -8027,6 +8052,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
+"MySQL server saab pärida NDB Cluster varundusmootorit, kui ta teab antud "
+"nimega tabelit. Seda nimetatakse avastamiseks. Handler_discover näitab, mitu "
+"korda on tabeleid avastatud."
 
 #: server_status.php:58
 msgid ""
@@ -8072,8 +8100,8 @@ msgid ""
 msgstr ""
 "Fikseeritud asukohal põhineva rea lugemise taotluste hulk. See on kõrge, kui "
 "teed palju päringuid, mis vajavad tulemuste sorteerimist. Tõenäoliselt teed "
-"palju päringuid, millega peab MySQL kontrolliga terveid tabeleid või kasutad "
-"liitmisi, mis ei kasuta võtmeid korralikult."
+"palju päringuid, millega peab MySQL kontrolliga terveid tabeleid või "
+"kasutad liitmisi, mis ei kasuta võtmeid korralikult."
 
 #: server_status.php:63
 msgid ""
@@ -8132,6 +8160,10 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
+"Lehtede hulk, mis on hõivatud administratiivse ballasti tõttu (nt ridade "
+"lukustamised või adaptiivne räsi indeks). Seda väärtust saab arvutada ka "
+"valemiga Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
+"Innodb_buffer_pool_pages_data."
 
 #: server_status.php:73
 msgid "Total size of buffer pool, in pages."
@@ -8142,8 +8174,8 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"InnoDB algatatud \"juhuslike\" ettelugemiste hulk. See juhtub siis, kui "
-"päring peab kontrollima palju tabeleid, aga juhuslikus järjekorras."
+"InnoDB algatatud \"juhuslike\" ettelugemiste hulk. See juhtub siis, kui päring "
+"peab kontrollima palju tabeleid, aga juhuslikus järjekorras."
 
 #: server_status.php:75
 msgid ""
@@ -8245,7 +8277,7 @@ msgstr "fsync() poolt logi failisse tehtud kirjutamiste hulk."
 
 #: server_status.php:94
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "Järjekorras olevate logifailide fsync() operatsioonide hulk."
 
 #: server_status.php:95
 msgid "Pending log file writes."
@@ -8396,7 +8428,7 @@ msgstr "Avatud tabelite hulk."
 
 #: server_status.php:123
 msgid "The number of free memory blocks in query cache."
-msgstr "Vabad mälu plokid päringute vahemälus."
+msgstr "Vabade mäluplokkide hulk päringu puhvris."
 
 #: server_status.php:124
 msgid "The amount of free memory for query cache."
@@ -8441,7 +8473,7 @@ msgstr "Päringu puhvris olevate plokkide koguhulk."
 #: server_status.php:131
 msgctxt "$strShowStatusReset"
 msgid "Reset"
-msgstr "Nulli"
+msgstr "Lähtesta"
 
 #: server_status.php:132
 msgid "The status of failsafe replication (not yet implemented)."
@@ -8655,8 +8687,8 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"See MySQL server töötab <b>paljundamisel</b> <b>ülemana</b> ja <b>alluvana</"
-"b>."
+"See MySQL server töötab <b>paljundamisel</b> <b>ülemana</b> ja "
+"<b>alluvana</b>."
 
 #: server_status.php:488
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
@@ -8677,8 +8709,8 @@ msgid ""
 "<b>Server traffic</b>: These tables show the network traffic statistics of "
 "this MySQL server since its startup."
 msgstr ""
-"<b>Serveri liiklus</b>: Need tabelid näitavad võrguliikluse statistikat "
-"selle MySQL serveri jaoks alates tema käivitamisest."
+"<b>Serveri liiklus</b>: Need tabelid näitavad selle MySQL serveri "
+"võrguliikluse statistikat alates serveri käivitumisest."
 
 #: server_status.php:515
 msgid "Traffic"
@@ -8727,8 +8759,8 @@ msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
-"<b>Päringu statistika</b>: Alates stardist, %s päringut on saadetud "
-"serverile."
+"<b>Päringu statistika</b>: Alates serveri käivitumisest on saadetud "
+"serverile %s päringut."
 
 #: server_status.php:627
 msgid "per minute"
@@ -8891,9 +8923,10 @@ msgid ""
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"Palun loo phpMyAdmini juurkataloogi veebiserveri jaoks kirjutatav [em]config"
-"[/em] kaust, nagu on kirjeldatud [a@Documentation.html#setup_script]"
-"dokumentatsioonis[/a]. Muul juhul saad seda ainult alla laadida või vaadata."
+"Palun loo phpMyAdmini juurkataloogi veebiserveri jaoks kirjutatav "
+"[em]config[/em] kaust, nagu on kirjeldatud "
+"[a@Documentation.html#setup_script]dokumentatsioonis[/a]. Muul juhul saad "
+"seda ainult alla laadida või vaadata."
 
 #: setup/frames/index.inc.php:57
 msgid ""
@@ -8909,8 +8942,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"Kui sinu server on seadistatud nõustuma ka HTTPS taotlustega, siis ava [a@%s]"
-"see link[/a], et teada saada, kuidas kasutada turvalist ühendust."
+"Kui sinu server on seadistatud nõustuma ka HTTPS taotlustega, siis ava [a@%"
+"s]see link[/a], et teada saada, kuidas kasutada turvalist ühendust."
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
@@ -9075,8 +9108,7 @@ msgstr ""
 #: setup/lib/index.lib.php:256
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
-"Kui su veebiserver seda toetab, siis see %svalik%s peaks olema lubatud."
+msgstr "Kui su veebiserver seda toetab, siis see %svalik%s peaks olema lubatud."
 
 #: setup/lib/index.lib.php:258
 #, php-format
@@ -9125,8 +9157,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Kui tunned, et see on vajalik, siis kasuta täiendavaid kaitse sätteid - "
-"%shostiga autentimise%s sätteid ja %susaldusväärsete prokside nimekirja%s. "
+"Kui tunned, et see on vajalik, siis kasuta täiendavaid kaitse sätteid - %"
+"shostiga autentimise%s sätteid ja %susaldusväärsete prokside nimekirja%s. "
 "Siiski ei pruugi IP-põhine kaitse olla usaldusväärne, kui sinu IP kuulub "
 "ISP'le, kellega on ühendatud koos sinuga tuhandeid kasutajaid."
 
@@ -9142,8 +9174,8 @@ msgstr ""
 "Sa valisid [kbd]config[/kbd] autentimise tüübi ja kaasasid automaatsele "
 "sisselogimisele kasutajanime ja parooli, mis ei ole soovitatav valik "
 "liinilolevatele hostidele. Kõik, kes teavad või arvavad ära sinu phpMyAdmini "
-"URL'i, saavad otse ligipääsu sinu phpMyAdmini paneelile. Määra %sautentimise "
-"tüübiks%s [kbd]cookie[/kbd] või [kbd]http[/kbd]."
+"URL'i, saavad otse ligipääsu sinu phpMyAdmini paneelile. Määra %"
+"sautentimise tüübiks%s [kbd]cookie[/kbd] või [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, php-format
@@ -9294,8 +9326,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Selle päringu tulemust ei saa kasutada diagrammis. Vaata [a@./Documentation."
-"html#faq6_29@Documentation]KKK 6.29[/a]"
+"Selle päringu tulemust ei saa kasutada diagrammis. Vaata "
+"[a@./Documentation.html#faq6_29@Documentation]KKK 6.29[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"
@@ -9348,7 +9380,7 @@ msgstr "Rea tüüp"
 
 #: tbl_chart.php:146
 msgid "Stacked"
-msgstr "Jaotatud ühe tulbana"
+msgstr "Virntulp"
 
 #: tbl_chart.php:147
 msgid "Multi"
@@ -9376,8 +9408,8 @@ msgid ""
 "Note that not every result table can be put to the chart. See <a href=\"./"
 "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 msgstr ""
-"Pane tähele, et igat tulemuse tabelit ei saa lisada diagrammi. Vaata <a href="
-"\"./Documentation.html#faq6_29\" target=\"Documentation\">KKK 6.29</a>"
+"Pane tähele, et igat tulemuse tabelit ei saa lisada diagrammi. Vaata <a "
+"href=\"./Documentation.html#faq6_29\" target=\"Documentation\">KKK 6.29</a>"
 
 #: tbl_chart.php:181
 msgid "Redraw"
@@ -9437,7 +9469,7 @@ msgstr "Lisa indeksisse &nbsp;%s&nbsp;veerg(u)"
 
 #: tbl_indexes.php:252 tbl_structure.php:688
 msgid "Column count has to be larger than zero."
-msgstr "Veergude arv peab olema nullist suurem."
+msgstr "Veergude hulk peab olema nullist suurem."
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
@@ -9593,7 +9625,7 @@ msgstr "Rea pikkus"
 
 #: tbl_printview.php:411 tbl_structure.php:887
 msgid " Row size "
-msgstr " rea suurus "
+msgstr " Rea suurus "
 
 #: tbl_relation.php:269
 #, php-format
@@ -9854,8 +9886,8 @@ msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
 msgstr ""
-"Teemade tugi puudub, palun kontrollige oma seadeid ja/või oma teemade "
-"kataloogi %s."
+"Välimuste tugi puudub. Palun kontrolli oma seadistust ja/või oma välimusi "
+"kataloogis %s."
 
 #: themes.php:41
 msgid "Get more themes!"
