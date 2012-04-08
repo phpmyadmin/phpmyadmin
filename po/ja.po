@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-04-02 12:42+0200\n"
+"PO-Revision-Date: 2012-04-08 04:40+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -121,7 +121,7 @@ msgstr "データベース %1$s を作成しました。"
 
 #: db_datadict.php:48 db_operations.php:367
 msgid "Database comment: "
-msgstr "データベースのコメント"
+msgstr "データベースのコメント: "
 
 #: db_datadict.php:158 libraries/schema/Pdf_Relation_Schema.class.php:1215
 #: libraries/tbl_properties.inc.php:725 tbl_operations.php:358
@@ -5683,7 +5683,7 @@ msgstr ""
 
 #: libraries/import/csv.php:41
 msgid "Column names: "
-msgstr "カラム名："
+msgstr "カラム名: "
 
 #: libraries/import/csv.php:61 libraries/import/csv.php:74
 #: libraries/import/csv.php:79 libraries/import/csv.php:84
@@ -6182,7 +6182,7 @@ msgstr "このページにはテーブルがありません！"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr "スキーマエラー："
+msgstr "スキーマエラー: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:877
 #: libraries/schema/Pdf_Relation_Schema.class.php:1118
