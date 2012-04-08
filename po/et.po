@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-07 20:52+0200\n"
+"PO-Revision-Date: 2012-04-07 20:55+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -11571,7 +11571,7 @@ msgstr "Versioon %1$s on loodud, %2$s jälgimine on aktiveeritud."
 #, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "%1$s jälgimine deaktiveeriti versioonile %2$s."
+msgstr "%1$s jälgimine deaktiveeriti versioonil %2$s."
 
 #: tbl_tracking.php:198
 #, php-format
