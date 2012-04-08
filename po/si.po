@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-08 16:55+0200\n"
+"PO-Revision-Date: 2012-04-08 17:11+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4893,20 +4893,24 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
+"භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
+"තබන්න; යෝජිත: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
-msgstr ""
+msgstr "භාවිතා කරන්නාගේ අභිරුචි වගුව"
 
 #: libraries/config/messages.inc.php:450
 msgid "User for config auth"
-msgstr ""
+msgstr "config සත්‍යාපනය සඳහා භාවිතා කරන්නා"
 
 #: libraries/config/messages.inc.php:451
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr ""
+"ඔබගේ pma_* වගු යාවත්කාලීන බව දන්නේ නම් අක්‍රීය කරන්න. මෙමගින් අනුකූලතා "
+"පරීක්ෂාවන් නවතන අතර එමගින් කාර්ය සාධනය ඉහල නංවයි"
 
 #: libraries/config/messages.inc.php:452
 msgid "Verbose check"
@@ -4917,6 +4921,8 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
+"සේවාදායකය සඳහා පරිශ්‍රීලක මිත්‍ර විස්තරයක්. එය වෙනුවට දායක නාමය පෙන්වීමට "
+"හිස්ව තබන්න."
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
