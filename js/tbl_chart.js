@@ -1,10 +1,10 @@
 var chart_xaxis_idx = -1;
 var chart_series;
 var chart_series_index = -1;
+var chart_data;
 
 $(document).ready(function() {
     var currentChart = null;
-    var chart_data = jQuery.parseJSON($('#querychart').html());
     chart_series = 'columns';
     chart_xaxis_idx = $('select[name="chartXAxis"]').val();
 
@@ -45,7 +45,6 @@ $(document).ready(function() {
         }
     };
 
-    $('#querychart').html('');
 
     $('input[name="chartType"]').click(function() {
         currentSettings.chart.type = $(this).val();

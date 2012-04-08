@@ -65,7 +65,7 @@ foreach ($GLOBALS['js_include'] as $js_script_file) {
 // <![CDATA[
 if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
     && typeof(parent.document.title) == 'string') {
-    parent.document.title = '<?php echo (isset($title) ? PMA_sanitize(PMA_escapeJsString(htmlspecialchars($title))) : ''); ?>';
+    parent.document.title = '<?php echo (isset($title) ? PMA_sanitize(PMA_escapeJsString($title), false, true) : ''); ?>';
 }
 <?php
 if (count($GLOBALS['js_script']) > 0) {
