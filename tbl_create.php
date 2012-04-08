@@ -186,8 +186,8 @@ if (isset($_REQUEST['do_save_data'])) {
      . ' (' . $sql_query . ')';
 
     // Adds table type, character set, comments and partition definition
-    if (!empty($_REQUEST['tbl_type']) && ($_REQUEST['tbl_type'] != 'Default')) {
-        $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_type'];
+    if (!empty($_REQUEST['tbl_storage_engine']) && ($_REQUEST['tbl_storage_engine'] != 'Default')) {
+        $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
     }
     if (!empty($_REQUEST['tbl_collation'])) {
         $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);

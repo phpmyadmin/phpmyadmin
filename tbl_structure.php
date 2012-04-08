@@ -374,7 +374,7 @@ foreach ($fields as $row) {
     </td>
     <td class="replaced_by_more center">
         <?php
-        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || ($primary && $primary->hasColumn($field_name))) {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_storage_engine || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
             $primary_enabled = false;
         } else {
@@ -389,7 +389,7 @@ foreach ($fields as $row) {
     </td>
     <td class="replaced_by_more center">
         <?php
-        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || isset($columns_with_unique_index[$field_name])) {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_storage_engine || isset($columns_with_unique_index[$field_name])) {
             echo $titles['NoUnique'] . "\n";
             $unique_enabled = false;
         } else {
@@ -404,7 +404,7 @@ foreach ($fields as $row) {
     </td>
     <td class="replaced_by_more center">
         <?php
-        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_storage_engine) {
             echo $titles['NoIndex'] . "\n";
             $index_enabled = false;
         } else {
@@ -424,7 +424,7 @@ foreach ($fields as $row) {
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
             'multilinestring', 'multipolygon', 'geomtrycollection'
         );
-        if (! in_array($type, $spatial_types) || 'MYISAM' != $tbl_type) {
+        if (! in_array($type, $spatial_types) || 'MYISAM' != $tbl_storage_engine) {
             echo $titles['NoSpatial'] . "\n";
             $spatial_enabled = false;
         } else {
@@ -439,7 +439,7 @@ foreach ($fields as $row) {
         ?>
     </td>
     <?php
-        if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || ($tbl_type == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
+        if (! empty($tbl_storage_engine) && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA' || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
             // FULLTEXT is possible on TEXT, CHAR and VARCHAR
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
@@ -571,16 +571,16 @@ PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', __('Browse
 if (! $tbl_is_view && ! $db_is_information_schema) {
     PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', __('Change'), 'b_edit.png', 'change');
     PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', __('Drop'), 'b_drop.png', 'drop');
-    if ('ARCHIVE' != $tbl_type) {
+    if ('ARCHIVE' != $tbl_storage_engine) {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', __('Primary'), 'b_primary.png', 'primary');
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', __('Unique'), 'b_unique.png', 'unique');
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', __('Index'), 'b_index.png', 'index');
     }
 
-    if (! empty($tbl_type) && $tbl_type == 'MYISAM') {
+    if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_spatial', __('Spatial'), 'b_spatial.png', 'spatial');
     }
-    if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA')) {
+    if (! empty($tbl_storage_engine) && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA')) {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', __('Fulltext'), 'b_ftext.png', 'ftext');
     }
 }
@@ -617,8 +617,8 @@ echo PMA_getIcon('b_print.png', __('Print view'), true);
 if (! $tbl_is_view && ! $db_is_information_schema) {
 
     // if internal relations are available, or foreign keys are supported
-    // ($tbl_type comes from libraries/tbl_info.inc.php)
-    if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
+    // ($tbl_storage_engine comes from libraries/tbl_info.inc.php)
+    if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_storage_engine)) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
         echo PMA_getIcon('b_relations.png', __('Relation view'), true);
@@ -689,7 +689,7 @@ if (count($fields) > 20) {
  * Displays indexes
  */
 
-if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
+if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_storage_engine) {
     PMA_generate_slider_effect('indexes', __('Indexes'));
     /**
      * Display indexes
@@ -808,7 +808,7 @@ if ($cfg['ShowStats']) {
             <?php
         }
         // Optimize link if overhead
-        if (isset($free_size) && !PMA_DRIZZLE && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
+        if (isset($free_size) && !PMA_DRIZZLE && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA' || $tbl_storage_engine == 'BDB')) {
             ?>
     <tr class="tblFooters">
         <td colspan="3" class="center">
