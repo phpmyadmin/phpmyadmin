@@ -63,7 +63,7 @@ function PMA_RTN_main()
         trigger_error(
             __('You are using PHP\'s deprecated \'mysql\' extension, '
             . 'which is not capable of handling multi queries. '
-            . '<b>The execution of some stored routines may fail!</b> '
+            . '[strong]The execution of some stored routines may fail![/strong] '
             . 'Please use the improved \'mysqli\' extension to '
             . 'avoid any problems.'),
             E_USER_WARNING

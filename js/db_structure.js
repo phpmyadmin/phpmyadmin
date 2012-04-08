@@ -259,7 +259,7 @@ $(document).ready(function() {
      */
     $(".fkc_switch").click(function(event){
        if ($("#fkc_checkbox").prop('checked')) {
-           $("#fkc_checkbox").removeProp('checked');
+           $("#fkc_checkbox").prop('checked', false);
            $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
            return;
        }
