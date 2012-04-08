@@ -437,14 +437,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 ) {
                     text += text.length > 0 ? '<br />' : '';
                     text += g.markHint;
+                    text += text.length > 0 ? '<br />' : '';
+                    text += g.copyHint;
                 }
                 if (g.showColVisibHint && g.colVisibHint) {
                     text += text.length > 0 ? '<br />' : '';
                     text += g.colVisibHint;
                 }
-                text += text.length > 0 ? '<br />' : '';
-                text += g.copyHint;
-
                 // hide the hint if no text and the event is mouseenter
                 if (g.qtip) {
                     g.qtip.disable(!text && e.type == 'mouseenter');
@@ -478,7 +477,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                .hide();
                     });
                     g.colVisib[n] = 0;
-                    $(g.cList).find('.lDiv div:eq(' + n + ') input').removeProp('checked');
+                    $(g.cList).find('.lDiv div:eq(' + n + ') input').prop('checked', false);
                 } else {
                     // cannot hide, force the checkbox to stay checked
                     $(g.cList).find('.lDiv div:eq(' + n + ') input').prop('checked', true);
