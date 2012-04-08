@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-08 13:26+0200\n"
+"PO-Revision-Date: 2012-04-08 16:20+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1586,7 +1586,9 @@ msgstr "වෙනස් වූ පේළි:"
 
 #: js/messages.php:206
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr "Config ගොනුව විග්‍රහ කිරීම අසමත් විය. ගොනුවෙහි වලංගු JSON කේත ඇත්දැයි පරීක්ෂා කරන්න."
+msgstr ""
+"වින්‍යාස ගොනුව විග්‍රහ කිරීම අසමත් විය. ගොනුවෙහි වලංගු JSON කේත ඇත්දැයි "
+"පරීක්ෂා කරන්න."
 
 #: js/messages.php:207
 msgid ""
@@ -2563,8 +2565,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"Probably reason of this is that you did not create configuration file. You "
-"might want to use %1$ssetup script%2$s to create one."
+"ඔබ වින්‍යාස ගොනුවක් නොසෑදුවා විය යුතුය. වින්‍යාස ගොනුවක් සෑදීමට %"
+"1$sපිහිටුවීමේ විධානාවලිය%2$s භාවිතා කිරීම අවශ්‍ය විය හැකිය."
 
 #: libraries/auth/config.auth.lib.php:110
 msgid ""
@@ -4472,11 +4474,11 @@ msgstr "දායක සඳහා අවසර දීමේ රීති"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "මුරපදයක් රහිතව ඇතුල් වීමට ඉඩ ලබා දෙන්න"
 
 #: libraries/config/messages.inc.php:367
 msgid "Allow root login"
-msgstr ""
+msgstr "root ලෙස ඇතුල් වීමට ඉඩ දෙන්න"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -4495,47 +4497,52 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
-msgstr ""
+msgstr "SweKey වින්‍යාස ගොනුව"
 
 #: libraries/config/messages.inc.php:372
 msgid "Authentication method to use"
-msgstr ""
+msgstr "භාවිතා කල යුතු සත්‍යාපන ක්‍රමය"
 
 #: libraries/config/messages.inc.php:373 setup/frames/index.inc.php:128
 msgid "Authentication type"
-msgstr ""
+msgstr "සත්‍යාපන වර්ගය"
 
 #: libraries/config/messages.inc.php:374
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]පොත්සලකුණු[/a] විශේෂාංගය අනවශ්‍ය "
+"නම් හිස්ව තබන්න. යෝජිත: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
-msgstr ""
+msgstr "පොත්සලකුණු ගොනුව"
 
 #: libraries/config/messages.inc.php:376
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
+"තීර විස්තර/mime වර්ග විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න. යෝජිත: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
-msgstr ""
+msgstr "තීර විස්තර ගොනුව"
 
 #: libraries/config/messages.inc.php:378
 msgid "Compress connection to MySQL server"
-msgstr ""
+msgstr "MySQL සේවාදායකය වෙත සම්බන්දතාව හකුලන්න"
 
 #: libraries/config/messages.inc.php:379
 msgid "Compress connection"
-msgstr ""
+msgstr "සම්බන්දතාව හකුලන්න"
 
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
+"සේවාදායකයට කෙසේ සම්බන්ද විය යුතුද යන්න, අනියත නම් [kbd]tcp[/kbd] ලෙස යොදන්න"
 
 #: libraries/config/messages.inc.php:381
 msgid "Connection type"
@@ -4543,23 +4550,27 @@ msgstr "සම්බන්දතා වර්ගය"
 
 #: libraries/config/messages.inc.php:382
 msgid "Control user password"
-msgstr ""
+msgstr "පරිපාලක භාවිතා කරන්නාගේ මුරපදය"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
+"සීමිත අවසර සහිතව වින්‍යාස කරන ලද විශේෂ MySQL භාවිතා කරන්නෙක්, වැඩි විස්තර "
+"සඳහා [a@http://wiki.phpmyadmin.net/pma/controluser]විකිය[/a] බලන්න"
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user"
-msgstr ""
+msgstr "පරිපාලක භාවිතා කරන්නා"
 
 #: libraries/config/messages.inc.php:385
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"වින්‍යාස ගබඩාව තබා ගැනීම සඳහා විකල්ප දායකයෙක්; දැනට අර්ථ දක්වා ඇති දායකයා "
+"භාවිතා කිරීමට හිස්ව තබන්න"
 
 #: libraries/config/messages.inc.php:386
 msgid "Control host"
@@ -4567,7 +4578,7 @@ msgstr "පාලක දායකයා"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "දත්තගබඩා ලැයිස්තුව පෙන්වීමේදී වගු ගණන් කරන්න"
 
 #: libraries/config/messages.inc.php:388
 msgid "Count tables"
@@ -4578,6 +4589,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
+"සැලසුම්කරණය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -4591,11 +4604,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:392
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "INFORMATION_SCHEMA භාවිතය අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:393
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
+"කුමන PHP දිගුව භාවිතා කල යුතුද යන්න. mysqli සහය ඇත්නම් එය භාවිතා කල යුතුය"
 
 #: libraries/config/messages.inc.php:394
 msgid "PHP extension to use"
@@ -4614,14 +4628,16 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
+"SQL විමසුම් ඉතිහාසය රඳවා ගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "SQL query history table"
-msgstr ""
+msgstr "SQL විමසුම් ඉතිහාස වගුව"
 
 #: libraries/config/messages.inc.php:399
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "MySQL සේවාදායකය ක්‍රියාත්මක දායකයේ දායක නාමය"
 
 #: libraries/config/messages.inc.php:400
 msgid "Server hostname"
@@ -4629,7 +4645,7 @@ msgstr "සේවාදායකයේ දායක නාමය"
 
 #: libraries/config/messages.inc.php:401
 msgid "Logout URL"
-msgstr ""
+msgstr "පිටවිය යුතු URLය"
 
 #: libraries/config/messages.inc.php:402
 msgid ""
@@ -4643,11 +4659,11 @@ msgstr "ගබඩා කල යුතු උපරිම වගු අභිර�
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
-msgstr ""
+msgstr "මුරපදය නොමැතිව සම්බන්ධ වීමට උත්සාහ කරන්න"
 
 #: libraries/config/messages.inc.php:405
 msgid "Connect without password"
-msgstr ""
+msgstr "මුරපදය නොමැතිව සම්බන්ධ වන්න"
 
 #: libraries/config/messages.inc.php:406
 msgid ""
@@ -4664,20 +4680,22 @@ msgstr "සඳහන් දත්තගබඩා පමණක් පෙන්ව
 
 #: libraries/config/messages.inc.php:408 libraries/config/messages.inc.php:449
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "config සත්‍යාපනය භාවිතා නොකරයි නම් හිස්ව තබන්න"
 
 #: libraries/config/messages.inc.php:409
 msgid "Password for config auth"
-msgstr ""
+msgstr "config සත්‍යාපනය සඳහා මුරපදය"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
+"ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "PDF ක්‍රමනුරූපයේ පිටු පිලිබඳ විස්තර අඩංගු වගුව"
 
 #: libraries/config/messages.inc.php:412
 msgid ""
@@ -4685,6 +4703,9 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
+"වගු සබඳතා, පොත්සලකුණු, PDF අපනයන ආදී විශේෂාංග සඳහා භාවිතා කරන දත්තගබඩාව, "
+"පූර්ණ විස්තරයක් සඳහා [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] "
+"බලන්න. විශේෂාංග අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "Database name"
@@ -4692,7 +4713,7 @@ msgstr "දත්තගබඩාවේ නම"
 
 #: libraries/config/messages.inc.php:414
 msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "MySQL සේවාදායකය සවන් දෙන පෝර්ටය, පෙරනිමි අගය සඳහා හිස්ව තබන්න"
 
 #: libraries/config/messages.inc.php:415
 msgid "Server port"
@@ -4703,6 +4724,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
+"සැසි අතර \"කල් පවත්නා\" ලෙස මෑතදී භාවිතා කල වගු මතක තබාගැනීමේ විශේෂාංගය "
+"අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 msgid "Recently used table"
@@ -4713,6 +4736,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
+"[a@http://wiki.phpmyadmin.net/pma/relation]වගු අතර සම්බන්ධතා දැක්වෙන "
+"සබැඳි[/a] විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -4720,29 +4745,31 @@ msgstr "සබැඳුම් දත්ත ඇතුලත් වගුව"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "දත්තගබඩා ලබාගැනීම සඳහා SQL විධානය"
 
 #: libraries/config/messages.inc.php:421
 msgid "SHOW DATABASES command"
-msgstr ""
+msgstr "SHOW DATABASES විධානය"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+"උදාහරණයක් ලෙස [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන "
+"ක්‍රම[/a] බලන්න"
 
 #: libraries/config/messages.inc.php:423
 msgid "Signon session name"
-msgstr ""
+msgstr "Signon සැසි නාමය"
 
 #: libraries/config/messages.inc.php:424
 msgid "Signon URL"
-msgstr ""
+msgstr "Signon URLය"
 
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "MySQL සේවාදායකය සවන් දෙන සොකටය, පෙරනිමි අගය සඳහා හිස්ව තබන්න"
 
 #: libraries/config/messages.inc.php:426
 msgid "Server socket"
@@ -4750,7 +4777,7 @@ msgstr "සර්වරයේ සොකට්"
 
 #: libraries/config/messages.inc.php:427
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "MySQL සේවාදායකය වෙත සබඳතාවය සඳහා SSL සක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:428
 msgid "Use SSL"
