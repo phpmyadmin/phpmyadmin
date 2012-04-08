@@ -24,7 +24,7 @@ PMA_checkParameters(array('db', 'table'));
  * Defining global variables, in case this script is included by a function.
  * This is necessary because this script can be included by libraries/header.inc.php.
  */
-global $showtable, $tbl_is_view, $tbl_type, $show_comment, $tbl_collation,
+global $showtable, $tbl_is_view, $tbl_storage_engine, $show_comment, $tbl_collation,
        $table_info_num_rows, $auto_increment;
 
 /**
@@ -52,16 +52,16 @@ $GLOBALS['showtable'] = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['tabl
 
 // need this test because when we are creating a table, we get 0 rows
 // from the SHOW TABLE query
-// and we don't want to mess up the $tbl_type coming from the form
+// and we don't want to mess up the $tbl_storage_engine coming from the form
 
 if ($showtable) {
     if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
         $tbl_is_view     = true;
-        $tbl_type        = __('View');
+        $tbl_storage_engine = __('View');
         $show_comment    = null;
     } else {
         $tbl_is_view     = false;
-        $tbl_type        = isset($showtable['Engine'])
+        $tbl_storage_engine = isset($showtable['Engine'])
             ? strtoupper($showtable['Engine'])
             : '';
         // a new comment could be coming from tbl_operations.php
