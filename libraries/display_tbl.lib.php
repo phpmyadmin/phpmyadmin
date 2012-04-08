@@ -2385,13 +2385,13 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             $message->addMessage(', ', '');
         }
 
-        $messagge_qt = PMA_Message::notice(__('Query took %01.4f sec'));
+        $messagge_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');
         $messagge_qt->addParam($GLOBALS['querytime']);
 
         $message->addMessage($messagge_qt, '');
-        $message->addMessage(')', '');
-
-        $message->addMessage(isset($sorted_column_message) ? $sorted_column_message : '', '');
+        if (isset($sorted_column_message)) {
+            $message->addMessage($sorted_column_message, '');
+        }
 
         PMA_showMessage($message, $sql_query, 'success');
 
