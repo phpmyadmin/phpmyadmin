@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-02 12:42+0200\n"
+"PO-Revision-Date: 2012-04-08 04:41+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -126,7 +126,7 @@ msgstr "データベース %1$s を作成しました。"
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
-msgstr "データベースのコメント"
+msgstr "データベースのコメント: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
@@ -2495,7 +2495,7 @@ msgstr "この MySQL サーバは %s ストレージエンジンをサポート�
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "不明なテーブルステータス："
+msgstr "不明なテーブルステータス: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
@@ -6800,7 +6800,7 @@ msgstr ""
 
 #: libraries/import/csv.php:42
 msgid "Column names: "
-msgstr "カラム名："
+msgstr "カラム名: "
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -7765,7 +7765,7 @@ msgstr "このページにはテーブルがありません！"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "スキーマエラー："
+msgstr "スキーマエラー: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -9604,7 +9604,7 @@ msgstr "アドバイザ"
 
 #: server_status.php:798 server_status.php:820
 msgid "Refresh rate: "
-msgstr "再描画間隔："
+msgstr "再描画間隔: "
 
 #: server_status.php:839 server_variables.php:115
 msgid "Filters"
@@ -11432,7 +11432,7 @@ msgstr "行の長さ"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "行のサイズ "
+msgstr "行のサイズ"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
