@@ -484,6 +484,12 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         'pma_servername', 'pma_username', 'pma_password'
     );
     /**
+     * Allow changing themes in test/theme.php
+     */
+    if (defined('PMA_TEST_THEME')) {
+        $allow_list[] = 'set_theme';
+    }
+    /**
      * Require cleanup functions
      */
     include './libraries/cleanup.lib.php';
