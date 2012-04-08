@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-02 12:42+0200\n"
+"PO-Revision-Date: 2012-04-08 07:38+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -108,7 +108,7 @@ msgstr "データベース %1$s を作成しました。"
 
 #: db_datadict.php:49 db_operations.php:390
 msgid "Database comment: "
-msgstr "データベースのコメント"
+msgstr "データベースのコメント: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:657 tbl_operations.php:366
@@ -245,16 +245,16 @@ msgid "The database name is empty!"
 msgstr "データベース名が空です!"
 
 #: db_operations.php:300
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "データベース %s の名称を %s に変更しました"
+msgstr "データベース %1$s の名称を %2$s に変更しました"
 
 #: db_operations.php:304
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "データベース %s を %s にコピーしました"
+msgstr "データベース %1$s を %2$s にコピーしました"
 
 #: db_operations.php:432
 msgid "Rename database to"
@@ -505,12 +505,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>%s</i>\" の検索結果 %s:"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] "%s 件 (テーブル <i>%s</i>)"
+msgstr[0] "%1$s 件 (テーブル <i>%2$s</i>)"
 
 #: db_search.php:234 libraries/common.lib.php:3147
 #: libraries/common.lib.php:3366 libraries/common.lib.php:3367
@@ -1736,16 +1736,14 @@ msgid "Foreign key check:"
 msgstr "外部キーのチェックを無効にする"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "有効"
+msgstr "(有効)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "無効"
+msgstr "(無効)"
 
 #: js/messages.php:255
 msgid "Searching"
@@ -1956,7 +1954,7 @@ msgstr "クリックでカラムを反転/解除"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "ダブルクリックでカラム名をコピー"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1983,20 +1981,18 @@ msgid "Go to link"
 msgstr "リンク先へ移動する"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "カラム名"
+msgstr "カラム名のコピー"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "右クリックでカラム名をクリップボードにコピーしてください。"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "行の更新"
+msgstr "データ行の表示"
 
 #: js/messages.php:359
 msgid "Generate password"
@@ -2505,7 +2501,7 @@ msgstr "この MySQL サーバは %s ストレージエンジンをサポート�
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "不明なテーブルステータス："
+msgstr "不明なテーブルステータス: "
 
 #: libraries/Table.class.php:1125
 msgid "Invalid database"
@@ -2521,10 +2517,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "テーブル名を %1$s から %2$s に変更するときにエラーが発生しました"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "テーブル %s の名称を %s に変更しました"
+msgstr "テーブル %1$s の名称を %2$s に変更しました。"
 
 #: libraries/Table.class.php:1389
 msgid "Could not save table UI preferences"
@@ -2616,10 +2612,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "mcrypt から Blowfish を使おうとして失敗しました！"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "クッキーを有効にしてください。"
+msgstr "Javascript を有効にしてください"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -2641,7 +2636,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:241
 msgid "Server:"
-msgstr "サーバ"
+msgstr "サーバ:"
 
 #: libraries/auth/cookie.auth.lib.php:246
 msgid "Username:"
@@ -2663,9 +2658,7 @@ msgstr "クッキーを有効にしてください。"
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
-"パスワード無しログインは設定 (AllowNoPassword 参照) によって禁止されていま"
-"す。"
+msgstr "パスワードなしログインは設定 (AllowNoPassword 参照) によって禁止されています"
 
 #: libraries/auth/cookie.auth.lib.php:610
 #: libraries/auth/signon.auth.lib.php:240
@@ -3206,7 +3199,7 @@ msgstr "リセット"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr "画面更新を改善し効率化します。"
+msgstr "画面更新を改善し効率化します"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
@@ -6311,25 +6304,25 @@ msgstr "Paul McCullagh 氏による PrimeBase XT ブログ"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
-msgstr "カラムの区切り記号"
+msgstr "カラムの区切り記号:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
-msgstr "カラム囲み記号"
+msgstr "カラム囲み記号:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
-msgstr "カラムのエスケープ記号"
+msgstr "カラムのエスケープ記号:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
-msgstr "行の終端記号"
+msgstr "行の終端記号:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
 msgid "Replace NULL with:"
-msgstr "NULL の代替文字列"
+msgstr "NULL の代替文字列:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
@@ -6337,7 +6330,7 @@ msgstr "カラム内の改行/復帰文字を削除する"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
-msgstr "Excel のエディション"
+msgstr "Excel のエディション:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
@@ -6457,7 +6450,7 @@ msgstr "データベースの作成日時、最終更新日時、最終検査日
 #: libraries/export/sql.php:100
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
-msgstr "他のデータベースシステムまたは古い MySQL サーバとの互換性"
+msgstr "他のデータベースシステムまたは古い MySQL サーバとの互換性:"
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
@@ -6479,7 +6472,7 @@ msgstr ""
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "挿入前にテーブルを空にする"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6692,7 +6685,7 @@ msgstr ""
 
 #: libraries/import/csv.php:42
 msgid "Column names: "
-msgstr "カラム名："
+msgstr "カラム名: "
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -7037,7 +7030,6 @@ msgid "not OK"
 msgstr "NG"
 
 #: libraries/relation.lib.php:80
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
@@ -7096,7 +7088,7 @@ msgstr "ユーザ環境設定"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
-msgstr "高度な機能の設定する簡単な方法"
+msgstr "高度な機能の設定する簡単な方法:"
 
 #: libraries/relation.lib.php:154
 msgid ""
@@ -7668,7 +7660,7 @@ msgstr "このページにはテーブルがありません！"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "スキーマエラー："
+msgstr "スキーマエラー: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -7980,10 +7972,10 @@ msgid "Table seems to be empty!"
 msgstr "テーブルが空のようです!"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "%s.%s の SQL コマンド追跡機能はアクティブです。"
+msgstr "%s の SQL コマンド追跡機能はアクティブです。"
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
@@ -8049,7 +8041,7 @@ msgstr "なし"
 
 #: libraries/tbl_properties.inc.php:348
 msgid "As defined:"
-msgstr "ユーザ定義"
+msgstr "ユーザ定義:"
 
 #: libraries/tbl_properties.inc.php:462 tbl_structure.php:152
 #: tbl_structure.php:157 tbl_structure.php:575
@@ -8766,11 +8758,11 @@ msgid "No databases selected."
 msgstr "データベースが選択されていません。"
 
 #: server_databases.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "データベース %s を正常に削除しました"
+msgstr[0] "%1$d 個のデータベースを正常に削除しました。"
 
 #: server_databases.php:119
 msgid "Databases statistics"
@@ -9128,10 +9120,9 @@ msgid "Revoke"
 msgstr "取り消し"
 
 #: server_privileges.php:1543
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "エクスポート"
+msgstr "すべてエクスポート"
 
 #: server_privileges.php:1562 server_privileges.php:1844
 #: server_privileges.php:2476
@@ -9139,16 +9130,15 @@ msgid "Any"
 msgstr "すべて"
 
 #: server_privileges.php:1642
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
-msgstr "特権"
+msgstr "すべてのユーザに対する特権"
 
 #: server_privileges.php:1654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "特権"
+msgstr "%s に対する特権"
 
 #: server_privileges.php:1682
 msgid "Users overview"
@@ -9537,7 +9527,7 @@ msgstr "アドバイザ"
 
 #: server_status.php:790 server_status.php:812
 msgid "Refresh rate: "
-msgstr "再描画間隔："
+msgstr "再描画間隔: "
 
 #: server_status.php:825 server_variables.php:108
 msgid "Filters"
@@ -10105,10 +10095,9 @@ msgstr ""
 "クの最大数です。"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "開いているファイルの上限に対する比率"
+msgstr "使われているキーキャッシュの比率 (計算値)"
 
 #: server_status.php:1365
 msgid "The number of requests to read a key block from the cache."
@@ -10128,7 +10117,7 @@ msgstr ""
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
-msgstr ""
+msgstr "キーキャッシュミスの割合。読み込みリクエストに対する物理読み込みで算出。(計算値)"
 
 #: server_status.php:1368
 msgid "The number of requests to write a key block to the cache."
@@ -10141,7 +10130,7 @@ msgstr "ディスクにキーブロックを物理書き込みした回数。"
 #: server_status.php:1370
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
-msgstr ""
+msgstr "書き込みリクエストに対する物理書き込みの比率 (計算値)"
 
 #: server_status.php:1371
 msgid ""
@@ -10359,10 +10348,9 @@ msgstr ""
 "がない場合はふつうあまりパフォーマンスは向上しません)"
 
 #: server_status.php:1406
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "スレッドキャッシュのヒット率"
+msgstr "スレッドキャッシュのヒット割合 (計算値)"
 
 #: server_status.php:1407
 msgid "The number of threads that are not sleeping."
@@ -10528,7 +10516,7 @@ msgstr "系列をクリアする"
 
 #: server_status.php:1697
 msgid "Series in Chart:"
-msgstr "グラフの系列"
+msgstr "グラフの系列:"
 
 #: server_status.php:1710
 msgid "Log statistics"
@@ -11307,7 +11295,7 @@ msgstr "(1 回)"
 
 #: tbl_operations.php:297
 msgid "Move table to (database<b>.</b>table):"
-msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
 
 #: tbl_operations.php:355
 msgid "Table options"
@@ -11319,7 +11307,7 @@ msgstr "変更後のテーブル名称"
 
 #: tbl_operations.php:537
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする:"
 
 #: tbl_operations.php:584
 msgid "Switch to copied table"
@@ -11425,7 +11413,7 @@ msgstr "行の長さ"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "行のサイズ "
+msgstr "行のサイズ"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
@@ -11459,11 +11447,11 @@ msgstr "定型問い合わせ (ワイルドカード: \"%\")"
 
 #: tbl_select.php:203
 msgid "Select columns (at least one):"
-msgstr "表示するカラム (最低 1 つ)"
+msgstr "表示するカラム (最低 1 つ):"
 
 #: tbl_select.php:221
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "検索条件 (WHERE 節の全内容)"
+msgstr "検索条件 (WHERE 節の全内容):"
 
 #: tbl_select.php:228
 msgid "Number of rows per page"
@@ -11471,7 +11459,7 @@ msgstr "ページあたりの行数"
 
 #: tbl_select.php:234
 msgid "Display order:"
-msgstr "表示順"
+msgstr "表示順:"
 
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:581
 msgid "Spatial"
@@ -11567,23 +11555,22 @@ msgid "Tracking report for table `%s`"
 msgstr "テーブル `%s` に対しての追跡レポート"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr ""
-"世代 %s を作成しました。%s.%s の SQL コマンド追跡機能はアクティブです。"
+msgstr "世代 %1$s を作成しました。%2$s の SQL コマンド追跡機能はアクティブです。"
 
 #: tbl_tracking.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "%s.%s の SQL コマンド追跡機能はアクティブです。"
+msgstr "%1$s に対する SQL コマンド追跡機能は、世代 %2$s で非アクティブです。"
 
 #: tbl_tracking.php:198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "%s.%s の SQL コマンド追跡機能はアクティブです。"
+msgstr "%1$s に対する SQL コマンド追跡機能は、世代 %2$s でアクティブです。"
 
 #: tbl_tracking.php:211
 msgid "SQL statements executed."
@@ -11630,10 +11617,10 @@ msgid "Tracking statements"
 msgstr "追跡しているコマンド"
 
 #: tbl_tracking.php:445 tbl_tracking.php:573
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "種別：%s、期間：%s－%s、ユーザ：%sで絞り込む %s"
+msgstr "種別：%1$s、期間：%2$s－%3$s、ユーザ：%4$sで絞り込む %5$s"
 
 #: tbl_tracking.php:450
 msgid "Delete tracking data row from report"
@@ -11682,38 +11669,38 @@ msgid "Show versions"
 msgstr "世代を表示する"
 
 #: tbl_tracking.php:714
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "%s.%s への SQL コマンド追跡を非アクティブにする"
+msgstr "%s への SQL コマンド追跡を非アクティブにする"
 
 #: tbl_tracking.php:716
 msgid "Deactivate now"
 msgstr "すぐに非アクティブにする"
 
 #: tbl_tracking.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "%s.%s への SQL コマンド追跡をアクティブにする"
+msgstr "%s への SQL コマンド追跡をアクティブにする"
 
 #: tbl_tracking.php:729
 msgid "Activate now"
 msgstr "すぐにアクティブにする"
 
 #: tbl_tracking.php:742
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "%2$s.%3$s に世代 %1$s を作成"
+msgstr "%2$s に世代 %1$s を作成"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
-msgstr "追跡するデータ定義コマンド"
+msgstr "追跡するデータ定義コマンド:"
 
 #: tbl_tracking.php:754
 msgid "Track these data manipulation statements:"
-msgstr "追跡するデータ操作コマンド"
+msgstr "追跡するデータ操作コマンド:"
 
 #: tbl_tracking.php:762
 msgid "Create version"
