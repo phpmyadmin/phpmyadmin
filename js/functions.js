@@ -2282,7 +2282,10 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\n' + 'DROP DATABASE ' + escapeHtml(window.parent.db);
+        var question = 
+            PMA_messages.strDropDatabaseStrongWarning + ' ' 
+            + PMA_messages.strDoYouReally
+            + '<br /><br />DROP DATABASE ' + escapeHtml(window.parent.db);
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
@@ -3341,7 +3344,10 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strDropTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\n' + 'DROP TABLE ' + window.parent.table;
+        var question = 
+            PMA_messages.strDropTableStrongWarning + ' ' 
+            + PMA_messages.strDoYouReally
+            + '<br /><br />DROP TABLE ' + window.parent.table;
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
@@ -3372,7 +3378,10 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strTruncateTableStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + '\n' + 'TRUNCATE TABLE ' + window.parent.table;
+        var question = 
+            PMA_messages.strTruncateTableStrongWarning + ' ' 
+            + PMA_messages.strDoYouReally
+            + '<br /><br />TRUNCATE ' + window.parent.table;
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 

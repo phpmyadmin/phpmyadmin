@@ -763,11 +763,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     }
 
     if (isset($GLOBALS['querytime'])) {
-        $_querytime = PMA_Message::notice(__('Query took %01.4f sec'));
+        $_querytime = PMA_Message::notice('(' . __('Query took %01.4f sec') . ')');
         $_querytime->addParam($GLOBALS['querytime']);
-        $message->addMessage('(');
         $message->addMessage($_querytime);
-        $message->addMessage(')');
     }
 
     if ($GLOBALS['is_ajax_request'] == true) {
