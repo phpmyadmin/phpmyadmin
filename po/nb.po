@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-07 16:53+0200\n"
+"PO-Revision-Date: 2012-04-08 05:59+0200\n"
 "Last-Translator: Asle Ommundsen <aommundsen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1286,17 +1286,17 @@ msgstr ""
 #: js/messages.php:97
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Spørringsmellomlager effektivitet"
+msgstr "Spørrings cache effektivitet"
 
 #: js/messages.php:98
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "Spørringsmellomlager bruk"
+msgstr "Spørrings cache bruk"
 
 #: js/messages.php:99
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Spørringsmellomlager brukt"
+msgstr "Spørrings cache brukt"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
@@ -1304,7 +1304,7 @@ msgstr "System CPU-bruk"
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr "Systemminne"
+msgstr "System minne"
 
 #: js/messages.php:103
 msgid "System swap"
@@ -1324,7 +1324,7 @@ msgstr "KiB"
 
 #: js/messages.php:107
 msgid "Average load"
-msgstr "Gjennomsnittlig load"
+msgstr "Gjennomsnitt load"
 
 #: js/messages.php:108
 #| msgid "Log file count"
@@ -1333,16 +1333,16 @@ msgstr "Totalt minne"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr "Hurtigbuffer minne"
+msgstr "Cached minne"
 
 #: js/messages.php:110
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Mellomlager minne"
+msgstr "Buffered minne"
 
 #: js/messages.php:111
 msgid "Free memory"
-msgstr "Ubrukt minne"
+msgstr "Ledig minne"
 
 #: js/messages.php:112
 msgid "Used memory"
