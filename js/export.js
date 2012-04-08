@@ -23,18 +23,18 @@ $(document).ready(function() {
  */
 $(document).ready(function() {
     $("input[type='radio'][name='sql_structure_or_data']").change(function() {
-        var comments = $("#checkbox_sql_include_comments").prop("checked");
+        var comments_are_present = $("#checkbox_sql_include_comments").prop("checked");
         var show = $("input[type='radio'][name='sql_structure_or_data']:checked").val();
         if (show == 'data') {
             // disable the SQL comment options
-            if (comments) {
+            if (comments_are_present) {
                 $("#checkbox_sql_dates").prop('disabled', true).parent().fadeTo('fast', 0.4);
             }
             $("#checkbox_sql_relation").prop('disabled', true).parent().fadeTo('fast', 0.4);
             $("#checkbox_sql_mime").prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
             // enable the SQL comment options
-            if (comments) {
+            if (comments_are_present) {
                 $("#checkbox_sql_dates").removeProp('disabled').parent().fadeTo('fast', 1);
             }
             $("#checkbox_sql_relation").removeProp('disabled').parent().fadeTo('fast', 1);
