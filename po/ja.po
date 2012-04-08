@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-08 04:41+0200\n"
+"PO-Revision-Date: 2012-04-08 07:07+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2621,7 +2621,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
-msgstr "サーバ"
+msgstr "サーバ:"
 
 #: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
@@ -2643,9 +2643,7 @@ msgstr "クッキーを有効にしてください。"
 #: libraries/auth/signon.auth.lib.php:235
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
-"パスワード無しログインは設定 (AllowNoPassword 参照) によって禁止されていま"
-"す。"
+msgstr "パスワードなしログインは設定 (AllowNoPassword 参照) によって禁止されています"
 
 #: libraries/auth/cookie.auth.lib.php:572
 #: libraries/auth/signon.auth.lib.php:239
@@ -3222,7 +3220,7 @@ msgstr "リセット"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr "画面更新を改善し効率化します。"
+msgstr "画面更新を改善し効率化します"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
@@ -6423,25 +6421,25 @@ msgstr "PrimeBase Media Streaming (PBMS) オフィシャルサイト"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
-msgstr "カラムの区切り記号"
+msgstr "カラムの区切り記号:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
-msgstr "カラム囲み記号"
+msgstr "カラム囲み記号:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
-msgstr "カラムのエスケープ記号"
+msgstr "カラムのエスケープ記号:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
-msgstr "行の終端記号"
+msgstr "行の終端記号:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
 msgid "Replace NULL with:"
-msgstr "NULL の代替文字列"
+msgstr "NULL の代替文字列:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
@@ -6449,7 +6447,7 @@ msgstr "カラム内の改行/復帰文字を削除する"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
-msgstr "Excel のエディション"
+msgstr "Excel のエディション:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
@@ -6569,7 +6567,7 @@ msgstr "データベースの作成日時、最終更新日時、最終検査日
 #: libraries/export/sql.php:100
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
-msgstr "他のデータベースシステムまたは古い MySQL サーバとの互換性"
+msgstr "他のデータベースシステムまたは古い MySQL サーバとの互換性:"
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
@@ -7197,7 +7195,7 @@ msgstr "ユーザ環境設定"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
-msgstr "高度な機能の設定する簡単な方法"
+msgstr "高度な機能の設定する簡単な方法:"
 
 #: libraries/relation.lib.php:154
 msgid ""
@@ -8142,7 +8140,7 @@ msgstr "なし"
 
 #: libraries/tbl_properties.inc.php:352
 msgid "As defined:"
-msgstr "ユーザ定義"
+msgstr "ユーザ定義:"
 
 #: libraries/tbl_properties.inc.php:466 tbl_structure.php:152
 #: tbl_structure.php:157 tbl_structure.php:575
@@ -10528,7 +10526,7 @@ msgstr "系列をクリアする"
 
 #: server_status.php:1701
 msgid "Series in Chart:"
-msgstr "グラフの系列"
+msgstr "グラフの系列:"
 
 #: server_status.php:1714
 msgid "Log statistics"
@@ -11314,7 +11312,7 @@ msgstr "(1 回)"
 
 #: tbl_operations.php:297
 msgid "Move table to (database<b>.</b>table):"
-msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
 
 #: tbl_operations.php:355
 msgid "Table options"
@@ -11326,7 +11324,7 @@ msgstr "変更後のテーブル名称"
 
 #: tbl_operations.php:537
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする:"
 
 #: tbl_operations.php:584
 msgid "Switch to copied table"
@@ -11466,11 +11464,11 @@ msgstr "定型問い合わせ (ワイルドカード: \"%\")"
 
 #: tbl_select.php:178
 msgid "Select columns (at least one):"
-msgstr "表示するカラム (最低 1 つ)"
+msgstr "表示するカラム (最低 1 つ):"
 
 #: tbl_select.php:196
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "検索条件 (WHERE 節の全内容)"
+msgstr "検索条件 (WHERE 節の全内容):"
 
 #: tbl_select.php:203
 msgid "Number of rows per page"
@@ -11478,7 +11476,7 @@ msgstr "ページあたりの行数"
 
 #: tbl_select.php:209
 msgid "Display order:"
-msgstr "表示順"
+msgstr "表示順:"
 
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:581
 msgid "Spatial"
@@ -11709,11 +11707,11 @@ msgstr "%2$s.%3$s に世代 %1$s を作成"
 
 #: tbl_tracking.php:734
 msgid "Track these data definition statements:"
-msgstr "追跡するデータ定義コマンド"
+msgstr "追跡するデータ定義コマンド:"
 
 #: tbl_tracking.php:742
 msgid "Track these data manipulation statements:"
-msgstr "追跡するデータ操作コマンド"
+msgstr "追跡するデータ操作コマンド:"
 
 #: tbl_tracking.php:750
 msgid "Create version"
