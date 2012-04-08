@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-06 18:03+0200\n"
+"PO-Revision-Date: 2012-04-07 18:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4199,17 +4199,18 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:297
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "පිටවීමේදී කුකී සියල්ල ඉවත් කරන්න"
 
 #: libraries/config/messages.inc.php:298
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
+"කුකී සත්‍යාපන ප්‍රකාරයේදී අවසන් ඇතුළු වීමම භාවිතා කල යුතුදැයි සඳහන් කරයි"
 
 #: libraries/config/messages.inc.php:299
 msgid "Recall user name"
-msgstr ""
+msgstr "භාවිත නාමය සිහියට නගන්න"
 
 #: libraries/config/messages.inc.php:300
 msgid ""
@@ -4218,10 +4219,14 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"ඇතුල් වීමේ කුකිය කොපමණ කාලයක් (තත්පර වලින්) බ්‍රව්සරයේ තබාගත යුතුදැයි සඳහන් "
+"කරයි. පෙරනිමි අගය වන 0 න් අදහස් වනුයේ එය වත්මන් සැසිය සඳහ පමණක් තබාගෙන "
+"බ්‍රව්සරය වැසීමෙන් පසු ඉවත් කල යුතුය යන්නය. විශ්වාසදායි නොවන පරිසරයන් සඳහා "
+"මෙම පෙරනිමි අගය නිර්දේශිතය."
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie store"
-msgstr ""
+msgstr "ඇතුල් වීමේ කුකිය රඳවාගන්න"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -4233,7 +4238,7 @@ msgstr "ලොගින් කුකියේ වලංගුතාවය"
 
 #: libraries/config/messages.inc.php:304
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "LONGTEXT තීර සඳහා දෙගුණයක් විශාල පෙළපෙදෙසක්"
 
 #: libraries/config/messages.inc.php:305
 msgid "Bigger textarea for LONGTEXT"
@@ -4241,15 +4246,15 @@ msgstr "LONGTEXT සඳහා විශාල පෙළ පෙදෙසක්"
 
 #: libraries/config/messages.inc.php:306
 msgid "Use icons on main page"
-msgstr ""
+msgstr "ප්‍රධාන පිටුවේ අයිකන භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
+msgstr "SQL විමසුම පෙන්වීමේදී භාවිතා කල යුතු උපරිම අනුලකුණු ගණන"
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "දර්ෂිත SQL සඳහා උපරිම දිග"
 
 #: libraries/config/messages.inc.php:309 libraries/config/messages.inc.php:314
 #: libraries/config/messages.inc.php:341
@@ -4270,10 +4275,12 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
+"ප්‍රථිඵල පිරික්සීමේදී එකවර පෙන්විය යුතු පේළි ගණන. ප්‍රතිඵලයේ ඊට වඩා පේළි "
+"ඇත්නම් &quot;පෙර&quot; සහ &quot;මීළඟ&quot; සබැඳි පෙන්වයි."
 
 #: libraries/config/messages.inc.php:313
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "පෙන්විය යුතු උපරිම පේළි ගණන"
 
 #: libraries/config/messages.inc.php:315
 msgid "Maximum number of tables displayed in table list"
@@ -4288,16 +4295,20 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"කුකී සත්‍යාපනය සඳහා අවශ්‍ය mcrypt නොමැති අවස්ථාවකදී පෙන්වන අනතුරු ඇඟවීම "
+"අක්‍රීය කරයි"
 
 #: libraries/config/messages.inc.php:318
 msgid "mcrypt warning"
-msgstr ""
+msgstr "mcrypt අනතුරු ඇඟවීම"
 
 #: libraries/config/messages.inc.php:319
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
+"විධානවලියකට වෙන් කිරීමට අවසර ඇති බයිට ගණන, උදා. [kbd]32M[/kbd] (අසීමිත බයිට "
+"ගණනක් සඳහා [kbd]0[/kbd])"
 
 #: libraries/config/messages.inc.php:320
 msgid "Memory limit"
@@ -4305,15 +4316,17 @@ msgstr "මතක සීමාව"
 
 #: libraries/config/messages.inc.php:321
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "මේවා සංස්කරණය කරන්න, පිටපත් කරන්න සහ ඉවත් කරන්න යන සබැඳිය"
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "වගුවේ පේළි වලට අදාල සබැඳි පෙන්විය යුත්තේ කොහේද යන වග"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
 msgstr ""
+"වගු හා දත්තගබඩා වල නම් අනුපිළිවෙලට සැකසීම සඳහා ස්වභාවික අනුපිළිවෙල භාවිතා "
+"කරන්න"
 
 #: libraries/config/messages.inc.php:324
 msgid "Natural order"
@@ -4321,37 +4334,40 @@ msgstr "ස්වභාවික අනුපිළිවල"
 
 #: libraries/config/messages.inc.php:325 libraries/config/messages.inc.php:335
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "භාවිතා කල යුත්තේ අයිකන පමණක්, පෙළ පමණක්, හෝ මේ දෙකම"
 
 #: libraries/config/messages.inc.php:326
 msgid "Iconic navigation bar"
-msgstr ""
+msgstr "අයිකන සහිත යාත්‍රණ පටිය"
 
 #: libraries/config/messages.inc.php:327
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
+"HTTP හුවමාරුවල වේගය වැඩි කිරීම සඳහා GZip ප්‍රතිදාන ගොඩගැසීම භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:328
 msgid "GZip output buffering"
-msgstr ""
+msgstr "GZip ප්‍රතිදාන ගොඩගැසීම"
 
 #: libraries/config/messages.inc.php:329
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
+"[kbd]SMART[/kbd] - එනම් TIME, DATE, DATETIME සහ TIMESTAMP තීර සඳහා අවරෝහණ "
+"පිළිවෙලත්, අනෙකුත් තීර සඳහා ආරෝහණ පිළිවෙලත්"
 
 #: libraries/config/messages.inc.php:330
 msgid "Default sorting order"
-msgstr ""
+msgstr "පෙරනිමි අනුපිළිවෙල"
 
 #: libraries/config/messages.inc.php:331
 msgid "Use persistent connections to MySQL databases"
-msgstr ""
+msgstr "MySQL දත්තගබඩා වෙත කල්පවතිනා සබඳතා භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:332
 msgid "Persistent connections"
-msgstr ""
+msgstr "කල්පවතිනා සබඳතා"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
@@ -5334,7 +5350,7 @@ msgstr "විමසුම"
 
 #: libraries/db_links.inc.php:75 libraries/relation.lib.php:132
 msgid "Designer"
-msgstr ""
+msgstr "සැලසුම්කරණය"
 
 #: libraries/db_links.inc.php:92 server_privileges.php:121
 #: server_privileges.php:1898 server_privileges.php:2257
