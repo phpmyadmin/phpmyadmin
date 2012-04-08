@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-08 16:20+0200\n"
+"PO-Revision-Date: 2012-04-08 16:29+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4781,22 +4781,26 @@ msgstr "MySQL සේවාදායකය වෙත සබඳතාවය සඳ
 
 #: libraries/config/messages.inc.php:428
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
+"ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "PDF ක්‍රමානුරූපය: වගු ඛණ්ඩාංක"
 
 #: libraries/config/messages.inc.php:431
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
+"දර්ෂිත තීර පිලිබඳ දත්ත අඩංගු වගුව. විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
+"[kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "Display columns table"
