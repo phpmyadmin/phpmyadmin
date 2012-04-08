@@ -806,7 +806,7 @@ echo __('Runtime Information');
         <div id="statustabs_traffic" class="clearfloat">
             <div class="buttonlinks jsfeature">
                 <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
-                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
@@ -828,7 +828,7 @@ echo __('Runtime Information');
         <div id="statustabs_queries" class="clearfloat">
             <div class="buttonlinks jsfeature">
                 <a class="tabRefresh"  href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
-                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
@@ -848,7 +848,7 @@ echo __('Runtime Information');
                 <legend><?php echo __('Filters'); ?></legend>
                 <div class="buttonlinks">
                     <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
-                        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
                         <?php echo __('Refresh'); ?>
                     </a>
                 </div>

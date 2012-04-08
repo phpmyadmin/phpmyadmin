@@ -3399,10 +3399,15 @@ RewriteRule .* - [F]
     <a href="#faq2_9">2.9 Seeing an upload progress bar</a></h4>
 
 <p> To be able to see a progress bar during your uploads, your server must
-have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
-    or the <a href="http://pecl.php.net/package/uploadprogress">uploadprogress</a>
-    one. Moreover, the JSON extension has to be enabled in your PHP.</p>
+    have the <a href="http://pecl.php.net/package/APC">APC</a> extension,
+    the <a href="http://pecl.php.net/package/uploadprogress">uploadprogress</a>
+    one, or you must be running PHP 5.4.0 or higher. 
+    Moreover, the JSON extension has to be enabled in your PHP.</p>
+
     <p> If using APC, you must set <code>apc.rfc1867</code> to <code>on</code> in your php.ini.</p>
+
+    <p> If using PHP 5.4.0 or higher, you must set <code>session.upload_progress.enabled</code> 
+        to <code>1</code> in your php.ini.</p>
 
 <h3 id="faqlimitations">Known limitations</h3>
 

@@ -40,19 +40,14 @@ if (empty($import_list)) {
 <?php
 if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     ?>
-                $('#upload_form_status').html('<div class="upload_progress_bar_outer"><div id="status" class="upload_progress_bar_inner"></div></div>'); // add the progress bar
-
                 var finished = false;
                 var percent  = 0.0;
                 var total    = 0;
                 var complete = 0;
+                var original_title = parent && parent.document ? parent.document.title : false;
+                var import_start;
 
-                var perform_upload;
-                var periodical_upload;
-
-                var request_upload = [];
-
-                perform_upload = function () {
+                var perform_upload = function () {
                     new $.getJSON(
                     'import_status.php?id=<?php echo $upload_id ; ?>&<?php echo PMA_generate_common_url(); ?>',
                     {},
@@ -62,40 +57,94 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                         total = response.total;
                         complete = response.complete;
 
-                          if (total==0 && complete==0 && percent==0) {
-                              $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'), false); ?>');
-                              $('#upload_form_status').css("display", "none");
-                          } else {
-                              $('#upload_form_status_info').html(' '+Math.round(percent)+'%, '+complete+'/'+total);
-                              $('#status').animate({width: Math.round(percent)*2+'px'},150);
-                          } // else
+                        if (total==0 && complete==0 && percent==0) {
+                            $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'), false); ?>');
+                            $('#upload_form_status').css("display", "none");
+                        } else {
+                            var now = new Date();
+                            now = Date.UTC(
+                                now.getFullYear(), now.getMonth(), now.getDate(), 
+                                now.getHours(), now.getMinutes(), now.getSeconds()) 
+                                + now.getMilliseconds() - 1000;
+                            var statustext = 
+                                formatBytes(complete, 1, PMA_messages.strDecimalSeparator)
+                                + ' <?php echo PMA_jsFormat(__('of'), false); ?> ' 
+                                + formatBytes(total, 1, PMA_messages.strDecimalSeparator);
 
-                          if (finished==true) {
-                                    $('#importmain').css('display', 'none');
-                                    $('#import_form_status').css('display', 'inline');
-                                    $('#import_form_status').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file is being processed, please be patient.'), false); ?> ');
-                                    $('#import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
-                                    <?php
-                                    // reload the left sidebar when the import is finished
-                                    $GLOBALS['reload']=true;
-                                    PMA_reloadNavigation(true);
-                                    ?>
+                            if ($('#importmain').is(':visible')) {
+                                // show progress UI
+                                $('#importmain').hide();
+                                $('#import_form_status')
+                                    .html('<div class="upload_progress"><div class="upload_progress_bar_outer"><div class="percentage"></div><div id="status" class="upload_progress_bar_inner"><div class="percentage"></div></div></div><div><img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Uploading your import file...'), false); ?></div><div id="statustext"></div></div>')
+                                    .show();
+                                import_start = now;
+                            }
+                            else if (percent > 9 || complete > 2000000) {
+                                // calculate estimated time
+                                var used_time = now - import_start;
+                                var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
+                                var speed = '<?php echo PMA_jsFormat(__('%s/sec.'), false); ?>'
+                                    .replace('%s', formatBytes(complete / used_time * 1000, 1, PMA_messages.strDecimalSeparator));
 
-                          } // if finished
-                          else {
-                                window.setTimeout(perform_upload, 1000);
-                          }
+                                var minutes = parseInt(seconds / 60);
+                                seconds %= 60;
+                                var estimated_time;
+                                if (minutes > 0) {
+                                    estimated_time = '<?php echo PMA_jsFormat(__('About %MIN min. %SEC sec. remaining.'), false); ?>'
+                                        .replace('%MIN', minutes).replace('%SEC', seconds);
+                                }
+                                else {
+                                    estimated_time = '<?php echo PMA_jsFormat(__('About %SEC sec. remaining.'), false); ?>'
+                                        .replace('%SEC', seconds);
+                                }
 
-                      }
-                  );
+                                statustext += '<br />' + speed + '<br /><br />' + estimated_time;
+                            }
 
-              }
-                window.setTimeout(perform_upload, 1000);
+                            var percent_str = Math.round(percent) + '%';
+                            $('#status').animate({width: percent_str}, 150);
+                            $('.percentage').text(percent_str);
+
+                            // show percent in window title
+                            if (original_title !== false) {
+                                parent.document.title = percent_str + ' - ' + original_title;
+                            }
+                            else {
+                                document.title = percent_str + ' - ' + original_title;
+                            }
+                            $('#statustext').html(statustext);
+                        } // else
+
+                        if (finished == true) {
+                            if (original_title !== false) {
+                                parent.document.title = original_title;
+                            }
+                            else {
+                                document.title = original_title;
+                            }
+                            $('#importmain').hide();
+                            $('#import_form_status')
+                                .html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file is being processed, please be patient.'), false); ?> ')
+                                .show();
+                            $('#import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
+                            <?php
+                            // reload the left sidebar when the import is finished
+                            $GLOBALS['reload'] = true;
+                            PMA_reloadNavigation(true);
+                            ?>
+
+                        } // if finished
+                        else {
+                            setTimeout(perform_upload, 1000);
+                        }
+                    });
+                }
+                setTimeout(perform_upload, 1000);
 
     <?php
 } else { // no plugin available
     ?>
-                        $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_showDocu('faq2_9'); ?>');
+                        $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_showDocu('faq2_9'); ?>');
                         $('#upload_form_status').css("display", "none");
     <?php
 } // else

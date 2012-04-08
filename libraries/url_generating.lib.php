@@ -271,7 +271,7 @@ function PMA_get_arg_separator($encode = 'none')
     static $separator = null;
 
     if (null === $separator) {
-        // use seperators defined by php, but prefer ';'
+        // use separators defined by php, but prefer ';'
         // as recommended by W3C
         $php_arg_separator_input = ini_get('arg_separator.input');
         if (strpos($php_arg_separator_input, ';') !== false) {

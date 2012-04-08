@@ -69,9 +69,9 @@ $js_messages['strTotal'] = __('Total');
 /* l10n: Other, small valued, queries */
 $js_messages['strOther'] = __('Other');
 /* l10n: Thousands separator */
-$js_messages['strThousandsSeperator'] = __(',');
+$js_messages['strThousandsSeparator'] = __(',');
 /* l10n: Decimal separator */
-$js_messages['strDecimalSeperator'] = __('.');
+$js_messages['strDecimalSeparator'] = __('.');
 
 $js_messages['strChartKBSent'] = __('KiB sent since last refresh');
 $js_messages['strChartKBReceived'] = __('KiB received since last refresh');
