@@ -669,8 +669,8 @@ if ($action == 'tbl_create.php') {
         <td width="25">&nbsp;</td>
         <td>
     <?php
-    echo PMA_StorageEngine::getHtmlSelect('tbl_type', null,
-        (isset($_REQUEST['tbl_type']) ? $_REQUEST['tbl_type'] : null));
+    echo PMA_StorageEngine::getHtmlSelect('tbl_storage_engine', null,
+        (isset($_REQUEST['tbl_storage_engine']) ? $_REQUEST['tbl_storage_engine'] : null));
     ?>
         </td>
         <td width="25">&nbsp;</td>
