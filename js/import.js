@@ -66,11 +66,11 @@ $(document).ready(function() {
      */
     $("#input_import_file").bind("focus change", function() {
          $("#radio_import_file").prop('checked', true);
-         $("#radio_local_import_file").removeProp('checked');
+         $("#radio_local_import_file").prop('checked', false);
     });
     $("#select_local_import_file").focus(function() {
          $("#radio_local_import_file").prop('checked', true);
-         $("#radio_import_file").removeProp('checked');
+         $("#radio_import_file").prop('checked', false);
     });
 
     /**

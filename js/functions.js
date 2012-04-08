@@ -681,16 +681,10 @@ function unMarkAllRows( container_id )
  * @param   boolean  state         new value for checkbox (true or false)
  * @return  boolean  always true
  */
-function setCheckboxes( container_id, state )
+function setCheckboxes(container_id, state)
 {
 
-    if (state) {
-        $("#"+container_id).find("input:checkbox").prop('checked', true);
-    }
-    else {
-        $("#"+container_id).find("input:checkbox").removeProp('checked');
-    }
-
+    $("#" + container_id).find("input:checkbox").prop('checked', state);
     return true;
 } // end of the 'setCheckboxes()' function
 

@@ -136,13 +136,14 @@ function toggle_sql_include_comments()
  * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
  */
 $(document).ready(function() {
-     $("#checkbox_sql_create_table_statements").change(function() {
-         if($("#checkbox_sql_create_table_statements:checked").length == 0) {
-            $("#checkbox_sql_if_not_exists").removeProp('checked');
-            $("#checkbox_sql_auto_increment").removeProp('checked');
-        } else {
-            $("#checkbox_sql_if_not_exists").prop('checked', true);
-            $("#checkbox_sql_auto_increment").prop('checked', true);
+    var $create = $("#checkbox_sql_create_table_statements");
+    var $create_options = $("#ul_create_table_statements input");
+    $create.change(function() {
+        $create_options.prop('checked', $(this).prop("checked"));
+    });
+    $create_options.change(function() {
+        if ($create_options.is(":checked")) {
+            $create.prop('checked', true);
         }
     });
 });
