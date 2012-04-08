@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-04-08 16:18+0200\n"
+"PO-Revision-Date: 2012-04-08 16:26+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3801,20 +3801,22 @@ msgstr "සර්වරයේ සොකට්"
 
 #: libraries/config/messages.inc.php:413
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "MySQL සේවාදායකය වෙත සබඳතාවය සඳහා SSL සක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:414
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
+"ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:416
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "PDF ක්‍රමානුරූපය: වගු ඛණ්ඩාංක"
 
 #: libraries/config/messages.inc.php:417
 msgid ""
