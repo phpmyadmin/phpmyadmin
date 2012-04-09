@@ -110,7 +110,7 @@ class Advisor
      *
      * @return string
      */
-    function escapePercent($str)
+    static function escapePercent($str)
     {
         return preg_replace('/%( |,|\.|$|\(|\)|<|>)/', '%%\1', $str);
     }
@@ -143,7 +143,7 @@ class Advisor
      *
      * @return array
      */
-    function splitJustification($rule)
+    static function splitJustification($rule)
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
@@ -253,7 +253,7 @@ class Advisor
     }
 
     // Reads the rule file into an array, throwing errors messages on syntax errors
-    function parseRulesFile()
+    static function parseRulesFile()
     {
         $file = file('libraries/advisory_rules.txt');
         $errors = array();
