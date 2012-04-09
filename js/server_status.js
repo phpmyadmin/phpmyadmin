@@ -156,7 +156,7 @@ $(function() {
                 // Delay loading a bit so the tab loads and the user gets to see a ajax loading icon
                 setTimeout(function() {
                     loadJavascript(['js/jquery/timepicker.js', 'js/jquery/jquery.json-2.2.js',
-                                    'js/jquery/jquery.sprintf.js', 'js/jquery/jquery.sortableTable.js',
+                                    'js/jquery/jquery.sortableTable.js',
                                     'js/codemirror/lib/codemirror.js', 'js/codemirror/mode/mysql/mysql.js',
                                     'js/server_status_monitor.js']);
                 }, 50);
