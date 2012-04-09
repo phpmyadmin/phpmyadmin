@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-06 13:06+0200\n"
+"POT-Creation-Date: 2012-04-09 08:44-0400\n"
 "PO-Revision-Date: 2012-04-09 07:19+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 0.8\n"
 
@@ -49,7 +49,7 @@ msgstr "搜索"
 #: gis_data_editor.php:133 gis_data_editor.php:166 gis_data_editor.php:315
 #: js/messages.php:225 libraries/auth/cookie.auth.lib.php:275
 #: libraries/core.lib.php:526 libraries/display_create_table.lib.php:61
-#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:264
+#: libraries/display_export.lib.php:352 libraries/display_import.lib.php:311
 #: libraries/display_tbl.lib.php:704 libraries/replication_gui.lib.php:76
 #: libraries/replication_gui.lib.php:375 libraries/rte/rte_events.lib.php:493
 #: libraries/rte/rte_routines.lib.php:969
@@ -66,10 +66,10 @@ msgstr "搜索"
 #: server_privileges.php:2292 server_privileges.php:2339
 #: server_privileges.php:2371 server_replication.php:265
 #: server_replication.php:349 server_replication.php:380
-#: server_synchronize.php:1391 tbl_change.php:371 tbl_change.php:1115
+#: server_synchronize.php:1391 tbl_change.php:374 tbl_change.php:1118
 #: tbl_indexes.php:288 tbl_operations.php:284 tbl_operations.php:321
 #: tbl_operations.php:525 tbl_operations.php:587 tbl_operations.php:790
-#: tbl_select.php:260 tbl_structure.php:672 tbl_structure.php:707
+#: tbl_select.php:260 tbl_structure.php:673 tbl_structure.php:708
 #: tbl_tracking.php:443 tbl_tracking.php:581 tbl_zoom_select.php:331
 #: view_create.php:173 view_operations.php:99
 msgid "Go"
@@ -82,7 +82,7 @@ msgstr "键名"
 
 #: browse_foreigners.php:175 browse_foreigners.php:177
 #: server_collations.php:47 server_collations.php:59 server_engines.php:47
-#: server_plugins.php:139 server_status.php:1473
+#: server_plugins.php:139 server_status.php:1496
 msgid "Description"
 msgstr "说明"
 
@@ -119,7 +119,7 @@ msgstr "表注释"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1305
 #: libraries/schema/Pdf_Relation_Schema.class.php:1326
 #: libraries/tbl_properties.inc.php:267 libraries/tbl_select.lib.php:83
-#: tbl_change.php:337 tbl_indexes.php:213 tbl_printview.php:136
+#: tbl_change.php:340 tbl_indexes.php:213 tbl_printview.php:136
 #: tbl_relation.php:411 tbl_tracking.php:269 tbl_tracking.php:335
 #: tbl_zoom_select.php:451
 msgid "Column"
@@ -135,9 +135,9 @@ msgstr "字段"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
-#: server_privileges.php:2385 tbl_change.php:316 tbl_change.php:349
-#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
-#: tbl_structure.php:767 tbl_tracking.php:270 tbl_tracking.php:332
+#: server_privileges.php:2385 tbl_change.php:319 tbl_change.php:352
+#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:203
+#: tbl_structure.php:768 tbl_tracking.php:270 tbl_tracking.php:332
 msgid "Type"
 msgstr "类型"
 
@@ -146,19 +146,19 @@ msgstr "类型"
 #: libraries/export/odt.php:306 libraries/export/texytext.php:230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
-#: libraries/tbl_properties.inc.php:102 tbl_change.php:364
-#: tbl_printview.php:138 tbl_structure.php:205 tbl_tracking.php:272
+#: libraries/tbl_properties.inc.php:102 tbl_change.php:367
+#: tbl_printview.php:138 tbl_structure.php:206 tbl_tracking.php:272
 #: tbl_tracking.php:338 tbl_zoom_select.php:452
 msgid "Null"
 msgstr "空"
 
-#: db_datadict.php:166 db_structure.php:544 libraries/export/htmlword.php:252
+#: db_datadict.php:166 db_structure.php:543 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:397 libraries/export/odt.php:309
 #: libraries/export/texytext.php:231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
-#: tbl_structure.php:206 tbl_tracking.php:273
+#: tbl_structure.php:207 tbl_tracking.php:273
 msgid "Default"
 msgstr "默认"
 
@@ -193,7 +193,7 @@ msgstr "注释"
 #: server_privileges.php:1852 server_privileges.php:1863
 #: server_privileges.php:2204 server_privileges.php:2209
 #: server_privileges.php:2502 sql.php:328 sql.php:392 tbl_printview.php:190
-#: tbl_structure.php:349 tbl_tracking.php:293 tbl_tracking.php:348
+#: tbl_structure.php:350 tbl_tracking.php:293 tbl_tracking.php:348
 #: tbl_tracking.php:353
 msgid "No"
 msgstr "否"
@@ -215,7 +215,7 @@ msgstr "否"
 #: server_privileges.php:1577 server_privileges.php:1849
 #: server_privileges.php:1863 server_privileges.php:2204
 #: server_privileges.php:2207 server_privileges.php:2502 sql.php:391
-#: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:349
+#: tbl_printview.php:190 tbl_structure.php:42 tbl_structure.php:350
 #: tbl_tracking.php:293 tbl_tracking.php:346 tbl_tracking.php:351
 msgid "Yes"
 msgstr "是"
@@ -315,7 +315,7 @@ msgstr "切换到复制的数据库"
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:663 libraries/tbl_select.lib.php:85
 #: server_collations.php:46 server_collations.php:58 tbl_operations.php:382
-#: tbl_structure.php:203 tbl_structure.php:872 tbl_tracking.php:271
+#: tbl_structure.php:204 tbl_structure.php:873 tbl_tracking.php:271
 #: tbl_tracking.php:337
 msgid "Collation"
 msgstr "整理"
@@ -346,7 +346,7 @@ msgstr "表"
 #: libraries/build_html_for_db.lib.php:31 libraries/db_structure.lib.php:42
 #: libraries/header_printview.inc.php:64 libraries/import.lib.php:153
 #: navigation.php:581 navigation.php:602 tbl_printview.php:353
-#: tbl_structure.php:363 tbl_structure.php:469 tbl_structure.php:882
+#: tbl_structure.php:364 tbl_structure.php:470 tbl_structure.php:883
 msgid "Rows"
 msgstr "行数"
 
@@ -354,32 +354,32 @@ msgstr "行数"
 msgid "Size"
 msgstr "大小"
 
-#: db_printview.php:159 db_structure.php:501 libraries/export/sql.php:806
+#: db_printview.php:159 db_structure.php:500 libraries/export/sql.php:806
 msgid "in use"
 msgstr "使用中"
 
 #: db_printview.php:184 libraries/db_info.inc.php:77
 #: libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
-#: tbl_structure.php:914
+#: tbl_structure.php:915
 msgid "Creation"
 msgstr "创建时间"
 
 #: db_printview.php:193 libraries/db_info.inc.php:82
 #: libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
-#: tbl_structure.php:922
+#: tbl_structure.php:923
 msgid "Last update"
 msgstr "最后更新"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
 #: libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
-#: tbl_structure.php:930
+#: tbl_structure.php:931
 msgid "Last check"
 msgstr "最后检查"
 
-#: db_printview.php:219 db_structure.php:520
+#: db_printview.php:219 db_structure.php:519
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -416,7 +416,7 @@ msgid "Descending"
 msgstr "递减"
 
 #: db_qbe.php:286 db_tracking.php:92 libraries/display_tbl.lib.php:427
-#: tbl_change.php:294 tbl_tracking.php:666
+#: tbl_change.php:297 tbl_tracking.php:666
 msgid "Show"
 msgstr "显示"
 
@@ -437,7 +437,7 @@ msgid "Del"
 msgstr "删除"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:467 tbl_change.php:941 tbl_indexes.php:283
+#: server_privileges.php:467 tbl_change.php:944 tbl_indexes.php:283
 #: tbl_select.php:221
 msgid "Or"
 msgstr "或"
@@ -509,7 +509,7 @@ msgstr[0] "在表 <i>%2$s</i> 中找到 %1$s 个匹配"
 
 #: db_search.php:234 libraries/common.lib.php:3147
 #: libraries/common.lib.php:3366 libraries/common.lib.php:3367
-#: libraries/tbl_links.inc.php:55 tbl_structure.php:569
+#: libraries/tbl_links.inc.php:55 tbl_structure.php:570
 msgid "Browse"
 msgstr "浏览"
 
@@ -560,145 +560,145 @@ msgstr "于下列表:"
 msgid "Inside column:"
 msgstr "包含字段:"
 
-#: db_structure.php:86
+#: db_structure.php:85
 msgid "No tables found in database"
 msgstr "没有在数据库中找到表"
 
-#: db_structure.php:239 libraries/mysql_charsets.lib.php:411
+#: db_structure.php:238 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
 msgid "unknown"
 msgstr "未知"
 
-#: db_structure.php:326 tbl_operations.php:709
+#: db_structure.php:325 tbl_operations.php:709
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "已清空表 %s "
 
-#: db_structure.php:339 tbl_operations.php:728
+#: db_structure.php:338 tbl_operations.php:728
 #, php-format
 msgid "View %s has been dropped"
 msgstr "已删除视图 %s"
 
-#: db_structure.php:339 tbl_operations.php:728
+#: db_structure.php:338 tbl_operations.php:728
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "已删除表 %s "
 
-#: db_structure.php:349 tbl_create.php:281
+#: db_structure.php:348 tbl_create.php:281
 msgid "Tracking is active."
 msgstr "追踪已启用。"
 
-#: db_structure.php:354 tbl_create.php:284
+#: db_structure.php:353 tbl_create.php:284
 msgid "Tracking is not active."
 msgstr "追踪已禁用。"
 
-#: db_structure.php:462 libraries/display_tbl.lib.php:2362
+#: db_structure.php:461 libraries/display_tbl.lib.php:2362
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
-#: db_structure.php:478 db_structure.php:492 libraries/header.inc.php:169
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:209
+#: db_structure.php:477 db_structure.php:491 libraries/header.inc.php:169
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:210
 msgid "View"
 msgstr "视图"
 
-#: db_structure.php:527 libraries/db_structure.lib.php:35
+#: db_structure.php:526 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:92 server_replication.php:31
-#: server_replication.php:192 server_status.php:589
+#: server_replication.php:192 server_status.php:612
 msgid "Replication"
 msgstr "复制"
 
-#: db_structure.php:531
+#: db_structure.php:530
 msgid "Sum"
 msgstr "总计"
 
-#: db_structure.php:538 libraries/StorageEngine.class.php:338
+#: db_structure.php:537 libraries/StorageEngine.class.php:338
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s 是此 MySQL 服务器的默认存储引擎。"
 
-#: db_structure.php:567 db_structure.php:584 db_structure.php:585
+#: db_structure.php:566 db_structure.php:583 db_structure.php:584
 #: libraries/display_tbl.lib.php:2504 libraries/display_tbl.lib.php:2509
 #: libraries/mult_submits.inc.php:39 server_databases.php:278
 #: server_databases.php:283 server_privileges.php:1886
-#: server_privileges.php:1894 tbl_structure.php:557 tbl_structure.php:566
+#: server_privileges.php:1894 tbl_structure.php:558 tbl_structure.php:567
 msgid "With selected:"
 msgstr "选中项："
 
-#: db_structure.php:570 libraries/display_tbl.lib.php:2499
+#: db_structure.php:569 libraries/display_tbl.lib.php:2499
 #: server_databases.php:280 server_privileges.php:751
-#: server_privileges.php:1889 tbl_structure.php:560
+#: server_privileges.php:1889 tbl_structure.php:561
 msgid "Check All"
 msgstr "全选"
 
-#: db_structure.php:574 libraries/display_tbl.lib.php:2500
+#: db_structure.php:573 libraries/display_tbl.lib.php:2500
 #: libraries/replication_gui.lib.php:35 server_databases.php:282
-#: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
+#: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:565
 msgid "Uncheck All"
 msgstr "全不选"
 
-#: db_structure.php:579
+#: db_structure.php:578
 msgid "Check tables having overhead"
 msgstr "仅选择多余"
 
-#: db_structure.php:587 libraries/common.lib.php:3379
+#: db_structure.php:586 libraries/common.lib.php:3379
 #: libraries/common.lib.php:3380 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2522 libraries/display_tbl.lib.php:2663
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1535 server_privileges.php:1898
-#: server_status.php:1602 setup/frames/menu.inc.php:21
+#: server_status.php:1625 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "导出"
 
-#: db_structure.php:589 db_structure.php:637
-#: libraries/display_tbl.lib.php:2612 tbl_structure.php:613
+#: db_structure.php:588 db_structure.php:636
+#: libraries/display_tbl.lib.php:2612 tbl_structure.php:614
 msgid "Print view"
 msgstr "打印预览"
 
-#: db_structure.php:593 libraries/common.lib.php:3375
+#: db_structure.php:592 libraries/common.lib.php:3375
 #: libraries/common.lib.php:3376
 msgid "Empty"
 msgstr "清空"
 
-#: db_structure.php:595 db_tracking.php:105 libraries/Index.class.php:504
+#: db_structure.php:594 db_tracking.php:105 libraries/Index.class.php:504
 #: libraries/common.lib.php:3373 libraries/common.lib.php:3374
-#: server_databases.php:284 tbl_structure.php:150 tbl_structure.php:151
-#: tbl_structure.php:573
+#: server_databases.php:284 tbl_structure.php:151 tbl_structure.php:152
+#: tbl_structure.php:574
 msgid "Drop"
 msgstr "删除"
 
-#: db_structure.php:597 tbl_operations.php:612
+#: db_structure.php:596 tbl_operations.php:612
 msgid "Check table"
 msgstr "检查表"
 
-#: db_structure.php:600 tbl_operations.php:669 tbl_structure.php:816
+#: db_structure.php:599 tbl_operations.php:669 tbl_structure.php:817
 msgid "Optimize table"
 msgstr "优化表"
 
-#: db_structure.php:602 tbl_operations.php:654
+#: db_structure.php:601 tbl_operations.php:654
 msgid "Repair table"
 msgstr "修复表"
 
-#: db_structure.php:605 tbl_operations.php:639
+#: db_structure.php:604 tbl_operations.php:639
 msgid "Analyze table"
 msgstr "分析表"
 
-#: db_structure.php:607
+#: db_structure.php:606
 msgid "Add prefix to table"
 msgstr "添加表前缀"
 
-#: db_structure.php:609 libraries/mult_submits.inc.php:272
+#: db_structure.php:608 libraries/mult_submits.inc.php:272
 msgid "Replace table prefix"
 msgstr "修改表前缀"
 
-#: db_structure.php:611 libraries/mult_submits.inc.php:272
+#: db_structure.php:610 libraries/mult_submits.inc.php:272
 msgid "Copy table with prefix"
 msgstr "复制表为新前缀"
 
-#: db_structure.php:640 libraries/schema/User_Schema.class.php:423
+#: db_structure.php:639 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
 msgstr "数据字典"
 
@@ -713,7 +713,7 @@ msgstr "已追踪的表"
 #: libraries/export/xml.php:292 libraries/header.inc.php:152
 #: libraries/header_printview.inc.php:59 server_databases.php:176
 #: server_privileges.php:1974 server_privileges.php:2037
-#: server_privileges.php:2300 server_status.php:1231
+#: server_privileges.php:2300 server_status.php:1254
 #: server_synchronize.php:1359 server_synchronize.php:1363
 #: tbl_tracking.php:660
 msgid "Database"
@@ -733,7 +733,7 @@ msgstr "更新"
 
 #: db_tracking.php:90 js/messages.php:183 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:78 libraries/server_links.inc.php:51
-#: server_status.php:1234 sql.php:932 tbl_tracking.php:665
+#: server_status.php:1257 sql.php:930 tbl_tracking.php:665
 msgid "Status"
 msgstr "状态"
 
@@ -741,7 +741,7 @@ msgstr "状态"
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
 #: server_databases.php:209 server_privileges.php:1823
-#: server_privileges.php:2041 server_privileges.php:2388 tbl_structure.php:211
+#: server_privileges.php:2041 server_privileges.php:2388 tbl_structure.php:212
 msgid "Action"
 msgstr "操作"
 
@@ -773,7 +773,7 @@ msgstr "结构快照"
 msgid "Untracked tables"
 msgstr "未追踪的表"
 
-#: db_tracking.php:201 tbl_structure.php:639
+#: db_tracking.php:201 tbl_structure.php:640
 msgid "Track table"
 msgstr "追踪表"
 
@@ -915,8 +915,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:216 import.php:468
@@ -960,7 +960,7 @@ msgstr "没有字符集转换库，无法转换文件字符集"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查你的安装！"
 
-#: import.php:470 sql.php:967
+#: import.php:470 sql.php:969
 #, php-format
 msgid "Bookmark %s created"
 msgstr "已创建书签 %s"
@@ -991,7 +991,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully"
 msgstr "您的 SQL 语句已成功运行"
 
-#: import_status.php:42 libraries/common.lib.php:710
+#: import_status.php:114 libraries/common.lib.php:710
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:101
 msgid "Back"
 msgstr "返回"
@@ -1004,10 +1004,10 @@ msgstr "phpMyAdmin 更适合在支持<b>框架</b>的浏览器中使用。"
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已经禁用删除数据库 (“DROP DATABASE”) 语句。"
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:305 sql.php:386
-#, fuzzy
+#: js/messages.php:30
+#, fuzzy, php-format
 #| msgid "Do you really want to "
-msgid "Do you really want to execute following query?"
+msgid "Do you really want to execute \"%s\"?"
 msgstr "您真的要"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:371
@@ -1102,15 +1102,15 @@ msgstr "关闭"
 msgid "Edit"
 msgstr "编辑"
 
-#: js/messages.php:62 server_status.php:795
+#: js/messages.php:62 server_status.php:818
 msgid "Live traffic chart"
 msgstr "实时流量图"
 
-#: js/messages.php:63 server_status.php:798
+#: js/messages.php:63 server_status.php:821
 msgid "Live conn./process chart"
 msgstr "实时连接/进程图"
 
-#: js/messages.php:64 server_status.php:816
+#: js/messages.php:64 server_status.php:839
 msgid "Live query chart"
 msgstr "实时查询图"
 
@@ -1121,13 +1121,13 @@ msgstr "静态数据"
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:237
-#: server_status.php:1118 server_status.php:1179 tbl_printview.php:310
-#: tbl_structure.php:804
+#: server_status.php:1141 server_status.php:1202 tbl_printview.php:310
+#: tbl_structure.php:805
 msgid "Total"
 msgstr "总计"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:70 server_status.php:595 server_status.php:1014
+#: js/messages.php:70 server_status.php:618 server_status.php:1037
 msgid "Other"
 msgstr "其它"
 
@@ -1157,7 +1157,7 @@ msgstr "服务器流量 (单位: KB)"
 msgid "Connections since last refresh"
 msgstr "自上次刷新起的连接数"
 
-#: js/messages.php:80 js/messages.php:118 server_status.php:1227
+#: js/messages.php:80 js/messages.php:118 server_status.php:1250
 msgid "Processes"
 msgstr "进程"
 
@@ -1175,7 +1175,7 @@ msgstr "自上次刷新起的内部查询"
 msgid "Questions (executed statements by the server)"
 msgstr "内部查询 (服务器执行的查询)"
 
-#: js/messages.php:87 server_status.php:777
+#: js/messages.php:87 server_status.php:800
 msgid "Query statistics"
 msgstr "查询统计"
 
@@ -1219,13 +1219,13 @@ msgstr "系统交换空间"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
-#: server_status.php:1682
+#: server_status.php:1705
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1432
-#: server_status.php:1682
+#: server_status.php:1705
 msgid "KiB"
 msgstr "KB"
 
@@ -1277,7 +1277,7 @@ msgstr "已发送字节数"
 msgid "Bytes received"
 msgstr "已接收字节数"
 
-#: js/messages.php:117 server_status.php:1137
+#: js/messages.php:117 server_status.php:1160
 msgid "Connections"
 msgstr "连接"
 
@@ -1316,12 +1316,12 @@ msgstr "%d 张表"
 msgid "Questions"
 msgstr "内部查询"
 
-#: js/messages.php:132 server_status.php:1092
+#: js/messages.php:132 server_status.php:1115
 msgid "Traffic"
 msgstr "流量"
 
 #: js/messages.php:133 libraries/server_links.inc.php:73
-#: server_status.php:1557
+#: server_status.php:1580
 msgid "Settings"
 msgstr "设置"
 
@@ -1344,7 +1344,7 @@ msgstr "请至少添加一个数据"
 #: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:526 pmd_general.php:518
-#: server_privileges.php:2190 server_status.php:1260 server_status.php:1699
+#: server_privileges.php:2190 server_status.php:1283 server_status.php:1722
 #: tbl_zoom_select.php:252 tbl_zoom_select.php:296
 msgid "None"
 msgstr "无"
@@ -1440,7 +1440,7 @@ msgstr "修改设置"
 msgid "Current settings"
 msgstr "当前设置"
 
-#: js/messages.php:164 server_status.php:1647
+#: js/messages.php:164 server_status.php:1670
 msgid "Chart Title"
 msgstr "图表标题"
 
@@ -1511,7 +1511,7 @@ msgid "Explain output"
 msgstr "解释 SQL"
 
 #: js/messages.php:184 js/messages.php:497 libraries/rte/rte_list.lib.php:68
-#: server_status.php:1233 sql.php:933
+#: server_status.php:1256 sql.php:931
 msgid "Time"
 msgstr "时间"
 
@@ -1598,9 +1598,9 @@ msgid ""
 msgstr "导入配置失败。正在重设为默认设置..."
 
 #: js/messages.php:208 libraries/config/messages.inc.php:172
-#: libraries/db_links.inc.php:82 libraries/display_import.lib.php:124
+#: libraries/db_links.inc.php:82 libraries/display_import.lib.php:171
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1602 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1625 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "导入"
 
@@ -1792,7 +1792,7 @@ msgid "No rows selected"
 msgstr "没有选中任何行"
 
 #: js/messages.php:279 libraries/display_tbl.lib.php:2513 querywindow.php:87
-#: tbl_structure.php:149 tbl_structure.php:572
+#: tbl_structure.php:150 tbl_structure.php:573
 msgid "Change"
 msgstr "修改"
 
@@ -1803,7 +1803,7 @@ msgstr "查询执行时间"
 #: js/messages.php:283 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
 #: libraries/tbl_properties.inc.php:709 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:229 tbl_change.php:1067
+#: setup/frames/index.inc.php:229 tbl_change.php:1070
 #: tbl_gis_visualization.php:185 tbl_indexes.php:280 tbl_relation.php:575
 msgid "Save"
 msgstr "保存"
@@ -1870,7 +1870,7 @@ msgstr "查询结果"
 msgid "Data point content"
 msgstr "数据点内容"
 
-#: js/messages.php:314 tbl_change.php:331 tbl_indexes.php:228
+#: js/messages.php:314 tbl_change.php:334 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
 msgstr "忽略"
@@ -1982,7 +1982,7 @@ msgstr "生成"
 msgid "Change Password"
 msgstr "修改密码"
 
-#: js/messages.php:364 tbl_structure.php:465
+#: js/messages.php:364 tbl_structure.php:466
 msgid "More"
 msgstr "更多"
 
@@ -2264,16 +2264,16 @@ msgstr "秒"
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr "格式化字符串 '%s' 失败。PHP 抛出如下错误：%s"
 
-#: libraries/Advisor.class.php:331 server_status.php:944
+#: libraries/Advisor.class.php:331 server_status.php:967
 msgid "per second"
 msgstr "每秒"
 
-#: libraries/Advisor.class.php:334 server_status.php:939
+#: libraries/Advisor.class.php:334 server_status.php:962
 msgid "per minute"
 msgstr "每分钟"
 
-#: libraries/Advisor.class.php:337 server_status.php:935 server_status.php:971
-#: server_status.php:1093 server_status.php:1138
+#: libraries/Advisor.class.php:337 server_status.php:958 server_status.php:994
+#: server_status.php:1116 server_status.php:1161
 msgid "per hour"
 msgstr "每小时"
 
@@ -2357,13 +2357,13 @@ msgid "No index defined!"
 msgstr "没有已定义的索引！"
 
 #: libraries/Index.class.php:432 libraries/Index.class.php:442
-#: libraries/build_html_for_db.lib.php:41 tbl_structure.php:693
+#: libraries/build_html_for_db.lib.php:41 tbl_structure.php:694
 #: tbl_tracking.php:327
 msgid "Indexes"
 msgstr "索引"
 
 #: libraries/Index.class.php:456 libraries/tbl_properties.inc.php:468
-#: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:576
+#: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:577
 #: tbl_tracking.php:333
 msgid "Unique"
 msgstr "唯一"
@@ -2405,7 +2405,7 @@ msgid "Databases"
 msgstr "数据库"
 
 #: libraries/Message.class.php:196 libraries/common.lib.php:615
-#: libraries/core.lib.php:216 libraries/import.lib.php:142 tbl_change.php:937
+#: libraries/core.lib.php:216 libraries/import.lib.php:142 tbl_change.php:940
 #: tbl_operations.php:229 tbl_relation.php:298 view_operations.php:60
 msgid "Error"
 msgstr "错误"
@@ -2553,8 +2553,8 @@ msgstr "欢迎使用 %s"
 #: libraries/auth/config.auth.lib.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -2665,7 +2665,7 @@ msgstr "已共享"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
-#: server_status.php:591
+#: server_status.php:614
 msgid "Tables"
 msgstr "数据表"
 
@@ -2678,12 +2678,12 @@ msgstr "数据表"
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:681 server_replication.php:347 tbl_printview.php:276
-#: tbl_structure.php:773
+#: tbl_structure.php:774
 msgid "Data"
 msgstr "数据"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:295 tbl_structure.php:790
+#: tbl_printview.php:295 tbl_structure.php:791
 msgid "Overhead"
 msgstr "多余"
 
@@ -2716,48 +2716,52 @@ msgstr "可利用"
 msgid "numeric key detected"
 msgstr "监测到数值型键"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:606
 msgid "Failed to read configuration file"
 msgstr "读取配置文件失败"
 
-#: libraries/common.inc.php:600
+#: libraries/common.inc.php:607
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "这通常意味着文件中有语法错误，请检查下面显示出的错误。"
 
-#: libraries/common.inc.php:608
+#: libraries/common.inc.php:615
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "无法加载默认配置: %1$s"
 
-#: libraries/common.inc.php:614
+#: libraries/common.inc.php:621
+#, fuzzy
+#| msgid ""
+#| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
+#| "configuration file!"
 msgid ""
-"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
+"The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr "必须在您的配置文件中设置 <code>$cfg['PmaAbsoluteUri']</code> ！"
 
-#: libraries/common.inc.php:644
+#: libraries/common.inc.php:651
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "无效的服务器索引: %s"
 
-#: libraries/common.inc.php:651
+#: libraries/common.inc.php:658
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "无效的主机名 %1$s，请检查配置文件。"
 
-#: libraries/common.inc.php:660 libraries/config/messages.inc.php:508
-#: libraries/header.inc.php:138 main.php:170 server_status.php:776
+#: libraries/common.inc.php:667 libraries/config/messages.inc.php:508
+#: libraries/header.inc.php:138 main.php:169 server_status.php:799
 #: server_synchronize.php:1339
 msgid "Server"
 msgstr "服务器"
 
-#: libraries/common.inc.php:843
+#: libraries/common.inc.php:850
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/common.inc.php:961
+#: libraries/common.inc.php:968
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
@@ -2793,12 +2797,12 @@ msgstr "en"
 #: libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
 #: libraries/sql_query_form.lib.php:398 libraries/sql_query_form.lib.php:401
-#: main.php:237 server_variables.php:122
+#: main.php:236 server_variables.php:122
 msgid "Documentation"
 msgstr "文档"
 
 #: libraries/common.lib.php:627 libraries/header_printview.inc.php:62
-#: server_status.php:578 server_status.php:1236
+#: server_status.php:601 server_status.php:1259
 msgid "SQL query"
 msgstr "SQL 查询"
 
@@ -2836,7 +2840,7 @@ msgid "Create PHP Code"
 msgstr "创建 PHP 代码"
 
 #: libraries/common.lib.php:1266 libraries/config/messages.inc.php:486
-#: server_status.php:787 server_status.php:809 server_status.php:829
+#: server_status.php:810 server_status.php:832 server_status.php:852
 msgid "Refresh"
 msgstr "刷新"
 
@@ -2857,7 +2861,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "快速编辑"
 
-#: libraries/common.lib.php:1406 sql.php:928
+#: libraries/common.lib.php:1406 sql.php:926
 msgid "Profiling"
 msgstr "概要"
 
@@ -2966,7 +2970,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
 
 #: libraries/common.lib.php:3344 libraries/sql_query_form.lib.php:458
-#: tbl_change.php:938
+#: tbl_change.php:941
 msgid "The directory you set for upload work cannot be reached"
 msgstr "用于上传的文件夹出错，无法使用"
 
@@ -3125,7 +3129,7 @@ msgstr "未找到 SOAP 扩展"
 msgid "maximum %s"
 msgstr "最大 %s"
 
-#: libraries/config/FormDisplay.tpl.php:141 main.php:238
+#: libraries/config/FormDisplay.tpl.php:141 main.php:237
 msgid "Wiki"
 msgstr "维基 (Wiki) (外链，英文)"
 
@@ -3149,7 +3153,7 @@ msgstr "允许用户自定义该值"
 
 #: libraries/config/FormDisplay.tpl.php:356
 #: libraries/schema/User_Schema.class.php:508 prefs_manage.php:318
-#: prefs_manage.php:323 tbl_change.php:1116
+#: prefs_manage.php:323 tbl_change.php:1119
 msgid "Reset"
 msgstr "重置"
 
@@ -3414,7 +3418,7 @@ msgid "Character set of the file"
 msgstr "文件字符集"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
-#: tbl_gis_visualization.php:173 tbl_printview.php:335 tbl_structure.php:842
+#: tbl_gis_visualization.php:173 tbl_printview.php:335 tbl_structure.php:843
 msgid "Format"
 msgstr "格式"
 
@@ -5357,7 +5361,7 @@ msgstr ""
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用配置文件中定义的控制用户连接失败。"
 
-#: libraries/display_change_password.lib.php:29 main.php:94
+#: libraries/display_change_password.lib.php:29 main.php:93
 #: user_password.php:97 user_password.php:115
 msgid "Change password"
 msgstr "修改密码"
@@ -5404,7 +5408,7 @@ msgstr "新建数据表"
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_list.lib.php:77
 #: libraries/rte/rte_routines.lib.php:859
 #: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_properties.inc.php:92
-#: setup/frames/index.inc.php:127 tbl_structure.php:201
+#: setup/frames/index.inc.php:127 tbl_structure.php:202
 msgid "Name"
 msgstr "名字"
 
@@ -5503,8 +5507,8 @@ msgstr "，@TABLE@ 将变成数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
@@ -5513,8 +5517,8 @@ msgstr ""
 msgid "use this for future exports"
 msgstr "以后也使用此设置"
 
-#: libraries/display_export.lib.php:279 libraries/display_import.lib.php:186
-#: libraries/display_import.lib.php:199 libraries/sql_query_form.lib.php:474
+#: libraries/display_export.lib.php:279 libraries/display_import.lib.php:233
+#: libraries/display_import.lib.php:246 libraries/sql_query_form.lib.php:474
 msgid "Character set of the file:"
 msgstr "文件的字符集："
 
@@ -5538,7 +5542,7 @@ msgstr "bzip 压缩"
 msgid "View output as text"
 msgstr "直接显示为文本"
 
-#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:242
+#: libraries/display_export.lib.php:331 libraries/display_import.lib.php:289
 #: libraries/export/codegen.php:38
 msgid "Format:"
 msgstr "格式："
@@ -5553,11 +5557,11 @@ msgid ""
 "options for other formats."
 msgstr "请下拉至所选格式并设置选项，其它格式请忽略。"
 
-#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:257
+#: libraries/display_export.lib.php:345 libraries/display_import.lib.php:304
 msgid "Encoding Conversion:"
 msgstr "编码转换："
 
-#: libraries/display_import.lib.php:66
+#: libraries/display_import.lib.php:61
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
@@ -5566,60 +5570,83 @@ msgstr ""
 "上传的文件可能超过了最大大小，也可能是一个基于 webkit 浏览器 (Safari, Google "
 "Chrome, Arora 等) 的已知缺陷 (bug) 。"
 
-#: libraries/display_import.lib.php:76
+#: libraries/display_import.lib.php:71
+msgid "of"
+msgstr ""
+
+#: libraries/display_import.lib.php:78
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Uploading your import file..."
+msgstr "导入文件的格式"
+
+#: libraries/display_import.lib.php:86
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: libraries/display_import.lib.php:93
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: libraries/display_import.lib.php:97
+msgid "About %SEC sec. remaining."
+msgstr ""
+
+#: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
 msgstr "正在处理，请稍候。"
 
-#: libraries/display_import.lib.php:98
+#: libraries/display_import.lib.php:147
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr "正在上传，没有详细信息，请稍候。"
 
-#: libraries/display_import.lib.php:127
+#: libraries/display_import.lib.php:174
 msgid "Importing into the current server"
 msgstr "导入到当前服务器"
 
-#: libraries/display_import.lib.php:129
+#: libraries/display_import.lib.php:176
 #, php-format
 msgid "Importing into the database \"%s\""
 msgstr "导入到数据库“%s”"
 
-#: libraries/display_import.lib.php:131
+#: libraries/display_import.lib.php:178
 #, php-format
 msgid "Importing into the table \"%s\""
 msgstr "导入到数据表“%s”"
 
-#: libraries/display_import.lib.php:137
+#: libraries/display_import.lib.php:184
 msgid "File to Import:"
 msgstr "要导入的文件："
 
-#: libraries/display_import.lib.php:154
+#: libraries/display_import.lib.php:201
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr "文件可能已压缩 (%s) 或未压缩。"
 
-#: libraries/display_import.lib.php:156
+#: libraries/display_import.lib.php:203
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr "压缩文件名必须以 <b>.[格式].[压缩方式]</b> 结尾。如：<b>.sql.zip</b>"
 
-#: libraries/display_import.lib.php:176
+#: libraries/display_import.lib.php:223
 msgid "File uploads are not allowed on this server."
 msgstr "此服务器禁止了文件上传。"
 
-#: libraries/display_import.lib.php:206
+#: libraries/display_import.lib.php:253
 msgid "Partial Import:"
 msgstr "部分导入："
 
-#: libraries/display_import.lib.php:212
+#: libraries/display_import.lib.php:259
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
 
-#: libraries/display_import.lib.php:219
+#: libraries/display_import.lib.php:266
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
@@ -5628,11 +5655,11 @@ msgstr ""
 "在导入时脚本若检测到可能需要花费很长时间则允许中断。<i>(尽管这会中断事务，但"
 "在导入大文件时是个很好的方法。)</i>"
 
-#: libraries/display_import.lib.php:226
+#: libraries/display_import.lib.php:273
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "从首行起要跳过的行数："
 
-#: libraries/display_import.lib.php:248
+#: libraries/display_import.lib.php:295
 msgid "Format-Specific Options:"
 msgstr "格式特定选项："
 
@@ -5700,7 +5727,7 @@ msgstr "主键排序"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:862
-#: tbl_select.php:200 tbl_structure.php:858
+#: tbl_select.php:200 tbl_structure.php:859
 msgid "Options"
 msgstr "选项"
 
@@ -5745,7 +5772,7 @@ msgid "The row has been deleted"
 msgstr "已删除该行"
 
 #: libraries/display_tbl.lib.php:1457 libraries/display_tbl.lib.php:2479
-#: server_status.php:1256
+#: server_status.php:1279
 msgid "Kill"
 msgstr "杀死"
 
@@ -5790,7 +5817,7 @@ msgstr "新建视图"
 msgid "Link not found"
 msgstr "找不到链接"
 
-#: libraries/engines/bdb.lib.php:20 main.php:236
+#: libraries/engines/bdb.lib.php:20 main.php:235
 msgid "Version information"
 msgstr "版本信息"
 
@@ -5830,7 +5857,7 @@ msgstr "InnoDB 用于缓存数据和索引要使用的内存缓冲大小。"
 msgid "Buffer Pool"
 msgstr "缓冲池"
 
-#: libraries/engines/innodb.lib.php:131 server_status.php:639
+#: libraries/engines/innodb.lib.php:131 server_status.php:662
 msgid "InnoDB Status"
 msgstr "InnoDB 状态"
 
@@ -6100,8 +6127,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr "关于 PBXT 的文档和更多信息请参见 %sPrimeBase XT 主页%s。"
 
 #: libraries/engines/pbxt.lib.php:127
@@ -6200,7 +6227,7 @@ msgstr "显示 MIME 类型"
 #: libraries/replication_gui.lib.php:335 server_privileges.php:884
 #: server_privileges.php:887 server_privileges.php:943
 #: server_privileges.php:1818 server_privileges.php:2384
-#: server_status.php:1230
+#: server_status.php:1253
 msgid "Host"
 msgstr "主机"
 
@@ -6423,7 +6450,7 @@ msgid "Generated by"
 msgstr "生成者"
 
 #: libraries/import.lib.php:159 libraries/rte/rte_routines.lib.php:1252
-#: sql.php:762 tbl_change.php:190 tbl_get_field.php:34
+#: sql.php:762 tbl_change.php:193 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
@@ -6610,6 +6637,12 @@ msgstr "添加表前缀"
 msgid "Add prefix"
 msgstr "添加前缀"
 
+#: libraries/mult_submits.inc.php:305
+#, fuzzy
+#| msgid "Do you really want to "
+msgid "Do you really want to execute the following query?"
+msgstr "您真的要"
+
 #: libraries/mult_submits.inc.php:525 tbl_replace.php:330
 msgid "No change"
 msgstr "无更改"
@@ -6619,7 +6652,7 @@ msgid "Charset"
 msgstr "字符集"
 
 #: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:415
-#: tbl_change.php:618
+#: tbl_change.php:621
 msgid "Binary"
 msgstr "二进制"
 
@@ -6949,15 +6982,15 @@ msgid "Slave status"
 msgstr "从服务器状态"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:394
-#: server_status.php:1471 server_variables.php:116
+#: server_status.php:1494 server_variables.php:116
 msgid "Variable"
 msgstr "变量"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:87
 #: pmd_general.php:484 pmd_general.php:543 pmd_general.php:666
-#: pmd_general.php:783 server_status.php:1472 tbl_change.php:365
-#: tbl_printview.php:329 tbl_structure.php:834 tbl_zoom_select.php:453
+#: pmd_general.php:783 server_status.php:1495 tbl_change.php:368
+#: tbl_printview.php:329 tbl_structure.php:835 tbl_zoom_select.php:453
 msgid "Value"
 msgstr "值"
 
@@ -7158,10 +7191,16 @@ msgid "Event"
 msgstr "事件"
 
 #: libraries/rte/rte_routines.lib.php:64
+#, fuzzy
+#| msgid ""
+#| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
+#| "handling multi queries. <b>The execution of some stored routines may fail!"
+#| "</b> Please use the improved 'mysqli' extension to avoid any problems."
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
-"handling multi queries. <b>The execution of some stored routines may fail!</"
-"b> Please use the improved 'mysqli' extension to avoid any problems."
+"handling multi queries. [strong]The execution of some stored routines may "
+"fail![/strong] Please use the improved 'mysqli' extension to avoid any "
+"problems."
 msgstr ""
 "你正在使用 PHP 所不推荐的 'mysql' 扩展，不支持多语句查询。<b>运行部分存储程序"
 "时可能会失败！</b>请使用改进的 'mysqli' 扩展避免此类问题发生。"
@@ -7288,7 +7327,7 @@ msgid "Routine parameters"
 msgstr "程序参数"
 
 #: libraries/rte/rte_routines.lib.php:1374 libraries/tbl_select.lib.php:79
-#: tbl_change.php:305 tbl_change.php:361
+#: tbl_change.php:308 tbl_change.php:364
 msgid "Function"
 msgstr "函数"
 
@@ -7462,12 +7501,12 @@ msgstr "目录"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1307
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
-#: libraries/tbl_properties.inc.php:101 tbl_structure.php:204
+#: libraries/tbl_properties.inc.php:101 tbl_structure.php:205
 msgid "Attributes"
 msgstr "属性"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
-#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:207
+#: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:208
 #: tbl_tracking.php:274
 msgid "Extra"
 msgstr "额外"
@@ -7583,12 +7622,12 @@ msgid "Synchronize"
 msgstr "同步"
 
 #: libraries/server_links.inc.php:86 server_binlog.php:77
-#: server_status.php:584
+#: server_status.php:607
 msgid "Binary log"
 msgstr "二进制日志"
 
 #: libraries/server_links.inc.php:97 server_engines.php:99
-#: server_engines.php:103 server_status.php:637
+#: server_engines.php:103 server_status.php:660
 msgid "Variables"
 msgstr "变量"
 
@@ -7651,11 +7690,11 @@ msgstr "清除"
 msgid "Columns"
 msgstr "字段"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:1007 sql.php:1024
+#: libraries/sql_query_form.lib.php:307 sql.php:1009 sql.php:1026
 msgid "Bookmark this SQL query"
 msgstr "将此 SQL 查询加为书签"
 
-#: libraries/sql_query_form.lib.php:313 sql.php:1018
+#: libraries/sql_query_form.lib.php:313 sql.php:1020
 msgid "Let every user access this bookmark"
 msgstr "让所有用户均可访问此书签"
 
@@ -7679,7 +7718,7 @@ msgstr "在此再次显示此查询 "
 msgid "View only"
 msgstr "仅查看"
 
-#: libraries/sql_query_form.lib.php:461 tbl_change.php:941
+#: libraries/sql_query_form.lib.php:461 tbl_change.php:944
 msgid "web server upload directory"
 msgstr "网站服务器上传文件夹"
 
@@ -7777,8 +7816,8 @@ msgid ""
 msgstr "对于默认值，请只输入单个值，不要加反斜杠或引号，请用此格式：a"
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:474
-#: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
-#: tbl_structure.php:577 tbl_structure.php:781
+#: tbl_printview.php:285 tbl_structure.php:154 tbl_structure.php:159
+#: tbl_structure.php:578 tbl_structure.php:782
 msgid "Index"
 msgstr "索引"
 
@@ -7820,22 +7859,22 @@ msgstr "无"
 msgid "As defined:"
 msgstr "定义："
 
-#: libraries/tbl_properties.inc.php:462 tbl_structure.php:152
-#: tbl_structure.php:157 tbl_structure.php:575
+#: libraries/tbl_properties.inc.php:462 tbl_structure.php:153
+#: tbl_structure.php:158 tbl_structure.php:576
 msgid "Primary"
 msgstr "主键"
 
-#: libraries/tbl_properties.inc.php:481 tbl_structure.php:156
-#: tbl_structure.php:161 tbl_structure.php:584
+#: libraries/tbl_properties.inc.php:481 tbl_structure.php:157
+#: tbl_structure.php:162 tbl_structure.php:585
 msgid "Fulltext"
 msgstr "全文搜索"
 
-#: libraries/tbl_properties.inc.php:569 tbl_structure.php:652
+#: libraries/tbl_properties.inc.php:569 tbl_structure.php:653
 #, php-format
 msgid "Add %s column(s)"
 msgstr "添加 %s 个字段"
 
-#: libraries/tbl_properties.inc.php:571 tbl_structure.php:646
+#: libraries/tbl_properties.inc.php:571 tbl_structure.php:647
 msgid "You have to add at least one column."
 msgstr "至少要添加一个字段。"
 
@@ -7858,7 +7897,7 @@ msgstr "运算符"
 msgid "Table Search"
 msgstr "普通搜索"
 
-#: libraries/tbl_select.lib.php:175 tbl_change.php:1042
+#: libraries/tbl_select.lib.php:175 tbl_change.php:1045
 msgid "Edit/Insert"
 msgstr "编辑/插入"
 
@@ -8022,81 +8061,81 @@ msgstr "ZIP 包中未找到文件！"
 msgid "Error in ZIP archive:"
 msgstr "ZIP 包中有错误:"
 
-#: main.php:65
+#: main.php:64
 msgid "General Settings"
 msgstr "常规设置"
 
-#: main.php:109
+#: main.php:108
 msgid "Server connection collation"
 msgstr "服务器连接校对"
 
-#: main.php:123
+#: main.php:122
 msgid "Appearance Settings"
 msgstr "外观设置"
 
-#: main.php:152 prefs_manage.php:272
+#: main.php:151 prefs_manage.php:272
 msgid "More settings"
 msgstr "更多设置"
 
-#: main.php:168
+#: main.php:167
 msgid "Database server"
 msgstr "数据库服务器"
 
-#: main.php:171
+#: main.php:170
 msgid "Software"
 msgstr "软件"
 
-#: main.php:172
+#: main.php:171
 msgid "Software version"
 msgstr "软件版本"
 
-#: main.php:174
+#: main.php:173
 msgid "Protocol version"
 msgstr "协议版本"
 
-#: main.php:178 server_privileges.php:1662 server_privileges.php:1817
+#: main.php:177 server_privileges.php:1662 server_privileges.php:1817
 #: server_privileges.php:1964 server_privileges.php:2383
-#: server_status.php:1229
+#: server_status.php:1252
 msgid "User"
 msgstr "用户"
 
-#: main.php:183
+#: main.php:182
 msgid "Server charset"
 msgstr "服务器字符集"
 
-#: main.php:195
+#: main.php:194
 msgid "Web server"
 msgstr "网站服务器"
 
-#: main.php:208
+#: main.php:207
 msgid "Database client version"
 msgstr "数据库客户端版本"
 
-#: main.php:212
+#: main.php:211
 msgid "PHP extension"
 msgstr "PHP 扩展"
 
-#: main.php:220
+#: main.php:219
 msgid "Show PHP information"
 msgstr "显示 PHP 信息"
 
-#: main.php:241
+#: main.php:240
 msgid "Official Homepage"
 msgstr "官方主页 (外链，英文)"
 
-#: main.php:242
+#: main.php:241
 msgid "Contribute"
 msgstr "贡献"
 
-#: main.php:243
+#: main.php:242
 msgid "Get support"
 msgstr "获取支持"
 
-#: main.php:244
+#: main.php:243
 msgid "List of changes"
 msgstr "更新列表"
 
-#: main.php:268
+#: main.php:267
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8107,7 +8146,7 @@ msgstr ""
 "务器使用默认值运行当然没有问题，不过这样的话，被入侵的可能性会很大，我们强烈"
 "建议您应该立即给 'root' 用户设置一个密码来补上这个安全漏洞。"
 
-#: main.php:276
+#: main.php:275
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8116,7 +8155,7 @@ msgstr ""
 "PHP 配置中已启用了 mbstring.func_overload 。这个选项和 phpMyAdmin 不兼容，可"
 "能会导致一些数据损坏！"
 
-#: main.php:284
+#: main.php:283
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -8125,7 +8164,7 @@ msgstr ""
 "没有找到 PHP 扩展 mbstring，而您现在好像在使用多字节字符集。没有 mbstring 扩"
 "展的 phpMyAdmin 不能正确分割字符串，可能产生意想不到的结果。"
 
-#: main.php:292
+#: main.php:291
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
@@ -8137,7 +8176,7 @@ msgstr ""
 "phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
 "phpMyAdmin 中设置的时间要更短。"
 
-#: main.php:299
+#: main.php:298
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -8145,11 +8184,11 @@ msgstr ""
 "phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间"
 "将会比您在 phpMyAdmin 中设置的时间要更短。"
 
-#: main.php:307
+#: main.php:306
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "配置文件现在需要一个短语密码。"
 
-#: main.php:315
+#: main.php:314
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -8158,7 +8197,7 @@ msgstr ""
 "安装时所用的 [code]config[/code] 文件夹尚未删除，如果 phpMyAdmin 已经安装配置"
 "好，请立即删除该文件夹。"
 
-#: main.php:321
+#: main.php:320
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -8166,7 +8205,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin 高级功能未全部设置，部分功能不可用。要查出原因请%s点这里%s。"
 
-#: main.php:346
+#: main.php:345
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -8175,7 +8214,7 @@ msgstr ""
 "你的 PHP MySQL 库版本 %s 和你的 MySQL 服务器版本 %s 不同。这可能造成一些未知"
 "的问题。"
 
-#: main.php:370
+#: main.php:369
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -8263,7 +8302,7 @@ msgstr "全部隐藏/显示"
 msgid "Hide/Show Tables with no relation"
 msgstr "隐藏/显示没有关联的表"
 
-#: pmd_general.php:161 tbl_change.php:349 tbl_change.php:361
+#: pmd_general.php:161 tbl_change.php:352 tbl_change.php:364
 msgid "Hide"
 msgstr "隐藏"
 
@@ -8458,17 +8497,17 @@ msgstr "文件不存在"
 msgid "Select binary log to view"
 msgstr "选择要查看的二进制日志"
 
-#: server_binlog.php:103 server_status.php:593
+#: server_binlog.php:103 server_status.php:616
 msgid "Files"
 msgstr "文件"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1240
-#: server_status.php:1242
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1263
+#: server_status.php:1265
 msgid "Truncate Shown Queries"
 msgstr "截断显示的查询"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1240
-#: server_status.php:1242
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1263
+#: server_status.php:1265
 msgid "Show Full Queries"
 msgstr "显示完整查询"
 
@@ -8484,7 +8523,7 @@ msgstr "位置"
 msgid "Original position"
 msgstr "初始位置"
 
-#: server_binlog.php:185 tbl_structure.php:760
+#: server_binlog.php:185 tbl_structure.php:761
 msgid "Information"
 msgstr "信息"
 
@@ -8901,12 +8940,12 @@ msgstr "删除与用户同名的数据库。"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
-"限%s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
+"s。"
 
 #: server_privileges.php:1998
 msgid "The selected user was not found in the privilege table."
@@ -9020,7 +9059,7 @@ msgstr "已成功修改主服务器到 %s"
 msgid "This server is configured as master in a replication process."
 msgstr "此服务器已被配置为一个复制进程中的主服务器。"
 
-#: server_replication.php:212 server_status.php:614
+#: server_replication.php:212 server_status.php:637
 msgid "Show master status"
 msgstr "查看主服务器状态"
 
@@ -9161,132 +9200,132 @@ msgstr ""
 "此服务器尚未配置为一个复制进程中的从服务器。你想现在<a href=\"%s\">配置</a>"
 "吗？"
 
-#: server_status.php:447
+#: server_status.php:470
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "已成功杀死线程 %s 。"
 
-#: server_status.php:449
+#: server_status.php:472
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "phpMyAdmin 无法杀死线程 %s。该线程可能已经关闭。"
 
-#: server_status.php:581
+#: server_status.php:604
 msgid "Handler"
 msgstr "句柄"
 
-#: server_status.php:582
+#: server_status.php:605
 msgid "Query cache"
 msgstr "查询缓存"
 
-#: server_status.php:583
+#: server_status.php:606
 msgid "Threads"
 msgstr "线程"
 
-#: server_status.php:585
+#: server_status.php:608
 msgid "Temporary data"
 msgstr "临时数据"
 
-#: server_status.php:586
+#: server_status.php:609
 msgid "Delayed inserts"
 msgstr "延迟插入"
 
-#: server_status.php:587
+#: server_status.php:610
 msgid "Key cache"
 msgstr "键缓存"
 
-#: server_status.php:588
+#: server_status.php:611
 msgid "Joins"
 msgstr "多表查询"
 
-#: server_status.php:590
+#: server_status.php:613
 msgid "Sorting"
 msgstr "排序"
 
-#: server_status.php:592
+#: server_status.php:615
 msgid "Transaction coordinator"
 msgstr "事务协调"
 
-#: server_status.php:604
+#: server_status.php:627
 msgid "Flush (close) all tables"
 msgstr "强制更新 (关闭) 所有表"
 
-#: server_status.php:606
+#: server_status.php:629
 msgid "Show open tables"
 msgstr "显示打开的表"
 
-#: server_status.php:611
+#: server_status.php:634
 msgid "Show slave hosts"
 msgstr "显示从服务器"
 
-#: server_status.php:617
+#: server_status.php:640
 msgid "Show slave status"
 msgstr "显示从服务器状态"
 
-#: server_status.php:622
+#: server_status.php:645
 msgid "Flush query cache"
 msgstr "强制更新查询缓存"
 
-#: server_status.php:771
+#: server_status.php:794
 msgid "Runtime Information"
 msgstr "运行信息"
 
-#: server_status.php:778
+#: server_status.php:801
 msgid "All status variables"
 msgstr "所有状态变量"
 
-#: server_status.php:779
+#: server_status.php:802
 msgid "Monitor"
 msgstr "监控"
 
-#: server_status.php:780
+#: server_status.php:803
 msgid "Advisor"
 msgstr "建议"
 
-#: server_status.php:790 server_status.php:812
+#: server_status.php:813 server_status.php:835
 msgid "Refresh rate: "
 msgstr "刷新频率: "
 
-#: server_status.php:825 server_variables.php:108
+#: server_status.php:848 server_variables.php:108
 msgid "Filters"
 msgstr "过滤器"
 
-#: server_status.php:833 server_variables.php:110
+#: server_status.php:856 server_variables.php:110
 msgid "Containing the word:"
 msgstr "包含文字:"
 
-#: server_status.php:838
+#: server_status.php:861
 msgid "Show only alert values"
 msgstr "仅显示报警值"
 
-#: server_status.php:842
+#: server_status.php:865
 msgid "Filter by category..."
 msgstr "按分类显示"
 
-#: server_status.php:856
+#: server_status.php:879
 msgid "Show unformatted values"
 msgstr "显示原始值"
 
-#: server_status.php:860
+#: server_status.php:883
 msgid "Related links:"
 msgstr "相关链接:"
 
-#: server_status.php:893
+#: server_status.php:916
 msgid "Run analyzer"
 msgstr "运行分析器"
 
-#: server_status.php:894
+#: server_status.php:917
 msgid "Instructions"
 msgstr "说明"
 
-#: server_status.php:901
+#: server_status.php:924
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr "建议系统可以通过分析服务器状态变量对服务器变量的设置提出建议。"
 
-#: server_status.php:903
+#: server_status.php:926
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
@@ -9295,7 +9334,7 @@ msgstr ""
 "请注意本系统所提出的建议建立在简单计算以及通用场合中，可能并不能满足您系统的"
 "实际需求。"
 
-#: server_status.php:905
+#: server_status.php:928
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
@@ -9304,7 +9343,7 @@ msgstr ""
 "在修改任何设置之前，请确定您确实知道在修改什么设置 (通过阅读文档) 并知道如何"
 "撤销改变。错误的设置可能导致与预期完全相反的结果。"
 
-#: server_status.php:907
+#: server_status.php:930
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
@@ -9314,45 +9353,45 @@ msgstr ""
 "效果就撤销改变。"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:929
+#: server_status.php:952
 #, php-format
 msgid "Questions since startup: %s"
 msgstr "自启动以来的内部查询: %s"
 
-#: server_status.php:965 tbl_printview.php:328 tbl_structure.php:833
+#: server_status.php:988 tbl_printview.php:328 tbl_structure.php:834
 msgid "Statements"
 msgstr "说明"
 
 #. l10n: # = Amount of queries
-#: server_status.php:968
+#: server_status.php:991
 msgid "#"
 msgstr "查询数量"
 
-#: server_status.php:1041
+#: server_status.php:1064
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "自启动以来的网络流量: %s"
 
-#: server_status.php:1050
+#: server_status.php:1073
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "此 MySQL 服务器已运行 %1$s。启动时间为 %2$s 。"
 
-#: server_status.php:1061
+#: server_status.php:1084
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr "此 MySQL 服务器正以<b>主</b>和<b>从</b>服务器运行于<b>复制</b>进程中。"
 
-#: server_status.php:1063
+#: server_status.php:1086
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr "此 MySQL 服务器正以<b>主</b>服务器运行于<b>复制</b>进程中。"
 
-#: server_status.php:1065
+#: server_status.php:1088
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr "此 MySQL 服务器正以<b>从</b>服务器运行于<b>复制</b>进程中。"
 
-#: server_status.php:1068
+#: server_status.php:1091
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -9360,11 +9399,11 @@ msgstr ""
 "要获得更多关于此服务器的复制状态，请查看<a href=\"#replication\">复制状态信息"
 "</a>。"
 
-#: server_status.php:1077
+#: server_status.php:1100
 msgid "Replication status"
 msgstr "复制状态"
 
-#: server_status.php:1092
+#: server_status.php:1115
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9372,45 +9411,45 @@ msgstr ""
 "在高负载的服务器上，字节计数器可能会溢出，因此由 MySQL 返回的统计值可能会不正"
 "确"
 
-#: server_status.php:1098
+#: server_status.php:1121
 msgid "Received"
 msgstr "已接收"
 
-#: server_status.php:1108
+#: server_status.php:1131
 msgid "Sent"
 msgstr "已发送"
 
-#: server_status.php:1144
+#: server_status.php:1167
 msgid "max. concurrent connections"
 msgstr "最大并发连接数"
 
-#: server_status.php:1151
+#: server_status.php:1174
 msgid "Failed attempts"
 msgstr "已失败"
 
-#: server_status.php:1165
+#: server_status.php:1188
 msgid "Aborted"
 msgstr "已取消"
 
-#: server_status.php:1228
+#: server_status.php:1251
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:1232
+#: server_status.php:1255
 msgid "Command"
 msgstr "命令"
 
-#: server_status.php:1294
+#: server_status.php:1317
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr "因客户端没有关闭连接而中止的连接数。"
 
-#: server_status.php:1295
+#: server_status.php:1318
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "尝试连接到 MySQL 服务器但失败的连接数。"
 
-#: server_status.php:1296
+#: server_status.php:1319
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9419,16 +9458,16 @@ msgstr ""
 "因事务使用的临时二进制日志缓存超出 binlog_cache_size 的设置而使用临时文件存储"
 "的数量。"
 
-#: server_status.php:1297
+#: server_status.php:1320
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "事务所用的临时二进制日志缓存的数量。"
 
-#: server_status.php:1298
+#: server_status.php:1321
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "尝试连接到 MySQL 服务器的连接数 (不论成功或失败) 。"
 
-#: server_status.php:1299
+#: server_status.php:1322
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9438,17 +9477,17 @@ msgstr ""
 "服务器执行语句时自动在磁盘上创建的临时表的数量。如果 Created_tmp_disk_tables "
 "很大，你可以增加 tmp_table_size 的值，让服务器使用内存来存储临时表而非磁盘。"
 
-#: server_status.php:1300
+#: server_status.php:1323
 msgid "How many temporary files mysqld has created."
 msgstr "mysqld 已创建的临时文件的数量。"
 
-#: server_status.php:1301
+#: server_status.php:1324
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr "服务器执行语句时自动在内存中创建的临时表的数量。"
 
-#: server_status.php:1302
+#: server_status.php:1325
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9456,29 +9495,29 @@ msgstr ""
 "发生错误的延迟插入 (INSERT DELAYED) 行数 (可能是因为在唯一字段中存在重复"
 "值) 。"
 
-#: server_status.php:1303
+#: server_status.php:1326
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr "正在使用的延迟插入处理线程的数量。每张使用延迟插入的表都有自己的线程。"
 
-#: server_status.php:1304
+#: server_status.php:1327
 msgid "The number of INSERT DELAYED rows written."
 msgstr "延迟插入已写入的行数。"
 
-#: server_status.php:1305
+#: server_status.php:1328
 msgid "The number of executed FLUSH statements."
 msgstr "已执行的强制更新 (FLUSH) 语句数。"
 
-#: server_status.php:1306
+#: server_status.php:1329
 msgid "The number of internal COMMIT statements."
 msgstr "已执行的内部提交 (COMMIT) 语句数。"
 
-#: server_status.php:1307
+#: server_status.php:1330
 msgid "The number of times a row was deleted from a table."
 msgstr "从表中删除行的次数。"
 
-#: server_status.php:1308
+#: server_status.php:1331
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -9487,7 +9526,7 @@ msgstr ""
 "如果知道一张表的名字，MySQL 服务器可以询问 NDB 集群存储引擎，这被称为“发现”。"
 "Handler_discovery 表明了一张表被发现的次数。"
 
-#: server_status.php:1309
+#: server_status.php:1332
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -9496,14 +9535,14 @@ msgstr ""
 "读取一个索引入口点的次数。如果该值很大，说明你的服务器执行了很多完整索引扫"
 "描。例如，假设字段 col1 已经建立了索引，然后执行 SELECT col1 FROM foo 。"
 
-#: server_status.php:1310
+#: server_status.php:1333
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
 "根据索引读取行的请求数。如果该值很大，说明你的查询和表都建立了很好的索引。"
 
-#: server_status.php:1311
+#: server_status.php:1334
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9512,7 +9551,7 @@ msgstr ""
 "根据索引顺序读取下一行的请求数。如果你在查询一个已索引的字段且限制了范围，或"
 "进行完整表扫描，该值将会不断增长。"
 
-#: server_status.php:1312
+#: server_status.php:1335
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9520,7 +9559,7 @@ msgstr ""
 "根据索引顺序读取上一行的请求数。这种读取方式通常用于优化带有 ORDER BY ... "
 "DESC 的查询。"
 
-#: server_status.php:1313
+#: server_status.php:1336
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9530,7 +9569,7 @@ msgstr ""
 "根据固定位置读取行的请求数。如果你执行很多需要排序的查询，该值会很高。你可能"
 "有很多需要完整表扫描的查询，或者你使用了不正确的索引用来多表查询。"
 
-#: server_status.php:1314
+#: server_status.php:1337
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9540,35 +9579,35 @@ msgstr ""
 "从数据文件中读取行的请求数。如果你在扫描很多表，该值会很大。通常情况下这意味"
 "着你的表没有做好索引，或者你的查询语句没有使用好索引字段。"
 
-#: server_status.php:1315
+#: server_status.php:1338
 msgid "The number of internal ROLLBACK statements."
 msgstr "内部回滚 (ROLLBACK) 语句数。"
 
-#: server_status.php:1316
+#: server_status.php:1339
 msgid "The number of requests to update a row in a table."
 msgstr "表中更新行的请求数。"
 
-#: server_status.php:1317
+#: server_status.php:1340
 msgid "The number of requests to insert a row in a table."
 msgstr "表中插入行的请求数。"
 
-#: server_status.php:1318
+#: server_status.php:1341
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "非空页数 (含脏页) 。"
 
-#: server_status.php:1319
+#: server_status.php:1342
 msgid "The number of pages currently dirty."
 msgstr "当前脏页数。"
 
-#: server_status.php:1320
+#: server_status.php:1343
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "请求更新的缓冲池页数。"
 
-#: server_status.php:1321
+#: server_status.php:1344
 msgid "The number of free pages."
 msgstr "空闲页数。"
 
-#: server_status.php:1322
+#: server_status.php:1345
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -9577,7 +9616,7 @@ msgstr ""
 "InnoDB 缓冲池中锁定页的数量。这些页是正在被读取或写入的，或者是因其他原因不能"
 "被刷新或删除的。"
 
-#: server_status.php:1323
+#: server_status.php:1346
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -9588,11 +9627,11 @@ msgstr ""
 "公式计算： Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data 。"
 
-#: server_status.php:1324
+#: server_status.php:1347
 msgid "Total size of buffer pool, in pages."
 msgstr "缓冲池总大小 (单位：页)。"
 
-#: server_status.php:1325
+#: server_status.php:1348
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -9600,24 +9639,24 @@ msgstr ""
 "InnoDB 初始化的“随机”预读数。这通常会在对一张表进行大范围的随机排序查询时发"
 "生。"
 
-#: server_status.php:1326
+#: server_status.php:1349
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
 "InnoDB 初始化的顺序预读数。这会在 InnoDB 执行一个顺序完整表扫描时发生。"
 
-#: server_status.php:1327
+#: server_status.php:1350
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB 完成的逻辑读请求数。"
 
-#: server_status.php:1328
+#: server_status.php:1351
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr "InnoDB 进行逻辑读取时无法从缓冲池中获取而执行单页读取的次数。"
 
-#: server_status.php:1329
+#: server_status.php:1352
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -9629,85 +9668,85 @@ msgstr ""
 "必要先等待页被刷新。该计数器统计了这种等待的数量。如果缓冲池大小设置正确，这"
 "个值应该会很小。"
 
-#: server_status.php:1330
+#: server_status.php:1353
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "写入 InnoDB 缓冲池的次数。"
 
-#: server_status.php:1331
+#: server_status.php:1354
 msgid "The number of fsync() operations so far."
 msgstr "fsync() 总操作的次数。"
 
-#: server_status.php:1332
+#: server_status.php:1355
 msgid "The current number of pending fsync() operations."
 msgstr "当前挂起 fsync() 操作的数量。"
 
-#: server_status.php:1333
+#: server_status.php:1356
 msgid "The current number of pending reads."
 msgstr "当前挂起的读操作数。"
 
-#: server_status.php:1334
+#: server_status.php:1357
 msgid "The current number of pending writes."
 msgstr "当前挂起的写操作数。"
 
-#: server_status.php:1335
+#: server_status.php:1358
 msgid "The amount of data read so far, in bytes."
 msgstr "读取的总数据量 (单位：字节)。"
 
-#: server_status.php:1336
+#: server_status.php:1359
 msgid "The total number of data reads."
 msgstr "数据读取总数。"
 
-#: server_status.php:1337
+#: server_status.php:1360
 msgid "The total number of data writes."
 msgstr "数据写入总数。"
 
-#: server_status.php:1338
+#: server_status.php:1361
 msgid "The amount of data written so far, in bytes."
 msgstr "写入的总数据量 (单位：字节)。"
 
-#: server_status.php:1339
+#: server_status.php:1362
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "以双写入操作写入的页数。"
 
-#: server_status.php:1340
+#: server_status.php:1363
 msgid "The number of doublewrite operations that have been performed."
 msgstr "已经执行的双写入次数。"
 
-#: server_status.php:1341
+#: server_status.php:1364
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr "因日志缓存太小而必须等待其被写入所造成的等待数。"
 
-#: server_status.php:1342
+#: server_status.php:1365
 msgid "The number of log write requests."
 msgstr "日志写入请求数。"
 
-#: server_status.php:1343
+#: server_status.php:1366
 msgid "The number of physical writes to the log file."
 msgstr "日志物理写入次数。"
 
-#: server_status.php:1344
+#: server_status.php:1367
 msgid "The number of fsync() writes done to the log file."
 msgstr "使用 fsync() 写入日志文件的次数。"
 
-#: server_status.php:1345
+#: server_status.php:1368
 msgid "The number of pending log file fsyncs."
 msgstr "当前挂起的 fsync 日志文件数。"
 
-#: server_status.php:1346
+#: server_status.php:1369
 msgid "Pending log file writes."
 msgstr "当前挂起的日志写入数。"
 
-#: server_status.php:1347
+#: server_status.php:1370
 msgid "The number of bytes written to the log file."
 msgstr "写入日志文件的字节数。"
 
-#: server_status.php:1348
+#: server_status.php:1371
 msgid "The number of pages created."
 msgstr "创建的页数。"
 
-#: server_status.php:1349
+#: server_status.php:1372
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -9715,81 +9754,81 @@ msgstr ""
 "编译的 InnoDB 页大小 (默认 16KB)。许多值都以页为单位进行统计，页大小可以很方"
 "便地将这些值转化为字节数。"
 
-#: server_status.php:1350
+#: server_status.php:1373
 msgid "The number of pages read."
 msgstr "读取的页数。"
 
-#: server_status.php:1351
+#: server_status.php:1374
 msgid "The number of pages written."
 msgstr "写入的页数。"
 
-#: server_status.php:1352
+#: server_status.php:1375
 msgid "The number of row locks currently being waited for."
 msgstr "正在等待行锁的数量。"
 
-#: server_status.php:1353
+#: server_status.php:1376
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "等待获得行锁的平均时间 (单位：毫秒)。"
 
-#: server_status.php:1354
+#: server_status.php:1377
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "等待获得行锁的总时间 (单位：毫秒)。"
 
-#: server_status.php:1355
+#: server_status.php:1378
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "等待获得行锁的最大时间 (单位：毫秒)。"
 
-#: server_status.php:1356
+#: server_status.php:1379
 msgid "The number of times a row lock had to be waited for."
 msgstr "等待行锁的次数。"
 
-#: server_status.php:1357
+#: server_status.php:1380
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "从 InnoDB 表中删除的行数。"
 
-#: server_status.php:1358
+#: server_status.php:1381
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "插入到 InnoDB 表中的行数。"
 
-#: server_status.php:1359
+#: server_status.php:1382
 msgid "The number of rows read from InnoDB tables."
 msgstr "从 InnoDB 表中读取的行数。"
 
-#: server_status.php:1360
+#: server_status.php:1383
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB 中更新的行数。"
 
-#: server_status.php:1361
+#: server_status.php:1384
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 "键缓存中还没有被写入到磁盘的键块数。该值过去名为 Not_flushed_key_blocks 。"
 
-#: server_status.php:1362
+#: server_status.php:1385
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr "键缓存中未使用的块数。你可以根据这个值判断当前使用了多少键缓存。"
 
-#: server_status.php:1363
+#: server_status.php:1386
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr "键缓存中已经使用的块数。该值指示在某个时刻使用了最多块数的数量。"
 
-#: server_status.php:1364
+#: server_status.php:1387
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
 msgstr "导入文件的格式"
 
-#: server_status.php:1365
+#: server_status.php:1388
 msgid "The number of requests to read a key block from the cache."
 msgstr "从缓存中读取键块的请求次数。"
 
-#: server_status.php:1366
+#: server_status.php:1389
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -9798,26 +9837,26 @@ msgstr ""
 "从磁盘中物理读取键块的次数。如果 Key_reads 很大，则说明您的 key_buffer_size "
 "可能设置得太小了。缓存缺失率可以由 Key_reads/Key_read_requests 计算得出。"
 
-#: server_status.php:1367
+#: server_status.php:1390
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
 
-#: server_status.php:1368
+#: server_status.php:1391
 msgid "The number of requests to write a key block to the cache."
 msgstr "将一个键块写入缓存的请求数。"
 
-#: server_status.php:1369
+#: server_status.php:1392
 msgid "The number of physical writes of a key block to disk."
 msgstr "将键块物理写入到磁盘的次数。"
 
-#: server_status.php:1370
+#: server_status.php:1393
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 
-#: server_status.php:1371
+#: server_status.php:1394
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -9826,35 +9865,35 @@ msgstr ""
 "最后编译的查询的总开销由查询优化器计算得出，可用于比较使用不同的查询语句进行"
 "相同的查询时的效率差异。默认值0表示还没有查询被编译。"
 
-#: server_status.php:1372
+#: server_status.php:1395
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr "自服务器启动以来的最高并发连接数。"
 
-#: server_status.php:1373
+#: server_status.php:1396
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "等待写入延迟插入队列的行数。"
 
-#: server_status.php:1374
+#: server_status.php:1397
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr "已经打开的表个数。如果该值很大，则说明表缓冲大小可能设置过小。"
 
-#: server_status.php:1375
+#: server_status.php:1398
 msgid "The number of files that are open."
 msgstr "打开的文件个数。"
 
-#: server_status.php:1376
+#: server_status.php:1399
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "打开的流个数 (主要用于日志记录)。"
 
-#: server_status.php:1377
+#: server_status.php:1400
 msgid "The number of tables that are open."
 msgstr "打开的数据表个数。"
 
-#: server_status.php:1378
+#: server_status.php:1401
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -9863,19 +9902,19 @@ msgstr ""
 "查询缓存中的空闲内存块。过多的空闲内存块可能产生碎片，可通过执行 FLUSH QUERY "
 "CACHE 语句解决。"
 
-#: server_status.php:1379
+#: server_status.php:1402
 msgid "The amount of free memory for query cache."
 msgstr "查询缓存中空闲的内存总数。"
 
-#: server_status.php:1380
+#: server_status.php:1403
 msgid "The number of cache hits."
 msgstr "缓存命中数。"
 
-#: server_status.php:1381
+#: server_status.php:1404
 msgid "The number of queries added to the cache."
 msgstr "加入到缓存的查询数。"
 
-#: server_status.php:1382
+#: server_status.php:1405
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -9885,7 +9924,7 @@ msgstr ""
 "为缓存新的查询而被删除的已缓存查询的个数，由最近最少使用算法 (LRU) 确定应删除"
 "哪个已缓存的查询。该信息可帮助您调整查询缓存大小。"
 
-#: server_status.php:1383
+#: server_status.php:1406
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -9893,19 +9932,19 @@ msgstr ""
 "未缓存的查询数 (包括不能被缓存，或因为 query_cache_type 的设置而没有被缓存的"
 "查询)。"
 
-#: server_status.php:1384
+#: server_status.php:1407
 msgid "The number of queries registered in the cache."
 msgstr "在缓存中注册的查询数。"
 
-#: server_status.php:1385
+#: server_status.php:1408
 msgid "The total number of blocks in the query cache."
 msgstr "查询缓存中的总块数。"
 
-#: server_status.php:1386
+#: server_status.php:1409
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "失败保护器的状态 (尚未应用)。"
 
-#: server_status.php:1387
+#: server_status.php:1410
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -9913,11 +9952,11 @@ msgstr ""
 "没有使用索引的多表查询数。如果该值不为0，您应该仔细检查是否已经为表建立了适当"
 "的索引。"
 
-#: server_status.php:1388
+#: server_status.php:1411
 msgid "The number of joins that used a range search on a reference table."
 msgstr "使用在关联表上使用范围搜索的多表查询的数量。"
 
-#: server_status.php:1389
+#: server_status.php:1412
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -9925,7 +9964,7 @@ msgstr ""
 "没有使用索引但在每行之后检查索引使用的多表查询数。(如果该值不为 0，您应该仔细"
 "检查是否已经为表建立了适当的索引。)"
 
-#: server_status.php:1390
+#: server_status.php:1413
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -9933,36 +9972,36 @@ msgstr ""
 "在第一张表上使用范围查询的多表查询数。(即使该值很大，通常也不会有致命的影"
 "响。)"
 
-#: server_status.php:1391
+#: server_status.php:1414
 msgid "The number of joins that did a full scan of the first table."
 msgstr "在第一张表上进行了完整表扫描的多表查询数。"
 
-#: server_status.php:1392
+#: server_status.php:1415
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "当前由从 SQL 线程打开的临时表的数量。"
 
-#: server_status.php:1393
+#: server_status.php:1416
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr "从 SQL 线程总共重试事务复制数。"
 
-#: server_status.php:1394
+#: server_status.php:1417
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "如果该值为 ON，则这台服务器是一台已经连接到主服务器的从服务器。"
 
-#: server_status.php:1395
+#: server_status.php:1418
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr "使用了比 slow_launch_time 更多的时间来启动的线程数量。"
 
-#: server_status.php:1396
+#: server_status.php:1419
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "使用了比 long_query_time 更多时间的查询数。"
 
-#: server_status.php:1397
+#: server_status.php:1420
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -9971,23 +10010,23 @@ msgstr ""
 "排序算法使用归并的次数。如果该值很大，您应该考虑增加系统变量 "
 "sort_buffer_size 的值。"
 
-#: server_status.php:1398
+#: server_status.php:1421
 msgid "The number of sorts that were done with ranges."
 msgstr "局部范围完成的排序次数。"
 
-#: server_status.php:1399
+#: server_status.php:1422
 msgid "The number of sorted rows."
 msgstr "排序的行数。"
 
-#: server_status.php:1400
+#: server_status.php:1423
 msgid "The number of sorts that were done by scanning the table."
 msgstr "扫描表完成的排序次数。"
 
-#: server_status.php:1401
+#: server_status.php:1424
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "立即需要锁定表的次数。"
 
-#: server_status.php:1402
+#: server_status.php:1425
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -9997,7 +10036,7 @@ msgstr ""
 "无法立即获得锁定表而必须等待的次数。如果该值很高，且您遇到了性能方面的问题，"
 "则应该首先检查您的查询语句，然后使用复制操作来分开表。"
 
-#: server_status.php:1403
+#: server_status.php:1426
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10006,11 +10045,11 @@ msgstr ""
 "线程缓存中线程的数量。缓存命中率可以由 Threads_created/Connections 计算得出。"
 "如果该值是红色的，则应该增加 thread_cache_size 的值。"
 
-#: server_status.php:1404
+#: server_status.php:1427
 msgid "The number of currently open connections."
 msgstr "当前打开的连接数。"
 
-#: server_status.php:1405
+#: server_status.php:1428
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10021,64 +10060,64 @@ msgstr ""
 "thread_cache_size 的值 (如果线程状况良好，这么做通常并不会带来显著的性能提"
 "升)。"
 
-#: server_status.php:1406
+#: server_status.php:1429
 #, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
 msgstr "线程缓存命中率 %%"
 
-#: server_status.php:1407
+#: server_status.php:1430
 msgid "The number of threads that are not sleeping."
 msgstr "非睡眠状态的线程数量。"
 
-#: server_status.php:1553
+#: server_status.php:1576
 msgid "Start Monitor"
 msgstr "启动监控"
 
-#: server_status.php:1562
+#: server_status.php:1585
 msgid "Instructions/Setup"
 msgstr "说明/设置"
 
-#: server_status.php:1567
+#: server_status.php:1590
 msgid "Done rearranging/editing charts"
 msgstr "完成排列/编辑图表"
 
-#: server_status.php:1574 server_status.php:1645
+#: server_status.php:1597 server_status.php:1668
 msgid "Add chart"
 msgstr "添加图表"
 
-#: server_status.php:1576
+#: server_status.php:1599
 msgid "Rearrange/edit charts"
 msgstr "排列/编辑图表"
 
-#: server_status.php:1580
+#: server_status.php:1603
 msgid "Refresh rate"
 msgstr "刷新频率"
 
-#: server_status.php:1585
+#: server_status.php:1608
 msgid "Chart columns"
 msgstr "每行图表个数"
 
-#: server_status.php:1601
+#: server_status.php:1624
 msgid "Chart arrangement"
 msgstr "图表排列"
 
-#: server_status.php:1601
+#: server_status.php:1624
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 "图表排列存储在浏览器本地存储。如果你设置了一个复杂的排列，请导出该设置。"
 
-#: server_status.php:1602
+#: server_status.php:1625
 msgid "Reset to default"
 msgstr "恢复默认"
 
-#: server_status.php:1606
+#: server_status.php:1629
 msgid "Monitor Instructions"
 msgstr "监控说明"
 
-#: server_status.php:1607
+#: server_status.php:1630
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10090,7 +10129,7 @@ msgstr ""
 "需要将 log_output 设置为 'TABLE' 并启用 slow_query_log 或 general_log 功能。"
 "请注意，general_log 会产生很多数据并可能增加服务器负载多达 15%"
 
-#: server_status.php:1612
+#: server_status.php:1635
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10100,11 +10139,11 @@ msgstr ""
 "很遗憾你的数据库服务器不支持日志记录到表，这是使用 phpMyAdmin 分析数据库日志"
 "的必要功能。MySQL 自 5.1.6 起有该功能。但你仍然可以使用服务器图表功能。"
 
-#: server_status.php:1625
+#: server_status.php:1648
 msgid "Using the monitor:"
 msgstr "使用监控:"
 
-#: server_status.php:1627
+#: server_status.php:1650
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10113,7 +10152,7 @@ msgstr ""
 "您的浏览器将会以一定的频率刷新所有已显示的图表。您可以在'设置'中添加图表或修"
 "改刷新频率，您也可以通过每个图表的齿轮图标来删除图表。"
 
-#: server_status.php:1629
+#: server_status.php:1652
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10123,11 +10162,11 @@ msgstr ""
 "要从日志中显示查询，请通过按下鼠标左键并拖拽选择一段时间范围。确定后，将会显"
 "示出分好组的查询，您可以点击任意 SELECT 查询以进一步分析。"
 
-#: server_status.php:1636
+#: server_status.php:1659
 msgid "Please note:"
 msgstr "请注意："
 
-#: server_status.php:1638
+#: server_status.php:1661
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10138,85 +10177,85 @@ msgstr ""
 "载的任务，建议选择一段小范围的时间并在用完监控后禁止 general_log 并清空它的"
 "表。"
 
-#: server_status.php:1650
+#: server_status.php:1673
 msgid "Preset chart"
 msgstr "预置图表"
 
-#: server_status.php:1654
+#: server_status.php:1677
 msgid "Status variable(s)"
 msgstr "状态变量"
 
-#: server_status.php:1656
+#: server_status.php:1679
 msgid "Select series:"
 msgstr "选择数据:"
 
-#: server_status.php:1658
+#: server_status.php:1681
 msgid "Commonly monitored"
 msgstr "常用监控"
 
-#: server_status.php:1673
+#: server_status.php:1696
 msgid "or type variable name:"
 msgstr "或输入变量名:"
 
-#: server_status.php:1677
+#: server_status.php:1700
 msgid "Display as differential value"
 msgstr "独立显示"
 
-#: server_status.php:1679
+#: server_status.php:1702
 msgid "Apply a divisor"
 msgstr "应用除数"
 
-#: server_status.php:1686
+#: server_status.php:1709
 msgid "Append unit to data values"
 msgstr "在值后附加单位"
 
-#: server_status.php:1692
+#: server_status.php:1715
 msgid "Add this series"
 msgstr "添加该数据"
 
-#: server_status.php:1694
+#: server_status.php:1717
 msgid "Clear series"
 msgstr "清除所有数据"
 
-#: server_status.php:1697
+#: server_status.php:1720
 msgid "Series in Chart:"
 msgstr "图表中的数据:"
 
-#: server_status.php:1710
+#: server_status.php:1733
 msgid "Log statistics"
 msgstr "日志统计"
 
-#: server_status.php:1711
+#: server_status.php:1734
 msgid "Selected time range:"
 msgstr "选择时间范围:"
 
-#: server_status.php:1716
+#: server_status.php:1739
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "仅统计 SELECT、INSERT、UPDATE 和 DELETE 语句"
 
-#: server_status.php:1721
+#: server_status.php:1744
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "去除 INSERT 语句中的变量值以获得更好的分组"
 
-#: server_status.php:1726
+#: server_status.php:1749
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "请选择生成统计的来源日志。"
 
-#: server_status.php:1728
+#: server_status.php:1751
 msgid "Results are grouped by query text."
 msgstr "结果将根据查询语句分组。"
 
-#: server_status.php:1733
+#: server_status.php:1756
 msgid "Query analyzer"
 msgstr "查询分析器"
 
-#: server_status.php:1773
+#: server_status.php:1796
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 秒"
 
-#: server_status.php:1775
+#: server_status.php:1798
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -10652,7 +10691,7 @@ msgstr "短语密码应包含字母、数字[em]和[/em]特殊字符。"
 msgid "Wrong data"
 msgstr "无效数据"
 
-#: sql.php:141 tbl_change.php:269 tbl_select.php:28 tbl_zoom_select.php:99
+#: sql.php:141 tbl_change.php:272 tbl_select.php:28 tbl_zoom_select.php:99
 #: tbl_zoom_select.php:158
 msgid "Browse foreign values"
 msgstr "浏览不相关的值"
@@ -10661,6 +10700,12 @@ msgstr "浏览不相关的值"
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用书签 \"%s\" 作为默认的查询。"
+
+#: sql.php:386
+#, fuzzy
+#| msgid "Do you really want to "
+msgid "Do you really want to execute following query?"
+msgstr "您真的要"
 
 #: sql.php:738 tbl_replace.php:386
 #, php-format
@@ -10679,66 +10724,66 @@ msgstr "显示 SQL 查询"
 msgid "Validated SQL"
 msgstr "已校验的 SQL"
 
-#: sql.php:980
+#: sql.php:982
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "数据表 `%s` 的索引存在问题"
 
-#: sql.php:1012
+#: sql.php:1014
 msgid "Label"
 msgstr "标签"
 
-#: tbl_addfield.php:185 tbl_alter.php:103 tbl_indexes.php:98
+#: tbl_addfield.php:185 tbl_alter.php:112 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "已成功修改表 %1$s "
 
-#: tbl_change.php:751
+#: tbl_change.php:754
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr "因长度问题，<br /> 该字段可能无法编辑 "
 
-#: tbl_change.php:865
+#: tbl_change.php:868
 msgid "Binary - do not edit"
 msgstr "二进制 - 无法编辑"
 
-#: tbl_change.php:1071
+#: tbl_change.php:1074
 msgid "Insert as new row"
 msgstr "以新行插入"
 
-#: tbl_change.php:1072
+#: tbl_change.php:1075
 msgid "Insert as new row and ignore errors"
 msgstr "以新行插入 (忽略错误)"
 
-#: tbl_change.php:1073
+#: tbl_change.php:1076
 msgid "Show insert query"
 msgstr "显示插入语句"
 
-#: tbl_change.php:1084
+#: tbl_change.php:1087
 msgid "and then"
 msgstr "然后"
 
-#: tbl_change.php:1088
+#: tbl_change.php:1091
 msgid "Go back to previous page"
 msgstr "返回上一页"
 
-#: tbl_change.php:1089
+#: tbl_change.php:1092
 msgid "Insert another new row"
 msgstr "插入新数据"
 
-#: tbl_change.php:1093
+#: tbl_change.php:1096
 msgid "Go back to this page"
 msgstr "返回到本页"
 
-#: tbl_change.php:1101
+#: tbl_change.php:1104
 msgid "Edit next row"
 msgstr "编辑下一行"
 
-#: tbl_change.php:1112
+#: tbl_change.php:1115
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "按 TAB 键跳到下一个数值，或 CTRL+方向键 作随意移动"
 
-#: tbl_change.php:1150
+#: tbl_change.php:1153
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "继续插入 %s 行"
@@ -10866,7 +10911,7 @@ msgstr "无法将索引改为主键 (PRIMARY) ！"
 msgid "No index parts defined!"
 msgstr "没有定义的索引部分！"
 
-#: tbl_indexes.php:173 tbl_structure.php:169 tbl_structure.php:170
+#: tbl_indexes.php:173 tbl_structure.php:170 tbl_structure.php:171
 msgid "Add index"
 msgstr "添加索引"
 
@@ -11012,39 +11057,39 @@ msgstr "检查引用完整性："
 msgid "Showing tables"
 msgstr "正在显示表"
 
-#: tbl_printview.php:269 tbl_structure.php:764
+#: tbl_printview.php:269 tbl_structure.php:765
 msgid "Space usage"
 msgstr "已用空间"
 
-#: tbl_printview.php:273 tbl_structure.php:768
+#: tbl_printview.php:273 tbl_structure.php:769
 msgid "Usage"
 msgstr "已用"
 
-#: tbl_printview.php:300 tbl_structure.php:795
+#: tbl_printview.php:300 tbl_structure.php:796
 msgid "Effective"
 msgstr "有效"
 
-#: tbl_printview.php:325 tbl_structure.php:830
+#: tbl_printview.php:325 tbl_structure.php:831
 msgid "Row Statistics"
 msgstr "行统计"
 
-#: tbl_printview.php:339 tbl_structure.php:845
+#: tbl_printview.php:339 tbl_structure.php:846
 msgid "static"
 msgstr "静态"
 
-#: tbl_printview.php:341 tbl_structure.php:847
+#: tbl_printview.php:341 tbl_structure.php:848
 msgid "dynamic"
 msgstr "动态"
 
-#: tbl_printview.php:363 tbl_structure.php:890
+#: tbl_printview.php:363 tbl_structure.php:891
 msgid "Row length"
 msgstr "行长度"
 
-#: tbl_printview.php:373 tbl_structure.php:898
+#: tbl_printview.php:373 tbl_structure.php:899
 msgid "Row size"
 msgstr "行大小 "
 
-#: tbl_printview.php:383 tbl_structure.php:906
+#: tbl_printview.php:383 tbl_structure.php:907
 msgid "Next autoindex"
 msgstr "下一个自增值"
 
@@ -11087,91 +11132,91 @@ msgstr "每页行数"
 msgid "Display order:"
 msgstr "显示顺序："
 
-#: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:581
+#: tbl_structure.php:156 tbl_structure.php:161 tbl_structure.php:582
 msgid "Spatial"
 msgstr "空间"
 
-#: tbl_structure.php:162 tbl_structure.php:166
+#: tbl_structure.php:163 tbl_structure.php:167
 msgid "Browse distinct values"
 msgstr "浏览非重复值 (DISTINCT)"
 
-#: tbl_structure.php:167 tbl_structure.php:168
+#: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add primary key"
 msgstr "添加主键"
 
-#: tbl_structure.php:171 tbl_structure.php:172
+#: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add unique index"
 msgstr "添加唯一键"
 
-#: tbl_structure.php:173 tbl_structure.php:174
+#: tbl_structure.php:174 tbl_structure.php:175
 msgid "Add SPATIAL index"
 msgstr "添加空间索引"
 
-#: tbl_structure.php:175 tbl_structure.php:176
+#: tbl_structure.php:176 tbl_structure.php:177
 msgid "Add FULLTEXT index"
 msgstr "添加全文索引"
 
-#: tbl_structure.php:359 tbl_tracking.php:307
+#: tbl_structure.php:360 tbl_tracking.php:307
 msgctxt "None for default"
 msgid "None"
 msgstr "无"
 
-#: tbl_structure.php:372
+#: tbl_structure.php:373
 #, php-format
 msgid "Column %s has been dropped"
 msgstr "已删除字段 %s "
 
-#: tbl_structure.php:383 tbl_structure.php:477
+#: tbl_structure.php:384 tbl_structure.php:478
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "已将 %s 设为主键"
 
-#: tbl_structure.php:398 tbl_structure.php:413 tbl_structure.php:433
-#: tbl_structure.php:448 tbl_structure.php:490 tbl_structure.php:503
-#: tbl_structure.php:517 tbl_structure.php:530
+#: tbl_structure.php:399 tbl_structure.php:414 tbl_structure.php:434
+#: tbl_structure.php:449 tbl_structure.php:491 tbl_structure.php:504
+#: tbl_structure.php:518 tbl_structure.php:531
 #, php-format
 msgid "An index has been added on %s"
 msgstr "已将 %s 设为索引"
 
-#: tbl_structure.php:465
+#: tbl_structure.php:466
 msgid "Show more actions"
 msgstr "显示更多操作"
 
-#: tbl_structure.php:607
+#: tbl_structure.php:608
 msgid "Edit view"
 msgstr "编辑视图"
 
-#: tbl_structure.php:624
+#: tbl_structure.php:625
 msgid "Relation view"
 msgstr "关系查看"
 
-#: tbl_structure.php:632
+#: tbl_structure.php:633
 msgid "Propose table structure"
 msgstr "规划表结构"
 
-#: tbl_structure.php:650
+#: tbl_structure.php:651
 msgid "Add column"
 msgstr "添加字段"
 
-#: tbl_structure.php:664
+#: tbl_structure.php:665
 msgid "At End of Table"
 msgstr "于表结尾"
 
-#: tbl_structure.php:665
+#: tbl_structure.php:666
 msgid "At Beginning of Table"
 msgstr "于表开头"
 
-#: tbl_structure.php:666
+#: tbl_structure.php:667
 #, php-format
 msgid "After %s"
 msgstr "于 %s 之后"
 
-#: tbl_structure.php:703
+#: tbl_structure.php:704
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "在第 %s 个字段创建索引"
 
-#: tbl_structure.php:861
+#: tbl_structure.php:862
 msgid "partitioned"
 msgstr "已分区"
 
@@ -11689,8 +11734,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:156
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:158
@@ -11812,8 +11857,8 @@ msgstr "根据系统内存，考虑增加 sort_buffer_size 和/或 read_rnd_buff
 #: libraries/advisory_rules.txt:193
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr "%s%% 的排序引发临时表创建，该值应低于 10%%。"
 
 #: libraries/advisory_rules.txt:195
@@ -12907,8 +12952,8 @@ msgstr "concurrent_insert 被设为 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
-#~ "html#faq6_29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6_29"
+#~ "\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"
