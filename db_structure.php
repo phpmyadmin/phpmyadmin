@@ -132,6 +132,7 @@ $overhead_size  = (double) 0;
 $overhead_check = '';
 $create_time_all = '';
 $update_time_all = '';
+$check_time_all = '';
 $checked        = !empty($checkall) ? ' checked="checked"' : '';
 $num_columns    = $cfg['PropertiesNumColumns'] > 1
     ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
@@ -266,8 +267,10 @@ foreach ($tables as $keyname => $each_table) {
         }
     } // end if
 
+    unset($showtable);
+
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-        $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME']);
+        $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
         $create_time = isset($showtable['Create_time']) ? $showtable['Create_time'] : false;
 
         // show oldest creation date in summary row
@@ -279,13 +282,26 @@ foreach ($tables as $keyname => $each_table) {
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         // $showtable might already be set from ShowDbStructureCreation, see above
         if (!isset($showtable)) {
-            $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME']);
+            $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
         }
         $update_time = isset($showtable['Update_time']) ? $showtable['Update_time'] : false;
 
         // show newest update date in summary row
         if ($update_time && $update_time > $update_time_all) {
             $update_time_all = $update_time;
+        }
+    }
+
+    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+        // $showtable might already be set from ShowDbStructureCreation, see above
+        if (!isset($showtable)) {
+            $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
+        }
+        $check_time = isset($showtable['Check_time']) ? $showtable['Check_time'] : false;
+
+        // show newest check date in summary row
+        if ($check_time && $check_time > $check_time_all) {
+            $check_time_all = $check_time;
         }
     }
 
@@ -509,12 +525,15 @@ foreach ($tables as $keyname => $each_table) {
         href="tbl_structure.php?<?php echo $tbl_url_query; ?>#showusage"
         ><?php echo '<span>' . $formatted_size . '</span> <span class="unit">' . $unit . '</span>'; ?></a></td>
     <td class="value tbl_overhead"><?php echo $overhead; ?></td>
-        <?php } // end if ?>
-        <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']) { ?>
+        <?php } // end if
+        if ($GLOBALS['cfg']['ShowDbStructureCreation']) { ?>
     <td class="value tbl_creation"><?php echo $create_time ? PMA_localisedDate(strtotime($create_time)) : '-'; ?></td>
-        <?php } // end if ?>
-        <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) { ?>
+        <?php } // end if
+        if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) { ?>
     <td class="value tbl_last_update"><?php echo $update_time ? PMA_localisedDate(strtotime($update_time)) : '-'; ?></td>
+        <?php } // end if
+        if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) { ?>
+    <td class="value tbl_last_check"><?php echo $check_time ? PMA_localisedDate(strtotime($check_time)) : '-'; ?></td>
         <?php } // end if ?>
     <?php } elseif ($table_is_view) { ?>
     <td class="value">-</td>
@@ -592,6 +611,12 @@ if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
 if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
     echo '    <th class="value tbl_last_update">' . "\n"
         . '        ' . ($update_time_all ? PMA_localisedDate(strtotime($update_time_all)) : '-')
+        . '    </th>';
+}
+
+if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+    echo '    <th class="value tbl_last_check">' . "\n"
+        . '        ' . ($check_time_all ? PMA_localisedDate(strtotime($check_time_all)) : '-')
         . '    </th>';
 }
 

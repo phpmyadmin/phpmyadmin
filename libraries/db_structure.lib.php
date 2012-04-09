@@ -65,6 +65,11 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         echo '    <th>' . PMA_SortableTableHeader(__('Last update'), 'last_update', 'DESC') . '</th>' . "\n";
         $cnt += 2;
     }
+    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+        // larger values are more interesting so default sort order is DESC
+        echo '    <th>' . PMA_SortableTableHeader(__('Last check'), 'last_check', 'DESC') . '</th>' . "\n";
+        $cnt += 2;
+    }
     echo '</tr>' . "\n";
     echo '</thead>' . "\n";
     echo '<tbody>' . "\n";

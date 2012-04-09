@@ -969,6 +969,13 @@ $cfg['ShowDbStructureCreation'] = false;
  */
 $cfg['ShowDbStructureLastUpdate'] = false;
 
+/**
+ * show last check timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureLastCheck']
+ */
+$cfg['ShowDbStructureLastCheck'] = false;
+
 
 /*******************************************************************************
  * In browse mode...

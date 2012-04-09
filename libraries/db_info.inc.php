@@ -203,7 +203,8 @@ if (! isset($sot_ready)) {
             'size'        => 'Data_length',
             'overhead'    => 'Data_free',
             'creation'    => 'Create_time',
-            'last_update' => 'Update_time'
+            'last_update' => 'Update_time',
+            'last_check'  => 'Check_time'
         );
 
         // Make sure the sort type is implemented

@@ -105,7 +105,8 @@ $forms['Main_frame']['Startup'] = array(
     'ShowServerInfo');
 $forms['Main_frame']['DbStructure'] = array(
     'ShowDbStructureCreation',
-    'ShowDbStructureLastUpdate');
+    'ShowDbStructureLastUpdate',
+    'ShowDbStructureLastCheck');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'PropertiesIconic',
