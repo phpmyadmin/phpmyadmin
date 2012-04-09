@@ -952,6 +952,32 @@ $cfg['SuggestDBName'] = true;
 
 
 /*******************************************************************************
+ * Database structure
+ */
+
+/**
+ * show creation timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureCreation']
+ */
+$cfg['ShowDbStructureCreation'] = false;
+
+/**
+ * show last update timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureLastUpdate']
+ */
+$cfg['ShowDbStructureLastUpdate'] = false;
+
+/**
+ * show last check timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureLastCheck']
+ */
+$cfg['ShowDbStructureLastCheck'] = false;
+
+
+/*******************************************************************************
  * In browse mode...
  */
 

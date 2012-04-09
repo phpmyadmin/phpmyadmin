@@ -196,12 +196,15 @@ if (! isset($sot_ready)) {
 
     if (isset($_REQUEST['sort'])) {
         $sortable_name_mappings = array(
-            'table'     => 'Name',
-            'records'   => 'Rows',
-            'type'      => 'Engine',
-            'collation' => 'Collation',
-            'size'      => 'Data_length',
-            'overhead'  => 'Data_free'
+            'table'       => 'Name',
+            'records'     => 'Rows',
+            'type'        => 'Engine',
+            'collation'   => 'Collation',
+            'size'        => 'Data_length',
+            'overhead'    => 'Data_free',
+            'creation'    => 'Create_time',
+            'last_update' => 'Update_time',
+            'last_check'  => 'Check_time'
         );
 
         // Make sure the sort type is implemented

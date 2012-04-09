@@ -195,6 +195,10 @@ $forms['Main_frame']['Startup'] = array(
     'ShowServerInfo',
     'ShowPhpInfo',
     'ShowChgPassword');
+$forms['Main_frame']['DbStructure'] = array(
+    'ShowDbStructureCreation',
+    'ShowDbStructureLastUpdate',
+    'ShowDbStructureLastCheck');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'ShowAll',
