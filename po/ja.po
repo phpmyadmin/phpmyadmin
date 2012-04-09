@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.11-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-04-08 07:07+0200\n"
+"PO-Revision-Date: 2012-04-09 12:19+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1803,7 +1803,7 @@ msgstr "レプリケーションしている"
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "データベース &quot;%s&quot; の特権を確認する"
+msgstr "データベース「%s」の特権を確認します。"
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
@@ -2049,7 +2049,7 @@ msgstr "終了"
 #: libraries/common.lib.php:2446
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "データベース「%s」に移動する"
+msgstr "データベース「%s」に移動します。"
 
 #: libraries/common.lib.php:2465
 #, php-format
