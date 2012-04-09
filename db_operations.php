@@ -19,8 +19,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
-// also add jQueryUI
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'db_operations.js';
 
 /**
