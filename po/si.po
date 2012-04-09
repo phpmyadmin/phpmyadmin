@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-08 16:29+0200\n"
+"PO-Revision-Date: 2012-04-08 17:11+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4845,6 +4845,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
+"සැසි අතර \"කල් පවත්නා\" ලෙස අතුරු මුහුණත සම්බන්ධ අභිරුචි තබාගැනීමේ විශේෂාංගය "
+"අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -4855,34 +4857,42 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"දත්තගබඩාවක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP DATABASE IF EXISTS ප්‍රකාශයක් "
+"එක් කරන්නේද යන වග."
 
 #: libraries/config/messages.inc.php:436
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "DROP DATABASE එක් කරන්න"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"වගුවක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP TABLE IF EXISTS ප්‍රකාශයක් එක් "
+"කරන්නේද යන වග."
 
 #: libraries/config/messages.inc.php:438
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "DROP TABLE එක් කරන්න"
 
 #: libraries/config/messages.inc.php:439
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"දසුනක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP VIEW IF EXISTS ප්‍රකාශයක් එක් "
+"කරන්නේද යන වග."
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "DROP VIEW එක් කරන්න"
 
 #: libraries/config/messages.inc.php:441
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"නව අනුවාදයක් සඳහා ස්වයංක්‍රීය-සැදුම විසින් භාවිතා කලයුතු ප්‍රකාශන ලැයිස්තුව "
+"සඳහන් කරයි."
 
 #: libraries/config/messages.inc.php:442
 #| msgid "Statements"
@@ -4894,16 +4904,20 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
+"SQL විමසුම් අවධානය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "SQL විමසුම් අවධානයට අදාළ වගුව"
 
 #: libraries/config/messages.inc.php:445
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"අවධාන ක්‍රියාවලිය විසින් වගු සහ දසුන් සඳහා ස්වයන්ක්‍රීයව අනුවාද සාදන්නේ ද යන "
+"වග."
 
 #: libraries/config/messages.inc.php:446
 msgid "Automatically create versions"
@@ -4914,20 +4928,24 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
+"භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
+"තබන්න; යෝජිත: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
-msgstr ""
+msgstr "භාවිතා කරන්නාගේ අභිරුචි වගුව"
 
 #: libraries/config/messages.inc.php:450
 msgid "User for config auth"
-msgstr ""
+msgstr "config සත්‍යාපනය සඳහා භාවිතා කරන්නා"
 
 #: libraries/config/messages.inc.php:451
 msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr ""
+"ඔබගේ pma_* වගු යාවත්කාලීන බව දන්නේ නම් අක්‍රීය කරන්න. මෙමගින් අනුකූලතා "
+"පරීක්ෂාවන් නවතන අතර එමගින් කාර්ය සාධනය ඉහල නංවයි"
 
 #: libraries/config/messages.inc.php:452
 msgid "Verbose check"
@@ -4938,6 +4956,8 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
+"සේවාදායකය සඳහා පරිශ්‍රීලක මිත්‍ර විස්තරයක්. එය වෙනුවට දායක නාමය පෙන්වීමට "
+"හිස්ව තබන්න."
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
@@ -6762,7 +6782,7 @@ msgstr ""
 #: libraries/mult_submits.inc.php:270
 #| msgid "Add index"
 msgid "Add prefix"
-msgstr "උපසර්ගයක් එක් කරන්න"
+msgstr "නාම මූලයක් එක් කරන්න"
 
 #: libraries/mult_submits.inc.php:482 tbl_replace.php:356
 msgid "No change"
