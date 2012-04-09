@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-24 10:29+0200\n"
+"PO-Revision-Date: 2012-04-08 17:43+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -128,7 +128,7 @@ msgstr "База данных %1$s была создана."
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
-msgstr "Комментарий к базе данных:"
+msgstr "Комментарий к базе данных: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
@@ -1015,8 +1015,8 @@ msgstr "Без необходимой библиотеки невозможна 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"Отсутствуют модули импорта! Проверьте содержимое установленной копии "
-"phpMyAdmin."
+"Отсутствуют модули импорта. Проверьте содержимое установленной копии "
+"phpMyAdmin!"
 
 #: import.php:421 sql.php:935
 #, php-format
@@ -1960,7 +1960,7 @@ msgstr ""
 
 #: js/messages.php:341
 msgid "Add an option for column "
-msgstr "Добавить параметр для столбца"
+msgstr "Добавить параметр для столбца "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
@@ -2527,7 +2527,7 @@ msgstr "Данный сервер MySQL не поддерживает тип т�
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "Неизвестный статус таблицы:"
+msgstr "Неизвестный статус таблицы: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
@@ -5676,8 +5676,8 @@ msgstr "Количество столбцов"
 #: libraries/display_export.lib.php:37
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
-"Модули экспорта, отсутствуют! Проверьте содержимое каталога libraries/export "
-"установленной копии phpMyAdmin."
+"Отсутствуют модули экспорта. Проверьте содержимое установленной копии "
+"phpMyAdmin!"
 
 #: libraries/display_export.lib.php:82
 msgid "Exporting databases from the current server"
@@ -6916,7 +6916,7 @@ msgstr ""
 
 #: libraries/import/csv.php:42
 msgid "Column names: "
-msgstr "Названия столбцов:"
+msgstr "Названия столбцов: "
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -7889,7 +7889,7 @@ msgstr "Данная страница не содержит таблиц!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "Ошибка при создании схемы:"
+msgstr "Ошибка при создании схемы: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -8824,7 +8824,7 @@ msgstr "Создать страницу и экспортировать в не�
 
 #: pmd_pdf.php:107
 msgid "New page name: "
-msgstr "Название новой страницы:"
+msgstr "Название новой страницы: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
@@ -9767,7 +9767,7 @@ msgstr "Советчик"
 
 #: server_status.php:798 server_status.php:820
 msgid "Refresh rate: "
-msgstr "Частота обновления:"
+msgstr "Частота обновления: "
 
 #: server_status.php:839 server_variables.php:115
 msgid "Filters"

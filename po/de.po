@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-04-06 14:32+0200\n"
-"Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
+"PO-Revision-Date: 2012-04-08 19:02+0200\n"
+"Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -4122,7 +4122,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:249
 msgid "Format of imported file"
-msgstr "Dateiformat"
+msgstr "Format der importierten Datei"
 
 #: libraries/config/messages.inc.php:253 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
@@ -4916,7 +4916,7 @@ msgstr "Signon Session-Name"
 
 #: libraries/config/messages.inc.php:424
 msgid "Signon URL"
-msgstr "Signon URL"
+msgstr "Signon-URL"
 
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -7081,11 +7081,11 @@ msgstr "Traditionelles Chinesisch"
 
 #: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
 msgid "case-insensitive"
-msgstr "case-insensitive"
+msgstr "Beachtet nicht Groß- und Kleinschreibung"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:422
 msgid "case-sensitive"
-msgstr "case-sensitive"
+msgstr "Beachtet Groß- und Kleinschreibung"
 
 #: libraries/mysql_charsets.lib.php:240
 msgid "Croatian"
@@ -12476,6 +12476,15 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Starke Fragmentierung wird voraussichtlich qcache_lowmem_prunes (weiter) "
+"erhöhen. Dies kann durch viele Leerungen des Query Cache aufgrund von "
+"Speichermangel erfolgen weil {query_cache_size} zu klein gewählt ist. Für "
+"eine sofortige, allerdings kurzlebige Lösung können Sie den Abfragecache "
+"leeren (dieses kann den Abfragecache für eine lange Zeit sperren). "
+"{query_cache_min_res_unit} sorgfältig auf einen niedrigeren Wert einstellen "
+"könnte auch helfen, z.B. können Sie es auf die durchschnittliche Größe von "
+"Abfragen im Cache einstellen mithilfe dieser Formel: (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
@@ -12567,6 +12576,15 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Verändern von {query_cache_limit} (in der Regel durch erhöhen) kann die "
+"Effizienz steigern. Diese Variable bestimmt die maximale Größe eines "
+"Abfrageergebnis das in den Abfrage-Cache eingefügt werden soll. Wenn es "
+"viele Abfrageergebnisse über 1 MiB gibt die sich auch zwischenspeichern "
+"lassen (viele Lesevorgänge, wenig schreibt) dann kann ein erhöhen von "
+"{query_cache_limit} die Effizienz erhöhen. Während bei viele "
+"Abfrageergebnisse über 1 MiB die nicht sehr gut zwischenspeicherbar sind "
+"(oft aufgrund von Aktualisierungen der Tabelle ungültig) ein Erhöhen von "
+"{query_cache_limit} die Effizienz reduzieren kann."
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
@@ -12675,6 +12693,14 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Dies bedeutet in der Regel häufig vollständige Indexscans. Vollständige "
+"Indexscans sind schneller als Tablenscans aber sie kosten viele CPU-Zyklen "
+"in großen Tabellen, wenn diese Tabellen ein große Mengen von "
+"Aktualisierungen und Löschungen haben oder hatten. Ein Ausführen von "
+"\"OPTIMIZE TABLE\" auf diese Tabllen kann die Menge verringern und/oder die "
+"Geschwindigkeit der  vollständige Indexscans beschleunigen. Abgesehen davon "
+"können vollständige Indexscans nur durch umschreiben der Abfragen reduziert "
+"werden."
 
 #: po/advisory_rules.php:133
 #, php-format
@@ -12750,6 +12776,10 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Sie haben absichtlich einen Wert geändert: Der Server verwendet den "
+"niedrigeren Wert von beiden um die maximale Größe der Tabellen im "
+"Arbeitsspeicher zu bestimmen. Wenn Sie die Tabelle im Arbeitsspeicher "
+"erhöhen möchten müssen Sie den anderen Wert auch erhöhen."
 
 #: po/advisory_rules.php:148
 #, php-format
@@ -12778,6 +12808,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Erhöhen von {max_heap_table_size} und {tmp_table_size} könnten helfen. "
+"Jedoch werden einige temporären Tabellen immer unabhängig vom Wert dieser "
+"Variablen auf den Datenträger geschrieben. Um diese zu verhindern müssen Sie "
+"Ihre Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt "
+"(Innerhalb einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-"
+"Spalte oder eine Spalte größer als 512 Bytes) wie am Anfang von <a href=\"htt"
+"p://www.facebook.com/note.php?note_id=10150111255065841&comments\">Artikel "
+"der Pythian Group</a> erwähnt wird"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12802,6 +12840,14 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Erhöhen von {max_heap_table_size} und {tmp_table_size} können helfen. Jedoch "
+"werden einige temporären Tabellen immer unabhängig vom Wert dieser "
+"Variablen auf den Datenträger geschrieben. Um diese zu verhindern müssen Sie "
+"Ihre Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt "
+"(Innerhalb einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-"
+"Spalte oder eine Spalte größer als 512 Bytes) wie in der <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
+"\">MySQL-Dokumentation</a> erwähnt wird"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12849,6 +12895,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Sie müssen möglicherweise Ihren {key_buffer_size} verkleinern, überprüfen "
+"Sie Ihre Tabellen um zu sehen ob Indizes entfernt wurden oder Überprüfen Sie "
+"Abfragen und Erwartungen um zu sehen welche Indizes verwendet werden."
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12940,7 +12989,7 @@ msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
 "Die Anzahl der geöffneten Dateien ist %s%% des Maximalwerts. Dieser Wert "
-"sollte unter 85%% liegen."
+"sollte unter 85%% liegen"
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
@@ -12968,20 +13017,24 @@ msgstr "Zu viele Tabellensperren wurden nicht sofort gewährt."
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimieren Sie die Abfragen und/oder verwenden InnoDB, um Wartezeit aufgrund "
+"von Sperren zu reduzieren."
 
 #: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Sofortige Tabellensperren: %s%%, dieser Wert sollte über 95%% liegen"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Tabellen Sperre Warte Rate"
 
 #: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Tabellen Sperre Warte Rate: %s, dieser Wert sollte weniger als 1 pro Stunde "
+"sein"
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
@@ -12992,19 +13045,23 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Prozess-Zwischenspeicher ist deaktiviert, dieses führt zu mehr Overhead bei "
+"neuen Verbindungen zu MySQL."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
+"Aktivieren Sie den Prozess-Zwischenspeicher, indem Sie {thread_cache_size} > "
+"0 setzen."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "Der Prozess-Zwischenspeicher ist auf 0 gesetzt"
 
 #: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr ""
+msgstr "Prozess-Zwischenspeicher Trefferrate %%"
 
 #: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
@@ -13012,16 +13069,18 @@ msgstr "Ineffizienter Prozess-Zwischenspeicher."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "{thread_cache_size} erhöhen."
 
 #: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Prozess-Zwischenspeicher Trefferrate: %s%%, dieser Wert sollte über 80%% "
+"liegen"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Prozesse die langsam zu starten"
 
 #: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
@@ -13032,25 +13091,32 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Dies geschieht in der Regel bei allgemeine System-Überladung da diese eine "
+"ziemlich einfache Operation ist. Sie sollten Ihre Systemauslastung "
+"sorgfältig überwachen."
 
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
+"%s Pozes(se) brauchten länger als %s Sekunden um zu starten, es sollten 0 "
+"sein"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Langsame Startzeit"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "slow_launch_threads ist über 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Setzen Sie slow_launch_time auf 1s oder 2s um korrekt Prozesse zu zählen die "
+"langsam starten"
 
 #: po/advisory_rules.php:223
 #, php-format
@@ -13066,6 +13132,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"Die maximale Menge der verwendeten Verbindungen nähert sich dem Wert von "
+"max_connections."
 
 #: po/advisory_rules.php:227
 msgid ""
@@ -13073,12 +13141,18 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Erhöhen Sie max_connections oder verringern Sie wait_timeout so dass "
+"Verbindungen die nicht richtig Datenbank Handler schließen früher beendet "
+"werden. Stellen Sie sicher, dass der Code Datenbank-Handler ordnungsgemäß "
+"schlisst."
 
 #: po/advisory_rules.php:228
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections ist %s%% von max_connections, es sollte unter 80%% "
+"liegen"
 
 #: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
@@ -13095,33 +13169,39 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Verbindungen sind in der Regel abgebrochen, wenn sie nicht autorisiert "
+"werden können. <a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-"
+"to-track-down-the-source-of-aborted_connects/\">Dieser Artikel</a> könnte "
+"Ihnen helfen der Quelle auf die Spur zu kommen."
 
 #: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% aller Verbindungen werden abgebrochen. Dieser Wert sollte unter 1%% "
+"liegen"
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Persistente Verbindung"
+msgstr "Rate der abgebrochenen Verbindungen"
 
 #: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Die Rate der abgebrochenen Verbindungen ist %s, dieser Wert sollte weniger "
+"als 1 pro Stunde sein"
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Dateiformat"
+msgstr "Prozentualen Anteil der abgebrochenen Clienten"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Zu viele Clienten werden abgebrochen."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -13129,26 +13209,32 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Clienten werden in der Regel abgebrochen, wenn sie ihre Verbindung zu MySQL "
+"nicht richtig schließen. Dies kann aufgrund von Netzwerkproblemen oder "
+"Quellcode der Datenbank-Handler nicht ordnungsgemäß schließen passieren. "
+"Überprüfen Sie Ihre Netzwerk und Quellcode."
 
 #: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% aller Clienten werden abgebrochen. Dieser Wert sollte unter 2%% liegen"
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Dateiformat"
+msgstr "Rate der abgebrochenen Clienten"
 
 #: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Die Rate der abgebrochene Clienten ist %s, dieser Wert sollte kleiner als 1 "
+"pro Stunde sein"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Ist InnoDB deaktiviert?"
 
 #: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
@@ -13156,25 +13242,25 @@ msgstr "InnoDB ist nicht aktiviert."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB ist in der Regel die bessere Wahl für Tabelle Designer."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb ist auf 'value' eingestellt"
 
 #: po/advisory_rules.php:255
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Größe des Puffer-Pools"
+msgstr "InnoDB Protokollgröße"
 
 #: po/advisory_rules.php:256
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Anzahl der Schreibvorgänge im InnoDB Zwischenspeicher."
+msgstr ""
+"Die InnoDB Protokollgröße ist nicht angemessen in Bezug zu der InnoDB "
+"Pufferpoolgröße."
 
 #: po/advisory_rules.php:257
 #, php-format
@@ -13189,6 +13275,17 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Vor allem auf einem System mit einer Menge von Schreibzugriffen auf InnoDB-"
+"Tabellen sollten Sie innodb_log_file_size auf 25%% von "
+"{innodb_buffer_pool_size} setzen. Jedoch, je größer dieser Wert, desto "
+"länger wird die Wiederherstellungszeit bei Datenbank Abstürzen, so dass "
+"dieser Wert nicht viel höher als 256 MiB gsetzt werden sollte. Bitte "
+"beachten Sie jedoch, dass Sie nicht einfach den Wert dieser Variablen ändern "
+"können. Sie müssen den Server herunterfahren, die InnoDB-Logdateien "
+"löschen, den neuen Wert in my.cnf eintragen, den Server neu starten und dann "
+"das Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13196,14 +13293,16 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"Ihre InnoDB-Protokollgröße ist %s%% in Bezug auf die InnoDB Pufferpoolgröße, "
+"es sollte nicht unter 20%% liegen"
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Max InnoDB Protokollgröße"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Die InnoDB Protokollgröße ist nicht ausreichend groß."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13218,21 +13317,31 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"Es üblicherweise ausreichend innodb_log_file_size auf 25%% der Größe von "
+"{Innodb_buffer_pool_size} einzustellen. Eine sehr große innodb_log_file_size "
+"verlangsamt die Wiederherstellungszeit nach einem Datenbank Absturz "
+"erheblich. Siehe auch <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">diesen Artikels</a>. Sie müssen den Server "
+"herunterfahren, die InnoDB-Logdateien löschen, den neuen Wert in my.cnf "
+"eintragen, den Server neu starten und dann das Fehlerprotokoll überprüfen ob "
+"alles gut ging. Siehe auch <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Ihre absolute InnoDB Protokollgröße ist %s MiB"
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Größe des Puffer-Pools"
+msgstr "Größe des InnoDB Puffer-Pools"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Ihr InnoDB Pufferpool ist recht klein."
 
 #: po/advisory_rules.php:267
 #, php-format
@@ -13248,6 +13357,18 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"Der InnoDB-Pufferpool hat tiefgreifende Auswirkungen auf die Leistung für "
+"InnoDB-Tabellen. Weisen Sie dieser Puffer alle Ihren verbleibenden "
+"Arbeitsspeicher zuweisen. Für Datenbankserver, die ausschließlich InnoDB "
+"Tabellen als Speicher verwenden und keine anderen Dienste (z. B. ein "
+"Webserver) ausgeführt, können Sie diesen auf bis zu 80%% Ihres verfügbaren "
+"Speichers festlegen. Wenn dieses nicht der Fall ist, müssen Sie sorgfältig "
+"den Speicherverbrauch von anderen Diensten und nicht-InnoDB-Tabellen "
+"bewerten und stellen Sie diese Variable entsprechend ein. Wenn der Wert zu "
+"hoch ist, startet Ihr System Speicher auf die Festplatte auszulagen, was die "
+"Leistung erheblich senkt. Siehe auch <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">diesen Artikel</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
@@ -13257,16 +13378,19 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"Sie verwenden im Moment %s%% Ihres Speichers für InnoDB Pufferpools. Diese "
+"Regel wird ausgelöst, wenn Sie weniger als 60 %%zuweisen, jedoch kann dieses "
+"völlig ausreichend für Ihr System sein, wenn Sie nicht viel InnoDB Tabellen "
+"haben oder anderen Diensten auf demselben Computer ausgeführt werden."
 
 #: po/advisory_rules.php:270
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM gleichzeitige Einfügeoperationen"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Aktivieren Sie concurrent_insert, indem Sie es auf 1 setzen"
 
 #: po/advisory_rules.php:272
 msgid ""
