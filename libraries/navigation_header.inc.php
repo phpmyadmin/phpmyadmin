@@ -114,7 +114,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     echo '<a href="navigation.php?' . PMA_generate_common_url($params)
         . '" title="' . __('Reload navigation frame') . '" target="frame_navigation">';
     if ($GLOBALS['cfg']['MainPageIconic']) {
-        echo PMA_getImage('s_reload', __('Reload navigation frame'));
+        echo PMA_getImage('s_reload.png', __('Reload navigation frame'));
     } else {
         echo '<br />' . __('Reload navigation frame');
     }
