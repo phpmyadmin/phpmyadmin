@@ -201,7 +201,8 @@ if (! isset($sot_ready)) {
             'type'      => 'Engine',
             'collation' => 'Collation',
             'size'      => 'Data_length',
-            'overhead'  => 'Data_free'
+            'overhead'  => 'Data_free',
+            'last_update' => 'Update_time'
         );
 
         // Make sure the sort type is implemented

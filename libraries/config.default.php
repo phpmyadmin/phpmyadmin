@@ -952,6 +952,18 @@ $cfg['SuggestDBName'] = true;
 
 
 /*******************************************************************************
+ * Database structure
+ */
+
+/**
+ * show last update timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureLastUpdate']
+ */
+$cfg['ShowDbStructureLastUpdate'] = false;
+
+
+/*******************************************************************************
  * In browse mode...
  */
 

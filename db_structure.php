@@ -130,6 +130,7 @@ $i = $sum_entries = 0;
 $sum_size       = (double) 0;
 $overhead_size  = (double) 0;
 $overhead_check = '';
+$update_time_all = '';
 $checked        = !empty($checkall) ? ' checked="checked"' : '';
 $num_columns    = $cfg['PropertiesNumColumns'] > 1
     ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
@@ -263,6 +264,15 @@ foreach ($tables as $keyname => $each_table) {
             $overhead = '-';
         }
     } // end if
+
+    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+        $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME']);
+        $update_time = isset($showtable['Update_time']) ? $showtable['Update_time'] : false;
+
+        if ($update_time && $update_time > $update_time_all) {
+            $update_time_all = $update_time;
+        }
+    }
 
     $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
                ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
@@ -485,6 +495,9 @@ foreach ($tables as $keyname => $each_table) {
         ><?php echo '<span>' . $formatted_size . '</span> <span class="unit">' . $unit . '</span>'; ?></a></td>
     <td class="value tbl_overhead"><?php echo $overhead; ?></td>
         <?php } // end if ?>
+        <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) { ?>
+    <td class="value tbl_last_update"><?php echo $update_time ? PMA_localisedDate(strtotime($update_time)) : '-'; ?></td>
+        <?php } // end if ?>
     <?php } elseif ($table_is_view) { ?>
     <td class="value">-</td>
     <td><?php echo __('View'); ?></td>
@@ -551,6 +564,13 @@ if ($is_show_stats) {
     <th class="value tbl_overhead"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
     <?php
 }
+
+if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+    echo '    <th class="value tbl_last_update">' . "\n"
+        . '        ' . ($update_time_all ? PMA_localisedDate(strtotime($update_time_all)) : '-')
+        . '    </th>';
+}
+
 ?>
 </tr>
 </tbody>

@@ -103,6 +103,8 @@ $forms['Main_frame']['Startup'] = array(
         ':group:end',
     'ShowStats',
     'ShowServerInfo');
+$forms['Main_frame']['DbStructure'] = array(
+    'ShowDbStructureLastUpdate');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'PropertiesIconic',
