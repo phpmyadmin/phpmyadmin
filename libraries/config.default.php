@@ -956,6 +956,13 @@ $cfg['SuggestDBName'] = true;
  */
 
 /**
+ * show creation timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureCreation']
+ */
+$cfg['ShowDbStructureCreation'] = false;
+
+/**
  * show last update timestamp column in database structure (true|false)?
  *
  * @global boolean $cfg['ShowDbStructureLastUpdate']

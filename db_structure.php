@@ -130,6 +130,7 @@ $i = $sum_entries = 0;
 $sum_size       = (double) 0;
 $overhead_size  = (double) 0;
 $overhead_check = '';
+$create_time_all = '';
 $update_time_all = '';
 $checked        = !empty($checkall) ? ' checked="checked"' : '';
 $num_columns    = $cfg['PropertiesNumColumns'] > 1
@@ -265,10 +266,24 @@ foreach ($tables as $keyname => $each_table) {
         }
     } // end if
 
-    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME']);
+        $create_time = isset($showtable['Create_time']) ? $showtable['Create_time'] : false;
+
+        // show oldest creation date in summary row
+        if ($create_time && (!$create_time_all || $create_time < $create_time_all)) {
+            $create_time_all = $create_time;
+        }
+    }
+
+    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+        // $showtable might already be set from ShowDbStructureCreation, see above
+        if (!isset($showtable)) {
+            $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME']);
+        }
         $update_time = isset($showtable['Update_time']) ? $showtable['Update_time'] : false;
 
+        // show newest update date in summary row
         if ($update_time && $update_time > $update_time_all) {
             $update_time_all = $update_time;
         }
@@ -495,6 +510,9 @@ foreach ($tables as $keyname => $each_table) {
         ><?php echo '<span>' . $formatted_size . '</span> <span class="unit">' . $unit . '</span>'; ?></a></td>
     <td class="value tbl_overhead"><?php echo $overhead; ?></td>
         <?php } // end if ?>
+        <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']) { ?>
+    <td class="value tbl_creation"><?php echo $create_time ? PMA_localisedDate(strtotime($create_time)) : '-'; ?></td>
+        <?php } // end if ?>
         <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) { ?>
     <td class="value tbl_last_update"><?php echo $update_time ? PMA_localisedDate(strtotime($update_time)) : '-'; ?></td>
         <?php } // end if ?>
@@ -563,6 +581,12 @@ if ($is_show_stats) {
     <th class="value tbl_size"><?php echo $sum_formatted . ' ' . $unit; ?></th>
     <th class="value tbl_overhead"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
     <?php
+}
+
+if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+    echo '    <th class="value tbl_creation">' . "\n"
+        . '        ' . ($create_time_all ? PMA_localisedDate(strtotime($create_time_all)) : '-')
+        . '    </th>';
 }
 
 if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {

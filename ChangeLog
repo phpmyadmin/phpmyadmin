@@ -22,7 +22,7 @@ phpMyAdmin - ChangeLog
 + Patch #3507111 Display distinct results, linked to corresponding data rows
 + Update to jQuery 1.7.2
 - bug #3507917 [export] JSON has unescaped values for allegedly numeric columns
-+ rfe #3516187 show tables last update time in db_structure
++ rfe #3516187 show tables creation, last update timestamps in db_structure
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered

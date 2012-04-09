@@ -55,6 +55,11 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
            . '    <th>' . PMA_SortableTableHeader(__('Overhead'), 'overhead', 'DESC') . '</th>' . "\n";
         $cnt += 2;
     }
+    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+        // larger values are more interesting so default sort order is DESC
+        echo '    <th>' . PMA_SortableTableHeader(__('Creation'), 'creation', 'DESC') . '</th>' . "\n";
+        $cnt += 2;
+    }
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         // larger values are more interesting so default sort order is DESC
         echo '    <th>' . PMA_SortableTableHeader(__('Last update'), 'last_update', 'DESC') . '</th>' . "\n";
