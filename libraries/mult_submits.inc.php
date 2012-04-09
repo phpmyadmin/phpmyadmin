@@ -302,7 +302,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 if ($what == 'drop_db') {
                     echo  __('You are about to DESTROY a complete database!') . '&nbsp;';
                 }
-                echo __('Do you really want to execute following query?');
+                echo __('Do you really want to execute the following query?');
             ?>:</legend>
             <code><?php echo $full_query; ?></code>
         </fieldset>

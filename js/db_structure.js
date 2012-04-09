@@ -300,8 +300,7 @@ $(document).ready(function() {
          */
         var question = 
             PMA_messages.strTruncateTableStrongWarning + ' ' 
-            + PMA_messages.strDoYouReally
-            + '<br /><br />TRUNCATE ' + curr_table_name;
+            + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + curr_table_name);
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 
