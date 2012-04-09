@@ -848,8 +848,10 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $disp_mode = 'nnnn110111';
         }
 
-        $message = PMA_Message::success($message);
-        echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+        if (isset($message)) {
+            $message = PMA_Message::success($message);
+            echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+        }
         PMA_displayTable($result, $disp_mode, $analyzed_sql);
         exit();
     }
