@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - bug #3514490 [auth] Multiple Navigation panels bug still present
 - bug #3515181 [users] Error in create user + underscore + create database
 - bug #3515666 [display] Profiling chart shows wrong data
+- bug #3516037 [auth] JS includes missing in auth config error page
 
 3.5.0.0 (2012-04-07)
 + rfe #2021981 [interface] Add support for mass prefix change.
