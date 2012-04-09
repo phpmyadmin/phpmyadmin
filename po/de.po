@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin-docs VERSION\n"
+"Project-Id-Version: phpMyAdmin-docs 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-29 10:07+0200\n"
+"POT-Creation-Date: 2012-04-09 19:51+0200\n"
 "PO-Revision-Date: 2012-04-08 19:02+0200\n"
 "Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: none\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "Alles anzeigen"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2446
+#: libraries/common.lib.php:2448
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -38,9 +38,9 @@ msgstr ""
 "wurde das Ursprungsfenster geschlossen oder der Browser verhindert den "
 "Zugriff aufgrund Ihrer Sicherheitseinstellungen."
 
-#: browse_foreigners.php:160 libraries/common.lib.php:3127
-#: libraries/common.lib.php:3134 libraries/common.lib.php:3343
-#: libraries/common.lib.php:3344 libraries/db_links.inc.php:60
+#: browse_foreigners.php:160 libraries/common.lib.php:3129
+#: libraries/common.lib.php:3136 libraries/common.lib.php:3345
+#: libraries/common.lib.php:3346 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Suche"
@@ -50,8 +50,8 @@ msgstr "Suche"
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:229
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1372
-#: libraries/common.lib.php:2419 libraries/core.lib.php:513
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1374
+#: libraries/common.lib.php:2421 libraries/core.lib.php:513
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -490,12 +490,12 @@ msgstr "Verwendete Tabellen"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-Befehl in der Datenbank <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1219
+#: db_qbe.php:955 libraries/common.lib.php:1221
 msgid "Submit Query"
 msgstr "SQL-Befehl ausführen"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:77
-#: libraries/auth/config.auth.lib.php:96
+#: libraries/auth/config.auth.lib.php:98
 #: libraries/auth/cookie.auth.lib.php:570 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
@@ -529,8 +529,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s Treffer in der Tabelle <i>%s</i>"
 msgstr[1] "%s Treffer in der Tabelle <i>%s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3129
-#: libraries/common.lib.php:3341 libraries/common.lib.php:3342
+#: db_search.php:234 libraries/common.lib.php:3131
+#: libraries/common.lib.php:3343 libraries/common.lib.php:3344
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "Anzeigen"
@@ -668,8 +668,8 @@ msgstr "Auswahl entfernen"
 msgid "Check tables having overhead"
 msgstr "Tabellen mit Überhang auswählen"
 
-#: db_structure.php:581 libraries/common.lib.php:3354
-#: libraries/common.lib.php:3355 libraries/config/messages.inc.php:166
+#: db_structure.php:581 libraries/common.lib.php:3356
+#: libraries/common.lib.php:3357 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -683,14 +683,14 @@ msgstr "Exportieren"
 msgid "Print view"
 msgstr "Druckansicht"
 
-#: db_structure.php:587 libraries/common.lib.php:3350
-#: libraries/common.lib.php:3351
+#: db_structure.php:587 libraries/common.lib.php:3352
+#: libraries/common.lib.php:3353
 msgid "Empty"
 msgstr "Leeren"
 
 #: db_structure.php:589 db_tracking.php:105 enum_editor.php:116
-#: libraries/Index.class.php:490 libraries/common.lib.php:3348
-#: libraries/common.lib.php:3349 server_databases.php:269
+#: libraries/Index.class.php:490 libraries/common.lib.php:3350
+#: libraries/common.lib.php:3351 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "Löschen"
@@ -1022,7 +1022,7 @@ msgstr ""
 "Die Import-Plugins konnten nicht geladen werden, bitte überprüfen Sie Ihre "
 "phpMyAdmin-Installation!"
 
-#: import.php:421 sql.php:935
+#: import.php:421 sql.php:939
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bookmark %s wurde gespeichert"
@@ -1168,8 +1168,8 @@ msgid "Close"
 msgstr "Schliessen"
 
 #: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
-#: libraries/common.lib.php:648 libraries/common.lib.php:1195
-#: libraries/common.lib.php:3352 libraries/common.lib.php:3353
+#: libraries/common.lib.php:648 libraries/common.lib.php:1197
+#: libraries/common.lib.php:3354 libraries/common.lib.php:3355
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1390
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
@@ -1205,12 +1205,12 @@ msgid "Other"
 msgstr "Weitere"
 
 #. l10n: Thousands separator
-#: js/messages.php:76 libraries/common.lib.php:1450
+#: js/messages.php:76 libraries/common.lib.php:1452
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:78 libraries/common.lib.php:1452
+#: js/messages.php:78 libraries/common.lib.php:1454
 msgid "."
 msgstr "."
 
@@ -1294,13 +1294,13 @@ msgid "System swap"
 msgstr "Auslagerungsspeicher"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
+#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1402
 #: server_status.php:1686
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
+#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1400
 #: server_status.php:1686
 msgid "KiB"
 msgstr "KiB"
@@ -1358,27 +1358,27 @@ msgid "Connections"
 msgstr "Verbindungen"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:125 libraries/common.lib.php:1396
+#: js/messages.php:125 libraries/common.lib.php:1398
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:128 libraries/common.lib.php:1402
+#: js/messages.php:128 libraries/common.lib.php:1404
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:129 libraries/common.lib.php:1404
+#: js/messages.php:129 libraries/common.lib.php:1406
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:130 libraries/common.lib.php:1406
+#: js/messages.php:130 libraries/common.lib.php:1408
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:131 libraries/common.lib.php:1408
+#: js/messages.php:131 libraries/common.lib.php:1410
 msgid "EiB"
 msgstr "EiB"
 
@@ -1848,7 +1848,7 @@ msgstr "SQL-Querybox anzeigen"
 msgid "No rows selected"
 msgstr "Es wurden keine Datensätze ausgewählt"
 
-#: js/messages.php:280 libraries/common.lib.php:2744
+#: js/messages.php:280 libraries/common.lib.php:2746
 #: libraries/display_tbl.lib.php:2507 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
@@ -2007,9 +2007,10 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"Diese Tabelle enthält keine eindeutige (\"unique\") Spalte. Optionen in Bezug "
-"zur Gitter-Bearbeitungsfunktion, Kontrollkästchen, Bearbeiten, Kopieren und "
-"Löschen von Links können nach dem Speichern eventuell nicht funktionieren."
+"Diese Tabelle enthält keine eindeutige (\"unique\") Spalte. Optionen in "
+"Bezug zur Gitter-Bearbeitungsfunktion, Kontrollkästchen, Bearbeiten, "
+"Kopieren und Löschen von Links können nach dem Speichern eventuell nicht "
+"funktionieren."
 
 #: js/messages.php:352
 msgid ""
@@ -2125,63 +2126,63 @@ msgid "December"
 msgstr "Dezember"
 
 #. l10n: Short month name
-#: js/messages.php:416 libraries/common.lib.php:1607
+#: js/messages.php:416 libraries/common.lib.php:1609
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:418 libraries/common.lib.php:1609
+#: js/messages.php:418 libraries/common.lib.php:1611
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:420 libraries/common.lib.php:1611
+#: js/messages.php:420 libraries/common.lib.php:1613
 msgid "Mar"
 msgstr "Mrz"
 
 #. l10n: Short month name
-#: js/messages.php:422 libraries/common.lib.php:1613
+#: js/messages.php:422 libraries/common.lib.php:1615
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:424 libraries/common.lib.php:1615
+#: js/messages.php:424 libraries/common.lib.php:1617
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:426 libraries/common.lib.php:1617
+#: js/messages.php:426 libraries/common.lib.php:1619
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:428 libraries/common.lib.php:1619
+#: js/messages.php:428 libraries/common.lib.php:1621
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1621
+#: js/messages.php:430 libraries/common.lib.php:1623
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1623
+#: js/messages.php:432 libraries/common.lib.php:1625
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1625
+#: js/messages.php:434 libraries/common.lib.php:1627
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/common.lib.php:1627
+#: js/messages.php:436 libraries/common.lib.php:1629
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/common.lib.php:1629
+#: js/messages.php:438 libraries/common.lib.php:1631
 msgid "Dec"
 msgstr "Dez"
 
@@ -2219,32 +2220,32 @@ msgid "Sun"
 msgstr "So"
 
 #. l10n: Short week day name
-#: js/messages.php:453 libraries/common.lib.php:1634
+#: js/messages.php:453 libraries/common.lib.php:1636
 msgid "Mon"
 msgstr "Mo"
 
 #. l10n: Short week day name
-#: js/messages.php:455 libraries/common.lib.php:1636
+#: js/messages.php:455 libraries/common.lib.php:1638
 msgid "Tue"
 msgstr "Di"
 
 #. l10n: Short week day name
-#: js/messages.php:457 libraries/common.lib.php:1638
+#: js/messages.php:457 libraries/common.lib.php:1640
 msgid "Wed"
 msgstr "Mi"
 
 #. l10n: Short week day name
-#: js/messages.php:459 libraries/common.lib.php:1640
+#: js/messages.php:459 libraries/common.lib.php:1642
 msgid "Thu"
 msgstr "Do"
 
 #. l10n: Short week day name
-#: js/messages.php:461 libraries/common.lib.php:1642
+#: js/messages.php:461 libraries/common.lib.php:1644
 msgid "Fri"
 msgstr "Fr"
 
 #. l10n: Short week day name
-#: js/messages.php:463 libraries/common.lib.php:1644
+#: js/messages.php:463 libraries/common.lib.php:1646
 msgid "Sat"
 msgstr "Sa"
 
@@ -2617,13 +2618,13 @@ msgstr ""
 "Die Verbindung konnte aufgrund von ungültigen Einstellungen nicht "
 "hergestellt werden."
 
-#: libraries/auth/config.auth.lib.php:85
+#: libraries/auth/config.auth.lib.php:87
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "Willkommen bei %s"
 
-#: libraries/auth/config.auth.lib.php:100
+#: libraries/auth/config.auth.lib.php:102
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -2632,7 +2633,7 @@ msgstr ""
 "Sie haben möglicherweise noch keine Konfigurationsdatei erstellt. Sei können "
 "das %1$sSetup-Skript%2$s verwenden, um eine zu erstellen."
 
-#: libraries/auth/config.auth.lib.php:109
+#: libraries/auth/config.auth.lib.php:111
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2693,8 +2694,7 @@ msgstr "Ab diesem Punkt müssen Cookies aktiviert sein."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"Login ohne Passwort ist verboten (siehe AllowNoPassword) in der "
-"Konfiguration"
+"Login ohne Passwort ist verboten (siehe AllowNoPassword) in der Konfiguration"
 
 #: libraries/auth/cookie.auth.lib.php:572
 #: libraries/auth/signon.auth.lib.php:239
@@ -2935,116 +2935,116 @@ msgstr "SQL-Befehl"
 msgid "MySQL said: "
 msgstr "MySQL meldet: "
 
-#: libraries/common.lib.php:1128
+#: libraries/common.lib.php:1130
 msgid "Failed to connect to SQL validator!"
 msgstr "Verbindungsaufbau zu SQL-Validator schlug fehl!"
 
-#: libraries/common.lib.php:1169 libraries/config/messages.inc.php:485
+#: libraries/common.lib.php:1171 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
 msgstr "SQL erklären"
 
-#: libraries/common.lib.php:1173
+#: libraries/common.lib.php:1175
 msgid "Skip Explain SQL"
 msgstr "SQL-Erklärung umgehen"
 
-#: libraries/common.lib.php:1208
+#: libraries/common.lib.php:1210
 msgid "Without PHP Code"
 msgstr "ohne PHP-Code"
 
-#: libraries/common.lib.php:1211 libraries/config/messages.inc.php:487
+#: libraries/common.lib.php:1213 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "PHP-Code erzeugen"
 
-#: libraries/common.lib.php:1231 libraries/config/messages.inc.php:486
+#: libraries/common.lib.php:1233 libraries/config/messages.inc.php:486
 #: server_status.php:795 server_status.php:817 server_status.php:836
 msgid "Refresh"
 msgstr "Aktualisieren"
 
-#: libraries/common.lib.php:1241
+#: libraries/common.lib.php:1243
 msgid "Skip Validate SQL"
 msgstr "SQL-Validierung umgehen"
 
-#: libraries/common.lib.php:1244 libraries/config/messages.inc.php:489
+#: libraries/common.lib.php:1246 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "SQL validieren"
 
-#: libraries/common.lib.php:1303
+#: libraries/common.lib.php:1305
 msgid "Inline edit of this query"
 msgstr "Inline-Bearbeiten dieses SQL-Befehls"
 
-#: libraries/common.lib.php:1305
+#: libraries/common.lib.php:1307
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Inline"
 
-#: libraries/common.lib.php:1371 sql.php:896
+#: libraries/common.lib.php:1373 sql.php:896
 msgid "Profiling"
 msgstr "Messen"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1632
+#: libraries/common.lib.php:1634
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "So"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1648
+#: libraries/common.lib.php:1650
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d. %B %Y um %H:%M"
 
-#: libraries/common.lib.php:1981
+#: libraries/common.lib.php:1983
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s Tage, %s Stunden, %s Minuten und %s Sekunden"
 
-#: libraries/common.lib.php:2072
+#: libraries/common.lib.php:2074
 msgid "Missing parameter:"
 msgstr "Fehlende(r) Parameter:"
 
-#: libraries/common.lib.php:2455 libraries/common.lib.php:2458
+#: libraries/common.lib.php:2457 libraries/common.lib.php:2460
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "Anfang"
 
-#: libraries/common.lib.php:2456 libraries/common.lib.php:2459
+#: libraries/common.lib.php:2458 libraries/common.lib.php:2461
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Vorherige"
 
-#: libraries/common.lib.php:2486 libraries/common.lib.php:2489
+#: libraries/common.lib.php:2488 libraries/common.lib.php:2491
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "Nächste"
 
-#: libraries/common.lib.php:2487 libraries/common.lib.php:2490
+#: libraries/common.lib.php:2489 libraries/common.lib.php:2492
 #: libraries/display_tbl.lib.php:390
 msgctxt "Last page"
 msgid "End"
 msgstr "Ende"
 
-#: libraries/common.lib.php:2557
+#: libraries/common.lib.php:2559
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Zur Datenbank &quot;%s&quot; springen."
 
-#: libraries/common.lib.php:2577
+#: libraries/common.lib.php:2579
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Die Funktion %s wird durch einen bekannten Fehler beeinträchtigt, siehe %s"
 
-#: libraries/common.lib.php:2751
+#: libraries/common.lib.php:2753
 msgid "Click to toggle"
 msgstr "Zum Umschalten anklicken"
 
-#: libraries/common.lib.php:3125 libraries/common.lib.php:3132
-#: libraries/common.lib.php:3347 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3127 libraries/common.lib.php:3134
+#: libraries/common.lib.php:3349 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -3056,7 +3056,7 @@ msgstr "Zum Umschalten anklicken"
 msgid "Structure"
 msgstr "Struktur"
 
-#: libraries/common.lib.php:3126 libraries/common.lib.php:3133
+#: libraries/common.lib.php:3128 libraries/common.lib.php:3135
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3064,42 +3064,42 @@ msgstr "Struktur"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3128 libraries/common.lib.php:3345
-#: libraries/common.lib.php:3346 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3130 libraries/common.lib.php:3347
+#: libraries/common.lib.php:3348 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Einfügen"
 
-#: libraries/common.lib.php:3135 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3137 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operationen"
 
-#: libraries/common.lib.php:3279 libraries/sql_query_form.lib.php:443
+#: libraries/common.lib.php:3281 libraries/sql_query_form.lib.php:443
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "Durchsuchen Sie ihren Computer:"
 
-#: libraries/common.lib.php:3298
+#: libraries/common.lib.php:3300
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Wählen Sie vom Webserver-Uploadverzeichnis <b>%s</b>:"
 
-#: libraries/common.lib.php:3319 libraries/sql_query_form.lib.php:452
+#: libraries/common.lib.php:3321 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden"
 
-#: libraries/common.lib.php:3328
+#: libraries/common.lib.php:3330
 msgid "There are no files to upload"
 msgstr "Es sind keine Dateien zum Upload vorhanden"
 
-#: libraries/common.lib.php:3356 libraries/common.lib.php:3357
+#: libraries/common.lib.php:3358 libraries/common.lib.php:3359
 msgid "Execute"
 msgstr "Ausführen"
 
-#: libraries/common.lib.php:3832
+#: libraries/common.lib.php:3834
 msgid "Print"
 msgstr "Drucken"
 
@@ -5610,7 +5610,7 @@ msgstr ""
 "Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:186
+#: libraries/dbi/mysqli.dbi.lib.php:189
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Verbindung für den controluser, wie er in Ihrer Konfiguration angegeben ist, "
@@ -8115,11 +8115,11 @@ msgstr "Werte löschen"
 msgid "Columns"
 msgstr "Spalten"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:975 sql.php:992
+#: libraries/sql_query_form.lib.php:300 sql.php:979 sql.php:996
 msgid "Bookmark this SQL query"
 msgstr "SQL-Abfrage speichern"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:986
+#: libraries/sql_query_form.lib.php:307 sql.php:990
 msgid "Let every user access this bookmark"
 msgstr "Diese gespeicherte SQL-Abfrage für jeden Benutzer verfügbar machen"
 
@@ -11377,12 +11377,12 @@ msgstr "Ansicht als SQL Abfrage"
 msgid "Validated SQL"
 msgstr "Geprüftes SQL"
 
-#: sql.php:948
+#: sql.php:952
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Warnungen bei den Indizes der Tabelle `%s`"
 
-#: sql.php:980
+#: sql.php:984
 msgid "Label"
 msgstr "Titel"
 
@@ -11522,7 +11522,7 @@ msgstr "Die Tabelle %s existiert bereits!"
 msgid "Table %1$s has been created."
 msgstr "Die Tabelle %1$s wurde erzeugt."
 
-#: tbl_export.php:24
+#: tbl_export.php:26
 msgid "View dump (schema) of table"
 msgstr "Dump (Schema) der Tabelle anzeigen"
 
@@ -12398,10 +12398,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Sie verwenden den MySQL-Anfragen-Cache mit einer relativ hohen Traffic-"
-"Datenbank. Es wäre überlegenswert, <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\"> "
-"Memcached</a> statt MySQL Query Cache verwenden vor allem, wenn Sie mehrere "
-"Slaves einsetzen."
+"Datenbank. Es wäre überlegenswert, <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\"> Memcached</a> statt MySQL Query Cache "
+"verwenden vor allem, wenn Sie mehrere Slaves einsetzen."
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -12736,12 +12735,10 @@ msgstr ""
 "kleiner als 1 pro Stunde sein"
 
 #: po/advisory_rules.php:140
-#| msgid "Where to show the table row links"
 msgid "Rate of reading next table row"
 msgstr "Lese-Rate nächste Tabellenzeile"
 
 #: po/advisory_rules.php:141
-#| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
 msgstr "Lese-Rate nächste Tabellenzeile ist hoch."
 
@@ -12813,9 +12810,9 @@ msgstr ""
 "Variablen auf den Datenträger geschrieben. Um diese zu verhindern müssen Sie "
 "Ihre Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt "
 "(Innerhalb einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-"
-"Spalte oder eine Spalte größer als 512 Bytes) wie am Anfang von <a href=\"htt"
-"p://www.facebook.com/note.php?note_id=10150111255065841&comments\">Artikel "
-"der Pythian Group</a> erwähnt wird"
+"Spalte oder eine Spalte größer als 512 Bytes) wie am Anfang von <a href="
+"\"http://www.facebook.com/note.php?note_id=10150111255065841&comments"
+"\">Artikel der Pythian Group</a> erwähnt wird"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12841,13 +12838,13 @@ msgid ""
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "Erhöhen von {max_heap_table_size} und {tmp_table_size} können helfen. Jedoch "
-"werden einige temporären Tabellen immer unabhängig vom Wert dieser "
-"Variablen auf den Datenträger geschrieben. Um diese zu verhindern müssen Sie "
-"Ihre Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt "
-"(Innerhalb einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-"
-"Spalte oder eine Spalte größer als 512 Bytes) wie in der <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
-"\">MySQL-Dokumentation</a> erwähnt wird"
+"werden einige temporären Tabellen immer unabhängig vom Wert dieser Variablen "
+"auf den Datenträger geschrieben. Um diese zu verhindern müssen Sie Ihre "
+"Abfragen so umschreiben das es nicht zu diesen Bedingungen kommt (Innerhalb "
+"einer temporären Tabelle: Vorhandensein eines BLOB- oder TEXT-Spalte oder "
+"eine Spalte größer als 512 Bytes) wie in der <a href=\"http://dev.mysql.com/"
+"doc/refman/5.5/en/internal-temporary-tables.html\">MySQL-Dokumentation</a> "
+"erwähnt wird"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12963,7 +12960,6 @@ msgstr ""
 "Stunde sein"
 
 #: po/advisory_rules.php:185
-#| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
 msgstr "Prozentsatz der verwendeten offene Dateien Grenze"
 
@@ -13182,7 +13178,6 @@ msgstr ""
 "liegen"
 
 #: po/advisory_rules.php:235
-#| msgid "Persistent connections"
 msgid "Rate of aborted connections"
 msgstr "Rate der abgebrochenen Verbindungen"
 
@@ -13195,7 +13190,6 @@ msgstr ""
 "als 1 pro Stunde sein"
 
 #: po/advisory_rules.php:240
-#| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
 msgstr "Prozentualen Anteil der abgebrochenen Clienten"
 
@@ -13221,7 +13215,6 @@ msgstr ""
 "%s%% aller Clienten werden abgebrochen. Dieser Wert sollte unter 2%% liegen"
 
 #: po/advisory_rules.php:245
-#| msgid "Format of imported file"
 msgid "Rate of aborted clients"
 msgstr "Rate der abgebrochenen Clienten"
 
@@ -13249,12 +13242,10 @@ msgid "have_innodb is set to 'value'"
 msgstr "have_innodb ist auf 'value' eingestellt"
 
 #: po/advisory_rules.php:255
-#| msgid "Buffer pool size"
 msgid "InnoDB log size"
 msgstr "InnoDB Protokollgröße"
 
 #: po/advisory_rules.php:256
-#| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -13281,11 +13272,11 @@ msgstr ""
 "länger wird die Wiederherstellungszeit bei Datenbank Abstürzen, so dass "
 "dieser Wert nicht viel höher als 256 MiB gsetzt werden sollte. Bitte "
 "beachten Sie jedoch, dass Sie nicht einfach den Wert dieser Variablen ändern "
-"können. Sie müssen den Server herunterfahren, die InnoDB-Logdateien "
-"löschen, den neuen Wert in my.cnf eintragen, den Server neu starten und dann "
-"das Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
+"können. Sie müssen den Server herunterfahren, die InnoDB-Logdateien löschen, "
+"den neuen Wert in my.cnf eintragen, den Server neu starten und dann das "
+"Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13320,14 +13311,13 @@ msgstr ""
 "Es üblicherweise ausreichend innodb_log_file_size auf 25%% der Größe von "
 "{Innodb_buffer_pool_size} einzustellen. Eine sehr große innodb_log_file_size "
 "verlangsamt die Wiederherstellungszeit nach einem Datenbank Absturz "
-"erheblich. Siehe auch <a "
-"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">diesen Artikels</a>. Sie müssen den Server "
-"herunterfahren, die InnoDB-Logdateien löschen, den neuen Wert in my.cnf "
-"eintragen, den Server neu starten und dann das Fehlerprotokoll überprüfen ob "
-"alles gut ging. Siehe auch <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">diesen Blog-Eintrag</a>"
+"erheblich. Siehe auch <a href=\"http://www.mysqlperformanceblog."
+"com/2006/07/03/choosing-proper-innodb_log_file_size/\">diesen Artikels</a>. "
+"Sie müssen den Server herunterfahren, die InnoDB-Logdateien löschen, den "
+"neuen Wert in my.cnf eintragen, den Server neu starten und dann das "
+"Fehlerprotokoll überprüfen ob alles gut ging. Siehe auch <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">diesen Blog-Eintrag</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13335,7 +13325,6 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Ihre absolute InnoDB Protokollgröße ist %s MiB"
 
 #: po/advisory_rules.php:265
-#| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
 msgstr "Größe des InnoDB Puffer-Pools"
 
@@ -13366,9 +13355,9 @@ msgstr ""
 "den Speicherverbrauch von anderen Diensten und nicht-InnoDB-Tabellen "
 "bewerten und stellen Sie diese Variable entsprechend ein. Wenn der Wert zu "
 "hoch ist, startet Ihr System Speicher auf die Festplatte auszulagen, was die "
-"Leistung erheblich senkt. Siehe auch <a "
-"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">diesen Artikel</a>"
+"Leistung erheblich senkt. Siehe auch <a href=\"http://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
+"\">diesen Artikel</a>"
 
 #: po/advisory_rules.php:268
 #, php-format
@@ -13384,7 +13373,6 @@ msgstr ""
 "haben oder anderen Diensten auf demselben Computer ausgeführt werden."
 
 #: po/advisory_rules.php:270
-#| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM gleichzeitige Einfügeoperationen"
 
@@ -13399,9 +13387,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{Concurrent_insert} auf 1 setzen verringert Konflikte zwischen Lese- und "
-"Schreibzugriffen auf Tabellen. Siehe auch <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
-"Dokumentation</a>"
+"Schreibzugriffen auf Tabellen. Siehe auch <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Dokumentation</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
@@ -13469,9 +13456,9 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ "column, click the \"Choose column to display\" icon, then click on the "
 #~ "appropriate column name."
 #~ msgstr ""
-#~ "Die Anzeigespalte wird in rosa angezeigt. Um eine Spalte als Anzeigespalte "
-#~ "anzeigen zu lassen oder nicht, klicken Sie auf das Symbol \"Anzeigespalte "
-#~ "wählen\", dann auf den passenden Spaltennamen."
+#~ "Die Anzeigespalte wird in rosa angezeigt. Um eine Spalte als "
+#~ "Anzeigespalte anzeigen zu lassen oder nicht, klicken Sie auf das Symbol "
+#~ "\"Anzeigespalte wählen\", dann auf den passenden Spaltennamen."
 
 #~ msgid ""
 #~ "The Advisor system can provide recommendations on server variables by "

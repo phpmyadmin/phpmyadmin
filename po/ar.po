@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
+"Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-03-29 10:07+0200\n"
+"POT-Creation-Date: 2012-04-09 19:51+0200\n"
 "PO-Revision-Date: 2011-09-24 21:48+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -21,7 +21,7 @@ msgid "Show all"
 msgstr "عرض الكل"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2446
+#: libraries/common.lib.php:2448
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -38,9 +38,9 @@ msgstr ""
 "لا يمكن تحديث نافذة المتصفح المستهدفة,, يبدو أنك أغلقت الرئيسية أو أن "
 "مستعرضك يمنع التحديث عبر النوافذ بسبب إعدادات الأمان."
 
-#: browse_foreigners.php:160 libraries/common.lib.php:3127
-#: libraries/common.lib.php:3134 libraries/common.lib.php:3343
-#: libraries/common.lib.php:3344 libraries/db_links.inc.php:60
+#: browse_foreigners.php:160 libraries/common.lib.php:3129
+#: libraries/common.lib.php:3136 libraries/common.lib.php:3345
+#: libraries/common.lib.php:3346 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "بحث"
@@ -50,8 +50,8 @@ msgstr "بحث"
 #: db_structure.php:615 enum_editor.php:121 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:229
 #: libraries/Config.class.php:1332 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1372
-#: libraries/common.lib.php:2419 libraries/core.lib.php:513
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1374
+#: libraries/common.lib.php:2421 libraries/core.lib.php:513
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -494,12 +494,12 @@ msgstr "إستخدم الجداول"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "إستعلام SQL في قاعدة البيانات <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1219
+#: db_qbe.php:955 libraries/common.lib.php:1221
 msgid "Submit Query"
 msgstr "إرسال الإستعلام"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:77
-#: libraries/auth/config.auth.lib.php:96
+#: libraries/auth/config.auth.lib.php:98
 #: libraries/auth/cookie.auth.lib.php:570 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:237
 msgid "Access denied"
@@ -537,8 +537,8 @@ msgstr[3] "%s مطابقة في الجدول <i>%s</i>"
 msgstr[4] "%s مطابقة في الجدول <i>%s</i>"
 msgstr[5] "%s مطابقة في الجدول <i>%s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3129
-#: libraries/common.lib.php:3341 libraries/common.lib.php:3342
+#: db_search.php:234 libraries/common.lib.php:3131
+#: libraries/common.lib.php:3343 libraries/common.lib.php:3344
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:569
 msgid "Browse"
 msgstr "استعراض"
@@ -678,8 +678,8 @@ msgstr "إلغاء تحديد الكل"
 msgid "Check tables having overhead"
 msgstr "تحقق من الجداول التي تحمل عبء زائد"
 
-#: db_structure.php:581 libraries/common.lib.php:3354
-#: libraries/common.lib.php:3355 libraries/config/messages.inc.php:166
+#: db_structure.php:581 libraries/common.lib.php:3356
+#: libraries/common.lib.php:3357 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -693,14 +693,14 @@ msgstr "تصدير"
 msgid "Print view"
 msgstr "عرض نسخة للطباعة"
 
-#: db_structure.php:587 libraries/common.lib.php:3350
-#: libraries/common.lib.php:3351
+#: db_structure.php:587 libraries/common.lib.php:3352
+#: libraries/common.lib.php:3353
 msgid "Empty"
 msgstr "إفراغ"
 
 #: db_structure.php:589 db_tracking.php:105 enum_editor.php:116
-#: libraries/Index.class.php:490 libraries/common.lib.php:3348
-#: libraries/common.lib.php:3349 server_databases.php:269
+#: libraries/Index.class.php:490 libraries/common.lib.php:3350
+#: libraries/common.lib.php:3351 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:573
 msgid "Drop"
 msgstr "حذف"
@@ -1024,7 +1024,7 @@ msgstr "لاتستطيع تغيير ترميز الملفات بدون مكتب�
 msgid "Could not load import plugins, please check your installation!"
 msgstr "لايمكن تحميل الإضافات المستوردة ,, فضلاً تحقق من عملية التنصيب ."
 
-#: import.php:421 sql.php:935
+#: import.php:421 sql.php:939
 #, php-format
 msgid "Bookmark %s created"
 msgstr "تم إنشاء العلامة المرجعية %s"
@@ -1173,8 +1173,8 @@ msgid "Close"
 msgstr "أغلاق"
 
 #: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
-#: libraries/common.lib.php:648 libraries/common.lib.php:1195
-#: libraries/common.lib.php:3352 libraries/common.lib.php:3353
+#: libraries/common.lib.php:648 libraries/common.lib.php:1197
+#: libraries/common.lib.php:3354 libraries/common.lib.php:3355
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1390
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
@@ -1210,12 +1210,12 @@ msgid "Other"
 msgstr "آخر"
 
 #. l10n: Thousands separator
-#: js/messages.php:76 libraries/common.lib.php:1450
+#: js/messages.php:76 libraries/common.lib.php:1452
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:78 libraries/common.lib.php:1452
+#: js/messages.php:78 libraries/common.lib.php:1454
 msgid "."
 msgstr "."
 
@@ -1300,13 +1300,13 @@ msgid "System swap"
 msgstr ""
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1400
+#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1402
 #: server_status.php:1686
 msgid "MiB"
 msgstr "ميجابايت"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1398
+#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1400
 #: server_status.php:1686
 msgid "KiB"
 msgstr "كيلوبايت"
@@ -1368,27 +1368,27 @@ msgid "Connections"
 msgstr "اتصالات"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:125 libraries/common.lib.php:1396
+#: js/messages.php:125 libraries/common.lib.php:1398
 msgid "B"
 msgstr "بايت"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:128 libraries/common.lib.php:1402
+#: js/messages.php:128 libraries/common.lib.php:1404
 msgid "GiB"
 msgstr "جيجابايت"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:129 libraries/common.lib.php:1404
+#: js/messages.php:129 libraries/common.lib.php:1406
 msgid "TiB"
 msgstr "تيرابايت"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:130 libraries/common.lib.php:1406
+#: js/messages.php:130 libraries/common.lib.php:1408
 msgid "PiB"
 msgstr "بيتابايت"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:131 libraries/common.lib.php:1408
+#: js/messages.php:131 libraries/common.lib.php:1410
 msgid "EiB"
 msgstr "إكسابايت"
 
@@ -1852,7 +1852,7 @@ msgstr "إظهار صندوق الإستعلام"
 msgid "No rows selected"
 msgstr "لايوجد صفوف مختارة"
 
-#: js/messages.php:280 libraries/common.lib.php:2744
+#: js/messages.php:280 libraries/common.lib.php:2746
 #: libraries/display_tbl.lib.php:2507 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:572
 msgid "Change"
@@ -2119,63 +2119,63 @@ msgid "December"
 msgstr "ديسمبر"
 
 #. l10n: Short month name
-#: js/messages.php:416 libraries/common.lib.php:1607
+#: js/messages.php:416 libraries/common.lib.php:1609
 msgid "Jan"
 msgstr "يناير"
 
 #. l10n: Short month name
-#: js/messages.php:418 libraries/common.lib.php:1609
+#: js/messages.php:418 libraries/common.lib.php:1611
 msgid "Feb"
 msgstr "فبراير"
 
 #. l10n: Short month name
-#: js/messages.php:420 libraries/common.lib.php:1611
+#: js/messages.php:420 libraries/common.lib.php:1613
 msgid "Mar"
 msgstr "مارس"
 
 #. l10n: Short month name
-#: js/messages.php:422 libraries/common.lib.php:1613
+#: js/messages.php:422 libraries/common.lib.php:1615
 msgid "Apr"
 msgstr "أبريل"
 
 #. l10n: Short month name
-#: js/messages.php:424 libraries/common.lib.php:1615
+#: js/messages.php:424 libraries/common.lib.php:1617
 msgctxt "Short month name"
 msgid "May"
 msgstr "مايو"
 
 #. l10n: Short month name
-#: js/messages.php:426 libraries/common.lib.php:1617
+#: js/messages.php:426 libraries/common.lib.php:1619
 msgid "Jun"
 msgstr "يونيو"
 
 #. l10n: Short month name
-#: js/messages.php:428 libraries/common.lib.php:1619
+#: js/messages.php:428 libraries/common.lib.php:1621
 msgid "Jul"
 msgstr "يوليو"
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1621
+#: js/messages.php:430 libraries/common.lib.php:1623
 msgid "Aug"
 msgstr "أغسطس"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1623
+#: js/messages.php:432 libraries/common.lib.php:1625
 msgid "Sep"
 msgstr "سبتمبر"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1625
+#: js/messages.php:434 libraries/common.lib.php:1627
 msgid "Oct"
 msgstr "أكتوبر"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/common.lib.php:1627
+#: js/messages.php:436 libraries/common.lib.php:1629
 msgid "Nov"
 msgstr "نوفمبر"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/common.lib.php:1629
+#: js/messages.php:438 libraries/common.lib.php:1631
 msgid "Dec"
 msgstr "ديسمبر"
 
@@ -2213,32 +2213,32 @@ msgid "Sun"
 msgstr "الأحد"
 
 #. l10n: Short week day name
-#: js/messages.php:453 libraries/common.lib.php:1634
+#: js/messages.php:453 libraries/common.lib.php:1636
 msgid "Mon"
 msgstr "الإثنين"
 
 #. l10n: Short week day name
-#: js/messages.php:455 libraries/common.lib.php:1636
+#: js/messages.php:455 libraries/common.lib.php:1638
 msgid "Tue"
 msgstr "الثلاثاء"
 
 #. l10n: Short week day name
-#: js/messages.php:457 libraries/common.lib.php:1638
+#: js/messages.php:457 libraries/common.lib.php:1640
 msgid "Wed"
 msgstr "الأربعاء"
 
 #. l10n: Short week day name
-#: js/messages.php:459 libraries/common.lib.php:1640
+#: js/messages.php:459 libraries/common.lib.php:1642
 msgid "Thu"
 msgstr "الخميس"
 
 #. l10n: Short week day name
-#: js/messages.php:461 libraries/common.lib.php:1642
+#: js/messages.php:461 libraries/common.lib.php:1644
 msgid "Fri"
 msgstr "الجمعة"
 
 #. l10n: Short week day name
-#: js/messages.php:463 libraries/common.lib.php:1644
+#: js/messages.php:463 libraries/common.lib.php:1646
 msgid "Sat"
 msgstr "السبت"
 
@@ -2608,20 +2608,20 @@ msgstr "مظهر"
 msgid "Cannot connect: invalid settings."
 msgstr "لايمكن الإتصال: إعدادات غير صحيحة."
 
-#: libraries/auth/config.auth.lib.php:85
+#: libraries/auth/config.auth.lib.php:87
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "أهلا بك في %s"
 
-#: libraries/auth/config.auth.lib.php:100
+#: libraries/auth/config.auth.lib.php:102
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr "يبدو انك لم تنشئ ملف الإعدادات.إستخدم %1$ssetup script%2$s لإنشائه."
 
-#: libraries/auth/config.auth.lib.php:109
+#: libraries/auth/config.auth.lib.php:111
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2913,115 +2913,115 @@ msgstr "استعلام SQL"
 msgid "MySQL said: "
 msgstr "MySQL قال: "
 
-#: libraries/common.lib.php:1128
+#: libraries/common.lib.php:1130
 msgid "Failed to connect to SQL validator!"
 msgstr "فشل الإتصال بمدقق SQL!"
 
-#: libraries/common.lib.php:1169 libraries/config/messages.inc.php:485
+#: libraries/common.lib.php:1171 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
 msgstr "شرح SQL"
 
-#: libraries/common.lib.php:1173
+#: libraries/common.lib.php:1175
 msgid "Skip Explain SQL"
 msgstr "تخطي شرح SQL"
 
-#: libraries/common.lib.php:1208
+#: libraries/common.lib.php:1210
 msgid "Without PHP Code"
 msgstr "بدون كود PHP"
 
-#: libraries/common.lib.php:1211 libraries/config/messages.inc.php:487
+#: libraries/common.lib.php:1213 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "أنشئ كود PHP"
 
-#: libraries/common.lib.php:1231 libraries/config/messages.inc.php:486
+#: libraries/common.lib.php:1233 libraries/config/messages.inc.php:486
 #: server_status.php:795 server_status.php:817 server_status.php:836
 msgid "Refresh"
 msgstr "تحديث"
 
-#: libraries/common.lib.php:1241
+#: libraries/common.lib.php:1243
 msgid "Skip Validate SQL"
 msgstr "تخطي تدقيق SQL"
 
-#: libraries/common.lib.php:1244 libraries/config/messages.inc.php:489
+#: libraries/common.lib.php:1246 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "التدقيق في استعلام SQL"
 
-#: libraries/common.lib.php:1303
+#: libraries/common.lib.php:1305
 msgid "Inline edit of this query"
 msgstr "تعديل سريع لهذا الإستعلام"
 
-#: libraries/common.lib.php:1305
+#: libraries/common.lib.php:1307
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "مضمن"
 
-#: libraries/common.lib.php:1371 sql.php:896
+#: libraries/common.lib.php:1373 sql.php:896
 msgid "Profiling"
 msgstr "جانبي"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1632
+#: libraries/common.lib.php:1634
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "الأحد"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1648
+#: libraries/common.lib.php:1650
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y الساعة %H:%M"
 
-#: libraries/common.lib.php:1981
+#: libraries/common.lib.php:1983
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 
-#: libraries/common.lib.php:2072
+#: libraries/common.lib.php:2074
 msgid "Missing parameter:"
 msgstr "مدخلات مفقودة:"
 
-#: libraries/common.lib.php:2455 libraries/common.lib.php:2458
+#: libraries/common.lib.php:2457 libraries/common.lib.php:2460
 #: libraries/display_tbl.lib.php:306
 msgctxt "First page"
 msgid "Begin"
 msgstr "بداية"
 
-#: libraries/common.lib.php:2456 libraries/common.lib.php:2459
+#: libraries/common.lib.php:2458 libraries/common.lib.php:2461
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "سابق"
 
-#: libraries/common.lib.php:2486 libraries/common.lib.php:2489
+#: libraries/common.lib.php:2488 libraries/common.lib.php:2491
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "التالي"
 
-#: libraries/common.lib.php:2487 libraries/common.lib.php:2490
+#: libraries/common.lib.php:2489 libraries/common.lib.php:2492
 #: libraries/display_tbl.lib.php:390
 msgctxt "Last page"
 msgid "End"
 msgstr "نهاية"
 
-#: libraries/common.lib.php:2557
+#: libraries/common.lib.php:2559
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "الذهاب إلى قاعدة البيانات &quot;%s&quot;."
 
-#: libraries/common.lib.php:2577
+#: libraries/common.lib.php:2579
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/common.lib.php:2751
+#: libraries/common.lib.php:2753
 msgid "Click to toggle"
 msgstr "إضغط للإختيار"
 
-#: libraries/common.lib.php:3125 libraries/common.lib.php:3132
-#: libraries/common.lib.php:3347 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3127 libraries/common.lib.php:3134
+#: libraries/common.lib.php:3349 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -3033,7 +3033,7 @@ msgstr "إضغط للإختيار"
 msgid "Structure"
 msgstr "بناء"
 
-#: libraries/common.lib.php:3126 libraries/common.lib.php:3133
+#: libraries/common.lib.php:3128 libraries/common.lib.php:3135
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3041,42 +3041,42 @@ msgstr "بناء"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3128 libraries/common.lib.php:3345
-#: libraries/common.lib.php:3346 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3130 libraries/common.lib.php:3347
+#: libraries/common.lib.php:3348 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "إدخال"
 
-#: libraries/common.lib.php:3135 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3137 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "عمليات"
 
-#: libraries/common.lib.php:3279 libraries/sql_query_form.lib.php:443
+#: libraries/common.lib.php:3281 libraries/sql_query_form.lib.php:443
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "تصفح كمبيوترك."
 
-#: libraries/common.lib.php:3298
+#: libraries/common.lib.php:3300
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
 
-#: libraries/common.lib.php:3319 libraries/sql_query_form.lib.php:452
+#: libraries/common.lib.php:3321 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
 msgid "The directory you set for upload work cannot be reached"
 msgstr "الدليل الذي حددته لتحميل عملك لا يمكن الوصول إليه."
 
-#: libraries/common.lib.php:3328
+#: libraries/common.lib.php:3330
 msgid "There are no files to upload"
 msgstr "لايوجد أي ملفات لرفعها"
 
-#: libraries/common.lib.php:3356 libraries/common.lib.php:3357
+#: libraries/common.lib.php:3358 libraries/common.lib.php:3359
 msgid "Execute"
 msgstr "تنفيذ"
 
-#: libraries/common.lib.php:3832
+#: libraries/common.lib.php:3834
 msgid "Print"
 msgstr "طباعة"
 
@@ -5421,7 +5421,7 @@ msgid ""
 msgstr ""
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
-#: libraries/dbi/mysqli.dbi.lib.php:186
+#: libraries/dbi/mysqli.dbi.lib.php:189
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -7960,11 +7960,11 @@ msgstr ""
 msgid "Columns"
 msgstr "اسم العمود"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:975 sql.php:992
+#: libraries/sql_query_form.lib.php:300 sql.php:979 sql.php:996
 msgid "Bookmark this SQL query"
 msgstr "اجعل علامة مرجعية SQL-استعلام"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:986
+#: libraries/sql_query_form.lib.php:307 sql.php:990
 msgid "Let every user access this bookmark"
 msgstr "اسمح لكل المستخدمين الوصول إلى هذه العلامة المرجعية"
 
@@ -11011,12 +11011,12 @@ msgstr ""
 msgid "Validated SQL"
 msgstr "التحقق من استعلام SQL"
 
-#: sql.php:948
+#: sql.php:952
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:980
+#: sql.php:984
 msgid "Label"
 msgstr "علامة"
 
@@ -11173,7 +11173,7 @@ msgstr ""
 msgid "Table %1$s has been created."
 msgstr ""
 
-#: tbl_export.php:24
+#: tbl_export.php:26
 msgid "View dump (schema) of table"
 msgstr "عرض بنية الجدول "
 
