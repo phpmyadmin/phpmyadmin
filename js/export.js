@@ -4,11 +4,11 @@
  *
  */
 
- /**
-  * Toggles the hiding and showing of each plugin's options
-  * according to the currently selected plugin from the dropdown list
-  */
- $(document).ready(function() {
+/**
+ * Toggles the hiding and showing of each plugin's options
+ * according to the currently selected plugin from the dropdown list
+ */
+$(document).ready(function() {
     $("#plugins").change(function() {
         $(".format_specific_options").each(function() {
             $(this).hide();
@@ -22,24 +22,23 @@
  * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure
  */
 $(document).ready(function() {
-    $("input[type='radio'][name$='sql_structure_or_data']").change(function() {
-        var show = $("input[type='radio'][name$='sql_structure_or_data']:checked").val();
-        if(show == 'data') {
+    $("input[type='radio'][name='sql_structure_or_data']").change(function() {
+        var comments_are_present = $("#checkbox_sql_include_comments").prop("checked");
+        var show = $("input[type='radio'][name='sql_structure_or_data']:checked").val();
+        if (show == 'data') {
             // disable the SQL comment options
-            $("#checkbox_sql_dates").parent().fadeTo('fast', 0.4);
-            $("#checkbox_sql_dates").prop('disabled', true);
-            $("#checkbox_sql_relation").parent().fadeTo('fast', 0.4);
-            $("#checkbox_sql_relation").prop('disabled', true);
-            $("#checkbox_sql_mime").parent().fadeTo('fast', 0.4);
-            $("#checkbox_sql_mime").prop('disabled', true);
+            if (comments_are_present) {
+                $("#checkbox_sql_dates").prop('disabled', true).parent().fadeTo('fast', 0.4);
+            }
+            $("#checkbox_sql_relation").prop('disabled', true).parent().fadeTo('fast', 0.4);
+            $("#checkbox_sql_mime").prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
             // enable the SQL comment options
-            $("#checkbox_sql_dates").parent().fadeTo('fast', 1);
-            $("#checkbox_sql_dates").removeProp('disabled');
-            $("#checkbox_sql_relation").parent().fadeTo('fast', 1);
-            $("#checkbox_sql_relation").removeProp('disabled');
-            $("#checkbox_sql_mime").parent().fadeTo('fast', 1);
-            $("#checkbox_sql_mime").removeProp('disabled');
+            if (comments_are_present) {
+                $("#checkbox_sql_dates").removeProp('disabled').parent().fadeTo('fast', 1);
+            }
+            $("#checkbox_sql_relation").removeProp('disabled').parent().fadeTo('fast', 1);
+            $("#checkbox_sql_mime").removeProp('disabled').parent().fadeTo('fast', 1);
         }
      });
 });
@@ -49,19 +48,18 @@ $(document).ready(function() {
  * Toggles the hiding and showing of plugin structure-specific and data-specific
  * options
  */
-
 function toggle_structure_data_opts(pluginName)
 {
     var radioFormName = pluginName + "_structure_or_data";
     var dataDiv = "#" + pluginName + "_data";
     var structureDiv = "#" + pluginName + "_structure";
     var show = $("input[type='radio'][name='" + radioFormName + "']:checked").val();
-    if(show == 'data') {
+    if (show == 'data') {
         $(dataDiv).slideDown('slow');
         $(structureDiv).slideUp('slow');
     } else {
         $(structureDiv).slideDown('slow');
-        if(show == 'structure') {
+        if (show == 'structure') {
             $(dataDiv).slideUp('slow');
         } else {
             $(dataDiv).slideDown('slow');
@@ -92,7 +90,7 @@ $(document).ready(function() {
  */
 function toggle_save_to_file()
 {
-    if($("#radio_dump_asfile:checked").length == 0) {
+    if (!$("#radio_dump_asfile").prop("checked")) {
         $("#ul_save_asfile > li").fadeTo('fast', 0.4);
         $("#ul_save_asfile > li > input").prop('disabled', true);
         $("#ul_save_asfile > li> select").prop('disabled', true);
@@ -105,9 +103,7 @@ function toggle_save_to_file()
 
 $(document).ready(function() {
     toggle_save_to_file();
-    $("input[type='radio'][name='output_format']").change(function() {
-        toggle_save_to_file();
-    });
+    $("input[type='radio'][name='output_format']").change(toggle_save_to_file);
 });
 
 /**
@@ -116,20 +112,19 @@ $(document).ready(function() {
 function toggle_sql_include_comments()
 {
     $("#checkbox_sql_include_comments").change(function() {
-        if($("#checkbox_sql_include_comments:checked").length == 0) {
+        if (!$("#checkbox_sql_include_comments").prop("checked")) {
             $("#ul_include_comments > li").fadeTo('fast', 0.4);
             $("#ul_include_comments > li > input").prop('disabled', true);
-         } else {
+        } else {
             // If structure is not being exported, the comment options for structure should not be enabled
-            if($("#radio_sql_structure_or_data_data:checked").length == 1) {
-                $("#text_sql_header_comment").parent("li").fadeTo('fast', 1);
-                $("#text_sql_header_comment").removeProp('disabled');
+            if ($("#radio_sql_structure_or_data_data").prop("checked")) {
+                $("#text_sql_header_comment").removeProp('disabled').parent("li").fadeTo('fast', 1);
             } else {
                 $("#ul_include_comments > li").fadeTo('fast', 1);
                 $("#ul_include_comments > li > input").removeProp('disabled');
             }
-         }
-     });
+        }
+    });
 }
 
 /**
@@ -155,12 +150,10 @@ $(document).ready(function() {
     $("#plugins").change(function() {
         var active_plugin = $("#plugins option:selected").val();
         var force_file = $("#force_file_" + active_plugin).val();
-        if(force_file == "true") {
-            $("#radio_view_as_text").prop('disabled', true);
-            $("#radio_view_as_text").parent().fadeTo('fast', 0.4);
+        if (force_file == "true") {
+            $("#radio_view_as_text").prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
-            $("#radio_view_as_text").removeProp('disabled');
-            $("#radio_view_as_text").parent().fadeTo('fast', 1);
+            $("#radio_view_as_text").removeProp('disabled').parent().fadeTo('fast', 1);
         }
     });
 });
@@ -170,7 +163,7 @@ $(document).ready(function() {
  */
 function toggle_quick_or_custom()
 {
-    if($("$(this):checked").val() == "custom") {
+    if ($("#radio_custom_export").prop("checked")) {
         $("#databases_and_tables").show();
         $("#rows").show();
         $("#output").show();
@@ -188,43 +181,40 @@ function toggle_quick_or_custom()
 }
 
 $(document).ready(function() {
-    $("input[type='radio'][name='quick_or_custom']").change(function() {
-        toggle_quick_or_custom();
-    });
+    $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
 });
 
 /**
  * Sets up the interface for Javascript-enabled browsers since the default is for
  *  Javascript-disabled browsers
  */
- $(document).ready(function() {
-    if($("input[type='hidden'][name='export_method']").val() != "custom-no-form") {
+$(document).ready(function() {
+    if ($("input[type='hidden'][name='export_method']").val() != "custom-no-form") {
         $("#quick_or_custom").show();
     }
     $("#scroll_to_options_msg").hide();
-    $(".format_specific_options").hide();
-    $(".format_specific_options").css({ "border": 0, "margin": 0, "padding": 0});
+    $(".format_specific_options").hide().css({"border": 0, "margin": 0, "padding": 0});
     $(".format_specific_options h3").remove();
     toggle_quick_or_custom();
-    toggle_structure_data_opts($("select[id='plugins']").val());
+    toggle_structure_data_opts($("select#plugins").val());
     toggle_sql_include_comments();
 });
 
 /**
  * Disables the "Dump some row(s)" sub-options when it is not selected
  */
- $(document).ready(function() {
-     $("input[type='radio'][name='allrows']").change(function() {
-         if($("input[type='radio'][name='allrows']:checked").val() == "1") {
+$(document).ready(function() {
+    $("input[type='radio'][name='allrows']").change(function() {
+        if ($("input[type='radio'][name='allrows']").prop("checked")) {
             $("label[for='limit_to']").fadeTo('fast', 0.4);
-             $("label[for='limit_from']").fadeTo('fast', 0.4);
-             $("input[type='text'][name='limit_to']").prop('disabled', true);
-             $("input[type='text'][name='limit_from']").prop('disabled', true);
-         } else {
+            $("label[for='limit_from']").fadeTo('fast', 0.4);
+            $("input[type='text'][name='limit_to']").prop('disabled', true);
+            $("input[type='text'][name='limit_from']").prop('disabled', true);
+        } else {
             $("label[for='limit_to']").fadeTo('fast', 1);
             $("label[for='limit_from']").fadeTo('fast', 1);
             $("input[type='text'][name='limit_to']").removeProp('disabled');
             $("input[type='text'][name='limit_from']").removeProp('disabled');
-         }
-     });
+        }
+    });
 });
