@@ -350,6 +350,8 @@ class PMA_Table
      * @param string      $comment        field comment
      * @param array       &$field_primary list of fields for PRIMARY KEY
      * @param string      $index
+     * @param mixed       $default_orig
+     * @param string      $move_to        new position for column
      *
      * @todo    move into class PMA_Column
      * @todo on the interface, some js to clear the default value when the default
@@ -360,7 +362,7 @@ class PMA_Table
     static function generateFieldSpec($name, $type, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
         $default_value = '', $extra = '', $comment = '',
-        &$field_primary, $index)
+        &$field_primary, $index, $default_orig, $move_to)
     {
 
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
@@ -462,6 +464,14 @@ class PMA_Table
         }
         if (!empty($comment)) {
             $query .= " COMMENT '" . PMA_sqlAddSlashes($comment) . "'";
+        }
+
+        // move column
+        if ($move_to == '-first') { // dash can't appear as part of column name
+            $query .= ' FIRST';
+        }
+        elseif ($move_to != '') {
+            $query .= ' AFTER ' . PMA_backquote($move_to);
         }
         return $query;
     } // end function
@@ -565,6 +575,7 @@ class PMA_Table
      * @param array       &$field_primary list of fields for PRIMARY KEY
      * @param string      $index
      * @param mixed       $default_orig
+     * @param string      $move_to        new position for column
      *
      * @see PMA_Table::generateFieldSpec()
      *
@@ -572,13 +583,13 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment = '', &$field_primary, $index, $default_orig)
+        $extra, $comment = '', &$field_primary, $index, $default_orig, $move_to)
     {
         return PMA_backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
                 $newcol, $type, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
-                $comment, $field_primary, $index, $default_orig
+                $comment, $field_primary, $index, $default_orig, $move_to
             );
     } // end function
 

@@ -69,7 +69,10 @@ if (isset($_REQUEST['do_save_data'])) {
                 : '',
             $key_fields,
             $i,
-            $_REQUEST['field_default_orig'][$i]
+            $_REQUEST['field_default_orig'][$i],
+            isset($_REQUEST['field_move_to'][$i])
+                ? $_REQUEST['field_move_to'][$i]
+                : ''
         );
     } // end for
 

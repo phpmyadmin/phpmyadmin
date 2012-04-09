@@ -121,6 +121,16 @@ $available_mime = array();
 $comments_map = PMA_getComments($db, $table);
 $header_cells[] = __('Comments');
 
+if (isset($fields_meta)) {
+    // for moving, load all available column names
+    $move_columns_sql_query    = 'SELECT * FROM ' . PMA_backquote($table);
+    $move_columns_sql_result = PMA_DBI_try_query($move_columns_sql_query);
+    $move_columns = PMA_DBI_get_fields_meta($move_columns_sql_result);
+    unset($move_columns_sql_query, $move_columns_sql_result);
+
+    $header_cells[] = __('Move column');
+}
+
 if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $mime_map = PMA_getMIME($db, $table);
     $available_mime = PMA_getAvailableMIMEtypes();
@@ -506,6 +516,35 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' value="' . (isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '"'
         . ' class="textfield" />';
     $ci++;
+
+    // move column
+    if (isset($fields_meta)) {
+        $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
+            . ' name="field_move_to[' . $i . ']" size="1" width="5em">'
+            . '<option value="" selected="selected">&nbsp;</option>';
+
+            // find index of current column
+            $current_index = 0;
+            for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
+                if ($move_columns[$mi]->name == $row['Field']) {
+                    $current_index = $mi;
+                    break;
+                }
+            }
+            $content_cells[$i][$ci] .= '<option value="-first"'
+                . ($current_index == 0 ? ' disabled="disabled"' : '')
+                . '>' . __('first') . '</option>';
+
+            for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
+                $content_cells[$i][$ci] .= 
+                    '<option value="' . $move_columns[$mi]->name . '"'
+                    . (($current_index == $mi || $current_index == $mi + 1) ? ' disabled="disabled"' : '')
+                    .'>' . sprintf(__('after %s'), PMA_backquote($move_columns[$mi]->name)) . '</option>';
+            }
+
+            $content_cells[$i][$ci] .= '</select>';
+        $ci++;
+    }
 
     // column MIME-types
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME'] && $cfgRelation['commwork']) {
