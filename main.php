@@ -10,8 +10,6 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
-
 // Handles some variables that may have been sent by the calling script
 $GLOBALS['db'] = '';
 $GLOBALS['table'] = '';

@@ -12,7 +12,6 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'tbl_structure.js';
 $GLOBALS['js_include'][] = 'indexes.js';
 

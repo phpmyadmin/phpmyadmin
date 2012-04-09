@@ -30,10 +30,6 @@ $cfgRelation = PMA_getRelationsParam();
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/StorageEngine.class.php';
 
-// add a javascript file for jQuery functions to handle Ajax actions
-// also add jQueryUI
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
-
 /**
  * Class for partition management
  */
