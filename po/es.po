@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 08:44-0400\n"
-"PO-Revision-Date: 2012-04-05 15:37+0200\n"
+"PO-Revision-Date: 2012-04-09 15:57+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.8\n"
 
@@ -1025,10 +1025,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Las sentencias \"DROP DATABASE\" están desactivadas."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "¿Realmente desea ejecutar la siguiente consulta?"
+msgstr "¿Realmente desea ejecutar \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:371
 msgid "You are about to DESTROY a complete database!"
@@ -2637,10 +2637,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "¡No se pudo utilizar Blowfish de la biblioteca mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Las cookies deben estar activadas."
+msgstr "Pasado este punto, debe tener Javascript activado"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -2805,7 +2804,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "No se pudo cargar la configuración predeterminada desde: %1$s"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2813,8 +2811,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"¡El contenido de <code>$cfg['PmaAbsoluteUri']</code> DEBE estar definido en "
-"el archivo de configuración config.inc.php!"
+"¡DEBE tener definido [code]$cfg['PmaAbsoluteUri'][/code] en su archivo de "
+"configuración!"
 
 #: libraries/common.inc.php:651
 #, php-format
@@ -5829,26 +5827,25 @@ msgstr ""
 
 #: libraries/display_import.lib.php:71
 msgid "of"
-msgstr ""
+msgstr "de"
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Formato del archivo importado"
+msgstr "Subiendo su archivo a importar..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/seg."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Alrededor de %MIN min. %SEC seg. restantes."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Alrededor de %SEC seg. restantes."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6977,7 +6974,6 @@ msgid "Add prefix"
 msgstr "Agregar prefijo"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
 msgstr "¿Realmente desea ejecutar la siguiente consulta?"
@@ -7539,7 +7535,6 @@ msgid "Event"
 msgstr "Evento"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7550,9 +7545,9 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Está utilizando la extensión de PHP obsoleta 'mysql', que no es capaz de "
-"manejar consultas múltiples. <b>La ejecución de algunas rutinas guardadas "
-"puede fallar</b>. Por favor utilice la extensión mejorada 'mysqli' para "
+"Está utilizando la extensión de PHP obsoleta «mysql», que no es capaz de "
+"manejar consultas múltiples. [strong]La ejecución de algunas rutinas "
+"guardadas puede fallar[/strong]. Utilice la extensión mejorada «mysqli» para "
 "evitar problemas."
 
 #: libraries/rte/rte_routines.lib.php:245
