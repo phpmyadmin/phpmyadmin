@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-rc2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:07+0200\n"
-"PO-Revision-Date: 2012-03-22 19:13+0200\n"
+"PO-Revision-Date: 2012-04-09 11:22+0200\n"
 "Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -1059,7 +1059,7 @@ msgstr "Powrót"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "phpMyAdmin jest bardziej przyjazny w przeglądarkach WWW <b>obsługujących "
-"ramki</b>"
+"ramki</b>."
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:253
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1637,7 +1637,7 @@ msgstr "Suma zgrupowanych wierszy:"
 
 #: js/messages.php:201
 msgid "Total:"
-msgstr "Ogółem"
+msgstr "Ogółem:"
 
 #: js/messages.php:203
 msgid "Loading logs"
@@ -1751,7 +1751,6 @@ msgstr "Dodawanie klucza głównego"
 #: js/messages.php:238 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
-#, fuzzy
 msgid "OK"
 msgstr "OK"
 
@@ -2272,7 +2271,7 @@ msgstr "Sob"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:481
 msgid "Wk"
-msgstr "Wk"
+msgstr "Ty"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:484
@@ -2502,7 +2501,7 @@ msgstr "Brak ostatnich tabel"
 #: libraries/StorageEngine.class.php:203
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "Brak szczegółowych informacji o tym mechanizmie składowania"
+msgstr "Brak szczegółowych informacji o tym mechanizmie składowania."
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
@@ -2712,7 +2711,7 @@ msgstr "Prawidłowy klucz uwierzytelniający nie jest podłączony"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:195
 msgid "Authenticating..."
-msgstr "Trwa uwierzytelnianie…"
+msgstr "Trwa uwierzytelnianie..."
 
 #: libraries/blobstreaming.lib.php:272
 msgid "PBMS error"
@@ -2720,11 +2719,11 @@ msgstr "Błąd PBMS"
 
 #: libraries/blobstreaming.lib.php:306
 msgid "PBMS connection failed:"
-msgstr "Błąd połączenia z PBMS"
+msgstr "Błąd połączenia z PBMS:"
 
 #: libraries/blobstreaming.lib.php:361
 msgid "PBMS get BLOB info failed:"
-msgstr "Błąd połączenia z PBMS"
+msgstr "Błąd połączenia z PBMS:"
 
 #: libraries/blobstreaming.lib.php:373
 msgid "PBMS get BLOB Content-Type failed"
@@ -2868,19 +2867,19 @@ msgstr "Maksymalny rozmiar: %s%s"
 #: libraries/common.lib.php:450
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ang."
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:454
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ang."
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:458
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ang."
 
 #: libraries/common.lib.php:472 libraries/common.lib.php:474
 #: libraries/common.lib.php:476 libraries/common.lib.php:494
@@ -3055,7 +3054,7 @@ msgstr "Operacje"
 #: libraries/common.lib.php:3279 libraries/sql_query_form.lib.php:443
 #: prefs_manage.php:239
 msgid "Browse your computer:"
-msgstr "Wyszukaj w komputerze"
+msgstr "Wyszukaj w komputerze:"
 
 #: libraries/common.lib.php:3298
 #, php-format
@@ -3293,7 +3292,7 @@ msgid ""
 "authentication"
 msgstr ""
 "Tajne hasło używane do szyfrowania ciasteczek przy uwierzytelnianiu przez "
-"ciasteczka."
+"ciasteczka"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -5514,7 +5513,7 @@ msgstr "Nieprawidłowy adres IP: %s"
 #: libraries/core.lib.php:247
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ang."
 
 #: libraries/core.lib.php:266
 #, php-format
@@ -5543,7 +5542,7 @@ msgstr "Proszę sprawdzić uprawnienia katalogu zawierającej bazę danych."
 
 #: libraries/database_interface.lib.php:1828
 msgid "Details..."
-msgstr "Szczegóły…"
+msgstr "Szczegóły..."
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5689,7 +5688,7 @@ msgstr "Baza(y) danych:"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
-msgstr "Tabela(e)"
+msgstr "Tabela(e):"
 
 #: libraries/display_export.lib.php:144
 msgid "Rows:"
@@ -6231,7 +6230,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
-msgstr "Próg śmieci "
+msgstr "Próg śmieci"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
@@ -6266,7 +6265,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Limit czasu BLOB"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
@@ -6279,7 +6278,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:50
 msgid "Temp Log Threshold"
-msgstr "Próg dziennika danych."
+msgstr "Próg dziennika danych"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
@@ -6412,7 +6411,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
-msgstr "Próg dziennika danych."
+msgstr "Próg dziennika danych"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid ""
@@ -6958,7 +6957,7 @@ msgstr "Plik kształtu ESRI"
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr "Wystąpił błąd podczas importowania pliku kształtów ESRI: \"%s\""
+msgstr "Wystąpił błąd podczas importowania pliku kształtów ESRI: \"%s\"."
 
 #: libraries/import/shp.php:336
 msgid ""
@@ -7802,7 +7801,7 @@ msgstr "Nie znaleziono wyzwalacza %1$s w bazie danych %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
-msgstr "Brak wyzwalaczy"
+msgstr "Brak wyzwalaczy."
 
 #: libraries/rte/rte_words.lib.php:42
 msgid "Add event"
@@ -8105,7 +8104,7 @@ msgid ""
 msgstr ""
 "Wygląda na to, że w twoim zapytaniu SQL jest błąd. W znalezieniu przyczyny "
 "problemu może pomóc także - jeśli się pojawi - poniższy opis błędu serwera "
-"MySQL."
+"MySQL"
 
 #: libraries/sqlparser.lib.php:175
 msgid ""
@@ -8326,7 +8325,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 "Wyświetla klikalną miniaturkę; opcje: szerokość,wysokość w pikselach "
-"(oryginalne proporcje zostaną zachowane)"
+"(oryginalne proporcje zostaną zachowane)."
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
@@ -8816,7 +8815,7 @@ msgstr "Błąd: relacja nie została dodana."
 
 #: pmd_relation_new.php:60
 msgid "FOREIGN KEY relation added"
-msgstr "Relacja FOREIGN KEY została dodana."
+msgstr "Relacja FOREIGN KEY została dodana"
 
 #: pmd_relation_new.php:82
 msgid "Internal relation added"
@@ -8860,7 +8859,7 @@ msgstr "Importuj z pliku"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
-msgstr "Import z pamięci przeglądarki."
+msgstr "Import z pamięci przeglądarki"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
@@ -9219,7 +9218,7 @@ msgstr ""
 #: server_privileges.php:67 server_privileges.php:281
 #: server_privileges.php:650
 msgid "Allows creating and dropping triggers"
-msgstr "Pozwól tworzyć i usuwać wyzwalacze."
+msgstr "Pozwól tworzyć i usuwać wyzwalacze"
 
 #: server_privileges.php:68 server_privileges.php:205
 #: server_privileges.php:555 server_privileges.php:620
@@ -12232,7 +12231,7 @@ msgstr "Dostępna pamięć na tym hostie: %s"
 
 #: po/advisory_rules.php:70
 msgid "Query cache disabled"
-msgstr "Pamięć podręczna zapytania wyłączona."
+msgstr "Pamięć podręczna zapytania wyłączona"
 
 #: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
@@ -13219,7 +13218,7 @@ msgstr "MyISAM jednoczesnych wstawień"
 
 #: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr "Włącz concurrent_insert ustawiając ją na 1."
+msgstr "Włącz concurrent_insert ustawiając ją na 1"
 
 #: po/advisory_rules.php:272
 msgid ""
