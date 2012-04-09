@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs VERSION\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-03-29 10:03+0200\n"
-"PO-Revision-Date: 2012-04-06 17:18+0200\n"
-"Last-Translator: Holger Ronecker <holger@ronecker.com>\n"
+"PO-Revision-Date: 2012-04-08 19:02+0200\n"
+"Last-Translator: Jo Michael <me@mynetx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -3860,7 +3860,7 @@ msgstr "Signon Session-Name"
 
 #: libraries/config/messages.inc.php:410
 msgid "Signon URL"
-msgstr "Signon URL"
+msgstr "Signon-URL"
 
 #: libraries/config/messages.inc.php:411
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -5876,11 +5876,11 @@ msgstr "Traditionelles Chinesisch"
 
 #: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
 msgid "case-insensitive"
-msgstr "case-insensitive"
+msgstr "Beachtet nicht Groß- und Kleinschreibung"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:422
 msgid "case-sensitive"
-msgstr "case-sensitive"
+msgstr "Beachtet Groß- und Kleinschreibung"
 
 #: libraries/mysql_charsets.lib.php:240
 msgid "Croatian"
