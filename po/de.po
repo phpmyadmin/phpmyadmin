@@ -12424,7 +12424,7 @@ msgid ""
 msgstr ""
 "Der Cache ist derzeit zu %s%% fragmentiert. 100%% Fragmentierung bedeuten "
 "dass der Abfrage-Cache ein abwechselndes Muster von freien und belegten "
-"Blöcke ist. Dieser Wert sollte unter 20% liegen."
+"Blöcke ist. Dieser Wert sollte unter 20%% liegen."
 
 #: libraries/advisory_rules.txt:165
 msgid "Query cache low memory prunes"
