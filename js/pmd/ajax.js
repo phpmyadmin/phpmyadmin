@@ -51,16 +51,19 @@ function makeRequest(url, parameters)
  */
 function alertContents()
 {
+    var layer = document.getElementById("layer_action");
+
     if (http_request.readyState == 1) {
-        document.getElementById("layer_action").style.left = (document.body.clientWidth + document.body.scrollLeft - 85) + 'px';
-        document.getElementById("layer_action").style.top = (document.body.scrollTop + 10) + 'px';
-        document.getElementById("layer_action").style.visibility = 'visible'; document.getElementById("layer_action").innerHTML = 'Loading...';
+        layer.style.left = (document.body.clientWidth + document.body.scrollLeft - 85) + 'px';
+        layer.style.top = (document.body.scrollTop + 10) + 'px';
+        layer.style.visibility = 'visible';
+        layer.innerHTML = 'Loading...';
     }
     if (http_request.readyState == 2) {
-        document.getElementById("layer_action").innerHTML = 'Loaded';
+        layer.innerHTML = 'Loaded';
     }
     if (http_request.readyState == 3) {
-        document.getElementById("layer_action").innerHTML = 'Loading 99%';
+        layer.innerHTML = 'Loading 99%';
     }
     if (http_request.readyState == 4) {
         if (http_request.status == 200) {
@@ -68,7 +71,7 @@ function alertContents()
             //alert(textdoc);
             xmldoc    = http_request.responseXML;
             PrintXML();
-            //document.getElementById("layer_action").style.visibility = 'hidden';
+            //layer.style.visibility = 'hidden';
         } else {
             alert('There was a problem with the request.');
         }
@@ -77,10 +80,14 @@ function alertContents()
 
 function layer_alert(text)
 {
-    document.getElementById("layer_action").innerHTML = text;
-    document.getElementById("layer_action").style.left = (document.body.clientWidth + document.body.scrollLeft - 20 - document.getElementById("layer_action").offsetWidth) + 'px';
-    document.getElementById("layer_action").style.visibility = 'visible'; 
-    setTimeout(function(){document.getElementById("layer_action").style.visibility = 'hidden';}, 2000);
+    var layer = document.getElementById("layer_action");
+
+    layer.innerHTML = text;
+    layer.style.left = (document.body.clientWidth + document.body.scrollLeft - 20 - layer.offsetWidth) + 'px';
+    layer.style.visibility = 'visible';
+    setTimeout(function () {
+        layer.style.visibility = 'hidden';
+    }, 2000);
 }
 
 /**
@@ -92,7 +99,7 @@ function PrintXML()
     //alert(xmldoc.getElementsByTagName('root').item(1));
     if (root == null) {
         // if error
-        myWin=window.open('','Report','width=400, height=250, resizable=1, scrollbars=1, status=1');
+        var myWin=window.open('','Report','width=400, height=250, resizable=1, scrollbars=1, status=1');
         var tmp = myWin.document;
         tmp.write(textdoc);
         tmp.close();
@@ -115,15 +122,15 @@ function PrintXML()
         if (root.getAttribute('act') == 'relation_new') {
             layer_alert(root.getAttribute('return'));
             if (root.getAttribute('b') == '1') {
-                var i    = contr.length;
+                var i  = contr.length;
                 var t1 = root.getAttribute('DB1') + '.' + root.getAttribute('T1');
                 var f1 = root.getAttribute('F1');
                 var t2 = root.getAttribute('DB2') + '.' + root.getAttribute('T2');
                 var f2 = root.getAttribute('F2');
-                contr[i] = new Array();
-                contr[i][''] = new Array();
-                contr[i][''][t2] = new Array();
-                contr[i][''][t2][f2] = new Array();
+                contr[i] = [];
+                contr[i][''] = [];
+                contr[i][''][t2] = [];
+                contr[i][''][t2][f2] = [];
                 contr[i][''][t2][f2][0] = t1;
                 contr[i][''][t2][f2][1] = f1;
                 Re_load();

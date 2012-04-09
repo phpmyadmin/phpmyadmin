@@ -104,7 +104,7 @@ url_query = '<?php echo $url_query;?>';
             
             foreach ($keys as $idx => $key) {
                 if ($yaxis == -1 && (($idx == count($data[0]) - 1) || preg_match("/(date|time)/i", $key))) {
-                    echo '<option value="' . htmlspecialchars($idx) . '" selected>' . htmlspecialchars($key) . '</option>';
+                    echo '<option value="' . htmlspecialchars($idx) . '" selected="selected">' . htmlspecialchars($key) . '</option>';
                     $yaxis=$idx;
                 } else {
                     echo '<option value="' . htmlspecialchars($idx) . '">' . htmlspecialchars($key) . '</option>';
@@ -137,25 +137,17 @@ url_query = '<?php echo $url_query;?>';
     <p style="clear:both;">&nbsp;</p>
     <div id="resizer" style="width:600px; height:400px;">
         <div id="inner-resizer">
-            <div id="querychart" style="display:none;">
-<?php
-$sanitized_data = array();
-foreach ($data as $data_row_number => $data_row) {
-    $tmp_row = array();
-    foreach ($data_row as $data_column => $data_value) {
-        $tmp_row[htmlspecialchars($data_column)] = htmlspecialchars($data_value);
-    }
-    $sanitized_data[] = $tmp_row;
-} 
-echo json_encode($sanitized_data); 
-unset($sanitized_data);
-?>
-            </div>
+            <div id="querychart" style="display:none;"></div>
         </div>
     </div>
 </fieldset>
 </form>
 </div>
+<script type="text/javascript">
+//<![CDATA[
+    chart_data = <?php echo strtr(json_encode($data), array('<' => '&lt;', '>' => '&gt;')); ?>;
+//]]>
+</script>
 <?php
 /**
  * Displays the footer
