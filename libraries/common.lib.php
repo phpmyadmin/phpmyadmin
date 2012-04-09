@@ -140,7 +140,7 @@ function PMA_getImage($image, $alternate = '', $attributes = array())
     $class = str_replace(array('.gif','.png'), '', $image);
     if (array_key_exists($class, $sprites)) {
         $is_sprite = true;
-        $url = 'themes/dot.gif';
+        $url = (defined('PMA_TEST_THEME') ? '../' : '') . 'themes/dot.gif';
     } else {
         $url = $GLOBALS['pmaThemeImage'] . $image;
     }

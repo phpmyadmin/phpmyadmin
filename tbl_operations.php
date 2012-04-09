@@ -52,7 +52,7 @@ require 'libraries/tbl_info.inc.php';
 // define some globals here, for improved syntax in the conditionals
 $is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = $is_aria = $is_pbxt = false;
 // set initial value of these globals, based on the current table engine
-PMA_set_global_variables_for_engine($tbl_type);
+PMA_set_global_variables_for_engine($tbl_storage_engine);
 
 if ($is_aria) {
     // the value for transactional can be implicit
@@ -104,12 +104,12 @@ if (isset($_REQUEST['submitoptions'])) {
       && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']) {
         $table_alters[] = 'COMMENT = \'' . PMA_sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
-    if (! empty($_REQUEST['new_tbl_type'])
-      && strtolower($_REQUEST['new_tbl_type']) !== strtolower($tbl_type)) {
-        $table_alters[] = 'ENGINE = ' . $_REQUEST['new_tbl_type'];
-        $tbl_type = $_REQUEST['new_tbl_type'];
+    if (! empty($_REQUEST['new_tbl_storage_engine'])
+      && strtolower($_REQUEST['new_tbl_storage_engine']) !== strtolower($tbl_storage_engine)) {
+        $table_alters[] = 'ENGINE = ' . $_REQUEST['new_tbl_storage_engine'];
+        $tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
-        PMA_set_global_variables_for_engine($tbl_type);
+        PMA_set_global_variables_for_engine($tbl_storage_engine);
         if ($is_aria) {
             $transactional = (isset($transactional) && $transactional == '0') ? '0' : '1';
             $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
@@ -178,7 +178,7 @@ if (isset($_REQUEST['submitoptions'])) {
             // should not be reported with a Level of Error, so here
             // I just ignore it. But there are other 1478 messages
             // that it's better to show.
-            if (! ($_REQUEST['new_tbl_type'] == 'MyISAM' && $warning['Code'] == '1478' && $warning['Level'] == 'Error')) {
+            if (! ($_REQUEST['new_tbl_storage_engine'] == 'MyISAM' && $warning['Code'] == '1478' && $warning['Level'] == 'Error')) {
                 $warning_messages[] = $warning['Level'] . ': #' . $warning['Code']
                     . ' ' . $warning['Message'];
             }
@@ -374,7 +374,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
     <tr><td><?php echo __('Storage Engine'); ?>
             <?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </td>
-        <td><?php echo PMA_StorageEngine::getHtmlSelect('new_tbl_type', null, $tbl_type); ?>
+        <td><?php echo PMA_StorageEngine::getHtmlSelect('new_tbl_storage_engine', null, $tbl_storage_engine); ?>
         </td>
     </tr>
 
@@ -509,11 +509,11 @@ unset($innodb_engine_plugin, $innodb_plugin_version, $innodb_file_format);
 // does not return a warning
 // (if the table was compressed, it can be seen on the Structure page)
 
-if (isset($possible_row_formats[$tbl_type])) {
+if (isset($possible_row_formats[$tbl_storage_engine])) {
     $current_row_format = strtoupper($showtable['Row_format']);
     echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
     echo '<td>';
-    echo PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_type], $current_row_format, 'new_row_format');
+    echo PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_storage_engine], $current_row_format, 'new_row_format');
     unset($possible_row_formats, $current_row_format);
     echo '</td>';
     echo '</tr>';
@@ -859,21 +859,21 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
 require 'libraries/footer.inc.php';
 
 
-function PMA_set_global_variables_for_engine($tbl_type)
+function PMA_set_global_variables_for_engine($tbl_storage_engine)
 {
     global $is_myisam_or_aria, $is_innodb, $is_isam, $is_berkeleydb, $is_aria, $is_pbxt;
 
     $is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = $is_aria = $is_pbxt = false;
-    $upper_tbl_type = strtoupper($tbl_type);
+    $upper_tbl_storage_engine = strtoupper($tbl_storage_engine);
 
     //Options that apply to MYISAM usually apply to ARIA
-    $is_myisam_or_aria = ($upper_tbl_type == 'MYISAM' || $upper_tbl_type == 'ARIA' || $upper_tbl_type == 'MARIA');
-    $is_aria = ($upper_tbl_type == 'ARIA');
+    $is_myisam_or_aria = ($upper_tbl_storage_engine == 'MYISAM' || $upper_tbl_storage_engine == 'ARIA' || $upper_tbl_storage_engine == 'MARIA');
+    $is_aria = ($upper_tbl_storage_engine == 'ARIA');
 
-    $is_isam = ($upper_tbl_type == 'ISAM');
-    $is_innodb = ($upper_tbl_type == 'INNODB');
-    $is_berkeleydb = ($upper_tbl_type == 'BERKELEYDB');
-    $is_pbxt = ($upper_tbl_type == 'PBXT');
+    $is_isam = ($upper_tbl_storage_engine == 'ISAM');
+    $is_innodb = ($upper_tbl_storage_engine == 'INNODB');
+    $is_berkeleydb = ($upper_tbl_storage_engine == 'BERKELEYDB');
+    $is_pbxt = ($upper_tbl_storage_engine == 'PBXT');
 }
 
 ?>

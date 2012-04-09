@@ -121,6 +121,10 @@ if (isset($plugin_list)) {
         $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
         $columns_cnt = PMA_DBI_num_fields($result);
+
+        // Get field information
+        $fields_meta = PMA_DBI_get_fields_meta($result);
+
         for ($i = 0; $i < $columns_cnt; $i++) {
             $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
         }
@@ -148,7 +152,7 @@ if (isset($plugin_list)) {
 
                 if (is_null($record[$i])) {
                     $buffer .= '"' . addslashes($column) . '": null' . (! $isLastLine ? ',' : '');
-                } elseif (is_numeric($record[$i])) {
+                } elseif ($fields_meta[$i]->numeric) {
                     $buffer .= '"' . addslashes($column) . '": ' . $record[$i] . (! $isLastLine ? ',' : '');
                 } else {
                     $buffer .= '"' . addslashes($column) . '": "' . addslashes($record[$i]) . '"' . (! $isLastLine ? ',' : '');

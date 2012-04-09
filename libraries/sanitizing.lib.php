@@ -110,8 +110,9 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         '[/kbd]'    => '</kbd>',
         '[br]'      => '<br />',
         '[/a]'      => '</a>',
-        '[sup]'      => '<sup>',
-        '[/sup]'      => '</sup>',
+        '[sup]'     => '<sup>',
+        '[/sup]'    => '</sup>',
+        '[conferr]' => '<iframe src="show_config_errors.php" />' // used in common.inc.php
     );
     /* Adjust links for setup, which lives in subfolder */
     if (defined('PMA_SETUP')) {

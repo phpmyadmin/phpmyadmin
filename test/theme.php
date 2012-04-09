@@ -6,24 +6,23 @@
  * @package PhpMyAdmin-test
  */
 
+define('PMA_TEST_THEME', true);
+
 chdir('..');
 
 /**
  * Gets core libraries and defines some variables
  */
 require_once './libraries/common.inc.php';
+$GLOBALS['pmaThemeImage'] = '../' . $GLOBALS['pmaThemeImage'];
 
 $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
 
 // start output
 header('Content-Type: text/html; charset=utf-8');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xml:lang="<?php echo $lang_iso_code; ?>"
-    lang="<?php echo $lang_iso_code; ?>"
-    dir="<?php echo $GLOBALS['text_dir']; ?>">
+<!DOCTYPE HTML>
+<html lang="<?php echo $lang_iso_code; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
     <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
         <?php echo htmlspecialchars($HTTP_HOST); ?> - Theme Test</title>
@@ -32,15 +31,19 @@ header('Content-Type: text/html; charset=utf-8');
         href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
+    <script src="../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../js/messages.php" type="text/javascript"></script>
+    <script type="text/javascript">
+        var PMA_TEST_THEME = true;
+    </script>
+    <script src="../js/get_image.js.php" type="text/javascript"></script>
     <script src="../js/functions.js" type="text/javascript"></script>
 </head>
 <body>
 <?php
 
 
-$separator = '<span class="separator">'
-    .'<img class="icon ic_item_ltr" src="../themes/dot.gif"'
-    .' width="5" height="9" alt="-" /></span>' . "\n";
+$separator = '<span class=\'separator item\'>&nbsp;»</span>' . "\n";
 $item = '<a href="%1$s?%2$s" class="item">'
     .' <img class="icon %5$s" src="../themes/dot.gif"'
     .' width="16" height="16" alt="" /> ' . "\n"
@@ -81,7 +84,7 @@ printf(
     );
 
 echo '<span class="table_comment" id="span_table_comment">'
-    .'&quot;Table comment&quot</span>' . "\n";
+    .'&quot;Table comment&quot;</span>' . "\n";
 
 echo '</div>';
 
@@ -91,7 +94,7 @@ echo '</div>';
  */
 $tabs = array();
 
-$tabs['databases']['icon'] = 'ic_s_db';
+$tabs['databases']['icon'] = 's_db.png';
 $tabs['databases']['link'] = 'server_databases.php';
 $tabs['databases']['text'] = __('Databases');
 
@@ -99,43 +102,43 @@ $tabs['sql']['icon'] = 'b_sql.png';
 $tabs['sql']['link'] = 'server_sql.php';
 $tabs['sql']['text'] = __('SQL');
 
-$tabs['status']['icon'] = 'ic_s_status';
+$tabs['status']['icon'] = 's_status.png';
 $tabs['status']['link'] = 'server_status.php';
 $tabs['status']['text'] = __('Status');
 
-$tabs['vars']['icon'] = 'ic_s_vars';
+$tabs['vars']['icon'] = 's_vars.png';
 $tabs['vars']['link'] = 'server_variables.php';
 $tabs['vars']['text'] = __('Variables');
 
-$tabs['charset']['icon'] = 'ic_s_asci';
+$tabs['charset']['icon'] = 's_asci.png';
 $tabs['charset']['link'] = 'server_collations.php';
 $tabs['charset']['text'] = __('Charsets');
 
-$tabs['engine']['icon'] = 'ic_b_engine';
+$tabs['engine']['icon'] = 'b_engine.png';
 $tabs['engine']['link'] = 'server_engines.php';
 $tabs['engine']['text'] = __('Engines');
 
-$tabs['rights']['icon'] = 'ic_s_rights';
+$tabs['rights']['icon'] = 's_rights.png';
 $tabs['rights']['link'] = 'server_privileges.php';
 $tabs['rights']['text'] = __('Privileges');
 
-$tabs['binlog']['icon'] = 'ic_s_tbl';
+$tabs['binlog']['icon'] = 's_tbl.png';
 $tabs['binlog']['link'] = 'server_binlog.php';
 $tabs['binlog']['text'] = __('Binary log');
 
-$tabs['process']['icon'] =  'ic_s_process';
+$tabs['process']['icon'] =  's_process.png';
 $tabs['process']['link'] = 'server_processlist.php';
 $tabs['process']['text'] = 'caution';
 $tabs['process']['class'] = 'caution';
 
-$tabs['export']['icon'] = 'ic_b_export';
+$tabs['export']['icon'] = 'b_export.png';
 $tabs['export']['text'] = 'disabled';
 
-$tabs['export2']['icon'] = 'ic_b_export';
+$tabs['export2']['icon'] = 'b_export.png';
 $tabs['export2']['text'] = 'disabled caution';
 $tabs['export2']['class'] = 'caution';
 
-$tabs['import']['icon'] = 'ic_b_import';
+$tabs['import']['icon'] = 'b_import.png';
 $tabs['import']['link'] = 'server_import.php';
 $tabs['import']['text'] = 'active';
 $tabs['import']['class'] = 'active';
@@ -153,19 +156,18 @@ if (@file_exists($pmaThemeImage . 'logo_right.png')) {
 <h1>
 <?php
 echo sprintf(__('Welcome to %s'),
-    '<bdo dir="ltr" xml:lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
+    '<bdo dir="ltr" lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
 ?>
 </h1>
 
 <hr class="clearfloat" />
 
-<form method="post" action="theme.php" target="_parent">
+<form method="post" action="theme.php">
 <fieldset>
     <legend><?php echo __('Theme'); ?></legend>
 <?php
     echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox(false);
 ?>
-<noscript><input type="submit" value="Go" style="vertical-align: middle" /></noscript>
 </fieldset>
 </form>
 
@@ -180,7 +182,7 @@ echo sprintf(__('Welcome to %s'),
     success message box content!
 </div>
 <div class="success">
-    <h1>Auccess message box header!</h1>
+    <h1>Success message box header!</h1>
     success message box content!
 </div>
 

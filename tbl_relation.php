@@ -132,7 +132,7 @@ $cfgRelation = PMA_getRelationsParam();
 if ($cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
-if (PMA_foreignkey_supported($tbl_type)) {
+if (PMA_foreignkey_supported($tbl_storage_engine)) {
     $existrel_foreign = PMA_getForeigners($db, $table, '', 'foreign');
 }
 if ($cfgRelation['displaywork']) {
@@ -336,7 +336,7 @@ if ($cfgRelation['displaywork'] && isset($display_field)) {
 if (isset($destination) && $cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
-if (isset($destination_foreign) && PMA_foreignkey_supported($tbl_type)) {
+if (isset($destination_foreign) && PMA_foreignkey_supported($tbl_storage_engine)) {
     $existrel_foreign = PMA_getForeigners($db, $table, '', 'foreign');
 }
 
@@ -356,13 +356,13 @@ echo PMA_generate_common_hidden_inputs($db, $table);
 
 // relations
 
-if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
+if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_storage_engine)) {
     // To choose relations we first need all tables names in current db
     // and if the main table supports foreign keys
     // we use SHOW TABLE STATUS because we need to find other tables of the
     // same engine.
 
-    if (PMA_foreignkey_supported($tbl_type)) {
+    if (PMA_foreignkey_supported($tbl_storage_engine)) {
         $tab_query           = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
         // [0] of the row is the name
         // [1] is the type
@@ -383,9 +383,9 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
 
         // if foreign keys are supported, collect all keys from other
         // tables of the same engine
-        if (PMA_foreignkey_supported($tbl_type)
+        if (PMA_foreignkey_supported($tbl_storage_engine)
             && isset($curr_table[1])
-            && strtoupper($curr_table[1]) == $tbl_type
+            && strtoupper($curr_table[1]) == $tbl_storage_engine
         ) {
              // explicitely ask for non-quoted list of indexed columns
              // need to obtain backquoted values to support dots inside values
@@ -412,14 +412,14 @@ if (count($columns) > 0) {
     <?php
     if ($cfgRelation['relwork']) {
         echo '<th>' . __('Internal relation');
-        if (PMA_foreignkey_supported($tbl_type)) {
+        if (PMA_foreignkey_supported($tbl_storage_engine)) {
             echo PMA_showHint(__('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'));
         }
         echo '</th>';
     }
-    if (PMA_foreignkey_supported($tbl_type)) {
+    if (PMA_foreignkey_supported($tbl_storage_engine)) {
         // this does not have to be translated, it's part of the MySQL syntax
-        echo '<th colspan="2">' . __('Foreign key constraint') . ' (' . $tbl_type . ')';
+        echo '<th colspan="2">' . __('Foreign key constraint') . ' (' . $tbl_storage_engine . ')';
         echo '</th>';
     }
     ?>
@@ -476,7 +476,7 @@ if (count($columns) > 0) {
             <?php
         } // end if (internal relations)
 
-        if (PMA_foreignkey_supported($tbl_type)) {
+        if (PMA_foreignkey_supported($tbl_storage_engine)) {
             echo '<td>';
             if (!empty($save_row[$i]['Key'])) {
                 ?>

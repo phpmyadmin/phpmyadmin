@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-06 13:06+0200\n"
-"PO-Revision-Date: 2012-04-06 21:04+0200\n"
+"PO-Revision-Date: 2012-04-07 21:06+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -647,7 +647,7 @@ msgstr "Označi vse"
 #: libraries/replication_gui.lib.php:35 server_databases.php:282
 #: server_privileges.php:754 server_privileges.php:1893 tbl_structure.php:564
 msgid "Uncheck All"
-msgstr "Odznači vse"
+msgstr "Počisti vse"
 
 #: db_structure.php:579
 msgid "Check tables having overhead"
@@ -1045,7 +1045,7 @@ msgstr "Brisanje primarnega ključa/indeksa"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Ta operacija lahko traja dolgo časa. Vseeno nadaljujem?"
+msgstr "Operacija lahko traja dolgo časa. Vseeno nadaljujem?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -2399,7 +2399,7 @@ msgstr "Edinstven"
 
 #: libraries/Index.class.php:457 tbl_tracking.php:334
 msgid "Packed"
-msgstr "Stisnjeno"
+msgstr "Stisnjen"
 
 #: libraries/Index.class.php:459 tbl_tracking.php:336
 msgid "Cardinality"
@@ -2488,7 +2488,7 @@ msgstr "Ni nobenih nedavnih tabel"
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
-"Za ta skladiščni pogon ni na voljo nobenih podrobnejših informacij o stanju."
+"Za skladiščni pogon ni na voljo nobenih podrobnejših informacij o stanju."
 
 #: libraries/StorageEngine.class.php:341
 #, php-format
@@ -2816,7 +2816,7 @@ msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
 #: libraries/common.lib.php:195
 #, php-format
 msgid "Max: %s%s"
-msgstr "Največja velikost: %s%s"
+msgstr "Največja velikost: %s %s"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:450
@@ -3183,7 +3183,7 @@ msgstr "Wiki"
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
-"Ta nastavitev je onemogočena, zato ne bo uporabljena pri vaši konfiguraciji"
+"Nastavitev je onemogočena, zato ne bo uporabljena pri vaši konfiguraciji"
 
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
@@ -3506,13 +3506,13 @@ msgstr "Postavi imena stolpcev v prvo vrstico"
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
-msgstr "Stolpci obdani z"
+msgstr "Stolpci so obdani z"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 msgid "Columns escaped by"
-msgstr "Stolpci izognjeni z"
+msgstr "Stolpci so izognjeni z"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:85
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:101
@@ -3530,12 +3530,12 @@ msgstr "Odstrani znake CRLF znotraj stolpcev"
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
-msgstr "Stolpci zaključeni z"
+msgstr "Stolpci so zaključeni z"
 
 #: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:242
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "Vrstice zaključene z"
+msgstr "Vrstice so zaključene z"
 
 #: libraries/config/messages.inc.php:84
 msgid "Excel edition"
@@ -4046,8 +4046,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
-"Privzeta oblika; pomnite, da je seznam odvisen od položaja (podatkovna "
-"zbirka, tabela) in vedno je na voljo samo SQL"
+"Privzeta oblika; pomnite, da je seznam odvisen od položaja (zbirka podatkov, "
+"tabela) in vedno je na voljo samo SQL"
 
 #: libraries/config/messages.inc.php:249
 msgid "Format of imported file"
@@ -4072,7 +4072,7 @@ msgstr "Uvozi denarne enote ($5.00 v 5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Uvozi odstotke kot ustrezne decimalne vrednosti (12.00% v ,12)"
+msgstr "Uvozi odstotke kot ustrezne decimalne vrednosti (12.00% v .12)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
@@ -4298,12 +4298,12 @@ msgstr "Uporabniki ne morejo določiti višje vrednosti"
 #: libraries/config/messages.inc.php:310
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
-"Največje število podatkovnih zbirk prikazanih v levem okvirju in na seznamu "
+"Največje število zbirk podatkov, prikazanih v levem okvirju in na seznamu "
 "zbirk podatkov"
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum databases"
-msgstr "Največ podatkovnih zbirk"
+msgstr "Največ zbirk podatkov"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
@@ -4644,7 +4644,7 @@ msgstr "Krmilni gostitelj"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
-msgstr "Preštej tabele med prikazovanjem seznama podatkovnih zbirk"
+msgstr "Preštej tabele med prikazovanjem seznama zbirk podatkov"
 
 #: libraries/config/messages.inc.php:388
 msgid "Count tables"
@@ -6257,8 +6257,8 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
-"Odstotek smeti v dnevniški datoteki, preden je ta stisnjena. Vrednost je med "
-"1 in 99. Privzeto je 50."
+"Odstotek smeti v dnevniški datoteki, preden je stisnjena. Vrednost je med 1 "
+"in 99. Privzeto je 50."
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Log buffer size"
@@ -6442,7 +6442,7 @@ msgstr "PDF"
 
 #: libraries/export/pdf.php:24
 msgid "(Generates a report containing the data of a single table)"
-msgstr "(Ustvari poročilo, ki vsebuje podatke tabele same)"
+msgstr "(Ustvari poročilo, ki vsebuje podatke ene tabele)"
 
 #: libraries/export/pdf.php:25
 msgid "Report title:"
@@ -6483,7 +6483,7 @@ msgstr ""
 #: libraries/export/sql.php:180
 #, php-format
 msgid "Add %s statement"
-msgstr "Dodaj %s izjavo"
+msgstr "Dodaj izjavo %s"
 
 #: libraries/export/sql.php:152
 msgid "Add statements:"
@@ -6562,8 +6562,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Odloži dvojiške stolpce v šestnajstiškem zapisu <i>(na primer, \"abc\" "
-"postane 0x616263)</i>"
+"Odloži dvojiške stolpce v šestnajstiškem zapisu <i>(na primer: \"abc\" postane "
+"0x616263)</i>"
 
 #: libraries/export/sql.php:302
 msgid ""
@@ -6760,12 +6760,12 @@ msgstr "Imena stolpcev"
 
 #: libraries/import/ldi.php:57
 msgid "This plugin does not support compressed imports!"
-msgstr "Ta vtičnik ne podpira stisnjenih uvozov!"
+msgstr "Vtičnik ne podpira stisnjenih uvozov!"
 
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Uvozi odstotke kot ustrezne decimalne vrednosti <i>(npr. 12.00% v ,12)</i>"
+"Uvozi odstotke kot ustrezne decimalne vrednosti <i>(npr. 12.00% v .12)</i>"
 
 #: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -7056,7 +7056,7 @@ msgstr "Osveži okvir navigacije"
 
 #: libraries/plugin_interface.lib.php:284
 msgid "This format has no options"
-msgstr "Za to obliko ni možnosti"
+msgstr "Oblika nima nobenih možnosti"
 
 #: libraries/relation.lib.php:76
 msgid "not OK"
@@ -7125,11 +7125,11 @@ msgstr "Hitri koraki za namestitev naprednih funkcij:"
 #: libraries/relation.lib.php:154
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
-msgstr "Ustvari potrebne tabele s <code>examples/create_tables.sql</code>."
+msgstr "Ustvarite potrebne tabele s <code>examples/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."
-msgstr "Ustvari uporabnika pma in dovoli dostop do teh tabel."
+msgstr "Ustvarite uporabnika pma in mu dodelite dostop do teh tabel."
 
 #: libraries/relation.lib.php:156
 msgid ""
@@ -7694,7 +7694,7 @@ msgstr "Shema zbirke podatkov %s - Stran %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
-msgstr "Ta stran ne vsebuje nobenih tabel!"
+msgstr "Stran ne vsebuje nobenih tabel!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
@@ -7891,7 +7891,7 @@ msgstr "Izvedi poizvedbo/poizvedbe SQL na strežniku %s"
 #: libraries/sql_query_form.lib.php:213 libraries/sql_query_form.lib.php:235
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Izvedi poizvedbo/poizvedbe SQL na podatkovni zbirki %s"
+msgstr "Izvedi poizvedbo/poizvedbe SQL na zbirki podatkov %s"
 
 #: libraries/sql_query_form.lib.php:267 navigation.php:259
 #: setup/frames/index.inc.php:233
@@ -7939,8 +7939,8 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
-"Izgleda, da je v poizvedbi SQL prišlo do napake. Če je strežnik MySQL "
-"izpisal napako, vam le-ta lahko pomaga pri odkrivanju težav"
+"Kaže, da je v poizvedbi SQL prišlo do napake. Če je strežnik MySQL izpisal "
+"napako, vam le-ta lahko pomaga pri odkrivanju težav"
 
 #: libraries/sqlparser.lib.php:176
 msgid ""
@@ -8062,8 +8062,8 @@ msgid ""
 msgstr ""
 "Vrednosti za možnosti pretvorbe vnesite v naslednji obliki: 'a', 100, "
 "b,'c'...<br />Če želite med vrednosti vnesti poševnico nazaj (\"\\\") ali "
-"enojni narekovaj (\"'\"), morate pred ta znak postaviti (še eno) poševnico "
-"nazaj (npr. '\\\\xyz' ali 'a\\'b')."
+"enojni narekovaj (\"'\"), morate pred znak postaviti (še eno) poševnico nazaj "
+"(npr. '\\\\xyz' ali 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:321
 msgid "ENUM or SET data too long?"
@@ -8399,7 +8399,7 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"V vaši konfiguraciji PHP ste omogočili mbstring.func_overload. Ta možnost ni "
+"V vaši konfiguraciji PHP ste omogočili mbstring.func_overload. Možnost ni "
 "združljiva s phpMyAdminom in lahko pokvari nekatere podatke!"
 
 #: main.php:284
@@ -8415,7 +8415,7 @@ msgstr ""
 #: main.php:292
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie "
+"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
@@ -8889,7 +8889,7 @@ msgstr "Omogoča ustvarjanje in brisanje shranjenih rutin."
 #: server_privileges.php:94 server_privileges.php:270
 #: server_privileges.php:696
 msgid "Allows creating new databases and tables."
-msgstr "Omogoča ustvarjanje novih podatkovnih zbirk in tabel."
+msgstr "Omogoča ustvarjanje novih zbirk podatkov in tabel."
 
 #: server_privileges.php:95 server_privileges.php:356
 #: server_privileges.php:702
@@ -8924,7 +8924,7 @@ msgstr "Omogoča brisanje podatkov."
 #: server_privileges.php:101 server_privileges.php:274
 #: server_privileges.php:699
 msgid "Allows dropping databases and tables."
-msgstr "Omogoča brisanje podatkovnih zbirk in tabel."
+msgstr "Omogoča brisanje zbirk podatkov in tabel."
 
 #: server_privileges.php:102 server_privileges.php:699
 msgid "Allows dropping tables."
@@ -9028,7 +9028,7 @@ msgstr "Omogoča branje podatkov."
 #: server_privileges.php:120 server_privileges.php:306
 #: server_privileges.php:729
 msgid "Gives access to the complete list of databases."
-msgstr "Omogoča dostop do popolnega spiska podatkovnih zbirk."
+msgstr "Omogoča dostop do popolnega spiska zbirk podatkov."
 
 #: server_privileges.php:121 server_privileges.php:347
 #: server_privileges.php:352 server_privileges.php:701
@@ -9229,7 +9229,7 @@ msgstr "Privilegiji tipični za stolpec"
 
 #: server_privileges.php:2246
 msgid "Add privileges on the following database"
-msgstr "Dodaj privilegije na naslednji podatkovni zbirki"
+msgstr "Dodaj privilegije na naslednji zbirki podatkov"
 
 #: server_privileges.php:2264
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -9272,7 +9272,7 @@ msgstr ""
 
 #: server_privileges.php:2355
 msgid "Database for user"
-msgstr "Podatkovna zbirka za uporabnika"
+msgstr "Zbirka podatkov za uporabnika"
 
 #: server_privileges.php:2357
 msgid "Create database with same name and grant all privileges"
@@ -9336,8 +9336,7 @@ msgstr "Glavni strežnik je uspešno spremenjen v %s"
 
 #: server_replication.php:210
 msgid "This server is configured as master in a replication process."
-msgstr ""
-"Ta strežnik je konfiguriran kot glavni strežnik v postopku podvojevanja."
+msgstr "Strežnik je konfiguriran kot glavni strežnik v postopku podvojevanja."
 
 #: server_replication.php:212 server_status.php:614
 msgid "Show master status"
@@ -9353,8 +9352,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Ta strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. Ali "
-"ga želite <a href=\"%s\">konfigurirati</a>?"
+"Strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. Ga "
+"želite <a href=\"%s\">konfigurirati</a>?"
 
 #: server_replication.php:247
 msgid "Master configuration"
@@ -9368,7 +9367,7 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
-"Ta strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. "
+"Strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. "
 "Izbirate lahko med ali podvojevanjem vseh zbirk podatkov in prezrtjem "
 "nekaterih (uporabno, če želite podvojiti večino zbirk podatkov) ali "
 "prezrtjem vseh zbirk podatkov po privzetem in podvojitvijo samo določenih "
@@ -9400,8 +9399,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"Ko enkrat ponovno zažetene strežnik MySQL, prosimo, kliknite na gumb Pojdi. "
-"Nato bi morali videti sporočilo, ki vam sporoča, da ta strežnik <b>je</b> "
+"Ko enkrat ponovno zaženete strežnik MySQL, prosimo, kliknite na gumb Pojdi. "
+"Nato bi morali videti sporočilo, ki vam sporoča, da <b>je</b> strežnik "
 "konfiguriran kot glavni strežnik"
 
 #: server_replication.php:323
@@ -9486,8 +9485,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Ta strežnik ni konfiguriran kot podrejenec v postopku podvojevanja. Ali ga "
-"želite <a href=\"%s\">konfigurirati</a>?"
+"Strežnik ni konfiguriran kot podrejenec v postopku podvojevanja. Ga želite "
+"<a href=\"%s\">konfigurirati</a>?"
 
 #: server_status.php:447
 #, php-format
@@ -9498,7 +9497,7 @@ msgstr "Nit %s je bila prekinjena."
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "phpMyAdmin ni uspel prekiniti teme %s. Verjetno je že prekinjena."
+msgstr "phpMyAdmin ni uspel prekiniti niti %s. Verjetno je že prekinjena."
 
 #: server_status.php:581
 msgid "Handler"
@@ -9622,9 +9621,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
-"Kakor koli, pomnite, da ta sistem nudi priporočila, ki temeljijo na "
-"preprostih računih in splošnih smernicah, katere morda ne ustrezajo vašemu "
-"sistemu."
+"Kakor koli, pomnite, da sistem nudi priporočila, ki temeljijo na preprostih "
+"računih in splošnih smernicah, ki morda ne ustrezajo vašemu sistemu."
 
 #: server_status.php:905
 msgid ""
@@ -9651,7 +9649,7 @@ msgstr ""
 #: server_status.php:929
 #, php-format
 msgid "Questions since startup: %s"
-msgstr "Vprašanja od zagona: %s"
+msgstr "Vprašanj od zagona: %s"
 
 #: server_status.php:965 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
@@ -9853,7 +9851,7 @@ msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
-"Število zahtev za branje vrstice temelječih na ključu. Če je ta vrednost "
+"Število zahtev za branje vrstice, temelječih na ključu. Če je vrednost "
 "visoka, je to dober znak, da so vaše poizvedbe in tabele primerno "
 "indeksirane."
 
@@ -9872,7 +9870,7 @@ msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
-"Število poizvedb za branje prejšnje vrstice v zaporedju ključa. Ta postopek "
+"Število poizvedb za branje prejšnje vrstice v zaporedju ključa. Postopek "
 "branja se uporablja predvsem za optimizacijo ORDER BY ... DESC."
 
 #: server_status.php:1313
@@ -9991,10 +9989,10 @@ msgid ""
 "properly, this value should be small."
 msgstr ""
 "Po navadi pisanje v zalogo medpomnilnika InnoDB poteka v ozadju. Če pa je "
-"potrebno brati ali ustvariti stran in na voljo ni nobene čiste strani, je "
-"potrebno počakati, da se strani najprej izplaknejo. Ta števec šteje primere "
-"teh čakanj. Če je bila velikost zaloge medpomnilnika primerno nastavljena, "
-"bi morala biti ta vrednost majhna."
+"potrebno brati ali ustvariti stran in ni na voljo nobene čiste strani, je "
+"potrebno počakati, da se strani najprej izplaknejo. Števec šteje primere teh "
+"čakanj. Če je bila velikost zaloge medpomnilnika primerno nastavljena, bi "
+"morala biti vrednost majhna."
 
 #: server_status.php:1330
 msgid "The number writes done to the InnoDB buffer pool."
@@ -10268,7 +10266,7 @@ msgid ""
 "decide which queries to remove from the cache."
 msgstr ""
 "Število poizvedb, ki so bile izbrisane iz predpomnilnika, da se sprosti "
-"spomin za predpomnenje novih poizvedb. Ta informacija lahko pomaga pri "
+"spomin za predpomnenje novih poizvedb. Informacija lahko pomaga pri "
 "uravnavanju velikosti predpomnilnika poizvedb. Predpomnilnik poizvedb "
 "uporablja strategijo nedavno najmanj uporabljanih (LRU), da odloči, katere "
 "poizvedbe naj odstrani iz predpomnilnika."
@@ -10298,7 +10296,7 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"Število stikov, ki ne uporabljajo indeksov. Če ta vrednost ni 0, skrbno "
+"Število stikov, ki ne uporabljajo indeksov. Če vrednost ni 0, skrbno "
 "preverite indekse vaših tabel."
 
 #: server_status.php:1388
@@ -10362,7 +10360,7 @@ msgid ""
 "system variable."
 msgstr ""
 "Število prehodov spajanja, ki jih je moral opraviti algoritem razvrščanja. "
-"Če je ta vrednost velika, razmislite o povečanju sistemske spremenljivke "
+"Če je vrednost velika, razmislite o povečanju sistemske spremenljivke "
 "sort_buffer_size."
 
 #: server_status.php:1398
@@ -10400,8 +10398,8 @@ msgid ""
 "raise your thread_cache_size."
 msgstr ""
 "Število niti v predpomnilniku niti. Delež zadetkov predpomnilnika se lahko "
-"izračuna kot Threads_created/Connections. Če je ta vrednost rdeča, povečajte "
-"vaš thread_cache_size."
+"izračuna kot Threads_created/Connections. Če je vrednost obarvana rdeče, "
+"povečajte svoj thread_cache_size."
 
 #: server_status.php:1404
 msgid "The number of currently open connections."
@@ -10646,7 +10644,7 @@ msgstr "Ne morem se povezati s ciljem"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "Podatkovna zbirka '%s' ne obstaja."
+msgstr "Zbirka podatkov '%s' ne obstaja."
 
 #: server_synchronize.php:294
 msgid "Structure Synchronization"
@@ -10743,8 +10741,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
-"Ciljna podatkovna zbirka bo popolnoma sinhronizirana z izvorno podatkovno "
-"zbirko. Izvorna podatkovna zbirka bo ostala nespremenjena."
+"Ciljna zbirka podatkov bo popolnoma sinhronizirana z izvorno zbirko "
+"podatkov. Izvorna zbirka podatkov bo ostala nespremenjena."
 
 #: server_variables.php:73
 msgid "Setting variable failed"
@@ -10948,8 +10946,8 @@ msgid ""
 msgstr ""
 "Ta %smožnost%s naj bo onemogočena, saj omogoča napadalcem, da se z načinom "
 "bruteforce prijavijo v kateri koli strežnik MySQL. Če menite, da je to "
-"potrebno, uporabite %sseznam zaupanih proxyjev%s. Kakor koli, zaščita "
-"temelječa na IP ni zanesljiva, če vaš IP pripada ISP-ju, na katerega je "
+"potrebno, uporabite %sseznam zaupanih proxyjev%s. Kakor koli, zaščita, "
+"temelječa na IP, ni zanesljiva, če vaš IP pripada ISP-ju, na katerega je "
 "povezanih tisoče uporabnikov, vključno z vami."
 
 #: setup/lib/index.lib.php:273
@@ -10976,9 +10974,8 @@ msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
-"Ta vrednost naj bo ponovno preverjena, za zagotovitev, da ta mapa ni "
-"dostopna ne svetu ne na voljo za branje ali pisanje drugim uporabnikom na "
-"vašem strežniku."
+"Vrednost ponovno preverite, da se prepričate, da mapa ni dostopna ne svetu "
+"in ne na voljo za branje ali pisanje drugim uporabnikom na vašem strežniku."
 
 #: setup/lib/index.lib.php:277
 #, php-format
@@ -11160,7 +11157,7 @@ msgstr "in potem"
 
 #: tbl_change.php:1088
 msgid "Go back to previous page"
-msgstr "Nazaj na prejšnjo stran"
+msgstr "Pojdi nazaj na prejšnjo stran"
 
 #: tbl_change.php:1089
 msgid "Insert another new row"
@@ -12217,7 +12214,7 @@ msgid ""
 msgstr ""
 "Predpomnilnik je trenutno %s-%% razdrobljen, pri čemer 100-%% razdrobljenost "
 "pomeni, da je predpomnilnik poizvedb izmeničen vzorec prostih in "
-"uporabljenih blokov. Ta vrednost bi morala biti pod 20 %%."
+"uporabljenih blokov. Vrednost bi morala biti pod 20 %%."
 
 #: libraries/advisory_rules.txt:165
 msgid "Query cache low memory prunes"
@@ -12333,8 +12330,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
-"%s %% vseh razvrščanj povzroča začasne tabele; ta vrednost bi morala biti "
-"nižja od 10 %%."
+"%s %% vseh razvrščanj povzroča začasne tabele; vrednost bi morala biti nižja "
+"od 10 %%."
 
 #: libraries/advisory_rules.txt:195
 msgid "Rate of sorts that cause temporary tables"
@@ -12345,7 +12342,7 @@ msgstr "Delež razvrščanj, ki povzroča začasne tabele"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
-"Povprečje začasnih tabel: %s; ta vrednost bi morala biti manj kot 1 na uro."
+"Povprečje začasnih tabel: %s; vrednost bi morala biti manj kot 1 na uro."
 
 #: libraries/advisory_rules.txt:202
 msgid "Sort rows"
@@ -12391,8 +12388,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:215
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
-"Povprečje stikov tabel: %s; ta vrednost bi morala biti manj kot 1 na uro"
+msgstr "Povprečje stikov tabel: %s; vrednost bi morala biti manj kot 1 na uro"
 
 #: libraries/advisory_rules.txt:217
 msgid "Rate of reading first index entry"
@@ -12422,8 +12418,8 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Povprečje pregledovanja indeksov: %s; ta vrednost bi morala biti manj kot 1 "
-"na uro"
+"Povprečje pregledovanja indeksov: %s; vrednost bi morala biti manj kot 1 na "
+"uro"
 
 #: libraries/advisory_rules.txt:224
 msgid "Rate of reading fixed position"
@@ -12449,8 +12445,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
-"Delež povprečja branja stalnega položaja: %s; ta vrednost bi morala biti "
-"manj kot 1 na uro"
+"Delež povprečja branja stalnega položaja: %s; vrednost bi morala biti manj "
+"kot 1 na uro"
 
 #: libraries/advisory_rules.txt:231
 msgid "Rate of reading next table row"
@@ -12473,7 +12469,7 @@ msgstr ""
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
-"Delež branja naslednje vrstice v tabeli: %s; ta vrednost bi morala biti manj "
+"Delež branja naslednje vrstice v tabeli: %s; vrednost bi morala biti manj "
 "kot 1 na uro"
 
 #: libraries/advisory_rules.txt:239
@@ -12536,8 +12532,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
-"%s %% vseh začasnih tabel je zapisanih na disk; ta vrednost bi morala biti "
-"pod 25 %%"
+"%s %% vseh začasnih tabel je zapisanih na disk; vrednost bi morala biti pod "
+"25 %%"
 
 #: libraries/advisory_rules.txt:253
 msgid "Temp disk rate"
@@ -12567,8 +12563,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"Delež začasnih tabel, pisanih na disk: %s; ta vrednost bi morala biti manj "
-"kot 1 na uro"
+"Delež začasnih tabel, pisanih na disk: %s; vrednost bi morala biti manj kot "
+"1 na uro"
 
 #: libraries/advisory_rules.txt:273
 msgid "MyISAM key buffer size"
@@ -12618,7 +12614,7 @@ msgstr ""
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"največji %% kadar koli uporabljenega medpomnilnika ključev MyISAM: %s %%; ta "
+"največji %% kadar koli uporabljenega medpomnilnika ključev MyISAM: %s %%; "
 "vrednost bi morala biti nad 95 %%"
 
 #: libraries/advisory_rules.txt:288
@@ -12629,7 +12625,7 @@ msgstr "Odstotek uporabljenega medpomnilnika ključev MyISAM"
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
-"%% uporabljenega medpomnilnika ključev MyISAM: %s %%; ta vrednost bi morala "
+"%% uporabljenega medpomnilnika ključev MyISAM: %s %%; vrednost bi morala "
 "biti nad 95 %%"
 
 #: libraries/advisory_rules.txt:295
@@ -12643,13 +12639,12 @@ msgstr "%% indeksov, ki uporabljajo medpomnilnik ključev MyISAM, je nizek."
 
 #: libraries/advisory_rules.txt:299
 msgid "You may need to increase {key_buffer_size}."
-msgstr "Mord boste morali povečati {key_buffer_size}."
+msgstr "Morda boste morali povečati {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:300
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
-"Branj indeksov iz pomnilnika: %s %%; ta vrednost bi morala biti nad 95 %%"
+msgstr "Branj indeksov iz pomnilnika: %s %%; vrednost bi morala biti nad 95 %%"
 
 #: libraries/advisory_rules.txt:304
 msgid "Rate of table open"
@@ -12670,7 +12665,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:309
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Delež odprtih tabel: %s; ta vrednost bi morala biti manj kot 10 na uro"
+msgstr "Delež odprtih tabel: %s; vrednost bi morala biti manj kot 10 na uro"
 
 #: libraries/advisory_rules.txt:311
 msgid "Percentage of used open files limit"
@@ -12709,7 +12704,7 @@ msgstr "Delež odprtih datotek je visok."
 #: libraries/advisory_rules.txt:323
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Delež odprtih datotek: %s; ta vrednost bi morala biti pod 5 na uro"
+msgstr "Delež odprtih datotek: %s; vrednost bi morala biti pod 5 na uro"
 
 #: libraries/advisory_rules.txt:325
 #, php-format
@@ -12729,7 +12724,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:330
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Takojšnji zaklepi tabel: %s %%; ta vrednost bi morala biti nad 95 %%"
+msgstr "Takojšnji zaklepi tabel: %s %%; vrednost bi morala biti nad 95 %%"
 
 #: libraries/advisory_rules.txt:332
 msgid "Table lock wait rate"
@@ -12739,8 +12734,7 @@ msgstr "Delež čakanja na zaklep tabel"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"Delež čakanja na zaklep tabel: %s; ta vrednost bi morala biti manj kot 1 na "
-"uro"
+"Delež čakanja na zaklep tabel: %s; vrednost bi morala biti manj kot 1 na uro"
 
 #: libraries/advisory_rules.txt:339
 msgid "Thread cache"
@@ -12781,8 +12775,7 @@ msgstr "Povečajte {thread_cache_size}."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
-"Delež zadetkov predpomnilnika niti: %s %%; ta vrednost bi morala biti nad 80 "
-"%%"
+"Delež zadetkov predpomnilnika niti: %s %%; vrednost bi morala biti nad 80 %%"
 
 #: libraries/advisory_rules.txt:353
 msgid "Threads that are slow to launch"
@@ -12878,7 +12871,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr "%s %% vseh povezav je prekinjenih. Ta vrednost bi morala biti pod 1 %%"
+msgstr "%s %% vseh povezav je prekinjenih. Vrednost bi morala biti pod 1 %%"
 
 #: libraries/advisory_rules.txt:383
 msgid "Rate of aborted connections"
@@ -12889,7 +12882,7 @@ msgstr "Delež prekinjenih povezav"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Delež prekinjenih povezav je %s; ta vrednost bi morala biti manj kot 1 na uro"
+"Delež prekinjenih povezav je %s; vrednost bi morala biti manj kot 1 na uro"
 
 #: libraries/advisory_rules.txt:390
 msgid "Percentage of aborted clients"
@@ -12912,8 +12905,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:395
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
-"%s %% vseh odjemalcev je prekinjenih. Ta vrednost bi morala biti pod 2 %%"
+msgstr "%s %% vseh odjemalcev je prekinjenih. Vrednost bi morala biti pod 2 %%"
 
 #: libraries/advisory_rules.txt:397
 msgid "Rate of aborted clients"
@@ -12923,8 +12915,8 @@ msgstr "Delež prekinjenih objemalcev"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Delež prekinjenih objemalcev je %s; ta vrednost bit morala biti manj kot 1 "
-"na uro"
+"Delež prekinjenih objemalcev je %s; vrednost bi morala biti manj kot 1 na "
+"uro"
 
 #: libraries/advisory_rules.txt:406
 msgid "Is InnoDB disabled?"
@@ -12969,14 +12961,14 @@ msgid ""
 msgstr ""
 "Še posebej na sistemu z veliko pisanji v tabele InnoDB bi morali nastaviti "
 "innodb_log_file_size na 25 %% {innodb_buffer_pool_size}. Kakor koli, večja "
-"je ta vrednost, daljši bo čas obnovitve po zrušitvi zbirke podatkov, zato te "
+"je vrednost, daljši bo čas obnovitve po zrušitvi zbirke podatkov, zato "
 "vrednosti ne nastavite na več kot 256 MiB. Kljub temu pomnite, da vrednosti "
 "te spremenljivke ne morete preprosto spremeniti. Zaustaviti morate strežnik, "
 "odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v my.cnf, "
 "zagnati strežnik in nato preveriti dnevnike napak, če je vse potekalo v "
-"redu. Oglejte si tudi <a href=\"http://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na blogu</"
-"a>"
+"redu. Oglejte si tudi <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">to objavo na blogu</a>"
 
 #: libraries/advisory_rules.txt:418
 #, php-format
@@ -13051,11 +13043,11 @@ msgstr ""
 "zbirk podatkov, ki kot skladiščni pogon uporabljajo samo InnoDB in ne "
 "poganjajo drugih storitev (npr. spletnega strežnika), lahko nastavite to na "
 "do 80 %% vašega pomnilnika, ki je na voljo. Če ni težava v tem, boste morali "
-"pazljivo določiti porabo pomnilnika drugim storitvam in ne-InnoDB-tabelam "
+"pazljivo določiti porabo pomnilnika drugim storitvam in tabelam ne-InnoDB "
 "ter ustrezno nastaviti to spremenljivko. Če je nastavljena previsoko, bo vaš "
-"sistem začel izmenjevati, kar bo občutno zmanjšalo učinkovitost. Oglejte si "
-"tudi <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">ta članek</a>"
+"sistem začel z izmenjevanjem, kar bo občutno zmanjšalo učinkovitost. "
+"Oglejte si tudi <a href=\"http://www.mysqlperformanceblog.com/2007/11/03"
+"/choosing-innodb_buffer_pool_size/\">ta članek</a>"
 
 #: libraries/advisory_rules.txt:432
 #, php-format

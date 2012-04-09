@@ -484,6 +484,12 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         'pma_servername', 'pma_username', 'pma_password'
     );
     /**
+     * Allow changing themes in test/theme.php
+     */
+    if (defined('PMA_TEST_THEME')) {
+        $allow_list[] = 'set_theme';
+    }
+    /**
      * Require cleanup functions
      */
     include './libraries/cleanup.lib.php';
@@ -596,11 +602,11 @@ require './libraries/select_lang.lib.php';
  * this check is done here after loading language files to present errors in locale
  */
 if ($GLOBALS['PMA_Config']->error_config_file) {
-    $error = '<h1>' . __('Failed to read configuration file') . '</h1>'
+    $error = '[strong]' . __('Failed to read configuration file') . '[/strong][br][br]'
         . _('This usually means there is a syntax error in it, please check any errors shown below.')
-        . '<br />'
-        . '<br />'
-        . '<iframe src="show_config_errors.php" />';
+        . '[br]'
+        . '[br]'
+        . '[conferr]';
     trigger_error($error, E_USER_ERROR);
 }
 if ($GLOBALS['PMA_Config']->error_config_default_file) {
@@ -611,7 +617,7 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
     trigger_error($error, E_USER_ERROR);
 }
 if ($GLOBALS['PMA_Config']->error_pma_uri) {
-    trigger_error(__('The <code>$cfg[\'PmaAbsoluteUri\']</code> directive MUST be set in your configuration file!'), E_USER_ERROR);
+    trigger_error(__('The [code]$cfg[\'PmaAbsoluteUri\'][/code] directive MUST be set in your configuration file!'), E_USER_ERROR);
 }
 
 

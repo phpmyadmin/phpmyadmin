@@ -259,7 +259,7 @@ $(document).ready(function() {
      */
     $(".fkc_switch").click(function(event){
        if ($("#fkc_checkbox").prop('checked')) {
-           $("#fkc_checkbox").removeProp('checked');
+           $("#fkc_checkbox").prop('checked', false);
            $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
            return;
        }
@@ -298,7 +298,10 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 'TRUNCATE ' + curr_table_name;
+        var question = 
+            PMA_messages.strTruncateTableStrongWarning + ' ' 
+            + PMA_messages.strDoYouReally
+            + '<br /><br />TRUNCATE ' + curr_table_name;
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 

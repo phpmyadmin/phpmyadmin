@@ -72,6 +72,7 @@ $(document).ready(function() {
         if (title.length == 0) {
             title = ' ';
         }
+        currentSettings.title.text = title;
         currentChart.setTitle({ text: title });
     });
 
