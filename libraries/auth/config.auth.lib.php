@@ -76,7 +76,9 @@ function PMA_auth_fails()
     /* HTML header */
     $page_title = __('Access denied');
     include './libraries/header_meta_style.inc.php';
+    include './libraries/header_scripts.inc.php';
     ?>
+
 </head>
 
 <body>
