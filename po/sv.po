@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-11 00:37+0200\n"
+"PO-Revision-Date: 2012-04-11 00:48+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5037,21 +5037,24 @@ msgstr "Visa tidsstämpel för skapandet"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Visa eller dölj en kolumn som visar den senaste uppdaterade tidsstämpeln för "
+"alla tabeller"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Visa senast ändrade tidstämpel"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Visa eller dölj en kolumn visar den sista kontroll tidsstämpeln för alla "
+"tabeller"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Visa master-status"
+msgstr "Visa senaste kontrolltidstämpel"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5764,26 +5767,25 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s av %s"
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Format på importerad fil"
+msgstr "Ladda upp din importfil..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sek."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Ungefär %MIN min. %SEC sek. återstår."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "mkring %SEC sek. återstår."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6884,7 +6886,6 @@ msgid "Add prefix"
 msgstr "Lägg till prefix"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
 msgstr "Vill du verkligen exekvera följande fråga?"
@@ -7447,7 +7448,6 @@ msgid "Event"
 msgstr "Händelse"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7458,9 +7458,9 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Du använder PHP: s utfasade \"mysql\" utvidgning, vilken inte klarar av att "
-"hantera flera frågor. <b> Genomförandet av vissa lagrade rutiner kan "
-"misslyckas! </b> Använd den förbättrade \"mysqli\" utvidgningen för att "
+"Du använder PHP:s utfasade \"mysql\" utvidgning, vilken inte kan hantera multi "
+"förfrågningar. [strong]Utförandet av vissa sparade rutiner kan "
+"misslyckas!![/strong] Använd den förbättrade \"mysqli\" utvidgningen för att "
 "undvika eventuella problem."
 
 #: libraries/rte/rte_routines.lib.php:245
