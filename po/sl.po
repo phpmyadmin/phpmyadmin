@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-09 21:10+0200\n"
+"PO-Revision-Date: 2012-04-10 15:42+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
@@ -3962,14 +3962,15 @@ msgid "Customize startup page"
 msgstr "Prilagodi začetno stran"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Strežnik zbirke podatkov"
+msgstr "Zgradba zbirke podatkov"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Izberite podrobnosti, ki jih želite prikazati v zgradbi zbirke podatkov "
+"(seznam tabel)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5042,32 +5043,35 @@ msgstr "Pokaži obrazec za ustvarjanje zbirke podatkov"
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Prikaži ali skrij stolpec, ki prikazuje Časovni žig nastanka za vse tabele"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Prikaži več dejanj"
+msgstr "Prikaži Časovni žig nastanka"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Prikaži ali skrij stolpec, ki prikazuje Časovni žig zadnje spremembe za vse "
+"tabele"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Časovni žig zadnje spremembe"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Prikaži ali skrij stolpec, ki prikazuje Časovni žig zadnjega preverjanja za "
+"vse tabele"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Pokaži stanje glavnega strežnika"
+msgstr "Časovni žig zadnjega preverjanja"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5784,7 +5788,7 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s od %s"
 
 #: libraries/display_import.lib.php:78
 msgid "Uploading your import file..."
