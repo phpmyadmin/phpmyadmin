@@ -3,15 +3,15 @@
  * for tbl_relation.php
  *
  */
-function show_hide_clauses(thisDropdown)
+function show_hide_clauses($thisDropdown)
 {
     // here, one span contains the label and the clause dropdown
     // and we have one span for ON DELETE and one for ON UPDATE
     //
-    if (thisDropdown.val() != '') {
-        thisDropdown.parent().next('span').show().next('span').show();
+    if ($thisDropdown.val() != '') {
+        $thisDropdown.parent().next('span').show().next('span').show();
     } else {
-        thisDropdown.parent().next('span').hide().next('span').hide();
+        $thisDropdown.parent().next('span').hide().next('span').hide();
     }
 }
 
