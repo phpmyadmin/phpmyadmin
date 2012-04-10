@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-06 12:16+0200\n"
+"PO-Revision-Date: 2012-04-11 00:37+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1012,10 +1012,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" satserna är inaktiverade."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Vill du verkligen exekvera följande fråga?"
+msgstr "Vill du verkligen exekvera \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -2766,7 +2766,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Kunde inte ladda standardkonfiguration från: %1$s"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2774,8 +2773,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Variabeln <code>$cfg['PmaAbsoluteUri']</code> direktivet MÅSTE anges i din "
-"konfigurationsfil!"
+"Direktivet[code]$cfg['PmaAbsoluteUri'][/code] MÅSTE definieras i "
+"konfigurationsfilen!"
 
 #: libraries/common.inc.php:651
 #, php-format
@@ -3950,14 +3949,13 @@ msgid "Customize startup page"
 msgstr "Anpassa startsidan"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Databas-server"
+msgstr "Databasstruktur"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr ""
+msgstr "Välj vilka detaljer som ska visas i databasstrukturen (tabellista)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5027,12 +5025,13 @@ msgstr "Visa skapa databas-formulär"
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Visa eller dölj en kolumn som visar tidsstämpeln för skapandet av samtliga "
+"tabeller"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Visa fler åtgärder"
+msgstr "Visa tidsstämpel för skapandet"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
