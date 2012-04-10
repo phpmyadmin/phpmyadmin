@@ -511,14 +511,14 @@ $(function() {
  */
 function setTab(tab_id)
 {
-    $('.tabs li').removeClass('active').find('a[href=#' + tab_id + ']').parent().addClass('active');
-    $('.tabs_contents fieldset').hide().filter('#' + tab_id).show();
+    $('ul.tabs li').removeClass('active').find('a[href=#' + tab_id + ']').parent().addClass('active');
+    $('div.tabs_contents fieldset').hide().filter('#' + tab_id).show();
     location.hash = 'tab_' + tab_id;
-    $('.config-form input[name=tab_hash]').val(location.hash);
+    $('form.config-form input[name=tab_hash]').val(location.hash);
 }
 
 $(function() {
-    var tabs = $('.tabs');
+    var tabs = $('ul.tabs');
     if (!tabs.length) {
         return;
     }
@@ -531,7 +531,7 @@ $(function() {
         .filter(':first')
         .parent()
         .addClass('active');
-    $('.tabs_contents fieldset').hide().filter(':first').show();
+    $('div.tabs_contents fieldset').hide().filter(':first').show();
 
     // tab links handling, check each 200ms
     // (works with history in FF, further browser support here would be an overkill)
@@ -588,7 +588,7 @@ function restoreField(field_id)
 }
 
 $(function() {
-    $('.tabs_contents')
+    $('div.tabs_contents')
         .delegate('.restore-default, .set-value', 'mouseenter', function(){$(this).css('opacity', 1)})
         .delegate('.restore-default, .set-value', 'mouseleave', function(){$(this).css('opacity', 0.25)})
         .delegate('.restore-default, .set-value', 'click', function(e) {
@@ -641,8 +641,8 @@ $(function() {
     // detect localStorage state
     var ls_supported = window.localStorage || false;
     var ls_exists = ls_supported ? (window.localStorage['config'] || false) : false;
-    $('.localStorage-'+(ls_supported ? 'un' : '')+'supported').hide();
-    $('.localStorage-'+(ls_exists ? 'empty' : 'exists')).hide();
+    $('div.localStorage-'+(ls_supported ? 'un' : '')+'supported').hide();
+    $('div.localStorage-'+(ls_exists ? 'empty' : 'exists')).hide();
     if (ls_exists) {
         updatePrefsDate();
     }
@@ -668,10 +668,13 @@ $(function() {
         }
     });
 
-    $('.click-hide-message').live('click', function(){
-        var div = $(this);
-        div.hide().parent('.group').css('height', '');
-        div.next('form').show();
+    $('div.click-hide-message').live('click', function(){
+        $(this)
+        .hide()
+        .parent('.group')
+        .css('height', '')
+        .next('form')
+        .show();
     });
 });
 
@@ -698,8 +701,8 @@ function savePrefsToLocalStorage(form)
             window.localStorage['config_mtime'] = response.mtime;
             window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
             updatePrefsDate();
-            $('.localStorage-empty').hide();
-            $('.localStorage-exists').show();
+            $('div.localStorage-empty').hide();
+            $('div.localStorage-exists').show();
             var group = form.parent('.group');
             group.css('height', group.height() + 'px');
             form.hide('fast');
@@ -718,7 +721,7 @@ function updatePrefsDate()
 {
     var d = new Date(window.localStorage['config_mtime_local']);
     var msg = PMA_messages['strSavedOn'].replace('@DATE@', formatDate(d));
-    $('#opts_import_local_storage .localStorage-exists').html(msg);
+    $('#opts_import_local_storage div.localStorage-exists').html(msg);
 }
 
 /**

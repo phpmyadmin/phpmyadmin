@@ -17,11 +17,11 @@ function show_hide_clauses(thisDropdown)
 
 $(document).ready(function() {
     // initial display
-    $('.referenced_column_dropdown').each(function(index, one_dropdown) {
+    $('select.referenced_column_dropdown').each(function(index, one_dropdown) {
         show_hide_clauses($(one_dropdown));
     });
     // change
-    $('.referenced_column_dropdown').change(function() {
+    $('select.referenced_column_dropdown').change(function() {
         show_hide_clauses($(this));
     });
 });

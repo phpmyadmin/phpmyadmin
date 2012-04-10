@@ -11,7 +11,7 @@
  */
 function changePluginOpts()
 {
-    $(".format_specific_options").each(function() {
+    $("#format_specific_opts div.format_specific_options").each(function() {
         $(this).hide();
     });
     var selected_plugin_name = $("#plugins option:selected").val();
@@ -78,7 +78,13 @@ $(document).ready(function() {
      *  Javascript-disabled browsers
      */
     $("#scroll_to_options_msg").hide();
-    $(".format_specific_options").css({ "border": 0, "margin": 0, "padding": 0 });
-    $(".format_specific_options h3").remove();
+    $("#format_specific_opts div.format_specific_options")
+    .css({
+        "border": 0,
+        "margin": 0,
+        "padding": 0
+    })
+    .find("h3")
+    .remove();
     //$("form[name=import] *").unwrap();
 });

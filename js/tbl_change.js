@@ -228,7 +228,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
  */
 $(document).ready(function() {
 
-    $('.open_gis_editor').live('click', function(event) {
+    $('span.open_gis_editor').live('click', function(event) {
         event.preventDefault();
 
         var $span = $(this);
@@ -261,7 +261,7 @@ $(document).ready(function() {
     });
 
     // these were hidden via the "hide" class
-    $('.foreign_values_anchor').show();
+    $('a.foreign_values_anchor').show();
 
     /**
      * Handles all current checkboxes for Null; this only takes care of the
@@ -269,7 +269,7 @@ $(document).ready(function() {
      * "Continue insertion" are handled in the "Continue insertion" code
      *
      */
-    $('.checkbox_null').bind('click', function(e) {
+    $('input.checkbox_null').bind('click', function(e) {
             nullify(
                 // use hidden fields populated by tbl_change.php
                 $(this).siblings('.nullify_code').val(),
@@ -287,9 +287,10 @@ $(document).ready(function() {
      * available).
      */
     $('select[name="submit_type"]').bind('change', function (e) {
-        var auto_increment_column = $('.insertRowTable').find('input[name^="auto_increment"]').attr('name');
-        var prev_value_field = $('.insertRowTable').find('input[name="' + auto_increment_column.replace('auto_increment', 'fields_prev') + '"]');
-        var value_field = $('.insertRowTable').find('input[name="' + auto_increment_column.replace('auto_increment', 'fields') + '"]');
+        var $table = $('table.insertRowTable');
+        var auto_increment_column = $table.find('input[name^="auto_increment"]').attr('name');
+        var prev_value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields_prev') + '"]');
+        var value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields') + '"]');
 
         if (auto_increment_column) {
             var previous_value = $(prev_value_field).val();
@@ -380,14 +381,14 @@ $(document).ready(function() {
         /**
          * @var curr_rows   Number of current insert rows already on page
          */
-        var curr_rows = $(".insertRowTable").length;
+        var curr_rows = $("table.insertRowTable").length;
         /**
          * @var target_rows Number of rows the user wants
          */
         var target_rows = $("#insert_rows").val();
 
         // remove all datepickers
-        $('.datefield,.datetimefield').each(function(){
+        $('input.datefield, input.datetimefield').each(function(){
             $(this).datepicker('destroy');
         });
 
@@ -494,7 +495,7 @@ $(document).ready(function() {
                 //Insert/Clone the ignore checkboxes
                 if(curr_rows == 1 ) {
                     $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
-                    .insertBefore(".insertRowTable:last")
+                    .insertBefore("table.insertRowTable:last")
                     .after('<label for="insert_ignore_1">' + PMA_messages['strIgnore'] + '</label>');
                 }
                 else {
@@ -519,7 +520,7 @@ $(document).ready(function() {
                     .clone()
                     .attr('for', new_name)
                     .before('<br />')
-                    .insertBefore(".insertRowTable:last");
+                    .insertBefore("table.insertRowTable:last");
                 }
                 curr_rows++;
             }
@@ -534,13 +535,13 @@ $(document).ready(function() {
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', "field_" + tabindex + "_3");
             });
-        $('.control_at_footer')
+        $('select.control_at_footer')
         .each(function() {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
             });
         // Add all the required datepickers back
-        $('.datefield,.datetimefield').each(function(){
+        $('input.datefield, input.datetimefield').each(function(){
             PMA_addDatepicker($(this));
             });
         }

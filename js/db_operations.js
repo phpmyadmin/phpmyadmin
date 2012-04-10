@@ -96,8 +96,7 @@ $(document).ready(function() {
 
         $.get($form.attr('action'), $form.serialize(), function(data) {
             // use messages that stay on screen
-            $('.success').fadeOut();
-            $('.error').fadeOut();
+            $('div.success, div.error').fadeOut();
             if(data.success == true) {
                 $('#floating_menubar').after(data.message);
                 if( $("#checkbox_switch").is(":checked")) {

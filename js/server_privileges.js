@@ -353,7 +353,7 @@ $(document).ready(function() {
      * @name        edit_user_click
      * @see         $cfg['AjaxEnable']
      */
-    $(".edit_user_anchor.ajax").live('click', function(event) {
+    $("a.edit_user_anchor.ajax").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -526,7 +526,7 @@ $(document).ready(function() {
         );
     }
 
-    $(".export_user_anchor.ajax").live('click', function(event) {
+    $("a.export_user_anchor.ajax").live('click', function(event) {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         /**

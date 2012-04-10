@@ -25,7 +25,7 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $(".drop_column_anchor").live('click', function(event) {
+    $("a.drop_column_anchor").live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -81,7 +81,7 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $(".action_primary a").live('click', function(event) {
+    $("div.action_primary a").live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -123,7 +123,7 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $('.drop_primary_key_index_anchor').live('click', function(event) {
+    $('a.drop_primary_key_index_anchor').live('click', function(event) {
         event.preventDefault();
 
         $anchor = $(this);
@@ -153,7 +153,7 @@ $(document).ready(function() {
                     if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
                         // We are about to remove all rows from the table
                         $table_ref.hide('medium', function() {
-                            $('.no_indexes_defined').show('medium');
+                            $('div.no_indexes_defined').show('medium');
                             $rows_to_hide.remove();
                         });
                         $table_ref.siblings('div.notice').hide('medium');
@@ -270,7 +270,7 @@ $(document).ready(function() {
                     if ($("#edit_index_dialog").length > 0) {
                         $("#edit_index_dialog").dialog("close");
                     }
-                    $('.no_indexes_defined').hide();
+                    $('div.no_indexes_defined').hide();
                 } else if (data.error != undefined) {
                     var $temp_div = $("<div id='temp_div'><div>").append(data.error);
                     if ($temp_div.find(".error code").length != 0) {
@@ -328,7 +328,7 @@ $(document).ready(function() {
                     $(this).closest("tr").find("input").focus();
                 });
                 // Focus the slider, otherwise it looks nearly transparent
-                $('.ui-slider-handle').addClass('ui-state-focus');
+                $('a.ui-slider-handle').addClass('ui-state-focus');
                 // set focus on index name input, if empty
                 var input = $div.find('input#input_index_name');
                 input.val() || input.focus();

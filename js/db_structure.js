@@ -182,7 +182,7 @@ $(document).ready(function() {
                 $dialog.find('.datefield, .datetimefield').each(function () {
                     PMA_addDatepicker($(this));
                 });
-                $(".insertRowTable").addClass("ajax");
+                $("table.insertRowTable").addClass("ajax");
                 $("#buttonYes").addClass("ajax");
                 $div = $("#insert_table_dialog");
                 PMA_convertFootnotesToTooltips($div);
@@ -257,7 +257,7 @@ $(document).ready(function() {
      * Event handler for 'Foreign Key Checks' disabling option
      * in the drop table confirmation form
      */
-    $(".fkc_switch").click(function(event){
+    $("span.fkc_switch").click(function(event){
        if ($("#fkc_checkbox").prop('checked')) {
            $("#fkc_checkbox").prop('checked', false);
            $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
@@ -282,7 +282,7 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $(".truncate_table_anchor").live('click', function(event) {
+    $("a.truncate_table_anchor").live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -336,7 +336,7 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $(".drop_table_anchor").live('click', function(event) {
+    $("a.drop_table_anchor").live('click', function(event) {
         event.preventDefault();
 
         var $this_anchor = $(this);
@@ -383,7 +383,7 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $('.drop_tracking_anchor').live('click', function(event) {
+    $('a.drop_tracking_anchor').live('click', function(event) {
         event.preventDefault();
 
         var $anchor = $(this);

@@ -179,7 +179,7 @@ $(document).ready(function() {
         }
 
         // remove any div containing a previous error message
-        $('.error').remove();
+        $('div.error').remove();
 
         var $msgbox = PMA_ajaxShowMessage();
         var $sqlqueryresults = $('#sqlqueryresults');
@@ -191,8 +191,7 @@ $(document).ready(function() {
                 // success happens if the query returns rows or not
                 //
                 // fade out previous messages, if any
-                $('.success').fadeOut();
-                $('.sqlquery_message').fadeOut();
+                $('div.success, div.sqlquery_message').fadeOut();
                 // show a message that stays on screen
                 if (typeof data.action_bookmark != 'undefined') {
                     // view only
@@ -211,7 +210,7 @@ $(document).ready(function() {
                      .html(data.sql_query)
                      .insertBefore('#sqlqueryform');
                     // unnecessary div that came from data.sql_query
-                    $('.notice').remove();
+                    $('div.notice').remove();
                 } else {
                     $('#sqlqueryform').before(data.message);
                 }
@@ -235,8 +234,7 @@ $(document).ready(function() {
             }  else {
                 // real results are returned
                 // fade out previous messages, if any
-                $('.success').fadeOut();
-                $('.sqlquery_message').fadeOut();
+                $('div.success, div.sqlquery_message').fadeOut();
                 var $received_data = $(data);
                 var $zero_row_results = $received_data.find('textarea[name="sql_query"]');
                 // if zero rows are returned from the query execution
@@ -417,7 +415,7 @@ $(document).ready(function() {
                     //Remove the top menu container from the dialog
                     .find("#topmenucontainer").hide()
                     ; // end dialog options
-                    $(".insertRowTable").addClass("ajax");
+                    $("table.insertRowTable").addClass("ajax");
                     $("#buttonYes").addClass("ajax");
                 }
                 PMA_ajaxRemoveMessage($msgbox);
@@ -546,25 +544,24 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
 
 $(document).ready(function() {
 
-    $('.browse_foreign').live('click', function(e) {
+    $('a.browse_foreign').live('click', function(e) {
         e.preventDefault();
         window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes,resizable=yes');
         $anchor = $(this);
         $anchor.addClass('browse_foreign_clicked');
-        return false;
     });
 
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
-    $('.column_heading.pointer').live('hover', function(e) {
+    $('th.column_heading.pointer').live('hover', function(e) {
         PMA_changeClassForColumn($(this), 'hover', e.type == 'mouseenter');
         });
 
     /**
      * vertical column marking in horizontal mode when clicking the column header
      */
-    $('.column_heading.marker').live('click', function() {
+    $('th.column_heading.marker').live('click', function() {
         PMA_changeClassForColumn($(this), 'marked');
         });
 

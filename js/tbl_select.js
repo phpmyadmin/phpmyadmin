@@ -86,9 +86,9 @@ $(document).ready(function() {
 
     // Following section is related to the 'function based search' for geometry data types.
     // Initialy hide all the open_gis_editor spans
-    $('.open_search_gis_editor').hide();
+    $('span.open_search_gis_editor').hide();
 
-    $('.geom_func').bind('change', function() {
+    $('select.geom_func').bind('change', function() {
         var $geomFuncSelector = $(this);
 
         var binaryFunctions = [
@@ -136,7 +136,7 @@ $(document).ready(function() {
         }
 
         // if the chosen function's output is a geometry, enable GIS editor
-        var $editorSpan = $geomFuncSelector.parents('tr').find('.open_search_gis_editor');
+        var $editorSpan = $geomFuncSelector.parents('tr').find('span.open_search_gis_editor');
         if ($.inArray($geomFuncSelector.val(), outputGeomFunctions) >= 0){
             $editorSpan.show();
         } else {
@@ -145,7 +145,7 @@ $(document).ready(function() {
         
     });
 
-    $('.open_search_gis_editor').live('click', function(event) {
+    $('span.open_search_gis_editor').live('click', function(event) {
         event.preventDefault();
 
         var $span = $(this);
