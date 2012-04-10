@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-08 17:11+0200\n"
+"PO-Revision-Date: 2012-04-10 20:36+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3074,7 +3074,7 @@ msgstr "ඉහත ද්විත්වයම"
 
 #: libraries/config.values.php:126
 msgid "neither of the above"
-msgstr "ඉහත දෙකින් එකක්වත් නොව"
+msgstr "ඉහත එක් වර්ගයක්වත් නොව"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:438
@@ -3598,7 +3598,7 @@ msgstr "දෝෂ නොසලකා ඇතුල් කිරීම් භා�
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
-msgstr "දත්ත ඇතුළු කිරීමේදී භාවිතා කලයුතු වින්‍යාසය"
+msgstr "දත්ත ඇතුළු කිරීමේදී භාවිතා කලයුතු වාග් රීතිය"
 
 #: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
@@ -6226,7 +6226,7 @@ msgstr "NULL වෙනුවට භාවිතා කරන්න:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
+msgstr "තීර තුළ අඩංගු carriage return/line feed අනු ලකුණු ඉවත් කරන්න"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
@@ -6262,10 +6262,9 @@ msgstr ""
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:40
 #: libraries/export/sql.php:142
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Transformation options"
+msgstr "වස්තු නිර්මාණය කිරීමේ විකල්ප"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
 msgid "Table caption (continued)"
@@ -6321,7 +6320,7 @@ msgstr "PDF"
 
 #: libraries/export/pdf.php:24
 msgid "(Generates a report containing the data of a single table)"
-msgstr ""
+msgstr "(තනි වගුවක දත්ත ඇතුලත් කරමින් වාර්තාවක් සාදයි)"
 
 #: libraries/export/pdf.php:25
 msgid "Report title:"
@@ -6336,6 +6335,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"විස්තර පෙන්වන්න <i>(අපනයන වේලාව, PHP අනුවාදය සහ සේවාදායකයේ අනුවාදය වැනි "
+"තොරතුරු ඇතුලත් කරන්න)</i>"
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
@@ -6346,11 +6347,15 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"දත්තගබඩා සෑදූ , අවසන් වරට යාවත්කාලීන කල හා අවසන් වරට පරීක්ෂා කල වේලාවන් "
+"ඇතුලත් කරන්න"
 
 #: libraries/export/sql.php:100
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"ප්‍රතිදාන අනුකූලතාව උපරිම කල යුතු පැරණි MySQL සේවාදායකය හෝ වෙනත් දත්තගබඩා "
+"පද්ධතිය:"
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
@@ -6367,30 +6372,32 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"වගු සහ තීර නාමයන් පසු උධෘත මගින් අවුරන්න <i>(විශේෂ අනුලකුණු හෝ මූල පද වලින් "
+"සැදි වගු සහ තීර නාමයන් ආරක්ෂා කරයි)</i>"
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "ඇතුල් කිරීම් වලට පෙර වගුව හිස් කරන්න"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "<code>INSERT</code> ප්‍රකාශ වෙනුවට භාවිතා කරන්න:"
 
 #: libraries/export/sql.php:239
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "<code>INSERT DELAYED</code> ප්‍රකාශ"
 
 #: libraries/export/sql.php:246
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "<code>INSERT IGNORE</code> ප්‍රකාශ"
 
 #: libraries/export/sql.php:256
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "දත්ත නික්ෂේපනයේදී භාවිතා කල යුතු ශ්‍රිතය:"
 
 #: libraries/export/sql.php:269
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "දත්ත ඇතුළු කිරීමේදී භාවිතා කලයුතු වාග් රීතිය:"
 
 #: libraries/export/sql.php:275
 msgid ""
@@ -6398,6 +6405,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"සියලුම <code>INSERT</code> ප්‍රකාශ වල තීර නම් ඇතුලත් කරන්න <br /> &nbsp; "
+"&nbsp; &nbsp; උදාහරණ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/export/sql.php:276
 msgid ""
@@ -6405,30 +6415,41 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"සෑම <code>INSERT</code> ප්‍රකාශයක ම පේළි එකකට වැඩි ගණනක් ඇතුල් කරන්න<br /> "
+"&nbsp; &nbsp; &nbsp; උදාහරණ: <code>INSERT INTO tbl_name VALUES (1,2,3), "
+"(4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:277
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"ඉහත දෙවර්ගයම<br /> &nbsp; &nbsp; &nbsp; උදාහරණ: <code>INSERT INTO tbl_name "
+"(col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:278
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"ඉහත එක් වර්ගයක්වත් නොව<br /> &nbsp; &nbsp; &nbsp; උදාහරණ: <code>INSERT INTO "
+"tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:293
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"ද්වීමය තීර hexadecimal ලෙස නික්ෂේපනය කරන්න <i>(උදාහරණ: \"abc\", 0x616263 "
+"ලෙස)</i>"
 
 #: libraries/export/sql.php:302
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"TIMESTAMP තීර UTC ලෙස නික්ෂේපනය කරන්න <i>(වෙනස් වෙලා කලාපවල ඇති සේවාදායක අතර "
+"TIMESTAMP තීර නික්ෂේපනය හා ප්‍රතිපූරණයට අවස්ථාව ලබා දේ)</i>"
 
 #: libraries/export/sql.php:345 libraries/export/xml.php:45
 msgid "Procedures"
@@ -6472,7 +6493,7 @@ msgstr "XML"
 
 #: libraries/export/xml.php:34
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "වස්තු නිර්මාණය කිරීමේ විකල්ප (සියල්ලම නිර්දේශ කෙරේ)"
 
 #: libraries/export/xml.php:62
 msgid "Views"
@@ -6656,7 +6677,7 @@ msgstr "SQL ගැළපුම් ප්‍රකාරය:"
 
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
+msgstr "ශුන්‍ය අගයන් සඳහා <code>AUTO_INCREMENT</code> භාවිතා නොකරන්න"
 
 #: libraries/kanji-encoding.lib.php:147
 msgctxt "None encoding conversion"
