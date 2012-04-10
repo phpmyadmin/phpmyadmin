@@ -123,6 +123,11 @@ fieldset legend {
     background-color:   <?php echo 'OPERA' != PMA_USR_BROWSER_AGENT ? 'transparent' : $GLOBALS['cfg']['BgOne']; ?>;
 }
 
+.some-margin {
+    margin: .5em;
+    margin-top: 1em;
+}
+
 /* buttons in some browsers (eg. Konqueror) are block elements,
    this breaks design */
 button {
