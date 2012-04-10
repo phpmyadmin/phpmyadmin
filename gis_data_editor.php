@@ -130,7 +130,6 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                 }
 ?>
             </select>
-            <input type="submit" name="gis_data[go]" class="go" value="<?php echo __("Go")?>" />
             <label for="srid"><?php echo __("SRID"); ?>:&nbsp;</label>
             <input name="gis_data[srid]" type="text" value="<?php echo($srid); ?>" />
         </div>
@@ -163,7 +162,6 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                     echo('>' . $gis_type . '</option>');
                 }
                 echo('</select>');
-                echo('<input type="submit" name="gis_data[' . $a . '][go]" class="go" value="'); echo __("Go"); echo('">');
             } else {
                 $type = $geom_type;
             }

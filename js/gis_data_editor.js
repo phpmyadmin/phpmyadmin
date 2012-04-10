@@ -21,9 +21,6 @@ function closeGISEditor(){
  * Prepares the HTML recieved via AJAX.
  */
 function prepareJSVersion() {
-    // Hide 'Go' buttons associated with the dropdowns
-    $('.go').hide();
-
     // Change the text on the submit button
     $("#gis_editor input[name='gis_data[save]']")
         .val(PMA_messages['strCopy'])
