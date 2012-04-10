@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-09 16:38+0200\n"
+"PO-Revision-Date: 2012-04-10 15:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3956,14 +3956,15 @@ msgid "Customize startup page"
 msgstr "Başlangıç sayfasını özelleştirir"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Veritabanı sunucusu"
+msgstr "Veritabanı yapısı"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Hangi ayrıntıların veritabanı yapısında (tabloların listesi) gösterileceğini "
+"seçin"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5050,32 +5051,36 @@ msgstr "Veritabanı oluşturma formu göster"
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Tüm tablolar için Oluşturma zaman damgasını görüntüleyen sütunu göster veya "
+"gizle"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Daha fazla eylem göster"
+msgstr "Oluşturma zaman damgasını göster"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Tüm tablolar için Son güncelleme zaman damgasını görüntüleyen sütunu göster "
+"veya gizle"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Son güncelleme zaman damgasını göster"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Tüm tablolar için Son kontrol zaman damgasını görüntüleyen sütunu göster "
+"veya gizle"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Master durumunu göster"
+msgstr "Son kontrol zaman damgasını göster"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5800,7 +5805,7 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s / %s"
 
 #: libraries/display_import.lib.php:78
 msgid "Uploading your import file..."
