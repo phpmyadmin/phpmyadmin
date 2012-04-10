@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-07 20:55+0200\n"
+"PO-Revision-Date: 2012-04-10 22:55+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -1015,10 +1015,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" käsud on keelatud."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Kas tõesti tahad käivitada selle päringu?"
+msgstr "Kas tõesti tahad käivitada \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -2762,7 +2762,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Ei saanud laadida vaikimisi seadistuse faili kohast: %1$s"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2770,7 +2769,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<code>$cfg['PmaAbsoluteUri']</code> väärtus PEAB sinu seadistusfailis olema "
+"[code]$cfg['PmaAbsoluteUri'][/code] väärtus PEAB sinu seadistusfailis olema "
 "määratud!"
 
 #: libraries/common.inc.php:651
@@ -3942,14 +3941,15 @@ msgid "Customize startup page"
 msgstr "Muuda esimest lehte"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Andmebaasi server"
+msgstr "Andmebaasi struktuur"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Vali need detailid, mida soovid näha andmebaasi struktuuris (tabelite "
+"nimekirjas)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5019,33 +5019,32 @@ msgstr "Näita andmebaasi loomise vormi"
 
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "Näita või peida kõikides tabelites loomise ajatempli veerg"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Näita rohkem tegevusi"
+msgstr "Näita loomise ajatemplit"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
-msgstr ""
+msgstr "Näita või peida kõikides tabelites viimase uuendamise ajatempli veerg"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Näita viimase uuendamise ajatemplit"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Näita või peida kõikides tabelites viimase kontrolli ajatemplit näitav veerg"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Näita ülema staatust"
+msgstr "Näita viimase kontrolli ajatemplit"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5756,26 +5755,25 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s / %s"
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Imporditava faili formaat"
+msgstr "Imporditava faili üleslaadimine..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sek."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Aega jäänud umbes %MIN min %SEC sek."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Aega jäänud umbes %SEC sek."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6867,7 +6865,6 @@ msgid "Add prefix"
 msgstr "Lisa eesliide"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
 msgstr "Kas tõesti tahad käivitada selle päringu?"
@@ -7425,7 +7422,6 @@ msgid "Event"
 msgstr "Sündmus"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7437,9 +7433,9 @@ msgid ""
 "problems."
 msgstr ""
 "Sa kasutad PHP jaoks ebasoovitatavat 'mysql' laiendit, mis ei suuda "
-"käsitleda multipäringuid. <b>Mõnede salvestatud funktsioonide käivitamine "
-"võib ebaõnnestuda!</b> Probleemide vältimiseks kasuta palun täiustatud "
-"'mysqli' laiendit."
+"käsitleda multipäringuid. [strong]Mõnede salvestatud funktsioonide "
+"käivitamine võib ebaõnnestuda![/strong] Probleemide vältimiseks kasuta palun "
+"täiustatud 'mysqli' laiendit."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1004
