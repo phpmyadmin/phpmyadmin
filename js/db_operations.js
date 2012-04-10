@@ -23,8 +23,6 @@ $(document).ready(function() {
     /**
      * Ajax event handlers for 'Rename Database'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowUser()
      * @see     $cfg['AjaxEnable']
      */
     $("#rename_db_form.ajax").live('submit', function(event) {
@@ -82,7 +80,6 @@ $(document).ready(function() {
     /**
      * Ajax Event Handler for 'Copy Database'
      *
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
     $("#copy_db_form.ajax").live('submit', function(event) {
@@ -121,7 +118,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Change Charset' of the database
      *
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
     $("#change_db_charset_form.ajax").live('submit', function(event) {

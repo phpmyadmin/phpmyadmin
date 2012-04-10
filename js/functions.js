@@ -1930,8 +1930,6 @@ $(document).ready(function() {
     /**
      * Attach event handler for submission of create table form (save)
      *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    $.PMA_sort_table()
      *
      */
     // .live() must be called after a selector, see http://api.jquery.com/live
@@ -2035,9 +2033,6 @@ $(document).ready(function() {
     /**
      * Attach event handler for create table form (add fields)
      *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    $.PMA_sort_table()
-     * @uses    window.parent.refreshNavigation()
      *
      */
     // .live() must be called after a selector, see http://api.jquery.com/live
@@ -2268,10 +2263,6 @@ $(document).ready(function() {
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
  *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @uses    window.parent.refreshNavigation()
- * @uses    window.parent.refreshMain()
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
@@ -2302,7 +2293,6 @@ $(document).ready(function() {
  * Attach Ajax event handlers for 'Create Database'.  Used wherever libraries/
  * display_create_database.lib.php is used, ie main.php and server_databases.php
  *
- * @uses    PMA_ajaxShowMessage()
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
@@ -2420,7 +2410,6 @@ $(document).ready(function() {
     /**
      * Attach Ajax event handler for Change Password form submission
      *
-     * @uses    PMA_ajaxShowMessage()
      * @see $cfg['AjaxEnable']
      */
 }); // end $(document).ready() for Change Password
@@ -3329,10 +3318,6 @@ function PMA_slidingMessage(msg, $obj)
 /**
  * Attach Ajax event handlers for Drop Table.
  *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @uses    window.parent.refreshNavigation()
- * @uses    window.parent.refreshMain()
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
@@ -3362,10 +3347,6 @@ $(document).ready(function() {
 /**
  * Attach Ajax event handlers for Truncate Table.
  *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @uses    window.parent.refreshNavigation()
- * @uses    window.parent.refreshMain()
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {

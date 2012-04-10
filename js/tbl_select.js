@@ -40,7 +40,6 @@ $(document).ready(function() {
      * Ajax event handler for Table Search
      * 
      * (see $GLOBALS['cfg']['AjaxEnable'])
-     * @uses    PMA_ajaxShowMessage()
      */
     $("#tbl_search_form.ajax").live('submit', function(event) {
         // jQuery object to reuse

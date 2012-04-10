@@ -268,7 +268,6 @@ $(document).ready(function() {
      * (only if the element has the ajax class, see $cfg['AjaxEnable'])
      * @memberOf    jQuery
      * @name        paginate_nav_button_click
-     * @uses        PMA_ajaxShowMessage()
      * @see         $cfg['AjaxEnable']
      */
     $("input[name=navig].ajax").live('click', function(event) {

@@ -121,7 +121,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Insert Table'
      *
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
     var current_insert_table;
@@ -278,8 +277,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Truncate Table'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
     $("a.truncate_table_anchor").live('click', function(event) {
@@ -332,8 +329,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Drop Table'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
     $("a.drop_table_anchor").live('click', function(event) {
@@ -379,8 +374,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Drop tracking'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
     $('a.drop_tracking_anchor').live('click', function(event) {
@@ -468,7 +461,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for calculatig the real end for a InnoDB table
      *
-     * @uses    $.PMA_confirm
      */
     $('#real_end_input').live('click', function(event) {
         event.preventDefault();

@@ -21,8 +21,6 @@ $(document).ready(function() {
     /**
      * Attach Event Handler for 'Drop Column'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("a.drop_column_anchor").live('click', function(event) {
@@ -77,8 +75,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Add Primary Key'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("div.action_primary a").live('click', function(event) {
@@ -119,8 +115,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Drop Primary Key/Index'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $('a.drop_primary_key_index_anchor').live('click', function(event) {

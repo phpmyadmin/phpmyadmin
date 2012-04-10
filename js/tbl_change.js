@@ -309,7 +309,6 @@ $(document).ready(function() {
     /**
      * Submission of data to be inserted or updated
      *
-     * @uses    PMA_ajaxShowMessage()
      *
      * This section has been deactivated. Here are the problems that I've
      * noticed:
