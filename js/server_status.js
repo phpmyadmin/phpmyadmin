@@ -16,7 +16,7 @@
 // Add a tablesorter parser to properly handle thousands seperated numbers and SI prefixes
 $(function() {
     // Show all javascript related parts of the page
-    $('.jsfeature').show();
+    $('#serverstatus .jsfeature').show();
 
     jQuery.tablesorter.addParser({
         id: "fancyNumber",
@@ -79,7 +79,7 @@ $(function() {
     $('a.popupLink').click( function() {
         var $link = $(this);
 
-        $('.' + $link.attr('href').substr(1))
+        $('div.' + $link.attr('href').substr(1))
             .show()
             .offset({ top: $link.offset().top + $link.height() + 5, left: $link.offset().left })
             .addClass('openedPopup');
@@ -88,7 +88,7 @@ $(function() {
     });
 
     $(document).click( function(event) {
-        $('.openedPopup').each(function() {
+        $('div.openedPopup').each(function() {
             var $cnt = $(this);
             var pos = $cnt.offset();
 
@@ -188,7 +188,7 @@ $(function() {
     });
 
     // Handles refresh rate changing
-    $('.buttonlinks select').change(function() {
+    $('div.buttonlinks select').change(function() {
         var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
 
         // Clear current timeout and set timeout with the new refresh rate
@@ -212,7 +212,7 @@ $(function() {
     });
 
     // Ajax refresh of variables (always the first element in each tab)
-    $('.buttonlinks a.tabRefresh').click(function() {
+    $('div.buttonlinks a.tabRefresh').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab = $(this).parents('div.ui-tabs-panel');
         var that = this;
@@ -234,7 +234,7 @@ $(function() {
     /** Realtime charting of variables **/
 
     // Live traffic charting
-    $('.buttonlinks a.livetrafficLink').click(function() {
+    $('div.buttonlinks a.livetrafficLink').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
         var $tab = $(this).parents('div.ui-tabs-panel');
         var tabstat = tabStatus[$tab.attr('id')];
@@ -281,7 +281,7 @@ $(function() {
     });
 
     // Live connection/process charting
-    $('.buttonlinks a.liveconnectionsLink').click(function() {
+    $('div.buttonlinks a.liveconnectionsLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
         var tabstat = tabStatus[$tab.attr('id')];
 
@@ -327,7 +327,7 @@ $(function() {
     });
 
     // Live query statistics
-    $('.buttonlinks a.livequeriesLink').click(function() {
+    $('div.buttonlinks a.livequeriesLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
         var settings = null;
 

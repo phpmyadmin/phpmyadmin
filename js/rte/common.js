@@ -161,7 +161,7 @@ $(document).ready(function () {
                                         $('table.data').append(data.new_row);
                                     }
                                     // Fade-in the new row
-                                    $('.ajaxInsert').show('slow').removeClass('ajaxInsert');
+                                    $('tr.ajaxInsert').show('slow').removeClass('ajaxInsert');
                                 } else if ($('table.data').find('tr').has('td').length === 0) {
                                     // If we are not supposed to insert the new row, we will now
                                     // check if the table is empty and needs to be hidden. This

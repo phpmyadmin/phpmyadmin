@@ -10,9 +10,7 @@
  */
 $(document).ready(function() {
     $("#plugins").change(function() {
-        $(".format_specific_options").each(function() {
-            $(this).hide();
-        });
+        $("#format_specific_opts div.format_specific_options").hide();
         var selected_plugin_name = $("#plugins option:selected").val();
         $("#" + selected_plugin_name + "_options").show();
      });
@@ -193,8 +191,15 @@ $(document).ready(function() {
         $("#quick_or_custom").show();
     }
     $("#scroll_to_options_msg").hide();
-    $(".format_specific_options").hide().css({"border": 0, "margin": 0, "padding": 0});
-    $(".format_specific_options h3").remove();
+    $("#format_specific_opts div.format_specific_options")
+    .hide()
+    .css({
+        "border": 0,
+        "margin": 0,
+        "padding": 0
+    })
+    .find("h3")
+    .remove();
     toggle_quick_or_custom();
     toggle_structure_data_opts($("select#plugins").val());
     toggle_sql_include_comments();

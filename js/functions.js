@@ -607,9 +607,9 @@ $(document).ready(function() {
      * (only when timepicker.js is loaded)
      */
     if ($.timepicker != undefined) {
-        $('.datefield, .datetimefield').each(function() {
+        $('input.datefield, input.datetimefield').each(function() {
             PMA_addDatepicker($(this));
-            });
+        });
     }
 });
 
@@ -1050,7 +1050,7 @@ function pdfPaperSize(format, axis)
  * Jquery Coding for inline editing SQL_QUERY
  */
 $(document).ready(function() {
-    $(".inline_edit_sql").live('click', function() {
+    $("a.inline_edit_sql").live('click', function() {
         if ($('#sql_query_edit').length) {
             // An inline query editor is already open,
             // we don't want another copy of it
@@ -1079,7 +1079,7 @@ $(document).ready(function() {
         codemirror_editor.getScrollerElement().style.height = height;
         codemirror_editor.refresh();
 
-        $(".btnSave").click(function() {
+        $("input.btnSave").click(function() {
             if (codemirror_editor !== undefined) {
                 var sql_query = codemirror_editor.getValue();
             } else {
@@ -1091,13 +1091,13 @@ $(document).ready(function() {
                     .append($('<input>', {type: 'hidden', name: 'sql_query', value: sql_query}));
             $fake_form.appendTo($('body')).submit();
         });
-        $(".btnDiscard").click(function() {
+        $("input.btnDiscard").click(function() {
             $(this).closest(".sql").html("<span class=\"syntax\"><span class=\"inner_sql\">" + old_text + "</span></span>");
         });
         return false;
     });
 
-    $('.sqlbutton').click(function(evt) {
+    $('input.sqlbutton').click(function(evt) {
         insertQuery(evt.target.id);
         return false;
     });
@@ -1227,7 +1227,7 @@ function PMA_ajaxShowMessage(message, timeout)
     // Update message count to create distinct message elements every time
     ajax_message_count++;
     // Remove all old messages, if any
-    $(".ajax_notification[id^=ajax_message_num]").remove();
+    $("span.ajax_notification[id^=ajax_message_num]").remove();
     /**
      * @var    $retval    a jQuery object containing the reference
      *                    to the created AJAX message
@@ -1312,20 +1312,20 @@ $(document).ready(function() {
      * Allows the user to dismiss a notification
      * created with PMA_ajaxShowMessage()
      */
-    $('.ajax_notification.dismissable').live('click', function () {
+    $('span.ajax_notification.dismissable').live('click', function () {
         PMA_ajaxRemoveMessage($(this));
     });
     /**
      * The below two functions hide the "Dismiss notification" tooltip when a user
      * is hovering a link or button that is inside an ajax message
      */
-    $('.ajax_notification a, .ajax_notification button, .ajax_notification input')
+    $('span.ajax_notification a, span.ajax_notification button, span.ajax_notification input')
     .live('mouseover', function () {
-        $(this).parents('.ajax_notification').qtip('hide');
+        $(this).parents('span.ajax_notification').qtip('hide');
     });
-    $('.ajax_notification a, .ajax_notification button, .ajax_notification input')
+    $('span.ajax_notification a, span.ajax_notification button, span.ajax_notification input')
     .live('mouseout', function () {
-        $(this).parents('.ajax_notification').qtip('show');
+        $(this).parents('span.ajax_notification').qtip('show');
     });
 });
 
@@ -1417,7 +1417,7 @@ function PMA_createTableDialog( $div, url , target)
 
                      $(this)
                          .scrollTop(0) // for Chrome
-                         .closest('.ui-dialog').css({
+                         .closest('div.ui-dialog').css({
                              left: 0,
                              top: 0
                          });
@@ -1425,7 +1425,7 @@ function PMA_createTableDialog( $div, url , target)
                      PMA_verifyColumnsProperties();
 
                      // move the Cancel button next to the Save button
-                     var $button_pane = $('.ui-dialog-buttonpane');
+                     var $button_pane = $('div.ui-dialog-buttonpane');
                      var $cancel_button = $button_pane.find('.ui-button');
                      var $save_button  = $('#create_table_form').find("input[name='do_save_data']");
                      $cancel_button.insertAfter($save_button);
@@ -1930,8 +1930,6 @@ $(document).ready(function() {
     /**
      * Attach event handler for submission of create table form (save)
      *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    $.PMA_sort_table()
      *
      */
     // .live() must be called after a selector, see http://api.jquery.com/live
@@ -2035,9 +2033,6 @@ $(document).ready(function() {
     /**
      * Attach event handler for create table form (add fields)
      *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    $.PMA_sort_table()
-     * @uses    window.parent.refreshNavigation()
      *
      */
     // .live() must be called after a selector, see http://api.jquery.com/live
@@ -2100,8 +2095,8 @@ $(document).ready(function() {
                 $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
                     if ($("#sqlqueryresults").length != 0) {
                         $("#sqlqueryresults").remove();
-                    } else if ($(".error").length != 0) {
-                        $(".error").remove();
+                    } else if ($("div.error").length != 0) {
+                        $("div.error").remove();
                     }
                     if (data.success == true) {
                         PMA_ajaxShowMessage(data.message);
@@ -2122,7 +2117,7 @@ $(document).ready(function() {
                             if ($("#sqlqueryresults").length != 0) {
                                 $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
                             } else {
-                                $temp_div.find("#fieldsForm").insertAfter(".error");
+                                $temp_div.find("#fieldsForm").insertAfter("div.error");
                             }
                             $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
                             /*Call the function to display the more options in table*/
@@ -2268,10 +2263,6 @@ $(document).ready(function() {
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
  *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @uses    window.parent.refreshNavigation()
- * @uses    window.parent.refreshMain()
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
@@ -2302,7 +2293,6 @@ $(document).ready(function() {
  * Attach Ajax event handlers for 'Create Database'.  Used wherever libraries/
  * display_create_database.lib.php is used, ie main.php and server_databases.php
  *
- * @uses    PMA_ajaxShowMessage()
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
@@ -2420,7 +2410,6 @@ $(document).ready(function() {
     /**
      * Attach Ajax event handler for Change Password form submission
      *
-     * @uses    PMA_ajaxShowMessage()
      * @see $cfg['AjaxEnable']
      */
 }); // end $(document).ready() for Change Password
@@ -2438,10 +2427,10 @@ $(document).ready(function() {
     $("select.column_type").live('change', function() {
         PMA_showNoticeForEnum($(this));
     });
-    $(".default_type").live('change', function() {
+    $("select.default_type").live('change', function() {
         PMA_hideShowDefaultValue($(this));
     });
-    $('.allow_null').live('change', function() {
+    $('input.allow_null').live('change', function() {
         PMA_validateDefaultValue($(this));
     });
 });
@@ -2451,7 +2440,7 @@ function PMA_verifyColumnsProperties()
     $("select.column_type").each(function() {
         PMA_showNoticeForEnum($(this));
     });
-    $(".default_type").each(function() {
+    $("select.default_type").each(function() {
         PMA_hideShowDefaultValue($(this));
     });
 }
@@ -2637,7 +2626,7 @@ $(document).ready(function() {
             }
         });
         // Focus the slider, otherwise it looks nearly transparent
-        $('.ui-slider-handle').addClass('ui-state-focus');
+        $('a.ui-slider-handle').addClass('ui-state-focus');
         return false;
     });
 
@@ -2689,7 +2678,7 @@ function displayMoreTableOpts()
         $table.find("td.more_opts").show();
 
         // Position the dropdown
-        $(".structure_actions_dropdown").each(function() {
+        $("div.structure_actions_dropdown").each(function() {
             // Optimize DOM querying
             var $this_dropdown = $(this);
              // The top offset must be set for IE even if it didn't change
@@ -2723,19 +2712,19 @@ function displayMoreTableOpts()
                             left: $after_field.offset().left
                         });
                 }
-                $(".structure_actions_dropdown").hide(); // Hide all the other ones that may be open
-                $(this).children(".structure_actions_dropdown").show();
+                $("div.structure_actions_dropdown").hide(); // Hide all the other ones that may be open
+                $(this).children("div.structure_actions_dropdown").show();
                 // Need to do this again for IE otherwise the offset is wrong
                 if ($.browser.msie) {
-                    var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children(".structure_actions_dropdown").innerWidth();
+                    var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children("div.structure_actions_dropdown").innerWidth();
                     var top_offset_IE = $(this).offset().top + $(this).innerHeight();
-                    $(this).children(".structure_actions_dropdown").offset({
+                    $(this).children("div.structure_actions_dropdown").offset({
                         top: top_offset_IE,
                         left: left_offset_IE });
                 }
             })
             .mouseleave(function() {
-                $(this).children(".structure_actions_dropdown").hide();
+                $(this).children("div.structure_actions_dropdown").hide();
                 if ($.browser.msie && $.browser.version == "6.0") {
                     $("iframe.IE_hack").hide();
                 }
@@ -2977,7 +2966,7 @@ function PMA_set_status_label($element)
  */
 function PMA_init_slider()
 {
-    $('.pma_auto_slider').each(function() {
+    $('div.pma_auto_slider').each(function() {
         var $this = $(this);
 
         if ($this.hasClass('slider_init_done')) {
@@ -3016,7 +3005,7 @@ function PMA_init_slider()
 var toggleButton = function ($obj) {
     // In rtl mode the toggle switch is flipped horizontally
     // so we need to take that into account
-    if ($('.text_direction', $obj).text() == 'ltr') {
+    if ($('span.text_direction', $obj).text() == 'ltr') {
         var right = 'right';
     } else {
         var right = 'left';
@@ -3032,12 +3021,12 @@ var toggleButton = function ($obj) {
      *  var  on   Width of the "ON" part of the toggle switch
      *  var  off  Width of the "OFF" part of the toggle switch
      */
-    var on  = $('.toggleOn', $obj).width();
-    var off = $('.toggleOff', $obj).width();
+    var on  = $('td.toggleOn', $obj).width();
+    var off = $('td.toggleOff', $obj).width();
     // Make the "ON" and "OFF" parts of the switch the same size
     // + 2 pixels to avoid overflowed
-    $('.toggleOn > div', $obj).width(Math.max(on, off) + 2);
-    $('.toggleOff > div', $obj).width(Math.max(on, off) + 2);
+    $('td.toggleOn > div', $obj).width(Math.max(on, off) + 2);
+    $('td.toggleOff > div', $obj).width(Math.max(on, off) + 2);
     /**
      *  var  w  Width of the central part of the switch
      */
@@ -3060,7 +3049,7 @@ var toggleButton = function ($obj) {
      *  var  offw    Outer width of the "ON" part of the toggle switch
      *  var  btnw    Outer width of the central part of the switch
      */
-    var offw = $('.toggleOff', $obj).outerWidth();
+    var offw = $('td.toggleOff', $obj).outerWidth();
     var btnw = $('table td:nth-child(2)', $obj).outerWidth();
     // Resize the main div so that exactly one side of
     // the switch plus the central part fit into it.
@@ -3069,18 +3058,18 @@ var toggleButton = function ($obj) {
      *  var  move  How many pixels to move the
      *             switch by when toggling
      */
-    var move = $('.toggleOff', $obj).outerWidth();
+    var move = $('td.toggleOff', $obj).outerWidth();
     // If the switch is initialized to the
     // OFF state we need to move it now.
-    if ($('.container', $obj).hasClass('off')) {
+    if ($('div.container', $obj).hasClass('off')) {
         if (right == 'right') {
-            $('.container', $obj).animate({'left': '-=' + move + 'px'}, 0);
+            $('div.container', $obj).animate({'left': '-=' + move + 'px'}, 0);
         } else {
-            $('.container', $obj).animate({'left': '+=' + move + 'px'}, 0);
+            $('div.container', $obj).animate({'left': '+=' + move + 'px'}, 0);
         }
     }
     // Attach an 'onclick' event to the switch
-    $('.container', $obj).click(function () {
+    $('div.container', $obj).click(function () {
         if ($(this).hasClass('isActive')) {
             return false;
         } else {
@@ -3088,7 +3077,7 @@ var toggleButton = function ($obj) {
         }
         var $msg = PMA_ajaxShowMessage();
         var $container = $(this);
-        var callback = $('.callback', this).text();
+        var callback = $('span.callback', this).text();
         // Perform the actual toggle
         if ($(this).hasClass('on')) {
             if (right == 'right') {
@@ -3096,7 +3085,7 @@ var toggleButton = function ($obj) {
             } else {
                 var operator = '+=';
             }
-            var url = $(this).find('.toggleOff > span').text();
+            var url = $(this).find('td.toggleOff > span').text();
             var removeClass = 'on';
             var addClass = 'off';
         } else {
@@ -3105,7 +3094,7 @@ var toggleButton = function ($obj) {
             } else {
                 var operator = '-=';
             }
-            var url = $(this).find('.toggleOn > span').text();
+            var url = $(this).find('td.toggleOn > span').text();
             var removeClass = 'off';
             var addClass = 'on';
         }
@@ -3131,7 +3120,7 @@ var toggleButton = function ($obj) {
  * Initialise all toggle buttons
  */
 $(window).load(function () {
-    $('.toggleAjax').each(function () {
+    $('div.toggleAjax').each(function () {
         $(this).show();
         toggleButton($(this));
     });
@@ -3217,7 +3206,7 @@ $(document).ready(function() {
     /**
      * Load version information asynchronously.
      */
-    if ($('.jsversioncheck').length > 0) {
+    if ($('li.jsversioncheck').length > 0) {
         $.getScript('http://www.phpmyadmin.net/home_page/version.js', PMA_current_version);
     }
 
@@ -3329,10 +3318,6 @@ function PMA_slidingMessage(msg, $obj)
 /**
  * Attach Ajax event handlers for Drop Table.
  *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @uses    window.parent.refreshNavigation()
- * @uses    window.parent.refreshMain()
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
@@ -3362,10 +3347,6 @@ $(document).ready(function() {
 /**
  * Attach Ajax event handlers for Truncate Table.
  *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @uses    window.parent.refreshNavigation()
- * @uses    window.parent.refreshMain()
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
@@ -3554,7 +3535,7 @@ $(document).ready(function() {
     /**
      * Theme changer.
      */
-    $('.take_theme').click(function(e) {
+    $('a.take_theme').click(function(e) {
         var what = this.name;
         if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
             window.opener.document.forms['setTheme'].elements['set_theme'].value = what;

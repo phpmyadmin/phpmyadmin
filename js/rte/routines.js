@@ -223,7 +223,7 @@ $(document).ready(function () {
          * @var    $routine_params_table    jQuery object containing the reference
          *                                  to the routine parameters table.
          */
-        var $routine_params_table = $('.routine_params_table').last();
+        var $routine_params_table = $('table.routine_params_table').last();
         /**
          * @var    $new_param_row    A string containing the HTML code for the
          *                           new row for the routine paramaters table.
