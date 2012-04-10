@@ -18,10 +18,10 @@ $GLOBALS['js_include'][] = 'server_privileges.js';
  * Displays an error message and exits if the user isn't allowed to use this
  * script
  */
-if (!$cfg['ShowChgPassword']) {
+if (! $cfg['ShowChgPassword']) {
     $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
 }
-if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
+if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
     include_once './libraries/header.inc.php';
     PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
     include './libraries/footer.inc.php';
@@ -39,8 +39,8 @@ if (isset($_REQUEST['nopass'])) {
     }
     $change_password_message = PMA_setChangePasswordMsg();
     $message = $change_password_message['msg'];
-    if(!$change_password_message['error']) {
-        PMA_changePasswordSuccess($password, $message, $change_password_message);
+    if(! $change_password_message['error']) {
+        PMA_changePassword($password, $message, $change_password_message);
     } else {
         PMA_getChangePassMessage($change_password_message);
     }
@@ -79,7 +79,7 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '') {
         /**
          * If in an Ajax request, we don't need to show the rest of the page
          */
-        if($change_password_message['error']) {
+        if ($change_password_message['error']) {
             PMA_ajaxResponse($change_password_message['msg'], false);
         } else {
             $extra_data['sql_query'] = PMA_showMessage($change_password_message['msg'], $sql_query, 'success');
@@ -91,21 +91,22 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '') {
 /**
  * Generate the message
  * 
- * @return  array   $chngPasswordMsg
+ * @return  array   error value and message 
  */
 function PMA_setChangePasswordMsg() {
     $error = false;
-    if (($_REQUEST['nopass'] != '1') && (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2']))) {
-        $message = PMA_Message::error(__('The password is empty!'));
-        $error = true;
-    } elseif (($_REQUEST['nopass'] != '1') && ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2'])) {
-        $message = PMA_Message::error(__('The passwords aren\'t the same!'));
-        $error = true;
-    } else {
-        $message = PMA_Message::success(__('The profile has been updated.'));
+    $message = PMA_Message::success(__('The profile has been updated.'));
+
+    if (($_REQUEST['nopass'] != '1')) {
+        if (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2'])) {
+            $message = PMA_Message::error(__('The password is empty!'));
+            $error = true;
+        } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
+            $message = PMA_Message::error(__('The passwords aren\'t the same!'));
+            $error = true;
+        }
     }
-    $chngPasswordMsg = array('error' => $error, 'msg' => $message);
-    return $chngPasswordMsg;
+    return array('error' => $error, 'msg' => $message);
 }
 
 /**
@@ -116,12 +117,12 @@ function PMA_setChangePasswordMsg() {
  * @param   array   $change_password_message
  * @return  void
  */
-function PMA_changePasswordSuccess($password, $message, $change_password_message) { 
+function PMA_changePassword($password, $message, $change_password_message) { 
     // Defines the url to return to in case of error in the sql statement
     $_url_params = array();
     $hashing_function = PMA_changePassHashingFunction();
     $sql_query = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
-    PMA_ChangePassUrlParamsAndSumbitQuery($password, $_url_params, $sql_query, $hashing_function);
+    PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function);
     
     $new_url_params = PMA_changePassAuthType($_url_params, $password);
     PMA_getChangePassMessage($change_password_message, $sql_query);
@@ -151,7 +152,7 @@ function PMA_changePassHashingFunction() {
  * @param   string  $hashing_function
  * @return  void
  */
-function PMA_ChangePassUrlParamsAndSumbitQuery($password, $_url_params, $sql_query, $hashing_function) {
+function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function) {
     $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
     $local_query = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddSlashes($password) . '\')');
     $result = @PMA_DBI_try_query($local_query)
