@@ -252,7 +252,6 @@ fieldset {
     border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
-    padding: 5px;
     border: #aaa solid 1px;
     padding: 1.5em;
     background: #eee;
@@ -282,6 +281,10 @@ fieldset legend {
     -moz-box-shadow: 3px 3px 15px #bbb;
     -webkit-box-shadow: 3px 3px 15px #bbb;
     box-shadow: 3px 3px 15px #bbb;
+}
+
+.some-margin {
+    margin: 1.5em;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,

@@ -53,8 +53,6 @@ if (isset($_REQUEST['nopass'])) {
 // Loads the headers
 require_once './libraries/header.inc.php';
 
-echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
-
 // Displays an error message if required
 if (isset($message)) {
     $message->display();
