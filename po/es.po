@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-09 16:09+0200\n"
+"PO-Revision-Date: 2012-04-10 15:02+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4004,14 +4004,15 @@ msgid "Customize startup page"
 msgstr "Cambiar las opciones de la página de arranque"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Servidor de base de datos"
+msgstr "Estructura de base de datos"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Elija los detalles a mostrar en la estructura de base de datos (lista de "
+"tablas)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5103,32 +5104,36 @@ msgstr "Mostrar el formulario para crear una base de datos"
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Mostrar o esconder una columna con las marcas temporales de creación para "
+"todas las tablas"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Mostrar más acciones"
+msgstr "Mostrar marca temporal de creación"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Mostrar o esconder una columna con la marca temporal de la última "
+"actualización para todas las tablas"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Mostrar marca temporal de última actualización"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Mostrar o esconder una columna con la marca temporal de la última revisión "
+"para todas las tablas"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Mostrar el estado del maestro"
+msgstr "Mostrar marca temporal de última revisión"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5863,7 +5868,7 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s de %s"
 
 #: libraries/display_import.lib.php:78
 msgid "Uploading your import file..."
