@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-11 16:19+0200\n"
+"PO-Revision-Date: 2012-04-11 17:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -372,7 +372,7 @@ msgstr "සෑදීම"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
 #: tbl_structure.php:922
 msgid "Last update"
-msgstr "අවසන් යාවත් කාලීන කිරීම"
+msgstr "අවසන් යාවත්කාලීන කිරීම"
 
 #: db_printview.php:202 libraries/db_info.inc.php:87
 #: libraries/db_structure.lib.php:70 libraries/export/sql.php:768
@@ -3909,14 +3909,13 @@ msgid "Customize startup page"
 msgstr "ඇරඹුම් පිටුව රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "දත්තගබඩා සේවාදායකය"
+msgstr "දත්තගබඩා සැකිල්ල"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr ""
+msgstr "දත්තගබඩා සැකිල්ලේ (වගු ලයිස්තුවේ) පෙන්විය යුතු විස්තර තෝරන්න"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -4939,33 +4938,35 @@ msgstr "දත්තගබඩාවක් සෑදීමේ පෝරමය ප
 
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "සියලුම වගු සඳහා වගුව සෑදූ වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "තවත් ක්‍රියාවන් පෙන්වන්න"
+msgstr "සෑදූ වේලාව පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"සියලුම වගු සඳහා අවසන් වරට වගුව යාවත්කාලීන කල වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ "
+"සඟවන්න"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "සඳහා අවසන් වරට යාවත්කාලීන කල වේලාව පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"සියලුම වගු සඳහා අවසන් වරට වගුව පරීක්ෂා කල වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ "
+"සඟවන්න"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Master හි තත්වය පෙන්වන්න"
+msgstr "අවසන් වරට පරීක්ෂා කල වේලාව පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -6347,7 +6348,7 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
-"දත්තගබඩා සෑදූ , අවසන් වරට යාවත්කාලීන කල හා අවසන් වරට පරීක්ෂා කල වේලාවන් "
+"දත්තගබඩා සෑදූ, අවසන් වරට යාවත්කාලීන කල හා අවසන් වරට පරීක්ෂා කල වේලාවන් "
 "ඇතුලත් කරන්න"
 
 #: libraries/export/sql.php:100
@@ -6448,7 +6449,7 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"TIMESTAMP තීර UTC ලෙස නික්ෂේපනය කරන්න <i>(වෙනස් වෙලා කලාපවල ඇති සේවාදායක අතර "
+"TIMESTAMP තීර UTC ලෙස නික්ෂේපනය කරන්න <i>(වෙනස් වේලා කලාපවල ඇති සේවාදායක අතර "
 "TIMESTAMP තීර නික්ෂේපනය හා ප්‍රතිපූරණයට අවස්ථාව ලබා දේ)</i>"
 
 #: libraries/export/sql.php:345 libraries/export/xml.php:45
@@ -6923,7 +6924,7 @@ msgstr "ලොග්අවුට් වන්න"
 #: libraries/navigation_header.inc.php:117
 #: libraries/navigation_header.inc.php:119
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "යාත්‍රණ රාමුව ප්‍රතිපූර්ණය කරන්න"
 
 #: libraries/plugin_interface.lib.php:284
 msgid "This format has no options"
@@ -8994,7 +8995,8 @@ msgstr "තෝරාගත් භාවිතා කරන්නන් ඉවත
 
 #: server_privileges.php:1920
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "භාවිත කරන්නන්ගෙන් සියලුම සක්‍රීය වරප්‍රසාද අහෝසි කර අනතුරුව ඔවුන් ඉවත් කරන්න."
+msgstr ""
+"භාවිතා කරන්නන්ගේ සියලුම සක්‍රීය වරප්‍රසාද අහෝසි කර අනතුරුව ඔවුන් ඉවත් කරන්න."
 
 #: server_privileges.php:1921 server_privileges.php:1922
 #: server_privileges.php:1923
