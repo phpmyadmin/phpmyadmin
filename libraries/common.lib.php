@@ -3626,7 +3626,7 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
  *
  * @global   array    $cfg            PMA configuration
  * @global   array    $analyzed_sql   Analyzed SQL query
- * @global   mixed    $data           (null/string) FIXME: what is this for?
+ * @global   mixed    $data           data of currently edited row (used to detect whether to choose defaults)
  *
  * @return   string   An HTML snippet of a dropdown list with function
  *                    names appropriate for the requested column.
