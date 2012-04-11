@@ -36,7 +36,7 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
 
         $this->expectOutputRegex("/Missing parameter: field/" );
 
-        PMA_checkParameters(array('db', 'table', 'field'), false);
+        PMA_checkParameters(array('db', 'table', 'field'));
     }
 
     function testCheckParameter()
@@ -49,6 +49,6 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_query'] = "SELECT * FROM tblTable;";
 
         $this->expectOutputString("");
-        PMA_checkParameters(array('db', 'table', 'field', 'sql_query'), false);
+        PMA_checkParameters(array('db', 'table', 'field', 'sql_query'));
     }
 }
