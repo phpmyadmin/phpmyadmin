@@ -303,7 +303,6 @@ $strConfigLoginCookieValidity_desc = __('Define how long (in seconds) a login co
 $strConfigLoginCookieValidity_name = __('Login cookie validity');
 $strConfigLongtextDoubleTextarea_desc = __('Double size of textarea for LONGTEXT columns');
 $strConfigLongtextDoubleTextarea_name = __('Bigger textarea for LONGTEXT');
-$strConfigMainPageIconic_name = __('Use icons on main page');
 $strConfigMaxCharactersInDisplayedSQL_desc = __('Maximum number of characters used when a SQL query is displayed');
 $strConfigMaxCharactersInDisplayedSQL_name = __('Maximum displayed SQL length');
 $strConfigMaxDbList_cmt = __('Users cannot set a higher value');

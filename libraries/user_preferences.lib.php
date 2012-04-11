@@ -234,7 +234,7 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
             array_diff_assoc($old_settings, $new_settings)
             + array_diff_assoc($new_settings, $old_settings)
         );
-        $check_keys = array('NaturalOrder', 'MainPageIconic', 'DefaultTabDatabase',
+        $check_keys = array('NaturalOrder', 'DefaultTabDatabase',
             'Server/hide_db', 'Server/only_db');
         $check_keys = array_merge(
             $check_keys, $forms['Left_frame']['Left_frame'],

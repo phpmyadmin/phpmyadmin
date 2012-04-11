@@ -2528,13 +2528,6 @@ $cfg['TitleServer'] = '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
 $cfg['TitleDefault'] = '@HTTP_HOST@ | @PHPMYADMIN@';
 
 /**
- * show icons in list on main page and on menu tabs (true|false)?
- *
- * @global boolean $cfg['MainPageIconic']
- */
-$cfg['MainPageIconic'] = true;
-
-/**
  * show help button instead of Documentation text (true|false)?
  *
  * @global boolean $cfg['ReplaceHelpImg']

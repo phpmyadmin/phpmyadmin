@@ -1267,7 +1267,6 @@ div#queryboxcontainer div#bookmarkoptions {
 /* END main page */
 
 
-<?php if ($GLOBALS['cfg']['MainPageIconic']) { ?>
 /* iconic view for ul items */
 li#li_create_database {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_newdb.png);
@@ -1349,7 +1348,6 @@ li#li_user_preferences {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_tblops.png);
 }
 /* END iconic view for ul items */
-<?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
 
 
 #body_browse_foreigners {

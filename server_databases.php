@@ -94,7 +94,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
             if ($mult_btn == __('Yes')) {
                 $number_of_databases = count($selected);
             } else {
-                $number_of_databases = 0; 
+                $number_of_databases = 0;
             }
             $message = PMA_Message::success(_ngettext('%1$d database has been dropped successfully.', '%1$d databases have been dropped successfully.', $number_of_databases));
             $message->addParam($number_of_databases);
@@ -113,9 +113,7 @@ require 'libraries/server_links.inc.php';
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($GLOBALS['cfg']['MainPageIconic']
-      ? PMA_getImage('s_db.png')
-      : '')
+   . PMA_getImage('s_db.png')
    . ($dbstats ? __('Databases statistics') : __('Databases')) . "\n"
    .'</h2>' . "\n";
 
