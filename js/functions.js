@@ -1441,20 +1441,24 @@ function PMA_showNoticeForEnum(selectElement)
 function PMA_createTableDialog( $div, url , target)
 {
      /**
-     *  @var    button_options  Object that stores the options passed to jQueryUI
-     *                          dialog
-     */
+      *  @var    button_options  Object that stores the options passed to jQueryUI
+      *                          dialog
+      */
      var button_options = {};
      // in the following function we need to use $(this)
-     button_options[PMA_messages['strCancel']] = function() {$(this).closest('.ui-dialog-content').dialog('close').remove();}
+     button_options[PMA_messages['strCancel']] = function() {
+         $(this).closest('.ui-dialog-content').dialog('close').remove();
+     };
 
      var button_options_error = {};
-     button_options_error[PMA_messages['strOK']] = function() {$(this).closest('.ui-dialog-content').dialog('close').remove();}
+     button_options_error[PMA_messages['strOK']] = function() {
+         $(this).closest('.ui-dialog-content').dialog('close').remove();
+     };
 
      var $msgbox = PMA_ajaxShowMessage();
 
-     $.get( target , url ,  function(data) {
-         //in the case of an error, show the error message returned.
+     $.get(target, url, function(data) {
+      //in the case of an error, show the error message returned.
          if (data.success != undefined && data.success == false) {
              $div
              .append(data.error)
@@ -1466,7 +1470,8 @@ function PMA_createTableDialog( $div, url , target)
              })// end dialog options
              //remove the redundant [Back] link in the error message.
              .find('fieldset').remove();
-         } else {
+         }
+         else {
              var size = getWindowSize();
              var timeout;
              $div
@@ -1515,12 +1520,15 @@ function PMA_createTableDialog( $div, url , target)
                  close: function() {
                      $(window).unbind('resize.dialog-resizer');
                      $('#content-hide > *').unwrap();
+                     // resize topmenu
+                     menuResize();
+                     menuResize(); // somehow need to call it twice to work
                  },
                  buttons: button_options
              }); // end dialog options
          }
-         PMA_convertFootnotesToTooltips($div);
-         PMA_ajaxRemoveMessage($msgbox);
+        PMA_convertFootnotesToTooltips($div);
+        PMA_ajaxRemoveMessage($msgbox);
      }); // end $.get()
 
 }
