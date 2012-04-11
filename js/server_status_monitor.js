@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 $(function() {
     // Show tab links
     $('div#statustabs_charting div.tabLinks').show();

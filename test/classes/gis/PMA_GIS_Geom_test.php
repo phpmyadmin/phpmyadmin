@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract parent class for all PMA_GIS_<Geom_type> test classes
  *

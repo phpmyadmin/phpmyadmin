@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 require_once 'libraries/common.inc.php';
 if (! isset($_REQUEST['get_gis_editor']) && ! isset($_REQUEST['generate'])) {
     include_once 'libraries/header_http.inc.php';
