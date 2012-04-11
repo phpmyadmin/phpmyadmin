@@ -1,7 +1,11 @@
 phpMyAdmin - Readme
 ===================
 
+<<<<<<< HEAD
 Version 4.0.0-dev
+=======
+Version 3.4.11-rc1
+>>>>>>> 591d151... 3.4.11-rc1
 
 A set of PHP-scripts to manage MySQL over the web.
 
