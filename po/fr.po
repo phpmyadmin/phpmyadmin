@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-09 15:34+0200\n"
+"PO-Revision-Date: 2012-04-11 18:23+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -3981,14 +3981,13 @@ msgid "Customize startup page"
 msgstr "Personnaliser la page de départ"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Serveur de base de données"
+msgstr "Structure de base de données"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr ""
+msgstr "Choisissez les détails à afficher dans la liste des tables"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5068,32 +5067,36 @@ msgstr "Afficher le formulaire de création de base de données"
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Montrer ou cacher une colonne contenant la date de création pour toutes les "
+"tables"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Montrer d'autres actions"
+msgstr "Montrer la date de création"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Montrer ou cacher une colonne contenant la date de dernière mise à jour pour "
+"toutes les tables"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Montrer la date de dernière mise à jour"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Montrer ou cacher une colonne contenant la date de dernière vérification "
+"pour toutes les tables"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Montrer l'état du maître"
+msgstr "Montrer la date de dernière vérification"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5817,7 +5820,7 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s sur %s"
 
 #: libraries/display_import.lib.php:78
 msgid "Uploading your import file..."

@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
   * Allows moving around inputs/select by Ctrl+arrows
   *

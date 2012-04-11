@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * URL redirector to avoid leaking Referer with some sensitive information.
  */

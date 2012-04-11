@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Used to create server variables documentation links
  * $VARIABLE_DOC_LINKS[string $name] = array(
