@@ -11,8 +11,11 @@
 /*
  * Include to test.
  */
+require_once 'libraries/core.lib.php';
 require_once 'libraries/common.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/select_lang.lib.php';
 
 class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
 {
@@ -22,6 +25,8 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['cfg'] = array('ReplaceHelpImg' => true, 'ServerDefault' => 1);
         $GLOBALS['pmaThemeImage'] = 'theme/';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
     }
 
     function testCheckParameterMissing()
@@ -31,7 +36,7 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
 
         $this->expectOutputRegex("/Missing parameter: field/" );
 
-        PMA_checkParameters(array('db', 'table', 'field'), false);
+        PMA_checkParameters(array('db', 'table', 'field'));
     }
 
     function testCheckParameter()
@@ -44,6 +49,6 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_query'] = "SELECT * FROM tblTable;";
 
         $this->expectOutputString("");
-        PMA_checkParameters(array('db', 'table', 'field', 'sql_query'), false);
+        PMA_checkParameters(array('db', 'table', 'field', 'sql_query'));
     }
 }

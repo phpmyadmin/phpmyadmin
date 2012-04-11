@@ -2075,9 +2075,6 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * would have to check if the error message file is always available
  *
  * @param array $params  The names of the parameters needed by the calling script.
- * @param bool  $die     Stop the execution?
- *                       (Set this manually to false in the calling script
- *                       until you know all needed parameters to check).
  * @param bool  $request Whether to include this list in checking for special params.
  *
  * @return void
@@ -2086,9 +2083,8 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * @global  boolean flag whether any special variable was required
  *
  * @access  public
- * @todo    use PMA_fatalError() if $die === true?
  */
-function PMA_checkParameters($params, $die = true, $request = true)
+function PMA_checkParameters($params, $request = true)
 {
     global $checked_special;
 
@@ -2115,14 +2111,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
         }
     }
     if ($found_error) {
-        /**
-         * display html meta tags
-         */
-        include_once './libraries/header_meta_style.inc.php';
-        echo '</head><body><p>' . $error_message . '</p></body></html>';
-        if ($die) {
-            exit();
-        }
+        PMA_fatalError($error_message);
     }
 } // end function
 
@@ -3626,7 +3615,7 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
  *
  * @global   array    $cfg            PMA configuration
  * @global   array    $analyzed_sql   Analyzed SQL query
- * @global   mixed    $data           (null/string) FIXME: what is this for?
+ * @global   mixed    $data           data of currently edited row (used to detect whether to choose defaults)
  *
  * @return   string   An HTML snippet of a dropdown list with function
  *                    names appropriate for the requested column.
