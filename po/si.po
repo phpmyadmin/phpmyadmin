@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-10 20:36+0200\n"
+"PO-Revision-Date: 2012-04-11 16:19+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -3598,7 +3598,7 @@ msgstr "දෝෂ නොසලකා ඇතුල් කිරීම් භා�
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
-msgstr "දත්ත ඇතුළු කිරීමේදී භාවිතා කලයුතු වාග් රීතිය"
+msgstr "දත්ත ඇතුල් කිරීමේදී භාවිතා කල යුතු වාග් රීතිය"
 
 #: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
