@@ -261,7 +261,7 @@ foreach ($tables as $keyname => $each_table) {
                 . '</span> <span class="unit">' . $overhead_unit . '</span></a>' . "\n";
             unset($formatted_overhead);
             $overhead_check .=
-                "document.getElementById('checkbox_tbl_" . ($i + 1) . "').checked = true;";
+                "markAllRows('row_tbl_" . ($i + 1) . "');";
         } else {
             $overhead = '-';
         }
@@ -446,7 +446,8 @@ foreach ($tables as $keyname => $each_table) {
         unset($table_part);
     }
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>"
+    id="row_tbl_<?php echo $i; ?>">
     <td class="center">
         <input type="checkbox" name="selected_tbl[]"
             value="<?php echo htmlspecialchars($each_table['TABLE_NAME']); ?>"
