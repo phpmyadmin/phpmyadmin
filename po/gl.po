@@ -1,11 +1,11 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-03-20 03:34+0200\n"
-"Last-Translator: frandieguez <fran.dieguez@mabishu.com>\n"
+"PO-Revision-Date: 2012-04-11 16:57-0000\n"
+"Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -759,7 +759,7 @@ msgstr "Acción"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Borra os datos de seguimento para esta táboa"
 
 #: db_tracking.php:119 tbl_tracking.php:617 tbl_tracking.php:675
 msgid "active"
@@ -840,40 +840,40 @@ msgstr "Exportar as táboas"
 #: gis_data_editor.php:84
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Valor para a columna \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:164
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Utilizar OpenStreetMaps como Capa Base"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:322
 #: libraries/display_tbl.lib.php:692
 msgid "Geometry"
-msgstr ""
+msgstr "Xeometría"
 
 #: gis_data_editor.php:172 js/messages.php:318
 msgid "Point"
-msgstr ""
+msgstr "Punto"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:316
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:317
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:319
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punto %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:325
@@ -890,11 +890,11 @@ msgstr "As liñas rematan por"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
 msgid "Outer Ring"
-msgstr ""
+msgstr "Círculo externo"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:323
 msgid "Inner Ring"
-msgstr ""
+msgstr "Círculo interno"
 
 #: gis_data_editor.php:252
 #, fuzzy
@@ -910,7 +910,7 @@ msgstr "Engadir un usuario novo"
 
 #: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
-msgstr ""
+msgstr "Polígono"
 
 #: gis_data_editor.php:306 js/messages.php:327
 #, fuzzy
@@ -926,13 +926,15 @@ msgstr "Engadir un servidor novo"
 
 #: gis_data_editor.php:317
 msgid "Output"
-msgstr ""
+msgstr "Saída"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Seleccione \"GeomFromText\" da columna \"Función\" e pegue a cadea situada "
+"debaixo no campo \"Valor\""
 
 #: import.php:86
 #, php-format
@@ -981,6 +983,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Non se pode convertir o xogo de carácteres do arquivo sen a librería "
+"correspondente"
 
 #: import.php:439 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1153,7 +1157,7 @@ msgstr "Escolla de servidor"
 
 #: js/messages.php:63 server_status.php:820
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Gráfica conexións/procesos en directo"
 
 #: js/messages.php:64 server_status.php:838
 #, fuzzy
@@ -1163,7 +1167,7 @@ msgstr "Caixa de Procuras SQL"
 
 #: js/messages.php:66
 msgid "Static data"
-msgstr ""
+msgstr "Datos estáticos"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
@@ -1176,7 +1180,7 @@ msgstr "Total"
 #. l10n: Other, small valued, queries
 #: js/messages.php:70 server_status.php:617 server_status.php:1036
 msgid "Other"
-msgstr ""
+msgstr "Outro"
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/common.lib.php:1484
@@ -1192,11 +1196,11 @@ msgstr "."
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB enviados dende o último refresco"
 
 #: js/messages.php:77
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB recibidos dende o último refresco"
 
 #: js/messages.php:78
 #, fuzzy
@@ -1206,7 +1210,7 @@ msgstr "Escolla de servidor"
 
 #: js/messages.php:79
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Conexións dende o último refresco"
 
 #: js/messages.php:80 js/messages.php:118 server_status.php:1249
 msgid "Processes"
@@ -1221,12 +1225,12 @@ msgstr "Conexións"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Preguntas dende o último refresco"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Preguntas (sentencias executadas polo servidor)"
 
 #: js/messages.php:87 server_status.php:799
 #, fuzzy
@@ -1268,15 +1272,15 @@ msgstr "caché de procuras"
 
 #: js/messages.php:97
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Uso da CPU do sistema"
 
 #: js/messages.php:98
 msgid "System memory"
-msgstr ""
+msgstr "Memoria do sistema"
 
 #: js/messages.php:99
 msgid "System swap"
-msgstr ""
+msgstr "Arquivo de intercambio do sistema"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
@@ -1292,7 +1296,7 @@ msgstr "KiB"
 
 #: js/messages.php:103
 msgid "Average load"
-msgstr ""
+msgstr "Carga promedio"
 
 #: js/messages.php:104
 #, fuzzy
@@ -1302,7 +1306,7 @@ msgstr "Número de ficheiros de rexistro"
 
 #: js/messages.php:105
 msgid "Cached memory"
-msgstr ""
+msgstr "Memoria caché"
 
 #: js/messages.php:106
 #, fuzzy
@@ -1312,11 +1316,11 @@ msgstr "Reserva da memoria intermedia"
 
 #: js/messages.php:107
 msgid "Free memory"
-msgstr ""
+msgstr "Memoria libre"
 
 #: js/messages.php:108
 msgid "Used memory"
-msgstr ""
+msgstr "Memoria usada"
 
 #: js/messages.php:110
 #, fuzzy
@@ -1326,11 +1330,11 @@ msgstr "Total"
 
 #: js/messages.php:111
 msgid "Cached Swap"
-msgstr ""
+msgstr "Intercambio en caché"
 
 #: js/messages.php:112
 msgid "Used Swap"
-msgstr ""
+msgstr "Intercambio usado"
 
 #: js/messages.php:113
 #, fuzzy
@@ -1340,7 +1344,7 @@ msgstr "Páxinas libres"
 
 #: js/messages.php:115
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes enviados"
 
 #: js/messages.php:116
 #, fuzzy
@@ -1410,7 +1414,7 @@ msgstr "Mudar o nome da base de datos para"
 
 #: js/messages.php:135
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Editar título e etiquetas"
 
 #: js/messages.php:136
 #, fuzzy
@@ -1420,7 +1424,7 @@ msgstr "Axustar á grella"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Por favor engada polo menos unha variable á serie"
 
 #: js/messages.php:139 libraries/display_export.lib.php:311
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1113
@@ -1432,35 +1436,35 @@ msgstr "Ningunha"
 
 #: js/messages.php:140
 msgid "Resume monitor"
-msgstr ""
+msgstr "Recomezar monitorización"
 
 #: js/messages.php:141
 msgid "Pause monitor"
-msgstr ""
+msgstr "Pausar monitorización"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log e slow_query_log están activas."
 
 #: js/messages.php:144
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log está activa."
 
 #: js/messages.php:145
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log está activa."
 
 #: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log e general_log están desactivadas."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output non está definido como TABLE."
 
 #: js/messages.php:148
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output está definido como TABLE."
 
 #: js/messages.php:149
 #, php-format
@@ -1469,17 +1473,22 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log está activo, pero o servidor só rexistra procuras que tardan "
+"máis que %d segundos. É recomendable establecer o long_query_time a 0-2 "
+"segundos, dependendo do seu sistema."
 
 #: js/messages.php:150
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time está establecido en  %d segundo(s)."
 
 #: js/messages.php:151
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Os seguintes valores de configuración serán aplicados globalmente e serán "
+"reseteados ós valores predeterminados ó reiniciar o servidor:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
@@ -1510,6 +1519,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Vostede non pode cambiar estas variables. Por favor ingrese como root ou "
+"contacte co seu administrador."
 
 #: js/messages.php:161
 #, fuzzy
@@ -1539,23 +1550,23 @@ msgstr "Diferenza"
 #: js/messages.php:167
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "Dividido por %s"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "Unidade"
 
 #: js/messages.php:170
 msgid "From slow log"
-msgstr ""
+msgstr "Do rexistro de procuras lento"
 
 #: js/messages.php:171
 msgid "From general log"
-msgstr ""
+msgstr "Do rexistro de procuras xeral"
 
 #: js/messages.php:172
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analizando e cargando rexistros. Esto pode tardar un anaco."
 
 #: js/messages.php:173
 #, fuzzy
@@ -1894,7 +1905,7 @@ msgstr ""
 
 #: js/messages.php:265 libraries/rte/rte_routines.lib.php:689
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Editor  de ENUM/SET"
 
 #: js/messages.php:266
 #, fuzzy, php-format
@@ -1904,11 +1915,11 @@ msgstr "Número de campos"
 
 #: js/messages.php:267
 msgid "Values for a new column"
-msgstr ""
+msgstr "Valores para a nova columna"
 
 #: js/messages.php:268
 msgid "Enter each value in a separate field"
-msgstr ""
+msgstr "Introduza cada valor nun campo separado"
 
 #: js/messages.php:269
 #, fuzzy, php-format
@@ -11238,9 +11249,8 @@ msgid "Rearrange/edit charts"
 msgstr ""
 
 #: server_status.php:1602
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Refrescar"
+msgstr "Tasa de refresco"
 
 #: server_status.php:1607
 #, fuzzy
@@ -14083,8 +14093,8 @@ msgstr "concurrent_insert está definido a 0"
 #~ "appropriate column name."
 #~ msgstr ""
 #~ "O campo que se mostra aparece en rosa. Para indicar que un campo se "
-#~ "seleccione ou non como o campo a mostrar, prema a icona \"Escoller o "
-#~ "campo a mostrar\" e a seguir o nome do campo apropiado."
+#~ "seleccione ou non como o campo a mostrar, prema a icona \"Escoller o campo a "
+#~ "mostrar\" e a seguir o nome do campo apropiado."
 
 #~ msgid "memcached usage"
 #~ msgstr "Uso do espazo"
@@ -14187,8 +14197,8 @@ msgstr "concurrent_insert está definido a 0"
 #~ "deber a que php atopou un erro nel ou a que php non puido atopar o "
 #~ "ficheiro.<br/>Invoque o ficheiro de configuración directamente mediante o "
 #~ "vínculo que hai máis abaixo e lea a mensaxe de erro de php que reciba. Na "
-#~ "maioría dos casos simplemente faltan unha aspa ou un ponto e vírcula <br/"
-#~ ">Se recibe unha páxina en branco é que todo está ben."
+#~ "maioría dos casos simplemente faltan unha aspa ou un ponto e vírcula <br/>Se "
+#~ "recibe unha páxina en branco é que todo está ben."
 
 #~ msgid "Dropping Procedure"
 #~ msgstr "Procedementos"
@@ -14217,8 +14227,8 @@ msgstr "concurrent_insert está definido a 0"
 #~ "<b>Server traffic</b>: These tables show the network traffic statistics "
 #~ "of this MySQL server since its startup."
 #~ msgstr ""
-#~ "<b>Tráfico do servidor</b>: Estas táboas mostran as estatísticas do "
-#~ "tráfico da rede neste servidor de MySQL desde que se iniciou."
+#~ "<b>Tráfico do servidor</b>: Estas táboas mostran as estatísticas do tráfico "
+#~ "da rede neste servidor de MySQL desde que se iniciou."
 
 #~ msgid ""
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
@@ -14301,9 +14311,9 @@ msgstr "concurrent_insert está definido a 0"
 #~ "\\'b')."
 #~ msgstr ""
 #~ "Introduza os valores das opcións de transformación empregando este "
-#~ "formato:'a', 100, b,'c'...<br />Se necesitar introducir unha barra para "
-#~ "trás (\"\\\") ou aspas simples (\"'\") entre estes valores, precédaos de "
-#~ "barra para trás (por exemplo '\\\\xyz' ou 'a\\'b')."
+#~ "formato:'a', 100, b,'c'...<br />Se necesitar introducir unha barra para trás "
+#~ "(\"\\\") ou aspas simples (\"'\") entre estes valores, precédaos de barra para "
+#~ "trás (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
@@ -14311,9 +14321,9 @@ msgstr "concurrent_insert está definido a 0"
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "Introduza os valores das opcións de transformación empregando este "
-#~ "formato:'a', 100, b,'c'...<br />Se necesitar introducir unha barra para "
-#~ "trás (\"\\\") ou aspas simples (\"'\") entre estes valores, precédaos de "
-#~ "barra para trás (por exemplo '\\\\xyz' ou 'a\\'b')."
+#~ "formato:'a', 100, b,'c'...<br />Se necesitar introducir unha barra para trás "
+#~ "(\"\\\") ou aspas simples (\"'\") entre estes valores, precédaos de barra para "
+#~ "trás (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #~ msgid "New table"
 #~ msgstr "Sen táboas"
@@ -14340,9 +14350,9 @@ msgstr "concurrent_insert está definido a 0"
 #~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
 #~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
 #~ msgstr ""
-#~ "Configuración das solicitudes de SQL; para as opcións da caixa Procuras "
-#~ "SQL vexa a configuración da [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]moldura de navegación[/a]"
+#~ "Configuración das solicitudes de SQL; para as opcións da caixa Procuras SQL "
+#~ "vexa a configuración da "
+#~ "[a@?page=form&amp;formset=main_frame#tab_Sql_box]moldura de navegación[/a]"
 
 #~ msgid "Remove carriage return/line field characters within columns"
 #~ msgstr "Eliminar os caracteres CRLF dentro dos campos"
@@ -14357,8 +14367,7 @@ msgstr "concurrent_insert está definido a 0"
 #~ msgstr "lembrar o modelo"
 
 #~ msgid "Imported file compression will be automatically detected from: %s"
-#~ msgstr ""
-#~ "A compresión do ficheiro importado detectarase automaticamente de: %s"
+#~ msgstr "A compresión do ficheiro importado detectarase automaticamente de: %s"
 
 #~ msgid "Add into comments"
 #~ msgstr "Engadir aos comentarios"
