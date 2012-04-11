@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-10 11:57+0200\n"
+"PO-Revision-Date: 2012-04-11 11:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -3941,14 +3941,14 @@ msgid "Customize startup page"
 msgstr "Přizpůsobení úvodní stránky"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Databázový server"
+msgstr "Struktura databáze"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Zvolte co se má zobrazit při zobrazení struktury databáze (seznam tabulek)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5753,7 +5753,7 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s z %s"
 
 #: libraries/display_import.lib.php:78
 msgid "Uploading your import file..."
