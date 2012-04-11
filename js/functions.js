@@ -157,7 +157,7 @@ function PMA_current_version()
 
 function displayPasswordGenerateButton()
 {
-    $('#tr_element_before_generate_password').parent().append('<tr><td>' + PMA_messages['strGeneratePassword'] + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
+    $('#tr_element_before_generate_password').parent().append('<tr class="vmiddle"><td>' + PMA_messages['strGeneratePassword'] + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
     $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages['strGeneratePassword'] + ':</label><span class="options"><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
 }
 
@@ -2348,6 +2348,9 @@ $(document).ready(function() {
         });
     $('#change_password_anchor.ajax').live('click', function(event) {
         event.preventDefault();
+
+        var $msgbox = PMA_ajaxShowMessage();
+
         $(this).removeClass('ajax').addClass('dialog_active');
         /**
          * @var button_options  Object containing options to be passed to jQueryUI's dialog
@@ -2403,7 +2406,14 @@ $(document).ready(function() {
                 }
             })
             .append(data);
+            // for this dialog, we remove the fieldset wrapping due to double headings
+            $("fieldset#fieldset_change_password")
+            .find("legend").remove().end()
+            .find("table.noclick").unwrap().addClass("some-margin")
+            .find("input#text_pma_pw").focus();
             displayPasswordGenerateButton();
+            $('#fieldset_change_password_footer').hide();
+            PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()
     }); // end handler for change password anchor
 

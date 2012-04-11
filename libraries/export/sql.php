@@ -1178,7 +1178,7 @@ if (isset($plugin_list)) {
                     $insert_delayed .= ' IGNORE';
                 }
                 //truncate table before insert
-                if ($GLOBALS['sql_truncate'] && $sql_command == 'INSERT') {
+                if (isset($GLOBALS['sql_truncate']) && $GLOBALS['sql_truncate'] && $sql_command == 'INSERT') {
                     $truncate = 'TRUNCATE TABLE ' . PMA_backquote($table, $sql_backquotes) . ";";
                     $truncatehead = PMA_possibleCRLF()
                       . PMA_exportComment()

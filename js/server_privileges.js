@@ -368,17 +368,23 @@ $(document).ready(function() {
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close");};
 
         var token = $(this).parents('form').find('input[name="token"]').val();
-        $.get($(this).attr('href'), {'ajax_request':true, 'edit_user_dialog': true, 'token': token}, function(data) {
-            var $div = $('<div id="edit_user_dialog"></div>')
-            .append(data)
-            .dialog({
-                width: 900,
-                height: 600,
-                buttons: button_options,
-                close: function () {
-                    $(this).remove();
-                }
-            }); //dialog options end
+        $.get($(this).attr('href'),
+            {
+                'ajax_request':true,
+                'edit_user_dialog': true,
+                'token': token
+            }, 
+            function(data) {
+                var $div = $('<div id="edit_user_dialog"></div>')
+                .append(data)
+                .dialog({
+                    width: 900,
+                    height: 600,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                }); //dialog options end
             displayPasswordGenerateButton();
             PMA_ajaxRemoveMessage($msgbox);
             PMA_convertFootnotesToTooltips($div);
