@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-11 17:06+0200\n"
+"PO-Revision-Date: 2012-04-11 21:32+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -10110,6 +10110,8 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"ප්‍රස්ථාර සැකැස්ම බ්‍රවුසරයේ ගබඩාවේ ගබඩා කර ඇත. සංකීර්ණ වූ සැකැස්මක් ඇත්නම් "
+"ඔබට එය අපනයනය කර ගැනීමට අවශ්‍ය විය හැකිය."
 
 #: server_status.php:1606
 msgid "Reset to default"
@@ -10127,6 +10129,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
+"ඔබගේ සේවාදායකයේ වින්‍යාසයන් ප්‍රශස්ත කිරීමටත් වැඩි කාලයක් ගතවන විමසුම් හඳුනා "
+"ගැනීමටත් ඔබට phpMyAdmin අධීක්ෂකය යොදාගත හැක. දෙවැන්න සඳහා log_output, TABLE "
+"ලෙස සිටුවීමත් slow_query_log, general_log යන දෙකෙන් එකක් සක්‍රීය කිරීමත්  "
+"අවශ්‍ය වේ. කෙසේ වෙතත් general_logය ඉතා විශාල දත්ත ප්‍රමාණයක් උත්පාදනය කරන බව "
+"සහ එමගින් සේවාදායකය මත භාරය 15% දක්වා ඉහල යා හැකි බව සලකන්න"
 
 #: server_status.php:1616
 msgid ""
@@ -10138,7 +10145,7 @@ msgstr ""
 
 #: server_status.php:1629
 msgid "Using the monitor:"
-msgstr ""
+msgstr "අධීක්ෂකය භාවිතා කරමින්:"
 
 #: server_status.php:1631
 msgid ""
@@ -10157,7 +10164,7 @@ msgstr ""
 
 #: server_status.php:1640
 msgid "Please note:"
-msgstr ""
+msgstr "කරුණාකර සලකන්න:"
 
 #: server_status.php:1642
 msgid ""
@@ -10181,7 +10188,7 @@ msgstr "ශ්‍රේණිය තෝරන්න:"
 
 #: server_status.php:1662
 msgid "Commonly monitored"
-msgstr ""
+msgstr "සාමාන්‍යයෙන් අධීක්ෂණය කරනු ලබන"
 
 #: server_status.php:1677
 msgid "or type variable name:"
@@ -10189,15 +10196,15 @@ msgstr "හෝ විචල්‍ය නාමය යතුරු කරන්�
 
 #: server_status.php:1681
 msgid "Display as differential value"
-msgstr ""
+msgstr "ආන්තර අගයන් ලෙස පෙන්වන්න"
 
 #: server_status.php:1683
 msgid "Apply a divisor"
-msgstr ""
+msgstr "භාජකයක් භාවිතා කරන්න"
 
 #: server_status.php:1690
 msgid "Append unit to data values"
-msgstr ""
+msgstr "දත්ත අගයන් සඳහා ඒකකයක් එක් කරන්න"
 
 #: server_status.php:1696
 msgid "Add this series"
@@ -10205,7 +10212,7 @@ msgstr "මෙම ශ්‍රේණිය එක් කරන්න"
 
 #: server_status.php:1698
 msgid "Clear series"
-msgstr ""
+msgstr "ශ්‍රේණිය ඉවත් කරන්න"
 
 #: server_status.php:1701
 msgid "Series in Chart:"
@@ -10221,19 +10228,19 @@ msgstr "තෝරාගත් කාල පරාසය:"
 
 #: server_status.php:1720
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "SELECT,INSERT,UPDATE සහ DELETE ප්‍රකාශ පමණක් ලබාගන්න"
 
 #: server_status.php:1725
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "වඩා හොඳ සමූහනයන් සඳහා INSERT ප්‍රකාශ වල අඩංගු විචල්‍ය දත්ත ඉවත් කරන්න"
 
 #: server_status.php:1730
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
+msgstr "සංඛ්‍යාලේඛන උත්පාදනය කල යුත්තේ කුමන ලොගයෙන් දැයි තෝරන්න."
 
 #: server_status.php:1732
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "ප්‍රතිඵල විමසුම් පෙළ මගින් සමූහනය කර ඇත."
 
 #: server_status.php:1737
 msgid "Query analyzer"
@@ -10341,7 +10348,7 @@ msgstr "ක්‍රියාත්මක කරන ලද විමසුම්
 
 #: server_synchronize.php:1202
 msgid "Enter manually"
-msgstr ""
+msgstr "අතින් ඇතුල් කරන්න"
 
 #: server_synchronize.php:1210
 msgid "Current connection"
@@ -10366,7 +10373,7 @@ msgstr ""
 
 #: server_variables.php:80
 msgid "Setting variable failed"
-msgstr ""
+msgstr "විචල්‍යය සිටුවීම අසමත් විය"
 
 #: server_variables.php:99
 msgid "Server variables and settings"
