@@ -1,6 +1,7 @@
 var chart_xaxis_idx = -1;
 var chart_series;
 var chart_series_index = -1;
+var temp_chart_title;
 
 $(document).ready(function() {
     var currentChart = null;
@@ -66,10 +67,18 @@ $(document).ready(function() {
         drawChart();
     });
 
+    $('input[name="chartTitle"]').focus(function() {
+        temp_chart_title = $(this).val();
+    });
     $('input[name="chartTitle"]').keyup(function() {
         var title = $(this).attr('value');
         if(title.length == 0) title = ' ';
         currentChart.setTitle({ text: title });
+    });
+    $('input[name="chartTitle"]').blur(function() {
+        if ($(this).val() != temp_chart_title) {
+            drawChart(true);
+        }
     });
 
     $('select[name="chartXAxis"]').change(function() {
