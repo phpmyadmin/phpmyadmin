@@ -219,34 +219,121 @@ if (isset($plugin_list)) {
     }
 
     /**
-     * Outputs table's structure
+     * Returns a stand-in CREATE definition to resolve view dependencies
      *
-     * @param string $db          database name
-     * @param string $table       table name
-     * @param string $crlf        the end of line sequence
-     * @param string $error_url   the url to go back in case of error
-     * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column comments
-     *                            as comments in the structure; this is deprecated
-     *                            but the parameter is left here because export.php
-     *                            calls PMA_exportStructure() also for other export
-     *                            types which use this parameter
-     * @param bool   $do_mime     whether to include mime comments
-     * @param bool   $dates       whether to include creation/update/check dates
-     * @param string $export_mode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
+     * @param string $db   the database name
+     * @param string $view the view name
+     * @param string $crlf the end of line sequence
      *
-     * @return bool Whether it succeeded
+     * @return bool true
      *
      * @access public
      */
-    function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
+    function PMA_getTableDefStandIn($db, $view, $crlf)
+    {
+        /**
+         * Get the unique keys in the table
+         */
+        $unique_keys = array();
+        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        foreach ($keys as $key) {
+            if ($key['Non_unique'] == 0) {
+                $unique_keys[] = $key['Column_name'];
+            }
+        }
+
+        /**
+         * Gets fields properties
+         */
+        PMA_DBI_select_db($db);
+
+        /**
+         * Displays the table structure
+         */
+        $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_data">';
+        $columns_cnt = 4;
+        $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="' . $columns_cnt . '"/>';
+        /* Header */
+        $GLOBALS['odt_buffer'] .= '<table:table-row>';
+        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . __('Column') . '</text:p>'
+            . '</table:table-cell>';
+        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . __('Type') . '</text:p>'
+            . '</table:table-cell>';
+        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . __('Null') . '</text:p>'
+            . '</table:table-cell>';
+        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . __('Default') . '</text:p>'
+            . '</table:table-cell>';
+        $GLOBALS['odt_buffer'] .= '</table:table-row>';
+
+        $columns = PMA_DBI_get_columns($db, $table);
+        foreach ($columns as $column) {
+            $field_name = $column['Field'];
+            $GLOBALS['odt_buffer'] .= '<table:table-row>';
+            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . htmlspecialchars($field_name) . '</text:p>'
+                . '</table:table-cell>';
+
+            $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
+            $type = htmlspecialchars($extracted_fieldspec['print_type']);
+            if (empty($type)) {
+                $type     = '&nbsp;';
+            }
+
+            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . htmlspecialchars($type) . '</text:p>'
+                . '</table:table-cell>';
+            if (!isset($column['Default'])) {
+                if ($column['Null'] != 'NO') {
+                    $column['Default'] = 'NULL';
+                } else {
+                    $column['Default'] = '';
+                }
+            } else {
+                $column['Default'] = $column['Default'];
+            }
+            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</text:p>'
+                . '</table:table-cell>';
+            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . htmlspecialchars($column['Default']) . '</text:p>'
+                . '</table:table-cell>';
+
+            $GLOBALS['odt_buffer'] .= '</table:table-row>';
+        } // end while
+
+        $GLOBALS['odt_buffer'] .= '</table:table>';
+        return true;
+    }
+
+    /**
+     * Returns $table's CREATE definition
+     *
+     * @param string $db            the database name
+     * @param string $table         the table name
+     * @param string $crlf          the end of line sequence
+     * @param string $error_url     the url to go back in case of error
+     * @param bool   $do_relation   whether to include relation comments
+     * @param bool   $do_comments   whether to include the pmadb-style column comments
+     *                                as comments in the structure; this is deprecated
+     *                                but the parameter is left here because export.php
+     *                                calls PMA_exportStructure() also for other export
+     *                                types which use this parameter
+     * @param bool   $do_mime       whether to include mime comments
+     * @param bool   $show_dates    whether to include creation/update/check dates
+     * @param bool   $add_semicolon whether to add semicolon and end-of-line at the end
+     * @param bool   $view          whether we're handling a view
+     *
+     * @return bool true
+     *
+     * @access public
+     */
+    function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $show_dates = false, $add_semicolon = true, $view = false)
     {
         global $cfgRelation;
-
-        /* Heading */
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
-            . __('Table structure for table') . ' ' . htmlspecialchars($table) . '</text:h>';
 
         /**
          * Get the unique keys in the table
@@ -282,7 +369,7 @@ if (isset($plugin_list)) {
         /**
          * Displays the table structure
          */
-        $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_data">';
+        $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_structure">';
         $columns_cnt = 4;
         if ($do_relation && $have_rel) {
             $columns_cnt++;
@@ -394,6 +481,110 @@ if (isset($plugin_list)) {
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
         return true;
+    } // end of the 'PMA_getTableDef()' function
+
+    /**
+     * Outputs triggers
+     *
+     * @param string $db     database name
+     * @param string $table  table name
+     * @return bool true
+     *
+     * @access public
+     */
+    function PMA_getTriggers($db, $table)
+    {
+        $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_triggers">';
+        $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="4"/>';
+        $GLOBALS['odt_buffer'] .= '<table:table-row>';
+        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . __('Name') . '</text:p>'
+            . '</table:table-cell>';
+        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . __('Time') . '</text:p>'
+            . '</table:table-cell>';
+        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . __('Event') . '</text:p>'
+            . '</table:table-cell>';
+        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . __('Definition') . '</text:p>'
+            . '</table:table-cell>';
+        $GLOBALS['odt_buffer'] .= '</table:table-row>';
+
+        $triggers = PMA_DBI_get_triggers($db, $table);
+
+        foreach($triggers as $trigger) {
+            $GLOBALS['odt_buffer'] .= '<table:table-row>';
+            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . htmlspecialchars($trigger['name']) . '</text:p>'
+                . '</table:table-cell>';
+            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . htmlspecialchars($trigger['action_timing']) . '</text:p>'
+                . '</table:table-cell>';
+            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . htmlspecialchars($trigger['event_manipulation']) . '</text:p>'
+                . '</table:table-cell>';
+            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . htmlspecialchars($trigger['definition']) . '</text:p>'
+                . '</table:table-cell>';
+            $GLOBALS['odt_buffer'] .= '</table:table-row>';
+        }
+
+        $GLOBALS['odt_buffer'] .= '</table:table>';
+        return true;
+    }
+
+    /**
+     * Outputs table's structure
+     *
+     * @param string $db          database name
+     * @param string $table       table name
+     * @param string $crlf        the end of line sequence
+     * @param string $error_url   the url to go back in case of error
+     * @param bool   $do_relation whether to include relation comments
+     * @param bool   $do_comments whether to include the pmadb-style column comments
+     *                            as comments in the structure; this is deprecated
+     *                            but the parameter is left here because export.php
+     *                            calls PMA_exportStructure() also for other export
+     *                            types which use this parameter
+     * @param bool   $do_mime     whether to include mime comments
+     * @param bool   $dates       whether to include creation/update/check dates
+     * @param string $export_mode 'create_table', 'triggers', 'create_view', 'stand_in'
+     * @param string $export_type 'server', 'database', 'table'
+     *
+     * @return bool Whether it succeeded
+     *
+     * @access public
+     */
+    function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
+    {
+        switch($export_mode) {
+        case 'create_table':
+            $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+                . __('Table structure for table') . ' ' . htmlspecialchars($table) . '</text:h>';
+            PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $dates);
+            break;
+        case 'triggers':
+            $triggers = PMA_DBI_get_triggers($db, $table);
+            if ($triggers) {
+                $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+                . __('Triggers') . ' ' . htmlspecialchars($table) . '</text:h>';
+                PMA_getTriggers($db, $table);
+            }
+            break;
+        case 'create_view':
+            $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+                . __('Structure for view') . ' ' . htmlspecialchars($table) . '</text:h>';
+            PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $dates, true, true);
+            break;
+        case 'stand_in':
+            $GLOBALS['odt_buffer'] .=  '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+                . __('Stand-in structure for view') . ' ' . htmlspecialchars($table) . '</text:h>';
+            // export a stand-in definition to resolve view dependencies
+            PMA_getTableDefStandIn($db, $table, $crlf);
+        } // end switch
+
+        return PMA_exportOutputHandler($dump);
     } // end of the 'PMA_exportStructure' function
 
 } // end else
