@@ -43,7 +43,12 @@ function getFieldName($this_field)
     var field_name = $('#table_results').find('thead').find('th:eq('+ (this_field_index - left_action_skip) + ') a').text();
     // happens when just one row (headings contain no a)
     if ("" == field_name) {
-        field_name = $('#table_results').find('thead').find('th:eq('+ (this_field_index - left_action_skip) + ')').text();
+        var $heading = $('#table_results').find('thead').find('th:eq('+ (this_field_index - left_action_skip) + ')').children('span');
+        // may contain column comment enclosed in a span - detach it temporarily to read the column name
+        var $tempColComment = $heading.children().detach();
+        field_name = $heading.text();
+        // re-attach the column comment
+        $heading.append($tempColComment);
     }
 
     field_name = $.trim(field_name);
