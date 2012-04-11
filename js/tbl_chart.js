@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 var chart_xaxis_idx = -1;
 var chart_series;
 var chart_series_index = -1;
