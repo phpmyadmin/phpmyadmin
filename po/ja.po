@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-09 12:19+0200\n"
+"PO-Revision-Date: 2012-04-11 12:38+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -2765,16 +2765,13 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
-msgstr ""
-"<code>$cfg['PmaAbsoluteUri']</code> は<b>必ず</b>設定ファイルに設定しなければ"
-"なりません！"
+msgstr "[code]$cfg['PmaAbsoluteUri'][/code] は<b>必ず</b>設定ファイルに設定しなければなりません！"
 
 #: libraries/common.inc.php:651
 #, php-format
@@ -3944,14 +3941,13 @@ msgid "Customize startup page"
 msgstr "スタートアップページの詳細設定"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "データベースサーバ"
+msgstr "データベースの構造"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr ""
+msgstr "データベースの構造 (テーブルの一覧) で詳細に表示させるかの選択"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5017,33 +5013,31 @@ msgstr "「データベースを作成する」の部分を表示する"
 
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "テーブル一覧において作成日時の列を表示させるか否か"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "他の操作を表示する"
+msgstr "作成日時の表示"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
-msgstr ""
+msgstr "テーブル一覧において最終更新日時の列を表示させるか否か"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "最終更新日時の表示"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
-msgstr ""
+msgstr "テーブル一覧において最終検査日時の列を表示させるか否か"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "マスタステータスの表示"
+msgstr "最終検査日時の表示"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5765,10 +5759,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "インポートするファイルの形式"
+msgstr "インポートファイルをアップロードしています..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
@@ -7429,7 +7422,6 @@ msgid "Event"
 msgstr "イベント"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7440,10 +7432,8 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"「mysql」拡張を使用されていますが、将来的に PHP で廃止予定になっています。こ"
-"の拡張はマルチクエリに対応できていません。<b>ストアドルーチンの実行が失敗する"
-"可能性があります！</b> 問題を回避するためには、改良された「mysqli」拡張を使用"
-"するようにしてください。"
+"「mysql」拡張を使用されていますが、将来的に PHP で廃止予定になっています。この拡張はマルチクエリに対応できていません。[strong]ストアド"
+"ルーチンの実行が失敗する可能性があります！[/strong] 問題を回避するためには、改良された「mysqli」拡張を使用するようにしてください。"
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1004
