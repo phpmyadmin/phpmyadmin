@@ -11,8 +11,11 @@
 /*
  * Include to test.
  */
+require_once 'libraries/core.lib.php';
 require_once 'libraries/common.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/select_lang.lib.php';
 
 class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
 {
@@ -22,6 +25,8 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['cfg'] = array('ReplaceHelpImg' => true, 'ServerDefault' => 1);
         $GLOBALS['pmaThemeImage'] = 'theme/';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
     }
 
     function testCheckParameterMissing()
