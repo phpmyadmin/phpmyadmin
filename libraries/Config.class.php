@@ -718,19 +718,22 @@ class PMA_Config
         if (! is_readable($this->getSource())) {
             // manually check if file is readable
             // might be bug #3059806 Supporting running from CIFS/Samba shares
-            try {
-                $handle = @fopen($this->getSource(), 'r');
-                $contents = @fread($handle, @filesize($this->getSource()));
+
+            $contents = false;
+            $handle = @fopen($this->getSource(), 'r');
+            if ($handle !== false) {
+                $contents = @fread($handle, 1); // reading 1 byte is enough to test
                 @fclose($handle);
             }
-            catch (Exception $e) {
+            if ($contents === false) {
                 $this->source_mtime = 0;
+                $format_string = 'Existing configuration file (%s) is not readable.';
                 die(
                     sprintf(
-                        __('Existing configuration file (%s) is not readable.'),
-                        $this->getSource()
-                    )
-                );
+                        function_exists('__') ? __($format_string) : $format_string,
+                        $this->getSource())
+                    );
+                return false;
             }
         }
 
