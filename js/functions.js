@@ -2412,6 +2412,7 @@ $(document).ready(function() {
             .find("table.noclick").unwrap().addClass("some-margin")
             .find("input#text_pma_pw").focus();
             displayPasswordGenerateButton();
+            $('#fieldset_change_password_footer').hide();
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()
     }); // end handler for change password anchor
