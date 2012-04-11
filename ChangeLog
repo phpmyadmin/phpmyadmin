@@ -23,6 +23,9 @@ phpMyAdmin - ChangeLog
 - bug #3507917 [export] JSON has unescaped values for allegedly numeric columns
 + rfe #3516187 show tables creation, last update, last check timestamps in db_structure
 - bug #3059806 Supporting running from CIFS/Samba shares
+- bug #3516341 [export] Open Document Text, Word and Texy! Text show table structure twice
+- bug [export] Texy! Text: Columns containing Pipe Character don't export properly
++ [export] Show triggers in Open Document Text, Word and Texy! Text
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
