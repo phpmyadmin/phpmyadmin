@@ -652,10 +652,10 @@ var marked_row = new Array;
  *
  * @param    container    DOM element
  */
-function markAllRows( container_id )
+function markAllRows(container_id)
 {
 
-    $("#"+container_id).find("input:checkbox:enabled").prop('checked', true)
+    $("#" + container_id).find("input:checkbox:enabled").prop('checked', true)
     .parents("tr").addClass("marked");
     return true;
 }
@@ -666,10 +666,10 @@ function markAllRows( container_id )
  *
  * @param    container    DOM element
  */
-function unMarkAllRows( container_id )
+function unMarkAllRows(container_id)
 {
 
-    $("#"+container_id).find("input:checkbox:enabled").removeProp('checked')
+    $("#" + container_id).find("input:checkbox:enabled").prop('checked', false)
     .parents("tr").removeClass("marked");
     return true;
 }
