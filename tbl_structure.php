@@ -272,9 +272,9 @@ foreach ($fields as $row) {
 
     $displayed_type = $type;
     if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
-        $displayed_type  = "<abbr title='$type'>";
+        $displayed_type  = '<abbr title="' . $type . '">';
         $displayed_type .= substr($type, 0, $GLOBALS['cfg']['LimitChars']);
-        $displayed_type .= "</abbr>";
+        $displayed_type .= '</abbr>';
     }
 
     // Display basic mimetype [MIME]
