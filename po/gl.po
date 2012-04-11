@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-11 16:57-0000\n"
+"PO-Revision-Date: 2012-04-11 17:30-0000\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.7\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -105,7 +105,7 @@ msgstr "Non se configurou ningún servidor de streaming blob!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr "Produciuse un fallo ao obter as cabeceiras."
+msgstr "Produciuse un fallo ó obter as cabeceiras"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -716,10 +716,9 @@ msgid "Add prefix to table"
 msgstr "Engaidr prefixo á táboa"
 
 #: db_structure.php:603 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Substituír os datos da táboa polos do ficheiro"
+msgstr "Substituír o prefixo da táboa"
 
 #: db_structure.php:605 libraries/mult_submits.inc.php:251
 #, fuzzy
@@ -2066,7 +2065,7 @@ msgstr "Ignorar"
 
 #: js/messages.php:316 libraries/display_tbl.lib.php:1391
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: js/messages.php:331
 #, fuzzy
@@ -3005,7 +3004,7 @@ msgid ""
 "configuration file!"
 msgstr ""
 "A directiva <tt>$cfg['PmaAbsoluteUri']</tt> DEBE estar asignada no seu "
-"ficheiro de configuración."
+"ficheiro de configuración!"
 
 #: libraries/common.inc.php:650
 #, fuzzy, php-format
@@ -4857,7 +4856,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Dominio HTTP (Realm)"
 
 #: libraries/config/messages.inc.php:370
 msgid ""
@@ -5236,7 +5235,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:436
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Engadir DROP DATABASE"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
@@ -5246,7 +5245,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:438
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Engadir DROP TABLE"
 
 #: libraries/config/messages.inc.php:439
 msgid ""
@@ -5256,7 +5255,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Engadir DROP VIEW"
 
 #: libraries/config/messages.inc.php:441
 msgid "Defines the list of statements the auto-creation uses for new versions."
@@ -5389,6 +5388,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
+"Define se os campos tipo deben ser mostrados inicialmente no modo "
+"editar/inserir"
 
 #: libraries/config/messages.inc.php:463
 #, fuzzy
@@ -5406,7 +5407,7 @@ msgstr "Mostrar os campos de función"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
-msgstr ""
+msgstr "Mostrar axudas ou non"
 
 #: libraries/config/messages.inc.php:467
 #, fuzzy
@@ -5442,6 +5443,8 @@ msgstr "Mostrar as procuras SQL"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
+"Define se a caixa de procuras debe permanecer en pantalla despois da súa "
+"execución"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 #, fuzzy
@@ -5504,7 +5507,7 @@ msgstr "Ignorar as táboas bloqueadas"
 
 #: libraries/config/messages.inc.php:488
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Require que o validador SQL este habilitado"
 
 #: libraries/config/messages.inc.php:490
 #: libraries/display_change_password.lib.php:40
@@ -5524,7 +5527,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:492
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Hablitador o validador SQL"
 
 #: libraries/config/messages.inc.php:493
 msgid ""
@@ -5552,10 +5555,11 @@ msgstr "Suxerir un nome novo para as bases de datos"
 #: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
+"Unha advertencia sera mostrada na pantalla principal se Suhosin e detectado"
 
 #: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Aviso de Suhosin"
 
 #: libraries/config/messages.inc.php:499
 msgid ""
@@ -5583,11 +5587,11 @@ msgstr "Fileiras de área de texto de CHAR"
 
 #: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Título da ventana do navegador cando a base de datos está seleccionada"
 
 #: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Título da ventana do navegador cando non hai nada seleccionado"
 
 #: libraries/config/messages.inc.php:506
 #, fuzzy
@@ -5597,11 +5601,11 @@ msgstr "Separador por omisión das táboas"
 
 #: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "Título da ventana do navegador cando un servidor está seleccionado"
 
 #: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "Título da ventana do navegador cando unha taboa está seleccionada"
 
 #: libraries/config/messages.inc.php:511
 msgid ""
@@ -5641,10 +5645,12 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
+"Se está deshabilitada os usuarios non poden establecer ningunha das opcións "
+"que hai debaixo, independientemente da caixa á dereita."
 
 #: libraries/config/messages.inc.php:518
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Habilitar o separador de desenvolvemento na configuración."
 
 #: libraries/config/messages.inc.php:519
 msgid ""
@@ -5667,6 +5673,7 @@ msgstr "Comprobar cal é a última versión"
 #: libraries/config/messages.inc.php:522
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
+"Habilitar a comprobación da última versión na páxina principal de phpMyAdmin"
 
 #: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
@@ -5727,7 +5734,7 @@ msgstr "Folla de cálculo Open Document"
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:166
 msgid "Quick"
-msgstr ""
+msgstr "Rápido"
 
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:170
@@ -5760,7 +5767,7 @@ msgstr "Texto Open Document"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Non se puido iniciar a biblioteca de conexión Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
 #, fuzzy
@@ -5813,7 +5820,7 @@ msgstr "en"
 #: libraries/core.lib.php:266
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Falta a extensión %s. Por favor comprobe a configuración do PHP."
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
@@ -5837,6 +5844,7 @@ msgstr "O servidor non está a responder"
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
 msgstr ""
+"Por favor comprobe os privilexios do directorio que contén a base de datos."
 
 #: libraries/database_interface.lib.php:1828
 msgid "Details..."
@@ -5984,7 +5992,7 @@ msgstr "Tipo de exportación"
 
 #: libraries/display_export.lib.php:108
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Rapido - mostra só as opcións mínimas"
 
 #: libraries/display_export.lib.php:124
 #, fuzzy
@@ -6024,7 +6032,7 @@ msgstr "Número de campos"
 
 #: libraries/display_export.lib.php:157
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Comezar na columna:"
 
 #: libraries/display_export.lib.php:168
 msgid "Dump all rows"
@@ -6032,7 +6040,7 @@ msgstr "Envorcar todas as fileiras"
 
 #: libraries/display_export.lib.php:176 libraries/display_export.lib.php:197
 msgid "Output:"
-msgstr ""
+msgstr "Saída:"
 
 #: libraries/display_export.lib.php:183 libraries/display_export.lib.php:209
 #, fuzzy, php-format
@@ -6058,11 +6066,11 @@ msgstr ""
 
 #: libraries/display_export.lib.php:226
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ será o nome da base de datos"
 
 #: libraries/display_export.lib.php:228
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ será o nome da táboa"
 
 #: libraries/display_export.lib.php:232
 #, fuzzy, php-format
@@ -6081,7 +6089,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
-msgstr ""
+msgstr "usar esto en futuras exportacións"
 
 #: libraries/display_export.lib.php:276 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
@@ -6241,7 +6249,7 @@ msgstr "Número de rexistros (procuras) que se ignoran desde o comezo"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Opcións específicas do formato:"
 
 #: libraries/display_select_lang.lib.php:46
 #: libraries/display_select_lang.lib.php:47 setup/frames/index.inc.php:72
@@ -6359,11 +6367,11 @@ msgstr "Transformación do navegador"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr ""
+msgstr "Texto moi coñecido"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binario moi coñecido"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
@@ -6407,7 +6415,7 @@ msgstr "Mostrar o esquema PDF"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Ver os datos GIS"
 
 #: libraries/display_tbl.lib.php:2701
 #, fuzzy
@@ -8804,10 +8812,9 @@ msgid "Table Search"
 msgstr "Procurar"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Inserir"
+msgstr "Editar/Inserir"
 
 #: libraries/transformations.lib.php:134
 #, php-format
