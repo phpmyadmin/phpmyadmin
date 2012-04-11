@@ -727,10 +727,11 @@ class PMA_Config
             }
             if ($contents === false) {
                 $this->source_mtime = 0;
-                $format_string = 'Existing configuration file (%s) is not readable.';
-                die(
+                PMA_fatalError(
                     sprintf(
-                        function_exists('__') ? __($format_string) : $format_string,
+                        function_exists('__')
+                            ? __('Existing configuration file (%s) is not readable.')
+                            : 'Existing configuration file (%s) is not readable.',
                         $this->getSource())
                     );
                 return false;
