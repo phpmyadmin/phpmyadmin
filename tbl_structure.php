@@ -259,34 +259,22 @@ foreach ($fields as $row) {
     }
     // for the case ENUM('&#8211;','&ldquo;')
     $type         = htmlspecialchars($type);
-    // in case it is too long
-    $start = 0;
-    if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
-        $start = 13;
-        $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
+
+    $field_charset = '';
+    if (
+        $extracted_fieldspec['binary'] == false
+        &&
+        preg_match("@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@", $type)) {
+        if (! empty($row['Collation'])) {
+            $field_charset = $row['Collation'];
+        }
     }
 
-    unset($field_charset);
-    if ((substr($type, $start, 4) == 'char'
-        || substr($type, $start, 7) == 'varchar'
-        || substr($type, $start, 4) == 'text'
-        || substr($type, $start, 8) == 'tinytext'
-        || substr($type, $start, 10) == 'mediumtext'
-        || substr($type, $start, 8) == 'longtext'
-        || substr($type, $start, 3) == 'set'
-        || substr($type, $start, 4) == 'enum')
-        && !$extracted_fieldspec['binary']
-    ) {
-        if (strpos($type, ' character set ')) {
-            $type = substr($type, 0, strpos($type, ' character set '));
-        }
-        if (!empty($row['Collation'])) {
-            $field_charset = $row['Collation'];
-        } else {
-            $field_charset = '';
-        }
-    } else {
-        $field_charset = '';
+    $displayed_type = $type;
+    if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
+        $displayed_type  = "<abbr title='$type'>";
+        $displayed_type .= substr($type, 0, $GLOBALS['cfg']['LimitChars']);
+        $displayed_type .= "</abbr>";
     }
 
     // Display basic mimetype [MIME]
@@ -343,7 +331,7 @@ foreach ($fields as $row) {
         <?php echo $rownum; ?>
     </td>
     <th class="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
-    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
+    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $displayed_type; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td class="column_attribute nowrap"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
