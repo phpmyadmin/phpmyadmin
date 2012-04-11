@@ -374,15 +374,15 @@ th.right, td.right {
     text-align: right;
 }
 
-tr.vtop, th.vtop, td.vtop {
+tr.vtop th, tr.vtop td, th.vtop, td.vtop {
     vertical-align: top;
 }
 
-tr.vmiddle, th.vmiddle, td.vmiddle {
+tr.vmiddle th, tr.vmiddle td, th.vmiddle, td.vmiddle {
     vertical-align: middle;
 }
 
-tr.vbottom, th.vbottom, td.vbottom {
+tr.vbottom th, tr.vbottom td, th.vbottom, td.vbottom {
     vertical-align: bottom;
 }
 
@@ -2266,13 +2266,6 @@ hr.enum_editor_no_js {
     position: absolute;
     left: 81%;
     bottom: .35em;
-}
-
-/**
- * Create table styles
- */
-#create_table_form table.table-name td {
-    vertical-align: middle;
 }
 
 /**
