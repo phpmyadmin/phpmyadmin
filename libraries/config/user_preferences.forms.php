@@ -26,7 +26,6 @@ $forms['Features']['General'] = array(
     'VersionCheck',
     'NaturalOrder',
     'InitialSlidersState',
-    'ErrorIconic',
     'LoginCookieValidity',
     'ReplaceHelpImg',
     'Servers/1/only_db', // saves to Server/only_db
