@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-12 10:52+0200\n"
+"PO-Revision-Date: 2012-04-12 12:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1373,11 +1373,11 @@ msgstr "slow_query_log සහ general_log අක්‍රීය යි."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
-msgstr "log_output, TABLE ලෙස සිටුවා නැත."
+msgstr "log_output අගය TABLE ලෙස සිටුවා නැත."
 
 #: js/messages.php:148
 msgid "log_output is set to TABLE."
-msgstr "log_output, TABLE ලෙස සිටුවා ඇත."
+msgstr "log_output අගය TABLE ලෙස සිටුවා ඇත."
 
 #: js/messages.php:149
 #, php-format
@@ -6712,7 +6712,6 @@ msgid "Add prefix"
 msgstr "නාම මූලයක් එක් කරන්න"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
 msgstr "පහත විමසුම ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
@@ -7347,7 +7346,7 @@ msgstr "ඔබ නෛත්යකය සඳහා නමක් ලබාදි�
 #: libraries/rte/rte_routines.lib.php:1035
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "පරාමිතිය සඳහා සපයන ලද \"%s\", දිශාව සඳහා වැරදි අගයකි."
 
 #: libraries/rte/rte_routines.lib.php:1049
 #: libraries/rte/rte_routines.lib.php:1089
@@ -7355,25 +7354,27 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"ENUM, SET, VARCHAR සහ VARBINARY වර්ගවල නෛත්‍යක පරාමිති සඳහා ඔබ "
+"ප්‍රමාණය/අගයන් ලබා දිය යුතුය."
 
 #: libraries/rte/rte_routines.lib.php:1067
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "සෑම නෛත්‍යක පරාමිතියක් සඳහාම ඔබ නමක් සහ වර්ගයක් ලබා දිය යුතුය."
 
 #: libraries/rte/rte_routines.lib.php:1077
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "නෛත්‍යකය සඳහා ඔබ වලංගු ප්‍රතිදාන වර්ගයක් ලබා දිය යුතුය."
 
 #: libraries/rte/rte_routines.lib.php:1123
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "ඔබ නෛත්‍යක අර්ථදක්වීමක් ලබා දිය යුතුය."
 
 #: libraries/rte/rte_routines.lib.php:1213
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "කාර්ය පටිපාටියේ අවසන් ප්‍රකාශය ක්‍රියාත්මක කිරීමෙන් පේළි %d කට බලපෑවේ ය"
+msgstr[1] "කාර්ය පටිපාටියේ අවසන් ප්‍රකාශය ක්‍රියාත්මක කිරීමෙන් පේළි %d කට බලපෑවේ ය"
 
 #: libraries/rte/rte_routines.lib.php:1229
 #, php-format
@@ -7440,7 +7441,7 @@ msgstr "ඔබ වලංගු වගු නාමයක් ලබාදිය �
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "ඔබ ප්‍රේරක අර්ථදක්වීමක් ලබා දිය යුතුය."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
@@ -7536,7 +7537,7 @@ msgstr "%s නමින් වගුවක් නොපවතියි!"
 #: libraries/schema/Visio_Relation_Schema.class.php:270
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr ""
+msgstr "කරුණාකර %s වගුව සඳහා ඛණ්ඩාංක අගයන් සිටුවන්න"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:823
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
@@ -7548,16 +7549,16 @@ msgstr "%s දත්තගබඩාවේ ක්‍රමානුරූපය -
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "මෙම පිටුවේ වගු කිසිවක් අඩංගු නොවේ!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ක්‍රමානුරූප දෝෂය: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
 msgid "Relational schema"
-msgstr ""
+msgstr "ක්‍රමානුරූපය"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1134
 msgid "Table of contents"
@@ -7613,7 +7614,7 @@ msgstr "ක්‍රමානුරූපය පෙන්වන්න"
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "ක්‍රමානුරූපය අපනයනය කල යුතු ආකෘතිය තෝරන්න"
 
 #: libraries/schema/User_Schema.class.php:413
 msgid "Show grid"
@@ -7656,6 +7657,8 @@ msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
 msgstr ""
+"වත්මන් පිටුවේ තව දුරටත් නොපවතින වගු වෙත යොමු ඇත. එම යොමු ඉවත් කිරීමට ඔබ "
+"කැමතිද?"
 
 #: libraries/schema/User_Schema.class.php:507
 msgid "Toggle scratchboard"
@@ -7702,7 +7705,7 @@ msgstr "අක්ෂර කට්ටලය"
 #: libraries/server_links.inc.php:106 server_plugins.php:38
 #: server_plugins.php:71
 msgid "Plugins"
-msgstr ""
+msgstr "පේණු"
 
 #: libraries/server_links.inc.php:110
 msgid "Engines"
@@ -7720,11 +7723,11 @@ msgstr "වත්මන් සේවාදායකය"
 #: libraries/server_synchronize.lib.php:1339
 #: libraries/server_synchronize.lib.php:1347
 msgid "Remote server"
-msgstr ""
+msgstr "දුරස්ථ සේවාදායකය"
 
 #: libraries/server_synchronize.lib.php:1342
 msgid "Difference"
-msgstr ""
+msgstr "වෙනස"
 
 #: libraries/server_synchronize.lib.php:1343 server_synchronize.php:1264
 msgid "Target database"
@@ -10136,10 +10139,10 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 "ඔබගේ සේවාදායකයේ වින්‍යාසයන් ප්‍රශස්ත කිරීමටත් වැඩි කාලයක් ගතවන විමසුම් හඳුනා "
-"ගැනීමටත් ඔබට phpMyAdmin අධීක්ෂකය යොදාගත හැක. දෙවැන්න සඳහා log_output, TABLE "
-"ලෙස සිටුවීමත් slow_query_log, general_log යන දෙකෙන් එකක් සක්‍රීය කිරීමත්  "
-"අවශ්‍ය වේ. කෙසේ වෙතත් general_logය ඉතා විශාල දත්ත ප්‍රමාණයක් උත්පාදනය කරන බව "
-"සහ එමගින් සේවාදායකය මත භාරය 15% දක්වා ඉහල යා හැකි බව සලකන්න"
+"ගැනීමටත් ඔබට phpMyAdmin අධීක්ෂකය යොදාගත හැක. දෙවැන්න සඳහා log_output හි අගය "
+"TABLE ලෙස සිටුවීමත් slow_query_log, general_log යන දෙකෙන් එකක් සක්‍රීය "
+"කිරීමත් අවශ්‍ය වේ. කෙසේ වෙතත් general_log ය ඉතා විශාල දත්ත ප්‍රමාණයක් "
+"උත්පාදනය කරන බව සහ එමගින් සේවාදායකය මත භාරය 15% දක්වා ඉහල යා හැකි බව සලකන්න"
 
 #: server_status.php:1634
 msgid ""
