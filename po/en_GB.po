@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-03-16 13:06+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-04-12 15:12+0200\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -247,16 +247,16 @@ msgid "The database name is empty!"
 msgstr "The database name is empty!"
 
 #: db_operations.php:298
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Database %s has been renamed to %s"
+msgstr "Database %1$s has been renamed to %2$s"
 
 #: db_operations.php:302
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Database %s has been copied to %s"
+msgstr "Database %1$s has been copied to %2$s"
 
 #: db_operations.php:430
 msgid "Rename database to"
@@ -1016,10 +1016,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" statements are disabled."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Do you really want to execute following query?"
+msgstr "Do you really want to execute \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -1730,22 +1730,19 @@ msgid "Show indexes"
 msgstr "Show indexes"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:313
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Disable foreign key checks"
+msgstr "Foreign key check:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Enabled"
+msgstr "(Enabled)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Disabled"
+msgstr "(Disabled)"
 
 #: js/messages.php:255
 msgid "Searching"
@@ -1955,7 +1952,7 @@ msgstr "Click to mark/unmark"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Double-click to copy column name"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1980,20 +1977,18 @@ msgid "Go to link"
 msgstr "Go to link"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Column names"
+msgstr "Copy column name"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Right-click the column name to copy it to your clipboard."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Update row(s)"
+msgstr "Show data row(s)"
 
 #: js/messages.php:359
 msgid "Generate password"
@@ -2613,10 +2608,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Failed to use Blowfish from mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Cookies must be enabled past this point."
+msgstr "Javascript must be enabled past this point"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -2775,7 +2769,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Could not load default configuration from: %1$s"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2783,7 +2776,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
+"The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 
 #: libraries/common.inc.php:651
@@ -3957,14 +3950,13 @@ msgid "Customize startup page"
 msgstr "Customise startup page"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Database server"
+msgstr "Database structure"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr ""
+msgstr "Choose which details to show in the database structure (list of tables)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5027,33 +5019,33 @@ msgstr "Show create database form"
 
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "Show or hide a column displaying the Creation timestamps for all tables"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Show more actions"
+msgstr "Show Creation timestamp"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Show or hide a column displaying the Last update timestamp for all tables"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Show Last update timestamp"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Show or hide a column displaying the Last check timestamp for all tables"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Show master status"
+msgstr "Show Last check timestamp"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5769,26 +5761,25 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s of %s"
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Format of imported file"
+msgstr "Uploading your import file..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sec."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "About %MIN min. %SEC sec. remaining."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "About %SEC sec. remaining."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6542,7 +6533,7 @@ msgstr ""
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Truncate table before insert"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6887,10 +6878,9 @@ msgid "Add prefix"
 msgstr "Add prefix"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
-msgstr "Do you really want to execute following query?"
+msgstr "Do you really want to execute the following query?"
 
 #: libraries/mult_submits.inc.php:525 tbl_replace.php:330
 msgid "No change"
@@ -7446,7 +7436,6 @@ msgid "Event"
 msgstr "Event"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7458,8 +7447,9 @@ msgid ""
 "problems."
 msgstr ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
-"handling multi queries. <b>The execution of some stored routines may fail!</"
-"b> Please use the improved 'mysqli' extension to avoid any problems."
+"handling multi queries. [strong]The execution of some stored routines may "
+"fail![/strong] Please use the improved 'mysqli' extension to avoid any "
+"problems."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1004
@@ -8220,6 +8210,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Appends text to a string. The only option is the text to be appended "
+"(enclosed in single quotes, default empty string)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
@@ -8841,12 +8833,12 @@ msgid "No databases selected."
 msgstr "No databases selected."
 
 #: server_databases.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s databases have been dropped successfully."
-msgstr[1] "%s databases have been dropped successfully."
+msgstr[0] "%1$d database has been dropped successfully."
+msgstr[1] "%1$d databases have been dropped successfully."
 
 #: server_databases.php:119
 msgid "Databases statistics"
@@ -9219,10 +9211,10 @@ msgid "Privileges for all users"
 msgstr "Privileges for all users"
 
 #: server_privileges.php:1653
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privileges"
+msgstr "Privileges for %s"
 
 #: server_privileges.php:1681
 msgid "Users overview"
@@ -10186,10 +10178,9 @@ msgstr ""
 "one time."
 
 #: server_status.php:1386
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Percentage of used open files limit"
+msgstr "Percentage of used key cache (calculated value)"
 
 #: server_status.php:1387
 msgid "The number of requests to read a key block from the cache."
@@ -10210,6 +10201,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Key cache miss calculated as rate of physical reads compared to read "
+"requests (calculated value)"
 
 #: server_status.php:1390
 msgid "The number of requests to write a key block to the cache."
@@ -10223,6 +10216,7 @@ msgstr "The number of physical writes of a key block to disk."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Percentage of physical writes compared to write requests (calculated value)"
 
 #: server_status.php:1393
 msgid ""
@@ -10447,10 +10441,9 @@ msgstr ""
 "implementation.)"
 
 #: server_status.php:1428
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Thread cache hit rate %%"
+msgstr "Thread cache hit rate (calculated value)"
 
 #: server_status.php:1429
 msgid "The number of threads that are not sleeping."
