@@ -95,71 +95,49 @@ if (isset($plugin_list)) {
      * @param string  $crlf       the end of line sequence
      * @param string  $error_url  the url to go back in case of error
      * @param string  $sql_query  SQL query for obtaining data
-     * @return  bool        Whether it succeeded
+     * @return  bool              Whether it succeeded
      *
      * @access  public
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $columns = PMA_DBI_get_columns($db, $table);
-        $columns = array_values($columns);
-        $row_cnt = count($columns);
-
-        $output = "{| cellpadding=\"10\" cellspacing=\"0\" border=\"1\" style=\"text-align:center;\"\n";
+        // Begin the table construction
+        // Use the "wikitable" class for style
+        // Use the "sortable"  class for allowing tables to be sorted by column
+        $output  = "{| class=\"wikitable sortable\" style=\"text-align:center;\"\n";
+        // Add the table caption
         $output .= "|+'''" . $table . "'''\n";
-        $output .= "|- style=\"background:#ffdead;\"\n";
-        $output .= "! style=\"background:#ffffff\" | \n";
-        for ($i = 0; $i < $row_cnt; ++$i) {
-            $output .= " | " . $columns[$i]['Field'];
-            if (($i + 1) != $row_cnt) {
-                $output .= "\n";
+
+        // Get column names
+        $column_names = PMA_DBI_get_column_names($db, $table);
+
+        // Add column names as table headers
+        if ( ! is_null($column_names) ) {
+            // Use '|-' for separating rows
+            $output .= "|-\n";
+
+            // Use '!' for separating table headers
+            foreach ($column_names as $column) {
+                $output .= " ! " . $column . "\n";
             }
         }
-        $output .= "\n";
 
-        $output .= "|- style=\"background:#f9f9f9;\"\n";
-        $output .= "! style=\"background:#f2f2f2\" | Type\n";
-        for ($i = 0; $i < $row_cnt; ++$i) {
-            $output .= " | " . $columns[$i]['Type'];
-            if (($i + 1) != $row_cnt) {
-                $output .= "\n";
+        // Get the table data from the database
+        $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $fields_cnt = PMA_DBI_num_fields($result);
+
+        while ($row = PMA_DBI_fetch_row($result)) {
+            $output .= "|-\n";
+
+            // Use '|' for separating table columns
+            for ($i = 0; $i < $fields_cnt; ++ $i) {
+                $output .= " | " . $row[$i] . "\n";
             }
         }
-        $output .= "\n";
 
-        $output .= "|- style=\"background:#f9f9f9;\"\n";
-        $output .= "! style=\"background:#f2f2f2\" | Null\n";
-        for ($i = 0; $i < $row_cnt; ++$i) {
-            $output .= " | " . $columns[$i]['Null'];
-            if (($i + 1) != $row_cnt) {
-                $output .= "\n";
-            }
-        }
-        $output .= "\n";
-
-        $output .= "|- style=\"background:#f9f9f9;\"\n";
-        $output .= "! style=\"background:#f2f2f2\" | Default\n";
-        for ($i = 0; $i < $row_cnt; ++$i) {
-            $output .= " | " . $columns[$i]['Default'];
-            if (($i + 1) != $row_cnt) {
-                $output .= "\n";
-            }
-        }
-        $output .= "\n";
-
-        $output .= "|- style=\"background:#f9f9f9;\"\n";
-        $output .= "! style=\"background:#f2f2f2\" | Extra\n";
-        for ($i = 0; $i < $row_cnt; ++$i) {
-            $output .= " | " . $columns[$i]['Extra'];
-            if (($i + 1) != $row_cnt) {
-                $output .= "\n";
-            }
-        }
-        $output .= "\n";
-
-        $output .= "|}\n\n\n\n";
+        // End table construction
+        $output .= "|}\n\n";
         return PMA_exportOutputHandler($output);
     }
-
 }
 ?>
