@@ -311,10 +311,12 @@ $(document).ready(function () {
     }
     ?>
 <script type="text/javascript">
+//<![CDATA[
 // show login form in top frame.
 if (top != self || document.body.className != 'loginform') {
     window.top.location.href=location;
 }
+//]]>
 </script>
 </body>
 </html>
