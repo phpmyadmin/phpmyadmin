@@ -1129,6 +1129,50 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $
 }
 
 /**
+ * Returns SQL query for fetching column names for a table
+ *
+ * @param string  $database name of database
+ * @param string  $table    name of table to retrieve column names from
+ *
+ * @see PMA_DBI_get_column_names()
+ *
+ * @return  string
+ */
+function PMA_DBI_get_column_names_sql($database, $table)
+{
+    $data_dictionary = "information_schema";
+    if (PMA_DRIZZLE) {
+        $data_dictionary = "data_dictionary";
+    }
+
+    $sql = "SELECT column_name
+           FROM " . $data_dictionary . ".columns
+           WHERE table_schema = '" . PMA_sqlAddSlashes($database) . "'
+             AND table_name   = '" . PMA_sqlAddSlashes($table)     . "'";
+    return $sql;
+}
+
+/**
+ * Returns all column names in given table
+ *
+ * @param string  $database name of database
+ * @param string  $table    name of table to retrieve columns from
+ * @param mixed   $link     mysql link resource
+ *
+ * @return  false|array   array containing column names
+ */
+function PMA_DBI_get_column_names($database, $table, $link = null)
+{
+    $sql = PMA_DBI_get_column_names_sql($database, $table);
+    $fields = PMA_DBI_fetch_result($sql, null, null, $link);
+
+    if ( ! is_array($fields) || count($fields) == 0 ) {
+        return null;
+    }
+    return $fields;
+}
+
+/**
 * Returns SQL for fetching information on table indexes (SHOW INDEXES)
 *
 * @param string $database name of database
