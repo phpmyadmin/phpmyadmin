@@ -158,10 +158,6 @@ function PMA_auth()
     ?>
 <script type="text/javascript">
 //<![CDATA[
-// show login form in top frame
-if (top != self) {
-    window.top.location.href=location;
-}
 // reveal the login form to users with JS enabled
 $(document).ready(function () {
     $('form.login').show();
@@ -314,6 +310,12 @@ $(document).ready(function () {
         include CUSTOM_FOOTER_FILE;
     }
     ?>
+<script type="text/javascript">
+// show login form in top frame.
+if (top != self || document.body.className != 'loginform') {
+    window.top.location.href=location;
+}
+</script>
 </body>
 </html>
     <?php
