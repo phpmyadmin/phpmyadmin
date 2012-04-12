@@ -128,7 +128,6 @@ $forms['Features']['Other_core_settings'] = array(
     'VersionCheck',
     'NaturalOrder',
     'InitialSlidersState',
-    'ErrorIconic',
     'ReplaceHelpImg',
     'MaxDbList',
     'MaxTableList',
@@ -187,7 +186,6 @@ $forms['Left_frame']['Left_tables'] = array(
     'ShowTooltip',
     'ShowTooltipAliasTB');
 $forms['Main_frame']['Startup'] = array(
-    'MainPageIconic',
     'ShowCreateDb' => ':group',
         'SuggestDBName',
         ':group:end',

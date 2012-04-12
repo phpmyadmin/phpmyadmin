@@ -26,9 +26,7 @@ require 'libraries/server_links.inc.php';
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . '    ' . ($GLOBALS['cfg']['MainPageIconic']
-    ? PMA_getImage('s_asci.png')
-    : '')
+   . '    ' .  PMA_getImage('s_asci.png')
    . '' . __('Character Sets and Collations') . "\n"
    . '</h2>' . "\n";
 
