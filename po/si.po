@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-11 21:32+0200\n"
+"PO-Revision-Date: 2012-04-12 10:52+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -10148,10 +10148,14 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"phpMyAdmin මඟින් දත්තගබඩා ලොගයන් විශ්ලේෂණය කිරීම සඳහා අත්‍යාවශ්‍ය අංගයක් වන "
+"වගුවක් තුලට දත්ත ලොගගත කිරීමේ හැකියාව ඔබගේ දත්තගබඩා සේවාදායකයේ නොමැත. වගුවක් "
+"තුලට දත්ත ලොගගත කිරීම MySQL 5.1.6 හෝ පසු අනුවාදයක සිදු කල හැක. කෙසේ නමුත් "
+"ඔබට සේවාදායකයේ ප්‍රස්ථාර විශේෂාංග භාවිතා කල හැක."
 
 #: server_status.php:1647
 msgid "Using the monitor:"
-msgstr "අධීක්ෂකය භාවිතා කරමින්:"
+msgstr "අධීක්ෂකය භාවිතා කිරීම:"
 
 #: server_status.php:1649
 msgid ""
@@ -10159,6 +10163,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
+"ඔබගේ බ්‍රව්සරය විසින් නියමිත කාලාන්තරයකට වරක් සියලුම ප්‍රස්ථාර යාවත්කාලීන "
+"කෙරෙනු ඇත. ඔබට ප්‍රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන "
+"වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය මත ඇති අයිකනය භාවිතා කර ඕනෑම "
+"ප්‍රස්ථාරයක් ඉවත් කිරීම සිදු කල හැක."
 
 #: server_status.php:1651
 msgid ""
@@ -10167,10 +10175,14 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"ලොගයේ ඇතුලත් විමසුම් පරීක්ෂා කිරීම සඳහා ප්‍රස්තාරය මත වම් මූසික බොත්තම පහලට "
+"ඔබාගෙන තිරස් අතට ඇදීමෙන් අදාල කාල පරාසය තෝරන්න. සනාත කිරීමකින් අනතුරුව "
+"සමූහනය කරන ලද විමසුම් ඇතුලත් වගුවක් පූරණය කෙරෙනු ඇත. එහි ඇතුලත් ඕනෑම SELECT "
+"ප්‍රකාශයක් ක්ලික් කිරීමෙන් එය තවදුරටත් විශ්ලේෂණය කල හැක."
 
 #: server_status.php:1658
 msgid "Please note:"
-msgstr "කරුණාකර සලකන්න:"
+msgstr "කරුණාවෙන් සලකන්න:"
 
 #: server_status.php:1660
 msgid ""
@@ -10179,6 +10191,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"general _log සක්‍රීය කිරීම සේවාදායකය මත භාරය 5-15% අතර ප්‍රමාණයකින් වැඩි "
+"කරයි. එමෙන්ම ලොගගත දත්ත මගින් සංඛ්‍යාලේඛන උත්පාදනය කිරීම අධික භාරයක් ගෙනදෙන "
+"කාර්යයක් බව සලකන්න. එම නිසා මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය "
+"තවදුරටත් අවශ්‍ය නොවන විට general _log අක්‍රීය කිරීම හා ඊට අයත් වගුව හිස් "
+"කිරීම ද නිර්දේශිතය."
 
 #: server_status.php:1672
 msgid "Preset chart"
@@ -10226,7 +10243,7 @@ msgstr "ප්‍රස්ථාරයේ ශ්‍රේණි:"
 
 #: server_status.php:1732
 msgid "Log statistics"
-msgstr "ලොග සංඛ්‍ය ලේඛන"
+msgstr "ලොග සංඛ්‍යලේඛන"
 
 #: server_status.php:1733
 msgid "Selected time range:"
