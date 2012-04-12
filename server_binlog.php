@@ -73,7 +73,7 @@ if (empty($_REQUEST['dontlimitchars'])) {
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($GLOBALS['cfg']['MainPageIconic'] ? PMA_getImage('s_tbl.png') : '')
+   . PMA_getImage('s_tbl.png')
    . '    ' . __('Binary log') . "\n"
    . '</h2>' . "\n";
 

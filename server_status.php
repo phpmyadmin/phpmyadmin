@@ -786,9 +786,7 @@ require 'libraries/server_links.inc.php';
 /**
  * Displays the sub-page heading
  */
-if ($GLOBALS['cfg']['MainPageIconic']) {
-    echo PMA_getImage('s_status.png');
-}
+echo PMA_getImage('s_status.png');
 
 echo __('Runtime Information');
 
