@@ -193,7 +193,8 @@ $i = 0;
          echo '"table" />';
     } ?>
 
-<table id="tablestructure" class="data">
+<table id="tablestructure" class="data<?php 
+    if ($GLOBALS['cfg']['PropertiesIconic'] === true) echo ' PropertiesIconic'; ?>">
 <thead>
 <tr>
     <th id="th<?php echo ++$i; ?>"></th>
@@ -208,7 +209,16 @@ $i = 0;
 <?php if ($db_is_information_schema || $tbl_is_view) { ?>
     <th id="th<?php echo ++$i; ?>" class="view"><?php echo __('View'); ?></th>
 <?php } else { ?>
-    <th colspan="7" id="th<?php echo ++$i; ?>" class="action"><?php echo __('Action'); ?></th>
+    <th colspan="<?php 
+    $colspan = 9;
+    if (PMA_DRIZZLE) {
+        $colspan -= 2;
+    }
+    if ($GLOBALS['cfg']['PropertiesIconic']) {
+        $colspan--;
+    }
+    echo $colspan; ?>" 
+        id="th<?php echo ++$i; ?>" class="action"><?php echo __('Action'); ?></th>
 <?php } ?>
 </tr>
 </thead>
@@ -359,10 +369,6 @@ foreach ($fields as $row) {
         echo '<i>' . _pgettext('None for default', 'None') . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
-    <td align="center" class="browse">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
-            <?php echo $titles['BrowseDistinctValues']; ?></a>
-    </td>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
     <td align="center" class="edit">
         <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
@@ -372,7 +378,13 @@ foreach ($fields as $row) {
         <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Drop']; ?></a>
     </td>
-    <td align="center" class="primary">
+    <?php } ?>
+    <td align="center" class="browse replaced_by_more">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
+            <?php echo $titles['BrowseDistinctValues']; ?></a>
+    </td>
+    <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
+    <td align="center" class="primary replaced_by_more">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
@@ -387,7 +399,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="unique">
+    <td align="center" class="unique replaced_by_more">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || isset($columns_with_unique_index[$field_name])) {
             echo $titles['NoUnique'] . "\n";
@@ -402,7 +414,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="index">
+    <td align="center" class="index replaced_by_more">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoIndex'] . "\n";
@@ -418,7 +430,9 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-    <td align="center" class="spatial">
+        <?php 
+        if (!PMA_DRIZZLE) { ?>
+    <td align="center" class="spatial replaced_by_more">
         <?php
         $spatial_types = array(
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
@@ -444,7 +458,7 @@ foreach ($fields as $row) {
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
             ?>
-    <td align="center" nowrap="nowrap" class="fulltext">
+    <td align="center" nowrap="nowrap" class="fulltext replaced_by_more">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
             <?php $fulltext_enabled = true; ?>
@@ -453,24 +467,25 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
         ?>
-    <td align="center" nowrap="nowrap" class="fulltext">
+    <td align="center" nowrap="nowrap" class="fulltext replaced_by_more">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
         <?php $fulltext_enabled = false; ?>
     </td>
         <?php
+            }
         } // end if... else...
         echo "\n";
-        ?>
+        if ($GLOBALS['cfg']['PropertiesIconic'] !== true) { ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
         <?php echo PMA_getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
 
-            <div class="action_browse">
+            <div class="action_browse replace_in_more">
                 <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">
                     <?php echo $hidden_titles['BrowseDistinctValues']; ?>
                 </a>
             </div>
-            <div <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="action_primary"' : ''); ?>>
+            <div  class="<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : ''); ?>replace_in_more">
                 <?php
                 if (isset($primary_enabled)) {
                      if ($primary_enabled) { ?>
@@ -483,7 +498,7 @@ foreach ($fields as $row) {
                      }
                 } ?>
             </div>
-            <div class="action_unique">
+            <div class="action_unique replace_in_more">
                 <?php
                 if (isset($unique_enabled)) {
                      if ($unique_enabled) { ?>
@@ -496,7 +511,7 @@ foreach ($fields as $row) {
                      }
                 } ?>
             </div>
-            <div class="action_index">
+            <div class="action_index replace_in_more">
                <?php
                 if (isset($index_enabled)) {
                      if ($index_enabled) { ?>
@@ -510,7 +525,7 @@ foreach ($fields as $row) {
                   } ?>
             </div>
             <?php if (!PMA_DRIZZLE) { ?>
-            <div class="action_spatial">
+            <div class="action_spatial replace_in_more">
                 <?php
                 if (isset($spatial_enabled)) {
                     if ($spatial_enabled) { ?>
@@ -523,7 +538,7 @@ foreach ($fields as $row) {
                     }
                 } ?>
             </div>
-            <div class="action_fulltext">
+            <div class="action_fulltext replace_in_more">
                 <?php
                 if (isset($fulltext_enabled)) {
                      if ($fulltext_enabled) { ?>
@@ -540,6 +555,7 @@ foreach ($fields as $row) {
         </div>
     </td>
     <?php
+        } // end if (GLOBALS['cfg']['PropertiesIconic'] !== true)
     } // end if (! $tbl_is_view && ! $db_is_information_schema)
     ?>
 </tr>

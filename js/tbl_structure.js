@@ -474,3 +474,209 @@ function changeColumns(action,url)
     }) // end $.get()
 }
 
+/**
+ * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
+ * Attach Ajax Event handlers for Change Table
+ */
+$(document).ready(function() {
+    /**
+     *Ajax action for submitting the "Column Change" and "Add Column" form
+    **/
+    $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the export form
+         */
+        var $form = $("#append_fields_form");
+
+        /*
+         * First validate the form; if there is a problem, avoid submitting it
+         *
+         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * this is why we pass $form[0] as a parameter (the jQuery object
+         * is actually an array of DOM elements)
+         */
+        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
+            // OK, form passed validation step
+            if ($form.hasClass('ajax')) {
+                PMA_prepareForAjaxRequest($form);
+                //User wants to submit the form
+                $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
+                    if ($("#sqlqueryresults").length != 0) {
+                        $("#sqlqueryresults").remove();
+                    } else if ($(".error").length != 0) {
+                        $(".error").remove();
+                    }
+                    if (data.success == true) {
+                        PMA_ajaxShowMessage(data.message);
+                        $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
+                        $("#sqlqueryresults").html(data.sql_query);
+                        $("#result_query .notice").remove();
+                        $("#result_query").prepend((data.message));
+                        if ($("#change_column_dialog").length > 0) {
+                            $("#change_column_dialog").dialog("close").remove();
+                        } else if ($("#add_columns").length > 0) {
+                            $("#add_columns").dialog("close").remove();
+                        }
+                        /*Reload the field form*/
+                        $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
+                            $("#fieldsForm").remove();
+                            $("#addColumns").remove();
+                            var $temp_div = $("<div id='temp_div'><div>").append(form_data);
+                            if ($("#sqlqueryresults").length != 0) {
+                                $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
+                            } else {
+                                $temp_div.find("#fieldsForm").insertAfter(".error");
+                            }
+                            $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
+                            /*Call the function to display the more options in table*/
+                            $table_clone = false;
+                            moreOptsMenuResize();
+                        });
+                    } else {
+                        var $temp_div = $("<div id='temp_div'><div>").append(data);
+                        var $error = $temp_div.find(".error code").addClass("error");
+                        PMA_ajaxShowMessage($error, false);
+                    }
+                }) // end $.post()
+            } else {
+                // non-Ajax submit
+                $form.append('<input type="hidden" name="do_save_data" value="Save" />');
+                $form.submit();
+            }
+        }
+    }) // end change table button "do_save_data"
+
+}, 'top.frame_content'); //end $(document).ready for 'Change Table'
+
+/**
+ * Hides certain table structure actions, replacing them
+ * with the word "More". They are displayed in a dropdown
+ * menu when the user hovers over the word "More."
+ */
+
+var $table_clone = false;
+
+function moreOptsMenuResize() {
+    var $table = $("table#tablestructure");
+
+    // don't use More menu if we're only showing icons and no text
+    if ($table.hasClass("PropertiesIconic")) {
+        return;
+    }
+
+    // reset table to defaults
+    if ($table_clone === false) {
+        $table_clone = $table.clone();
+    }
+    else {
+        $table.replaceWith($table_clone);
+        $table = $table_clone;
+        $table_clone = $table.clone();
+    }
+
+    var getCurWidth = function() {
+        var cur_width = 0;
+        $table.find("tr").eq(1)
+            .find("td.edit, td.drop, .replaced_by_more:visible, .more_opts:visible")
+            .each(function () {
+                cur_width += $(this).outerWidth();
+            });
+        return cur_width;
+    };
+
+    // get window width
+    var window_width = $(window).width();
+    // find out maximum action links width
+    var max_width = window_width;
+    $table.find("th").each(function () {
+        if ($(this).index() < 8) {
+            max_width -= $(this).outerWidth() + 1;
+        }
+    });
+    // current action links width
+    var cur_width = getCurWidth();
+
+    // remove some links if current width is wider than maximum allowed
+    if (cur_width > max_width) {
+        while (cur_width > max_width 
+            && $(".replaced_by_more:visible").length > 0) {
+
+            // hide last visible element
+            var css_class = $table.find("tr").eq(1)
+                .find(".replaced_by_more:visible").last().prop("className").split(" ");
+            $table.find("." + css_class.join(".")).hide();
+            // show corresponding more-menu entry
+            $table.find(".replace_in_more.action_" + css_class[0]).show();
+            // recalculate width
+            cur_width = getCurWidth();
+        }
+    }
+
+    if ($(".replaced_by_more:hidden").length == 0) {
+        $table.find("td.more_opts").hide();
+    }
+    else {
+        $table.find("td.more_opts").show();
+    }
+
+    // Position the dropdown
+    $(".structure_actions_dropdown").each(function() {
+        // Optimize DOM querying
+        var $this_dropdown = $(this);
+         // The top offset must be set for IE even if it didn't change
+        var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
+        var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
+        var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
+        $this_dropdown.offset({ top: top_offset, left: left_offset });
+    });
+
+    // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
+    // positioning an iframe directly on top of it
+    var $after_field = $("select[name='after_field']");
+    $("iframe[class='IE_hack']")
+        .width($after_field.width())
+        .height($after_field.height())
+        .offset({
+            top: $after_field.offset().top,
+            left: $after_field.offset().left
+        });
+
+    // When "more" is hovered over, show the hidden actions
+    $table.find("td.more_opts")
+        .unbind("mouseenter")
+        .bind("mouseenter", function() {
+            if($.browser.msie && $.browser.version == "6.0") {
+                $("iframe[class='IE_hack']")
+                    .show()
+                    .width($after_field.width()+4)
+                    .height($after_field.height()+4)
+                    .offset({
+                        top: $after_field.offset().top,
+                        left: $after_field.offset().left
+                    });
+            }
+            $(".structure_actions_dropdown").hide(); // Hide all the other ones that may be open
+            $(this).children(".structure_actions_dropdown").show();
+            // Need to do this again for IE otherwise the offset is wrong
+            if($.browser.msie) {
+                var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children(".structure_actions_dropdown").innerWidth();
+                var top_offset_IE = $(this).offset().top + $(this).innerHeight();
+                $(this).children(".structure_actions_dropdown").offset({
+                    top: top_offset_IE,
+                    left: left_offset_IE });
+            }
+        })
+        .unbind("mouseleave")
+        .bind("mouseleave", function() {
+            $(this).children(".structure_actions_dropdown").hide();
+            if($.browser.msie && $.browser.version == "6.0") {
+                $("iframe[class='IE_hack']").hide();
+            }
+        });
+}
+$(window).resize(moreOptsMenuResize);
+$(function () {
+    $(".replace_in_more").hide();
+    moreOptsMenuResize();
+});
