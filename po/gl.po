@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-12 00:12-0000\n"
+"PO-Revision-Date: 2012-04-12 01:38+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -245,16 +245,16 @@ msgid "The database name is empty!"
 msgstr "O nome da base de datos está baleiro!"
 
 #: db_operations.php:298
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "A base de datos %s foi renomeada a %s"
+msgstr "A base de datos %1$s foi renomeada a %2$s"
 
 #: db_operations.php:302
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "A base de datos %s foi copiada para %s"
+msgstr "A base de datos %1$s foi copiada a %2$s"
 
 #: db_operations.php:430
 msgid "Rename database to"
@@ -704,10 +704,9 @@ msgid "Replace table prefix"
 msgstr "Substituír o prefixo da táboa"
 
 #: db_structure.php:678 libraries/mult_submits.inc.php:272
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Substituír os datos da táboa polos do ficheiro"
+msgstr "Copiar a táboa con prefixo"
 
 #: db_structure.php:707 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
@@ -793,19 +792,17 @@ msgid "Database Log"
 msgstr "Rexistro de actividade da base de datos"
 
 #: export.php:38
-#, fuzzy
 msgid "Bad type!"
-msgstr "Tipo de procura"
+msgstr "Erro no tipo!"
 
 #: export.php:86
 msgid "Selected export type has to be saved in file!"
 msgstr "Gardouse nun ficheiro o tipo de exportación seleccionada!"
 
 #: export.php:115
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Bad parameters!"
-msgstr "Aplicar índice(s)"
+msgstr "Erro nos parametros!"
 
 #: export.php:176 export.php:201 export.php:672
 #, php-format
@@ -831,10 +828,9 @@ msgid "Dump has been saved to file %s."
 msgstr "Gardouse o volcado no ficheiro %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export tables"
 msgid "Invalid export type"
-msgstr "Exportar as táboas"
+msgstr "Tipo de exportación non válida"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -876,16 +872,14 @@ msgstr "Punto %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:325
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add a point"
-msgstr "Aplicar índice(s)"
+msgstr "Engadir un punto"
 
 #: gis_data_editor.php:220 js/messages.php:320
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "As liñas rematan por"
+msgstr "Cadea de liñas"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:324
 msgid "Outer Ring"
@@ -896,32 +890,28 @@ msgid "Inner Ring"
 msgstr "Círculo interno"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Engadir un usuario novo"
+msgstr "Engadir unha cadea de liñas"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:326
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Engadir un usuario novo"
+msgstr "Engadir un círculo interno"
 
 #: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
 msgstr "Polígono"
 
 #: gis_data_editor.php:306 js/messages.php:327
-#, fuzzy
 #| msgid "Add column(s)"
 msgid "Add a polygon"
-msgstr "Engadir columna(s)"
+msgstr "Engadir un polígono"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "Engadir un servidor novo"
+msgstr "Engadir xeometría"
 
 #: gis_data_editor.php:317
 msgid "Output"
@@ -1037,10 +1027,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Non se permiten as ordes \"DROP DATABASE\"."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Seguro? "
+msgstr "Seguro que quere executar \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -1076,29 +1066,26 @@ msgid "This is not a number!"
 msgstr "Non é un número!"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add Index"
-msgstr "Aplicar índice(s)"
+msgstr "Engadir índice"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Modo de edición"
+msgstr "Editar índice"
 
 #: js/messages.php:44 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Engadir columna(s)"
+msgstr "Engadir %d columna(s) ó índice"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Número de ficheiros de rexistro"
+msgstr "Cantidade total"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1118,22 +1105,19 @@ msgstr "Os contrasinais non son iguais!"
 
 #: js/messages.php:55 server_privileges.php:1912 server_privileges.php:1936
 #: server_privileges.php:2348 server_privileges.php:2542
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Calquera usuario"
+msgstr "Engadir usuario"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "A recargar os privilexios"
+msgstr "Recargando permisos"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Eliminar os usuarios seleccionados"
+msgstr "Eliminando ós usuarios seleccionados"
 
 #: js/messages.php:58 js/messages.php:137 tbl_tracking.php:247
 #: tbl_tracking.php:427
@@ -1149,20 +1133,18 @@ msgid "Edit"
 msgstr "Modificar"
 
 #: js/messages.php:62 server_status.php:817
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Escolla de servidor"
+msgstr "Grafico de trafico en directo"
 
 #: js/messages.php:63 server_status.php:820
 msgid "Live conn./process chart"
 msgstr "Gráfica conexións/procesos en directo"
 
 #: js/messages.php:64 server_status.php:838
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Live query chart"
-msgstr "Caixa de Procuras SQL"
+msgstr "Gráfico de pesquisas en directo"
 
 #: js/messages.php:66
 msgid "Static data"
@@ -1183,15 +1165,13 @@ msgstr "Outro"
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/common.lib.php:1484
-#, fuzzy
 msgid ","
-msgstr ","
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/common.lib.php:1486
-#, fuzzy
 msgid "."
-msgstr "."
+msgstr ","
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
@@ -1202,10 +1182,9 @@ msgid "KiB received since last refresh"
 msgstr "KiB recibidos dende o último refresco"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Escolla de servidor"
+msgstr "Tráfico do servidor (en KiB)"
 
 #: js/messages.php:79
 msgid "Connections since last refresh"
@@ -1216,10 +1195,9 @@ msgid "Processes"
 msgstr "Procesos"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Conexións"
+msgstr "Conexións/Procesos"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
@@ -1232,16 +1210,14 @@ msgid "Questions (executed statements by the server)"
 msgstr "Preguntas (sentencias executadas polo servidor)"
 
 #: js/messages.php:87 server_status.php:799
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
-msgstr "Mostrar as estatísticas"
+msgstr "Estadísticas das pesquisas"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "Non se puido cargar ou gravar a configuración"
+msgstr "Configuración local de monitorización incompatible"
 
 #: js/messages.php:91
 msgid ""
@@ -1252,22 +1228,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "caché de procuras"
+msgstr "Eficiencia da caché das pesquisas"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "caché de procuras"
+msgstr "Uso da caché das pesquisas"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "caché de procuras"
+msgstr "Caché das pesquisas usada"
 
 #: js/messages.php:97
 msgid "System CPU Usage"
@@ -1298,20 +1271,18 @@ msgid "Average load"
 msgstr "Carga promedio"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
-msgstr "Número de ficheiros de rexistro"
+msgstr "Memoria total"
 
 #: js/messages.php:105
 msgid "Cached memory"
 msgstr "Memoria caché"
 
 #: js/messages.php:106
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Reserva da memoria intermedia"
+msgstr "Memoria de buffer"
 
 #: js/messages.php:107
 msgid "Free memory"
@@ -1322,10 +1293,9 @@ msgid "Used memory"
 msgstr "Memoria usada"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total"
+msgstr "Arquivo de intercambio total"
 
 #: js/messages.php:111
 msgid "Cached Swap"
@@ -1657,7 +1627,7 @@ msgstr "Filtro"
 
 #: js/messages.php:194
 msgid "Filter queries by word/regexp:"
-msgstr "Filtrar pesquisas por palabra/expresión regular"
+msgstr "Filtrar pesquisas por palabra/expresión regular:"
 
 #: js/messages.php:195
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1987,7 +1957,7 @@ msgstr "Procurar"
 
 #: js/messages.php:292
 msgid "Each point represents a data row."
-msgstr "Cada punto representa unha fila de datos"
+msgstr "Cada punto representa unha fila de datos."
 
 #: js/messages.php:294
 msgid "Hovering over a point will show its label."
@@ -2080,7 +2050,7 @@ msgstr ""
 
 #: js/messages.php:340
 msgid "Add an option for column "
-msgstr "Engadir unha opción para a columna"
+msgstr "Engadir unha opción para a columna "
 
 #: js/messages.php:343
 msgid "Press escape to cancel editing"
