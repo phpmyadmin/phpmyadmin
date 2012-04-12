@@ -3026,6 +3026,22 @@ function PMA_extractFieldSpec($fieldspec)
         $attribute = 'UNSIGNED ZEROFILL';
     }
 
+    $can_contain_collation = false;
+    if (
+        ! $binary
+        &&
+        preg_match("@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@", $type)) {
+        $can_contain_collation = true;
+    }
+
+    // for the case ENUM('&#8211;','&ldquo;')
+    $displayed_type = htmlspecialchars($printtype);
+    if (strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
+        $displayed_type  = '<abbr title="' . $printtype . '">';
+        $displayed_type .= substr($printtype, 0, $GLOBALS['cfg']['LimitChars']);
+        $displayed_type .= '</abbr>';
+    }
+
     return array(
         'type' => $type,
         'spec_in_brackets' => $spec_in_brackets,
@@ -3035,6 +3051,8 @@ function PMA_extractFieldSpec($fieldspec)
         'unsigned' => $unsigned,
         'zerofill' => $zerofill,
         'attribute' => $attribute,
+        'can_contain_collation' => $can_contain_collation,
+        'displayed_type' => $displayed_type
     );
 }
 

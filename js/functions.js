@@ -1350,9 +1350,9 @@ function PMA_showNoticeForEnum(selectElement)
 function PMA_createTableDialog( $div, url , target)
 {
      /**
-     *  @var    button_options  Object that stores the options passed to jQueryUI
-     *                          dialog
-     */
+      *  @var    button_options  Object that stores the options passed to jQueryUI
+      *                          dialog
+      */
      var button_options = {};
      // in the following function we need to use $(this)
      button_options[PMA_messages['strCancel']] = function() {
@@ -1372,8 +1372,8 @@ function PMA_createTableDialog( $div, url , target)
 
      var $msgbox = PMA_ajaxShowMessage();
 
-     $.get( target , url ,  function(data) {
-         //in the case of an error, show the error message returned.
+     $.get(target, url, function(data) {
+      //in the case of an error, show the error message returned.
          if (data.success != undefined && data.success == false) {
              $div
              .append(data.error)
@@ -1385,7 +1385,8 @@ function PMA_createTableDialog( $div, url , target)
              })// end dialog options
              //remove the redundant [Back] link in the error message.
              .find('fieldset').remove();
-         } else {
+         }
+         else {
              var size = getWindowSize();
              var timeout;
              $div
@@ -1437,12 +1438,15 @@ function PMA_createTableDialog( $div, url , target)
                  close: function() {
                      $(window).unbind('resize.dialog-resizer');
                      $('#content-hide > *').unwrap();
+                     // resize topmenu
+                     menuResize();
+                     menuResize(); // somehow need to call it twice to work
                  },
                  buttons: button_options
              }); // end dialog options
          }
-         PMA_convertFootnotesToTooltips($div);
-         PMA_ajaxRemoveMessage($msgbox);
+        PMA_convertFootnotesToTooltips($div);
+        PMA_ajaxRemoveMessage($msgbox);
      }); // end $.get()
 
 }
@@ -2066,80 +2070,6 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
- * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
- * Attach Ajax Event handlers for Change Table
- */
-$(document).ready(function() {
-    /**
-     *Ajax action for submitting the "Column Change" and "Add Column" form
-    **/
-    $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
-        event.preventDefault();
-        /**
-         *  @var    the_form    object referring to the export form
-         */
-        var $form = $("#append_fields_form");
-
-        /*
-         * First validate the form; if there is a problem, avoid submitting it
-         *
-         * checkTableEditForm() needs a pure element and not a jQuery object,
-         * this is why we pass $form[0] as a parameter (the jQuery object
-         * is actually an array of DOM elements)
-         */
-        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
-            // OK, form passed validation step
-            if ($form.hasClass('ajax')) {
-                PMA_prepareForAjaxRequest($form);
-                //User wants to submit the form
-                $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
-                    if ($("#sqlqueryresults").length != 0) {
-                        $("#sqlqueryresults").remove();
-                    } else if ($("div.error").length != 0) {
-                        $("div.error").remove();
-                    }
-                    if (data.success == true) {
-                        PMA_ajaxShowMessage(data.message);
-                        $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                        $("#sqlqueryresults").html(data.sql_query);
-                        $("#result_query .notice").remove();
-                        $("#result_query").prepend((data.message));
-                        if ($("#change_column_dialog").length > 0) {
-                            $("#change_column_dialog").dialog("close").remove();
-                        } else if ($("#add_columns").length > 0) {
-                            $("#add_columns").dialog("close").remove();
-                        }
-                        /*Reload the field form*/
-                        $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
-                            $("#fieldsForm").remove();
-                            $("#addColumns").remove();
-                            var $temp_div = $("<div id='temp_div'><div>").append(form_data);
-                            if ($("#sqlqueryresults").length != 0) {
-                                $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
-                            } else {
-                                $temp_div.find("#fieldsForm").insertAfter("div.error");
-                            }
-                            $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
-                            /*Call the function to display the more options in table*/
-                            displayMoreTableOpts();
-                        });
-                    } else {
-                        var $temp_div = $("<div id='temp_div'><div>").append(data);
-                        var $error = $temp_div.find(".error code").addClass("error");
-                        PMA_ajaxShowMessage($error, false);
-                    }
-                }); // end $.post()
-            } else {
-                // non-Ajax submit
-                $form.append('<input type="hidden" name="do_save_data" value="Save" />');
-                $form.submit();
-            }
-        }
-    }); // end change table button "do_save_data"
-
-}, 'top.frame_content'); //end $(document).ready for 'Change Table'
-
-/**
  * jQuery coding for 'Table operations'.  Used on tbl_operations.php
  * Attach Ajax Event handlers for Table operations
  */
@@ -2666,82 +2596,6 @@ $(document).ready(function() {
     });
 });
 
-/**
- * Hides certain table structure actions, replacing them
- * with the word "More". They are displayed in a dropdown
- * menu when the user hovers over the word "More."
- */
-$(document).ready(function() {
-    displayMoreTableOpts();
-});
-
-function displayMoreTableOpts()
-{
-    // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
-    // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
-    if ($("input[type='hidden'][name='table_type']").val() == "table") {
-        var $table = $("table#tablestructure");
-        $table.find("td.replaced_by_more").remove();
-        $table.find("th.action").attr("colspan", 3);
-
-        // Display the "more" text
-        $table.find("td.more_opts").show();
-
-        // Position the dropdown
-        $("div.structure_actions_dropdown").each(function() {
-            // Optimize DOM querying
-            var $this_dropdown = $(this);
-             // The top offset must be set for IE even if it didn't change
-            var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
-            var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
-            var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
-            $this_dropdown.offset({ top: top_offset, left: left_offset });
-        });
-
-        // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
-        // positioning an iframe directly on top of it
-        var $after_field = $("select[name='after_field']");
-        $("iframe.IE_hack")
-            .width($after_field.width())
-            .height($after_field.height())
-            .offset({
-                top: $after_field.offset().top,
-                left: $after_field.offset().left
-            });
-
-        // When "more" is hovered over, show the hidden actions
-        $table.find("td.more_opts")
-            .mouseenter(function() {
-                if ($.browser.msie && $.browser.version == "6.0") {
-                    $("iframe.IE_hack")
-                        .show()
-                        .width($after_field.width()+4)
-                        .height($after_field.height()+4)
-                        .offset({
-                            top: $after_field.offset().top,
-                            left: $after_field.offset().left
-                        });
-                }
-                $("div.structure_actions_dropdown").hide(); // Hide all the other ones that may be open
-                $(this).children("div.structure_actions_dropdown").show();
-                // Need to do this again for IE otherwise the offset is wrong
-                if ($.browser.msie) {
-                    var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children("div.structure_actions_dropdown").innerWidth();
-                    var top_offset_IE = $(this).offset().top + $(this).innerHeight();
-                    $(this).children("div.structure_actions_dropdown").offset({
-                        top: top_offset_IE,
-                        left: left_offset_IE });
-                }
-            })
-            .mouseleave(function() {
-                $(this).children("div.structure_actions_dropdown").hide();
-                if ($.browser.msie && $.browser.version == "6.0") {
-                    $("iframe.IE_hack").hide();
-                }
-            });
-    }
-
-}
 $(document).ready(function() {
     PMA_convertFootnotesToTooltips();
 });
