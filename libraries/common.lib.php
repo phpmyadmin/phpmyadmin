@@ -1772,9 +1772,8 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
         $tab['link'] .= $tab['fragment'];
     }
 
-    // display icon, even if iconic is disabled but the link-text is missing
-    if (($GLOBALS['cfg']['MainPageIconic'] || empty($tab['text']))
-        && isset($tab['icon'])
+    // display icon
+    if (isset($tab['icon'])
     ) {
         // avoid generating an alt tag, because it only illustrates
         // the text that follows and if browser does not display

@@ -1222,11 +1222,7 @@ if (! isset($_REQUEST['submit_connect'])
 /**
 * Displays the sub-page heading
 */
-    echo '<h2>' . ($GLOBALS['cfg']['MainPageIconic']
-    ? PMA_getImage('s_sync.png')
-    : '')
-    . __('Synchronize')
-    .'</h2>';
+    echo '<h2>' . PMA_getImage('s_sync.png') . __('Synchronize') .'</h2>';
 
     echo  '<div id="serverstatus">
     <form name="connection_form" id="connection_form" method="post" action="server_synchronize.php"
