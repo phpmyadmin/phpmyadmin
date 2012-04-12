@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-09 11:22+0200\n"
-"Last-Translator: Bartosz Feński <fenio@debian.org>\n"
+"PO-Revision-Date: 2012-04-11 23:33+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -13005,9 +13005,9 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
-"Połączenia są zazwyczaj przerwane, kiedy nie mogą być autoryzowane. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">Ten artykół</a> może pomóc wyśledzić źródło."
+"Połączenia są zazwyczaj przerwane, kiedy nie mogą być autoryzowane. <a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">Ten artykuł</a> może pomóc wyśledzić źródło."
 
 #: libraries/advisory_rules.txt:381
 #, php-format
