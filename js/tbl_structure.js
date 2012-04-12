@@ -582,7 +582,7 @@ function moreOptsMenuResize() {
     var $table = $("table#tablestructure");
 
     // don't use More menu if we're only showing icons and no text
-    if ($table.hasClass("PropertiesIconic")) {
+    if ($table.length == 0 || $table.hasClass("PropertiesIconic")) {
         return;
     }
 
