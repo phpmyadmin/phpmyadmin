@@ -407,6 +407,10 @@ class PMA_Theme
      */
     function getCssCodeMirror()
     {
+        if (! $GLOBALS['cfg']['CodemirrorEnable']) {
+            return '';
+        }
+
         $result[] = 'span.cm-keyword, span.cm-statement-verb {';
         $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord'] . ';';
         $result[] = '}';
