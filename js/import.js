@@ -97,5 +97,4 @@ $('#plugin').click(function () {
 	if ( $('#plugin').attr('value') != 'SQL') {
 		$('check_tableselect').hide();
 	}
-}
-}
+});
