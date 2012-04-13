@@ -93,8 +93,10 @@ $(document).ready(function() {
 	}
 });
 
-$('#plugin').click(function () {
-	if ( $('#plugin').attr('value') != 'SQL') {
-		$('check_tableselect').hide();
-	}
+$('#plugins').click(function () {
+	if ( $('#plugins option:selected').val() != 'SQL') {
+		$('#check_tableselect').hide();
+    } else {
+   		$('#check_tableselect').show();
+    }
 });
