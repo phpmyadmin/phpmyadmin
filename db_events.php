@@ -18,8 +18,11 @@ require_once 'libraries/common.lib.php';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'rte/common.js';
 $GLOBALS['js_include'][] = 'rte/events.js';
-$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
-$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+
+if ($GLOBALS['cfg']['CodemirrorEnable']) {
+    $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+    $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+}
 
 /**
  * Include all other files

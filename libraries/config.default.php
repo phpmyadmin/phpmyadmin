@@ -646,6 +646,13 @@ $cfg['ShowSQL'] = true;
 $cfg['RetainQueryBox'] = false;
 
 /**
+ * use CodeMirror syntax highlighting for editing SQL
+ *
+ * @global boolean $cfg['CodemirrorEnable']
+ */
+$cfg['CodemirrorEnable'] = true;
+
+/**
  * show a 'Drop database' link to normal users
  *
  * @global boolean $cfg['AllowUserDropDatabase']
