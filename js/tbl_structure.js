@@ -575,6 +575,8 @@ function moreOptsMenuResize() {
         $table_clone = $table.clone();
     }
 
+    $table.find("td.more_opts").hide();
+
     var getCurWidth = function() {
         var cur_width = 0;
         $table.find("tr").eq(1)
@@ -587,13 +589,15 @@ function moreOptsMenuResize() {
 
     // get window width
     var window_width = $(window).width();
+
     // find out maximum action links width
     var max_width = window_width;
-    $table.find("th").each(function () {
-        if ($(this).index() < 8) {
+    $table.find("tr").eq(0).children().each(function () {
+        if ($(this).index() < 9) {
             max_width -= $(this).outerWidth() + 1;
         }
     });
+
     // current action links width
     var cur_width = getCurWidth();
 
@@ -608,6 +612,7 @@ function moreOptsMenuResize() {
             $table.find("." + css_class.join(".")).hide();
             // show corresponding more-menu entry
             $table.find(".replace_in_more.action_" + css_class[0]).show();
+            $table.find("td.more_opts").show();
             // recalculate width
             cur_width = getCurWidth();
         }
@@ -615,9 +620,6 @@ function moreOptsMenuResize() {
 
     if ($(".replaced_by_more:hidden").length == 0) {
         $table.find("td.more_opts").hide();
-    }
-    else {
-        $table.find("td.more_opts").show();
     }
 
     // Position the dropdown
