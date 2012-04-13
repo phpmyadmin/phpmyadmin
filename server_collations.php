@@ -63,7 +63,8 @@ foreach ($mysql_charsets as $current_charset) {
        . (empty($mysql_charsets_descriptions[$current_charset])
             ? ''
             : '        (<i>' . htmlspecialchars(
-                $mysql_charsets_descriptions[$current_charset]) . '</i>)' . "\n")
+                $mysql_charsets_descriptions[$current_charset]
+            ) . '</i>)' . "\n")
        . '    </th>' . "\n"
        . '</tr>' . "\n";
     $odd_row = true;

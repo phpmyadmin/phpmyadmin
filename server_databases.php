@@ -11,7 +11,7 @@
 require_once 'libraries/common.inc.php';
 
 require 'libraries/server_common.inc.php';
-if (!PMA_DRIZZLE) {
+if (! PMA_DRIZZLE) {
     include_once 'libraries/replication.inc.php';
 } else {
     $replication_types = array();
@@ -57,7 +57,8 @@ if (empty($_REQUEST['sort_by'])) {
 }
 
 if (isset($_REQUEST['sort_order'])
- && strtolower($_REQUEST['sort_order']) == 'desc') {
+    && strtolower($_REQUEST['sort_order']) == 'desc'
+) {
     $sort_order = 'desc';
 } else {
     $sort_order = 'asc';
@@ -78,7 +79,8 @@ if (isset($_REQUEST['drop_selected_dbs_x'])) {
 }
 
 if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
-  && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
+    && ($is_superuser || $cfg['AllowUserDropDatabase'])
+) {
     if (! isset($_REQUEST['selected_dbs']) && ! isset($_REQUEST['query_type'])) {
         $message = PMA_Message::error(__('No databases selected.'));
     } else {
@@ -131,8 +133,9 @@ if ($cfg['ShowCreateDb']) {
  * Gets the databases list
  */
 if ($server > 0) {
-    $databases = PMA_DBI_get_databases_full(null, $dbstats, null, $sort_by,
-        $sort_order, $pos, true);
+    $databases = PMA_DBI_get_databases_full(
+        null, $dbstats, null, $sort_by, $sort_order, $pos, true
+    );
     $databases_count = count($GLOBALS['pma']->databases);
 } else {
     $databases_count = 0;
@@ -203,7 +206,7 @@ if ($databases_count > 0) {
         echo '    <th>'. $name .'</th>' . "\n";
     }
 
-    if ($is_superuser && !PMA_DRIZZLE) {
+    if ($is_superuser && ! PMA_DRIZZLE) {
         echo '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
            . '    </th>' . "\n";
     }
