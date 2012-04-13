@@ -93,7 +93,7 @@ $(document).ready(function() {
 	}
 });
 
-$('#plugins').click(function () {
+$('#plugins').change(function () {
 	if ( $('#plugins option:selected').val() != 'SQL') {
 		$('#check_tableselect').hide();
     } else {
