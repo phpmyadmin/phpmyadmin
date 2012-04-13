@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-12 16:45+0200\n"
+"PO-Revision-Date: 2012-04-13 11:53+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9395,6 +9395,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"සේවාදායක තත්ත්ව විචල්‍යයන් අධ්‍යයනය කිරීමෙන් සේවාදායක විචල්‍යයන්ට අදාල "
+"නිර්දේශ ලබා දීමට උපදේශක පද්ධතියට හැකිය."
 
 #: server_status.php:925
 msgid ""
@@ -9402,6 +9404,9 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"කෙසේ වෙතත් මෙම නිර්දේශ ලබා දෙනුයේ සරල ගණනය කිරීම හා ආනුභූතික රීති පදනම් "
+"කරගෙන බවත් එම නිසා එවැනි නිර්දේශ ඔබගේ පද්ධතියට අදාල නොවීමට ඉඩ ඇති බවත් "
+"සලකන්න."
 
 #: server_status.php:927
 msgid ""
@@ -9409,6 +9414,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"කිසියම් වින්‍යාසයක් වෙනස් කිරීමට පළමුව ඔබ වෙනස් කරන්නේ කුමක්ද යන්න "
+"(ලියකියවිලි කියවීමෙන්) සහ එම වෙනස්කම් ප්‍රතිවර්තනය කරන්නේ කෙසේද යන්න "
+"දැනගන්න. වැරදි සුසර කිරීම් මගින් පද්ධතියේ කාර්යසාධනය තවදුරටත් නරක විය හැකිය."
 
 #: server_status.php:929
 msgid ""
@@ -9416,13 +9424,16 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"ඔබගේ පද්ධතිය සුසර කිරීමට යෝග්‍යම ක්‍රියාවලිය වන්නේ වරකට එක සිටුවම බැගින් "
+"වෙනස් කරමින් ඔබගේ දත්තගබඩාව නිරීක්ෂණය කිරීම හා පෙර අවස්ථා සමග සසැදීමත්, "
+"මැනිය හැකි වර්ධනයක් ගෙන නොදෙන වෙනස් කිරීම ප්‍රතිවර්තනය කිරීමත් ය."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:951
-#, fuzzy, php-format
+#, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
-msgstr "ඇරඹුම් පිටුව රිසි සේ සකසන්න"
+msgstr "ආරම්භයේ සිට සේවාදායකය වෙත යැවුණු ප්‍රශ්න ගණන: %s"
 
 #: server_status.php:987 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
