@@ -92,3 +92,10 @@ $(document).ready(function() {
 		$('#submit').show();
 	}
 });
+
+$('#plugin').click(function () {
+	if ( $('#plugin').attr('value') != 'SQL') {
+		$('check_tableselect').hide();
+	}
+}
+}

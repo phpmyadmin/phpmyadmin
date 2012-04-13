@@ -181,7 +181,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     </div>
 	<div class="importoptions" id="tableselect" style="display:
 		<?php 
-			if ($_SESSION['t_select'])
+			if (isset($_SESSION['t_select']) && $_SESSION['t_select'])
 			{
 				echo "block";
 			}		
@@ -193,11 +193,13 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 		">
 		<h3><?php echo __('Table Selection:');?></h3>
 		<select id="im_table_select" multiple="multiple" size="10" name="table_select[]" >
-			<?php 
-				$names = $_SESSION['t_names'];
-				foreach ($names as $name)
-				{
-					echo "\n<option selected='selected' value='$name'>$name</option>";
+			<?php
+				if (isset($_SESSION['t_names'])) { 
+					$names = $_SESSION['t_names'];
+					foreach ($names as $name)
+					{
+						echo "\n<option selected='selected' value='$name'>$name</option>";
+					}
 				}
 			?>
 		</select>
