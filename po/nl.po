@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-06 09:39+0200\n"
+"PO-Revision-Date: 2012-04-13 18:00+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -1022,10 +1022,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Weet u zeker dat u de volgende SQL query wil uitvoeren?"
+msgstr "Weet u zeker dat u SQL query \"%s\" wil uitvoeren?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -2630,10 +2630,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Gebruik van Blowfish van mcrypt is niet gelukt!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Cookies moeten aan staan voorbij dit punt."
+msgstr "Javascript moet ingeschakeld zijn voorbij dit punt"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -2796,7 +2795,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: %1$s"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2804,7 +2802,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"De <code>$cfg['PmaAbsoluteUri']</code> richtlijn MOET gezet zijn in het "
+"De [code]$cfg['PmaAbsoluteUri'][/code] richtlijn MOET ingesteld zijn in het "
 "configuratiebestand!"
 
 #: libraries/common.inc.php:651
@@ -3987,14 +3985,15 @@ msgid "Customize startup page"
 msgstr "Aanpassen beginpagina"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Databank server"
+msgstr "Databank structuur"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Kies de details die getoond worden in de databank structuur (lijst met "
+"tabellen)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5082,32 +5081,36 @@ msgstr "Toon formulier om een nieuwe databank aan te maken"
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Toon of verberg een kolom met voor alle tabellen het tijdstip waarop deze "
+"aangemaakt werd"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Geef meer acties weer"
+msgstr "Toon het tijdstip van aanmaken"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Toon of verberg een kolom met voor alle tabellen het tijdstip waarop deze "
+"laatst aangepast werd"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Toon het tijdstip van laatste aanpassing"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Toon of verberg een kolom met voor alle tabellen het tijdstip waarop deze "
+"laatst bekeken werd"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Toon master status"
+msgstr "Toon het tijdstip van laatste controle"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5839,26 +5842,25 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s van %s"
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Formaat van het geïmporteerde bestand"
+msgstr "Uw geïmporteerde bestand wordt ingeladen..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sec."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Ongeveer %MIN minuten en %SEC seconden resterend."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Nog ongeveer %SEC seconden resterend."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6969,7 +6971,6 @@ msgid "Add prefix"
 msgstr "Voeg voorvoegsel toe"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
 msgstr "Weet u zeker dat u de volgende SQL query wil uitvoeren?"
@@ -7538,7 +7539,6 @@ msgid "Event"
 msgstr "Gebeurtenis"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7549,10 +7549,10 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"U gebruikt de verlopen 'mysql' uitbreiding, die niet in staat is om met "
-"meerdere queries om te gaan. <b>De uitvoering van sommige opgeslagen "
-"routines kan falen!</b> Gelieve de verbeterde 'mysqli' uitbreiding te "
-"gebruiken om problemen te vermijden."
+"U gebruikt de verouderde 'mysql' uitbreiding, die niet in staat is om met "
+"meerdere queries om te gaan. [strong]De uitvoering van sommige opgeslagen "
+"routines kan mislukken![strong] Gelieve de verbeterde 'mysqli' uitbreiding "
+"te gebruiken om problemen te vermijden."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1004
