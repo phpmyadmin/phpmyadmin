@@ -516,8 +516,8 @@ $(function() {
     });
 
     $('a[href="#importMonitorConfig"]').click(function() {
-        $('div#emptyDialog').attr('title', 'Import monitor configuration');
-        $('div#emptyDialog').html('Please select the file you want to import:<br/><form action="file_echo.php?' + url_query + '&import=1" method="post" enctype="multipart/form-data">' +
+        $('div#emptyDialog').attr('title', PMA_messages['strImportDialogTitle']);
+        $('div#emptyDialog').html(PMA_messages['strImportDialogMessage'] + ':<br/><form action="file_echo.php?' + url_query + '&import=1" method="post" enctype="multipart/form-data">' +
             '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
         
         var dlgBtns = {};
