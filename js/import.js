@@ -21,6 +21,11 @@ function changePluginOpts()
     } else {
         $("#import_notification").text("");
     }
+    if ( selected_plugin_name != "sql") {
+	    $('#check_tableselect').hide();
+    } else {
+   		$('#check_tableselect').show();
+    }
 }
 
 /**
@@ -91,13 +96,5 @@ $(document).ready(function() {
 		$('#tableselect').show();
 		$('#submit').show();
 	}
-
-    $('#plugins').change(function () {
-	    if ( $('#plugins option:selected').val() != 'SQL') {
-		    $('#check_tableselect').hide();
-        } else {
-       		$('#check_tableselect').show();
-        }
-});
 });
 
