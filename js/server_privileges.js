@@ -507,19 +507,22 @@ $(document).ready(function() {
                 });
                 PMA_ajaxRemoveMessage($msgbox);
                 // Attach syntax highlited editor to export dialog
-                CodeMirror.fromTextArea(
-                    $ajaxDialog.find('textarea')[0],
-                    {
-                        lineNumbers: true,
-                        matchBrackets: true,
-                        indentUnit: 4,
-                        mode: "text/x-mysql"
-                    }
-                );
+                if (typeof CodeMirror != 'undefined') {
+                    CodeMirror.fromTextArea(
+                        $ajaxDialog.find('textarea')[0],
+                        {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            indentUnit: 4,
+                            mode: "text/x-mysql"
+                        }
+                    );
+                }
         }); //end $.post
     });
     // if exporting non-ajax, highlight anyways
-    if ($("textarea.export").length > 0)
+    if ($("textarea.export").length > 0
+        && typeof CodeMirror != 'undefined')
     {
         CodeMirror.fromTextArea(
             $('textarea.export')[0],
@@ -555,15 +558,17 @@ $(document).ready(function() {
             });
             PMA_ajaxRemoveMessage($msgbox);
             // Attach syntax highlited editor to export dialog
-            CodeMirror.fromTextArea(
-                $ajaxDialog.find('textarea')[0],
-                {
-                    lineNumbers: true,
-                    matchBrackets: true,
-                    indentUnit: 4,
-                    mode: "text/x-mysql"
-                }
-            );
+            if (typeof CodeMirror != 'undefined') {
+                CodeMirror.fromTextArea(
+                    $ajaxDialog.find('textarea')[0],
+                    {
+                        lineNumbers: true,
+                        matchBrackets: true,
+                        indentUnit: 4,
+                        mode: "text/x-mysql"
+                    }
+                );
+            }
         }); //end $.get
     }); //end export privileges
 

@@ -42,7 +42,12 @@ var RTE = {
         }
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
         if ($elm.val() === '') {
-            this.syntaxHiglighter.focus();
+            if (this.syntaxHiglighter !== null) {
+                this.syntaxHiglighter.focus();
+            }
+            else {
+                $('textarea[name=item_definition]').last().focus();
+            }
             alert(PMA_messages['strFormEmpty']);
             return false;
         }
@@ -106,7 +111,9 @@ $(document).ready(function () {
                 RTE.buttonOptions[PMA_messages['strGo']] = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
-                    RTE.syntaxHiglighter.save();
+                    if (typeof CodeMirror != 'undefined') {
+                        RTE.syntaxHiglighter.save();
+                    }
                     // Validate editor and submit request, if passed.
                     if (RTE.validate()) {
                         /**
@@ -241,7 +248,9 @@ $(document).ready(function () {
                  * @var    opts    Options to pass to the codemirror editor.
                  */
                 var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
-                RTE.syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
+                if (typeof CodeMirror != 'undefined') {
+                    RTE.syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
+                }
                 // Execute item-specific code
                 RTE.postDialogShow(data);
             } else {

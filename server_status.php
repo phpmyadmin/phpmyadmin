@@ -432,7 +432,10 @@ if (PMA_DRIZZLE) {
  * JS Includes
  */
 
+// needed to decide whether to load codemirror.js in server_status.js
+PMA_AddJSVar('cfg_CodemirrorEnable', $GLOBALS['cfg']['CodemirrorEnable'] ? 1 : 0);
 $GLOBALS['js_include'][] = 'server_status.js';
+
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 // Charting

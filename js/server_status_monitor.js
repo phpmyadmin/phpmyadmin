@@ -1710,12 +1710,17 @@ $(function() {
         var rowData = $(this).parent().data('query');
         var query = rowData.argument || rowData.sql_text;
 
-        query = PMA_SQLPrettyPrint(query);
-        codemirror_editor.setValue(query);
-        // Codemirror is bugged, it doesn't refresh properly sometimes. Following lines seem to fix that
-        setTimeout(function() {
-            codemirror_editor.refresh();
-        },50);
+        if (codemirror_editor) {
+            query = PMA_SQLPrettyPrint(query);
+            codemirror_editor.setValue(query);
+            // Codemirror is bugged, it doesn't refresh properly sometimes. Following lines seem to fix that
+            setTimeout(function() {
+                codemirror_editor.refresh();
+            },50);
+        }
+        else {
+            $('#sqlquery').val(query);
+        }
 
         var profilingChart = null;
         var dlgBtns = {};
@@ -1728,7 +1733,12 @@ $(function() {
                 profilingChart.destroy();
             }
             $('div#queryAnalyzerDialog div.placeHolder').html('');
-            codemirror_editor.setValue('');
+            if (codemirror_editor) {
+                codemirror_editor.setValue('');
+            }
+            else {
+                $('#sqlquery').val('');
+            }
             $(this).dialog("close");
         };
 
@@ -1751,7 +1761,7 @@ $(function() {
         $.post('server_status.php?' + url_query, {
             ajax_request: true,
             query_analyzer: true,
-            query: codemirror_editor.getValue(),
+            query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db
         }, function(data) {
             data = $.parseJSON(data);

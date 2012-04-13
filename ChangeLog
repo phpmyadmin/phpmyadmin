@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - bug [export] Texy! Text: Columns containing Pipe Character don't export properly
 + [export] Show triggers in Open Document Text, Word and Texy! Text
 - Patch #3415061 [auth] Login screen appears under the page
++ rfe #3517354 [interface] Allow disabling CodeMirror with $cfg['CodemirrorEnable'] = false
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
