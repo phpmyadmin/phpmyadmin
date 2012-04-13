@@ -91,12 +91,13 @@ $(document).ready(function() {
 		$('#tableselect').show();
 		$('#submit').show();
 	}
+
+    $('#plugins').change(function () {
+	    if ( $('#plugins option:selected').val() != 'SQL') {
+		    $('#check_tableselect').hide();
+        } else {
+       		$('#check_tableselect').show();
+        }
+});
 });
 
-$('#plugins').change(function () {
-	if ( $('#plugins option:selected').val() != 'SQL') {
-		$('#check_tableselect').hide();
-    } else {
-   		$('#check_tableselect').show();
-    }
-});
