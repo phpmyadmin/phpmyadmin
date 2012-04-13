@@ -315,8 +315,9 @@ if ((isset($_REQUEST['submit_connect']))) {
                 * Calculating the number of updates for each matching table
                 */
                 if (isset($update_array[$i]) && isset($update_array[$i][0])
-                        && !empty($matching_tables_keys[$i][0])
-                        && isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
+                    && ! empty($matching_tables_keys[$i][0])
+                    && isset($update_array[$i][0][$matching_tables_keys[$i][0]])
+                ) {
                     $num_of_updates = sizeof($update_array[$i]);
                 } else {
                     $num_of_updates = 0;
@@ -325,8 +326,9 @@ if ((isset($_REQUEST['submit_connect']))) {
                 * Calculating the number of insertions for each matching table
                 */
                 if (isset($insert_array[$i]) && isset($insert_array[$i][0])
-                        && !empty($matching_tables_keys[$i])
-                        && isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
+                    && ! empty($matching_tables_keys[$i])
+                    && isset($insert_array[$i][0][$matching_tables_keys[$i][0]])
+                ) {
                     $num_of_insertions = sizeof($insert_array[$i]);
                 } else {
                     $num_of_insertions = 0;
@@ -386,7 +388,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 */
                 if ((isset($update_array[$i])
                     || isset($insert_array[$i]))
-                    && !empty($matching_tables_keys[$i])
+                    && ! empty($matching_tables_keys[$i])
                 ) {
                     if (isset($update_array[$i][0][$matching_tables_keys[$i][0]])
                         || isset($insert_array[$i][0][$matching_tables_keys[$i][0]])
@@ -839,7 +841,7 @@ if (isset($_REQUEST['Table_ids'])) {
             $btn_structure_params = array($i, $num_alter_cols, $num_insert_cols,
                 $num_remove_cols, $num_add_index, $num_remove_index);
         }
-        if (!(in_array($i, $matching_table_data_diff))) {
+        if (! (in_array($i, $matching_table_data_diff))) {
             if (isset($matching_tables_keys[$i][0])
                 && isset($update_array[$i][0][$matching_tables_keys[$i][0]])
             ) {
@@ -1033,9 +1035,9 @@ if (isset($_REQUEST['synchronize_db'])) {
     $target_indexes = $_SESSION['target_indexes'];
     $uncommon_cols = $uncommon_columns;
 
-   /**
-   * Display success message.
-   */
+    /**
+    * Display success message.
+    */
     echo '<div class="success">'
         . __('Target database has been synchronized with source database')
         . '</div>';
@@ -1219,9 +1221,9 @@ if (! isset($_REQUEST['submit_connect'])
     && ! isset($_REQUEST['synchronize_db'])
     && ! isset($_REQUEST['Table_ids'])
 ) {
-/**
-* Displays the sub-page heading
-*/
+    /**
+    * Displays the sub-page heading
+    */
     echo '<h2>' . PMA_getImage('s_sync.png') . __('Synchronize') .'</h2>';
 
     echo  '<div id="serverstatus">
@@ -1293,17 +1295,18 @@ if (! isset($_REQUEST['submit_connect'])
                 continue;
             }
 
-            if (!empty($tmp_server['verbose'])) {
+            if (! empty($tmp_server['verbose'])) {
                 $label = $tmp_server['verbose'];
             } else {
                 $label = $tmp_server['host'];
-                if (!empty($tmp_server['port'])) {
+                if (! empty($tmp_server['port'])) {
                     $label .= ':' . $tmp_server['port'];
                 }
             }
 
             if ($loaded_dbi == 'drizzle' && $tmp_server['extension'] != 'drizzle'
-                    || $loaded_dbi != 'drizzle' && $tmp_server['extension'] == 'drizzle') {
+                || $loaded_dbi != 'drizzle' && $tmp_server['extension'] == 'drizzle'
+            ) {
                 // incompatible connection protocols
                 $disabled = ' disabled="disabled"';
                 $value = '';
@@ -1377,9 +1380,9 @@ if (! isset($_REQUEST['submit_connect'])
         unset($options_list);
     }
     echo '</td> </tr>
-      </table>';
-   }
-   unset ($types, $type);
+        </table>';
+    }
+    unset ($types, $type);
 
     echo '
     </fieldset>

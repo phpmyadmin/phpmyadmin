@@ -21,7 +21,8 @@ class PMA_JS_Escape_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_getJsValue($key, $value));
     }
 
-    public function variables() {
+    public function variables()
+    {
         return array(
             array('foo', true, "foo = true;\n"),
             array('foo', false, "foo = false;\n"),

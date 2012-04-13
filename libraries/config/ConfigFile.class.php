@@ -328,7 +328,8 @@ class ConfigFile
      * @param string $path
      * @return string
      */
-    public function getCanonicalPath($path) {
+    public function getCanonicalPath($path)
+    {
         return preg_replace('#^Servers/([\d]+)/#', 'Servers/1/', $path);
     }
 

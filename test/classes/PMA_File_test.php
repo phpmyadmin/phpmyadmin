@@ -57,7 +57,8 @@ class PMA_File_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($data, $file->getContent());
     }
 
-    public function compressedFiles() {
+    public function compressedFiles()
+    {
         return array(
             array('./test/test_data/test.gz', 'application/gzip'),
             array('./test/test_data/test.bz2', 'application/bzip2'),

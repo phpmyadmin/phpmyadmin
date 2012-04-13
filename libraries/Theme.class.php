@@ -362,7 +362,8 @@ class PMA_Theme
      *
      * @return string CSS code.
      */
-    function getCssIEClearFilter() {
+    function getCssIEClearFilter()
+    {
         return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
             ? 'filter: none'
             : '';

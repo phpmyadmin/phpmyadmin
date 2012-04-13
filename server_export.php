@@ -43,13 +43,16 @@ foreach ($GLOBALS['pma']->databases as $current_db) {
         } else {
             $is_selected = '';
         }
-    } elseif (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
+    } elseif (! empty($selectall)
+        || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
+    ) {
         $is_selected = ' selected="selected"';
     } else {
         $is_selected = '';
     }
     $current_db   = htmlspecialchars($current_db);
-    $multi_values .= '                <option value="' . $current_db . '"' . $is_selected . '>' . $current_db . '</option>' . "\n";
+    $multi_values .= '                <option value="' . $current_db . '"'
+        . $is_selected . '>' . $current_db . '</option>' . "\n";
 } // end while
 $multi_values .= "\n";
 $multi_values .= '</select></div>';

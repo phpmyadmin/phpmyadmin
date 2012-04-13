@@ -30,7 +30,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     /**
      * storing globals and session
      */
-    public function setUp() {
+    public function setUp()
+    {
         global $cfg;
         $this->tmpCfg = $cfg;
     }
@@ -38,19 +39,22 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
     /**
      * recovering globals and session
      */
-    public function tearDown() {
+    public function tearDown()
+    {
         global $cfg;
         $cfg = $this->tmpCfg;
     }
 
-    function testFormatSQLNotArray(){
+    function testFormatSQLNotArray()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'html';
         $sql = "SELECT * FROM tTable;";
         $this->assertEquals("<pre>\n$sql\n</pre>", PMA_formatSql($sql));
     }
 
-    function testFormatSQLfmTypeHtml_1(){
+    function testFormatSQLfmTypeHtml_1()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'html';
         $cfg['MySQLManualType'] = 'none';
@@ -84,7 +88,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
     }
 
-    function testFormatSQLfmTypeHtml_2(){
+    function testFormatSQLfmTypeHtml_2()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'html';
         $cfg['MySQLManualType'] = 'none';
@@ -131,7 +136,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
     }
 
-    function testFormatSQLfmTypeHtml_3(){
+    function testFormatSQLfmTypeHtml_3()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'html';
         $cfg['MySQLManualType'] = 'none';
@@ -266,7 +272,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
     }
 
-    function testFormatSQLfmTypeText_1(){
+    function testFormatSQLfmTypeText_1()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'text';
         $cfg['MySQLManualType'] = 'none';
@@ -300,7 +307,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
     }
 
-    function testFormatSQLfmTypeText_2(){
+    function testFormatSQLfmTypeText_2()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'text';
         $cfg['MySQLManualType'] = 'none';
@@ -347,7 +355,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
     }
 
-    function testFormatSQLfmTypeText_3(){
+    function testFormatSQLfmTypeText_3()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'text';
         $cfg['MySQLManualType'] = 'none';
@@ -481,7 +490,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
     }
 
-    function testFormatSQLfmTypeNone_1(){
+    function testFormatSQLfmTypeNone_1()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'none';
         $cfg['MySQLManualType'] = 'none';
@@ -518,7 +528,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql));
     }
 
-    function testFormatSQLfmTypeNone_2(){
+    function testFormatSQLfmTypeNone_2()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'none';
         $cfg['MySQLManualType'] = 'none';
@@ -568,7 +579,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql));
     }
 
-    function testFormatSQLfmTypeNone_3(){
+    function testFormatSQLfmTypeNone_3()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = 'none';
         $cfg['MySQLManualType'] = 'none';
@@ -705,7 +717,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_formatSql($sql));
     }
 
-    function testFormatSQLWithoutType(){
+    function testFormatSQLWithoutType()
+    {
         global $cfg;
         $cfg['SQP']['fmtType'] = '';
         $cfg['MySQLManualType'] = 'none';
@@ -735,7 +748,8 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $this->assertEmpty(PMA_formatSql($sql));
     }
 
-    function testFormatSQLError(){
+    function testFormatSQLError()
+    {
         global $SQP_errorString;
         $SQP_errorString = true;
         $sql = array("raw" => "& \" < >");

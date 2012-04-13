@@ -1652,14 +1652,15 @@ if (isset($_REQUEST['export']) || (isset($_REQUEST['submit_mult']) && $_REQUEST[
         foreach ($_REQUEST['selected_usr'] as $export_user) {
             $export_username = substr($export_user, 0, strpos($export_user, '&'));
             $export_hostname = substr($export_user, strrpos($export_user, ';') + 1);
-            $response .= '# ' .
-                sprintf(__('Privileges for %s'),
-                    '`' . htmlspecialchars($export_username) . '`@`' . htmlspecialchars($export_hostname) . '`')
+            $response .= '# '
+                . sprintf(
+                    __('Privileges for %s'),
+                    '`' . htmlspecialchars($export_username) . '`@`' . htmlspecialchars($export_hostname) . '`'
+                )
                 . "\n\n";
             $response .= PMA_getGrants($export_username, $export_hostname) . "\n";
         }
-    }
-    else {
+    } else {
         // export privileges for a single user
         $title = __('User') . ' `' . htmlspecialchars($username) . '`@`' . htmlspecialchars($hostname) . '`';
         $response .= PMA_getGrants($username, $hostname);
