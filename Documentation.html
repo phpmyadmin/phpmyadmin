@@ -1453,6 +1453,12 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines whether the <abbr title="structured query language">SQL</abbr>
         query box should be kept displayed after its submission.</dd>
 
+    <dt id="cfg_CodemirrorEnable">$cfg['CodemirrorEnable'] boolean</dt>
+    <dd>Defines whether to use a Javascript code editor for SQL query boxes.
+        CodeMirror provides syntax highlighting and line numbers. <br />
+        However, middle-clicking for pasting the clipboard contents in some Linux 
+        distributions (such as Ubuntu) is not supported by all browsers.</dd>
+
     <dt id="cfg_AllowUserDropDatabase">$cfg['AllowUserDropDatabase'] boolean</dt>
     <dd>Defines whether normal users (non-administrator) are allowed to
         delete their own database or not. If set as FALSE, the link &quot;Drop
