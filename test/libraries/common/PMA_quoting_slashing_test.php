@@ -20,7 +20,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     /**
      * sqlAddslashes test
      */
-    public function testAddSlashes() {
+    public function testAddSlashes()
+    {
         $string = "\'test''\''\'\r\t\n";
 
         $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\\r\\t\\n", PMA_sqlAddSlashes($string, true, true, true));
@@ -38,7 +39,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function unQuoteProvider() {
+    public function unQuoteProvider()
+    {
         return array(
             array('"test\'"', "test'"),
             array("'test''", "test'"),
@@ -51,7 +53,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
      * unQuote test
      * @dataProvider unQuoteProvider
      */
-    public function testUnQuote($param, $expected) {
+    public function testUnQuote($param, $expected)
+    {
         $this->assertEquals($expected, PMA_unQuote($param));
     }
 
@@ -60,7 +63,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function unQuoteSelectedProvider() {
+    public function unQuoteSelectedProvider()
+    {
         return array(
             array('"test\'"', "test'"),
             array("'test''", "'test''"),
@@ -73,7 +77,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
      * unQuote test with chosen quote
      * @dataProvider unQuoteSelectedProvider
      */
-    public function testUnQuoteSelectedChar($param, $expected) {
+    public function testUnQuoteSelectedChar($param, $expected)
+    {
         $this->assertEquals($expected, PMA_unQuote($param, '"'));
     }
 
@@ -82,7 +87,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function backquoteDataProvider() {
+    public function backquoteDataProvider()
+    {
         return array(
             array('0', '`0`'),
             array('test', '`test`'),
@@ -95,7 +101,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
      * backquote test with different param $do_it (true, false)
      * @dataProvider backquoteDataProvider
      */
-    public function testBackquote($a, $b) {
+    public function testBackquote($a, $b)
+    {
         // Test bypass quoting (used by dump functions)
         $this->assertEquals($a, PMA_backquote($a, false));
 
@@ -103,7 +110,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($b, PMA_backquote($a));
     }
 
-    public function testBackquoteForbidenWords() {
+    public function testBackquoteForbidenWords()
+    {
         global $PMA_SQPdata_forbidden_word;
 
         foreach ($PMA_SQPdata_forbidden_word as $forbidden) {

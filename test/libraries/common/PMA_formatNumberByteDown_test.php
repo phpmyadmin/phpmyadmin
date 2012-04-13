@@ -28,8 +28,8 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
     /**
      * storing globals and session
      */
-    public function setUp() {
-
+    public function setUp()
+    {
         $this->tmpGlobals = $GLOBALS;
         $this->tmpSession = $_SESSION;
 
@@ -38,8 +38,8 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
     /**
      * recovering globals and session
      */
-    public function tearDown() {
-
+    public function tearDown()
+    {
         $GLOBALS = $this->tmpGlobals;
         $_SESSION = $this->tmpSession;
 
@@ -50,7 +50,8 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function formatNumberDataProvider() {
+    public function formatNumberDataProvider()
+    {
         return array(
             array(10, 2, 2, '10  '),
             array(100, 2, 0, '100  '),
@@ -67,7 +68,8 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
      * format number test, globals are defined
      * @dataProvider formatNumberDataProvider
      */
-    public function testFormatNumber($a, $b, $c, $d) {
+    public function testFormatNumber($a, $b, $c, $d)
+    {
         $this->assertEquals($d, (string)PMA_formatNumber($a, $b, $c, false));
     }
 
@@ -76,7 +78,8 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function formatByteDownDataProvider() {
+    public function formatByteDownDataProvider()
+    {
         return array(
             array(10, 2, 2, array('10', __('B'))),
             array(100, 2, 0, array('0', __('KiB'))),
@@ -92,7 +95,8 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
      * format byte test, globals are defined
      * @dataProvider formatByteDownDataProvider
      */
-    public function testFormatByteDown($a, $b, $c, $e) {
+    public function testFormatByteDown($a, $b, $c, $e)
+    {
         $result = PMA_formatByteDown($a, $b, $c);
         $result[0] = trim($result[0]);
         $this->assertEquals($e, $result);

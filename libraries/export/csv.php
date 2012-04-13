@@ -42,7 +42,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportFooter() {
+    function PMA_exportFooter()
+    {
         return true;
     }
 
@@ -53,7 +54,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportHeader() {
+    function PMA_exportHeader()
+    {
         global $what;
         global $csv_terminated;
         global $csv_separator;
@@ -101,7 +103,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBHeader($db) {
+    function PMA_exportDBHeader($db)
+    {
         return true;
     }
 
@@ -113,7 +116,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBFooter($db) {
+    function PMA_exportDBFooter($db)
+    {
         return true;
     }
 
@@ -125,7 +129,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBCreate($db) {
+    function PMA_exportDBCreate($db)
+    {
         return true;
     }
 
@@ -141,7 +146,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
+    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
+    {
         global $what;
         global $csv_terminated;
         global $csv_separator;

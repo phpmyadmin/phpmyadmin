@@ -19,7 +19,8 @@ class PMA_displayMaximumUploadSize_test extends PHPUnit_Framework_TestCase
     /*
      * Data provider for test
      */
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return array(
             array(10, __('B'), "10"),
             array(100, __('B'), "100"),
@@ -35,7 +36,8 @@ class PMA_displayMaximumUploadSize_test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProvider
      * @return void
      */
-    function testMaximumUploadSize($size, $unit, $res){
+    function testMaximumUploadSize($size, $unit, $res)
+    {
         $this->assertEquals("(" . __('Max: '). $res . $unit .")", PMA_displayMaximumUploadSize($size));
 
     }

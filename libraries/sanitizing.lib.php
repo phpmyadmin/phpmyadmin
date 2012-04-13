@@ -149,7 +149,8 @@ function PMA_sanitize($message, $escape = false, $safe = false)
  * @return  string  the sanitized filename
  *
  */
-function PMA_sanitize_filename($filename) {
+function PMA_sanitize_filename($filename)
+{
     $filename = preg_replace('/[^A-Za-z0-9_.-]/', '_', $filename);
     return $filename;
 }
