@@ -20,7 +20,8 @@ class PMA_foreignKeySupported_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function foreignkeySupportedDataProvider() {
+    public function foreignkeySupportedDataProvider()
+    {
         return array(
             array('MyISAM', false),
             array('innodb', true),
@@ -32,7 +33,8 @@ class PMA_foreignKeySupported_test extends PHPUnit_Framework_TestCase
      * foreign key supported test
      * @dataProvider foreignkeySupportedDataProvider
      */
-    public function testForeignkeySupported($a, $e) {
+    public function testForeignkeySupported($a, $e)
+    {
         $this->assertEquals($e, PMA_foreignkey_supported($a));
     }
 }

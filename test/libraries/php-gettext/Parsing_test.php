@@ -46,7 +46,8 @@ class ParsingTest extends PHPUnit_Framework_TestCase
   /**
    * @dataProvider data_provider_test_npgettext
    */
-  public function test_npgettext($number, $expected) {
+  public function test_npgettext($number, $expected)
+  {
     $parser = new gettext_reader(NULL);
     $result = $parser->npgettext("context",
                                  "%d pig went to the market\n",
@@ -54,7 +55,8 @@ class ParsingTest extends PHPUnit_Framework_TestCase
                                  $number);
     $this->assertSame($expected, $result);
   }
-  public static function data_provider_test_npgettext() {
+  public static function data_provider_test_npgettext()
+  {
     return array(
                  array(1, "%d pig went to the market\n"),
                  array(2, "%d pigs went to the market\n"),

@@ -16,7 +16,8 @@ require_once 'libraries/common.lib.php';
 class PMA_convert_bit_default_value_test extends PHPUnit_Framework_TestCase
 {
 
-    function dataProvider(){
+    function dataProvider()
+    {
         return array(
             array("b'",""),
             array("b'01'","01"),
@@ -27,7 +28,8 @@ class PMA_convert_bit_default_value_test extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider dataProvider
      */
-    function testConvert_bit_default_value_test($bit, $val){
+    function testConvert_bit_default_value_test($bit, $val)
+    {
         $this->assertEquals($val, PMA_convert_bit_default_value($bit));
 
     }

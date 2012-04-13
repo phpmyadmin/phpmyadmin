@@ -16,7 +16,8 @@ require_once 'libraries/common.lib.php';
 class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
 {
 
-    public function escapeDataProvider() {
+    public function escapeDataProvider()
+    {
         return array(
             array('\_test', '_test'),
             array('\_\\', '_\\'),
@@ -29,8 +30,8 @@ class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    /** 
-     * PMA_escape_mysql_wildcards tests 
+    /**
+     * PMA_escape_mysql_wildcards tests
      * @dataProvider escapeDataProvider
      */
 
@@ -39,8 +40,8 @@ class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($a, PMA_escape_mysql_wildcards($b));
     }
 
-    /** 
-     * PMA_unescape_mysql_wildcards tests 
+    /**
+     * PMA_unescape_mysql_wildcards tests
      * @dataProvider escapeDataProvider
      */
 

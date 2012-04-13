@@ -31,7 +31,8 @@ class Advisor_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(Advisor::escapePercent($text), $expected);
     }
 
-    public function escapeStrings() {
+    public function escapeStrings()
+    {
         return array(
             array('80%', '80%%'),
             array('%s%', '%s%%'),

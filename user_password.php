@@ -67,12 +67,13 @@ require './libraries/footer.inc.php';
 
 /**
  * Send the message as an ajax request
- * 
+ *
  * @param   array   $change_password_message
  * @param   string  $sql_query
  * @return  void
  */
-function PMA_getChangePassMessage($change_password_message, $sql_query = '') {
+function PMA_getChangePassMessage($change_password_message, $sql_query = '')
+{
     if ($GLOBALS['is_ajax_request'] == true) {
         /**
          * If in an Ajax request, we don't need to show the rest of the page
@@ -88,10 +89,11 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '') {
 
 /**
  * Generate the message
- * 
- * @return  array   error value and message 
+ *
+ * @return  array   error value and message
  */
-function PMA_setChangePasswordMsg() {
+function PMA_setChangePasswordMsg()
+{
     $error = false;
     $message = PMA_Message::success(__('The profile has been updated.'));
 
@@ -109,19 +111,20 @@ function PMA_setChangePasswordMsg() {
 
 /**
  * Change the password
- * 
+ *
  * @param   string  $password
  * @param   string  $message
  * @param   array   $change_password_message
  * @return  void
  */
-function PMA_changePassword($password, $message, $change_password_message) { 
+function PMA_changePassword($password, $message, $change_password_message)
+{
     // Defines the url to return to in case of error in the sql statement
     $_url_params = array();
     $hashing_function = PMA_changePassHashingFunction();
     $sql_query = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
     PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function);
-    
+
     $new_url_params = PMA_changePassAuthType($_url_params, $password);
     PMA_getChangePassMessage($change_password_message, $sql_query);
     PMA_changePassDisplayPage($message, $sql_query, $new_url_params);
@@ -129,10 +132,11 @@ function PMA_changePassword($password, $message, $change_password_message) {
 
 /**
  * Generate the hashing function
- * 
+ *
  * @return  string  $hashing_function
  */
-function PMA_changePassHashingFunction() {
+function PMA_changePassHashingFunction()
+{
     if (PMA_isValid($_REQUEST['pw_hash'], 'identical', 'old')) {
         $hashing_function = 'OLD_PASSWORD';
     } else {
@@ -143,14 +147,15 @@ function PMA_changePassHashingFunction() {
 
 /**
  * Generate the error url and submit the query
- * 
+ *
  * @param   string  $password
  * @param   array   $_url_params
  * @param   string  $sql_query
  * @param   string  $hashing_function
  * @return  void
  */
-function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function) {
+function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function)
+{
     $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
     $local_query = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddSlashes($password) . '\')');
     $result = @PMA_DBI_try_query($local_query)
@@ -159,12 +164,13 @@ function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_que
 
 /**
  * Change password authentication type
- * 
+ *
  * @param   array   $_url_params
  * @param   string  $password
  * @return  array   $_url_params
  */
-function PMA_changePassAuthType($_url_params, $password) {
+function PMA_changePassAuthType($_url_params, $password)
+{
     /**
      * Changes password cookie if required
      * Duration = till the browser is closed for password (we don't want this to be saved)
@@ -184,13 +190,14 @@ function PMA_changePassAuthType($_url_params, $password) {
 
 /**
  * Display the page
- * 
+ *
  * @param   string  $message
  * @param   string  $sql_query
  * @param   array   $_url_params
  * @return  void
  */
-function PMA_changePassDisplayPage($message, $sql_query, $_url_params) {
+function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
+{
     include_once './libraries/header.inc.php';
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
     PMA_showMessage($message, $sql_query, 'success');

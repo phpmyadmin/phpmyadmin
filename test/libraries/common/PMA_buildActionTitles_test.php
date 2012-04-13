@@ -24,7 +24,8 @@ class PMA_buildActionTitles_test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
-    function testBuildActionTitles(){
+    function testBuildActionTitles()
+    {
         $titles = array();
 
         $titles['Browse']     = PMA_getIcon('b_browse.png', __('Browse'));

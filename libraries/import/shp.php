@@ -41,7 +41,8 @@ if (isset($plugin_list)) {
     // Returns specified number of bytes from the buffer.
     // Buffer automatically fetches next chunk of data when the buffer falls short.
     // Sets $eof when $GLOBALS['finished'] is set and the buffer falls short.
-    function readFromBuffer($length){
+    function readFromBuffer($length)
+    {
         global $buffer, $eof;
 
         if (strlen($buffer) < $length) {

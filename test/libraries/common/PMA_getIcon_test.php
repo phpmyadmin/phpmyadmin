@@ -21,8 +21,8 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
-    function testGetIconWithoutPropertiesIconic(){
-
+    function testGetIconWithoutPropertiesIconic()
+    {
         $GLOBALS['cfg']['PropertiesIconic'] = false;
 
         $this->assertEquals(
@@ -31,8 +31,8 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
             );
     }
 
-    function testGetIconWithPropertiesIconic(){
-
+    function testGetIconWithPropertiesIconic()
+    {
         $GLOBALS['cfg']['PropertiesIconic'] = true;
 
         $this->assertEquals(
@@ -41,8 +41,8 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
             );
     }
 
-    function testGetIconAlternate(){
-
+    function testGetIconAlternate()
+    {
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $alternate_text = 'alt_str';
 
@@ -53,8 +53,8 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
             );
     }
 
-    function testGetIconWithForceText(){
-
+    function testGetIconWithForceText()
+    {
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $alternate_text = 'alt_str';
 

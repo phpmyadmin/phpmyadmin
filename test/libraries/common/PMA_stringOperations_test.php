@@ -31,8 +31,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
     /**
      * storing globals and session
      */
-    public function setUp() {
-
+    public function setUp()
+    {
         global $GLOBALS, $_SESSION;
         $this->tmpGlobals = $GLOBALS;
         $this->tmpSession = $_SESSION;
@@ -44,7 +44,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function flipStringDataProvider() {
+    public function flipStringDataProvider()
+    {
         return array(
             array('test', "t<br />\ne<br />\ns<br />\nt"),
             array('te&nbsp;;st', "t<br />\ne<br />\n&nbsp;<br />\n;<br />\ns<br />\nt")
@@ -56,7 +57,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
      * @dataProvider flipStringDataProvider
      */
 
-    public function testFlipString($a, $e) {
+    public function testFlipString($a, $e)
+    {
         $this->assertEquals($e, PMA_flipstring($a));
     }
 
@@ -65,7 +67,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function userDirDataProvider() {
+    public function userDirDataProvider()
+    {
         return array(
             array('/var/pma_tmp/%u/', "/var/pma_tmp/root/"),
             array('/home/%u/pma', "/home/root/pma/")
@@ -77,7 +80,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
      * @dataProvider userDirDataProvider
      */
 
-    public function testUserDirString($a, $e) {
+    public function testUserDirString($a, $e)
+    {
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
         $this->assertEquals($e, PMA_userDir($a));
@@ -88,7 +92,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function replaceBinaryContentsDataProvider() {
+    public function replaceBinaryContentsDataProvider()
+    {
         return array(
             array("\x000", '\00'),
             array("\x08\x0a\x0d\x1atest", '\b\n\r\Ztest'),
@@ -101,7 +106,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
      * @dataProvider replaceBinaryContentsDataProvider
      */
 
-    public function testReplaceBinaryContents($a, $e) {
+    public function testReplaceBinaryContents($a, $e)
+    {
         $this->assertEquals($e, PMA_replace_binary_contents($a));
     }
 
@@ -110,7 +116,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function duplicateFirstNewlineDataProvider() {
+    public function duplicateFirstNewlineDataProvider()
+    {
         return array(
             array('test', 'test'),
             array("\r\ntest", "\n\r\ntest"),
@@ -124,7 +131,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
      * @dataProvider duplicateFirstNewlineDataProvider
      */
 
-    public function testDuplicateFirstNewline($a, $e) {
+    public function testDuplicateFirstNewline($a, $e)
+    {
         $this->assertEquals($e, PMA_duplicateFirstNewline($a));
     }
 

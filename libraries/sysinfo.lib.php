@@ -32,13 +32,15 @@ class WINNT
 
     public $os = 'WINNT';
 
-    public function __construct() {
+    public function __construct()
+    {
         // initialize the wmi object
         $objLocator = new COM('WbemScripting.SWbemLocator');
         $this->_wmi = $objLocator->ConnectServer();
     }
 
-    function loadavg() {
+    function loadavg()
+    {
         $loadavg = "";
         $sum = 0;
         $buffer = $this->_getWMI('Win32_Processor', array('LoadPercentage'));
@@ -52,7 +54,8 @@ class WINNT
         return array('loadavg' => $sum / count($buffer));
     }
 
-    private function _getWMI($strClass, $strValue = array()) {
+    private function _getWMI($strClass, $strValue = array())
+    {
         $arrData = array();
         $value = "";
 
@@ -81,7 +84,8 @@ class WINNT
     }
 
 
-    function memory() {
+    function memory()
+    {
         $buffer = $this->_getWMI("Win32_OperatingSystem", array('TotalVisibleMemorySize', 'FreePhysicalMemory'));
         $mem = Array();
         $mem['MemTotal'] = $buffer[0]['TotalVisibleMemorySize'];
@@ -108,13 +112,15 @@ class Linux
 {
     public $os = 'Linux';
 
-    function loadavg() {
+    function loadavg()
+    {
         $buf = file_get_contents('/proc/stat');
         $nums=preg_split("/\s+/", substr($buf, 0, strpos($buf, "\n")));
         return Array('busy' => $nums[1]+$nums[2]+$nums[3], 'idle' => intval($nums[4]));
     }
 
-    function memory() {
+    function memory()
+    {
         preg_match_all('/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im', file_get_contents('/proc/meminfo'), $matches);
 
         $mem = array_combine( $matches[1], $matches[2] );

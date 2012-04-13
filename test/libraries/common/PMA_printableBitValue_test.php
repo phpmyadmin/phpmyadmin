@@ -21,7 +21,8 @@ class PMA_printableBitValue_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function printableBitValueDataProvider() {
+    public function printableBitValueDataProvider()
+    {
         return array(
             array('testtest', 64, '0111010001100101011100110111010001110100011001010111001101110100'),
             array('test', 32, '01110100011001010111001101110100')
@@ -33,7 +34,8 @@ class PMA_printableBitValue_test extends PHPUnit_Framework_TestCase
      * @dataProvider printableBitValueDataProvider
      */
 
-    public function testPrintableBitValue($a, $b, $e) {
+    public function testPrintableBitValue($a, $b, $e)
+    {
         $this->assertEquals($e, PMA_printable_bit_value($a, $b));
     }
 }

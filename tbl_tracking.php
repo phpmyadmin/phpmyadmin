@@ -60,7 +60,8 @@ if (isset($_REQUEST['report_export'])) {
  * @return  array   filtered entries
  *
  */
-    function PMA_filter_tracking($data, $filter_ts_from, $filter_ts_to, $filter_users) {
+    function PMA_filter_tracking($data, $filter_ts_from, $filter_ts_to, $filter_users)
+    {
         $tmp_entries = array();
         $id = 0;
         foreach ( $data as $entry ) {

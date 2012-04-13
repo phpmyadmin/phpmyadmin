@@ -396,7 +396,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->object->isDisplayed(false));
     }
 
-    public function providerAffectedRows(){
+    public function providerAffectedRows()
+    {
         return array(array(1, '<div class="notice"> 1 row affected.</div>'));
         return array(array(2, '<div class="notice"> 2 rows affected.</div>'));
         return array(array(50000000000000, '<div class="notice"> 50000000000000 rows affected.</div>'));
@@ -416,7 +417,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->object->display();
     }
 
-    public function providerInsertedRows(){
+    public function providerInsertedRows()
+    {
         return array(array(1, '<div class="notice"> 1 row inserted.</div>'));
         return array(array(2, '<div class="notice"> 2 rows inserted.</div>'));
         return array(array(50000000000000, '<div class="notice"> 50000000000000 rows inserted.</div>'));
@@ -436,7 +438,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->object->display();
     }
 
-    public function providerDeletedRows(){
+    public function providerDeletedRows()
+    {
         return array(array(1, '<div class="notice"> 1 row deleted.</div>'));
         return array(array(2, '<div class="notice"> 2 rows deleted.</div>'));
         return array(array(50000000000000, '<div class="notice"> 50000000000000 rows deleted.</div>'));
