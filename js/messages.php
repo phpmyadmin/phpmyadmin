@@ -210,6 +210,8 @@ $js_messages['strAffectedRows'] = __('Affected rows:');
 $js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It doesn\'t seem to be valid JSON code.');
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');
 $js_messages['strImport'] = __('Import');
+$js_messages['strImportDialogTitle'] = __('Import monitor configuration');
+$js_messages['strImportDialogMessage'] = __('Please select the file you want to import');
 
 $js_messages['strAnalyzeQuery'] = __('Analyse Query');
 
