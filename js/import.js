@@ -88,3 +88,13 @@ $(document).ready(function() {
     .remove();
     //$("form[name=import] *").unwrap();
 });
+
+//Hide Import options when selecting tables
+$(document).ready(function() {
+	if( $('#tableselect').css('display')!='none' ) {
+		$('.importoptions').hide();
+		$('.formelementrow').hide();
+		$('#tableselect').show();
+		$('#submit').show();
+	}
+});

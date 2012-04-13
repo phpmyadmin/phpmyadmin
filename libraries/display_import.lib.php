@@ -179,7 +179,29 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             }?>
         </h2>
     </div>
-
+	<div class="importoptions" id="tableselect" style="display:
+		<?php 
+			if ($_SESSION['t_select'])
+			{
+				echo "block";
+			}		
+			else
+			{
+				echo "none";
+			}
+		?>
+		">
+		<h3><?php echo __('Table Selection:');?></h3>
+		<select id="im_table_select" multiple="multiple" size="10" name="table_select[]" >
+			<?php 
+				$names = $_SESSION['t_names'];
+				foreach ($names as $name)
+				{
+					echo "\n<option selected='selected' value='$name'>$name</option>";
+				}
+			?>
+		</select>
+	</div>
     <div class="importoptions">
         <h3><?php echo __('File to Import:'); ?></h3>
         <?php
@@ -307,6 +329,10 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     <?php }
     echo "\n";
     ?>
+	<div class="importoptions" id="check_tableselect">
+		<h3><?php echo __('Custom Table Import :');?></h3>
+		<input type="checkbox" name="checkselect" /><label for="checkselect">Import specific tables only. (SQL)</label>
+	</div>
     <div class="importoptions" id="submit">
         <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
     </div>
