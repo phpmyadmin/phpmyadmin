@@ -34,46 +34,64 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
     if (isset($_REQUEST['type'])) {
         switch($_REQUEST['type']) {
-            case 'getval':
-                $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="' . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM');
-                if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
-                    && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte') {
-                    exit(implode(' ', PMA_formatByteDown($varValue[1], 3, 3)));
-                }
-                exit($varValue[1]);
-                break;
+        case 'getval':
+            $varValue = PMA_DBI_fetch_single_row(
+                'SHOW GLOBAL VARIABLES WHERE Variable_name="'
+                . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM'
+            );
+            if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
+                && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
+            ) {
+                exit(implode(' ', PMA_formatByteDown($varValue[1], 3, 3)));
+            }
+            exit($varValue[1]);
+            break;
 
-            case 'setval':
-                $value = $_REQUEST['varValue'];
+        case 'setval':
+            $value = $_REQUEST['varValue'];
 
-                if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
-                   && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
-                   && preg_match('/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i', $value, $matches)) {
-                    $exp = array('kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3);
-                    $value = floatval($matches[1]) * pow(1024, $exp[strtolower($matches[3])]);
-                } else {
-                    $value = PMA_sqlAddslashes($value);
-                }
+            if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
+                && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
+                && preg_match('/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i', $value, $matches)
+            ) {
+                $exp = array('kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3);
+                $value = floatval($matches[1]) * pow(1024, $exp[strtolower($matches[3])]);
+            } else {
+                $value = PMA_sqlAddslashes($value);
+            }
 
-                if (! is_numeric($value)) $value="'" . $value . "'";
+            if (! is_numeric($value)) {
+                $value="'" . $value . "'";
+            }
 
-                if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName']) && PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value)) {
-                    // Some values are rounded down etc.
-                    $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="' . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM');
-
-                    exit(json_encode(array(
-                        'success' => true,
-                        'variable' => formatVariable($_REQUEST['varName'], $varValue[1])
-                        ))
-                    );
-                }
-
-                exit(json_encode(array(
-                    'success' => false,
-                    'error' => __('Setting variable failed')
-                    ))
+            if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
+                && PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value)
+            ) {
+                // Some values are rounded down etc.
+                $varValue = PMA_DBI_fetch_single_row(
+                    'SHOW GLOBAL VARIABLES WHERE Variable_name="'
+                    . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM'
                 );
-                break;
+
+                exit(
+                    json_encode(
+                        array(
+                            'success' => true,
+                            'variable' => formatVariable($_REQUEST['varName'], $varValue[1])
+                        )
+                    )
+                );
+            }
+
+            exit(
+                json_encode(
+                    array(
+                        'success' => false,
+                        'error' => __('Setting variable failed')
+                    )
+                )
+            );
+            break;
         }
     }
 }

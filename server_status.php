@@ -40,8 +40,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             exit(json_encode($ret));
 
-        // Query realtime chart
-        case 'queries':
+        case 'queries': // Query realtime chart
             if (PMA_DRIZZLE) {
                 $sql = "SELECT concat('Com_', variable_name), variable_value
                     FROM data_dictionary.GLOBAL_STATEMENTS
@@ -73,8 +72,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             exit(json_encode($ret));
 
-        // Traffic realtime chart
-        case 'traffic':
+        case 'traffic': // Traffic realtime chart
             $traffic = PMA_DBI_fetch_result(
                 "SHOW GLOBAL STATUS
                 WHERE Variable_name = 'Bytes_received'
@@ -89,8 +87,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             exit(json_encode($ret));
 
-        // Data for the monitor
-        case 'chartgrid':
+        case 'chartgrid': // Data for the monitor
             $ret = json_decode($_REQUEST['requiredData'], true);
             $statusVars = array();
             $serverVars = array();
@@ -113,13 +110,13 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                          * Also do some white list filtering on the names
                         */
                         case 'servervar':
-                            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+                            if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
                                 $serverVars[] = $pName;
                             }
                             break;
 
                         case 'statusvar':
-                            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+                            if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
                                 $statusVars[] = $pName;
                             }
                             break;
@@ -144,9 +141,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                     = $cpuload['idle'];
                                 $ret[$chart_id][$node_id][$point_id]['busy']
                                     = $cpuload['busy'];
-                            } else
+                            } else {
                                 $ret[$chart_id][$node_id][$point_id]['value']
                                     = $cpuload['loadavg'];
+                            }
 
                             break;
 
@@ -257,7 +255,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     break;
                 }
 
-                if (!isset($return['sum'][$type])) {
+                if (! isset($return['sum'][$type])) {
                     $return['sum'][$type] = 0;
                 }
                 $return['sum'][$type] += $row['#'];
@@ -298,7 +296,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 preg_match('/^(\w+)\s/', $row['argument'], $match);
                 $type = strtolower($match[1]);
 
-                if (!isset($return['sum'][$type])) {
+                if (! isset($return['sum'][$type])) {
                     $return['sum'][$type] = 0;
                 }
                 $return['sum'][$type] += $row['#'];
@@ -356,7 +354,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     if (isset($_REQUEST['logging_vars'])) {
         if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
             $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-            if (!is_numeric($value)) {
+            if (! is_numeric($value)) {
                 $value="'" . $value . "'";
             }
 
@@ -464,7 +462,7 @@ if (isset($_REQUEST['flush'])) {
 /**
  * Kills a selected process
  */
-if (!empty($_REQUEST['kill'])) {
+if (! empty($_REQUEST['kill'])) {
     if (PMA_DBI_try_query('KILL ' . $_REQUEST['kill'] . ';')) {
         $message = PMA_Message::success(__('Thread %s was successfully killed.'));
     } else {
@@ -1117,35 +1115,41 @@ function printServerTraffic()
     <tr class="odd">
         <th class="name"><?php echo __('Received'); ?></th>
         <td class="value"><?php echo
-            implode(' ',
-                PMA_formatByteDown($server_status['Bytes_received'], 3, 1)); ?></td>
+            implode(
+                ' ', PMA_formatByteDown($server_status['Bytes_received'], 3, 1)
+            ); ?></td>
         <td class="value"><?php echo
-            implode(' ',
-                PMA_formatByteDown(
-                    $server_status['Bytes_received'] * $hour_factor, 3, 1)); ?></td>
+            implode(
+                ' ', PMA_formatByteDown($server_status['Bytes_received'] * $hour_factor, 3, 1)
+            ); ?></td>
     </tr>
     <tr class="even">
         <th class="name"><?php echo __('Sent'); ?></th>
         <td class="value"><?php echo
-            implode(' ',
-                PMA_formatByteDown($server_status['Bytes_sent'], 3, 1)); ?></td>
+            implode(
+                ' ', PMA_formatByteDown($server_status['Bytes_sent'], 3, 1)
+            ); ?></td>
         <td class="value"><?php echo
-            implode(' ',
-                PMA_formatByteDown(
-                    $server_status['Bytes_sent'] * $hour_factor, 3, 1)); ?></td>
+            implode(
+                ' ', PMA_formatByteDown($server_status['Bytes_sent'] * $hour_factor, 3, 1)
+            ); ?></td>
     </tr>
     <tr class="odd">
         <th class="name"><?php echo __('Total'); ?></th>
         <td class="value"><?php echo
-            implode(' ',
+            implode(
+                ' ',
                 PMA_formatByteDown(
-                    $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1)
+                    $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1
+                )
             ); ?></td>
         <td class="value"><?php echo
-            implode(' ',
+            implode(
+                ' ',
                 PMA_formatByteDown(
                     ($server_status['Bytes_received'] + $server_status['Bytes_sent'])
-                    * $hour_factor, 3, 1)
+                    * $hour_factor, 3, 1
+                )
             ); ?></td>
     </tr>
     </tbody>
@@ -1172,36 +1176,41 @@ function printServerTraffic()
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Aborted_connects'], 4, 1, true); ?></td>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Aborted_connects'] * $hour_factor,
-                4, 2, true); ?></td>
+            PMA_formatNumber(
+                $server_status['Aborted_connects'] * $hour_factor, 4, 2, true
+            ); ?></td>
         <td class="value"><?php echo
             $server_status['Connections'] > 0
-          ? PMA_formatNumber(
+            ? PMA_formatNumber(
                 $server_status['Aborted_connects'] * 100 / $server_status['Connections'],
-                0, 2, true) . '%'
-          : '--- '; ?></td>
+                0, 2, true
+            ) . '%'
+            : '--- '; ?></td>
     </tr>
     <tr class="odd">
         <th class="name"><?php echo __('Aborted'); ?></th>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Aborted_clients'], 4, 1, true); ?></td>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Aborted_clients'] * $hour_factor,
-                4, 2, true); ?></td>
+            PMA_formatNumber(
+                $server_status['Aborted_clients'] * $hour_factor, 4, 2, true
+            ); ?></td>
         <td class="value"><?php echo
             $server_status['Connections'] > 0
-          ? PMA_formatNumber(
+            ? PMA_formatNumber(
                 $server_status['Aborted_clients'] * 100 / $server_status['Connections'],
-                0, 2, true) . '%'
-          : '--- '; ?></td>
+                0, 2, true
+            ) . '%'
+            : '--- '; ?></td>
     </tr>
     <tr class="even">
         <th class="name"><?php echo __('Total'); ?></th>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Connections'] * $hour_factor,
-                4, 2); ?></td>
+            PMA_formatNumber(
+                $server_status['Connections'] * $hour_factor, 4, 2
+            ); ?></td>
         <td class="value"><?php echo
             PMA_formatNumber(100, 0, 2); ?>%</td>
     </tr>
@@ -1211,7 +1220,7 @@ function printServerTraffic()
 
     $url_params = array();
 
-    $show_full_sql = !empty($_REQUEST['full']);
+    $show_full_sql = ! empty($_REQUEST['full']);
     if ($show_full_sql) {
         $url_params['full'] = 1;
         $full_text_link = 'server_status.php' . PMA_generate_common_url(array(), 'html', '?');
@@ -1576,7 +1585,7 @@ function printMonitor()
             <?php echo PMA_getImage('s_cog.png'); ?>
             <?php echo __('Settings'); ?>
         </a>
-        <?php if (!PMA_DRIZZLE) { ?>
+        <?php if (! PMA_DRIZZLE) { ?>
         <a href="#monitorInstructionsDialog">
             <?php echo PMA_getImage('b_help.png'); ?>
             <?php echo __('Instructions/Setup'); ?>
@@ -1726,7 +1735,7 @@ function printMonitor()
     <div id="emptyDialog" title="Dialog" style="display:none;">
     </div>
 
-    <?php if (!PMA_DRIZZLE) { ?>
+    <?php if (! PMA_DRIZZLE) { ?>
     <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>" style="display:none;">
         <p> <?php echo __('Selected time range:'); ?>
         <input type="text" name="dateStart" class="datetimefield" value="" /> -
