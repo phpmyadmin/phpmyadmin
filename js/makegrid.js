@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).
  * This function is designed mainly for table DOM generated from browsing a table in the database.
@@ -250,7 +251,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.cRsz).find('div').hide();
             var $firstRowCols = $(g.t).find('tr:first th.draggable:visible');
             var $resizeHandles = $(g.cRsz).find('div').removeClass('condition');
-            $('.pma_table').find('thead th:first').removeClass('before-condition');
+            $('table.pma_table').find('thead th:first').removeClass('before-condition');
             for (var n = 0, l = $firstRowCols.length; n < l; n++) {
                 var $col = $($firstRowCols[n]);
                 $($resizeHandles[n]).css('left', $col.position().left + $col.outerWidth(true))
@@ -263,7 +264,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
             }
             if ($($resizeHandles[0]).hasClass('condition')) {
-                $('.pma_table').find('thead th:first').addClass('before-condition');
+                $('table.pma_table').find('thead th:first').addClass('before-condition');
             }
             $(g.cRsz).css('height', $(g.t).height());
         },
@@ -410,9 +411,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             var isOneColumn = g.visibleHeadersCount == 1;
             // enable or disable restore button
             if (isInitial || isOneColumn) {
-                $('.restore_column').hide();
+                $('div.restore_column').hide();
             } else {
-                $('.restore_column').show();
+                $('div.restore_column').show();
             }
         },
 
@@ -1047,7 +1048,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             /**
              * @var is_unique   Boolean, whether the rows in this table is unique or not
              */
-            var is_unique = $('.edit_row_anchor').is('.nonunique') ? 0 : 1;
+            var is_unique = $('td.edit_row_anchor').is('.nonunique') ? 0 : 1;
             /**
              * multi edit variables
              */
@@ -1061,7 +1062,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             }
 
             // loop each edited row
-            $('.to_be_saved').parents('tr').each(function() {
+            $('td.to_be_saved').parents('tr').each(function() {
                 var $tr = $(this);
                 var where_clause = $tr.find('.where_clause').val();
                 full_where_clause.push(PMA_urldecode(where_clause));
@@ -1183,7 +1184,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $(g.cEdit).find('*').prop('disabled', true);
                 $(g.cEdit).find('.edit_box').addClass('edit_box_posting');
             } else {
-                $('.save_edited').addClass('saving_edited_data')
+                $('div.save_edited').addClass('saving_edited_data')
                     .find('input').prop('disabled', true);    // disable the save button
             }
 
@@ -1198,13 +1199,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             $(g.cEdit).find('*').removeProp('disabled');
                             $(g.cEdit).find('.edit_box').removeClass('edit_box_posting');
                         } else {
-                            $('.save_edited').removeClass('saving_edited_data')
+                            $('div.save_edited').removeClass('saving_edited_data')
                                 .find('input').removeProp('disabled');  // enable the save button back
                         }
                         if(data.success == true) {
                             PMA_ajaxShowMessage(data.message);
                             // update where_clause related data in each edited row
-                            $('.to_be_saved').parents('tr').each(function() {
+                            $('td.to_be_saved').parents('tr').each(function() {
                                 var new_clause = $(this).data('new_clause');
                                 var $where_clause = $(this).find('.where_clause');
                                 var old_clause = $where_clause.val();
@@ -1245,7 +1246,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             g.hideEditCell(true, data);
 
                             // remove the "Save edited cells" button
-                            $('.save_edited').hide();
+                            $('div.save_edited').hide();
                             // update saved fields
                             $(g.t).find('.to_be_saved')
                                 .removeClass('to_be_saved')
@@ -1329,7 +1330,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $(g.currentEditCell).addClass('to_be_saved')
                     .data('value', this_field_params[field_name]);
                 if (g.saveCellsAtOnce) {
-                    $('.save_edited').show();
+                    $('div.save_edited').show();
                 }
                 g.isCellEdited = true;
             }
@@ -1454,7 +1455,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     .find("input").focus().select();
                 });
             // restore column order when the restore button is clicked
-            $('.restore_column').click(function() {
+            $('div.restore_column').click(function() {
                 g.restoreColOrder();
             });
 
@@ -1646,7 +1647,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.hideEditCell(true);
                 }
             });
-            $('.save_edited').click(function() {
+            $('div.save_edited').click(function() {
                 g.hideEditCell();
                 g.postEditedCell();
             });
@@ -1701,7 +1702,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     g.copyHint = PMA_messages['strColNameCopyHint'];
 
     // assign common hidden inputs
-    var $common_hidden_inputs = $('.common_hidden_inputs');
+    var $common_hidden_inputs = $('div.common_hidden_inputs');
     g.token = $common_hidden_inputs.find('input[name=token]').val();
     g.server = $common_hidden_inputs.find('input[name=server]').val();
     g.db = $common_hidden_inputs.find('input[name=db]').val();
@@ -1726,7 +1727,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         g.initColResize();
     }
     if (enableReorder &&
-        $('.navigation').length > 0)    // disable reordering for result from EXPLAIN or SHOW syntax, which do not have a table navigation panel
+        $('table.navigation').length > 0)    // disable reordering for result from EXPLAIN or SHOW syntax, which do not have a table navigation panel
     {
         g.initColReorder();
     }

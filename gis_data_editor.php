@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 require_once 'libraries/common.inc.php';
 if (! isset($_REQUEST['get_gis_editor']) && ! isset($_REQUEST['generate'])) {
     include_once 'libraries/header_http.inc.php';
@@ -130,7 +131,6 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                 }
 ?>
             </select>
-            <input type="submit" name="gis_data[go]" class="go" value="<?php echo __("Go")?>" />
             <label for="srid"><?php echo __("SRID"); ?>:&nbsp;</label>
             <input name="gis_data[srid]" type="text" value="<?php echo($srid); ?>" />
         </div>
@@ -163,7 +163,6 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                     echo('>' . $gis_type . '</option>');
                 }
                 echo('</select>');
-                echo('<input type="submit" name="gis_data[' . $a . '][go]" class="go" value="'); echo __("Go"); echo('">');
             } else {
                 $type = $geom_type;
             }

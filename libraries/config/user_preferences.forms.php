@@ -26,7 +26,6 @@ $forms['Features']['General'] = array(
     'VersionCheck',
     'NaturalOrder',
     'InitialSlidersState',
-    'ErrorIconic',
     'LoginCookieValidity',
     'ReplaceHelpImg',
     'Servers/1/only_db', // saves to Server/only_db
@@ -97,12 +96,15 @@ $forms['Left_frame']['Left_tables'] = array(
     'ShowTooltip',
     'ShowTooltipAliasTB');
 $forms['Main_frame']['Startup'] = array(
-    'MainPageIconic',
     'ShowCreateDb' => ':group',
         'SuggestDBName',
         ':group:end',
     'ShowStats',
     'ShowServerInfo');
+$forms['Main_frame']['DbStructure'] = array(
+    'ShowDbStructureCreation',
+    'ShowDbStructureLastUpdate',
+    'ShowDbStructureLastCheck');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'PropertiesIconic',

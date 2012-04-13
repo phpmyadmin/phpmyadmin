@@ -178,7 +178,7 @@ if (isset($_REQUEST['do_save_data'])) {
  * $selected comes from multi_submits.inc.php
  */
 if ($abort == false) {
-    if ($_REQUEST['ajax_request'] != true) {
+    if (!isset($_REQUEST['ajax_request']) || $_REQUEST['ajax_request'] != true) {
         include_once 'libraries/tbl_links.inc.php';
     }
 

@@ -18,92 +18,33 @@ $GLOBALS['js_include'][] = 'server_privileges.js';
  * Displays an error message and exits if the user isn't allowed to use this
  * script
  */
-if (!$cfg['ShowChgPassword']) {
+if (! $cfg['ShowChgPassword']) {
     $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
 }
-if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
+if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
     include_once './libraries/header.inc.php';
     PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
     include './libraries/footer.inc.php';
 } // end if
-
 
 /**
  * If the "change password" form has been submitted, checks for valid values
  * and submit the query or logout
  */
 if (isset($_REQUEST['nopass'])) {
-    // similar logic in server_privileges.php
-    $_error = false;
-
     if ($_REQUEST['nopass'] == '1') {
         $password = '';
-    } elseif (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2'])) {
-        $message = PMA_Message::error(__('The password is empty!'));
-        $_error = true;
-    } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
-        $message = PMA_Message::error(__('The passwords aren\'t the same!'));
-        $_error = true;
     } else {
         $password = $_REQUEST['pma_pw'];
     }
-
-    if ($GLOBALS['is_ajax_request'] == true && $_error == true) {
-        /**
-         * If in an Ajax request, we don't need to show the rest of the page
-         */
-        PMA_ajaxResponse($message, false);
+    $change_password_message = PMA_setChangePasswordMsg();
+    $message = $change_password_message['msg'];
+    if(! $change_password_message['error']) {
+        PMA_changePassword($password, $message, $change_password_message);
+    } else {
+        PMA_getChangePassMessage($change_password_message);
     }
-
-    if (! $_error) {
-
-        // Defines the url to return to in case of error in the sql statement
-        $_url_params = array();
-
-        $err_url          = 'user_password.php' . PMA_generate_common_url($_url_params);
-        if (PMA_isValid($_REQUEST['pw_hash'], 'identical', 'old')) {
-            $hashing_function = 'OLD_PASSWORD';
-        } else {
-            $hashing_function = 'PASSWORD';
-        }
-
-        $sql_query        = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
-        $local_query      = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddSlashes($password) . '\')');
-        $result           = @PMA_DBI_try_query($local_query)
-            or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
-
-        // Changes password cookie if required
-        // Duration = till the browser is closed for password (we don't want this to be saved)
-        if ($cfg['Server']['auth_type'] == 'cookie') {
-            $GLOBALS['PMA_Config']->setCookie('pmaPass-' . $server,
-                PMA_blowfish_encrypt($password, $GLOBALS['cfg']['blowfish_secret']));
-        } // end if
-
-        // For http auth. mode, the "back" link will also enforce new
-        // authentication
-        if ($cfg['Server']['auth_type'] == 'http') {
-            $_url_params['old_usr'] = 'relog';
-        }
-
-        $message = PMA_Message::success(__('The profile has been updated.'));
-
-        if ($GLOBALS['is_ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_showMessage($message, $sql_query, 'success');
-            PMA_ajaxResponse($message, true, $extra_data);
-        }
-
-        // Displays the page
-        include_once './libraries/header.inc.php';
-        echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
-        PMA_showMessage($message, $sql_query, 'success');
-        ?>
-        <a href="index.php<?php echo PMA_generate_common_url($_url_params); ?>" target="_parent">
-            <strong><?php echo __('Back'); ?></strong></a>
-        <?php
-        include './libraries/footer.inc.php';
-    } // end if
-} // end if
-
+}
 
 /**
  * If the "change password" form hasn't been submitted or the values submitted
@@ -111,8 +52,6 @@ if (isset($_REQUEST['nopass'])) {
  */
 // Loads the headers
 require_once './libraries/header.inc.php';
-
-echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
 
 // Displays an error message if required
 if (isset($message)) {
@@ -125,4 +64,138 @@ require_once './libraries/display_change_password.lib.php';
  * Displays the footer
  */
 require './libraries/footer.inc.php';
+
+/**
+ * Send the message as an ajax request
+ * 
+ * @param   array   $change_password_message
+ * @param   string  $sql_query
+ * @return  void
+ */
+function PMA_getChangePassMessage($change_password_message, $sql_query = '') {
+    if ($GLOBALS['is_ajax_request'] == true) {
+        /**
+         * If in an Ajax request, we don't need to show the rest of the page
+         */
+        if ($change_password_message['error']) {
+            PMA_ajaxResponse($change_password_message['msg'], false);
+        } else {
+            $extra_data['sql_query'] = PMA_showMessage($change_password_message['msg'], $sql_query, 'success');
+            PMA_ajaxResponse($change_password_message['msg'], true, $extra_data);
+        }
+    }
+}
+
+/**
+ * Generate the message
+ * 
+ * @return  array   error value and message 
+ */
+function PMA_setChangePasswordMsg() {
+    $error = false;
+    $message = PMA_Message::success(__('The profile has been updated.'));
+
+    if (($_REQUEST['nopass'] != '1')) {
+        if (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2'])) {
+            $message = PMA_Message::error(__('The password is empty!'));
+            $error = true;
+        } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
+            $message = PMA_Message::error(__('The passwords aren\'t the same!'));
+            $error = true;
+        }
+    }
+    return array('error' => $error, 'msg' => $message);
+}
+
+/**
+ * Change the password
+ * 
+ * @param   string  $password
+ * @param   string  $message
+ * @param   array   $change_password_message
+ * @return  void
+ */
+function PMA_changePassword($password, $message, $change_password_message) { 
+    // Defines the url to return to in case of error in the sql statement
+    $_url_params = array();
+    $hashing_function = PMA_changePassHashingFunction();
+    $sql_query = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+    PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function);
+    
+    $new_url_params = PMA_changePassAuthType($_url_params, $password);
+    PMA_getChangePassMessage($change_password_message, $sql_query);
+    PMA_changePassDisplayPage($message, $sql_query, $new_url_params);
+}
+
+/**
+ * Generate the hashing function
+ * 
+ * @return  string  $hashing_function
+ */
+function PMA_changePassHashingFunction() {
+    if (PMA_isValid($_REQUEST['pw_hash'], 'identical', 'old')) {
+        $hashing_function = 'OLD_PASSWORD';
+    } else {
+        $hashing_function = 'PASSWORD';
+    }
+    return $hashing_function;
+}
+
+/**
+ * Generate the error url and submit the query
+ * 
+ * @param   string  $password
+ * @param   array   $_url_params
+ * @param   string  $sql_query
+ * @param   string  $hashing_function
+ * @return  void
+ */
+function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function) {
+    $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
+    $local_query = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddSlashes($password) . '\')');
+    $result = @PMA_DBI_try_query($local_query)
+            or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
+}
+
+/**
+ * Change password authentication type
+ * 
+ * @param   array   $_url_params
+ * @param   string  $password
+ * @return  array   $_url_params
+ */
+function PMA_changePassAuthType($_url_params, $password) {
+    /**
+     * Changes password cookie if required
+     * Duration = till the browser is closed for password (we don't want this to be saved)
+     */
+    if ($cfg['Server']['auth_type'] == 'cookie') {
+        $GLOBALS['PMA_Config']->setCookie('pmaPass-' . $server, PMA_blowfish_encrypt($password, $GLOBALS['cfg']['blowfish_secret']));
+    }
+    /**
+     * For http auth. mode, the "back" link will also enforce new
+     * authentication
+     */
+    if ($cfg['Server']['auth_type'] == 'http') {
+        $_url_params['old_usr'] = 'relog';
+    }
+    return $_url_params;
+}
+
+/**
+ * Display the page
+ * 
+ * @param   string  $message
+ * @param   string  $sql_query
+ * @param   array   $_url_params
+ * @return  void
+ */
+function PMA_changePassDisplayPage($message, $sql_query, $_url_params) {
+    include_once './libraries/header.inc.php';
+    echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
+    PMA_showMessage($message, $sql_query, 'success');
+    echo '<a href="index.php'.PMA_generate_common_url($_url_params).' target="_parent">'. "\n"
+            .'<strong>'.__('Back').'</strong></a>';
+    include './libraries/footer.inc.php';
+}
 ?>

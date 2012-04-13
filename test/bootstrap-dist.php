@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 
 // Adding phpMyAdmin sources to include path
 set_include_path(get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php")));

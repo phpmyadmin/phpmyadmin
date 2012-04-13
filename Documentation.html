@@ -1654,6 +1654,18 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines whether to suggest a database name on the
         &quot;Create Database&quot; form or to keep the textfield empty.</dd>
 
+    <dt id="cfg_ShowDbStructureCreation">$cfg['ShowDbStructureCreation'] boolean</dt>
+    <dd>Defines whether the database structure page (tables list) has a 
+        &quot;Creation&quot; column that displays when each table was created.</dd>
+
+    <dt id="cfg_ShowDbStructureLastUpdate">$cfg['ShowDbStructureLastUpdate'] boolean</dt>
+    <dd>Defines whether the database structure page (tables list) has a 
+        &quot;Last update&quot; column that displays when each table was last updated.</dd>
+
+    <dt id="cfg_ShowDbStructureLastCheck">$cfg['cfg_ShowDbStructureLastCheck'] boolean</dt>
+    <dd>Defines whether the database structure page (tables list) has a 
+        &quot;Last check&quot; column that displays when each table was last checked.</dd>
+
     <dt id="cfg_NavigationBarIconic">$cfg['NavigationBarIconic'] string</dt>
     <dd>Defines whether navigation bar buttons and the right panel top menu
         contain text or symbols only. A value of TRUE displays icons, FALSE
@@ -2289,12 +2301,6 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dd>Allows you to specify window's title bar. You can use 
         <a href="#faq6_27">format string expansion</a>.
     </dd>
-
-    <dt id="cfg_ErrorIconic">$cfg['ErrorIconic'] boolean</dt>
-    <dd>Uses icons for warnings, errors and informations.</dd>
-
-    <dt id="cfg_MainPageIconic">$cfg['MainPageIconic'] boolean</dt>
-    <dd>Uses icons on main page in lists and menu tabs.</dd>
 
     <dt id="cfg_ReplaceHelpImg">$cfg['ReplaceHelpImg'] boolean</dt>
     <dd>Shows a help button instead of the &quot;Documentation&quot; message.

@@ -319,18 +319,18 @@ function hideOrDisplayServerFields($server_selector, selected_option)
 }
 
 $(document).ready(function() {
-    $('.server_selector').change(function(evt) {
+    $('select.server_selector').change(function(evt) {
         var selected_option = $(evt.target).val();
         hideOrDisplayServerFields($(evt.target), selected_option);
     });
 
     // initial display of the selectors
-    $('.server_selector').each(function() {
+    $('select.server_selector').each(function() {
         var selected_option = $(this).val();
         hideOrDisplayServerFields($(this), selected_option);
     });
 
-    $('.struct_img').hover( 
+    $('img.struct_img').hover(
         // pmaThemeImage comes from js/messages.php
         function() {
             // mouse enters the element
@@ -354,7 +354,7 @@ $(document).ready(function() {
         }
     );
 
-    $('.data_img').hover( 
+    $('img.data_img').hover(
         function() {
             // mouse enters the element
             var $img = $(this);

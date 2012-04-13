@@ -123,6 +123,11 @@ fieldset legend {
     background-color:   <?php echo 'OPERA' != PMA_USR_BROWSER_AGENT ? 'transparent' : $GLOBALS['cfg']['BgOne']; ?>;
 }
 
+.some-margin {
+    margin: .5em;
+    margin-top: 1em;
+}
+
 /* buttons in some browsers (eg. Konqueror) are block elements,
    this breaks design */
 button {
@@ -455,7 +460,6 @@ div.error,
 div.footnotes {
     margin:             0.3em 0 0 0;
     border:             2px solid;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
@@ -464,9 +468,6 @@ div.footnotes {
     background-position: 99% 50%;
     padding:            0.1em 46px 0.1em 0.1em;
         <?php } ?>
-    <?php } else { ?>
-    padding:            0.3em;
-    <?php } ?>
 }
 
 .success {
@@ -476,7 +477,6 @@ div.footnotes {
 h1.success,
 div.success {
     border-color:       #00FF00;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_success.png);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -486,7 +486,6 @@ div.success {
     background-position: 99% 50%;
     padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
-    <?php } ?>
 }
 .success h1 {
     border-color:       #00FF00;
@@ -500,7 +499,6 @@ h1.notice,
 div.notice,
 div.footnotes {
     border-color:       #FFD700;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -510,7 +508,6 @@ div.footnotes {
     background-position: 99% 50%;
     padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
-    <?php } ?>
 }
 .notice h1 {
     border-color:       #FFD700;
@@ -524,7 +521,6 @@ div.footnotes {
 h1.error,
 div.error {
     border-color:       #ff0000;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -534,7 +530,6 @@ div.error {
     background-position: 99% 50%;
     padding:            0.2em 35px 0.2em 0.2em;
         <?php } ?>
-    <?php } ?>
 }
 div.error h1 {
     border-color:       #ff0000;
@@ -550,7 +545,6 @@ fieldset.confirmation legend {
     border-left:        0.1em solid #FF0000;
     border-right:       0.1em solid #FF0000;
     font-weight:        bold;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -560,7 +554,6 @@ fieldset.confirmation legend {
     background-position: 97% 50%;
     padding:            0.2em 25px 0.2em 0.2em;
         <?php } ?>
-    <?php } ?>
 }
 /* end messageboxes */
 
@@ -1274,7 +1267,6 @@ div#queryboxcontainer div#bookmarkoptions {
 /* END main page */
 
 
-<?php if ($GLOBALS['cfg']['MainPageIconic']) { ?>
 /* iconic view for ul items */
 li#li_create_database {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_newdb.png);
@@ -1356,7 +1348,6 @@ li#li_user_preferences {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_tblops.png);
 }
 /* END iconic view for ul items */
-<?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
 
 
 #body_browse_foreigners {
@@ -3107,7 +3098,7 @@ h2.active {
     color: black;
     font-weight: normal;
 }
- 
+
 #foreignkeychk {
     align:left;
     position:absolute;

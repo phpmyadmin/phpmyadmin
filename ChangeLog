@@ -20,8 +20,13 @@ phpMyAdmin - ChangeLog
 + Patch #3507001 Contest-4: Textarea for large character columns
 + Removed the PHP version of the ENUM editor
 + Patch #3507111 Display distinct results, linked to corresponding data rows
-+ Update to jQuery 1.7.2
 - bug #3507917 [export] JSON has unescaped values for allegedly numeric columns
++ rfe #3516187 show tables creation, last update, last check timestamps in db_structure
+- bug #3059806 Supporting running from CIFS/Samba shares
+- bug #3516341 [export] Open Document Text, Word and Texy! Text show table structure twice
+- bug [export] Texy! Text: Columns containing Pipe Character don't export properly
++ [export] Show triggers in Open Document Text, Word and Texy! Text
+- Patch #3415061 [auth] Login screen appears under the page
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
@@ -32,6 +37,12 @@ phpMyAdmin - ChangeLog
 - bug #3515181 [users] Error in create user + underscore + create database
 - bug #3515666 [display] Profiling chart shows wrong data
 - bug #3516037 [auth] JS includes missing in auth config error page
+- bug #3516183 [display] Missing image extension
+- bug [display] Added missing icons in original theme
+- bug #3516761 [edit] Query error after search
+- bug #3516405 [display] Chart title is getting wrong within chart export
+- bug #3517021 [interface] Header links except 'More' hide after closing dialog
+- bug #3516817 [interface] "More" actions in table structure
 
 3.5.0.0 (2012-04-07)
 + rfe #2021981 [interface] Add support for mass prefix change.

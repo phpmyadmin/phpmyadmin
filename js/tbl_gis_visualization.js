@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    functions used for visualizing GIS data
  *
@@ -61,7 +62,7 @@ function selectVisualization() {
     } else {
         $('#placeholder').hide();
     }
-    $('.choice').show();
+    $('#choice').show();
 }
 
 /**
@@ -125,7 +126,7 @@ function resizeGISVisualization() {
 
     var old_width = $placeholder.width();
     var extraPadding = 100;
-    var leftWidth = $('.gis_table').width();
+    var leftWidth = $('table.gis_table').width();
     var windowWidth = document.documentElement.clientWidth;
     var visWidth = windowWidth - extraPadding - leftWidth;
 
@@ -172,7 +173,7 @@ function initGISVisualization() {
 $(document).ready(function() {
 
     // If we are in GIS visualization, initialize it
-    if ($('.gis_table').length > 0) {
+    if ($('table.gis_table').length > 0) {
         initGISVisualization();
     }
     

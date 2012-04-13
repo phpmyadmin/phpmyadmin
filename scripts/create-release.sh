@@ -243,6 +243,8 @@ if [ $# -gt 0 ] ; then
                     echo '* 2.11 branch, no STABLE update'
                 elif echo $version | grep -q '^3\.3\.' ; then
                     echo '* 3.3 branch, no STABLE update'
+                elif echo $version | grep -q '^3\.4\.' ; then
+                    echo '* 3.4 branch, no STABLE update'
                 else
                     mark_as_release $branch STABLE
                     git checkout master

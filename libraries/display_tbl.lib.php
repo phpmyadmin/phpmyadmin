@@ -1118,7 +1118,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // (unless coming from Browse mode print view)
     elseif (($GLOBALS['cfg']['RowActionLinks'] == 'left' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
         && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
-        && (! $GLOBALS['is_header_sent'])
+        && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
     ) {
         $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 4 : 1;
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'

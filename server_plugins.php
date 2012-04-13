@@ -32,9 +32,7 @@ require 'libraries/server_links.inc.php';
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($GLOBALS['cfg']['MainPageIconic']
-        ? '<img class="icon" src="' . $pmaThemeImage . 'b_engine.png"'
-            .' width="16" height="16" alt="" />' : '')
+   . PMA_getImage('b_engine.png')
    . "\n" . __('Plugins') . "\n"
    . '</h2>' . "\n";
 
@@ -91,10 +89,8 @@ pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
             <caption class="tblHeaders">
                 <a class="top" href="#serverinfo"><?php
                     echo __('Begin');
-                    echo $GLOBALS['cfg']['MainPageIconic']
-                        ? '<img src="' . $GLOBALS['pmaThemeImage'] .
-                            's_asc.png" width="11" height="9" align="middle" alt="" />'
-                        : ''; ?></a>
+                    echo PMA_getImage('s_asc.png');
+                    ?></a>
                 <?php echo htmlspecialchars($plugin_type); ?>
             </caption>
             <thead>

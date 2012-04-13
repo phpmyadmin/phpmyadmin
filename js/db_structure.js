@@ -121,7 +121,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Insert Table'
      *
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
     var current_insert_table;
@@ -182,7 +181,7 @@ $(document).ready(function() {
                 $dialog.find('.datefield, .datetimefield').each(function () {
                     PMA_addDatepicker($(this));
                 });
-                $(".insertRowTable").addClass("ajax");
+                $("table.insertRowTable").addClass("ajax");
                 $("#buttonYes").addClass("ajax");
                 $div = $("#insert_table_dialog");
                 PMA_convertFootnotesToTooltips($div);
@@ -257,7 +256,7 @@ $(document).ready(function() {
      * Event handler for 'Foreign Key Checks' disabling option
      * in the drop table confirmation form
      */
-    $(".fkc_switch").click(function(event){
+    $("span.fkc_switch").click(function(event){
        if ($("#fkc_checkbox").prop('checked')) {
            $("#fkc_checkbox").prop('checked', false);
            $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
@@ -278,11 +277,9 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Truncate Table'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $(".truncate_table_anchor").live('click', function(event) {
+    $("a.truncate_table_anchor").live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -332,11 +329,9 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Drop Table'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $(".drop_table_anchor").live('click', function(event) {
+    $("a.drop_table_anchor").live('click', function(event) {
         event.preventDefault();
 
         var $this_anchor = $(this);
@@ -379,11 +374,9 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for 'Drop tracking'
      *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $('.drop_tracking_anchor').live('click', function(event) {
+    $('a.drop_tracking_anchor').live('click', function(event) {
         event.preventDefault();
 
         var $anchor = $(this);
@@ -468,7 +461,6 @@ $(document).ready(function() {
     /**
      * Ajax Event handler for calculatig the real end for a InnoDB table
      *
-     * @uses    $.PMA_confirm
      */
     $('#real_end_input').live('click', function(event) {
         event.preventDefault();

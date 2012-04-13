@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Front controller for setup script
  *
@@ -36,7 +37,7 @@ require './libraries/header_http.inc.php';
 <link href="../favicon.ico" rel="icon" type="image/x-icon" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="styles.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/jquery/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery-1.6.2.js"></script>
 <script type="text/javascript" src="../js/jquery/jquery-ui-1.8.16.custom.js"></script>
 <script type="text/javascript" src="../js/jquery/jquery.json-2.2.js"></script>
 <script type="text/javascript" src="../js/config.js"></script>

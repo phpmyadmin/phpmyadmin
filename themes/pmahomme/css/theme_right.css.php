@@ -252,7 +252,6 @@ fieldset {
     border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
-    padding: 5px;
     border: #aaa solid 1px;
     padding: 1.5em;
     background: #eee;
@@ -282,6 +281,10 @@ fieldset legend {
     -moz-box-shadow: 3px 3px 15px #bbb;
     -webkit-box-shadow: 3px 3px 15px #bbb;
     box-shadow: 3px 3px 15px #bbb;
+}
+
+.some-margin {
+    margin: 1.5em;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
@@ -371,15 +374,15 @@ th.right, td.right {
     text-align: right;
 }
 
-tr.vtop, th.vtop, td.vtop {
+tr.vtop th, tr.vtop td, th.vtop, td.vtop {
     vertical-align: top;
 }
 
-tr.vmiddle, th.vmiddle, td.vmiddle {
+tr.vmiddle th, tr.vmiddle td, th.vmiddle, td.vmiddle {
     vertical-align: middle;
 }
 
-tr.vbottom, th.vbottom, td.vbottom {
+tr.vbottom th, tr.vbottom td, th.vbottom, td.vbottom {
     vertical-align: bottom;
 }
 
@@ -681,7 +684,6 @@ div.error,
 div.footnotes {
     margin: .5em 0 1.3em 0;
     border: 1px solid;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
@@ -690,9 +692,6 @@ div.footnotes {
     background-position: 99% 50%;
     padding: 10px 35px 10px 10px;
         <?php } ?>
-    <?php } else { ?>
-    padding: .3em;
-    <?php } ?>
 
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -718,7 +717,6 @@ div.footnotes {
 h1.success,
 div.success {
     border-color: #a2d246;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_success.png);
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -726,7 +724,6 @@ div.success {
         <?php } else { ?>
     background-position: 99% 50%;
         <?php } ?>
-    <?php } ?>
 }
 .success h1 {
     border-color: #00FF00;
@@ -742,7 +739,6 @@ h1.notice,
 div.notice,
 div.footnotes {
     border-color: #3a6c7e;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -750,7 +746,6 @@ div.footnotes {
         <?php } else { ?>
     background-position: 99% 50%;
         <?php } ?>
-    <?php } ?>
 }
 
 .notice h1 {
@@ -766,7 +761,6 @@ div.footnotes {
 h1.error,
 div.error {
     border-color: #333;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -774,7 +768,6 @@ div.error {
         <?php } else { ?>
     background-position: 99% 50%;
         <?php } ?>
-    <?php } ?>
 }
 
 div.error h1 {
@@ -1482,7 +1475,6 @@ table#serverVariables td {
 p.notice {
     margin: 1.5em 0;
     border: 1px solid #000;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
@@ -1491,9 +1483,6 @@ p.notice {
     background-position: 99% 50%;
     padding: 25px 10px 10px 10px
         <?php } ?>
-    <?php } else { ?>
-    padding: .3em;
-    <?php } ?>
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -1666,7 +1655,6 @@ div#queryboxcontainer div#bookmarkoptions {
 /* END main page */
 
 
-<?php if ($GLOBALS['cfg']['MainPageIconic']) { ?>
 /* iconic view for ul items */
 li#li_create_database {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_newdb.png);
@@ -1748,7 +1736,6 @@ li#li_user_preferences {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_tblops.png);
 }
 /* END iconic view for ul items */
-<?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
 
 
 #body_browse_foreigners {
@@ -2263,13 +2250,6 @@ hr.enum_editor_no_js {
     position: absolute;
     left: 81%;
     bottom: .35em;
-}
-
-/**
- * Create table styles
- */
-#create_table_form table.table-name td {
-    vertical-align: middle;
 }
 
 /**
@@ -3645,7 +3625,7 @@ h2.active {
     color: black;
     font-weight: normal;
 }
- 
+
 #foreignkeychk {
     align:left;
     position:absolute;

@@ -952,6 +952,32 @@ $cfg['SuggestDBName'] = true;
 
 
 /*******************************************************************************
+ * Database structure
+ */
+
+/**
+ * show creation timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureCreation']
+ */
+$cfg['ShowDbStructureCreation'] = false;
+
+/**
+ * show last update timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureLastUpdate']
+ */
+$cfg['ShowDbStructureLastUpdate'] = false;
+
+/**
+ * show last check timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureLastCheck']
+ */
+$cfg['ShowDbStructureLastCheck'] = false;
+
+
+/*******************************************************************************
  * In browse mode...
  */
 
@@ -2500,20 +2526,6 @@ $cfg['TitleServer'] = '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
  * @global string $cfg['TitleDefault']
  */
 $cfg['TitleDefault'] = '@HTTP_HOST@ | @PHPMYADMIN@';
-
-/**
- * show some icons for warning, error and information messages (true|false)?
- *
- * @global boolean $cfg['ErrorIconic']
- */
-$cfg['ErrorIconic'] = true;
-
-/**
- * show icons in list on main page and on menu tabs (true|false)?
- *
- * @global boolean $cfg['MainPageIconic']
- */
-$cfg['MainPageIconic'] = true;
 
 /**
  * show help button instead of Documentation text (true|false)?

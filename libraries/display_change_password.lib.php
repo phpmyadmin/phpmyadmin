@@ -34,7 +34,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
         <label for="nopass_1"><?php echo __('No Password') . "\n"; ?></label>
             </td>
         </tr>
-        <tr class="even">
+        <tr class="even vmiddle">
             <td>
                 <input type="radio" name="nopass" value="0" id="nopass_0" onclick="document.getElementById('text_pma_pw').focus();" checked="checked " />
         <label for="nopass_0"><?php echo __('Password'); ?>:&nbsp;</label>
@@ -46,7 +46,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
                 <input type="password" name="pma_pw2" id="text_pma_pw2" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
             </td>
         </tr>
-        <tr>
+        <tr class="vmiddle">
             <td>
             <?php echo __('Password Hashing'); ?>:
         </td>
@@ -68,8 +68,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
         </tr>
         </table>
     </fieldset>
-<!--    <fieldset id="fieldset_change_password_footer" class="tblFooters">
-	    <input type="submit" name="change_pw" value="<?php //echo(__('Go')); ?>" />
-	    <button aria-disabled="false" name="change_pw" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit"><span class="ui-button-text">Go</span></button>
-    </fieldset>-->
+    <fieldset id="fieldset_change_password_footer" class="tblFooters">
+	    <input type="submit" name="change_pw" value="<?php echo(__('Go')); ?>" />
+    </fieldset>
 </form>
