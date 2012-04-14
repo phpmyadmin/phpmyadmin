@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-13 23:40-0000\n"
+"PO-Revision-Date: 2012-04-14 00:50+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -5848,17 +5848,17 @@ msgstr "Personalizar as opcións de exportación por omisión"
 #: libraries/display_export.lib.php:135
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Base(s) de datos"
+msgstr "Base(s) de datos:"
 
 #: libraries/display_export.lib.php:137
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Táboa(s)"
+msgstr "Táboa(s):"
 
 #: libraries/display_export.lib.php:147
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Fila(s)"
+msgstr "Fila(s):"
 
 #: libraries/display_export.lib.php:155
 #, fuzzy
@@ -5869,7 +5869,7 @@ msgstr "Envorcar todas as fileiras"
 #: libraries/display_export.lib.php:157
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Número de fileiras"
+msgstr "Número de filas:"
 
 #: libraries/display_export.lib.php:160
 msgid "Row to begin at:"
@@ -6074,7 +6074,7 @@ msgstr "Este servidor non admite a recepción de ficheiros."
 #: libraries/display_import.lib.php:253
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Importación parcial"
+msgstr "Importación parcial:"
 
 #: libraries/display_import.lib.php:259
 #, php-format
@@ -7030,7 +7030,7 @@ msgstr ""
 #: libraries/import/csv.php:42
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Nomes das columnas:"
+msgstr "Nomes das columnas: "
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -7602,13 +7602,13 @@ msgstr ""
 #, php-format
 #| msgid "Table %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr "O evento %1$s foi modificado"
+msgstr "O evento %1$s foi modificado."
 
 #: libraries/rte/rte_events.lib.php:133
 #, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "O evento %1$s foi creado"
+msgstr "O evento %1$s foi creado."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_triggers.lib.php:114
@@ -7759,13 +7759,13 @@ msgstr ""
 #, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "A rutina %1$s foi modificada"
+msgstr "A rutina %1$s foi modificada."
 
 #: libraries/rte/rte_routines.lib.php:284
 #, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "A rutina %1$s foi creada"
+msgstr "A rutina %1$s foi creada."
 
 #: libraries/rte/rte_routines.lib.php:344
 #| msgid "Edit mode"
@@ -7968,7 +7968,7 @@ msgstr "Non se atopou ningunha rutina co nome %1$s na base de datos %2$s"
 #: libraries/rte/rte_words.lib.php:24
 #| msgid "There are no configured servers"
 msgid "There are no routines to display."
-msgstr "Non hai rutinas que mostrar"
+msgstr "Non hai rutinas que mostrar."
 
 #: libraries/rte/rte_words.lib.php:30
 #| msgid "Add a new server"
@@ -8074,7 +8074,7 @@ msgstr "O ficheiro %s non contén ningún identificador de chave"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "ERRO NO ESQUEMA:"
+msgstr "ERRO NO ESQUEMA: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -8402,7 +8402,7 @@ msgstr "Parece ser que a táboa está baleira!"
 #, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "O seguemento de %s está activado"
+msgstr "O seguemento de %s está activado."
 
 #: libraries/tbl_properties.inc.php:98
 #, fuzzy
