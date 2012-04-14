@@ -17,10 +17,9 @@ session_write_close();
 
 // Gets the host name
 if (empty($HTTP_HOST)) {
+    $HTTP_HOST = '';
     if (PMA_getenv('HTTP_HOST')) {
         $HTTP_HOST = PMA_getenv('HTTP_HOST');
-    } else {
-        $HTTP_HOST = '';
     }
 }
 
