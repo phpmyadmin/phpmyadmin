@@ -293,34 +293,7 @@ function PMA__getRelationsParam()
 
     if (isset($cfgRelation['column_info'])) {
         $cfgRelation['commwork']    = true;
-
-        if ($GLOBALS['cfg']['Server']['verbose_check']) {
-            $mime_query  = PMA_DBI_get_columns_sql($cfgRelation['db'], $cfgRelation['column_info']);
-            $mime_rs     = PMA_query_as_controluser($mime_query, false);
-
-            $mime_field_mimetype                = false;
-            $mime_field_transformation          = false;
-            $mime_field_transformation_options  = false;
-            while ($curr_mime_field = @PMA_DBI_fetch_row($mime_rs)) {
-                if ($curr_mime_field[0] == 'mimetype') {
-                    $mime_field_mimetype               = true;
-                } elseif ($curr_mime_field[0] == 'transformation') {
-                    $mime_field_transformation         = true;
-                } elseif ($curr_mime_field[0] == 'transformation_options') {
-                    $mime_field_transformation_options = true;
-                }
-            }
-            PMA_DBI_free_result($mime_rs);
-
-            if ($mime_field_mimetype
-                && $mime_field_transformation
-                && $mime_field_transformation_options
-            ) {
-                $cfgRelation['mimework'] = true;
-            }
-        } else {
-            $cfgRelation['mimework'] = true;
-        }
+        $cfgRelation['mimework'] = true;
     }
 
     if (isset($cfgRelation['history'])) {

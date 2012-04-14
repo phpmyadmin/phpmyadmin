@@ -67,7 +67,6 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'controlhost',
     'controluser',
     'controlpass',
-    'verbose_check',
     'bookmarktable' => 'pma_bookmark',
     'relation' => 'pma_relation',
     'userconfig' => 'pma_userconfig',
