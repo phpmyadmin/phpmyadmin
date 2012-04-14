@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-08 17:43+0200\n"
+"PO-Revision-Date: 2012-04-14 19:42+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.8\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -1022,10 +1022,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Команда \"DROP DATABASE\" (удалить базу данных) - отключена."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Вы действительно хотите выполнить данный запрос?"
+msgstr "Вы действительно хотите выполнить запрос \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -2789,7 +2789,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Невозможно загрузить изначальную конфигурацию из: %1$s"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2797,7 +2796,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Директива <code>$cfg['PmaAbsoluteUri']</code> ДОЛЖНА быть установлена в "
+"Директива [code]$cfg['PmaAbsoluteUri'][/code] ДОЛЖНА быть установлена в "
 "конфигурационном файле!"
 
 #: libraries/common.inc.php:651
@@ -3986,14 +3985,15 @@ msgid "Customize startup page"
 msgstr "Настройка отображения главной страницы"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Сервер баз данных"
+msgstr "Структура базы данных"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Выберите детали, которые должны отображаться в структуре базы данных (списке "
+"таблиц)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5083,33 +5083,35 @@ msgstr "Вывести форму создания базы данных"
 
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "Выводить или прятать столбец отображающий время создания всех таблиц"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Показать больше операций"
+msgstr "Показать время создания"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Выводить или прятать столбец отображающий последнее время обновления для "
+"всех таблиц"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Показать последнее время обновления"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Выводить или прятать столбец отображающий последнее время проверки для всех "
+"таблиц"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Показать состояние головного сервера"
+msgstr "Показать последнее время проверки"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5839,26 +5841,25 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s из %s"
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Формат импортируемого файла"
+msgstr "Загрузка файла импорта..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/сек."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Осталось около %MIN мин. %SEC сек."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Осталось около %SEC сек."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6966,7 +6967,6 @@ msgid "Add prefix"
 msgstr "Добавить префикс"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
 msgstr "Вы действительно хотите выполнить данный запрос?"
@@ -7527,7 +7527,6 @@ msgid "Event"
 msgstr "Событие"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7539,9 +7538,9 @@ msgid ""
 "problems."
 msgstr ""
 "Вы используете устаревшее 'mysql' расширение PHP, которое не позволяет "
-"выполнение множественных запросов. <b>Выполнение некоторых хранимых процедур "
-"может привести к ошибке!</b> Пожалуйста, для избежания проблем, используйте "
-"улучшенное 'mysqli' расширение."
+"выполнение множественных запросов. [strong]Выполнение некоторых хранимых "
+"процедур может привести к ошибке![/strong] Пожалуйста, для избежания "
+"проблем, используйте улучшенное 'mysqli' расширение."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1004
