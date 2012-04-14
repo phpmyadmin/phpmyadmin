@@ -28,7 +28,9 @@ $export_list = PMA_getPlugins(
     'libraries/export/',
     array(
         'export_type' => $export_type,
-        'single_table' => isset($single_table)));
+        'single_table' => isset($single_table)
+    )
+);
 
 // Backward compatbility
 $type = $what;
