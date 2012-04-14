@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-03-28 00:10+0200\n"
-"Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
+"PO-Revision-Date: 2012-04-14 19:28+0200\n"
+"Last-Translator: Timo Moisio <tm8544@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -258,7 +258,7 @@ msgstr "Tietokanta %s on kopioitu tietokantaan %s"
 
 #: db_operations.php:430
 msgid "Rename database to"
-msgstr "Muuta tietokannan nimi"
+msgstr "Muuta tietokannan nimeksi"
 
 #: db_operations.php:456
 msgid "Remove database"
@@ -403,7 +403,7 @@ msgstr "Vaihda %svisuaaliseen muokkaimeen%s"
 #: db_qbe.php:222 libraries/db_structure.lib.php:106
 #: libraries/display_tbl.lib.php:1013
 msgid "Sort"
-msgstr "Järjestys"
+msgstr "Järjestä"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:113
 #: libraries/db_structure.lib.php:122 libraries/display_tbl.lib.php:566
@@ -475,7 +475,7 @@ msgstr "Suorita SQL-kysely tietokannassa <b>%s</b>:"
 
 #: db_qbe.php:951 libraries/common.lib.php:1254
 msgid "Submit Query"
-msgstr "Suorita"
+msgstr "Suorita kysely"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
@@ -566,7 +566,7 @@ msgstr "Tauluissa:"
 
 #: db_search.php:330
 msgid "Inside column:"
-msgstr "Sarakkeen sisältä:"
+msgstr "Sarakkeen sisällä:"
 
 #: db_structure.php:84
 msgid "No tables found in database"
@@ -895,11 +895,11 @@ msgstr "Lisää sisäympyrä"
 
 #: gis_data_editor.php:266 js/messages.php:321
 msgid "Polygon"
-msgstr "Polygoni"
+msgstr "Monikulmio"
 
 #: gis_data_editor.php:306 js/messages.php:327
 msgid "Add a polygon"
-msgstr "Lisää polygoni"
+msgstr "Lisää monikulmio"
 
 #: gis_data_editor.php:310
 msgid "Add geometry"
@@ -1070,7 +1070,7 @@ msgstr "Lisää indeksiin %d kolumni(a)"
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
 msgid "Total count"
-msgstr "Yhteyismäärä"
+msgstr "Yhteysmäärä"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1146,16 +1146,16 @@ msgstr "Toinen"
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/common.lib.php:1484
 msgid ","
-msgstr " "
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/common.lib.php:1486
 msgid "."
-msgstr "."
+msgstr ","
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
-msgstr "KiB lähetetty viimeisen päivityksen jäkeen"
+msgstr "kt lähetetty viimeisen päivityksen jäkeen"
 
 #: js/messages.php:77
 msgid "KiB received since last refresh"
@@ -1163,7 +1163,7 @@ msgstr "kt vastaanotettu viimeisen päivityksen jälkeen"
 
 #: js/messages.php:78
 msgid "Server traffic (in KiB)"
-msgstr "Palvelimen kuormitus (KiB:nä)"
+msgstr "Palvelimen kuormitus (kt:nä)"
 
 #: js/messages.php:79
 msgid "Connections since last refresh"
@@ -1441,7 +1441,7 @@ msgstr "Ota %s pois käytöstä"
 #: js/messages.php:159
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr "Asta long_query_time arvoon %ds"
+msgstr "Aseta long_query_time arvoon %ds"
 
 #: js/messages.php:160
 msgid ""
@@ -1673,7 +1673,7 @@ msgstr "Lataa"
 
 #: js/messages.php:230
 msgid "Processing Request"
-msgstr "Pyynnön käsittely"
+msgstr "Pyyntöä käsitellään"
 
 #: js/messages.php:231 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
@@ -2053,51 +2053,51 @@ msgstr "Tänään"
 
 #: js/messages.php:404
 msgid "January"
-msgstr "Tammi"
+msgstr "Tammikuu"
 
 #: js/messages.php:405
 msgid "February"
-msgstr "Helmi"
+msgstr "Helmikuu"
 
 #: js/messages.php:406
 msgid "March"
-msgstr "Maalis"
+msgstr "Maaliskuu"
 
 #: js/messages.php:407
 msgid "April"
-msgstr "Huhti"
+msgstr "Huhtikuu"
 
 #: js/messages.php:408
 msgid "May"
-msgstr "Touko"
+msgstr "Toukokuu"
 
 #: js/messages.php:409
 msgid "June"
-msgstr "Kesä"
+msgstr "Kesäkuu"
 
 #: js/messages.php:410
 msgid "July"
-msgstr "Heinä"
+msgstr "Heinäkuu"
 
 #: js/messages.php:411
 msgid "August"
-msgstr "Elo"
+msgstr "Elokuu"
 
 #: js/messages.php:412
 msgid "September"
-msgstr "Syys"
+msgstr "Syyskuu"
 
 #: js/messages.php:413
 msgid "October"
-msgstr "Loka"
+msgstr "Lokakuu"
 
 #: js/messages.php:414
 msgid "November"
-msgstr "Marras"
+msgstr "Marraskuu"
 
 #: js/messages.php:415
 msgid "December"
-msgstr "Joulu"
+msgstr "Joulukuu"
 
 #. l10n: Short month name
 #: js/messages.php:419 libraries/common.lib.php:1642
@@ -2162,31 +2162,31 @@ msgstr "Joulu"
 
 #: js/messages.php:444
 msgid "Sunday"
-msgstr "Su"
+msgstr "Sunnuntai"
 
 #: js/messages.php:445
 msgid "Monday"
-msgstr "Ma"
+msgstr "Maanantai"
 
 #: js/messages.php:446
 msgid "Tuesday"
-msgstr "Ti"
+msgstr "Tiistai"
 
 #: js/messages.php:447
 msgid "Wednesday"
-msgstr "Ke"
+msgstr "Keskiviikko"
 
 #: js/messages.php:448
 msgid "Thursday"
-msgstr "To"
+msgstr "Torstai"
 
 #: js/messages.php:449
 msgid "Friday"
-msgstr "Pe"
+msgstr "Perjantai"
 
 #: js/messages.php:450
 msgid "Saturday"
-msgstr "La"
+msgstr "Lauantai"
 
 #. l10n: Short week day name
 #: js/messages.php:454
@@ -2272,7 +2272,7 @@ msgstr "kalenteri-kuukausi-vuosi"
 #: js/messages.php:489
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Ei mikään"
+msgstr "none"
 
 #: js/messages.php:498
 msgid "Hour"
@@ -3308,10 +3308,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Minimum size for input field"
-msgstr "Mukauta viennin oletusasetuksia"
+msgstr "Syöttökentän minimikoko"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3320,10 +3319,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Enimmäiskoko tilapäisille lajittelutiedostoille"
+msgstr "Syöttökentän maksimikoko"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
