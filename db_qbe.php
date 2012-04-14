@@ -95,7 +95,10 @@ if (PMA_isValid($_REQUEST['TableList'], 'array')) {
 /**
  * Prepares the form
  */
-$tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+$tbl_result = PMA_DBI_query(
+    'SHOW TABLES FROM ' . PMA_backquote($db) . ';',
+    null, PMA_DBI_QUERY_STORE
+);
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 if (0 == $tbl_result_cnt) {
     PMA_Message::error(__('No tables found in database.'))->display();
@@ -107,7 +110,7 @@ if (0 == $tbl_result_cnt) {
 while (list($tbl) = PMA_DBI_fetch_row($tbl_result)) {
     $fld_results = PMA_DBI_get_columns($db, $tbl);
 
-    if (empty($tbl_names[$tbl]) && !empty($_REQUEST['TableList'])) {
+    if (empty($tbl_names[$tbl]) && ! empty($_REQUEST['TableList'])) {
         $tbl_names[$tbl] = '';
     } else {
         $tbl_names[$tbl] = ' selected="selected"';
@@ -166,7 +169,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 }
 
 ?>
-<?php if (!empty($tab_designer['link'])) {
+<?php if (! empty($tab_designer['link'])) {
         $tab_designer['link'] = htmlentities($tab_designer['link']);
         $tab_designer['link'] = $tab_designer['link'] . PMA_generate_common_url($url_params);
         if (! empty($tab_designer['args'])) {
@@ -223,7 +226,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
     <td class="center">
         <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
@@ -237,7 +240,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
+    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
     ?>
@@ -287,7 +290,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
     <td class="center">
         <input type="checkbox" name="Show[<?php echo $z; ?>]" />
@@ -297,7 +300,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
+    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
     if (isset($Show[$x])) {
@@ -323,7 +326,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
     <td class="center">
         <input type="text" name="criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
@@ -333,14 +336,15 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
+    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
     if (isset($criteria[$x])) {
         $tmp_criteria = $criteria[$x];
     }
     if ((empty($prev_criteria) || ! isset($prev_criteria[$x]))
-        || $prev_criteria[$x] != htmlspecialchars($tmp_criteria)) {
+        || $prev_criteria[$x] != htmlspecialchars($tmp_criteria)
+    ) {
         $curCriteria[$z]   = $tmp_criteria;
     } else {
         $curCriteria[$z]   = $prev_criteria[$x];
@@ -481,7 +485,7 @@ for ($y = 0; $y <= $row; $y++) {
     <?php
     $z = 0;
     for ($x = 0; $x < $col; $x++) {
-        if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+        if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
             echo "\n";
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
@@ -491,7 +495,7 @@ for ($y = 0; $y <= $row; $y++) {
             <?php
             $z++;
         } // end if
-        if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
+        if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
             continue;
         }
 
@@ -500,7 +504,7 @@ for ($y = 0; $y <= $row; $y++) {
         if (! isset(${$or})) {
             ${$or} = '';
         }
-        if (!empty(${$or}) && isset(${$or}[$x])) {
+        if (! empty(${$or}) && isset(${$or}[$x])) {
             $tmp_or = ${$or}[$x];
         } else {
             $tmp_or     = '';
@@ -510,7 +514,7 @@ for ($y = 0; $y <= $row; $y++) {
         <input type="text" name="Or<?php echo $w . '[' . $z . ']'; ?>" value="<?php echo htmlspecialchars($tmp_or); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
     </td>
         <?php
-        if (!empty(${$or}) && isset(${$or}[$x])) {
+        if (! empty(${$or}) && isset(${$or}[$x])) {
             ${'cur' . $or}[$z] = ${$or}[$x];
         }
         $z++;
@@ -530,7 +534,7 @@ for ($y = 0; $y <= $row; $y++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         $curAndOrCol[$z] = $and_or_col[$y];
         if ($and_or_col[$z] == 'or') {
             $chk['or']  = ' checked="checked"';
@@ -556,7 +560,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
+    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
 
@@ -667,7 +671,7 @@ if (! isset($qry_select)) {
     $qry_select         = '';
 }
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($curField[$x]) && isset($curShow[$x]) && $curShow[$x] == 'on') {
+    if (! empty($curField[$x]) && isset($curShow[$x]) && $curShow[$x] == 'on') {
         if ($last_select) {
             $qry_select .=  ', ';
         }
@@ -675,7 +679,7 @@ for ($x = 0; $x < $col; $x++) {
         $last_select    = 1;
     }
 } // end for
-if (!empty($qry_select)) {
+if (! empty($qry_select)) {
     echo  'SELECT ' . htmlspecialchars($qry_select) . "\n";
 }
 
@@ -700,14 +704,14 @@ if (isset($Field) && count($Field) > 0) {
     // We only start this if we have fields, otherwise it would be dumb
     foreach ($Field as $value) {
         $parts             = explode('.', $value);
-        if (!empty($parts[0]) && !empty($parts[1])) {
+        if (! empty($parts[0]) && ! empty($parts[1])) {
             $tab_raw       = $parts[0];
             $tab           = str_replace('`', '', $tab_raw);
             $tab_all[$tab] = $tab;
 
             $col_raw       = $parts[1];
             $col_all[]     = $tab . '.' . str_replace('`', '', $col_raw);
-         }
+        }
     } // end while
 
     // Check 'where' clauses
@@ -716,7 +720,7 @@ if (isset($Field) && count($Field) > 0) {
         $crit_cnt         = count($criteria);
         for ($x = 0; $x < $crit_cnt; $x++) {
             $curr_tab     = explode('.', $Field[$x]);
-            if (!empty($curr_tab[0]) && !empty($curr_tab[1])) {
+            if (! empty($curr_tab[0]) && ! empty($curr_tab[1])) {
                 $tab_raw  = $curr_tab[0];
                 $tab      = str_replace('`', '', $tab_raw);
 
@@ -725,7 +729,7 @@ if (isset($Field) && count($Field) > 0) {
                 $col1     = $tab . '.' . $col1;
                 // Now we know that our array has the same numbers as $criteria
                 // we can check which of our columns has a where clause
-                if (!empty($criteria[$x])) {
+                if (! empty($criteria[$x])) {
                     if (substr($criteria[$x], 0, 1) == '=' || stristr($criteria[$x], 'is')) {
                         $col_where[$col] = $col1;
                         $tab_wher[$tab]  = $tab;
@@ -866,7 +870,7 @@ if (empty($qry_from) && isset($tab_all)) {
     $qry_from = implode(', ', $tab_all);
 }
 // Now let's see what we got
-if (!empty($qry_from)) {
+if (! empty($qry_from)) {
     echo 'FROM ' . htmlspecialchars($qry_from) . "\n";
 }
 
@@ -874,10 +878,10 @@ if (!empty($qry_from)) {
 $qry_where          = '';
 $criteria_cnt       = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($curField[$x]) && !empty($curCriteria[$x]) && $x && isset($last_where) && isset($curAndOrCol)) {
+    if (! empty($curField[$x]) && ! empty($curCriteria[$x]) && $x && isset($last_where) && isset($curAndOrCol)) {
         $qry_where  .= ' ' . strtoupper($curAndOrCol[$last_where]) . ' ';
     }
-    if (!empty($curField[$x]) && !empty($curCriteria[$x])) {
+    if (! empty($curField[$x]) && ! empty($curCriteria[$x])) {
         $qry_where  .= '(' . $curField[$x] . ' ' . $curCriteria[$x] . ')';
         $last_where = $x;
         $criteria_cnt++;
@@ -895,10 +899,10 @@ for ($y = 0; $y <= $row; $y++) {
     $qry_orwhere          = '';
     $last_orwhere         = '';
     for ($x = 0; $x < $col; $x++) {
-        if (!empty($curField[$x]) && !empty(${'curOr' . $y}[$x]) && $x) {
+        if (! empty($curField[$x]) && ! empty(${'curOr' . $y}[$x]) && $x) {
             $qry_orwhere  .= ' ' . strtoupper($curAndOrCol[$last_orwhere]) . ' ';
         }
-        if (!empty($curField[$x]) && !empty(${'curOr' . $y}[$x])) {
+        if (! empty($curField[$x]) && ! empty(${'curOr' . $y}[$x])) {
             $qry_orwhere  .= '(' . $curField[$x]
                           .  ' '
                           .  ${'curOr' . $y}[$x]
@@ -910,14 +914,14 @@ for ($y = 0; $y <= $row; $y++) {
     if ($criteria_cnt > 1) {
         $qry_orwhere      = '(' . $qry_orwhere . ')';
     }
-    if (!empty($qry_orwhere)) {
+    if (! empty($qry_orwhere)) {
         $qry_where .= "\n"
                    .  strtoupper(isset($curAndOrRow[$y]) ? $curAndOrRow[$y] . ' ' : '')
                    .  $qry_orwhere;
     } // end if
 } // end for
 
-if (!empty($qry_where) && $qry_where != '()') {
+if (! empty($qry_where) && $qry_where != '()') {
     echo 'WHERE ' . htmlspecialchars($qry_where) . "\n";
 } // end if
 
@@ -928,10 +932,10 @@ if (! isset($qry_orderby)) {
     $qry_orderby      = '';
 }
 for ($x = 0; $x < $col; $x++) {
-    if ($last_orderby && $x && !empty($curField[$x]) && !empty($curSort[$x])) {
+    if ($last_orderby && $x && ! empty($curField[$x]) && ! empty($curSort[$x])) {
         $qry_orderby  .=  ', ';
     }
-    if (!empty($curField[$x]) && !empty($curSort[$x])) {
+    if (! empty($curField[$x]) && ! empty($curSort[$x])) {
         // if they have chosen all fields using the * selector,
         // then sorting is not available
         // Fix for Bug #570698
@@ -941,7 +945,7 @@ for ($x = 0; $x < $col; $x++) {
         }
     }
 } // end for
-if (!empty($qry_orderby)) {
+if (! empty($qry_orderby)) {
     echo 'ORDER BY ' . htmlspecialchars($qry_orderby) . "\n";
 }
 ?>

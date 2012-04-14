@@ -204,22 +204,10 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         $multipoint = substr($spatial, 11, (strlen($spatial) - 12));
         $points_arr = $this->extractPoints($multipoint, null);
 
-        $row = 'new Array(';
-        foreach ($points_arr as $point) {
-            if ($point[0] != '' && $point[1] != '') {
-                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1]
-                    . ')).transform(new OpenLayers.Projection("EPSG:' . $srid
-                    . '"), map.getProjectionObject()), ';
-            }
-        }
-        if (substr($row, strlen($row) - 2) == ', ') {
-            $row = substr($row, 0, strlen($row) - 2);
-        }
-        $row .= ')';
-
         $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.MultiPoint(' . $row . '), null, '
-            . json_encode($style_options) . '));';
+            . 'new OpenLayers.Geometry.MultiPoint('
+            . $this->getPointsArrayForOpenLayers($points_arr, $srid)
+            . '), null, ' . json_encode($style_options) . '));';
         return $result;
     }
 

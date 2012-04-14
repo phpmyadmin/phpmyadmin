@@ -202,18 +202,9 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
         $points_arr = $this->extractPoints($linesrting, null);
 
-        $row = 'new Array(';
-        foreach ($points_arr as $point) {
-            $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', '
-                . $point[1] . ')).transform(new OpenLayers.Projection("EPSG:'
-                . $srid . '"), map.getProjectionObject()), ';
-        }
-        $row = substr($row, 0, strlen($row) - 2);
-        $row .= ')';
-
         $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.LineString(' . $row . '), null, '
-            . json_encode($style_options) . '));';
+            . $this->getLineForOpenLayers($points_arr, $srid)
+            . ', null, ' . json_encode($style_options) . '));';
         return $result;
     }
 

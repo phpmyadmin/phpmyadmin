@@ -172,12 +172,14 @@ foreach ($tables as $keyname => $each_table) {
         }
 
         if ($is_show_stats) {
-            $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
-            $sum_size                   += $tblsize;
-            list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+            $tblsize = doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
+            $sum_size += $tblsize;
+            list($formatted_size, $unit) = PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
             if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
-                list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0);
-                $overhead_size           += $each_table['Data_free'];
+                list($formatted_overhead, $overhead_unit) = PMA_formatByteDown(
+                    $each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0
+                );
+                $overhead_size += $each_table['Data_free'];
             }
         }
         break;
@@ -201,9 +203,9 @@ foreach ($tables as $keyname => $each_table) {
 
         // Drizzle doesn't provide data and index length, check for null
         if ($is_show_stats && $each_table['Data_length'] !== null) {
-            $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
-            $sum_size                   += $tblsize;
-            list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+            $tblsize =  $each_table['Data_length'] + $each_table['Index_length'];
+            $sum_size += $tblsize;
+            list($formatted_size, $unit) = PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
         }
         //$display_rows                   =  ' - ';
         break;
@@ -281,7 +283,7 @@ foreach ($tables as $keyname => $each_table) {
 
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         // $showtable might already be set from ShowDbStructureCreation, see above
-        if (!isset($showtable)) {
+        if (! isset($showtable)) {
             $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
         }
         $update_time = isset($showtable['Update_time']) ? $showtable['Update_time'] : false;
@@ -294,7 +296,7 @@ foreach ($tables as $keyname => $each_table) {
 
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         // $showtable might already be set from ShowDbStructureCreation, see above
-        if (!isset($showtable)) {
+        if (! isset($showtable)) {
             $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
         }
         $check_time = isset($showtable['Check_time']) ? $showtable['Check_time'] : false;
@@ -305,10 +307,10 @@ foreach ($tables as $keyname => $each_table) {
         }
     }
 
-    $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
+    $alias = (! empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
                ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
                : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
-    $truename = (!empty($tooltip_truename) && isset($tooltip_truename[$each_table['TABLE_NAME']]))
+    $truename = (! empty($tooltip_truename) && isset($tooltip_truename[$each_table['TABLE_NAME']]))
                ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
                : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
 
@@ -359,11 +361,11 @@ foreach ($tables as $keyname => $each_table) {
             $empty_table .= 'class="truncate_table_anchor"';
         }
         $empty_table .= ' href="sql.php?' . $tbl_url_query
-             . '&amp;sql_query=';
+            . '&amp;sql_query=';
         $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
-             . '&amp;message_to_show='
-             . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
-             .'">';
+            . '&amp;message_to_show='
+            . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
+            .'">';
         if ($may_have_rows) {
             $empty_table .= $titles['Empty'];
         } else {
@@ -413,8 +415,6 @@ foreach ($tables as $keyname => $each_table) {
     $do = false;
 
     if ($server_slave_status) {
-        ////////////////////////////////////////////////////////////////
-
         if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0)
             || (strlen(array_search($db, $server_slave_Do_DB)) > 0)
             || (count($server_slave_Do_DB) == 1 && count($server_slave_Ignore_DB) == 1)
@@ -429,7 +429,7 @@ foreach ($tables as $keyname => $each_table) {
                 $do = true;
             }
         }
-        ////////////////////////////////////////////////////////////////////
+
         if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
             || (strlen(array_search($db, $server_slave_Ignore_DB)) > 0)
         ) {
@@ -489,8 +489,8 @@ foreach ($tables as $keyname => $each_table) {
         $row_count_pre = '';
         $show_superscript = '';
         if ($table_is_view) {
-            // Drizzle views use FunctionEngine, and the only place where they are available are I_S and D_D
-            // schemas, where we do exact counting
+            // Drizzle views use FunctionEngine, and the only place where they are
+            // available are I_S and D_D schemas, where we do exact counting
             if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
                 && $each_table['ENGINE'] != 'FunctionEngine'
             ) {
