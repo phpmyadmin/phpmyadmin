@@ -400,14 +400,6 @@ $cfg['Servers'][$i]['userconfig'] = '';
 $cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
 
 /**
- * set to false if you know that your pma_* tables are up to date.
- * This prevents compatibility checks and thereby increases performance.
- *
- * @global boolean $cfg['Servers'][$i]['verbose_check']
- */
-$cfg['Servers'][$i]['verbose_check'] = true;
-
-/**
  * whether to allow root login
  *
  * @global boolean $cfg['Servers'][$i]['AllowRoot']
