@@ -10,6 +10,18 @@
  */
 require_once 'libraries/common.inc.php';
 
+/**
+ * display Git revision if requested
+ */
+require_once 'libraries/display_git_revision.lib.php';
+
+if ($GLOBALS['PMA_Config']->isGitRevision()) {
+    if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
+        PMA_printGitRevision();
+    }
+    PMA_AddJSVar('is_git_revision', true);
+}
+
 // Handles some variables that may have been sent by the calling script
 $GLOBALS['db'] = '';
 $GLOBALS['table'] = '';
@@ -231,14 +243,6 @@ if ($GLOBALS['cfg']['VersionCheck'] && ! $GLOBALS['PMA_Config']->get('is_https')
     $class = 'jsversioncheck';
 }
 PMA_printListItem(__('Version information') . ': ' . PMA_VERSION, 'li_pma_version', null, null, null, null, $class);
-
-// if running in Git repo, show revision and branch
-$GLOBALS['PMA_Config']->checkGitRevision();
-if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
-    include_once 'libraries/display_git_revision.lib.php';
-    PMA_printGitRevision();
-}
-
 PMA_printListItem(__('Documentation'), 'li_pma_docs', 'Documentation.html', null, '_blank');
 PMA_printListItem(__('Wiki'), 'li_pma_wiki', PMA_linkURL('http://wiki.phpmyadmin.net/'), null, '_blank');
 

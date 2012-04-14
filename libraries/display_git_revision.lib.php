@@ -14,6 +14,13 @@ if (! defined('PHPMYADMIN')) {
 */
 function PMA_printGitRevision()
 {
+    if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
+        PMA_ajaxResponse('', false);
+    }
+
+    // load revision data from repo
+    $GLOBALS['PMA_Config']->checkGitRevision();
+
     // if using a remote commit fast-forwarded, link to Github
     $commit_hash = substr($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'), 0, 7);
     $commit_hash = '<strong title="' 
@@ -41,6 +48,7 @@ function PMA_printGitRevision()
         $branch = $commit_hash . ' (' . __('no branch') . ')';
     }
 
+    ob_start();
     PMA_printListItem(__('Git revision') . ': '
         . $branch . ',<br /> '
         . sprintf(
@@ -57,4 +65,7 @@ function PMA_printGitRevision()
                     . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR')['name']) . '</a>')
             : ''),
         'li_pma_version_git', null, null, null);
+    $item = ob_get_contents();
+    ob_end_clean();
+    PMA_ajaxResponse($item, true);
 }

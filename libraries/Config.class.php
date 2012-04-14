@@ -347,6 +347,23 @@ class PMA_Config
     }
 
     /**
+     * detects if Git revision
+     *
+     * @return boolean
+     */
+    function isGitRevision()
+    {
+        // find out if there is a .git folder
+        $git_folder = '.git';
+        if (! @file_exists($git_folder) 
+            || ! @file_exists($git_folder . '/config')) {
+            return false;
+        }
+        $this->set('PMA_VERSION_GIT', 1);
+        return true;
+    }
+
+    /**
      * detects Git revision, if running inside repo
      *
      * @return void
