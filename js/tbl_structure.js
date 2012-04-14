@@ -622,16 +622,19 @@ function moreOptsMenuResize() {
         $table.find("td.more_opts").hide();
     }
 
-    // Position the dropdown
-    $(".structure_actions_dropdown").each(function() {
-        // Optimize DOM querying
-        var $this_dropdown = $(this);
-         // The top offset must be set for IE even if it didn't change
-        var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
-        var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
-        var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
-        $this_dropdown.offset({ top: top_offset, left: left_offset });
-    });
+    // wait for topmenu resize handler
+    setTimeout(function () {
+        // Position the dropdown
+        $(".structure_actions_dropdown").each(function() {
+            // Optimize DOM querying
+            var $this_dropdown = $(this);
+             // The top offset must be set for IE even if it didn't change
+            var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
+            var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
+            var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
+            $this_dropdown.offset({ top: top_offset, left: left_offset });
+        });
+    }, 100);
 
     // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
     // positioning an iframe directly on top of it
