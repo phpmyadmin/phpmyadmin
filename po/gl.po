@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-14 15:05+0200\n"
+"PO-Revision-Date: 2012-04-14 21:44-0000\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -4968,15 +4968,14 @@ msgid "Server port"
 msgstr "Porto do servidor"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere un histórico das procuras SQL; por omisión: "
-"[kbd]pma_history[/kbd]"
+"Deixeo en blanco para eliminar a \"persistencia\" das táboas utilizadas "
+"recentemente entre sesións, suxerido: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 #| msgid "Recall user name"
@@ -5049,7 +5048,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF schema: coordenadas de táboa"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "le to describe the display fields, leave blank for no support; gested: "
 #| "[kbd]pma_table_info[/kbd]"
@@ -5057,8 +5055,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
-"Táboa para describir os campos a exhibir; déixeo en branco se non a quere; "
-"por omisión: [kbd]pma_table_info[/kbd]"
+"Táboa para describir a presentacióm dos campos; déixeo en branco para quitar "
+"soporte; suxerido: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 #| msgid "Display fields table"
@@ -6980,7 +6978,7 @@ msgstr "Abrir unha xanela nova co phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:134
 msgid "No data found for GIS visualization."
-msgstr ""
+msgstr "Non se atoparon datos para a visualización GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
@@ -8011,10 +8009,10 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Non ten privilexios suficientes para crear un disparador"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Non se achou ningunha táboa na base de datos"
+msgstr "Non se atopou disparador co nome %1$s na base de datos %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 #| msgid "There are no configured servers"
@@ -8038,16 +8036,15 @@ msgid "event"
 msgstr "evento"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Non ten direitos suficientes para estar aquí agora!"
+msgstr "Non ten privilexios suficientes para crear un evento"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Non se achou ningunha táboa na base de datos"
+msgstr "No event with name %1$s found in database %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 #| msgid "There are no configured servers"
@@ -8769,10 +8766,9 @@ msgid "Appearance Settings"
 msgstr "Configuración de aparencia"
 
 #: main.php:153 prefs_manage.php:272
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "opcións"
+msgstr "Máis opcións"
 
 #: main.php:169
 #| msgid "Database for user"
@@ -8799,10 +8795,9 @@ msgid "User"
 msgstr "Usuario"
 
 #: main.php:184
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Socket do servidor"
+msgstr "Xogo de carácteres do servidor"
 
 #: main.php:196
 msgid "Web server"
@@ -8831,15 +8826,13 @@ msgid "Contribute"
 msgstr "Contribuir"
 
 #: main.php:244
-#, fuzzy
 msgid "Get support"
-msgstr "Exportar"
+msgstr "Obter soporte"
 
 #: main.php:245
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Sen cambios"
+msgstr "Lista de cambios"
 
 #: main.php:269
 msgid ""
@@ -8959,17 +8952,15 @@ msgid "No databases"
 msgstr "Non hai ningunha base de datos"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "table name"
 msgid "Filter tables by name"
-msgstr "nome da táboa"
+msgstr "Filtrar táboas por nome"
 
 #: navigation.php:303 navigation.php:304
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
-msgstr "Crear táboas"
+msgstr "Crear táboa"
 
 #: navigation.php:309 navigation.php:473
 msgid "Please select a database"
@@ -9016,20 +9007,18 @@ msgid "Toggle small/big"
 msgstr "Alternar pequeno/grande"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Para seleccionar unha relación, prema:"
+msgstr "Conmutar liñas de relación"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importar/Exportar coordenadas para esquema PDF"
 
 #: pmd_general.php:110
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Enviar esta procura"
+msgstr "Construir petición"
 
 #: pmd_general.php:115
 msgid "Move Menu"
@@ -9056,86 +9045,73 @@ msgid "Delete relation"
 msgstr "Eliminar a relación"
 
 #: pmd_general.php:454 pmd_general.php:513
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Eliminouse a relación"
+msgstr "Operador de relación"
 
 #: pmd_general.php:464 pmd_general.php:523 pmd_general.php:646
 #: pmd_general.php:763
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Exportar"
+msgstr "Excepto"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "a procurar"
+msgstr "subpetición"
 
 #: pmd_general.php:474 pmd_general.php:570
-#, fuzzy
 msgid "Rename to"
-msgstr "Mudar o nome da táboa para"
+msgstr "Renomear a"
 
 #: pmd_general.php:476 pmd_general.php:575
-#, fuzzy
 #| msgid "User name"
 msgid "New name"
-msgstr "Nome do usuario"
+msgstr "Novo nome"
 
 #: pmd_general.php:479 pmd_general.php:694
-#, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Crear"
+msgstr "Agregar"
 
 #: pmd_general.php:804
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Opcións da táboa"
+msgstr "Opcións activas"
 
 #: pmd_pdf.php:30
-#, fuzzy
 msgid "Page has been created"
-msgstr "Creouse a táboa %1$s."
+msgstr "A páxina foi creada"
 
 #: pmd_pdf.php:33
 msgid "Page creation failed"
 msgstr ""
 
 #: pmd_pdf.php:85
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "páxinas"
+msgstr "Páxina"
 
 #: pmd_pdf.php:95
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "Importar ficheiros"
+msgstr "Importar dende a páxina seleccionada"
 
 #: pmd_pdf.php:96
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
-msgstr "Exportar/Importar a escala"
+msgstr "Exportar a páxina seleccionada"
 
 #: pmd_pdf.php:98
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Crear un índice novo"
+msgstr "Crear unha páxina e exportar a ela"
 
 #: pmd_pdf.php:107
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Nome do usuario"
+msgstr "Nome da nova páxina:"
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
@@ -9198,10 +9174,9 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:237
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Importar ficheiros"
+msgstr "Importar dende arquivo"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
@@ -11249,25 +11224,23 @@ msgstr ""
 "Sincronizáronse as táboas de destino seleccionadas coas táboas de orixe."
 
 #: server_synchronize.php:1046
-#, fuzzy
 msgid "Executed queries"
-msgstr "Solicitudes SQL"
+msgstr "Peticións executadas"
 
 #: server_synchronize.php:1202
 msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1210
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "A conexión non é segura"
+msgstr "Conexión actual"
 
 #: server_synchronize.php:1250
-#, fuzzy, php-format
+#, php-format
 #| msgid "Configuration file"
 msgid "Configuration: %s"
-msgstr "Ficheiro de configuración"
+msgstr "Configuración: %s"
 
 #: server_synchronize.php:1265
 msgid "Socket"
@@ -11310,7 +11283,6 @@ msgid "Cannot load or save configuration"
 msgstr "Non se puido cargar ou gravar a configuración"
 
 #: setup/frames/index.inc.php:50
-#, fuzzy
 #| msgid ""
 #| "ase create web server writable folder [em]config[/em] in phpMyAdmin  "
 #| "level directory as described in [a@../Documentation.html#setup_script]"
@@ -11320,9 +11292,9 @@ msgid ""
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"Cree un cartafol no que poida escribir o servidor web [em]config[/em] no "
-"directorio superior dophpMyAdmin, tal e como se describe na [a@../"
-"Documentation.html#setup_script]documentación[/a]. Se non, só o poderá "
+"Cree un directorio [em]config[/em] no que poida escribir no servidor web no "
+"directorio máis alto do phpMyAdmin tal e como se describe na "
+"[a@../Documentation.html#setup_script]documentación[/a]. Se non, só o poderá "
 "descargar ou mostrar."
 
 #: setup/frames/index.inc.php:57
@@ -11348,10 +11320,9 @@ msgid "Insecure connection"
 msgstr "A conexión non é segura"
 
 #: setup/frames/index.inc.php:94
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Configuration saved."
-msgstr "Ficheiro de configuración"
+msgstr "Configuración gardada"
 
 #: setup/frames/index.inc.php:95
 msgid ""
@@ -11467,7 +11438,7 @@ msgid "Unparsable version string"
 msgstr "Non se pode analizar a cadea da versión"
 
 #: setup/lib/index.lib.php:180
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " are using subversion version, run [kbd]svn update[/kbd] :-)[br]The est "
 #| "stable version is %s, released on %s."
@@ -11475,15 +11446,15 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Está a empregar versións con subversion; execute [kbd]svn update[/kbd] :-)"
-"[br]A versión estábel máis recente é %s, publicada o %s."
+"Está a empregar versiónado Git; execute [kbd]git pull[/kbd] :-)[br]A versión "
+"estable máis recente é %s, publicada o %s."
 
 #: setup/lib/index.lib.php:186
 msgid "No newer stable version is available"
 msgstr "Non existe ningunha versión estábel máis recente"
 
 #: setup/lib/index.lib.php:274
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "s [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 #| "abled as it allows attackers to bruteforce login to any MySQL server. you "
@@ -11497,12 +11468,11 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Esta [a@?page=form&amp;formset=features#tab_Security]opción[/a] debería "
-"estar desactivada, dado que permite que os atacantes empreguen a forza bruta "
-"para entrar no servidor de MySQL. Se pensa que é preciso, empregue unha [a@?"
-"page=form&amp;formset=features#tab_Security]lista de proxies de confianza[/"
-"a]. Porén, a protección baseada no IP pode non ser de fiar se o IP pertence "
-"a un ISP ao que están ligados miles de usuarios, como vostede."
+"Esta %sopción%s debe estar desactivada porque permite ós atacantes iniciar "
+"sesión por forza bruta a calquer servidor MySQL. Si o cree necesario, "
+"utilice un %slistado de proxies de confianza%s. Sen embargo, a protección "
+"basada en IP poderia no ser confiable se o seu IP pertence a un ISP ó que "
+"conectados miles de usuarios, incluindoo a vostede."
 
 #: setup/lib/index.lib.php:276
 msgid ""
@@ -11515,7 +11485,7 @@ msgstr ""
 "cookies; non a ten que lembrar."
 
 #: setup/lib/index.lib.php:277
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "?page=form&amp;formset=features#tab_Import_export]Bzip2 compression  "
 #| "decompression[/a] requires functions (%s) which are unavailable on s "
@@ -11524,9 +11494,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"A [a@?page=form&amp;formset=features#tab_Import_export]compresión e "
-"descompresión con Bzip2 [/a] require funcións (%s) que non están dispoñíbeis "
-"neste sistema."
+"%sA compresión e decompresión Bzip2%s require funcións (%s) que non están "
+"dispoñibles no sistema."
 
 #: setup/lib/index.lib.php:279
 msgid ""
@@ -11538,10 +11507,10 @@ msgstr ""
 "demais usuarios do servidor."
 
 #: setup/lib/index.lib.php:280
-#, fuzzy, php-format
+#, php-format
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "Debería empregar conexións SSL se o admite o servidor web"
+msgstr "esta %sopción%s debería estar activada se o seu servidor web a soporta."
 
 #: setup/lib/index.lib.php:282
 #, fuzzy, php-format
@@ -11655,32 +11624,28 @@ msgstr ""
 "a] require funcións (%s) que non están dispoñíbeis neste sistema."
 
 #: setup/lib/index.lib.php:324
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it"
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Debería empregar conexións SSL se o admite o servidor web"
+msgstr "Debería empregar conexións SSL se o admite o servidor web."
 
 #: setup/lib/index.lib.php:337
-#, fuzzy
 #| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
-msgstr "Debería empregar mysqli por razóns de desempeño"
+msgstr "Debería empregar mysqli por razóns de rendemento"
 
 #: setup/lib/index.lib.php:368
 msgid "You allow for connecting to the server without a password."
 msgstr "Permite ligar co servidor sen contrasinal."
 
 #: setup/lib/index.lib.php:390
-#, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "A chave é curta de máis; debería ter un mínimo de oito caracteres"
+msgstr "A chave é curta de máis, debería ter un mínimo de oito caracteres"
 
 #: setup/lib/index.lib.php:397
-#, fuzzy
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "A chave debería conter letras, números [em]e[/em] caracteres especiais"
+msgstr "A chave debería conter letras, números [em]e[/em] caracteres especiais."
 
 #: setup/validate.php:22
 #| msgid "No databases"
@@ -11729,10 +11694,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Alterouse a táboa %1$s sen problemas"
 
 #: tbl_change.php:699
-#, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Por causa da sua lonxitude,<br /> este campo pode non ser editábel "
+msgstr "Por causa da sua lonxitude,<br /> este campo pode non ser editable"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
@@ -11821,10 +11785,9 @@ msgid "Pie"
 msgstr "Pastel"
 
 #: tbl_chart.php:100
-#, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
-msgstr "Empaquetado"
+msgstr "Apiladas"
 
 #: tbl_chart.php:103
 #| msgid "Report title"
@@ -11841,10 +11804,9 @@ msgid "Series:"
 msgstr "Series:"
 
 #: tbl_chart.php:126
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "The remaining columns"
-msgstr "Columnas de área de texto de CHAR"
+msgstr "Ás columnas restantes"
 
 #: tbl_chart.php:139
 msgid "X-Axis label:"
@@ -11879,10 +11841,9 @@ msgid "View dump (schema) of table"
 msgstr "Ver o esquema do volcado da táboa"
 
 #: tbl_gis_visualization.php:112
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Mostrar a selección de servidores"
+msgstr "Mostrar visualización GIS"
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
@@ -11893,22 +11854,19 @@ msgid "Height"
 msgstr ""
 
 #: tbl_gis_visualization.php:136
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Label column"
-msgstr "Columnas de área de texto de CHAR"
+msgstr "Etiqueta da columna"
 
 #: tbl_gis_visualization.php:138
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- ningún -"
+msgstr "- Ningún -"
 
 #: tbl_gis_visualization.php:151
-#, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
-msgstr "Número de ficheiros de rexistro"
+msgstr "Columna espacial"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
@@ -12029,26 +11987,23 @@ msgid "Table %s has been flushed"
 msgstr "Fechouse a táboa %s"
 
 #: tbl_operations.php:688
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Fechar a táboa (\"FLUSH\")"
+msgstr "Vaciar a caché da táboa (\"FLUSH\")"
 
 #: tbl_operations.php:697
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "A extraer datos da táboa"
+msgstr "Eliminar datos da táboa"
 
 #: tbl_operations.php:714
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:736
-#, fuzzy
 #| msgid "Go to database"
 msgid "Delete the table (DROP)"
-msgstr "Ir á base de datos"
+msgstr "Borrar a táboa (DROP)"
 
 #: tbl_operations.php:758
 msgid "Partition maintenance"
@@ -12088,10 +12043,9 @@ msgid "Check referential integrity:"
 msgstr "Comprobar a integridade das referencias:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Mostrar as táboas"
+msgstr "Mostrando táboas"
 
 #: tbl_printview.php:269 tbl_structure.php:764
 msgid "Space usage"
@@ -12136,10 +12090,9 @@ msgstr ""
 "Houbo un erro ao crear a chave externa en %1$s (comprobe os tipos de datos)"
 
 #: tbl_relation.php:398
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Relacións internas"
+msgstr "Relación interna"
 
 #: tbl_relation.php:400
 msgid ""
@@ -12150,20 +12103,18 @@ msgstr ""
 "correspondente."
 
 #: tbl_relation.php:406
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Límite das chaves alleas"
+msgstr "Límite das chaves externas"
 
 #: tbl_select.php:84
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faga unha \"procura por exemplo\" (o comodín é \"%\")"
 
 #: tbl_select.php:178
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Seleccione os campos (mínimo un)"
+msgstr "Seleccione os campos (mínimo un)>"
 
 #: tbl_select.php:196
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -12194,27 +12145,25 @@ msgid "Add unique index"
 msgstr ""
 
 #: tbl_structure.php:173 tbl_structure.php:174
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add SPATIAL index"
-msgstr "Aplicar índice(s)"
+msgstr "Engadir índice SPATIAL"
 
 #: tbl_structure.php:175 tbl_structure.php:176
 msgid "Add FULLTEXT index"
 msgstr ""
 
 #: tbl_structure.php:359 tbl_tracking.php:295
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Ningunha"
 
 #: tbl_structure.php:372
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "Eliminouse a táboa %s"
+msgstr "Eliminouse a columna %s"
 
 #: tbl_structure.php:383 tbl_structure.php:477
 #, php-format
@@ -12229,16 +12178,14 @@ msgid "An index has been added on %s"
 msgstr "Engadiusese un índice a %s"
 
 #: tbl_structure.php:465
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show more actions"
-msgstr "Mostrar as versións"
+msgstr "Mostrar máis accións"
 
 #: tbl_structure.php:607
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Visualización previa da impresión"
+msgstr "Editar vista"
 
 #: tbl_structure.php:624
 msgid "Relation view"
@@ -12267,10 +12214,10 @@ msgid "After %s"
 msgstr "Despois de %s"
 
 #: tbl_structure.php:703
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Crear un índice en&nbsp;%s&nbsp;colunas"
+msgstr "Crear un índice en &nbsp;%s&nbsp;columnas"
 
 #: tbl_structure.php:861
 msgid "partitioned"
@@ -12320,16 +12267,14 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Instantánea da versión %s (código SQL)"
 
 #: tbl_tracking.php:388
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "Seguir estas declaracións de definición de datos:"
+msgstr "Definicion dos datos de seguementoo eliminada con exito"
 
 #: tbl_tracking.php:390 tbl_tracking.php:407
-#, fuzzy
 #| msgid "Ignore errors"
 msgid "Query error"
-msgstr "Ignorar os erros"
+msgstr "Erro na petición"
 
 #: tbl_tracking.php:405
 #, fuzzy
@@ -12347,16 +12292,14 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Mostrar %s con datas de %s a %s polo usuario %s %s"
 
 #: tbl_tracking.php:438
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
-msgstr "Permite inserir e substituír datos."
+msgstr "Borrar os datos de seguemento de filas do reporte"
 
 #: tbl_tracking.php:449
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "Non hai ningunha base de datos"
+msgstr "Non hai datos"
 
 #: tbl_tracking.php:459 tbl_tracking.php:516
 msgid "Date"
