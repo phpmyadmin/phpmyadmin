@@ -3,6 +3,9 @@
 /**
  * @package PhpMyAdmin-Designer
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  *

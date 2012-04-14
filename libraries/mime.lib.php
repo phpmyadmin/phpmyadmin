@@ -6,6 +6,9 @@
  * @package PhpMyAdmin
  * @todo Maybe we could try to use fileinfo module if loaded
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Tries to detect MIME type of content.

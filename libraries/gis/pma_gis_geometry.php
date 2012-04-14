@@ -1,5 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Base class for all GIS data type classes.
  *

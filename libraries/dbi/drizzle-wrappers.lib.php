@@ -10,6 +10,9 @@
  * @package PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 // TODO: drizzle module segfaults while freeing resources, often. This allows at least for some development
 function _drizzle_shutdown_flush()

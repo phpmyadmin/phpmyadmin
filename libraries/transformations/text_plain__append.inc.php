@@ -4,6 +4,9 @@
  * @package phpMyAdmin-Transformation
  * Has one option: the text to be appended (default '')
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 function PMA_transformation_text_plain__append_info()
 {

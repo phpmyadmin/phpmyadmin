@@ -3,6 +3,9 @@
 /**
  * TCPDF wrapper class.
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 require_once './libraries/tcpdf/tcpdf.php';
 

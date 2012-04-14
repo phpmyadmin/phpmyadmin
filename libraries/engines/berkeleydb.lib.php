@@ -3,6 +3,9 @@
 /**
  * @package PhpMyAdmin-Engines
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Load BDB class.

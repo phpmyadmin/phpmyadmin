@@ -1,5 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the visualization of GIS MULTIPOINT objects.
  *

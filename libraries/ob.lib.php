@@ -11,6 +11,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * This function be used eventually to support more modes.  It is needed

@@ -1,5 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * This function is used to retreive some language strings that are used
  * in functionalities that are common to routines, triggers and events.
