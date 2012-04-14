@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.4.11.0 (not yet released)
+3.4.11.0 (2012-04-14)
 - bug #3486970 [import] Exception on XML import
 - bug #3488777 [navi] $cfg['ShowTooltipAliasTB'] and blank names in navigation
 - bug #3512565 [navi] Fixed missing word "Rows" in table list tooltip after click
