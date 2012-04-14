@@ -8741,6 +8741,8 @@ msgstr ""
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
 msgstr ""
+"විස්තර පෙන්වන්න <i>(අපනයන වේලාව, PHP අනුවාදය සහ සේවාදායකයේ අනුවාදය වැනි "
+"තොරතුරු ඇතුලත් කරන්න)</i>"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
@@ -8753,10 +8755,14 @@ msgstr "අනුවාදය"
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
 msgstr ""
+"දත්තගබඩා සෑදූ , අවසන් වරට යාවත්කාලීන කල හා අවසන් වරට පරීක්ෂා කල වේලාවන් "
+"ඇතුලත් කරන්න"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
 msgstr ""
+"ප්‍රතිදාන අනුකූලතාව උපරිම කල යුතු පැරණි MySQL සේවාදායකය හෝ වෙනත් දත්තගබඩා "
+"පද්ධතිය:"
 
 #: server_plugins.php:182
 #| msgid "Disabled"
@@ -8800,31 +8806,45 @@ msgstr ""
 #: server_privileges.php:669
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
+"සියලුම <code>INSERT</code> ප්‍රකාශ වල තීර නම් ඇතුලත් කරන්න <br /> &nbsp; "
+"&nbsp; &nbsp; උදාහරණ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: server_privileges.php:42 server_privileges.php:273
 #: server_privileges.php:286 server_privileges.php:641
 #: server_privileges.php:645
 msgid "Allows creating new views."
 msgstr ""
+"සෑම <code>INSERT</code> ප්‍රකාශයක ම පේළි එකකට වැඩි ගණනක් ඇතුල් කරන්න<br /> "
+"&nbsp; &nbsp; &nbsp; උදාහරණ: <code>INSERT INTO tbl_name VALUES (1,2,3), "
+"(4,5,6), (7,8,9)</code>"
 
 #: server_privileges.php:43 server_privileges.php:209
 #: server_privileges.php:621
 msgid "Allows deleting data."
 msgstr ""
+"ඉහත දෙවර්ගයම<br /> &nbsp; &nbsp; &nbsp; උදාහරණ: <code>INSERT INTO tbl_name "
+"(col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: server_privileges.php:44 server_privileges.php:217
 #: server_privileges.php:632
 msgid "Allows dropping databases and tables."
 msgstr ""
+"ඉහත එක් වර්ගයක්වත් නොව<br /> &nbsp; &nbsp; &nbsp; උදාහරණ: <code>INSERT INTO "
+"tbl_name VALUES (1,2,3)</code>"
 
 #: server_privileges.php:45 server_privileges.php:632
 msgid "Allows dropping tables."
 msgstr ""
+"ද්වීමය තීර hexadecimal ලෙස නික්ෂේපනය කරන්න <i>(උදාහරණ: \"abc\", 0x616263 "
+"ලෙස)</i>"
 
 #: server_privileges.php:46 server_privileges.php:277
 #: server_privileges.php:649
 msgid "Allows to set up events for the event scheduler"
 msgstr ""
+"TIMESTAMP තීර UTC ලෙස නික්ෂේපනය කරන්න <i>(වෙනස් වෙලා කලාපවල ඇති සේවාදායක අතර "
+"TIMESTAMP තීර නික්ෂේපනය හා ප්‍රතිපූරණයට අවස්ථාව ලබා දේ)</i>"
 
 #: server_privileges.php:47 server_privileges.php:311
 #: server_privileges.php:637
