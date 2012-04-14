@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-06 09:39+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2012-04-14 19:26+0200\n"
+"Last-Translator: Robin Pepermans <robinp.1273@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -126,7 +126,7 @@ msgstr "Databank %1$s werd aangemaakt."
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
-msgstr "Databank opmerking: "
+msgstr "Databankopmerking: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
@@ -260,7 +260,7 @@ msgstr "Deselecteer alles"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "De databank naam is leeg!"
+msgstr "De databanknaam is leeg!"
 
 #: db_operations.php:280
 #, php-format
@@ -303,7 +303,7 @@ msgstr "Structuur en gegevens"
 
 #: db_operations.php:493 tbl_operations.php:556 tbl_tracking.php:425
 msgid "Data only"
-msgstr "Alleen data"
+msgstr "Alleen gegevens"
 
 #: db_operations.php:501
 msgid "CREATE DATABASE before copying"
@@ -319,7 +319,7 @@ msgstr "Voeg %s toe"
 #: db_operations.php:508 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:564
 msgid "Add AUTO_INCREMENT value"
-msgstr "Voeg AUTO_INCREMENT waarde toe"
+msgstr "Voeg AUTO_INCREMENT-waarde toe"
 
 #: db_operations.php:512 tbl_operations.php:571
 msgid "Add constraints"
@@ -327,7 +327,7 @@ msgstr "Voeg beperkingen toe"
 
 #: db_operations.php:525
 msgid "Switch to copied database"
-msgstr "Overschakelen naar de gekopiëerde databank"
+msgstr "Overschakelen naar de gekopieerde databank"
 
 #: db_operations.php:548 libraries/Index.class.php:446
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
@@ -345,7 +345,7 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"De phpMyAdmin configuratie-opslag is uitgeschakeld. Om te weten te komen "
+"De configuratie-opslag van phpMyAdmin is uitgeschakeld. Om te weten te komen "
 "waarom klik %shier%s."
 
 #: db_operations.php:595
@@ -470,11 +470,11 @@ msgstr "Aanpassen"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
-msgstr "Toevoegen/Verwijderen criterium-rijen"
+msgstr "Criterium-rijen toevoegen/verwijderen"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
-msgstr "Toevoegen/Verwijderen kolommen"
+msgstr "Kolommen toevoegen/verwijderen"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
@@ -482,7 +482,7 @@ msgstr "Wijzig Query"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr "Gebruik tabellen"
+msgstr "Tabellen gebruiken"
 
 #: db_qbe.php:662
 #, php-format
@@ -519,7 +519,7 @@ msgstr "als een reguliere expressie"
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Zoek resultaten voor \"<i>%s</i>\" %s:"
+msgstr "Zoekresultaten voor \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
 #, php-format
@@ -572,7 +572,7 @@ msgstr "Zoek:"
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
-msgstr "Woorden worden gesplits door een spatiekarakter (\" \")."
+msgstr "Woorden worden gesplitst door een spatiekarakter (\" \")."
 
 #: db_search.php:300
 msgid "Inside tables:"
@@ -674,7 +674,7 @@ msgstr "Selecteer tabellen met overhead"
 #: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1606
 #: setup/frames/menu.inc.php:21
 msgid "Export"
-msgstr "Exporteer"
+msgstr "Exporteren"
 
 #: db_structure.php:583 db_structure.php:639
 #: libraries/display_tbl.lib.php:2606 tbl_structure.php:613
@@ -807,7 +807,7 @@ msgstr "Databank-log"
 #: enum_editor.php:23 js/messages.php:266
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr "ENUM/SET editor"
+msgstr "ENUM/SET-editor"
 
 #: enum_editor.php:28 js/messages.php:268
 msgid "Values for a new column"
@@ -859,12 +859,12 @@ msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 "Bestand %s bestaat al op de server, verander de bestandsnaam of activeer de "
-"overschrijven optie."
+"optie overschrijven."
 
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "De web server heeft geen rechten om het bestand %s op te slaan."
+msgstr "De webserver heeft geen rechten om het bestand %s op te slaan."
 
 #: export.php:654
 #, php-format
@@ -873,7 +873,7 @@ msgstr "Dump is bewaard als %s."
 
 #: file_echo.php:21
 msgid "Invalid export type"
-msgstr "Ongeldig export type"
+msgstr "Ongeldig exporttype"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -882,7 +882,7 @@ msgstr "Waarde voor kolom \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Gebruik OpenStreetMaps als basis layer"
+msgstr "Gebruik OpenStreetMaps als basislayer"
 
 #: gis_data_editor.php:134
 msgid "SRID"
@@ -957,8 +957,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Kies \"GeomFormText\" uit de \"Function\" kolom en plaats de onderstaande "
-"string in het \"Waarde\" veld"
+"Kies \"GeomFormText\" uit de kolom \"Functie\" en plaats de onderstaande string "
+"in het veld \"Waarde\""
 
 #: import.php:57
 #, php-format
@@ -971,11 +971,11 @@ msgstr ""
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
-msgstr "Toon bookmark"
+msgstr "Toon bladwijzer"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
-msgstr "De favoriet werd verwijderd."
+msgstr "De bladwijzer werd verwijderd."
 
 #: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
@@ -990,7 +990,7 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"U probeerde een bestand met een niet ondersteunde compressie (%s) te "
+"U probeerde een bestand met een niet-ondersteunde compressie (%s) te "
 "uploaden. De ondersteuning is niet geïmplementeerd of uitgeschakeld in de "
 "configuratie."
 
@@ -1000,10 +1000,10 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"Er is geen data ontvangen om te importeren. Dit kan gebeuren wanneer er geen "
-"bestand werd verzonden, of wanneer deze werd afgekeurd op basis van de "
-"maximale bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie [a@./"
-"Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"Er zijn geen gegevens ontvangen om te importeren. Dit kan gebeuren wanneer "
+"er geen bestand werd verzonden, of wanneer deze werd afgekeurd op basis van "
+"de maximale bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:366
 msgid ""
@@ -1021,7 +1021,7 @@ msgstr ""
 #: import.php:421 sql.php:939
 #, php-format
 msgid "Bookmark %s created"
-msgstr "Bookmark %s aangemaakt"
+msgstr "Bladwijzer %s aangemaakt"
 
 #: import.php:427 import.php:433
 #, php-format
@@ -1041,8 +1041,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Tijdens de laatste poging is er geen vooruitgang geboekt, meestal betekend "
-"dit dat phpMyAdmin dit niet af kan maken tenzij de tijdsrestricties van PHP "
+"Tijdens de laatste poging is er geen vooruitgang geboekt, meestal betekent "
+"dit dat phpMyAdmin dit niet af kan maken tenzij de tijdsbeperkingen van PHP "
 "worden versoepeld."
 
 #: import.php:472 libraries/Message.class.php:175
@@ -1093,7 +1093,7 @@ msgstr "Primaire sleutel/index wordt verwijderd"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Deze bewerking kan lang duren. Weet u het zeker?"
+msgstr "Deze bewerking kan lang duren. Toch voortgaan?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -1115,7 +1115,7 @@ msgstr "Dit is geen cijfer!"
 
 #: js/messages.php:46
 msgid "Add Index"
-msgstr "Voeg een index toe"
+msgstr "Index toevoegen"
 
 #: js/messages.php:47
 msgid "Edit Index"
@@ -1171,7 +1171,7 @@ msgstr "Sluiten"
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1390
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
-msgstr "Wijzig"
+msgstr "Wijzigen"
 
 #: js/messages.php:66 server_status.php:803
 msgid "Live traffic chart"
@@ -1187,7 +1187,7 @@ msgstr "Grafiek van actieve queries"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr "Statische data"
+msgstr "Statische gegevens"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
@@ -1218,11 +1218,11 @@ msgstr "Verzonden KiB sinds laatste verversing"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr "Onvangen KiB sinds laatste verversing"
+msgstr "Ontvangen KiB sinds laatste verversing"
 
 #: js/messages.php:82
 msgid "Server traffic (in KiB)"
-msgstr "Server verkeer (in KiB)"
+msgstr "Serververkeer (in KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
@@ -1248,7 +1248,7 @@ msgstr "Questions (aantal door de server uitgevoerde opdrachten)"
 
 #: js/messages.php:91 server_status.php:785
 msgid "Query statistics"
-msgstr "Query statistieken"
+msgstr "Querystatistieken"
 
 #: js/messages.php:94
 msgid "Local monitor configuration incompatible"
@@ -1262,34 +1262,34 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 "De configuratie voor de volgorde van grafieken, die opgeslagen is in lokale "
-"opslag van je browser, is niet langer compatible met de nieuwere versie van "
-"de monitor interface. Je huidige instellingen werken mogelijk niet meer. "
-"Gelieve de instellingen te resetten naar de standaardwaarden in het "
-"<i>Instellingen</i> menu."
+"opslag van je browser, is niet langer compatibel met de nieuwere versie van "
+"de monitor-interface. Je huidige instellingen werken mogelijk niet meer. "
+"Gelieve de instellingen te resetten naar de standaardwaarden in het menu "
+"<i>Instellingen</i>."
 
 #: js/messages.php:97
 msgid "Query cache efficiency"
-msgstr "Query cache efficiëntie"
+msgstr "Querycache-efficiëntie"
 
 #: js/messages.php:98
 msgid "Query cache usage"
-msgstr "Query cache gebruik"
+msgstr "Querycache-gebruik"
 
 #: js/messages.php:99
 msgid "Query cache used"
-msgstr "Query cache gebruikt"
+msgstr "Querycache gebruikt"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr "CPU gebruik"
+msgstr "CPU-gebruik"
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr "Systeem geheugen"
+msgstr "Systeemgeheugen"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr "Systeem wisselbestand"
+msgstr "Systeemwisselbestand"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1402
@@ -1353,7 +1353,7 @@ msgstr "Ontvangen bytes"
 
 #: js/messages.php:121 server_status.php:1145
 msgid "Connections"
-msgstr "Connecties"
+msgstr "Verbindingen"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:125 libraries/common.lib.php:1398
@@ -1401,7 +1401,7 @@ msgstr "Instellingen"
 
 #: js/messages.php:138
 msgid "Remove chart"
-msgstr "Verwijder grafiek"
+msgstr "Grafiek verwijderen"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
@@ -1413,7 +1413,7 @@ msgstr "Grafiek toevoegen aan raster"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
-msgstr "Gelieve tenminste één variable toe te voegen aan de reeks"
+msgstr "Gelieve tenminste één variabele toe te voegen aan de reeks"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
@@ -1521,7 +1521,7 @@ msgstr "Huidige instellingen"
 
 #: js/messages.php:168 server_status.php:1651
 msgid "Chart Title"
-msgstr "Grafiek titel"
+msgstr "Grafiektitel"
 
 #. l10n: As in differential values
 #: js/messages.php:170
@@ -1539,7 +1539,7 @@ msgstr "Eenheid"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr "Uit het trage query logbestand"
+msgstr "Uit het logbestand van trage queries"
 
 #: js/messages.php:175
 msgid "From general log"
@@ -1560,7 +1560,7 @@ msgid ""
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 "Deze kolom toont het aantal identieke queries die gegroepeerd worden. Enkel "
-"de SQL query werd gebruikt als criterium voor het groeperen, dus andere "
+"de SQL-query werd gebruikt als criterium voor het groeperen, dus andere "
 "eigenschappen van queries, zoals de starttijd, kunnen verschillend zijn."
 
 #: js/messages.php:179
@@ -1569,23 +1569,24 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"Omdat het groeperen van INSERT queries geselecteerd werd, zullen INSERT "
+"Omdat het groeperen van INSERT-queries geselecteerd werd, zullen INSERT-"
 "queries voor dezelfde tabel ook gegroepeerd worden, zonder rekening te "
 "houden met de gegevens die ingevoegd worden."
 
 #: js/messages.php:180
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
-"Log gegevens werden geladen. Aantal uitgevoerde queries in deze tijdspanne:"
+"Loggegevens werden geladen. Aantal uitgevoerde queries in deze tijdspanne:"
 
 #: js/messages.php:182
 msgid "Jump to Log table"
-msgstr "Ga naar Log tabel"
+msgstr "Ga naar tabel Log"
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Log werd geanalyseerd, meer geen gegevens werden gevonden in deze tijdspanne."
+"Log werd geanalyseerd, maar geen gegevens werden gevonden in deze "
+"tijdspanne."
 
 #: js/messages.php:185
 msgid "Analyzing..."
@@ -1606,7 +1607,7 @@ msgstr "Totale tijd:"
 
 #: js/messages.php:190
 msgid "Profiling results"
-msgstr "Profiling resultaten"
+msgstr "Profiling-resultaten"
 
 #: js/messages.php:191
 msgctxt "Display format"
@@ -1620,7 +1621,7 @@ msgstr "Grafiek"
 #. l10n: A collection of available filters
 #: js/messages.php:195
 msgid "Log table filter options"
-msgstr "Filteropties voor Log tabel"
+msgstr "Filteropties voor tabel Log"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
@@ -1634,7 +1635,7 @@ msgstr "Queries filteren op woord/regexp:"
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
-"Queries groeperen, verschillende parameter waarden in WHERE statements "
+"Queries groeperen, verschillende parameter waarden in WHERE-statements "
 "worden genegeerd"
 
 #: js/messages.php:200
@@ -1659,9 +1660,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
-"Bij het opvragen van nieuwe grafiekgegevens gaf de server ongeldige data. "
-"Dit is waarschijnlijk omdat je sessie afgelopen is. Verversen van de pagina "
-"en opnieuw inloggen zou dit probleem moeten oplossen."
+"Bij het opvragen van nieuwe grafiekgegevens gaf de server ongeldige "
+"gegevens. Dit is waarschijnlijk omdat je sessie afgelopen is. Verversen van "
+"de pagina en opnieuw aanmelden zou dit probleem moeten oplossen."
 
 #: js/messages.php:206
 msgid "Reload page"
@@ -1674,7 +1675,7 @@ msgstr "Getroffen rijen:"
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"Verwerken van het configuratiebestand is mislukt. Het is geen geldig JSON "
+"Verwerken van het configuratiebestand is mislukt. Het is geen geldig JSON-"
 "formaat."
 
 #: js/messages.php:211
@@ -1682,7 +1683,7 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
-"Opbouwen van het raster met grafieken aan de hand van de geimporteerde "
+"Opbouwen van het raster met grafieken aan de hand van de geïmporteerde "
 "configuratie is mislukt. Standaard configuratie wordt gebruikt in de "
 "plaats..."
 
@@ -1691,7 +1692,7 @@ msgstr ""
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1606 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "Importeer"
+msgstr "Importeren"
 
 #: js/messages.php:214
 msgid "Analyse Query"
@@ -1715,7 +1716,7 @@ msgstr "Aanbeveling"
 
 #: js/messages.php:222
 msgid "Rule details"
-msgstr "Regel details"
+msgstr "Regeldetails"
 
 #: js/messages.php:223
 msgid "Justification"
@@ -1787,11 +1788,11 @@ msgstr "Tabel moet minimaal één kolom hebben"
 
 #: js/messages.php:251
 msgid "Insert Table"
-msgstr "Tabel toevoegen"
+msgstr "Tabel invoegen"
 
 #: js/messages.php:252
 msgid "Hide indexes"
-msgstr "Verberg indexen"
+msgstr "Indexen verbergen"
 
 #: js/messages.php:253
 msgid "Show indexes"
@@ -1803,11 +1804,11 @@ msgstr "Zoeken"
 
 #: js/messages.php:257
 msgid "Hide search results"
-msgstr "Verberg zoekresultaten"
+msgstr "Zoekresultaten verbergen"
 
 #: js/messages.php:258
 msgid "Show search results"
-msgstr "Toon zoekresultaten"
+msgstr "Zoekresultaten tonen"
 
 #: js/messages.php:259
 msgid "Browsing"
@@ -1820,7 +1821,7 @@ msgstr "Verwijderen"
 #: js/messages.php:263
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
-"De definitie van een opgeslagen functie moet een RETURN statement bevatten!"
+"De definitie van een opgeslagen functie moet een RETURN-statement bevatten!"
 
 #: js/messages.php:270
 #, php-format
@@ -1831,16 +1832,16 @@ msgstr "%d nieuwe waarde(n) toevoegen"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
-"Opmerking : Als het bestand meerdere tabellen bevat, zullen deze "
-"samengevoegd worden tot één tabel"
+"Opmerking: Als het bestand meerdere tabellen bevat, zullen deze samengevoegd "
+"worden tot één tabel"
 
 #: js/messages.php:276
 msgid "Hide query box"
-msgstr "SQL-query veld verbergen"
+msgstr "SQL-queryveld verbergen"
 
 #: js/messages.php:277
 msgid "Show query box"
-msgstr "SQL-query veld tonen"
+msgstr "SQL-queryveld tonen"
 
 #: js/messages.php:279 tbl_row_action.php:28
 msgid "No rows selected"
@@ -1854,7 +1855,7 @@ msgstr "Veranderen"
 
 #: js/messages.php:281
 msgid "Query execution time"
-msgstr "Query uitvoertijd"
+msgstr "Query-uitvoertijd"
 
 #: js/messages.php:284 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -1866,11 +1867,11 @@ msgstr "Opslaan"
 
 #: js/messages.php:287
 msgid "Hide search criteria"
-msgstr "Verberg zoekcriteria"
+msgstr "Zoekcriteria verbergen"
 
 #: js/messages.php:288
 msgid "Show search criteria"
-msgstr "Toon zoek-criteria"
+msgstr "Zoekcriteria tonen"
 
 #: js/messages.php:291 libraries/tbl_select.lib.php:110
 msgid "Zoom Search"
@@ -1878,7 +1879,7 @@ msgstr "Zoeken door in te zoomen"
 
 #: js/messages.php:293
 msgid "Each point represents a data row."
-msgstr "Ieder punt stelt een gegevens rij voor."
+msgstr "Ieder punt stelt een gegevensrij voor."
 
 #: js/messages.php:295
 msgid "Hovering over a point will show its label."
@@ -1899,7 +1900,7 @@ msgstr "Klik herstel zoom om terug te keren naar de beginpositie."
 #: js/messages.php:303
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"Klik een gegevens punt aan om dit te bekijken en om eventueel de data te "
+"Klik een gegevenspunt aan om dit te bekijken en om eventueel de gegevens te "
 "bewerken."
 
 #: js/messages.php:305
@@ -1922,7 +1923,7 @@ msgstr "Selecteer twee verschillende kolommen"
 
 #: js/messages.php:311
 msgid "Query results"
-msgstr "Query resultaten"
+msgstr "Queryresultaten"
 
 #: js/messages.php:312
 msgid "Data point content"
@@ -1931,7 +1932,7 @@ msgstr "Inhoud gegevenspunt"
 #: js/messages.php:315 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
 msgid "Ignore"
-msgstr "Negeer"
+msgstr "Negeren"
 
 #: js/messages.php:316 libraries/display_tbl.lib.php:1391
 msgid "Copy"
@@ -1939,7 +1940,7 @@ msgstr "Kopiëren"
 
 #: js/messages.php:331
 msgid "Add columns"
-msgstr "Voeg kolommen toe"
+msgstr "Kolommen toevoegen"
 
 #: js/messages.php:334
 msgid "Select referenced key"
@@ -1967,7 +1968,7 @@ msgstr ""
 
 #: js/messages.php:341
 msgid "Add an option for column "
-msgstr "Voeg een optie toe voor komom "
+msgstr "Een optie voor kolom toevoegen "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
@@ -2017,15 +2018,15 @@ msgstr "Ga naar de link"
 
 #: js/messages.php:356
 msgid "Generate password"
-msgstr "Genereer wachtwoord"
+msgstr "Wachtwoord genereren"
 
 #: js/messages.php:357 libraries/replication_gui.lib.php:369
 msgid "Generate"
-msgstr "Genereer"
+msgstr "Genereren"
 
 #: js/messages.php:358
 msgid "Change Password"
-msgstr "Wijzig wachtwoord"
+msgstr "Wachtwoord wijzigen"
 
 #: js/messages.php:361 tbl_structure.php:465
 msgid "More"
@@ -2037,7 +2038,7 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"Een recentere versie van phpMyAdmin is beschikbaar, u zou een upgrade kunnen "
+"Een recentere versie van phpMyAdmin is beschikbaar, u kunt een upgrade "
 "overwegen. De nieuwe versie is %s, uitgebracht op %s."
 
 #. l10n: Latest available phpMyAdmin version
@@ -2308,8 +2309,8 @@ msgstr "Seconde"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
-"Formateren van tekenreeks voor regel '%s' is mislukt. PHP gaf de volgende "
-"foutmelding : %s"
+"Formatteren van tekenreeks voor regel '%s' is mislukt. PHP gaf de volgende "
+"foutmelding: %s"
 
 #: libraries/Advisor.class.php:326 server_status.php:952
 msgid "per second"
@@ -2353,7 +2354,7 @@ msgstr "Er zijn teveel foutmeldingen, sommige worden niet weergegeven."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
-msgstr "Bestand is geen geupload bestand."
+msgstr "Bestand is geen geüpload bestand."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 msgid "Unknown error while uploading."
@@ -2362,7 +2363,7 @@ msgstr "Onbekende fout bij het uploaden."
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Het geuploade bestand is groter dan de 'upload_max_filesize' optie uit uw "
+"Het geüploade bestand is groter dan de optie 'upload_max_filesize' uit uw "
 "php.ini."
 
 #: libraries/File.class.php:281
@@ -2370,20 +2371,20 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"Het geuploade bestand overschrijd de MAX_FILE_SIZE-optie die was opgegeven "
-"in het HTML formulier."
+"Het geüploade bestand overschrijdt de MAX_FILE_SIZE-optie die was opgegeven "
+"in het HTML-formulier."
 
 #: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
-msgstr "Het geuploade bestand was slechts gedeeltelijk ontvangen."
+msgstr "Het geüploade bestand was slechts gedeeltelijk ontvangen."
 
 #: libraries/File.class.php:287
 msgid "Missing a temporary folder."
-msgstr "De map voor tijdelijkebestanden ontbreekt."
+msgstr "De map voor tijdelijke bestanden ontbreekt."
 
 #: libraries/File.class.php:290
 msgid "Failed to write file to disk."
-msgstr "Opslaan van het bestand op de hardeschijf is mislukt."
+msgstr "Opslaan van het bestand op de harde schijf is mislukt."
 
 #: libraries/File.class.php:293
 msgid "File upload stopped by extension."
@@ -2398,16 +2399,16 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Fout bij het verplaatsen van het geuploade bestand, zie [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Fout bij het verplaatsen van het geüploade bestand, zie "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr "Fout bij het verplaatsen van het geuploade bestand."
+msgstr "Fout bij het verplaatsen van het geüploade bestand."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr "Het geuploade bestand kan niet gelezen (verplaatst) worden."
+msgstr "Het geüploade bestand kan niet gelezen (verplaatst) worden."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
@@ -2510,7 +2511,7 @@ msgstr "Er zijn geen recente tabellen"
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
-"Er is geen gedetailleerde status informatie beschikbaar voor deze opslag "
+"Er is geen gedetailleerde status informatie beschikbaar voor deze opslag-"
 "engine."
 
 #: libraries/StorageEngine.class.php:341
@@ -2526,11 +2527,11 @@ msgstr "%s is uitgeschakeld op deze MySQL-server."
 #: libraries/StorageEngine.class.php:348
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "Deze MySQL-server ondersteund de %s storage engine niet."
+msgstr "Deze MySQL-server ondersteund de %s opslag-engine niet."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "onbekende tabel status: "
+msgstr "onbekende tabelstatus: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
@@ -2538,7 +2539,7 @@ msgstr "Ongeldige databank"
 
 #: libraries/Table.class.php:1134 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr "Ongeldige tabel naam"
+msgstr "Ongeldige tabelnaam"
 
 #: libraries/Table.class.php:1165
 #, php-format
