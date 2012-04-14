@@ -1246,19 +1246,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         data (referring to tables which no longer exist).<br />
         We only keep this number of newest rows in table_uiprefs and automatically delete older rows.</dd>
 
-    <dt><span id="cfg_Servers_verbose_check">$cfg['Servers'][$i]['verbose_check']</span> boolean
-    </dt>
-    <dd>Because release 2.5.0 introduced the new MIME-transformation support, the
-        column_info table got enhanced with three new columns. If the above variable
-        is set to <code>TRUE</code> (default) phpMyAdmin will check if you have the
-        latest table structure available. If not, it will emit a warning to the
-        superuser.<br /><br />
-
-        You can disable this checking behavior by setting the variable to false,
-        which should offer a performance increase.<br /><br />
-
-        Recommended to set to FALSE, when you are sure, your table structure is
-        up to date.</dd>
     <dt><span id="cfg_Servers_AllowRoot">$cfg['Servers'][$i]['AllowRoot']</span>
         boolean</dt>
     <dd>Whether to allow root access. This is just a shortcut for the AllowDeny rules below.
