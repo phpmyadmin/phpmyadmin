@@ -160,11 +160,11 @@ $titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'));
 $titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'));
 $titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Spatial'));
 $titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'));
-$titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'));
+$titles['DistinctValues']       = PMA_getIcon('b_browse.png', __('Distinct values'));
 
 // hidden action titles (image and string)
 $hidden_titles = array();
-$hidden_titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true);
+$hidden_titles['DistinctValues']       = PMA_getIcon('b_browse.png', __('Distinct values'), true);
 $hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Add primary key'), true);
 $hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Add primary key'), true);
 $hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Add index'), true);
@@ -352,11 +352,8 @@ foreach ($fields as $row) {
         <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Drop']; ?></a>
     </td>
-    <?php } ?>
-    <td class="browse replaced_by_more center">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">            <?php echo $titles['BrowseDistinctValues']; ?></a>
-    </td>
-    <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
+    <?php }
+    if (! $tbl_is_view && ! $db_is_information_schema) { ?>
     <td class="primary replaced_by_more center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_storage_engine || ($primary && $primary->hasColumn($field_name))) {
@@ -448,17 +445,15 @@ foreach ($fields as $row) {
         <?php
             }
         } // end if... else...
-        echo "\n";
+?>
+    <td class="browse replaced_by_more center">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">            <?php echo $titles['DistinctValues']; ?></a>
+    </td>
+        <?php
         if ($GLOBALS['cfg']['PropertiesIconic'] !== true) { ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
         <?php echo PMA_getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
-
-            <div class="action_browse replace_in_more">
-                <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>&amp;browse_distinct=1">
-                    <?php echo $hidden_titles['BrowseDistinctValues']; ?>
-                </a>
-            </div>
             <div  class="<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : ''); ?>replace_in_more">
                 <?php
                 if (isset($primary_enabled)) {
@@ -524,6 +519,11 @@ foreach ($fields as $row) {
                          echo $hidden_titles['NoIdxFulltext'];
                      }
                 } ?>
+            </div>
+            <div class="action_browse replace_in_more">
+                <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>&amp;browse_distinct=1">
+                    <?php echo $hidden_titles['DistinctValues']; ?>
+                </a>
             </div>
             <?php } ?>
         </div>
