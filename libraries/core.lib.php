@@ -7,6 +7,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * checks given $var and returns it if valid, or $default of not valid

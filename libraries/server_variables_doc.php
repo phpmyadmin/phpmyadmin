@@ -13,6 +13,10 @@
  * string $format: if set to 'byte' it will format the variable
  * with PMA_formatByteDown()
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 $VARIABLE_DOC_LINKS = array();
 $VARIABLE_DOC_LINKS['auto_increment_increment'] = array(
     'auto_increment_increment',

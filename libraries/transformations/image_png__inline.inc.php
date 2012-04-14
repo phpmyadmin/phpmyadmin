@@ -3,6 +3,9 @@
 /**
  * @package PhpMyAdmin-Transformation
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 function PMA_transformation_image_png__inline_info()
 {

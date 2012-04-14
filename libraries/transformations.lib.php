@@ -13,6 +13,9 @@
  * 
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * returns array of options from string with options separated by comma, removes quotes
