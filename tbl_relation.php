@@ -521,18 +521,22 @@ if (count($columns) > 0) {
                 // For ON DELETE and ON UPDATE, the default action
                 // is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
                 // won't display the clause if it's set as RESTRICT.
-                PMA_generate_dropdown('ON DELETE',
+                PMA_generate_dropdown(
+                    'ON DELETE',
                     'on_delete[' . $myfield_md5 . ']',
                     $options_array,
-                    isset($existrel_foreign[$myfield]['on_delete']) ? $existrel_foreign[$myfield]['on_delete']: 'RESTRICT');
+                    isset($existrel_foreign[$myfield]['on_delete']) ? $existrel_foreign[$myfield]['on_delete']: 'RESTRICT'
+                );
 
                 echo '</span>' . "\n"
                     .'<span class="formelement">' . "\n";
 
-                PMA_generate_dropdown('ON UPDATE',
+                PMA_generate_dropdown(
+                    'ON UPDATE',
                     'on_update[' . $myfield_md5 . ']',
                     $options_array,
-                    isset($existrel_foreign[$myfield]['on_update']) ? $existrel_foreign[$myfield]['on_update']: 'RESTRICT');
+                    isset($existrel_foreign[$myfield]['on_update']) ? $existrel_foreign[$myfield]['on_update']: 'RESTRICT'
+                );
                 echo '</span>' . "\n";
             } else {
                 echo __('No index defined!');

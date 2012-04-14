@@ -54,8 +54,13 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['footnotes'][$key]['nr'] = $nr;
         $GLOBALS['footnotes'][$key]['instance'] = $instance;
-        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
-            $nr, $instance + 1, $nr), PMA_showHint('test'));
+        $this->assertEquals(
+            sprintf(
+                '<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
+                $nr, $instance + 1, $nr
+            ),
+            PMA_showHint('test')
+        );
     }
 
     /**
@@ -69,8 +74,10 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['footnotes'][$key]['nr'] = $nr;
         $GLOBALS['footnotes'][$key]['instance'] = $instance;
-        $this->assertEquals(sprintf('[sup]%d[/sup]', $nr),
-            PMA_showHint('test', true));
+        $this->assertEquals(
+            sprintf('[sup]%d[/sup]', $nr),
+            PMA_showHint('test', true)
+        );
     }
 
     /**
@@ -124,8 +131,10 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
         $nr         = 1;
         $instance   = 1;
 
-        $oMock      = $this->getMock('PMA_Message',
-            array('setMessage', 'setNumber', 'getHash', 'getLevel'));
+        $oMock = $this->getMock(
+            'PMA_Message',
+            array('setMessage', 'setNumber', 'getHash', 'getLevel')
+        );
         $oMock->setMessage('test');
         $oMock->setNumber($nr);
 
@@ -134,8 +143,13 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
         $GLOBALS['footnotes'][$key]['nr'] = $nr;
         $GLOBALS['footnotes'][$key]['instance'] = $instance;
 
-        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
-            $nr, $instance + 1, $nr), PMA_showHint($oMock));
+        $this->assertEquals(
+            sprintf(
+                '<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
+                $nr, $instance + 1, $nr
+            ),
+            PMA_showHint($oMock)
+        );
     }
 
     /**
@@ -146,12 +160,20 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
         $nr         = 1;
         $instance   = 1;
 
-        $oMock = $this->getMock('PMA_Message',
-            array('setMessage', 'setNumber', 'getHash', 'getLevel', 'getNumber'));
+        $oMock = $this->getMock(
+            'PMA_Message',
+            array('setMessage', 'setNumber', 'getHash', 'getLevel', 'getNumber')
+        );
         $oMock->setMessage('test');
         $oMock->setNumber($nr);
 
-        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>', $nr, $instance, $nr), PMA_showHint($oMock, false));
+        $this->assertEquals(
+             sprintf(
+                 '<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
+                 $nr, $instance, $nr
+             ),
+             PMA_showHint($oMock, false)
+        );
 
         $key = $oMock->getHash();
 

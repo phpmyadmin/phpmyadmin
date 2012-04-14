@@ -16,8 +16,10 @@ PMA_checkParameters(array('db', 'table', 'where_clause', 'transform_key'));
 
 /* Select database */
 if (!PMA_DBI_select_db($db)) {
-    PMA_mysqlDie(sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
-        '', '');
+    PMA_mysqlDie(
+        sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
+        '', ''
+    );
 }
 
 /* Check if table exists */

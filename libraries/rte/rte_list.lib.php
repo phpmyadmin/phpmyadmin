@@ -130,9 +130,11 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
 {
     global $ajax_class, $url_query, $db, $titles;
 
-    $sql_drop = sprintf('DROP %s IF EXISTS %s',
-                         $routine['ROUTINE_TYPE'],
-                         PMA_backquote($routine['SPECIFIC_NAME']));
+    $sql_drop = sprintf(
+        'DROP %s IF EXISTS %s',
+        $routine['ROUTINE_TYPE'],
+        PMA_backquote($routine['SPECIFIC_NAME'])
+    );
     $type_link = "item_type={$routine['ROUTINE_TYPE']}";
 
     $retval  = "        <tr class='noclick $rowclass'>\n";

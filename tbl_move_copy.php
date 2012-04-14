@@ -47,8 +47,10 @@ if (PMA_isValid($_REQUEST['new_name'])) {
         }
         $result = false;
     } else {
-        $result = PMA_Table::moveCopy($db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
-            $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table');
+        $result = PMA_Table::moveCopy(
+            $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
+            $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
+        );
 
         if (isset($_REQUEST['submit_move'])) {
             $message = PMA_Message::success(__('Table %s has been moved to %s.'));

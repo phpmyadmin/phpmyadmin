@@ -194,7 +194,8 @@ class PMA_Table
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
             WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
-                AND TABLE_NAME = '" . PMA_sqlAddSlashes($table) . "'");
+                AND TABLE_NAME = '" . PMA_sqlAddSlashes($table) . "'"
+        );
         return $result ? true : false;
     }
 
@@ -368,8 +369,11 @@ class PMA_Table
         $query = PMA_backquote($name) . ' ' . $type;
 
         if ($length != ''
-            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i', $type)) {
+            && ! preg_match(
+                '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
+                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i', $type
+            )
+        ) {
             $query .= '(' . $length . ')';
         }
 
@@ -1534,8 +1538,12 @@ class PMA_Table
                 // there is no $table_create_time, or
                 // supplied $table_create_time is older than current create time,
                 // so don't save
-                return PMA_Message::error(sprintf(
-                    __('Cannot save UI property "%s". The changes made will not be persistent after you refresh this page. Please check if the table structure has been changed.'), $property));
+                return PMA_Message::error(
+                    sprintf(
+                        __('Cannot save UI property "%s". The changes made will not be persistent after you refresh this page. Please check if the table structure has been changed.'),
+                        $property
+                    )
+                );
             }
         }
         // save the value

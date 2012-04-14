@@ -137,8 +137,9 @@ $fields = (array) PMA_DBI_get_columns($db, $table, null, true);
 // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
 $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
-        0, 1);
+    'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+    0, 1
+);
 $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
 /**
@@ -193,7 +194,7 @@ $i = 0;
          echo '"table" />';
     } ?>
 
-<table id="tablestructure" class="data<?php 
+<table id="tablestructure" class="data<?php
     if ($GLOBALS['cfg']['PropertiesIconic'] === true) echo ' PropertiesIconic'; ?>">
 <thead>
 <tr>
@@ -209,7 +210,7 @@ $i = 0;
 <?php if ($db_is_information_schema || $tbl_is_view) { ?>
     <th><?php echo __('View'); ?></th>
 <?php } else { /* see tbl_structure.js, function moreOptsMenuResize() */ ?>
-    <th colspan="<?php 
+    <th colspan="<?php
     $colspan = 9;
     if (PMA_DRIZZLE) {
         $colspan -= 2;
@@ -402,7 +403,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-        <?php 
+        <?php
         if (!PMA_DRIZZLE) { ?>
     <td class="spatial replaced_by_more center">
 
@@ -689,8 +690,10 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_storage_
             <form action="tbl_indexes.php" method="post">
                 <?php
                 echo PMA_generate_common_hidden_inputs($db, $table);
-                echo sprintf(__('Create an index on &nbsp;%s&nbsp;columns'),
-                    '<input type="text" size="2" name="added_fields" value="1" />');
+                echo sprintf(
+                    __('Create an index on &nbsp;%s&nbsp;columns'),
+                    '<input type="text" size="2" name="added_fields" value="1" />'
+                );
                 ?>
                 <input type="hidden" name="create_index" value="1" />
                 <input class="add_index<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');?>" type="submit" value="<?php echo __('Go'); ?>" />

@@ -79,8 +79,9 @@ if ($showtable) {
         : $showtable['Collation'];
 
     if (null === $showtable['Rows']) {
-        $showtable['Rows']   = PMA_Table::countRecords($GLOBALS['db'],
-            $showtable['Name'], true);
+        $showtable['Rows']   = PMA_Table::countRecords(
+            $GLOBALS['db'], $showtable['Name'], true
+        );
     }
     $table_info_num_rows = isset($showtable['Rows']) ? $showtable['Rows'] : 0;
     $row_format = isset($showtable['Row_format']) ? $showtable['Row_format'] : '';

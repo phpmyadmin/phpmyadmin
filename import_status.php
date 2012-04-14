@@ -7,7 +7,7 @@
 
 /* PHP 5.4 stores upload progress data only in the default session.
  * After calling session_name(), we won't find the progress data anymore.
- 
+
  * The bug should be somewhere in
  * https://github.com/php/php-src/blob/master/ext/session/session.c#L2342
 
@@ -21,14 +21,15 @@
  */
 
 if (version_compare(PHP_VERSION, '5.4.0', '>=')
-    && ini_get('session.upload_progress.enabled')) {
+    && ini_get('session.upload_progress.enabled')
+) {
 
     if (!isset($_POST['session_upload_progress'])) {
         $sessionupload = array();
         $prefix = ini_get('session.upload_progress.prefix');
 
         session_start();
-        foreach($_SESSION as $key => $value) {
+        foreach ($_SESSION as $key => $value) {
             // only copy session-prefixed data
             if (substr($key, 0, strlen($prefix)) == $prefix) {
                 $sessionupload[$key] = $value;
@@ -50,8 +51,10 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
         }
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, 
-            'session_upload_progress=' . rawurlencode(serialize($sessionupload)));
+        curl_setopt(
+            $ch, CURLOPT_POSTFIELDS,
+            'session_upload_progress=' . rawurlencode(serialize($sessionupload))
+        );
         curl_setopt($ch, CURLOPT_COOKIE, $headers['Cookie']);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
         curl_setopt($ch, CURLOPT_TIMEOUT, 3);
@@ -75,7 +78,7 @@ if (isset($_POST['session_upload_progress'])) {
     // then write sessionupload back into the loaded session
 
     $sessionupload = unserialize($_POST['session_upload_progress']);
-    foreach($sessionupload as $key => $value) {
+    foreach ($sessionupload as $key => $value) {
         $_SESSION[$key] = $value;
     }
 }

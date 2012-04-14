@@ -155,8 +155,10 @@ if (@file_exists($pmaThemeImage . 'logo_right.png')) {
 ?>
 <h1>
 <?php
-echo sprintf(__('Welcome to %s'),
-    '<bdo dir="ltr" lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
+echo sprintf(
+    __('Welcome to %s'),
+    '<bdo dir="ltr" lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>'
+);
 ?>
 </h1>
 
