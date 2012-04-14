@@ -604,10 +604,12 @@ function PMA_displayTableList($tables, $visible = false,
             $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
                 .$GLOBALS['common_url_query'] . '&amp;table='
                 .urlencode($table['Name']) . '&amp;pos=0';
-            echo '<a href="' . $href
-            . '" title="' . htmlspecialchars(PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']) . ': ' . $table['Comment']
-                .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . __('Rows')) . ')"'
-                .' id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
+            echo '<a href="' . $href . '" title="'
+                . htmlspecialchars(
+                    PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']) . ': ' . $table['Comment']
+                    .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . __('Rows') . ')'
+                )
+                .'" id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
                 // preserve spaces in table name
                 . str_replace(' ', '&nbsp;', htmlspecialchars($table['disp_name'])) . '</a>';
             echo '</li>' . "\n";
