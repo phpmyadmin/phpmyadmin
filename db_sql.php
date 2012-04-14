@@ -59,7 +59,10 @@ if ($num_tables == 0 && empty($db_query_force)) {
 /**
  * Query box, bookmark, insert data from textfile
  */
-PMA_sqlQueryForm(true, false, isset($_REQUEST['delimiter']) ? htmlspecialchars($_REQUEST['delimiter']) : ';');
+PMA_sqlQueryForm(
+    true, false,
+    isset($_REQUEST['delimiter']) ? htmlspecialchars($_REQUEST['delimiter']) : ';'
+);
 
 /**
  * Displays the footer

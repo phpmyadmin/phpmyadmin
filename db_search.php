@@ -46,8 +46,10 @@ $search_options = array(
     '4' => __('as regular expression'),
 );
 
-if (empty($_REQUEST['search_option']) || ! is_string($_REQUEST['search_option'])
- || ! array_key_exists($_REQUEST['search_option'], $search_options)) {
+if (empty($_REQUEST['search_option'])
+    || ! is_string($_REQUEST['search_option'])
+    || ! array_key_exists($_REQUEST['search_option'], $search_options)
+) {
     $search_option = 1;
     unset($_REQUEST['submit_search']);
 } else {
@@ -66,7 +68,9 @@ if (empty($_REQUEST['search_str']) || ! is_string($_REQUEST['search_str'])) {
     //
     // Usage example: If user is seaching for a literal $ in a regexp search,
     // he should enter \$ as the value.
-    $search_str = PMA_sqlAddSlashes($_REQUEST['search_str'], ($search_option == 4 ? false : true));
+    $search_str = PMA_sqlAddSlashes(
+        $_REQUEST['search_str'], ($search_option == 4 ? false : true)
+    );
 }
 
 $tables_selected = array();
@@ -106,6 +110,15 @@ if (isset($_REQUEST['submit_search'])) {
     /**
      * Builds the SQL search query
      *
+     * @param string  $table         the table name
+     * @param string  $field         restrict the search to this field
+     * @param string  $search_str    the string to search
+     * @param integer $search_option type of search
+     *                               (1 -> 1 word at least, 2 -> all words,
+     *                                3 -> exact string, 4 -> regexp)
+     *
+     * @return  array    3 SQL querys (for count, display and delete results)
+     *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
      * PMA_backquote
      * PMA_DBI_free_result
@@ -114,13 +127,6 @@ if (isset($_REQUEST['submit_search'])) {
      * explode
      * count
      * strlen
-     * @param string   the table name
-     * @param string   restrict the search to this field
-     * @param string   the string to search
-     * @param integer  type of search (1 -> 1 word at least, 2 -> all words,
-     *                                   3 -> exact string, 4 -> regexp)
-     *
-     * @return  array    3 SQL querys (for count, display and delete results)
      */
     function PMA_getSearchSqls($table, $field, $search_str, $search_option)
     {
@@ -152,16 +158,16 @@ if (isset($_REQUEST['submit_search'])) {
                     // Drizzle has no CONVERT and all text columns are UTF-8
                     if (PMA_DRIZZLE) {
                         $thefieldlikevalue[] = PMA_backquote($tblfield['Field'])
-                                            . ' ' . $like_or_regex . ' '
-                                            . "'" . $automatic_wildcard
-                                            . $search_word
-                                            . $automatic_wildcard . "'";
+                            . ' ' . $like_or_regex . ' '
+                            . "'" . $automatic_wildcard
+                            . $search_word
+                            . $automatic_wildcard . "'";
                     } else {
                         $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)'
-                                            . ' ' . $like_or_regex . ' '
-                                            . "'" . $automatic_wildcard
-                                            . $search_word
-                                            . $automatic_wildcard . "'";
+                            . ' ' . $like_or_regex . ' '
+                            . "'" . $automatic_wildcard
+                            . $search_word
+                            . $automatic_wildcard . "'";
                     }
                 }
             } // end for
@@ -217,7 +223,10 @@ if (isset($_REQUEST['submit_search'])) {
 
     foreach ($tables_selected as $each_table) {
         // Gets the SQL statements
-        $newsearchsqls = PMA_getSearchSqls($each_table, (! empty($field_str) ? $field_str : ''), $search_str, $search_option);
+        $newsearchsqls = PMA_getSearchSqls(
+            $each_table, (! empty($field_str) ? $field_str : ''),
+            $search_str, $search_option
+        );
 
         // Executes the "COUNT" statement
         $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
