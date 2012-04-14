@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-14 20:03+0200\n"
+"PO-Revision-Date: 2012-04-14 21:00+0200\n"
 "Last-Translator: Robin Pepermans <robinp.1273@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3504,7 +3504,7 @@ msgstr "Opslaan als bestand"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 msgid "Character set of the file"
-msgstr "Karakertset voor het bestand"
+msgstr "Karakterset voor het bestand"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
 #: tbl_gis_visualization.php:173 tbl_printview.php:335 tbl_structure.php:842
@@ -3524,7 +3524,7 @@ msgstr "Compressie"
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 msgid "Put columns names in the first row"
-msgstr "Plaats veldnamen in de eerste rij"
+msgstr "Veldnamen in de eerste rij plaatsen"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:252 libraries/import/csv.php:76
@@ -3544,11 +3544,11 @@ msgstr "Velden ontweken door"
 #: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:147
 #: libraries/config/messages.inc.php:149 libraries/export/texytext.php:27
 msgid "Replace NULL by"
-msgstr "Vervang NULL door"
+msgstr "NULL vervangen door"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
 msgid "Remove CRLF characters within columns"
-msgstr "Verwijder CRLF tekens uit veld-waarden"
+msgstr "Verwijder CRLF-tekens uit veld-waarden"
 
 #: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:249
 #: libraries/config/messages.inc.php:257 libraries/import/csv.php:63
@@ -3563,19 +3563,19 @@ msgstr "Regels beëindigd door"
 
 #: libraries/config/messages.inc.php:84
 msgid "Excel edition"
-msgstr "Excel editie"
+msgstr "Excel-editie"
 
 #: libraries/config/messages.inc.php:87
 msgid "Database name template"
-msgstr "Databank naam template"
+msgstr "Databanknaam-template"
 
 #: libraries/config/messages.inc.php:88
 msgid "Server name template"
-msgstr "Server naam template"
+msgstr "Servernaam-template"
 
 #: libraries/config/messages.inc.php:89
 msgid "Table name template"
-msgstr "Tabel naam template"
+msgstr "Tabelnaam-template"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:106
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:139
@@ -3587,7 +3587,7 @@ msgstr "Dump tabel"
 
 #: libraries/config/messages.inc.php:94 libraries/export/latex.php:32
 msgid "Include table caption"
-msgstr "Voeg tabeltitel toe"
+msgstr "Tabeltitel toevoegen"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
@@ -3616,7 +3616,7 @@ msgstr "Relaties"
 
 #: libraries/config/messages.inc.php:107
 msgid "Export method"
-msgstr "Export methode"
+msgstr "Exportmethode"
 
 #: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:118
 msgid "Save on server"
@@ -3625,20 +3625,20 @@ msgstr "Opslaan op server"
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:119
 #: libraries/display_export.lib.php:193 libraries/display_export.lib.php:219
 msgid "Overwrite existing file(s)"
-msgstr "Overschrijf bestaand(e) bestand(en)"
+msgstr "Bestaand(e) bestand(en) overschrijven"
 
 #: libraries/config/messages.inc.php:120
 msgid "Remember file name template"
-msgstr "Herinner bestandsnaam template"
+msgstr "Bestandsnaam-template herinneren"
 
 #: libraries/config/messages.inc.php:122
 msgid "Enclose table and column names with backquotes"
-msgstr "Gebruik aanhalingstekens (`) bij tabel- en kolomnamen"
+msgstr "Aanhalingstekens (`) bij tabel- en kolomnamen gebruiken"
 
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:264
 #: libraries/display_export.lib.php:351
 msgid "SQL compatibility mode"
-msgstr "SQL-compatibiliteits mode"
+msgstr "SQL-compatibiliteitsmodus"
 
 #: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
@@ -3662,11 +3662,11 @@ msgstr "Gebruik hexadecimaal voor BLOB"
 
 #: libraries/config/messages.inc.php:132
 msgid "Use ignore inserts"
-msgstr "Gebruik 'INSERT IGNORE'"
+msgstr "'INSERT IGNORE' gebruiken"
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
-msgstr "Syntax voor insert opdrachten"
+msgstr "Syntax voor insert-opdrachten"
 
 #: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
 msgid "Maximal length of created query"
@@ -3683,15 +3683,15 @@ msgstr "Sluit de export in een transactie"
 # UTC = Universal Time Zone, UTC laten staan.
 #: libraries/config/messages.inc.php:142
 msgid "Export time in UTC"
-msgstr "Exporteer tijd in UTC"
+msgstr "Exporteertijd in UTC"
 
 #: libraries/config/messages.inc.php:150
 msgid "Force secured connection while using phpMyAdmin"
-msgstr "Dwing een beveiligde verbinding af tijdens het gebruik van phpMyAdmin"
+msgstr "Een beveiligde verbinding afdwingen tijdens het gebruik van phpMyAdmin"
 
 #: libraries/config/messages.inc.php:151
 msgid "Force SSL connection"
-msgstr "SSL verbinding afdwingen"
+msgstr "SSL-verbinding afdwingen"
 
 #: libraries/config/messages.inc.php:152
 msgid ""
@@ -3734,7 +3734,7 @@ msgstr "Aanpassen standaard opties"
 #: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
-msgstr "CSV gegevens"
+msgstr "CSV-gegevens"
 
 #: libraries/config/messages.inc.php:162
 msgid "Developer"
@@ -3742,15 +3742,15 @@ msgstr "Ontwikkelaar"
 
 #: libraries/config/messages.inc.php:163
 msgid "Settings for phpMyAdmin developers"
-msgstr "Instellingen voor phpMyAdmin ontwikkelaars"
+msgstr "Instellingen voor phpMyAdmin-ontwikkelaars"
 
 #: libraries/config/messages.inc.php:164
 msgid "Edit mode"
-msgstr "Wijzig-mode"
+msgstr "Bewerkmodus"
 
 #: libraries/config/messages.inc.php:165
 msgid "Customize edit mode"
-msgstr "Aanpassen wijzig-mode"
+msgstr "Bewerkmodus aanpassen"
 
 #: libraries/config/messages.inc.php:167
 msgid "Export defaults"
@@ -3758,7 +3758,7 @@ msgstr "Export standaarden"
 
 #: libraries/config/messages.inc.php:168
 msgid "Customize default export options"
-msgstr "Aanpassen standaard export opties"
+msgstr "Aanpassen standaard exportopties"
 
 #: libraries/config/messages.inc.php:169 libraries/config/messages.inc.php:211
 #: setup/frames/menu.inc.php:16
@@ -3775,15 +3775,15 @@ msgstr "Enkele veel gebruikte opties"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import defaults"
-msgstr "Import opties"
+msgstr "Importopties"
 
 #: libraries/config/messages.inc.php:174
 msgid "Customize default common import options"
-msgstr "Aanpassen standaard importeer opties"
+msgstr "Aanpassen standaard importopties"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import / export"
-msgstr "Importeer / exporteer"
+msgstr "Importeren / exporteren"
 
 #: libraries/config/messages.inc.php:176
 msgid "Set import and export directories and compression options"
@@ -3803,7 +3803,7 @@ msgstr "Navigatieframe"
 
 #: libraries/config/messages.inc.php:182
 msgid "Customize appearance of the navigation frame"
-msgstr "Weergave opties voor het navigatieframe"
+msgstr "Weergaveopties voor het navigatieframe"
 
 #: libraries/config/messages.inc.php:183 libraries/select_server.lib.php:35
 #: setup/frames/index.inc.php:112
@@ -3812,11 +3812,11 @@ msgstr "Servers"
 
 #: libraries/config/messages.inc.php:184
 msgid "Servers display options"
-msgstr "Weergave opties voor servers"
+msgstr "Weergaveopties voor servers"
 
 #: libraries/config/messages.inc.php:186
 msgid "Tables display options"
-msgstr "Weergave opties voor tabellen"
+msgstr "Weergaveopties voor tabellen"
 
 #: libraries/config/messages.inc.php:187 setup/frames/menu.inc.php:19
 msgid "Main frame"
@@ -3876,7 +3876,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:200
 msgid "Basic settings"
-msgstr "Basis instellingen"
+msgstr "Basisinstellingen"
 
 #: libraries/config/messages.inc.php:201
 msgid "Authentication"
@@ -3884,11 +3884,11 @@ msgstr "Authenticatie"
 
 #: libraries/config/messages.inc.php:202
 msgid "Authentication settings"
-msgstr "Authenticatie instellingen"
+msgstr "Authenticatie-instellingen"
 
 #: libraries/config/messages.inc.php:203
 msgid "Server configuration"
-msgstr "Server configuratie"
+msgstr "Serverconfiguratie"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
@@ -3900,11 +3900,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:205
 msgid "Enter server connection parameters"
-msgstr "Geef de server verbindingsparameters"
+msgstr "Geef de serververbindingsparameters op"
 
 #: libraries/config/messages.inc.php:206
 msgid "Configuration storage"
-msgstr "Configuratie opslag"
+msgstr "Configuratie-opslag"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
@@ -3912,9 +3912,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Configureer de phpMyAdmin configuratie opslag om toegang te krijgen tot "
-"extra functionaliteit, zie [a@Documentation.html#linked-tables]phpMyAdmin "
-"configuratie opslag[/a] in de documentatie"
+"Configureer de phpMyAdmin-configuratie-opslag om toegang te krijgen tot "
+"extra functionaliteit, zie [a@Documentation.html#linked-tables]phpMyAdmin-"
+"configuratie-opslag[/a] in de documentatie"
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
@@ -3926,11 +3926,11 @@ msgid ""
 "storage."
 msgstr ""
 "Bijhouden van wijzigingen in de databank. Dit vereist een geconfigureerde "
-"phpMyAdmin configuratie opslag."
+"phpMyAdmin-configuratie-opslag."
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize export options"
-msgstr "Aanpassen export opties"
+msgstr "Exportopties aanpassen"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize import defaults"
@@ -3951,7 +3951,7 @@ msgstr "SQL-queries"
 
 #: libraries/config/messages.inc.php:217
 msgid "SQL Query box"
-msgstr "SQL-query veld"
+msgstr "SQL-queryveld"
 
 #: libraries/config/messages.inc.php:218
 msgid "Customize links shown in SQL Query boxes"
@@ -3988,7 +3988,7 @@ msgstr "Aanpassen beginpagina"
 #: libraries/config/messages.inc.php:226
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Databank structuur"
+msgstr "Databankstructuur"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
@@ -4029,8 +4029,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"Gebruik [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compressie voor import "
-"en export operaties"
+"Gebruik [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compressie voor "
+"import- en exportoperaties"
 
 #: libraries/config/messages.inc.php:237
 msgid "GZip"
