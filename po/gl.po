@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-14 14:02-0000\n"
+"PO-Revision-Date: 2012-04-14 15:05+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -5673,7 +5673,7 @@ msgstr ""
 #: libraries/database_interface.lib.php:1816
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "O servidor non responde"
+msgstr "O servidor non responde."
 
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
@@ -6830,7 +6830,7 @@ msgstr ""
 #: libraries/export/sql.php:45
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Engadir un comentario propio na cabeceira (\\n liñas diferentes)"
+msgstr "Engadir un comentario propio na cabeceira (\\n liñas diferentes):"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -8052,7 +8052,7 @@ msgstr "Non se achou ningunha táboa na base de datos"
 #: libraries/rte/rte_words.lib.php:48
 #| msgid "There are no configured servers"
 msgid "There are no events to display."
-msgstr "Non hai eventos que mostrar"
+msgstr "Non hai eventos que mostrar."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:230
 #: libraries/schema/Eps_Relation_Schema.class.php:420
