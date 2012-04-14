@@ -131,7 +131,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     include_once './libraries/common.lib.php';
 
     /**
-     * Java script escaping.
+     * JavaScript escaping.
      */
     include_once './libraries/js_escape.lib.php';
 
