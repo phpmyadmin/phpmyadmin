@@ -479,7 +479,7 @@ class PMA_Config
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         $data = @curl_exec($ch);
         if ($data === false) {
             return null;
@@ -488,8 +488,7 @@ class PMA_Config
         $notfound = 'HTTP/1.1 404 Not Found';
         if (substr($data, 0, strlen($ok)) === $ok) {
             return true;
-        }
-        elseif (substr($data, 0, strlen($notfound)) === $notfound) {
+        } elseif (substr($data, 0, strlen($notfound)) === $notfound) {
             return false;
         }
         return null;
