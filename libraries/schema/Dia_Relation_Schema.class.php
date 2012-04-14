@@ -136,13 +136,13 @@ class PMA_DIA extends XMLWriter
             <dia:attribute name="hguides"/>
             <dia:attribute name="vguides"/>
           </dia:composite>
-        </dia:attribute>');
-         $this->endElement();
-         $this->startElement('dia:layer');
-         $this->writeAttribute('name', 'Background');
-         $this->writeAttribute('visible', 'true');
-         $this->writeAttribute('active', 'true');
-
+        </dia:attribute>'
+        );
+        $this->endElement();
+        $this->startElement('dia:layer');
+        $this->writeAttribute('name', 'Background');
+        $this->writeAttribute('visible', 'true');
+        $this->writeAttribute('active', 'true');
     }
 
     /**

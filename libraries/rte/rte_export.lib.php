@@ -78,7 +78,8 @@ function PMA_RTN_handleExport()
             $export_data = PMA_DBI_get_definition(
                 $db,
                 $_GET['item_type'],
-                $_GET['item_name']);
+                $_GET['item_name']
+            );
             PMA_RTE_handleExport($_GET['item_name'], $export_data);
         }
     }

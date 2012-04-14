@@ -47,8 +47,10 @@ $config_writable = false;
 $config_exists = false;
 check_config_rw($config_readable, $config_writable, $config_exists);
 if (!$config_writable || !$config_readable) {
-    messages_set('error', 'config_rw', __('Cannot load or save configuration'),
-        PMA_lang(__('Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.')));
+    messages_set(
+        'error', 'config_rw', __('Cannot load or save configuration'),
+        PMA_lang(__('Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.'))
+    );
 }
 //
 // Check https connection
@@ -90,13 +92,15 @@ if (!$is_https) {
 <?php
 // Check for done action info and set notice message if present
 switch ($action_done) {
-    case 'config_saved':
-        /* Use uniqid to display this message every time configuration is saved */
-        messages_set('notice', uniqid('config_saved'), __('Configuration saved.'),
-            PMA_lang(__('Configuration saved to file config/config.inc.php in phpMyAdmin top level directory, copy it to top level one and delete directory config to use it.')));
-        break;
-    default:
-        break;
+case 'config_saved':
+    /* Use uniqid to display this message every time configuration is saved */
+    messages_set(
+        'notice', uniqid('config_saved'), __('Configuration saved.'),
+        PMA_lang(__('Configuration saved to file config/config.inc.php in phpMyAdmin top level directory, copy it to top level one and delete directory config to use it.'))
+    );
+    break;
+default:
+    break;
 }
 ?>
 
@@ -115,10 +119,13 @@ messages_show_html();
 //
 // Display server list
 //
-display_form_top('index.php', 'get', array(
-    'page' => 'servers',
-    'mode' => 'add'
-));
+display_form_top(
+    'index.php', 'get',
+    array(
+        'page' => 'servers',
+        'mode' => 'add'
+    )
+);
 ?>
 <div class="form">
 <?php if ($cf->getServerCount() > 0): ?>
@@ -185,8 +192,10 @@ foreach ($all_languages as $each_lang_key => $each_lang) {
     $lang_name = PMA_langName($each_lang);
     $opts['values'][$each_lang_key] = $lang_name;
 }
-display_input('DefaultLang', __('Default language'), '', 'select',
-    $cf->getValue('DefaultLang'), true, $opts);
+display_input(
+    'DefaultLang', __('Default language'), '', 'select',
+    $cf->getValue('DefaultLang'), true, $opts
+);
 
 // Display server list
 $opts = array(
@@ -209,8 +218,10 @@ if ($cf->getServerCount() > 0) {
     $opts['values']['1'] = __('- none -');
     $opts['values_escaped'] = true;
 }
-display_input('ServerDefault', __('Default server'), '', 'select',
-    $cf->getValue('ServerDefault'), true, $opts);
+display_input(
+    'ServerDefault', __('Default server'), '', 'select',
+    $cf->getValue('ServerDefault'), true, $opts
+);
 
 // Display EOL list
 $opts = array(
@@ -219,8 +230,10 @@ $opts = array(
         'win' => 'Windows (\r\n)'),
     'values_escaped' => true);
 $eol = PMA_ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
-display_input('eol', __('End of line'), '', 'select',
-    $eol, true, $opts);
+display_input(
+    'eol', __('End of line'), '', 'select',
+    $eol, true, $opts
+);
 ?>
 <tr>
     <td colspan="2" class="lastrow" style="text-align: left">

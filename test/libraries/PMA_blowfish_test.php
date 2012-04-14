@@ -17,19 +17,23 @@ class PMA_blowfish_test extends PHPUnit_Framework_TestCase
     {
         $secret = '$%ÄüfuDFRR';
         $string = '12345678';
-        $this->assertEquals($string,
-            PMA_blowfish_decrypt(PMA_blowfish_encrypt($string, $secret), $secret));
+        $this->assertEquals(
+            $string,
+            PMA_blowfish_decrypt(PMA_blowfish_encrypt($string, $secret), $secret)
+        );
     }
 
     public function testEncryptDecryptChars()
     {
         $secret = '$%ÄüfuDFRR';
         $string = 'abcDEF012!"§$%&/()=?`´"\',.;:-_#+*~öäüÖÄÜ^°²³';
-        $this->assertEquals($string,
-            PMA_blowfish_decrypt(PMA_blowfish_encrypt($string, $secret), $secret));
+        $this->assertEquals(
+            $string,
+            PMA_blowfish_decrypt(PMA_blowfish_encrypt($string, $secret), $secret)
+        );
     }
 
-    /*  Due to differences in the initialization factor, these tests are not portable between systems. 
+    /*  Due to differences in the initialization factor, these tests are not portable between systems.
     public function testEncrypt()
     {
         $secret = '$%ÄüfuDFRR';

@@ -156,12 +156,13 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
                 . '        <tr>' . "\n"
                 . '            <th colspan="2">' . "\n"
                 . '                ' . __('Total') . "\n"
-                . '                : ' . PMA_formatNumber(
-                        $status['Innodb_buffer_pool_pages_total'], 0)
+                . '                : ' . PMA_formatNumber($status['Innodb_buffer_pool_pages_total'], 0)
                 . '&nbsp;' . __('pages')
                 . ' / '
-                . join('&nbsp;',
-                    PMA_formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size'])) . "\n"
+                . join(
+                    '&nbsp;',
+                    PMA_formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size'])
+                ) . "\n"
                 . '            </th>' . "\n"
                 . '        </tr>' . "\n"
                 . '    </tfoot>' . "\n"
@@ -300,12 +301,12 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
-     *  
-     * Gets the InnoDB plugin version number 
-     * http://www.innodb.com/products/innodb_plugin 
+     *
+     * Gets the InnoDB plugin version number
+     * http://www.innodb.com/products/innodb_plugin
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
-     * @return string the version number, or empty if not running as a plugin 
+     * @return string the version number, or empty if not running as a plugin
      */
     function getInnodbPluginVersion()
     {
@@ -313,13 +314,13 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
-     *  
-     * Gets the InnoDB file format 
+     *
+     * Gets the InnoDB file format
      * (works only for the InnoDB plugin)
-     * http://www.innodb.com/products/innodb_plugin 
+     * http://www.innodb.com/products/innodb_plugin
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
-     * @return string the InnoDB file format 
+     * @return string the InnoDB file format
      */
     function getInnodbFileFormat()
     {
@@ -327,13 +328,13 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
-     *  
-     * Verifies if this server supports the innodb_file_per_table feature 
+     *
+     * Verifies if this server supports the innodb_file_per_table feature
      * (works only for the InnoDB plugin)
-     * http://www.innodb.com/products/innodb_plugin 
+     * http://www.innodb.com/products/innodb_plugin
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
-     * @return boolean whether this feature is supported or not 
+     * @return boolean whether this feature is supported or not
      */
     function supportsFilePerTable()
     {

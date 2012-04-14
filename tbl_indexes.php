@@ -17,8 +17,9 @@ require_once 'libraries/tbl_common.php';
 $fields = array();
 foreach (PMA_DBI_get_columns_full($db, $table) as $row) {
     if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
-        $tmp[2]         = substr(preg_replace('@([^,])\'\'@', '\\1\\\'',
-            ',' . $tmp[2]), 1);
+        $tmp[2] = substr(
+            preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
+        );
         $fields[$row['Field']] = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
     } else {
         $fields[$row['Field']] = $row['Type'];

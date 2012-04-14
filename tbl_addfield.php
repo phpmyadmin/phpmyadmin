@@ -167,16 +167,20 @@ if (isset($_REQUEST['do_save_data'])) {
 
         // Update comment table for mime types [MIME]
         if (isset($_REQUEST['field_mimetype'])
-         && is_array($_REQUEST['field_mimetype'])
-         && $cfg['BrowseMIME']) {
+            && is_array($_REQUEST['field_mimetype'])
+            && $cfg['BrowseMIME']
+        ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                 && strlen($_REQUEST['field_name'][$fieldindex])) {
-                    PMA_setMIME($db, $table,
+                    && strlen($_REQUEST['field_name'][$fieldindex])
+                ) {
+                    PMA_setMIME(
+                        $db, $table,
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex]);
+                        $_REQUEST['field_transformation_options'][$fieldindex]
+                    );
                 }
             }
         }

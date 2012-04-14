@@ -142,12 +142,13 @@ if (isset($plugin_list)) {
 
         if ($export_struct) {
             if (PMA_DRIZZLE) {
-                $result = PMA_DBI_fetch_result("
-                    SELECT
+                $result = PMA_DBI_fetch_result(
+                    "SELECT
                         'utf8' AS DEFAULT_CHARACTER_SET_NAME,
                         DEFAULT_COLLATION_NAME
                     FROM data_dictionary.SCHEMAS
-                    WHERE SCHEMA_NAME = '" . PMA_sqlAddSlashes($db) . "'");
+                    WHERE SCHEMA_NAME = '" . PMA_sqlAddSlashes($db) . "'"
+                );
             } else {
                 $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.PMA_sqlAddSlashes($db).'\' LIMIT 1');
             }
