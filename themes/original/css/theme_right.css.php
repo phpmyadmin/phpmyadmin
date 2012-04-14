@@ -1869,6 +1869,26 @@ iframe.IE_hack {
     overflow: hidden;
 }
 
+#move_columns_dialog div {
+    padding: 1em;
+}
+#move_columns_dialog ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#move_columns_dialog li {
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    border: 1px solid #aaa;
+    color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    font-weight: bold;
+    margin: .4em;
+    padding: .2em;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
 /* config forms */
 .config-form ul.tabs {
     margin:      1.1em 0.2em 0;

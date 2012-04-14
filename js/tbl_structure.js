@@ -360,6 +360,83 @@ $(document).ready(function() {
     });
 
     /**
+     * Inline move columns
+    **/
+    $("#move_columns_anchor").live('click', function(e) {
+        e.preventDefault();
+
+        if ($(this).hasClass("move-active")) {
+            return;
+        }
+
+        /**
+         *  @var    button_options  Object that stores the options passed to jQueryUI
+         *                          dialog
+         */
+        var button_options = {};
+
+        button_options[PMA_messages['strGo']] = function() {
+            event.preventDefault();
+            var $msgbox = PMA_ajaxShowMessage();
+            var $this = $(this);
+            var $form = $this.find("form");
+            var serialized = $form.serialize();
+
+            // check if any columns were moved at all
+            if (serialized == $form.data("serialized-unmoved")) {
+                PMA_ajaxRemoveMessage($msgbox);
+                $this.dialog('close');
+                return;
+            }
+
+            $.post($form.prop("action"), serialized + "&ajax_request=true", function (data) {
+                if (data.success != undefined && data.success == false) {
+                    PMA_ajaxRemoveMessage($msgbox);
+                    $this
+                    .clone()
+                    .html(data.error)
+                    .dialog({
+                        title: $(this).prop("title"),
+                        height: 230,
+                        width: 900,
+                        modal: true,
+                        buttons: button_options_error
+                    }); // end dialog options
+                } else {
+                    PMA_ajaxShowMessage(data.message);
+                    reloadFieldForm();
+                    $this.dialog('close');
+                }
+            });
+        };
+        button_options[PMA_messages['strCancel']] = function() {
+            $(this).dialog('close');
+        };
+
+        var button_options_error = {};
+        button_options_error[PMA_messages['strOK']] = function() {
+            $(this).dialog('close').remove();
+        };
+
+        $("#move_columns_dialog ul")
+            .sortable({
+                axis: 'y',
+                containment: $("#move_columns_dialog div")
+            })
+            .disableSelection();
+        var $form = $("#move_columns_dialog form");
+        $form.data("serialized-unmoved", $form.serialize());
+
+        $("#move_columns_dialog").dialog({
+                modal: true,
+                buttons: button_options,
+                beforeClose: function () {
+                    $("#move_columns_anchor").removeClass("move-active");
+                }
+            });
+    });
+
+    /**
      *Ajax event handler for Add column(s)
     **/
     $("#addColumns.ajax input[type=submit]").live('click', function(event){
@@ -389,7 +466,7 @@ $(document).ready(function() {
         };
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get($form.attr('action') , $form.serialize()+"&ajax_request=true" ,  function(data) {
+        $.get($form.attr('action') , $form.serialize() + "&ajax_request=true" ,  function(data) {
             //in the case of an error, show the error message returned.
             if (data.success != undefined && data.success == false) {
                 $div
@@ -533,27 +610,14 @@ $(document).ready(function() {
                         $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                         $("#sqlqueryresults").html(data.sql_query);
                         $("#result_query .notice").remove();
-                        $("#result_query").prepend((data.message));
+                        $("#result_query").prepend(data.message);
                         if ($("#change_column_dialog").length > 0) {
                             $("#change_column_dialog").dialog("close").remove();
                         } else if ($("#add_columns").length > 0) {
                             $("#add_columns").dialog("close").remove();
                         }
                         /*Reload the field form*/
-                        $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
-                            $("#fieldsForm").remove();
-                            $("#addColumns").remove();
-                            var $temp_div = $("<div id='temp_div'><div>").append(form_data);
-                            if ($("#sqlqueryresults").length != 0) {
-                                $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
-                            } else {
-                                $temp_div.find("#fieldsForm").insertAfter(".error");
-                            }
-                            $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
-                            /*Call the function to display the more options in table*/
-                            $table_clone = false;
-                            moreOptsMenuResize();
-                        });
+                        reloadFieldForm();
                     } else {
                         var $temp_div = $("<div id='temp_div'><div>").append(data);
                         var $error = $temp_div.find(".error code").addClass("error");
@@ -569,6 +633,28 @@ $(document).ready(function() {
     }) // end change table button "do_save_data"
 
 }, 'top.frame_content'); //end $(document).ready for 'Change Table'
+
+/**
+ * Reload fields table
+ */
+
+function reloadFieldForm() {
+    $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
+        $("#fieldsForm").remove();
+        $("#addColumns").remove();
+        var $temp_div = $("<div id='temp_div'><div>").append(form_data);
+        if ($("#sqlqueryresults").length != 0) {
+            $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
+        } else {
+            $temp_div.find("#fieldsForm").insertAfter("#floating_menubar");
+        }
+        $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
+        $("#moveColumns").removeClass("move-active");
+        /*Call the function to display the more options in table*/
+        $table_clone = false;
+        moreOptsMenuResize();
+    });
+}
 
 /**
  * Hides certain table structure actions, replacing them

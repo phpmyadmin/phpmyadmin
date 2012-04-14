@@ -577,6 +577,24 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 </form>
 <hr />
 
+<div id="move_columns_dialog" title="<?php echo __('Move columns'); ?>" style="display: none">
+    <p><?php echo __('Move the columns by dragging them up and down.'); ?></p>
+    <form action="tbl_alter.php">
+        <div>
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <ul>
+<?php
+foreach ($fields as $row) { ?>
+
+                <li class="placeholderDrag"><?php echo $field = htmlspecialchars($row['Field']); ?>
+                    <input type="hidden" name="move_columns[]" value="<?php echo $field; ?>" /></li>
+<?php } ?>
+
+            </ul>
+        </div>
+    </form>
+</div>
+
 <?php
 /**
  * Work on the table
@@ -629,6 +647,10 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         echo '</a>';
     }
     ?>
+
+    <a href="#" id="move_columns_anchor"><?php
+    echo PMA_getIcon('b_props.png', __('Move columns'), true);
+    ?></a>
 
     <br />
 <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
