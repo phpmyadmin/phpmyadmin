@@ -353,13 +353,21 @@ class PMA_Config
      */
     function isGitRevision()
     {
+        // caching
+        if (isset($_SESSION['is_git_revision'])) {
+            if ($_SESSION['is_git_revision']) {
+                $this->set('PMA_VERSION_GIT', 1);
+            }
+            return $_SESSION['is_git_revision'];
+        }
         // find out if there is a .git folder
         $git_folder = '.git';
         if (! @file_exists($git_folder) 
             || ! @file_exists($git_folder . '/config')) {
+            $_SESSION['is_git_revision'] = false;
             return false;
         }
-        $this->set('PMA_VERSION_GIT', 1);
+        $_SESSION['is_git_revision'] = true;
         return true;
     }
 
@@ -394,13 +402,19 @@ class PMA_Config
             $hash = trim($ref_head);
         }
 
-        if (! $commit = @file_get_contents(
-                $git_folder . '/objects/' . substr($hash, 0, 2) 
-                . '/' . substr($hash, 2))) {
-            return;
+        if ( !isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
+            if (! $commit = @file_get_contents(
+                    $git_folder . '/objects/' . substr($hash, 0, 2) 
+                    . '/' . substr($hash, 2))) {
+                return;
+            }
+            $commit = explode("\0", gzuncompress($commit), 2);
+            $commit = explode("\n", $commit[1]);
+            $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
+        } else {
+            $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
         }
-        $commit = explode("\0", gzuncompress($commit), 2);
-        $commit = explode("\n", $commit[1]);
+
         $author = array('name' => '', 'email' => '', 'date' => '');
         $committer = array('name' => '', 'email' => '', 'date' => '');
 
