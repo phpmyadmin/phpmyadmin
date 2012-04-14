@@ -186,8 +186,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
                 if (! PMA_Table::moveCopy(
                     $db, $each_table, $newname, $each_table,
-                    isset($this_what) ? $this_what : 'data', $move, 'db_copy')
-                ) {
+                    isset($this_what) ? $this_what : 'data',
+                    $move, 'db_copy'
+                )) {
                     $_error = true;
                     // $sql_query is filled by PMA_Table::moveCopy()
                     $sql_query = $back . $sql_query;
@@ -279,8 +280,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $get_fields = array('user', 'label', 'query');
             $where_fields = array('dbase' => $db);
             $new_fields = array('dbase' => $newname);
-            PMA_Table::duplicateInfo('bookmarkwork', 'bookmark', $get_fields,
-                $where_fields, $new_fields);
+            PMA_Table::duplicateInfo(
+                'bookmarkwork', 'bookmark', $get_fields,
+                $where_fields, $new_fields
+            );
         }
 
         if (! $_error && $move) {
@@ -565,8 +568,10 @@ echo __('Remove database');
     }
     echo '    <label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
        . '    </legend>' . "\n"
-       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
-            'db_collation', 'select_db_collation', $db_collation, false, 3)
+       . PMA_generateCharsetDropdownBox(
+           PMA_CSDROPDOWN_COLLATION, 'db_collation',
+           'select_db_collation', $db_collation, false, 3
+       )
        . '</fieldset>'
        . '<fieldset class="tblFooters">'
        . '    <input type="submit" name="submitcollation"'

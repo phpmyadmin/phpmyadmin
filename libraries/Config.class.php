@@ -730,10 +730,11 @@ class PMA_Config
                 PMA_fatalError(
                     sprintf(
                         function_exists('__')
-                            ? __('Existing configuration file (%s) is not readable.')
-                            : 'Existing configuration file (%s) is not readable.',
-                        $this->getSource())
-                    );
+                        ? __('Existing configuration file (%s) is not readable.')
+                        : 'Existing configuration file (%s) is not readable.',
+                        $this->getSource()
+                    )
+                );
                 return false;
             }
         }

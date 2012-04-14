@@ -526,8 +526,9 @@ function PMA_auth_set_user()
     // Duration = one month for username
     $GLOBALS['PMA_Config']->setCookie(
         'pmaUser-' . $GLOBALS['server'],
-        PMA_blowfish_encrypt($cfg['Server']['user'],
-        PMA_get_blowfish_secret())
+        PMA_blowfish_encrypt(
+            $cfg['Server']['user'], PMA_get_blowfish_secret()
+        )
     );
 
     // Duration = as configured

@@ -381,8 +381,10 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                     printf($href_left, $element_counter, $common_url_query);
                     printf($img_plus, $element_counter);
                 } else {
-                    printf($href_left, $element_counter,
-                        PMA_generate_common_url() . $url_dbgroup);
+                    printf(
+                        $href_left, $element_counter,
+                        PMA_generate_common_url() . $url_dbgroup
+                    );
                     printf($img_minus, $element_counter);
                 }
                 echo '</a>';
@@ -514,12 +516,15 @@ function PMA_displayTableList($tables, $visible = false,
             $element_counter++;
             echo '<li>' . "\n";
             if ($visible
-             && ((isset($_REQUEST['tbl_group'])
-               && (strpos($_REQUEST['tbl_group'], $group) === 0
+                && ((isset($_REQUEST['tbl_group'])
+                && (strpos($_REQUEST['tbl_group'], $group) === 0
                 || strpos($_REQUEST['tbl_group'], $sep . $group) !== false))
-              || strpos($GLOBALS['table'], $group) === 0)) {
-                printf($href_left, $element_counter,
-                    $GLOBALS['common_url_query'] . '&amp;tbl_group=' . $tab_group_full);
+                || strpos($GLOBALS['table'], $group) === 0)
+            ) {
+                printf(
+                    $href_left, $element_counter,
+                    $GLOBALS['common_url_query'] . '&amp;tbl_group=' . $tab_group_full
+                );
                 printf($img_minus, $element_counter);
             } else {
                 printf($href_left, $element_counter, $common_url_query);
@@ -551,13 +556,15 @@ function PMA_displayTableList($tables, $visible = false,
             unset($table['tab' . $sep . 'group']);
             unset($table['tab' . $sep . 'count']);
 
-            if ($visible &&
-              ((isset($_REQUEST['tbl_group'])
+            if ($visible
+                && ((isset($_REQUEST['tbl_group'])
                 && (strpos($_REQUEST['tbl_group'], $group) === 0
                 || strpos($_REQUEST['tbl_group'], $sep . $group) !== false))
-              || strpos($GLOBALS['table'], $group) === 0)) {
-                PMA_displayTableList($table, true,
-                    $tab_group_full . $group, $table_db);
+                || strpos($GLOBALS['table'], $group) === 0)
+            ) {
+                PMA_displayTableList(
+                    $table, true, $tab_group_full . $group, $table_db
+                );
             } else {
                 PMA_displayTableList($table, false, '', $table_db);
             }

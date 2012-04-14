@@ -317,8 +317,10 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             ?>.png" alt="*" />
             <?php
         }
-        echo htmlspecialchars($tab_column[$t_n]["COLUMN_NAME"][$j]
-            . " : " . $tab_column[$t_n]["TYPE"][$j], ENT_QUOTES);
+        echo htmlspecialchars(
+            $tab_column[$t_n]["COLUMN_NAME"][$j] . " : " . $tab_column[$t_n]["TYPE"][$j],
+            ENT_QUOTES
+        );
         ?>
         </div>
    </td>

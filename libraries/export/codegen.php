@@ -312,17 +312,20 @@ if (isset($plugin_list)) {
         if ($result) {
             while ($row = PMA_DBI_fetch_row($result)) {
                 $tablePropertie = new TableProperty($row);
-                if ($tablePropertie->isPK())
-                    $lines[] = $tablePropertie->formatXml(''
-                        . '        <id name="#ucfirstName#" type="#dotNetObjectType#" unsaved-value="0">' . "\n"
+                if ($tablePropertie->isPK()) {
+                    $lines[] = $tablePropertie->formatXml(
+                        '        <id name="#ucfirstName#" type="#dotNetObjectType#" unsaved-value="0">' . "\n"
                         . '            <column name="#name#" sql-type="#type#" not-null="#notNull#" unique="#unique#" index="PRIMARY"/>' . "\n"
                         . '            <generator class="native" />' . "\n"
-                        . '        </id>');
-                else
-                    $lines[] = $tablePropertie->formatXml(''
-                        . '        <property name="#ucfirstName#" type="#dotNetObjectType#">' . "\n"
+                        . '        </id>'
+                    );
+                } else {
+                    $lines[] = $tablePropertie->formatXml(
+                        '        <property name="#ucfirstName#" type="#dotNetObjectType#">' . "\n"
                         . '            <column name="#name#" sql-type="#type#" not-null="#notNull#" #indexName#/>' . "\n"
-                        . '        </property>');
+                        . '        </property>'
+                    );
+                }
             }
             PMA_DBI_free_result($result);
         }

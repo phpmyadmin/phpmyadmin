@@ -204,11 +204,13 @@ if (isset($_REQUEST['submit_search'])) {
 
     // Displays search string
     echo '<br />' . "\n"
-        .'<table class="data">' . "\n"
-        .'<caption class="tblHeaders">' . "\n"
-        .sprintf(__('Search results for "<i>%s</i>" %s:'),
-            $searched, $option_str) . "\n"
-        .'</caption>' . "\n";
+        . '<table class="data">' . "\n"
+        . '<caption class="tblHeaders">' . "\n"
+        . sprintf(
+            __('Search results for "<i>%s</i>" %s:'),
+            $searched, $option_str
+        ) . "\n"
+        . '</caption>' . "\n";
 
     $num_search_result_total = 0;
     $odd_row = true;
@@ -224,8 +226,10 @@ if (isset($_REQUEST['submit_search'])) {
         $sql_query .= $newsearchsqls['select_count'];
 
         echo '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
-            .'<td>' . sprintf(_ngettext('%1$s match inside table <i>%2$s</i>', '%1$s matches inside table <i>%2$s</i>', $res_cnt), $res_cnt,
-                htmlspecialchars($each_table)) . "</td>\n";
+            . '<td>' . sprintf(
+                _ngettext('%1$s match inside table <i>%2$s</i>', '%1$s matches inside table <i>%2$s</i>', $res_cnt),
+                $res_cnt, htmlspecialchars($each_table)
+            ) . "</td>\n";
 
         if ($res_cnt > 0) {
             $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
@@ -238,7 +242,7 @@ if (isset($_REQUEST['submit_search'])) {
             ?>
             <td> <a name="delete_search" href="<?php echo $delete_result_path; ?>" onclick="deleteResult('<?php echo $delete_result_path ?>' , ' <?php printf(__('Delete the matches for the %s table?'), htmlspecialchars($each_table)); ?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Delete') ?></a>   </td>
             <?php
-         } else {
+        } else {
             echo '<td>&nbsp;</td>' . "\n"
                 .'<td>&nbsp;</td>' . "\n";
         }// end if else
@@ -249,8 +253,10 @@ if (isset($_REQUEST['submit_search'])) {
     echo '</table>' . "\n";
 
     if (count($tables_selected) > 1) {
-        echo '<p>' . sprintf(_ngettext('<b>Total:</b> <i>%s</i> match', '<b>Total:</b> <i>%s</i> matches', $num_search_result_total),
-            $num_search_result_total) . '</p>' . "\n";
+        echo '<p>' . sprintf(
+            _ngettext('<b>Total:</b> <i>%s</i> match', '<b>Total:</b> <i>%s</i> matches', $num_search_result_total),
+            $num_search_result_total
+        ) . '</p>' . "\n";
     }
 } // end 1.
 
