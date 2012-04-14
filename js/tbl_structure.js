@@ -375,7 +375,7 @@ $(document).ready(function() {
          */
         var button_options = {};
 
-        button_options[PMA_messages['strGo']] = function() {
+        button_options[PMA_messages['strGo']] = function(event) {
             event.preventDefault();
             var $msgbox = PMA_ajaxShowMessage();
             var $this = $(this);
