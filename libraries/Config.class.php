@@ -363,13 +363,19 @@ class PMA_Config
         if (! $ref_head = @file_get_contents($git_folder . '/HEAD')) {
             return;
         }
-        $ref_head = substr(trim($ref_head), 5);
-        $branch = basename($ref_head);
+        $branch = false;
+        // are we on any branch?
+        if (strstr($ref_head, '/')) {
+            $ref_head = substr(trim($ref_head), 5);
+            $branch = basename($ref_head);
 
-        if (! $hash = @file_get_contents($git_folder . '/' . $ref_head)) {
-            return;
+            if (! $hash = @file_get_contents($git_folder . '/' . $ref_head)) {
+                return;
+            }
+            $hash = trim($hash);
+        } else {
+            $hash = trim($ref_head);
         }
-        $hash = trim($hash);
 
         if (! $commit = @file_get_contents(
                 $git_folder . '/objects/' . substr($hash, 0, 2) 
@@ -407,8 +413,7 @@ class PMA_Config
         $is_remote_commit = false;
         if (isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])) {
             $is_remote_commit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
-        }
-        else {
+        } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/' . $hash;
             $is_found = $this->checkHTTP($link);
             switch($is_found) {
@@ -428,12 +433,11 @@ class PMA_Config
         }
 
         $is_remote_branch = false;
-        if ($is_remote_commit) {
+        if ($is_remote_commit && $branch !== false) {
             // check if branch exists in Github
             if (isset($_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash])) {
                 $is_remote_branch = $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
-            }
-            else {
+            } else {
                 $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/trees/' . $branch;
                 $is_found = $this->checkHTTP($link);
                 switch($is_found) {

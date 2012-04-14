@@ -35,10 +35,14 @@ function PMA_printGitRevision()
                 . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH'))
             . '" target="_blank">' . $branch . '</a>';
     }
+    if ($branch !== false) {
+        $branch = sprintf(__('%s from %s branch'), $commit_hash, $branch);
+    } else {
+        $branch = $commit_hash . ' (' . __('no branch') . ')';
+    }
 
     PMA_printListItem(__('Git revision') . ': '
-        . sprintf(
-            __('%s from %s branch'), $commit_hash, $branch) . ',<br /> '
+        . $branch . ',<br /> '
         . sprintf(
             __('committed on %s by %s'), 
             PMA_localisedDate(strtotime($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER')['date'])),
