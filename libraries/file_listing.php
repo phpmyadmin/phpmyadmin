@@ -6,6 +6,9 @@
  * @todo rename to file_listing.lib.php
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Returns array of filtered file names

@@ -12,6 +12,9 @@
  * @package PhpMyAdmin-String
  * @subpackage MB
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Returns length of string depending on current charset.
