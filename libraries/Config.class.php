@@ -366,12 +366,12 @@ class PMA_Config
         $ref_head = substr(trim($ref_head), 5);
         $branch = basename($ref_head);
 
-        if (! $hash = file_get_contents($git_folder . '/' . $ref_head)) {
+        if (! $hash = @file_get_contents($git_folder . '/' . $ref_head)) {
             return;
         }
         $hash = trim($hash);
 
-        if (! $commit = file_get_contents(
+        if (! $commit = @file_get_contents(
                 $git_folder . '/objects/' . substr($hash, 0, 2) 
                 . '/' . substr($hash, 2))) {
             return;
