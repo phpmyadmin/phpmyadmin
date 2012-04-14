@@ -353,11 +353,11 @@ foreach ($fields as $row) {
             <?php echo $titles['Drop']; ?></a>
     </td>
     <?php } ?>
-    <td class="replaced_by_more center browse">
+    <td class="browse replaced_by_more center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">            <?php echo $titles['BrowseDistinctValues']; ?></a>
     </td>
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <td class="center primary replaced_by_more">
+    <td class="primary replaced_by_more center">
         <?php
         if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_storage_engine || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
