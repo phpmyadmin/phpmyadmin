@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-13 11:53+0200\n"
+"PO-Revision-Date: 2012-04-15 18:48+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -242,16 +242,16 @@ msgid "The database name is empty!"
 msgstr "දත්තගබඩා නම හිස්ව පවතී!"
 
 #: db_operations.php:298
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "%s දත්තගබඩාව %s බවට නම වෙනස් කරන ලදි"
+msgstr "%1$s දත්තගබඩාව %2$s බවට නම වෙනස් කරන ලදි"
 
 #: db_operations.php:302
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "%s දත්තගබඩාව %s වෙතට පිටපත් කරන ලදි"
+msgstr "%1$s දත්තගබඩාව %2$s වෙතට පිටපත් කරන ලදි"
 
 #: db_operations.php:430
 msgid "Rename database to"
@@ -1005,10 +1005,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇත."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "පහත විමසුම ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
+msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -1711,22 +1711,19 @@ msgid "Show indexes"
 msgstr "සුචි පෙන්වන්න"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:313
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "අන්‍ය මූල පරීක්ෂා අක්‍රිය කරන්න"
+msgstr "අන්‍ය මූල පරීක්ෂාව:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "සක්‍රිය කරන් ලද"
+msgstr "(සක්‍රිය)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "අක්‍රිය"
+msgstr "(අක්‍රිය)"
 
 #: js/messages.php:255
 msgid "Searching"
@@ -1960,20 +1957,18 @@ msgid "Go to link"
 msgstr "සබැඳීම වෙත යන්න"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "තීර නම්"
+msgstr "තීර නම් පිටපත් කරන්න"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "පේළි(ය) යාවත්කාලීන කරන්න"
+msgstr "දත්ත පේළි(ය) පෙන්වන්න"
 
 #: js/messages.php:359
 msgid "Generate password"
@@ -2584,10 +2579,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "mcrypt හි Blowfish භාවිතා කිරීම අසමත් විය!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "මෙම ස්ථානය පසු කිරීම සඳහා කුකීස් - Cookies සක්‍රිය කල යුතුයි."
+msgstr "මෙම ස්ථානයයෙන් පසු JavaScript සක්‍රිය කර තිබීම අවශ්‍යය"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -2743,7 +2737,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "%1$s වෙතින් පෙරනිමි සිටුවම් පූරණය කර ගත නොහැකි විය"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2751,7 +2744,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<code>$cfg['PmaAbsoluteUri']</code> සඳහා අගය ඔබගේ වින්‍යාස ගොනුවේ අඩංගු විය යුතුමය!"
+"[code]$cfg['PmaAbsoluteUri'][/code] සඳහා අගය ඔබගේ වින්‍යාස ගොනුවේ අඩංගු විය "
+"යුතුමය!"
 
 #: libraries/common.inc.php:651
 #, php-format
@@ -3939,11 +3933,11 @@ msgstr "Texy! පෙළ"
 
 #: libraries/config/messages.inc.php:234
 msgid "Warnings"
-msgstr "අනතුරු හැඟවීම්"
+msgstr "අනතුරු ඇඟවීම්"
 
 #: libraries/config/messages.inc.php:235
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr "phpMyAdmin හි සමහර අනතුරු හැඟවීම් අක්‍රීය කරන්න"
+msgstr "phpMyAdmin හි සමහර අනතුරු ඇඟවීම් අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:236
 msgid ""
@@ -5657,10 +5651,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
+msgstr "ඔබගේ ආනයන ගොනුව උඩුගත කෙරෙමින්..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
@@ -7852,10 +7845,10 @@ msgid "Table seems to be empty!"
 msgstr ""
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "%s.%s සඳහා අවධානය සක්‍රීයයි."
+msgstr "%s සඳහා අවධානය සක්‍රීයයි."
 
 #: libraries/tbl_properties.inc.php:98
 #, fuzzy
@@ -8277,6 +8270,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"ඔබගේ PHP MySQL පුස්තකාල අනුවාදය වන %s සේවාදායකයේ MySQL අනුවාදය වන %s න් "
+"වෙනස් වේ. මෙය අනපේක්ෂිත හැසිරීම් ගෙන දිය හැක."
 
 #: main.php:367
 #, php-format
@@ -8602,12 +8597,12 @@ msgid "No databases selected."
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
 #: server_databases.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "දත්තගබඩා %s ක් සාර්ථකව හලන ලදි."
-msgstr[1] "දත්තගබඩා %s ක් සාර්ථකව හලන ලදි."
+msgstr[0] "දත්තගබඩා %1$d ක් සාර්ථකව හලන ලදි."
+msgstr[1] "දත්තගබඩා %1$d ක් සාර්ථකව හලන ලදි."
 
 #: server_databases.php:119
 msgid "Databases statistics"
@@ -8961,10 +8956,9 @@ msgid "Revoke"
 msgstr "අහෝසි කරන්න"
 
 #: server_privileges.php:1542
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "අපනයනය"
+msgstr "සියල්ල අපනයනය කරන්න"
 
 #: server_privileges.php:1561 server_privileges.php:1843
 #: server_privileges.php:2475
@@ -8972,16 +8966,15 @@ msgid "Any"
 msgstr "ඕනෑම"
 
 #: server_privileges.php:1641
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
-msgstr "වරප්‍රසාද"
+msgstr "සියලුම භාවිතා කරන්නන් සඳහා වරප්‍රසාද"
 
 #: server_privileges.php:1653
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "වරප්‍රසාද"
+msgstr "%s සඳහා වරප්‍රසාද"
 
 #: server_privileges.php:1681
 msgid "Users overview"
@@ -10540,7 +10533,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
-msgstr "අනතුරු හැඟවීම"
+msgstr "අනතුරු ඇඟවීම"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Submitted form contains errors"
@@ -11251,22 +11244,22 @@ msgid "Tracking report for table `%s`"
 msgstr "`%s` වගුව සඳහා අවධානය පිළිබඳ වාර්තාව"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "%s වන අනුවාදය සාදන ලදි. %s.%s සඳහා අවධානය සක්‍රීයයි."
+msgstr "%1$s වන අනුවාදය සාදන ලදි. %2$s සඳහා අවධානය සක්‍රීයයි."
 
 #: tbl_tracking.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "%s.%s සඳහා අවධානය සක්‍රීයයි."
+msgstr "%2$s වන අනුවාදයේදී %1$s සඳහා අවධානය අක්‍රීය කරන ලදී."
 
 #: tbl_tracking.php:198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "%s.%s සඳහා අවධානය සක්‍රීයයි."
+msgstr "%2$s වන අනුවාදයේදී %1$s සඳහා අවධානය සක්‍රීය කරන ලදී."
 
 #: tbl_tracking.php:211
 msgid "SQL statements executed."
@@ -11308,10 +11301,11 @@ msgid "Tracking statements"
 msgstr ""
 
 #: tbl_tracking.php:445 tbl_tracking.php:573
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "%s පෙන්වන්න, %s දින සිට %s දින දක්වා %s %s භාවිතා කරන්නා විසින්"
+msgstr ""
+"%1$s පෙන්වන්න, %2$s දින සිට %3$s දින දක්වා %4$s %5$s භාවිතා කරන්නා විසින්"
 
 #: tbl_tracking.php:450
 msgid "Delete tracking data row from report"
@@ -11359,30 +11353,30 @@ msgid "Show versions"
 msgstr "අනුවාද පෙන්වන්න"
 
 #: tbl_tracking.php:714
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "%s.%s සඳහා අවධානය අක්‍රීය කරන්න"
+msgstr "%s සඳහා අවධානය අක්‍රීය කරන්න"
 
 #: tbl_tracking.php:716
 msgid "Deactivate now"
 msgstr "අක්‍රීය කරන්න"
 
 #: tbl_tracking.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "%s.%s සඳහා අවධානය සක්‍රීය කරන්න"
+msgstr "%s සඳහා අවධානය සක්‍රීය කරන්න"
 
 #: tbl_tracking.php:729
 msgid "Activate now"
 msgstr "සක්‍රීය කරන්න"
 
 #: tbl_tracking.php:742
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "%s වන අනුවාදය සාදන්න, %s.%s හි"
+msgstr "%2$s හි %1$s වන අනුවාදය සාදන්න"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
@@ -11502,10 +11496,9 @@ msgid "Current amount of Questions: %s"
 msgstr "වත්මන් සම්බන්දතාව"
 
 #: libraries/advisory_rules.txt:47
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "SQL විමසුම් පෙන්වන්න"
+msgstr "මන්දගාමී විමසුම් ප්‍රතිශතය"
 
 #: libraries/advisory_rules.txt:50
 msgid ""
@@ -11524,10 +11517,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:54
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Flush query cache"
+msgstr "මන්දගාමී විමසුම් ශ්‍රීඝ‍්‍රතාවය"
 
 #: libraries/advisory_rules.txt:57
 msgid ""
@@ -11542,10 +11534,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:61
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL විමසුම"
+msgstr "දිගු විමසුම් කාලය"
 
 #: libraries/advisory_rules.txt:64
 msgid ""
@@ -11565,10 +11556,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: libraries/advisory_rules.txt:68
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "විමසුම් කවුළුව පෙන්වන්න"
+msgstr "මන්දගාමී විමසුම් ලොගගත කිරීම"
 
 #: libraries/advisory_rules.txt:71
 msgid "The slow query log is disabled."
@@ -11602,16 +11592,15 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:82 libraries/advisory_rules.txt:89
 #: libraries/advisory_rules.txt:96
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "අනුවාදය සාදන්න"
+msgstr "වත්මන් අනුවාදය: %s"
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "අනුවාදය"
+msgstr "සුළු අනුවාදය"
 
 #: libraries/advisory_rules.txt:87
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -11635,10 +11624,9 @@ msgstr "You should upgrade to %s %s or later."
 
 #: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
 #: libraries/advisory_rules.txt:112
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "විස්තරය"
+msgstr "ව්‍යප්තිය"
 
 #: libraries/advisory_rules.txt:101
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -11699,16 +11687,14 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:130
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් අක්‍රීයයි"
 
 #: libraries/advisory_rules.txt:133
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "සේවාදායකය ප්‍රතිචාර නොදක්වයි"
+msgstr "විමසුම් කෑෂ් සක්‍රීය කර නැත."
 
 #: libraries/advisory_rules.txt:134
 msgid ""
@@ -11723,10 +11709,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:137
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ්ගත කරන ක්‍රමය"
 
 #: libraries/advisory_rules.txt:140
 msgid "Suboptimal caching method."
@@ -11748,10 +11733,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:144
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%%)"
-msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව "
+msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව (%%)"
 
 #: libraries/advisory_rules.txt:147
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -11767,9 +11752,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:151
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් භාවිතය"
 
 #: libraries/advisory_rules.txt:154
 #, php-format
@@ -11790,10 +11774,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:158
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් ඛණ්ඩනීකරණය"
 
 #: libraries/advisory_rules.txt:161
 msgid "The query cache is considerably fragmented."
@@ -11846,10 +11829,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:172
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් උපරිම ප්‍රමාණය"
 
 #: libraries/advisory_rules.txt:175
 msgid ""
@@ -11869,10 +11851,9 @@ msgid "Current query cache size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:179
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "විමසුම් ප්‍රථිඵල"
+msgstr "විමසුම් කෑෂ් අවම ප්‍රථිඵල ප්‍රමාණය"
 
 #: libraries/advisory_rules.txt:182
 msgid ""
@@ -11933,10 +11914,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:202
-#, fuzzy
 #| msgid "Startup"
 msgid "Sort rows"
-msgstr "ඇරඹුම්"
+msgstr "පේළි සුබෙදන්න"
 
 #: libraries/advisory_rules.txt:205
 msgid "There are lots of rows being sorted."
