@@ -316,6 +316,9 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
     } // End of parser loop
 } // End of import loop
 // Commit any possible data in buffers
+
+$_SESSION['t_select'] = FALSE;
+	
 PMA_importRunQuery('', substr($buffer, 0, $len));
 PMA_importRunQuery();
 ?>

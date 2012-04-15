@@ -16,7 +16,7 @@ if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
 }
 
-/**
+/** 
  * Sets globals from $_POST
  */
 $post_params = array(
@@ -393,6 +393,54 @@ if ($import_file != 'none' && !$error) {
         $message = PMA_Message::error(__('File could not be read'));
         $error = true;
     }
+} elseif ($_SESSION['t_select']) {
+		//Creates a file with selected queries
+		//if the user has specified custom table import
+	
+	    //Initialize variables 
+	    $tables = $_POST['table_select'];
+		$names = $_SESSION['t_names'];
+		$q_create = $_SESSION['t_creates']; 
+		$q_insert = $_SESSION['t_inserts'];
+	    $count=0;
+	    $result='';
+	    
+	    //Check which table queries are selected by user
+	    for ($i=0;$i<count($names);$i++) {
+	    	$selected = FALSE;
+	    	foreach ($tables as $table) {
+	    		if ($table == $names[$i]) {
+	    			$selected = TRUE;
+	    			$count++; 
+	    			break;
+	    		}
+	    	}  	
+	    	if ($selected) {
+	    		$result .= $q_create[$i]."\n".$q_insert[$i]."\n";
+	    		if ($count == count($tables)) {
+	    			break;
+	    		}
+	    	}
+	    }
+	    
+	    //Create file with selected queries
+	    $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
+	  	$path = tempnam($tmp_subdir , 'tmp_select.sql');
+	  	$file_to_unlink = $path;
+	    $h = fopen($path,'w');
+	    fwrite($h,$result);
+	    fclose($path);
+	  	
+	    //Update required variables
+	    $import_handle = @fopen($path,'r');
+	  	$compression = 'none';
+	  	$GLOBALS['import_file'] = $path;
+	  	
+	  	//Unset SESSION variables
+	  	unset($_SESSION['t_names']);
+		unset($_SESSION['t_creates']); 
+		unset($_SESSION['t_inserts']);
+		
 } elseif (!$error) {
     if (! isset($import_text) || empty($import_text)) {
         $message = PMA_Message::error(__('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a].'));
@@ -404,23 +452,24 @@ if ($import_file != 'none' && !$error) {
 //$_SESSION['Import_message'] = $message->getDisplay();
 
 // Convert the file's charset if necessary
-if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_file)) {
-    if ($charset_of_file != 'utf-8') {
-        $charset_conversion = true;
-    }
-} elseif (isset($charset_of_file) && $charset_of_file != 'utf8') {
-    if (PMA_DRIZZLE) {
-        // Drizzle doesn't support other character sets, so we can't fallback to SET NAMES - throw an error
-        $error = true;
-        $message = PMA_Message::error(__('Cannot convert file\'s character set without character set conversion library'));
-    } else {
-        PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
-        // We can not show query in this case, it is in different charset
-        $sql_query_disabled = true;
-        $reset_charset = true;
-    }
+if (!isset($_SESSION['t_select']) || !$_SESSION['t_select']){
+	if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_file)) {
+	    if ($charset_of_file != 'utf-8') {
+	        $charset_conversion = true;
+	    }
+	} elseif (isset($charset_of_file) && $charset_of_file != 'utf8') {
+	    if (PMA_DRIZZLE) {
+	        // Drizzle doesn't support other character sets, so we can't fallback to SET NAMES - throw an error
+	        $error = true;
+	        $message = PMA_Message::error(__('Cannot convert file\'s character set without character set conversion library'));
+	    } else {
+	        PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
+	        // We can not show query in this case, it is in different charset
+	        $sql_query_disabled = true;
+	        $reset_charset = true;
+	    }
+	}
 }
-
 // Something to skip?
 if (!$error && isset($skip)) {
     $original_skip = $skip;
@@ -440,8 +489,15 @@ if (!$error) {
     } else {
         // Do the real import
         $plugin_param = $import_type;
-        include 'libraries/import/' . $format . '.php';
-    }
+        
+        if ((isset($_SESSION['t_select']) && $_SESSION['t_select']) || !$_POST['checkselect'] ) {
+        	//If selecting tables is complete or not checked at all
+        	require './libraries/import/' . $format . '.php';
+        } else {
+        	//If selecting tables is checked
+			require './libraries/import_selected.lib.php';
+        }
+	}
 }
 
 if (! $error && false !== $import_handle && null !== $import_handle) {

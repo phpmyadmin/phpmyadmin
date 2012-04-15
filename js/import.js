@@ -21,6 +21,11 @@ function changePluginOpts()
     } else {
         $("#import_notification").text("");
     }
+    if ( selected_plugin_name != "sql") {
+	    $('#check_tableselect').hide();
+    } else {
+   		$('#check_tableselect').show();
+    }
 }
 
 /**
@@ -88,3 +93,14 @@ $(document).ready(function() {
     .remove();
     //$("form[name=import] *").unwrap();
 });
+
+//Hide Import options when selecting tables
+$(document).ready(function() {
+	if( $('#tableselect').css('display')!='none' ) {
+		$('.importoptions').hide();
+		$('.formelementrow').hide();
+		$('#tableselect').show();
+		$('#submit').show();
+	}
+});
+
