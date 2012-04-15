@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-14 21:44-0000\n"
+"PO-Revision-Date: 2012-04-14 23:11+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -9051,7 +9051,7 @@ msgstr "Crear unha páxina e exportar a ela"
 #: pmd_pdf.php:107
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Nome da nova páxina:"
+msgstr "Nome da nova páxina: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
@@ -11299,7 +11299,7 @@ msgstr "A conexión non é segura"
 #: setup/frames/index.inc.php:94
 #| msgid "Configuration file"
 msgid "Configuration saved."
-msgstr "Configuración gardada"
+msgstr "Configuración gardada."
 
 #: setup/frames/index.inc.php:95
 msgid ""
@@ -11608,7 +11608,7 @@ msgstr "Debería empregar conexións SSL se o admite o servidor web."
 #: setup/lib/index.lib.php:334
 #| msgid "You should use mysqli for performance reasons"
 msgid "You should use mysqli for performance reasons."
-msgstr "Debería empregar mysqli por razóns de rendemento"
+msgstr "Debería empregar mysqli por razóns de rendemento."
 
 #: setup/lib/index.lib.php:365
 msgid "You allow for connecting to the server without a password."
@@ -11617,7 +11617,7 @@ msgstr "Permite ligar co servidor sen contrasinal."
 #: setup/lib/index.lib.php:387
 #| msgid "Key is too short, it should have at least 8 characters"
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "A chave é curta de máis, debería ter un mínimo de oito caracteres"
+msgstr "A chave é curta de máis, debería ter un mínimo de oito caracteres."
 
 #: setup/lib/index.lib.php:394
 #| msgid "Key should contain letters, numbers [em]and[/em] special characters"
@@ -12089,7 +12089,7 @@ msgstr "Faga unha \"procura por exemplo\" (o comodín é \"%\")"
 #: tbl_select.php:202
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Seleccione os campos (mínimo un)>"
+msgstr "Seleccione os campos (mínimo un):"
 
 #: tbl_select.php:220
 msgid "Add search conditions (body of the \"where\" clause):"
