@@ -87,12 +87,6 @@ $cfg['SaveDir'] = '';
 //$cfg['MaxRows'] = 50;
 
 /**
- * Use graphically less intense menu tabs
- * default = false
- */
-//$cfg['LightTabs'] = true;
-
-/**
  * disallow editing of binary fields
  * valid values are:
  *   false  allow editing

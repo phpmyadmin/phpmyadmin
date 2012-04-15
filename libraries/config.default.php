@@ -1135,13 +1135,6 @@ $cfg['CompressOnFly'] = true;
  */
 
 /**
- * Use graphically less intense menu tabs
- *
- * @global boolean $cfg['LightTabs']
- */
-$cfg['LightTabs'] = false;
-
-/**
  * Use icons instead of text for the table display of a database (true|false|'both')
  *
  * @global boolean $cfg['PropertiesIconic']

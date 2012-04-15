@@ -1018,18 +1018,6 @@ fieldset.caution a:hover {
     background-color: #FF0000;
 }
 
-<?php if ($GLOBALS['cfg']['LightTabs']) { ?>
-/* active tab */
-ul#topmenu a.tabactive,
-ul#topmenu2 a.tabactive {
-    color: #000;
-}
-
-ul#topmenu ul {
-    background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-}
-<?php } else { ?>
-
 #topmenu {
     margin-top: .5em;
     padding: .1em .3em;
@@ -1100,7 +1088,6 @@ a.error {
     cursor: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
     color: #ccc;
 }
-<?php } ?>
 /* end topmenu */
 
 /* zoom search */
