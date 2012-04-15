@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-02 23:48+0200\n"
-"Last-Translator: Everton R <everton@tconibo.org>\n"
+"PO-Revision-Date: 2012-04-16 00:14+0200\n"
+"Last-Translator: JCJesus Lima <jcjlima@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -5168,10 +5168,9 @@ msgstr ""
 "Define se a caixa de consulta deve estar sobre a tela depois de sua submissão"
 
 #: libraries/config/messages.inc.php:482 libraries/sql_query_form.lib.php:358
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Ocultar caixa de consulta"
+msgstr "Manter caixa de consulta"
 
 #: libraries/config/messages.inc.php:483
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -5302,6 +5301,9 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Tamanho da área de texto (linhas) no modo de edição, esse valor será "
+"ampliado para as áreas de texto de consulta SQL (*2) e para janela de "
+"consulta (*1.25)"
 
 #: libraries/config/messages.inc.php:510
 msgid "Textarea rows"
@@ -5342,6 +5344,8 @@ msgstr "Lista de proxies confiáveis ​​por IP permitir/negar"
 #: libraries/config/messages.inc.php:521
 msgid "Directory on server where you can upload files for import"
 msgstr ""
+"Diretório no servidor onde você pode fazer upload de arquivos para "
+"importação"
 
 #: libraries/config/messages.inc.php:522
 msgid "Upload directory"
@@ -5349,7 +5353,7 @@ msgstr "Diretório de upload"
 
 #: libraries/config/messages.inc.php:523
 msgid "Allow for searching inside the entire database"
-msgstr ""
+msgstr "Permitir pesquisa no banco de dados inteiro"
 
 #: libraries/config/messages.inc.php:524
 msgid "Use database search"
