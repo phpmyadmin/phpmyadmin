@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-15 15:51-0000\n"
+"PO-Revision-Date: 2012-04-15 16:58+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -9736,7 +9736,7 @@ msgstr "comodín"
 #: server_privileges.php:2534
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "O usuario foi engadido"
+msgstr "O usuario foi engadido."
 
 #: server_replication.php:79
 msgid "Unknown error"
@@ -10012,7 +10012,7 @@ msgstr ""
 #: server_status.php:812 server_status.php:834
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Tasa de refresco:"
+msgstr "Tasa de refresco: "
 
 #: server_status.php:847 server_variables.php:108
 msgid "Filters"
@@ -10103,7 +10103,7 @@ msgstr ""
 #, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Este servidor de MySQL leva funcionando %$1s. Iniciouse às %2$s."
+msgstr "Este servidor de MySQL leva funcionando %1$s. Iniciouse às %2$s."
 
 #: server_status.php:1083
 #| msgid "This server is configured as master in a replication process."
@@ -11033,7 +11033,7 @@ msgstr "Estatísticas de rexistro"
 #: server_status.php:1733
 #| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr "Rango temporal seleccionado"
+msgstr "Rango temporal seleccionado:"
 
 #: server_status.php:1738
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
