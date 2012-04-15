@@ -346,9 +346,21 @@ $(document).ready(function() {
          */
         var curr_table_name = $curr_row.children('th').children('a').text();
         /**
+         * @var is_view Boolean telling if we have a view
+         */
+        var is_view = $curr_row.hasClass('is_view');
+        /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 'DROP TABLE ' + curr_table_name;
+        var question;
+        if (! is_view) {
+            question = 
+                PMA_messages.strDropTableStrongWarning + ' ' 
+                + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + curr_table_name);
+        } else {
+            question =
+                $.sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + curr_table_name);
+        }
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 

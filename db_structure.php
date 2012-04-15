@@ -372,6 +372,10 @@ foreach ($tables as $keyname => $each_table) {
             $empty_table .= $titles['NoEmpty'];
         }
         $empty_table .= '</a>';
+        // truncating views doesn't work
+        if ($table_is_view) {
+            $empty_table = '&nbsp;';
+        }
 
         $drop_query = 'DROP '
             . ($table_is_view ? 'VIEW' : 'TABLE')
@@ -446,7 +450,9 @@ foreach ($tables as $keyname => $each_table) {
         unset($table_part);
     }
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>"
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
+    echo $table_is_view ? ' is_view' : '';
+    ?>"
     id="row_tbl_<?php echo $i; ?>">
     <td class="center">
         <input type="checkbox" name="selected_tbl[]"
