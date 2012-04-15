@@ -406,21 +406,8 @@ if ($import_file != 'none' && !$error) {
 	    $result='';
 	    
 	    //Check which table queries are selected by user
-	    for ($i=0;$i<count($names);$i++) {
-	    	$selected = FALSE;
-	    	foreach ($tables as $table) {
-	    		if ($table == $names[$i]) {
-	    			$selected = TRUE;
-	    			$count++; 
-	    			break;
-	    		}
-	    	}  	
-	    	if ($selected) {
-	    		$result .= $q_create[$i]."\n".$q_insert[$i]."\n";
-	    		if ($count == count($tables)) {
-	    			break;
-	    		}
-	    	}
+	    foreach ($tables as $in) {
+	    		$result .= $q_create[$in]."\n".$q_insert[$in]."\n";
 	    }
 	    
 	    //Create file with selected queries

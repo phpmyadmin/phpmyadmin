@@ -196,9 +196,9 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 			<?php
 				if (isset($_SESSION['t_names'])) { 
 					$names = $_SESSION['t_names'];
-					foreach ($names as $name)
+					for ($i=0;$i<count($names);$i++)
 					{
-						echo "\n<option selected='selected' value='$name'>$name</option>";
+						echo "\n<option selected='selected' value='$i'>$names[$i]</option>";
 					}
 				}
 			?>
