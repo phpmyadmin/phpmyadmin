@@ -150,6 +150,21 @@ function PMA_current_version()
 }
 
 /**
+ * Loads Git revision data from ajax for main.php
+ */
+function PMA_display_git_revision()
+{
+    $.get("main.php?token="
+        + $("input[type=hidden][name=token]").val()
+        + "&git_revision=1&ajax_request=true", function (data) {
+        if (data.error != "undefined" && data.error) {
+            return;
+        }
+        $(data.message).insertAfter('#li_pma_version');
+    });
+}
+
+/**
  * for libraries/display_change_password.lib.php
  *     libraries/user_password.php
  *
@@ -3078,6 +3093,10 @@ $(document).ready(function() {
      */
     if ($('li.jsversioncheck').length > 0) {
         $.getScript('http://www.phpmyadmin.net/home_page/version.js', PMA_current_version);
+    }
+
+    if (typeof is_git_revision != "undefined") {
+        setTimeout(PMA_display_git_revision, 10);
     }
 
     /**
