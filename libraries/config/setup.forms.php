@@ -227,7 +227,6 @@ $forms['Main_frame']['Edit'] = array(
     'ForeignKeyDropdownOrder',
     'ForeignKeyMaxLimit');
 $forms['Main_frame']['Tabs'] = array(
-    'LightTabs',
     'PropertiesIconic',
     'DefaultTabServer',
     'DefaultTabDatabase',
