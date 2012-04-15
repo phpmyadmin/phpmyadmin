@@ -49,20 +49,22 @@ function PMA_printGitRevision()
     }
 
     ob_start();
+    $committer = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER');
+    $author = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR');
     PMA_printListItem(__('Git revision') . ': '
         . $branch . ',<br /> '
         . sprintf(
             __('committed on %s by %s'), 
-            PMA_localisedDate(strtotime($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER')['date'])),
-            '<a href="' . PMA_linkURL('mailto:' . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER')['email']) . '">' 
-                . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER')['name']) . '</a>')
-        . ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR') != $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER')
+            PMA_localisedDate(strtotime($committer['date'])),
+            '<a href="' . PMA_linkURL('mailto:' . $committer['email']) . '">' 
+                . htmlspecialchars($committer['name']) . '</a>')
+        . ($author != $committer
             ? ', <br />' 
             . sprintf(
                 __('authored on %s by %s'), 
-                PMA_localisedDate(strtotime($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR')['date'])),
-                '<a href="' . PMA_linkURL('mailto:' . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR')['email']) . '">' 
-                    . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR')['name']) . '</a>')
+                PMA_localisedDate(strtotime($author['date'])),
+                '<a href="' . PMA_linkURL('mailto:' . $author['email']) . '">' 
+                    . htmlspecialchars($author['name']) . '</a>')
             : ''),
         'li_pma_version_git', null, null, null);
     $item = ob_get_contents();
