@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-14 23:11+0200\n"
+"PO-Revision-Date: 2012-04-15 15:51-0000\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -8702,10 +8702,9 @@ msgid "General Settings"
 msgstr "Configuración xeral"
 
 #: main.php:106
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Codificación de caracteres (Collation) da conexión de MySQL"
+msgstr "Cotexamento da conexión do servidor"
 
 #: main.php:120
 #| msgid "Other core settings"
@@ -9090,16 +9089,14 @@ msgid "Modifications have been saved"
 msgstr "Gardáronse as modificacións"
 
 #: prefs_forms.php:78
-#, fuzzy
 #| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "O formulario enviado contén erros"
+msgstr "Configuración non gardada, o formulario enviado contén erros"
 
 #: prefs_manage.php:78
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr "Non se puido cargar a configuración desde: \"%1$s\""
+msgstr "Non se puido importar a configuración"
 
 #: prefs_manage.php:110
 msgid "Configuration contains incorrect data for some fields."
@@ -9127,20 +9124,18 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 
 #: prefs_manage.php:252
-#, fuzzy
 #| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Outras opcións principais"
+msgstr "Non tes opcións gardadas!"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
 msgstr ""
 
 #: prefs_manage.php:261
-#, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
-msgstr "Configuración do servidor"
+msgstr "Combinar ca configuración actual"
 
 #: prefs_manage.php:275
 #, php-format
@@ -9179,10 +9174,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Non se atopou a táboa <b>%s</b>ou non se indicou en %s"
 
 #: schema_export.php:39
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Non existe a táboa \"%s\"."
+msgstr "O arquivo non existe"
 
 #: server_binlog.php:87
 msgid "Select binary log to view"
@@ -9227,12 +9221,12 @@ msgid "No databases selected."
 msgstr "Non hai ningunha base de datos seleccionada."
 
 #: server_databases.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Elimináronse %s bases de datos sen problemas."
-msgstr[1] "Elimináronse %s bases de datos sen problemas."
+msgstr[0] "Elimináouse %1$d base de datos sen problemas."
+msgstr[1] "Elimináronse %1$d bases de datos sen problemas."
 
 #: server_databases.php:119
 msgid "Databases statistics"
@@ -9300,7 +9294,6 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:173
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
 msgstr "Desactivado"
@@ -9494,7 +9487,6 @@ msgid "No privileges."
 msgstr "Sen privilexios."
 
 #: server_privileges.php:471 server_privileges.php:472
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -9539,7 +9531,6 @@ msgid "Do not change the password"
 msgstr "Non mude o contrasinal"
 
 #: server_privileges.php:1006 server_privileges.php:2525
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Non se achou ningún usuario."
@@ -9598,10 +9589,9 @@ msgid "Revoke"
 msgstr "Revogar"
 
 #: server_privileges.php:1542
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "Exportar"
+msgstr "Exportar todo"
 
 #: server_privileges.php:1561 server_privileges.php:1843
 #: server_privileges.php:2475
@@ -9609,19 +9599,17 @@ msgid "Any"
 msgstr "Calquera"
 
 #: server_privileges.php:1641
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
-msgstr "Privilexios"
+msgstr "Privilexios para todolos usuarios"
 
 #: server_privileges.php:1653
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilexios"
+msgstr "Privilexios para %s"
 
 #: server_privileges.php:1681
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Vista xeral dos usuarios"
@@ -9746,10 +9734,9 @@ msgid "wildcard"
 msgstr "comodín"
 
 #: server_privileges.php:2534
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "Deixouse a vista %s"
+msgstr "O usuario foi engadido"
 
 #: server_replication.php:79
 msgid "Unknown error"
@@ -9772,10 +9759,10 @@ msgid "Unable to change master"
 msgstr "Foi imposíbel mudar de principal"
 
 #: server_replication.php:102
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
-msgstr "O servidor principal mudouse sen problemas a %s"
+msgstr "O servidor principal mudouse con éxito a %s"
 
 #: server_replication.php:210
 msgid "This server is configured as master in a replication process."
@@ -9886,40 +9873,35 @@ msgid "Reset slave"
 msgstr "Reiniciar o escravo"
 
 #: server_replication.php:359
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Start SQL Thread only"
-msgstr "Fío SQL %s só"
+msgstr "Iniciar fío SQL %s só"
 
 #: server_replication.php:361
-#, fuzzy
 #| msgid "SQL Thread %s only"
 msgid "Stop SQL Thread only"
-msgstr "Fío SQL %s só"
+msgstr "Parar fío SQL %s só"
 
 #: server_replication.php:364
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Start IO Thread only"
-msgstr "Fío de E/S %s só"
+msgstr "Iniciar fío de E/S %s só"
 
 #: server_replication.php:366
-#, fuzzy
 #| msgid "IO Thread %s only"
 msgid "Stop IO Thread only"
-msgstr "Fío de E/S %s só"
+msgstr "Parar fío de E/S %s só"
 
 #: server_replication.php:371
 msgid "Error management:"
 msgstr "Xestión de erros:"
 
 #: server_replication.php:373
-#, fuzzy
 #| msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
-"Omitir o(s) erro(s) podería conducir a que o principal e o escravo non "
-"estean sincronizados."
+"Omitir os erros podería conducir a que o principal e o escravo non estean "
+"sincronizados!"
 
 #: server_replication.php:375
 msgid "Skip current error"
@@ -10015,10 +9997,9 @@ msgid "Runtime Information"
 msgstr "Información sobre o tempo de execución"
 
 #: server_status.php:800
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Ver a táboa de estado do escravo"
+msgstr "Todalas variables de estado"
 
 #: server_status.php:801
 msgid "Monitor"
@@ -10029,54 +10010,46 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:812 server_status.php:834
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Refrescar"
+msgstr "Tasa de refresco:"
 
 #: server_status.php:847 server_variables.php:108
-#, fuzzy
 msgid "Filters"
-msgstr "Filtro"
+msgstr "Filtros"
 
 #: server_status.php:855 server_variables.php:110
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Non mude o contrasinal"
+msgstr "Contendo a palabra:"
 
 #: server_status.php:860
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Mostrar as táboas abertas"
+msgstr "Mostrar só valores de alerta"
 
 #: server_status.php:864
 msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:878
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show unformatted values"
-msgstr "Mostrar as táboas abertas"
+msgstr "Mostrar valores sen formato"
 
 #: server_status.php:882
-#, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
-msgstr "Relacións"
+msgstr "Ligazóns relacionadas:"
 
 #: server_status.php:915
-#, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "Tipo de procura"
+msgstr "Executar analizador"
 
 #: server_status.php:916
-#, fuzzy
 msgid "Instructions"
-msgstr "Información"
+msgstr "Instruccións"
 
 #: server_status.php:923
 msgid ""
@@ -10107,10 +10080,10 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:951
-#, fuzzy, php-format
+#, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
-msgstr "Personalizar a páxina de inicio"
+msgstr "Preguntas dende o inicio: %s"
 
 #: server_status.php:987 tbl_printview.php:328 tbl_structure.php:833
 msgid "Statements"
@@ -10127,33 +10100,32 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: server_status.php:1072
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Este servidor de MySQL leva funcionando %s. Iniciouse às %s."
+msgstr "Este servidor de MySQL leva funcionando %$1s. Iniciouse às %2$s."
 
 #: server_status.php:1083
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"Este servidor está configurado como principal nun proceso de replicación."
+"Este servidor funciona como <b>maestro</b> e <b>esclavo</b>  nun proceso de "
+"<b>replicación</b>."
 
 #: server_status.php:1085
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Este servidor está configurado como principal nun proceso de replicación."
+"Este servidor funciona como <b>maestro</b>nun proceso de <b>replicación</b>."
 
 #: server_status.php:1087
-#, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Este servidor está configurado como principal nun proceso de replicación."
+"Este servidor funciona como <b>esclavo</b>  nun proceso de "
+"<b>replicación</b>."
 
 #: server_status.php:1090
 #, fuzzy
@@ -10905,10 +10877,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Número de fíos que non están a durmir."
 
 #: server_status.php:1575
-#, fuzzy
 #| msgid "Start"
 msgid "Start Monitor"
-msgstr "Inicio"
+msgstr "Iniciar monitorización"
 
 #: server_status.php:1584
 msgid "Instructions/Setup"
@@ -10919,10 +10890,9 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1596 server_status.php:1667
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add chart"
-msgstr "Aplicar índice(s)"
+msgstr "Engadir gráfico"
 
 #: server_status.php:1598
 msgid "Rearrange/edit charts"
@@ -10933,16 +10903,14 @@ msgid "Refresh rate"
 msgstr "Tasa de refresco"
 
 #: server_status.php:1607
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Chart columns"
-msgstr "Columnas de área de texto de CHAR"
+msgstr "Columnas do gráfico"
 
 #: server_status.php:1623
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Xestión de erros:"
+msgstr "Ordenación dos gráficos"
 
 #: server_status.php:1623
 msgid ""
@@ -10951,15 +10919,13 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1624
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Volver ao valor por omisión"
+msgstr "Resetear a predeterminado"
 
 #: server_status.php:1628
-#, fuzzy
 msgid "Monitor Instructions"
-msgstr "Información"
+msgstr "Instruccións de monitorización"
 
 #: server_status.php:1629
 msgid ""
@@ -11010,32 +10976,28 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1672
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Preset chart"
-msgstr "Mudar o nome da base de datos para"
+msgstr "Gráfico predefinido"
 
 #: server_status.php:1676
-#, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
-msgstr "Ver a táboa de estado do escravo"
+msgstr "Variable(s) de estado"
 
 #: server_status.php:1678
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Seleccionar táboas"
+msgstr "Seleccionar series:"
 
 #: server_status.php:1680
 msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1695
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Non se admite este nome de táboa."
+msgstr "ou escriba o nome da variable:"
 
 #: server_status.php:1699
 msgid "Display as differential value"
@@ -11050,32 +11012,28 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1714
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
-msgstr "Engadir un servidor novo"
+msgstr "Engadir esta serie"
 
 #: server_status.php:1716
 msgid "Clear series"
 msgstr ""
 
 #: server_status.php:1719
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "Solicitudes SQL"
+msgstr "Series no gráfico:"
 
 #: server_status.php:1732
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Mostrar as estatísticas"
+msgstr "Estatísticas de rexistro"
 
 #: server_status.php:1733
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr "Seleccionar táboas"
+msgstr "Rango temporal seleccionado"
 
 #: server_status.php:1738
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -11094,26 +11052,25 @@ msgid "Results are grouped by query text."
 msgstr ""
 
 #: server_status.php:1755
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Tipo de procura"
+msgstr "Analizador de procuras"
 
 #: server_status.php:1795
-#, fuzzy, php-format
+#, php-format
 #| msgid "per second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "por segundo"
-msgstr[1] "por segundo"
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
 
 #: server_status.php:1797
-#, fuzzy, php-format
+#, php-format
 #| msgid "in use"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "en uso"
-msgstr[1] "en uso"
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutos"
 
 #: server_synchronize.php:101
 msgid "Could not connect to the source"
@@ -12382,10 +12339,9 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:434
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Usuario de control"
+msgstr "Como usar"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -12406,7 +12362,6 @@ msgid "Available transformations"
 msgstr "Transformacións dispoñíbeis"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -12425,9 +12380,8 @@ msgid "VIEW name"
 msgstr "Nome da VISTA"
 
 #: view_operations.php:91
-#, fuzzy
 msgid "Rename view to"
-msgstr "Mudar o nome da táboa para"
+msgstr "Renomear táboa a"
 
 #: libraries/advisory_rules.txt:33
 msgid "Uptime below one day"
@@ -12449,10 +12403,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:40
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "Versións"
+msgstr "Menos de 1.000 preguntas"
 
 #: libraries/advisory_rules.txt:43
 msgid ""
