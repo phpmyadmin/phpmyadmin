@@ -62,7 +62,7 @@ function selectVisualization() {
     } else {
         $('#placeholder').hide();
     }
-    $('#choice').show();
+    $('.choice').show();
 }
 
 /**
