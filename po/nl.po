@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-16 01:10+0200\n"
+"PO-Revision-Date: 2012-04-16 01:14+0200\n"
 "Last-Translator: Robin Pepermans <robinp.1273@gmail.com>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -13268,15 +13268,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "De maximumgrootte van de InnoDB log is %s MiB"
+msgstr "De maximumgrootte van het InnoDB-logboek is %s MiB"
 
 #: libraries/advisory_rules.txt:427
 msgid "InnoDB buffer pool size"
-msgstr "InnoDB buffer pool grootte"
+msgstr "Grootte van de InnoDB-bufferpool"
 
 #: libraries/advisory_rules.txt:430
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Uw InnoDB buffer pool is betrekkelijk klein."
+msgstr "Uw InnoDB-bufferpool is betrekkelijk klein."
 
 #: libraries/advisory_rules.txt:431
 #, php-format
@@ -13292,17 +13292,17 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"De InnoDB buffer pool heeft een grote invloed op de performantie van InnoDB "
-"tabellen. Wijs alle overblijvend geheugen toe aan deze buffer. Voor databank "
-"servers die enkel InnoDB opslag engines gebruiken en die geen andere "
+"De InnoDB-bufferpool heeft een grote invloed op de prestaties van InnoDB-"
+"tabellen. Wijs alle overblijvend geheugen toe aan deze buffer. Voor "
+"databankservers die enkel InnoDB-opslagengines gebruiken en die geen andere "
 "diensten (bv. een webserver) draaien, mag deze waarde tot 80%% van het "
 "beschikbare geheugen ingesteld worden. Als dit niet het geval is, moet u "
-"zorgvuldig het geheugengebruik van de andere diensten en niet-InnoDB "
+"zorgvuldig het geheugengebruik van de andere diensten en niet-InnoDB-"
 "tabellen inschatten en deze waarde gepast instellen. Als deze te hoog wordt "
 "ingesteld, kan het systeem swapgeheugen beginnen gebruiken, waardoor de "
-"performantie erg verminderd. Bekijk ook <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">dit "
-"article</a>"
+"prestatie erg verminderd. Bekijk ook <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">dit artikel</a>"
 
 #: libraries/advisory_rules.txt:432
 #, php-format
@@ -13312,10 +13312,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"U gebruikt momenteel %s%% van het geheugen voorzien voor de InnoDB buffer "
-"pool. Deze regel wordt geactiveerd als u minder dan 60%% toewijst, hoewel "
-"dat dit perfect geschikt kan zijn voor uw systeem als u niet veel InnoDB "
-"tabellen heeft of andere diensten die op deze machine lopen."
+"U gebruikt momenteel %s%% van het geheugen voorzien voor de InnoDB-"
+"bufferpool. Deze regel wordt geactiveerd als u minder dan 60%% toewijst, "
+"hoewel dat dit perfect geschikt kan zijn voor uw systeem als u niet veel "
+"InnoDB-tabellen heeft of andere diensten die op deze machine lopen."
 
 #: libraries/advisory_rules.txt:436
 msgid "MyISAM concurrent inserts"
@@ -13332,8 +13332,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{concurrent_insert} instellen op 1 vermindert geschillen tussen lezers en "
-"schrijversvoor een bepaalde tabel. Bekijk ook de <a href=\"http://dev.mysql."
-"com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL documentatie</a>"
+"schrijvers voor een bepaalde tabel. Bekijk ook de <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL-"
+"documentatie</a>"
 
 #: libraries/advisory_rules.txt:441
 msgid "concurrent_insert is set to 0"
