@@ -63,6 +63,7 @@ $post_params = array(
     'pred_hostname',
     'pred_password',
     'pred_username',
+    'update_privs',
     'username'
 );
 foreach ($post_params as $one_post_param) {
