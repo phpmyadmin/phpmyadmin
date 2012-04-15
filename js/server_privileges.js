@@ -458,7 +458,7 @@ $(document).ready(function() {
                 if(data.new_privileges && reload_privs) {
                     $("#usersForm")
                     .find('.current_row')
-                    .find('tt')
+                    .find('code')
                     .html(data.new_privileges);
                 }
 
