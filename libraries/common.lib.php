@@ -1404,7 +1404,7 @@ function PMA_profilingCheckbox($sql_query)
         echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
         PMA_display_html_checkbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
-        echo '</form>' . "\n";
+        echo ' </form>' . "\n";
     }
 }
 
