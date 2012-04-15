@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-08 19:02+0200\n"
-"Last-Translator: Jo Michael <me@mynetx.net>\n"
+"PO-Revision-Date: 2012-04-15 18:54+0200\n"
+"Last-Translator: M. F. <mfwarburg@googlemail.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1793
@@ -1026,10 +1026,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" - Anweisungen wurden deaktiviert."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Möchten Sie diese Abfrage wirklich ausführen?"
+msgstr "Möchten Sie die Abfrage \"%s\" wirklich ausführen?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -2048,7 +2048,7 @@ msgstr ", aktuelle stabile Version:"
 
 #: js/messages.php:370
 msgid "up to date"
-msgstr "auf dem laufenden Stand"
+msgstr "auf dem neusten Stand"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:389
@@ -2804,7 +2804,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Fehler beim Laden der Standard-Konfiguration von: %1$s"
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3993,10 +3992,9 @@ msgid "Customize startup page"
 msgstr "Startseite anpassen"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Datenbank-Server"
+msgstr "Datenbank-Struktur"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
@@ -4886,7 +4884,7 @@ msgstr "Signon Session-Name"
 
 #: libraries/config/messages.inc.php:426
 msgid "Signon URL"
-msgstr "Signon-URL"
+msgstr "Anmelde-URL"
 
 #: libraries/config/messages.inc.php:427
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -5082,32 +5080,36 @@ msgstr "Zeige Formular zur Datenbank-Erstellung"
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Eine Spalte mit dem Erstellungs-Zeitstempel für alle Tabellen "
+"ein-/ausblenden"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Weitere Aktionen anzeigen"
+msgstr "Erstellungs-Zeitstempel anzeigen"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Eine Zeile mit dem Zeitstempel des letzten Updates für alle Tabellen "
+"ein-/ausblenden"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Zeitstempel des letzten Updates anzeigen"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Eine Zeile mit dem Zeitstempel der letzten Überprüfung für alle Tabellen "
+"ein-/ausblenden"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Zeige den Master-Status"
+msgstr "Zeitstempel der letzten Überprüfung einblenden"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5838,26 +5840,25 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s von %s"
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Format der importierten Datei"
+msgstr "Import-Datei wird hochgeladen..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/Sek."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Verbleibende Zeit etwa %MIN:%SEC Minuten."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Verbleibende Zeit etwa %SEC Sekunden."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6973,10 +6974,9 @@ msgid "Add prefix"
 msgstr "Prefix hinzufügen"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
-msgstr "Möchten Sie diese Abfrage wirklich ausführen?"
+msgstr "Möchten Sie die folgende Abfrage wirklich ausführen?"
 
 #: libraries/mult_submits.inc.php:525 tbl_replace.php:330
 msgid "No change"
@@ -7539,7 +7539,6 @@ msgid "Event"
 msgstr "Ereignis"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7551,9 +7550,10 @@ msgid ""
 "problems."
 msgstr ""
 "Sie verwenden die von PHP als veraltet gekennzeichnete 'mysql'-Erweiterung, "
-"die nicht in der Lage ist, mehrere Abfragen zu verarbeiten. <b>Die "
-"Ausführung von einigen gespeicherten Prozeduren könnte fehlschlagen!</b> "
-"Bitte verwenden Sie die neuere 'mysqli'-Erweiterung um Probleme zu vermeiden."
+"die nicht in der Lage ist, mehrere Abfragen zu verarbeiten. [strong]Die "
+"Ausführung von einigen gespeicherten Prozeduren könnte "
+"fehlschlagen![/strong] Bitte verwenden Sie die neuere 'mysqli'-Erweiterung, "
+"um Probleme zu vermeiden."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1004
@@ -8168,7 +8168,7 @@ msgstr "Die Tabelle scheint leer zu sein!"
 #: libraries/tbl_links.inc.php:126
 #, php-format
 msgid "Tracking of %s is activated."
-msgstr "Tracking von %s ist aktiviert."
+msgstr "Rückverfolgung der Tabelle %s ist aktiviert."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
@@ -8452,7 +8452,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Die Benutzereinstellungen werden nur für die aktuelle Session gespeichert. "
-"Die permanente Specícherung erfordert %sphpMyAdmin Konfigurationsspeicher%s."
+"Die permanente Speicherung erfordert %sphpMyAdmin Konfigurationsspeicher%s."
 
 #: libraries/user_preferences.lib.php:116
 msgid "Could not save configuration"
@@ -11872,12 +11872,12 @@ msgstr "Version %1$s wurde erstellt, Tracking von %2$s ist aktiviert."
 #: tbl_tracking.php:186
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Tracking für %1$s wurde deaktiviert bei Version %2$s."
+msgstr "Verlaufs-Report für %1$s wurde bei Version %2$s deaktiviert."
 
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Tracking für %1$s wurde aktiviert bei Version %2$s."
+msgstr "Verlaufs-Report für %1$s wurde bei Version %2$s aktiviert."
 
 #: tbl_tracking.php:211
 msgid "SQL statements executed."
