@@ -3709,8 +3709,8 @@ function PMA_getFunctionsForField($field, $insert_mode)
  * @param string $priv The privilege to check
  * @param mixed  $db   null, to only check global privileges
  *                     string, db name where to also check for privileges
- * @param mixed  $tbl  null, to only check global privileges
- *                     string, db name where to also check for privileges
+ * @param mixed  $tbl  null, to only check global/db privileges
+ *                     string, table name where to also check for privileges
  *
  * @return bool
  */
@@ -3746,6 +3746,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
     // If a database name was provided and user does not have the
     // required global privilege, try database-wise permissions.
     if ($db !== null) {
+        // need to escape wildcards in db and table names, see bug #3518484
+        $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
         $query .= " AND TABLE_SCHEMA='%s'";
         if (PMA_DBI_fetch_value(
             sprintf(
@@ -3767,6 +3769,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
     // If a table name was also provided and we still didn't
     // find any valid privileges, try table-wise privileges.
     if ($tbl !== null) {
+        // need to escape wildcards in db and table names, see bug #3518484
+        $tbl = str_replace(array('%', '_'), array('\%', '\_'), $tbl);
         $query .= " AND TABLE_NAME='%s'";
         if ($retval = PMA_DBI_fetch_value(
             sprintf(
