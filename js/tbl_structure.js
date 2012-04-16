@@ -623,7 +623,7 @@ function moreOptsMenuResize() {
     var cur_width = getCurWidth();
 
     // remove some links if current width is wider than maximum allowed
-    if (cur_width > max_width) {
+    if (cur_width > max_width && $table.find("td.more_opts").length != 0) {
         while (cur_width > max_width 
             && $(".replaced_by_more:visible").length > 0) {
 

@@ -975,6 +975,13 @@ $cfg['ShowDbStructureLastUpdate'] = false;
  */
 $cfg['ShowDbStructureLastCheck'] = false;
 
+/**
+ * allow hide action columns to drop down menu in database structure (true|false)?
+ *
+ * @global boolean $cfg['HideStructureActions']
+ */
+$cfg['HideStructureActions'] = true;
+
 
 /*******************************************************************************
  * In browse mode...
