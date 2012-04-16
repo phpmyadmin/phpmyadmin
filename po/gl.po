@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-15 16:58+0200\n"
+"PO-Revision-Date: 2012-04-16 17:47-0000\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -12333,26 +12333,25 @@ msgid "Create version"
 msgstr "Crear unha versión"
 
 #: tbl_zoom_select.php:135
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Faga unha \"procura por exemplo\" (o comodín é \"%\")"
+msgstr ""
+"Facer unha \"consulta de exemplo\" (o comodín é \"%\") para duas columnas "
+"diferentes"
 
 #: tbl_zoom_select.php:145
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Additional search criteria"
-msgstr "Caixa de Procuras SQL"
+msgstr "Criterios adicionais de busca"
 
 #: tbl_zoom_select.php:276
 msgid "Use this column to label each point"
 msgstr ""
 
 #: tbl_zoom_select.php:296
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Número máximo de fileiras que se mostran"
+msgstr "Máximo de filas que aparecen no gráfico"
 
 #: tbl_zoom_select.php:410
 msgid "Browse/Edit the points"
@@ -12440,16 +12439,15 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Insecure connection"
 msgid "Current amount of Questions: %s"
-msgstr "A conexión non é segura"
+msgstr "Cantidade actual de preguntas: %s"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Mostrar as procuras SQL"
+msgstr "Porcentaxe de consultas lentas"
 
 #: po/advisory_rules.php:16
 msgid ""
@@ -12468,10 +12466,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Limpar a caché da pesquisa"
+msgstr "Taxa de consultas lentas"
 
 #: po/advisory_rules.php:21
 msgid ""
@@ -12486,10 +12483,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "Solicitudes SQL"
+msgstr "Largo tempo de consulta"
 
 #: po/advisory_rules.php:26
 msgid ""
@@ -12509,10 +12505,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "SQL Query box"
 msgid "Slow query logging"
-msgstr "Caixa de Procuras SQL"
+msgstr "Rexistro de consultas lentas"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
@@ -12529,10 +12524,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Seleccionar táboas"
+msgstr "Serie de versións"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less then 5.1."
@@ -12545,16 +12539,15 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "Crear unha versión"
+msgstr "Versión actual: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Versión"
+msgstr "Versión menor"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -12571,16 +12564,14 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Debería actualizar a %s %s ou posterior."
+msgstr "Debería actualizar a unha versión estable de MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Descrición"
+msgstr "Distribución"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -12619,10 +12610,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Código de caracteres (Charset) MySQL"
+msgstr "Arquitectura MySQL"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
@@ -12641,16 +12631,14 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "caché de procuras"
+msgstr "Caché de consultas desactivada"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "O servidor non está a responder"
+msgstr "A caché de consultas está desactivada"
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12665,10 +12653,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "caché de procuras"
+msgstr "Método de  caché das consultas"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
@@ -12690,10 +12677,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache"
 msgid "Query cache efficiency (%%)"
-msgstr "caché de procuras"
+msgstr "Eficiencia (%) da caché das consultas"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12709,9 +12696,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "caché de procuras"
+msgstr "Uso da caché das consultas"
 
 #: po/advisory_rules.php:86
 #, php-format
@@ -12732,10 +12718,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "caché de procuras"
+msgstr "Fragmentación da caché de consultas"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
@@ -12766,12 +12751,13 @@ msgid "Query cache low memory prunes"
 msgstr ""
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "Cantidade de memoria libre para a caché de procuras."
+msgstr ""
+"As consultas na caché son eliminadas debido á pouca cantidade de memoria "
+"caché para as consultas."
 
 #: po/advisory_rules.php:97
 msgid ""
@@ -12788,10 +12774,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "caché de procuras"
+msgstr "Tamaño máximo da caché de consultas"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12811,9 +12796,8 @@ msgid "Current query cache size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:105
-#, fuzzy
 msgid "Query cache min result size"
-msgstr "Operacións de resultados da procura"
+msgstr "Tamaño mínimo da caché de consultas"
 
 #: po/advisory_rules.php:106
 msgid ""
@@ -12837,16 +12821,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Permite crear táboas temporais."
+msgstr "Porcentaxe de ordenamentos que causan táboas temporais"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Permite crear táboas temporais."
+msgstr "Demasiados ordenamentos está causando táboas temporais"
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
@@ -12862,10 +12844,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Permite crear táboas temporais."
+msgstr "Taxa de ordenamentos que causan táboas temporais"
 
 #: po/advisory_rules.php:118
 #, php-format
@@ -12874,10 +12855,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Start"
 msgid "Sort rows"
-msgstr "Inicio"
+msgstr "Ordenar filas"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
@@ -12897,16 +12877,14 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:125
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "Rate of joins without indexes"
-msgstr "Non hai ningún servidor configurado"
+msgstr "Taxa de unións sen índices"
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are too many joins without indexes."
-msgstr "Non hai ningún servidor configurado"
+msgstr "Hai demasiadas unións sen índices"
 
 #: po/advisory_rules.php:127
 msgid ""
@@ -13034,10 +13012,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Temp disk rate"
-msgstr "%s táboa(s)"
+msgstr "Taxa de temporais no disco"
 
 #: po/advisory_rules.php:157
 msgid ""
@@ -13058,10 +13035,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:160
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Tamaño da memoria intermedia de ordenación"
+msgstr "Tamaño do buffer de chaves MyISAM"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
@@ -13078,10 +13054,10 @@ msgid "key_buffer_size is 0"
 msgstr ""
 
 #: po/advisory_rules.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Tamaño da memoria intermedia de ordenación"
+msgstr "Uso historico máximo do buffer de chaves MyISAM "
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, fuzzy, php-format
