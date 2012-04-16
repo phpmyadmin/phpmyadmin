@@ -653,7 +653,7 @@ function moreOptsMenuResize() {
             var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
             var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
             var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
-            $this_dropdown.offset({ top: top_offset, left: left_offset });
+            $this_dropdown.css({ top: top_offset, left: left_offset });
         });
     }, 100);
 
