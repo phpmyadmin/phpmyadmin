@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-16 17:47-0000\n"
+"PO-Revision-Date: 2012-04-16 18:51+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -12298,7 +12298,7 @@ msgstr "Activar agora"
 #, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Crear versión %1$s de %2$s."
+msgstr "Crear versión %1$s de %2$s"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
@@ -12620,7 +12620,7 @@ msgstr "Caché de consultas desactivada"
 #: libraries/advisory_rules.txt:133
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "A caché de consultas está desactivada"
+msgstr "A caché de consultas está desactivada."
 
 #: libraries/advisory_rules.txt:134
 msgid ""
@@ -12810,7 +12810,7 @@ msgstr "Porcentaxe de ordenamentos que causan táboas temporais"
 #: libraries/advisory_rules.txt:191 libraries/advisory_rules.txt:198
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Demasiados ordenamentos está causando táboas temporais"
+msgstr "Demasiados ordenamentos está causando táboas temporais."
 
 #: libraries/advisory_rules.txt:192 libraries/advisory_rules.txt:199
 msgid ""
@@ -12866,7 +12866,7 @@ msgstr "Taxa de unións sen índices"
 #: libraries/advisory_rules.txt:213
 #| msgid "There are no configured servers"
 msgid "There are too many joins without indexes."
-msgstr "Hai demasiadas unións sen índices"
+msgstr "Hai demasiadas unións sen índices."
 
 #: libraries/advisory_rules.txt:214
 msgid ""
@@ -13039,7 +13039,7 @@ msgstr ""
 #, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Uso historico máximo do buffer de chaves MyISAM "
+msgstr "Uso historico máximo do buffer de chaves MyISAM"
 
 #: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
 #, fuzzy, php-format
