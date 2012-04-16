@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-14 19:26+0200\n"
+"PO-Revision-Date: 2012-04-14 19:28+0200\n"
 "Last-Translator: Timo Moisio <tm8544@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -2173,15 +2173,15 @@ msgstr "Keskiviikko"
 
 #: js/messages.php:445
 msgid "Thursday"
-msgstr "To"
+msgstr "Torstai"
 
 #: js/messages.php:446
 msgid "Friday"
-msgstr "Pe"
+msgstr "Perjantai"
 
 #: js/messages.php:447
 msgid "Saturday"
-msgstr "La"
+msgstr "Lauantai"
 
 #. l10n: Short week day name
 #: js/messages.php:451
@@ -2267,7 +2267,7 @@ msgstr "kalenteri-kuukausi-vuosi"
 #: js/messages.php:486
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Ei mikään"
+msgstr "none"
 
 #: js/messages.php:495
 msgid "Hour"
