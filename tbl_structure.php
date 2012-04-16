@@ -450,7 +450,7 @@ foreach ($fields as $row) {
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">            <?php echo $titles['DistinctValues']; ?></a>
     </td>
         <?php
-        if ($GLOBALS['cfg']['PropertiesIconic'] !== true) { ?>
+        if ($GLOBALS['cfg']['PropertiesIconic'] !== true && $GLOBALS['cfg']['HideStructureActions'] === true) { ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
         <?php echo PMA_getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
