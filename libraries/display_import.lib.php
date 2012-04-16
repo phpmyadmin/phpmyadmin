@@ -192,17 +192,34 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 		?>
 		">
 		<h3><?php echo __('Table Selection:');?></h3>
-		<select id="im_table_select" multiple="multiple" size="10" name="table_select[]" >
 			<?php
+			//Create Table + Input lists
 				if (isset($_SESSION['t_names'])) { 
 					$names = $_SESSION['t_names'];
-					foreach ($names as $name)
-					{
-						echo "\n<option selected='selected' value='$name'>$name</option>";
+					$inserts = $_SESSION['t_insert_data'];
+					for ($i=0;$i<count($names);$i++) {
+						echo "<p style='margin: 15px 0px'><input type='checkbox' checked='checked' name='table_select[$i]' /><img id='expand_$i' class='expand' style='cursor:pointer' src='themes/pmahomme/img/more.png' alt='+' /><label for='table_select[$i]'><strong>$names[$i]</strong></label></p>";
+						if (isset($inserts[$i])) {
+						echo "<table id='inserts_$i' style='margin: 0px 25px;display:none'>";
+							foreach ($inserts[$i] as $row) {
+								echo "<tr>";
+								foreach ($row as $cell) {
+									echo "<td style='border:solid black 1px'>";
+									if ($row == $inserts[$i][0]) {
+										echo "<em>$cell</em></td>";
+									} else {
+										echo "$cell</td>";	
+									}
+								}
+								echo "</tr>";
+							}
+							echo "</table>";
+						} else {
+							echo "<p id='inserts_$i' style='display:none;margin: 0px 25px'><em>No values to insert.</em></p>";
+						}
 					}
 				}
 			?>
-		</select>
 	</div>
     <div class="importoptions">
         <h3><?php echo __('File to Import:'); ?></h3>
