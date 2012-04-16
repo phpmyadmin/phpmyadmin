@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-16 23:08-0000\n"
+"PO-Revision-Date: 2012-04-17 00:12+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -13226,7 +13226,7 @@ msgstr "Porcentaxe de acertos da caché de fíos %%"
 #: libraries/advisory_rules.txt:349
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "A caché de fios non é eficiente"
+msgstr "A caché de fios non é eficiente."
 
 #: libraries/advisory_rules.txt:350
 msgid "Increase {thread_cache_size}."
@@ -13347,7 +13347,7 @@ msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "A taxa de conexións abortadas está en %s, este valor debería ser inferior a "
-"1 por hora."
+"1 por hora"
 
 #: libraries/advisory_rules.txt:390
 #| msgid "Format of imported file"
@@ -13356,7 +13356,7 @@ msgstr "Porcentaxe de clientes abortados"
 
 #: libraries/advisory_rules.txt:393 libraries/advisory_rules.txt:400
 msgid "Too many clients are aborted."
-msgstr "Demasiadas clientes abortaron"
+msgstr "Demasiadas clientes abortaron."
 
 #: libraries/advisory_rules.txt:394 libraries/advisory_rules.txt:401
 msgid ""
@@ -13438,7 +13438,7 @@ msgstr "Tamaño máximo do rexistro InnoDB"
 
 #: libraries/advisory_rules.txt:423
 msgid "The InnoDB log file size is inadequately large."
-msgstr "O tamaño do ficheiro de rexistro InnoDB e inadecuadamente longo"
+msgstr "O tamaño do ficheiro de rexistro InnoDB e inadecuadamente longo."
 
 #: libraries/advisory_rules.txt:424
 #, php-format
@@ -13462,7 +13462,7 @@ msgstr "O tamaño absoluto do rexistro InnoDB es %s MiB"
 #: libraries/advisory_rules.txt:427
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamaño da reserva de búfer do InnoDB."
+msgstr "Tamaño da reserva de búfer do InnoDB"
 
 #: libraries/advisory_rules.txt:430
 msgid "Your InnoDB buffer pool is fairly small."
