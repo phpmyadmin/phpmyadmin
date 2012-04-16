@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-16 23:08-0000\n"
+"PO-Revision-Date: 2012-04-17 00:12+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -13244,7 +13244,7 @@ msgstr "Porcentaxe de acertos da caché de fíos %%"
 #: po/advisory_rules.php:211
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "A caché de fios non é eficiente"
+msgstr "A caché de fios non é eficiente."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
@@ -13365,7 +13365,7 @@ msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "A taxa de conexións abortadas está en %s, este valor debería ser inferior a "
-"1 por hora."
+"1 por hora"
 
 #: po/advisory_rules.php:240
 #| msgid "Format of imported file"
@@ -13374,7 +13374,7 @@ msgstr "Porcentaxe de clientes abortados"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr "Demasiadas clientes abortaron"
+msgstr "Demasiadas clientes abortaron."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -13456,7 +13456,7 @@ msgstr "Tamaño máximo do rexistro InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr "O tamaño do ficheiro de rexistro InnoDB e inadecuadamente longo"
+msgstr "O tamaño do ficheiro de rexistro InnoDB e inadecuadamente longo."
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13480,7 +13480,7 @@ msgstr "O tamaño absoluto do rexistro InnoDB es %s MiB"
 #: po/advisory_rules.php:265
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamaño da reserva de búfer do InnoDB."
+msgstr "Tamaño da reserva de búfer do InnoDB"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
