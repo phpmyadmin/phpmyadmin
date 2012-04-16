@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-15 15:51-0000\n"
+"PO-Revision-Date: 2012-04-16 22:27-0000\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -6781,7 +6781,7 @@ msgstr ""
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Vaciar táboa antes de inserir"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -9108,7 +9108,7 @@ msgstr ""
 
 #: prefs_manage.php:223 prefs_manage.php:249
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Gardado o: @DATE@"
 
 #: prefs_manage.php:237
 #| msgid "Import files"
@@ -9117,7 +9117,7 @@ msgstr "Importar dende arquivo"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importar do almacenamento do navegador"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
@@ -9146,19 +9146,20 @@ msgstr ""
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Gardar no almacenamento do navegador"
 
 #: prefs_manage.php:304
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "A configuración será gardada no almacenamento do navegador"
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "A configuración existente será sobreescrita!"
 
 #: prefs_manage.php:321
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Pode resetear a súa configuración e restaurar os valores predeterminados."
 
 #: querywindow.php:69
 msgid "Import files"
@@ -9263,7 +9264,7 @@ msgstr "Ver o volcado das bases de datos"
 
 #: server_plugins.php:72
 msgid "Modules"
-msgstr ""
+msgstr "M'odulos"
 
 #: server_plugins.php:93
 msgid "Begin"
@@ -9271,15 +9272,15 @@ msgstr "Inicio"
 
 #: server_plugins.php:102
 msgid "Plugin"
-msgstr ""
+msgstr "Extensión"
 
 #: server_plugins.php:103 server_plugins.php:137
 msgid "Module"
-msgstr ""
+msgstr "M'odulo"
 
 #: server_plugins.php:104 server_plugins.php:139
 msgid "Library"
-msgstr ""
+msgstr "Biblioteca"
 
 #: server_plugins.php:105 server_plugins.php:140 tbl_tracking.php:662
 msgid "Version"
@@ -9287,11 +9288,11 @@ msgstr "Versión"
 
 #: server_plugins.php:106 server_plugins.php:141
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: server_plugins.php:107 server_plugins.php:142
 msgid "License"
-msgstr ""
+msgstr "Licen"
 
 #: server_plugins.php:173
 #| msgid "Disabled"
@@ -9836,11 +9837,11 @@ msgstr ""
 
 #: server_replication.php:323
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Fio esclavo SQL non está funcionando!"
 
 #: server_replication.php:326
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Fio esclavo E/S non está funcionando!"
 
 #: server_replication.php:335
 msgid ""
@@ -10003,11 +10004,11 @@ msgstr "Todalas variables de estado"
 
 #: server_status.php:801
 msgid "Monitor"
-msgstr ""
+msgstr "Monitorizaci'on"
 
 #: server_status.php:802
 msgid "Advisor"
-msgstr ""
+msgstr "Consellos"
 
 #: server_status.php:812 server_status.php:834
 #| msgid "Refresh"
@@ -10030,7 +10031,7 @@ msgstr "Mostrar só valores de alerta"
 
 #: server_status.php:864
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtrar por categoría"
 
 #: server_status.php:878
 #| msgid "Show open tables"
@@ -10092,12 +10093,12 @@ msgstr "Informacións"
 #. l10n: # = Amount of queries
 #: server_status.php:990
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:1063
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Tráfico de rede dende o inicio: %s"
 
 #: server_status.php:1072
 #, php-format
@@ -10965,7 +10966,7 @@ msgstr ""
 
 #: server_status.php:1658
 msgid "Please note:"
-msgstr ""
+msgstr "Por favor note:"
 
 #: server_status.php:1660
 msgid ""
@@ -10992,7 +10993,7 @@ msgstr "Seleccionar series:"
 
 #: server_status.php:1680
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Monitorizacións comúns"
 
 #: server_status.php:1695
 #| msgid "Invalid table name"
@@ -11001,11 +11002,11 @@ msgstr "ou escriba o nome da variable:"
 
 #: server_status.php:1699
 msgid "Display as differential value"
-msgstr ""
+msgstr "Mostrar como valor diferencial"
 
 #: server_status.php:1701
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Aplicar un divisor"
 
 #: server_status.php:1708
 msgid "Append unit to data values"
@@ -11018,7 +11019,7 @@ msgstr "Engadir esta serie"
 
 #: server_status.php:1716
 msgid "Clear series"
-msgstr ""
+msgstr "Limpar series"
 
 #: server_status.php:1719
 #| msgid "SQL queries"
@@ -11049,7 +11050,7 @@ msgstr ""
 
 #: server_status.php:1750
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Os resultados están agrupados polo texto da consulta."
 
 #: server_status.php:1755
 #| msgid "Query type"
@@ -11163,7 +11164,7 @@ msgstr "Peticións executadas"
 
 #: server_synchronize.php:1284
 msgid "Enter manually"
-msgstr ""
+msgstr "Inserir manualmente"
 
 #: server_synchronize.php:1292
 #| msgid "Insecure connection"
@@ -11190,7 +11191,7 @@ msgstr ""
 
 #: server_variables.php:73
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Erro establecendo a variable"
 
 #: server_variables.php:92
 msgid "Server variables and settings"
@@ -11648,7 +11649,7 @@ msgstr "Inserir unha columna nova"
 
 #: tbl_change.php:1074
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Inserir como nova fila e ignorar erros"
 
 #: tbl_change.php:1075
 msgid "Show insert query"
@@ -11702,7 +11703,7 @@ msgstr "Columna"
 #: tbl_chart.php:85
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Liña"
 
 #: tbl_chart.php:87
 #| msgid "Engines"
@@ -11728,7 +11729,7 @@ msgstr "Título do gráfico"
 
 #: tbl_chart.php:101
 msgid "X-Axis:"
-msgstr ""
+msgstr "Eixo X:"
 
 #: tbl_chart.php:116
 #| msgid "SQL queries"
@@ -11742,7 +11743,7 @@ msgstr "Ás columnas restantes"
 
 #: tbl_chart.php:131
 msgid "X-Axis label:"
-msgstr ""
+msgstr "Etiqueta do eixo X:"
 
 #: tbl_chart.php:133
 #| msgid "Value"
@@ -11751,7 +11752,7 @@ msgstr "Valores X"
 
 #: tbl_chart.php:134
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Eixo Y:"
 
 #: tbl_chart.php:135
 #| msgid "Value"
@@ -11779,11 +11780,11 @@ msgstr "Mostrar visualización GIS"
 
 #: tbl_gis_visualization.php:120
 msgid "Width"
-msgstr ""
+msgstr "Anchura"
 
 #: tbl_gis_visualization.php:124
 msgid "Height"
-msgstr ""
+msgstr "Altura"
 
 #: tbl_gis_visualization.php:128
 #| msgid "CHAR textarea columns"
@@ -11802,7 +11803,7 @@ msgstr "Columna espacial"
 
 #: tbl_gis_visualization.php:167
 msgid "Redraw"
-msgstr ""
+msgstr "Redebuxar"
 
 #: tbl_gis_visualization.php:169
 #| msgid "Save as file"
@@ -11930,7 +11931,7 @@ msgstr "Eliminar datos da táboa"
 
 #: tbl_operations.php:710
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Vaciar táboa (TRUNCATE)"
 
 #: tbl_operations.php:732
 #| msgid "Go to database"
@@ -12070,11 +12071,11 @@ msgstr "Examinar valores claramente distintos"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 msgid "Add primary key"
-msgstr ""
+msgstr "Engadir chave primaria"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add unique index"
-msgstr ""
+msgstr "Engadir índice único"
 
 #: tbl_structure.php:173 tbl_structure.php:174
 #| msgid "Apply index(s)"
@@ -12083,7 +12084,7 @@ msgstr "Engadir índice SPATIAL"
 
 #: tbl_structure.php:175 tbl_structure.php:176
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Engadir índice FULLTEXT"
 
 #: tbl_structure.php:359 tbl_tracking.php:307
 #| msgid "None"
@@ -12158,7 +12159,7 @@ msgstr "particionado"
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Reporte de seguemento para a táboa `%s`"
 
 #: tbl_tracking.php:174
 #, php-format
