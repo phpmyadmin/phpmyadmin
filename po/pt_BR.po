@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-16 00:14+0200\n"
-"Last-Translator: JCJesus Lima <jcjlima@gmail.com>\n"
+"PO-Revision-Date: 2012-04-16 18:40+0200\n"
+"Last-Translator: Roberto Mathias <betorsm@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Mostrar tudo"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:504
 msgid "Page number:"
-msgstr "Página número:"
+msgstr "Número da página:"
 
 #: browse_foreigners.php:138
 msgid ""
@@ -245,16 +245,16 @@ msgid "The database name is empty!"
 msgstr "O nome do Banco de Dados está em branco!"
 
 #: db_operations.php:298
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "O Banco de Dados %s foi renomeado para %s"
+msgstr "Banco de Dados %1$s foi renomeado para %2$s"
 
 #: db_operations.php:302
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Banco de Dados %s copiado para %s"
+msgstr "Banco de Dados %1$s foi copiado para %2$s"
 
 #: db_operations.php:430
 msgid "Rename database to"
@@ -1020,10 +1020,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "O comando \"DROP DATABASE\" está desabilitado."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Você realmente deseja executar a Query SQL a seguir?"
+msgstr "Você realmente deseja executar \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -1970,7 +1970,7 @@ msgstr "Clique para marcar/desmarcar"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Clique duas vezes para copiar o nome da coluna"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1997,20 +1997,18 @@ msgid "Go to link"
 msgstr "Ir para o link"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Nome das colunas"
+msgstr "Copiar nome coluna"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Atualizar linha(s)"
+msgstr "Mostrar linha(s)"
 
 #: js/messages.php:359
 msgid "Generate password"
@@ -2634,10 +2632,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Falha ao usar Blowfish de mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Cookies devem estar ativos após este ponto."
+msgstr "Javascript deve estar ativo após este ponto"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -2797,7 +2794,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2805,7 +2801,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"A diretriz<code>$cfg['PmaAbsoluteUri']</code> dDEVE ser estabelecida no seu "
+"A diretriz<code>$cfg['PmaAbsoluteUri']</code> deve ser estabelecida no seu "
 "arquivo de configuração!"
 
 #: libraries/common.inc.php:651
@@ -3988,10 +3984,9 @@ msgid "Customize startup page"
 msgstr "Personalizar página inicial"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database structure"
-msgstr "Banco de Dados para usuário"
+msgstr "Estrutura do Banco Dados"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
@@ -5073,10 +5068,9 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show versions"
 msgid "Show Creation timestamp"
-msgstr "Exibir versões"
+msgstr "Mostrar timestamp"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
@@ -5093,9 +5087,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 msgid "Show Last check timestamp"
-msgstr "Exibir status dos escravos"
+msgstr "Mostrar ultima checagem timestamp"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5471,10 +5464,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not open file: %s"
 msgid "Could not connect to Drizzle server"
-msgstr "Não foi possível abrir o arquivo: %s"
+msgstr "Não foi possivel se conectar ao servidor Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
