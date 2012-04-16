@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-13 11:53+0200\n"
+"PO-Revision-Date: 2012-04-15 18:48+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3957,11 +3957,11 @@ msgstr "Texy! පෙළ"
 
 #: libraries/config/messages.inc.php:232
 msgid "Warnings"
-msgstr "අනතුරු හැඟවීම්"
+msgstr "අනතුරු ඇඟවීම්"
 
 #: libraries/config/messages.inc.php:233
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr "phpMyAdmin හි සමහර අනතුරු හැඟවීම් අක්‍රීය කරන්න"
+msgstr "phpMyAdmin හි සමහර අනතුරු ඇඟවීම් අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:234
 msgid ""
@@ -8311,6 +8311,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"ඔබගේ PHP MySQL පුස්තකාල අනුවාදය වන %s සේවාදායකයේ MySQL අනුවාදය වන %s න් "
+"වෙනස් වේ. මෙය අනපේක්ෂිත හැසිරීම් ගෙන දිය හැක."
 
 #: main.php:380
 #, php-format
@@ -10535,7 +10537,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
-msgstr "අනතුරු හැඟවීම"
+msgstr "අනතුරු ඇඟවීම"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Submitted form contains errors"
@@ -11493,10 +11495,9 @@ msgid "Current amount of Questions: %s"
 msgstr "වත්මන් සම්බන්දතාව"
 
 #: po/advisory_rules.php:15
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "SQL විමසුම් පෙන්වන්න"
+msgstr "මන්දගාමී විමසුම් ප්‍රතිශතය"
 
 #: po/advisory_rules.php:16
 msgid ""
@@ -11515,10 +11516,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Flush query cache"
+msgstr "මන්දගාමී විමසුම් ශ්‍රීඝ‍්‍රතාවය"
 
 #: po/advisory_rules.php:21
 msgid ""
@@ -11533,10 +11533,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL විමසුම"
+msgstr "දිගු විමසුම් කාලය"
 
 #: po/advisory_rules.php:26
 msgid ""
@@ -11556,10 +11555,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "විමසුම් කවුළුව පෙන්වන්න"
+msgstr "මන්දගාමී විමසුම් ලොගගත කිරීම"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
@@ -11592,16 +11590,15 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current version: %s"
-msgstr "අනුවාදය සාදන්න"
+msgstr "වත්මන් අනුවාදය: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "අනුවාදය"
+msgstr "සුළු අනුවාදය"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -11624,10 +11621,9 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "You should upgrade to %s %s or later."
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "විස්තරය"
+msgstr "ව්‍යප්තිය"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -11688,16 +11684,14 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:70
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් අක්‍රීයයි"
 
 #: po/advisory_rules.php:71
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "සේවාදායකය ප්‍රතිචාර නොදක්වයි"
+msgstr "විමසුම් කෑෂ් සක්‍රීය කර නැත."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -11712,10 +11706,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ්ගත කරන ක්‍රමය"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
@@ -11737,10 +11730,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%%)"
-msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව "
+msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -11756,9 +11749,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් භාවිතය"
 
 #: po/advisory_rules.php:86
 #, php-format
@@ -11779,10 +11771,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:90
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් ඛණ්ඩනීකරණය"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
@@ -11835,10 +11826,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "විමසුම් කෑෂ්"
+msgstr "විමසුම් කෑෂ් උපරිම ප්‍රමාණය"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -11858,10 +11848,9 @@ msgid "Current query cache size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "විමසුම් ප්‍රථිඵල"
+msgstr "විමසුම් කෑෂ් අවම ප්‍රථිඵල ප්‍රමාණය"
 
 #: po/advisory_rules.php:106
 msgid ""
@@ -11922,10 +11911,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Startup"
 msgid "Sort rows"
-msgstr "ඇරඹුම්"
+msgstr "පේළි සුබෙදන්න"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
