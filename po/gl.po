@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-17 00:12+0200\n"
-"Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
-"Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
+"PO-Revision-Date: 2012-04-16 23:59+0100\n"
+"Last-Translator: Xullo <xullo123@hotmail.com>\n"
+"Language-Team: Independant\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5653,7 +5653,7 @@ msgstr "Falta a extensión %s. Por favor comprobe a configuración do PHP."
 
 #: libraries/core.lib.php:424
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "posible ataque deep recursion"
 
 #: libraries/database_interface.lib.php:1814
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
@@ -5987,11 +5987,11 @@ msgstr "%s/seg."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Sobre %MIN min. %SEC seg. restantes."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Sobre %SEC seg. restantes."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6030,13 +6030,15 @@ msgstr "Ficheiro a importar:"
 #: libraries/display_import.lib.php:201
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "O arquivo pode estar comprimido(%s) ou descomprimido."
 
 #: libraries/display_import.lib.php:203
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"O nome dn arquivo comprimido debe rematar en <b>.[format].[compression]</b>. "
+"Exemplo: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:223
 msgid "File uploads are not allowed on this server."
@@ -6128,7 +6130,7 @@ msgstr "vertical"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Cabeceiras cada %s filas"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
@@ -7414,7 +7416,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Crear un usuario usuario pma e dar acceso a estas táboas."
 
 #: libraries/relation.lib.php:156
 msgid ""
@@ -7549,12 +7551,12 @@ msgstr "a procura seguinte fallou: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "Sentimolo, non se puido restaurar o evento eliminado"
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:267
 #: libraries/rte/rte_triggers.lib.php:90
 msgid "The backed up query was:"
-msgstr ""
+msgstr "A consulta almacenada foi:"
 
 #: libraries/rte/rte_events.lib.php:121
 #, php-format
@@ -7571,7 +7573,7 @@ msgstr "O evento %1$s foi creado."
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_triggers.lib.php:114
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>Houbo un ou máis erros procesando a sua petición:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
 #| msgid "Edit server"
@@ -7711,7 +7713,7 @@ msgstr "Tipo de rutina non válida: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:266
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Sentimolo, non se puido restaurar a rutina eliminada."
 
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
@@ -7783,7 +7785,7 @@ msgstr "Tipo de seguridade"
 
 #: libraries/rte/rte_routines.lib.php:944
 msgid "SQL data access"
-msgstr ""
+msgstr "Acceso de datos SQL"
 
 #: libraries/rte/rte_routines.lib.php:1009
 msgid "You must provide a routine name"
@@ -7844,7 +7846,7 @@ msgstr "Función"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "Sentimolo, non se puido recuperar o disparador borrado."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
@@ -7880,7 +7882,7 @@ msgstr "Debe proporcionar un nome ó disparador"
 
 #: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
-msgstr ""
+msgstr "Debe proporcionar unha sincronización valida para o disparador"
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
@@ -8091,7 +8093,7 @@ msgstr "Mostrar esquema relacional"
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Seleccionar tipo de exportación relacional"
 
 #: libraries/schema/User_Schema.class.php:413
 msgid "Show grid"
@@ -8185,7 +8187,7 @@ msgstr "Conxuntos de caracteres"
 #: libraries/server_links.inc.php:106 server_plugins.php:38
 #: server_plugins.php:71
 msgid "Plugins"
-msgstr ""
+msgstr "Extensións"
 
 #: libraries/server_links.inc.php:110
 msgid "Engines"
@@ -8320,7 +8322,7 @@ msgstr "FIN DO TEXTO SIMPLE (\"RAW\")"
 
 #: libraries/sqlparser.lib.php:383
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Comiña invertida engadida ó final da consulta automáticamente!"
 
 #: libraries/sqlparser.lib.php:386
 msgid "Unclosed quote"
@@ -8412,11 +8414,11 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:321
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Datos ENUM ou SET demasiados longos?"
 
 #: libraries/tbl_properties.inc.php:323
 msgid "Get more editing space"
-msgstr ""
+msgstr "Obter máis espacio de edición"
 
 #: libraries/tbl_properties.inc.php:347
 #| msgid "None"
@@ -8723,7 +8725,7 @@ msgstr "Servidor de base de datos"
 
 #: main.php:168
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #: main.php:169
 #| msgid "Show versions"
@@ -9025,7 +9027,7 @@ msgstr "A páxina foi creada"
 
 #: pmd_pdf.php:33
 msgid "Page creation failed"
-msgstr ""
+msgstr "Erro na creación da páxina"
 
 #: pmd_pdf.php:85
 #| msgid "pages"
@@ -9100,11 +9102,11 @@ msgstr "Non se puido importar a configuración"
 
 #: prefs_manage.php:110
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "A configuración contén datos incorrectos para algúns campos."
 
 #: prefs_manage.php:126
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Quere importar o resto da configuración?"
 
 #: prefs_manage.php:223 prefs_manage.php:249
 msgid "Saved on: @DATE@"
@@ -9121,7 +9123,7 @@ msgstr "Importar do almacenamento do navegador"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "A configuración será importada dende o almacenamento local do navegador"
 
 #: prefs_manage.php:252
 #| msgid "Other core settings"
@@ -9130,7 +9132,7 @@ msgstr "Non tes opcións gardadas!"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Esta característica non está soportada polo seu navegador"
 
 #: prefs_manage.php:261
 #| msgid "Server configuration"
@@ -9143,6 +9145,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Pode configurar maís opcións modificando config.inc.php, ex. usando %sSetup "
+"script%s."
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
@@ -10057,6 +10061,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"O sistema de consellos pode darlle valores recomendados para as variables do "
+"servidor analizando as variables de estado do servidor."
 
 #: server_status.php:925
 msgid ""
@@ -10064,6 +10070,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Note sen embargo que este sistema proporciona recomendacións baseadas en "
+"simples cálculos e a dedo que pode non ser necesarias no seu sistema."
 
 #: server_status.php:927
 msgid ""
