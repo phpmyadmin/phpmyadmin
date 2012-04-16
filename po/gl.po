@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-16 17:47-0000\n"
+"PO-Revision-Date: 2012-04-16 18:51+0200\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -12638,7 +12638,7 @@ msgstr "Caché de consultas desactivada"
 #: po/advisory_rules.php:71
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "A caché de consultas está desactivada"
+msgstr "A caché de consultas está desactivada."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12828,7 +12828,7 @@ msgstr "Porcentaxe de ordenamentos que causan táboas temporais"
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Demasiados ordenamentos está causando táboas temporais"
+msgstr "Demasiados ordenamentos está causando táboas temporais."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
@@ -12884,7 +12884,7 @@ msgstr "Taxa de unións sen índices"
 #: po/advisory_rules.php:126
 #| msgid "There are no configured servers"
 msgid "There are too many joins without indexes."
-msgstr "Hai demasiadas unións sen índices"
+msgstr "Hai demasiadas unións sen índices."
 
 #: po/advisory_rules.php:127
 msgid ""
@@ -13057,7 +13057,7 @@ msgstr ""
 #, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Uso historico máximo do buffer de chaves MyISAM "
+msgstr "Uso historico máximo do buffer de chaves MyISAM"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, fuzzy, php-format
