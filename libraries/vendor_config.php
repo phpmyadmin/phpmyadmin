@@ -9,6 +9,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Path to changelog file, can be gzip compressed. Useful when you want to

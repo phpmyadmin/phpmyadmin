@@ -1,4 +1,9 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Base class for all GIS data type classes.
  *
@@ -96,10 +101,12 @@ abstract class PMA_GIS_Geometry
      */
     protected function getBoundsForOl($srid, $scale_data)
     {
-        return 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat('
+        return 'bound = new OpenLayers.Bounds(); '
+            . 'bound.extend(new OpenLayers.LonLat('
             . $scale_data['minX'] . ', ' . $scale_data['minY']
             . ').transform(new OpenLayers.Projection("EPSG:'
-            . $srid . '"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat('
+            . $srid . '"), map.getProjectionObject())); '
+            . 'bound.extend(new OpenLayers.LonLat('
             . $scale_data['maxX'] . ', ' . $scale_data['maxY']
             . ').transform(new OpenLayers.Projection("EPSG:'
             . $srid . '"), map.getProjectionObject()));';
@@ -215,48 +222,120 @@ abstract class PMA_GIS_Geometry
     }
 
     /**
+     * Generates JavaScript for adding an array of polygons to OpenLayers.
+     *
+     * @param array  $polygons x and y coordinates for each polygon
+     * @param string $srid     spatial reference id
+     *
+     * @return string JavaScript for adding an array of polygons to OpenLayers
+     * @access protected
+     */
+    protected function getPolygonArrayForOpenLayers($polygons, $srid)
+    {
+        $ol_array = 'new Array(';
+        foreach ($polygons as $polygon) {
+            $rings = explode("),(", $polygon);
+            $ol_array .= $this->getPolygonForOpenLayers($rings, $srid) . ', ';
+        }
+        $ol_array = substr($ol_array, 0, strlen($ol_array) - 2);
+        $ol_array .= ')';
+
+        return $ol_array;
+    }
+
+    /**
      * Generates JavaScript for adding points for OpenLayers polygon.
      *
-     * @param string $polygon points of a polygon in WKT form
+     * @param array  $polygon x and y coordinates for each line
      * @param string $srid    spatial reference id
      *
      * @return string JavaScript for adding points for OpenLayers polygon
      * @access protected
      */
-    protected function addPointsForOpenLayersPolygon($polygon, $srid)
+    protected function getPolygonForOpenLayers($polygon, $srid)
     {
-        $row = 'new OpenLayers.Geometry.Polygon(new Array(';
-        // If the polygon doesnt have an inner polygon
-        if (strpos($polygon, "),(") === false) {
-            $points_arr = $this->extractPoints($polygon, null);
-            $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
-            foreach ($points_arr as $point) {
-                $row .= '(new OpenLayers.Geometry.Point('
-                    . $point[0] . ', ' . $point[1] . '))'
-                    . '.transform(new OpenLayers.Projection("EPSG:'
-                    . $srid . '"), map.getProjectionObject()), ';
-            }
-            $row = substr($row, 0, strlen($row) - 2);
-            $row .= '))';
-        } else {
-            // Seperate outer and inner polygons
-            $parts = explode("),(", $polygon);
-            foreach ($parts as $ring) {
-                $points_arr = $this->extractPoints($ring, null);
-                $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
-                foreach ($points_arr as $point) {
-                    $row .= '(new OpenLayers.Geometry.Point('
-                        . $point[0] . ', ' . $point[1] . '))'
-                        . '.transform(new OpenLayers.Projection("EPSG:'
-                        . $srid . '"), map.getProjectionObject()), ';
-                }
-                $row = substr($row, 0, strlen($row) - 2);
-                $row .= ')), ';
-            }
-            $row = substr($row, 0, strlen($row) - 2);
+        return 'new OpenLayers.Geometry.Polygon('
+            . $this->getLineArrayForOpenLayers($polygon, $srid, false)
+            . ')';
+    }
+
+    /**
+     * Generates JavaScript for adding an array of LineString
+     * or LineRing to OpenLayers.
+     *
+     * @param array  $lines          x and y coordinates for each line
+     * @param string $srid           spatial reference id
+     * @param bool   $is_line_string whether it's an array of LineString
+     *
+     * @return string JavaScript for adding an array of LineString
+     *                or LineRing to OpenLayers
+     * @access protected
+     */
+    protected function getLineArrayForOpenLayers($lines, $srid, $is_line_string = true)
+    {
+        $ol_array = 'new Array(';
+        foreach ($lines as $line) {
+            $points_arr = $this->extractPoints($line, null);
+            $ol_array .= $this->getLineForOpenLayers($points_arr, $srid, $is_line_string) . ', ';
         }
-        $row .= ')), ';
-        return $row;
+        $ol_array = substr($ol_array, 0, strlen($ol_array) - 2);
+        $ol_array .= ')';
+
+        return $ol_array;
+    }
+
+    /**
+     * Generates JavaScript for adding a LineString or LineRing to OpenLayers.
+     *
+     * @param array  $points_arr     x and y coordinates for each point
+     * @param string $srid           spatial reference id
+     * @param bool   $is_line_string whether it's a LineString
+     *
+     * @return string JavaScript for adding a LineString or LineRing to OpenLayers
+     * @access protected
+     */
+    protected function getLineForOpenLayers($points_arr, $srid, $is_line_string = true)
+    {
+        return 'new OpenLayers.Geometry.'
+            . ($is_line_string ? 'LineString' : 'LinearRing') . '('
+            . $this->getPointsArrayForOpenLayers($points_arr, $srid)
+            . ')';
+    }
+
+    /**
+     * Generates JavaScript for adding an array of points to OpenLayers.
+     *
+     * @param array  $points_arr x and y coordinates for each point
+     * @param string $srid       spatial reference id
+     *
+     * @return string JavaScript for adding an array of points to OpenLayers
+     * @access protected
+     */
+    protected function getPointsArrayForOpenLayers($points_arr, $srid)
+    {
+        $ol_array = 'new Array(';
+        foreach ($points_arr as $point) {
+            $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
+        }
+        $ol_array = substr($ol_array, 0, strlen($ol_array) - 2);
+        $ol_array .= ')';
+
+        return $ol_array;
+    }
+
+    /**
+     * Generates JavaScript for adding a point to OpenLayers.
+     *
+     * @param array  $point array containing the x and y coordinates of the point
+     * @param string $srid  spatial reference id
+     *
+     * @return string JavaScript for adding points to OpenLayers
+     * @access protected
+     */
+    protected function getPointForOpenLayers($point, $srid)
+    {
+        return '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+            . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject())';
     }
 }
 ?>

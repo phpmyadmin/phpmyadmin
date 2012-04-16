@@ -60,10 +60,15 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
     } else {
         $sql_query = ''; // in case target db exists
         $_error = false;
-        if ($move || (isset($create_database_before_copying) && $create_database_before_copying)) {
+        if ($move
+            || (isset($create_database_before_copying)
+            && $create_database_before_copying)
+        ) {
             // lower_case_table_names=1 `DB` becomes `db`
-            if (!PMA_DRIZZLE) {
-                $lower_case_table_names = PMA_DBI_fetch_value('SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1);
+            if (! PMA_DRIZZLE) {
+                $lower_case_table_names = PMA_DBI_fetch_value(
+                    'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
+                );
                 if ($lower_case_table_names === '1') {
                     $newname = PMA_strtolower($newname);
                 }
@@ -186,8 +191,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
                 if (! PMA_Table::moveCopy(
                     $db, $each_table, $newname, $each_table,
-                    isset($this_what) ? $this_what : 'data', $move, 'db_copy')
-                ) {
+                    isset($this_what) ? $this_what : 'data',
+                    $move, 'db_copy'
+                )) {
                     $_error = true;
                     // $sql_query is filled by PMA_Table::moveCopy()
                     $sql_query = $back . $sql_query;
@@ -205,7 +211,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 unset($triggers);
 
                 // this does not apply to a rename operation
-                if (isset($GLOBALS['add_constraints']) && !empty($GLOBALS['sql_constraints_query'])) {
+                if (isset($GLOBALS['add_constraints'])
+                    && ! empty($GLOBALS['sql_constraints_query'])
+                ) {
                     $GLOBALS['sql_constraints_query_full_db'][] = $GLOBALS['sql_constraints_query'];
                     unset($GLOBALS['sql_constraints_query']);
                 }
@@ -244,21 +252,24 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             PMA_DBI_select_db($newname);
             foreach ($GLOBALS['sql_constraints_query_full_db'] as $one_query) {
                 PMA_DBI_query($one_query);
-            // and prepare to display them
+                // and prepare to display them
                 $GLOBALS['sql_query'] .= "\n" . $one_query;
             }
 
             unset($GLOBALS['sql_constraints_query_full_db'], $one_query);
         }
 
-        if (!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50100) {
+        if (! PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50100) {
             // here DELIMITER is not used because it's not part of the
             // language; each statement is sent one by one
 
             // to avoid selecting alternatively the current and new db
             // we would need to modify the CREATE definitions to qualify
             // the db name
-            $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db, true) . '\';');
+            $event_names = PMA_DBI_fetch_result(
+                'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
+                . PMA_sqlAddSlashes($db, true) . '\';'
+            );
             if ($event_names) {
                 foreach ($event_names as $event_name) {
                     PMA_DBI_select_db($db);
@@ -279,8 +290,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $get_fields = array('user', 'label', 'query');
             $where_fields = array('dbase' => $db);
             $new_fields = array('dbase' => $newname);
-            PMA_Table::duplicateInfo('bookmarkwork', 'bookmark', $get_fields,
-                $where_fields, $new_fields);
+            PMA_Table::duplicateInfo(
+                'bookmarkwork', 'bookmark', $get_fields,
+                $where_fields, $new_fields
+            );
         }
 
         if (! $_error && $move) {
@@ -444,7 +457,7 @@ if ($db != 'mysql') {
 // Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
 // Don't allow to easily drop mysql database, RFE #1327514.
 if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
-        && !$db_is_information_schema
+        && ! $db_is_information_schema
         && (PMA_DRIZZLE || $db != 'mysql')) {
 ?>
 <div class="operations_half_width">
@@ -531,8 +544,10 @@ echo __('Remove database');
     <?php
     unset($drop_clause);
 
-    if (isset($_COOKIE) && isset($_COOKIE['pma_switch_to_new'])
-      && $_COOKIE['pma_switch_to_new'] == 'true') {
+    if (isset($_COOKIE)
+        && isset($_COOKIE['pma_switch_to_new'])
+        && $_COOKIE['pma_switch_to_new'] == 'true'
+    ) {
         $pma_switch_to_new = 'true';
     }
     ?>
@@ -565,8 +580,10 @@ echo __('Remove database');
     }
     echo '    <label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
        . '    </legend>' . "\n"
-       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
-            'db_collation', 'select_db_collation', $db_collation, false, 3)
+       . PMA_generateCharsetDropdownBox(
+           PMA_CSDROPDOWN_COLLATION, 'db_collation',
+           'select_db_collation', $db_collation, false, 3
+       )
        . '</fieldset>'
        . '<fieldset class="tblFooters">'
        . '    <input type="submit" name="submitcollation"'
@@ -575,7 +592,9 @@ echo __('Remove database');
        . '</form></div>' . "\n";
 
     if ($num_tables > 0
-      && ! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+        && ! $cfgRelation['allworks']
+        && $cfg['PmaNoRelation_DisableWarning'] == false
+    ) {
         $message = PMA_Message::notice(__('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">', false);
         $message->addParam('</a>', false);

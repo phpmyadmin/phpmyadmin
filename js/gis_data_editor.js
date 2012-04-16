@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @fileoverview    functions used in GIS data editor
  *
@@ -12,19 +13,17 @@ var gisEditorLoaded = false;
  */
 function closeGISEditor(){
     $("#popup_background").fadeOut("fast");
-    $("#gis_editor").fadeOut("fast");
-    $("#gis_editor").html('');
+    $("#gis_editor").fadeOut("fast", function () {
+        $(this).html('');
+    });
 }
 
 /**
  * Prepares the HTML recieved via AJAX.
  */
 function prepareJSVersion() {
-    // Hide 'Go' buttons associated with the dropdowns
-    $('.go').hide();
-
     // Change the text on the submit button
-    $("input[name='gis_data[save]']")
+    $("#gis_editor input[name='gis_data[save]']")
         .val(PMA_messages['strCopy'])
         .insertAfter($('#gis_data_textarea'))
         .before('<br><br>');
@@ -38,14 +37,14 @@ function prepareJSVersion() {
     $('div#gis_data_output p').remove();
 
     // Remove 'add' buttons and add links
-    $('.add').each(function(e) {
+    $('#gis_editor input.add').each(function(e) {
         var $button = $(this);
         $button.addClass('addJs').removeClass('add');
         var classes = $button.attr('class');
-        $button
-            .after('<a class="' + classes + '" name="' + $button.attr('name')
-                + '">+ ' + $button.val() + '</a>')
-            .remove();
+        $button.replaceWith(
+            '<a class="' + classes + '" name="' + $button.attr('name')
+                + '">+ ' + $button.val() + '</a>'
+        );
     });
 }
 
@@ -204,12 +203,12 @@ function insertDataAndClose() {
 $(document).ready(function() {
 
     // Remove the class that is added due to the URL being too long.
-    $('.open_gis_editor a').removeClass('formLinkSubmit');
+    $('span.open_gis_editor a').removeClass('formLinkSubmit');
 
     /**
      * Prepares and insert the GIS data to the input field on clicking 'copy'.
      */
-    $("input[name='gis_data[save]']").live('click', function(event) {
+    $("#gis_editor input[name='gis_data[save]']").live('click', function(event) {
         event.preventDefault();
         insertDataAndClose();
     });
@@ -243,7 +242,7 @@ $(document).ready(function() {
     /**
      * Update the form on change of the GIS type.
      */
-    $(".gis_type").live('change', function(event) {
+    $("#gis_editor select.gis_type").live('change', function(event) {
         var $gis_editor = $("#gis_editor");
         var $form = $('form#gis_data_editor_form');
 
@@ -261,14 +260,14 @@ $(document).ready(function() {
     /**
      * Handles closing of the GIS data editor.
      */
-    $('.close_gis_editor, .cancel_gis_editor').live('click', function() {
+    $('#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor').live('click', function() {
         closeGISEditor();
     });
 
     /**
      * Handles adding data points
      */
-    $('.addJs.addPoint').live('click', function() {
+    $('#gis_editor a.addJs.addPoint').live('click', function() {
         var $a = $(this);
         var name = $a.attr('name');
         // Eg. name = gis_data[0][MULTIPOINT][add_point] => prefix = gis_data[0][MULTIPOINT]
@@ -285,7 +284,7 @@ $(document).ready(function() {
     /**
      * Handles adding linestrings and inner rings
      */
-    $('.addLine.addJs').live('click', function() {
+    $('#gis_editor a.addLine.addJs').live('click', function() {
         var $a = $(this);
         var name = $a.attr('name');
 
@@ -320,7 +319,7 @@ $(document).ready(function() {
     /**
      * Handles adding polygons
      */
-    $('.addJs.addPolygon').live('click', function() {
+    $('#gis_editor a.addJs.addPolygon').live('click', function() {
         var $a = $(this);
         var name = $a.attr('name');
         // Eg. name = gis_data[0][MULTIPOLYGON][add_polygon] => prefix = gis_data[0][MULTIPOLYGON]
@@ -349,7 +348,7 @@ $(document).ready(function() {
     /**
      * Handles adding geoms
      */
-    $('.addJs.addGeom').live('click', function() {
+    $('#gis_editor a.addJs.addGeom').live('click', function() {
         var $a = $(this);
         var prefix = 'gis_data[GEOMETRYCOLLECTION]';
         // Find the number of geoms

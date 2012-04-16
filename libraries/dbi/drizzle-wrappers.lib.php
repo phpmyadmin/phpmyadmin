@@ -10,9 +10,13 @@
  * @package PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 // TODO: drizzle module segfaults while freeing resources, often. This allows at least for some development
-function _drizzle_shutdown_flush() {
+function _drizzle_shutdown_flush()
+{
     flush();
 }
 register_shutdown_function('_drizzle_shutdown_flush');
@@ -130,7 +134,7 @@ class PMA_Drizzle extends Drizzle
 
     /**
      * Creates a new connection using unix domain socket
-     * 
+     *
      * @param $uds
      * @param $user
      * @param $password
@@ -211,7 +215,7 @@ class PMA_DrizzleCon
 
     /**
      * Pass calls of undefined methods to DrizzleCon object
-     * 
+     *
      * @param $method
      * @param $args
      * @return mixed

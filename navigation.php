@@ -100,7 +100,7 @@ require_once 'libraries/header_http.inc.php';
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <?php
-    echo PMA_includeJS('jquery/jquery-1.7.2.js');
+    echo PMA_includeJS('jquery/jquery-1.6.2.js');
     echo PMA_includeJS('jquery/jquery-ui-1.8.16.custom.js');
     echo PMA_includeJS('jquery/jquery.qtip-1.0.0-rc3.js');
     echo PMA_includeJS('navigation.js');
@@ -381,8 +381,10 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                     printf($href_left, $element_counter, $common_url_query);
                     printf($img_plus, $element_counter);
                 } else {
-                    printf($href_left, $element_counter,
-                        PMA_generate_common_url() . $url_dbgroup);
+                    printf(
+                        $href_left, $element_counter,
+                        PMA_generate_common_url() . $url_dbgroup
+                    );
                     printf($img_minus, $element_counter);
                 }
                 echo '</a>';
@@ -514,12 +516,15 @@ function PMA_displayTableList($tables, $visible = false,
             $element_counter++;
             echo '<li>' . "\n";
             if ($visible
-             && ((isset($_REQUEST['tbl_group'])
-               && (strpos($_REQUEST['tbl_group'], $group) === 0
+                && ((isset($_REQUEST['tbl_group'])
+                && (strpos($_REQUEST['tbl_group'], $group) === 0
                 || strpos($_REQUEST['tbl_group'], $sep . $group) !== false))
-              || strpos($GLOBALS['table'], $group) === 0)) {
-                printf($href_left, $element_counter,
-                    $GLOBALS['common_url_query'] . '&amp;tbl_group=' . $tab_group_full);
+                || strpos($GLOBALS['table'], $group) === 0)
+            ) {
+                printf(
+                    $href_left, $element_counter,
+                    $GLOBALS['common_url_query'] . '&amp;tbl_group=' . $tab_group_full
+                );
                 printf($img_minus, $element_counter);
             } else {
                 printf($href_left, $element_counter, $common_url_query);
@@ -551,13 +556,15 @@ function PMA_displayTableList($tables, $visible = false,
             unset($table['tab' . $sep . 'group']);
             unset($table['tab' . $sep . 'count']);
 
-            if ($visible &&
-              ((isset($_REQUEST['tbl_group'])
+            if ($visible
+                && ((isset($_REQUEST['tbl_group'])
                 && (strpos($_REQUEST['tbl_group'], $group) === 0
                 || strpos($_REQUEST['tbl_group'], $sep . $group) !== false))
-              || strpos($GLOBALS['table'], $group) === 0)) {
-                PMA_displayTableList($table, true,
-                    $tab_group_full . $group, $table_db);
+                || strpos($GLOBALS['table'], $group) === 0)
+            ) {
+                PMA_displayTableList(
+                    $table, true, $tab_group_full . $group, $table_db
+                );
             } else {
                 PMA_displayTableList($table, false, '', $table_db);
             }
@@ -597,10 +604,12 @@ function PMA_displayTableList($tables, $visible = false,
             $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
                 .$GLOBALS['common_url_query'] . '&amp;table='
                 .urlencode($table['Name']) . '&amp;pos=0';
-            echo '<a href="' . $href
-            . '" title="' . htmlspecialchars(PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']) . ': ' . $table['Comment']
-                .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . __('Rows')) . ')"'
-                .' id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
+            echo '<a href="' . $href . '" title="'
+                . htmlspecialchars(
+                    PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']) . ': ' . $table['Comment']
+                    .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . __('Rows') . ')'
+                )
+                .'" id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
                 // preserve spaces in table name
                 . str_replace(' ', '&nbsp;', htmlspecialchars($table['disp_name'])) . '</a>';
             echo '</li>' . "\n";

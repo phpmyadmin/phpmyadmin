@@ -52,11 +52,11 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
     if ($use_fieldset) {
         echo '<fieldset><legend lang="en" dir="ltr">' . $language_title . '</legend>';
     } else {
-        echo '<bdo lang="en" dir="ltr">' . $language_title . ':</bdo>';
+        echo '<bdo lang="en" dir="ltr"><label for="sel-lang">' . $language_title . ':</label></bdo>';
     }
     ?>
 
-    <select name="lang" class="autosubmit" lang="en" dir="ltr">
+    <select name="lang" class="autosubmit" lang="en" dir="ltr" id="sel-lang">
     <?php
 
     uasort($GLOBALS['available_languages'], 'PMA_language_cmp');

@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 $(function() {
     // Show tab links
     $('div#statustabs_charting div.tabLinks').show();
@@ -515,8 +516,8 @@ $(function() {
     });
 
     $('a[href="#importMonitorConfig"]').click(function() {
-        $('div#emptyDialog').attr('title', 'Import monitor configuration');
-        $('div#emptyDialog').html('Please select the file you want to import:<br/><form action="file_echo.php?' + url_query + '&import=1" method="post" enctype="multipart/form-data">' +
+        $('div#emptyDialog').attr('title', PMA_messages['strImportDialogTitle']);
+        $('div#emptyDialog').html(PMA_messages['strImportDialogMessage'] + ':<br/><form action="file_echo.php?' + url_query + '&import=1" method="post" enctype="multipart/form-data">' +
             '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
         
         var dlgBtns = {};
@@ -1709,12 +1710,17 @@ $(function() {
         var rowData = $(this).parent().data('query');
         var query = rowData.argument || rowData.sql_text;
 
-        query = PMA_SQLPrettyPrint(query);
-        codemirror_editor.setValue(query);
-        // Codemirror is bugged, it doesn't refresh properly sometimes. Following lines seem to fix that
-        setTimeout(function() {
-            codemirror_editor.refresh();
-        },50);
+        if (codemirror_editor) {
+            query = PMA_SQLPrettyPrint(query);
+            codemirror_editor.setValue(query);
+            // Codemirror is bugged, it doesn't refresh properly sometimes. Following lines seem to fix that
+            setTimeout(function() {
+                codemirror_editor.refresh();
+            },50);
+        }
+        else {
+            $('#sqlquery').val(query);
+        }
 
         var profilingChart = null;
         var dlgBtns = {};
@@ -1727,7 +1733,12 @@ $(function() {
                 profilingChart.destroy();
             }
             $('div#queryAnalyzerDialog div.placeHolder').html('');
-            codemirror_editor.setValue('');
+            if (codemirror_editor) {
+                codemirror_editor.setValue('');
+            }
+            else {
+                $('#sqlquery').val('');
+            }
             $(this).dialog("close");
         };
 
@@ -1750,7 +1761,7 @@ $(function() {
         $.post('server_status.php?' + url_query, {
             ajax_request: true,
             query_analyzer: true,
-            query: codemirror_editor.getValue(),
+            query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db
         }, function(data) {
             data = $.parseJSON(data);

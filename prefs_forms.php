@@ -42,8 +42,10 @@ if (isset($_POST['revert'])) {
     $form_display->fixErrors();
     // redirect
     $url_params = array('form' => $form_param);
-    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'prefs_forms.php'
-            . PMA_generate_common_url($url_params, '&'));
+    PMA_sendHeaderLocation(
+        $cfg['PmaAbsoluteUri'] . 'prefs_forms.php'
+        . PMA_generate_common_url($url_params, '&')
+    );
     exit;
 }
 
@@ -56,8 +58,10 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
         $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
-        PMA_userprefs_redirect($forms, $old_settings, 'prefs_forms.php', array(
-            'form' => $form_param), $hash);
+        PMA_userprefs_redirect(
+            $forms, $old_settings, 'prefs_forms.php',
+            array('form' => $form_param), $hash
+        );
         exit;
     } else {
         $error = $result;

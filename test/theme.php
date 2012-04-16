@@ -31,7 +31,7 @@ header('Content-Type: text/html; charset=utf-8');
         href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
-    <script src="../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../js/jquery/jquery-1.6.2.js" type="text/javascript"></script>
     <script src="../js/messages.php" type="text/javascript"></script>
     <script type="text/javascript">
         var PMA_TEST_THEME = true;
@@ -155,8 +155,10 @@ if (@file_exists($pmaThemeImage . 'logo_right.png')) {
 ?>
 <h1>
 <?php
-echo sprintf(__('Welcome to %s'),
-    '<bdo dir="ltr" lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
+echo sprintf(
+    __('Welcome to %s'),
+    '<bdo dir="ltr" lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>'
+);
 ?>
 </h1>
 

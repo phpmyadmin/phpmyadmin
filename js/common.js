@@ -77,15 +77,6 @@ function setTable(new_table)
 /**
  * reloads main frame
  *
- * @uses     goTo()
- * @uses     opendb_url
- * @uses     token
- * @uses     db
- * @uses     server
- * @uses     table
- * @uses     lang
- * @uses    collation_connection
- * @uses    encodeURIComponent()
  * @param    string    url    name of page to be loaded
  */
 function refreshMain(url)
@@ -110,14 +101,6 @@ function refreshMain(url)
 /**
  * reloads navigation frame
  *
- * @uses     goTo()
- * @uses     token
- * @uses     db
- * @uses     server
- * @uses     table
- * @uses     lang
- * @uses    collation_connection
- * @uses    encodeURIComponent()
  * @param    boolean    force   force reloading
  */
 function refreshNavigation(force)

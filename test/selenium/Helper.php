@@ -31,7 +31,8 @@ class Helper
         }
     }
 
-    public static function getBrowserString() {
+    public static function getBrowserString()
+    {
         $browserString = self::$config->getCurrentBrowser();
         return $browserString;
     }

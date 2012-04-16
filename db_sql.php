@@ -16,8 +16,11 @@ require_once 'libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
-$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
-$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+
+if ($GLOBALS['cfg']['CodemirrorEnable']) {
+    $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+    $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+}
 
 require 'libraries/db_common.inc.php';
 require_once 'libraries/sql_query_form.lib.php';
@@ -56,7 +59,10 @@ if ($num_tables == 0 && empty($db_query_force)) {
 /**
  * Query box, bookmark, insert data from textfile
  */
-PMA_sqlQueryForm(true, false, isset($_REQUEST['delimiter']) ? htmlspecialchars($_REQUEST['delimiter']) : ';');
+PMA_sqlQueryForm(
+    true, false,
+    isset($_REQUEST['delimiter']) ? htmlspecialchars($_REQUEST['delimiter']) : ';'
+);
 
 /**
  * Displays the footer

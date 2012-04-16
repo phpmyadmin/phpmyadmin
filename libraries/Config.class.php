@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Load vendor configuration.
@@ -344,6 +347,192 @@ class PMA_Config
             $this->set('PMA_PHP_INT_VERSION', 0);
         }
         $this->set('PMA_PHP_STR_VERSION', phpversion());
+    }
+
+    /**
+     * detects if Git revision
+     *
+     * @return boolean
+     */
+    function isGitRevision()
+    {
+        // caching
+        if (isset($_SESSION['is_git_revision'])) {
+            if ($_SESSION['is_git_revision']) {
+                $this->set('PMA_VERSION_GIT', 1);
+            }
+            return $_SESSION['is_git_revision'];
+        }
+        // find out if there is a .git folder
+        $git_folder = '.git';
+        if (! @file_exists($git_folder)
+            || ! @file_exists($git_folder . '/config')) {
+            $_SESSION['is_git_revision'] = false;
+            return false;
+        }
+        $_SESSION['is_git_revision'] = true;
+        return true;
+    }
+
+    /**
+     * detects Git revision, if running inside repo
+     *
+     * @return void
+     */
+    function checkGitRevision()
+    {
+        // find out if there is a .git folder
+        $git_folder = '.git';
+        if (! @file_exists($git_folder)
+            || ! @file_exists($git_folder . '/config')) {
+            return;
+        }
+
+        if (! $ref_head = @file_get_contents($git_folder . '/HEAD')) {
+            return;
+        }
+        $branch = false;
+        // are we on any branch?
+        if (strstr($ref_head, '/')) {
+            $ref_head = substr(trim($ref_head), 5);
+            $branch = basename($ref_head);
+
+            if (! $hash = @file_get_contents($git_folder . '/' . $ref_head)) {
+                return;
+            }
+            $hash = trim($hash);
+        } else {
+            $hash = trim($ref_head);
+        }
+
+        if ( !isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
+            $git_file_name = $git_folder . '/objects/' . substr($hash, 0, 2)
+                    . '/' . substr($hash, 2);
+            if (! file_exists($git_file_name) ) {
+                return;
+            }
+            if (! $commit = @file_get_contents($git_file_name)) {
+                return;
+            }
+            $commit = explode("\0", gzuncompress($commit), 2);
+            $commit = explode("\n", $commit[1]);
+            $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
+        } else {
+            $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
+        }
+
+        $author = array('name' => '', 'email' => '', 'date' => '');
+        $committer = array('name' => '', 'email' => '', 'date' => '');
+
+        do {
+            $dataline = array_shift($commit);
+            $datalinearr = explode(' ', $dataline, 2);
+            $linetype = $datalinearr[0];
+            if (in_array($linetype, array('author', 'committer')))
+            {
+                $user = $datalinearr[1];
+                preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
+                $user2 = array(
+                    'name' => trim($user[1]),
+                    'email' => trim($user[2]),
+                    'date' => date('Y-m-d H:i:s', $user[3]));
+                if (isset($user[4]))
+                {
+                    $user2['date'] .= $user[4];
+                }
+                $$linetype = $user2;
+            }
+        }
+        while ($dataline != '');
+        $message = trim(implode(' ', $commit));
+
+        // check if commit exists in Github
+        $is_remote_commit = false;
+        if (isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])) {
+            $is_remote_commit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
+        } else {
+            $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/' . $hash;
+            $is_found = $this->checkHTTP($link);
+            switch($is_found) {
+                case true:
+                    $is_remote_commit = true;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
+                    break;
+                case false:
+                    $is_remote_commit = false;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
+                    break;
+                case null:
+                    // no remote link for now, but don't cache this as Github is down
+                    $is_remote_commit = false;
+                    break;
+            }
+        }
+
+        $is_remote_branch = false;
+        if ($is_remote_commit && $branch !== false) {
+            // check if branch exists in Github
+            if (isset($_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash])) {
+                $is_remote_branch = $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
+            } else {
+                $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/trees/' . $branch;
+                $is_found = $this->checkHTTP($link);
+                switch($is_found) {
+                    case true:
+                        $is_remote_branch = true;
+                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
+                        break;
+                    case false:
+                        $is_remote_branch = false;
+                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
+                        break;
+                    case null:
+                        // no remote link for now, but don't cache this as Github is down
+                        $is_remote_branch = false;
+                        break;
+                }
+            }
+        }
+
+        $this->set('PMA_VERSION_GIT', 1);
+        $this->set('PMA_VERSION_GIT_COMMITHASH', $hash);
+        $this->set('PMA_VERSION_GIT_BRANCH', $branch);
+        $this->set('PMA_VERSION_GIT_MESSAGE', $message);
+        $this->set('PMA_VERSION_GIT_AUTHOR', $author);
+        $this->set('PMA_VERSION_GIT_COMMITTER', $committer);
+        $this->set('PMA_VERSION_GIT_ISREMOTECOMMIT', $is_remote_commit);
+        $this->set('PMA_VERSION_GIT_ISREMOTEBRANCH', $is_remote_branch);
+    }
+
+    /**
+     * Checks if given URL is 200 or 404
+     */
+    function checkHTTP($link)
+    {
+        if (! function_exists('curl_init')) {
+            return null;
+        }
+        $ch = curl_init($link);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+        curl_setopt($ch, CURLOPT_NOBODY, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        $data = @curl_exec($ch);
+        if ($data === false) {
+            return null;
+        }
+        $ok = 'HTTP/1.1 200 OK';
+        $notfound = 'HTTP/1.1 404 Not Found';
+        if (substr($data, 0, strlen($ok)) === $ok) {
+            return true;
+        } elseif (substr($data, 0, strlen($notfound)) === $notfound) {
+            return false;
+        }
+        return null;
     }
 
     /**
@@ -716,13 +905,27 @@ class PMA_Config
         }
 
         if (! is_readable($this->getSource())) {
-            $this->source_mtime = 0;
-            die(
-                sprintf(
-                    __('Existing configuration file (%s) is not readable.'),
-                    $this->getSource()
-                )
-            );
+            // manually check if file is readable
+            // might be bug #3059806 Supporting running from CIFS/Samba shares
+
+            $contents = false;
+            $handle = @fopen($this->getSource(), 'r');
+            if ($handle !== false) {
+                $contents = @fread($handle, 1); // reading 1 byte is enough to test
+                @fclose($handle);
+            }
+            if ($contents === false) {
+                $this->source_mtime = 0;
+                PMA_fatalError(
+                    sprintf(
+                        function_exists('__')
+                        ? __('Existing configuration file (%s) is not readable.')
+                        : 'Existing configuration file (%s) is not readable.',
+                        $this->getSource()
+                    )
+                );
+                return false;
+            }
         }
 
         return true;

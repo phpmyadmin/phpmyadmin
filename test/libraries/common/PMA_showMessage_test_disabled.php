@@ -39,7 +39,8 @@ class PMA_showMessage_test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['sql_query'] = "SELECT * FROM tblPatient ";
 
-        $this->expectOutputString("<script type=\"text/javascript\">
+        $this->expectOutputString(
+        "<script type=\"text/javascript\">
         //<![CDATA[
         if (window.parent.updateTableTitle) window.parent.updateTableTitle('db.tbl', ' ()');
         //]]>
@@ -57,7 +58,8 @@ class PMA_showMessage_test extends PHPUnit_Framework_TestCase
         <a href=\"import.php?db=db&amp;table=tbl&amp;sql_query=SELECT+%2A+FROM+tblPatient+&amp;show_query=1&amp;show_as_php=1&amp;server=server&amp;lang=en&amp;token=647a62ad301bf9025e3b13bc7caa02cb\" >Create PHP Code</a>
         ] [
         <a href=\"import.php?db=db&amp;table=tbl&amp;sql_query=SELECT+%2A+FROM+tblPatient+&amp;show_query=1&amp;server=server&amp;lang=en&amp;token=647a62ad301bf9025e3b13bc7caa02cb\" >Refresh</a>
-        ]</div></div>");
+        ]</div></div>"
+        );
 
         echo PMA_showMessage("msg");
 

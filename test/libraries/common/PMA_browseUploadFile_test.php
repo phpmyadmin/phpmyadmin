@@ -19,7 +19,8 @@ class PMA_browseUploadFile_test extends PHPUnit_Framework_TestCase
     /*
      * Data provider for test
      */
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return array(
             array(10, __('B'), "10"),
             array(100, __('B'), "100"),
@@ -35,14 +36,16 @@ class PMA_browseUploadFile_test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProvider
      * @return void
      */
-    function testBrowseUploadFile($size, $unit, $res){
-
-        $this->expectOutputString('<label for="radio_import_file">' . __("Browse your computer:") . '</label>'
-                                  . '<div id="upload_form_status" style="display: none;"></div>'
-                                  . '<div id="upload_form_status_info" style="display: none;"></div>'
-                                  . '<input type="file" name="import_file" id="input_import_file" />'
-                                  . "(" . __('Max: '). $res . $unit .")" . "\n"
-                                  . '<input type="hidden" name="MAX_FILE_SIZE" value="' .$size . '" />' . "\n");
+    function testBrowseUploadFile($size, $unit, $res)
+    {
+        $this->expectOutputString(
+            '<label for="radio_import_file">' . __("Browse your computer:") . '</label>'
+            . '<div id="upload_form_status" style="display: none;"></div>'
+            . '<div id="upload_form_status_info" style="display: none;"></div>'
+            . '<input type="file" name="import_file" id="input_import_file" />'
+            . "(" . __('Max: '). $res . $unit .")" . "\n"
+            . '<input type="hidden" name="MAX_FILE_SIZE" value="' .$size . '" />' . "\n"
+        );
 
         PMA_browseUploadFile($size);
     }

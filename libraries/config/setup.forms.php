@@ -67,7 +67,6 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'controlhost',
     'controluser',
     'controlpass',
-    'verbose_check',
     'bookmarktable' => 'pma_bookmark',
     'relation' => 'pma_relation',
     'userconfig' => 'pma_userconfig',
@@ -128,7 +127,6 @@ $forms['Features']['Other_core_settings'] = array(
     'VersionCheck',
     'NaturalOrder',
     'InitialSlidersState',
-    'ErrorIconic',
     'ReplaceHelpImg',
     'MaxDbList',
     'MaxTableList',
@@ -153,7 +151,8 @@ $forms['Sql_queries']['Sql_queries'] = array(
     //'QueryWindowWidth', // overridden in theme
     //'QueryWindowHeight',
     'QueryWindowDefTab',
-    'RetainQueryBox');
+    'RetainQueryBox',
+    'CodemirrorEnable');
 $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'Edit',
     'Explain',
@@ -187,7 +186,6 @@ $forms['Left_frame']['Left_tables'] = array(
     'ShowTooltip',
     'ShowTooltipAliasTB');
 $forms['Main_frame']['Startup'] = array(
-    'MainPageIconic',
     'ShowCreateDb' => ':group',
         'SuggestDBName',
         ':group:end',
@@ -195,6 +193,12 @@ $forms['Main_frame']['Startup'] = array(
     'ShowServerInfo',
     'ShowPhpInfo',
     'ShowChgPassword');
+$forms['Main_frame']['DbStructure'] = array(
+    'ShowDbStructureCreation',
+    'ShowDbStructureLastUpdate',
+    'ShowDbStructureLastCheck');
+$forms['Main_frame']['TableStructure'] = array(
+    'HideStructureActions');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'ShowAll',
@@ -225,7 +229,6 @@ $forms['Main_frame']['Edit'] = array(
     'ForeignKeyDropdownOrder',
     'ForeignKeyMaxLimit');
 $forms['Main_frame']['Tabs'] = array(
-    'LightTabs',
     'PropertiesIconic',
     'DefaultTabServer',
     'DefaultTabDatabase',

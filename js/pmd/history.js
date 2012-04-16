@@ -32,9 +32,6 @@ function panel(index)
  * clubbing all objects of same tables together
  * This function is called whenever changes are made in history_array[]
  *
- * @uses and_or()
- * @uses history_edit()
- * @uses history_delete()
  *
  * @param {int}  init starting index of unsorted array
  * @param {int} finit   last index of unsorted array
@@ -95,7 +92,6 @@ function display(init,finit)
 /**
  * To change And/Or relation in history tab
  *
- * @uses panel()
  *
  * @param {int} index of history_array where change is to be made
  *
@@ -156,8 +152,6 @@ function detail (index)
 /**
  * Deletes entry in history_array
  *
- * @uses panel()
- * @uses display()
  * @param index index of history_array[] which is to be deleted
  *
 **/
@@ -225,8 +219,6 @@ function history_edit(index)
 /**
  * Make changes in history_array when Edit button is clicked
  * checks for the type of object and then sets the new value
- * @uses panel()
- * @uses display()
  *
  * @param index index of history_array where change is to be made
 **/
@@ -526,9 +518,6 @@ function build_query(formtitle, fadin)
   * This function builds from clause of query
   * makes automatic joins.
   *
-  * @uses unique
-  * @uses add_array
-  * @uses remove_array
   *
   */
 

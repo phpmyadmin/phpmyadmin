@@ -353,7 +353,7 @@ $(document).ready(function() {
      * @name        edit_user_click
      * @see         $cfg['AjaxEnable']
      */
-    $(".edit_user_anchor.ajax").live('click', function(event) {
+    $("a.edit_user_anchor.ajax").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -368,17 +368,23 @@ $(document).ready(function() {
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close");};
 
         var token = $(this).parents('form').find('input[name="token"]').val();
-        $.get($(this).attr('href'), {'ajax_request':true, 'edit_user_dialog': true, 'token': token}, function(data) {
-            var $div = $('<div id="edit_user_dialog"></div>')
-            .append(data)
-            .dialog({
-                width: 900,
-                height: 600,
-                buttons: button_options,
-                close: function () {
-                    $(this).remove();
-                }
-            }); //dialog options end
+        $.get($(this).attr('href'),
+            {
+                'ajax_request':true,
+                'edit_user_dialog': true,
+                'token': token
+            }, 
+            function(data) {
+                var $div = $('<div id="edit_user_dialog"></div>')
+                .append(data)
+                .dialog({
+                    width: 900,
+                    height: 600,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                }); //dialog options end
             displayPasswordGenerateButton();
             PMA_ajaxRemoveMessage($msgbox);
             PMA_convertFootnotesToTooltips($div);
@@ -452,7 +458,7 @@ $(document).ready(function() {
                 if(data.new_privileges && reload_privs) {
                     $("#usersForm")
                     .find('.current_row')
-                    .find('tt')
+                    .find('code')
                     .html(data.new_privileges);
                 }
 
@@ -501,19 +507,22 @@ $(document).ready(function() {
                 });
                 PMA_ajaxRemoveMessage($msgbox);
                 // Attach syntax highlited editor to export dialog
-                CodeMirror.fromTextArea(
-                    $ajaxDialog.find('textarea')[0],
-                    {
-                        lineNumbers: true,
-                        matchBrackets: true,
-                        indentUnit: 4,
-                        mode: "text/x-mysql"
-                    }
-                );
+                if (typeof CodeMirror != 'undefined') {
+                    CodeMirror.fromTextArea(
+                        $ajaxDialog.find('textarea')[0],
+                        {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            indentUnit: 4,
+                            mode: "text/x-mysql"
+                        }
+                    );
+                }
         }); //end $.post
     });
     // if exporting non-ajax, highlight anyways
-    if ($("textarea.export").length > 0)
+    if ($("textarea.export").length > 0
+        && typeof CodeMirror != 'undefined')
     {
         CodeMirror.fromTextArea(
             $('textarea.export')[0],
@@ -526,7 +535,7 @@ $(document).ready(function() {
         );
     }
 
-    $(".export_user_anchor.ajax").live('click', function(event) {
+    $("a.export_user_anchor.ajax").live('click', function(event) {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         /**
@@ -549,15 +558,17 @@ $(document).ready(function() {
             });
             PMA_ajaxRemoveMessage($msgbox);
             // Attach syntax highlited editor to export dialog
-            CodeMirror.fromTextArea(
-                $ajaxDialog.find('textarea')[0],
-                {
-                    lineNumbers: true,
-                    matchBrackets: true,
-                    indentUnit: 4,
-                    mode: "text/x-mysql"
-                }
-            );
+            if (typeof CodeMirror != 'undefined') {
+                CodeMirror.fromTextArea(
+                    $ajaxDialog.find('textarea')[0],
+                    {
+                        lineNumbers: true,
+                        matchBrackets: true,
+                        indentUnit: 4,
+                        mode: "text/x-mysql"
+                    }
+                );
+            }
         }); //end $.get
     }); //end export privileges
 

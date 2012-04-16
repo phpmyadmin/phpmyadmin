@@ -31,17 +31,21 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_load_userprefs();
     header('Content-Type: application/json');
-    echo json_encode(array(
-        'prefs' => json_encode($settings['config_data']),
-        'mtime' => $settings['mtime']));
+    echo json_encode(
+        array(
+            'prefs' => json_encode($settings['config_data']),
+            'mtime' => $settings['mtime']
+        )
+    );
     return;
 } else if (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';
     if (filter_input(INPUT_POST, 'import_type') == 'text_file'
-            && isset($_FILES['import_file'])
-            && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
-            && is_uploaded_file($_FILES['import_file']['tmp_name'])) {
+        && isset($_FILES['import_file'])
+        && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
+        && is_uploaded_file($_FILES['import_file']['tmp_name'])
+    ) {
         // read JSON from uploaded file
         $open_basedir = @ini_get('open_basedir');
         $file_to_unlink = '';

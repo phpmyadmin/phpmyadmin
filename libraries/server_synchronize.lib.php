@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Places matching tables in source and target databases in $matching_tables

@@ -15,14 +15,18 @@ require_once 'libraries/core.lib.php';
 class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
 {
 
-    function testMissingExtention(){
+    function testMissingExtention()
+    {
         $ext = 'php_ext';
-        $this->setExpectedException('PHPUnit_Framework_Error',
-                            'The [a@'.PMA_getPHPDocLink('book.' . $ext . '.php').'@Documentation][em]'.$ext.'[/em][/a] extension is missing. Please check your PHP configuration.');
+        $this->setExpectedException(
+            'PHPUnit_Framework_Error',
+            'The [a@'.PMA_getPHPDocLink('book.' . $ext . '.php').'@Documentation][em]'.$ext.'[/em][/a] extension is missing. Please check your PHP configuration.'
+        );
         PMA_warnMissingExtension($ext);
     }
 
-    function testMissingExtentionFatal(){
+    function testMissingExtentionFatal()
+    {
         $ext = 'php_ext';
         $warn = 'The <a href="' . PMA_getPHPDocLink('book.' . $ext . '.php') . '" target="Documentation"><em>'.$ext.'</em></a> extension is missing. Please check your PHP configuration.';
 
@@ -34,7 +38,8 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, strpos($printed, $warn));
     }
 
-    function testMissingExtentionFatalWithExtra(){
+    function testMissingExtentionFatalWithExtra()
+    {
         $ext = 'php_ext';
         $extra = 'Appended Extra String';
 
@@ -48,11 +53,14 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, strpos($printed, $warn));
     }
 
-    function testMissingExtentionWithExtra(){
+    function testMissingExtentionWithExtra()
+    {
         $ext = 'php_ext';
         $extra = 'Appended Extra String';
-        $this->setExpectedException('PHPUnit_Framework_Error',
-                            'The [a@'.PMA_getPHPDocLink('book.' . $ext . '.php').'@Documentation][em]'.$ext.'[/em][/a] extension is missing. Please check your PHP configuration.'.' '.$extra);
+        $this->setExpectedException(
+            'PHPUnit_Framework_Error',
+            'The [a@'.PMA_getPHPDocLink('book.' . $ext . '.php').'@Documentation][em]'.$ext.'[/em][/a] extension is missing. Please check your PHP configuration.'.' '.$extra
+        );
         PMA_warnMissingExtension($ext, false, $extra);
         $this->assertTrue(true);
     }

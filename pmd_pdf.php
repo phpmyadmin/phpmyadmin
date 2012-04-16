@@ -44,16 +44,18 @@ if (isset($mode)) {
 
     if ('import' == $mode) {
         PMA_query_as_controluser(
-        'UPDATE ' . $pma_table . ',' . $pmd_table .
-        ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale_q . ',
-        ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '. $scale_q .'
-        WHERE
-        ' . $pmd_table . '.`db_name`=' . $pma_table . '.`db_name`
-        AND
-        ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
-        AND
-        ' . $pmd_table . '.`db_name`=\''. PMA_sqlAddSlashes($db) .'\'
-        AND pdf_page_number = ' . $pdf_page_number_q . ';', true, PMA_DBI_QUERY_STORE);
+            'UPDATE ' . $pma_table . ',' . $pmd_table .
+            ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale_q . ',
+            ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '. $scale_q .'
+            WHERE
+            ' . $pmd_table . '.`db_name`=' . $pma_table . '.`db_name`
+            AND
+            ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
+            AND
+            ' . $pmd_table . '.`db_name`=\''. PMA_sqlAddSlashes($db) .'\'
+            AND pdf_page_number = ' . $pdf_page_number_q . ';',
+            true, PMA_DBI_QUERY_STORE
+        );
     }
 }
 
@@ -77,9 +79,11 @@ echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</
 
 $choices = array();
 
-$table_info_result = PMA_query_as_controluser('SELECT * FROM '
-            . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-            . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'');
+$table_info_result = PMA_query_as_controluser(
+    'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db'])
+    . '.' . PMA_backquote($cfgRelation['pdf_pages'])
+    . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+);
 
 if (PMA_DBI_num_rows($table_info_result) > 0) {
     echo '<p>' . __('Page') . ':';

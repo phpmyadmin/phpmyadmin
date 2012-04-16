@@ -115,7 +115,8 @@ if ($num_tables == 0) {
     $odd_row = true;
     foreach ($tables as $sts_data) {
         if (PMA_Table::isMerge($db, $sts_data['TABLE_NAME'])
-         || strtoupper($sts_data['ENGINE']) == 'FEDERATED') {
+            || strtoupper($sts_data['ENGINE']) == 'FEDERATED'
+        ) {
             $merged_size = true;
         } else {
             $merged_size = false;
@@ -171,8 +172,9 @@ if ($num_tables == 0) {
         }
 
         if (! empty($sts_data['Create_time'])
-         || ! empty($sts_data['Update_time'])
-         || ! empty($sts_data['Check_time'])) {
+            || ! empty($sts_data['Update_time'])
+            || ! empty($sts_data['Check_time'])
+        ) {
             echo $needs_break;
             ?>
             <table width="100%">

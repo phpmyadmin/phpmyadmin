@@ -229,7 +229,8 @@ function PMA_DBI_free_result($result)
  *
  * @return  bool         false
  */
-function PMA_DBI_more_results() {
+function PMA_DBI_more_results()
+{
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
     // return false. Use the 'mysqli' extension, if
@@ -242,7 +243,8 @@ function PMA_DBI_more_results() {
  *
  * @return  bool         false
  */
-function PMA_DBI_next_result() {
+function PMA_DBI_next_result()
+{
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
     // return false. Use the 'mysqli' extension, if

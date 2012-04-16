@@ -300,9 +300,11 @@ function validate_pmadb($path, $values)
         $error = true;
     }
     if (!$error) {
-        $test = test_db_connection($values['Servers/1/extension'], $values['Servers/1/connect_type'],
+        $test = test_db_connection(
+            $values['Servers/1/extension'], $values['Servers/1/connect_type'],
             $values['Servers/1/host'], $values['Servers/1/port'], $values['Servers/1/socket'],
-            $values['Servers/1/controluser'], $values['Servers/1/controlpass'], 'Server_pmadb');
+            $values['Servers/1/controluser'], $values['Servers/1/controlpass'], 'Server_pmadb'
+        );
         if ($test !== true) {
             $result = array_merge($result, $test);
         }

@@ -400,14 +400,6 @@ $cfg['Servers'][$i]['userconfig'] = '';
 $cfg['Servers'][$i]['MaxTableUiprefs'] = 100;
 
 /**
- * set to false if you know that your pma_* tables are up to date.
- * This prevents compatibility checks and thereby increases performance.
- *
- * @global boolean $cfg['Servers'][$i]['verbose_check']
- */
-$cfg['Servers'][$i]['verbose_check'] = true;
-
-/**
  * whether to allow root login
  *
  * @global boolean $cfg['Servers'][$i]['AllowRoot']
@@ -644,6 +636,13 @@ $cfg['ShowSQL'] = true;
  * @global boolean $cfg['RetainQueryEditor']
  */
 $cfg['RetainQueryBox'] = false;
+
+/**
+ * use CodeMirror syntax highlighting for editing SQL
+ *
+ * @global boolean $cfg['CodemirrorEnable']
+ */
+$cfg['CodemirrorEnable'] = true;
 
 /**
  * show a 'Drop database' link to normal users
@@ -952,6 +951,39 @@ $cfg['SuggestDBName'] = true;
 
 
 /*******************************************************************************
+ * Database structure
+ */
+
+/**
+ * show creation timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureCreation']
+ */
+$cfg['ShowDbStructureCreation'] = false;
+
+/**
+ * show last update timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureLastUpdate']
+ */
+$cfg['ShowDbStructureLastUpdate'] = false;
+
+/**
+ * show last check timestamp column in database structure (true|false)?
+ *
+ * @global boolean $cfg['ShowDbStructureLastCheck']
+ */
+$cfg['ShowDbStructureLastCheck'] = false;
+
+/**
+ * allow hide action columns to drop down menu in database structure (true|false)?
+ *
+ * @global boolean $cfg['HideStructureActions']
+ */
+$cfg['HideStructureActions'] = true;
+
+
+/*******************************************************************************
  * In browse mode...
  */
 
@@ -1108,13 +1140,6 @@ $cfg['CompressOnFly'] = true;
 /*******************************************************************************
  * Tabs display settings
  */
-
-/**
- * Use graphically less intense menu tabs
- *
- * @global boolean $cfg['LightTabs']
- */
-$cfg['LightTabs'] = false;
 
 /**
  * Use icons instead of text for the table display of a database (true|false|'both')
@@ -2500,20 +2525,6 @@ $cfg['TitleServer'] = '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
  * @global string $cfg['TitleDefault']
  */
 $cfg['TitleDefault'] = '@HTTP_HOST@ | @PHPMYADMIN@';
-
-/**
- * show some icons for warning, error and information messages (true|false)?
- *
- * @global boolean $cfg['ErrorIconic']
- */
-$cfg['ErrorIconic'] = true;
-
-/**
- * show icons in list on main page and on menu tabs (true|false)?
- *
- * @global boolean $cfg['MainPageIconic']
- */
-$cfg['MainPageIconic'] = true;
 
 /**
  * show help button instead of Documentation text (true|false)?

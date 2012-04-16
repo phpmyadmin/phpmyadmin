@@ -35,30 +35,35 @@ class PMA_checkPageValidity_test extends PHPUnit_Framework_TestCase
         'user_password.php',
     );
 
-    function testGotoNowhere(){
+    function testGotoNowhere()
+    {
         $page = null;
         $this->assertFalse(PMA_checkPageValidity($page, null));
     }
 
-    function testGotoWhitelist(){
+    function testGotoWhitelist()
+    {
         $page = 'export.php';
 
         $this->assertTrue(PMA_checkPageValidity($page, $this->goto_whitelist));
     }
 
-    function testGotoNotInWhitelist(){
+    function testGotoNotInWhitelist()
+    {
         $page = 'shell.php';
 
         $this->assertFalse(PMA_checkPageValidity($page, $this->goto_whitelist));
     }
 
-    function testGotoWhitelistPage(){
+    function testGotoWhitelistPage()
+    {
         $page = 'main.php?sql.php&test=true';
 
         $this->assertTrue(PMA_checkPageValidity($page, $this->goto_whitelist));
     }
 
-    function testGotoWhitelistEncodedPage(){
+    function testGotoWhitelistEncodedPage()
+    {
         $page = 'main.php%3Fsql.php%26test%3Dtrue';
 
         $this->assertTrue(PMA_checkPageValidity($page, $this->goto_whitelist));

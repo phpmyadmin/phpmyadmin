@@ -19,8 +19,11 @@ $GLOBALS['js_include'][] = 'tbl_change.js';
 // the next one needed because sql.php may do a "goto" to tbl_structure.php
 $GLOBALS['js_include'][] = 'tbl_structure.js';
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
-$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
-$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+
+if ($GLOBALS['cfg']['CodemirrorEnable']) {
+    $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+    $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+}
 
 
 /**
@@ -848,8 +851,10 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $disp_mode = 'nnnn110111';
         }
 
-        $message = PMA_Message::success($message);
-        echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+        if (isset($message)) {
+            $message = PMA_Message::success($message);
+            echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+        }
         PMA_displayTable($result, $disp_mode, $analyzed_sql);
         exit();
     }

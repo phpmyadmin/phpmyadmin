@@ -26,7 +26,6 @@ $forms['Features']['General'] = array(
     'VersionCheck',
     'NaturalOrder',
     'InitialSlidersState',
-    'ErrorIconic',
     'LoginCookieValidity',
     'ReplaceHelpImg',
     'Servers/1/only_db', // saves to Server/only_db
@@ -70,7 +69,8 @@ $forms['Sql_queries']['Sql_queries'] = array(
     //'QueryWindowWidth', // overridden in theme
     //'QueryWindowHeight',
     'QueryWindowDefTab',
-    'RetainQueryBox');
+    'RetainQueryBox',
+    'CodemirrorEnable');
 $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Edit',
     'SQLQuery/Explain',
@@ -97,12 +97,17 @@ $forms['Left_frame']['Left_tables'] = array(
     'ShowTooltip',
     'ShowTooltipAliasTB');
 $forms['Main_frame']['Startup'] = array(
-    'MainPageIconic',
     'ShowCreateDb' => ':group',
         'SuggestDBName',
         ':group:end',
     'ShowStats',
     'ShowServerInfo');
+$forms['Main_frame']['DbStructure'] = array(
+    'ShowDbStructureCreation',
+    'ShowDbStructureLastUpdate',
+    'ShowDbStructureLastCheck');
+$forms['Main_frame']['TableStructure'] = array(
+    'HideStructureActions');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'PropertiesIconic',
@@ -127,7 +132,6 @@ $forms['Main_frame']['Edit'] = array(
     'ForeignKeyDropdownOrder',
     'ForeignKeyMaxLimit');
 $forms['Main_frame']['Tabs'] = array(
-    'LightTabs',
     'DefaultTabServer',
     'DefaultTabDatabase',
     'DefaultTabTable');

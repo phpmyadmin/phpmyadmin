@@ -1,4 +1,9 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the visualization of GIS POLYGON objects.
  *
@@ -245,9 +250,11 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));
 
-        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector(';
-        $row .= $this->addPointsForOpenLayersPolygon($polygon, $srid);
-        $row .= 'null, ' . json_encode($style_options) . '));';
+        // Seperate outer and inner polygons
+        $parts = explode("),(", $polygon);
+        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+            . $this->getPolygonForOpenLayers($parts, $srid)
+            . ', null, ' . json_encode($style_options) . '));';
         return $row;
     }
 

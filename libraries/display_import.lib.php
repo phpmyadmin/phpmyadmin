@@ -63,13 +63,13 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                         } else {
                             var now = new Date();
                             now = Date.UTC(
-                                now.getFullYear(), now.getMonth(), now.getDate(), 
-                                now.getHours(), now.getMinutes(), now.getSeconds()) 
+                                now.getFullYear(), now.getMonth(), now.getDate(),
+                                now.getHours(), now.getMinutes(), now.getSeconds())
                                 + now.getMilliseconds() - 1000;
-                            var statustext = 
-                                formatBytes(complete, 1, PMA_messages.strDecimalSeparator)
-                                + ' <?php echo PMA_jsFormat(__('of'), false); ?> ' 
-                                + formatBytes(total, 1, PMA_messages.strDecimalSeparator);
+                            var statustext = $.sprintf('<?php echo PMA_escapeJsString(__('%s of %s')); ?>',
+                                formatBytes(complete, 1, PMA_messages.strDecimalSeparator),
+                                formatBytes(total, 1, PMA_messages.strDecimalSeparator)
+                            );
 
                             if ($('#importmain').is(':visible')) {
                                 // show progress UI

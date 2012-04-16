@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Removes all variables from request except whitelisted ones.

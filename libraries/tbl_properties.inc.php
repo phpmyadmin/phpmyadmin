@@ -126,10 +126,12 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $available_mime = PMA_getAvailableMIMEtypes();
 
     $hint = '<br />' .
-        sprintf(__('For a list of available transformation options and their MIME type transformations, click on %stransformation descriptions%s'),
+        sprintf(
+            __('For a list of available transformation options and their MIME type transformations, click on %stransformation descriptions%s'),
             '<a href="transformation_overview.php?'
             . PMA_generate_common_url($db, $table) . '" target="_blank">',
-            '</a>');
+            '</a>'
+        );
 
 
     $header_cells[] = __('MIME type');
@@ -382,7 +384,8 @@ for ($i = 0; $i < $num_fields; $i++) {
     $tmp_collation          = empty($row['Collation']) ? null : $row['Collation'];
     $content_cells[$i][$ci] = PMA_generateCharsetDropdownBox(
         PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $i . ']',
-        'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, false);
+        'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, false
+    );
     unset($tmp_collation);
     $ci++;
 
@@ -559,8 +562,9 @@ echo PMA_generate_common_hidden_inputs($_form_params);
 unset($_form_params);
 if ($action == 'tbl_create.php') {
     ?>
-    <table class="table-name">
-        <tr><td><?php echo __('Table name'); ?>:&nbsp;<input type="text" name="table" size="40" maxlength="80"
+    <table>
+        <tr class="vmiddle">
+            <td><?php echo __('Table name'); ?>:&nbsp;<input type="text" name="table" size="40" maxlength="80"
                 value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
                 class="textfield" autofocus />
             </td>
@@ -669,15 +673,20 @@ if ($action == 'tbl_create.php') {
         <td width="25">&nbsp;</td>
         <td>
     <?php
-    echo PMA_StorageEngine::getHtmlSelect('tbl_storage_engine', null,
-        (isset($_REQUEST['tbl_storage_engine']) ? $_REQUEST['tbl_storage_engine'] : null));
+    echo PMA_StorageEngine::getHtmlSelect(
+        'tbl_storage_engine', null,
+        (isset($_REQUEST['tbl_storage_engine']) ? $_REQUEST['tbl_storage_engine'] : null)
+    );
     ?>
         </td>
         <td width="25">&nbsp;</td>
         <td>
     <?php
-    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation',
-        null, (isset($_REQUEST['tbl_collation']) ? $_REQUEST['tbl_collation'] : null), false, 3);
+    echo PMA_generateCharsetDropdownBox(
+        PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null,
+        (isset($_REQUEST['tbl_collation']) ? $_REQUEST['tbl_collation'] : null),
+        false, 3
+    );
     ?>
         </td>
     </tr>

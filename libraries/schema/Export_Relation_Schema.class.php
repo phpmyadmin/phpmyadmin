@@ -4,6 +4,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * This class is inherited by all schema classes

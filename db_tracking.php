@@ -100,7 +100,9 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
         $drop_image_or_text .= PMA_getImage('b_drop.png', __('Delete tracking data for this table'));
     }
-    if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
+    if ('both' === $GLOBALS['cfg']['PropertiesIconic']
+        || false === $GLOBALS['cfg']['PropertiesIconic']
+    ) {
         $drop_image_or_text .= __('Drop');
     }
 
@@ -110,7 +112,9 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
         $table_query = ' SELECT * FROM ' .
              PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
              PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
-             ' WHERE `db_name` = \'' . PMA_sqlAddSlashes($_REQUEST['db']) . '\' AND `table_name`  = \'' . PMA_sqlAddSlashes($table_name) . '\' AND `version` = \'' . $version_number . '\'';
+             ' WHERE `db_name` = \'' . PMA_sqlAddSlashes($_REQUEST['db'])
+             . '\' AND `table_name`  = \'' . PMA_sqlAddSlashes($table_name)
+             . '\' AND `version` = \'' . $version_number . '\'';
 
         $table_result = PMA_query_as_controluser($table_query);
         $version_data = PMA_DBI_fetch_array($table_result);
@@ -120,8 +124,10 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
         } else {
             $version_status = __('not active');
         }
-        $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']);
-        $delete_link = 'db_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']) . '&amp;delete_tracking=true&amp';
+        $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table='
+            . htmlspecialchars($version_data['table_name']);
+        $delete_link = 'db_tracking.php?' . $url_query . '&amp;table='
+            . htmlspecialchars($version_data['table_name']) . '&amp;delete_tracking=true&amp';
         ?>
         <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($version_data['db_name']);?></td>
@@ -196,7 +202,8 @@ if (isset($my_tables)) {
 
     foreach ($my_tables as $key => $tablename) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
-            $my_link = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($tablename) .'">';
+            $my_link = '<a href="tbl_tracking.php?' . $url_query
+                . '&amp;table=' . htmlspecialchars($tablename) .'">';
             $my_link .= PMA_getIcon('eye.png', __('Track table')) . '</a>';
         ?>
             <tr class="noclick <?php echo $style;?>">

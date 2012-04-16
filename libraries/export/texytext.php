@@ -39,7 +39,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportFooter() {
+    function PMA_exportFooter()
+    {
         return true;
     }
 
@@ -50,7 +51,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportHeader() {
+    function PMA_exportHeader()
+    {
         return true;
     }
 
@@ -62,7 +64,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBHeader($db) {
+    function PMA_exportDBHeader($db)
+    {
         return PMA_exportOutputHandler('===' . __('Database') . ' ' . $db . "\n\n");
     }
 
@@ -74,7 +77,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBFooter($db) {
+    function PMA_exportDBFooter($db)
+    {
         return true;
     }
 
@@ -86,7 +90,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBCreate($db) {
+    function PMA_exportDBCreate($db)
+    {
         return true;
     }
 
@@ -137,7 +142,7 @@ if (isset($plugin_list)) {
                 } else {
                     $value = ' ';
                 }
-                $text_output .= '|' . htmlspecialchars($value);
+                $text_output .= '|' . str_replace('|', '&#124;', htmlspecialchars($value));
             } // end for
             $text_output .= "\n";
             if (! PMA_exportOutputHandler($text_output)) {
@@ -150,33 +155,113 @@ if (isset($plugin_list)) {
     }
 
     /**
-     * Outputs table's structure
+     * Returns a stand-in CREATE definition to resolve view dependencies
      *
-     * @param string  $db           database name
-     * @param string  $table        table name
-     * @param string  $crlf         the end of line sequence
-     * @param string  $error_url    the url to go back in case of error
-     * @param bool    $do_relation  whether to include relation comments
-     * @param bool    $do_comments  whether to include the pmadb-style column comments
+     * @param string $db   the database name
+     * @param string $view the view name
+     * @param string $crlf the end of line sequence
+     *
+     * @return string resulting definition
+     *
+     * @access public
+     */
+    function PMA_getTableDefStandIn($db, $view, $crlf)
+    {
+        $text_output = '';
+
+        /**
+         * Get the unique keys in the table
+         */
+        $unique_keys = array();
+        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        foreach ($keys as $key) {
+            if ($key['Non_unique'] == 0) {
+                $unique_keys[] = $key['Column_name'];
+            }
+        }
+
+        /**
+         * Gets fields properties
+         */
+        PMA_DBI_select_db($db);
+
+        /**
+         * Displays the table structure
+         */
+
+        $columns_cnt = 4;
+
+        $text_output .= "|------\n";
+        $text_output .= '|' . __('Column');
+        $text_output .= '|' . __('Type');
+        $text_output .= '|' . __('Null');
+        $text_output .= '|' . __('Default');
+        $text_output .= "\n|------\n";
+
+        $columns = PMA_DBI_get_columns($db, $table);
+        foreach ($columns as $column) {
+
+            $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
+            $type = $extracted_fieldspec['print_type'];
+            if (empty($type)) {
+                $type     = '&nbsp;';
+            }
+
+            if (! isset($column['Default'])) {
+                if ($column['Null'] != 'NO') {
+                    $column['Default'] = 'NULL';
+                }
+            }
+
+            $fmt_pre = '';
+            $fmt_post = '';
+            if (in_array($column['Field'], $unique_keys)) {
+                $fmt_pre = '**' . $fmt_pre;
+                $fmt_post = $fmt_post . '**';
+            }
+            if ($column['Key']=='PRI') {
+                $fmt_pre = '//' . $fmt_pre;
+                $fmt_post = $fmt_post . '//';
+            }
+            $text_output .= '|' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
+            $text_output .= '|' . htmlspecialchars($type);
+            $text_output .= '|' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
+            $text_output .= '|' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '');
+
+            $field_name = $column['Field'];
+            $text_output .= "\n";
+        } // end while
+
+        return $text_output;
+    }
+
+    /**
+     * Returns $table's CREATE definition
+     *
+     * @param string $db            the database name
+     * @param string $table         the table name
+     * @param string $crlf          the end of line sequence
+     * @param string $error_url     the url to go back in case of error
+     * @param bool   $do_relation   whether to include relation comments
+     * @param bool   $do_comments   whether to include the pmadb-style column comments
      *                                as comments in the structure; this is deprecated
      *                                but the parameter is left here because export.php
      *                                calls PMA_exportStructure() also for other export
      *                                types which use this parameter
-     * @param bool    $do_mime      whether to include mime comments
-     * @param bool    $dates        whether to include creation/update/check dates
-     * @param string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $export_type  'server', 'database', 'table'
-     * @return  bool      Whether it succeeded
+     * @param bool   $do_mime       whether to include mime comments
+     * @param bool   $show_dates    whether to include creation/update/check dates
+     * @param bool   $add_semicolon whether to add semicolon and end-of-line at the end
+     * @param bool   $view          whether we're handling a view
      *
-     * @access  public
+     * @return string resulting schema
+     *
+     * @access public
      */
-    function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
+    function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $show_dates = false, $add_semicolon = true, $view = false)
     {
         global $cfgRelation;
 
-        if (! PMA_exportOutputHandler('== ' . __('Table structure for table') . ' ' .$table . "\n\n")) {
-            return false;
-        }
+        $text_output = '';
 
         /**
          * Get the unique keys in the table
@@ -224,7 +309,7 @@ if (isset($plugin_list)) {
             $columns_cnt++;
         }
 
-        $text_output = "|------\n";
+        $text_output .= "|------\n";
         $text_output .= '|' . __('Column');
         $text_output .= '|' . __('Type');
         $text_output .= '|' . __('Null');
@@ -242,14 +327,8 @@ if (isset($plugin_list)) {
         }
         $text_output .= "\n|------\n";
 
-        if (! PMA_exportOutputHandler($text_output)) {
-            return false;
-        }
-
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
-
-            $text_output = '';
 
             $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
             $type = $extracted_fieldspec['print_type'];
@@ -291,13 +370,93 @@ if (isset($plugin_list)) {
             }
 
             $text_output .= "\n";
-
-            if (! PMA_exportOutputHandler($text_output)) {
-                return false;
-            }
         } // end while
 
-        return true;
+        return $text_output;
+    } // end of the 'PMA_getTableDef()' function
+
+    /**
+     * Outputs triggers
+     *
+     * @param string $db     database name
+     * @param string $table  table name
+     * @return string        Formatted triggers list
+     *
+     * @access public
+     */
+    function PMA_getTriggers($db, $table)
+    {
+        $text_output .= "|------\n";
+        $text_output .= '|' . __('Column');
+        $dump = "|------\n";
+        $dump .= '|' . __('Name');
+        $dump .= '|' . __('Time');
+        $dump .= '|' . __('Event');
+        $dump .= '|' . __('Definition');
+        $dump .= "\n|------\n";
+
+        $triggers = PMA_DBI_get_triggers($db, $table);
+
+        foreach($triggers as $trigger) {
+            $dump .= '|' . $trigger['name'];
+            $dump .= '|' . $trigger['action_timing'];
+            $dump .= '|' . $trigger['event_manipulation'];
+            $dump .= '|' . str_replace('|', '&#124;', htmlspecialchars($trigger['definition']));
+            $dump .= "\n";
+        }
+
+        return $dump;
+    }
+
+    /**
+     * Outputs table's structure
+     *
+     * @param string  $db           database name
+     * @param string  $table        table name
+     * @param string  $crlf         the end of line sequence
+     * @param string  $error_url    the url to go back in case of error
+     * @param bool    $do_relation  whether to include relation comments
+     * @param bool    $do_comments  whether to include the pmadb-style column comments
+     *                                as comments in the structure; this is deprecated
+     *                                but the parameter is left here because export.php
+     *                                calls PMA_exportStructure() also for other export
+     *                                types which use this parameter
+     * @param bool    $do_mime      whether to include mime comments
+     * @param bool    $dates        whether to include creation/update/check dates
+     * @param string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
+     * @param string  $export_type  'server', 'database', 'table'
+     * @return  bool      Whether it succeeded
+     *
+     * @access  public
+     */
+    function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
+    {
+        $dump = '';
+
+        switch($export_mode) {
+        case 'create_table':
+            $dump .= '== ' . __('Table structure for table') . ' ' .$table . "\n\n";
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $dates);
+            break;
+        case 'triggers':
+            $dump = '';
+            $triggers = PMA_DBI_get_triggers($db, $table);
+            if ($triggers) {
+                $dump .= '== ' . __('Triggers') . ' ' .$table . "\n\n";
+                $dump .= PMA_getTriggers($db, $table);
+            }
+            break;
+        case 'create_view':
+            $dump .= '== ' . __('Structure for view') . ' ' .$table . "\n\n";
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $dates, true, true);
+            break;
+        case 'stand_in':
+            $dump .=  '== ' . __('Stand-in structure for view') . ' ' .$table . "\n\n";
+            // export a stand-in definition to resolve view dependencies
+            $dump .= PMA_getTableDefStandIn($db, $table, $crlf);
+        } // end switch
+
+        return PMA_exportOutputHandler($dump);
     }
 
 }

@@ -206,6 +206,8 @@ $js_messages['strAffectedRows'] = __('Affected rows:');
 $js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It doesn\'t seem to be valid JSON code.');
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');
 $js_messages['strImport'] = __('Import');
+$js_messages['strImportDialogTitle'] = __('Import monitor configuration');
+$js_messages['strImportDialogMessage'] = __('Please select the file you want to import');
 
 $js_messages['strAnalyzeQuery'] = __('Analyse Query');
 
@@ -399,7 +401,8 @@ PMA_printJsValue(
 );
 /* l10n: Display text for current month link in calendar */
 PMA_printJsValue("$.datepicker.regional['']['currentText']", __('Today'));
-PMA_printJsValue("$.datepicker.regional['']['monthNames']",
+PMA_printJsValue(
+    "$.datepicker.regional['']['monthNames']",
     array(
         __('January'),
         __('February'),
@@ -412,8 +415,11 @@ PMA_printJsValue("$.datepicker.regional['']['monthNames']",
         __('September'),
         __('October'),
         __('November'),
-        __('December')));
-PMA_printJsValue("$.datepicker.regional['']['monthNamesShort']",
+        __('December')
+    )
+);
+PMA_printJsValue(
+    "$.datepicker.regional['']['monthNamesShort']",
     array(
 /* l10n: Short month name */
         __('Jan'),
@@ -438,8 +444,11 @@ PMA_printJsValue("$.datepicker.regional['']['monthNamesShort']",
 /* l10n: Short month name */
         __('Nov'),
 /* l10n: Short month name */
-        __('Dec')));
-PMA_printJsValue("$.datepicker.regional['']['dayNames']",
+        __('Dec')
+    )
+);
+PMA_printJsValue(
+    "$.datepicker.regional['']['dayNames']",
     array(
         __('Sunday'),
         __('Monday'),
@@ -447,8 +456,11 @@ PMA_printJsValue("$.datepicker.regional['']['dayNames']",
         __('Wednesday'),
         __('Thursday'),
         __('Friday'),
-        __('Saturday')));
-PMA_printJsValue("$.datepicker.regional['']['dayNamesShort']",
+        __('Saturday')
+    )
+);
+PMA_printJsValue(
+    "$.datepicker.regional['']['dayNamesShort']",
     array(
 /* l10n: Short week day name */
         __('Sun'),
@@ -463,8 +475,11 @@ PMA_printJsValue("$.datepicker.regional['']['dayNamesShort']",
 /* l10n: Short week day name */
         __('Fri'),
 /* l10n: Short week day name */
-        __('Sat')));
-PMA_printJsValue("$.datepicker.regional['']['dayNamesMin']",
+        __('Sat')
+    )
+);
+PMA_printJsValue(
+    "$.datepicker.regional['']['dayNamesMin']",
     array(
 /* l10n: Minimal week day name */
         __('Su'),
@@ -479,7 +494,9 @@ PMA_printJsValue("$.datepicker.regional['']['dayNamesMin']",
 /* l10n: Minimal week day name */
         __('Fr'),
 /* l10n: Minimal week day name */
-        __('Sa')));
+        __('Sa')
+    )
+);
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
 

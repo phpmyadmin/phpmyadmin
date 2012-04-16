@@ -27,13 +27,14 @@ require 'libraries/server_links.inc.php';
  * Did the user request information about a certain storage engine?
  */
 if (empty($_REQUEST['engine'])
- || ! PMA_StorageEngine::isValid($_REQUEST['engine'])) {
+    || ! PMA_StorageEngine::isValid($_REQUEST['engine'])
+) {
 
     /**
      * Displays the sub-page heading
      */
     echo '<h2>' . "\n"
-       . ($GLOBALS['cfg']['MainPageIconic'] ? PMA_getImage('b_engine.png') : '')
+       . PMA_getImage('b_engine.png')
        . "\n" . __('Storage Engines') . "\n"
        . '</h2>' . "\n";
 
@@ -70,7 +71,7 @@ if (empty($_REQUEST['engine'])
         $odd_row = !$odd_row;
     }
 
-   unset($odd_row, $engine, $details);
+    unset($odd_row, $engine, $details);
     echo '</tbody>' . "\n"
        . '</table>' . "\n";
 
@@ -82,7 +83,7 @@ if (empty($_REQUEST['engine'])
 
     $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
     echo '<h2>' . "\n"
-       . ($GLOBALS['cfg']['MainPageIconic'] ? PMA_getImage('b_engine.png') : '')
+       . PMA_getImage('b_engine.png')
        . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
        . '    ' . PMA_showMySQLDocu('', $engine_plugin->getMysqlHelpPage()) . "\n"
        . '</h2>' . "\n\n";
@@ -92,15 +93,15 @@ if (empty($_REQUEST['engine'])
        . '    </em>' . "\n"
        . '</p>' . "\n\n";
     $infoPages = $engine_plugin->getInfoPages();
-    if (!empty($infoPages) && is_array($infoPages)) {
+    if (! empty($infoPages) && is_array($infoPages)) {
         echo '<p>' . "\n"
            . '    <strong>[</strong>' . "\n";
         if (empty($_REQUEST['page'])) {
             echo '    <strong>' . __('Variables') . '</strong>' . "\n";
         } else {
             echo '    <a href="server_engines.php'
-                . PMA_generate_common_url(array('engine' => $_REQUEST['engine'])) . '">'
-                . __('Variables') . '</a>' . "\n";
+                . PMA_generate_common_url(array('engine' => $_REQUEST['engine']))
+                . '">' . __('Variables') . '</a>' . "\n";
         }
         foreach ($infoPages as $current => $label) {
             echo '    <strong>|</strong>' . "\n";
@@ -109,7 +110,8 @@ if (empty($_REQUEST['engine'])
             } else {
                 echo '    <a href="server_engines.php'
                     . PMA_generate_common_url(
-                        array('engine' => $_REQUEST['engine'], 'page' => $current))
+                        array('engine' => $_REQUEST['engine'], 'page' => $current)
+                    )
                     . '">' . htmlspecialchars($label) . '</a>' . "\n";
             }
         }
@@ -118,10 +120,10 @@ if (empty($_REQUEST['engine'])
            . '</p>' . "\n\n";
     }
     unset($infoPages, $page_output);
-    if (!empty($_REQUEST['page'])) {
+    if (! empty($_REQUEST['page'])) {
         $page_output = $engine_plugin->getPage($_REQUEST['page']);
     }
-    if (!empty($page_output)) {
+    if (! empty($page_output)) {
         echo $page_output;
     } else {
         echo '<p> ' . $engine_plugin->getSupportInformationMessage() . "\n"

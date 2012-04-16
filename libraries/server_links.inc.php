@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/common.inc.php';
 require_once './libraries/server_common.inc.php';
 
-PMA_checkParameters(array('is_superuser', 'url_query'), true, false);
+PMA_checkParameters(array('is_superuser', 'url_query'), false);
 
 // Don't print all these links if in an Ajax request
 if (!$GLOBALS['is_ajax_request']) {

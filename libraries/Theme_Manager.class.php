@@ -4,6 +4,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  *
@@ -151,7 +154,8 @@ class PMA_Theme_Manager
                     __('Theme %s not found!'),
                     htmlspecialchars($theme)
                 ),
-                E_USER_ERROR);
+                E_USER_ERROR
+            );
             return false;
         }
 
@@ -197,8 +201,11 @@ class PMA_Theme_Manager
      */
     function setThemeCookie()
     {
-        $GLOBALS['PMA_Config']->setCookie($this->getThemeCookieName(), $this->theme->id,
-            $this->theme_default);
+        $GLOBALS['PMA_Config']->setCookie(
+            $this->getThemeCookieName(),
+            $this->theme->id,
+            $this->theme_default
+        );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
         $GLOBALS['PMA_Config']->set('theme-update', $this->theme->id);
@@ -214,9 +221,12 @@ class PMA_Theme_Manager
     {
         if (! is_dir($folder)) {
             trigger_error(
-                sprintf(__('Theme path not found for theme %s!'),
-                    htmlspecialchars($folder)),
-                E_USER_ERROR);
+                sprintf(
+                    __('Theme path not found for theme %s!'),
+                    htmlspecialchars($folder)
+                ),
+                E_USER_ERROR
+            );
             return false;
         }
 
@@ -252,7 +262,8 @@ class PMA_Theme_Manager
         } else {
             trigger_error(
                 'phpMyAdmin-ERROR: cannot open themes folder: ' . $this->getThemesPath(),
-                E_USER_WARNING);
+                E_USER_WARNING
+            );
             return false;
         } // end check for themes directory
 

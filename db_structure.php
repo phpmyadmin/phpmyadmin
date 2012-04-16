@@ -130,6 +130,9 @@ $i = $sum_entries = 0;
 $sum_size       = (double) 0;
 $overhead_size  = (double) 0;
 $overhead_check = '';
+$create_time_all = '';
+$update_time_all = '';
+$check_time_all = '';
 $checked        = !empty($checkall) ? ' checked="checked"' : '';
 $num_columns    = $cfg['PropertiesNumColumns'] > 1
     ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
@@ -169,12 +172,14 @@ foreach ($tables as $keyname => $each_table) {
         }
 
         if ($is_show_stats) {
-            $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
-            $sum_size                   += $tblsize;
-            list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+            $tblsize = doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
+            $sum_size += $tblsize;
+            list($formatted_size, $unit) = PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
             if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
-                list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0);
-                $overhead_size           += $each_table['Data_free'];
+                list($formatted_overhead, $overhead_unit) = PMA_formatByteDown(
+                    $each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0
+                );
+                $overhead_size += $each_table['Data_free'];
             }
         }
         break;
@@ -198,9 +203,9 @@ foreach ($tables as $keyname => $each_table) {
 
         // Drizzle doesn't provide data and index length, check for null
         if ($is_show_stats && $each_table['Data_length'] !== null) {
-            $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
-            $sum_size                   += $tblsize;
-            list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+            $tblsize =  $each_table['Data_length'] + $each_table['Index_length'];
+            $sum_size += $tblsize;
+            list($formatted_size, $unit) = PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
         }
         //$display_rows                   =  ' - ';
         break;
@@ -258,16 +263,54 @@ foreach ($tables as $keyname => $each_table) {
                 . '</span> <span class="unit">' . $overhead_unit . '</span></a>' . "\n";
             unset($formatted_overhead);
             $overhead_check .=
-                "document.getElementById('checkbox_tbl_" . ($i + 1) . "').checked = true;";
+                "markAllRows('row_tbl_" . ($i + 1) . "');";
         } else {
             $overhead = '-';
         }
     } // end if
 
-    $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
+    unset($showtable);
+
+    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+        $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
+        $create_time = isset($showtable['Create_time']) ? $showtable['Create_time'] : false;
+
+        // show oldest creation date in summary row
+        if ($create_time && (!$create_time_all || $create_time < $create_time_all)) {
+            $create_time_all = $create_time;
+        }
+    }
+
+    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+        // $showtable might already be set from ShowDbStructureCreation, see above
+        if (! isset($showtable)) {
+            $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
+        }
+        $update_time = isset($showtable['Update_time']) ? $showtable['Update_time'] : false;
+
+        // show newest update date in summary row
+        if ($update_time && $update_time > $update_time_all) {
+            $update_time_all = $update_time;
+        }
+    }
+
+    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+        // $showtable might already be set from ShowDbStructureCreation, see above
+        if (! isset($showtable)) {
+            $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
+        }
+        $check_time = isset($showtable['Check_time']) ? $showtable['Check_time'] : false;
+
+        // show newest check date in summary row
+        if ($check_time && $check_time > $check_time_all) {
+            $check_time_all = $check_time;
+        }
+    }
+
+    $alias = (! empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
                ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
                : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
-    $truename = (!empty($tooltip_truename) && isset($tooltip_truename[$each_table['TABLE_NAME']]))
+    $truename = (! empty($tooltip_truename) && isset($tooltip_truename[$each_table['TABLE_NAME']]))
                ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
                : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
 
@@ -318,17 +361,21 @@ foreach ($tables as $keyname => $each_table) {
             $empty_table .= 'class="truncate_table_anchor"';
         }
         $empty_table .= ' href="sql.php?' . $tbl_url_query
-             . '&amp;sql_query=';
+            . '&amp;sql_query=';
         $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
-             . '&amp;message_to_show='
-             . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
-             .'">';
+            . '&amp;message_to_show='
+            . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
+            .'">';
         if ($may_have_rows) {
             $empty_table .= $titles['Empty'];
         } else {
             $empty_table .= $titles['NoEmpty'];
         }
         $empty_table .= '</a>';
+        // truncating views doesn't work
+        if ($table_is_view) {
+            $empty_table = '&nbsp;';
+        }
 
         $drop_query = 'DROP '
             . ($table_is_view ? 'VIEW' : 'TABLE')
@@ -372,8 +419,6 @@ foreach ($tables as $keyname => $each_table) {
     $do = false;
 
     if ($server_slave_status) {
-        ////////////////////////////////////////////////////////////////
-
         if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0)
             || (strlen(array_search($db, $server_slave_Do_DB)) > 0)
             || (count($server_slave_Do_DB) == 1 && count($server_slave_Ignore_DB) == 1)
@@ -388,7 +433,7 @@ foreach ($tables as $keyname => $each_table) {
                 $do = true;
             }
         }
-        ////////////////////////////////////////////////////////////////////
+
         if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)
             || (strlen(array_search($db, $server_slave_Ignore_DB)) > 0)
         ) {
@@ -405,7 +450,10 @@ foreach ($tables as $keyname => $each_table) {
         unset($table_part);
     }
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
+    echo $table_is_view ? ' is_view' : '';
+    ?>"
+    id="row_tbl_<?php echo $i; ?>">
     <td class="center">
         <input type="checkbox" name="selected_tbl[]"
             value="<?php echo htmlspecialchars($each_table['TABLE_NAME']); ?>"
@@ -447,8 +495,8 @@ foreach ($tables as $keyname => $each_table) {
         $row_count_pre = '';
         $show_superscript = '';
         if ($table_is_view) {
-            // Drizzle views use FunctionEngine, and the only place where they are available are I_S and D_D
-            // schemas, where we do exact counting
+            // Drizzle views use FunctionEngine, and the only place where they are
+            // available are I_S and D_D schemas, where we do exact counting
             if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
                 && $each_table['ENGINE'] != 'FunctionEngine'
             ) {
@@ -484,6 +532,15 @@ foreach ($tables as $keyname => $each_table) {
         href="tbl_structure.php?<?php echo $tbl_url_query; ?>#showusage"
         ><?php echo '<span>' . $formatted_size . '</span> <span class="unit">' . $unit . '</span>'; ?></a></td>
     <td class="value tbl_overhead"><?php echo $overhead; ?></td>
+        <?php } // end if
+        if ($GLOBALS['cfg']['ShowDbStructureCreation']) { ?>
+    <td class="value tbl_creation"><?php echo $create_time ? PMA_localisedDate(strtotime($create_time)) : '-'; ?></td>
+        <?php } // end if
+        if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) { ?>
+    <td class="value tbl_last_update"><?php echo $update_time ? PMA_localisedDate(strtotime($update_time)) : '-'; ?></td>
+        <?php } // end if
+        if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) { ?>
+    <td class="value tbl_last_check"><?php echo $check_time ? PMA_localisedDate(strtotime($check_time)) : '-'; ?></td>
         <?php } // end if ?>
     <?php } elseif ($table_is_view) { ?>
     <td class="value">-</td>
@@ -551,6 +608,25 @@ if ($is_show_stats) {
     <th class="value tbl_overhead"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
     <?php
 }
+
+if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+    echo '    <th class="value tbl_creation">' . "\n"
+        . '        ' . ($create_time_all ? PMA_localisedDate(strtotime($create_time_all)) : '-')
+        . '    </th>';
+}
+
+if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+    echo '    <th class="value tbl_last_update">' . "\n"
+        . '        ' . ($update_time_all ? PMA_localisedDate(strtotime($update_time_all)) : '-')
+        . '    </th>';
+}
+
+if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+    echo '    <th class="value tbl_last_check">' . "\n"
+        . '        ' . ($check_time_all ? PMA_localisedDate(strtotime($check_time_all)) : '-')
+        . '    </th>';
+}
+
 ?>
 </tr>
 </tbody>

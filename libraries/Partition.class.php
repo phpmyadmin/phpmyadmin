@@ -5,7 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * base Partition Class

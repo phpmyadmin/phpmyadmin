@@ -16,7 +16,8 @@ require_once 'libraries/common.lib.php';
 class PMA_getTitleForTarget_test extends PHPUnit_Framework_TestCase
 {
 
-    function dataProvider(){
+    function dataProvider()
+    {
         return array(
             array('tbl_structure.php', __('Structure')),
             array('tbl_sql.php', __('SQL'),),
@@ -34,8 +35,8 @@ class PMA_getTitleForTarget_test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProvider
      * @return void
      */
-    function testGetTitleForTarget($target, $result){
-
+    function testGetTitleForTarget($target, $result)
+    {
         $this->assertEquals($result, PMA_getTitleForTarget($target));
     }
 

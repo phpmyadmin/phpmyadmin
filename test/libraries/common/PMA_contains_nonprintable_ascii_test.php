@@ -16,7 +16,8 @@ require_once 'libraries/common.lib.php';
 class PMA_contains_nonprintable_ascii extends PHPUnit_Framework_TestCase
 {
 
-    function dataProvider(){
+    function dataProvider()
+    {
         return array(
             array("normal string", 0),
             array("new\nline", 1),
@@ -29,7 +30,8 @@ class PMA_contains_nonprintable_ascii extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider dataProvider
      */
-    function testContainsNonPrintableAscii($str, $res){
+    function testContainsNonPrintableAscii($str, $res)
+    {
         $this->assertEquals($res, PMA_contains_nonprintable_ascii($str));
     }
 

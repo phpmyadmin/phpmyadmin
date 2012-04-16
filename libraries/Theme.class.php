@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * handles theme
@@ -143,7 +146,8 @@ class PMA_Theme
         } else {
             trigger_error(
                 sprintf(__('No valid image path for theme %s found!'), $this->getName()),
-                E_USER_ERROR);
+                E_USER_ERROR
+            );
             return false;
         }
     }
@@ -339,9 +343,9 @@ class PMA_Theme
         echo '<p>';
         echo '<a target="_top" class="take_theme" '
             .'name="' . htmlspecialchars($this->getId()) . '" '
-            . 'href="index.php'.PMA_generate_common_url(array(
-                'set_theme' => $this->getId()
-                )) . '">';
+            . 'href="index.php'. PMA_generate_common_url(
+                array('set_theme' => $this->getId())
+            ) . '">';
         if (@file_exists($this->getPath() . '/screen.png')) {
             // if screen exists then output
 
@@ -362,7 +366,8 @@ class PMA_Theme
      *
      * @return string CSS code.
      */
-    function getCssIEClearFilter() {
+    function getCssIEClearFilter()
+    {
         return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
             ? 'filter: none'
             : '';
@@ -406,6 +411,10 @@ class PMA_Theme
      */
     function getCssCodeMirror()
     {
+        if (! $GLOBALS['cfg']['CodemirrorEnable']) {
+            return '';
+        }
+
         $result[] = 'span.cm-keyword, span.cm-statement-verb {';
         $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord'] . ';';
         $result[] = '}';

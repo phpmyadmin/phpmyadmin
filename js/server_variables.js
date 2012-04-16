@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 $(function() {
     var textFilter = null, odd_row = false;
     var testString = 'abcdefghijklmnopqrstuvwxyz0123456789,ABCEFGHIJKLMOPQRSTUVWXYZ';

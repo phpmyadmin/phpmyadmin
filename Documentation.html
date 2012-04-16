@@ -1238,19 +1238,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         data (referring to tables which no longer exist).<br />
         We only keep this number of newest rows in table_uiprefs and automatically delete older rows.</dd>
 
-    <dt><span id="cfg_Servers_verbose_check">$cfg['Servers'][$i]['verbose_check']</span> boolean
-    </dt>
-    <dd>Because release 2.5.0 introduced the new MIME-transformation support, the
-        column_info table got enhanced with three new columns. If the above variable
-        is set to <code>TRUE</code> (default) phpMyAdmin will check if you have the
-        latest table structure available. If not, it will emit a warning to the
-        superuser.<br /><br />
-
-        You can disable this checking behavior by setting the variable to false,
-        which should offer a performance increase.<br /><br />
-
-        Recommended to set to FALSE, when you are sure, your table structure is
-        up to date.</dd>
     <dt><span id="cfg_Servers_AllowRoot">$cfg['Servers'][$i]['AllowRoot']</span>
         boolean</dt>
     <dd>Whether to allow root access. This is just a shortcut for the AllowDeny rules below.
@@ -1453,6 +1440,12 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines whether the <abbr title="structured query language">SQL</abbr>
         query box should be kept displayed after its submission.</dd>
 
+    <dt id="cfg_CodemirrorEnable">$cfg['CodemirrorEnable'] boolean</dt>
+    <dd>Defines whether to use a Javascript code editor for SQL query boxes.
+        CodeMirror provides syntax highlighting and line numbers. <br />
+        However, middle-clicking for pasting the clipboard contents in some Linux 
+        distributions (such as Ubuntu) is not supported by all browsers.</dd>
+
     <dt id="cfg_AllowUserDropDatabase">$cfg['AllowUserDropDatabase'] boolean</dt>
     <dd>Defines whether normal users (non-administrator) are allowed to
         delete their own database or not. If set as FALSE, the link &quot;Drop
@@ -1619,6 +1612,10 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         &quot;tbl_sql.php&quot;, &quot;tbl_select.php&quot;,
         &quot;tbl_change.php&quot; or &quot;sql.php&quot;.</dd>
 
+    <dt id="cfg_HideStructureActions">$cfg['HideStructureActions'] boolean</dt>
+    <dd>Defines whether the table structure actions are hidden under a 
+        &quot;More&quot; drop-down.</dd>
+
     <dt id="cfg_ShowStats">$cfg['ShowStats'] boolean</dt>
     <dd>Defines whether or not to display space usage and statistics about databases
         and tables.<br />
@@ -1653,6 +1650,18 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt id="cfg_SuggestDBName">$cfg['SuggestDBName'] boolean</dt>
     <dd>Defines whether to suggest a database name on the
         &quot;Create Database&quot; form or to keep the textfield empty.</dd>
+
+    <dt id="cfg_ShowDbStructureCreation">$cfg['ShowDbStructureCreation'] boolean</dt>
+    <dd>Defines whether the database structure page (tables list) has a 
+        &quot;Creation&quot; column that displays when each table was created.</dd>
+
+    <dt id="cfg_ShowDbStructureLastUpdate">$cfg['ShowDbStructureLastUpdate'] boolean</dt>
+    <dd>Defines whether the database structure page (tables list) has a 
+        &quot;Last update&quot; column that displays when each table was last updated.</dd>
+
+    <dt id="cfg_ShowDbStructureLastCheck">$cfg['cfg_ShowDbStructureLastCheck'] boolean</dt>
+    <dd>Defines whether the database structure page (tables list) has a 
+        &quot;Last check&quot; column that displays when each table was last checked.</dd>
 
     <dt id="cfg_NavigationBarIconic">$cfg['NavigationBarIconic'] string</dt>
     <dd>Defines whether navigation bar buttons and the right panel top menu
@@ -1749,10 +1758,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         create larger dumps that won't otherwise fit in memory due to php
         memory limit. Produced files contain more GZip/BZip2 headers, but all
         normal programs handle this correctly.</dd>
-
-    <dt id="cfg_LightTabs">$cfg['LightTabs'] boolean</dt>
-    <dd>If set to <code>TRUE</code>, use less graphically intense tabs on the top of the
-        mainframe.</dd>
 
     <dt id="cfg_PropertiesIconic">$cfg['PropertiesIconic'] string</dt>
     <dd>If set to <code>TRUE</code>, will display icons instead of text for db and table
@@ -2289,12 +2294,6 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dd>Allows you to specify window's title bar. You can use 
         <a href="#faq6_27">format string expansion</a>.
     </dd>
-
-    <dt id="cfg_ErrorIconic">$cfg['ErrorIconic'] boolean</dt>
-    <dd>Uses icons for warnings, errors and informations.</dd>
-
-    <dt id="cfg_MainPageIconic">$cfg['MainPageIconic'] boolean</dt>
-    <dd>Uses icons on main page in lists and menu tabs.</dd>
 
     <dt id="cfg_ReplaceHelpImg">$cfg['ReplaceHelpImg'] boolean</dt>
     <dd>Shows a help button instead of the &quot;Documentation&quot; message.

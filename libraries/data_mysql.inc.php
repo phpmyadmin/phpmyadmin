@@ -1,9 +1,13 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Column types and functions supported by MySQL
  *
  * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 // VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
 $cfg['ColumnTypes'] = !empty($cfg['ColumnTypes']) ? $cfg['ColumnTypes'] : array(

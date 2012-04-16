@@ -1,4 +1,9 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Generates the JavaScripts needed to visualize GIS data.
  *

@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * ESRI Shape file import plugin for phpMyAdmin
  *
@@ -40,7 +41,8 @@ if (isset($plugin_list)) {
     // Returns specified number of bytes from the buffer.
     // Buffer automatically fetches next chunk of data when the buffer falls short.
     // Sets $eof when $GLOBALS['finished'] is set and the buffer falls short.
-    function readFromBuffer($length){
+    function readFromBuffer($length)
+    {
         global $buffer, $eof;
 
         if (strlen($buffer) < $length) {

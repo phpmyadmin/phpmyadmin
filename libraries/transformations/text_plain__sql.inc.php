@@ -3,6 +3,9 @@
 /**
  * @package PhpMyAdmin-Transformation
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 function PMA_transformation_text_plain__sql_info()
 {

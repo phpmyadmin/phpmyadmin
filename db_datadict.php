@@ -126,7 +126,8 @@ foreach ($tables as $table) {
 
         $show_create_table = PMA_DBI_fetch_value(
             'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
-            0, 1);
+            0, 1
+        );
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
     }
 
@@ -203,9 +204,10 @@ foreach ($tables as $table) {
         $field_name = $row['Field'];
 
         if (PMA_MYSQL_INT_VERSION < 50025
-         && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
-         && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
-         && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
+            && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
+            && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
+            && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']
+        ) {
             // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
             // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
             // the latter.

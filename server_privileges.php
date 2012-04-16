@@ -15,8 +15,11 @@ require_once 'libraries/common.inc.php';
  */
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
-$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+
+if ($GLOBALS['cfg']['CodemirrorEnable']) {
+    $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+    $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
+}
 $_add_user_error = false;
 
 require 'libraries/server_common.inc.php';
@@ -60,6 +63,7 @@ $post_params = array(
     'pred_hostname',
     'pred_password',
     'pred_username',
+    'update_privs',
     'username'
 );
 foreach ($post_params as $one_post_param) {
@@ -1649,14 +1653,15 @@ if (isset($_REQUEST['export']) || (isset($_REQUEST['submit_mult']) && $_REQUEST[
         foreach ($_REQUEST['selected_usr'] as $export_user) {
             $export_username = substr($export_user, 0, strpos($export_user, '&'));
             $export_hostname = substr($export_user, strrpos($export_user, ';') + 1);
-            $response .= '# ' .
-                sprintf(__('Privileges for %s'),
-                    '`' . htmlspecialchars($export_username) . '`@`' . htmlspecialchars($export_hostname) . '`')
+            $response .= '# '
+                . sprintf(
+                    __('Privileges for %s'),
+                    '`' . htmlspecialchars($export_username) . '`@`' . htmlspecialchars($export_hostname) . '`'
+                )
                 . "\n\n";
             $response .= PMA_getGrants($export_username, $export_hostname) . "\n";
         }
-    }
-    else {
+    } else {
         // export privileges for a single user
         $title = __('User') . ' `' . htmlspecialchars($username) . '`@`' . htmlspecialchars($hostname) . '`';
         $response .= PMA_getGrants($username, $hostname);

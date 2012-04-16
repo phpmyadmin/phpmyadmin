@@ -12,7 +12,7 @@ require_once 'libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'functions.js';
 
 require_once 'libraries/mysql_charsets.lib.php';
-if (!PMA_DRIZZLE) {
+if (! PMA_DRIZZLE) {
     include_once 'libraries/replication.inc.php';
 }
 require 'libraries/build_html_for_db.lib.php';
@@ -41,9 +41,11 @@ $err_url = 'main.php?' . PMA_generate_common_url();
  * Builds and executes the db creation sql query
  */
 $sql_query = 'CREATE DATABASE ' . PMA_backquote($new_db);
-if (!empty($db_collation)) {
+if (! empty($db_collation)) {
     list($db_charset) = explode('_', $db_collation);
-    if (in_array($db_charset, $mysql_charsets) && in_array($db_collation, $mysql_collations[$db_charset])) {
+    if (in_array($db_charset, $mysql_charsets)
+        && in_array($db_collation, $mysql_collations[$db_charset])
+    ) {
         $sql_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
     }
     $db_collation_for_ajax = $db_collation;
@@ -85,10 +87,13 @@ if (! $result) {
          */
         $extra_data['sql_query'] = PMA_showMessage(null, $sql_query, 'success');
 
-        //Construct the html for the new database, so that it can be appended to the list of databases on server_databases.php
+        //Construct the html for the new database, so that it can be appended to
+        // the list of databases on server_databases.php
 
         /**
-         * Build the array to be passed to {@link PMA_generate_common_url} to generate the links
+         * Build the array to be passed to {@link PMA_generate_common_url}
+         * to generate the links
+         *
          * @global array $GLOBALS['db_url_params']
          * @name $db_url_params
          */
@@ -127,7 +132,10 @@ if (! $result) {
             );
         }
 
-        list($column_order, $generated_html) = PMA_buildHtmlForDb($current, $is_superuser, (isset($checkall) ? $checkall : ''), $url_query, $column_order, $replication_types, $replication_info);
+        list($column_order, $generated_html) = PMA_buildHtmlForDb(
+            $current, $is_superuser, (isset($checkall) ? $checkall : ''),
+            $url_query, $column_order, $replication_types, $replication_info
+        );
         $new_db_string .= $generated_html;
 
         $new_db_string .= '</tr>';

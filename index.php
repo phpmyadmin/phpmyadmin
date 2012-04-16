@@ -17,10 +17,9 @@ session_write_close();
 
 // Gets the host name
 if (empty($HTTP_HOST)) {
+    $HTTP_HOST = '';
     if (PMA_getenv('HTTP_HOST')) {
         $HTTP_HOST = PMA_getenv('HTTP_HOST');
-    } else {
-        $HTTP_HOST = '';
     }
 }
 
@@ -132,7 +131,7 @@ require 'libraries/header_http.inc.php';
 // ]]>
 </script>
 <?php
-echo PMA_includeJS('jquery/jquery-1.7.2.js');
+echo PMA_includeJS('jquery/jquery-1.6.2.js');
 echo PMA_includeJS('update-location.js');
 echo PMA_includeJS('common.js');
 ?>

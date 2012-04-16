@@ -241,8 +241,10 @@ if (isset($_REQUEST['do_save_data'])) {
             $tbl_url_params['table'] = $table;
             $is_show_stats = $cfg['ShowStats'];
 
-            $tbl_stats_result = PMA_DBI_query('SHOW TABLE STATUS FROM '
-                    . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\';');
+            $tbl_stats_result = PMA_DBI_query(
+                'SHOW TABLE STATUS FROM ' . PMA_backquote($db)
+                . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\';'
+            );
             $tbl_stats = PMA_DBI_fetch_assoc($tbl_stats_result);
             PMA_DBI_free_result($tbl_stats_result);
             unset($tbl_stats_result);

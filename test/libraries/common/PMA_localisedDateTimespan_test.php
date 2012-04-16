@@ -33,8 +33,8 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
     /**
      * storing globals and session
      */
-    public function setUp() {
-
+    public function setUp()
+    {
         $this->tmpGlobals = $GLOBALS;
         $this->tmpSession = $_SESSION;
         $this->tmpTimezone = date_default_timezone_get();
@@ -44,8 +44,8 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
     /**
      * recovering globals and session
      */
-    public function tearDown() {
-
+    public function tearDown()
+    {
         $GLOBALS = $this->tmpGlobals;
         $_SESSION = $this->tmpSession;
         date_default_timezone_set($this->tmpTimezone);
@@ -57,7 +57,8 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function localisedDateDataProvider() {
+    public function localisedDateDataProvider()
+    {
         return array(
             array(1227455558, '', 'Nov 23, 2008 at 03:52 PM'),
             array(1227455558, '%Y-%m-%d %H:%M:%S %a', '2008-11-23 15:52:38 Sun')
@@ -68,7 +69,8 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
      * localised date test, globals are defined
      * @dataProvider localisedDateDataProvider
      */
-    public function testLocalisedDate($a, $b, $e) {
+    public function testLocalisedDate($a, $b, $e)
+    {
         $this->assertEquals($e, PMA_localisedDate($a, $b));
     }
 
@@ -77,7 +79,8 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function timespanFormatDataProvider() {
+    public function timespanFormatDataProvider()
+    {
         return array(
             array(1258, '0 days, 0 hours, 20 minutes and 58 seconds'),
             array(821958, '9 days, 12 hours, 19 minutes and 18 seconds')
@@ -88,7 +91,8 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
      * localised timestamp test, globals are defined
      * @dataProvider timespanFormatDataProvider
      */
-    public function testTimespanFormat($a, $e) {
+    public function testTimespanFormat($a, $e)
+    {
         $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
 
         $this->assertEquals($e, PMA_timespanFormat($a));

@@ -31,7 +31,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportFooter() {
+    function PMA_exportFooter()
+    {
         return true;
     }
 
@@ -42,7 +43,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportHeader() {
+    function PMA_exportHeader()
+    {
         return true;
     }
 
@@ -54,7 +56,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBHeader($db) {
+    function PMA_exportDBHeader($db)
+    {
         return true;
     }
 
@@ -66,7 +69,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBFooter($db) {
+    function PMA_exportDBFooter($db)
+    {
         return true;
     }
 
@@ -78,7 +82,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportDBCreate($db) {
+    function PMA_exportDBCreate($db)
+    {
         return true;
     }
 
@@ -94,7 +99,8 @@ if (isset($plugin_list)) {
      *
      * @access  public
      */
-    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
+    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
+    {
         $columns = PMA_DBI_get_columns($db, $table);
         $columns = array_values($columns);
         $row_cnt = count($columns);

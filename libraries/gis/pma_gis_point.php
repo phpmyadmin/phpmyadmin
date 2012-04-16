@@ -1,4 +1,9 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the visualization of GIS POINT objects.
  *
@@ -194,10 +199,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         $points_arr = $this->extractPoints($point, null);
 
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector(('
-                . 'new OpenLayers.Geometry.Point(' . $points_arr[0][0] . ', '
-                . $points_arr[0][1] . ').transform(new OpenLayers.Projection("EPSG:'
-                . $srid . '"), map.getProjectionObject())), null, '
+            $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+                . $this->getPointForOpenLayers($points_arr[0], $srid). ', null, '
                 . json_encode($style_options) . '));';
         }
         return $result;

@@ -1,4 +1,9 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the visualization of GIS MULTILINESTRING objects.
  *
@@ -232,20 +237,9 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         $linestirngs = explode("),(", $multilinestirng);
 
         $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.MultiLineString(new Array(';
-        foreach ($linestirngs as $linestring) {
-            $points_arr = $this->extractPoints($linestring, null);
-            $row .= 'new OpenLayers.Geometry.LineString(new Array(';
-            foreach ($points_arr as $point) {
-                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', '
-                    . $point[1] . ')).transform(new OpenLayers.Projection("EPSG:'
-                    . $srid . '"), map.getProjectionObject()), ';
-            }
-            $row = substr($row, 0, strlen($row) - 2);
-            $row .= ')), ';
-        }
-        $row = substr($row, 0, strlen($row) - 2);
-        $row .= ')), null, ' . json_encode($style_options) . '));';
+            . 'new OpenLayers.Geometry.MultiLineString('
+            . $this->getLineArrayForOpenLayers($linestirngs, $srid)
+            . '), null, ' . json_encode($style_options) . '));';
         return $row;
     }
 

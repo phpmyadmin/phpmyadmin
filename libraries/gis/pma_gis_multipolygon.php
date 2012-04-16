@@ -1,4 +1,9 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Handles the visualization of GIS MULTIPOLYGON objects.
  *
@@ -282,13 +287,9 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         $polygons = explode(")),((", $multipolygon);
 
         $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.MultiPolygon(new Array(';
-
-        foreach ($polygons as $polygon) {
-            $row .= $this->addPointsForOpenLayersPolygon($polygon, $srid);
-        }
-        $row = substr($row, 0, strlen($row) - 2);
-        $row .= ')), null, ' . json_encode($style_options) . '));';
+            . 'new OpenLayers.Geometry.MultiPolygon('
+            . $this->getPolygonArrayForOpenLayers($polygons, $srid)
+            . '), null, ' . json_encode($style_options) . '));';
         return $row;
     }
 

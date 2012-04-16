@@ -158,10 +158,6 @@ function PMA_auth()
     ?>
 <script type="text/javascript">
 //<![CDATA[
-// show login form in top frame
-if (top != self) {
-    window.top.location.href=location;
-}
 // reveal the login form to users with JS enabled
 $(document).ready(function () {
     $('form.login').show();
@@ -314,6 +310,14 @@ $(document).ready(function () {
         include CUSTOM_FOOTER_FILE;
     }
     ?>
+<script type="text/javascript">
+//<![CDATA[
+// show login form in top frame.
+if (top != self || document.body.className != 'loginform') {
+    window.top.location.href=location;
+}
+//]]>
+</script>
 </body>
 </html>
     <?php
@@ -522,8 +526,9 @@ function PMA_auth_set_user()
     // Duration = one month for username
     $GLOBALS['PMA_Config']->setCookie(
         'pmaUser-' . $GLOBALS['server'],
-        PMA_blowfish_encrypt($cfg['Server']['user'],
-        PMA_get_blowfish_secret())
+        PMA_blowfish_encrypt(
+            $cfg['Server']['user'], PMA_get_blowfish_secret()
+        )
     );
 
     // Duration = as configured
