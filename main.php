@@ -236,10 +236,9 @@ echo '<div class="group pmagroup">';
 echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
 $class = null;
-// workaround for bug 3302733; some browsers don't like the situation
-// where phpMyAdmin is called on a secure page but a part of the page
-// (the version check) refers to a non-secure page
-if ($GLOBALS['cfg']['VersionCheck'] && ! $GLOBALS['PMA_Config']->get('is_https')) {
+// We rely on CSP to allow access to http://www.phpmyadmin.net, but IE lacks
+// support here and does not allow request to http once using https.
+if ($GLOBALS['cfg']['VersionCheck'] && (! $GLOBALS['PMA_Config']->get('is_https') || PMA_USR_BROWSER_AGENT != 'IE')) {
     $class = 'jsversioncheck';
 }
 PMA_printListItem(__('Version information') . ': ' . PMA_VERSION, 'li_pma_version', null, null, null, null, $class);
