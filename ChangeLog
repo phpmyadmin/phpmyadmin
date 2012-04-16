@@ -45,6 +45,7 @@ phpMyAdmin - ChangeLog
 - bug #3516405 [display] Chart title is getting wrong within chart export
 - bug #3517021 [interface] Header links except 'More' hide after closing dialog
 - bug #3516817 [interface] "More" actions in table structure
+- bug #3518484 [privileges] PMA_sqlAddSlashes() does not quote the table names correctly
 
 3.5.0.0 (2012-04-07)
 + rfe #2021981 [interface] Add support for mass prefix change.
