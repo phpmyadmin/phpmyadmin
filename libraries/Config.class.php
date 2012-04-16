@@ -406,9 +406,12 @@ class PMA_Config
         }
 
         if ( !isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
-            if (! $commit = @file_get_contents(
-                    $git_folder . '/objects/' . substr($hash, 0, 2) 
-                    . '/' . substr($hash, 2))) {
+            $git_file_name = $git_folder . '/objects/' . substr($hash, 0, 2)
+                    . '/' . substr($hash, 2);
+            if (! file_exists($git_file_name) ) {
+                return;
+            }
+            if (! $commit = @file_get_contents($git_file_name)) {
                 return;
             }
             $commit = explode("\0", gzuncompress($commit), 2);
