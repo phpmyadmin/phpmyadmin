@@ -398,13 +398,20 @@ if ($import_file != 'none' && !$error) {
 		//if the user has specified custom table import
 	
 	    //Initialize variables 
-	    $tables = $_POST['table_select'];
+	    $oldtables = $_POST['table_select'];
 		$names = $_SESSION['t_names'];
 		$q_create = $_SESSION['t_creates']; 
 		$q_insert = $_SESSION['t_inserts'];
 	    $count=0;
 	    $result='';
+	    $tables = array();
 	    
+	    //Table that has the checkboxes 
+	    for ($i=0;$i<count($q_create);$i++) {
+	    	if ($oldtables[$i] == 'on') {
+	    		$tables[$i] = $i;
+	    	}
+	    }
 	    //Check which table queries are selected by user
 	    foreach ($tables as $in) {
 	    		$result .= $q_create[$in]."\n".$q_insert[$in]."\n";
