@@ -3,14 +3,15 @@
 /**
  * @package PhpMyAdmin-Designer
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  *
  */
 require_once './libraries/common.inc.php';
+
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 // not understand
 require_once './libraries/header_http.inc.php';
 
