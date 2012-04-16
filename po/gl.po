@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-16 22:27-0000\n"
+"PO-Revision-Date: 2012-04-16 23:08-0000\n"
 "Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
 msgid "Show all"
-msgstr "Ver todo"
+msgstr "Mostrar todo"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2448
@@ -8044,7 +8044,7 @@ msgstr "Non ten privilexios suficientes para crear un evento"
 #, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
-msgstr "No event with name %1$s found in database %2$s"
+msgstr "Non se atopou evento co nome %1$s na base de datos %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 #| msgid "There are no configured servers"
@@ -9210,7 +9210,7 @@ msgstr "Gardar no almacenamento do navegador"
 
 #: prefs_manage.php:304
 msgid "Settings will be saved in your browser's local storage."
-msgstr "A configuración será gardada no almacenamento do navegador"
+msgstr "A configuración será gardada no almacenamento do navegador."
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
@@ -10079,7 +10079,7 @@ msgstr "Mostrar só valores de alerta"
 
 #: server_status.php:850
 msgid "Filter by category..."
-msgstr "Filtrar por categoría"
+msgstr "Filtrar por categoría..."
 
 #: server_status.php:864
 #| msgid "Show open tables"
@@ -12512,7 +12512,7 @@ msgstr "Rexistro de consultas lentas"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
-msgstr ""
+msgstr "O rexistro de consultas lentas está desactivado."
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -12522,7 +12522,7 @@ msgstr ""
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries esta establecido a 'OFF'"
 
 #: po/advisory_rules.php:35
 #| msgid "Select Tables"
@@ -12986,7 +12986,7 @@ msgstr ""
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
-msgstr ""
+msgstr "Porcentaxe de táboas temporais en disco"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
@@ -13052,7 +13052,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size é 0"
 
 #: po/advisory_rules.php:165
 #, php-format
@@ -13096,7 +13096,7 @@ msgstr ""
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Porcentaxe de lecturas de indicé da memoria"
 
 #: po/advisory_rules.php:176
 #, php-format
@@ -13114,16 +13114,14 @@ msgstr ""
 "Índices lidos dende a memoria: %s%%, este valor debería ser maior ó 95%%"
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
 msgstr "Taxa de apertura de táboas"
 
 #: po/advisory_rules.php:181
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "A taxa de táboas abertas é alta."
+msgstr "A taxa de apertura de táboas é alta."
 
 #: po/advisory_rules.php:182
 msgid ""
@@ -13140,7 +13138,6 @@ msgstr ""
 "Taxa de apertura de taboas: %s, este valor debería ser menor a 10 por hora"
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
 msgstr "Porcentaxe de uso do límite de ficheiros abertos"
@@ -13170,13 +13167,11 @@ msgstr ""
 "85%%"
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
 msgstr "Taxa de apertura de ficheiros"
 
 #: po/advisory_rules.php:191
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
 msgstr "A taxa de apertura de ficheiros é alta."
@@ -13188,16 +13183,15 @@ msgstr ""
 "Taxa de apertura de ficheiros: %s, este valor debería ser menor a 5 por hora"
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr "Porcentaxe de bloqueos de tabla inmediatos %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#, fuzzy
 #| msgid "The number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "Número de veces que se adquiriu inmediatamente un bloqueo de táboa."
+msgstr "Demasiados bloqueos de táboas non foron levantados inmediatamente."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
@@ -13222,10 +13216,9 @@ msgstr ""
 "a 1 por hora"
 
 #: po/advisory_rules.php:205
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Caché de fíos"
+msgstr "Cacheé de fios"
 
 #: po/advisory_rules.php:206
 msgid ""
@@ -13243,16 +13236,15 @@ msgid "The thread cache is set to 0"
 msgstr "A caché de fíos é 0"
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Porcentaxe de caché de fíos %%"
+msgstr "Porcentaxe de acertos da caché de fíos %%"
 
 #: po/advisory_rules.php:211
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "A caché de fíos non é eficiente."
+msgstr "A caché de fios non é eficiente"
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
@@ -13268,10 +13260,9 @@ msgid "Threads that are slow to launch"
 msgstr "Fíos que son lentos para iniciarse"
 
 #: po/advisory_rules.php:216
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "Número de fíos demasiado lentos para publicar"
+msgstr "Demasiados fíos que inician a execución lentamente."
 
 #: po/advisory_rules.php:217
 msgid ""
@@ -13310,7 +13301,6 @@ msgid "slow_launch_time is set to %s"
 msgstr "Slow_launch_time está configurado a %s"
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
 msgstr "Porcentaxe de conexións empregadas"
@@ -13337,10 +13327,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:230
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Porcentaxe de conexións canceladas"
+msgstr "Porcentaxe de conexións abortadas"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
@@ -13366,26 +13355,26 @@ msgstr ""
 "ó 1%%"
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Taxa de conexións canceladas"
+msgstr "Taxa de conexións abortadas"
 
 #: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"A taxa de conexións abortadas está en %s, este valor debería ser inferior a "
+"1 por hora."
 
 #: po/advisory_rules.php:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Formato do ficheiro importado"
+msgstr "Porcentaxe de clientes abortados"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "Demasiadas clientes abortaron"
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -13400,10 +13389,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: po/advisory_rules.php:245
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Formato do ficheiro importado"
+msgstr "Taxxa de clientes abortados"
 
 #: po/advisory_rules.php:248
 #, php-format
@@ -13412,35 +13400,34 @@ msgstr ""
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Está InnoDB desactivada?"
 
 #: po/advisory_rules.php:251
-#, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "You do not have InnoDB enabled."
-msgstr "Non se puido cargar ou gravar a configuración"
+msgstr "InnoDB non está activado."
 
 #: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB é habitualmente a mellor elección para motores de táboas."
 
 #: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb está establecido a 'value'"
 
 #: po/advisory_rules.php:255
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Tamaño da reserva da memoria intermedia"
+msgstr "Tamaño de rexistro de InnoDB"
 
 #: po/advisory_rules.php:256
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "Número de veces que se escribiu no búfer InnoDB."
+msgstr ""
+"O tamaño do rexistro de InnoDB non e apropiado en relación a reserva de "
+"búfer do InnoDB."
 
 #: po/advisory_rules.php:257
 #, php-format
@@ -13465,11 +13452,11 @@ msgstr ""
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Tamaño máximo do rexistro InnoDB"
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "O tamaño do ficheiro de rexistro InnoDB e inadecuadamente longo"
 
 #: po/advisory_rules.php:262
 #, php-format
@@ -13488,17 +13475,16 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "O tamaño absoluto do rexistro InnoDB es %s MiB"
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamaño da reserva da memoria intermedia"
+msgstr "Tamaño da reserva de búfer do InnoDB."
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "A reserva de búfer InnoDB é bastante pequena."
 
 #: po/advisory_rules.php:267
 #, php-format
