@@ -26,7 +26,7 @@ function PMA_getPlugins($plugins_dir, $plugin_param)
             // matches a file which does not start with a dot but ends
             // with ".php"
             if (is_file($plugins_dir . $file) && preg_match('@^[^\.](.)*\.php$@i', $file)) {
-                include $plugins_dir . $file;
+                include_once $plugins_dir . $file;
             }
         }
     }

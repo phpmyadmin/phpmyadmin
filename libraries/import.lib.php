@@ -940,7 +940,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
          *
          * $pattern = 'CREATE (TABLE|VIEW|TRIGGER|FUNCTION|PROCEDURE)';
          */
-        $pattern = '/CREATE .*(TABLE)/';
+        $pattern = '/CREATE [^`]*(TABLE)/';
         $replacement = 'CREATE \\1 IF NOT EXISTS';
 
         /* Change CREATE statements to CREATE IF NOT EXISTS to support inserting into existing structures */
