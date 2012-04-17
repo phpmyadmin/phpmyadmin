@@ -241,15 +241,5 @@ function get_tab_pos()
     return count($tab_pos) ? $tab_pos : null;
 }
 
-/**
- * returns  distinct values from $GLOBALS['PMD']['OWNER']
- *
- * @return  array   owner
- */
-function get_owners()
-{
-    return array_values(array_unique($GLOBALS['PMD']['OWNER']));
-}
-
 get_tabs();
 ?>
