@@ -12671,7 +12671,7 @@ msgstr ""
 #, php-format
 #| msgid "Query cache"
 msgid "Query cache efficiency (%%)"
-msgstr "Eficiencia (%) da caché das consultas"
+msgstr "Eficiencia (%%) da caché das consultas"
 
 #: libraries/advisory_rules.txt:147
 msgid "Query cache not running efficiently, it has a low hit rate."
