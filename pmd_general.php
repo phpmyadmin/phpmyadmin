@@ -7,6 +7,7 @@
 /**
  *
  */
+require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';

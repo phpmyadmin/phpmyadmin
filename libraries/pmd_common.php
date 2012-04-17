@@ -6,8 +6,6 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
-
 if (! defined('PHPMYADMIN')) {
     exit;
 }
