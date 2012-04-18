@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-18 08:09+0200\n"
+"PO-Revision-Date: 2012-04-18 12:01+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
@@ -7435,7 +7435,7 @@ msgstr "Przepraszamy, nie udało nam się przywrócić upuszczonego zdarzenia."
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:267
 #: libraries/rte/rte_triggers.lib.php:90
 msgid "The backed up query was:"
-msgstr "Przygotowana kwerenda:"
+msgstr "Kopia zapasowa kwerendy została:"
 
 #: libraries/rte/rte_events.lib.php:121
 #, php-format
@@ -12760,6 +12760,8 @@ msgstr ""
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
+"maks %% klucz bufora MyISAM używany co: %s%%, wartość ta powinna być wyższa "
+"niż 95%%"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
@@ -12769,6 +12771,7 @@ msgstr "Procent MyISAM klucza używanego bufora"
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
+"%% Użyto klucza bufora MyISAM: %s%%, wartość ta powinna być wyższa niż 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
