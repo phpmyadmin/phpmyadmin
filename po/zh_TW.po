@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2011-06-19 09:59+0200\n"
-"Last-Translator: <star@origin.club.tw>\n"
+"PO-Revision-Date: 2012-04-17 11:51+0200\n"
+"Last-Translator: MoA Chung <honomoa@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -407,10 +407,10 @@ msgid "You have to choose at least one column to display"
 msgstr "您至少需要選擇一個欄位"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "視覺化查詢產生器"
+msgstr "切換至 %svisual builder%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1003
@@ -557,7 +557,6 @@ msgid "Search in database"
 msgstr "在資料庫中搜尋"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "要搜尋的文字或數值 (萬用字元：“%”)："
@@ -839,20 +838,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "複製並貼上結合的數值至 \"Length/Values\" 欄位"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "柱狀圖類型"
+msgstr "錯誤的類型!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "選擇的匯出的檔案格式"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Routines"
 msgid "Bad parameters!"
-msgstr "一般"
+msgstr "錯誤的參數!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -876,10 +873,9 @@ msgid "Dump has been saved to file %s."
 msgstr "備份資料已儲存至檔案 %s."
 
 #: file_echo.php:21
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "輸出類型"
+msgstr "無效的輸出類型"
 
 #: gis_data_editor.php:84
 #, fuzzy, php-format
@@ -889,7 +885,7 @@ msgstr "%s 欄位的值"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "使用OpenStreetMaps"
 
 #: gis_data_editor.php:134
 msgid "SRID"
@@ -955,7 +951,7 @@ msgstr "新增新使用者"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
-msgstr ""
+msgstr "多邊形"
 
 #: gis_data_editor.php:306 js/messages.php:328
 #, fuzzy
@@ -1293,15 +1289,15 @@ msgstr "查詢快取"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr ""
+msgstr "系統CPU使用率"
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr ""
+msgstr "系統記憶體"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr ""
+msgstr "系統Swap"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1402
@@ -1317,41 +1313,39 @@ msgstr "KB"
 
 #: js/messages.php:107
 msgid "Average load"
-msgstr ""
+msgstr "平均負載"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "Total count"
 msgid "Total memory"
-msgstr "總數量"
+msgstr "總記憶體"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr ""
+msgstr "快取記憶體"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "快取池"
+msgstr "緩衝記憶體"
 
 #: js/messages.php:111
 msgid "Free memory"
-msgstr ""
+msgstr "空閒記憶體"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "已使用記憶體"
 
 #: js/messages.php:114
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "總計"
+msgstr "總計Swap"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "快取Swap"
 
 #: js/messages.php:116
 msgid "Used Swap"
@@ -1365,7 +1359,7 @@ msgstr "空閒頁"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes 送出"
 
 #: js/messages.php:120
 #, fuzzy
@@ -1426,14 +1420,13 @@ msgid "Settings"
 msgstr "設定"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "刪除資料庫"
+msgstr "刪除圖表"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "編輯標題與標籤"
 
 #: js/messages.php:140
 #, fuzzy
@@ -1443,7 +1436,7 @@ msgstr "對齊網格"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "請至少增加一個變數"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
@@ -1455,27 +1448,28 @@ msgstr "無"
 
 #: js/messages.php:144
 msgid "Resume monitor"
-msgstr ""
+msgstr "恢復監控"
 
 #: js/messages.php:145
 msgid "Pause monitor"
-msgstr ""
+msgstr "暫停監控"
 
 #: js/messages.php:147
+#, fuzzy
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log與slow_query_log已啟用"
 
 #: js/messages.php:148
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log已啟用"
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log已啟用"
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log與general_log已關閉"
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
@@ -1496,7 +1490,7 @@ msgstr ""
 #: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time已設為%d秒"
 
 #: js/messages.php:155
 msgid ""
