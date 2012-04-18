@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-17 18:55+0200\n"
+"PO-Revision-Date: 2012-04-18 18:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6310,7 +6310,7 @@ msgstr "(ඉදිරියට)"
 
 #: libraries/export/latex.php:16
 msgid "Structure of table @TABLE@"
-msgstr ""
+msgstr "වගුවේ සැකිල්ල @TABLE@"
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:40
 #: libraries/export/sql.php:142
@@ -9761,7 +9761,7 @@ msgstr ""
 
 #: server_status.php:1344
 msgid "The total number of data reads."
-msgstr ""
+msgstr "මුළු දත්ත කියැවුම් ගණන."
 
 #: server_status.php:1345
 msgid "The total number of data writes."
@@ -9803,11 +9803,11 @@ msgstr "ලොග ගොනුව වෙත සිදු කරන ලද fsync(
 
 #: server_status.php:1353
 msgid "The number of pending log file fsyncs."
-msgstr "ලොග ගොනුව වෙත ඉදිරියේදී සිදු කිරීමට ඇති fsync ගණන."
+msgstr "ඉදිරියේදී ලොග ගොනුව වෙත සිදු කිරීමට ඇති fsync ගණන."
 
 #: server_status.php:1354
 msgid "Pending log file writes."
-msgstr "ඉදිරියේදී සිදු කිරීමට ඇති ලොග ගොනුව වෙත ලිවීම්."
+msgstr "ඉදිරියේදී ලොග ගොනුව වෙත සිදු කිරීමට ඇති ලිවීම්."
 
 #: server_status.php:1355
 msgid "The number of bytes written to the log file."
