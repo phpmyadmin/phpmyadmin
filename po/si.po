@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2012-04-17 18:55+0200\n"
+"PO-Revision-Date: 2012-04-18 18:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3375,13 +3375,12 @@ msgstr "පෙරනිමි වගු ටැබය"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "වගු සැකිල්ලට අදාල ක්‍රියාවන් සැඟවිය යුතුද යන වග"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "සැකිල්ලක් යෝජනා කරන්න"
+msgstr "වගු සැකිල්ලට අදාල ක්‍රියාවන් සඟවන්න"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -3934,17 +3933,15 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr "දත්තගබඩා සැකිල්ලේ (වගු ලයිස්තුවේ) පෙන්විය යුතු විස්තර තෝරන්න"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "දත්තගබඩා සැකිල්ල"
+msgstr "වගු සැකිල්ල"
 
 #: libraries/config/messages.inc.php:231
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
-msgstr "දත්තගබඩා සැකිල්ලේ (වගු ලයිස්තුවේ) පෙන්විය යුතු විස්තර තෝරන්න"
+msgstr "වගු සැකිල්ලට අදාල සිටුවම් (තීර ලැයිස්තුව)"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -6304,7 +6301,7 @@ msgstr "(ඉදිරියට)"
 
 #: libraries/export/latex.php:16
 msgid "Structure of table @TABLE@"
-msgstr ""
+msgstr "වගුවේ සැකිල්ල @TABLE@"
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:40
 #: libraries/export/sql.php:142
@@ -9762,7 +9759,7 @@ msgstr ""
 
 #: server_status.php:1368
 msgid "The total number of data reads."
-msgstr ""
+msgstr "මුළු දත්ත කියැවුම් ගණන."
 
 #: server_status.php:1369
 msgid "The total number of data writes."
@@ -9804,11 +9801,11 @@ msgstr "ලොග ගොනුව වෙත සිදු කරන ලද fsync(
 
 #: server_status.php:1377
 msgid "The number of pending log file fsyncs."
-msgstr "ලොග ගොනුව වෙත ඉදිරියේදී සිදු කිරීමට ඇති fsync ගණන."
+msgstr "ඉදිරියේදී ලොග ගොනුව වෙත සිදු කිරීමට ඇති fsync ගණන."
 
 #: server_status.php:1378
 msgid "Pending log file writes."
-msgstr "ඉදිරියේදී සිදු කිරීමට ඇති ලොග ගොනුව වෙත ලිවීම්."
+msgstr "ඉදිරියේදී ලොග ගොනුව වෙත සිදු කිරීමට ඇති ලිවීම්."
 
 #: server_status.php:1379
 msgid "The number of bytes written to the log file."
