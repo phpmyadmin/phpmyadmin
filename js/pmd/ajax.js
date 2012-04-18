@@ -51,6 +51,7 @@ function makeRequest(url, parameters)
  */
 function alertContents()
 {
+    // @todo: replace with PMA_ajaxShowMessage() and remove layer_action
     var layer = document.getElementById("layer_action");
 
     if (http_request.readyState == 1) {
@@ -78,18 +79,6 @@ function alertContents()
     }
 }
 
-function layer_alert(text)
-{
-    var layer = document.getElementById("layer_action");
-
-    layer.innerHTML = text;
-    layer.style.left = (document.body.clientWidth + document.body.scrollLeft - 20 - layer.offsetWidth) + 'px';
-    layer.style.display = 'block';
-    setTimeout(function () {
-        layer.style.visibility = 'hidden';
-    }, 2000);
-}
-
 /**
  *
  */
@@ -110,17 +99,17 @@ function PrintXML()
         //xmldoc.getElementsByTagName('root')[0].getAttribute("act")
 
         if (root.getAttribute('act') == 'save_pos') {
-            layer_alert(root.getAttribute('return'));
+            PMA_ajaxShowMessage(root.getAttribute('return'));
         }
         if (root.getAttribute('act') == 'relation_upd') {
-            layer_alert(root.getAttribute('return'));
+            PMA_ajaxShowMessage(root.getAttribute('return'));
             if (root.getAttribute('b') == '1') {
                 contr.splice(root.getAttribute('K'), 1);
                 Re_load();
             }
         }
         if (root.getAttribute('act') == 'relation_new') {
-            layer_alert(root.getAttribute('return'));
+            PMA_ajaxShowMessage(root.getAttribute('return'));
             if (root.getAttribute('b') == '1') {
                 var i  = contr.length;
                 var t1 = root.getAttribute('DB1') + '.' + root.getAttribute('T1');
