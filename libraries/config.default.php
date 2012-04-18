@@ -1635,6 +1635,20 @@ $cfg['Export']['mediawiki_structure_or_data'] = 'data';
 /**
  *
  *
+ * @global boolean $cfg['Export']['mediawiki_caption']
+ */
+
+$cfg['Export']['mediawiki_caption'] = true;
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['mediawiki_headers']
+ */
+$cfg['Export']['mediawiki_headers'] = true;
+
+/**
+ *
+ *
  * @global string $cfg['Export']['ods_structure_or_data']
  */
 $cfg['Export']['ods_structure_or_data'] = 'data';
