@@ -51,20 +51,14 @@ function makeRequest(url, parameters)
  */
 function alertContents()
 {
-    // @todo: replace with PMA_ajaxShowMessage() and remove layer_action
-    var layer = document.getElementById("layer_action");
-
     if (http_request.readyState == 1) {
-        layer.style.left = (document.body.clientWidth + document.body.scrollLeft - 85) + 'px';
-        layer.style.top = (document.body.scrollTop + 10) + 'px';
-        layer.style.visibility = 'visible';
-        layer.innerHTML = 'Loading...';
+        PMA_ajaxShowMessage();
     }
     if (http_request.readyState == 2) {
-        layer.innerHTML = 'Loaded';
+        PMA_ajaxShowMessage('Loaded');
     }
     if (http_request.readyState == 3) {
-        layer.innerHTML = 'Loading 99%';
+        PMA_ajaxShowMessage('Loading 99%');
     }
     if (http_request.readyState == 4) {
         if (http_request.status == 200) {
@@ -72,9 +66,8 @@ function alertContents()
             //alert(textdoc);
             xmldoc    = http_request.responseXML;
             PrintXML();
-            //layer.style.visibility = 'hidden';
         } else {
-            alert('There was a problem with the request.');
+            PMA_ajaxShowMessage('There was a problem with the request.');
         }
     }
 }

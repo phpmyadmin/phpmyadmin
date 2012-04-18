@@ -3410,18 +3410,6 @@ a.M_butt:hover {
     border: #999 solid 1px;
 }
 
-#layer_action {
-    position: absolute;
-    left: 638px;
-    top: 52px;
-    z-index: 1000;
-    background-color: #CCFF99;
-    padding: 3px;
-    border: #009933 solid 1px;
-    white-space: nowrap;
-    font-weight: bold;
-}
-
 #layer_upd_relation {
     position: absolute;
     left: 637px;
