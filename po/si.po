@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2012-04-18 18:55+0200\n"
+"PO-Revision-Date: 2012-04-18 19:00+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9763,11 +9763,11 @@ msgstr "මුළු දත්ත කියැවුම් ගණන."
 
 #: server_status.php:1369
 msgid "The total number of data writes."
-msgstr ""
+msgstr "මුළු දත්ත ලියැවුම් ගණන."
 
 #: server_status.php:1370
 msgid "The amount of data written so far, in bytes."
-msgstr ""
+msgstr "මේ දක්වා ලියැවුණු දත්ත ප්‍රමාණය, බයිට වලින්."
 
 #: server_status.php:1371
 msgid "The number of pages that have been written for doublewrite operations."
@@ -9786,10 +9786,12 @@ msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
+"ලොග බෆරය කුඩා වීම නිසා ඉදිරියට යාමට පෙර එය හිස් කෙරෙන තුරු බලා සිටීමට සිදු "
+"වූ වාර ගණන."
 
 #: server_status.php:1374
 msgid "The number of log write requests."
-msgstr ""
+msgstr "ලොගය වෙත ලිවීමට කෙරුණු ඉල්ලීම් ගණන."
 
 #: server_status.php:1375
 msgid "The number of physical writes to the log file."
