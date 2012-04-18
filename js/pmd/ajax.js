@@ -84,7 +84,7 @@ function layer_alert(text)
 
     layer.innerHTML = text;
     layer.style.left = (document.body.clientWidth + document.body.scrollLeft - 20 - layer.offsetWidth) + 'px';
-    layer.style.visibility = 'visible';
+    layer.style.display = 'block';
     setTimeout(function () {
         layer.style.visibility = 'hidden';
     }, 2000);
