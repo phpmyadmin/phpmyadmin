@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2012-04-18 14:56+0200\n"
-"Last-Translator: Jan Erik Zassenhaus <Jan.Zassenhaus@jgerman.de>\n"
+"PO-Revision-Date: 2012-04-18 18:32+0200\n"
+"Last-Translator: Jan Dittberner <jandd@debian.org>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1660,10 +1660,9 @@ msgid "Import monitor configuration"
 msgstr "Fehler beim Importieren der Konfiguration"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Bitte den PRIMARY KEY oder einen UNIQUE KEY wählen"
+msgstr "Bitte wählen Sie die Datei aus, die importiert werden soll"
 
 #: js/messages.php:212
 msgid "Analyse Query"
@@ -3351,10 +3350,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Benutzerfreundlichen Editor ([a@http://codemirror.net/]CodeMirror[/a]) mit "
+"Syntaxhervorhebung und Zeilennummern zum Bearbeiten von SQL-Abfragen "
+"verwenden"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "CodeMirror aktivieren"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3462,13 +3464,12 @@ msgstr "Standardtab bei Tabellen"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Sollen die Tabellenstrukturaktionen verborgen werden"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Tabellenstruktur analysieren"
+msgstr "Tabellenstrukturaktionen verbergen"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4032,14 +4033,13 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "Datenbank-Struktur"
+msgstr "Tabellenstruktur"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Einstellungen für die Tabellenstruktur (Spaltenliste)"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -5844,15 +5844,15 @@ msgstr "Zeichensatz Umwandlung:"
 #: libraries/display_git_revision.lib.php:46
 #, php-format
 msgid "%s from %s branch"
-msgstr ""
+msgstr "%s aus dem Zweig %s"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
-msgstr ""
+msgstr "kein Zweig"
 
 #: libraries/display_git_revision.lib.php:54
 msgid "Git revision"
-msgstr ""
+msgstr "Git-Revision"
 
 #: libraries/display_git_revision.lib.php:57
 #, php-format
@@ -5862,7 +5862,7 @@ msgstr ""
 #: libraries/display_git_revision.lib.php:64
 #, php-format
 msgid "authored on %s by %s"
-msgstr ""
+msgstr "geschrieben am %s von %s"
 
 # Der Kontext der Fehlermeldung ist mir nicht klar. Daher allgemein
 # formuliert.
@@ -6616,10 +6616,9 @@ msgid "MediaWiki Table"
 msgstr "Tabelle für MediaWiki"
 
 #: libraries/export/mediawiki.php:51
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "Export-Inhalte"
+msgstr "Exportiere Tabellennamen"
 
 #: libraries/export/mediawiki.php:58
 #, fuzzy
@@ -11824,10 +11823,9 @@ msgid "Spatial"
 msgstr "Räumlich"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Zeige nur unterschiedliche Werte"
+msgstr "Unterschiedliche Werte"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add primary key"
