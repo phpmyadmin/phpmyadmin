@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:58+0200\n"
-"PO-Revision-Date: 2012-04-11 23:33+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2012-04-18 08:09+0200\n"
+"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -246,16 +246,16 @@ msgid "The database name is empty!"
 msgstr "Nazwa bazy danych jest pusta!"
 
 #: db_operations.php:298
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Nazwę bazy danych %s zmieniono na %s"
+msgstr "Nazwę bazy danych %1$s zmieniono na %2$s"
 
 #: db_operations.php:302
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Baza danych %s została przekopiowana do %s"
+msgstr "Baza danych %1$s została przekopiowana do %2$s"
 
 #: db_operations.php:430
 msgid "Rename database to"
@@ -1023,10 +1023,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Instrukcje \"DROP DATABASE\" są wyłączone."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Czy na pewno chcesz wywołać tę kwerendę?"
+msgstr "Czy na pewno chcesz wykonać \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:370
 msgid "You are about to DESTROY a complete database!"
@@ -1741,22 +1741,19 @@ msgid "Show indexes"
 msgstr "Pokaż indeksy"
 
 #: js/messages.php:250 libraries/mult_submits.inc.php:313
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Wyłącz sprawdzanie kluczy zewnętrznych"
+msgstr "Sprawdzanie klucza zewnętrznego:"
 
 #: js/messages.php:251 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Włączone"
+msgstr "(Włączone)"
 
 #: js/messages.php:252 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Wyłączone"
+msgstr "(Wyłączone)"
 
 #: js/messages.php:255
 msgid "Searching"
@@ -1969,7 +1966,7 @@ msgstr "Kliknij, aby zaznaczyć/odznaczyć"
 
 #: js/messages.php:348
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Kliknij dwukrotnie, aby skopiować nazwę kolumny"
 
 #: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1996,20 +1993,19 @@ msgid "Go to link"
 msgstr "Kliknij link"
 
 #: js/messages.php:354
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Nazwy kolumn"
+msgstr "Skopiuj nazwę kolumny"
 
 #: js/messages.php:355
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Kliknij prawym przyciskiem myszy nazwę kolumny aby skopiować go do schowka."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Aktualizacja wiersz(y)"
+msgstr "Pokaż dane wiersza(y)"
 
 #: js/messages.php:359
 msgid "Generate password"
@@ -2632,10 +2628,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Nie można używać Blowfish z mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:208 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Odtąd musi być włączona obsługa ciasteczek."
+msgstr "Javascript musi być włączona obok tego punktu"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -2794,7 +2789,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Nie można załadować domyślnej konfiguracji z: \"%1$s\""
 
 #: libraries/common.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -2802,7 +2796,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Dyrektywa <code>$cfg['PmaAbsoluteUri']</code> musi być ustawiona w pliku "
+"Dyrektywa <code>$cfg['PmaAbsoluteUri']</code> MUSI być ustawiona w pliku "
 "konfiguracyjnym!"
 
 #: libraries/common.inc.php:651
@@ -3979,14 +3973,15 @@ msgid "Customize startup page"
 msgstr "Personalizuj stronę startową"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Serwer bazy danych"
+msgstr "Struktura bazy danych"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Wybierz, które szczegóły, chcesz pokazać w strukturze bazy danych (lista "
+"tabel)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -5070,32 +5065,36 @@ msgstr "Pokaż formularz tworzenia bazy danych"
 #: libraries/config/messages.inc.php:462
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Pokaż lub ukryj kolumny wyświetlające 'Znacznik czasu tworzenia' dla "
+"wszystkich tabel"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Pokaż więcej akcji"
+msgstr "Pokaż Znacznik czasu tworzenia"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Pokaż lub ukryj kolumny wyświetlające znaczniki czasu ostatniej aktualizacji "
+"dla wszystkich tabel"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Pokaż ostatni znacznik czasu aktualizacji"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Pokaż lub ukryj kolumny wyświetlające Ostatni znacznik czasu sprawdzania dla "
+"wszystkich tabel"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Pokaż stan serwera głównego"
+msgstr "Pokaż Ostatni znacznik czasu sprawdzania"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5828,26 +5827,25 @@ msgstr ""
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s z %s"
 
 #: libraries/display_import.lib.php:78
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Format importowanych plików"
+msgstr "Importowanie pliku importu..."
 
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sek."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "O %MIN min. %SEC sek. pozostało."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "O %SEC sek. pozostało."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
@@ -6606,7 +6604,7 @@ msgstr ""
 
 #: libraries/export/sql.php:226 libraries/export/sql.php:1185
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Tabela Truncate przed wstawieniem"
 
 #: libraries/export/sql.php:232
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6951,10 +6949,9 @@ msgid "Add prefix"
 msgstr "Dodaj prefiks"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
-msgstr "Czy na pewno chcesz wywołać tę kwerendę?"
+msgstr "Czy na pewno chcesz wykonać następującą kwerendę?"
 
 #: libraries/mult_submits.inc.php:525 tbl_replace.php:330
 msgid "No change"
@@ -7514,7 +7511,6 @@ msgid "Event"
 msgstr "Zdarzenie"
 
 #: libraries/rte/rte_routines.lib.php:64
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7526,9 +7522,9 @@ msgid ""
 "problems."
 msgstr ""
 "Używasz przestarzałego rozszerzenia PHP 'mysql', które nie jest w stanie "
-"obsługiwać wielozadaniowość. <b> Wykonanie niektórych przechowywanych "
-"procedur może się nie udać! </ b> Proszę korzystać z nowszego rozszerzenia "
-"'mysqli', aby uniknąć problemów."
+"obsługiwać wielozadaniowości. [strong]Wykonanie niektórych przechowywanych "
+"procedur może się nie udać![/strong] Proszę skorzystać z nowszego "
+"rozszerzenia 'mysqli', aby uniknąć problemów."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1004
@@ -8132,10 +8128,10 @@ msgid "Table seems to be empty!"
 msgstr "Tabela wydaje się być pusta!"
 
 #: libraries/tbl_links.inc.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Śledzenie %s. %s jest aktywne."
+msgstr "Śledzenie %s jest aktywne."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
@@ -8293,6 +8289,8 @@ msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Dołącza tekst do ciągu. Jedyną opcją jest tekst który zostanie załączony "
+"(ujęte w pojedynczy cudzysłów, domyślny pusty ciąg)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
 msgid ""
@@ -8916,13 +8914,13 @@ msgid "No databases selected."
 msgstr "Żadna baza danych nie został wybrana."
 
 #: server_databases.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s baz danych zostało pomyślnie usuniętych."
-msgstr[1] "%s baz danych zostało pomyślnie usuniętych."
-msgstr[2] "%s baz danych zostało pomyślnie usuniętych."
+msgstr[0] "%1$d baza danych została pomyślnie usunięta."
+msgstr[1] "%1$d bazy danych zostały pomyślnie usunięte."
+msgstr[2] "%1$d baz danych zostało pomyślnie usuniętych."
 
 #: server_databases.php:119
 msgid "Databases statistics"
@@ -9300,10 +9298,10 @@ msgid "Privileges for all users"
 msgstr "Uprawnienia dla wszystkich użytkowników"
 
 #: server_privileges.php:1653
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Uprawnienia"
+msgstr "Uprawnienia dla %s"
 
 #: server_privileges.php:1681
 msgid "Users overview"
@@ -10277,10 +10275,9 @@ msgstr ""
 "który wskazuje maksymalną liczbę kiedykolwiek jednocześnie użytych bloków."
 
 #: server_status.php:1386
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Procent używania limitu otwartych plików"
+msgstr "Procent używanego klucza pamięci podręcznej (obliczona wartość)"
 
 #: server_status.php:1387
 msgid "The number of requests to read a key block from the cache."
@@ -10302,6 +10299,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Brakujący klucz pamięci podręcznej oblicza jako porównanie fizycznego "
+"odczytu do żądania odczytu (obliczona wartość)"
 
 #: server_status.php:1390
 msgid "The number of requests to write a key block to the cache."
@@ -10315,6 +10314,7 @@ msgstr "Liczba fizycznych zapisów bloków indeksów na dysk."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Procent fizycznego zapisu w porównaniu do żądania zapisu (obliczona wartość)"
 
 #: server_status.php:1393
 msgid ""
@@ -10547,10 +10547,9 @@ msgstr ""
 "polepszenia wydajności.)"
 
 #: server_status.php:1428
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Cache wątku trafień %%"
+msgstr "Cache wątku trafień (obliczona wartość)"
 
 #: server_status.php:1429
 msgid "The number of threads that are not sleeping."
@@ -11762,22 +11761,22 @@ msgid "Tracking report for table `%s`"
 msgstr "Raport śledzenia tabeli `%s`"
 
 #: tbl_tracking.php:174
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Wersja %s jest tworzona, śledzenie %s. %s jest aktywna."
+msgstr "Wersja %1$s stworzona, śledzenie dla %2$s jest aktywne."
 
 #: tbl_tracking.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Śledzenie %s. %s jest aktywne."
+msgstr "Śledzenie dla %1$s zostało wyłączone w wersji %2$s."
 
 #: tbl_tracking.php:198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Śledzenie %s. %s jest aktywne."
+msgstr "Śledzenie dla %1$s zostało włączone w wersji %2$s."
 
 #: tbl_tracking.php:211
 msgid "SQL statements executed."
@@ -11822,10 +11821,10 @@ msgid "Tracking statements"
 msgstr "Śledzenie instrukcji"
 
 #: tbl_tracking.php:445 tbl_tracking.php:573
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Pokaż %s w okresie od %s do %s użytkownika %s %s"
+msgstr "Pokaż %1$s w okresie od %2$s do %3$s wg użytkownika %4$s %5$s"
 
 #: tbl_tracking.php:450
 msgid "Delete tracking data row from report"
@@ -11873,30 +11872,30 @@ msgid "Show versions"
 msgstr "Pokaż wersje"
 
 #: tbl_tracking.php:714
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "Dezaktywuj monitorowanie %s.%s"
+msgstr "Dezaktywuj śledzenie dla %s"
 
 #: tbl_tracking.php:716
 msgid "Deactivate now"
 msgstr "Dezaktywuj teraz"
 
 #: tbl_tracking.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "Aktywuj monitorowanie %s.%s"
+msgstr "Aktywuj śledzenie %s"
 
 #: tbl_tracking.php:729
 msgid "Activate now"
 msgstr "Aktywuj teraz"
 
 #: tbl_tracking.php:742
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Utwórz wersję %s dla %s.%s"
+msgstr "Utwórz wersję %1$s dla %2$s"
 
 #: tbl_tracking.php:746
 msgid "Track these data definition statements:"
@@ -12738,7 +12737,7 @@ msgstr "Maks. bufor klucza %% MyISAM kiedykolwiek"
 #: libraries/advisory_rules.txt:283 libraries/advisory_rules.txt:291
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
+msgstr "Użycie bufora indeksów MyISAM jest niskie."
 
 #: libraries/advisory_rules.txt:284 libraries/advisory_rules.txt:292
 msgid ""
