@@ -79,7 +79,7 @@ function layer_alert(text)
 {
     document.getElementById("layer_action").innerHTML = text;
     document.getElementById("layer_action").style.left = (document.body.clientWidth + document.body.scrollLeft - 20 - document.getElementById("layer_action").offsetWidth) + 'px';
-    document.getElementById("layer_action").style.visibility = 'visible'; 
+    document.getElementById("layer_action").style.display = 'block'; 
     setTimeout(function(){document.getElementById("layer_action").style.visibility = 'hidden';}, 2000);
 }
 
