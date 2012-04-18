@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-16 20:10+0200\n"
+"PO-Revision-Date: 2012-04-17 18:55+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9799,23 +9799,23 @@ msgstr ""
 
 #: server_status.php:1352
 msgid "The number of fsync() writes done to the log file."
-msgstr ""
+msgstr "ලොග ගොනුව වෙත සිදු කරන ලද fsync() ලිවීම් ගණන."
 
 #: server_status.php:1353
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "ලොග ගොනුව වෙත ඉදිරියේදී සිදු කිරීමට ඇති fsync ගණන."
 
 #: server_status.php:1354
 msgid "Pending log file writes."
-msgstr ""
+msgstr "ඉදිරියේදී සිදු කිරීමට ඇති ලොග ගොනුව වෙත ලිවීම්."
 
 #: server_status.php:1355
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "ලොග ගොනුව වෙත ලියන ලද බයිට ගණන."
 
 #: server_status.php:1356
 msgid "The number of pages created."
-msgstr ""
+msgstr "සාදන ලද පිටු ගණන."
 
 #: server_status.php:1357
 msgid ""
@@ -9833,39 +9833,39 @@ msgstr "ලියන ලද පිටු ගණන."
 
 #: server_status.php:1360
 msgid "The number of row locks currently being waited for."
-msgstr ""
+msgstr "නිදහස් වන තුරු බලා සිටින පේළි අගුලු ගණන."
 
 #: server_status.php:1361
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "පේළි අගුලක් අත්පත් කර ගැනීමට ගතවූ මධ්‍යන්‍ය කාලය, මිලිතත්පර වලින්."
 
 #: server_status.php:1362
 msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr ""
+msgstr "පේළි අගුලු අත්පත් කර ගැනීමට ගතවූ මුළු කාලය, මිලිතත්පර වලින්."
 
 #: server_status.php:1363
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "පේළි අගුලක් අත්පත් කර ගැනීමට ගතවූ උපරිම කාලය, මිලිතත්පර වලින්."
 
 #: server_status.php:1364
 msgid "The number of times a row lock had to be waited for."
-msgstr ""
+msgstr "පේළි අගුලක් නිදහස් වන තුරු බලා සිටීමට සිදු වූ අවස්ථා ගණන."
 
 #: server_status.php:1365
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "InnoDB වගු වලින් ඉවත් කෙරුණු පේළි ගණන."
 
 #: server_status.php:1366
 msgid "The number of rows inserted in InnoDB tables."
-msgstr ""
+msgstr "InnoDB වගු වෙත ඇතුල් කෙරුණු පේළි ගණන."
 
 #: server_status.php:1367
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "InnoDB වගු වෙතින් කියැවුණු පේළි ගණන."
 
 #: server_status.php:1368
 msgid "The number of rows updated in InnoDB tables."
-msgstr ""
+msgstr "InnoDB වගු තුල යාවත්කාලීන කෙරුණු පේළි ගණන."
 
 #: server_status.php:1369
 msgid ""
