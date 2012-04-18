@@ -344,7 +344,6 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 ?>
 </form>
 <div id="pmd_hint"></div>
-<div id='layer_action' style="display:none;">Load...</div>
 
 <table id="layer_new_relation" style="display:none;"
     width="5%" cellpadding="0" cellspacing="0">
