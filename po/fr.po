@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2012-04-11 18:23+0200\n"
+"PO-Revision-Date: 2012-04-18 19:08+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1646,16 +1646,14 @@ msgid "Import"
 msgstr "Importer"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Erreur d'importation de la configuration"
+msgstr "Importer la configuration de surveillance"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Veuillez choisir la clé primaire ou un index unique"
+msgstr "Veuillez choisir le fichier à importer"
 
 #: js/messages.php:212
 msgid "Analyse Query"
@@ -3340,10 +3338,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Utiliser un éditeur convivial pour les requêtes SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) avec coloration syntaxique et "
+"numérotation des lignes"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Activer CodeMirror"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3452,13 +3453,12 @@ msgstr "Onglet par défaut pour tables"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Les actions dans la structure de table devraient-elle être cachées?"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Suggérer des optimisations quant à la structure de la table"
+msgstr "Cacher les actions dans la structure de table"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4024,17 +4024,15 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr "Choisissez les détails à afficher dans la liste des tables"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "Structure de base de données"
+msgstr "Structure de table"
 
 #: libraries/config/messages.inc.php:231
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
-msgstr "Choisissez les détails à afficher dans la liste des tables"
+msgstr "Réglages pour la structure de table (liste des colonnes)"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -5833,20 +5831,20 @@ msgstr "Conversion de l'encodage : "
 #: libraries/display_git_revision.lib.php:46
 #, php-format
 msgid "%s from %s branch"
-msgstr ""
+msgstr "%s sous la branche %s"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
-msgstr ""
+msgstr "aucune branche"
 
 #: libraries/display_git_revision.lib.php:54
 msgid "Git revision"
-msgstr ""
+msgstr "Révision Git"
 
 #: libraries/display_git_revision.lib.php:57
 #, php-format
 msgid "committed on %s by %s"
-msgstr ""
+msgstr "enregistrée le %s par %s"
 
 #: libraries/display_git_revision.lib.php:64
 #, php-format
@@ -6609,16 +6607,14 @@ msgid "MediaWiki Table"
 msgstr "Tableau MediaWiki"
 
 #: libraries/export/mediawiki.php:51
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "Exporter le contenu"
+msgstr "Exporter le nom des tables"
 
 #: libraries/export/mediawiki.php:58
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "horizontal (en-têtes pivotés)"
+msgstr "Exporter les en-têtes de table"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -11762,10 +11758,9 @@ msgid "Spatial"
 msgstr "Spatial"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Affiche les valeurs distinctes"
+msgstr "Valeurs distinctes"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add primary key"
