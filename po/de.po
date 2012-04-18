@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-15 19:19+0200\n"
-"Last-Translator: Robin Pepermans <robinp.1273@gmail.com>\n"
+"PO-Revision-Date: 2012-04-18 14:56+0200\n"
+"Last-Translator: Jan Erik Zassenhaus <Jan.Zassenhaus@jgerman.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -2504,15 +2504,15 @@ msgstr "Fehler beim Erstellen der PDF Datei:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
-msgstr "Konnte die aktuelle Tabelle nicht speichern"
+msgstr "Konnte die letzte Tabelle nicht speichern"
 
 #: libraries/RecentTable.class.php:142
 msgid "Recent tables"
-msgstr "Aktuelle Tabellen"
+msgstr "Letzte Tabellen"
 
 #: libraries/RecentTable.class.php:149
 msgid "There are no recent tables"
-msgstr "Es gibt keine aktuellen Tabellen"
+msgstr "Es gibt keine letzten Tabellen"
 
 #: libraries/StorageEngine.class.php:203
 msgid ""
@@ -4912,11 +4912,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:423
 msgid "Signon session name"
-msgstr "Signon Session-Name"
+msgstr "Anmelde Session-Name"
 
 #: libraries/config/messages.inc.php:424
 msgid "Signon URL"
-msgstr "Anmelde-URL"
+msgstr "Anmelde URL"
 
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
