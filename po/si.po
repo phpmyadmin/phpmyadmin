@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2012-04-18 19:00+0200\n"
+"PO-Revision-Date: 2012-04-18 19:20+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -9657,23 +9657,23 @@ msgstr ""
 
 #: server_status.php:1347
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "අභ්‍යන්තරව සිදු කෙරුණු ROLLBACK ප්‍රකාශ ගණන."
 
 #: server_status.php:1348
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "වගුවක පේළියක් යාවත්කාලීන කිරීම සඳහා කෙරුණු ඉල්ලීම් ගණන."
 
 #: server_status.php:1349
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "වගුවකට පේළියක් ඇතුලු කිරීම සඳහා කෙරුණු ඉල්ලීම් ගණන."
 
 #: server_status.php:1350
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
+msgstr "දත්ත අඩංගු පිටු ගණන (අපවිත්‍ර හෝ පවිත්‍ර)."
 
 #: server_status.php:1351
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "දැනට අපවිත්‍රව ඇති පිටු ගණන."
 
 #: server_status.php:1352
 msgid "The number of buffer pool pages that have been requested to be flushed."
