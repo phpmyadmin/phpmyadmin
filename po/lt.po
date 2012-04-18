@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2012-03-30 19:57+0200\n"
-"Last-Translator: Kęstutis <forkik@gmail.com>\n"
+"PO-Revision-Date: 2012-04-18 15:01+0200\n"
+"Last-Translator: Edgaras Janušauskas <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.8\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1798
@@ -914,13 +914,12 @@ msgstr "Sukurti naują vartotoją"
 
 #: gis_data_editor.php:265 js/messages.php:323
 msgid "Polygon"
-msgstr ""
+msgstr "Daugiakampis"
 
 #: gis_data_editor.php:305 js/messages.php:329
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "Pridėti stulpelį"
+msgstr "Pridėti daugiakampį"
 
 #: gis_data_editor.php:309
 #, fuzzy
@@ -1079,7 +1078,6 @@ msgid "This is not a number!"
 msgstr "Įveskite skaičių!"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Pridėti indeksą"
@@ -1838,10 +1836,9 @@ msgid "Values for a new column"
 msgstr "Reikšmės naujajam stulpeliui"
 
 #: js/messages.php:270
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Įveskite kiekvieną reikšmę atskirame laukelyje."
+msgstr "Įveskite kiekvieną reikšmę atskirame laukelyje"
 
 #: js/messages.php:271
 #, php-format
@@ -2634,7 +2631,7 @@ msgstr "Kelias iki temos nerastas temai %s!"
 
 #: libraries/Theme_Manager.class.php:307 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr "Apipavidalinimas"
+msgstr "Išvaizda"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -5619,7 +5616,7 @@ msgstr "Suderinamas su MySQL 4.0"
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
 msgid "Create database"
-msgstr "Sukurti duombazę"
+msgstr "Sukurti duomenų bazę"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
@@ -8438,10 +8435,9 @@ msgid "General Settings"
 msgstr "Pagrindiniai nustatymai"
 
 #: main.php:118
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL prisijungimo lyginimas"
+msgstr "Serverio ryšio palyginimas"
 
 #: main.php:132
 msgid "Appearance Settings"
@@ -8452,20 +8448,18 @@ msgid "More settings"
 msgstr "Daugiau nustatymų"
 
 #: main.php:177
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Vartotojo duomenų bazė"
+msgstr "Duomenų bazės serveris"
 
 #: main.php:180
 msgid "Software"
-msgstr ""
+msgstr "Programinė įranga"
 
 #: main.php:181
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Rodyti versijas"
+msgstr "Programinės įrangos versija"
 
 #: main.php:183
 msgid "Protocol version"
@@ -8478,20 +8472,18 @@ msgid "User"
 msgstr "Naudotojas"
 
 #: main.php:192
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Serverio prievadas (socket)"
+msgstr "Serverio koduotė"
 
 #: main.php:204
 msgid "Web server"
 msgstr "Interneto serveris"
 
 #: main.php:217
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Naudoti mažą versiją"
+msgstr "Duomenų bazės kliento versija"
 
 #: main.php:221
 msgid "PHP extension"
