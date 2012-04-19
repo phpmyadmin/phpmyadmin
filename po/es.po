@@ -12282,7 +12282,7 @@ msgid "Release Series"
 msgstr "Serie de versiones"
 
 #: po/advisory_rules.php:36
-msgid "The MySQL server version less then 5.1."
+msgid "The MySQL server version less than 5.1."
 msgstr "La versión del servidor MySQL es menor a 5.1."
 
 #: po/advisory_rules.php:37
