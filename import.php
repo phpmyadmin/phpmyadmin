@@ -418,8 +418,7 @@ if ($import_file != 'none' && !$error) {
 	    }
 	    
 	    //Create file with selected queries
-	    $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
-	  	$path = tempnam($tmp_subdir , 'tmp_select.sql');
+	  	$path = tempnam($cfg['TempDir'] , 'tmp_select.sql');
 	  	$file_to_unlink = $path;
 	    $h = fopen($path,'w');
 	    fwrite($h,$result);
