@@ -75,7 +75,7 @@ if (version_compare(phpversion(), '5.3', 'lt')) {
 if (version_compare(phpversion(), '5.4', 'lt')) {
     /**
      * Avoid problems with magic_quotes_runtime
-     */ 
+     */
     @ini_set('magic_quotes_runtime', false);
 }
 
@@ -335,11 +335,14 @@ if (isset($_COOKIE)
  * check HTTPS connection
  */
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
-  && !$GLOBALS['PMA_Config']->get('is_https')) {
-    PMA_sendHeaderLocation(
-        preg_replace('/^http/', 'https',
-            $GLOBALS['PMA_Config']->get('PmaAbsoluteUri'))
-        . PMA_generate_common_url($_GET, 'text'));
+    && ! $GLOBALS['PMA_Config']->get('is_https')
+) {
+    // grab current URL
+    $url = $GLOBALS['PMA_Config']->get('PmaAbsoluteUri');
+    // Replace http protocol
+    $url = preg_replace('@^http:@', 'https:', $url);
+    // Actually redirect
+    PMA_sendHeaderLocation($url . PMA_generate_common_url($_GET, 'text'));
     // delete the current session, otherwise we get problems (see bug #2397877)
     $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
     exit;
@@ -813,7 +816,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
     if (isset($GLOBALS['collation_connection'])) {
         $GLOBALS['PMA_Config']->setCookie(
-            'pma_collation_connection', 
+            'pma_collation_connection',
             $GLOBALS['collation_connection']);
     }
 
