@@ -164,6 +164,7 @@ if (isset($_REQUEST['submitoptions'])) {
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
+        $sql_query     .= ';';
         $result        .= PMA_DBI_query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
@@ -191,6 +192,7 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
     if (isset($_REQUEST['order_order']) && $_REQUEST['order_order'] === 'desc') {
         $sql_query .= ' DESC';
     }
+    $sql_query .= ';';
     $result = PMA_DBI_query($sql_query);
 } // end if
 
@@ -198,7 +200,7 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
  * A partition operation has been requested by the user
  */
 if (isset($_REQUEST['submit_partition']) && ! empty($_REQUEST['partition_operation'])) {
-    $sql_query = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ' . $_REQUEST['partition_operation'] . ' PARTITION ' . $_REQUEST['partition_name'];
+    $sql_query = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ' . $_REQUEST['partition_operation'] . ' PARTITION ' . $_REQUEST['partition_name'] . ';';
     $result = PMA_DBI_query($sql_query);
 } // end if
 
@@ -613,7 +615,7 @@ if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
     if ($is_innodb) {
         $this_url_params = array_merge(
             $url_params,
-            array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ENGINE = InnoDB')
+            array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ENGINE = InnoDB;')
         );
         ?>
     <li><a class='maintain_action' href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
@@ -775,7 +777,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
     $this_url_params = array_merge(
         $url_params,
         array(
-            'sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' REMOVE PARTITIONING'
+            'sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' REMOVE PARTITIONING;'
             )
         );
 ?>

@@ -6,8 +6,6 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
-
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -241,16 +239,6 @@ function get_tab_pos()
            FROM " . PMA_backquote($cfgRelation['db']) . "." . PMA_backquote($cfgRelation['designer_coords']);
     $tab_pos = PMA_DBI_fetch_result($query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE);
     return count($tab_pos) ? $tab_pos : null;
-}
-
-/**
- * returns  distinct values from $GLOBALS['PMD']['OWNER']
- *
- * @return  array   owner
- */
-function get_owners()
-{
-    return array_values(array_unique($GLOBALS['PMD']['OWNER']));
 }
 
 get_tabs();

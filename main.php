@@ -373,12 +373,10 @@ if ($cfg['SuhosinDisableWarning'] == false
     && @ini_get('suhosin.request.max_value_length')
 ) {
     trigger_error(
-        PMA_sanitize(
-            sprintf(
-                __('Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'),
-                '[a@./Documentation.html#faq1_38@_blank]',
-                '[/a]'
-            )
+        sprintf(
+            __('Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'),
+            '[a@./Documentation.html#faq1_38@_blank]',
+            '[/a]'
         ),
         E_USER_WARNING
     );

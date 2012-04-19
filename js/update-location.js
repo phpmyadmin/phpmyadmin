@@ -45,7 +45,7 @@ function fix_favicon() {
     if (jQuery.browser.mozilla) {
         // Move the link tags for the favicon to the bottom
         // of the head element to force a reload of the favicon
-        $('head > link[href=\\.\\/favicon\\.ico]').appendTo('head');
+        $('head > link[href=favicon\\.ico]').appendTo('head');
     }
 }
 

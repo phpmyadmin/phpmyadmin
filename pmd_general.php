@@ -7,6 +7,7 @@
 /**
  *
  */
+require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';
@@ -343,7 +344,6 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 ?>
 </form>
 <div id="pmd_hint"></div>
-<div id='layer_action' style="display:none;">Load...</div>
 
 <table id="layer_new_relation" style="display:none;"
     width="5%" cellpadding="0" cellspacing="0">

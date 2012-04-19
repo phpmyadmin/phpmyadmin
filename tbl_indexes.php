@@ -47,7 +47,7 @@ if (isset($_REQUEST['do_save_data'])) {
     $error = false;
 
     // $sql_query is the one displayed in the query box
-    $sql_query = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+    $sql_query = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ';';
 
     // Drops the old index
     if (! empty($_REQUEST['old_index'])) {
