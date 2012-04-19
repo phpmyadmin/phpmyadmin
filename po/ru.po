@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-14 19:43+0200\n"
+"PO-Revision-Date: 2012-04-18 23:24+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5570,7 +5570,7 @@ msgstr "Детали..."
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
-msgstr "База данных - пуста!"
+msgstr "Пустая база данных!"
 
 #: libraries/db_links.inc.php:65 libraries/relation.lib.php:144
 #: libraries/tbl_links.inc.php:97
