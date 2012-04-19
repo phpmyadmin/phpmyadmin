@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-17 11:33+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -536,7 +536,7 @@ msgstr "テーブル %s に対して条件に一致したものを削除しま�
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -1360,7 +1360,7 @@ msgstr "少なくとも１つの系列を追加してください"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1681,9 +1681,9 @@ msgstr "判断値の算出方法"
 msgid "Test"
 msgstr "判断基準"
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -1707,9 +1707,9 @@ msgstr "カラムを削除しています"
 msgid "Adding Primary Key"
 msgstr "主キーを追加しています"
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "OK"
 
@@ -5768,7 +5768,7 @@ msgstr "エンコーディングへの変換:"
 
 #: libraries/display_git_revision.lib.php:46
 #, php-format
-msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:48
@@ -5780,14 +5780,16 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create version %1$s of %2$s"
+msgid "committed on %1$s by %2$s"
+msgstr "%2$s に世代 %1$s を作成"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create version %1$s of %2$s"
+msgid "authored on %1$s by %2$s"
+msgstr "%2$s に世代 %1$s を作成"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -7284,8 +7286,8 @@ msgstr "変数"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "値"
@@ -8188,9 +8190,9 @@ msgstr "ストレージエンジン"
 msgid "PARTITION definition"
 msgstr "パーティションの定義"
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 msgid "Operator"
 msgstr "演算子"
 
@@ -8578,7 +8580,7 @@ msgstr "左側のメニューを表示する/隠す"
 msgid "Save position"
 msgstr "位置を保存"
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr "リレーションを作成"
 
@@ -8642,37 +8644,37 @@ msgstr "隠す"
 msgid "Number of tables"
 msgstr "テーブル数"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr "リレーションを削除"
 
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 msgid "Relation operator"
 msgstr "リレーション演算子"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 msgid "Except"
 msgstr "以外"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 msgid "subquery"
 msgstr "サブクエリ"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 msgid "Rename to"
 msgstr "変更後の名称"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 msgid "New name"
 msgstr "新しい名前"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 msgid "Aggregate"
 msgstr "集計"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 msgid "Active options"
 msgstr "アクティブオプション"
 
@@ -11977,8 +11979,8 @@ msgstr "変更後のビュー名称"
 #~ "You have a slow query rate of %s per hour, you should have less than 1%% "
 #~ "per hour."
 #~ msgstr ""
-#~ "現在のスロークエリの割合は 1 時間当たり %s です。この値は、1 時間当たり "
-#~ "1%% 未満がいいと言われています。"
+#~ "現在のスロークエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%"
+#~ "% 未満がいいと言われています。"
 
 #~ msgid "Long query time"
 #~ msgstr "長いクエリ時間"
@@ -12623,8 +12625,8 @@ msgstr "変更後のビュー名称"
 #~ "て再起動した場合は、エラーログを確認するようにしてください。"
 
 #~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below "
-#~ "85%%"
+#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
+#~ "%"
 #~ msgstr ""
 #~ "開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいい"
 #~ "と言われています。"
@@ -12751,8 +12753,8 @@ msgstr "変更後のビュー名称"
 #~ "ください。"
 
 #~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below "
-#~ "80%%"
+#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
+#~ "%"
 #~ msgstr ""
 #~ "Max_used_connections は max_connections の %s%% になっています。この値は、"
 #~ "80%% 未満がいいと言われています。"

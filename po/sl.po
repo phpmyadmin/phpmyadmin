@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-18 21:46+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
@@ -542,7 +542,7 @@ msgstr "Izbrišem zadetke v tabeli %s?"
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -1370,7 +1370,7 @@ msgstr "Prosimo, v serijo dodajte vsaj eno spremenljivko"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1644,12 +1644,10 @@ msgid "Import"
 msgstr "Uvozi"
 
 #: js/messages.php:209
-#| msgid "Could not import configuration"
 msgid "Import monitor configuration"
 msgstr "Uvozi konfiguracijo nadziranja"
 
 #: js/messages.php:210
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Prosimo, izberite datoteko, ki jo želite uvoziti"
 
@@ -1689,9 +1687,9 @@ msgstr "Uporabljena spremenljivka/formula"
 msgid "Test"
 msgstr "Preizkus"
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr "Prekliči"
 
@@ -1715,9 +1713,9 @@ msgstr "Brisanje stolpca"
 msgid "Adding Primary Key"
 msgstr "Dodajanje primarnega ključa"
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "V redu"
 
@@ -3324,9 +3322,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
-"Uporabi uporabniku prijazen urejevalnik za urejanje poizvedb SQL "
-"([a@http://codemirror.net/]CodeMirror[/a]) z obarvanjem skladnje in "
-"številkami vrstic"
+"Uporabi uporabniku prijazen urejevalnik za urejanje poizvedb SQL ([a@http://"
+"codemirror.net/]CodeMirror[/a]) z obarvanjem skladnje in številkami vrstic"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
@@ -3442,7 +3439,6 @@ msgid "Whether the table structure actions should be hidden"
 msgstr "Ali naj bodo dejanja strukture tabele skrita"
 
 #: libraries/config/messages.inc.php:59
-#| msgid "Propose table structure"
 msgid "Hide table structure actions"
 msgstr "Skrij dejanja strukture tabele"
 
@@ -4007,13 +4003,10 @@ msgstr ""
 "(seznam tabel)"
 
 #: libraries/config/messages.inc.php:230
-#| msgid "Database structure"
 msgid "Table structure"
 msgstr "Zgradba tabele"
 
 #: libraries/config/messages.inc.php:231
-#| msgid ""
-#| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
 msgstr "Nastavitve zgradbe tebele (seznam stolpcev)"
 
@@ -5797,8 +5790,9 @@ msgid "Encoding Conversion:"
 msgstr "Pretvorba kodiranja:"
 
 #: libraries/display_git_revision.lib.php:46
-#, php-format
-msgid "%s from %s branch"
+#, fuzzy, php-format
+#| msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr "%s z veje %s"
 
 #: libraries/display_git_revision.lib.php:48
@@ -5810,13 +5804,15 @@ msgid "Git revision"
 msgstr "Redakcija Git"
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
+#, fuzzy, php-format
+#| msgid "committed on %s by %s"
+msgid "committed on %1$s by %2$s"
 msgstr "potrjeno dne %s, %s"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
+#, fuzzy, php-format
+#| msgid "authored on %s by %s"
+msgid "authored on %1$s by %2$s"
 msgstr "spremenjeno dne %s, %s"
 
 #: libraries/display_import.lib.php:61
@@ -6570,12 +6566,10 @@ msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
 
 #: libraries/export/mediawiki.php:51
-#| msgid "Export contents"
 msgid "Export table names"
 msgstr "Izvozi imena tabel"
 
 #: libraries/export/mediawiki.php:58
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
 msgstr "Izvozi glave tabel"
 
@@ -7329,8 +7323,8 @@ msgstr "Spremenljivka"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "Vrednost"
@@ -8238,9 +8232,9 @@ msgstr "Pogon skladiščenja"
 msgid "PARTITION definition"
 msgstr "Definicija PARTITION"
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 msgid "Operator"
 msgstr "Operator"
 
@@ -8630,7 +8624,7 @@ msgstr "Pokaži/Skrij levi meni"
 msgid "Save position"
 msgstr "Shrani položaj"
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr "Ustvari razmerje"
 
@@ -8694,37 +8688,37 @@ msgstr "Skrij"
 msgid "Number of tables"
 msgstr "Število tabel"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr "Izbriši razmerje"
 
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 msgid "Relation operator"
 msgstr "Operator razmerja"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 msgid "Except"
 msgstr "Razen"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 msgid "subquery"
 msgstr "podpoizvedba"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 msgid "Rename to"
 msgstr "Preimenuj v"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 msgid "New name"
 msgstr "Novo ime"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 msgid "Aggregate"
 msgstr "Agregat"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 msgid "Active options"
 msgstr "Dejavne možnosti"
 
@@ -11665,7 +11659,6 @@ msgid "Spatial"
 msgstr "Prostorsko"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Različne vrednosti"
 
@@ -12694,8 +12687,8 @@ msgstr "Preimenuj pogled v"
 #~ "ponovnem zagonu, ko spremenite open_files_limit."
 
 #~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below "
-#~ "85%%"
+#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
+#~ "%"
 #~ msgstr ""
 #~ "Število odprtih datotek je na %s %% omejitve. Moralo bi biti pod 85 %%"
 
@@ -12815,8 +12808,8 @@ msgstr "Preimenuj pogled v"
 #~ "Prepričajte se, da koda pravilno zapira upravljavce zbirk podatkov."
 
 #~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below "
-#~ "80%%"
+#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
+#~ "%"
 #~ msgstr ""
 #~ "Max_used_connections je na %s %% max_connections; moralo bi biti pod 80 %%"
 

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-10 22:55+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -539,7 +539,7 @@ msgstr "Kustutada %s tabeli vasted?"
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -1365,7 +1365,7 @@ msgstr "Palun lisa seeriasse vähemalt üks muutuja"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1683,9 +1683,9 @@ msgstr "Kasutatud muutuja / valem"
 msgid "Test"
 msgstr "Testi"
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr "Katkesta"
 
@@ -1709,9 +1709,9 @@ msgstr "Veeru kustutamine"
 msgid "Adding Primary Key"
 msgstr "Primaarvõtme lisamine"
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "OK"
 
@@ -5766,7 +5766,7 @@ msgstr "Kodeerimise teisendus:"
 
 #: libraries/display_git_revision.lib.php:46
 #, php-format
-msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:48
@@ -5778,14 +5778,16 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create version %1$s of %2$s"
+msgid "committed on %1$s by %2$s"
+msgstr "Loo versioon %1$s, %2$s"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create version %1$s of %2$s"
+msgid "authored on %1$s by %2$s"
+msgstr "Loo versioon %1$s, %2$s"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -7282,8 +7284,8 @@ msgstr "Muutuja"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "Väärtus"
@@ -8189,9 +8191,9 @@ msgstr "Varundusmootor"
 msgid "PARTITION definition"
 msgstr "PARTITION definitsioon"
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 msgid "Operator"
 msgstr "Operaator"
 
@@ -8579,7 +8581,7 @@ msgstr "Näita/Peida vasak menüü"
 msgid "Save position"
 msgstr "Salvesta asukoht"
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr "Loo seos"
 
@@ -8643,37 +8645,37 @@ msgstr "Peida"
 msgid "Number of tables"
 msgstr "Tabelite hulk"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr "Kustuta seos"
 
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 msgid "Relation operator"
 msgstr "Seose operaator"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 msgid "Except"
 msgstr "V.a"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 msgid "subquery"
 msgstr "alampäring"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 msgid "Rename to"
 msgstr "Muuda nimeks"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 msgid "New name"
 msgstr "Uus nimi"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 msgid "Aggregate"
 msgstr "Agregaat"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 msgid "Active options"
 msgstr "Aktiivsed valikud"
 
@@ -12599,8 +12601,8 @@ msgstr "Muuda vaate nimeks"
 #~ "muutmist ning taaskäivitamist kontrolli vea logi."
 
 #~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below "
-#~ "85%%"
+#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
+#~ "%"
 #~ msgstr ""
 #~ "Avatud failide hulk on %s%% maksimaalsest. See peaks olema alla 85%%"
 
@@ -12717,8 +12719,8 @@ msgstr "Muuda vaate nimeks"
 #~ "korralikult. Veendu, et kood sulgeb andmebaasikäsitlejad korralikult."
 
 #~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below "
-#~ "80%%"
+#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
+#~ "%"
 #~ msgstr ""
 #~ "Max_used_connections on %s%% max_connections väärtusest. See peaks olema "
 #~ "alla 80%%"
@@ -12742,8 +12744,8 @@ msgstr "Muuda vaate nimeks"
 
 #~ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 #~ msgstr ""
-#~ "%s%% kõikidest ühendustest on katkestatud. See väärtus peaks olema alla "
-#~ "1%%"
+#~ "%s%% kõikidest ühendustest on katkestatud. See väärtus peaks olema alla 1%"
+#~ "%"
 
 #~ msgid "Rate of aborted connections"
 #~ msgstr "Katkestatud ühenduste hulk"

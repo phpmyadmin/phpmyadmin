@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-18 23:24+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
@@ -542,7 +542,7 @@ msgstr "Удалить соответствия для таблицы %s?"
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -1372,7 +1372,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1648,12 +1648,10 @@ msgid "Import"
 msgstr "Импорт"
 
 #: js/messages.php:209
-#| msgid "Could not import configuration"
 msgid "Import monitor configuration"
 msgstr "Импорт настроек монитора"
 
 #: js/messages.php:210
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Пожалуйста, выберите файл, который хотите импортировать"
 
@@ -1693,9 +1691,9 @@ msgstr "Использованная переменная / формула"
 msgid "Test"
 msgstr "Тест"
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -1719,9 +1717,9 @@ msgstr "Удаление столбца"
 msgid "Adding Primary Key"
 msgstr "Добавление первичного ключа"
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "OK"
 
@@ -3335,9 +3333,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
-"Использовать визуальный редактор SQL запросов "
-"([a@http://codemirror.net/]CodeMirror[/a]) с подсветкой синтаксиса и "
-"нумерацией строк"
+"Использовать визуальный редактор SQL запросов ([a@http://codemirror.net/]"
+"CodeMirror[/a]) с подсветкой синтаксиса и нумерацией строк"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
@@ -3452,7 +3449,6 @@ msgid "Whether the table structure actions should be hidden"
 msgstr "Надо ли прятать действия производимые над структурой таблицы"
 
 #: libraries/config/messages.inc.php:59
-#| msgid "Propose table structure"
 msgid "Hide table structure actions"
 msgstr "Спрятать действия над структурой таблицы"
 
@@ -4025,13 +4021,10 @@ msgstr ""
 "таблиц)"
 
 #: libraries/config/messages.inc.php:230
-#| msgid "Database structure"
 msgid "Table structure"
 msgstr "Структура таблицы"
 
 #: libraries/config/messages.inc.php:231
-#| msgid ""
-#| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
 msgstr "Настройки для структуры таблицы (список полей)"
 
@@ -5844,8 +5837,9 @@ msgid "Encoding Conversion:"
 msgstr "Изменение кодировки:"
 
 #: libraries/display_git_revision.lib.php:46
-#, php-format
-msgid "%s from %s branch"
+#, fuzzy, php-format
+#| msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr "%s из %s ветки"
 
 #: libraries/display_git_revision.lib.php:48
@@ -5857,13 +5851,15 @@ msgid "Git revision"
 msgstr "Git ревизия"
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
+#, fuzzy, php-format
+#| msgid "committed on %s by %s"
+msgid "committed on %1$s by %2$s"
 msgstr "отправлено %s, %s"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
+#, fuzzy, php-format
+#| msgid "authored on %s by %s"
+msgid "authored on %1$s by %2$s"
 msgstr "создано %s, %s"
 
 #: libraries/display_import.lib.php:61
@@ -6616,12 +6612,10 @@ msgid "MediaWiki Table"
 msgstr "Таблица MediaWiki"
 
 #: libraries/export/mediawiki.php:51
-#| msgid "Export contents"
 msgid "Export table names"
 msgstr "Экспорт имен таблиц"
 
 #: libraries/export/mediawiki.php:58
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
 msgstr "Экспорт заголовков таблиц"
 
@@ -7378,8 +7372,8 @@ msgstr "Переменная"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "Значение"
@@ -8286,9 +8280,9 @@ msgstr "Тип таблиц"
 msgid "PARTITION definition"
 msgstr "Определение разделов (PARTITION)"
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 msgid "Operator"
 msgstr "Оператор"
 
@@ -8683,7 +8677,7 @@ msgstr "Показать/скрыть левое меню"
 msgid "Save position"
 msgstr "Сохранить расположение таблиц"
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr "Создать связь"
 
@@ -8747,37 +8741,37 @@ msgstr "Скрыть"
 msgid "Number of tables"
 msgstr "Количество таблиц"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr "Удалить связь"
 
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 msgid "Relation operator"
 msgstr "Оператор"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 msgid "Except"
 msgstr "Кроме"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 msgid "subquery"
 msgstr "подзапрос"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 msgid "Rename to"
 msgstr "Переименовать в"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 msgid "New name"
 msgstr "Новое имя"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 msgid "Aggregate"
 msgstr "Объединение"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 msgid "Active options"
 msgstr "Активные параметры"
 
@@ -11764,7 +11758,6 @@ msgid "Spatial"
 msgstr "Пространственный"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Уникальные значения"
 
@@ -12811,8 +12804,8 @@ msgstr "Переименовать представление в"
 #~ "ошибок."
 
 #~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below "
-#~ "85%%"
+#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
+#~ "%"
 #~ msgstr ""
 #~ "Количество открытых файлов составляет %s%% от лимита. Данное значение "
 #~ "должно быть ниже 85%%"
@@ -12937,8 +12930,8 @@ msgstr "Переименовать представление в"
 #~ "в коде корректно закрываются операторы базы данных."
 
 #~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below "
-#~ "80%%"
+#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
+#~ "%"
 #~ msgstr ""
 #~ "Max_used_connections установлен в %s%% от max_connections, данное "
 #~ "значение должно быть ниже 80%%"
@@ -12962,8 +12955,8 @@ msgstr "Переименовать представление в"
 
 #~ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 #~ msgstr ""
-#~ "%s%% от всех соединений были прерваны. Данное значение должно быть ниже "
-#~ "1%%"
+#~ "%s%% от всех соединений были прерваны. Данное значение должно быть ниже 1%"
+#~ "%"
 
 #~ msgid "Rate of aborted connections"
 #~ msgstr "Соотношение прерванных соединений"

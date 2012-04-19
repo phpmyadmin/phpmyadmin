@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-18 19:08+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
@@ -539,7 +539,7 @@ msgstr "Supprimer de la table %s les occurences ?"
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -1372,7 +1372,7 @@ msgstr "Veuillez ajouter au moins une variable à la série"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1646,12 +1646,10 @@ msgid "Import"
 msgstr "Importer"
 
 #: js/messages.php:209
-#| msgid "Could not import configuration"
 msgid "Import monitor configuration"
 msgstr "Importer la configuration de surveillance"
 
 #: js/messages.php:210
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Veuillez choisir le fichier à importer"
 
@@ -1691,9 +1689,9 @@ msgstr "Variable / formule utilisée"
 msgid "Test"
 msgstr "Test"
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1717,9 +1715,9 @@ msgstr "Suppression de la colonne"
 msgid "Adding Primary Key"
 msgstr "Ajout de clé primaire"
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "OK"
 
@@ -3338,9 +3336,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
-"Utiliser un éditeur convivial pour les requêtes SQL "
-"([a@http://codemirror.net/]CodeMirror[/a]) avec coloration syntaxique et "
-"numérotation des lignes"
+"Utiliser un éditeur convivial pour les requêtes SQL ([a@http://codemirror."
+"net/]CodeMirror[/a]) avec coloration syntaxique et numérotation des lignes"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
@@ -3456,7 +3453,6 @@ msgid "Whether the table structure actions should be hidden"
 msgstr "Les actions dans la structure de table devraient-elle être cachées?"
 
 #: libraries/config/messages.inc.php:59
-#| msgid "Propose table structure"
 msgid "Hide table structure actions"
 msgstr "Cacher les actions dans la structure de table"
 
@@ -4024,13 +4020,10 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr "Choisissez les détails à afficher dans la liste des tables"
 
 #: libraries/config/messages.inc.php:230
-#| msgid "Database structure"
 msgid "Table structure"
 msgstr "Structure de table"
 
 #: libraries/config/messages.inc.php:231
-#| msgid ""
-#| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
 msgstr "Réglages pour la structure de table (liste des colonnes)"
 
@@ -5829,8 +5822,9 @@ msgid "Encoding Conversion:"
 msgstr "Conversion de l'encodage : "
 
 #: libraries/display_git_revision.lib.php:46
-#, php-format
-msgid "%s from %s branch"
+#, fuzzy, php-format
+#| msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr "%s sous la branche %s"
 
 #: libraries/display_git_revision.lib.php:48
@@ -5842,14 +5836,16 @@ msgid "Git revision"
 msgstr "Révision Git"
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
+#, fuzzy, php-format
+#| msgid "committed on %s by %s"
+msgid "committed on %1$s by %2$s"
 msgstr "enregistrée le %s par %s"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "committed on %s by %s"
+msgid "authored on %1$s by %2$s"
+msgstr "enregistrée le %s par %s"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -6607,12 +6603,10 @@ msgid "MediaWiki Table"
 msgstr "Tableau MediaWiki"
 
 #: libraries/export/mediawiki.php:51
-#| msgid "Export contents"
 msgid "Export table names"
 msgstr "Exporter le nom des tables"
 
 #: libraries/export/mediawiki.php:58
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
 msgstr "Exporter les en-têtes de table"
 
@@ -7375,8 +7369,8 @@ msgstr "Variable"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "Valeur"
@@ -8287,9 +8281,9 @@ msgstr "Moteur de stockage"
 msgid "PARTITION definition"
 msgstr "Définition de PARTITION"
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 msgid "Operator"
 msgstr "Opérateur"
 
@@ -8688,7 +8682,7 @@ msgstr "Montrer/cacher le menu de gauche"
 msgid "Save position"
 msgstr "Sauvegarder la position"
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr "Nouvelle relation"
 
@@ -8752,37 +8746,37 @@ msgstr "Cacher"
 msgid "Number of tables"
 msgstr "Nombre de tables"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr "Effacer la relation"
 
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 msgid "Relation operator"
 msgstr "Opérateur de relation"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 msgid "Except"
 msgstr "Sauf"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 msgid "subquery"
 msgstr "sous-requête"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 msgid "Rename to"
 msgstr "Renommer en"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 msgid "New name"
 msgstr "Nouveau nom"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 msgid "Aggregate"
 msgstr "Regroupement"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 msgid "Active options"
 msgstr "Options actives"
 
@@ -11758,7 +11752,6 @@ msgid "Spatial"
 msgstr "Spatial"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Valeurs distinctes"
 
@@ -12138,8 +12131,8 @@ msgstr "Changer le nom de la vue pour"
 
 #~ msgid "The slow query rate should be below 5%%, your value is %s%%."
 #~ msgstr ""
-#~ "Le taux de requêtes lentes devrait être sous 5%%, dans votre cas c'est %s"
-#~ "%%."
+#~ "Le taux de requêtes lentes devrait être sous 5%%, dans votre cas c'est %s%"
+#~ "%."
 
 #~ msgid "Slow query rate"
 #~ msgstr "Taux de requêtes lentes"
@@ -12348,8 +12341,8 @@ msgstr "Changer le nom de la vue pour"
 
 #~ msgid "The current query cache hit rate of %s%% is below 20%%"
 #~ msgstr ""
-#~ "Le taux actuel de réussite de la cache de requêtes (%s%%) est sous les "
-#~ "20%%"
+#~ "Le taux actuel de réussite de la cache de requêtes (%s%%) est sous les 20%"
+#~ "%"
 
 #~ msgid "Query Cache usage"
 #~ msgstr "Utilisation de la cache des requêtes"
@@ -12799,8 +12792,8 @@ msgstr "Changer le nom de la vue pour"
 #~ "après avoir redémarré."
 
 #~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below "
-#~ "85%%"
+#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
+#~ "%"
 #~ msgstr ""
 #~ "Le nombre de fichiers ouvert est à %s%% de la limite. Ce nombre devrait "
 #~ "être sous 85%%"
@@ -12923,8 +12916,8 @@ msgstr "Changer le nom de la vue pour"
 #~ "une fermeture correctes des bases de données."
 
 #~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below "
-#~ "80%%"
+#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
+#~ "%"
 #~ msgstr ""
 #~ "Max_used_connections est à %s%% de max_connections, devrait être sous les "
 #~ "80%%"
@@ -12947,8 +12940,8 @@ msgstr "Changer le nom de la vue pour"
 
 #~ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 #~ msgstr ""
-#~ "%s%% du total des connexions ont avorté. Cette valeur devrait être sous "
-#~ "1%%"
+#~ "%s%% du total des connexions ont avorté. Cette valeur devrait être sous 1%"
+#~ "%"
 
 #~ msgid "Rate of aborted connections"
 #~ msgstr "Taux de connexions avortées"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-19 10:24+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
@@ -126,7 +126,6 @@ msgstr "הערות לטבלה"
 #: tbl_change.php:339 tbl_indexes.php:214 tbl_printview.php:137
 #: tbl_relation.php:411 tbl_tracking.php:276 tbl_tracking.php:342
 #: tbl_zoom_select.php:450
-#| msgid "Column names"
 msgid "Column"
 msgstr "עמודה"
 
@@ -256,13 +255,11 @@ msgstr "שם מסד הנתונים ריק!"
 
 #: db_operations.php:311
 #, php-format
-#| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
 msgstr "שם מסד הנתונים %1$s הוחלף בשם %2$s"
 
 #: db_operations.php:315
 #, php-format
-#| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
 msgstr "מסד הנתונים %1$s הועתק אל %2$s"
 
@@ -271,7 +268,6 @@ msgid "Rename database to"
 msgstr "שינוי שם מסד הנתונים לשם"
 
 #: db_operations.php:469
-#| msgid "Rename database to"
 msgid "Remove database"
 msgstr "הסרת מסד הנתונים"
 
@@ -336,16 +332,12 @@ msgstr "איסוף"
 
 #: db_operations.php:598
 #, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr "אחסון התצורה של phpMyAdmin הופסקה. כדי לגלות מדוע יש ללחוץ %sכאן%s."
 
 #: db_operations.php:632
-#| msgid "Display PDF schema"
 msgid "Edit or export relational schema"
 msgstr "עריכה או יצוא של תבנית יחסית"
 
@@ -399,7 +391,6 @@ msgstr "נבדק לאחרונה"
 
 #: db_printview.php:221 db_structure.php:575
 #, php-format
-#| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "טבלה אחת (%s)"
@@ -411,7 +402,6 @@ msgstr "עליך לבחור לפחות עמודה אחת לתצוגה"
 
 #: db_qbe.php:189
 #, php-format
-#| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
 msgstr "מעבר ל%sבונה החזותי%s"
 
@@ -468,12 +458,10 @@ msgid "Modify"
 msgstr "שינוי"
 
 #: db_qbe.php:608
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "הוספת/הסרת שורות של קריטריונים"
 
 #: db_qbe.php:620
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "הוספת/מחיקת עמודות"
 
@@ -537,7 +525,6 @@ msgstr "עיון"
 
 #: db_search.php:252
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "האם למחוק את התוצאות עבור הטבלה %s?"
 
@@ -547,7 +534,7 @@ msgstr "האם למחוק את התוצאות עבור הטבלה %s?"
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -555,7 +542,6 @@ msgstr "מחיקה"
 
 #: db_search.php:266
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>סה״כ:</b> פריט <i>אחד</i> (%s)"
@@ -566,7 +552,6 @@ msgid "Search in database"
 msgstr "חיפוש במסד הנתונים"
 
 #: db_search.php:292
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "מילים או ערכים לחיפוש אחריהם (תו כללי: „%“):"
 
@@ -579,17 +564,14 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "מילים מופרדות ברווח („ “)."
 
 #: db_search.php:315
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "בתוך הטבלאות:"
 
 #: db_search.php:345
-#| msgid "Inside table(s):"
 msgid "Inside column:"
 msgstr "בתוך העמודה:"
 
 #: db_structure.php:84
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "לא נמצאו טבלאות במסד הנתונים"
 
@@ -720,12 +702,10 @@ msgid "Add prefix to table"
 msgstr "הוספת קידומת לטבלה"
 
 #: db_structure.php:683 libraries/mult_submits.inc.php:272
-#| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "החלפת קידומת הטבלה"
 
 #: db_structure.php:685 libraries/mult_submits.inc.php:272
-#| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "העתקת הטבלה עם קידומת"
 
@@ -813,7 +793,6 @@ msgid "Database Log"
 msgstr "יומן מסד נתונים"
 
 #: export.php:40
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "הסוג שגוי!"
 
@@ -822,7 +801,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "סוג הייצוא הנבחר חייב להישמר לקובץ!"
 
 #: export.php:117
-#| msgid "Add new field"
 msgid "Bad parameters!"
 msgstr "פרמטרים שגויים!"
 
@@ -891,12 +869,10 @@ msgstr "נקודה %d"
 
 #: gis_data_editor.php:203 gis_data_editor.php:249 gis_data_editor.php:301
 #: js/messages.php:327
-#| msgid "Add new field"
 msgid "Add a point"
 msgstr "הוספת נקודה"
 
 #: gis_data_editor.php:219 js/messages.php:322
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "מחרוזת שורה"
 
@@ -909,12 +885,10 @@ msgid "Inner Ring"
 msgstr "טבעת פנימית"
 
 #: gis_data_editor.php:251
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "הוספת מחרוזת שורה"
 
 #: gis_data_editor.php:251 gis_data_editor.php:303 js/messages.php:328
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "הוספת טבעת פנימית"
 
@@ -923,7 +897,6 @@ msgid "Polygon"
 msgstr "מצולע"
 
 #: gis_data_editor.php:305 js/messages.php:329
-#| msgid "Add %s field(s)"
 msgid "Add a polygon"
 msgstr "הוספת מצולע"
 
@@ -1410,7 +1383,7 @@ msgstr ""
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1743,9 +1716,9 @@ msgstr ""
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr ""
 
@@ -1772,9 +1745,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "אישור"
 
@@ -5906,7 +5879,7 @@ msgstr ""
 
 #: libraries/display_git_revision.lib.php:46
 #, php-format
-msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:48
@@ -5918,14 +5891,14 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+msgid "committed on %1$s by %2$s"
+msgstr "גרסת שרת"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+msgid "authored on %1$s by %2$s"
+msgstr "גרסת שרת"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -7417,8 +7390,8 @@ msgstr "משתנה"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "ערך"
@@ -8388,9 +8361,9 @@ msgstr "מנוע אחסון"
 msgid "PARTITION definition"
 msgstr ""
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 #, fuzzy
 msgid "Operator"
 msgstr "פעולות"
@@ -8746,7 +8719,7 @@ msgstr ""
 msgid "Save position"
 msgstr ""
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr ""
 
@@ -8816,47 +8789,47 @@ msgstr ""
 msgid "Number of tables"
 msgstr "מספר שדות"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr ""
 
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 #, fuzzy
 msgid "Relation operator"
 msgstr "תצוגת יחסים"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "ייצוא"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "בשאילתה"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 #, fuzzy
 msgid "Rename to"
 msgstr "שינוי שם טבלה אל"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 #, fuzzy
 #| msgid "User name"
 msgid "New name"
 msgstr "שם משתמש"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "יצירה"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 #, fuzzy
 #| msgid "Table options"
 msgid "Active options"

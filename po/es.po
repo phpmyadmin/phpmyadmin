@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-18 17:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -542,7 +542,7 @@ msgstr "¿Eliminar las coincidencias para la tabla %s?"
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -928,8 +928,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena ubicada "
-"debajo en el campo \"Valor\""
+"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena "
+"ubicada debajo en el campo \"Valor\""
 
 #: import.php:86
 #, php-format
@@ -1379,7 +1379,7 @@ msgstr "Por favor agregue al menos una variable a la serie"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1655,12 +1655,10 @@ msgid "Import"
 msgstr "Importar"
 
 #: js/messages.php:209
-#| msgid "Could not import configuration"
 msgid "Import monitor configuration"
 msgstr "Importar configuración de monitorización"
 
 #: js/messages.php:210
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Seleccione el archivo que desea importar"
 
@@ -1700,9 +1698,9 @@ msgstr "Variable/fórmula utilizada"
 msgid "Test"
 msgstr "Prueba"
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1726,9 +1724,9 @@ msgstr "Eliminando Columna"
 msgid "Adding Primary Key"
 msgstr "Añadiendo Clave Primaria"
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "OK"
 
@@ -3473,7 +3471,6 @@ msgid "Whether the table structure actions should be hidden"
 msgstr "Si se debe esconder las acciones sobre la estructura de la tabla"
 
 #: libraries/config/messages.inc.php:59
-#| msgid "Propose table structure"
 msgid "Hide table structure actions"
 msgstr "Esconder acciones sobre la estructura de la tabla"
 
@@ -4049,13 +4046,10 @@ msgstr ""
 "tablas)"
 
 #: libraries/config/messages.inc.php:230
-#| msgid "Database structure"
 msgid "Table structure"
 msgstr "Estructura de tabla"
 
 #: libraries/config/messages.inc.php:231
-#| msgid ""
-#| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
 msgstr "Configuración de la estructura de la tabla (lista de columnas)"
 
@@ -5877,8 +5871,9 @@ msgid "Encoding Conversion:"
 msgstr "Conversión de codificación:"
 
 #: libraries/display_git_revision.lib.php:46
-#, php-format
-msgid "%s from %s branch"
+#, fuzzy, php-format
+#| msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr "%s de rama %s"
 
 #: libraries/display_git_revision.lib.php:48
@@ -5890,13 +5885,15 @@ msgid "Git revision"
 msgstr "Revisión Git"
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
+#, fuzzy, php-format
+#| msgid "committed on %s by %s"
+msgid "committed on %1$s by %2$s"
 msgstr "incorporada el %s por %s"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
+#, fuzzy, php-format
+#| msgid "authored on %s by %s"
+msgid "authored on %1$s by %2$s"
 msgstr "creada el %s por %s"
 
 #: libraries/display_import.lib.php:61
@@ -6663,12 +6660,10 @@ msgid "MediaWiki Table"
 msgstr "Tabla MediaWiki"
 
 #: libraries/export/mediawiki.php:51
-#| msgid "Export contents"
 msgid "Export table names"
 msgstr "Exportar nombres de tabla"
 
 #: libraries/export/mediawiki.php:58
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
 msgstr "Exportar cabeceras de tablas"
 
@@ -7433,8 +7428,8 @@ msgstr "Variable"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "Valor"
@@ -8347,9 +8342,9 @@ msgstr "Motor de almacenamiento"
 msgid "PARTITION definition"
 msgstr "definición de la PARTICIÓN"
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 msgid "Operator"
 msgstr "Operador"
 
@@ -8751,7 +8746,7 @@ msgstr "Ocultar/mostrar menú izquierdo"
 msgid "Save position"
 msgstr "Guardar posición"
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr "Crear relación"
 
@@ -8815,38 +8810,38 @@ msgstr "Ocultar"
 msgid "Number of tables"
 msgstr "Número de tablas"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr "Eliminar la relación"
 
 # Relation refers to actual mathematical operations not the DB-related term
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 msgid "Relation operator"
 msgstr "Operador de relación"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 msgid "Except"
 msgstr "Excepto"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 msgid "subquery"
 msgstr "sub-consulta"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 msgid "Rename to"
 msgstr "Cambiar el nombre a"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 msgid "New name"
 msgstr "Nuevo nombre"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 msgid "Aggregate"
 msgstr "Agregar"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 msgid "Active options"
 msgstr "Opciones activas"
 
@@ -11857,7 +11852,6 @@ msgid "Spatial"
 msgstr "Espacial"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Valores distintos"
 
@@ -12912,8 +12906,8 @@ msgstr "Cambiar el nombre de la vista a"
 #~ "reiniciar luego de cambiar esta variable."
 
 #~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below "
-#~ "85%%"
+#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
+#~ "%"
 #~ msgstr ""
 #~ "La cantidad de archivos abiertos es %s%% del límite. Debería ser menor a "
 #~ "85%%"
@@ -13038,8 +13032,8 @@ msgstr "Cambiar el nombre de la vista a"
 #~ "manejadores de base de datos apropiadamente."
 
 #~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below "
-#~ "80%%"
+#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
+#~ "%"
 #~ msgstr ""
 #~ "«max_used_connections» es %s%% de «max_connections», debería ser menor a "
 #~ "80%%"
@@ -13141,8 +13135,8 @@ msgstr "Cambiar el nombre de la vista a"
 #~ "innodblogfilesize-proper-way.html\">this blog entry</a>"
 #~ msgstr ""
 #~ "Especialmente en un sistema con gran cantidad de escrituras a tablas "
-#~ "InnoDB, debería de configurar «innodb_log_file_size» a aproximadamente "
-#~ "25%% de {innodb_buffer_pool_size}. Sin embargo, mientras mayor sea este "
+#~ "InnoDB, debería de configurar «innodb_log_file_size» a aproximadamente 25%"
+#~ "% de {innodb_buffer_pool_size}. Sin embargo, mientras mayor sea este "
 #~ "valor, mayor será el tiempo de recuperación luego de una caída de la base "
 #~ "de datos, por lo que este valor no debería ser mucho mayor a 256 MiB. "
 #~ "Note, además, que no puede simplemente cambiar el valor de esta variable. "

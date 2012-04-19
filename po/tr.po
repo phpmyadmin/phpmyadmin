@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-18 18:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -536,7 +536,7 @@ msgstr "%s tablosu için benzeşenler silinsin mi?"
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -1362,7 +1362,7 @@ msgstr "Lütfen diziye en az bir değişken ekleyin"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1635,12 +1635,10 @@ msgid "Import"
 msgstr "İçe Aktar"
 
 #: js/messages.php:209
-#| msgid "Could not import configuration"
 msgid "Import monitor configuration"
 msgstr "İzleme yapılandırmasını içe aktar"
 
 #: js/messages.php:210
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Lütfen içe aktarmak istediğiniz dosyayı seçin"
 
@@ -1680,9 +1678,9 @@ msgstr "Kullanılan değişken / formül"
 msgid "Test"
 msgstr "Sınama"
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr "İptal"
 
@@ -1706,9 +1704,9 @@ msgstr "Sütun Kaldırılıyor"
 msgid "Adding Primary Key"
 msgstr "Birincil Anahtar Ekleniyor"
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "TAMAM"
 
@@ -3316,9 +3314,9 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
-"Sözdizimi vurgulama ve satır numaraları ile SQL sorgularını "
-"([a@http://codemirror.net/]CodeMirror[/a]) düzenlemek için kullanımı kolay "
-"düzenleyici kullanın"
+"Sözdizimi vurgulama ve satır numaraları ile SQL sorgularını ([a@http://"
+"codemirror.net/]CodeMirror[/a]) düzenlemek için kullanımı kolay düzenleyici "
+"kullanın"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
@@ -3435,7 +3433,6 @@ msgid "Whether the table structure actions should be hidden"
 msgstr "Tablo yapısı eylemlerinin gizlenip gizlenmeyeceği"
 
 #: libraries/config/messages.inc.php:59
-#| msgid "Propose table structure"
 msgid "Hide table structure actions"
 msgstr "Tablo yapısı eylemlerini gizle"
 
@@ -4002,13 +3999,10 @@ msgstr ""
 "seçin"
 
 #: libraries/config/messages.inc.php:230
-#| msgid "Database structure"
 msgid "Table structure"
 msgstr "Tablo yapısı"
 
 #: libraries/config/messages.inc.php:231
-#| msgid ""
-#| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
 msgstr "Tablo yapısı (sütunların listesi) için ayarlar"
 
@@ -5815,8 +5809,9 @@ msgid "Encoding Conversion:"
 msgstr "Kodlama Dönüştürme:"
 
 #: libraries/display_git_revision.lib.php:46
-#, php-format
-msgid "%s from %s branch"
+#, fuzzy, php-format
+#| msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr "%s, %s dalından"
 
 #: libraries/display_git_revision.lib.php:48
@@ -5828,13 +5823,15 @@ msgid "Git revision"
 msgstr "Git gözden geçirme"
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
+#, fuzzy, php-format
+#| msgid "committed on %s by %s"
+msgid "committed on %1$s by %2$s"
 msgstr "%s tarihinde işlendi, %s tarafından"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
+#, fuzzy, php-format
+#| msgid "authored on %s by %s"
+msgid "authored on %1$s by %2$s"
 msgstr "%s tarihinde hazırlandı, %s tarafından"
 
 #: libraries/display_import.lib.php:61
@@ -6587,12 +6584,10 @@ msgid "MediaWiki Table"
 msgstr "MedyaViki Tablosu"
 
 #: libraries/export/mediawiki.php:51
-#| msgid "Export contents"
 msgid "Export table names"
 msgstr "Tablo adlarını dışa aktar"
 
 #: libraries/export/mediawiki.php:58
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
 msgstr "Tablo başlıklarını dışa aktar"
 
@@ -7348,8 +7343,8 @@ msgstr "Değişken"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "Değer"
@@ -8255,9 +8250,9 @@ msgstr "Depolama Motoru"
 msgid "PARTITION definition"
 msgstr "PARTITION tanımı"
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 msgid "Operator"
 msgstr "İşletici"
 
@@ -8652,7 +8647,7 @@ msgstr "Sol menüyü Göster/Gizle"
 msgid "Save position"
 msgstr "Konumu kaydet"
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr "Bağlantı oluştur"
 
@@ -8716,37 +8711,37 @@ msgstr "Gizle"
 msgid "Number of tables"
 msgstr "Tablo sayısı"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr "Bağlantıyı sil"
 
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 msgid "Relation operator"
 msgstr "Bağlantı işletici"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 msgid "Except"
 msgstr "Hariç"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 msgid "subquery"
 msgstr "alt sorgu"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 msgid "Rename to"
 msgstr "Yeniden şuna adlandır"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 msgid "New name"
 msgstr "Yeni ad"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 msgid "Aggregate"
 msgstr "Topla"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 msgid "Active options"
 msgstr "Aktif seçenekler"
 
@@ -11687,7 +11682,6 @@ msgid "Spatial"
 msgstr "Uzaysal"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Belirgin değerler"
 
@@ -12698,8 +12692,8 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ "değiştirdikten sonra yeniden başlatıldığında hata günlüğünü kontrol edin."
 
 #~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below "
-#~ "85%%"
+#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
+#~ "%"
 #~ msgstr ""
 #~ "Açık dosya sayısı sınıra %%%s kaldı. Değer %%85'in altında olmalıdır"
 
@@ -12817,8 +12811,8 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ "şekilde kapattığından emin olun."
 
 #~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below "
-#~ "80%%"
+#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
+#~ "%"
 #~ msgstr ""
 #~ "Max_used_connections, max_connections'ın %%%s değerinde, değer %%80'in "
 #~ "altında olmalıdır"
@@ -12916,8 +12910,8 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ "innodblogfilesize-proper-way.html\">this blog entry</a>"
 #~ msgstr ""
 #~ "Özellikle InnoDB tablolarına çok fazla yazmalı bir sistemde, "
-#~ "innodb_log_file_size değerini {innodb_buffer_pool_size} değerinin "
-#~ "%%25'ine ayarlamalısınız. Ancak bu değeri daha büyütmek, veritabanı "
+#~ "innodb_log_file_size değerini {innodb_buffer_pool_size} değerinin %"
+#~ "%25'ine ayarlamalısınız. Ancak bu değeri daha büyütmek, veritabanı "
 #~ "çökmelerinde kurtarma zamanı daha uzun olacaktır, bu yüzden bu değer 256 "
 #~ "MiB'tan çok daha yükseğe ayarlanmamalıdır. Lütfen unutmayın yine de "
 #~ "bununla birlikte bu değişkenin değerini basitçe değiştiremezsiniz. "
@@ -12987,8 +12981,8 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ "InnoDB arabellek havuzu InnoDB tabloları için performansta derin etki "
 #~ "yapar. Tüm kalan belleğinizi bu arabelleğe atayın. Veritabanı sunucuları "
 #~ "için depolama motoru olarak sadece InnoDB kullanın ve başka çalışan "
-#~ "hizmetler (örn. web sunucusu) olmasın, bunu kullanılabilir belleğin "
-#~ "%%80'nine kadar ayarlayabilirsiniz. Eğer durum bu değilse, diğer "
+#~ "hizmetler (örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %"
+#~ "%80'nine kadar ayarlayabilirsiniz. Eğer durum bu değilse, diğer "
 #~ "hizmetlerinizin ve InnoDB-Tabloları olmayanların bellek tüketimini "
 #~ "dikkatlice değerlendirmeniz ve dolayısıyla bu değişkeni ayarlamanız "
 #~ "gerekir. Eğer çok yükseğe ayarlanırsa, sisteminiz önemli derecede "

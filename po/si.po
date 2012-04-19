@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-18 13:13+0200\n"
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
 "PO-Revision-Date: 2012-04-19 03:01+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -535,7 +535,7 @@ msgstr "%s වගුව තුල ගැලපීම් ඉවත් කරන�
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:434
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
 msgid "Delete"
@@ -1349,7 +1349,7 @@ msgstr "කරුණාකර ශ්‍රේණියට අවම වශයෙ
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:521
+#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
 #: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1661,9 +1661,9 @@ msgstr "භාවිතා කරන ලද විචල්‍යයන් / ස
 msgid "Test"
 msgstr "ඇගයීම"
 
-#: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
-#: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
-#: pmd_general.php:734 pmd_general.php:797 pmd_general.php:828
+#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
+#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
+#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
 msgid "Cancel"
 msgstr "අවලංගු කරන්න"
 
@@ -1689,9 +1689,9 @@ msgstr "තීරුව හලමින්"
 msgid "Adding Primary Key"
 msgstr "ප්‍රාථමික මූලය එක් කරමින්"
 
-#: js/messages.php:236 pmd_general.php:397 pmd_general.php:554
-#: pmd_general.php:602 pmd_general.php:678 pmd_general.php:732
-#: pmd_general.php:795
+#: js/messages.php:236 pmd_general.php:396 pmd_general.php:553
+#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
+#: pmd_general.php:794
 msgid "OK"
 msgstr "OK"
 
@@ -3378,7 +3378,6 @@ msgid "Whether the table structure actions should be hidden"
 msgstr "වගු සැකිල්ලට අදාල ක්‍රියාවන් සැඟවිය යුතුද යන වග"
 
 #: libraries/config/messages.inc.php:59
-#| msgid "Propose table structure"
 msgid "Hide table structure actions"
 msgstr "වගු සැකිල්ලට අදාල ක්‍රියාවන් සඟවන්න"
 
@@ -3933,13 +3932,10 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr "දත්තගබඩා සැකිල්ලේ (වගු ලයිස්තුවේ) පෙන්විය යුතු විස්තර තෝරන්න"
 
 #: libraries/config/messages.inc.php:230
-#| msgid "Database structure"
 msgid "Table structure"
 msgstr "වගු සැකිල්ල"
 
 #: libraries/config/messages.inc.php:231
-#| msgid ""
-#| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
 msgstr "වගු සැකිල්ලට අදාල සිටුවම් (තීර ලැයිස්තුව)"
 
@@ -5644,7 +5640,7 @@ msgstr "MySQL සේවාදායකයාගේ සංස්කරණය"
 
 #: libraries/display_git_revision.lib.php:46
 #, php-format
-msgid "%s from %s branch"
+msgid "%1$s from %2$s branch"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:48
@@ -5656,14 +5652,16 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:57
-#, php-format
-msgid "committed on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create version %1$s of %2$s"
+msgid "committed on %1$s by %2$s"
+msgstr "%2$s හි %1$s වන අනුවාදය සාදන්න"
 
 #: libraries/display_git_revision.lib.php:64
-#, php-format
-msgid "authored on %s by %s"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Create version %1$s of %2$s"
+msgid "authored on %1$s by %2$s"
+msgstr "%2$s හි %1$s වන අනුවාදය සාදන්න"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -7094,8 +7092,8 @@ msgstr "විචල්‍යය"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786 server_status.php:1504 tbl_change.php:367
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
 #: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "අගය"
@@ -7976,9 +7974,9 @@ msgstr "ගබඩා යන්ත්‍ර‍"
 msgid "PARTITION definition"
 msgstr ""
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:498 pmd_general.php:518
-#: pmd_general.php:640 pmd_general.php:653 pmd_general.php:716
-#: pmd_general.php:770
+#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
+#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
+#: pmd_general.php:769
 msgid "Operator"
 msgstr "මෙහෙයවනය"
 
@@ -8337,7 +8335,7 @@ msgstr "වම් මෙනුව පෙන්වන්න/සඟවන්න"
 msgid "Save position"
 msgstr "ස්ථාපිතය සුරකින්න"
 
-#: pmd_general.php:89 pmd_general.php:363
+#: pmd_general.php:89 pmd_general.php:362
 msgid "Create relation"
 msgstr "සම්බන්දතාවයක් සාදන්න"
 
@@ -8401,38 +8399,38 @@ msgstr "සඟවන්න"
 msgid "Number of tables"
 msgstr "වගු ගණන"
 
-#: pmd_general.php:429
+#: pmd_general.php:428
 msgid "Delete relation"
 msgstr ""
 
-#: pmd_general.php:471 pmd_general.php:530
+#: pmd_general.php:470 pmd_general.php:529
 #, fuzzy
 msgid "Relation operator"
 msgstr "Relation view"
 
-#: pmd_general.php:481 pmd_general.php:540 pmd_general.php:663
-#: pmd_general.php:780
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
 msgid "Except"
 msgstr "හැර"
 
-#: pmd_general.php:487 pmd_general.php:546 pmd_general.php:669
-#: pmd_general.php:786
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
 msgid "subquery"
 msgstr "උප විමසුම"
 
-#: pmd_general.php:491 pmd_general.php:587
+#: pmd_general.php:490 pmd_general.php:586
 msgid "Rename to"
 msgstr "නව නාමය"
 
-#: pmd_general.php:493 pmd_general.php:592
+#: pmd_general.php:492 pmd_general.php:591
 msgid "New name"
 msgstr "නව නාමය"
 
-#: pmd_general.php:496 pmd_general.php:711
+#: pmd_general.php:495 pmd_general.php:710
 msgid "Aggregate"
 msgstr "එකතු කරන්න"
 
-#: pmd_general.php:821
+#: pmd_general.php:820
 msgid "Active options"
 msgstr "සක්‍රිය විකල්ප"
 
@@ -9786,8 +9784,7 @@ msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
-"ලොග බෆරය කුඩා වීම නිසා ඉදිරියට යාමට පෙර එය හිස් කෙරෙන තුරු බලා සිටීමට සිදු "
-"වූ වාර ගණන."
+"ලොග බෆරය කුඩා වීම නිසා ඉදිරියට යාමට පෙර එය හිස් කෙරෙන තුරු බලා සිටීමට සිදු වූ වාර ගණන."
 
 #: server_status.php:1374
 msgid "The number of log write requests."
