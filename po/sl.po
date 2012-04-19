@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-18 21:46+0200\n"
+"PO-Revision-Date: 2012-04-19 17:03+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
@@ -5790,10 +5790,10 @@ msgid "Encoding Conversion:"
 msgstr "Pretvorba kodiranja:"
 
 #: libraries/display_git_revision.lib.php:46
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s from %s branch"
 msgid "%1$s from %2$s branch"
-msgstr "%s z veje %s"
+msgstr "%1$s z veje %2$s"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
@@ -5804,16 +5804,16 @@ msgid "Git revision"
 msgstr "Redakcija Git"
 
 #: libraries/display_git_revision.lib.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "committed on %s by %s"
 msgid "committed on %1$s by %2$s"
-msgstr "potrjeno dne %s, %s"
+msgstr "potrdil(-a) %2$s dne %1$s"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %s by %s"
 msgid "authored on %1$s by %2$s"
-msgstr "spremenjeno dne %s, %s"
+msgstr "spremenil(-a) %2$s dne %1$s"
 
 #: libraries/display_import.lib.php:61
 msgid ""
