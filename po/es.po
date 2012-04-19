@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-18 17:32+0200\n"
+"PO-Revision-Date: 2012-04-19 16:45+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5871,10 +5871,10 @@ msgid "Encoding Conversion:"
 msgstr "Conversión de codificación:"
 
 #: libraries/display_git_revision.lib.php:46
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s from %s branch"
 msgid "%1$s from %2$s branch"
-msgstr "%s de rama %s"
+msgstr "%1$s de rama %2$s"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
@@ -5885,16 +5885,16 @@ msgid "Git revision"
 msgstr "Revisión Git"
 
 #: libraries/display_git_revision.lib.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "committed on %s by %s"
 msgid "committed on %1$s by %2$s"
-msgstr "incorporada el %s por %s"
+msgstr "incorporada el %1$s por %2$s"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %s by %s"
 msgid "authored on %1$s by %2$s"
-msgstr "creada el %s por %s"
+msgstr "creada el %1$s por %2$s"
 
 #: libraries/display_import.lib.php:61
 msgid ""
