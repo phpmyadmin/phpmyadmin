@@ -12287,7 +12287,7 @@ msgstr "Cambiar el nombre de la vista a"
 #~ msgid "Release Series"
 #~ msgstr "Serie de versiones"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "La versión del servidor MySQL es menor a 5.1."
 
 #~ msgid ""

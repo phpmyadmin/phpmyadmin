@@ -12271,7 +12271,7 @@ msgstr "Rinomina la vista in"
 #~ msgid "Release Series"
 #~ msgstr "Cancella la serie"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "La versione del server MySQL è inferiore a 5.1."
 
 #~ msgid ""

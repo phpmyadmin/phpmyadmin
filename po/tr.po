@@ -12111,7 +12111,7 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ msgid "Release Series"
 #~ msgstr "Diziyi Yayımla"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "MySQL sunucusu sürümü 5.1'den az."
 
 #~ msgid ""

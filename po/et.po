@@ -12015,7 +12015,7 @@ msgstr "Muuda vaate nimeks"
 #~ msgid "Release Series"
 #~ msgstr "Väljaande seeria"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "MySQL serveri versioon on alla 5.1."
 
 #~ msgid ""

@@ -11660,7 +11660,7 @@ msgstr "将视图改名为"
 #~ msgid "Release Series"
 #~ msgstr "清除所有数据"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "MySQL 服务器版本低于 5.1。"
 
 #~ msgid ""

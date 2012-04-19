@@ -12191,7 +12191,7 @@ msgstr "Changer le nom de la vue pour"
 #~ msgid "Release Series"
 #~ msgstr "Famille de versions"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "La version du serveur MySQL est antérieure à 5.1."
 
 #~ msgid ""

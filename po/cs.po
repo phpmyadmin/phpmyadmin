@@ -12018,7 +12018,7 @@ msgstr "Přejmenovat pohled na"
 #~ msgid "Release Series"
 #~ msgstr "Vydání"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "MySQL server je starší než 5.1."
 
 #~ msgid ""
