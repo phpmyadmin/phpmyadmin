@@ -1552,7 +1552,7 @@ $link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" hre
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
  * Flush Privileges, show $message and exit.
  */
-if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export') && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
+if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export') && (! isset($_REQUEST['adduser']) || $_add_user_error) && (! isset($_REQUEST['initial']) || empty($_REQUEST['initial'])) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
     if (isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
