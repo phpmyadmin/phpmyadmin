@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-18 18:55+0200\n"
+"PO-Revision-Date: 2012-04-19 03:01+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -682,7 +682,7 @@ msgstr "මුද්‍රණ දර්ශනය"
 #: db_structure.php:587 libraries/common.lib.php:3352
 #: libraries/common.lib.php:3353
 msgid "Empty"
-msgstr "හිස්"
+msgstr "හිස් කරන්න"
 
 #: db_structure.php:589 db_tracking.php:105 enum_editor.php:116
 #: libraries/Index.class.php:490 libraries/common.lib.php:3350
@@ -697,7 +697,7 @@ msgstr "වගුව පරීක්ෂා කරන්න"
 
 #: db_structure.php:594 tbl_operations.php:669 tbl_structure.php:816
 msgid "Optimize table"
-msgstr "ප්‍රශස්තගත වගුව"
+msgstr "වගුව ප්‍රශස්තගත කරන්න"
 
 #: db_structure.php:596 tbl_operations.php:654
 msgid "Repair table"
@@ -9659,23 +9659,23 @@ msgstr ""
 
 #: server_status.php:1323
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "අභ්‍යන්තරව සිදු කෙරුණු ROLLBACK ප්‍රකාශ ගණන."
 
 #: server_status.php:1324
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "වගුවක පේළියක් යාවත්කාලීන කිරීම සඳහා කෙරුණු ඉල්ලීම් ගණන."
 
 #: server_status.php:1325
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "වගුවකට පේළියක් ඇතුලු කිරීම සඳහා කෙරුණු ඉල්ලීම් ගණන."
 
 #: server_status.php:1326
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
+msgstr "දත්ත අඩංගු පිටු ගණන (අපවිත්‍ර හෝ පවිත්‍ර)."
 
 #: server_status.php:1327
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "දැනට අපවිත්‍රව ඇති පිටු ගණන."
 
 #: server_status.php:1328
 msgid "The number of buffer pool pages that have been requested to be flushed."
@@ -9765,11 +9765,11 @@ msgstr "මුළු දත්ත කියැවුම් ගණන."
 
 #: server_status.php:1345
 msgid "The total number of data writes."
-msgstr ""
+msgstr "මුළු දත්ත ලියැවුම් ගණන."
 
 #: server_status.php:1346
 msgid "The amount of data written so far, in bytes."
-msgstr ""
+msgstr "මේ දක්වා ලියැවුණු දත්ත ප්‍රමාණය, බයිට වලින්."
 
 #: server_status.php:1347
 msgid "The number of pages that have been written for doublewrite operations."
@@ -9788,10 +9788,12 @@ msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
+"ලොග බෆරය කුඩා වීම නිසා ඉදිරියට යාමට පෙර එය හිස් කෙරෙන තුරු බලා සිටීමට සිදු "
+"වූ වාර ගණන."
 
 #: server_status.php:1350
 msgid "The number of log write requests."
-msgstr ""
+msgstr "ලොගය වෙත ලිවීමට කෙරුණු ඉල්ලීම් ගණන."
 
 #: server_status.php:1351
 msgid "The number of physical writes to the log file."
