@@ -22,25 +22,19 @@ if ($GLOBALS['cfg']['CodemirrorEnable']) {
 }
 $_add_user_error = false;
 
-require 'libraries/server_common.inc.php';
-
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $conditional_class = 'ajax';
-} else {
-    $conditional_class = '';
-}
-
 /**
  * Sets globals from $_GET
  */
 
 $get_params = array(
     'checkprivs',
+    'db',
     'dbname',
     'hostname',
     'initial',
     'tablename',
-    'username'
+    'username',
+    'viewing_mode'
 );
 foreach ($get_params as $one_get_param) {
     if (isset($_GET[$one_get_param])) {
@@ -86,6 +80,14 @@ foreach (array_keys($_POST) as $post_key) {
             $GLOBALS[$post_key] = $_POST[$post_key];
         }
     }
+}
+
+require 'libraries/server_common.inc.php';
+
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $conditional_class = 'ajax';
+} else {
+    $conditional_class = '';
 }
 
 /**
