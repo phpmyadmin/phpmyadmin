@@ -122,22 +122,17 @@ foreach ($sheets as $sheet) {
                     $num_iterations = $num_repeat ? $num_repeat : 1;
 
                     for ($k = 0; $k < $num_iterations; $k++) {
-                        if (! $col_names_in_first_row) {
-                            if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
-                                $tempRow[] = (double)$cell_attrs['value'];
-                            } elseif ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
-                                $tempRow[] = (double)$cell_attrs['value'];
-                            } else {
-                                $tempRow[] = (string)$text;
-                            }
+                        if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
+                            $value = (double)$cell_attrs['value'];
+                        } elseif ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
+                            $value = (double)$cell_attrs['value'];
                         } else {
-                            if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
-                                $col_names[] = (double)$cell_attrs['value'];
-                            } else if ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
-                                $col_names[] = (double)$cell_attrs['value'];
-                            } else {
-                                $col_names[] = (string)$text;
-                            }
+                            $value = (string)$text;
+                        }
+                        if (! $col_names_in_first_row) {
+                            $tempRow[] = $value;
+                        } else {
+                            $col_names[] = $value;
                         }
 
                         ++$col_count;
