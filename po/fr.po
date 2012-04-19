@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-19 12:31+0200\n"
+"PO-Revision-Date: 2012-04-19 12:34+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -5845,7 +5845,7 @@ msgstr "enregistrée le %1$s par %2$s"
 #, php-format
 #| msgid "committed on %s by %s"
 msgid "authored on %1$s by %2$s"
-msgstr "l'auteur étant %2$s le %1$s"
+msgstr "l'auteur était %2$s en date du %1$s"
 
 #: libraries/display_import.lib.php:61
 msgid ""
