@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-19 10:24+0200\n"
+"PO-Revision-Date: 2012-04-19 12:51+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
 "Language: he\n"
@@ -946,6 +946,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"ניסית לטעון קובץ עם דחיסה שאינה נתמכת (%s). או שהתמיכה בדחיסה לא הוטמעה או "
+"שבוטלה בהגדרות שלך."
 
 #: import.php:398
 msgid ""
@@ -953,44 +955,51 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"לא התקבלו נתונים לייבוא. או שלא נשלח שום קובץ או שגודל הקובץ חרג מהגודל "
+"המרבי המותר בתצורת ה־PHP שלך. ניתן לעיין "
+"ב[a@./Documentation.html#faq1_16@Documentation]שו״ת 1.16[/a]."
 
 #: import.php:415
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "לא ניתן להמיר את קידוד התווים של הקובץ ללא ספרייה להמרת קידודי תווים"
 
 #: import.php:439 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "לא ניתן לטעון את תוספי הייבוא, נא לבדוק האם ההתקנה שלך תקינה!"
 
 #: import.php:470 sql.php:973
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "הסימנייה %s נוצרה"
 
 #: import.php:476 import.php:482
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "הייבוא הושלם בהצלחה, הופעלו %d שאילתות."
 
 #: import.php:491
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"תום זמן ההמתנה של הסקריפט עבר, אם ברצונך לסיים את הייבוא נא לשלוח מחדש את "
+"אותו הקובץ והייבוא יימשך."
 
 #: import.php:493
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"עם זאת, בהרצה האחרונה לא נותחו נתונים כלל, לרוב משמעות הדבר היא ש־phpMyAdmin "
+"לא יוכל להשלים יבוא זה אלמלא גבול זמן ההמתנה של ה־php יוגדל."
 
 #: import.php:521 libraries/Message.class.php:177
 #: libraries/display_tbl.lib.php:2402 libraries/rte/rte_routines.lib.php:1208
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:225
 #: tbl_relation.php:300 tbl_row_action.php:118 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "שאילתת SQL שלך בוצעה בהצלחה"
+msgstr "שאילתת ה־SQL שלך בוצעה בהצלחה"
 
 #: import_status.php:117 libraries/common.lib.php:710
 #: libraries/schema/Export_Relation_Schema.class.php:240 user_password.php:205
@@ -999,27 +1008,28 @@ msgstr "חזרה"
 
 #: index.php:163
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin יותר ידידותי עם דפדפן <b>frames-capable</b>."
+msgstr ""
+"phpMyAdmin מתנהג בצורה יותר ידידותית עם דפדפן התומך במסגרות (<b>frames-"
+"capable</b>)."
 
 #: js/messages.php:27 libraries/import.lib.php:105 sql.php:287
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "הוראות \"DROP DATABASE\" מבוטלות."
+msgstr "הוראות \"DROP DATABASE\" מנוטרלות."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "האם אתה באמת רוצה "
+msgstr "האם אכן ברצונך להפעיל את „%s”?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:373
 msgid "You are about to DESTROY a complete database!"
-msgstr "אתה עומד להרוס מאגר נתונים שלם!"
+msgstr "פעולה זו עלולה להשמיד מסד נתונים שלם!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "אתה עומד להרוס מאגר נתונים שלם!"
+msgstr "פעולה זו עלולה להשמיד טבלה שלמה!"
 
 #: js/messages.php:33
 #, fuzzy
