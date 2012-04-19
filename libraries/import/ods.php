@@ -127,7 +127,12 @@ foreach ($sheets as $sheet) {
                         } elseif ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
                             $value = (double)$cell_attrs['value'];
                         } else {
-                            $value = (string)$text;
+                            /* We need to concatenate all paragraphs */
+                            $values = array();
+                            foreach ($text as $paragraph) {
+                                $values[] = (string)$paragraph;
+                            }
+                            $value = implode("\n", $values);
                         }
                         if (! $col_names_in_first_row) {
                             $tempRow[] = $value;
