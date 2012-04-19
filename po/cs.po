@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-11 11:46+0200\n"
+"PO-Revision-Date: 2012-04-19 11:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1628,7 +1628,7 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
-"Selhalo vytvoření grafu z importované konfigurace. Používám výchozí "
+"Selhalo vytvoření grafu z importovaného nastavení. Používám výchozí "
 "nastavení..."
 
 #: js/messages.php:208 libraries/config/messages.inc.php:174
@@ -1639,16 +1639,14 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Nepodařilo se nahrát konfiguraci"
+msgstr "Nahrát nastavení monitoru"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Zvolte, prosím, primární nebo unikátní klíč"
+msgstr "Zvolte, prosím, soubor, který chcete nahrát"
 
 #: js/messages.php:212
 msgid "Analyse Query"
@@ -3310,10 +3308,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Použít uživatelsky přívětivý editor pro úpravu SQL dotazů "
+"([a@http://codemirror.net/]CodeMirror[/a]) se zvýrazněním syntaxe a čísly "
+"řádek"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Povolit CodeMirror"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3418,13 +3419,12 @@ msgstr "Výchozí panel tabulky"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Jestli mají být schovávány akce při zobrazení struktury tabulek"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Navrhnout strukturu tabulky"
+msgstr "Schovat akce při zobrazení struktury tabulky"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -3895,7 +3895,7 @@ msgstr "Vložte parametry připojení k serveru"
 
 #: libraries/config/messages.inc.php:208
 msgid "Configuration storage"
-msgstr "Úložiště konfigurace"
+msgstr "Úložiště nastavení"
 
 #: libraries/config/messages.inc.php:209
 msgid ""
@@ -3986,18 +3986,15 @@ msgstr ""
 "Zvolte co se má zobrazit při zobrazení struktury databáze (seznam tabulek)"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "Struktura databáze"
+msgstr "Struktura tabulky"
 
 #: libraries/config/messages.inc.php:231
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
-"Zvolte co se má zobrazit při zobrazení struktury databáze (seznam tabulek)"
+msgstr "Zvolte co se má zobrazit při zobrazení struktury tabulky (seznam polí)"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -5770,15 +5767,15 @@ msgstr "Převod znakové sady:"
 #: libraries/display_git_revision.lib.php:46
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s z větve %2$s"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
-msgstr ""
+msgstr "žádná větev"
 
 #: libraries/display_git_revision.lib.php:54
 msgid "Git revision"
-msgstr ""
+msgstr "Revize Gitu"
 
 #: libraries/display_git_revision.lib.php:57
 #, fuzzy, php-format
@@ -10783,7 +10780,7 @@ msgstr "Současné připojení"
 #: server_synchronize.php:1331
 #, php-format
 msgid "Configuration: %s"
-msgstr "Konfigurace: %s"
+msgstr "Z nastavení: %s"
 
 #: server_synchronize.php:1346
 msgid "Socket"
@@ -10861,14 +10858,14 @@ msgstr "Nezabezpečené připojení"
 
 #: setup/frames/index.inc.php:98
 msgid "Configuration saved."
-msgstr "Konfigurace uložena."
+msgstr "Nastavení bylo uloženo."
 
 #: setup/frames/index.inc.php:99
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
-"Konfigurace byla uložena do souboru config/config.inc.php v adresáři "
+"Nastavení bylo uloženo do souboru config/config.inc.php v adresáři "
 "phpMyAdmina, přesuňte ji do adresáře phpMyAdmin a smažte adresář config pro "
 "její použití."
 
