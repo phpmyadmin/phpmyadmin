@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-18 18:35+0200\n"
+"PO-Revision-Date: 2012-04-19 15:55+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5809,10 +5809,10 @@ msgid "Encoding Conversion:"
 msgstr "Kodlama Dönüştürme:"
 
 #: libraries/display_git_revision.lib.php:46
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s from %s branch"
 msgid "%1$s from %2$s branch"
-msgstr "%s, %s dalından"
+msgstr "%2$s dalından %1$s"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
@@ -5823,16 +5823,16 @@ msgid "Git revision"
 msgstr "Git gözden geçirme"
 
 #: libraries/display_git_revision.lib.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "committed on %s by %s"
 msgid "committed on %1$s by %2$s"
-msgstr "%s tarihinde işlendi, %s tarafından"
+msgstr "%2$s tarafından %1$s tarihinde işlendi"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %s by %s"
 msgid "authored on %1$s by %2$s"
-msgstr "%s tarihinde hazırlandı, %s tarafından"
+msgstr "%2$s tarafından %1$s tarihinde hazırlandı"
 
 #: libraries/display_import.lib.php:61
 msgid ""
