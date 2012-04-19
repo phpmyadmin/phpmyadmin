@@ -626,6 +626,12 @@ $(document).ready(function() {
             PMA_addDatepicker($(this));
         });
     }
+    /**
+     * Add attribute to text boxes for iOS devices (based on bugID: 3508912)
+     */
+    if (navigator.userAgent.match(/(iphone|ipod|ipad)/i)) {
+        $('input[type=text]').attr('autocapitalize','off').attr('autocorrect','off');
+    }
 });
 
 /**
