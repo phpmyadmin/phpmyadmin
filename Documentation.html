@@ -1694,6 +1694,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         from editing when browsing a table's content. Valid values are:
         <ul><li><code>FALSE</code> to allow editing of all columns;</li>
             <li><code>'blob'</code> to allow editing of all columns except <code>BLOBS</code>;</li>
+            <li><code>'noblob'</code> to disallow editing of all columns except <code>BLOBS</code> 
+                (the opposite of <code>'blob'</code>);</li>
             <li><code>'all'</code> to disallow editing of all <code>BINARY</code> or
                 <code>BLOB</code> columns.</li>
         </ul>

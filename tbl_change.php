@@ -594,7 +594,8 @@ foreach ($rows as $row_id => $vrow) {
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
             if (($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary']))
-                && $_SESSION['tmp_user_values']['display_binary_as_hex']
+                && (isset($_SESSION['tmp_user_values']['display_binary_as_hex']) 
+                    && $_SESSION['tmp_user_values']['display_binary_as_hex'])
                 && $cfg['ShowFunctionFields']
             ) {
                 $field['display_binary_as_hex'] = true;
@@ -616,6 +617,7 @@ foreach ($rows as $row_id => $vrow) {
         if ($cfg['ShowFunctionFields']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
+                || ($cfg['ProtectBinary'] == 'noblob' && !$field['is_blob'])
             ) {
                 echo '        <td class="center">' . __('Binary') . '</td>' . "\n";
             } elseif (strstr($field['True_Type'], 'enum')
@@ -863,6 +865,7 @@ foreach ($rows as $row_id => $vrow) {
         } elseif ($field['is_binary'] || $field['is_blob']) {
             if (($cfg['ProtectBinary'] && $field['is_blob'])
                 || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
+                || ($cfg['ProtectBinary'] == 'noblob' && !$field['is_blob'])
             ) {
                 echo __('Binary - do not edit');
                 if (isset($data)) {

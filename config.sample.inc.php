@@ -89,9 +89,10 @@ $cfg['SaveDir'] = '';
 /**
  * disallow editing of binary fields
  * valid values are:
- *   false  allow editing
- *   'blob' allow editing except for BLOB fields
- *   'all'  disallow editing
+ *   false    allow editing
+ *   'blob'   allow editing except for BLOB fields
+ *   'noblob' disallow editing except for BLOB fields
+ *   'all'    disallow editing
  * default = blob
  */
 //$cfg['ProtectBinary'] = 'false';
