@@ -29,6 +29,8 @@ phpMyAdmin - ChangeLog
 - Patch #3415061 [auth] Login screen appears under the page
 + rfe #3517354 [interface] Allow disabling CodeMirror with $cfg['CodemirrorEnable'] = false
 + rfe #3475567 [interface] New directive $cfg['HideStructureActions']
+- bug #3468272 [import] Fixed import of ODS with more paragraphs in a cell
+- bug #3510196 [core] Improved redirecting with ForceSSL option
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered

@@ -12243,7 +12243,7 @@ msgstr "View hernoemen naar"
 #~ msgid "Release Series"
 #~ msgstr "Groep van uitgebrachte versies"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "De MySQL-server versie is kleiner dan 5.1."
 
 #~ msgid ""

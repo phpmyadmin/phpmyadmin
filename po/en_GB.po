@@ -12025,8 +12025,8 @@ msgstr "Rename view to"
 #~ msgid "Release Series"
 #~ msgstr "Release Series"
 
-#~ msgid "The MySQL server version less then 5.1."
-#~ msgstr "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
+#~ msgstr "The MySQL server version less than 5.1."
 
 #~ msgid ""
 #~ "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "

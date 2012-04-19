@@ -1163,6 +1163,32 @@ class PMA_Config
     }
 
     /**
+     * Converts currently used PmaAbsoluteUri to SSL based variant.
+     *
+     * @return String witch adjusted URI
+     */
+    function getSSLUri()
+    {
+        // grab current URL
+        $url = $this->get('PmaAbsoluteUri');
+        // Parse current URL
+        $parsed = parse_url($url);
+        // In case parsing has failed do stupid string replacement
+        if ($parsed === false) {
+            // Replace http protocol
+            return preg_replace('@^http:@', 'https:', $url);
+        }
+
+        // Reconstruct URL using parsed parts
+        if($this->get('SSLPort')) {
+            $port_number = $this->get('SSLPort');
+        } else {
+            $port_number = 443;
+        }
+        return 'https://' . $parsed['host'] . ':' . $port_number . $parsed['path'];
+    }
+
+    /**
      * check selected collation_connection
      *
      * @todo check validity of $_REQUEST['collation_connection']

@@ -12149,7 +12149,7 @@ msgstr "Zmień nazwę widoku na"
 #~ msgid "Release Series"
 #~ msgstr "Seria wydania"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "Wersja serwera MySQL jest mniejsza niż 5,1."
 
 #~ msgid ""

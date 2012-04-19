@@ -12061,7 +12061,7 @@ msgstr "Ändra namn till"
 #~ msgid "Release Series"
 #~ msgstr "Releasa serien"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "MySQL server version är mindre än 5.1."
 
 #~ msgid ""

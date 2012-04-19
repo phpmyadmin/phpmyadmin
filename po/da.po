@@ -12207,7 +12207,7 @@ msgstr "Omdøb view til"
 #~ msgid "Release Series"
 #~ msgstr "Udgivelsesserie"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "Versionen af MySQL server er mindre end 5.1"
 
 #~ msgid ""

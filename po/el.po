@@ -12292,7 +12292,7 @@ msgstr "Μετονομασία πίνακα σε"
 #~ msgid "Release Series"
 #~ msgstr "Σειρές Δημοσίευσης"
 
-#~ msgid "The MySQL server version less then 5.1."
+#~ msgid "The MySQL server version less than 5.1."
 #~ msgstr "Η έκδοση διακομιστή MySQL είναι παλαιότερη της 5.1."
 
 #~ msgid ""
