@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-19 12:51+0200\n"
+"PO-Revision-Date: 2012-04-19 14:33+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
 "Language: he\n"
@@ -1091,18 +1091,17 @@ msgid "You are about to DESTROY a complete table!"
 msgstr "פעולה זו עלולה להשמיד טבלה שלמה!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "אתה עומד להרוס מאגר נתונים שלם!"
+msgstr "פעולה זו עלולה למחוק טבלה שלמה!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr ""
+msgstr "נתוני המעקב נמחקים"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "מפתח/אינדקס ראשיים מושמטים"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1126,29 +1125,26 @@ msgid "This is not a number!"
 msgstr "זה אינו מספר!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add Index"
-msgstr "הוספת שדה חדש"
+msgstr "הוספת אינדקס"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
-msgstr "עריכת השורה הבאה"
+msgstr "עריכת האינדקס"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
-msgstr "הוספת %s תאים"
+msgstr "הוספת %d עמודות לאינדקס"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "סה\"כ"
+msgstr "ספירה כללית"
 
 #: js/messages.php:55
 msgid "The host name is empty!"
@@ -1156,38 +1152,35 @@ msgstr "שם המארח ריק!"
 
 #: js/messages.php:56
 msgid "The user name is empty!"
-msgstr "שם המשתמש ריק !"
+msgstr "שם המשתמש ריק!"
 
 #: js/messages.php:57 server_privileges.php:1316 user_password.php:50
 msgid "The password is empty!"
-msgstr "הסיסמא ריקה!"
+msgstr "הססמה ריקה!"
 
 #: js/messages.php:58 server_privileges.php:1314 user_password.php:53
 msgid "The passwords aren't the same!"
-msgstr "הסיסמאות אינן זהות!"
+msgstr "הססמאות אינן זהות!"
 
 #: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
 #: server_privileges.php:2209 server_privileges.php:2414
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "כל משתמש"
+msgstr "הוספת משתמש"
 
 #: js/messages.php:60
-#, fuzzy
 msgid "Reloading Privileges"
-msgstr "הרשאות גלובליות"
+msgstr "ההרשאות נטענו מחדש"
 
 #: js/messages.php:61
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "הסרת משתמשים שנבחרו"
+msgstr "הסרת המשתמש הנבחרים"
 
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:415
 msgid "Close"
-msgstr ""
+msgstr "סגירה"
 
 #: js/messages.php:65 js/messages.php:278 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1197
@@ -1198,23 +1191,21 @@ msgid "Edit"
 msgstr "עריכה"
 
 #: js/messages.php:66 server_status.php:803
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "בחירת שרת"
+msgstr "תרשים תעבורה חי"
 
 #: js/messages.php:67 server_status.php:806
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "תרשים חיבור/תהליך חי"
 
 #: js/messages.php:68 server_status.php:824
-#, fuzzy
 msgid "Live query chart"
-msgstr "שאילתת SQL"
+msgstr "תרשים תשאול חי"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "נתונים סטטיים"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
@@ -1222,12 +1213,12 @@ msgstr ""
 #: server_status.php:1126 server_status.php:1187 tbl_printview.php:310
 #: tbl_structure.php:804
 msgid "Total"
-msgstr "סה\"כ"
+msgstr "סה״כ"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:603 server_status.php:1022
 msgid "Other"
-msgstr ""
+msgstr "אחר"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1452
@@ -1241,50 +1232,47 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB שנשלחו מאז הרענון האחרון"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB שהתקבלו מאז הרענון האחרון"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "בחירת שרת"
+msgstr "תעבורת השרת (ב־KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "התחברויות מאז הרענון האחרון"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1235
 msgid "Processes"
 msgstr "תהליכים"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "חיבורים"
+msgstr "חיבורים / תהליכים"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "שאלות מאז הרענון האחרון"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "שאלות (הצהרות שהופעלו על ידי השרת)"
 
 #: js/messages.php:91 server_status.php:785
-#, fuzzy
 msgid "Query statistics"
-msgstr "סטטיסטיקת שורה"
+msgstr "סטטיסטיקת תשאולים"
 
 #: js/messages.php:94
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "תצורת מעקב מקומית אינה נתמכת"
 
 #: js/messages.php:95
 msgid ""
