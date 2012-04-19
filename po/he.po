@@ -4,20 +4,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2011-03-02 20:17+0200\n"
-"Last-Translator: <zippoxer@gmail.com>\n"
+"PO-Revision-Date: 2012-04-19 08:53+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1798
 msgid "Show all"
-msgstr "הצג הכל"
+msgstr "הצגת הכול"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:46
 #: libraries/common.lib.php:2471
@@ -26,14 +26,16 @@ msgstr "הצג הכל"
 #: libraries/schema/User_Schema.class.php:399
 #: libraries/select_lang.lib.php:504
 msgid "Page number:"
-msgstr "מספר דף:"
+msgstr "מספר העמוד:"
 
 #: browse_foreigners.php:138
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
-msgstr "עדכון חלון הדפדפן הנבחר נכשל."
+msgstr ""
+"לא ניתן לעדכן את חלון דפדפן היעד. יתכן שסגרת את חלון ההורה, או שהגדרות "
+"האבטחה של הדפדפן שלך מוגדרות כך שיחסמו עדכונים בין חלונות."
 
 #: browse_foreigners.php:156 libraries/common.lib.php:3151
 #: libraries/common.lib.php:3158 libraries/common.lib.php:3374
@@ -72,12 +74,12 @@ msgstr "חיפוש"
 #: tbl_tracking.php:450 tbl_tracking.php:588 tbl_zoom_select.php:330
 #: view_create.php:173 view_operations.php:99
 msgid "Go"
-msgstr "סע"
+msgstr "ביצוע"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
 #: libraries/Index.class.php:457 tbl_tracking.php:338
 msgid "Keyname"
-msgstr "שמות מפתח"
+msgstr "שם מפתח"
 
 #: browse_foreigners.php:175 browse_foreigners.php:177
 #: server_collations.php:45 server_collations.php:57 server_engines.php:48
@@ -88,7 +90,7 @@ msgstr "תיאור"
 #: browse_foreigners.php:255 browse_foreigners.php:264
 #: browse_foreigners.php:276 browse_foreigners.php:284
 msgid "Use this value"
-msgstr "השתמש בערך זה"
+msgstr "שימוש בערך זה"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -96,21 +98,22 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"הקובץ %s אינו זמין במערכת זו, נא לבקר בכתובת www.phpmyadmin.net למידע נוסף."
 
 #: db_create.php:74
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "מסד הנתונים %s נמחק."
+msgstr "מסד הנתונים %1$s נוצר."
 
 #: db_datadict.php:49 db_operations.php:401
 msgid "Database comment: "
-msgstr "הערה על מאגר הנתונים: "
+msgstr "הערה על מסד הנתונים: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:362
 #: tbl_printview.php:125
 msgid "Table comments"
-msgstr "הערות טבלה"
+msgstr "הערות לטבלה"
 
 #: db_datadict.php:163 db_qbe.php:199 libraries/Index.class.php:461
 #: libraries/export/htmlword.php:194 libraries/export/htmlword.php:314
@@ -123,10 +126,9 @@ msgstr "הערות טבלה"
 #: tbl_change.php:339 tbl_indexes.php:214 tbl_printview.php:137
 #: tbl_relation.php:411 tbl_tracking.php:276 tbl_tracking.php:342
 #: tbl_zoom_select.php:450
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "שמות עמודה"
+msgstr "עמודה"
 
 #: db_datadict.php:164 db_printview.php:103 libraries/Index.class.php:458
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:195
@@ -157,7 +159,7 @@ msgstr "סוג"
 #: tbl_printview.php:139 tbl_structure.php:207 tbl_tracking.php:279
 #: tbl_tracking.php:345 tbl_zoom_select.php:451
 msgid "Null"
-msgstr "Null"
+msgstr "ריק"
 
 #: db_datadict.php:167 db_structure.php:599 libraries/export/htmlword.php:197
 #: libraries/export/htmlword.php:317 libraries/export/latex.php:397
@@ -168,7 +170,7 @@ msgstr "Null"
 #: libraries/tbl_properties.inc.php:99 tbl_printview.php:140
 #: tbl_structure.php:208 tbl_tracking.php:280
 msgid "Default"
-msgstr "ברירת מחדל"
+msgstr "בררת מחדל"
 
 #: db_datadict.php:171 libraries/export/htmlword.php:319
 #: libraries/export/latex.php:399 libraries/export/odt.php:400
