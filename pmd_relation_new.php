@@ -57,6 +57,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
         if ($on_update != 'nix') {
             $upd_query   .= ' ON UPDATE ' . $on_update;
         }
+        $upd_query .= ';';
         PMA_DBI_try_query($upd_query) or PMD_return_new(0, __('Error: Relation not added.'));
     PMD_return_new(1, __('FOREIGN KEY relation added'));
     }

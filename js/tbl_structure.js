@@ -45,7 +45,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`');
+        var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
@@ -91,7 +91,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`)');
+        var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`);');
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
@@ -624,7 +624,7 @@ function moreOptsMenuResize() {
 
     // remove some links if current width is wider than maximum allowed
     if (cur_width > max_width && $table.find("td.more_opts").length != 0) {
-        while (cur_width > max_width 
+        while (cur_width > max_width
             && $(".replaced_by_more:visible").length > 0) {
 
             // hide last visible element
