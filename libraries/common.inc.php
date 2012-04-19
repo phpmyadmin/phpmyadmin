@@ -332,22 +332,8 @@ if (isset($_COOKIE)
 if ($GLOBALS['PMA_Config']->get('ForceSSL')
     && ! $GLOBALS['PMA_Config']->get('is_https')
 ) {
-    // grab current URL
-    $url = $GLOBALS['PMA_Config']->get('PmaAbsoluteUri');
-    // Parse current URL
-    $parsed = parse_url($url);
-    // In case parsing has failed do stupid string replacement
-    if ($parsed === false) {
-        // Replace http protocol
-        $url = preg_replace('@^http:@', 'https:', $url);
-    } else {
-        if($GLOBALS['PMA_Config']->get('SSLPort')) {
-            $port_number = $GLOBALS['PMA_Config']->get('SSLPort');
-        } else {
-            $port_number = 443;
-        }
-        $url = 'https://' . $parsed['host'] . ':' . $port_number . '/' . $parsed['path'];
-    }
+    // grab SSL URL
+    $url = $GLOBALS['PMA_Config']->getSSLUri();
     // Actually redirect
     PMA_sendHeaderLocation($url . PMA_generate_common_url($_GET, 'text'));
     // delete the current session, otherwise we get problems (see bug #2397877)
