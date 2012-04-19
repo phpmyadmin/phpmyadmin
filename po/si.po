@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-19 03:01+0200\n"
+"PO-Revision-Date: 2012-04-19 18:47+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5641,27 +5641,27 @@ msgstr "MySQL සේවාදායකයාගේ සංස්කරණය"
 #: libraries/display_git_revision.lib.php:46
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%2$s ශාඛාවේ %1$s සංස්කරණය"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
-msgstr ""
+msgstr "ශාඛාවක් නොමැත"
 
 #: libraries/display_git_revision.lib.php:54
 msgid "Git revision"
-msgstr ""
+msgstr "Git සංස්කරණය"
 
 #: libraries/display_git_revision.lib.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "committed on %1$s by %2$s"
-msgstr "%2$s හි %1$s වන අනුවාදය සාදන්න"
+msgstr "%1$s වන දින %2$s විසින් එක් කරන ලද"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "authored on %1$s by %2$s"
-msgstr "%2$s හි %1$s වන අනුවාදය සාදන්න"
+msgstr "%1$s වන දින %2$s විසින් රචිත"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -5669,11 +5669,13 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"මෙය ඔබ උඩුගත කරන ගොනුව අවසරැති ප්‍රමාණයට වඩා විශාල වීම හෝ webkit මූලික කරගත් "
+"බ්‍රව්සර වල (Safari, Google Chrome, Arora etc.) හඳුනාගත් දෝෂයක් විය හැක."
 
 #: libraries/display_import.lib.php:69
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s/%s"
 
 #: libraries/display_import.lib.php:78
 msgid "Uploading your import file..."
@@ -5682,25 +5684,27 @@ msgstr "ඔබගේ ආනයන ගොනුව උඩුගත කෙරෙ�
 #: libraries/display_import.lib.php:86
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/තත්පර."
 
 #: libraries/display_import.lib.php:93
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "තවත් මිනිත්තු %MIN තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
 
 #: libraries/display_import.lib.php:97
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "තවත් තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "ඔබගේ ගොනුව සැකසෙමින් පවතී. කරුණාකර ඉවසා සිටින්න."
 
 #: libraries/display_import.lib.php:147
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"කරුණාකර ඉවසා සිටින්න. ගොනුව උඩුගත කෙරෙමින් පවතී. උඩුගත කිරීම පිලිබඳ වැඩි "
+"විස්තර ලබා ගත නොහැක."
 
 #: libraries/display_import.lib.php:174
 msgid "Importing into the current server"
@@ -5734,7 +5738,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:223
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "මෙම සේවාදායකයේ ගොනු උඩුගත කිරීමට අවසර නොමැත."
 
 #: libraries/display_import.lib.php:253
 msgid "Partial Import:"
@@ -5745,6 +5749,8 @@ msgstr "අර්ධ ආනයනය:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"පෙර උඩුගත කිරීම නියමිත කාලය ඉක්මවා ගියේය. නැවත වරක් යොමු කල විට උඩුගත කිරීම "
+"%d ස්ථානයෙන් ඇරඹෙනු ඇත."
 
 #: libraries/display_import.lib.php:266
 msgid ""
@@ -5779,7 +5785,7 @@ msgstr "තීර අනුපිලිවල ප්‍රතිෂ්ඨාප�
 #: libraries/display_tbl.lib.php:426
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 
 #: libraries/display_tbl.lib.php:431
 msgid "Start row"
@@ -5927,7 +5933,7 @@ msgstr "දත්ත මුල් පිටුව"
 
 #: libraries/engines/innodb.lib.php:24
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "සියලුම InnoBD දත්ත ගොනු වල පෙතෙහි පොදු කොටස."
 
 #: libraries/engines/innodb.lib.php:27
 msgid "Data files"
@@ -9768,12 +9774,14 @@ msgid "The amount of data written so far, in bytes."
 msgstr "මේ දක්වා ලියැවුණු දත්ත ප්‍රමාණය, බයිට වලින්."
 
 #: server_status.php:1371
+#, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "The number of doublewrite writes that have been performed and the number of "
 "pages that have been written for this purpose."
 
 #: server_status.php:1372
+#, fuzzy
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "The number of doublewrite writes that have been performed and the number of "
