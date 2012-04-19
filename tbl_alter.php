@@ -45,45 +45,31 @@ if (isset($_REQUEST['move_columns'])
     /*
      * first, load the definitions for all columns
      */
-    $result = PMA_DBI_try_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-    // an error can happen, for example the table is crashed
-    $tmp_error = PMA_DBI_getError();
-    if ($tmp_error) {
-        PMA_ajaxResponse(PMA_Message::error($tmp_error), false);
-    }
-
-    if ($result != false && ($row = PMA_DBI_fetch_row($result))) {
-        $create_query = $row[1];
-        unset($row);
-
-        // Convert end of line chars to one that we want (note that MySQL doesn't return query it will accept in all cases)
-        if (strpos($create_query, "(\r\n ")) {
-            $create_query = str_replace("\r\n", "\n", $create_query);
-        } elseif (strpos($create_query, "(\r ")) {
-            $create_query = str_replace("\r", "\n", $create_query);
-        }
-    }
-    $create_query = explode("\n", $create_query);
+    $columns = PMA_DBI_get_columns_full($db, $table);
     $definitions = array();
-    $columns = array();
-    foreach($create_query as $row) {
-        $row = trim($row);
-        // trim any trailing commas
-        if (substr($row, -1) == ',') {
-            $row = substr($row, 0, -1);
-        }
-        // columns can be identified by the leading backtick
-        if (substr($row, 0, 1) == '`') {
-            $column = substr($row, 1, strpos($row, '`', 1) - 1);
-            $definitions[$column] = $row;
-            $columns[] = $column;
-        }
+    $column_names = array();
+    foreach($columns as $column => $data) {
+        $definitions[$column] = 
+            rtrim(
+                PMA_backquote($column) . ' '
+                . strtoupper($data['Type']) . ' '
+                . ($data['CHARACTER_SET_NAME'] !== false
+                    ? 'CHARACTER SET ' . $data['CHARACTER_SET_NAME'] . ' '
+                        . 'COLLATE ' . $data['Collation'] . ' '
+                    : '')
+                . ($data['Null'] == 'NO' ? 'NOT NULL ' : 'NULL ')
+                . ($data['Extra'] != '' ? strtoupper($data['Extra']) . ' ' : '')
+                . ($data['Default'] === null && $data['Null'] == 'YES' ? 'DEFAULT NULL ' : '')
+                . ($data['Default'] !== null ? 'DEFAULT \'' 
+                    . PMA_sqlAddSlashes($data['Default']) . '\' ' : '')
+                );
+        $column_names[] = $column;
     }
     // move columns from first to last
     for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
         $column = $_REQUEST['move_columns'][$i];
         // is this column already correctly placed?
-        if ($columns[$i] == $column) {
+        if ($column_names[$i] == $column) {
             continue;
         }
         // it is not, let's move it to index $i
@@ -102,14 +88,14 @@ if (isset($_REQUEST['move_columns'])
         if ($tmp_error) {
             PMA_ajaxResponse(PMA_Message::error($tmp_error), false);
         }
-        // update current columns array, first delete old position
-        for($j = 0, $ll = count($columns); $j < $ll; $j++) {
-            if ($columns[$j] == $column) {
-                unset($columns[$j]);
+        // update current column_names array, first delete old position
+        for($j = 0, $ll = count($column_names); $j < $ll; $j++) {
+            if ($column_names[$j] == $column) {
+                unset($column_names[$j]);
             }
         }
         // insert moved column
-        array_splice($columns, $i, 0, $column);
+        array_splice($column_names, $i, 0, $column);
     }
     PMA_ajaxResponse(PMA_Message::success(__('The columns have been moved successfully.')), true);
 }
