@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-17 11:51+0200\n"
+"PO-Revision-Date: 2012-04-19 03:25+0200\n"
 "Last-Translator: MoA Chung <honomoa@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1507,17 +1507,17 @@ msgstr "儲存爲檔案"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "已啓用"
+msgstr "已啓用 %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "已關閉"
+msgstr "已關閉 %s"
 
 #. l10n: %d seconds
 #: js/messages.php:163
@@ -1709,7 +1709,7 @@ msgstr "重新載入"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr ""
+msgstr "影響的行數"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1744,7 +1744,7 @@ msgstr ""
 
 #: js/messages.php:220
 msgid "Issue"
-msgstr ""
+msgstr "問題"
 
 #: js/messages.php:221
 #, fuzzy
@@ -1770,7 +1770,7 @@ msgstr ""
 
 #: js/messages.php:225
 msgid "Test"
-msgstr ""
+msgstr "測試"
 
 #: js/messages.php:230 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
@@ -2383,7 +2383,7 @@ msgstr "每小時"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
-msgstr ""
+msgstr "每天"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
@@ -2649,7 +2649,7 @@ msgstr "找不到主題 %s 的路徑"
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "主題"
 
 #: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
@@ -3135,7 +3135,7 @@ msgstr "沒有可上傳的檔案"
 
 #: libraries/common.lib.php:3358 libraries/common.lib.php:3359
 msgid "Execute"
-msgstr ""
+msgstr "執行"
 
 #: libraries/common.lib.php:3834
 msgid "Print"
@@ -5830,8 +5830,9 @@ msgstr "格式特定選項："
 
 #: libraries/display_select_lang.lib.php:46
 #: libraries/display_select_lang.lib.php:47 setup/frames/index.inc.php:72
+#, fuzzy
 msgid "Language"
-msgstr "Language"
+msgstr "語系"
 
 #: libraries/display_tbl.lib.php:406
 #, fuzzy
@@ -12842,8 +12843,9 @@ msgid "Percentage of aborted clients"
 msgstr "匯入檔案的格式"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
+#, fuzzy
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "太多客戶端已終止"
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -13001,7 +13003,7 @@ msgstr ""
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert設置為0"
 
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "在資料表列資料表中最多顯示的資料表個數"
