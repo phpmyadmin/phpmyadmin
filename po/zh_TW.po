@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2012-04-17 11:51+0200\n"
+"PO-Revision-Date: 2012-04-19 03:18+0200\n"
 "Last-Translator: MoA Chung <honomoa@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -1454,17 +1454,17 @@ msgstr "儲存爲檔案"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:155
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "已啓用"
+msgstr "已啓用 %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "已關閉"
+msgstr "已關閉 %s"
 
 #. l10n: %d seconds
 #: js/messages.php:159
@@ -1657,7 +1657,7 @@ msgstr "重新載入"
 
 #: js/messages.php:204
 msgid "Affected rows:"
-msgstr ""
+msgstr "影響的行數"
 
 #: js/messages.php:206
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1704,7 +1704,7 @@ msgstr ""
 
 #: js/messages.php:218
 msgid "Issue"
-msgstr ""
+msgstr "問題"
 
 #: js/messages.php:219
 #, fuzzy
@@ -1730,7 +1730,7 @@ msgstr ""
 
 #: js/messages.php:223
 msgid "Test"
-msgstr ""
+msgstr "測試"
 
 #: js/messages.php:228 pmd_general.php:399 pmd_general.php:436
 #: pmd_general.php:556 pmd_general.php:604 pmd_general.php:680
@@ -2402,7 +2402,7 @@ msgstr "每小時"
 
 #: libraries/Advisor.class.php:343
 msgid "per day"
-msgstr ""
+msgstr "每天"
 
 #: libraries/Config.class.php:886
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
@@ -2663,7 +2663,7 @@ msgstr "找不到主題 %s 的路徑"
 
 #: libraries/Theme_Manager.class.php:307 themes.php:20 themes.php:27
 msgid "Theme"
-msgstr ""
+msgstr "主題"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -3117,7 +3117,7 @@ msgstr "沒有可上傳的檔案"
 
 #: libraries/common.lib.php:3387 libraries/common.lib.php:3388
 msgid "Execute"
-msgstr ""
+msgstr "執行"
 
 #: libraries/common.lib.php:3867
 msgid "Print"
@@ -5905,8 +5905,9 @@ msgstr "格式特定選項："
 
 #: libraries/display_select_lang.lib.php:47
 #: libraries/display_select_lang.lib.php:48 setup/frames/index.inc.php:75
+#, fuzzy
 msgid "Language"
-msgstr "Language"
+msgstr "語系"
 
 #: libraries/display_tbl.lib.php:409
 #, fuzzy
