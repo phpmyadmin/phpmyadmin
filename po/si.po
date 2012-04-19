@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-18 13:13+0200\n"
-"PO-Revision-Date: 2012-04-18 19:20+0200\n"
+"PO-Revision-Date: 2012-04-19 03:01+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -674,7 +674,7 @@ msgstr "මුද්‍රණ දර්ශනය"
 #: db_structure.php:667 libraries/common.lib.php:3381
 #: libraries/common.lib.php:3382
 msgid "Empty"
-msgstr "හිස්"
+msgstr "හිස් කරන්න"
 
 #: db_structure.php:669 db_tracking.php:106 libraries/Index.class.php:507
 #: libraries/common.lib.php:3379 libraries/common.lib.php:3380
@@ -689,7 +689,7 @@ msgstr "වගුව පරීක්ෂා කරන්න"
 
 #: db_structure.php:674 tbl_operations.php:665 tbl_structure.php:808
 msgid "Optimize table"
-msgstr "ප්‍රශස්තගත වගුව"
+msgstr "වගුව ප්‍රශස්තගත කරන්න"
 
 #: db_structure.php:676 tbl_operations.php:650
 msgid "Repair table"
