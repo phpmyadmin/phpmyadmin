@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-19 03:01+0200\n"
+"PO-Revision-Date: 2012-04-19 18:44+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5635,16 +5635,20 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"මෙය ඔබ උඩුගත කරන ගොනුව අවසරැති ප්‍රමාණයට වඩා විශාල වීම හෝ webkit මූලික කරගත් "
+"බ්‍රව්සර වල (Safari, Google Chrome, Arora etc.) හඳුනාගත් දෝෂයක් විය හැක."
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "ඔබගේ ගොනුව සැකසෙමින් පවතී. කරුණාකර ඉවසා සිටින්න."
 
 #: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"කරුණාකර ඉවසා සිටින්න. ගොනුව උඩුගත කෙරෙමින් පවතී. උඩුගත කිරීම පිලිබඳ වැඩි "
+"විස්තර ලබා ගත නොහැක."
 
 #: libraries/display_import.lib.php:129
 msgid "Importing into the current server"
@@ -5678,7 +5682,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "මෙම සේවාදායකයේ ගොනු උඩුගත කිරීමට අවසර නොමැත."
 
 #: libraries/display_import.lib.php:208
 msgid "Partial Import:"
@@ -5689,6 +5693,8 @@ msgstr "අර්ධ ආනයනය:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"පෙර උඩුගත කිරීම නියමිත කාලය ඉක්මවා ගියේය. නැවත වරක් යොමු කල විට උඩුගත කිරීම "
+"%d ස්ථානයෙන් ඇරඹෙනු ඇත."
 
 #: libraries/display_import.lib.php:221
 msgid ""
@@ -5723,7 +5729,7 @@ msgstr "තීර අනුපිලිවල ප්‍රතිෂ්ඨාප�
 #: libraries/display_tbl.lib.php:423
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 
 #: libraries/display_tbl.lib.php:428
 msgid "Start row"
@@ -9772,12 +9778,14 @@ msgid "The amount of data written so far, in bytes."
 msgstr "මේ දක්වා ලියැවුණු දත්ත ප්‍රමාණය, බයිට වලින්."
 
 #: server_status.php:1347
+#, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "The number of doublewrite writes that have been performed and the number of "
 "pages that have been written for this purpose."
 
 #: server_status.php:1348
+#, fuzzy
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "The number of doublewrite writes that have been performed and the number of "
