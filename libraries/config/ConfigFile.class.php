@@ -165,8 +165,8 @@ class ConfigFile
     }
 
     /**
-     * Sets path mapping for updating config in {
-     * @link updateWithGlobalConfig()} or reading
+     * Sets path mapping for updating config in
+     * {@link updateWithGlobalConfig()} or reading
      * by {@link getConfig()} or {@link getConfigArray()}
      * @var array
      */
@@ -216,9 +216,14 @@ class ConfigFile
             // we need oryginal config values not overwritten by user
             // preferences to allow for overwriting options set in
             // config.inc.php with default values
-            $instance_default_value = PMA_array_read($canonical_path, $this->orgCfgObject->settings);
-            if (($value === $default_value && (defined('PMA_SETUP') || $instance_default_value === $default_value))
-                    || (empty($value) && empty($default_value) && (defined('PMA_SETUP') || empty($current_global)))) {
+            $instance_default_value = PMA_array_read(
+                $canonical_path,
+                $this->orgCfgObject->settings
+            );
+            if (($value === $default_value && (defined('PMA_SETUP')
+                    || $instance_default_value === $default_value))
+                    || (empty($value) && empty($default_value) && (defined('PMA_SETUP')
+                    || empty($current_global)))) {
                 PMA_array_remove($path, $_SESSION[$this->id]);
                 return;
             }
@@ -441,7 +446,8 @@ class ConfigFile
         $last_server = $this->getServerCount();
 
         for ($i = $server; $i < $last_server; $i++) {
-            $_SESSION[$this->id]['Servers'][$i] = $_SESSION[$this->id]['Servers'][$i+1];
+            $_SESSION[$this->id]['Servers'][$i] =
+                $_SESSION[$this->id]['Servers'][$i+1];
         }
         unset($_SESSION[$this->id]['Servers'][$last_server]);
 
@@ -493,7 +499,10 @@ class ConfigFile
         $c = $this->_flattenArrayResult;
         $this->_flattenArrayResult = null;
 
-        $persistKeys = array_diff(array_keys($this->persistKeys), array_keys($c));
+        $persistKeys = array_diff(
+            array_keys($this->persistKeys),
+            array_keys($c)
+        );
         foreach ($persistKeys as $k) {
             $c[$k] = $this->getDefault($k);
         }
