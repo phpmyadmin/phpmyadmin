@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - bug #3468272 [import] Fixed import of ODS with more paragraphs in a cell
 - bug #3510196 [core] Improved redirecting with ForceSSL option
 + rfe #3518852 [edit] edit blob but not other binary, new option $cfg['ProtectBinary'] = 'noblob'
++ Hide language select box if there are no locales installed
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered

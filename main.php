@@ -133,7 +133,7 @@ echo '<h2>' . __('Appearance Settings') . '</h2>';
 echo '  <ul>';
 
 // Displays language selection combo
-if (empty($cfg['Lang'])) {
+if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
     echo '<li id="li_select_lang">';
     include_once 'libraries/display_select_lang.lib.php';
     PMA_select_language();
