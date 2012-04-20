@@ -30,6 +30,11 @@ function PMA_language_cmp(&$a, &$b)
  */
 function PMA_select_language($use_fieldset = false, $show_doc = true)
 {
+    if (count($GLOBALS['available_languages']) == 1) {
+        // no use in switching languages, there is only one available
+        return;
+    }
+
     global $cfg, $lang;
     ?>
 
