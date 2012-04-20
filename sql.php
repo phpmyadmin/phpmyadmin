@@ -574,6 +574,32 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     }
     unset($error);
 
+    // If there are no errors and bookmarklabel was given,
+    // store the query as a bookmark
+    if (! empty($bkm_label) && ! empty($import_text)) {
+        include_once 'libraries/bookmark.lib.php';
+        $bfields = array(
+                     'dbase' => $db,
+                     'user'  => $cfg['Bookmark']['user'],
+                     'query' => urlencode($import_text),
+                     'label' => $bkm_label
+        );
+
+        // Should we replace bookmark?
+        if (isset($bkm_replace)) {
+            $bookmarks = PMA_Bookmark_getList($db);
+            foreach ($bookmarks as $key => $val) {
+                if ($val == $bkm_label) {
+                    PMA_Bookmark_delete($db, $key);
+                }
+            }
+        }
+
+        PMA_Bookmark_save($bfields, isset($bkm_all_users));
+
+        $bookmark_created = true;
+    } // end store bookmarks
+
     // Gets the number of rows affected/returned
     // (This must be done immediately after the query because
     // mysql_affected_rows() reports about the last query done)
