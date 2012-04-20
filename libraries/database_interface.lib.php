@@ -1129,6 +1129,27 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $
 }
 
 /**
+ * Returns all column names in given table
+ *
+ * @param string  $database name of database
+ * @param string  $table    name of table to retrieve columns from
+ * @param mixed   $link     mysql link resource
+ *
+ * @return  null|array
+ */
+function PMA_DBI_get_column_names($database, $table, $link = null)
+{
+    $sql = PMA_DBI_get_columns_sql($database, $table);
+    // We only need the 'Field' column which contains the table's column names
+    $fields = array_keys(PMA_DBI_fetch_result($sql, 'Field', null, $link));
+
+    if ( ! is_array($fields) || count($fields) == 0 ) {
+        return null;
+    }
+    return $fields;
+}
+
+/**
 * Returns SQL for fetching information on table indexes (SHOW INDEXES)
 *
 * @param string $database name of database

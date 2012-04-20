@@ -23,7 +23,7 @@ function PMA_printGitRevision()
 
     // if using a remote commit fast-forwarded, link to Github
     $commit_hash = substr($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'), 0, 7);
-    $commit_hash = '<strong title="' 
+    $commit_hash = '<strong title="'
         . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_MESSAGE')) . '">'
         . $commit_hash . '</strong>';
     if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTECOMMIT')) {
@@ -43,7 +43,7 @@ function PMA_printGitRevision()
             . '" target="_blank">' . $branch . '</a>';
     }
     if ($branch !== false) {
-        $branch = sprintf(__('%s from %s branch'), $commit_hash, $branch);
+        $branch = sprintf(__('%1$s from %2$s branch'), $commit_hash, $branch);
     } else {
         $branch = $commit_hash . ' (' . __('no branch') . ')';
     }
@@ -54,16 +54,16 @@ function PMA_printGitRevision()
     PMA_printListItem(__('Git revision') . ': '
         . $branch . ',<br /> '
         . sprintf(
-            __('committed on %s by %s'), 
+            __('committed on %1$s by %2$s'),
             PMA_localisedDate(strtotime($committer['date'])),
-            '<a href="' . PMA_linkURL('mailto:' . $committer['email']) . '">' 
+            '<a href="' . PMA_linkURL('mailto:' . $committer['email']) . '">'
                 . htmlspecialchars($committer['name']) . '</a>')
         . ($author != $committer
-            ? ', <br />' 
+            ? ', <br />'
             . sprintf(
-                __('authored on %s by %s'), 
+                __('authored on %1$s by %2$s'),
                 PMA_localisedDate(strtotime($author['date'])),
-                '<a href="' . PMA_linkURL('mailto:' . $author['email']) . '">' 
+                '<a href="' . PMA_linkURL('mailto:' . $author['email']) . '">'
                     . htmlspecialchars($author['name']) . '</a>')
             : ''),
         'li_pma_version_git', null, null, null);

@@ -28,6 +28,10 @@ phpMyAdmin - ChangeLog
 + [export] Show triggers in Open Document Text, Word and Texy! Text
 - Patch #3415061 [auth] Login screen appears under the page
 + rfe #3517354 [interface] Allow disabling CodeMirror with $cfg['CodemirrorEnable'] = false
++ rfe #3475567 [interface] New directive $cfg['HideStructureActions']
+- bug #3468272 [import] Fixed import of ODS with more paragraphs in a cell
+- bug #3510196 [core] Improved redirecting with ForceSSL option
++ rfe #3518852 [edit] edit blob but not other binary, new option $cfg['ProtectBinary'] = 'noblob'
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
@@ -44,6 +48,9 @@ phpMyAdmin - ChangeLog
 - bug #3516405 [display] Chart title is getting wrong within chart export
 - bug #3517021 [interface] Header links except 'More' hide after closing dialog
 - bug #3516817 [interface] "More" actions in table structure
+- bug #3518484 [privileges] PMA_sqlAddSlashes() does not quote the table names correctly
+- bug #3518983 [designer] Error messages do not appear in the Designer
+- bug #3519747 [interface] Suhosin patch warning incorrectly displayed
 
 3.5.0.0 (2012-04-07)
 + rfe #2021981 [interface] Add support for mass prefix change.

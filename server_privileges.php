@@ -22,25 +22,19 @@ if ($GLOBALS['cfg']['CodemirrorEnable']) {
 }
 $_add_user_error = false;
 
-require 'libraries/server_common.inc.php';
-
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $conditional_class = 'ajax';
-} else {
-    $conditional_class = '';
-}
-
 /**
  * Sets globals from $_GET
  */
 
 $get_params = array(
     'checkprivs',
+    'db',
     'dbname',
     'hostname',
     'initial',
     'tablename',
-    'username'
+    'username',
+    'viewing_mode'
 );
 foreach ($get_params as $one_get_param) {
     if (isset($_GET[$one_get_param])) {
@@ -63,6 +57,7 @@ $post_params = array(
     'pred_hostname',
     'pred_password',
     'pred_username',
+    'update_privs',
     'username'
 );
 foreach ($post_params as $one_post_param) {
@@ -85,6 +80,14 @@ foreach (array_keys($_POST) as $post_key) {
             $GLOBALS[$post_key] = $_POST[$post_key];
         }
     }
+}
+
+require 'libraries/server_common.inc.php';
+
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $conditional_class = 'ajax';
+} else {
+    $conditional_class = '';
 }
 
 /**
@@ -1549,7 +1552,7 @@ $link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" hre
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
  * Flush Privileges, show $message and exit.
  */
-if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export') && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
+if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export') && (! isset($_REQUEST['adduser']) || $_add_user_error) && (! isset($_REQUEST['initial']) || empty($_REQUEST['initial'])) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
     if (isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);

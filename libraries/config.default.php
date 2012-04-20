@@ -975,6 +975,13 @@ $cfg['ShowDbStructureLastUpdate'] = false;
  */
 $cfg['ShowDbStructureLastCheck'] = false;
 
+/**
+ * allow hide action columns to drop down menu in database structure (true|false)?
+ *
+ * @global boolean $cfg['HideStructureActions']
+ */
+$cfg['HideStructureActions'] = true;
+
 
 /*******************************************************************************
  * In browse mode...
@@ -1028,9 +1035,10 @@ $cfg['DisplayBinaryAsHex'] = true;
 /**
  * disallow editing of binary fields
  * valid values are:
- *   false  allow editing
- *   'blob' allow editing except for BLOB fields
- *   'all'  disallow editing
+ *   false    allow editing
+ *   'blob'   allow editing except for BLOB fields
+ *   'noblob' disallow editing except for BLOB fields
+ *   'all'    disallow editing
  *
  * @global string $cfg['ProtectBinary']
  */
@@ -1133,13 +1141,6 @@ $cfg['CompressOnFly'] = true;
 /*******************************************************************************
  * Tabs display settings
  */
-
-/**
- * Use graphically less intense menu tabs
- *
- * @global boolean $cfg['LightTabs']
- */
-$cfg['LightTabs'] = false;
 
 /**
  * Use icons instead of text for the table display of a database (true|false|'both')
@@ -1631,6 +1632,20 @@ $cfg['Export']['latex_structure_label'] = 'tab:@TABLE@-structure';
  * @global string $cfg['Export']['mediawiki_structure_or_data']
  */
 $cfg['Export']['mediawiki_structure_or_data'] = 'data';
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['mediawiki_caption']
+ */
+
+$cfg['Export']['mediawiki_caption'] = true;
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['mediawiki_headers']
+ */
+$cfg['Export']['mediawiki_headers'] = true;
 
 /**
  *
@@ -2656,7 +2671,6 @@ $cfg['SaveDir'] = '';
 
 /**
  * Directory where phpMyAdmin can save temporary files.
- * This is needed for MS Excel export, see documentation how to enable that.
  *
  * @global string $cfg['TempDir']
  */

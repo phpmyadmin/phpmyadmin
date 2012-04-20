@@ -607,5 +607,24 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->object->setCookie('TEST_MANUAL_COOKIE', 'other', 'other'));
 
     }
+
+    /**
+     * @dataProvider sslUris
+     */
+    public function testSSLUri($original, $expected)
+    {
+        $this->object->set('PmaAbsoluteUri', $original);
+        $this->assertEquals($expected, $this->object->getSSLUri());
+    }
+
+    public function sslUris()
+    {
+        return array(
+            array('http://server.foo/path/', 'https://server.foo:443/path/'),
+            array('http://server.foo:80/path/', 'https://server.foo:443/path/'),
+            array('http://server.foo.bar:123/path/', 'https://server.foo.bar:443/path/'),
+            array('http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/', 'https://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:443/'),
+            );
+    }
 }
 ?>

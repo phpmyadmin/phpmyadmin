@@ -200,12 +200,13 @@ function PMA_securePath($path)
  *
  * @param string       $error_message the error message or named error message
  * @param string|array $message_args  arguments applied to $error_message
+ * @param boolean      $delete_session whether to delete session cookie
  *
  * @return  exit
  *
  * @todo    use detected argument separator (PMA_Config)
  */
-function PMA_fatalError($error_message, $message_args = null)
+function PMA_fatalError($error_message, $message_args = null, $delete_session = true)
 {
     /* Use format string if applicable */
     if (is_string($message_args)) {
@@ -228,7 +229,7 @@ function PMA_fatalError($error_message, $message_args = null)
     $error = $error_message;
 
     // on fatal errors it cannot hurt to always delete the current session
-    if (isset($GLOBALS['session_name']) && isset($_COOKIE[$GLOBALS['session_name']])) {
+    if ($delete_session && isset($GLOBALS['session_name']) && isset($_COOKIE[$GLOBALS['session_name']])) {
         $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
     }
 

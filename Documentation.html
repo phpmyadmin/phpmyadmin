@@ -1612,6 +1612,10 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         &quot;tbl_sql.php&quot;, &quot;tbl_select.php&quot;,
         &quot;tbl_change.php&quot; or &quot;sql.php&quot;.</dd>
 
+    <dt id="cfg_HideStructureActions">$cfg['HideStructureActions'] boolean</dt>
+    <dd>Defines whether the table structure actions are hidden under a 
+        &quot;More&quot; drop-down.</dd>
+
     <dt id="cfg_ShowStats">$cfg['ShowStats'] boolean</dt>
     <dd>Defines whether or not to display space usage and statistics about databases
         and tables.<br />
@@ -1690,6 +1694,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         from editing when browsing a table's content. Valid values are:
         <ul><li><code>FALSE</code> to allow editing of all columns;</li>
             <li><code>'blob'</code> to allow editing of all columns except <code>BLOBS</code>;</li>
+            <li><code>'noblob'</code> to disallow editing of all columns except <code>BLOBS</code> 
+                (the opposite of <code>'blob'</code>);</li>
             <li><code>'all'</code> to disallow editing of all <code>BINARY</code> or
                 <code>BLOB</code> columns.</li>
         </ul>
@@ -1754,10 +1760,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         create larger dumps that won't otherwise fit in memory due to php
         memory limit. Produced files contain more GZip/BZip2 headers, but all
         normal programs handle this correctly.</dd>
-
-    <dt id="cfg_LightTabs">$cfg['LightTabs'] boolean</dt>
-    <dd>If set to <code>TRUE</code>, use less graphically intense tabs on the top of the
-        mainframe.</dd>
 
     <dt id="cfg_PropertiesIconic">$cfg['PropertiesIconic'] string</dt>
     <dd>If set to <code>TRUE</code>, will display icons instead of text for db and table

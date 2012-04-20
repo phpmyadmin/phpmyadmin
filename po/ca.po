@@ -3,7 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2012-04-20 13:57-0300\n"
+=======
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
+>>>>>>> upstream/master
 "PO-Revision-Date: 2012-03-28 14:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -15,7 +19,11 @@ msgstr ""
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
+<<<<<<< HEAD
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1797
+=======
+#: libraries/display_tbl.lib.php:362 server_privileges.php:1798
+>>>>>>> upstream/master
 msgid "Show all"
 msgstr "Mostra tot"
 
@@ -63,10 +71,17 @@ msgstr "Cerca"
 #: libraries/schema/User_Schema.class.php:490
 #: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:424
 #: libraries/sql_query_form.lib.php:479 libraries/tbl_properties.inc.php:574
+<<<<<<< HEAD
 #: pmd_pdf.php:124 prefs_manage.php:267 prefs_manage.php:318
 #: server_binlog.php:109 server_privileges.php:815 server_privileges.php:1931
 #: server_privileges.php:2295 server_privileges.php:2342
 #: server_privileges.php:2374 server_replication.php:265
+=======
+#: pmd_pdf.php:125 prefs_manage.php:267 prefs_manage.php:318
+#: server_binlog.php:109 server_privileges.php:816 server_privileges.php:1932
+#: server_privileges.php:2296 server_privileges.php:2343
+#: server_privileges.php:2375 server_replication.php:265
+>>>>>>> upstream/master
 #: server_replication.php:349 server_replication.php:380
 #: server_synchronize.php:1390 tbl_change.php:373 tbl_change.php:1116
 #: tbl_indexes.php:289 tbl_operations.php:280 tbl_operations.php:317
@@ -143,7 +158,11 @@ msgstr "Columna"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:87
+<<<<<<< HEAD
 #: server_privileges.php:2388 tbl_change.php:318 tbl_change.php:351
+=======
+#: server_privileges.php:2389 tbl_change.php:318 tbl_change.php:351
+>>>>>>> upstream/master
 #: tbl_printview.php:138 tbl_printview.php:273 tbl_structure.php:204
 #: tbl_structure.php:759 tbl_tracking.php:277 tbl_tracking.php:339
 msgid "Type"
@@ -182,8 +201,13 @@ msgid "Links to"
 msgstr "Enllaços a"
 
 #: db_datadict.php:173 db_printview.php:109
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:111
 #: libraries/config/messages.inc.php:133 libraries/export/htmlword.php:322
+=======
+#: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:113
+#: libraries/config/messages.inc.php:135 libraries/export/htmlword.php:322
+>>>>>>> upstream/master
 #: libraries/export/latex.php:402 libraries/export/odt.php:405
 #: libraries/export/texytext.php:321
 #: libraries/schema/Pdf_Relation_Schema.class.php:1325
@@ -202,10 +226,17 @@ msgstr "Comentaris"
 #: libraries/mult_submits.inc.php:321
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:132
+<<<<<<< HEAD
 #: server_privileges.php:1571 server_privileges.php:1581
 #: server_privileges.php:1855 server_privileges.php:1866
 #: server_privileges.php:2207 server_privileges.php:2212
 #: server_privileges.php:2505 sql.php:330 sql.php:394 tbl_printview.php:191
+=======
+#: server_privileges.php:1572 server_privileges.php:1582
+#: server_privileges.php:1856 server_privileges.php:1867
+#: server_privileges.php:2208 server_privileges.php:2213
+#: server_privileges.php:2506 sql.php:330 sql.php:394 tbl_printview.php:191
+>>>>>>> upstream/master
 #: tbl_structure.php:333 tbl_tracking.php:300 tbl_tracking.php:355
 #: tbl_tracking.php:360
 msgid "No"
@@ -225,10 +256,17 @@ msgstr "No"
 #: libraries/mult_submits.inc.php:320 libraries/mult_submits.inc.php:327
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:131
+<<<<<<< HEAD
 #: server_databases.php:96 server_privileges.php:1569
 #: server_privileges.php:1579 server_privileges.php:1852
 #: server_privileges.php:1866 server_privileges.php:2207
 #: server_privileges.php:2210 server_privileges.php:2505 sql.php:393
+=======
+#: server_databases.php:96 server_privileges.php:1570
+#: server_privileges.php:1580 server_privileges.php:1853
+#: server_privileges.php:1867 server_privileges.php:2208
+#: server_privileges.php:2211 server_privileges.php:2506 sql.php:393
+>>>>>>> upstream/master
 #: tbl_printview.php:191 tbl_structure.php:41 tbl_structure.php:333
 #: tbl_tracking.php:300 tbl_tracking.php:353 tbl_tracking.php:358
 msgid "Yes"
@@ -304,14 +342,24 @@ msgstr "Només dades"
 msgid "CREATE DATABASE before copying"
 msgstr "Inclou CREATE DATABASE abans de copiar"
 
+<<<<<<< HEAD
 #: db_operations.php:535 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:137 tbl_operations.php:558
+=======
+#: db_operations.php:535 libraries/config/messages.inc.php:130
+#: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:133
+#: libraries/config/messages.inc.php:139 tbl_operations.php:558
+>>>>>>> upstream/master
 #, php-format
 msgid "Add %s"
 msgstr "Afegeix %s"
 
+<<<<<<< HEAD
 #: db_operations.php:539 libraries/config/messages.inc.php:121
+=======
+#: db_operations.php:539 libraries/config/messages.inc.php:123
+>>>>>>> upstream/master
 #: tbl_operations.php:314 tbl_operations.php:560
 msgid "Add AUTO_INCREMENT value"
 msgstr "Afegeix valor AUTO_INCREMENT"
@@ -348,12 +396,21 @@ msgid "Edit or export relational schema"
 msgstr "Edita o exporta l'esquema relacional"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:193
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:515 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:360
 #: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:275 server_privileges.php:1982
 #: server_privileges.php:2040 server_privileges.php:2309
+=======
+#: libraries/config/messages.inc.php:517 libraries/db_structure.lib.php:32
+#: libraries/export/pdf.php:98 libraries/export/xml.php:360
+#: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
+#: libraries/rte/rte_triggers.lib.php:310
+#: libraries/schema/User_Schema.class.php:275 server_privileges.php:1983
+#: server_privileges.php:2041 server_privileges.php:2310
+>>>>>>> upstream/master
 #: server_synchronize.php:450 server_synchronize.php:962 tbl_tracking.php:668
 msgid "Table"
 msgstr "Taula"
@@ -454,7 +511,11 @@ msgid "Del"
 msgstr "Sup"
 
 #: db_qbe.php:396 db_qbe.php:477 db_qbe.php:548 db_qbe.php:579
+<<<<<<< HEAD
 #: server_privileges.php:469 tbl_change.php:943 tbl_indexes.php:284
+=======
+#: server_privileges.php:470 tbl_change.php:943 tbl_indexes.php:284
+>>>>>>> upstream/master
 #: tbl_select.php:220
 msgid "Or"
 msgstr "O"
@@ -642,20 +703,34 @@ msgstr "%s és el motor d'emmagatzematge per defecte en aquest servidor MySQL."
 #: db_structure.php:641 db_structure.php:658 db_structure.php:659
 #: libraries/display_tbl.lib.php:2507 libraries/display_tbl.lib.php:2512
 #: libraries/mult_submits.inc.php:39 server_databases.php:279
+<<<<<<< HEAD
 #: server_databases.php:284 server_privileges.php:1889
 #: server_privileges.php:1897 tbl_structure.php:547 tbl_structure.php:556
+=======
+#: server_databases.php:284 server_privileges.php:1890
+#: server_privileges.php:1898 tbl_structure.php:547 tbl_structure.php:556
+>>>>>>> upstream/master
 msgid "With selected:"
 msgstr "Amb marca:"
 
 #: db_structure.php:644 libraries/display_tbl.lib.php:2502
+<<<<<<< HEAD
 #: server_databases.php:281 server_privileges.php:753
 #: server_privileges.php:1892 tbl_structure.php:550
+=======
+#: server_databases.php:281 server_privileges.php:754
+#: server_privileges.php:1893 tbl_structure.php:550
+>>>>>>> upstream/master
 msgid "Check All"
 msgstr "Marcar-ho tot"
 
 #: db_structure.php:648 libraries/display_tbl.lib.php:2503
 #: libraries/replication_gui.lib.php:35 server_databases.php:283
+<<<<<<< HEAD
 #: server_privileges.php:756 server_privileges.php:1896 tbl_structure.php:554
+=======
+#: server_privileges.php:757 server_privileges.php:1897 tbl_structure.php:554
+>>>>>>> upstream/master
 msgid "Uncheck All"
 msgstr "Desmarcar tot"
 
@@ -664,11 +739,19 @@ msgid "Check tables having overhead"
 msgstr "Comprova taules desfragmentades"
 
 #: db_structure.php:661 libraries/common.lib.php:3385
+<<<<<<< HEAD
 #: libraries/common.lib.php:3386 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2525 libraries/display_tbl.lib.php:2666
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:290 server_privileges.php:1537 server_privileges.php:1901
+=======
+#: libraries/common.lib.php:3386 libraries/config/messages.inc.php:168
+#: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
+#: libraries/display_tbl.lib.php:2525 libraries/display_tbl.lib.php:2666
+#: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
+#: prefs_manage.php:290 server_privileges.php:1538 server_privileges.php:1902
+>>>>>>> upstream/master
 #: server_status.php:1634 setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Exporta"
@@ -726,14 +809,23 @@ msgstr "Diccionari de Dades"
 msgid "Tracked tables"
 msgstr "Taules seguides"
 
+<<<<<<< HEAD
 #: db_tracking.php:84 libraries/config/messages.inc.php:509
+=======
+#: db_tracking.php:84 libraries/config/messages.inc.php:511
+>>>>>>> upstream/master
 #: libraries/export/htmlword.php:83 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:609 libraries/export/texytext.php:69
 #: libraries/export/xml.php:293 libraries/header.inc.php:152
 #: libraries/header_printview.inc.php:59 server_databases.php:177
+<<<<<<< HEAD
 #: server_privileges.php:1977 server_privileges.php:2040
 #: server_privileges.php:2303 server_status.php:1263
+=======
+#: server_privileges.php:1978 server_privileges.php:2041
+#: server_privileges.php:2304 server_status.php:1263
+>>>>>>> upstream/master
 #: server_synchronize.php:1358 server_synchronize.php:1362
 #: tbl_tracking.php:667
 msgid "Database"
@@ -760,8 +852,13 @@ msgstr "Estat"
 #: db_tracking.php:90 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
+<<<<<<< HEAD
 #: server_databases.php:210 server_privileges.php:1826
 #: server_privileges.php:2044 server_privileges.php:2391 tbl_structure.php:221
+=======
+#: server_databases.php:210 server_privileges.php:1827
+#: server_privileges.php:2045 server_privileges.php:2392 tbl_structure.php:221
+>>>>>>> upstream/master
 msgid "Action"
 msgstr "Acció"
 
@@ -1094,6 +1191,7 @@ msgstr "El nom del servidor és buit!"
 msgid "The user name is empty!"
 msgstr "El nom d'usuari és buit!"
 
+<<<<<<< HEAD
 #: js/messages.php:53 server_privileges.php:1404 user_password.php:102
 msgid "The password is empty!"
 msgstr "La contrasenya és buida!"
@@ -1104,6 +1202,18 @@ msgstr "Les contrasenyes no coincideixen!"
 
 #: js/messages.php:55 server_privileges.php:1916 server_privileges.php:1940
 #: server_privileges.php:2352 server_privileges.php:2546
+=======
+#: js/messages.php:53 server_privileges.php:1405 user_password.php:102
+msgid "The password is empty!"
+msgstr "La contrasenya és buida!"
+
+#: js/messages.php:54 server_privileges.php:1403 user_password.php:105
+msgid "The passwords aren't the same!"
+msgstr "Les contrasenyes no coincideixen!"
+
+#: js/messages.php:55 server_privileges.php:1917 server_privileges.php:1941
+#: server_privileges.php:2353 server_privileges.php:2547
+>>>>>>> upstream/master
 msgid "Add user"
 msgstr "Afegirl usuari"
 
@@ -1123,7 +1233,11 @@ msgstr "Tanca"
 #: js/messages.php:61 js/messages.php:279 libraries/Index.class.php:485
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
 #: libraries/common.lib.php:3383 libraries/common.lib.php:3384
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:489 libraries/display_tbl.lib.php:1405
+=======
+#: libraries/config/messages.inc.php:491 libraries/display_tbl.lib.php:1405
+>>>>>>> upstream/master
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
 msgstr "Edita"
@@ -1373,7 +1487,11 @@ msgstr "Afegeix al menys una variable a la serie"
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:529 pmd_general.php:520
+<<<<<<< HEAD
 #: server_privileges.php:2193 server_status.php:1292 server_status.php:1731
+=======
+#: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
+>>>>>>> upstream/master
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
 msgstr "Res"
@@ -1640,7 +1758,7 @@ msgstr ""
 "Ha fallat la creació de la graella del gràfic amb la configuració importada. "
 "Restablint la configuració per defecte..."
 
-#: js/messages.php:208 libraries/config/messages.inc.php:172
+#: js/messages.php:208 libraries/config/messages.inc.php:174
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:171
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:233 server_status.php:1634 setup/frames/menu.inc.php:21
@@ -1946,7 +2064,11 @@ msgstr "Tria una clau externa"
 msgid "Please select the primary key or a unique key"
 msgstr "Tria la clau principal o una clau única"
 
+<<<<<<< HEAD
 #: js/messages.php:338 pmd_general.php:91 tbl_relation.php:561
+=======
+#: js/messages.php:338 pmd_general.php:92 tbl_relation.php:561
+>>>>>>> upstream/master
 msgid "Choose column to display"
 msgstr "Tria la columna a mostrar"
 
@@ -2332,20 +2454,36 @@ msgstr "per hora"
 msgid "per day"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/Config.class.php:883
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr ""
 
 #: libraries/Config.class.php:919
+=======
+#: libraries/Config.class.php:886
+msgid "Remove \"./config\" directory before using phpMyAdmin!"
+msgstr ""
+
+#: libraries/Config.class.php:922
+>>>>>>> upstream/master
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/Config.class.php:947
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
 #: libraries/Config.class.php:1498
+=======
+#: libraries/Config.class.php:950
+msgid "Wrong permissions on configuration file, should not be world writable!"
+msgstr ""
+
+#: libraries/Config.class.php:1501
+>>>>>>> upstream/master
 msgid "Font size"
 msgstr "Tamany de lletra"
 
@@ -2454,9 +2592,15 @@ msgstr ""
 "Els indexos %1$s i %2$s semblen iguals i un d'ells possiblement es podria "
 "esborrar."
 
+<<<<<<< HEAD
 #: libraries/List_Database.class.php:390 libraries/config/messages.inc.php:179
 #: libraries/server_links.inc.php:43 server_databases.php:119
 #: server_privileges.php:1977
+=======
+#: libraries/List_Database.class.php:390 libraries/config/messages.inc.php:181
+#: libraries/server_links.inc.php:43 server_databases.php:119
+#: server_privileges.php:1978
+>>>>>>> upstream/master
 msgid "Databases"
 msgstr "Bases de dades"
 
@@ -2729,11 +2873,16 @@ msgid "shared"
 msgstr "compartit"
 
 #: libraries/build_html_for_db.lib.php:26
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
+=======
+#: libraries/config/messages.inc.php:187 libraries/export/xml.php:51
+>>>>>>> upstream/master
 #: server_status.php:614
 msgid "Tables"
 msgstr "Taules"
 
+<<<<<<< HEAD
 #: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
 #: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:366
 #: libraries/config/setup.forms.php:371
@@ -2743,6 +2892,17 @@ msgstr "Taules"
 #: libraries/config/user_preferences.forms.php:270
 #: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:683 server_replication.php:347 tbl_printview.php:277
+=======
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:308
+#: libraries/config/setup.forms.php:344 libraries/config/setup.forms.php:367
+#: libraries/config/setup.forms.php:372
+#: libraries/config/user_preferences.forms.php:207
+#: libraries/config/user_preferences.forms.php:243
+#: libraries/config/user_preferences.forms.php:266
+#: libraries/config/user_preferences.forms.php:271
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
+#: server_privileges.php:684 server_replication.php:347 tbl_printview.php:277
+>>>>>>> upstream/master
 #: tbl_structure.php:765
 msgid "Data"
 msgstr "Dades"
@@ -2819,7 +2979,11 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Nom de host invàlid pel servidor %1$s. Si us plau, reviseu la configuració."
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:667 libraries/config/messages.inc.php:513
+=======
+#: libraries/common.inc.php:667 libraries/config/messages.inc.php:515
+>>>>>>> upstream/master
 #: libraries/header.inc.php:138 main.php:179 server_status.php:797
 #: server_synchronize.php:1338
 msgid "Server"
@@ -2863,7 +3027,11 @@ msgstr "en"
 #: libraries/common.lib.php:520 libraries/config/FormDisplay.tpl.php:140
 #: libraries/display_export.lib.php:238 libraries/engines/pbxt.lib.php:109
 #: libraries/relation.lib.php:78 libraries/sql_query_form.lib.php:398
+<<<<<<< HEAD
 #: libraries/sql_query_form.lib.php:401 main.php:246 server_variables.php:139
+=======
+#: libraries/sql_query_form.lib.php:401 main.php:245 server_variables.php:139
+>>>>>>> upstream/master
 msgid "Documentation"
 msgstr "Documentació"
 
@@ -2889,7 +3057,11 @@ msgstr "MySQL diu: "
 msgid "Failed to connect to SQL validator!"
 msgstr "No es pot connectar al validador SQL!"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1204 libraries/config/messages.inc.php:490
+=======
+#: libraries/common.lib.php:1204 libraries/config/messages.inc.php:492
+>>>>>>> upstream/master
 msgid "Explain SQL"
 msgstr "Explica SQL"
 
@@ -2901,11 +3073,19 @@ msgstr "Salta l'explicació de l'SQL"
 msgid "Without PHP Code"
 msgstr "Sense codi PHP"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1246 libraries/config/messages.inc.php:492
 msgid "Create PHP Code"
 msgstr "Crea codi PHP"
 
 #: libraries/common.lib.php:1266 libraries/config/messages.inc.php:491
+=======
+#: libraries/common.lib.php:1246 libraries/config/messages.inc.php:494
+msgid "Create PHP Code"
+msgstr "Crea codi PHP"
+
+#: libraries/common.lib.php:1266 libraries/config/messages.inc.php:493
+>>>>>>> upstream/master
 #: server_status.php:808 server_status.php:830 server_status.php:850
 msgid "Refresh"
 msgstr "Refresca"
@@ -2914,7 +3094,11 @@ msgstr "Refresca"
 msgid "Skip Validate SQL"
 msgstr "Salta la Validació de l'SQL"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1279 libraries/config/messages.inc.php:494
+=======
+#: libraries/common.lib.php:1279 libraries/config/messages.inc.php:496
+>>>>>>> upstream/master
 msgid "Validate SQL"
 msgstr "Valida l'SQL"
 
@@ -2993,6 +3177,7 @@ msgid "Click to toggle"
 msgstr "Prem per canviar"
 
 #: libraries/common.lib.php:3149 libraries/common.lib.php:3156
+<<<<<<< HEAD
 #: libraries/common.lib.php:3378 libraries/config/setup.forms.php:298
 #: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:197
@@ -3002,11 +3187,26 @@ msgstr "Prem per canviar"
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:590 pmd_general.php:154
 #: server_privileges.php:683 server_replication.php:346 tbl_tracking.php:272
+=======
+#: libraries/common.lib.php:3378 libraries/config/setup.forms.php:299
+#: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:362
+#: libraries/config/user_preferences.forms.php:198
+#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/user_preferences.forms.php:261
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:371
+#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:155
+#: server_privileges.php:684 server_replication.php:346 tbl_tracking.php:272
+>>>>>>> upstream/master
 msgid "Structure"
 msgstr "Estructura"
 
 #: libraries/common.lib.php:3150 libraries/common.lib.php:3157
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
+=======
+#: libraries/config/messages.inc.php:218 libraries/db_links.inc.php:53
+>>>>>>> upstream/master
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:64
@@ -3049,7 +3249,11 @@ msgstr "No hi ha cap arxiu per pujar"
 msgid "Execute"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:3901
+=======
+#: libraries/common.lib.php:3867
+>>>>>>> upstream/master
 msgid "Print"
 msgstr "Imprimeix"
 
@@ -3080,25 +3284,28 @@ msgstr "Tancat"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
-#: pmd_relation_new.php:66
+#: pmd_relation_new.php:67
 msgid "Disabled"
 msgstr "Desactivat"
 
 #: libraries/config.values.php:99 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:129 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:39
+#: libraries/export/odt.php:34 libraries/export/sql.php:129
+#: libraries/export/texytext.php:24
 msgid "structure"
 msgstr "estructura"
 
 #: libraries/config.values.php:100 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:130 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:40
+#: libraries/export/odt.php:34 libraries/export/sql.php:130
+#: libraries/export/texytext.php:24
 msgid "data"
 msgstr "dades"
 
 #: libraries/config.values.php:101 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:131 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:41
+#: libraries/export/odt.php:34 libraries/export/sql.php:131
+#: libraries/export/texytext.php:24
 msgid "structure and data"
 msgstr "estructura i dades"
 
@@ -3196,7 +3403,11 @@ msgstr "No s'ha trobat l'extensió SOAP"
 msgid "maximum %s"
 msgstr "màxim %s"
 
+<<<<<<< HEAD
 #: libraries/config/FormDisplay.tpl.php:141 main.php:247
+=======
+#: libraries/config/FormDisplay.tpl.php:141 main.php:246
+>>>>>>> upstream/master
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -3210,7 +3421,11 @@ msgid "Set value: %s"
 msgstr "Estableix valor: %s"
 
 #: libraries/config/FormDisplay.tpl.php:279
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:359
+=======
+#: libraries/config/messages.inc.php:361
+>>>>>>> upstream/master
 msgid "Restore default value"
 msgstr "Restaura el valor per defecte"
 
@@ -3428,6 +3643,7 @@ msgid "Default table tab"
 msgstr "Pestanya de taula predeterminada"
 
 #: libraries/config/messages.inc.php:58
+<<<<<<< HEAD
 msgid "Show binary contents as HEX by default"
 msgstr "Mostra el contingut binari com HEX per defecte"
 
@@ -3452,11 +3668,48 @@ msgid "Display servers as a list"
 msgstr "Mostra servidors com a llista"
 
 #: libraries/config/messages.inc.php:64
+=======
+msgid "Whether the table structure actions should be hidden"
+msgstr ""
+
+#: libraries/config/messages.inc.php:59
+#, fuzzy
+#| msgid "Propose table structure"
+msgid "Hide table structure actions"
+msgstr "Proposa una estructura de taula"
+
+#: libraries/config/messages.inc.php:60
+msgid "Show binary contents as HEX by default"
+msgstr "Mostra el contingut binari com HEX per defecte"
+
+#: libraries/config/messages.inc.php:61 libraries/display_tbl.lib.php:681
+msgid "Show binary contents as HEX"
+msgstr "Mostra el contingut binari com HEX"
+
+#: libraries/config/messages.inc.php:62
+msgid "Show database listing as a list instead of a drop down"
+msgstr "Mostra les bases de dades com a llista en lloc de llista desplegable"
+
+#: libraries/config/messages.inc.php:63
+msgid "Display databases as a list"
+msgstr "Mostra bases de dades com a llista"
+
+#: libraries/config/messages.inc.php:64
+msgid "Show server listing as a list instead of a drop down"
+msgstr "Mostra els servidors com a llista en lloc de llista desplegable"
+
+#: libraries/config/messages.inc.php:65
+msgid "Display servers as a list"
+msgstr "Mostra servidors com a llista"
+
+#: libraries/config/messages.inc.php:66
+>>>>>>> upstream/master
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:65
 msgid "Disable multi table maintenance"
 msgstr "Desactivar manteniment múltiple de taules"
@@ -3478,6 +3731,29 @@ msgid "Gather errors"
 msgstr "Recopila errors"
 
 #: libraries/config/messages.inc.php:70
+=======
+#: libraries/config/messages.inc.php:67
+msgid "Disable multi table maintenance"
+msgstr "Desactivar manteniment múltiple de taules"
+
+#: libraries/config/messages.inc.php:68
+msgid "Edit SQL queries in popup window"
+msgstr "Edita consultes SQL en finestra desplegable"
+
+#: libraries/config/messages.inc.php:69
+msgid "Edit in window"
+msgstr "Edita en finestra"
+
+#: libraries/config/messages.inc.php:70
+msgid "Display errors"
+msgstr "Mostra els errors"
+
+#: libraries/config/messages.inc.php:71
+msgid "Gather errors"
+msgstr "Recopila errors"
+
+#: libraries/config/messages.inc.php:72
+>>>>>>> upstream/master
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
@@ -3485,205 +3761,223 @@ msgstr ""
 "Estableix el temps en segons que es permet per executar ordres, ([kbd]0[/"
 "kbd] per no posar límit)"
 
-#: libraries/config/messages.inc.php:71
+#: libraries/config/messages.inc.php:73
 msgid "Maximum execution time"
 msgstr "Màxim temps d'execució"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:72 prefs_manage.php:301
+=======
+#: libraries/config/messages.inc.php:74 prefs_manage.php:301
+>>>>>>> upstream/master
 msgid "Save as file"
 msgstr "Desa com a arxiu"
 
-#: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
+#: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:247
 msgid "Character set of the file"
 msgstr "Joc de caràcters de l'arxiu"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
+=======
+#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
+>>>>>>> upstream/master
 #: tbl_gis_visualization.php:174 tbl_printview.php:336 tbl_structure.php:834
 msgid "Format"
 msgstr "Format"
 
-#: libraries/config/messages.inc.php:75
+#: libraries/config/messages.inc.php:77
 msgid "Compression"
 msgstr "Compresió"
 
-#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:83
-#: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:95
-#: libraries/config/messages.inc.php:108 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:146
-#: libraries/config/messages.inc.php:148 libraries/export/csv.php:30
+#: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:85
+#: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:97
+#: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:112
+#: libraries/config/messages.inc.php:145 libraries/config/messages.inc.php:148
+#: libraries/config/messages.inc.php:150 libraries/export/csv.php:30
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 msgid "Put columns names in the first row"
 msgstr "Posa els noms de columnes a la primera fila"
 
-#: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:245
-#: libraries/config/messages.inc.php:252 libraries/import/csv.php:76
+#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:249
+#: libraries/config/messages.inc.php:256 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
 msgstr "Columnes englobades per"
 
-#: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:246
-#: libraries/config/messages.inc.php:253 libraries/import/csv.php:81
+#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:257 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 msgid "Columns escaped by"
 msgstr "Columnes amb marca d'escapada"
 
-#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:85
-#: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:101
-#: libraries/config/messages.inc.php:109 libraries/config/messages.inc.php:113
-#: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:147
-#: libraries/config/messages.inc.php:149 libraries/export/texytext.php:27
+#: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:87
+#: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:103
+#: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:115
+#: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:149
+#: libraries/config/messages.inc.php:151 libraries/export/texytext.php:27
 msgid "Replace NULL by"
 msgstr "Canvía NULL per"
 
-#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
+#: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:88
 msgid "Remove CRLF characters within columns"
 msgstr "Treu caràcters CRLF de dins de les columnes"
 
-#: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:249
-#: libraries/config/messages.inc.php:257 libraries/import/csv.php:63
+#: libraries/config/messages.inc.php:83 libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:261 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
 msgstr "Columnes acabades amb"
 
-#: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:244
+#: libraries/config/messages.inc.php:84 libraries/config/messages.inc.php:248
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
 msgstr "Línies acabades amb"
 
-#: libraries/config/messages.inc.php:84
+#: libraries/config/messages.inc.php:86
 msgid "Excel edition"
 msgstr "Edició per excel"
 
-#: libraries/config/messages.inc.php:87
+#: libraries/config/messages.inc.php:89
 msgid "Database name template"
 msgstr "Plantilla de nom de base de dades"
 
-#: libraries/config/messages.inc.php:88
+#: libraries/config/messages.inc.php:90
 msgid "Server name template"
 msgstr "Plantilla de nom de servidor"
 
-#: libraries/config/messages.inc.php:89
+#: libraries/config/messages.inc.php:91
 msgid "Table name template"
 msgstr "Plantilla de nom de taula"
 
-#: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:106
-#: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:139
-#: libraries/config/messages.inc.php:145 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:40 libraries/export/odt.php:32
-#: libraries/export/sql.php:123 libraries/export/texytext.php:23
+#: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:108
+#: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:141
+#: libraries/config/messages.inc.php:147 libraries/export/htmlword.php:24
+#: libraries/export/latex.php:40 libraries/export/mediawiki.php:33
+#: libraries/export/odt.php:32 libraries/export/sql.php:123
+#: libraries/export/texytext.php:23
 msgid "Dump table"
 msgstr "Bolcat de taula"
 
-#: libraries/config/messages.inc.php:94 libraries/export/latex.php:32
+#: libraries/config/messages.inc.php:96 libraries/export/latex.php:32
 msgid "Include table caption"
 msgstr "Inclusió del titol de taula"
 
-#: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
+#: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
 msgid "Table caption"
 msgstr "Títol de taula"
 
-#: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:104
+#: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:106
 msgid "Continued table caption"
 msgstr "Continuació del títol de taula"
 
-#: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
+#: libraries/config/messages.inc.php:101 libraries/config/messages.inc.php:107
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
 msgid "Label key"
 msgstr "Etiqueta de clau"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:136 libraries/export/odt.php:411
+=======
+#: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
+#: libraries/config/messages.inc.php:138 libraries/export/odt.php:411
+>>>>>>> upstream/master
 #: libraries/tbl_properties.inc.php:137
 msgid "MIME type"
 msgstr "Tipus MIME"
 
-#: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
-#: libraries/config/messages.inc.php:138 tbl_relation.php:408
+#: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:116
+#: libraries/config/messages.inc.php:140 tbl_relation.php:408
 msgid "Relations"
 msgstr "Relacions"
 
-#: libraries/config/messages.inc.php:107
+#: libraries/config/messages.inc.php:109
 msgid "Export method"
 msgstr "Tipus d'exportació"
 
-#: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:118
+#: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:120
 msgid "Save on server"
 msgstr "Desa al servidor"
 
-#: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:119
+#: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:121
 #: libraries/display_export.lib.php:193 libraries/display_export.lib.php:219
 msgid "Overwrite existing file(s)"
 msgstr "Sobreescriu arxiu(s) existent(s)"
 
-#: libraries/config/messages.inc.php:120
+#: libraries/config/messages.inc.php:122
 msgid "Remember file name template"
 msgstr "Recorda la plantilla del nom d'arxiu"
 
-#: libraries/config/messages.inc.php:122
+#: libraries/config/messages.inc.php:124
 msgid "Enclose table and column names with backquotes"
 msgstr "Usa -backquotes- amb noms de taules i columnes"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:264
+=======
+#: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:268
+>>>>>>> upstream/master
 #: libraries/display_export.lib.php:363
 msgid "SQL compatibility mode"
 msgstr "Modus de compatibilitat SQL"
 
-#: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
+#: libraries/config/messages.inc.php:126 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "opcions <code>CREATE TABLE</code> :"
 
-#: libraries/config/messages.inc.php:125
+#: libraries/config/messages.inc.php:127
 msgid "Creation/Update/Check dates"
 msgstr "Dates de Creació/Modificació/Comprovació"
 
-#: libraries/config/messages.inc.php:126
+#: libraries/config/messages.inc.php:128
 msgid "Use delayed inserts"
 msgstr "Usa insercions diferides"
 
-#: libraries/config/messages.inc.php:127 libraries/export/sql.php:81
+#: libraries/config/messages.inc.php:129 libraries/export/sql.php:81
 msgid "Disable foreign key checks"
 msgstr "Desactiva les comprovacions de claus externes"
 
-#: libraries/config/messages.inc.php:130
+#: libraries/config/messages.inc.php:132
 msgid "Use hexadecimal for BLOB"
 msgstr "Usa hexadecimal per a BLOB"
 
-#: libraries/config/messages.inc.php:132
+#: libraries/config/messages.inc.php:134
 msgid "Use ignore inserts"
 msgstr "Utilitza \"ignore inserts\""
 
-#: libraries/config/messages.inc.php:134
+#: libraries/config/messages.inc.php:136
 msgid "Syntax to use when inserting data"
 msgstr "Sintaxi a usar a l'inserció de dades"
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
+#: libraries/config/messages.inc.php:137 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr "Tamany màxim de la consulta creada"
 
-#: libraries/config/messages.inc.php:140
+#: libraries/config/messages.inc.php:142
 msgid "Export type"
 msgstr "Tipus d'exportació"
 
-#: libraries/config/messages.inc.php:141 libraries/export/sql.php:73
+#: libraries/config/messages.inc.php:143 libraries/export/sql.php:73
 msgid "Enclose export in a transaction"
 msgstr "Incloure exportació en la transacció"
 
-#: libraries/config/messages.inc.php:142
+#: libraries/config/messages.inc.php:144
 msgid "Export time in UTC"
 msgstr "Exporta l'hora en UTC"
 
-#: libraries/config/messages.inc.php:150
+#: libraries/config/messages.inc.php:152
 msgid "Force secured connection while using phpMyAdmin"
 msgstr "Força la connexió segura al usar phpMyAdmin"
 
-#: libraries/config/messages.inc.php:151
+#: libraries/config/messages.inc.php:153
 msgid "Force SSL connection"
 msgstr "Força la connexió SSL"
 
-#: libraries/config/messages.inc.php:152
+#: libraries/config/messages.inc.php:154
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
@@ -3692,149 +3986,172 @@ msgstr ""
 "[kbd]content[/kbd] és la dada referenciada, [kbd]id[/kbd] és el valor de la "
 "clau"
 
-#: libraries/config/messages.inc.php:153
+#: libraries/config/messages.inc.php:155
 msgid "Foreign key dropdown order"
 msgstr "Ordre de claus externes a la llista desplegable"
 
-#: libraries/config/messages.inc.php:154
+#: libraries/config/messages.inc.php:156
 msgid "A dropdown will be used if fewer items are present"
 msgstr "Ús de llista desplegable si hi son menys ítems presents"
 
-#: libraries/config/messages.inc.php:155
+#: libraries/config/messages.inc.php:157
 msgid "Foreign key limit"
 msgstr "Límit de claus externes"
 
-#: libraries/config/messages.inc.php:156
+#: libraries/config/messages.inc.php:158
 msgid "Browse mode"
 msgstr "Mode de navegació"
 
-#: libraries/config/messages.inc.php:157
+#: libraries/config/messages.inc.php:159
 msgid "Customize browse mode"
 msgstr "Configura el mode de navegació"
 
-#: libraries/config/messages.inc.php:159 libraries/config/messages.inc.php:161
-#: libraries/config/messages.inc.php:178 libraries/config/messages.inc.php:189
-#: libraries/config/messages.inc.php:191 libraries/config/messages.inc.php:219
-#: libraries/config/messages.inc.php:233
+#: libraries/config/messages.inc.php:161 libraries/config/messages.inc.php:163
+#: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:191
+#: libraries/config/messages.inc.php:193 libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:237
 msgid "Customize default options"
 msgstr "Configura les opcions predeterminades"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:160 libraries/config/setup.forms.php:245
 #: libraries/config/setup.forms.php:318
 #: libraries/config/user_preferences.forms.php:146
 #: libraries/config/user_preferences.forms.php:217 libraries/export/csv.php:19
+=======
+#: libraries/config/messages.inc.php:162 libraries/config/setup.forms.php:246
+#: libraries/config/setup.forms.php:319
+#: libraries/config/user_preferences.forms.php:147
+#: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
+>>>>>>> upstream/master
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/config/messages.inc.php:162
+#: libraries/config/messages.inc.php:164
 msgid "Developer"
 msgstr "Desenvolupador"
 
-#: libraries/config/messages.inc.php:163
+#: libraries/config/messages.inc.php:165
 msgid "Settings for phpMyAdmin developers"
 msgstr "Opcions per desenvolupadors de phpMyAdmin"
 
-#: libraries/config/messages.inc.php:164
+#: libraries/config/messages.inc.php:166
 msgid "Edit mode"
 msgstr "Mode d'edició"
 
-#: libraries/config/messages.inc.php:165
+#: libraries/config/messages.inc.php:167
 msgid "Customize edit mode"
 msgstr "Configura el mode d'edició"
 
-#: libraries/config/messages.inc.php:167
+#: libraries/config/messages.inc.php:169
 msgid "Export defaults"
 msgstr "Predeterminats d'exportació"
 
-#: libraries/config/messages.inc.php:168
+#: libraries/config/messages.inc.php:170
 msgid "Customize default export options"
 msgstr "Configura les opcions predeterminades d'exportació"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:169 libraries/config/messages.inc.php:211
+=======
+#: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:213
+>>>>>>> upstream/master
 #: setup/frames/menu.inc.php:17
 msgid "Features"
 msgstr "Propietats"
 
-#: libraries/config/messages.inc.php:170
+#: libraries/config/messages.inc.php:172
 msgid "General"
 msgstr "General"
 
-#: libraries/config/messages.inc.php:171
+#: libraries/config/messages.inc.php:173
 msgid "Set some commonly used options"
 msgstr "Estableix algunes de les opcions més utilitzades"
 
-#: libraries/config/messages.inc.php:173
+#: libraries/config/messages.inc.php:175
 msgid "Import defaults"
 msgstr "Predeterminats d'importació"
 
-#: libraries/config/messages.inc.php:174
+#: libraries/config/messages.inc.php:176
 msgid "Customize default common import options"
 msgstr "Configura les opcions predeterminades d'importació"
 
-#: libraries/config/messages.inc.php:175
+#: libraries/config/messages.inc.php:177
 msgid "Import / export"
 msgstr "Importar / exportar"
 
-#: libraries/config/messages.inc.php:176
+#: libraries/config/messages.inc.php:178
 msgid "Set import and export directories and compression options"
 msgstr ""
 "Configura els directoris d'importació i exportació i les opcions d'empaquetat"
 
-#: libraries/config/messages.inc.php:177 libraries/export/latex.php:27
+#: libraries/config/messages.inc.php:179 libraries/export/latex.php:27
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:180
+#: libraries/config/messages.inc.php:182
 msgid "Databases display options"
 msgstr "Opcions de visualització de les bases de dades"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:181 setup/frames/menu.inc.php:19
+=======
+#: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
+>>>>>>> upstream/master
 msgid "Navigation frame"
 msgstr "Marc de navegació"
 
-#: libraries/config/messages.inc.php:182
+#: libraries/config/messages.inc.php:184
 msgid "Customize appearance of the navigation frame"
 msgstr "Configura l'aspecte del marc de navegació"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:183 libraries/select_server.lib.php:38
+=======
+#: libraries/config/messages.inc.php:185 libraries/select_server.lib.php:38
+>>>>>>> upstream/master
 #: setup/frames/index.inc.php:117
 msgid "Servers"
 msgstr "Servidors"
 
-#: libraries/config/messages.inc.php:184
+#: libraries/config/messages.inc.php:186
 msgid "Servers display options"
 msgstr "Opcions de visualització dels servidors"
 
-#: libraries/config/messages.inc.php:186
+#: libraries/config/messages.inc.php:188
 msgid "Tables display options"
 msgstr "Opcions de visualització de les taules"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:187 setup/frames/menu.inc.php:20
+=======
+#: libraries/config/messages.inc.php:189 setup/frames/menu.inc.php:20
+>>>>>>> upstream/master
 msgid "Main frame"
 msgstr "Marc principal"
 
-#: libraries/config/messages.inc.php:188
+#: libraries/config/messages.inc.php:190
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: libraries/config/messages.inc.php:190
+#: libraries/config/messages.inc.php:192
 msgid "Open Document"
 msgstr "Open Document"
 
-#: libraries/config/messages.inc.php:192
+#: libraries/config/messages.inc.php:194
 msgid "Other core settings"
 msgstr "Altres paràmetres principals"
 
-#: libraries/config/messages.inc.php:193
+#: libraries/config/messages.inc.php:195
 msgid "Settings that didn't fit enywhere else"
 msgstr "Paràmetres que no encaixaven en cap altre lloc"
 
-#: libraries/config/messages.inc.php:194
+#: libraries/config/messages.inc.php:196
 msgid "Page titles"
 msgstr "Títols de pàgina"
 
-#: libraries/config/messages.inc.php:195
+#: libraries/config/messages.inc.php:197
 msgid ""
 "Specify browser's title bar text. Refer to [a@Documentation."
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
@@ -3844,21 +4161,25 @@ msgstr ""
 "html#cfg_TitleTable]la documentació[/a]  per a cadenes màgiques que poden "
 "usar-se per obtenir valors especials."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:196
+=======
+#: libraries/config/messages.inc.php:198
+>>>>>>> upstream/master
 #: libraries/navigation_header.inc.php:74
 #: libraries/navigation_header.inc.php:76
 msgid "Query window"
 msgstr "Finestra de consultes"
 
-#: libraries/config/messages.inc.php:197
+#: libraries/config/messages.inc.php:199
 msgid "Customize query window options"
 msgstr "Configura les opcions de la finestra de consultes"
 
-#: libraries/config/messages.inc.php:198
+#: libraries/config/messages.inc.php:200
 msgid "Security"
 msgstr "Seguretat"
 
-#: libraries/config/messages.inc.php:199
+#: libraries/config/messages.inc.php:201
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
@@ -3866,23 +4187,23 @@ msgstr ""
 "Tingues en compte que phpMyAdmin només és una interficie d'usuari i les "
 "seves caracteristiques no limiten a MySQL"
 
-#: libraries/config/messages.inc.php:200
+#: libraries/config/messages.inc.php:202
 msgid "Basic settings"
 msgstr "Paràmetres bàsics"
 
-#: libraries/config/messages.inc.php:201
+#: libraries/config/messages.inc.php:203
 msgid "Authentication"
 msgstr "Autenticació"
 
-#: libraries/config/messages.inc.php:202
+#: libraries/config/messages.inc.php:204
 msgid "Authentication settings"
 msgstr "Paràmetres d'autenticació"
 
-#: libraries/config/messages.inc.php:203
+#: libraries/config/messages.inc.php:205
 msgid "Server configuration"
 msgstr "Configuració del servidor"
 
-#: libraries/config/messages.inc.php:204
+#: libraries/config/messages.inc.php:206
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
@@ -3890,15 +4211,15 @@ msgstr ""
 "Configuració avançada del servidor, no canviis aquestes opcions si no saps "
 "el que estàs fent"
 
-#: libraries/config/messages.inc.php:205
+#: libraries/config/messages.inc.php:207
 msgid "Enter server connection parameters"
 msgstr "Entra els paràmetres de connexió al servidor"
 
-#: libraries/config/messages.inc.php:206
+#: libraries/config/messages.inc.php:208
 msgid "Configuration storage"
 msgstr "Infraestructura de taules enllaçades"
 
-#: libraries/config/messages.inc.php:207
+#: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
@@ -3908,11 +4229,11 @@ msgstr ""
 "adiccionals, consulta [a@Documentation.html#linked-tables]infraestructura de "
 "taules enllaçades[/a] a la documentació"
 
-#: libraries/config/messages.inc.php:208
+#: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
 msgstr "Seguiment de canvis"
 
-#: libraries/config/messages.inc.php:209
+#: libraries/config/messages.inc.php:211
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -3920,44 +4241,48 @@ msgstr ""
 "Seguiment de canvis a la base de dades. Necessita de la infraestructura de "
 "taules enllaçades de phpMyAdmin."
 
-#: libraries/config/messages.inc.php:210
+#: libraries/config/messages.inc.php:212
 msgid "Customize export options"
 msgstr "Configurar valors d'expotació predeterminats"
 
-#: libraries/config/messages.inc.php:212
+#: libraries/config/messages.inc.php:214
 msgid "Customize import defaults"
 msgstr "Configurar valors d'importació predeterminats"
 
-#: libraries/config/messages.inc.php:213
+#: libraries/config/messages.inc.php:215
 msgid "Customize navigation frame"
 msgstr "Configurar marc de navegació"
 
-#: libraries/config/messages.inc.php:214
+#: libraries/config/messages.inc.php:216
 msgid "Customize main frame"
 msgstr "Configurar marc principal"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:215 libraries/config/messages.inc.php:220
+=======
+#: libraries/config/messages.inc.php:217 libraries/config/messages.inc.php:222
+>>>>>>> upstream/master
 #: setup/frames/menu.inc.php:18
 msgid "SQL queries"
 msgstr "Consultes SQL"
 
-#: libraries/config/messages.inc.php:217
+#: libraries/config/messages.inc.php:219
 msgid "SQL Query box"
 msgstr "Caixa de consultes SQL"
 
-#: libraries/config/messages.inc.php:218
+#: libraries/config/messages.inc.php:220
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Configura els enllaços mostrats a les caixes de consultes SQL"
 
-#: libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:223
 msgid "SQL queries settings"
 msgstr "Opcions de consultes SQL"
 
-#: libraries/config/messages.inc.php:222
+#: libraries/config/messages.inc.php:224
 msgid "SQL Validator"
 msgstr "Validador SQL"
 
-#: libraries/config/messages.inc.php:223
+#: libraries/config/messages.inc.php:225
 msgid ""
 "If you wish to use the SQL Validator service, you should be aware that "
 "[strong]all SQL statements are stored anonymously for statistical purposes[/"
@@ -3970,53 +4295,63 @@ msgstr ""
 "SQL Validator[/a], Copyright 2002 Copyright 2002 Upright Database "
 "Technology. Tots els drets reservats.[/em]"
 
-#: libraries/config/messages.inc.php:224
+#: libraries/config/messages.inc.php:226
 msgid "Startup"
 msgstr "Inici"
 
-#: libraries/config/messages.inc.php:225
+#: libraries/config/messages.inc.php:227
 msgid "Customize startup page"
 msgstr "Configura la pàgina d'inici"
 
-#: libraries/config/messages.inc.php:226
+#: libraries/config/messages.inc.php:228
 #, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
 msgstr "Servidor de base de dades"
 
-#: libraries/config/messages.inc.php:227
+#: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:228
+#: libraries/config/messages.inc.php:230
+#, fuzzy
+#| msgid "Database server"
+msgid "Table structure"
+msgstr "Servidor de base de dades"
+
+#: libraries/config/messages.inc.php:231
+msgid "Settings for the table structure (list of columns)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:232
 msgid "Tabs"
 msgstr "Pestanyes"
 
-#: libraries/config/messages.inc.php:229
+#: libraries/config/messages.inc.php:233
 msgid "Choose how you want tabs to work"
 msgstr "Tria cóm vols que treballin les pestanyes"
 
-#: libraries/config/messages.inc.php:230
+#: libraries/config/messages.inc.php:234
 msgid "Text fields"
 msgstr "Camps de text"
 
-#: libraries/config/messages.inc.php:231
+#: libraries/config/messages.inc.php:235
 msgid "Customize text input fields"
 msgstr "Configurar camps d'entrada de text"
 
-#: libraries/config/messages.inc.php:232 libraries/export/texytext.php:18
+#: libraries/config/messages.inc.php:236 libraries/export/texytext.php:18
 msgid "Texy! text"
 msgstr "text Texy!"
 
-#: libraries/config/messages.inc.php:234
+#: libraries/config/messages.inc.php:238
 msgid "Warnings"
 msgstr "Avisos"
 
-#: libraries/config/messages.inc.php:235
+#: libraries/config/messages.inc.php:239
 msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr "Desactiva alguns dels avisos mostrats per phpMyAdmin"
 
-#: libraries/config/messages.inc.php:236
+#: libraries/config/messages.inc.php:240
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
@@ -4024,15 +4359,15 @@ msgstr ""
 "Activa la compressió [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] per a les "
 "operacions d'importació i exportació"
 
-#: libraries/config/messages.inc.php:237
+#: libraries/config/messages.inc.php:241
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/config/messages.inc.php:238
+#: libraries/config/messages.inc.php:242
 msgid "Extra parameters for iconv"
 msgstr "Paràmetres adiccionals per iconv"
 
-#: libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:243
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
@@ -4040,11 +4375,11 @@ msgstr ""
 "Si està activat, phpMyAdmin continúa processant consultes de múltiples "
 "instruccions encara que una d'elles falli"
 
-#: libraries/config/messages.inc.php:240
+#: libraries/config/messages.inc.php:244
 msgid "Ignore multiple statement errors"
 msgstr "Ignora errors d'instruccions multiples"
 
-#: libraries/config/messages.inc.php:241
+#: libraries/config/messages.inc.php:245
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
@@ -4054,21 +4389,21 @@ msgstr ""
 "límit de temps. Pot ser una opció per importar grans arxius, tanmateix pot "
 "trencar transaccions."
 
-#: libraries/config/messages.inc.php:242
+#: libraries/config/messages.inc.php:246
 msgid "Partial import: allow interrupt"
 msgstr "Importació parcial: permet interrompre"
 
-#: libraries/config/messages.inc.php:247 libraries/config/messages.inc.php:254
+#: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:258
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
 msgstr "No avortar en cas d'error d' INSERT"
 
-#: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:256
+#: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
 msgstr "Canviar les dades de la taula per l'arxiu"
 
-#: libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:254
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
@@ -4076,88 +4411,88 @@ msgstr ""
 "Format predeterminat; sigues conscient que la llista depén de la situació "
 "(base de dades, taula) i només SQL està sempre disponible"
 
-#: libraries/config/messages.inc.php:251
+#: libraries/config/messages.inc.php:255
 msgid "Format of imported file"
 msgstr "Format de l'arxiu importat"
 
-#: libraries/config/messages.inc.php:255 libraries/import/ldi.php:46
+#: libraries/config/messages.inc.php:259 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
 msgstr "Usa clau LOCAL"
 
-#: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:266
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:262 libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:271
 msgid "Column names in first row"
 msgstr "Noms de columnes a la primera fila"
 
-#: libraries/config/messages.inc.php:259 libraries/import/ods.php:34
+#: libraries/config/messages.inc.php:263 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr "No importis files buides"
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:264
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importar monedes ($5.00 a 5.00)"
 
-#: libraries/config/messages.inc.php:261
+#: libraries/config/messages.inc.php:265
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importar percentatges amb els decimals adients (12.00% a .12)"
 
-#: libraries/config/messages.inc.php:262
+#: libraries/config/messages.inc.php:266
 msgid "Number of queries to skip from start"
 msgstr "Nombre de consultes a saltar des de l'inici"
 
-#: libraries/config/messages.inc.php:263
+#: libraries/config/messages.inc.php:267
 msgid "Partial import: skip queries"
 msgstr "Importació parcial: saltar consultes"
 
-#: libraries/config/messages.inc.php:265
+#: libraries/config/messages.inc.php:269
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "No feu servir AUTO_INCREMENT per a valors zero"
 
-#: libraries/config/messages.inc.php:268
+#: libraries/config/messages.inc.php:272
 msgid "Initial state for sliders"
 msgstr "Estat inicial per a les barres de desplaçament"
 
-#: libraries/config/messages.inc.php:269
+#: libraries/config/messages.inc.php:273
 msgid "How many rows can be inserted at one time"
 msgstr "Quantes files es poden inserir a la vegada"
 
-#: libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:274
 msgid "Number of inserted rows"
 msgstr "Nombre de files a inserir"
 
-#: libraries/config/messages.inc.php:271
+#: libraries/config/messages.inc.php:275
 msgid "Target for quick access icon"
 msgstr "Destí per a la icona d'accés ràpid"
 
-#: libraries/config/messages.inc.php:272
+#: libraries/config/messages.inc.php:276
 msgid "Show logo in left frame"
 msgstr "Mostra el logo al marc esquerre"
 
-#: libraries/config/messages.inc.php:273
+#: libraries/config/messages.inc.php:277
 msgid "Display logo"
 msgstr "Mostra el logo"
 
-#: libraries/config/messages.inc.php:274
+#: libraries/config/messages.inc.php:278
 msgid "Display server choice at the top of the left frame"
 msgstr "Mostra el servidor triat a dalt del marc esquerre"
 
-#: libraries/config/messages.inc.php:275
+#: libraries/config/messages.inc.php:279
 msgid "Display servers selection"
 msgstr "Mostra la tría de servidors"
 
-#: libraries/config/messages.inc.php:276
+#: libraries/config/messages.inc.php:280
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Mínim nombre de taules mostrades a la caixa de filtre de taules"
 
-#: libraries/config/messages.inc.php:277
+#: libraries/config/messages.inc.php:281
 msgid "String that separates databases into different tree levels"
 msgstr "Text que separa bases de dades en diferents nivells d'arbre"
 
-#: libraries/config/messages.inc.php:278
+#: libraries/config/messages.inc.php:282
 msgid "Database tree separator"
 msgstr "Separador per l'arbre de bases de dades"
 
-#: libraries/config/messages.inc.php:279
+#: libraries/config/messages.inc.php:283
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
@@ -4165,39 +4500,39 @@ msgstr ""
 "Només versió lleugera; mostrar bases de dades en arbre (determinat pel "
 "separador definit tot seguit)"
 
-#: libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:284
 msgid "Display databases in a tree"
 msgstr "Mostra les bases de dades en arbre"
 
-#: libraries/config/messages.inc.php:281
+#: libraries/config/messages.inc.php:285
 msgid "Disable this if you want to see all databases at once"
 msgstr "Desactiva aixó si vols veure totes les bases de dades de cop"
 
-#: libraries/config/messages.inc.php:282
+#: libraries/config/messages.inc.php:286
 msgid "Use light version"
 msgstr "Usar versió lleugera"
 
-#: libraries/config/messages.inc.php:283
+#: libraries/config/messages.inc.php:287
 msgid "Maximum table tree depth"
 msgstr "Màxima profunditat de l'arbre de taules"
 
-#: libraries/config/messages.inc.php:284
+#: libraries/config/messages.inc.php:288
 msgid "String that separates tables into different tree levels"
 msgstr "Text que separa taules en diferents nivells d'arbre"
 
-#: libraries/config/messages.inc.php:285
+#: libraries/config/messages.inc.php:289
 msgid "Table tree separator"
 msgstr "Separador d'arbre de taules"
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:290
 msgid "URL where logo in the navigation frame will point to"
 msgstr "URL on apunta el logo al marc de navegació"
 
-#: libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:291
 msgid "Logo link URL"
 msgstr "Enllaç d'URL al logo"
 
-#: libraries/config/messages.inc.php:288
+#: libraries/config/messages.inc.php:292
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
@@ -4205,46 +4540,38 @@ msgstr ""
 "Obrir la pàgina enllaçada a la finestra principal ([kbd]main[/kbd]) o bé a "
 "una de nova ([kbd]new[/kbd])"
 
-#: libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:293
 msgid "Logo link target"
 msgstr "Destí d'enllaç al logo"
 
-#: libraries/config/messages.inc.php:290
+#: libraries/config/messages.inc.php:294
 msgid "Highlight server under the mouse cursor"
 msgstr "Resalta el servidor sota el cursor del ratolí"
 
-#: libraries/config/messages.inc.php:291
+#: libraries/config/messages.inc.php:295
 msgid "Enable highlighting"
 msgstr "Activa resaltat"
 
-#: libraries/config/messages.inc.php:292
+#: libraries/config/messages.inc.php:296
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Màxim nombre de taules usades recentment; 0 per desactivar"
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:297
 msgid "Recently used tables"
 msgstr "Taules usades recentment"
 
-#: libraries/config/messages.inc.php:294
-msgid "Use less graphically intense tabs"
-msgstr "Ús de pestanyes amb menys contingut gràfic"
-
-#: libraries/config/messages.inc.php:295
-msgid "Light tabs"
-msgstr "Pestanyes lleugeres"
-
-#: libraries/config/messages.inc.php:296
+#: libraries/config/messages.inc.php:298
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
 "Màxim nombre de caràcters usats en qualsevol columna no-numèrica a la vista "
 "de navegació"
 
-#: libraries/config/messages.inc.php:297
+#: libraries/config/messages.inc.php:299
 msgid "Limit column characters"
 msgstr "Limit de caràcters de la columna"
 
-#: libraries/config/messages.inc.php:298
+#: libraries/config/messages.inc.php:300
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -4255,11 +4582,11 @@ msgstr ""
 "actual. Establint aixó a FALSE fa més fàcil oblidar desconectar-se d'altres "
 "servidors quan estàs connectat a més d'un."
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:301
 msgid "Delete all cookies on logout"
 msgstr "Esborra totes les galetes al desconnectar"
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:302
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
@@ -4267,11 +4594,11 @@ msgstr ""
 "Defineix si l'anterior autenticació s'ha de recuperar o no al mode "
 "d'autenticació per galetes"
 
-#: libraries/config/messages.inc.php:301
+#: libraries/config/messages.inc.php:303
 msgid "Recall user name"
 msgstr "Nom d'usuari de recuperació"
 
-#: libraries/config/messages.inc.php:302
+#: libraries/config/messages.inc.php:304
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -4283,28 +4610,29 @@ msgstr ""
 "la sessió actual, i s'esborraran tant aviat com tanquis la finestra del "
 "navegador. Aixó es recomana per a entorns no confiables."
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:305
 msgid "Login cookie store"
 msgstr "Emmagatzema les galetes de connexió"
 
-#: libraries/config/messages.inc.php:304
+#: libraries/config/messages.inc.php:306
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr ""
 "Defineix durant quant de temps (en segons) es vàlida una galeta "
 "d'autenticació"
 
-#: libraries/config/messages.inc.php:305
+#: libraries/config/messages.inc.php:307
 msgid "Login cookie validity"
 msgstr "Validesa de l'autenticació per galetes"
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:308
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Doble tamany de textareas per a columnes LONGTEXT"
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:309
 msgid "Bigger textarea for LONGTEXT"
 msgstr "textarea més gran per a LONGTEXT"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr "Màxim nombre de caràcters usats quan es mostra una consulta SQL"
@@ -4319,15 +4647,39 @@ msgid "Users cannot set a higher value"
 msgstr "Els usuaris no poden establir un valor més gran"
 
 #: libraries/config/messages.inc.php:311
+=======
+#: libraries/config/messages.inc.php:310
+msgid "Maximum number of characters used when a SQL query is displayed"
+msgstr "Màxim nombre de caràcters usats quan es mostra una consulta SQL"
+
+#: libraries/config/messages.inc.php:311
+msgid "Maximum displayed SQL length"
+msgstr "Tamany màxim de SQL mostrat"
+
+#: libraries/config/messages.inc.php:312 libraries/config/messages.inc.php:317
+#: libraries/config/messages.inc.php:344
+msgid "Users cannot set a higher value"
+msgstr "Els usuaris no poden establir un valor més gran"
+
+#: libraries/config/messages.inc.php:313
+>>>>>>> upstream/master
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
 "Màxim nombre de bases de dades mostrades al marc esquerre i a la llista"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:312
 msgid "Maximum databases"
 msgstr "Màxim de bases de dades"
 
 #: libraries/config/messages.inc.php:313
+=======
+#: libraries/config/messages.inc.php:314
+msgid "Maximum databases"
+msgstr "Màxim de bases de dades"
+
+#: libraries/config/messages.inc.php:315
+>>>>>>> upstream/master
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
@@ -4337,6 +4689,7 @@ msgstr ""
 "conté més files, es mostraran els enllaços &quot;Anterior&quot; i &quot;"
 "Següent&quot;."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:314
 msgid "Maximum number of rows to display"
 msgstr "Màxim nombre de files a mostrar"
@@ -4350,6 +4703,21 @@ msgid "Maximum tables"
 msgstr "Màxim de taules"
 
 #: libraries/config/messages.inc.php:318
+=======
+#: libraries/config/messages.inc.php:316
+msgid "Maximum number of rows to display"
+msgstr "Màxim nombre de files a mostrar"
+
+#: libraries/config/messages.inc.php:318
+msgid "Maximum number of tables displayed in table list"
+msgstr "Màxim nombre de taules mostrades a la llista"
+
+#: libraries/config/messages.inc.php:319
+msgid "Maximum tables"
+msgstr "Màxim de taules"
+
+#: libraries/config/messages.inc.php:320
+>>>>>>> upstream/master
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
@@ -4357,11 +4725,19 @@ msgstr ""
 "Desactiva l'avís per defecte que es mostra si no hi és mcrypt per "
 "l'autenticació per cookies"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:319
 msgid "mcrypt warning"
 msgstr "avís mcrypt"
 
 #: libraries/config/messages.inc.php:320
+=======
+#: libraries/config/messages.inc.php:321
+msgid "mcrypt warning"
+msgstr "avís mcrypt"
+
+#: libraries/config/messages.inc.php:322
+>>>>>>> upstream/master
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
@@ -4369,6 +4745,7 @@ msgstr ""
 "El nombre d'octets que una ordre està autoritzada a reservar, ex. [kbd]32M[/"
 "kbd] ([kbd]0[/kbd] per no posar límit)"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:321
 msgid "Memory limit"
 msgstr "Límit de memoria"
@@ -4398,16 +4775,55 @@ msgid "Iconic navigation bar"
 msgstr "Barra de navegació amb icones"
 
 #: libraries/config/messages.inc.php:328
+=======
+#: libraries/config/messages.inc.php:323
+msgid "Memory limit"
+msgstr "Límit de memoria"
+
+#: libraries/config/messages.inc.php:324
+msgid "These are Edit, Copy and Delete links"
+msgstr "Aixó són enllaços a Edició, Còpia i Esborrat"
+
+#: libraries/config/messages.inc.php:325
+msgid "Where to show the table row links"
+msgstr ""
+
+#: libraries/config/messages.inc.php:326
+msgid "Use natural order for sorting table and database names"
+msgstr "Usa l'ordre natural per ordenar els noms de taules i bases de dades"
+
+#: libraries/config/messages.inc.php:327
+msgid "Natural order"
+msgstr "Ordre natural"
+
+#: libraries/config/messages.inc.php:328 libraries/config/messages.inc.php:338
+msgid "Use only icons, only text or both"
+msgstr "Usa només icones, només text o bé ambdós"
+
+#: libraries/config/messages.inc.php:329
+msgid "Iconic navigation bar"
+msgstr "Barra de navegació amb icones"
+
+#: libraries/config/messages.inc.php:330
+>>>>>>> upstream/master
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
 "utilitza la memòria cau de sortida per GZip per incrementar la velocitat en "
 "transferències HTTP"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:329
 msgid "GZip output buffering"
 msgstr "Memòria cau de sortida per GZip"
 
 #: libraries/config/messages.inc.php:330
+=======
+#: libraries/config/messages.inc.php:331
+msgid "GZip output buffering"
+msgstr "Memòria cau de sortida per GZip"
+
+#: libraries/config/messages.inc.php:332
+>>>>>>> upstream/master
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -4415,6 +4831,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - i.e. ordre descendent per camps de tipus TIME, DATE, "
 "DATETIME i TIMESTAMP, ordre descendent ascendent a la resta"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:331
 msgid "Default sorting order"
 msgstr "Ordre de clasificació predeterminat"
@@ -4428,6 +4845,21 @@ msgid "Persistent connections"
 msgstr "Connexions persistents"
 
 #: libraries/config/messages.inc.php:334
+=======
+#: libraries/config/messages.inc.php:333
+msgid "Default sorting order"
+msgstr "Ordre de clasificació predeterminat"
+
+#: libraries/config/messages.inc.php:334
+msgid "Use persistent connections to MySQL databases"
+msgstr "Utilitza connexions persistents a bases de dades MySQL"
+
+#: libraries/config/messages.inc.php:335
+msgid "Persistent connections"
+msgstr "Connexions persistents"
+
+#: libraries/config/messages.inc.php:336
+>>>>>>> upstream/master
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -4437,6 +4869,7 @@ msgstr ""
 "l'estructura de la base de dades, si qualsevol de les taules necessàries per "
 "a l'infraestructura de taules enllaçades de phpMyAdmin no s'ha pogut trobar"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:335
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Falten taules de l'infraestructura de taules enllaçades de phpMyAdmin"
@@ -4454,6 +4887,25 @@ msgid "Protect binary columns"
 msgstr "Protegeix les columnes de contingut binari"
 
 #: libraries/config/messages.inc.php:340
+=======
+#: libraries/config/messages.inc.php:337
+msgid "Missing phpMyAdmin configuration storage tables"
+msgstr "Falten taules de l'infraestructura de taules enllaçades de phpMyAdmin"
+
+#: libraries/config/messages.inc.php:339
+msgid "Iconic table operations"
+msgstr "Icones d'operacions de taula"
+
+#: libraries/config/messages.inc.php:340
+msgid "Disallow BLOB and BINARY columns from editing"
+msgstr "Desactiva l'edició en columnes tipus BLOB i BINARY"
+
+#: libraries/config/messages.inc.php:341
+msgid "Protect binary columns"
+msgstr "Protegeix les columnes de contingut binari"
+
+#: libraries/config/messages.inc.php:342
+>>>>>>> upstream/master
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -4464,6 +4916,7 @@ msgstr ""
 "fan servir rutines JS per mostrar l'historial de consultes (es perd al "
 "tancar la finestra)."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:341
 msgid "Permanent query history"
 msgstr "Historial permanent de consultes"
@@ -4501,10 +4954,50 @@ msgid "Query window width"
 msgstr "Amplada de la finestra de consultes"
 
 #: libraries/config/messages.inc.php:351
+=======
+#: libraries/config/messages.inc.php:343
+msgid "Permanent query history"
+msgstr "Historial permanent de consultes"
+
+#: libraries/config/messages.inc.php:345
+msgid "How many queries are kept in history"
+msgstr "Quàntes consultes s'han de desar a l'historial"
+
+#: libraries/config/messages.inc.php:346
+msgid "Query history length"
+msgstr "Tamany de l'historial de consultes"
+
+#: libraries/config/messages.inc.php:347
+msgid "Tab displayed when opening a new query window"
+msgstr "Pestanya que es mostra al entrar a una nova finestra de consultes"
+
+#: libraries/config/messages.inc.php:348
+msgid "Default query window tab"
+msgstr "Pestanya de finestra de consultes predeterminada"
+
+#: libraries/config/messages.inc.php:349
+msgid "Query window height (in pixels)"
+msgstr "Alçada de la finestra de consultes (en píxels)"
+
+#: libraries/config/messages.inc.php:350
+msgid "Query window height"
+msgstr "Alçada de la finestra de consultes"
+
+#: libraries/config/messages.inc.php:351
+msgid "Query window width (in pixels)"
+msgstr "Amplada de la finestra de consultes (en pixels)"
+
+#: libraries/config/messages.inc.php:352
+msgid "Query window width"
+msgstr "Amplada de la finestra de consultes"
+
+#: libraries/config/messages.inc.php:353
+>>>>>>> upstream/master
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
 "Selecciona quines funcions s'usaràn per a conversions de jocs de caràcters"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:352
 msgid "Recoding engine"
 msgstr "Motor d'enregistrament"
@@ -4518,10 +5011,26 @@ msgid "Remember table's sorting"
 msgstr "Recordar l'ordenació de les taules"
 
 #: libraries/config/messages.inc.php:355
+=======
+#: libraries/config/messages.inc.php:354
+msgid "Recoding engine"
+msgstr "Motor d'enregistrament"
+
+#: libraries/config/messages.inc.php:355
+msgid "When browsing tables, the sorting of each table is remembered"
+msgstr ""
+
+#: libraries/config/messages.inc.php:356
+msgid "Remember table's sorting"
+msgstr "Recordar l'ordenació de les taules"
+
+#: libraries/config/messages.inc.php:357
+>>>>>>> upstream/master
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 "Repeteix les capçeleres cada X cel.les, [kbd]0[/kbd] desactiva la funció"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:356
 msgid "Repeat headers"
 msgstr "Repeteix capçeleres"
@@ -4571,16 +5080,75 @@ msgid "Allow root login"
 msgstr "Permet la connexió de root"
 
 #: libraries/config/messages.inc.php:369
+=======
+#: libraries/config/messages.inc.php:358
+msgid "Repeat headers"
+msgstr "Repeteix capçeleres"
+
+#: libraries/config/messages.inc.php:359
+msgid "Show help button instead of Documentation text"
+msgstr "Mostra el botó d'ajuda en lloc del text de la Documentació"
+
+#: libraries/config/messages.inc.php:360
+msgid "Show help button"
+msgstr "Mostra el botó d'ajuda"
+
+#: libraries/config/messages.inc.php:362
+msgid "Save all edited cells at once"
+msgstr ""
+
+#: libraries/config/messages.inc.php:363
+msgid "Directory where exports can be saved on server"
+msgstr "Directori del servidor on pots desar les exportacions"
+
+#: libraries/config/messages.inc.php:364
+msgid "Save directory"
+msgstr "Directori de desades"
+
+#: libraries/config/messages.inc.php:365
+msgid "Leave blank if not used"
+msgstr "Deixa en blanc si no l'utilitzes"
+
+#: libraries/config/messages.inc.php:366
+msgid "Host authorization order"
+msgstr "Ordre d'autenticació del servidor"
+
+#: libraries/config/messages.inc.php:367
+msgid "Leave blank for defaults"
+msgstr "Deixa en blanc per als predeterminats"
+
+#: libraries/config/messages.inc.php:368
+msgid "Host authorization rules"
+msgstr "Regles d'autenticació del servidor"
+
+#: libraries/config/messages.inc.php:369
+msgid "Allow logins without a password"
+msgstr "Permetre connexions sense contrasenya"
+
+#: libraries/config/messages.inc.php:370
+msgid "Allow root login"
+msgstr "Permet la connexió de root"
+
+#: libraries/config/messages.inc.php:371
+>>>>>>> upstream/master
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
 "Nom del Domini HTTP -HTTP Basic Auth Realm- per a mostrar a l'autenticació "
 "HTTP"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:370
 msgid "HTTP Realm"
 msgstr "Domini HTTP"
 
 #: libraries/config/messages.inc.php:371
+=======
+#: libraries/config/messages.inc.php:372
+msgid "HTTP Realm"
+msgstr "Domini HTTP"
+
+#: libraries/config/messages.inc.php:373
+>>>>>>> upstream/master
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -4590,6 +5158,7 @@ msgstr ""
 "maquinari SweKey[/a] (no trobat al teu arrel de documents; es recomana a: /"
 "etc/swekey.conf)"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:372
 msgid "SweKey config file"
 msgstr "Arxiu de configuració SweKey"
@@ -4603,6 +5172,21 @@ msgid "Authentication type"
 msgstr "Tipus d'autenticació"
 
 #: libraries/config/messages.inc.php:375
+=======
+#: libraries/config/messages.inc.php:374
+msgid "SweKey config file"
+msgstr "Arxiu de configuració SweKey"
+
+#: libraries/config/messages.inc.php:375
+msgid "Authentication method to use"
+msgstr "Mètode d'autenticació a usar"
+
+#: libraries/config/messages.inc.php:376 setup/frames/index.inc.php:136
+msgid "Authentication type"
+msgstr "Tipus d'autenticació"
+
+#: libraries/config/messages.inc.php:377
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -4610,11 +5194,19 @@ msgstr ""
 "Deixa en blanc per desactivar les [a@http://wiki.phpmyadmin.net/pma/bookmark]"
 "consultes desades[/a], suggerit: [kbd]pma_bookmark[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:376
 msgid "Bookmark table"
 msgstr "Taula de consultes desades"
 
 #: libraries/config/messages.inc.php:377
+=======
+#: libraries/config/messages.inc.php:378
+msgid "Bookmark table"
+msgstr "Taula de consultes desades"
+
+#: libraries/config/messages.inc.php:379
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
@@ -4622,6 +5214,7 @@ msgstr ""
 "Deixa en blanc per no usar comentaris de columna o tipus mime, suggerit: "
 "[kbd]pma_column_info[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:378
 msgid "Column information table"
 msgstr "Taula d'informació de columna"
@@ -4647,6 +5240,33 @@ msgid "Control user password"
 msgstr "Contrasenya de l'usuari de control"
 
 #: libraries/config/messages.inc.php:384
+=======
+#: libraries/config/messages.inc.php:380
+msgid "Column information table"
+msgstr "Taula d'informació de columna"
+
+#: libraries/config/messages.inc.php:381
+msgid "Compress connection to MySQL server"
+msgstr "Connexió comprimida al servidor MySQL"
+
+#: libraries/config/messages.inc.php:382
+msgid "Compress connection"
+msgstr "Connexió comprimida"
+
+#: libraries/config/messages.inc.php:383
+msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
+msgstr "Cóm connectar al servidor, deixa [kbd]tcp[/kbd] si no estàs segur"
+
+#: libraries/config/messages.inc.php:384
+msgid "Connection type"
+msgstr "Tipus de connexió"
+
+#: libraries/config/messages.inc.php:385
+msgid "Control user password"
+msgstr "Contrasenya de l'usuari de control"
+
+#: libraries/config/messages.inc.php:386
+>>>>>>> upstream/master
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -4654,16 +5274,25 @@ msgstr ""
 "Usuari MySQL especial configurat amb permisos restringits, més informació "
 "disponible al [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:385
 msgid "Control user"
 msgstr "Usuari de control"
 
 #: libraries/config/messages.inc.php:386
+=======
+#: libraries/config/messages.inc.php:387
+msgid "Control user"
+msgstr "Usuari de control"
+
+#: libraries/config/messages.inc.php:388
+>>>>>>> upstream/master
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:387
 msgid "Control host"
 msgstr "Servidor de control"
@@ -4677,6 +5306,21 @@ msgid "Count tables"
 msgstr "Comptar les taules"
 
 #: libraries/config/messages.inc.php:390
+=======
+#: libraries/config/messages.inc.php:389
+msgid "Control host"
+msgstr "Servidor de control"
+
+#: libraries/config/messages.inc.php:390
+msgid "Count tables when showing database list"
+msgstr "Comptar les taules al mostrar la llista de bases de dades"
+
+#: libraries/config/messages.inc.php:391
+msgid "Count tables"
+msgstr "Comptar les taules"
+
+#: libraries/config/messages.inc.php:392
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -4684,11 +5328,19 @@ msgstr ""
 "Deixa en blanc per desactivar el suport del Dissenyador, suggerit: [kbd]"
 "pma_designer_coords[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:391
 msgid "Designer table"
 msgstr "Taula del dissenyador"
 
 #: libraries/config/messages.inc.php:392
+=======
+#: libraries/config/messages.inc.php:393
+msgid "Designer table"
+msgstr "Taula del dissenyador"
+
+#: libraries/config/messages.inc.php:394
+>>>>>>> upstream/master
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -4696,16 +5348,25 @@ msgstr ""
 "Més informació a [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] i [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:393
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Desactiva l'ús d'INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:394
+=======
+#: libraries/config/messages.inc.php:395
+msgid "Disable use of INFORMATION_SCHEMA"
+msgstr "Desactiva l'ús d'INFORMATION_SCHEMA"
+
+#: libraries/config/messages.inc.php:396
+>>>>>>> upstream/master
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 "La extensió de PHP utilitzada; hauries de fer servir mysqli si ho tens "
 "suportat"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:395
 msgid "PHP extension to use"
 msgstr "Extensió PHP a usar"
@@ -4719,6 +5380,21 @@ msgid "Hide databases"
 msgstr "Amagar bases de dades"
 
 #: libraries/config/messages.inc.php:398
+=======
+#: libraries/config/messages.inc.php:397
+msgid "PHP extension to use"
+msgstr "Extensió PHP a usar"
+
+#: libraries/config/messages.inc.php:398
+msgid "Hide databases matching regular expression (PCRE)"
+msgstr "Amagar les bases de dades que compleixin una expresió regular (PCRE)"
+
+#: libraries/config/messages.inc.php:399
+msgid "Hide databases"
+msgstr "Amagar bases de dades"
+
+#: libraries/config/messages.inc.php:400
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
@@ -4726,6 +5402,7 @@ msgstr ""
 "Deixa en blanc per desactivar el suport d'historial de consultes SQL, "
 "suggerit: [kbd]pma_history[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:399
 msgid "SQL query history table"
 msgstr "Taula d'historial de consultes SQL"
@@ -4743,11 +5420,31 @@ msgid "Logout URL"
 msgstr "URL de desconnexió"
 
 #: libraries/config/messages.inc.php:403
+=======
+#: libraries/config/messages.inc.php:401
+msgid "SQL query history table"
+msgstr "Taula d'historial de consultes SQL"
+
+#: libraries/config/messages.inc.php:402
+msgid "Hostname where MySQL server is running"
+msgstr "Nom del servidor ón MySQL és en marxa"
+
+#: libraries/config/messages.inc.php:403
+msgid "Server hostname"
+msgstr "Nom del servidor"
+
+#: libraries/config/messages.inc.php:404
+msgid "Logout URL"
+msgstr "URL de desconnexió"
+
+#: libraries/config/messages.inc.php:405
+>>>>>>> upstream/master
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:404
 msgid "Maximal number of table preferences to store"
 msgstr "Màxim nombre de preferències de taules a desar"
@@ -4761,6 +5458,21 @@ msgid "Connect without password"
 msgstr "Connexió sense contrasenya"
 
 #: libraries/config/messages.inc.php:407
+=======
+#: libraries/config/messages.inc.php:406
+msgid "Maximal number of table preferences to store"
+msgstr "Màxim nombre de preferències de taules a desar"
+
+#: libraries/config/messages.inc.php:407
+msgid "Try to connect without password"
+msgstr "Intentar connectar sense contrasenya"
+
+#: libraries/config/messages.inc.php:408
+msgid "Connect without password"
+msgstr "Connexió sense contrasenya"
+
+#: libraries/config/messages.inc.php:409
+>>>>>>> upstream/master
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -4774,6 +5486,7 @@ msgstr ""
 "entrant els seus noms en ordre i usant [kbd]*[/kbd] al final per mostrar la "
 "resta en ordre alfabètic."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:408
 msgid "Show only listed databases"
 msgstr "Mostra només les bases de dades de la llista"
@@ -4787,17 +5500,40 @@ msgid "Password for config auth"
 msgstr "Contrasenya autenticació config"
 
 #: libraries/config/messages.inc.php:411
+=======
+#: libraries/config/messages.inc.php:410
+msgid "Show only listed databases"
+msgstr "Mostra només les bases de dades de la llista"
+
+#: libraries/config/messages.inc.php:411 libraries/config/messages.inc.php:452
+msgid "Leave empty if not using config auth"
+msgstr "Deixa en blanc si no utilitzes l'autenticació config"
+
+#: libraries/config/messages.inc.php:412
+msgid "Password for config auth"
+msgstr "Contrasenya autenticació config"
+
+#: libraries/config/messages.inc.php:413
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
 "pma_pdf_pages[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:412
 msgid "PDF schema: pages table"
 msgstr "Esquema PDF: taula de pàgines"
 
 #: libraries/config/messages.inc.php:413
+=======
+#: libraries/config/messages.inc.php:414
+msgid "PDF schema: pages table"
+msgstr "Esquema PDF: taula de pàgines"
+
+#: libraries/config/messages.inc.php:415
+>>>>>>> upstream/master
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -4808,20 +5544,36 @@ msgstr ""
 "tenir informació més completa. Deixa en blanc per no utilitzar. Suggerit: "
 "[kbd]phpmyadmin[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:414
 msgid "Database name"
 msgstr "Nom de base de dades"
 
 #: libraries/config/messages.inc.php:415
+=======
+#: libraries/config/messages.inc.php:416
+msgid "Database name"
+msgstr "Nom de base de dades"
+
+#: libraries/config/messages.inc.php:417
+>>>>>>> upstream/master
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Port ón el servidor MySQL està escoltatt, deixa en blanc per al predeterminat"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:416
 msgid "Server port"
 msgstr "Port del servidor"
 
 #: libraries/config/messages.inc.php:417
+=======
+#: libraries/config/messages.inc.php:418
+msgid "Server port"
+msgstr "Port del servidor"
+
+#: libraries/config/messages.inc.php:419
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
@@ -4829,11 +5581,19 @@ msgstr ""
 "Deixa en blanc per treure la \"persistència\" de taules usades recentment "
 "entre sessions, suggerit: [kbd]pma_recent[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:418
 msgid "Recently used table"
 msgstr "Taula usada recentment"
 
 #: libraries/config/messages.inc.php:419
+=======
+#: libraries/config/messages.inc.php:420
+msgid "Recently used table"
+msgstr "Taula usada recentment"
+
+#: libraries/config/messages.inc.php:421
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -4841,6 +5601,7 @@ msgstr ""
 "Deixa en blanc per desactivar els [a@http://wiki.phpmyadmin.net/pma/relation]"
 "enllaços de relacions[/a], suggerit: [kbd]pma_relation[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:420
 msgid "Relation table"
 msgstr "Taula de relacions"
@@ -4854,6 +5615,21 @@ msgid "SHOW DATABASES command"
 msgstr "Ordre SHOW DATABASES"
 
 #: libraries/config/messages.inc.php:423
+=======
+#: libraries/config/messages.inc.php:422
+msgid "Relation table"
+msgstr "Taula de relacions"
+
+#: libraries/config/messages.inc.php:423
+msgid "SQL command to fetch available databases"
+msgstr "Ordre SQL per obtenir les bases de dades disponibles"
+
+#: libraries/config/messages.inc.php:424
+msgid "SHOW DATABASES command"
+msgstr "Ordre SHOW DATABASES"
+
+#: libraries/config/messages.inc.php:425
+>>>>>>> upstream/master
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -4861,6 +5637,7 @@ msgstr ""
 "Consulta [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipus "
 "d'autenticació[/a] per veure exemples"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:424
 msgid "Signon session name"
 msgstr "Nom de sessió signon"
@@ -4870,11 +5647,23 @@ msgid "Signon URL"
 msgstr "URL signon"
 
 #: libraries/config/messages.inc.php:426
+=======
+#: libraries/config/messages.inc.php:426
+msgid "Signon session name"
+msgstr "Nom de sessió signon"
+
+#: libraries/config/messages.inc.php:427
+msgid "Signon URL"
+msgstr "URL signon"
+
+#: libraries/config/messages.inc.php:428
+>>>>>>> upstream/master
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 "Sócol ón el servidor MySQL està escoltant, deixa en blanc per al "
 "predeterminat"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:427
 msgid "Server socket"
 msgstr "Sócol del servidor"
@@ -4888,17 +5677,40 @@ msgid "Use SSL"
 msgstr "Usa SSL"
 
 #: libraries/config/messages.inc.php:430
+=======
+#: libraries/config/messages.inc.php:429
+msgid "Server socket"
+msgstr "Sócol del servidor"
+
+#: libraries/config/messages.inc.php:430
+msgid "Enable SSL for connection to MySQL server"
+msgstr "Activa SSL per la connexió amb el servidor MySQL"
+
+#: libraries/config/messages.inc.php:431
+msgid "Use SSL"
+msgstr "Usa SSL"
+
+#: libraries/config/messages.inc.php:432
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: [kbd]"
 "pma_table_coords[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:431
 msgid "PDF schema: table coordinates"
 msgstr "Esquema PDF: taula de coordinades"
 
 #: libraries/config/messages.inc.php:432
+=======
+#: libraries/config/messages.inc.php:433
+msgid "PDF schema: table coordinates"
+msgstr "Esquema PDF: taula de coordinades"
+
+#: libraries/config/messages.inc.php:434
+>>>>>>> upstream/master
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -4906,11 +5718,19 @@ msgstr ""
 "Taula per descriure les columnes a mostrar, deixa en blanc per desactivar; "
 "suggerit: [kbd]pma_table_info[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:433
 msgid "Display columns table"
 msgstr "Taula de descripció de columnes"
 
 #: libraries/config/messages.inc.php:434
+=======
+#: libraries/config/messages.inc.php:435
+msgid "Display columns table"
+msgstr "Taula de descripció de columnes"
+
+#: libraries/config/messages.inc.php:436
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -4918,11 +5738,19 @@ msgstr ""
 "Deixa en blanc per desactivar la \"persistència\" de preferències "
 "d'interfase de taules entre sessions, suggerit: [kbd]pma_table_uiprefs[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:435
 msgid "UI preferences table"
 msgstr "Preferències d'interfase de taula"
 
 #: libraries/config/messages.inc.php:436
+=======
+#: libraries/config/messages.inc.php:437
+msgid "UI preferences table"
+msgstr "Preferències d'interfase de taula"
+
+#: libraries/config/messages.inc.php:438
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -4930,11 +5758,19 @@ msgstr ""
 "Si una instrucció DROP DATABASE IF EXISTS s'afegirà com a primera línia en "
 "el registre a l'hora de crear una base de dades."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:437
 msgid "Add DROP DATABASE"
 msgstr "Afegir DROP DATABASE"
 
 #: libraries/config/messages.inc.php:438
+=======
+#: libraries/config/messages.inc.php:439
+msgid "Add DROP DATABASE"
+msgstr "Afegir DROP DATABASE"
+
+#: libraries/config/messages.inc.php:440
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -4942,11 +5778,19 @@ msgstr ""
 "Si una instrucció DROP TABLE IF EXISTS s'afegirà com a primera línia en el "
 "registre a l'hora de crear una taula."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:439
 msgid "Add DROP TABLE"
 msgstr "Afegir DROP TABLE"
 
 #: libraries/config/messages.inc.php:440
+=======
+#: libraries/config/messages.inc.php:441
+msgid "Add DROP TABLE"
+msgstr "Afegir DROP TABLE"
+
+#: libraries/config/messages.inc.php:442
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -4954,21 +5798,37 @@ msgstr ""
 "Si una instrucció DROP VIEW IF EXISTS s'afegirà com a primera línia en el "
 "registre a l'hora de crear una vista."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:441
 msgid "Add DROP VIEW"
 msgstr "Afegir DROP VIEW"
 
 #: libraries/config/messages.inc.php:442
+=======
+#: libraries/config/messages.inc.php:443
+msgid "Add DROP VIEW"
+msgstr "Afegir DROP VIEW"
+
+#: libraries/config/messages.inc.php:444
+>>>>>>> upstream/master
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Defineix la llista d'instruccions que l'auto-creació fa servir per a noves "
 "versions."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:443
 msgid "Statements to track"
 msgstr "Instruccions a seguir"
 
 #: libraries/config/messages.inc.php:444
+=======
+#: libraries/config/messages.inc.php:445
+msgid "Statements to track"
+msgstr "Instruccions a seguir"
+
+#: libraries/config/messages.inc.php:446
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
@@ -4976,11 +5836,19 @@ msgstr ""
 "Deixa en blanc per desactivar el suport de seguiment de consultes SQL, "
 "suggerit: [kbd]pma_tracking[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:445
 msgid "SQL query tracking table"
 msgstr "Taula de seguiment de consultes SQL"
 
 #: libraries/config/messages.inc.php:446
+=======
+#: libraries/config/messages.inc.php:447
+msgid "SQL query tracking table"
+msgstr "Taula de seguiment de consultes SQL"
+
+#: libraries/config/messages.inc.php:448
+>>>>>>> upstream/master
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -4988,11 +5856,19 @@ msgstr ""
 "SI el mecanisme de seguiment crearà versions per a taules i vistes "
 "automàticament."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:447
 msgid "Automatically create versions"
 msgstr "Crear versions automàticament"
 
 #: libraries/config/messages.inc.php:448
+=======
+#: libraries/config/messages.inc.php:449
+msgid "Automatically create versions"
+msgstr "Crear versions automàticament"
+
+#: libraries/config/messages.inc.php:450
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
@@ -5000,6 +5876,7 @@ msgstr ""
 "Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
 "suggerit: [kbd]pma_userconfig[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:449
 msgid "User preferences storage table"
 msgstr "Taula de preferències de l'usuari"
@@ -5009,6 +5886,17 @@ msgid "User for config auth"
 msgstr "Usuari per autenticació config"
 
 #: libraries/config/messages.inc.php:452
+=======
+#: libraries/config/messages.inc.php:451
+msgid "User preferences storage table"
+msgstr "Taula de preferències de l'usuari"
+
+#: libraries/config/messages.inc.php:453
+msgid "User for config auth"
+msgstr "Usuari per autenticació config"
+
+#: libraries/config/messages.inc.php:454
+>>>>>>> upstream/master
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -5016,21 +5904,37 @@ msgstr ""
 "Descripció per a l'usuari d'aquest servidor. Deixar en blanc per mostrar el "
 "nom del servidor en lloc seu."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:453
 msgid "Verbose name of this server"
 msgstr "Nom explicatiu d'aquest servidor"
 
 #: libraries/config/messages.inc.php:454
+=======
+#: libraries/config/messages.inc.php:455
+msgid "Verbose name of this server"
+msgstr "Nom explicatiu d'aquest servidor"
+
+#: libraries/config/messages.inc.php:456
+>>>>>>> upstream/master
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 "Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les files)"
 "&quot;"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:455
 msgid "Allow to display all the rows"
 msgstr "Permet mostrar totes les files"
 
 #: libraries/config/messages.inc.php:456
+=======
+#: libraries/config/messages.inc.php:457
+msgid "Allow to display all the rows"
+msgstr "Permet mostrar totes les files"
+
+#: libraries/config/messages.inc.php:458
+>>>>>>> upstream/master
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -5040,6 +5944,7 @@ msgstr ""
 "a que la contrasenya està inclosa al arxiu de configuració; aixó no limita "
 "la posibilitat d'executar la mateixa ordre directament"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:457
 msgid "Show password change form"
 msgstr "Mostra el formulari de canvi de contrasenya"
@@ -5053,42 +5958,85 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 
 #: libraries/config/messages.inc.php:460
+=======
+#: libraries/config/messages.inc.php:459
+msgid "Show password change form"
+msgstr "Mostra el formulari de canvi de contrasenya"
+
+#: libraries/config/messages.inc.php:460
+msgid "Show create database form"
+msgstr "Mostra el formulari de creació de base de dades"
+
+#: libraries/config/messages.inc.php:461
+msgid "Show or hide a column displaying the Creation timestamp for all tables"
+msgstr ""
+
+#: libraries/config/messages.inc.php:462
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
 msgstr "Mostra més accions"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:461
+=======
+#: libraries/config/messages.inc.php:463
+>>>>>>> upstream/master
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:462
 msgid "Show Last update timestamp"
 msgstr ""
 
 #: libraries/config/messages.inc.php:463
+=======
+#: libraries/config/messages.inc.php:464
+msgid "Show Last update timestamp"
+msgstr ""
+
+#: libraries/config/messages.inc.php:465
+>>>>>>> upstream/master
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:464
+=======
+#: libraries/config/messages.inc.php:466
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
 msgstr "Mostra l'estat del mestre -show master status-"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:465
+=======
+#: libraries/config/messages.inc.php:467
+>>>>>>> upstream/master
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:466
 msgid "Show display direction"
 msgstr "Mostrar direcció de visualització"
 
 #: libraries/config/messages.inc.php:467
+=======
+#: libraries/config/messages.inc.php:468
+msgid "Show display direction"
+msgstr "Mostrar direcció de visualització"
+
+#: libraries/config/messages.inc.php:469
+>>>>>>> upstream/master
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
@@ -5096,6 +6044,7 @@ msgstr ""
 "Defineix si els tipus de camps han d'aparèixer en un principi en el mode "
 "d'edició/inserció"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:468
 msgid "Show field types"
 msgstr "Mostra tipus de camps"
@@ -5117,6 +6066,29 @@ msgid "Show hint"
 msgstr "Mostra ajudes"
 
 #: libraries/config/messages.inc.php:473
+=======
+#: libraries/config/messages.inc.php:470
+msgid "Show field types"
+msgstr "Mostra tipus de camps"
+
+#: libraries/config/messages.inc.php:471
+msgid "Display the function fields in edit/insert mode"
+msgstr "Mostra els camps de funció en modes edició/inserció"
+
+#: libraries/config/messages.inc.php:472
+msgid "Show function fields"
+msgstr "Mostra els camps de funció"
+
+#: libraries/config/messages.inc.php:473
+msgid "Whether to show hint or not"
+msgstr ""
+
+#: libraries/config/messages.inc.php:474
+msgid "Show hint"
+msgstr "Mostra ajudes"
+
+#: libraries/config/messages.inc.php:475
+>>>>>>> upstream/master
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -5124,6 +6096,7 @@ msgstr ""
 "Mostra l'enllaç a la sortida de [a@http://php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:474
 msgid "Show phpinfo() link"
 msgstr "Mostra l'enllaç a phpinfo()"
@@ -5141,24 +6114,59 @@ msgid "Show SQL queries"
 msgstr "Mostra consultes SQL"
 
 #: libraries/config/messages.inc.php:478
+=======
+#: libraries/config/messages.inc.php:476
+msgid "Show phpinfo() link"
+msgstr "Mostra l'enllaç a phpinfo()"
+
+#: libraries/config/messages.inc.php:477
+msgid "Show detailed MySQL server information"
+msgstr "Mostra informació detallada del servidor MySQL"
+
+#: libraries/config/messages.inc.php:478
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
+msgstr "Defineix si s'han de mostrar les consultes SQL creades per phpMyAdmin"
+
+#: libraries/config/messages.inc.php:479
+msgid "Show SQL queries"
+msgstr "Mostra consultes SQL"
+
+#: libraries/config/messages.inc.php:480
+>>>>>>> upstream/master
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:479 libraries/sql_query_form.lib.php:358
 msgid "Retain query box"
 msgstr "Mantenir el quadre de consultes"
 
 #: libraries/config/messages.inc.php:480
+=======
+#: libraries/config/messages.inc.php:481 libraries/sql_query_form.lib.php:358
+msgid "Retain query box"
+msgstr "Mantenir el quadre de consultes"
+
+#: libraries/config/messages.inc.php:482
+>>>>>>> upstream/master
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 "Permet mostrar estadístiques de base de dades i de taula (ex. espai usat)"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:481
 msgid "Show statistics"
 msgstr "Mostra estadístiques"
 
 #: libraries/config/messages.inc.php:482
+=======
+#: libraries/config/messages.inc.php:483
+msgid "Show statistics"
+msgstr "Mostra estadístiques"
+
+#: libraries/config/messages.inc.php:484
+>>>>>>> upstream/master
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -5166,11 +6174,19 @@ msgstr ""
 "Si les ajudes estàn activades i s'ha establert un comentari per a la base de "
 "dades, alternarà el comentari i el nom real"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:483
 msgid "Display database comment instead of its name"
 msgstr "Mostra comentari de la base de dades en lloc del seu nom"
 
 #: libraries/config/messages.inc.php:484
+=======
+#: libraries/config/messages.inc.php:485
+msgid "Display database comment instead of its name"
+msgstr "Mostra comentari de la base de dades en lloc del seu nom"
+
+#: libraries/config/messages.inc.php:486
+>>>>>>> upstream/master
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -5182,6 +6198,7 @@ msgstr ""
 "['LeftFrameTableSeparator'], així només la carpeta s'anomena com l'àlies, el "
 "nom de la taula roman intacte"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:485
 msgid "Display table comment instead of its name"
 msgstr "Mostra comentari de taula en lloc del seu nom"
@@ -5191,12 +6208,24 @@ msgid "Display table comments in tooltips"
 msgstr "Mostra comentaris de taula en ajudes"
 
 #: libraries/config/messages.inc.php:487
+=======
+#: libraries/config/messages.inc.php:487
+msgid "Display table comment instead of its name"
+msgstr "Mostra comentari de taula en lloc del seu nom"
+
+#: libraries/config/messages.inc.php:488
+msgid "Display table comments in tooltips"
+msgstr "Mostra comentaris de taula en ajudes"
+
+#: libraries/config/messages.inc.php:489
+>>>>>>> upstream/master
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Marca les taules en ús i permet mostrar les bases de dades amb taules "
 "bloquejades"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:488
 msgid "Skip locked tables"
 msgstr "Salta taules bloquejades"
@@ -5216,6 +6245,27 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: libraries/config/messages.inc.php:496
+=======
+#: libraries/config/messages.inc.php:490
+msgid "Skip locked tables"
+msgstr "Salta taules bloquejades"
+
+#: libraries/config/messages.inc.php:495
+msgid "Requires SQL Validator to be enabled"
+msgstr "Necessita activar el SQL Validator"
+
+#: libraries/config/messages.inc.php:497
+#: libraries/display_change_password.lib.php:40
+#: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
+#: libraries/replication_gui.lib.php:355 server_privileges.php:952
+#: server_privileges.php:956 server_privileges.php:967
+#: server_privileges.php:1823 server_synchronize.php:1354
+msgid "Password"
+msgstr "Contrasenya"
+
+#: libraries/config/messages.inc.php:498
+>>>>>>> upstream/master
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
@@ -5223,11 +6273,19 @@ msgstr ""
 "[strong]Atenció:[/strong] Necessita l'extensió de PHP SOAP o bé instal.lar "
 "PEAR SOAP"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:497
 msgid "Enable SQL Validator"
 msgstr "Activar SQL Validator"
 
 #: libraries/config/messages.inc.php:498
+=======
+#: libraries/config/messages.inc.php:499
+msgid "Enable SQL Validator"
+msgstr "Activar SQL Validator"
+
+#: libraries/config/messages.inc.php:500
+>>>>>>> upstream/master
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
@@ -5235,12 +6293,20 @@ msgstr ""
 "Si tens un nom d'usuari, especifíca'l aqui (per defecte és [kbd]anonymous[/"
 "kbd])"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:499 tbl_tracking.php:479
+=======
+#: libraries/config/messages.inc.php:501 tbl_tracking.php:479
+>>>>>>> upstream/master
 #: tbl_tracking.php:536
 msgid "Username"
 msgstr "Nom d'usuari"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:500
+=======
+#: libraries/config/messages.inc.php:502
+>>>>>>> upstream/master
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -5248,6 +6314,7 @@ msgstr ""
 "Proposa un nom de base de dades al formulari &quot;Crear Base de Dades&quot; "
 "(si es posible) o bé deixa buit el camp de text"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:501
 msgid "Suggest new database name"
 msgstr "Proposa un nou nom de base de dades"
@@ -5261,6 +6328,21 @@ msgid "Suhosin warning"
 msgstr "avís Suoshin"
 
 #: libraries/config/messages.inc.php:504
+=======
+#: libraries/config/messages.inc.php:503
+msgid "Suggest new database name"
+msgstr "Proposa un nou nom de base de dades"
+
+#: libraries/config/messages.inc.php:504
+msgid "A warning is displayed on the main page if Suhosin is detected"
+msgstr "Si es detecta Suoshin, es mostra un avís a la pàgina principal"
+
+#: libraries/config/messages.inc.php:505
+msgid "Suhosin warning"
+msgstr "avís Suoshin"
+
+#: libraries/config/messages.inc.php:506
+>>>>>>> upstream/master
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -5268,11 +6350,19 @@ msgstr ""
 "Tamany de textarea (columnes) en mode d'edició, aquest valor s'augmentarà "
 "per a textareas de consultes SQL (*2) i per finestres de consultes (*1.25)"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:505
 msgid "Textarea columns"
 msgstr "Columnes per a textareas"
 
 #: libraries/config/messages.inc.php:506
+=======
+#: libraries/config/messages.inc.php:507
+msgid "Textarea columns"
+msgstr "Columnes per a textareas"
+
+#: libraries/config/messages.inc.php:508
+>>>>>>> upstream/master
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
@@ -5280,15 +6370,24 @@ msgstr ""
 "Tamany de textarea (files) en mode d'edició, aquest valor s'augmentarà per a "
 "textareas de consultes SQL (*2) i per finestres de consultes (*1.25)"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:507
 msgid "Textarea rows"
 msgstr "Files per a textareas"
 
 #: libraries/config/messages.inc.php:508
+=======
+#: libraries/config/messages.inc.php:509
+msgid "Textarea rows"
+msgstr "Files per a textareas"
+
+#: libraries/config/messages.inc.php:510
+>>>>>>> upstream/master
 msgid "Title of browser window when a database is selected"
 msgstr ""
 "Títol de la finestra del navegador quan es selecciona una base de dades"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:510
 msgid "Title of browser window when nothing is selected"
 msgstr "Títol de la finestra del navegador quan no hi ha res seleccionat"
@@ -5306,6 +6405,25 @@ msgid "Title of browser window when a table is selected"
 msgstr "Títol de la finestra del navegador quan es selecciona una taula"
 
 #: libraries/config/messages.inc.php:516
+=======
+#: libraries/config/messages.inc.php:512
+msgid "Title of browser window when nothing is selected"
+msgstr "Títol de la finestra del navegador quan no hi ha res seleccionat"
+
+#: libraries/config/messages.inc.php:513
+msgid "Default title"
+msgstr "Títol per defecte"
+
+#: libraries/config/messages.inc.php:514
+msgid "Title of browser window when a server is selected"
+msgstr "Títol de la finestra del navegador quan es selecciona un servidor"
+
+#: libraries/config/messages.inc.php:516
+msgid "Title of browser window when a table is selected"
+msgstr "Títol de la finestra del navegador quan es selecciona una taula"
+
+#: libraries/config/messages.inc.php:518
+>>>>>>> upstream/master
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5317,6 +6435,7 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del proxy 1.2.3.4:[br][kbd]"
 "1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:517
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Llista de proxies confiables per autoritzar/prohibir IP"
@@ -5338,6 +6457,29 @@ msgid "Use database search"
 msgstr "Usa cerca de base de dades"
 
 #: libraries/config/messages.inc.php:522
+=======
+#: libraries/config/messages.inc.php:519
+msgid "List of trusted proxies for IP allow/deny"
+msgstr "Llista de proxies confiables per autoritzar/prohibir IP"
+
+#: libraries/config/messages.inc.php:520
+msgid "Directory on server where you can upload files for import"
+msgstr "Directori al servidor ón pots pujar arxius per importar"
+
+#: libraries/config/messages.inc.php:521
+msgid "Upload directory"
+msgstr "Directori de pujades"
+
+#: libraries/config/messages.inc.php:522
+msgid "Allow for searching inside the entire database"
+msgstr "Permet cercar dins de tota la base de dades"
+
+#: libraries/config/messages.inc.php:523
+msgid "Use database search"
+msgstr "Usa cerca de base de dades"
+
+#: libraries/config/messages.inc.php:524
+>>>>>>> upstream/master
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
@@ -5345,11 +6487,19 @@ msgstr ""
 "Quan està desactivada, els usuaris no poden configurar qualsevol de les "
 "següents opcions, independentment de la casella de selecció a la dreta"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:523
 msgid "Enable the Developer tab in settings"
 msgstr "Activa la pestanya del Desenvolupador en les opcions"
 
 #: libraries/config/messages.inc.php:524
+=======
+#: libraries/config/messages.inc.php:525
+msgid "Enable the Developer tab in settings"
+msgstr "Activa la pestanya del Desenvolupador en les opcions"
+
+#: libraries/config/messages.inc.php:526
+>>>>>>> upstream/master
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -5359,6 +6509,7 @@ msgstr ""
 "multiples. Consulta libraries/import.lib.php per valors predeterminats en "
 "quantes consultes pot contenir una instrucció."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:525
 msgid "Verbose multiple statements"
 msgstr "Mostra les instruccions multiples"
@@ -5368,12 +6519,27 @@ msgid "Check for latest version"
 msgstr "Comprova la darrera versió"
 
 #: libraries/config/messages.inc.php:527
+=======
+#: libraries/config/messages.inc.php:527
+msgid "Verbose multiple statements"
+msgstr "Mostra les instruccions multiples"
+
+#: libraries/config/messages.inc.php:528 setup/frames/index.inc.php:257
+msgid "Check for latest version"
+msgstr "Comprova la darrera versió"
+
+#: libraries/config/messages.inc.php:529
+>>>>>>> upstream/master
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 "Activa la comprovació de la darrera versió a la pàgina principal de "
 "phpMyAdmin"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:528 setup/lib/index.lib.php:120
+=======
+#: libraries/config/messages.inc.php:530 setup/lib/index.lib.php:120
+>>>>>>> upstream/master
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:152
 #: setup/lib/index.lib.php:163 setup/lib/index.lib.php:175
 #: setup/lib/index.lib.php:183 setup/lib/index.lib.php:190
@@ -5381,7 +6547,11 @@ msgstr ""
 msgid "Version check"
 msgstr "Comprovació de versió"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:529
+=======
+#: libraries/config/messages.inc.php:531
+>>>>>>> upstream/master
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -5389,7 +6559,11 @@ msgstr ""
 "Activa la compressió [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/"
 "a] per a les operacions d'importació i exportació"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:530
+=======
+#: libraries/config/messages.inc.php:532
+>>>>>>> upstream/master
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -5409,6 +6583,7 @@ msgstr "Autenticació HTTP"
 msgid "Signon authentication"
 msgstr "autenticació Signon"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:253
 #: libraries/config/user_preferences.forms.php:154 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
@@ -5417,10 +6592,21 @@ msgstr "CSV usant LOAD DATA"
 #: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:162
 #: libraries/config/user_preferences.forms.php:254 libraries/export/ods.php:18
+=======
+#: libraries/config/setup.forms.php:254
+#: libraries/config/user_preferences.forms.php:155 libraries/import/ldi.php:35
+msgid "CSV using LOAD DATA"
+msgstr "CSV usant LOAD DATA"
+
+#: libraries/config/setup.forms.php:263 libraries/config/setup.forms.php:356
+#: libraries/config/user_preferences.forms.php:163
+#: libraries/config/user_preferences.forms.php:255 libraries/export/ods.php:18
+>>>>>>> upstream/master
 #: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "Full de càlcul Open Document"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:269
 #: libraries/config/user_preferences.forms.php:169
 msgid "Quick"
@@ -5438,18 +6624,47 @@ msgstr "Opcions d'exportació de bases de dades"
 
 #: libraries/config/setup.forms.php:327
 #: libraries/config/user_preferences.forms.php:226
+=======
+#: libraries/config/setup.forms.php:270
+#: libraries/config/user_preferences.forms.php:170
+msgid "Quick"
+msgstr "Ràpid"
+
+#: libraries/config/setup.forms.php:274
+#: libraries/config/user_preferences.forms.php:174
+msgid "Custom"
+msgstr "Usuari"
+
+#: libraries/config/setup.forms.php:295
+#: libraries/config/user_preferences.forms.php:194
+msgid "Database export options"
+msgstr "Opcions d'exportació de bases de dades"
+
+#: libraries/config/setup.forms.php:328
+#: libraries/config/user_preferences.forms.php:227
+>>>>>>> upstream/master
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV per dades de MS Excel"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:249
+=======
+#: libraries/config/setup.forms.php:351
+#: libraries/config/user_preferences.forms.php:250
+>>>>>>> upstream/master
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:258 libraries/export/odt.php:22
+=======
+#: libraries/config/setup.forms.php:360
+#: libraries/config/user_preferences.forms.php:259 libraries/export/odt.php:22
+>>>>>>> upstream/master
 msgid "Open Document Text"
 msgstr "Text format Open Document"
 
@@ -5505,6 +6720,7 @@ msgstr "No es troba l'extensió %s. Comprova la configuració de PHP."
 msgid "possible deep recursion attack"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/data_drizzle.inc.php:238
 msgid "Most common integer."
 msgstr ""
@@ -5846,6 +7062,9 @@ msgid ""
 msgstr ""
 
 #: libraries/database_interface.lib.php:1814
+=======
+#: libraries/database_interface.lib.php:1835
+>>>>>>> upstream/master
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5853,15 +7072,15 @@ msgstr ""
 "El servidor no està responent (o el sòcol del servidor local MySQL no està "
 "configurat correctament)."
 
-#: libraries/database_interface.lib.php:1817
+#: libraries/database_interface.lib.php:1838
 msgid "The server is not responding."
 msgstr "El servidor no respon."
 
-#: libraries/database_interface.lib.php:1821
+#: libraries/database_interface.lib.php:1842
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/database_interface.lib.php:1829
+#: libraries/database_interface.lib.php:1850
 msgid "Details..."
 msgstr "Detalls..."
 
@@ -5883,9 +7102,15 @@ msgstr "Consulta segons exemple"
 msgid "Designer"
 msgstr "Dissenyador"
 
+<<<<<<< HEAD
 #: libraries/db_links.inc.php:92 server_privileges.php:180
 #: server_privileges.php:1651 server_privileges.php:2041
 #: server_privileges.php:2389
+=======
+#: libraries/db_links.inc.php:92 server_privileges.php:181
+#: server_privileges.php:1652 server_privileges.php:2042
+#: server_privileges.php:2390
+>>>>>>> upstream/master
 msgid "Privileges"
 msgstr "Permisos"
 
@@ -5926,13 +7151,21 @@ msgid "Change password"
 msgstr "Canvi de contrasenya"
 
 #: libraries/display_change_password.lib.php:34
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:351 server_privileges.php:962
+=======
+#: libraries/replication_gui.lib.php:351 server_privileges.php:963
+>>>>>>> upstream/master
 msgid "No Password"
 msgstr "Sense contrasenya"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:359 libraries/replication_gui.lib.php:362
+<<<<<<< HEAD
 #: server_privileges.php:970 server_privileges.php:973
+=======
+#: server_privileges.php:971 server_privileges.php:974
+>>>>>>> upstream/master
 msgid "Re-type"
 msgstr "Reescriu"
 
@@ -5953,12 +7186,21 @@ msgstr "Crear base de dades"
 msgid "Create"
 msgstr "Crea"
 
+<<<<<<< HEAD
 #: libraries/display_create_database.lib.php:43 server_privileges.php:182
 #: server_privileges.php:1707 server_replication.php:33
 msgid "No Privileges"
 msgstr "Sense permisos"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:85
+=======
+#: libraries/display_create_database.lib.php:43 server_privileges.php:183
+#: server_privileges.php:1708 server_replication.php:33
+msgid "No Privileges"
+msgstr "Sense permisos"
+
+#: libraries/display_create_table.lib.php:46 pmd_general.php:86
+>>>>>>> upstream/master
 #: server_synchronize.php:456 server_synchronize.php:968
 msgid "Create table"
 msgstr "Crea una taula"
@@ -6128,7 +7370,38 @@ msgstr "Conversió de codificació:"
 
 #: libraries/display_git_revision.lib.php:46
 #, php-format
+<<<<<<< HEAD
 msgid "%s from %s branch"
+=======
+msgid "%1$s from %2$s branch"
+msgstr ""
+
+#: libraries/display_git_revision.lib.php:48
+msgid "no branch"
+msgstr ""
+
+#: libraries/display_git_revision.lib.php:54
+msgid "Git revision"
+msgstr ""
+
+#: libraries/display_git_revision.lib.php:57
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "committed on %1$s by %2$s"
+msgstr "Crea versió %s de %s.%s"
+
+#: libraries/display_git_revision.lib.php:64
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "authored on %1$s by %2$s"
+msgstr "Crea versió %s de %s.%s"
+
+#: libraries/display_import.lib.php:61
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+>>>>>>> upstream/master
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:48
@@ -6314,7 +7587,7 @@ msgstr "Classifica per la clau"
 #: libraries/display_tbl.lib.php:629 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
-#: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
+#: libraries/export/latex.php:35 libraries/export/mediawiki.php:20
 #: libraries/export/ods.php:29 libraries/export/odt.php:27
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
@@ -6414,7 +7687,11 @@ msgstr "Crea una vista"
 msgid "Link not found"
 msgstr "No s'ha trobat l'enllaç"
 
+<<<<<<< HEAD
 #: libraries/engines/bdb.lib.php:23 main.php:245
+=======
+#: libraries/engines/bdb.lib.php:23 main.php:244
+>>>>>>> upstream/master
 msgid "Version information"
 msgstr "Informació de versió"
 
@@ -6876,9 +8153,15 @@ msgstr "Mostra tipus MIME"
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:335 server_privileges.php:886
 #: server_privileges.php:889 server_privileges.php:945
 #: server_privileges.php:1821 server_privileges.php:2387
+=======
+#: libraries/replication_gui.lib.php:335 server_privileges.php:887
+#: server_privileges.php:890 server_privileges.php:946
+#: server_privileges.php:1822 server_privileges.php:2388
+>>>>>>> upstream/master
 #: server_status.php:1262
 msgid "Host"
 msgstr "Servidor"
@@ -6901,6 +8184,18 @@ msgstr "Versió de PHP"
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
 msgstr "Taula MediaWiki"
+
+#: libraries/export/mediawiki.php:51
+#, fuzzy
+#| msgid "Export contents"
+msgid "Export table names"
+msgstr "Exporta contingut"
+
+#: libraries/export/mediawiki.php:58
+#, fuzzy
+#| msgid "horizontal (rotated headers)"
+msgid "Export table headers"
+msgstr "horitzontal (capçaleres rotades)"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -7535,7 +8830,7 @@ msgid "Enabled"
 msgstr "Activat"
 
 #: libraries/relation.lib.php:88 libraries/relation.lib.php:100
-#: pmd_relation_new.php:66
+#: pmd_relation_new.php:67
 msgid "General relation features"
 msgstr "Característiques generals de relacions"
 
@@ -7633,8 +8928,13 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:265 server_privileges.php:863
 #: server_privileges.php:866 server_privileges.php:873
+=======
+#: libraries/replication_gui.lib.php:265 server_privileges.php:864
+#: server_privileges.php:867 server_privileges.php:874
+>>>>>>> upstream/master
 #: server_synchronize.php:1350
 msgid "User name"
 msgstr "Nom d'usuari"
@@ -7680,11 +8980,16 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr "Afegeix l'usuari esclau de replicació"
 
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:260 server_privileges.php:868
+=======
+#: libraries/replication_gui.lib.php:260 server_privileges.php:869
+>>>>>>> upstream/master
 msgid "Any user"
 msgstr "Qualsevol usuari"
 
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:352 server_privileges.php:869
 #: server_privileges.php:939 server_privileges.php:963
 #: server_privileges.php:2252 server_privileges.php:2282
@@ -7708,6 +9013,31 @@ msgid "Use Host Table"
 msgstr "Utilitza la Taula de Hosts"
 
 #: libraries/replication_gui.lib.php:337 server_privileges.php:947
+=======
+#: libraries/replication_gui.lib.php:352 server_privileges.php:870
+#: server_privileges.php:940 server_privileges.php:964
+#: server_privileges.php:2253 server_privileges.php:2283
+msgid "Use text field"
+msgstr "Usa camp de text"
+
+#: libraries/replication_gui.lib.php:308 server_privileges.php:920
+msgid "Any host"
+msgstr "Qualsevol servidor"
+
+#: libraries/replication_gui.lib.php:312 server_privileges.php:924
+msgid "Local"
+msgstr "Local"
+
+#: libraries/replication_gui.lib.php:318 server_privileges.php:929
+msgid "This Host"
+msgstr "Aquest Host"
+
+#: libraries/replication_gui.lib.php:324 server_privileges.php:935
+msgid "Use Host Table"
+msgstr "Utilitza la Taula de Hosts"
+
+#: libraries/replication_gui.lib.php:337 server_privileges.php:948
+>>>>>>> upstream/master
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -7835,7 +9165,11 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2543
+=======
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2544
+>>>>>>> upstream/master
 msgid "New"
 msgstr ""
 
@@ -8793,8 +10127,13 @@ msgstr "Versió de programari"
 msgid "Protocol version"
 msgstr "Versió del protocol"
 
+<<<<<<< HEAD
 #: main.php:187 server_privileges.php:1665 server_privileges.php:1820
 #: server_privileges.php:1967 server_privileges.php:2386
+=======
+#: main.php:187 server_privileges.php:1666 server_privileges.php:1821
+#: server_privileges.php:1968 server_privileges.php:2387
+>>>>>>> upstream/master
 #: server_status.php:1261
 msgid "User"
 msgstr "Usuari"
@@ -8819,6 +10158,7 @@ msgstr "Extensió PHP"
 msgid "Show PHP information"
 msgstr "Mostra informació de PHP"
 
+<<<<<<< HEAD
 #: main.php:250
 msgid "Official Homepage"
 msgstr "Pàgina oficial del phpMyAdmin"
@@ -8836,6 +10176,25 @@ msgid "List of changes"
 msgstr "Llista de canvis"
 
 #: main.php:277
+=======
+#: main.php:249
+msgid "Official Homepage"
+msgstr "Pàgina oficial del phpMyAdmin"
+
+#: main.php:250
+msgid "Contribute"
+msgstr "Contribueix"
+
+#: main.php:251
+msgid "Get support"
+msgstr "Obtenir suport"
+
+#: main.php:252
+msgid "List of changes"
+msgstr "Llista de canvis"
+
+#: main.php:276
+>>>>>>> upstream/master
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8848,7 +10207,11 @@ msgstr ""
 "i s'exposa a intrusions, pel que recomanem la reparació urgent d'aquest "
 "forat de seguretat."
 
+<<<<<<< HEAD
 #: main.php:285
+=======
+#: main.php:284
+>>>>>>> upstream/master
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8858,7 +10221,11 @@ msgstr ""
 "PHP. Aquesta opció és incompatible amb phpMyAdmin i pot provocar la perdua "
 "de dades!"
 
+<<<<<<< HEAD
 #: main.php:293
+=======
+#: main.php:292
+>>>>>>> upstream/master
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -8868,7 +10235,11 @@ msgstr ""
 "de caràcters multibyte. Sense l'extensió -mbstring-, phpMyAdmin és incapaç "
 "de dividir cadenes de text correctament i pot generar resultats inesperats."
 
+<<<<<<< HEAD
 #: main.php:301
+=======
+#: main.php:300
+>>>>>>> upstream/master
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
@@ -8880,7 +10251,11 @@ msgstr ""
 "caducitat de galetes -cookies- configurat a phpMyAdmin, degut a aixó, la "
 "vostra conenexió caducarà abans del establert a phpMyAdmin."
 
+<<<<<<< HEAD
 #: main.php:308
+=======
+#: main.php:307
+>>>>>>> upstream/master
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -8889,13 +10264,21 @@ msgstr ""
 "configuració a phpMyAdmin, degut a aixó, la teva sessió caducarà més aviat "
 "que el que indica la configuració de phpMyAdmin."
 
+<<<<<<< HEAD
 #: main.php:316
+=======
+#: main.php:315
+>>>>>>> upstream/master
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "L'arxiu de configuració necessita ara una frase de pas secreta "
 "(blowfish_secret)."
 
+<<<<<<< HEAD
 #: main.php:324
+=======
+#: main.php:323
+>>>>>>> upstream/master
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -8905,7 +10288,11 @@ msgstr ""
 "encara existeix dins del vostre directori de phpMyAdmin. Heu d'esborrar-ho "
 "un cop heu acabat de configurar phpMyAdmin."
 
+<<<<<<< HEAD
 #: main.php:330
+=======
+#: main.php:329
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -8915,7 +10302,11 @@ msgstr ""
 "completa, s'han desactivat algunes característiques avançades. Per saber "
 "perquè, clica %saquí%s."
 
+<<<<<<< HEAD
 #: main.php:355
+=======
+#: main.php:354
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -8924,7 +10315,11 @@ msgstr ""
 "La teva llibreria MySQL de PHP MySQL versió %s és diferent del teu servidor "
 "MySQL versió %s. Aixó pot provocar comportaments inesperats."
 
+<<<<<<< HEAD
 #: main.php:379
+=======
+#: main.php:377
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -8950,75 +10345,83 @@ msgstr "Crea una taula"
 msgid "Please select a database"
 msgstr "Tria una base de dades"
 
-#: pmd_general.php:78
+#: pmd_general.php:79
 msgid "Show/Hide left menu"
 msgstr "Menú esquerre Mostra/Amaga"
 
-#: pmd_general.php:82
+#: pmd_general.php:83
 msgid "Save position"
 msgstr "Desa la posició"
 
+<<<<<<< HEAD
 #: pmd_general.php:88 pmd_general.php:362
+=======
+#: pmd_general.php:89 pmd_general.php:362
+>>>>>>> upstream/master
 msgid "Create relation"
 msgstr "Crea una relació"
 
-#: pmd_general.php:94
+#: pmd_general.php:95
 msgid "Reload"
 msgstr "Recarrega"
 
-#: pmd_general.php:97
+#: pmd_general.php:98
 msgid "Help"
 msgstr "Ajuda"
 
-#: pmd_general.php:101
+#: pmd_general.php:102
 msgid "Angular links"
 msgstr "Enllaços angulars"
 
-#: pmd_general.php:101
+#: pmd_general.php:102
 msgid "Direct links"
 msgstr "Enllaços directes"
 
-#: pmd_general.php:105
+#: pmd_general.php:106
 msgid "Snap to grid"
 msgstr "Alinia a la graella"
 
-#: pmd_general.php:109
+#: pmd_general.php:110
 msgid "Small/Big All"
 msgstr "Tot Petit/Gran"
 
-#: pmd_general.php:112
+#: pmd_general.php:113
 msgid "Toggle small/big"
 msgstr "Canviar petit/gran"
 
-#: pmd_general.php:113
+#: pmd_general.php:114
 msgid "Toggle relation lines"
 msgstr "Canviar línies de relació"
 
+<<<<<<< HEAD
 #: pmd_general.php:118 pmd_pdf.php:78
+=======
+#: pmd_general.php:119 pmd_pdf.php:79
+>>>>>>> upstream/master
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importa/Exporta coordenades per a esquema PDF"
 
-#: pmd_general.php:124
+#: pmd_general.php:125
 msgid "Build Query"
 msgstr "Construeix una consulta"
 
-#: pmd_general.php:129
+#: pmd_general.php:130
 msgid "Move Menu"
 msgstr "Menú Mou"
 
-#: pmd_general.php:140
+#: pmd_general.php:141
 msgid "Hide/Show all"
 msgstr "Amaga/Mostra tot"
 
-#: pmd_general.php:144
+#: pmd_general.php:145
 msgid "Hide/Show Tables with no relation"
 msgstr "Amaga/Mostra taules sense relacions"
 
-#: pmd_general.php:161 tbl_change.php:351 tbl_change.php:363
+#: pmd_general.php:162 tbl_change.php:351 tbl_change.php:363
 msgid "Hide"
 msgstr "Amaga"
 
-#: pmd_general.php:184
+#: pmd_general.php:185
 msgid "Number of tables"
 msgstr "Nombre de taules"
 
@@ -9056,14 +10459,15 @@ msgstr "Agrega"
 msgid "Active options"
 msgstr "Opcions actives"
 
-#: pmd_pdf.php:30
+#: pmd_pdf.php:31
 msgid "Page has been created"
 msgstr "S'ha creat una pàgina"
 
-#: pmd_pdf.php:33
+#: pmd_pdf.php:34
 msgid "Page creation failed"
 msgstr "Ha fallat la creació de pàgina"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:89
 msgid "Page"
 msgstr "pàgina"
@@ -9089,34 +10493,69 @@ msgid "Export/Import to scale"
 msgstr "Exporta/Importa a escala"
 
 #: pmd_pdf.php:119
+=======
+#: pmd_pdf.php:90
+msgid "Page"
+msgstr "pàgina"
+
+#: pmd_pdf.php:100
+msgid "Import from selected page"
+msgstr "Importar des de la pàgina seleccionada"
+
+#: pmd_pdf.php:101
+msgid "Export to selected page"
+msgstr "Exporta a la pàgina seleccionada"
+
+#: pmd_pdf.php:103
+msgid "Create a page and export to it"
+msgstr "Crea una pàgina i exporta en ella"
+
+#: pmd_pdf.php:112
+msgid "New page name: "
+msgstr "Nou nom de pàgina: "
+
+#: pmd_pdf.php:115
+msgid "Export/Import to scale"
+msgstr "Exporta/Importa a escala"
+
+#: pmd_pdf.php:120
+>>>>>>> upstream/master
 msgid "recommended"
 msgstr "recomanat"
 
-#: pmd_relation_new.php:27
+#: pmd_relation_new.php:28
 msgid "Error: relation already exists."
 msgstr "Error: la relació ja existeix."
 
-#: pmd_relation_new.php:59 pmd_relation_new.php:84
+#: pmd_relation_new.php:60 pmd_relation_new.php:85
 msgid "Error: Relation not added."
 msgstr "Error: La relació no s'ha afegit."
 
-#: pmd_relation_new.php:60
+#: pmd_relation_new.php:61
 msgid "FOREIGN KEY relation added"
 msgstr "Afegida relació de FOREIGN KEY"
 
-#: pmd_relation_new.php:82
+#: pmd_relation_new.php:83
 msgid "Internal relation added"
 msgstr "Afegida relació interna"
 
-#: pmd_relation_upd.php:58
+#: pmd_relation_upd.php:59
 msgid "Relation deleted"
 msgstr "Relació esborrada"
 
+<<<<<<< HEAD
 #: pmd_save_pos.php:50
 msgid "Error saving coordinates for Designer."
 msgstr "Error desant coordenades per al Dissenyador."
 
 #: pmd_save_pos.php:58
+=======
+#: pmd_save_pos.php:70
+msgid "Error saving coordinates for Designer."
+msgstr "Error desant coordenades per al Dissenyador."
+
+#: pmd_save_pos.php:78
+>>>>>>> upstream/master
 msgid "Modifications have been saved"
 msgstr "Les modificacions han estat desades"
 
@@ -9326,6 +10765,7 @@ msgstr ""
 msgid "disabled"
 msgstr "desactivat"
 
+<<<<<<< HEAD
 #: server_privileges.php:93 server_privileges.php:428
 msgid "Includes all privileges except GRANT."
 msgstr "Inclou tots els permisos excepte GRANT -atorgar-."
@@ -9400,12 +10840,89 @@ msgid "Allows importing data from and exporting data into files."
 msgstr "Permet importar i exportar dades amb arxius externs."
 
 #: server_privileges.php:108 server_privileges.php:724
+=======
+#: server_privileges.php:94 server_privileges.php:429
+msgid "Includes all privileges except GRANT."
+msgstr "Inclou tots els permisos excepte GRANT -atorgar-."
+
+#: server_privileges.php:95 server_privileges.php:305
+#: server_privileges.php:700
+msgid "Allows altering the structure of existing tables."
+msgstr "Permet alterar l'estructura de taules existents."
+
+#: server_privileges.php:96 server_privileges.php:363
+#: server_privileges.php:706
+msgid "Allows altering and dropping stored routines."
+msgstr "Permet alterar i esborrar rutines enmagatzemades."
+
+#: server_privileges.php:97 server_privileges.php:273
+#: server_privileges.php:699
+msgid "Allows creating new databases and tables."
+msgstr "Permet crear noves bases de dades i taules."
+
+#: server_privileges.php:98 server_privileges.php:359
+#: server_privileges.php:705
+msgid "Allows creating stored routines."
+msgstr "Permet crear rutines enmgatzemades."
+
+#: server_privileges.php:99 server_privileges.php:699
+msgid "Allows creating new tables."
+msgstr "Permet crear noves taules."
+
+#: server_privileges.php:100 server_privileges.php:317
+#: server_privileges.php:703
+msgid "Allows creating temporary tables."
+msgstr "Permet crear taules temporals."
+
+#: server_privileges.php:101 server_privileges.php:367
+#: server_privileges.php:739
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "Permet crear, esborrar i reanomenar comptes d'usuari."
+
+#: server_privileges.php:102 server_privileges.php:333
+#: server_privileges.php:346 server_privileges.php:711
+#: server_privileges.php:715
+msgid "Allows creating new views."
+msgstr "Permet crear noves vistes."
+
+#: server_privileges.php:103 server_privileges.php:269
+#: server_privileges.php:691
+msgid "Allows deleting data."
+msgstr "Permet esborrar dades."
+
+#: server_privileges.php:104 server_privileges.php:277
+#: server_privileges.php:702
+msgid "Allows dropping databases and tables."
+msgstr "Permet eliminar bases de dades i taules."
+
+#: server_privileges.php:105 server_privileges.php:702
+msgid "Allows dropping tables."
+msgstr "Permet eliminar taules."
+
+#: server_privileges.php:106 server_privileges.php:337
+#: server_privileges.php:719
+msgid "Allows to set up events for the event scheduler"
+msgstr "Permet establir events per al planificador d'events"
+
+#: server_privileges.php:107 server_privileges.php:371
+#: server_privileges.php:707
+msgid "Allows executing stored routines."
+msgstr "Permet executar rutines enmagatzemades."
+
+#: server_privileges.php:108 server_privileges.php:293
+#: server_privileges.php:694
+msgid "Allows importing data from and exporting data into files."
+msgstr "Permet importar i exportar dades amb arxius externs."
+
+#: server_privileges.php:109 server_privileges.php:725
+>>>>>>> upstream/master
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Permet afegir usuaris i permisos sense tenir que recarregar les taules de "
 "permisos."
 
+<<<<<<< HEAD
 #: server_privileges.php:109 server_privileges.php:300
 #: server_privileges.php:700
 msgid "Allows creating and dropping indexes."
@@ -9428,12 +10945,41 @@ msgstr "Limita el numero de noves connexions que pot obrir l'usuari per hora."
 
 #: server_privileges.php:113 server_privileges.php:785
 #: server_privileges.php:787
+=======
+#: server_privileges.php:110 server_privileges.php:301
+#: server_privileges.php:701
+msgid "Allows creating and dropping indexes."
+msgstr "Permet crear i eliminar indexs."
+
+#: server_privileges.php:111 server_privileges.php:261
+#: server_privileges.php:620 server_privileges.php:689
+msgid "Allows inserting and replacing data."
+msgstr "Permet inserir i modificar dades."
+
+#: server_privileges.php:112 server_privileges.php:321
+#: server_privileges.php:734
+msgid "Allows locking tables for the current thread."
+msgstr "Permet bloquejar taules per l'actual fil d'execució."
+
+#: server_privileges.php:113 server_privileges.php:798
+#: server_privileges.php:800
+msgid "Limits the number of new connections the user may open per hour."
+msgstr "Limita el numero de noves connexions que pot obrir l'usuari per hora."
+
+#: server_privileges.php:114 server_privileges.php:786
+#: server_privileges.php:788
+>>>>>>> upstream/master
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Limita el numero de consultes que pot enviar l'usuari al servidor per hora."
 
+<<<<<<< HEAD
 #: server_privileges.php:114 server_privileges.php:791
 #: server_privileges.php:793
+=======
+#: server_privileges.php:115 server_privileges.php:792
+#: server_privileges.php:794
+>>>>>>> upstream/master
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -9441,6 +10987,7 @@ msgstr ""
 "Limita el numero d'ordres que pot executar l'usuari canviant qualsevol taula "
 "o base de dades per hora."
 
+<<<<<<< HEAD
 #: server_privileges.php:115 server_privileges.php:803
 #: server_privileges.php:805
 msgid "Limits the number of simultaneous connections the user may have."
@@ -9458,17 +11005,42 @@ msgstr "No té efecte en aquesta versió de MySQL."
 
 #: server_privileges.php:118 server_privileges.php:280
 #: server_privileges.php:729
+=======
+#: server_privileges.php:116 server_privileges.php:804
+#: server_privileges.php:806
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr "Límita el nombre de connexions simultànies que l'usuari pot tenir."
+
+#: server_privileges.php:117 server_privileges.php:289
+#: server_privileges.php:729
+msgid "Allows viewing processes of all users"
+msgstr "Permet veure processos de tots els usuaris"
+
+#: server_privileges.php:118 server_privileges.php:297
+#: server_privileges.php:630 server_privileges.php:735
+msgid "Has no effect in this MySQL version."
+msgstr "No té efecte en aquesta versió de MySQL."
+
+#: server_privileges.php:119 server_privileges.php:281
+#: server_privileges.php:730
+>>>>>>> upstream/master
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Permet recarregar les configuracions del servidor i buidar les seves "
 "memòries cau."
 
+<<<<<<< HEAD
 #: server_privileges.php:119 server_privileges.php:328
 #: server_privileges.php:736
+=======
+#: server_privileges.php:120 server_privileges.php:329
+#: server_privileges.php:737
+>>>>>>> upstream/master
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Dona el dret a l'usuari de preguntar quins servidors mestres / esclaus hi ha."
 
+<<<<<<< HEAD
 #: server_privileges.php:120 server_privileges.php:324
 #: server_privileges.php:737
 msgid "Needed for the replication slaves."
@@ -9496,6 +11068,35 @@ msgstr "Permet parar el servidor."
 
 #: server_privileges.php:125 server_privileges.php:312
 #: server_privileges.php:727
+=======
+#: server_privileges.php:121 server_privileges.php:325
+#: server_privileges.php:738
+msgid "Needed for the replication slaves."
+msgstr "Es necessari per a la replicació en servidors esclaus."
+
+#: server_privileges.php:122 server_privileges.php:257
+#: server_privileges.php:615 server_privileges.php:688
+msgid "Allows reading data."
+msgstr "Permet llegir dades."
+
+#: server_privileges.php:123 server_privileges.php:309
+#: server_privileges.php:732
+msgid "Gives access to the complete list of databases."
+msgstr "Dona accés a la llista completa de bases de dades."
+
+#: server_privileges.php:124 server_privileges.php:350
+#: server_privileges.php:355 server_privileges.php:704
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "Permet fer consultes de tipus SHOW CREATE VIEW."
+
+#: server_privileges.php:125 server_privileges.php:285
+#: server_privileges.php:731
+msgid "Allows shutting down the server."
+msgstr "Permet parar el servidor."
+
+#: server_privileges.php:126 server_privileges.php:313
+#: server_privileges.php:728
+>>>>>>> upstream/master
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -9505,6 +11106,7 @@ msgstr ""
 "permès; es necessari per moltes operacions d'administració com ara establir "
 "variables globals o bé cancel.lar fils d'execució d'altres usuaris."
 
+<<<<<<< HEAD
 #: server_privileges.php:126 server_privileges.php:340
 #: server_privileges.php:719
 msgid "Allows creating and dropping triggers"
@@ -9520,10 +11122,28 @@ msgid "No privileges."
 msgstr "Sense permisos."
 
 #: server_privileges.php:474 server_privileges.php:475
+=======
+#: server_privileges.php:127 server_privileges.php:341
+#: server_privileges.php:720
+msgid "Allows creating and dropping triggers"
+msgstr "Permet crear i eliminar disparadors -triggers-"
+
+#: server_privileges.php:128 server_privileges.php:265
+#: server_privileges.php:625 server_privileges.php:690
+msgid "Allows changing data."
+msgstr "Permet canviar dades."
+
+#: server_privileges.php:129 server_privileges.php:423
+msgid "No privileges."
+msgstr "Sense permisos."
+
+#: server_privileges.php:475 server_privileges.php:476
+>>>>>>> upstream/master
 msgctxt "None privileges"
 msgid "None"
 msgstr "Cap"
 
+<<<<<<< HEAD
 #: server_privileges.php:605 server_privileges.php:750
 #: server_privileges.php:2037 server_privileges.php:2043
 msgid "Table-specific privileges"
@@ -9567,34 +11187,100 @@ msgid "No user found."
 msgstr "No s'han trobat usuaris."
 
 #: server_privileges.php:1053
+=======
+#: server_privileges.php:606 server_privileges.php:751
+#: server_privileges.php:2038 server_privileges.php:2044
+msgid "Table-specific privileges"
+msgstr "Permisos especifics de taula"
+
+#: server_privileges.php:607 server_privileges.php:759
+#: server_privileges.php:1825
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès"
+
+#: server_privileges.php:684
+msgid "Administration"
+msgstr "Administració"
+
+#: server_privileges.php:748 server_privileges.php:1824
+msgid "Global privileges"
+msgstr "Permisos generals"
+
+#: server_privileges.php:750 server_privileges.php:2038
+msgid "Database-specific privileges"
+msgstr "Permisos específics de base de dades"
+
+#: server_privileges.php:782
+msgid "Resource limits"
+msgstr "Limit de recursos"
+
+#: server_privileges.php:783
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "Nota: Es treu el limit establint aquestes opcions a 0 (zero) ."
+
+#: server_privileges.php:861
+msgid "Login Information"
+msgstr "Informació d'Identificació"
+
+#: server_privileges.php:958
+msgid "Do not change the password"
+msgstr "No canviïs la contrasenya"
+
+#: server_privileges.php:1010 server_privileges.php:2530
+msgid "No user found."
+msgstr "No s'han trobat usuaris."
+
+#: server_privileges.php:1054
+>>>>>>> upstream/master
 #, php-format
 msgid "The user %s already exists!"
 msgstr "L'usuari %s ja existeix!"
 
+<<<<<<< HEAD
 #: server_privileges.php:1137
 msgid "You have added a new user."
 msgstr "Has afegit un usuari nou."
 
 #: server_privileges.php:1361
+=======
+#: server_privileges.php:1138
+msgid "You have added a new user."
+msgstr "Has afegit un usuari nou."
+
+#: server_privileges.php:1362
+>>>>>>> upstream/master
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Heu actualitzat els permisos de %s."
 
+<<<<<<< HEAD
 #: server_privileges.php:1383
+=======
+#: server_privileges.php:1384
+>>>>>>> upstream/master
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Has tret els permisos per %s"
 
+<<<<<<< HEAD
 #: server_privileges.php:1419
+=======
+#: server_privileges.php:1420
+>>>>>>> upstream/master
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "La contrasenya per %s s'ha canviat correctament."
 
+<<<<<<< HEAD
 #: server_privileges.php:1439
+=======
+#: server_privileges.php:1440
+>>>>>>> upstream/master
 #, php-format
 msgid "Deleting %s"
 msgstr "Esborrant %s"
 
+<<<<<<< HEAD
 #: server_privileges.php:1453
 msgid "No users selected for deleting!"
 msgstr "No s'han triat usuaris per esborrar!"
@@ -9620,28 +11306,69 @@ msgid "Revoke"
 msgstr "Treu"
 
 #: server_privileges.php:1545
+=======
+#: server_privileges.php:1454
+msgid "No users selected for deleting!"
+msgstr "No s'han triat usuaris per esborrar!"
+
+#: server_privileges.php:1457
+msgid "Reloading the privileges"
+msgstr "Recarregant permisos"
+
+#: server_privileges.php:1475
+msgid "The selected users have been deleted successfully."
+msgstr "S'han esborrat correctament els usuaris triats."
+
+#: server_privileges.php:1510
+msgid "The privileges were reloaded successfully."
+msgstr "Els permisos s'han recarregat correctament."
+
+#: server_privileges.php:1521 server_privileges.php:1967
+msgid "Edit Privileges"
+msgstr "Edita permisos"
+
+#: server_privileges.php:1530
+msgid "Revoke"
+msgstr "Treu"
+
+#: server_privileges.php:1546
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Export"
 msgid "Export all"
 msgstr "Exporta"
 
+<<<<<<< HEAD
 #: server_privileges.php:1564 server_privileges.php:1847
 #: server_privileges.php:2479
 msgid "Any"
 msgstr "Qualsevol"
 
 #: server_privileges.php:1644
+=======
+#: server_privileges.php:1565 server_privileges.php:1848
+#: server_privileges.php:2480
+msgid "Any"
+msgstr "Qualsevol"
+
+#: server_privileges.php:1645
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "Permisos"
 
+<<<<<<< HEAD
 #: server_privileges.php:1657
+=======
+#: server_privileges.php:1658
+>>>>>>> upstream/master
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Permisos"
 
+<<<<<<< HEAD
 #: server_privileges.php:1685
 msgid "Users overview"
 msgstr "Vista global d'usuaris"
@@ -9661,11 +11388,36 @@ msgstr "Treu tots els permisos actius dels usuaris i els esborra després."
 
 #: server_privileges.php:1925 server_privileges.php:1926
 #: server_privileges.php:1927
+=======
+#: server_privileges.php:1686
+msgid "Users overview"
+msgstr "Vista global d'usuaris"
+
+#: server_privileges.php:1826 server_privileges.php:2043
+#: server_privileges.php:2391
+msgid "Grant"
+msgstr "Atorga"
+
+#: server_privileges.php:1922
+msgid "Remove selected users"
+msgstr "Treu els usuaris triats"
+
+#: server_privileges.php:1925
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Treu tots els permisos actius dels usuaris i els esborra després."
+
+#: server_privileges.php:1926 server_privileges.php:1927
+#: server_privileges.php:1928
+>>>>>>> upstream/master
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 "Esborra les bases de dades que tenen els mateixos noms que els usuaris."
 
+<<<<<<< HEAD
 #: server_privileges.php:1948
+=======
+#: server_privileges.php:1949
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9678,6 +11430,7 @@ msgstr ""
 "permisos que utilitza el servidor si s'han fet canvis manualment. En aquest "
 "cas, es necessari %srecarregar els permisos%s abans de continuar."
 
+<<<<<<< HEAD
 #: server_privileges.php:2001
 msgid "The selected user was not found in the privilege table."
 msgstr "No s'ha trobat l'usuari triat a la taula de permisos."
@@ -9691,10 +11444,26 @@ msgid "Add privileges on the following database"
 msgstr "Afegeix permisos a la següent base de dades"
 
 #: server_privileges.php:2267
+=======
+#: server_privileges.php:2002
+msgid "The selected user was not found in the privilege table."
+msgstr "No s'ha trobat l'usuari triat a la taula de permisos."
+
+#: server_privileges.php:2044
+msgid "Column-specific privileges"
+msgstr "Permisos específics de columna"
+
+#: server_privileges.php:2250
+msgid "Add privileges on the following database"
+msgstr "Afegeix permisos a la següent base de dades"
+
+#: server_privileges.php:2268
+>>>>>>> upstream/master
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Els comodins _ i % han de marcar-se amb una \\ per usar-los literalment"
 
+<<<<<<< HEAD
 #: server_privileges.php:2270
 msgid "Add privileges on the following table"
 msgstr "Afegeix permisos a la següent taula"
@@ -9716,11 +11485,38 @@ msgid "... delete the old one from the user tables."
 msgstr "... esborra l'antic de les taules d'usuaris."
 
 #: server_privileges.php:2334
+=======
+#: server_privileges.php:2271
+msgid "Add privileges on the following table"
+msgstr "Afegeix permisos a la següent taula"
+
+#: server_privileges.php:2328
+msgid "Change Login Information / Copy User"
+msgstr "Canvi d'Informació de Connexió / Copia d'Usuari"
+
+#: server_privileges.php:2331
+msgid "Create a new user with the same privileges and ..."
+msgstr "Crea un nou usuari amb els mateixos permisos i ..."
+
+#: server_privileges.php:2333
+msgid "... keep the old one."
+msgstr "... respecta l'antic."
+
+#: server_privileges.php:2334
+msgid "... delete the old one from the user tables."
+msgstr "... esborra l'antic de les taules d'usuaris."
+
+#: server_privileges.php:2335
+>>>>>>> upstream/master
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr "... treu tots els permisos actius de l'antic i esborra'l després."
 
+<<<<<<< HEAD
 #: server_privileges.php:2335
+=======
+#: server_privileges.php:2336
+>>>>>>> upstream/master
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -9728,6 +11524,7 @@ msgstr ""
 " ... esborra l'antic de les taules d'usuaris i recarrega els permisos "
 "després."
 
+<<<<<<< HEAD
 #: server_privileges.php:2358
 msgid "Database for user"
 msgstr "Base de dades per usuari"
@@ -9741,15 +11538,35 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Atorga tots els permisos en un nom comodí (nomusuari\\_%)"
 
 #: server_privileges.php:2366
+=======
+#: server_privileges.php:2359
+msgid "Database for user"
+msgstr "Base de dades per usuari"
+
+#: server_privileges.php:2361
+msgid "Create database with same name and grant all privileges"
+msgstr "Crea una base de dades amb el mateix nom i atorga tots els permisos"
+
+#: server_privileges.php:2363
+msgid "Grant all privileges on wildcard name (username\\_%)"
+msgstr "Atorga tots els permisos en un nom comodí (nomusuari\\_%)"
+
+#: server_privileges.php:2367
+>>>>>>> upstream/master
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Atorga tots els permisos a la base de dades &quot;%s&quot;"
 
+<<<<<<< HEAD
 #: server_privileges.php:2382
+=======
+#: server_privileges.php:2383
+>>>>>>> upstream/master
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Usuaris amb accés a &quot;%s&quot;"
 
+<<<<<<< HEAD
 #: server_privileges.php:2491
 msgid "global"
 msgstr "global"
@@ -9763,6 +11580,21 @@ msgid "wildcard"
 msgstr "comodins"
 
 #: server_privileges.php:2538
+=======
+#: server_privileges.php:2492
+msgid "global"
+msgstr "global"
+
+#: server_privileges.php:2494
+msgid "database-specific"
+msgstr "específic de la base de dades"
+
+#: server_privileges.php:2496
+msgid "wildcard"
+msgstr "comodins"
+
+#: server_privileges.php:2539
+>>>>>>> upstream/master
 msgid "User has been added."
 msgstr "Usuari afegit."
 
@@ -12281,6 +14113,7 @@ msgstr "Reanomena la vista a"
 #~ msgid "Iconic errors"
 #~ msgstr "Icones d' errors"
 
+<<<<<<< HEAD
 #~ msgid "Use icons on main page"
 #~ msgstr "Usa icones a la pàgina principal"
 
@@ -12541,6 +14374,274 @@ msgstr "Reanomena la vista a"
 #~ msgstr "Tamany de la memòria cau"
 
 #, fuzzy
+=======
+#~ msgid "Use less graphically intense tabs"
+#~ msgstr "Ús de pestanyes amb menys contingut gràfic"
+
+#~ msgid "Light tabs"
+#~ msgstr "Pestanyes lleugeres"
+
+#~ msgid "Use icons on main page"
+#~ msgstr "Usa icones a la pàgina principal"
+
+#~ msgid ""
+#~ "Disable if you know that your pma_* tables are up to date. This prevents "
+#~ "compatibility checks and thereby increases performance"
+#~ msgstr ""
+#~ "Desactiva si saps que les teves taules pma_* estàn actualitzades a la "
+#~ "darrera versió. Aixó evita problemes de comprobacions de compatibilitat i "
+#~ "així aumenta el rendiment"
+
+#~ msgid "Verbose check"
+#~ msgstr "Comprobació explicativa"
+
+#~ msgid "Questions below 1,000"
+#~ msgstr "Menys de 1000 consultes"
+
+#~ msgid "Current amount of Questions: %s"
+#~ msgstr "Quantitat actual de consultes: %s"
+
+#~ msgid "Percentage of slow queries"
+#~ msgstr "Percentatge de consultes lentes"
+
+#~ msgid "Slow query rate"
+#~ msgstr "Freqüència de consultes lentes"
+
+#~ msgid "Long query time"
+#~ msgstr "Temps de consultes lentes"
+
+#~ msgid "Slow query logging"
+#~ msgstr "Registre de consultes lentes"
+
+#~ msgid "Release Series"
+#~ msgstr "Serie de versions"
+
+#~ msgid "Current version: %s"
+#~ msgstr "Versió actual: %s"
+
+#~ msgid "Minor Version"
+#~ msgstr "Versió menor"
+
+#~ msgid "You should upgrade, to a stable version of MySQL 5.5"
+#~ msgstr "Es necessari actualitzar a una versió estable de MySQL 5.5"
+
+#~ msgid "Distribution"
+#~ msgstr "Distribució"
+
+#~ msgid "MySQL Architecture"
+#~ msgstr "Arquitectura MySQL"
+
+#~ msgid "Query cache disabled"
+#~ msgstr "Memòria cau de consultes desactivat"
+
+#, fuzzy
+#~| msgid "The server is not responding"
+#~ msgid "The query cache is not enabled."
+#~ msgstr "El servidor no respon"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query caching method"
+#~ msgstr "Memòria cau de consultes"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache efficiency (%%)"
+#~ msgstr "Memòria cau de consultes"
+
+#, fuzzy
+#~ msgid "Query Cache usage"
+#~ msgstr "Memòria cau de consultes"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache fragmentation"
+#~ msgstr "Memòria cau de consultes"
+
+#, fuzzy
+#~| msgid "The amount of free memory for query cache."
+#~ msgid ""
+#~ "Cached queries are removed due to low query cache memory from the query "
+#~ "cache."
+#~ msgstr "La quantitat de memòria liure per a memòria cau de consultes."
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache max size"
+#~ msgstr "Memòria cau de consultes"
+
+#, fuzzy
+#~| msgid "Query results"
+#~ msgid "Query cache min result size"
+#~ msgstr "Resultats de consultes"
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Percentage of sorts that cause temporary tables"
+#~ msgstr "Permet crear taules temporals."
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Too many sorts are causing temporary tables."
+#~ msgstr "Permet crear taules temporals."
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Rate of sorts that cause temporary tables"
+#~ msgstr "Permet crear taules temporals."
+
+#, fuzzy
+#~| msgid "Textarea rows"
+#~ msgid "Sort rows"
+#~ msgstr "Files per a textareas"
+
+#, fuzzy
+#~| msgid "There are no files to upload"
+#~ msgid "Rate of joins without indexes"
+#~ msgstr "No hi ha cap arxiu per pujar"
+
+#, fuzzy
+#~| msgid "There are no files to upload"
+#~ msgid "There are too many joins without indexes."
+#~ msgstr "No hi ha cap arxiu per pujar"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "Temp disk rate"
+#~ msgstr "%s taula"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "MyISAM key buffer size"
+#~ msgstr "Tamany de l'àrea de classificació"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "Max %% MyISAM key buffer ever used"
+#~ msgstr "Tamany de l'àrea de classificació"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "MyISAM key buffer (index cache) %% used is low."
+#~ msgstr "Tamany de l'àrea de classificació"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid ""
+#~ "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+#~ msgstr "Tamany de l'àrea de classificació"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "Percentage of MyISAM key buffer used"
+#~ msgstr "Tamany de l'àrea de classificació"
+
+#, fuzzy
+#~| msgid "Create table"
+#~ msgid "Rate of table open"
+#~ msgstr "Crea una taula"
+
+#, fuzzy
+#~| msgid "The current number of pending writes."
+#~ msgid "The rate of opening tables is high."
+#~ msgstr "El nombre actual d'escritures pendents."
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of used open files limit"
+#~ msgstr "Format de l'arxiu importat"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of open files"
+#~ msgstr "Format de l'arxiu importat"
+
+#, fuzzy
+#~| msgid "The number of pending log file fsyncs."
+#~ msgid "The rate of opening files is high."
+#~ msgstr "El nombre d'operacions fsync pendents a l'arxiu de registre."
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Immediate table locks %%"
+#~ msgstr "Crear una taula nova a la base de dades %s"
+
+#, fuzzy
+#~| msgid " number of times that a table lock was acquired immediately."
+#~ msgid "Too many table locks were not granted immediately."
+#~ msgstr ""
+#~ "El nombre de vegades que un bloqueig de taula s'ha fet immediatament."
+
+#, fuzzy
+#~| msgid "Key cache"
+#~ msgid "Thread cache"
+#~ msgstr "Memòria cau de claus"
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "Thread cache hit rate %%"
+#~ msgstr "El seguiment no està actiu."
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "Thread cache is not efficient."
+#~ msgstr "El seguiment no està actiu."
+
+#, fuzzy
+#~| msgid "The number of threads that are not sleeping."
+#~ msgid "There are too many threads that are slow to launch."
+#~ msgstr "El nombre de fils que no estàn dormint."
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Percentage of used connections"
+#~ msgstr "Connexions persistents"
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Percentage of aborted connections"
+#~ msgstr "Connexions persistents"
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Rate of aborted connections"
+#~ msgstr "Connexions persistents"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of aborted clients"
+#~ msgstr "Format de l'arxiu importat"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of aborted clients"
+#~ msgstr "Format de l'arxiu importat"
+
+#, fuzzy
+#~| msgid "Could not save configuration"
+#~ msgid "You do not have InnoDB enabled."
+#~ msgstr "No es pot desar la configuració"
+
+#, fuzzy
+#~| msgid "Buffer pool size"
+#~ msgid "InnoDB log size"
+#~ msgstr "Tamany de la memòria cau"
+
+#, fuzzy
+#~| msgid "The number writes done to the InnoDB buffer pool."
+#~ msgid ""
+#~ "The InnoDB log file size is not an appropriate size, in relation to the "
+#~ "InnoDB buffer pool."
+#~ msgstr "El nombre d'escriptures fetes a la memòria cau d'InnoDB."
+
+#, fuzzy
+#~| msgid "Buffer pool size"
+#~ msgid "InnoDB buffer pool size"
+#~ msgstr "Tamany de la memòria cau"
+
+#, fuzzy
+>>>>>>> upstream/master
 #~| msgid "max. concurrent connections"
 #~ msgid "MyISAM concurrent inserts"
 #~ msgstr "max. connexions a la vegada"

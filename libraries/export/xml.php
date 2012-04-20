@@ -353,7 +353,7 @@ if (isset($plugin_list)) {
             $columns_cnt = PMA_DBI_num_fields($result);
             $columns = array();
             for ($i = 0; $i < $columns_cnt; $i++) {
-                $columns[$i] = stripslashes(str_replace(' ', '_', PMA_DBI_field_name($result, $i)));
+                $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
             }
             unset($i);
 

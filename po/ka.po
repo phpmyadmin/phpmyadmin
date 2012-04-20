@@ -3,7 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2012-04-20 13:57-0300\n"
+=======
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
+>>>>>>> upstream/master
 "PO-Revision-Date: 2012-03-29 16:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -15,7 +19,11 @@ msgstr ""
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
+<<<<<<< HEAD
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1797
+=======
+#: libraries/display_tbl.lib.php:362 server_privileges.php:1798
+>>>>>>> upstream/master
 msgid "Show all"
 msgstr "ყველაფრის ჩვენება"
 
@@ -60,10 +68,17 @@ msgstr "ძებნა"
 #: libraries/schema/User_Schema.class.php:490
 #: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:424
 #: libraries/sql_query_form.lib.php:479 libraries/tbl_properties.inc.php:574
+<<<<<<< HEAD
 #: pmd_pdf.php:124 prefs_manage.php:267 prefs_manage.php:318
 #: server_binlog.php:109 server_privileges.php:815 server_privileges.php:1931
 #: server_privileges.php:2295 server_privileges.php:2342
 #: server_privileges.php:2374 server_replication.php:265
+=======
+#: pmd_pdf.php:125 prefs_manage.php:267 prefs_manage.php:318
+#: server_binlog.php:109 server_privileges.php:816 server_privileges.php:1932
+#: server_privileges.php:2296 server_privileges.php:2343
+#: server_privileges.php:2375 server_replication.php:265
+>>>>>>> upstream/master
 #: server_replication.php:349 server_replication.php:380
 #: server_synchronize.php:1390 tbl_change.php:373 tbl_change.php:1116
 #: tbl_indexes.php:289 tbl_operations.php:280 tbl_operations.php:317
@@ -140,7 +155,11 @@ msgstr "სვეტები"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:87
+<<<<<<< HEAD
 #: server_privileges.php:2388 tbl_change.php:318 tbl_change.php:351
+=======
+#: server_privileges.php:2389 tbl_change.php:318 tbl_change.php:351
+>>>>>>> upstream/master
 #: tbl_printview.php:138 tbl_printview.php:273 tbl_structure.php:204
 #: tbl_structure.php:759 tbl_tracking.php:277 tbl_tracking.php:339
 msgid "Type"
@@ -179,8 +198,13 @@ msgid "Links to"
 msgstr "Links to"
 
 #: db_datadict.php:173 db_printview.php:109
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:111
 #: libraries/config/messages.inc.php:133 libraries/export/htmlword.php:322
+=======
+#: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:113
+#: libraries/config/messages.inc.php:135 libraries/export/htmlword.php:322
+>>>>>>> upstream/master
 #: libraries/export/latex.php:402 libraries/export/odt.php:405
 #: libraries/export/texytext.php:321
 #: libraries/schema/Pdf_Relation_Schema.class.php:1325
@@ -199,10 +223,17 @@ msgstr "კომენტარები"
 #: libraries/mult_submits.inc.php:321
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:132
+<<<<<<< HEAD
 #: server_privileges.php:1571 server_privileges.php:1581
 #: server_privileges.php:1855 server_privileges.php:1866
 #: server_privileges.php:2207 server_privileges.php:2212
 #: server_privileges.php:2505 sql.php:330 sql.php:394 tbl_printview.php:191
+=======
+#: server_privileges.php:1572 server_privileges.php:1582
+#: server_privileges.php:1856 server_privileges.php:1867
+#: server_privileges.php:2208 server_privileges.php:2213
+#: server_privileges.php:2506 sql.php:330 sql.php:394 tbl_printview.php:191
+>>>>>>> upstream/master
 #: tbl_structure.php:333 tbl_tracking.php:300 tbl_tracking.php:355
 #: tbl_tracking.php:360
 msgid "No"
@@ -222,10 +253,17 @@ msgstr "არა"
 #: libraries/mult_submits.inc.php:320 libraries/mult_submits.inc.php:327
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:131
+<<<<<<< HEAD
 #: server_databases.php:96 server_privileges.php:1569
 #: server_privileges.php:1579 server_privileges.php:1852
 #: server_privileges.php:1866 server_privileges.php:2207
 #: server_privileges.php:2210 server_privileges.php:2505 sql.php:393
+=======
+#: server_databases.php:96 server_privileges.php:1570
+#: server_privileges.php:1580 server_privileges.php:1853
+#: server_privileges.php:1867 server_privileges.php:2208
+#: server_privileges.php:2211 server_privileges.php:2506 sql.php:393
+>>>>>>> upstream/master
 #: tbl_printview.php:191 tbl_structure.php:41 tbl_structure.php:333
 #: tbl_tracking.php:300 tbl_tracking.php:353 tbl_tracking.php:358
 msgid "Yes"
@@ -302,14 +340,24 @@ msgstr "მხოლოდ მონაცემები"
 msgid "CREATE DATABASE before copying"
 msgstr ""
 
+<<<<<<< HEAD
 #: db_operations.php:535 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:137 tbl_operations.php:558
+=======
+#: db_operations.php:535 libraries/config/messages.inc.php:130
+#: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:133
+#: libraries/config/messages.inc.php:139 tbl_operations.php:558
+>>>>>>> upstream/master
 #, php-format
 msgid "Add %s"
 msgstr "Add %s"
 
+<<<<<<< HEAD
 #: db_operations.php:539 libraries/config/messages.inc.php:121
+=======
+#: db_operations.php:539 libraries/config/messages.inc.php:123
+>>>>>>> upstream/master
 #: tbl_operations.php:314 tbl_operations.php:560
 msgid "Add AUTO_INCREMENT value"
 msgstr ""
@@ -344,12 +392,21 @@ msgid "Edit or export relational schema"
 msgstr ""
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:193
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:515 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:360
 #: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:275 server_privileges.php:1982
 #: server_privileges.php:2040 server_privileges.php:2309
+=======
+#: libraries/config/messages.inc.php:517 libraries/db_structure.lib.php:32
+#: libraries/export/pdf.php:98 libraries/export/xml.php:360
+#: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
+#: libraries/rte/rte_triggers.lib.php:310
+#: libraries/schema/User_Schema.class.php:275 server_privileges.php:1983
+#: server_privileges.php:2041 server_privileges.php:2310
+>>>>>>> upstream/master
 #: server_synchronize.php:450 server_synchronize.php:962 tbl_tracking.php:668
 msgid "Table"
 msgstr "ცხრილი"
@@ -449,7 +506,11 @@ msgid "Del"
 msgstr "Del"
 
 #: db_qbe.php:396 db_qbe.php:477 db_qbe.php:548 db_qbe.php:579
+<<<<<<< HEAD
 #: server_privileges.php:469 tbl_change.php:943 tbl_indexes.php:284
+=======
+#: server_privileges.php:470 tbl_change.php:943 tbl_indexes.php:284
+>>>>>>> upstream/master
 #: tbl_select.php:220
 msgid "Or"
 msgstr "ან"
@@ -644,20 +705,34 @@ msgstr ""
 #: db_structure.php:641 db_structure.php:658 db_structure.php:659
 #: libraries/display_tbl.lib.php:2507 libraries/display_tbl.lib.php:2512
 #: libraries/mult_submits.inc.php:39 server_databases.php:279
+<<<<<<< HEAD
 #: server_databases.php:284 server_privileges.php:1889
 #: server_privileges.php:1897 tbl_structure.php:547 tbl_structure.php:556
+=======
+#: server_databases.php:284 server_privileges.php:1890
+#: server_privileges.php:1898 tbl_structure.php:547 tbl_structure.php:556
+>>>>>>> upstream/master
 msgid "With selected:"
 msgstr ""
 
 #: db_structure.php:644 libraries/display_tbl.lib.php:2502
+<<<<<<< HEAD
 #: server_databases.php:281 server_privileges.php:753
 #: server_privileges.php:1892 tbl_structure.php:550
+=======
+#: server_databases.php:281 server_privileges.php:754
+#: server_privileges.php:1893 tbl_structure.php:550
+>>>>>>> upstream/master
 msgid "Check All"
 msgstr "ყველას შემოწმება"
 
 #: db_structure.php:648 libraries/display_tbl.lib.php:2503
 #: libraries/replication_gui.lib.php:35 server_databases.php:283
+<<<<<<< HEAD
 #: server_privileges.php:756 server_privileges.php:1896 tbl_structure.php:554
+=======
+#: server_privileges.php:757 server_privileges.php:1897 tbl_structure.php:554
+>>>>>>> upstream/master
 msgid "Uncheck All"
 msgstr "მონიშნვის მოხსნა ყველასთვის"
 
@@ -666,11 +741,19 @@ msgid "Check tables having overhead"
 msgstr ""
 
 #: db_structure.php:661 libraries/common.lib.php:3385
+<<<<<<< HEAD
 #: libraries/common.lib.php:3386 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2525 libraries/display_tbl.lib.php:2666
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:290 server_privileges.php:1537 server_privileges.php:1901
+=======
+#: libraries/common.lib.php:3386 libraries/config/messages.inc.php:168
+#: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
+#: libraries/display_tbl.lib.php:2525 libraries/display_tbl.lib.php:2666
+#: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
+#: prefs_manage.php:290 server_privileges.php:1538 server_privileges.php:1902
+>>>>>>> upstream/master
 #: server_status.php:1634 setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "ექსპორტი"
@@ -732,14 +815,23 @@ msgstr "მონაცემების ლექსიკონი"
 msgid "Tracked tables"
 msgstr "ნანახი ცხრილები"
 
+<<<<<<< HEAD
 #: db_tracking.php:84 libraries/config/messages.inc.php:509
+=======
+#: db_tracking.php:84 libraries/config/messages.inc.php:511
+>>>>>>> upstream/master
 #: libraries/export/htmlword.php:83 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:609 libraries/export/texytext.php:69
 #: libraries/export/xml.php:293 libraries/header.inc.php:152
 #: libraries/header_printview.inc.php:59 server_databases.php:177
+<<<<<<< HEAD
 #: server_privileges.php:1977 server_privileges.php:2040
 #: server_privileges.php:2303 server_status.php:1263
+=======
+#: server_privileges.php:1978 server_privileges.php:2041
+#: server_privileges.php:2304 server_status.php:1263
+>>>>>>> upstream/master
 #: server_synchronize.php:1358 server_synchronize.php:1362
 #: tbl_tracking.php:667
 msgid "Database"
@@ -767,8 +859,13 @@ msgstr "სტატუსი"
 #: db_tracking.php:90 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
+<<<<<<< HEAD
 #: server_databases.php:210 server_privileges.php:1826
 #: server_privileges.php:2044 server_privileges.php:2391 tbl_structure.php:221
+=======
+#: server_databases.php:210 server_privileges.php:1827
+#: server_privileges.php:2045 server_privileges.php:2392 tbl_structure.php:221
+>>>>>>> upstream/master
 msgid "Action"
 msgstr "მოქმედება"
 
@@ -1097,6 +1194,7 @@ msgstr "ჰოსტის სახელის ველი ცარიელ
 msgid "The user name is empty!"
 msgstr "მომხმარებლის სახელის ველი ცარიელია!"
 
+<<<<<<< HEAD
 #: js/messages.php:53 server_privileges.php:1404 user_password.php:102
 msgid "The password is empty!"
 msgstr "პაროლის ველი ცარიელია!"
@@ -1107,6 +1205,18 @@ msgstr "პაროლებში შეუსაბამობაა!"
 
 #: js/messages.php:55 server_privileges.php:1916 server_privileges.php:1940
 #: server_privileges.php:2352 server_privileges.php:2546
+=======
+#: js/messages.php:53 server_privileges.php:1405 user_password.php:102
+msgid "The password is empty!"
+msgstr "პაროლის ველი ცარიელია!"
+
+#: js/messages.php:54 server_privileges.php:1403 user_password.php:105
+msgid "The passwords aren't the same!"
+msgstr "პაროლებში შეუსაბამობაა!"
+
+#: js/messages.php:55 server_privileges.php:1917 server_privileges.php:1941
+#: server_privileges.php:2353 server_privileges.php:2547
+>>>>>>> upstream/master
 msgid "Add user"
 msgstr "მომხმარებლის დამატება"
 
@@ -1130,7 +1240,11 @@ msgstr ""
 #: js/messages.php:61 js/messages.php:279 libraries/Index.class.php:485
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
 #: libraries/common.lib.php:3383 libraries/common.lib.php:3384
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:489 libraries/display_tbl.lib.php:1405
+=======
+#: libraries/config/messages.inc.php:491 libraries/display_tbl.lib.php:1405
+>>>>>>> upstream/master
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
 msgstr "რედაქტირება"
@@ -1407,7 +1521,11 @@ msgstr ""
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:529 pmd_general.php:520
+<<<<<<< HEAD
 #: server_privileges.php:2193 server_status.php:1292 server_status.php:1731
+=======
+#: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
+>>>>>>> upstream/master
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
 msgstr "არაა"
@@ -1685,7 +1803,7 @@ msgid ""
 "config..."
 msgstr ""
 
-#: js/messages.php:208 libraries/config/messages.inc.php:172
+#: js/messages.php:208 libraries/config/messages.inc.php:174
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:171
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:233 server_status.php:1634 setup/frames/menu.inc.php:21
@@ -2048,7 +2166,11 @@ msgstr ""
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
+<<<<<<< HEAD
 #: js/messages.php:338 pmd_general.php:91 tbl_relation.php:561
+=======
+#: js/messages.php:338 pmd_general.php:92 tbl_relation.php:561
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
@@ -2501,20 +2623,36 @@ msgstr "საათში"
 msgid "per day"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/Config.class.php:883
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr ""
 
 #: libraries/Config.class.php:919
+=======
+#: libraries/Config.class.php:886
+msgid "Remove \"./config\" directory before using phpMyAdmin!"
+msgstr ""
+
+#: libraries/Config.class.php:922
+>>>>>>> upstream/master
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/Config.class.php:947
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
 #: libraries/Config.class.php:1498
+=======
+#: libraries/Config.class.php:950
+msgid "Wrong permissions on configuration file, should not be world writable!"
+msgstr ""
+
+#: libraries/Config.class.php:1501
+>>>>>>> upstream/master
 msgid "Font size"
 msgstr "შრიფტის ზომა"
 
@@ -2616,9 +2754,15 @@ msgid ""
 "removed."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/List_Database.class.php:390 libraries/config/messages.inc.php:179
 #: libraries/server_links.inc.php:43 server_databases.php:119
 #: server_privileges.php:1977
+=======
+#: libraries/List_Database.class.php:390 libraries/config/messages.inc.php:181
+#: libraries/server_links.inc.php:43 server_databases.php:119
+#: server_privileges.php:1978
+>>>>>>> upstream/master
 msgid "Databases"
 msgstr "მონაცემთა ბაზები"
 
@@ -2892,11 +3036,16 @@ msgid "shared"
 msgstr ""
 
 #: libraries/build_html_for_db.lib.php:26
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
+=======
+#: libraries/config/messages.inc.php:187 libraries/export/xml.php:51
+>>>>>>> upstream/master
 #: server_status.php:614
 msgid "Tables"
 msgstr "ცხრილები"
 
+<<<<<<< HEAD
 #: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
 #: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:366
 #: libraries/config/setup.forms.php:371
@@ -2906,6 +3055,17 @@ msgstr "ცხრილები"
 #: libraries/config/user_preferences.forms.php:270
 #: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:683 server_replication.php:347 tbl_printview.php:277
+=======
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:308
+#: libraries/config/setup.forms.php:344 libraries/config/setup.forms.php:367
+#: libraries/config/setup.forms.php:372
+#: libraries/config/user_preferences.forms.php:207
+#: libraries/config/user_preferences.forms.php:243
+#: libraries/config/user_preferences.forms.php:266
+#: libraries/config/user_preferences.forms.php:271
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
+#: server_privileges.php:684 server_replication.php:347 tbl_printview.php:277
+>>>>>>> upstream/master
 #: tbl_structure.php:765
 msgid "Data"
 msgstr "მონაცემები"
@@ -2983,7 +3143,11 @@ msgstr "Invalid server index: \"%s\""
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:667 libraries/config/messages.inc.php:513
+=======
+#: libraries/common.inc.php:667 libraries/config/messages.inc.php:515
+>>>>>>> upstream/master
 #: libraries/header.inc.php:138 main.php:179 server_status.php:797
 #: server_synchronize.php:1338
 msgid "Server"
@@ -3027,7 +3191,11 @@ msgstr "en"
 #: libraries/common.lib.php:520 libraries/config/FormDisplay.tpl.php:140
 #: libraries/display_export.lib.php:238 libraries/engines/pbxt.lib.php:109
 #: libraries/relation.lib.php:78 libraries/sql_query_form.lib.php:398
+<<<<<<< HEAD
 #: libraries/sql_query_form.lib.php:401 main.php:246 server_variables.php:139
+=======
+#: libraries/sql_query_form.lib.php:401 main.php:245 server_variables.php:139
+>>>>>>> upstream/master
 msgid "Documentation"
 msgstr "დოკუმენტაცია"
 
@@ -3055,7 +3223,11 @@ msgstr "MySQL-მა თქვა: "
 msgid "Failed to connect to SQL validator!"
 msgstr "MySQL სერვერთან დაკავშირება ვერ მოხერხდა"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1204 libraries/config/messages.inc.php:490
+=======
+#: libraries/common.lib.php:1204 libraries/config/messages.inc.php:492
+>>>>>>> upstream/master
 msgid "Explain SQL"
 msgstr "SQL-ის ახსნა"
 
@@ -3067,11 +3239,19 @@ msgstr ""
 msgid "Without PHP Code"
 msgstr "PHP კოდის გარეშე"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1246 libraries/config/messages.inc.php:492
 msgid "Create PHP Code"
 msgstr "PHP კოდის შექმნა"
 
 #: libraries/common.lib.php:1266 libraries/config/messages.inc.php:491
+=======
+#: libraries/common.lib.php:1246 libraries/config/messages.inc.php:494
+msgid "Create PHP Code"
+msgstr "PHP კოდის შექმნა"
+
+#: libraries/common.lib.php:1266 libraries/config/messages.inc.php:493
+>>>>>>> upstream/master
 #: server_status.php:808 server_status.php:830 server_status.php:850
 msgid "Refresh"
 msgstr "განახლება"
@@ -3080,7 +3260,11 @@ msgstr "განახლება"
 msgid "Skip Validate SQL"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1279 libraries/config/messages.inc.php:494
+=======
+#: libraries/common.lib.php:1279 libraries/config/messages.inc.php:496
+>>>>>>> upstream/master
 msgid "Validate SQL"
 msgstr "Validate SQL"
 
@@ -3171,6 +3355,7 @@ msgid "Click to toggle"
 msgstr ""
 
 #: libraries/common.lib.php:3149 libraries/common.lib.php:3156
+<<<<<<< HEAD
 #: libraries/common.lib.php:3378 libraries/config/setup.forms.php:298
 #: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:197
@@ -3180,11 +3365,26 @@ msgstr ""
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:590 pmd_general.php:154
 #: server_privileges.php:683 server_replication.php:346 tbl_tracking.php:272
+=======
+#: libraries/common.lib.php:3378 libraries/config/setup.forms.php:299
+#: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:362
+#: libraries/config/user_preferences.forms.php:198
+#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/user_preferences.forms.php:261
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:371
+#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:155
+#: server_privileges.php:684 server_replication.php:346 tbl_tracking.php:272
+>>>>>>> upstream/master
 msgid "Structure"
 msgstr "სტრუქტურა"
 
 #: libraries/common.lib.php:3150 libraries/common.lib.php:3157
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
+=======
+#: libraries/config/messages.inc.php:218 libraries/db_links.inc.php:53
+>>>>>>> upstream/master
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:64
@@ -3227,7 +3427,11 @@ msgstr ""
 msgid "Execute"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:3901
+=======
+#: libraries/common.lib.php:3867
+>>>>>>> upstream/master
 msgid "Print"
 msgstr "დაბეჭდვა"
 
@@ -3260,26 +3464,29 @@ msgstr "Unclosed quote"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
-#: pmd_relation_new.php:66
+#: pmd_relation_new.php:67
 msgid "Disabled"
 msgstr "გათიშულია"
 
 #: libraries/config.values.php:99 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:129 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:39
+#: libraries/export/odt.php:34 libraries/export/sql.php:129
+#: libraries/export/texytext.php:24
 #, fuzzy
 msgid "structure"
 msgstr "სტრუქტურა"
 
 #: libraries/config.values.php:100 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:130 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:40
+#: libraries/export/odt.php:34 libraries/export/sql.php:130
+#: libraries/export/texytext.php:24
 msgid "data"
 msgstr ""
 
 #: libraries/config.values.php:101 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:131 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:41
+#: libraries/export/odt.php:34 libraries/export/sql.php:131
+#: libraries/export/texytext.php:24
 #, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
@@ -3386,7 +3593,11 @@ msgstr "SOAP გაფართოება არ იქნა ნაპოვ�
 msgid "maximum %s"
 msgstr "Maximum tables"
 
+<<<<<<< HEAD
 #: libraries/config/FormDisplay.tpl.php:141 main.php:247
+=======
+#: libraries/config/FormDisplay.tpl.php:141 main.php:246
+>>>>>>> upstream/master
 msgid "Wiki"
 msgstr "ვიკი"
 
@@ -3400,7 +3611,11 @@ msgid "Set value: %s"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:279
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:359
+=======
+#: libraries/config/messages.inc.php:361
+>>>>>>> upstream/master
 msgid "Restore default value"
 msgstr ""
 
@@ -3621,6 +3836,7 @@ msgid "Default table tab"
 msgstr ""
 
 #: libraries/config/messages.inc.php:58
+<<<<<<< HEAD
 msgid "Show binary contents as HEX by default"
 msgstr "ორობითის ჩვენება HEX ფორმატში იყოს ნაგულისხმევი"
 
@@ -3645,71 +3861,139 @@ msgid "Display servers as a list"
 msgstr "სერვერების სიის სახით ჩვენება"
 
 #: libraries/config/messages.inc.php:64
+=======
+msgid "Whether the table structure actions should be hidden"
+msgstr ""
+
+#: libraries/config/messages.inc.php:59
+#, fuzzy
+#| msgid "Propose table structure"
+msgid "Hide table structure actions"
+msgstr "ცხრილის სტრუქტურის შეთავაზება"
+
+#: libraries/config/messages.inc.php:60
+msgid "Show binary contents as HEX by default"
+msgstr "ორობითის ჩვენება HEX ფორმატში იყოს ნაგულისხმევი"
+
+#: libraries/config/messages.inc.php:61 libraries/display_tbl.lib.php:681
+msgid "Show binary contents as HEX"
+msgstr "აჩვენეთ ორობით შინაარსი როგორც HEX"
+
+#: libraries/config/messages.inc.php:62
+msgid "Show database listing as a list instead of a drop down"
+msgstr ""
+
+#: libraries/config/messages.inc.php:63
+msgid "Display databases as a list"
+msgstr "მონაცემთა ბაზების სიის სახით ჩვენება"
+
+#: libraries/config/messages.inc.php:64
+msgid "Show server listing as a list instead of a drop down"
+msgstr ""
+
+#: libraries/config/messages.inc.php:65
+msgid "Display servers as a list"
+msgstr "სერვერების სიის სახით ჩვენება"
+
+#: libraries/config/messages.inc.php:66
+>>>>>>> upstream/master
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:65
+=======
+#: libraries/config/messages.inc.php:67
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
 msgstr "Table maintenance"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:66
 msgid "Edit SQL queries in popup window"
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
+=======
+#: libraries/config/messages.inc.php:68
+msgid "Edit SQL queries in popup window"
+msgstr ""
+
+#: libraries/config/messages.inc.php:69
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "შემდეგი სტრიქონის რედაქტირება"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:68
+=======
+#: libraries/config/messages.inc.php:70
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
 msgstr "Display Features"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:69
+=======
+#: libraries/config/messages.inc.php:71
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Ignore errors"
 msgid "Gather errors"
 msgstr "შეცდომების იგნორირება"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:70
+=======
+#: libraries/config/messages.inc.php:72
+>>>>>>> upstream/master
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:71
+#: libraries/config/messages.inc.php:73
 msgid "Maximum execution time"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:72 prefs_manage.php:301
+=======
+#: libraries/config/messages.inc.php:74 prefs_manage.php:301
+>>>>>>> upstream/master
 msgid "Save as file"
 msgstr "ფაილის სახის შენახვა"
 
-#: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
+#: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:247
 msgid "Character set of the file"
 msgstr "სომბოლოთა ნაკრები ფაილისათვის"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
+=======
+#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
+>>>>>>> upstream/master
 #: tbl_gis_visualization.php:174 tbl_printview.php:336 tbl_structure.php:834
 msgid "Format"
 msgstr "ფორმატი"
 
-#: libraries/config/messages.inc.php:75
+#: libraries/config/messages.inc.php:77
 msgid "Compression"
 msgstr "შეკუმშვა"
 
-#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:83
-#: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:95
-#: libraries/config/messages.inc.php:108 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:146
-#: libraries/config/messages.inc.php:148 libraries/export/csv.php:30
+#: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:85
+#: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:97
+#: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:112
+#: libraries/config/messages.inc.php:145 libraries/config/messages.inc.php:148
+#: libraries/config/messages.inc.php:150 libraries/export/csv.php:30
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
@@ -3718,408 +4002,445 @@ msgstr "შეკუმშვა"
 msgid "Put columns names in the first row"
 msgstr "Put fields names in the first row"
 
-#: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:245
-#: libraries/config/messages.inc.php:252 libraries/import/csv.php:76
+#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:249
+#: libraries/config/messages.inc.php:256 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Fields enclosed by"
 
-#: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:246
-#: libraries/config/messages.inc.php:253 libraries/import/csv.php:81
+#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:257 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Fields escaped by"
 
-#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:85
-#: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:101
-#: libraries/config/messages.inc.php:109 libraries/config/messages.inc.php:113
-#: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:147
-#: libraries/config/messages.inc.php:149 libraries/export/texytext.php:27
+#: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:87
+#: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:103
+#: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:115
+#: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:149
+#: libraries/config/messages.inc.php:151 libraries/export/texytext.php:27
 msgid "Replace NULL by"
 msgstr ""
 
-#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
+#: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:88
 msgid "Remove CRLF characters within columns"
 msgstr ""
 
-#: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:249
-#: libraries/config/messages.inc.php:257 libraries/import/csv.php:63
+#: libraries/config/messages.inc.php:83 libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:261 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Lines terminated by"
 
-#: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:244
+#: libraries/config/messages.inc.php:84 libraries/config/messages.inc.php:248
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
 msgstr ""
 
-#: libraries/config/messages.inc.php:84
+#: libraries/config/messages.inc.php:86
 #, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel edition"
 
-#: libraries/config/messages.inc.php:87
+#: libraries/config/messages.inc.php:89
 msgid "Database name template"
 msgstr ""
 
-#: libraries/config/messages.inc.php:88
+#: libraries/config/messages.inc.php:90
 msgid "Server name template"
 msgstr ""
 
-#: libraries/config/messages.inc.php:89
+#: libraries/config/messages.inc.php:91
 msgid "Table name template"
 msgstr ""
 
-#: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:106
-#: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:139
-#: libraries/config/messages.inc.php:145 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:40 libraries/export/odt.php:32
-#: libraries/export/sql.php:123 libraries/export/texytext.php:23
+#: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:108
+#: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:141
+#: libraries/config/messages.inc.php:147 libraries/export/htmlword.php:24
+#: libraries/export/latex.php:40 libraries/export/mediawiki.php:33
+#: libraries/export/odt.php:32 libraries/export/sql.php:123
+#: libraries/export/texytext.php:23
 #, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "%s table(s)"
 
-#: libraries/config/messages.inc.php:94 libraries/export/latex.php:32
+#: libraries/config/messages.inc.php:96 libraries/export/latex.php:32
 msgid "Include table caption"
 msgstr ""
 
-#: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
+#: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
 msgid "Table caption"
 msgstr ""
 
-#: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:104
+#: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:106
 msgid "Continued table caption"
 msgstr ""
 
-#: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
+#: libraries/config/messages.inc.php:101 libraries/config/messages.inc.php:107
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
 msgid "Label key"
 msgstr "Label key"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:136 libraries/export/odt.php:411
+=======
+#: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
+#: libraries/config/messages.inc.php:138 libraries/export/odt.php:411
+>>>>>>> upstream/master
 #: libraries/tbl_properties.inc.php:137
 msgid "MIME type"
 msgstr "MIME-ის ტიპი"
 
-#: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
-#: libraries/config/messages.inc.php:138 tbl_relation.php:408
+#: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:116
+#: libraries/config/messages.inc.php:140 tbl_relation.php:408
 msgid "Relations"
 msgstr "Relations"
 
-#: libraries/config/messages.inc.php:107
+#: libraries/config/messages.inc.php:109
 #, fuzzy
 #| msgid "Export type"
 msgid "Export method"
 msgstr "Export type"
 
-#: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:118
+#: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:120
 msgid "Save on server"
 msgstr "სერვერზე შენახვა"
 
-#: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:119
+#: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:121
 #: libraries/display_export.lib.php:193 libraries/display_export.lib.php:219
 msgid "Overwrite existing file(s)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:120
+#: libraries/config/messages.inc.php:122
 msgid "Remember file name template"
 msgstr ""
 
-#: libraries/config/messages.inc.php:122
+#: libraries/config/messages.inc.php:124
 #, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Enclose table and field names with backquotes"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:264
+=======
+#: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:268
+>>>>>>> upstream/master
 #: libraries/display_export.lib.php:363
 msgid "SQL compatibility mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
+#: libraries/config/messages.inc.php:126 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
 msgstr ""
 
-#: libraries/config/messages.inc.php:125
+#: libraries/config/messages.inc.php:127
 msgid "Creation/Update/Check dates"
 msgstr ""
 
-#: libraries/config/messages.inc.php:126
+#: libraries/config/messages.inc.php:128
 msgid "Use delayed inserts"
 msgstr ""
 
-#: libraries/config/messages.inc.php:127 libraries/export/sql.php:81
+#: libraries/config/messages.inc.php:129 libraries/export/sql.php:81
 msgid "Disable foreign key checks"
 msgstr ""
 
-#: libraries/config/messages.inc.php:130
+#: libraries/config/messages.inc.php:132
 msgid "Use hexadecimal for BLOB"
 msgstr ""
 
-#: libraries/config/messages.inc.php:132
+#: libraries/config/messages.inc.php:134
 msgid "Use ignore inserts"
 msgstr ""
 
-#: libraries/config/messages.inc.php:134
+#: libraries/config/messages.inc.php:136
 msgid "Syntax to use when inserting data"
 msgstr ""
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
+#: libraries/config/messages.inc.php:137 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr ""
 
-#: libraries/config/messages.inc.php:140
+#: libraries/config/messages.inc.php:142
 #, fuzzy
 msgid "Export type"
 msgstr "Export type"
 
-#: libraries/config/messages.inc.php:141 libraries/export/sql.php:73
+#: libraries/config/messages.inc.php:143 libraries/export/sql.php:73
 msgid "Enclose export in a transaction"
 msgstr ""
 
-#: libraries/config/messages.inc.php:142
+#: libraries/config/messages.inc.php:144
 msgid "Export time in UTC"
 msgstr "ექსპორტის დრო UT- ში"
 
-#: libraries/config/messages.inc.php:150
+#: libraries/config/messages.inc.php:152
 msgid "Force secured connection while using phpMyAdmin"
 msgstr ""
 
-#: libraries/config/messages.inc.php:151
+#: libraries/config/messages.inc.php:153
 msgid "Force SSL connection"
 msgstr ""
 
-#: libraries/config/messages.inc.php:152
+#: libraries/config/messages.inc.php:154
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
 
-#: libraries/config/messages.inc.php:153
+#: libraries/config/messages.inc.php:155
 msgid "Foreign key dropdown order"
 msgstr ""
 
-#: libraries/config/messages.inc.php:154
+#: libraries/config/messages.inc.php:156
 msgid "A dropdown will be used if fewer items are present"
 msgstr ""
 
-#: libraries/config/messages.inc.php:155
+#: libraries/config/messages.inc.php:157
 msgid "Foreign key limit"
 msgstr ""
 
-#: libraries/config/messages.inc.php:156
+#: libraries/config/messages.inc.php:158
 msgid "Browse mode"
 msgstr "დათვალიერების რეჟიმი"
 
-#: libraries/config/messages.inc.php:157
+#: libraries/config/messages.inc.php:159
 msgid "Customize browse mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:159 libraries/config/messages.inc.php:161
-#: libraries/config/messages.inc.php:178 libraries/config/messages.inc.php:189
-#: libraries/config/messages.inc.php:191 libraries/config/messages.inc.php:219
-#: libraries/config/messages.inc.php:233
+#: libraries/config/messages.inc.php:161 libraries/config/messages.inc.php:163
+#: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:191
+#: libraries/config/messages.inc.php:193 libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:237
 #, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Customize default export options"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:160 libraries/config/setup.forms.php:245
 #: libraries/config/setup.forms.php:318
 #: libraries/config/user_preferences.forms.php:146
 #: libraries/config/user_preferences.forms.php:217 libraries/export/csv.php:19
+=======
+#: libraries/config/messages.inc.php:162 libraries/config/setup.forms.php:246
+#: libraries/config/setup.forms.php:319
+#: libraries/config/user_preferences.forms.php:147
+#: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
+>>>>>>> upstream/master
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/config/messages.inc.php:162
+#: libraries/config/messages.inc.php:164
 msgid "Developer"
 msgstr ""
 
-#: libraries/config/messages.inc.php:163
+#: libraries/config/messages.inc.php:165
 msgid "Settings for phpMyAdmin developers"
 msgstr ""
 
-#: libraries/config/messages.inc.php:164
+#: libraries/config/messages.inc.php:166
 msgid "Edit mode"
 msgstr "რედაქტირების რეჟიმი"
 
-#: libraries/config/messages.inc.php:165
+#: libraries/config/messages.inc.php:167
 msgid "Customize edit mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:167
+#: libraries/config/messages.inc.php:169
 msgid "Export defaults"
 msgstr ""
 
-#: libraries/config/messages.inc.php:168
+#: libraries/config/messages.inc.php:170
 msgid "Customize default export options"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:169 libraries/config/messages.inc.php:211
+=======
+#: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:213
+>>>>>>> upstream/master
 #: setup/frames/menu.inc.php:17
 msgid "Features"
 msgstr "Features"
 
-#: libraries/config/messages.inc.php:170
+#: libraries/config/messages.inc.php:172
 #, fuzzy
 #| msgid "Generate"
 msgid "General"
 msgstr "დაგენერირება"
 
-#: libraries/config/messages.inc.php:171
+#: libraries/config/messages.inc.php:173
 msgid "Set some commonly used options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:173
+#: libraries/config/messages.inc.php:175
 msgid "Import defaults"
 msgstr ""
 
-#: libraries/config/messages.inc.php:174
+#: libraries/config/messages.inc.php:176
 msgid "Customize default common import options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:175
+#: libraries/config/messages.inc.php:177
 msgid "Import / export"
 msgstr "იმპორტი / ექსპორტი"
 
-#: libraries/config/messages.inc.php:176
+#: libraries/config/messages.inc.php:178
 msgid "Set import and export directories and compression options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:177 libraries/export/latex.php:27
+#: libraries/config/messages.inc.php:179 libraries/export/latex.php:27
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:180
+#: libraries/config/messages.inc.php:182
 msgid "Databases display options"
 msgstr "მონაცემთა ბაზის ჩვენების პარამეტრები"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:181 setup/frames/menu.inc.php:19
+=======
+#: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
+>>>>>>> upstream/master
 msgid "Navigation frame"
 msgstr "ნავიგაციის ჩარჩო"
 
-#: libraries/config/messages.inc.php:182
+#: libraries/config/messages.inc.php:184
 msgid "Customize appearance of the navigation frame"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:183 libraries/select_server.lib.php:38
+=======
+#: libraries/config/messages.inc.php:185 libraries/select_server.lib.php:38
+>>>>>>> upstream/master
 #: setup/frames/index.inc.php:117
 msgid "Servers"
 msgstr "სერვერები"
 
-#: libraries/config/messages.inc.php:184
+#: libraries/config/messages.inc.php:186
 msgid "Servers display options"
 msgstr "სერვერის ჩვენების პარამეტრები"
 
-#: libraries/config/messages.inc.php:186
+#: libraries/config/messages.inc.php:188
 msgid "Tables display options"
 msgstr "ცხრილების ჩვენების პარამეტრები"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:187 setup/frames/menu.inc.php:20
+=======
+#: libraries/config/messages.inc.php:189 setup/frames/menu.inc.php:20
+>>>>>>> upstream/master
 msgid "Main frame"
 msgstr "მთავარი ჩარჩო"
 
-#: libraries/config/messages.inc.php:188
+#: libraries/config/messages.inc.php:190
 #, fuzzy
 #| msgid "Microsoft Excel 2000"
 msgid "Microsoft Office"
 msgstr "Microsoft Excel 2000"
 
-#: libraries/config/messages.inc.php:190
+#: libraries/config/messages.inc.php:192
 #, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
 msgstr "Open Document Text"
 
-#: libraries/config/messages.inc.php:192
+#: libraries/config/messages.inc.php:194
 msgid "Other core settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:193
+#: libraries/config/messages.inc.php:195
 msgid "Settings that didn't fit enywhere else"
 msgstr ""
 
-#: libraries/config/messages.inc.php:194
+#: libraries/config/messages.inc.php:196
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
 msgstr "გვერდის ნომერი:"
 
-#: libraries/config/messages.inc.php:195
+#: libraries/config/messages.inc.php:197
 msgid ""
 "Specify browser's title bar text. Refer to [a@Documentation."
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:196
+=======
+#: libraries/config/messages.inc.php:198
+>>>>>>> upstream/master
 #: libraries/navigation_header.inc.php:74
 #: libraries/navigation_header.inc.php:76
 msgid "Query window"
 msgstr ""
 
-#: libraries/config/messages.inc.php:197
+#: libraries/config/messages.inc.php:199
 msgid "Customize query window options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:198
+#: libraries/config/messages.inc.php:200
 msgid "Security"
 msgstr "უსაფრთხოება"
 
-#: libraries/config/messages.inc.php:199
+#: libraries/config/messages.inc.php:201
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
 
-#: libraries/config/messages.inc.php:200
+#: libraries/config/messages.inc.php:202
 msgid "Basic settings"
 msgstr "ძირითადი პარამეტრები"
 
-#: libraries/config/messages.inc.php:201
+#: libraries/config/messages.inc.php:203
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
 msgstr "ავთენტიფიკაციის ტიპი"
 
-#: libraries/config/messages.inc.php:202
+#: libraries/config/messages.inc.php:204
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings"
 msgstr "ავთენტიფიკაციის ტიპი"
 
-#: libraries/config/messages.inc.php:203
+#: libraries/config/messages.inc.php:205
 msgid "Server configuration"
 msgstr "სერვერის კონფიგურაცია"
 
-#: libraries/config/messages.inc.php:204
+#: libraries/config/messages.inc.php:206
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
 
-#: libraries/config/messages.inc.php:205
+#: libraries/config/messages.inc.php:207
 msgid "Enter server connection parameters"
 msgstr ""
 
-#: libraries/config/messages.inc.php:206
+#: libraries/config/messages.inc.php:208
 #, fuzzy
 #| msgid "Configuration file"
 msgid "Configuration storage"
 msgstr "კონფიგურაციის ფაილი"
 
-#: libraries/config/messages.inc.php:207
+#: libraries/config/messages.inc.php:209
 #, fuzzy
 #| msgid ""
 #| "figure phpMyAdmin database to gain access to additional features, see ../"
@@ -4134,58 +4455,62 @@ msgstr ""
 "[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
 "documentation"
 
-#: libraries/config/messages.inc.php:208
+#: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
 msgstr ""
 
-#: libraries/config/messages.inc.php:209
+#: libraries/config/messages.inc.php:211
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 
-#: libraries/config/messages.inc.php:210
+#: libraries/config/messages.inc.php:212
 msgid "Customize export options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:212
+#: libraries/config/messages.inc.php:214
 msgid "Customize import defaults"
 msgstr ""
 
-#: libraries/config/messages.inc.php:213
+#: libraries/config/messages.inc.php:215
 msgid "Customize navigation frame"
 msgstr ""
 
-#: libraries/config/messages.inc.php:214
+#: libraries/config/messages.inc.php:216
 msgid "Customize main frame"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:215 libraries/config/messages.inc.php:220
+=======
+#: libraries/config/messages.inc.php:217 libraries/config/messages.inc.php:222
+>>>>>>> upstream/master
 #: setup/frames/menu.inc.php:18
 msgid "SQL queries"
 msgstr "SQL მოთხოვნები"
 
-#: libraries/config/messages.inc.php:217
+#: libraries/config/messages.inc.php:219
 msgid "SQL Query box"
 msgstr "SQL Query box"
 
-#: libraries/config/messages.inc.php:218
+#: libraries/config/messages.inc.php:220
 msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
-#: libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:223
 #, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings"
 msgstr "SQL მოთხოვნები"
 
-#: libraries/config/messages.inc.php:222
+#: libraries/config/messages.inc.php:224
 #, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "SQL history"
 
-#: libraries/config/messages.inc.php:223
+#: libraries/config/messages.inc.php:225
 msgid ""
 "If you wish to use the SQL Validator service, you should be aware that "
 "[strong]all SQL statements are stored anonymously for statistical purposes[/"
@@ -4193,306 +4518,308 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:224
+#: libraries/config/messages.inc.php:226
 msgid "Startup"
 msgstr "Startup"
 
-#: libraries/config/messages.inc.php:225
+#: libraries/config/messages.inc.php:227
 msgid "Customize startup page"
 msgstr ""
 
-#: libraries/config/messages.inc.php:226
+#: libraries/config/messages.inc.php:228
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database structure"
 msgstr "მონაცემთა ბაზა მომხმარებლისთვის"
 
-#: libraries/config/messages.inc.php:227
+#: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:228
+#: libraries/config/messages.inc.php:230
+#, fuzzy
+#| msgid "Database for user"
+msgid "Table structure"
+msgstr "მონაცემთა ბაზა მომხმარებლისთვის"
+
+#: libraries/config/messages.inc.php:231
+msgid "Settings for the table structure (list of columns)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:232
 msgid "Tabs"
 msgstr "დაფები"
 
-#: libraries/config/messages.inc.php:229
+#: libraries/config/messages.inc.php:233
 msgid "Choose how you want tabs to work"
 msgstr ""
 
-#: libraries/config/messages.inc.php:230
+#: libraries/config/messages.inc.php:234
 #, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
 msgstr "გამოიყენე ტექსტური ველი"
 
-#: libraries/config/messages.inc.php:231
+#: libraries/config/messages.inc.php:235
 #, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
 msgstr "Customize export options"
 
-#: libraries/config/messages.inc.php:232 libraries/export/texytext.php:18
+#: libraries/config/messages.inc.php:236 libraries/export/texytext.php:18
 msgid "Texy! text"
 msgstr "Texy! text"
 
-#: libraries/config/messages.inc.php:234
+#: libraries/config/messages.inc.php:238
 #, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
 msgstr "Warning"
 
-#: libraries/config/messages.inc.php:235
+#: libraries/config/messages.inc.php:239
 msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr ""
 
-#: libraries/config/messages.inc.php:236
+#: libraries/config/messages.inc.php:240
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
 
-#: libraries/config/messages.inc.php:237
+#: libraries/config/messages.inc.php:241
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/config/messages.inc.php:238
+#: libraries/config/messages.inc.php:242
 msgid "Extra parameters for iconv"
 msgstr ""
 
-#: libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:243
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:240
+#: libraries/config/messages.inc.php:244
 msgid "Ignore multiple statement errors"
 msgstr ""
 
-#: libraries/config/messages.inc.php:241
+#: libraries/config/messages.inc.php:245
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
 
-#: libraries/config/messages.inc.php:242
+#: libraries/config/messages.inc.php:246
 msgid "Partial import: allow interrupt"
 msgstr ""
 
-#: libraries/config/messages.inc.php:247 libraries/config/messages.inc.php:254
+#: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:258
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
 msgstr ""
 
-#: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:256
+#: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
 msgstr ""
 
-#: libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:254
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
 
-#: libraries/config/messages.inc.php:251
+#: libraries/config/messages.inc.php:255
 msgid "Format of imported file"
 msgstr "შემოტანილი ფაილების ფორმატი"
 
-#: libraries/config/messages.inc.php:255 libraries/import/ldi.php:46
+#: libraries/config/messages.inc.php:259 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
 msgstr ""
 
-#: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:266
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:262 libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:271
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
 msgstr "Put fields names in the first row"
 
-#: libraries/config/messages.inc.php:259 libraries/import/ods.php:34
+#: libraries/config/messages.inc.php:263 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:264
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:261
+#: libraries/config/messages.inc.php:265
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:262
+#: libraries/config/messages.inc.php:266
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Number of records (queries) to skip from start"
 
-#: libraries/config/messages.inc.php:263
+#: libraries/config/messages.inc.php:267
 msgid "Partial import: skip queries"
 msgstr ""
 
-#: libraries/config/messages.inc.php:265
+#: libraries/config/messages.inc.php:269
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Add AUTO_INCREMENT value"
 
-#: libraries/config/messages.inc.php:268
+#: libraries/config/messages.inc.php:272
 msgid "Initial state for sliders"
 msgstr ""
 
-#: libraries/config/messages.inc.php:269
+#: libraries/config/messages.inc.php:273
 msgid "How many rows can be inserted at one time"
 msgstr ""
 
-#: libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:274
 msgid "Number of inserted rows"
 msgstr "ჩასმული სტრიქონების რაოდენობა"
 
-#: libraries/config/messages.inc.php:271
+#: libraries/config/messages.inc.php:275
 msgid "Target for quick access icon"
 msgstr ""
 
-#: libraries/config/messages.inc.php:272
+#: libraries/config/messages.inc.php:276
 msgid "Show logo in left frame"
 msgstr "მარცხენა ჩარჩოში ლოგოს ჩვენება"
 
-#: libraries/config/messages.inc.php:273
+#: libraries/config/messages.inc.php:277
 msgid "Display logo"
 msgstr "ლოგოს ჩვენება"
 
-#: libraries/config/messages.inc.php:274
+#: libraries/config/messages.inc.php:278
 msgid "Display server choice at the top of the left frame"
 msgstr ""
 
-#: libraries/config/messages.inc.php:275
+#: libraries/config/messages.inc.php:279
 msgid "Display servers selection"
 msgstr ""
 
-#: libraries/config/messages.inc.php:276
+#: libraries/config/messages.inc.php:280
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Maximum number of tables displayed in table list"
 
-#: libraries/config/messages.inc.php:277
+#: libraries/config/messages.inc.php:281
 msgid "String that separates databases into different tree levels"
 msgstr ""
 
-#: libraries/config/messages.inc.php:278
+#: libraries/config/messages.inc.php:282
 msgid "Database tree separator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:279
+#: libraries/config/messages.inc.php:283
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:284
 msgid "Display databases in a tree"
 msgstr ""
 
-#: libraries/config/messages.inc.php:281
+#: libraries/config/messages.inc.php:285
 msgid "Disable this if you want to see all databases at once"
 msgstr ""
 
-#: libraries/config/messages.inc.php:282
+#: libraries/config/messages.inc.php:286
 msgid "Use light version"
 msgstr ""
 
-#: libraries/config/messages.inc.php:283
+#: libraries/config/messages.inc.php:287
 msgid "Maximum table tree depth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:284
+#: libraries/config/messages.inc.php:288
 msgid "String that separates tables into different tree levels"
 msgstr ""
 
-#: libraries/config/messages.inc.php:285
+#: libraries/config/messages.inc.php:289
 msgid "Table tree separator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:290
 msgid "URL where logo in the navigation frame will point to"
 msgstr ""
 
-#: libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:291
 msgid "Logo link URL"
 msgstr "Logo link URL"
 
-#: libraries/config/messages.inc.php:288
+#: libraries/config/messages.inc.php:292
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:293
 msgid "Logo link target"
 msgstr "Logo link target"
 
-#: libraries/config/messages.inc.php:290
+#: libraries/config/messages.inc.php:294
 msgid "Highlight server under the mouse cursor"
 msgstr ""
 
-#: libraries/config/messages.inc.php:291
+#: libraries/config/messages.inc.php:295
 msgid "Enable highlighting"
 msgstr ""
 
-#: libraries/config/messages.inc.php:292
+#: libraries/config/messages.inc.php:296
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Maximum number of tables displayed in table list"
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:297
 #, fuzzy
 msgid "Recently used tables"
 msgstr "დაბლოკილი ცხრილების გამოტოვება"
 
-#: libraries/config/messages.inc.php:294
-msgid "Use less graphically intense tabs"
-msgstr ""
-
-#: libraries/config/messages.inc.php:295
-msgid "Light tabs"
-msgstr "Light tabs"
-
-#: libraries/config/messages.inc.php:296
+#: libraries/config/messages.inc.php:298
 #, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr "Maximum number of characters used when a SQL query is displayed"
 
-#: libraries/config/messages.inc.php:297
+#: libraries/config/messages.inc.php:299
 msgid "Limit column characters"
 msgstr ""
 
-#: libraries/config/messages.inc.php:298
+#: libraries/config/messages.inc.php:300
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:301
 msgid "Delete all cookies on logout"
 msgstr ""
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:302
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:301
+#: libraries/config/messages.inc.php:303
 msgid "Recall user name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:302
+#: libraries/config/messages.inc.php:304
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -4500,26 +4827,27 @@ msgid ""
 "recommended for non-trusted environments."
 msgstr ""
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:305
 msgid "Login cookie store"
 msgstr ""
 
-#: libraries/config/messages.inc.php:304
+#: libraries/config/messages.inc.php:306
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr ""
 
-#: libraries/config/messages.inc.php:305
+#: libraries/config/messages.inc.php:307
 msgid "Login cookie validity"
 msgstr ""
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:308
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr ""
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:309
 msgid "Bigger textarea for LONGTEXT"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr ""
@@ -4542,12 +4870,37 @@ msgid "Maximum databases"
 msgstr ""
 
 #: libraries/config/messages.inc.php:313
+=======
+#: libraries/config/messages.inc.php:310
+msgid "Maximum number of characters used when a SQL query is displayed"
+msgstr ""
+
+#: libraries/config/messages.inc.php:311
+msgid "Maximum displayed SQL length"
+msgstr ""
+
+#: libraries/config/messages.inc.php:312 libraries/config/messages.inc.php:317
+#: libraries/config/messages.inc.php:344
+msgid "Users cannot set a higher value"
+msgstr ""
+
+#: libraries/config/messages.inc.php:313
+msgid "Maximum number of databases displayed in left frame and database list"
+msgstr ""
+
+#: libraries/config/messages.inc.php:314
+msgid "Maximum databases"
+msgstr ""
+
+#: libraries/config/messages.inc.php:315
+>>>>>>> upstream/master
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:314
 msgid "Maximum number of rows to display"
 msgstr ""
@@ -4561,21 +4914,45 @@ msgid "Maximum tables"
 msgstr ""
 
 #: libraries/config/messages.inc.php:318
+=======
+#: libraries/config/messages.inc.php:316
+msgid "Maximum number of rows to display"
+msgstr ""
+
+#: libraries/config/messages.inc.php:318
+msgid "Maximum number of tables displayed in table list"
+msgstr ""
+
+#: libraries/config/messages.inc.php:319
+msgid "Maximum tables"
+msgstr ""
+
+#: libraries/config/messages.inc.php:320
+>>>>>>> upstream/master
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:319
 msgid "mcrypt warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:320
+=======
+#: libraries/config/messages.inc.php:321
+msgid "mcrypt warning"
+msgstr ""
+
+#: libraries/config/messages.inc.php:322
+>>>>>>> upstream/master
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:321
 msgid "Memory limit"
 msgstr "მეხსიერების შეზღუდვა"
@@ -4593,11 +4970,31 @@ msgid "Use natural order for sorting table and database names"
 msgstr ""
 
 #: libraries/config/messages.inc.php:325
+=======
+#: libraries/config/messages.inc.php:323
+msgid "Memory limit"
+msgstr "მეხსიერების შეზღუდვა"
+
+#: libraries/config/messages.inc.php:324
+msgid "These are Edit, Copy and Delete links"
+msgstr ""
+
+#: libraries/config/messages.inc.php:325
+msgid "Where to show the table row links"
+msgstr ""
+
+#: libraries/config/messages.inc.php:326
+msgid "Use natural order for sorting table and database names"
+msgstr ""
+
+#: libraries/config/messages.inc.php:327
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Alter table order by"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:326 libraries/config/messages.inc.php:336
 msgid "Use only icons, only text or both"
 msgstr ""
@@ -4615,6 +5012,25 @@ msgid "GZip output buffering"
 msgstr "GZip output buffering"
 
 #: libraries/config/messages.inc.php:330
+=======
+#: libraries/config/messages.inc.php:328 libraries/config/messages.inc.php:338
+msgid "Use only icons, only text or both"
+msgstr ""
+
+#: libraries/config/messages.inc.php:329
+msgid "Iconic navigation bar"
+msgstr ""
+
+#: libraries/config/messages.inc.php:330
+msgid "use GZip output buffering for increased speed in HTTP transfers"
+msgstr ""
+
+#: libraries/config/messages.inc.php:331
+msgid "GZip output buffering"
+msgstr "GZip output buffering"
+
+#: libraries/config/messages.inc.php:332
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "d]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
@@ -4626,6 +5042,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:331
 msgid "Default sorting order"
 msgstr ""
@@ -4639,12 +5056,28 @@ msgid "Persistent connections"
 msgstr ""
 
 #: libraries/config/messages.inc.php:334
+=======
+#: libraries/config/messages.inc.php:333
+msgid "Default sorting order"
+msgstr ""
+
+#: libraries/config/messages.inc.php:334
+msgid "Use persistent connections to MySQL databases"
+msgstr ""
+
+#: libraries/config/messages.inc.php:335
+msgid "Persistent connections"
+msgstr ""
+
+#: libraries/config/messages.inc.php:336
+>>>>>>> upstream/master
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:335
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr ""
@@ -4654,18 +5087,37 @@ msgid "Iconic table operations"
 msgstr ""
 
 #: libraries/config/messages.inc.php:338
+=======
+#: libraries/config/messages.inc.php:337
+msgid "Missing phpMyAdmin configuration storage tables"
+msgstr ""
+
+#: libraries/config/messages.inc.php:339
+msgid "Iconic table operations"
+msgstr ""
+
+#: libraries/config/messages.inc.php:340
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr "Disallow BLOB and BINARY fields from editing"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:339
+=======
+#: libraries/config/messages.inc.php:341
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Protect binary fields"
 msgid "Protect binary columns"
 msgstr "Protect binary fields"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:340
+=======
+#: libraries/config/messages.inc.php:342
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "ble if you want DB-based query history (requires pmadb). If disabled, s "
@@ -4678,6 +5130,7 @@ msgstr ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:341
 msgid "Permanent query history"
 msgstr ""
@@ -4703,23 +5156,59 @@ msgid "Query window height (in pixels)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:348
+=======
+#: libraries/config/messages.inc.php:343
+msgid "Permanent query history"
+msgstr ""
+
+#: libraries/config/messages.inc.php:345
+msgid "How many queries are kept in history"
+msgstr ""
+
+#: libraries/config/messages.inc.php:346
+msgid "Query history length"
+msgstr ""
+
+#: libraries/config/messages.inc.php:347
+msgid "Tab displayed when opening a new query window"
+msgstr ""
+
+#: libraries/config/messages.inc.php:348
+msgid "Default query window tab"
+msgstr ""
+
+#: libraries/config/messages.inc.php:349
+msgid "Query window height (in pixels)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:350
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
 msgstr "Query window"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:349
+=======
+#: libraries/config/messages.inc.php:351
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Query window"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:350
+=======
+#: libraries/config/messages.inc.php:352
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
 msgstr "Query window"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:351
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
@@ -4733,21 +5222,45 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
 #: libraries/config/messages.inc.php:354
+=======
+#: libraries/config/messages.inc.php:353
+msgid "Select which functions will be used for character set conversion"
+msgstr ""
+
+#: libraries/config/messages.inc.php:354
+msgid "Recoding engine"
+msgstr ""
+
+#: libraries/config/messages.inc.php:355
+msgid "When browsing tables, the sorting of each table is remembered"
+msgstr ""
+
+#: libraries/config/messages.inc.php:356
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "Rename table to"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:355
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
 #: libraries/config/messages.inc.php:356
+=======
+#: libraries/config/messages.inc.php:357
+msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
+msgstr ""
+
+#: libraries/config/messages.inc.php:358
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
 msgstr "Repair threads"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:357
 msgid "Show help button instead of Documentation text"
 msgstr ""
@@ -4773,21 +5286,57 @@ msgid "Leave blank if not used"
 msgstr ""
 
 #: libraries/config/messages.inc.php:364
+=======
+#: libraries/config/messages.inc.php:359
+msgid "Show help button instead of Documentation text"
+msgstr ""
+
+#: libraries/config/messages.inc.php:360
+msgid "Show help button"
+msgstr ""
+
+#: libraries/config/messages.inc.php:362
+msgid "Save all edited cells at once"
+msgstr ""
+
+#: libraries/config/messages.inc.php:363
+msgid "Directory where exports can be saved on server"
+msgstr ""
+
+#: libraries/config/messages.inc.php:364
+msgid "Save directory"
+msgstr "დირექტორიის შენახვა"
+
+#: libraries/config/messages.inc.php:365
+msgid "Leave blank if not used"
+msgstr ""
+
+#: libraries/config/messages.inc.php:366
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Host authentication order"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:365
 msgid "Leave blank for defaults"
 msgstr ""
 
 #: libraries/config/messages.inc.php:366
+=======
+#: libraries/config/messages.inc.php:367
+msgid "Leave blank for defaults"
+msgstr ""
+
+#: libraries/config/messages.inc.php:368
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Host authentication rules"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:367
 msgid "Allow logins without a password"
 msgstr ""
@@ -4805,12 +5354,32 @@ msgid "HTTP Realm"
 msgstr ""
 
 #: libraries/config/messages.inc.php:371
+=======
+#: libraries/config/messages.inc.php:369
+msgid "Allow logins without a password"
+msgstr ""
+
+#: libraries/config/messages.inc.php:370
+msgid "Allow root login"
+msgstr "root-ით შესვლის ნებართვა"
+
+#: libraries/config/messages.inc.php:371
+msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
+
+#: libraries/config/messages.inc.php:372
+msgid "HTTP Realm"
+msgstr ""
+
+#: libraries/config/messages.inc.php:373
+>>>>>>> upstream/master
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:372
 msgid "SweKey config file"
 msgstr ""
@@ -4824,21 +5393,45 @@ msgid "Authentication type"
 msgstr "ავთენტიფიკაციის ტიპი"
 
 #: libraries/config/messages.inc.php:375
+=======
+#: libraries/config/messages.inc.php:374
+msgid "SweKey config file"
+msgstr ""
+
+#: libraries/config/messages.inc.php:375
+msgid "Authentication method to use"
+msgstr ""
+
+#: libraries/config/messages.inc.php:376 setup/frames/index.inc.php:136
+msgid "Authentication type"
+msgstr "ავთენტიფიკაციის ტიპი"
+
+#: libraries/config/messages.inc.php:377
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:376
 msgid "Bookmark table"
 msgstr "ცხრილის ჩანიშვნა"
 
 #: libraries/config/messages.inc.php:377
+=======
+#: libraries/config/messages.inc.php:378
+msgid "Bookmark table"
+msgstr "ცხრილის ჩანიშვნა"
+
+#: libraries/config/messages.inc.php:379
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:378
 msgid "Column information table"
 msgstr ""
@@ -4864,27 +5457,67 @@ msgid "Control user password"
 msgstr ""
 
 #: libraries/config/messages.inc.php:384
+=======
+#: libraries/config/messages.inc.php:380
+msgid "Column information table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:381
+msgid "Compress connection to MySQL server"
+msgstr "MySQL სერვერთან კავშირის შეკუმშვა"
+
+#: libraries/config/messages.inc.php:382
+msgid "Compress connection"
+msgstr "კავშირის შეკუმშვა"
+
+#: libraries/config/messages.inc.php:383
+msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
+msgstr ""
+
+#: libraries/config/messages.inc.php:384
+msgid "Connection type"
+msgstr "კავშირის ტიპი"
+
+#: libraries/config/messages.inc.php:385
+msgid "Control user password"
+msgstr ""
+
+#: libraries/config/messages.inc.php:386
+>>>>>>> upstream/master
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:385
 msgid "Control user"
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
+=======
+#: libraries/config/messages.inc.php:387
+msgid "Control user"
+msgstr ""
+
+#: libraries/config/messages.inc.php:388
+>>>>>>> upstream/master
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:387
+=======
+#: libraries/config/messages.inc.php:389
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Control user"
 msgid "Control host"
 msgstr "Control user"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:388
 msgid "Count tables when showing database list"
 msgstr ""
@@ -4894,21 +5527,41 @@ msgid "Count tables"
 msgstr "ცხრილების დათვლა"
 
 #: libraries/config/messages.inc.php:390
+=======
+#: libraries/config/messages.inc.php:390
+msgid "Count tables when showing database list"
+msgstr ""
+
+#: libraries/config/messages.inc.php:391
+msgid "Count tables"
+msgstr "ცხრილების დათვლა"
+
+#: libraries/config/messages.inc.php:392
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:391
 msgid "Designer table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:392
+=======
+#: libraries/config/messages.inc.php:393
+msgid "Designer table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:394
+>>>>>>> upstream/master
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:393
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA-ის გამოყენების აკრძალვა"
@@ -4930,11 +5583,35 @@ msgid "Hide databases"
 msgstr "მონაცემთა ბაზების დამალვა"
 
 #: libraries/config/messages.inc.php:398
+=======
+#: libraries/config/messages.inc.php:395
+msgid "Disable use of INFORMATION_SCHEMA"
+msgstr "INFORMATION_SCHEMA-ის გამოყენების აკრძალვა"
+
+#: libraries/config/messages.inc.php:396
+msgid "What PHP extension to use; you should use mysqli if supported"
+msgstr ""
+
+#: libraries/config/messages.inc.php:397
+msgid "PHP extension to use"
+msgstr "გამოსაყენებელი PHP გაფართოება"
+
+#: libraries/config/messages.inc.php:398
+msgid "Hide databases matching regular expression (PCRE)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:399
+msgid "Hide databases"
+msgstr "მონაცემთა ბაზების დამალვა"
+
+#: libraries/config/messages.inc.php:400
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:399
 msgid "SQL query history table"
 msgstr ""
@@ -4952,17 +5629,41 @@ msgid "Logout URL"
 msgstr "Logout URL"
 
 #: libraries/config/messages.inc.php:403
+=======
+#: libraries/config/messages.inc.php:401
+msgid "SQL query history table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:402
+msgid "Hostname where MySQL server is running"
+msgstr ""
+
+#: libraries/config/messages.inc.php:403
+msgid "Server hostname"
+msgstr "სერვერის ჰოსტის სახელი"
+
+#: libraries/config/messages.inc.php:404
+msgid "Logout URL"
+msgstr "Logout URL"
+
+#: libraries/config/messages.inc.php:405
+>>>>>>> upstream/master
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:404
+=======
+#: libraries/config/messages.inc.php:406
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "Maximum number of tables displayed in table list"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:405
 msgid "Try to connect without password"
 msgstr ""
@@ -4972,6 +5673,17 @@ msgid "Connect without password"
 msgstr "პაროლის გარეშე დაკავშირება"
 
 #: libraries/config/messages.inc.php:407
+=======
+#: libraries/config/messages.inc.php:407
+msgid "Try to connect without password"
+msgstr ""
+
+#: libraries/config/messages.inc.php:408
+msgid "Connect without password"
+msgstr "პაროლის გარეშე დაკავშირება"
+
+#: libraries/config/messages.inc.php:409
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| " can use MySQL wildcard characters (% and _), escape them if you want use "
@@ -4986,6 +5698,7 @@ msgstr ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:408
 msgid "Show only listed databases"
 msgstr ""
@@ -4999,27 +5712,55 @@ msgid "Password for config auth"
 msgstr ""
 
 #: libraries/config/messages.inc.php:411
+=======
+#: libraries/config/messages.inc.php:410
+msgid "Show only listed databases"
+msgstr ""
+
+#: libraries/config/messages.inc.php:411 libraries/config/messages.inc.php:452
+msgid "Leave empty if not using config auth"
+msgstr ""
+
+#: libraries/config/messages.inc.php:412
+msgid "Password for config auth"
+msgstr ""
+
+#: libraries/config/messages.inc.php:413
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:412
 msgid "PDF schema: pages table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:413
+=======
+#: libraries/config/messages.inc.php:414
+msgid "PDF schema: pages table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:415
+>>>>>>> upstream/master
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:414
+=======
+#: libraries/config/messages.inc.php:416
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "database name"
 msgid "Database name"
 msgstr "მონაცემთა ბაზა"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:415
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
@@ -5029,6 +5770,17 @@ msgid "Server port"
 msgstr "სერვერის პორტი"
 
 #: libraries/config/messages.inc.php:417
+=======
+#: libraries/config/messages.inc.php:417
+msgid "Port on which MySQL server is listening, leave empty for default"
+msgstr ""
+
+#: libraries/config/messages.inc.php:418
+msgid "Server port"
+msgstr "სერვერის პორტი"
+
+#: libraries/config/messages.inc.php:419
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -5039,18 +5791,27 @@ msgstr ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:418
+=======
+#: libraries/config/messages.inc.php:420
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
 msgstr "Recall user name"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:419
+=======
+#: libraries/config/messages.inc.php:421
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:420
 msgid "Relation table"
 msgstr ""
@@ -5064,11 +5825,27 @@ msgid "SHOW DATABASES command"
 msgstr ""
 
 #: libraries/config/messages.inc.php:423
+=======
+#: libraries/config/messages.inc.php:422
+msgid "Relation table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:423
+msgid "SQL command to fetch available databases"
+msgstr ""
+
+#: libraries/config/messages.inc.php:424
+msgid "SHOW DATABASES command"
+msgstr ""
+
+#: libraries/config/messages.inc.php:425
+>>>>>>> upstream/master
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:424
 msgid "Signon session name"
 msgstr ""
@@ -5094,15 +5871,50 @@ msgid "Use SSL"
 msgstr "SSL-ის გამოყენება"
 
 #: libraries/config/messages.inc.php:430
+=======
+#: libraries/config/messages.inc.php:426
+msgid "Signon session name"
+msgstr ""
+
+#: libraries/config/messages.inc.php:427
+msgid "Signon URL"
+msgstr "Signon URL"
+
+#: libraries/config/messages.inc.php:428
+msgid "Socket on which MySQL server is listening, leave empty for default"
+msgstr ""
+
+#: libraries/config/messages.inc.php:429
+msgid "Server socket"
+msgstr "Server socket"
+
+#: libraries/config/messages.inc.php:430
+msgid "Enable SSL for connection to MySQL server"
+msgstr "SSL კავშირის ჩართვა MySQL სერვერზე"
+
+#: libraries/config/messages.inc.php:431
+msgid "Use SSL"
+msgstr "SSL-ის გამოყენება"
+
+#: libraries/config/messages.inc.php:432
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:431
 msgid "PDF schema: table coordinates"
 msgstr ""
 
 #: libraries/config/messages.inc.php:432
+=======
+#: libraries/config/messages.inc.php:433
+msgid "PDF schema: table coordinates"
+msgstr ""
+
+#: libraries/config/messages.inc.php:434
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "le to describe the display fields, leave blank for no support; gested: "
@@ -5114,13 +5926,21 @@ msgstr ""
 "Table to describe the display fields, leave blank for no support; suggested: "
 "[kbd]pma_table_info[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:433
+=======
+#: libraries/config/messages.inc.php:435
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Display fields table"
 msgid "Display columns table"
 msgstr "Display fields table"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:434
+=======
+#: libraries/config/messages.inc.php:436
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -5131,36 +5951,61 @@ msgstr ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:435
 msgid "UI preferences table"
 msgstr "UI პარამეტრების მაგიდა"
 
 #: libraries/config/messages.inc.php:436
+=======
+#: libraries/config/messages.inc.php:437
+msgid "UI preferences table"
+msgstr "UI პარამეტრების მაგიდა"
+
+#: libraries/config/messages.inc.php:438
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:437
 msgid "Add DROP DATABASE"
 msgstr ""
 
 #: libraries/config/messages.inc.php:438
+=======
+#: libraries/config/messages.inc.php:439
+msgid "Add DROP DATABASE"
+msgstr ""
+
+#: libraries/config/messages.inc.php:440
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:439
 msgid "Add DROP TABLE"
 msgstr ""
 
 #: libraries/config/messages.inc.php:440
+=======
+#: libraries/config/messages.inc.php:441
+msgid "Add DROP TABLE"
+msgstr ""
+
+#: libraries/config/messages.inc.php:442
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:441
 msgid "Add DROP VIEW"
 msgstr ""
@@ -5170,12 +6015,27 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:443
+=======
+#: libraries/config/messages.inc.php:443
+msgid "Add DROP VIEW"
+msgstr ""
+
+#: libraries/config/messages.inc.php:444
+msgid "Defines the list of statements the auto-creation uses for new versions."
+msgstr ""
+
+#: libraries/config/messages.inc.php:445
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
 msgstr "Statements"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:444
+=======
+#: libraries/config/messages.inc.php:446
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -5186,25 +6046,41 @@ msgstr ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:445
+=======
+#: libraries/config/messages.inc.php:447
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "SQL query tracking table"
 msgstr "SQL query history table"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:446
+=======
+#: libraries/config/messages.inc.php:448
+>>>>>>> upstream/master
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:447
+=======
+#: libraries/config/messages.inc.php:449
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Automatic recovery mode"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:448
+=======
+#: libraries/config/messages.inc.php:450
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -5215,6 +6091,7 @@ msgstr ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:449
 msgid "User preferences storage table"
 msgstr ""
@@ -5224,16 +6101,35 @@ msgid "User for config auth"
 msgstr ""
 
 #: libraries/config/messages.inc.php:452
+=======
+#: libraries/config/messages.inc.php:451
+msgid "User preferences storage table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:453
+msgid "User for config auth"
+msgstr ""
+
+#: libraries/config/messages.inc.php:454
+>>>>>>> upstream/master
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:453
 msgid "Verbose name of this server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
+=======
+#: libraries/config/messages.inc.php:455
+msgid "Verbose name of this server"
+msgstr ""
+
+#: libraries/config/messages.inc.php:456
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "ther a user should be displayed a &quot;show all (records)&quot; button"
@@ -5241,17 +6137,26 @@ msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 "Whether a user should be displayed a &quot;show all (records)&quot; button"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:455
 msgid "Allow to display all the rows"
 msgstr ""
 
 #: libraries/config/messages.inc.php:456
+=======
+#: libraries/config/messages.inc.php:457
+msgid "Allow to display all the rows"
+msgstr ""
+
+#: libraries/config/messages.inc.php:458
+>>>>>>> upstream/master
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:457
 msgid "Show password change form"
 msgstr "პაროლის შეცვლის ფორმის ჩვენება"
@@ -5265,54 +6170,102 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 
 #: libraries/config/messages.inc.php:460
+=======
+#: libraries/config/messages.inc.php:459
+msgid "Show password change form"
+msgstr "პაროლის შეცვლის ფორმის ჩვენება"
+
+#: libraries/config/messages.inc.php:460
+msgid "Show create database form"
+msgstr "მონაცემთა ბაზის შექმნის ფორმის ჩვენება"
+
+#: libraries/config/messages.inc.php:461
+msgid "Show or hide a column displaying the Creation timestamp for all tables"
+msgstr ""
+
+#: libraries/config/messages.inc.php:462
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Show PHP information"
 msgid "Show Creation timestamp"
 msgstr "PHP-ის ინფორმაციის ჩვენება"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:461
+=======
+#: libraries/config/messages.inc.php:463
+>>>>>>> upstream/master
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:462
 msgid "Show Last update timestamp"
 msgstr ""
 
 #: libraries/config/messages.inc.php:463
+=======
+#: libraries/config/messages.inc.php:464
+msgid "Show Last update timestamp"
+msgstr ""
+
+#: libraries/config/messages.inc.php:465
+>>>>>>> upstream/master
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:464
+=======
+#: libraries/config/messages.inc.php:466
+>>>>>>> upstream/master
 #, fuzzy
 msgid "Show Last check timestamp"
 msgstr "Show slave status"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:465
+=======
+#: libraries/config/messages.inc.php:467
+>>>>>>> upstream/master
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:466
+=======
+#: libraries/config/messages.inc.php:468
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Show display direction"
 msgstr "მონაცემთა ბაზის ჩვენების პარამეტრები"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:467
+=======
+#: libraries/config/messages.inc.php:469
+>>>>>>> upstream/master
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:468
+=======
+#: libraries/config/messages.inc.php:470
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Show open tables"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:469
 msgid "Display the function fields in edit/insert mode"
 msgstr ""
@@ -5326,17 +6279,37 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:472
+=======
+#: libraries/config/messages.inc.php:471
+msgid "Display the function fields in edit/insert mode"
+msgstr ""
+
+#: libraries/config/messages.inc.php:472
+msgid "Show function fields"
+msgstr "ფუნქციების ველების ჩვენება"
+
+#: libraries/config/messages.inc.php:473
+msgid "Whether to show hint or not"
+msgstr ""
+
+#: libraries/config/messages.inc.php:474
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
 msgstr "Show grid"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:473
+=======
+#: libraries/config/messages.inc.php:475
+>>>>>>> upstream/master
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:474
 msgid "Show phpinfo() link"
 msgstr "phpinfo() ბმულის ჩვენება"
@@ -5354,16 +6327,40 @@ msgid "Show SQL queries"
 msgstr "SQL მოთხოვნების ჩვენება"
 
 #: libraries/config/messages.inc.php:478
+=======
+#: libraries/config/messages.inc.php:476
+msgid "Show phpinfo() link"
+msgstr "phpinfo() ბმულის ჩვენება"
+
+#: libraries/config/messages.inc.php:477
+msgid "Show detailed MySQL server information"
+msgstr "MySQL სერვერის შესახებ დეტალური ინფორმაციის ჩვენება"
+
+#: libraries/config/messages.inc.php:478
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
+msgstr ""
+
+#: libraries/config/messages.inc.php:479
+msgid "Show SQL queries"
+msgstr "SQL მოთხოვნების ჩვენება"
+
+#: libraries/config/messages.inc.php:480
+>>>>>>> upstream/master
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:479 libraries/sql_query_form.lib.php:358
+=======
+#: libraries/config/messages.inc.php:481 libraries/sql_query_form.lib.php:358
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Retain query box"
 msgstr "SQL Query box"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:480
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
@@ -5373,16 +6370,35 @@ msgid "Show statistics"
 msgstr "სტატისტიკის ჩევნება"
 
 #: libraries/config/messages.inc.php:482
+=======
+#: libraries/config/messages.inc.php:482
+msgid "Allow to display database and table statistics (eg. space usage)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:483
+msgid "Show statistics"
+msgstr "სტატისტიკის ჩევნება"
+
+#: libraries/config/messages.inc.php:484
+>>>>>>> upstream/master
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:483
 msgid "Display database comment instead of its name"
 msgstr ""
 
 #: libraries/config/messages.inc.php:484
+=======
+#: libraries/config/messages.inc.php:485
+msgid "Display database comment instead of its name"
+msgstr ""
+
+#: libraries/config/messages.inc.php:486
+>>>>>>> upstream/master
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -5390,6 +6406,7 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:485
 msgid "Display table comment instead of its name"
 msgstr ""
@@ -5399,10 +6416,22 @@ msgid "Display table comments in tooltips"
 msgstr ""
 
 #: libraries/config/messages.inc.php:487
+=======
+#: libraries/config/messages.inc.php:487
+msgid "Display table comment instead of its name"
+msgstr ""
+
+#: libraries/config/messages.inc.php:488
+msgid "Display table comments in tooltips"
+msgstr ""
+
+#: libraries/config/messages.inc.php:489
+>>>>>>> upstream/master
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:488
 msgid "Skip locked tables"
 msgstr "დაბლოკილი ცხრილების გამოტოვება"
@@ -5422,33 +6451,71 @@ msgid "Password"
 msgstr "პაროლი"
 
 #: libraries/config/messages.inc.php:496
+=======
+#: libraries/config/messages.inc.php:490
+msgid "Skip locked tables"
+msgstr "დაბლოკილი ცხრილების გამოტოვება"
+
+#: libraries/config/messages.inc.php:495
+msgid "Requires SQL Validator to be enabled"
+msgstr ""
+
+#: libraries/config/messages.inc.php:497
+#: libraries/display_change_password.lib.php:40
+#: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
+#: libraries/replication_gui.lib.php:355 server_privileges.php:952
+#: server_privileges.php:956 server_privileges.php:967
+#: server_privileges.php:1823 server_synchronize.php:1354
+msgid "Password"
+msgstr "პაროლი"
+
+#: libraries/config/messages.inc.php:498
+>>>>>>> upstream/master
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:497
 msgid "Enable SQL Validator"
 msgstr ""
 
 #: libraries/config/messages.inc.php:498
+=======
+#: libraries/config/messages.inc.php:499
+msgid "Enable SQL Validator"
+msgstr ""
+
+#: libraries/config/messages.inc.php:500
+>>>>>>> upstream/master
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:499 tbl_tracking.php:479
+=======
+#: libraries/config/messages.inc.php:501 tbl_tracking.php:479
+>>>>>>> upstream/master
 #: tbl_tracking.php:536
 #, fuzzy
 msgid "Username"
 msgstr "მომხმარებელი:"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:500
+=======
+#: libraries/config/messages.inc.php:502
+>>>>>>> upstream/master
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:501
 msgid "Suggest new database name"
 msgstr ""
@@ -5462,29 +6529,57 @@ msgid "Suhosin warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:504
+=======
+#: libraries/config/messages.inc.php:503
+msgid "Suggest new database name"
+msgstr ""
+
+#: libraries/config/messages.inc.php:504
+msgid "A warning is displayed on the main page if Suhosin is detected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:505
+msgid "Suhosin warning"
+msgstr ""
+
+#: libraries/config/messages.inc.php:506
+>>>>>>> upstream/master
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:505
+=======
+#: libraries/config/messages.inc.php:507
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "CHAR textarea columns"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:506
+=======
+#: libraries/config/messages.inc.php:508
+>>>>>>> upstream/master
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:507
+=======
+#: libraries/config/messages.inc.php:509
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "CHAR textarea rows"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:508
 msgid "Title of browser window when a database is selected"
 msgstr ""
@@ -5494,11 +6589,23 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:511
+=======
+#: libraries/config/messages.inc.php:510
+msgid "Title of browser window when a database is selected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:512
+msgid "Title of browser window when nothing is selected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:513
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
 msgstr "Default table tab"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:512
 msgid "Title of browser window when a server is selected"
 msgstr ""
@@ -5508,6 +6615,17 @@ msgid "Title of browser window when a table is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:516
+=======
+#: libraries/config/messages.inc.php:514
+msgid "Title of browser window when a server is selected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:516
+msgid "Title of browser window when a table is selected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:518
+>>>>>>> upstream/master
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5515,6 +6633,7 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:517
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
@@ -5536,22 +6655,54 @@ msgid "Use database search"
 msgstr ""
 
 #: libraries/config/messages.inc.php:522
+=======
+#: libraries/config/messages.inc.php:519
+msgid "List of trusted proxies for IP allow/deny"
+msgstr ""
+
+#: libraries/config/messages.inc.php:520
+msgid "Directory on server where you can upload files for import"
+msgstr ""
+
+#: libraries/config/messages.inc.php:521
+msgid "Upload directory"
+msgstr "ატვირთვის დირექტორია"
+
+#: libraries/config/messages.inc.php:522
+msgid "Allow for searching inside the entire database"
+msgstr ""
+
+#: libraries/config/messages.inc.php:523
+msgid "Use database search"
+msgstr ""
+
+#: libraries/config/messages.inc.php:524
+>>>>>>> upstream/master
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:523
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
 #: libraries/config/messages.inc.php:524
+=======
+#: libraries/config/messages.inc.php:525
+msgid "Enable the Developer tab in settings"
+msgstr ""
+
+#: libraries/config/messages.inc.php:526
+>>>>>>> upstream/master
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:525
 msgid "Verbose multiple statements"
 msgstr ""
@@ -5565,6 +6716,21 @@ msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 
 #: libraries/config/messages.inc.php:528 setup/lib/index.lib.php:120
+=======
+#: libraries/config/messages.inc.php:527
+msgid "Verbose multiple statements"
+msgstr ""
+
+#: libraries/config/messages.inc.php:528 setup/frames/index.inc.php:257
+msgid "Check for latest version"
+msgstr "უკანასკნელ ვერსიაზე შემოწმება"
+
+#: libraries/config/messages.inc.php:529
+msgid "Enables check for latest version on main phpMyAdmin page"
+msgstr ""
+
+#: libraries/config/messages.inc.php:530 setup/lib/index.lib.php:120
+>>>>>>> upstream/master
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:152
 #: setup/lib/index.lib.php:163 setup/lib/index.lib.php:175
 #: setup/lib/index.lib.php:183 setup/lib/index.lib.php:190
@@ -5572,13 +6738,21 @@ msgstr ""
 msgid "Version check"
 msgstr "ვერსიის შემოწმება"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:529
+=======
+#: libraries/config/messages.inc.php:531
+>>>>>>> upstream/master
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:530
+=======
+#: libraries/config/messages.inc.php:532
+>>>>>>> upstream/master
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -5604,6 +6778,7 @@ msgstr "HTTP ავტორიზაცია"
 msgid "Signon authentication"
 msgstr "Host authentication order"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:253
 #: libraries/config/user_preferences.forms.php:154 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
@@ -5612,10 +6787,21 @@ msgstr ""
 #: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:162
 #: libraries/config/user_preferences.forms.php:254 libraries/export/ods.php:18
+=======
+#: libraries/config/setup.forms.php:254
+#: libraries/config/user_preferences.forms.php:155 libraries/import/ldi.php:35
+msgid "CSV using LOAD DATA"
+msgstr ""
+
+#: libraries/config/setup.forms.php:263 libraries/config/setup.forms.php:356
+#: libraries/config/user_preferences.forms.php:163
+#: libraries/config/user_preferences.forms.php:255 libraries/export/ods.php:18
+>>>>>>> upstream/master
 #: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:269
 #: libraries/config/user_preferences.forms.php:169
 msgid "Quick"
@@ -5623,11 +6809,21 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:273
 #: libraries/config/user_preferences.forms.php:173
+=======
+#: libraries/config/setup.forms.php:270
+#: libraries/config/user_preferences.forms.php:170
+msgid "Quick"
+msgstr ""
+
+#: libraries/config/setup.forms.php:274
+#: libraries/config/user_preferences.forms.php:174
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
 msgstr "Custom color"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:294
 #: libraries/config/user_preferences.forms.php:193
 msgid "Database export options"
@@ -5635,18 +6831,37 @@ msgstr "მონაცემთა ბაზის ექსპორტის 
 
 #: libraries/config/setup.forms.php:327
 #: libraries/config/user_preferences.forms.php:226
+=======
+#: libraries/config/setup.forms.php:295
+#: libraries/config/user_preferences.forms.php:194
+msgid "Database export options"
+msgstr "მონაცემთა ბაზის ექსპორტის პარამეტრები"
+
+#: libraries/config/setup.forms.php:328
+#: libraries/config/user_preferences.forms.php:227
+>>>>>>> upstream/master
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV MS Excel-თვის"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:249
+=======
+#: libraries/config/setup.forms.php:351
+#: libraries/config/user_preferences.forms.php:250
+>>>>>>> upstream/master
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:258 libraries/export/odt.php:22
+=======
+#: libraries/config/setup.forms.php:360
+#: libraries/config/user_preferences.forms.php:259 libraries/export/odt.php:22
+>>>>>>> upstream/master
 msgid "Open Document Text"
 msgstr "Open Document Text"
 
@@ -5704,6 +6919,7 @@ msgstr ""
 msgid "possible deep recursion attack"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/data_drizzle.inc.php:238
 msgid "Most common integer."
 msgstr ""
@@ -6045,6 +7261,9 @@ msgid ""
 msgstr ""
 
 #: libraries/database_interface.lib.php:1814
+=======
+#: libraries/database_interface.lib.php:1835
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -6052,17 +7271,17 @@ msgid ""
 "configured)."
 msgstr "(or the local MySQL server's socket is not correctly configured)"
 
-#: libraries/database_interface.lib.php:1817
+#: libraries/database_interface.lib.php:1838
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "სერვერი არ პასუხობს"
 
-#: libraries/database_interface.lib.php:1821
+#: libraries/database_interface.lib.php:1842
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/database_interface.lib.php:1829
+#: libraries/database_interface.lib.php:1850
 msgid "Details..."
 msgstr "დეტალები..."
 
@@ -6084,9 +7303,15 @@ msgstr "მოთხოვნა"
 msgid "Designer"
 msgstr "შემქნელი"
 
+<<<<<<< HEAD
 #: libraries/db_links.inc.php:92 server_privileges.php:180
 #: server_privileges.php:1651 server_privileges.php:2041
 #: server_privileges.php:2389
+=======
+#: libraries/db_links.inc.php:92 server_privileges.php:181
+#: server_privileges.php:1652 server_privileges.php:2042
+#: server_privileges.php:2390
+>>>>>>> upstream/master
 msgid "Privileges"
 msgstr "პრივილეგიები"
 
@@ -6125,13 +7350,21 @@ msgid "Change password"
 msgstr "პაროლის შეცვლა"
 
 #: libraries/display_change_password.lib.php:34
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:351 server_privileges.php:962
+=======
+#: libraries/replication_gui.lib.php:351 server_privileges.php:963
+>>>>>>> upstream/master
 msgid "No Password"
 msgstr "პაროლი არაა"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:359 libraries/replication_gui.lib.php:362
+<<<<<<< HEAD
 #: server_privileges.php:970 server_privileges.php:973
+=======
+#: server_privileges.php:971 server_privileges.php:974
+>>>>>>> upstream/master
 msgid "Re-type"
 msgstr "Re-type"
 
@@ -6156,12 +7389,21 @@ msgstr "ახალი მონაცემთა ბაზის შექმ
 msgid "Create"
 msgstr "შექმნა"
 
+<<<<<<< HEAD
 #: libraries/display_create_database.lib.php:43 server_privileges.php:182
 #: server_privileges.php:1707 server_replication.php:33
 msgid "No Privileges"
 msgstr "პრივილეგიები არაა"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:85
+=======
+#: libraries/display_create_database.lib.php:43 server_privileges.php:183
+#: server_privileges.php:1708 server_replication.php:33
+msgid "No Privileges"
+msgstr "პრივილეგიები არაა"
+
+#: libraries/display_create_table.lib.php:46 pmd_general.php:86
+>>>>>>> upstream/master
 #: server_synchronize.php:456 server_synchronize.php:968
 msgid "Create table"
 msgstr "ცხრილის შექმნა"
@@ -6370,7 +7612,11 @@ msgstr "Recoding engine"
 
 #: libraries/display_git_revision.lib.php:46
 #, php-format
+<<<<<<< HEAD
 msgid "%s from %s branch"
+=======
+msgid "%1$s from %2$s branch"
+>>>>>>> upstream/master
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:48
@@ -6382,6 +7628,7 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:57
+<<<<<<< HEAD
 #, php-format
 msgid "committed on %s by %s"
 msgstr ""
@@ -6390,6 +7637,16 @@ msgstr ""
 #, php-format
 msgid "authored on %s by %s"
 msgstr ""
+=======
+#, fuzzy, php-format
+msgid "committed on %1$s by %2$s"
+msgstr "Create relation"
+
+#: libraries/display_git_revision.lib.php:64
+#, fuzzy, php-format
+msgid "authored on %1$s by %2$s"
+msgstr "Create relation"
+>>>>>>> upstream/master
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -6570,7 +7827,7 @@ msgstr "Sort by key"
 #: libraries/display_tbl.lib.php:629 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
-#: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
+#: libraries/export/latex.php:35 libraries/export/mediawiki.php:20
 #: libraries/export/ods.php:29 libraries/export/odt.php:27
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
@@ -6681,7 +7938,11 @@ msgstr "Create relation"
 msgid "Link not found"
 msgstr "ბმული ვერ მოიძებნა"
 
+<<<<<<< HEAD
 #: libraries/engines/bdb.lib.php:23 main.php:245
+=======
+#: libraries/engines/bdb.lib.php:23 main.php:244
+>>>>>>> upstream/master
 msgid "Version information"
 msgstr "ინფორმაცია ვერსიის შესახებ"
 
@@ -7124,9 +8385,15 @@ msgstr "MIME-ის ხელმისაწვდომი ტიპები"
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:335 server_privileges.php:886
 #: server_privileges.php:889 server_privileges.php:945
 #: server_privileges.php:1821 server_privileges.php:2387
+=======
+#: libraries/replication_gui.lib.php:335 server_privileges.php:887
+#: server_privileges.php:890 server_privileges.php:946
+#: server_privileges.php:1822 server_privileges.php:2388
+>>>>>>> upstream/master
 #: server_status.php:1262
 msgid "Host"
 msgstr "ჰოსტი"
@@ -7149,6 +8416,16 @@ msgstr "PHP-ის ვერსია"
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
 msgstr ""
+
+#: libraries/export/mediawiki.php:51
+#, fuzzy
+msgid "Export table names"
+msgstr "Export defaults"
+
+#: libraries/export/mediawiki.php:58
+#, fuzzy
+msgid "Export table headers"
+msgstr "Export defaults"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -7777,7 +9054,7 @@ msgid "Enabled"
 msgstr "ჩართულია"
 
 #: libraries/relation.lib.php:88 libraries/relation.lib.php:100
-#: pmd_relation_new.php:66
+#: pmd_relation_new.php:67
 msgid "General relation features"
 msgstr ""
 
@@ -7869,8 +9146,13 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:265 server_privileges.php:863
 #: server_privileges.php:866 server_privileges.php:873
+=======
+#: libraries/replication_gui.lib.php:265 server_privileges.php:864
+#: server_privileges.php:867 server_privileges.php:874
+>>>>>>> upstream/master
 #: server_synchronize.php:1350
 msgid "User name"
 msgstr "მომხმარებლის სახელი"
@@ -7917,11 +9199,16 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:260 server_privileges.php:868
+=======
+#: libraries/replication_gui.lib.php:260 server_privileges.php:869
+>>>>>>> upstream/master
 msgid "Any user"
 msgstr "ნებისმიერი მომხმარებელი"
 
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:352 server_privileges.php:869
 #: server_privileges.php:939 server_privileges.php:963
 #: server_privileges.php:2252 server_privileges.php:2282
@@ -7945,6 +9232,31 @@ msgid "Use Host Table"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:337 server_privileges.php:947
+=======
+#: libraries/replication_gui.lib.php:352 server_privileges.php:870
+#: server_privileges.php:940 server_privileges.php:964
+#: server_privileges.php:2253 server_privileges.php:2283
+msgid "Use text field"
+msgstr "გამოიყენე ტექსტური ველი"
+
+#: libraries/replication_gui.lib.php:308 server_privileges.php:920
+msgid "Any host"
+msgstr "ნებისმიერი ჰოსტი"
+
+#: libraries/replication_gui.lib.php:312 server_privileges.php:924
+msgid "Local"
+msgstr "ლოკალური"
+
+#: libraries/replication_gui.lib.php:318 server_privileges.php:929
+msgid "This Host"
+msgstr "ეს ჰოსტი"
+
+#: libraries/replication_gui.lib.php:324 server_privileges.php:935
+msgid "Use Host Table"
+msgstr ""
+
+#: libraries/replication_gui.lib.php:337 server_privileges.php:948
+>>>>>>> upstream/master
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -8089,7 +9401,11 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2543
+=======
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2544
+>>>>>>> upstream/master
 msgid "New"
 msgstr ""
 
@@ -9163,8 +10479,13 @@ msgstr "სერვერის ვერსია"
 msgid "Protocol version"
 msgstr "ოქმის ვერსია"
 
+<<<<<<< HEAD
 #: main.php:187 server_privileges.php:1665 server_privileges.php:1820
 #: server_privileges.php:1967 server_privileges.php:2386
+=======
+#: main.php:187 server_privileges.php:1666 server_privileges.php:1821
+#: server_privileges.php:1968 server_privileges.php:2387
+>>>>>>> upstream/master
 #: server_status.php:1261
 msgid "User"
 msgstr "მომხმარებელი"
@@ -9193,28 +10514,48 @@ msgstr "PHP-ის გაფართოება"
 msgid "Show PHP information"
 msgstr "PHP-ის ინფორმაციის ჩვენება"
 
+<<<<<<< HEAD
 #: main.php:250
 msgid "Official Homepage"
 msgstr "ოფიციალური ვებგვერდი"
 
 #: main.php:251
+=======
+#: main.php:249
+msgid "Official Homepage"
+msgstr "ოფიციალური ვებგვერდი"
+
+#: main.php:250
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "ატრიბუტები"
 
+<<<<<<< HEAD
 #: main.php:252
+=======
+#: main.php:251
+>>>>>>> upstream/master
 #, fuzzy
 msgid "Get support"
 msgstr "ექსპორტი"
 
+<<<<<<< HEAD
 #: main.php:253
+=======
+#: main.php:252
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "ცვლილების გარეშე"
 
+<<<<<<< HEAD
 #: main.php:277
+=======
+#: main.php:276
+>>>>>>> upstream/master
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -9222,7 +10563,11 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 
+<<<<<<< HEAD
 #: main.php:285
+=======
+#: main.php:284
+>>>>>>> upstream/master
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -9232,7 +10577,11 @@ msgstr ""
 "პარამეტრი არაა თავსებადი phpMyAdmin-თან და შეიძლება გამოიწვიოს მონაცემების "
 "დაზიანება!"
 
+<<<<<<< HEAD
 #: main.php:293
+=======
+#: main.php:292
+>>>>>>> upstream/master
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -9243,7 +10592,11 @@ msgstr ""
 "არ შეუძლია სტრიქონების სწორად დაყოფა რის გამოც შეიძლება მიიღოთ მოულოდნელი "
 "შედეგი."
 
+<<<<<<< HEAD
 #: main.php:301
+=======
+#: main.php:300
+>>>>>>> upstream/master
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
@@ -9251,7 +10604,11 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
+<<<<<<< HEAD
 #: main.php:308
+=======
+#: main.php:307
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "r PHP parameter [a@http://php.net/manual/en/session.configuration.#ini."
@@ -9267,18 +10624,30 @@ msgstr ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 
+<<<<<<< HEAD
 #: main.php:316
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 
 #: main.php:324
+=======
+#: main.php:315
+msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
+msgstr ""
+
+#: main.php:323
+>>>>>>> upstream/master
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
+<<<<<<< HEAD
 #: main.php:330
+=======
+#: main.php:329
+>>>>>>> upstream/master
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -9290,14 +10659,22 @@ msgstr ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
 
+<<<<<<< HEAD
 #: main.php:355
+=======
+#: main.php:354
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
+<<<<<<< HEAD
 #: main.php:379
+=======
+#: main.php:377
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -9325,79 +10702,87 @@ msgstr "ცხრილის შექმნა"
 msgid "Please select a database"
 msgstr "გთხოვთ აირჩიოთ მონაცემთა ბაზა"
 
-#: pmd_general.php:78
+#: pmd_general.php:79
 msgid "Show/Hide left menu"
 msgstr ""
 
-#: pmd_general.php:82
+#: pmd_general.php:83
 msgid "Save position"
 msgstr "მდებარეობის შენახვა"
 
+<<<<<<< HEAD
 #: pmd_general.php:88 pmd_general.php:362
+=======
+#: pmd_general.php:89 pmd_general.php:362
+>>>>>>> upstream/master
 msgid "Create relation"
 msgstr ""
 
-#: pmd_general.php:94
+#: pmd_general.php:95
 msgid "Reload"
 msgstr "გადატვირთვა"
 
-#: pmd_general.php:97
+#: pmd_general.php:98
 msgid "Help"
 msgstr "დახმარება"
 
-#: pmd_general.php:101
+#: pmd_general.php:102
 msgid "Angular links"
 msgstr ""
 
-#: pmd_general.php:101
+#: pmd_general.php:102
 msgid "Direct links"
 msgstr "პირდაპირი ბმულები"
 
-#: pmd_general.php:105
+#: pmd_general.php:106
 msgid "Snap to grid"
 msgstr ""
 
-#: pmd_general.php:109
+#: pmd_general.php:110
 msgid "Small/Big All"
 msgstr ""
 
-#: pmd_general.php:112
+#: pmd_general.php:113
 msgid "Toggle small/big"
 msgstr ""
 
-#: pmd_general.php:113
+#: pmd_general.php:114
 #, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "To select relation, click :"
 
+<<<<<<< HEAD
 #: pmd_general.php:118 pmd_pdf.php:78
+=======
+#: pmd_general.php:119 pmd_pdf.php:79
+>>>>>>> upstream/master
 msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
-#: pmd_general.php:124
+#: pmd_general.php:125
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
 msgstr "მოთხოვნის გაგზავნა"
 
-#: pmd_general.php:129
+#: pmd_general.php:130
 msgid "Move Menu"
 msgstr "მენიუს გადატანა"
 
-#: pmd_general.php:140
+#: pmd_general.php:141
 msgid "Hide/Show all"
 msgstr "ყველას დამალვა/ჩვენება"
 
-#: pmd_general.php:144
+#: pmd_general.php:145
 msgid "Hide/Show Tables with no relation"
 msgstr ""
 
-#: pmd_general.php:161 tbl_change.php:351 tbl_change.php:363
+#: pmd_general.php:162 tbl_change.php:351 tbl_change.php:363
 msgid "Hide"
 msgstr "დამალვა"
 
-#: pmd_general.php:184
+#: pmd_general.php:185
 msgid "Number of tables"
 msgstr "ცხრილების რაოდენობა"
 
@@ -9448,78 +10833,114 @@ msgstr "შექმნა"
 msgid "Active options"
 msgstr "ცხრილის პარამეტრები"
 
-#: pmd_pdf.php:30
+#: pmd_pdf.php:31
 #, fuzzy
 msgid "Page has been created"
 msgstr "Table %1$s has been created."
 
-#: pmd_pdf.php:33
+#: pmd_pdf.php:34
 msgid "Page creation failed"
 msgstr ""
 
+<<<<<<< HEAD
 #: pmd_pdf.php:89
+=======
+#: pmd_pdf.php:90
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "pages"
 msgid "Page"
 msgstr "pages"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:99
+=======
+#: pmd_pdf.php:100
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
 msgstr "ფაილების შემოტანა"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:100
+=======
+#: pmd_pdf.php:101
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
 msgstr "Export/Import to scale"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:102
+=======
+#: pmd_pdf.php:103
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "ახალი ინდექსის შექმნა"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:111
+=======
+#: pmd_pdf.php:112
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "User name"
 msgid "New page name: "
 msgstr "მომხმარებლის სახელი"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
 msgstr ""
 
 #: pmd_pdf.php:119
+=======
+#: pmd_pdf.php:115
+msgid "Export/Import to scale"
+msgstr ""
+
+#: pmd_pdf.php:120
+>>>>>>> upstream/master
 msgid "recommended"
 msgstr "რეკომენდებული"
 
-#: pmd_relation_new.php:27
+#: pmd_relation_new.php:28
 msgid "Error: relation already exists."
 msgstr ""
 
-#: pmd_relation_new.php:59 pmd_relation_new.php:84
+#: pmd_relation_new.php:60 pmd_relation_new.php:85
 msgid "Error: Relation not added."
 msgstr ""
 
-#: pmd_relation_new.php:60
+#: pmd_relation_new.php:61
 msgid "FOREIGN KEY relation added"
 msgstr ""
 
-#: pmd_relation_new.php:82
+#: pmd_relation_new.php:83
 msgid "Internal relation added"
 msgstr ""
 
-#: pmd_relation_upd.php:58
+#: pmd_relation_upd.php:59
 msgid "Relation deleted"
 msgstr ""
 
+<<<<<<< HEAD
 #: pmd_save_pos.php:50
 msgid "Error saving coordinates for Designer."
 msgstr ""
 
 #: pmd_save_pos.php:58
+=======
+#: pmd_save_pos.php:70
+msgid "Error saving coordinates for Designer."
+msgstr ""
+
+#: pmd_save_pos.php:78
+>>>>>>> upstream/master
 msgid "Modifications have been saved"
 msgstr "ცვლილებები შენახულია"
 
@@ -9740,6 +11161,7 @@ msgstr ""
 msgid "disabled"
 msgstr "გათიშულია"
 
+<<<<<<< HEAD
 #: server_privileges.php:93 server_privileges.php:428
 msgid "Includes all privileges except GRANT."
 msgstr "შეიცავს ყველა პრივილეგიას GRANT-ის გამოკლებით."
@@ -9814,10 +11236,87 @@ msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
 #: server_privileges.php:108 server_privileges.php:724
+=======
+#: server_privileges.php:94 server_privileges.php:429
+msgid "Includes all privileges except GRANT."
+msgstr "შეიცავს ყველა პრივილეგიას GRANT-ის გამოკლებით."
+
+#: server_privileges.php:95 server_privileges.php:305
+#: server_privileges.php:700
+msgid "Allows altering the structure of existing tables."
+msgstr ""
+
+#: server_privileges.php:96 server_privileges.php:363
+#: server_privileges.php:706
+msgid "Allows altering and dropping stored routines."
+msgstr ""
+
+#: server_privileges.php:97 server_privileges.php:273
+#: server_privileges.php:699
+msgid "Allows creating new databases and tables."
+msgstr ""
+
+#: server_privileges.php:98 server_privileges.php:359
+#: server_privileges.php:705
+msgid "Allows creating stored routines."
+msgstr ""
+
+#: server_privileges.php:99 server_privileges.php:699
+msgid "Allows creating new tables."
+msgstr ""
+
+#: server_privileges.php:100 server_privileges.php:317
+#: server_privileges.php:703
+msgid "Allows creating temporary tables."
+msgstr ""
+
+#: server_privileges.php:101 server_privileges.php:367
+#: server_privileges.php:739
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr ""
+
+#: server_privileges.php:102 server_privileges.php:333
+#: server_privileges.php:346 server_privileges.php:711
+#: server_privileges.php:715
+msgid "Allows creating new views."
+msgstr ""
+
+#: server_privileges.php:103 server_privileges.php:269
+#: server_privileges.php:691
+msgid "Allows deleting data."
+msgstr ""
+
+#: server_privileges.php:104 server_privileges.php:277
+#: server_privileges.php:702
+msgid "Allows dropping databases and tables."
+msgstr ""
+
+#: server_privileges.php:105 server_privileges.php:702
+msgid "Allows dropping tables."
+msgstr ""
+
+#: server_privileges.php:106 server_privileges.php:337
+#: server_privileges.php:719
+msgid "Allows to set up events for the event scheduler"
+msgstr ""
+
+#: server_privileges.php:107 server_privileges.php:371
+#: server_privileges.php:707
+msgid "Allows executing stored routines."
+msgstr ""
+
+#: server_privileges.php:108 server_privileges.php:293
+#: server_privileges.php:694
+msgid "Allows importing data from and exporting data into files."
+msgstr ""
+
+#: server_privileges.php:109 server_privileges.php:725
+>>>>>>> upstream/master
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:109 server_privileges.php:300
 #: server_privileges.php:700
 msgid "Allows creating and dropping indexes."
@@ -9845,11 +11344,41 @@ msgstr ""
 
 #: server_privileges.php:114 server_privileges.php:791
 #: server_privileges.php:793
+=======
+#: server_privileges.php:110 server_privileges.php:301
+#: server_privileges.php:701
+msgid "Allows creating and dropping indexes."
+msgstr ""
+
+#: server_privileges.php:111 server_privileges.php:261
+#: server_privileges.php:620 server_privileges.php:689
+msgid "Allows inserting and replacing data."
+msgstr ""
+
+#: server_privileges.php:112 server_privileges.php:321
+#: server_privileges.php:734
+msgid "Allows locking tables for the current thread."
+msgstr ""
+
+#: server_privileges.php:113 server_privileges.php:798
+#: server_privileges.php:800
+msgid "Limits the number of new connections the user may open per hour."
+msgstr ""
+
+#: server_privileges.php:114 server_privileges.php:786
+#: server_privileges.php:788
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr ""
+
+#: server_privileges.php:115 server_privileges.php:792
+#: server_privileges.php:794
+>>>>>>> upstream/master
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:115 server_privileges.php:803
 #: server_privileges.php:805
 msgid "Limits the number of simultaneous connections the user may have."
@@ -9902,12 +11431,67 @@ msgstr ""
 
 #: server_privileges.php:125 server_privileges.php:312
 #: server_privileges.php:727
+=======
+#: server_privileges.php:116 server_privileges.php:804
+#: server_privileges.php:806
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr ""
+
+#: server_privileges.php:117 server_privileges.php:289
+#: server_privileges.php:729
+msgid "Allows viewing processes of all users"
+msgstr ""
+
+#: server_privileges.php:118 server_privileges.php:297
+#: server_privileges.php:630 server_privileges.php:735
+msgid "Has no effect in this MySQL version."
+msgstr ""
+
+#: server_privileges.php:119 server_privileges.php:281
+#: server_privileges.php:730
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr ""
+
+#: server_privileges.php:120 server_privileges.php:329
+#: server_privileges.php:737
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr ""
+
+#: server_privileges.php:121 server_privileges.php:325
+#: server_privileges.php:738
+msgid "Needed for the replication slaves."
+msgstr ""
+
+#: server_privileges.php:122 server_privileges.php:257
+#: server_privileges.php:615 server_privileges.php:688
+msgid "Allows reading data."
+msgstr ""
+
+#: server_privileges.php:123 server_privileges.php:309
+#: server_privileges.php:732
+msgid "Gives access to the complete list of databases."
+msgstr ""
+
+#: server_privileges.php:124 server_privileges.php:350
+#: server_privileges.php:355 server_privileges.php:704
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr ""
+
+#: server_privileges.php:125 server_privileges.php:285
+#: server_privileges.php:731
+msgid "Allows shutting down the server."
+msgstr ""
+
+#: server_privileges.php:126 server_privileges.php:313
+#: server_privileges.php:728
+>>>>>>> upstream/master
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:126 server_privileges.php:340
 #: server_privileges.php:719
 msgid "Allows creating and dropping triggers"
@@ -9923,12 +11507,30 @@ msgid "No privileges."
 msgstr "პრივილეგიები არაა."
 
 #: server_privileges.php:474 server_privileges.php:475
+=======
+#: server_privileges.php:127 server_privileges.php:341
+#: server_privileges.php:720
+msgid "Allows creating and dropping triggers"
+msgstr ""
+
+#: server_privileges.php:128 server_privileges.php:265
+#: server_privileges.php:625 server_privileges.php:690
+msgid "Allows changing data."
+msgstr ""
+
+#: server_privileges.php:129 server_privileges.php:423
+msgid "No privileges."
+msgstr "პრივილეგიები არაა."
+
+#: server_privileges.php:475 server_privileges.php:476
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "არაა"
 
+<<<<<<< HEAD
 #: server_privileges.php:605 server_privileges.php:750
 #: server_privileges.php:2037 server_privileges.php:2043
 msgid "Table-specific privileges"
@@ -9968,40 +11570,106 @@ msgid "Do not change the password"
 msgstr "არ შეცვალო პაროლი"
 
 #: server_privileges.php:1009 server_privileges.php:2529
+=======
+#: server_privileges.php:606 server_privileges.php:751
+#: server_privileges.php:2038 server_privileges.php:2044
+msgid "Table-specific privileges"
+msgstr ""
+
+#: server_privileges.php:607 server_privileges.php:759
+#: server_privileges.php:1825
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr ""
+
+#: server_privileges.php:684
+msgid "Administration"
+msgstr "ადმინისტრირება"
+
+#: server_privileges.php:748 server_privileges.php:1824
+msgid "Global privileges"
+msgstr "გლობალური პრივილეგიები"
+
+#: server_privileges.php:750 server_privileges.php:2038
+msgid "Database-specific privileges"
+msgstr ""
+
+#: server_privileges.php:782
+msgid "Resource limits"
+msgstr ""
+
+#: server_privileges.php:783
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+
+#: server_privileges.php:861
+msgid "Login Information"
+msgstr ""
+
+#: server_privileges.php:958
+msgid "Do not change the password"
+msgstr "არ შეცვალო პაროლი"
+
+#: server_privileges.php:1010 server_privileges.php:2530
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "მომხმარებლ(ებ)ის პოვნა ვერ მოხერხდა."
 
+<<<<<<< HEAD
 #: server_privileges.php:1053
+=======
+#: server_privileges.php:1054
+>>>>>>> upstream/master
 #, php-format
 msgid "The user %s already exists!"
 msgstr "მომხმარებელი %s უკვე არსებობს!"
 
+<<<<<<< HEAD
 #: server_privileges.php:1137
 msgid "You have added a new user."
 msgstr "თქვენ დაამატეთ ახალი მომხმარებელი."
 
 #: server_privileges.php:1361
+=======
+#: server_privileges.php:1138
+msgid "You have added a new user."
+msgstr "თქვენ დაამატეთ ახალი მომხმარებელი."
+
+#: server_privileges.php:1362
+>>>>>>> upstream/master
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:1383
+=======
+#: server_privileges.php:1384
+>>>>>>> upstream/master
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:1419
+=======
+#: server_privileges.php:1420
+>>>>>>> upstream/master
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:1439
+=======
+#: server_privileges.php:1440
+>>>>>>> upstream/master
 #, php-format
 msgid "Deleting %s"
 msgstr "%s-ის წაშლა"
 
+<<<<<<< HEAD
 #: server_privileges.php:1453
 msgid "No users selected for deleting!"
 msgstr ""
@@ -10027,34 +11695,79 @@ msgid "Revoke"
 msgstr "Revoke"
 
 #: server_privileges.php:1545
+=======
+#: server_privileges.php:1454
+msgid "No users selected for deleting!"
+msgstr ""
+
+#: server_privileges.php:1457
+msgid "Reloading the privileges"
+msgstr ""
+
+#: server_privileges.php:1475
+msgid "The selected users have been deleted successfully."
+msgstr ""
+
+#: server_privileges.php:1510
+msgid "The privileges were reloaded successfully."
+msgstr ""
+
+#: server_privileges.php:1521 server_privileges.php:1967
+msgid "Edit Privileges"
+msgstr "პრივილეგიების რედაქტირება"
+
+#: server_privileges.php:1530
+msgid "Revoke"
+msgstr "Revoke"
+
+#: server_privileges.php:1546
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Export"
 msgid "Export all"
 msgstr "ექსპორტი"
 
+<<<<<<< HEAD
 #: server_privileges.php:1564 server_privileges.php:1847
 #: server_privileges.php:2479
 msgid "Any"
 msgstr "ნებისმიერი"
 
 #: server_privileges.php:1644
+=======
+#: server_privileges.php:1565 server_privileges.php:1848
+#: server_privileges.php:2480
+msgid "Any"
+msgstr "ნებისმიერი"
+
+#: server_privileges.php:1645
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "პრივილეგიები"
 
+<<<<<<< HEAD
 #: server_privileges.php:1657
+=======
+#: server_privileges.php:1658
+>>>>>>> upstream/master
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "პრივილეგიები"
 
+<<<<<<< HEAD
 #: server_privileges.php:1685
+=======
+#: server_privileges.php:1686
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "მომხმარებლის მიმოხილვა"
 
+<<<<<<< HEAD
 #: server_privileges.php:1825 server_privileges.php:2042
 #: server_privileges.php:2390
 msgid "Grant"
@@ -10074,6 +11787,27 @@ msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
 #: server_privileges.php:1948
+=======
+#: server_privileges.php:1826 server_privileges.php:2043
+#: server_privileges.php:2391
+msgid "Grant"
+msgstr "Grant"
+
+#: server_privileges.php:1922
+msgid "Remove selected users"
+msgstr ""
+
+#: server_privileges.php:1925
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr ""
+
+#: server_privileges.php:1926 server_privileges.php:1927
+#: server_privileges.php:1928
+msgid "Drop the databases that have the same names as the users."
+msgstr ""
+
+#: server_privileges.php:1949
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -10082,6 +11816,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:2001
 msgid "The selected user was not found in the privilege table."
 msgstr ""
@@ -10119,11 +11854,54 @@ msgid "... delete the old one from the user tables."
 msgstr "... ძველი მომხმარებლის მომხმარებლების ცხრილიდან წაშლა."
 
 #: server_privileges.php:2334
+=======
+#: server_privileges.php:2002
+msgid "The selected user was not found in the privilege table."
+msgstr ""
+
+#: server_privileges.php:2044
+msgid "Column-specific privileges"
+msgstr ""
+
+#: server_privileges.php:2250
+msgid "Add privileges on the following database"
+msgstr "პრივილეგიების დამატება შემდეგი მონაცემთა ბაზისათვის"
+
+#: server_privileges.php:2268
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgstr ""
+
+#: server_privileges.php:2271
+msgid "Add privileges on the following table"
+msgstr "პრივილეგიების დამატება შემდეგი ცხრილისათვის"
+
+#: server_privileges.php:2328
+msgid "Change Login Information / Copy User"
+msgstr ""
+
+#: server_privileges.php:2331
+msgid "Create a new user with the same privileges and ..."
+msgstr "იგივე პრივილეგიების მქონე ახალი მომხმარებლის შექმნა და ..."
+
+#: server_privileges.php:2333
+msgid "... keep the old one."
+msgstr "... ძველის შენახვა."
+
+#: server_privileges.php:2334
+msgid "... delete the old one from the user tables."
+msgstr "... ძველი მომხმარებლის მომხმარებლების ცხრილიდან წაშლა."
+
+#: server_privileges.php:2335
+>>>>>>> upstream/master
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:2335
+=======
+#: server_privileges.php:2336
+>>>>>>> upstream/master
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -10131,29 +11909,50 @@ msgstr ""
 " ... ძველი მომხმარებლის მომხმარებლების სიიდან წაშლა და შემდეგ პრივილეგიების "
 "გადატვირთვა."
 
+<<<<<<< HEAD
 #: server_privileges.php:2358
 msgid "Database for user"
 msgstr "მონაცემთა ბაზა მომხმარებლისთვის"
 
 #: server_privileges.php:2360
+=======
+#: server_privileges.php:2359
+msgid "Database for user"
+msgstr "მონაცემთა ბაზა მომხმარებლისთვის"
+
+#: server_privileges.php:2361
+>>>>>>> upstream/master
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 "იგივე სახელის მქონე მონაცემთა ბაზის შექმნა და ყველა პრივილეგიის მინიჭება"
 
+<<<<<<< HEAD
 #: server_privileges.php:2362
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
 #: server_privileges.php:2366
+=======
+#: server_privileges.php:2363
+msgid "Grant all privileges on wildcard name (username\\_%)"
+msgstr ""
+
+#: server_privileges.php:2367
+>>>>>>> upstream/master
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "ყველა პრივილეგიის მინიჭება მონაცემთა ბაზისთვის &quot;%s&quot;"
 
+<<<<<<< HEAD
 #: server_privileges.php:2382
+=======
+#: server_privileges.php:2383
+>>>>>>> upstream/master
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr ""
 
+<<<<<<< HEAD
 #: server_privileges.php:2491
 msgid "global"
 msgstr "გლობალულრი"
@@ -10167,6 +11966,21 @@ msgid "wildcard"
 msgstr "wildcard"
 
 #: server_privileges.php:2538
+=======
+#: server_privileges.php:2492
+msgid "global"
+msgstr "გლობალულრი"
+
+#: server_privileges.php:2494
+msgid "database-specific"
+msgstr ""
+
+#: server_privileges.php:2496
+msgid "wildcard"
+msgstr "wildcard"
+
+#: server_privileges.php:2539
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
@@ -12698,6 +14512,12 @@ msgstr "Rename table to"
 #~| msgid "Ignore errors"
 #~ msgid "Iconic errors"
 #~ msgstr "შეცდომების იგნორირება"
+<<<<<<< HEAD
+=======
+
+#~ msgid "Light tabs"
+#~ msgstr "Light tabs"
+>>>>>>> upstream/master
 
 #, fuzzy
 #~ msgid "Questions below 1,000"
@@ -12723,6 +14543,7 @@ msgstr "Rename table to"
 #~ msgid "Long query time"
 #~ msgstr "SQL მოთხოვნები"
 
+<<<<<<< HEAD
 #, fuzzy
 #~| msgid "SQL Query box"
 #~ msgid "Slow query logging"
@@ -12961,6 +14782,246 @@ msgstr "Rename table to"
 #~ msgstr "Buffer pool size"
 
 #, fuzzy
+=======
+#, fuzzy
+#~| msgid "SQL Query box"
+#~ msgid "Slow query logging"
+#~ msgstr "SQL Query box"
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Release Series"
+#~ msgstr "ცხრილების არჩევა"
+
+#, fuzzy
+#~ msgid "Current version: %s"
+#~ msgstr "Create relation"
+
+#, fuzzy
+#~ msgid "Minor Version"
+#~ msgstr "სპარსული"
+
+#, fuzzy
+#~| msgid "You should upgrade to %s %s or later."
+#~ msgid "You should upgrade, to a stable version of MySQL 5.5"
+#~ msgstr "You should upgrade to %s %s or later."
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Distribution"
+#~ msgstr "აღწერილობა"
+
+#, fuzzy
+#~| msgid "MySQL charset"
+#~ msgid "MySQL Architecture"
+#~ msgstr "MySQL-ის სიმბოლოთა ნაკრები"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache disabled"
+#~ msgstr "Query cache"
+
+#, fuzzy
+#~| msgid "The server is not responding"
+#~ msgid "The query cache is not enabled."
+#~ msgstr "სერვერი არ პასუხობს"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query caching method"
+#~ msgstr "Query cache"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache efficiency (%%)"
+#~ msgstr "Query cache"
+
+#, fuzzy
+#~ msgid "Query Cache usage"
+#~ msgstr "Query cache"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache fragmentation"
+#~ msgstr "Query cache"
+
+#, fuzzy
+#~| msgid "The amount of free memory for query cache."
+#~ msgid ""
+#~ "Cached queries are removed due to low query cache memory from the query "
+#~ "cache."
+#~ msgstr "The amount of free memory for query cache."
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache max size"
+#~ msgstr "Query cache"
+
+#, fuzzy
+#~| msgid "Query results"
+#~ msgid "Query cache min result size"
+#~ msgstr "Query results operations"
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Percentage of sorts that cause temporary tables"
+#~ msgstr "Allows creating temporary tables."
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Too many sorts are causing temporary tables."
+#~ msgstr "Allows creating temporary tables."
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Rate of sorts that cause temporary tables"
+#~ msgstr "Allows creating temporary tables."
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Sort rows"
+#~ msgstr "Startup"
+
+#, fuzzy
+#~| msgid "There are no configured servers"
+#~ msgid "Rate of joins without indexes"
+#~ msgstr "There are no configured servers"
+
+#, fuzzy
+#~| msgid "There are no configured servers"
+#~ msgid "There are too many joins without indexes."
+#~ msgstr "There are no configured servers"
+
+#, fuzzy
+#~| msgid "%s table(s)"
+#~ msgid "Temp disk rate"
+#~ msgstr "%s table(s)"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "MyISAM key buffer size"
+#~ msgstr "Sort buffer size"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "Max %% MyISAM key buffer ever used"
+#~ msgstr "Sort buffer size"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "MyISAM key buffer (index cache) %% used is low."
+#~ msgstr "Sort buffer size"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid ""
+#~ "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+#~ msgstr "Sort buffer size"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "Percentage of MyISAM key buffer used"
+#~ msgstr "Sort buffer size"
+
+#, fuzzy
+#~| msgid "Create table"
+#~ msgid "Rate of table open"
+#~ msgstr "ცხრილის შექმნა"
+
+#, fuzzy
+#~| msgid "The current number of pending writes."
+#~ msgid "The rate of opening tables is high."
+#~ msgstr "The current number of pending writes."
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of used open files limit"
+#~ msgstr "შემოტანილი ფაილების ფორმატი"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of open files"
+#~ msgstr "შემოტანილი ფაილების ფორმატი"
+
+#, fuzzy
+#~| msgid "The number of pending log file fsyncs."
+#~ msgid "The rate of opening files is high."
+#~ msgstr "The number of pending log file fsyncs."
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Immediate table locks %%"
+#~ msgstr "Create new table on database %s"
+
+#, fuzzy
+#~| msgid "The number of times that a table lock was acquired immediately."
+#~ msgid "Too many table locks were not granted immediately."
+#~ msgstr "The number of times that a table lock was acquired immediately."
+
+#, fuzzy
+#~| msgid "Key cache"
+#~ msgid "Thread cache"
+#~ msgstr "Key cache"
+
+#, fuzzy
+#~| msgid "Key cache"
+#~ msgid "Thread cache hit rate %%"
+#~ msgstr "Key cache"
+
+#, fuzzy
+#~| msgid "The number of threads that are not sleeping."
+#~ msgid "There are too many threads that are slow to launch."
+#~ msgstr "The number of threads that are not sleeping."
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Percentage of used connections"
+#~ msgstr "Persistent connections"
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Percentage of aborted connections"
+#~ msgstr "Persistent connections"
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Rate of aborted connections"
+#~ msgstr "Persistent connections"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of aborted clients"
+#~ msgstr "შემოტანილი ფაილების ფორმატი"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of aborted clients"
+#~ msgstr "შემოტანილი ფაილების ფორმატი"
+
+#, fuzzy
+#~| msgid "Cannot load or save configuration"
+#~ msgid "You do not have InnoDB enabled."
+#~ msgstr "კონფიგურაციის შენახვა ან ჩატვირთვა ვერ მოხერხდა"
+
+#, fuzzy
+#~| msgid "Buffer pool size"
+#~ msgid "InnoDB log size"
+#~ msgstr "Buffer pool size"
+
+#, fuzzy
+#~| msgid "The number writes done to the InnoDB buffer pool."
+#~ msgid ""
+#~ "The InnoDB log file size is not an appropriate size, in relation to the "
+#~ "InnoDB buffer pool."
+#~ msgstr "The number writes done to the InnoDB buffer pool."
+
+#, fuzzy
+#~| msgid "Buffer pool size"
+#~ msgid "InnoDB buffer pool size"
+#~ msgstr "Buffer pool size"
+
+#, fuzzy
+>>>>>>> upstream/master
 #~| msgid "max. concurrent connections"
 #~ msgid "MyISAM concurrent inserts"
 #~ msgstr "max. concurrent connections"

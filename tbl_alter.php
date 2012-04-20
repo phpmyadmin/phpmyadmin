@@ -105,6 +105,7 @@ if (isset($_REQUEST['do_save_data'])) {
     }
     $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' ';
     $sql_query .= implode(', ', $changes) . $key_query;
+    $sql_query .= ';';
     $result    = PMA_DBI_try_query($sql_query);
 
     if ($result !== false) {

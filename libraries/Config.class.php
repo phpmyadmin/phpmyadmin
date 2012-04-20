@@ -365,7 +365,7 @@ class PMA_Config
         }
         // find out if there is a .git folder
         $git_folder = '.git';
-        if (! @file_exists($git_folder) 
+        if (! @file_exists($git_folder)
             || ! @file_exists($git_folder . '/config')) {
             $_SESSION['is_git_revision'] = false;
             return false;
@@ -383,7 +383,7 @@ class PMA_Config
     {
         // find out if there is a .git folder
         $git_folder = '.git';
-        if (! @file_exists($git_folder) 
+        if (! @file_exists($git_folder)
             || ! @file_exists($git_folder . '/config')) {
             return;
         }
@@ -406,9 +406,12 @@ class PMA_Config
         }
 
         if ( !isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
-            if (! $commit = @file_get_contents(
-                    $git_folder . '/objects/' . substr($hash, 0, 2) 
-                    . '/' . substr($hash, 2))) {
+            $git_file_name = $git_folder . '/objects/' . substr($hash, 0, 2)
+                    . '/' . substr($hash, 2);
+            if (! file_exists($git_file_name) ) {
+                return;
+            }
+            if (! $commit = @file_get_contents($git_file_name)) {
                 return;
             }
             $commit = explode("\0", gzuncompress($commit), 2);
@@ -1157,6 +1160,32 @@ class PMA_Config
             }
         }
         $this->set('PmaAbsoluteUri', $pma_absolute_uri);
+    }
+
+    /**
+     * Converts currently used PmaAbsoluteUri to SSL based variant.
+     *
+     * @return String witch adjusted URI
+     */
+    function getSSLUri()
+    {
+        // grab current URL
+        $url = $this->get('PmaAbsoluteUri');
+        // Parse current URL
+        $parsed = parse_url($url);
+        // In case parsing has failed do stupid string replacement
+        if ($parsed === false) {
+            // Replace http protocol
+            return preg_replace('@^http:@', 'https:', $url);
+        }
+
+        // Reconstruct URL using parsed parts
+        if($this->get('SSLPort')) {
+            $port_number = $this->get('SSLPort');
+        } else {
+            $port_number = 443;
+        }
+        return 'https://' . $parsed['host'] . ':' . $port_number . $parsed['path'];
     }
 
     /**

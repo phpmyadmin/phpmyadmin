@@ -3,7 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2012-04-20 13:57-0300\n"
+=======
+"POT-Creation-Date: 2012-04-19 11:34+0200\n"
+>>>>>>> upstream/master
 "PO-Revision-Date: 2012-04-08 05:59+0200\n"
 "Last-Translator: Asle Ommundsen <aommundsen@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -15,7 +19,11 @@ msgstr ""
 "X-Generator: Weblate 0.8\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
+<<<<<<< HEAD
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1797
+=======
+#: libraries/display_tbl.lib.php:362 server_privileges.php:1798
+>>>>>>> upstream/master
 msgid "Show all"
 msgstr "Vis alle"
 
@@ -62,10 +70,17 @@ msgstr "Søk"
 #: libraries/schema/User_Schema.class.php:490
 #: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:424
 #: libraries/sql_query_form.lib.php:479 libraries/tbl_properties.inc.php:574
+<<<<<<< HEAD
 #: pmd_pdf.php:124 prefs_manage.php:267 prefs_manage.php:318
 #: server_binlog.php:109 server_privileges.php:815 server_privileges.php:1931
 #: server_privileges.php:2295 server_privileges.php:2342
 #: server_privileges.php:2374 server_replication.php:265
+=======
+#: pmd_pdf.php:125 prefs_manage.php:267 prefs_manage.php:318
+#: server_binlog.php:109 server_privileges.php:816 server_privileges.php:1932
+#: server_privileges.php:2296 server_privileges.php:2343
+#: server_privileges.php:2375 server_replication.php:265
+>>>>>>> upstream/master
 #: server_replication.php:349 server_replication.php:380
 #: server_synchronize.php:1390 tbl_change.php:373 tbl_change.php:1116
 #: tbl_indexes.php:289 tbl_operations.php:280 tbl_operations.php:317
@@ -142,7 +157,11 @@ msgstr "Kolonne"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:87
+<<<<<<< HEAD
 #: server_privileges.php:2388 tbl_change.php:318 tbl_change.php:351
+=======
+#: server_privileges.php:2389 tbl_change.php:318 tbl_change.php:351
+>>>>>>> upstream/master
 #: tbl_printview.php:138 tbl_printview.php:273 tbl_structure.php:204
 #: tbl_structure.php:759 tbl_tracking.php:277 tbl_tracking.php:339
 msgid "Type"
@@ -181,8 +200,13 @@ msgid "Links to"
 msgstr "Linker til"
 
 #: db_datadict.php:173 db_printview.php:109
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:111
 #: libraries/config/messages.inc.php:133 libraries/export/htmlword.php:322
+=======
+#: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:113
+#: libraries/config/messages.inc.php:135 libraries/export/htmlword.php:322
+>>>>>>> upstream/master
 #: libraries/export/latex.php:402 libraries/export/odt.php:405
 #: libraries/export/texytext.php:321
 #: libraries/schema/Pdf_Relation_Schema.class.php:1325
@@ -201,10 +225,17 @@ msgstr "Kommentarer"
 #: libraries/mult_submits.inc.php:321
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:132
+<<<<<<< HEAD
 #: server_privileges.php:1571 server_privileges.php:1581
 #: server_privileges.php:1855 server_privileges.php:1866
 #: server_privileges.php:2207 server_privileges.php:2212
 #: server_privileges.php:2505 sql.php:330 sql.php:394 tbl_printview.php:191
+=======
+#: server_privileges.php:1572 server_privileges.php:1582
+#: server_privileges.php:1856 server_privileges.php:1867
+#: server_privileges.php:2208 server_privileges.php:2213
+#: server_privileges.php:2506 sql.php:330 sql.php:394 tbl_printview.php:191
+>>>>>>> upstream/master
 #: tbl_structure.php:333 tbl_tracking.php:300 tbl_tracking.php:355
 #: tbl_tracking.php:360
 msgid "No"
@@ -224,10 +255,17 @@ msgstr "Nei"
 #: libraries/mult_submits.inc.php:320 libraries/mult_submits.inc.php:327
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:131
+<<<<<<< HEAD
 #: server_databases.php:96 server_privileges.php:1569
 #: server_privileges.php:1579 server_privileges.php:1852
 #: server_privileges.php:1866 server_privileges.php:2207
 #: server_privileges.php:2210 server_privileges.php:2505 sql.php:393
+=======
+#: server_databases.php:96 server_privileges.php:1570
+#: server_privileges.php:1580 server_privileges.php:1853
+#: server_privileges.php:1867 server_privileges.php:2208
+#: server_privileges.php:2211 server_privileges.php:2506 sql.php:393
+>>>>>>> upstream/master
 #: tbl_printview.php:191 tbl_structure.php:41 tbl_structure.php:333
 #: tbl_tracking.php:300 tbl_tracking.php:353 tbl_tracking.php:358
 msgid "Yes"
@@ -303,14 +341,24 @@ msgstr "Bare data"
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE før kopiering"
 
+<<<<<<< HEAD
 #: db_operations.php:535 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:137 tbl_operations.php:558
+=======
+#: db_operations.php:535 libraries/config/messages.inc.php:130
+#: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:133
+#: libraries/config/messages.inc.php:139 tbl_operations.php:558
+>>>>>>> upstream/master
 #, php-format
 msgid "Add %s"
 msgstr "Legg til %s"
 
+<<<<<<< HEAD
 #: db_operations.php:539 libraries/config/messages.inc.php:121
+=======
+#: db_operations.php:539 libraries/config/messages.inc.php:123
+>>>>>>> upstream/master
 #: tbl_operations.php:314 tbl_operations.php:560
 msgid "Add AUTO_INCREMENT value"
 msgstr "Legg til AUTO_INCREMENT verdi"
@@ -346,12 +394,21 @@ msgid "Edit or export relational schema"
 msgstr "Rediger eller eksporter relasjonsskjema"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:193
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:515 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:360
 #: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:275 server_privileges.php:1982
 #: server_privileges.php:2040 server_privileges.php:2309
+=======
+#: libraries/config/messages.inc.php:517 libraries/db_structure.lib.php:32
+#: libraries/export/pdf.php:98 libraries/export/xml.php:360
+#: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
+#: libraries/rte/rte_triggers.lib.php:310
+#: libraries/schema/User_Schema.class.php:275 server_privileges.php:1983
+#: server_privileges.php:2041 server_privileges.php:2310
+>>>>>>> upstream/master
 #: server_synchronize.php:450 server_synchronize.php:962 tbl_tracking.php:668
 msgid "Table"
 msgstr "Tabell"
@@ -452,7 +509,11 @@ msgid "Del"
 msgstr "Slett"
 
 #: db_qbe.php:396 db_qbe.php:477 db_qbe.php:548 db_qbe.php:579
+<<<<<<< HEAD
 #: server_privileges.php:469 tbl_change.php:943 tbl_indexes.php:284
+=======
+#: server_privileges.php:470 tbl_change.php:943 tbl_indexes.php:284
+>>>>>>> upstream/master
 #: tbl_select.php:220
 msgid "Or"
 msgstr "Eller"
@@ -639,20 +700,34 @@ msgstr "%s er standard lagringsmotor for denne MySQL tjeneren."
 #: db_structure.php:641 db_structure.php:658 db_structure.php:659
 #: libraries/display_tbl.lib.php:2507 libraries/display_tbl.lib.php:2512
 #: libraries/mult_submits.inc.php:39 server_databases.php:279
+<<<<<<< HEAD
 #: server_databases.php:284 server_privileges.php:1889
 #: server_privileges.php:1897 tbl_structure.php:547 tbl_structure.php:556
+=======
+#: server_databases.php:284 server_privileges.php:1890
+#: server_privileges.php:1898 tbl_structure.php:547 tbl_structure.php:556
+>>>>>>> upstream/master
 msgid "With selected:"
 msgstr "Med avkrysset:"
 
 #: db_structure.php:644 libraries/display_tbl.lib.php:2502
+<<<<<<< HEAD
 #: server_databases.php:281 server_privileges.php:753
 #: server_privileges.php:1892 tbl_structure.php:550
+=======
+#: server_databases.php:281 server_privileges.php:754
+#: server_privileges.php:1893 tbl_structure.php:550
+>>>>>>> upstream/master
 msgid "Check All"
 msgstr "Merk alle"
 
 #: db_structure.php:648 libraries/display_tbl.lib.php:2503
 #: libraries/replication_gui.lib.php:35 server_databases.php:283
+<<<<<<< HEAD
 #: server_privileges.php:756 server_privileges.php:1896 tbl_structure.php:554
+=======
+#: server_privileges.php:757 server_privileges.php:1897 tbl_structure.php:554
+>>>>>>> upstream/master
 msgid "Uncheck All"
 msgstr "Fjern merking"
 
@@ -661,11 +736,19 @@ msgid "Check tables having overhead"
 msgstr "Merk overheng"
 
 #: db_structure.php:661 libraries/common.lib.php:3385
+<<<<<<< HEAD
 #: libraries/common.lib.php:3386 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2525 libraries/display_tbl.lib.php:2666
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:290 server_privileges.php:1537 server_privileges.php:1901
+=======
+#: libraries/common.lib.php:3386 libraries/config/messages.inc.php:168
+#: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
+#: libraries/display_tbl.lib.php:2525 libraries/display_tbl.lib.php:2666
+#: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
+#: prefs_manage.php:290 server_privileges.php:1538 server_privileges.php:1902
+>>>>>>> upstream/master
 #: server_status.php:1634 setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Eksporter"
@@ -723,14 +806,23 @@ msgstr "Dataordbok"
 msgid "Tracked tables"
 msgstr "Overvåkede tabeller"
 
+<<<<<<< HEAD
 #: db_tracking.php:84 libraries/config/messages.inc.php:509
+=======
+#: db_tracking.php:84 libraries/config/messages.inc.php:511
+>>>>>>> upstream/master
 #: libraries/export/htmlword.php:83 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:609 libraries/export/texytext.php:69
 #: libraries/export/xml.php:293 libraries/header.inc.php:152
 #: libraries/header_printview.inc.php:59 server_databases.php:177
+<<<<<<< HEAD
 #: server_privileges.php:1977 server_privileges.php:2040
 #: server_privileges.php:2303 server_status.php:1263
+=======
+#: server_privileges.php:1978 server_privileges.php:2041
+#: server_privileges.php:2304 server_status.php:1263
+>>>>>>> upstream/master
 #: server_synchronize.php:1358 server_synchronize.php:1362
 #: tbl_tracking.php:667
 msgid "Database"
@@ -757,8 +849,13 @@ msgstr "Status"
 #: db_tracking.php:90 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
+<<<<<<< HEAD
 #: server_databases.php:210 server_privileges.php:1826
 #: server_privileges.php:2044 server_privileges.php:2391 tbl_structure.php:221
+=======
+#: server_databases.php:210 server_privileges.php:1827
+#: server_privileges.php:2045 server_privileges.php:2392 tbl_structure.php:221
+>>>>>>> upstream/master
 msgid "Action"
 msgstr "Handling"
 
@@ -1089,6 +1186,7 @@ msgstr "Vertsnavnet er tomt!"
 msgid "The user name is empty!"
 msgstr "Brukernavnet er tomt!"
 
+<<<<<<< HEAD
 #: js/messages.php:53 server_privileges.php:1404 user_password.php:102
 msgid "The password is empty!"
 msgstr "Passordet er blankt!"
@@ -1099,6 +1197,18 @@ msgstr "Passordene er ikke like!"
 
 #: js/messages.php:55 server_privileges.php:1916 server_privileges.php:1940
 #: server_privileges.php:2352 server_privileges.php:2546
+=======
+#: js/messages.php:53 server_privileges.php:1405 user_password.php:102
+msgid "The password is empty!"
+msgstr "Passordet er blankt!"
+
+#: js/messages.php:54 server_privileges.php:1403 user_password.php:105
+msgid "The passwords aren't the same!"
+msgstr "Passordene er ikke like!"
+
+#: js/messages.php:55 server_privileges.php:1917 server_privileges.php:1941
+#: server_privileges.php:2353 server_privileges.php:2547
+>>>>>>> upstream/master
 msgid "Add user"
 msgstr "Legg til bruker"
 
@@ -1118,7 +1228,11 @@ msgstr "Lukk"
 #: js/messages.php:61 js/messages.php:279 libraries/Index.class.php:485
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
 #: libraries/common.lib.php:3383 libraries/common.lib.php:3384
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:489 libraries/display_tbl.lib.php:1405
+=======
+#: libraries/config/messages.inc.php:491 libraries/display_tbl.lib.php:1405
+>>>>>>> upstream/master
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
 msgstr "Rediger"
@@ -1363,7 +1477,11 @@ msgstr "Legg minst én variabel til serien"
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
 #: libraries/tbl_properties.inc.php:529 pmd_general.php:520
+<<<<<<< HEAD
 #: server_privileges.php:2193 server_status.php:1292 server_status.php:1731
+=======
+#: server_privileges.php:2194 server_status.php:1292 server_status.php:1731
+>>>>>>> upstream/master
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
 msgstr "Ingen"
@@ -1648,7 +1766,7 @@ msgid ""
 "config..."
 msgstr ""
 
-#: js/messages.php:208 libraries/config/messages.inc.php:172
+#: js/messages.php:208 libraries/config/messages.inc.php:174
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:171
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:233 server_status.php:1634 setup/frames/menu.inc.php:21
@@ -1989,7 +2107,11 @@ msgstr "Velg fremmednøkkel"
 msgid "Please select the primary key or a unique key"
 msgstr "Velg primærnøkkelen eller en unik nøkkel"
 
+<<<<<<< HEAD
 #: js/messages.php:338 pmd_general.php:91 tbl_relation.php:561
+=======
+#: js/messages.php:338 pmd_general.php:92 tbl_relation.php:561
+>>>>>>> upstream/master
 msgid "Choose column to display"
 msgstr "Velg kolonne for visning"
 
@@ -2390,20 +2512,36 @@ msgstr "per time"
 msgid "per day"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/Config.class.php:883
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr ""
 
 #: libraries/Config.class.php:919
+=======
+#: libraries/Config.class.php:886
+msgid "Remove \"./config\" directory before using phpMyAdmin!"
+msgstr ""
+
+#: libraries/Config.class.php:922
+>>>>>>> upstream/master
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/Config.class.php:947
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
 #: libraries/Config.class.php:1498
+=======
+#: libraries/Config.class.php:950
+msgid "Wrong permissions on configuration file, should not be world writable!"
+msgstr ""
+
+#: libraries/Config.class.php:1501
+>>>>>>> upstream/master
 msgid "Font size"
 msgstr "Fontstørrelse"
 
@@ -2512,9 +2650,15 @@ msgstr ""
 "Indeksene %1$s og %2$s ser ut til å være like og en av dem burde kunne "
 "fjernes."
 
+<<<<<<< HEAD
 #: libraries/List_Database.class.php:390 libraries/config/messages.inc.php:179
 #: libraries/server_links.inc.php:43 server_databases.php:119
 #: server_privileges.php:1977
+=======
+#: libraries/List_Database.class.php:390 libraries/config/messages.inc.php:181
+#: libraries/server_links.inc.php:43 server_databases.php:119
+#: server_privileges.php:1978
+>>>>>>> upstream/master
 msgid "Databases"
 msgstr "Databaser"
 
@@ -2795,11 +2939,16 @@ msgid "shared"
 msgstr "delt"
 
 #: libraries/build_html_for_db.lib.php:26
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
+=======
+#: libraries/config/messages.inc.php:187 libraries/export/xml.php:51
+>>>>>>> upstream/master
 #: server_status.php:614
 msgid "Tables"
 msgstr "Tabeller"
 
+<<<<<<< HEAD
 #: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:307
 #: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:366
 #: libraries/config/setup.forms.php:371
@@ -2809,6 +2958,17 @@ msgstr "Tabeller"
 #: libraries/config/user_preferences.forms.php:270
 #: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:683 server_replication.php:347 tbl_printview.php:277
+=======
+#: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:308
+#: libraries/config/setup.forms.php:344 libraries/config/setup.forms.php:367
+#: libraries/config/setup.forms.php:372
+#: libraries/config/user_preferences.forms.php:207
+#: libraries/config/user_preferences.forms.php:243
+#: libraries/config/user_preferences.forms.php:266
+#: libraries/config/user_preferences.forms.php:271
+#: libraries/export/latex.php:212 libraries/export/sql.php:1113
+#: server_privileges.php:684 server_replication.php:347 tbl_printview.php:277
+>>>>>>> upstream/master
 #: tbl_structure.php:765
 msgid "Data"
 msgstr "Data"
@@ -2886,7 +3046,11 @@ msgstr "Ugyldig tjenerindeks: \"%s\""
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ugyldig tjenernavn for tjener %1$s. Kontroller din konfigurasjon."
 
+<<<<<<< HEAD
 #: libraries/common.inc.php:667 libraries/config/messages.inc.php:513
+=======
+#: libraries/common.inc.php:667 libraries/config/messages.inc.php:515
+>>>>>>> upstream/master
 #: libraries/header.inc.php:138 main.php:179 server_status.php:797
 #: server_synchronize.php:1338
 msgid "Server"
@@ -2930,7 +3094,11 @@ msgstr "en"
 #: libraries/common.lib.php:520 libraries/config/FormDisplay.tpl.php:140
 #: libraries/display_export.lib.php:238 libraries/engines/pbxt.lib.php:109
 #: libraries/relation.lib.php:78 libraries/sql_query_form.lib.php:398
+<<<<<<< HEAD
 #: libraries/sql_query_form.lib.php:401 main.php:246 server_variables.php:139
+=======
+#: libraries/sql_query_form.lib.php:401 main.php:245 server_variables.php:139
+>>>>>>> upstream/master
 msgid "Documentation"
 msgstr "Dokumentasjon"
 
@@ -2956,7 +3124,11 @@ msgstr "MySQL sa: "
 msgid "Failed to connect to SQL validator!"
 msgstr "Kunne ikke koble til SQL validerer!"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1204 libraries/config/messages.inc.php:490
+=======
+#: libraries/common.lib.php:1204 libraries/config/messages.inc.php:492
+>>>>>>> upstream/master
 msgid "Explain SQL"
 msgstr "Forklar SQL"
 
@@ -2968,11 +3140,19 @@ msgstr "Ikke forklar SQL"
 msgid "Without PHP Code"
 msgstr "uten PHP kode"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1246 libraries/config/messages.inc.php:492
 msgid "Create PHP Code"
 msgstr "Lag PHP kode"
 
 #: libraries/common.lib.php:1266 libraries/config/messages.inc.php:491
+=======
+#: libraries/common.lib.php:1246 libraries/config/messages.inc.php:494
+msgid "Create PHP Code"
+msgstr "Lag PHP kode"
+
+#: libraries/common.lib.php:1266 libraries/config/messages.inc.php:493
+>>>>>>> upstream/master
 #: server_status.php:808 server_status.php:830 server_status.php:850
 msgid "Refresh"
 msgstr "Oppdater"
@@ -2981,7 +3161,11 @@ msgstr "Oppdater"
 msgid "Skip Validate SQL"
 msgstr "Ikke teste SQL"
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:1279 libraries/config/messages.inc.php:494
+=======
+#: libraries/common.lib.php:1279 libraries/config/messages.inc.php:496
+>>>>>>> upstream/master
 msgid "Validate SQL"
 msgstr "Test SQL"
 
@@ -3072,6 +3256,7 @@ msgid "Click to toggle"
 msgstr "Klikk for å velge"
 
 #: libraries/common.lib.php:3149 libraries/common.lib.php:3156
+<<<<<<< HEAD
 #: libraries/common.lib.php:3378 libraries/config/setup.forms.php:298
 #: libraries/config/setup.forms.php:335 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:197
@@ -3081,11 +3266,26 @@ msgstr "Klikk for å velge"
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:590 pmd_general.php:154
 #: server_privileges.php:683 server_replication.php:346 tbl_tracking.php:272
+=======
+#: libraries/common.lib.php:3378 libraries/config/setup.forms.php:299
+#: libraries/config/setup.forms.php:336 libraries/config/setup.forms.php:362
+#: libraries/config/user_preferences.forms.php:198
+#: libraries/config/user_preferences.forms.php:235
+#: libraries/config/user_preferences.forms.php:261
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:371
+#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
+#: libraries/tbl_properties.inc.php:590 pmd_general.php:155
+#: server_privileges.php:684 server_replication.php:346 tbl_tracking.php:272
+>>>>>>> upstream/master
 msgid "Structure"
 msgstr "Struktur"
 
 #: libraries/common.lib.php:3150 libraries/common.lib.php:3157
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
+=======
+#: libraries/config/messages.inc.php:218 libraries/db_links.inc.php:53
+>>>>>>> upstream/master
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:64
@@ -3127,7 +3327,11 @@ msgstr "Det er ingen filer å laste opp"
 msgid "Execute"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/common.lib.php:3901
+=======
+#: libraries/common.lib.php:3867
+>>>>>>> upstream/master
 msgid "Print"
 msgstr "Skriv ut"
 
@@ -3158,25 +3362,28 @@ msgstr "Lukket"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
-#: pmd_relation_new.php:66
+#: pmd_relation_new.php:67
 msgid "Disabled"
 msgstr "Avslått"
 
 #: libraries/config.values.php:99 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:129 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:39
+#: libraries/export/odt.php:34 libraries/export/sql.php:129
+#: libraries/export/texytext.php:24
 msgid "structure"
 msgstr "struktur"
 
 #: libraries/config.values.php:100 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:130 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:40
+#: libraries/export/odt.php:34 libraries/export/sql.php:130
+#: libraries/export/texytext.php:24
 msgid "data"
 msgstr "data"
 
 #: libraries/config.values.php:101 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:131 libraries/export/texytext.php:24
+#: libraries/export/latex.php:42 libraries/export/mediawiki.php:41
+#: libraries/export/odt.php:34 libraries/export/sql.php:131
+#: libraries/export/texytext.php:24
 msgid "structure and data"
 msgstr "struktur og data"
 
@@ -3274,7 +3481,11 @@ msgstr "SOAP tillegg ble ikke funnet"
 msgid "maximum %s"
 msgstr "maksimum %s"
 
+<<<<<<< HEAD
 #: libraries/config/FormDisplay.tpl.php:141 main.php:247
+=======
+#: libraries/config/FormDisplay.tpl.php:141 main.php:246
+>>>>>>> upstream/master
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -3289,7 +3500,11 @@ msgid "Set value: %s"
 msgstr "Sett verdi: %s"
 
 #: libraries/config/FormDisplay.tpl.php:279
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:359
+=======
+#: libraries/config/messages.inc.php:361
+>>>>>>> upstream/master
 msgid "Restore default value"
 msgstr "Gjennopprett standard verdi"
 
@@ -3510,6 +3725,7 @@ msgid "Default table tab"
 msgstr "Standard tabellfane"
 
 #: libraries/config/messages.inc.php:58
+<<<<<<< HEAD
 msgid "Show binary contents as HEX by default"
 msgstr "Vis binært innhold som heksadesimal som standard"
 
@@ -3534,17 +3750,58 @@ msgid "Display servers as a list"
 msgstr "Vis tjenere som en liste"
 
 #: libraries/config/messages.inc.php:64
+=======
+msgid "Whether the table structure actions should be hidden"
+msgstr ""
+
+#: libraries/config/messages.inc.php:59
+#, fuzzy
+#| msgid "Propose table structure"
+msgid "Hide table structure actions"
+msgstr "Foreslå tabellstruktur"
+
+#: libraries/config/messages.inc.php:60
+msgid "Show binary contents as HEX by default"
+msgstr "Vis binært innhold som heksadesimal som standard"
+
+#: libraries/config/messages.inc.php:61 libraries/display_tbl.lib.php:681
+msgid "Show binary contents as HEX"
+msgstr "Vis binært innhold som HEX"
+
+#: libraries/config/messages.inc.php:62
+msgid "Show database listing as a list instead of a drop down"
+msgstr "Vis databaser som en liste istedet for en nedfallsliste"
+
+#: libraries/config/messages.inc.php:63
+msgid "Display databases as a list"
+msgstr "Vis databaser som en liste"
+
+#: libraries/config/messages.inc.php:64
+msgid "Show server listing as a list instead of a drop down"
+msgstr "Vis tjenere som en liste istedet for en nedfallsliste"
+
+#: libraries/config/messages.inc.php:65
+msgid "Display servers as a list"
+msgstr "Vis tjenere som en liste"
+
+#: libraries/config/messages.inc.php:66
+>>>>>>> upstream/master
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:65
+=======
+#: libraries/config/messages.inc.php:67
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
 msgstr "Tabellvedlikehold"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:66
 msgid "Edit SQL queries in popup window"
 msgstr "Rediger SQL spørringer i eget vindu"
@@ -3562,6 +3819,25 @@ msgid "Gather errors"
 msgstr "Samle feilmeldinger"
 
 #: libraries/config/messages.inc.php:70
+=======
+#: libraries/config/messages.inc.php:68
+msgid "Edit SQL queries in popup window"
+msgstr "Rediger SQL spørringer i eget vindu"
+
+#: libraries/config/messages.inc.php:69
+msgid "Edit in window"
+msgstr "Rediger i eget vindu"
+
+#: libraries/config/messages.inc.php:70
+msgid "Display errors"
+msgstr "Vis feilmeldinger"
+
+#: libraries/config/messages.inc.php:71
+msgid "Gather errors"
+msgstr "Samle feilmeldinger"
+
+#: libraries/config/messages.inc.php:72
+>>>>>>> upstream/master
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
@@ -3569,205 +3845,223 @@ msgstr ""
 "Antall sekunder et skript har lov til å kjøre ([kbd]0[/kbd] for ingen "
 "begrensning)"
 
-#: libraries/config/messages.inc.php:71
+#: libraries/config/messages.inc.php:73
 msgid "Maximum execution time"
 msgstr "Maks kjøretid"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:72 prefs_manage.php:301
+=======
+#: libraries/config/messages.inc.php:74 prefs_manage.php:301
+>>>>>>> upstream/master
 msgid "Save as file"
 msgstr "Lagre som fil"
 
-#: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
+#: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:247
 msgid "Character set of the file"
 msgstr "Filas tegnsett"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
+=======
+#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
+>>>>>>> upstream/master
 #: tbl_gis_visualization.php:174 tbl_printview.php:336 tbl_structure.php:834
 msgid "Format"
 msgstr "Format"
 
-#: libraries/config/messages.inc.php:75
+#: libraries/config/messages.inc.php:77
 msgid "Compression"
 msgstr "Kompresjon"
 
-#: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:83
-#: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:95
-#: libraries/config/messages.inc.php:108 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:146
-#: libraries/config/messages.inc.php:148 libraries/export/csv.php:30
+#: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:85
+#: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:97
+#: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:112
+#: libraries/config/messages.inc.php:145 libraries/config/messages.inc.php:148
+#: libraries/config/messages.inc.php:150 libraries/export/csv.php:30
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 msgid "Put columns names in the first row"
 msgstr "Sett inn kolonnenavn i første rad"
 
-#: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:245
-#: libraries/config/messages.inc.php:252 libraries/import/csv.php:76
+#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:249
+#: libraries/config/messages.inc.php:256 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
 msgstr "Kolonner omsluttet av"
 
-#: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:246
-#: libraries/config/messages.inc.php:253 libraries/import/csv.php:81
+#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:257 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 msgid "Columns escaped by"
 msgstr "Kolonner beskyttet med"
 
-#: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:85
-#: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:101
-#: libraries/config/messages.inc.php:109 libraries/config/messages.inc.php:113
-#: libraries/config/messages.inc.php:144 libraries/config/messages.inc.php:147
-#: libraries/config/messages.inc.php:149 libraries/export/texytext.php:27
+#: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:87
+#: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:103
+#: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:115
+#: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:149
+#: libraries/config/messages.inc.php:151 libraries/export/texytext.php:27
 msgid "Replace NULL by"
 msgstr "Erstatt NULL med"
 
-#: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
+#: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:88
 msgid "Remove CRLF characters within columns"
 msgstr "Fjern CRLF tegn inne i kolonner"
 
-#: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:249
-#: libraries/config/messages.inc.php:257 libraries/import/csv.php:63
+#: libraries/config/messages.inc.php:83 libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:261 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
 msgstr "Kolonner avsluttet med"
 
-#: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:244
+#: libraries/config/messages.inc.php:84 libraries/config/messages.inc.php:248
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
 msgstr "Linker avsluttet med"
 
-#: libraries/config/messages.inc.php:84
+#: libraries/config/messages.inc.php:86
 msgid "Excel edition"
 msgstr "Excel stil"
 
-#: libraries/config/messages.inc.php:87
+#: libraries/config/messages.inc.php:89
 msgid "Database name template"
 msgstr "Databasenavnmal"
 
-#: libraries/config/messages.inc.php:88
+#: libraries/config/messages.inc.php:90
 msgid "Server name template"
 msgstr "Tjenernavnmal"
 
-#: libraries/config/messages.inc.php:89
+#: libraries/config/messages.inc.php:91
 msgid "Table name template"
 msgstr "Tabellnavnmal"
 
-#: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:106
-#: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:139
-#: libraries/config/messages.inc.php:145 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:40 libraries/export/odt.php:32
-#: libraries/export/sql.php:123 libraries/export/texytext.php:23
+#: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:108
+#: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:141
+#: libraries/config/messages.inc.php:147 libraries/export/htmlword.php:24
+#: libraries/export/latex.php:40 libraries/export/mediawiki.php:33
+#: libraries/export/odt.php:32 libraries/export/sql.php:123
+#: libraries/export/texytext.php:23
 msgid "Dump table"
 msgstr "Dump tabell"
 
-#: libraries/config/messages.inc.php:94 libraries/export/latex.php:32
+#: libraries/config/messages.inc.php:96 libraries/export/latex.php:32
 msgid "Include table caption"
 msgstr "Inkluder tabelloverskrift"
 
-#: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
+#: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
 msgid "Table caption"
 msgstr "Tabelloverskrift"
 
-#: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:104
+#: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:106
 msgid "Continued table caption"
 msgstr "Fortsettet tabelloverskrift"
 
-#: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
+#: libraries/config/messages.inc.php:101 libraries/config/messages.inc.php:107
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
 msgid "Label key"
 msgstr "Merkelappnøkkel"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:136 libraries/export/odt.php:411
+=======
+#: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
+#: libraries/config/messages.inc.php:138 libraries/export/odt.php:411
+>>>>>>> upstream/master
 #: libraries/tbl_properties.inc.php:137
 msgid "MIME type"
 msgstr "MIME-type"
 
-#: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
-#: libraries/config/messages.inc.php:138 tbl_relation.php:408
+#: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:116
+#: libraries/config/messages.inc.php:140 tbl_relation.php:408
 msgid "Relations"
 msgstr "Relasjoner"
 
-#: libraries/config/messages.inc.php:107
+#: libraries/config/messages.inc.php:109
 msgid "Export method"
 msgstr "Eksportmetode"
 
-#: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:118
+#: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:120
 msgid "Save on server"
 msgstr "Lagre på tjener"
 
-#: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:119
+#: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:121
 #: libraries/display_export.lib.php:193 libraries/display_export.lib.php:219
 msgid "Overwrite existing file(s)"
 msgstr "Skriv over eksisterende filer"
 
-#: libraries/config/messages.inc.php:120
+#: libraries/config/messages.inc.php:122
 msgid "Remember file name template"
 msgstr "Husk filnavnmal"
 
-#: libraries/config/messages.inc.php:122
+#: libraries/config/messages.inc.php:124
 msgid "Enclose table and column names with backquotes"
 msgstr "Bruk venstre anførselstegn med tabell og kolonnenavn"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:264
+=======
+#: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:268
+>>>>>>> upstream/master
 #: libraries/display_export.lib.php:363
 msgid "SQL compatibility mode"
 msgstr "SQL kompatibilitetsmodus"
 
-#: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
+#: libraries/config/messages.inc.php:126 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
 msgstr ""
 
-#: libraries/config/messages.inc.php:125
+#: libraries/config/messages.inc.php:127
 msgid "Creation/Update/Check dates"
 msgstr "Opprettelse/Oppdaterings/Kontrolldato"
 
-#: libraries/config/messages.inc.php:126
+#: libraries/config/messages.inc.php:128
 msgid "Use delayed inserts"
 msgstr "Bruk forsinkede innsettinger"
 
-#: libraries/config/messages.inc.php:127 libraries/export/sql.php:81
+#: libraries/config/messages.inc.php:129 libraries/export/sql.php:81
 msgid "Disable foreign key checks"
 msgstr "Slå av kontroll av fremmednøkler"
 
-#: libraries/config/messages.inc.php:130
+#: libraries/config/messages.inc.php:132
 msgid "Use hexadecimal for BLOB"
 msgstr "Bruk heksadesimal for BLOB"
 
-#: libraries/config/messages.inc.php:132
+#: libraries/config/messages.inc.php:134
 msgid "Use ignore inserts"
 msgstr "Bruk ignore inserts"
 
-#: libraries/config/messages.inc.php:134
+#: libraries/config/messages.inc.php:136
 msgid "Syntax to use when inserting data"
 msgstr "Syntaks i bruk ved innsetting av data"
 
-#: libraries/config/messages.inc.php:135 libraries/export/sql.php:286
+#: libraries/config/messages.inc.php:137 libraries/export/sql.php:286
 msgid "Maximal length of created query"
 msgstr "Maksimum lengde av opprettet spørring"
 
-#: libraries/config/messages.inc.php:140
+#: libraries/config/messages.inc.php:142
 msgid "Export type"
 msgstr "Eksport type"
 
-#: libraries/config/messages.inc.php:141 libraries/export/sql.php:73
+#: libraries/config/messages.inc.php:143 libraries/export/sql.php:73
 msgid "Enclose export in a transaction"
 msgstr "Inneslutt eksport i en transaksjon"
 
-#: libraries/config/messages.inc.php:142
+#: libraries/config/messages.inc.php:144
 msgid "Export time in UTC"
 msgstr "Eksport tid i UTC"
 
-#: libraries/config/messages.inc.php:150
+#: libraries/config/messages.inc.php:152
 msgid "Force secured connection while using phpMyAdmin"
 msgstr "Tving sikker tilkobling ved bruk av phpMyAdmin"
 
-#: libraries/config/messages.inc.php:151
+#: libraries/config/messages.inc.php:153
 msgid "Force SSL connection"
 msgstr "Tving SSL tilkobling"
 
-#: libraries/config/messages.inc.php:152
+#: libraries/config/messages.inc.php:154
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
@@ -3775,148 +4069,171 @@ msgstr ""
 "Sorteringsrekkefølge for elementer i en fremmednøkkel nedfallsboks; [kbd]"
 "content[/kbd] for refererte data, [kbd]id[/kbd] for nøkkelverdien"
 
-#: libraries/config/messages.inc.php:153
+#: libraries/config/messages.inc.php:155
 msgid "Foreign key dropdown order"
 msgstr "Fremmednøkkelrekkefølge"
 
-#: libraries/config/messages.inc.php:154
+#: libraries/config/messages.inc.php:156
 msgid "A dropdown will be used if fewer items are present"
 msgstr "En nedfallsboks vil bli brukt hvis færre elementer er tilstede"
 
-#: libraries/config/messages.inc.php:155
+#: libraries/config/messages.inc.php:157
 msgid "Foreign key limit"
 msgstr "Fremmednøkkelbegrensning"
 
-#: libraries/config/messages.inc.php:156
+#: libraries/config/messages.inc.php:158
 msgid "Browse mode"
 msgstr "Visningsmodus"
 
-#: libraries/config/messages.inc.php:157
+#: libraries/config/messages.inc.php:159
 msgid "Customize browse mode"
 msgstr "Endre visningsmodus"
 
-#: libraries/config/messages.inc.php:159 libraries/config/messages.inc.php:161
-#: libraries/config/messages.inc.php:178 libraries/config/messages.inc.php:189
-#: libraries/config/messages.inc.php:191 libraries/config/messages.inc.php:219
-#: libraries/config/messages.inc.php:233
+#: libraries/config/messages.inc.php:161 libraries/config/messages.inc.php:163
+#: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:191
+#: libraries/config/messages.inc.php:193 libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:237
 msgid "Customize default options"
 msgstr "Tilpass standardinstillinger"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:160 libraries/config/setup.forms.php:245
 #: libraries/config/setup.forms.php:318
 #: libraries/config/user_preferences.forms.php:146
 #: libraries/config/user_preferences.forms.php:217 libraries/export/csv.php:19
+=======
+#: libraries/config/messages.inc.php:162 libraries/config/setup.forms.php:246
+#: libraries/config/setup.forms.php:319
+#: libraries/config/user_preferences.forms.php:147
+#: libraries/config/user_preferences.forms.php:218 libraries/export/csv.php:19
+>>>>>>> upstream/master
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV-data"
 
-#: libraries/config/messages.inc.php:162
+#: libraries/config/messages.inc.php:164
 msgid "Developer"
 msgstr "Utvikler"
 
-#: libraries/config/messages.inc.php:163
+#: libraries/config/messages.inc.php:165
 msgid "Settings for phpMyAdmin developers"
 msgstr "Instillinger for phpMyAdmin utviklere"
 
-#: libraries/config/messages.inc.php:164
+#: libraries/config/messages.inc.php:166
 msgid "Edit mode"
 msgstr "Redigeringsmodus"
 
-#: libraries/config/messages.inc.php:165
+#: libraries/config/messages.inc.php:167
 msgid "Customize edit mode"
 msgstr "Endre redigeringsmodus"
 
-#: libraries/config/messages.inc.php:167
+#: libraries/config/messages.inc.php:169
 msgid "Export defaults"
 msgstr "Eksportinnstillinger"
 
-#: libraries/config/messages.inc.php:168
+#: libraries/config/messages.inc.php:170
 msgid "Customize default export options"
 msgstr "Endre standard eksportinnstillinger"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:169 libraries/config/messages.inc.php:211
+=======
+#: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:213
+>>>>>>> upstream/master
 #: setup/frames/menu.inc.php:17
 msgid "Features"
 msgstr "Egenskaper"
 
-#: libraries/config/messages.inc.php:170
+#: libraries/config/messages.inc.php:172
 msgid "General"
 msgstr "Generell"
 
-#: libraries/config/messages.inc.php:171
+#: libraries/config/messages.inc.php:173
 msgid "Set some commonly used options"
 msgstr "Angi noen vanlig brukte alternativer"
 
-#: libraries/config/messages.inc.php:173
+#: libraries/config/messages.inc.php:175
 msgid "Import defaults"
 msgstr "Importinnstillinger"
 
-#: libraries/config/messages.inc.php:174
+#: libraries/config/messages.inc.php:176
 msgid "Customize default common import options"
 msgstr "Endre standard importinnstillinger"
 
-#: libraries/config/messages.inc.php:175
+#: libraries/config/messages.inc.php:177
 msgid "Import / export"
 msgstr "Import / eksport"
 
-#: libraries/config/messages.inc.php:176
+#: libraries/config/messages.inc.php:178
 msgid "Set import and export directories and compression options"
 msgstr "Set import and eksport mapper og komprimeringsinnstillinger"
 
-#: libraries/config/messages.inc.php:177 libraries/export/latex.php:27
+#: libraries/config/messages.inc.php:179 libraries/export/latex.php:27
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:180
+#: libraries/config/messages.inc.php:182
 msgid "Databases display options"
 msgstr "Databasevisningsinnstillinger"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:181 setup/frames/menu.inc.php:19
+=======
+#: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
+>>>>>>> upstream/master
 msgid "Navigation frame"
 msgstr "Navigasjonsramme"
 
-#: libraries/config/messages.inc.php:182
+#: libraries/config/messages.inc.php:184
 msgid "Customize appearance of the navigation frame"
 msgstr "Endre utseendet til navigasjonsrammen"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:183 libraries/select_server.lib.php:38
+=======
+#: libraries/config/messages.inc.php:185 libraries/select_server.lib.php:38
+>>>>>>> upstream/master
 #: setup/frames/index.inc.php:117
 msgid "Servers"
 msgstr "Tjenere"
 
-#: libraries/config/messages.inc.php:184
+#: libraries/config/messages.inc.php:186
 msgid "Servers display options"
 msgstr "Tjenervisningsinnstillinger"
 
-#: libraries/config/messages.inc.php:186
+#: libraries/config/messages.inc.php:188
 msgid "Tables display options"
 msgstr "Tabellvisningsinnstillinger"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:187 setup/frames/menu.inc.php:20
+=======
+#: libraries/config/messages.inc.php:189 setup/frames/menu.inc.php:20
+>>>>>>> upstream/master
 msgid "Main frame"
 msgstr "Hovedramme"
 
-#: libraries/config/messages.inc.php:188
+#: libraries/config/messages.inc.php:190
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: libraries/config/messages.inc.php:190
+#: libraries/config/messages.inc.php:192
 msgid "Open Document"
 msgstr "Åpent Dokument"
 
-#: libraries/config/messages.inc.php:192
+#: libraries/config/messages.inc.php:194
 msgid "Other core settings"
 msgstr "Andre hovedinnstillinger"
 
-#: libraries/config/messages.inc.php:193
+#: libraries/config/messages.inc.php:195
 msgid "Settings that didn't fit enywhere else"
 msgstr "Innstillinger som ikke passer andre steder"
 
-#: libraries/config/messages.inc.php:194
+#: libraries/config/messages.inc.php:196
 msgid "Page titles"
 msgstr "Sidetitler"
 
-#: libraries/config/messages.inc.php:195
+#: libraries/config/messages.inc.php:197
 msgid ""
 "Specify browser's title bar text. Refer to [a@Documentation."
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
@@ -3926,21 +4243,25 @@ msgstr ""
 "html#cfg_TitleTable]dokumentasjon[/a] for spesielle strenger som kan tas i "
 "bruk for å tilgang til spesialverdier."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:196
+=======
+#: libraries/config/messages.inc.php:198
+>>>>>>> upstream/master
 #: libraries/navigation_header.inc.php:74
 #: libraries/navigation_header.inc.php:76
 msgid "Query window"
 msgstr "Spørringsvindu"
 
-#: libraries/config/messages.inc.php:197
+#: libraries/config/messages.inc.php:199
 msgid "Customize query window options"
 msgstr "Endre spørringsvinduinnstillinger"
 
-#: libraries/config/messages.inc.php:198
+#: libraries/config/messages.inc.php:200
 msgid "Security"
 msgstr "Sikkerhet"
 
-#: libraries/config/messages.inc.php:199
+#: libraries/config/messages.inc.php:201
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
@@ -3948,23 +4269,23 @@ msgstr ""
 "Merk at phpMyAdmin er bare et brukergrensesnitt og dens egenskaper begrenser "
 "ikke MySQL"
 
-#: libraries/config/messages.inc.php:200
+#: libraries/config/messages.inc.php:202
 msgid "Basic settings"
 msgstr "Grunnleggende innstillinger"
 
-#: libraries/config/messages.inc.php:201
+#: libraries/config/messages.inc.php:203
 msgid "Authentication"
 msgstr "Godkjenning"
 
-#: libraries/config/messages.inc.php:202
+#: libraries/config/messages.inc.php:204
 msgid "Authentication settings"
 msgstr "Innstillinger godkjenning"
 
-#: libraries/config/messages.inc.php:203
+#: libraries/config/messages.inc.php:205
 msgid "Server configuration"
 msgstr "Tjenerinnstillinger"
 
-#: libraries/config/messages.inc.php:204
+#: libraries/config/messages.inc.php:206
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
@@ -3972,15 +4293,15 @@ msgstr ""
 "Avanserte tjenerinnstillinger, ikke endre disse hvis du ikke vet hva de er "
 "for"
 
-#: libraries/config/messages.inc.php:205
+#: libraries/config/messages.inc.php:207
 msgid "Enter server connection parameters"
 msgstr "Legg til tjenertilkoblingsparametre"
 
-#: libraries/config/messages.inc.php:206
+#: libraries/config/messages.inc.php:208
 msgid "Configuration storage"
 msgstr "Konfigurasjonslager"
 
-#: libraries/config/messages.inc.php:207
+#: libraries/config/messages.inc.php:209
 #, fuzzy
 #| msgid ""
 #| "ure phpMyAdmin database to gain access to additional features, see "
@@ -3995,11 +4316,11 @@ msgstr ""
 "[a@../Documentation.html#linked-tables]lenkede-tabeller infrastruktur[/a] i "
 "dokumentasjonen"
 
-#: libraries/config/messages.inc.php:208
+#: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
 msgstr "Endringssporing"
 
-#: libraries/config/messages.inc.php:209
+#: libraries/config/messages.inc.php:211
 #, fuzzy
 #| msgid "ng of changes made in database. Requires configured PMA database."
 msgid ""
@@ -4008,44 +4329,48 @@ msgid ""
 msgstr ""
 "Sporing av endringer utført i databasen. PMA database må være konfigurert."
 
-#: libraries/config/messages.inc.php:210
+#: libraries/config/messages.inc.php:212
 msgid "Customize export options"
 msgstr "Endre eksportstandarder"
 
-#: libraries/config/messages.inc.php:212
+#: libraries/config/messages.inc.php:214
 msgid "Customize import defaults"
 msgstr "Endre importstandarder"
 
-#: libraries/config/messages.inc.php:213
+#: libraries/config/messages.inc.php:215
 msgid "Customize navigation frame"
 msgstr "Endre navigasjonsrammen"
 
-#: libraries/config/messages.inc.php:214
+#: libraries/config/messages.inc.php:216
 msgid "Customize main frame"
 msgstr "Endre hovedrammen"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:215 libraries/config/messages.inc.php:220
+=======
+#: libraries/config/messages.inc.php:217 libraries/config/messages.inc.php:222
+>>>>>>> upstream/master
 #: setup/frames/menu.inc.php:18
 msgid "SQL queries"
 msgstr "SQL spørringer"
 
-#: libraries/config/messages.inc.php:217
+#: libraries/config/messages.inc.php:219
 msgid "SQL Query box"
 msgstr "SQL spørringsboks"
 
-#: libraries/config/messages.inc.php:218
+#: libraries/config/messages.inc.php:220
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Endre linker vist i SQL spørringsbokser"
 
-#: libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:223
 msgid "SQL queries settings"
 msgstr "SQL søkeinnstilinger"
 
-#: libraries/config/messages.inc.php:222
+#: libraries/config/messages.inc.php:224
 msgid "SQL Validator"
 msgstr "SQL validator"
 
-#: libraries/config/messages.inc.php:223
+#: libraries/config/messages.inc.php:225
 msgid ""
 "If you wish to use the SQL Validator service, you should be aware that "
 "[strong]all SQL statements are stored anonymously for statistical purposes[/"
@@ -4053,55 +4378,65 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:224
+#: libraries/config/messages.inc.php:226
 msgid "Startup"
 msgstr "Oppstart"
 
-#: libraries/config/messages.inc.php:225
+#: libraries/config/messages.inc.php:227
 msgid "Customize startup page"
 msgstr "Endre oppstartssiden"
 
-#: libraries/config/messages.inc.php:226
+#: libraries/config/messages.inc.php:228
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database structure"
 msgstr "Brukerdatabase"
 
-#: libraries/config/messages.inc.php:227
+#: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:228
+#: libraries/config/messages.inc.php:230
+#, fuzzy
+#| msgid "Database for user"
+msgid "Table structure"
+msgstr "Brukerdatabase"
+
+#: libraries/config/messages.inc.php:231
+msgid "Settings for the table structure (list of columns)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:232
 msgid "Tabs"
 msgstr "Faner"
 
-#: libraries/config/messages.inc.php:229
+#: libraries/config/messages.inc.php:233
 msgid "Choose how you want tabs to work"
 msgstr "Velg hvordan du ønsker fanene skal fungere"
 
-#: libraries/config/messages.inc.php:230
+#: libraries/config/messages.inc.php:234
 msgid "Text fields"
 msgstr "Tekstfelt"
 
-#: libraries/config/messages.inc.php:231
+#: libraries/config/messages.inc.php:235
 #, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields"
 msgstr "Endre eksportstandarder"
 
-#: libraries/config/messages.inc.php:232 libraries/export/texytext.php:18
+#: libraries/config/messages.inc.php:236 libraries/export/texytext.php:18
 msgid "Texy! text"
 msgstr "Texy! tekst"
 
-#: libraries/config/messages.inc.php:234
+#: libraries/config/messages.inc.php:238
 msgid "Warnings"
 msgstr "Advarsler"
 
-#: libraries/config/messages.inc.php:235
+#: libraries/config/messages.inc.php:239
 msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr "Slå av noen av advarslene fra phpMyAdmin"
 
-#: libraries/config/messages.inc.php:236
+#: libraries/config/messages.inc.php:240
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
@@ -4109,15 +4444,15 @@ msgstr ""
 "Slå på [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a]-komprimering for import "
 "og eksportoperasjoner"
 
-#: libraries/config/messages.inc.php:237
+#: libraries/config/messages.inc.php:241
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/config/messages.inc.php:238
+#: libraries/config/messages.inc.php:242
 msgid "Extra parameters for iconv"
 msgstr "Ekstra parametre for iconv"
 
-#: libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:243
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
@@ -4125,11 +4460,11 @@ msgstr ""
 "Hvis påslått vil PMA forsette å behandle flerspørrings spørringer også hvis "
 "en av spørringene feiler"
 
-#: libraries/config/messages.inc.php:240
+#: libraries/config/messages.inc.php:244
 msgid "Ignore multiple statement errors"
 msgstr "Ignorer flere spørringsfeil"
 
-#: libraries/config/messages.inc.php:241
+#: libraries/config/messages.inc.php:245
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
@@ -4139,21 +4474,21 @@ msgstr ""
 "nærheten av tidsbegrensningen. Dette kan være en god måte å importere store "
 "filer, men den kan knekke transaksjoner."
 
-#: libraries/config/messages.inc.php:242
+#: libraries/config/messages.inc.php:246
 msgid "Partial import: allow interrupt"
 msgstr "Delvis import: tillat avbrudd"
 
-#: libraries/config/messages.inc.php:247 libraries/config/messages.inc.php:254
+#: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:258
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
 msgstr "Ikke avbryt under INSERT feil"
 
-#: libraries/config/messages.inc.php:248 libraries/config/messages.inc.php:256
+#: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
 msgstr "Erstatt tabell med filen"
 
-#: libraries/config/messages.inc.php:250
+#: libraries/config/messages.inc.php:254
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
@@ -4161,92 +4496,92 @@ msgstr ""
 "Standard format, merk at denne lista avhenger av lokasjon (database, tabell) "
 "og bare SQL er alltid tilgjengelig"
 
-#: libraries/config/messages.inc.php:251
+#: libraries/config/messages.inc.php:255
 msgid "Format of imported file"
 msgstr "Importfilformat"
 
-#: libraries/config/messages.inc.php:255 libraries/import/ldi.php:46
+#: libraries/config/messages.inc.php:259 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
 msgstr "Bruk LOCAL nøkkelord"
 
-#: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:266
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:262 libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:271
 msgid "Column names in first row"
 msgstr "Kolonnenavn i første rad"
 
-#: libraries/config/messages.inc.php:259 libraries/import/ods.php:34
+#: libraries/config/messages.inc.php:263 libraries/import/ods.php:34
 msgid "Do not import empty rows"
 msgstr "Ikke importer tomme rader"
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:264
 #, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importer valuta ($5.00 til 5.00)"
 
-#: libraries/config/messages.inc.php:261
+#: libraries/config/messages.inc.php:265
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importer prosenter som heltall (12.00% til .12)"
 
-#: libraries/config/messages.inc.php:262
+#: libraries/config/messages.inc.php:266
 msgid "Number of queries to skip from start"
 msgstr "Antall poster(spørringer) å hoppe over fra start"
 
-#: libraries/config/messages.inc.php:263
+#: libraries/config/messages.inc.php:267
 msgid "Partial import: skip queries"
 msgstr "Delvis import: hopp over spørringer"
 
-#: libraries/config/messages.inc.php:265
+#: libraries/config/messages.inc.php:269
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Ikke bruk AUTO_INCREMENT for nullverdier"
 
-#: libraries/config/messages.inc.php:268
+#: libraries/config/messages.inc.php:272
 msgid "Initial state for sliders"
 msgstr "Initiell tilstand for slidere"
 
-#: libraries/config/messages.inc.php:269
+#: libraries/config/messages.inc.php:273
 msgid "How many rows can be inserted at one time"
 msgstr "Hvor mange rader som kan settes inn på en gang"
 
-#: libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:274
 msgid "Number of inserted rows"
 msgstr "Antall innsettingsrader"
 
-#: libraries/config/messages.inc.php:271
+#: libraries/config/messages.inc.php:275
 msgid "Target for quick access icon"
 msgstr "Mål for hurtigtilgangsikon"
 
-#: libraries/config/messages.inc.php:272
+#: libraries/config/messages.inc.php:276
 msgid "Show logo in left frame"
 msgstr "Vis logo i venstre ramme"
 
-#: libraries/config/messages.inc.php:273
+#: libraries/config/messages.inc.php:277
 msgid "Display logo"
 msgstr "Vis logo"
 
-#: libraries/config/messages.inc.php:274
+#: libraries/config/messages.inc.php:278
 msgid "Display server choice at the top of the left frame"
 msgstr "Vis tjenervalg øverst i venstre ramme"
 
-#: libraries/config/messages.inc.php:275
+#: libraries/config/messages.inc.php:279
 msgid "Display servers selection"
 msgstr "Vis tjenerutvalg"
 
-#: libraries/config/messages.inc.php:276
+#: libraries/config/messages.inc.php:280
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Vis minimum antall tabeller i filterboks"
 
-#: libraries/config/messages.inc.php:277
+#: libraries/config/messages.inc.php:281
 msgid "String that separates databases into different tree levels"
 msgstr "Streng som skiller databaser i forskellige trenivåer"
 
-#: libraries/config/messages.inc.php:278
+#: libraries/config/messages.inc.php:282
 msgid "Database tree separator"
 msgstr "Database treskilletegn"
 
-#: libraries/config/messages.inc.php:279
+#: libraries/config/messages.inc.php:283
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
@@ -4254,39 +4589,39 @@ msgstr ""
 "Kun i hurtigversjon; vis databaser i et tre (bestemmes av skilletegnet "
 "definert nedenfor)"
 
-#: libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:284
 msgid "Display databases in a tree"
 msgstr "Vis databaser i et tre"
 
-#: libraries/config/messages.inc.php:281
+#: libraries/config/messages.inc.php:285
 msgid "Disable this if you want to see all databases at once"
 msgstr "Slå av denne hvis du ønsker å kunne se alle databaser på en gang"
 
-#: libraries/config/messages.inc.php:282
+#: libraries/config/messages.inc.php:286
 msgid "Use light version"
 msgstr "Bruk hurtigversjon"
 
-#: libraries/config/messages.inc.php:283
+#: libraries/config/messages.inc.php:287
 msgid "Maximum table tree depth"
 msgstr "Maks tabelltredybde"
 
-#: libraries/config/messages.inc.php:284
+#: libraries/config/messages.inc.php:288
 msgid "String that separates tables into different tree levels"
 msgstr "Streng som skiller tabeller i forskellige trenivåer"
 
-#: libraries/config/messages.inc.php:285
+#: libraries/config/messages.inc.php:289
 msgid "Table tree separator"
 msgstr "Tabelltreseparator"
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:290
 msgid "URL where logo in the navigation frame will point to"
 msgstr "URL hvor logoen i navigasjonsrammen skal peke til"
 
-#: libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:291
 msgid "Logo link URL"
 msgstr "Logo link URL"
 
-#: libraries/config/messages.inc.php:288
+#: libraries/config/messages.inc.php:292
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
@@ -4294,50 +4629,42 @@ msgstr ""
 "Åpne den linkede siden i hovedvinduet ([kbd]main[/kbd]) eller i en ny en "
 "([kbd]new[/kbd])"
 
-#: libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:293
 msgid "Logo link target"
 msgstr "Logo link mål"
 
-#: libraries/config/messages.inc.php:290
+#: libraries/config/messages.inc.php:294
 msgid "Highlight server under the mouse cursor"
 msgstr "Uthev tjener under musmarkøren"
 
-#: libraries/config/messages.inc.php:291
+#: libraries/config/messages.inc.php:295
 msgid "Enable highlighting"
 msgstr "Aktiver utheving"
 
-#: libraries/config/messages.inc.php:292
+#: libraries/config/messages.inc.php:296
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Maks antall tabeller vist i tabellista"
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:297
 #, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
 msgstr "Ikke overvåkede tabeller"
 
-#: libraries/config/messages.inc.php:294
-msgid "Use less graphically intense tabs"
-msgstr "Bruk mindre grafisk tunge faner"
-
-#: libraries/config/messages.inc.php:295
-msgid "Light tabs"
-msgstr "Hurtigfaner"
-
-#: libraries/config/messages.inc.php:296
+#: libraries/config/messages.inc.php:298
 #, fuzzy
 #| msgid "imum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr "Maks antall tegn brukt når en SQL spørring er framvist"
 
-#: libraries/config/messages.inc.php:297
+#: libraries/config/messages.inc.php:299
 msgid "Limit column characters"
 msgstr "Begrens kolonne tegn"
 
-#: libraries/config/messages.inc.php:298
+#: libraries/config/messages.inc.php:300
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -4347,11 +4674,11 @@ msgstr ""
 "ellers bare for den aktuelle tjeneren. Sett denne til FALSE gjør det lett å "
 "glemme å logge ut fra andre tjenere når du bruker flere."
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:301
 msgid "Delete all cookies on logout"
 msgstr "Slett alle cookies ved utlogging"
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:302
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
@@ -4359,11 +4686,11 @@ msgstr ""
 "Definerer om forrige innlogging skal husker eller ikke i cookie "
 "autentiseringsmodus"
 
-#: libraries/config/messages.inc.php:301
+#: libraries/config/messages.inc.php:303
 msgid "Recall user name"
 msgstr "Husk brukernavn"
 
-#: libraries/config/messages.inc.php:302
+#: libraries/config/messages.inc.php:304
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -4375,26 +4702,27 @@ msgstr ""
 "sessjon, det vil si at den vil bli slettet så fort du lukker "
 "nettleservinduet. Dette er anbefalt for ikke sikre brukermiljøer."
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:305
 msgid "Login cookie store"
 msgstr "Innloggings cookie lagring"
 
-#: libraries/config/messages.inc.php:304
+#: libraries/config/messages.inc.php:306
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr "Definer hvor lenge (i sekunder) en innloggings cookie skal være gyldig"
 
-#: libraries/config/messages.inc.php:305
+#: libraries/config/messages.inc.php:307
 msgid "Login cookie validity"
 msgstr "Innloggings cookie gyldighet"
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:308
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr "Dobbel størrelse i tekstområde for LONGTEXT kolonner"
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:309
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Større tekstområde for LONGTEXT"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:308
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr "Maks antall tegn brukt når en SQL spørring er framvist"
@@ -4417,6 +4745,30 @@ msgid "Maximum databases"
 msgstr "Maks antall databaser"
 
 #: libraries/config/messages.inc.php:313
+=======
+#: libraries/config/messages.inc.php:310
+msgid "Maximum number of characters used when a SQL query is displayed"
+msgstr "Maks antall tegn brukt når en SQL spørring er framvist"
+
+#: libraries/config/messages.inc.php:311
+msgid "Maximum displayed SQL length"
+msgstr "Maks lengde SQL"
+
+#: libraries/config/messages.inc.php:312 libraries/config/messages.inc.php:317
+#: libraries/config/messages.inc.php:344
+msgid "Users cannot set a higher value"
+msgstr "Brukere kan ikke angi en høyere verdi"
+
+#: libraries/config/messages.inc.php:313
+msgid "Maximum number of databases displayed in left frame and database list"
+msgstr "Maks antall databases vist i venstre ramme og databaselista"
+
+#: libraries/config/messages.inc.php:314
+msgid "Maximum databases"
+msgstr "Maks antall databaser"
+
+#: libraries/config/messages.inc.php:315
+>>>>>>> upstream/master
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
@@ -4426,6 +4778,7 @@ msgstr ""
 "inneholder flere rader vil &quot;Forrige&quot; og &quot;Neste&quot; linker "
 "bli vist."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:314
 msgid "Maximum number of rows to display"
 msgstr "Maks antall rader som kan framvises"
@@ -4439,6 +4792,21 @@ msgid "Maximum tables"
 msgstr "Maks antall tabeller"
 
 #: libraries/config/messages.inc.php:318
+=======
+#: libraries/config/messages.inc.php:316
+msgid "Maximum number of rows to display"
+msgstr "Maks antall rader som kan framvises"
+
+#: libraries/config/messages.inc.php:318
+msgid "Maximum number of tables displayed in table list"
+msgstr "Maks antall tabeller vist i tabellista"
+
+#: libraries/config/messages.inc.php:319
+msgid "Maximum tables"
+msgstr "Maks antall tabeller"
+
+#: libraries/config/messages.inc.php:320
+>>>>>>> upstream/master
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
@@ -4446,11 +4814,19 @@ msgstr ""
 "Slå av forvalgt advarsel som blir vist hvis mcrypt mangler ved "
 "informasjonskapsel autentisering"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:319
 msgid "mcrypt warning"
 msgstr "mcrypt advarsel"
 
 #: libraries/config/messages.inc.php:320
+=======
+#: libraries/config/messages.inc.php:321
+msgid "mcrypt warning"
+msgstr "mcrypt advarsel"
+
+#: libraries/config/messages.inc.php:322
+>>>>>>> upstream/master
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
@@ -4458,16 +4834,25 @@ msgstr ""
 "Maks antal byte et skript har lov til å bruke, f.eks. [kbd]32M[/kbd] ([kbd]0"
 "[/kbd] for ingen begrensning)"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:321
 msgid "Memory limit"
 msgstr "Minnetak"
 
 #: libraries/config/messages.inc.php:322
+=======
+#: libraries/config/messages.inc.php:323
+msgid "Memory limit"
+msgstr "Minnetak"
+
+#: libraries/config/messages.inc.php:324
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
 msgstr "Dette er rediger, innsmettet rediger, kopier og slettede lenker"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:323
 msgid "Where to show the table row links"
 msgstr ""
@@ -4497,6 +4882,37 @@ msgid "GZip output buffering"
 msgstr "GZip utbuffring"
 
 #: libraries/config/messages.inc.php:330
+=======
+#: libraries/config/messages.inc.php:325
+msgid "Where to show the table row links"
+msgstr ""
+
+#: libraries/config/messages.inc.php:326
+msgid "Use natural order for sorting table and database names"
+msgstr "Bruk naturlig rekkefølge for å sortere tabell- og databasenavn"
+
+#: libraries/config/messages.inc.php:327
+msgid "Natural order"
+msgstr "Normal rekkefølge"
+
+#: libraries/config/messages.inc.php:328 libraries/config/messages.inc.php:338
+msgid "Use only icons, only text or both"
+msgstr "Bruk bare ikoner, bare tekst eller begge deler"
+
+#: libraries/config/messages.inc.php:329
+msgid "Iconic navigation bar"
+msgstr "Ikonnavigasjonsmeny"
+
+#: libraries/config/messages.inc.php:330
+msgid "use GZip output buffering for increased speed in HTTP transfers"
+msgstr "Bruk GZip utbuffring for økt hastighet i HTTP overføringer"
+
+#: libraries/config/messages.inc.php:331
+msgid "GZip output buffering"
+msgstr "GZip utbuffring"
+
+#: libraries/config/messages.inc.php:332
+>>>>>>> upstream/master
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -4504,6 +4920,7 @@ msgstr ""
 "[kbd]SMART[/kbd] - dvs. synkende rekkefølge for felter av typen TIME, DATE, "
 "DATETIME og TIMESTAMP, ellers stigende rekkefølge"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:331
 msgid "Default sorting order"
 msgstr "Standard sorteringsrekkefølge"
@@ -4517,12 +4934,28 @@ msgid "Persistent connections"
 msgstr "Vedvarende forbindelser"
 
 #: libraries/config/messages.inc.php:334
+=======
+#: libraries/config/messages.inc.php:333
+msgid "Default sorting order"
+msgstr "Standard sorteringsrekkefølge"
+
+#: libraries/config/messages.inc.php:334
+msgid "Use persistent connections to MySQL databases"
+msgstr "Bruk vedvarende forbindelser til MySQL databasen"
+
+#: libraries/config/messages.inc.php:335
+msgid "Persistent connections"
+msgstr "Vedvarende forbindelser"
+
+#: libraries/config/messages.inc.php:336
+>>>>>>> upstream/master
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:335
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr ""
@@ -4540,6 +4973,25 @@ msgid "Protect binary columns"
 msgstr "Beskytt binære kolonner"
 
 #: libraries/config/messages.inc.php:340
+=======
+#: libraries/config/messages.inc.php:337
+msgid "Missing phpMyAdmin configuration storage tables"
+msgstr ""
+
+#: libraries/config/messages.inc.php:339
+msgid "Iconic table operations"
+msgstr "Ikoniske tabelloperasjoner"
+
+#: libraries/config/messages.inc.php:340
+msgid "Disallow BLOB and BINARY columns from editing"
+msgstr "Ikke tillat BLOB eller BLOB og BINARY kolonner å bli redigert"
+
+#: libraries/config/messages.inc.php:341
+msgid "Protect binary columns"
+msgstr "Beskytt binære kolonner"
+
+#: libraries/config/messages.inc.php:342
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| " if you want DB-based query history (requires pmadb). If disabled, s "
@@ -4552,6 +5004,7 @@ msgstr ""
 "Slå på hvis du ønsker DB-basert spørringshistorie (trenger pmadb). Hvis "
 "avslått, vil JS-rutiner vise spørringshistorien (tapt ved lukking av vindu)."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:341
 msgid "Permanent query history"
 msgstr "Permanent spørringshistorie"
@@ -4581,20 +5034,60 @@ msgid "Query window height"
 msgstr "Høyde på spørringsvindu"
 
 #: libraries/config/messages.inc.php:349
+=======
+#: libraries/config/messages.inc.php:343
+msgid "Permanent query history"
+msgstr "Permanent spørringshistorie"
+
+#: libraries/config/messages.inc.php:345
+msgid "How many queries are kept in history"
+msgstr "Hvor mange spørringer lagres"
+
+#: libraries/config/messages.inc.php:346
+msgid "Query history length"
+msgstr "Spørringshistorielengde"
+
+#: libraries/config/messages.inc.php:347
+msgid "Tab displayed when opening a new query window"
+msgstr "Fanen som vises når et nytt spørringsvindu åpnes"
+
+#: libraries/config/messages.inc.php:348
+msgid "Default query window tab"
+msgstr "Standard spørringsvindufane"
+
+#: libraries/config/messages.inc.php:349
+msgid "Query window height (in pixels)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:350
+msgid "Query window height"
+msgstr "Høyde på spørringsvindu"
+
+#: libraries/config/messages.inc.php:351
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Spørringsvindu"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:350
 msgid "Query window width"
 msgstr "Bredde på spørringsvindu"
 
 #: libraries/config/messages.inc.php:351
+=======
+#: libraries/config/messages.inc.php:352
+msgid "Query window width"
+msgstr "Bredde på spørringsvindu"
+
+#: libraries/config/messages.inc.php:353
+>>>>>>> upstream/master
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
 "Velg hvilken funksjon som vil bli brukt for karaktertegnsettskonverteringer"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:352
 msgid "Recoding engine"
 msgstr "Rekodingsmotor"
@@ -4604,11 +5097,23 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
 #: libraries/config/messages.inc.php:354
+=======
+#: libraries/config/messages.inc.php:354
+msgid "Recoding engine"
+msgstr "Rekodingsmotor"
+
+#: libraries/config/messages.inc.php:355
+msgid "When browsing tables, the sorting of each table is remembered"
+msgstr ""
+
+#: libraries/config/messages.inc.php:356
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "Endre tabellens navn"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:355
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
@@ -4642,21 +5147,65 @@ msgid "Leave blank if not used"
 msgstr "La stå tom hvis ikke brukt"
 
 #: libraries/config/messages.inc.php:364
+=======
+#: libraries/config/messages.inc.php:357
+msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
+msgstr ""
+
+#: libraries/config/messages.inc.php:358
+msgid "Repeat headers"
+msgstr "Gjenta topptekst"
+
+#: libraries/config/messages.inc.php:359
+msgid "Show help button instead of Documentation text"
+msgstr ""
+
+#: libraries/config/messages.inc.php:360
+msgid "Show help button"
+msgstr ""
+
+#: libraries/config/messages.inc.php:362
+msgid "Save all edited cells at once"
+msgstr ""
+
+#: libraries/config/messages.inc.php:363
+msgid "Directory where exports can be saved on server"
+msgstr "Mappe for eksporter kan lagres på tjeneren"
+
+#: libraries/config/messages.inc.php:364
+msgid "Save directory"
+msgstr "Lagringsmappe"
+
+#: libraries/config/messages.inc.php:365
+msgid "Leave blank if not used"
+msgstr "La stå tom hvis ikke brukt"
+
+#: libraries/config/messages.inc.php:366
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Rekkefølge for vertsautentisering"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:365
 msgid "Leave blank for defaults"
 msgstr "La stå tom for standard"
 
 #: libraries/config/messages.inc.php:366
+=======
+#: libraries/config/messages.inc.php:367
+msgid "Leave blank for defaults"
+msgstr "La stå tom for standard"
+
+#: libraries/config/messages.inc.php:368
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Vertsautentiseringsregler"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:367
 msgid "Allow logins without a password"
 msgstr "Tillat innlogging uten passord"
@@ -4674,6 +5223,25 @@ msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
 #: libraries/config/messages.inc.php:371
+=======
+#: libraries/config/messages.inc.php:369
+msgid "Allow logins without a password"
+msgstr "Tillat innlogging uten passord"
+
+#: libraries/config/messages.inc.php:370
+msgid "Allow root login"
+msgstr "Tillat innlogging som root"
+
+#: libraries/config/messages.inc.php:371
+msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr "HTTP Basic Auth Realm navn for visning ved bruk av HTTP Auth"
+
+#: libraries/config/messages.inc.php:372
+msgid "HTTP Realm"
+msgstr "HTTP Realm"
+
+#: libraries/config/messages.inc.php:373
+>>>>>>> upstream/master
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -4682,6 +5250,7 @@ msgstr ""
 "Stien til konfigfila for [a@http://swekey.com]SweKey hardware authentication"
 "[/a] (ikke lokalisert i din dokumentrot; foreslått: /etc/swekey.conf)"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:372
 msgid "SweKey config file"
 msgstr "SweKey config fil"
@@ -4695,6 +5264,21 @@ msgid "Authentication type"
 msgstr "Autentiseringstype"
 
 #: libraries/config/messages.inc.php:375
+=======
+#: libraries/config/messages.inc.php:374
+msgid "SweKey config file"
+msgstr "SweKey config fil"
+
+#: libraries/config/messages.inc.php:375
+msgid "Authentication method to use"
+msgstr "Autentiseringsmetode som skal brukes"
+
+#: libraries/config/messages.inc.php:376 setup/frames/index.inc.php:136
+msgid "Authentication type"
+msgstr "Autentiseringstype"
+
+#: libraries/config/messages.inc.php:377
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -4702,11 +5286,19 @@ msgstr ""
 "La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/bookmark]bokmerke[/a]"
 "støtte, anbefalt: [kbd]pma_bookmark[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:376
 msgid "Bookmark table"
 msgstr "Bokmerketabell"
 
 #: libraries/config/messages.inc.php:377
+=======
+#: libraries/config/messages.inc.php:378
+msgid "Bookmark table"
+msgstr "Bokmerketabell"
+
+#: libraries/config/messages.inc.php:379
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
@@ -4714,6 +5306,7 @@ msgstr ""
 "La stå tom for ingen kolonnekommentarer/mime typer, anbefalt: [kbd]"
 "pma_column_info[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:378
 msgid "Column information table"
 msgstr "Kolonneinformasjonstabell"
@@ -4739,6 +5332,33 @@ msgid "Control user password"
 msgstr "Kontrollbrukerpassord"
 
 #: libraries/config/messages.inc.php:384
+=======
+#: libraries/config/messages.inc.php:380
+msgid "Column information table"
+msgstr "Kolonneinformasjonstabell"
+
+#: libraries/config/messages.inc.php:381
+msgid "Compress connection to MySQL server"
+msgstr "Komprimer tilkoblingen til MySQL tjeneren"
+
+#: libraries/config/messages.inc.php:382
+msgid "Compress connection"
+msgstr "Komprimer tilkobling"
+
+#: libraries/config/messages.inc.php:383
+msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
+msgstr "Hvordan koble til tjener, behold tcp hvis usikker"
+
+#: libraries/config/messages.inc.php:384
+msgid "Connection type"
+msgstr "Tilkoblingstype"
+
+#: libraries/config/messages.inc.php:385
+msgid "Control user password"
+msgstr "Kontrollbrukerpassord"
+
+#: libraries/config/messages.inc.php:386
+>>>>>>> upstream/master
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
@@ -4747,22 +5367,35 @@ msgstr ""
 "informasjon tilgjengelig på [a@http://wiki.phpmyadmin.net/pma/controluser]"
 "wiki[/a]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:385
 msgid "Control user"
 msgstr "Kontrollbruker"
 
 #: libraries/config/messages.inc.php:386
+=======
+#: libraries/config/messages.inc.php:387
+msgid "Control user"
+msgstr "Kontrollbruker"
+
+#: libraries/config/messages.inc.php:388
+>>>>>>> upstream/master
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:387
+=======
+#: libraries/config/messages.inc.php:389
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Control user"
 msgid "Control host"
 msgstr "Kontrollbruker"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:388
 msgid "Count tables when showing database list"
 msgstr "Tell tabeller ved visning av databaseliste"
@@ -4772,17 +5405,36 @@ msgid "Count tables"
 msgstr "Tell tabeller"
 
 #: libraries/config/messages.inc.php:390
+=======
+#: libraries/config/messages.inc.php:390
+msgid "Count tables when showing database list"
+msgstr "Tell tabeller ved visning av databaseliste"
+
+#: libraries/config/messages.inc.php:391
+msgid "Count tables"
+msgstr "Tell tabeller"
+
+#: libraries/config/messages.inc.php:392
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
 "La stå tom for ingen Designer støtte, anbefalt: [kbd]designer_coords[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:391
 msgid "Designer table"
 msgstr "Designertabell"
 
 #: libraries/config/messages.inc.php:392
+=======
+#: libraries/config/messages.inc.php:393
+msgid "Designer table"
+msgstr "Designertabell"
+
+#: libraries/config/messages.inc.php:394
+>>>>>>> upstream/master
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -4790,6 +5442,7 @@ msgstr ""
 "Mer informasjon på [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:393
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Slå av bruk av INFORMATION_SCHEMA"
@@ -4811,12 +5464,36 @@ msgid "Hide databases"
 msgstr "Skul databaser"
 
 #: libraries/config/messages.inc.php:398
+=======
+#: libraries/config/messages.inc.php:395
+msgid "Disable use of INFORMATION_SCHEMA"
+msgstr "Slå av bruk av INFORMATION_SCHEMA"
+
+#: libraries/config/messages.inc.php:396
+msgid "What PHP extension to use; you should use mysqli if supported"
+msgstr "Hvilken PHP modul som skal brukes, bruk mysqli hvis støttet"
+
+#: libraries/config/messages.inc.php:397
+msgid "PHP extension to use"
+msgstr "Bruk PHP modul"
+
+#: libraries/config/messages.inc.php:398
+msgid "Hide databases matching regular expression (PCRE)"
+msgstr "Skjul databaser som matcher regular expression (PCRE)"
+
+#: libraries/config/messages.inc.php:399
+msgid "Hide databases"
+msgstr "Skul databaser"
+
+#: libraries/config/messages.inc.php:400
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_history[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:399
 msgid "SQL query history table"
 msgstr "SQL spørringshistorietabell"
@@ -4834,17 +5511,41 @@ msgid "Logout URL"
 msgstr "Logg ut URL"
 
 #: libraries/config/messages.inc.php:403
+=======
+#: libraries/config/messages.inc.php:401
+msgid "SQL query history table"
+msgstr "SQL spørringshistorietabell"
+
+#: libraries/config/messages.inc.php:402
+msgid "Hostname where MySQL server is running"
+msgstr "Vertsnavn hvor MySQL tjeneren kjører"
+
+#: libraries/config/messages.inc.php:403
+msgid "Server hostname"
+msgstr "Tjenervertsnavn"
+
+#: libraries/config/messages.inc.php:404
+msgid "Logout URL"
+msgstr "Logg ut URL"
+
+#: libraries/config/messages.inc.php:405
+>>>>>>> upstream/master
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:404
+=======
+#: libraries/config/messages.inc.php:406
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "Maks antall tabeller vist i tabellista"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:405
 msgid "Try to connect without password"
 msgstr "Forsøk å koble til uten passord"
@@ -4854,6 +5555,17 @@ msgid "Connect without password"
 msgstr "Koble til uten passord"
 
 #: libraries/config/messages.inc.php:407
+=======
+#: libraries/config/messages.inc.php:407
+msgid "Try to connect without password"
+msgstr "Forsøk å koble til uten passord"
+
+#: libraries/config/messages.inc.php:408
+msgid "Connect without password"
+msgstr "Koble til uten passord"
+
+#: libraries/config/messages.inc.php:409
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "n use MySQL wildcard characters (% and _), escape them if you want use ir "
@@ -4868,6 +5580,7 @@ msgstr ""
 "Du kan bruke MySQL jokertegn (% and _), escape dem hvis du ønsker å bruke "
 "dem direkte, f.eks. bruk 'my\\_db' og ikke 'my_db'"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:408
 msgid "Show only listed databases"
 msgstr "Vis kun opplistede databaser"
@@ -4881,16 +5594,39 @@ msgid "Password for config auth"
 msgstr "Passord for config autentisering"
 
 #: libraries/config/messages.inc.php:411
+=======
+#: libraries/config/messages.inc.php:410
+msgid "Show only listed databases"
+msgstr "Vis kun opplistede databaser"
+
+#: libraries/config/messages.inc.php:411 libraries/config/messages.inc.php:452
+msgid "Leave empty if not using config auth"
+msgstr "La stå tom om du ikke skal bruke config autentisering"
+
+#: libraries/config/messages.inc.php:412
+msgid "Password for config auth"
+msgstr "Passord for config autentisering"
+
+#: libraries/config/messages.inc.php:413
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
 "La stå tom for ingen PDF schema støtte, anbefalt: [kbd]pma_pdf_pages[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:412
 msgid "PDF schema: pages table"
 msgstr "PDF schema: sidetabell"
 
 #: libraries/config/messages.inc.php:413
+=======
+#: libraries/config/messages.inc.php:414
+msgid "PDF schema: pages table"
+msgstr "PDF schema: sidetabell"
+
+#: libraries/config/messages.inc.php:415
+>>>>>>> upstream/master
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -4900,6 +5636,7 @@ msgstr ""
 "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for komplett informasjon. La stå "
 "blank for å slå av. Anbefalt: [kbd]phpmyadmin[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:414
 msgid "Database name"
 msgstr "Ddatabasenavn"
@@ -4913,6 +5650,21 @@ msgid "Server port"
 msgstr "Tjenerport"
 
 #: libraries/config/messages.inc.php:417
+=======
+#: libraries/config/messages.inc.php:416
+msgid "Database name"
+msgstr "Ddatabasenavn"
+
+#: libraries/config/messages.inc.php:417
+msgid "Port on which MySQL server is listening, leave empty for default"
+msgstr "Porten som MySQL tjeneren lytter på, la stå tom for standard verdi"
+
+#: libraries/config/messages.inc.php:418
+msgid "Server port"
+msgstr "Tjenerport"
+
+#: libraries/config/messages.inc.php:419
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "blank for no SQL query tracking support, suggested: [kbd]_tracking[/kbd]"
@@ -4922,13 +5674,21 @@ msgid ""
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:418
+=======
+#: libraries/config/messages.inc.php:420
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
 msgstr "Husk brukernavn"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:419
+=======
+#: libraries/config/messages.inc.php:421
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -4936,6 +5696,7 @@ msgstr ""
 "La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/relation]relasjonslink"
 "[/a]støtte, anbefalt: [kbd]pma_relation[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:420
 msgid "Relation table"
 msgstr "Relasjonstabell"
@@ -4949,6 +5710,21 @@ msgid "SHOW DATABASES command"
 msgstr "SHOW DATABASES kommando"
 
 #: libraries/config/messages.inc.php:423
+=======
+#: libraries/config/messages.inc.php:422
+msgid "Relation table"
+msgstr "Relasjonstabell"
+
+#: libraries/config/messages.inc.php:423
+msgid "SQL command to fetch available databases"
+msgstr "SQL kommando for å hente liste over databaser"
+
+#: libraries/config/messages.inc.php:424
+msgid "SHOW DATABASES command"
+msgstr "SHOW DATABASES kommando"
+
+#: libraries/config/messages.inc.php:425
+>>>>>>> upstream/master
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
@@ -4956,6 +5732,7 @@ msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
 "a] for et eksempel"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:424
 msgid "Signon session name"
 msgstr "Signon sesjonsnavn"
@@ -4981,16 +5758,51 @@ msgid "Use SSL"
 msgstr "Bruk SSL"
 
 #: libraries/config/messages.inc.php:430
+=======
+#: libraries/config/messages.inc.php:426
+msgid "Signon session name"
+msgstr "Signon sesjonsnavn"
+
+#: libraries/config/messages.inc.php:427
+msgid "Signon URL"
+msgstr "Signon URL"
+
+#: libraries/config/messages.inc.php:428
+msgid "Socket on which MySQL server is listening, leave empty for default"
+msgstr "Sokkel som MySQL tjeneren lytter på, la stå tom for standard verdi"
+
+#: libraries/config/messages.inc.php:429
+msgid "Server socket"
+msgstr "Tjenersokkel"
+
+#: libraries/config/messages.inc.php:430
+msgid "Enable SSL for connection to MySQL server"
+msgstr "Slå på SSL for tilkobling til MySQL tjener"
+
+#: libraries/config/messages.inc.php:431
+msgid "Use SSL"
+msgstr "Bruk SSL"
+
+#: libraries/config/messages.inc.php:432
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
 "La stå tom for ingen PDF schema støtte, anbefalt: [kbd]pma_table_coords[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:431
 msgid "PDF schema: table coordinates"
 msgstr "PDF schema: tabellkoordinater"
 
 #: libraries/config/messages.inc.php:432
+=======
+#: libraries/config/messages.inc.php:433
+msgid "PDF schema: table coordinates"
+msgstr "PDF schema: tabellkoordinater"
+
+#: libraries/config/messages.inc.php:434
+>>>>>>> upstream/master
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
@@ -4998,11 +5810,19 @@ msgstr ""
 "Tabell for beskrivelse av visningskolonner, la stå tom for ingen støtte; "
 "anbefalt: [kbd]pma_table_info[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:433
 msgid "Display columns table"
 msgstr "Visningskolonnetabell"
 
 #: libraries/config/messages.inc.php:434
+=======
+#: libraries/config/messages.inc.php:435
+msgid "Display columns table"
+msgstr "Visningskolonnetabell"
+
+#: libraries/config/messages.inc.php:436
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "blank for no SQL query tracking support, suggested: [kbd]_tracking[/kbd]"
@@ -5012,13 +5832,21 @@ msgid ""
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:435
+=======
+#: libraries/config/messages.inc.php:437
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
 msgstr "Defragmenter tabell"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:436
+=======
+#: libraries/config/messages.inc.php:438
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -5026,11 +5854,19 @@ msgstr ""
 "Om en DROP DATABASE IF EXISTS spørring skal bli lagt til som første linje i "
 "loggen når oppretter en database."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:437
 msgid "Add DROP DATABASE"
 msgstr "Legg til DROP DATABASE"
 
 #: libraries/config/messages.inc.php:438
+=======
+#: libraries/config/messages.inc.php:439
+msgid "Add DROP DATABASE"
+msgstr "Legg til DROP DATABASE"
+
+#: libraries/config/messages.inc.php:440
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -5038,11 +5874,19 @@ msgstr ""
 "Om en DROP TABLE IF EXISTS spørring vil bli lagt til som første linje til "
 "loggen når oppretter en tabell."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:439
 msgid "Add DROP TABLE"
 msgstr "Legg til DROP TABLE"
 
 #: libraries/config/messages.inc.php:440
+=======
+#: libraries/config/messages.inc.php:441
+msgid "Add DROP TABLE"
+msgstr "Legg til DROP TABLE"
+
+#: libraries/config/messages.inc.php:442
+>>>>>>> upstream/master
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -5050,31 +5894,55 @@ msgstr ""
 "Om en DROP VIEW IF EXISTS spørring vil bli lagt til som første linje i "
 "loggen når opprettes en visning."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:441
 msgid "Add DROP VIEW"
 msgstr "Legg til DROP VIEW"
 
 #: libraries/config/messages.inc.php:442
+=======
+#: libraries/config/messages.inc.php:443
+msgid "Add DROP VIEW"
+msgstr "Legg til DROP VIEW"
+
+#: libraries/config/messages.inc.php:444
+>>>>>>> upstream/master
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Definerer lista med spørringer autoopprettinga bruker for nye versjoner."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:443
 msgid "Statements to track"
 msgstr "Spørringer som skal spores"
 
 #: libraries/config/messages.inc.php:444
+=======
+#: libraries/config/messages.inc.php:445
+msgid "Statements to track"
+msgstr "Spørringer som skal spores"
+
+#: libraries/config/messages.inc.php:446
+>>>>>>> upstream/master
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
 "kbd]"
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:445
 msgid "SQL query tracking table"
 msgstr "SQL spørringssporingstabell"
 
 #: libraries/config/messages.inc.php:446
+=======
+#: libraries/config/messages.inc.php:447
+msgid "SQL query tracking table"
+msgstr "SQL spørringssporingstabell"
+
+#: libraries/config/messages.inc.php:448
+>>>>>>> upstream/master
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -5082,11 +5950,19 @@ msgstr ""
 "Om sporingsmekanismen oppretter versjoner for tabeller og visninger "
 "automatisk."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:447
 msgid "Automatically create versions"
 msgstr "Automatisk opprette versjoner"
 
 #: libraries/config/messages.inc.php:448
+=======
+#: libraries/config/messages.inc.php:449
+msgid "Automatically create versions"
+msgstr "Automatisk opprette versjoner"
+
+#: libraries/config/messages.inc.php:450
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "blank for no SQL query tracking support, suggested: [kbd]_tracking[/kbd]"
@@ -5096,6 +5972,7 @@ msgid ""
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:449
 msgid "User preferences storage table"
 msgstr ""
@@ -5105,6 +5982,17 @@ msgid "User for config auth"
 msgstr "Bruker for config autentisering"
 
 #: libraries/config/messages.inc.php:452
+=======
+#: libraries/config/messages.inc.php:451
+msgid "User preferences storage table"
+msgstr ""
+
+#: libraries/config/messages.inc.php:453
+msgid "User for config auth"
+msgstr "Bruker for config autentisering"
+
+#: libraries/config/messages.inc.php:454
+>>>>>>> upstream/master
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -5112,6 +6000,7 @@ msgstr ""
 "En brukervennlig beskrivelse av denne tjeneren. La stå tom for visning av "
 "vertsnavn istedet."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:453
 msgid "Verbose name of this server"
 msgstr "Fult navn for denne tjeneren"
@@ -5125,6 +6014,21 @@ msgid "Allow to display all the rows"
 msgstr "Tillat visning av alle rader"
 
 #: libraries/config/messages.inc.php:456
+=======
+#: libraries/config/messages.inc.php:455
+msgid "Verbose name of this server"
+msgstr "Fult navn for denne tjeneren"
+
+#: libraries/config/messages.inc.php:456
+msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+msgstr "Avgjør om en bruker får en &quot;vis alle (rader)&quot; knapp"
+
+#: libraries/config/messages.inc.php:457
+msgid "Allow to display all the rows"
+msgstr "Tillat visning av alle rader"
+
+#: libraries/config/messages.inc.php:458
+>>>>>>> upstream/master
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -5134,6 +6038,7 @@ msgstr ""
 "autentiseringsmodus siden passordet er hardkodet i konfigurasjonsfila; dette "
 "begrenser ikke muligheten til å utføre samme kommando direkte"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:457
 msgid "Show password change form"
 msgstr "Vis passordendringsskjema"
@@ -5147,49 +6052,93 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 
 #: libraries/config/messages.inc.php:460
+=======
+#: libraries/config/messages.inc.php:459
+msgid "Show password change form"
+msgstr "Vis passordendringsskjema"
+
+#: libraries/config/messages.inc.php:460
+msgid "Show create database form"
+msgstr "Vis opprett database skjema"
+
+#: libraries/config/messages.inc.php:461
+msgid "Show or hide a column displaying the Creation timestamp for all tables"
+msgstr ""
+
+#: libraries/config/messages.inc.php:462
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show Creation timestamp"
 msgstr "Vis versjoner"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:461
+=======
+#: libraries/config/messages.inc.php:463
+>>>>>>> upstream/master
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:462
 msgid "Show Last update timestamp"
 msgstr ""
 
 #: libraries/config/messages.inc.php:463
+=======
+#: libraries/config/messages.inc.php:464
+msgid "Show Last update timestamp"
+msgstr ""
+
+#: libraries/config/messages.inc.php:465
+>>>>>>> upstream/master
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:464
+=======
+#: libraries/config/messages.inc.php:466
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
 msgstr "Vis masterstatus"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:465
+=======
+#: libraries/config/messages.inc.php:467
+>>>>>>> upstream/master
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:466
+=======
+#: libraries/config/messages.inc.php:468
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
 msgstr "Standard visningsretning"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:467
+=======
+#: libraries/config/messages.inc.php:469
+>>>>>>> upstream/master
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:468
 msgid "Show field types"
 msgstr "Vis felttyper"
@@ -5207,12 +6156,35 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:472
+=======
+#: libraries/config/messages.inc.php:470
+msgid "Show field types"
+msgstr "Vis felttyper"
+
+#: libraries/config/messages.inc.php:471
+msgid "Display the function fields in edit/insert mode"
+msgstr "Vis funksjonsfelter i rediger/sett inn modus"
+
+#: libraries/config/messages.inc.php:472
+msgid "Show function fields"
+msgstr "Vis funksjonsfelter"
+
+#: libraries/config/messages.inc.php:473
+msgid "Whether to show hint or not"
+msgstr ""
+
+#: libraries/config/messages.inc.php:474
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
 msgstr "Vis rutenett"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:473
+=======
+#: libraries/config/messages.inc.php:475
+>>>>>>> upstream/master
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
@@ -5220,6 +6192,7 @@ msgstr ""
 "Vis link til [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "resultat"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:474
 msgid "Show phpinfo() link"
 msgstr "Vis phpinfo() link"
@@ -5237,16 +6210,40 @@ msgid "Show SQL queries"
 msgstr "Vis SQL spørringer"
 
 #: libraries/config/messages.inc.php:478
+=======
+#: libraries/config/messages.inc.php:476
+msgid "Show phpinfo() link"
+msgstr "Vis phpinfo() link"
+
+#: libraries/config/messages.inc.php:477
+msgid "Show detailed MySQL server information"
+msgstr "Vis detaljert MySQL tjenerinformasjon"
+
+#: libraries/config/messages.inc.php:478
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
+msgstr "Definer om SQL spørringer generert av phpMyAdmin skal vises"
+
+#: libraries/config/messages.inc.php:479
+msgid "Show SQL queries"
+msgstr "Vis SQL spørringer"
+
+#: libraries/config/messages.inc.php:480
+>>>>>>> upstream/master
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:479 libraries/sql_query_form.lib.php:358
+=======
+#: libraries/config/messages.inc.php:481 libraries/sql_query_form.lib.php:358
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
 msgstr "Skjul spørringsboks"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:480
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr "Tillat visning av database og tabellstatistikk (f.eks. lagringsbruk)"
@@ -5256,6 +6253,17 @@ msgid "Show statistics"
 msgstr "Vis statistikk"
 
 #: libraries/config/messages.inc.php:482
+=======
+#: libraries/config/messages.inc.php:482
+msgid "Allow to display database and table statistics (eg. space usage)"
+msgstr "Tillat visning av database og tabellstatistikk (f.eks. lagringsbruk)"
+
+#: libraries/config/messages.inc.php:483
+msgid "Show statistics"
+msgstr "Vis statistikk"
+
+#: libraries/config/messages.inc.php:484
+>>>>>>> upstream/master
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
@@ -5263,11 +6271,19 @@ msgstr ""
 "Hvis verktøytips er påslått og en databasekommentar er definert vil denne "
 "bytte om på kommentar og det reelle navnet"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:483
 msgid "Display database comment instead of its name"
 msgstr "Vis databasekommentaren istedet for dens navn"
 
 #: libraries/config/messages.inc.php:484
+=======
+#: libraries/config/messages.inc.php:485
+msgid "Display database comment instead of its name"
+msgstr "Vis databasekommentaren istedet for dens navn"
+
+#: libraries/config/messages.inc.php:486
+>>>>>>> upstream/master
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -5279,6 +6295,7 @@ msgstr ""
 "direktivet, så bare mappen et kalt lik aliaset, selve tabellnavnet forblir "
 "uendret"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:485
 msgid "Display table comment instead of its name"
 msgstr "Vis tabellkommentar istedet for dens navn"
@@ -5288,11 +6305,23 @@ msgid "Display table comments in tooltips"
 msgstr "Vis tabellkommentarer i verktøytips"
 
 #: libraries/config/messages.inc.php:487
+=======
+#: libraries/config/messages.inc.php:487
+msgid "Display table comment instead of its name"
+msgstr "Vis tabellkommentar istedet for dens navn"
+
+#: libraries/config/messages.inc.php:488
+msgid "Display table comments in tooltips"
+msgstr "Vis tabellkommentarer i verktøytips"
+
+#: libraries/config/messages.inc.php:489
+>>>>>>> upstream/master
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 "Merk tabeller i bruk og gjør det mulig å vise databaser med låste tabeller"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:488
 msgid "Skip locked tables"
 msgstr "Ignorer låste tabeller"
@@ -5312,27 +6341,64 @@ msgid "Password"
 msgstr "Passord"
 
 #: libraries/config/messages.inc.php:496
+=======
+#: libraries/config/messages.inc.php:490
+msgid "Skip locked tables"
+msgstr "Ignorer låste tabeller"
+
+#: libraries/config/messages.inc.php:495
+msgid "Requires SQL Validator to be enabled"
+msgstr ""
+
+#: libraries/config/messages.inc.php:497
+#: libraries/display_change_password.lib.php:40
+#: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
+#: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
+#: libraries/replication_gui.lib.php:355 server_privileges.php:952
+#: server_privileges.php:956 server_privileges.php:967
+#: server_privileges.php:1823 server_synchronize.php:1354
+msgid "Password"
+msgstr "Passord"
+
+#: libraries/config/messages.inc.php:498
+>>>>>>> upstream/master
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:497
 msgid "Enable SQL Validator"
 msgstr ""
 
 #: libraries/config/messages.inc.php:498
+=======
+#: libraries/config/messages.inc.php:499
+msgid "Enable SQL Validator"
+msgstr ""
+
+#: libraries/config/messages.inc.php:500
+>>>>>>> upstream/master
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:499 tbl_tracking.php:479
+=======
+#: libraries/config/messages.inc.php:501 tbl_tracking.php:479
+>>>>>>> upstream/master
 #: tbl_tracking.php:536
 msgid "Username"
 msgstr "Brukernavn"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:500
+=======
+#: libraries/config/messages.inc.php:502
+>>>>>>> upstream/master
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
@@ -5340,6 +6406,7 @@ msgstr ""
 "Foreslå et databasenavn i &quot;Opprett Database&quot; skjemaet (hvis mulig) "
 "eller behold tekstfeltet tomt"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:501
 msgid "Suggest new database name"
 msgstr "Foreslå nytt databasenavn"
@@ -5353,29 +6420,57 @@ msgid "Suhosin warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:504
+=======
+#: libraries/config/messages.inc.php:503
+msgid "Suggest new database name"
+msgstr "Foreslå nytt databasenavn"
+
+#: libraries/config/messages.inc.php:504
+msgid "A warning is displayed on the main page if Suhosin is detected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:505
+msgid "Suhosin warning"
+msgstr ""
+
+#: libraries/config/messages.inc.php:506
+>>>>>>> upstream/master
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:505
+=======
+#: libraries/config/messages.inc.php:507
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "CHAR textarea kolonner"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:506
+=======
+#: libraries/config/messages.inc.php:508
+>>>>>>> upstream/master
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:507
+=======
+#: libraries/config/messages.inc.php:509
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "CHAR textarea rader"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:508
 msgid "Title of browser window when a database is selected"
 msgstr ""
@@ -5397,6 +6492,29 @@ msgid "Title of browser window when a table is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:516
+=======
+#: libraries/config/messages.inc.php:510
+msgid "Title of browser window when a database is selected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:512
+msgid "Title of browser window when nothing is selected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:513
+msgid "Default title"
+msgstr "Forvalgt tittel"
+
+#: libraries/config/messages.inc.php:514
+msgid "Title of browser window when a server is selected"
+msgstr "Navn på nettleser når en tjener er valgt"
+
+#: libraries/config/messages.inc.php:516
+msgid "Title of browser window when a table is selected"
+msgstr ""
+
+#: libraries/config/messages.inc.php:518
+>>>>>>> upstream/master
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5408,6 +6526,7 @@ msgstr ""
 "Forwarded-For) header som kommer fra mellomlager 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:517
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Liste over godkjente mellomlager for IP allow/deny"
@@ -5429,16 +6548,47 @@ msgid "Use database search"
 msgstr "Bruk databasesøk"
 
 #: libraries/config/messages.inc.php:522
+=======
+#: libraries/config/messages.inc.php:519
+msgid "List of trusted proxies for IP allow/deny"
+msgstr "Liste over godkjente mellomlager for IP allow/deny"
+
+#: libraries/config/messages.inc.php:520
+msgid "Directory on server where you can upload files for import"
+msgstr "Mappe på tjeneren hvor du kan laste opp filer for import"
+
+#: libraries/config/messages.inc.php:521
+msgid "Upload directory"
+msgstr "Opplastingsmappe"
+
+#: libraries/config/messages.inc.php:522
+msgid "Allow for searching inside the entire database"
+msgstr "Gjør det mulig å søke i hele databasen"
+
+#: libraries/config/messages.inc.php:523
+msgid "Use database search"
+msgstr "Bruk databasesøk"
+
+#: libraries/config/messages.inc.php:524
+>>>>>>> upstream/master
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:523
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
 #: libraries/config/messages.inc.php:524
+=======
+#: libraries/config/messages.inc.php:525
+msgid "Enable the Developer tab in settings"
+msgstr ""
+
+#: libraries/config/messages.inc.php:526
+>>>>>>> upstream/master
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -5448,6 +6598,7 @@ msgstr ""
 "import.lib.php for standarder for hvor mange spørringer en flerutsagn "
 "spørringer kan inneholde."
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:525
 msgid "Verbose multiple statements"
 msgstr "Utførlig flere utsagn"
@@ -5461,6 +6612,21 @@ msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 
 #: libraries/config/messages.inc.php:528 setup/lib/index.lib.php:120
+=======
+#: libraries/config/messages.inc.php:527
+msgid "Verbose multiple statements"
+msgstr "Utførlig flere utsagn"
+
+#: libraries/config/messages.inc.php:528 setup/frames/index.inc.php:257
+msgid "Check for latest version"
+msgstr "Sjekk for siste versjon"
+
+#: libraries/config/messages.inc.php:529
+msgid "Enables check for latest version on main phpMyAdmin page"
+msgstr ""
+
+#: libraries/config/messages.inc.php:530 setup/lib/index.lib.php:120
+>>>>>>> upstream/master
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:152
 #: setup/lib/index.lib.php:163 setup/lib/index.lib.php:175
 #: setup/lib/index.lib.php:183 setup/lib/index.lib.php:190
@@ -5468,7 +6634,11 @@ msgstr ""
 msgid "Version check"
 msgstr "Versjonskontroll"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:529
+=======
+#: libraries/config/messages.inc.php:531
+>>>>>>> upstream/master
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
@@ -5476,7 +6646,11 @@ msgstr ""
 "Slå på [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a]-"
 "komprimering for import og eksportoperasjoner"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:530
+=======
+#: libraries/config/messages.inc.php:532
+>>>>>>> upstream/master
 msgid "ZIP"
 msgstr "ZIP"
 
@@ -5500,6 +6674,7 @@ msgstr "Rekkefølge for vertsautentisering"
 msgid "Signon authentication"
 msgstr "Rekkefølge for vertsautentisering"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:253
 #: libraries/config/user_preferences.forms.php:154 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
@@ -5508,10 +6683,21 @@ msgstr "CSV med LOAD DATA"
 #: libraries/config/setup.forms.php:262 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:162
 #: libraries/config/user_preferences.forms.php:254 libraries/export/ods.php:18
+=======
+#: libraries/config/setup.forms.php:254
+#: libraries/config/user_preferences.forms.php:155 libraries/import/ldi.php:35
+msgid "CSV using LOAD DATA"
+msgstr "CSV med LOAD DATA"
+
+#: libraries/config/setup.forms.php:263 libraries/config/setup.forms.php:356
+#: libraries/config/user_preferences.forms.php:163
+#: libraries/config/user_preferences.forms.php:255 libraries/export/ods.php:18
+>>>>>>> upstream/master
 #: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
 msgstr "Open Document regneark"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:269
 #: libraries/config/user_preferences.forms.php:169
 msgid "Quick"
@@ -5529,18 +6715,47 @@ msgstr "Databaseeksportinnstillinger"
 
 #: libraries/config/setup.forms.php:327
 #: libraries/config/user_preferences.forms.php:226
+=======
+#: libraries/config/setup.forms.php:270
+#: libraries/config/user_preferences.forms.php:170
+msgid "Quick"
+msgstr ""
+
+#: libraries/config/setup.forms.php:274
+#: libraries/config/user_preferences.forms.php:174
+msgid "Custom"
+msgstr "Egendefinert"
+
+#: libraries/config/setup.forms.php:295
+#: libraries/config/user_preferences.forms.php:194
+msgid "Database export options"
+msgstr "Databaseeksportinnstillinger"
+
+#: libraries/config/setup.forms.php:328
+#: libraries/config/user_preferences.forms.php:227
+>>>>>>> upstream/master
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV for MS Excel data"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:350
 #: libraries/config/user_preferences.forms.php:249
+=======
+#: libraries/config/setup.forms.php:351
+#: libraries/config/user_preferences.forms.php:250
+>>>>>>> upstream/master
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
+<<<<<<< HEAD
 #: libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:258 libraries/export/odt.php:22
+=======
+#: libraries/config/setup.forms.php:360
+#: libraries/config/user_preferences.forms.php:259 libraries/export/odt.php:22
+>>>>>>> upstream/master
 msgid "Open Document Text"
 msgstr "Open Document tekst"
 
@@ -5598,6 +6813,7 @@ msgstr "%s tillegget mangler. Kontroller din PHP konfigurasjon."
 msgid "possible deep recursion attack"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/data_drizzle.inc.php:238
 msgid "Most common integer."
 msgstr ""
@@ -5939,6 +7155,9 @@ msgid ""
 msgstr ""
 
 #: libraries/database_interface.lib.php:1814
+=======
+#: libraries/database_interface.lib.php:1835
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -5946,17 +7165,17 @@ msgid ""
 "configured)."
 msgstr "(eller den lokale MySQL tjenerens sokkel er ikke korrekt konfigurert)"
 
-#: libraries/database_interface.lib.php:1817
+#: libraries/database_interface.lib.php:1838
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Tjeneren svarer ikke"
 
-#: libraries/database_interface.lib.php:1821
+#: libraries/database_interface.lib.php:1842
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/database_interface.lib.php:1829
+#: libraries/database_interface.lib.php:1850
 msgid "Details..."
 msgstr "Detaljer..."
 
@@ -5978,9 +7197,15 @@ msgstr "Spørring ved eksempel (Query by Example)"
 msgid "Designer"
 msgstr "Designer"
 
+<<<<<<< HEAD
 #: libraries/db_links.inc.php:92 server_privileges.php:180
 #: server_privileges.php:1651 server_privileges.php:2041
 #: server_privileges.php:2389
+=======
+#: libraries/db_links.inc.php:92 server_privileges.php:181
+#: server_privileges.php:1652 server_privileges.php:2042
+#: server_privileges.php:2390
+>>>>>>> upstream/master
 msgid "Privileges"
 msgstr "Privilegier"
 
@@ -6018,13 +7243,21 @@ msgid "Change password"
 msgstr "Endre passord"
 
 #: libraries/display_change_password.lib.php:34
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:351 server_privileges.php:962
+=======
+#: libraries/replication_gui.lib.php:351 server_privileges.php:963
+>>>>>>> upstream/master
 msgid "No Password"
 msgstr "Intet passord"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:359 libraries/replication_gui.lib.php:362
+<<<<<<< HEAD
 #: server_privileges.php:970 server_privileges.php:973
+=======
+#: server_privileges.php:971 server_privileges.php:974
+>>>>>>> upstream/master
 msgid "Re-type"
 msgstr "Gjenta"
 
@@ -6047,12 +7280,21 @@ msgstr "Opprett ny database"
 msgid "Create"
 msgstr "Opprett"
 
+<<<<<<< HEAD
 #: libraries/display_create_database.lib.php:43 server_privileges.php:182
 #: server_privileges.php:1707 server_replication.php:33
 msgid "No Privileges"
 msgstr "Ingen privilegier"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:85
+=======
+#: libraries/display_create_database.lib.php:43 server_privileges.php:183
+#: server_privileges.php:1708 server_replication.php:33
+msgid "No Privileges"
+msgstr "Ingen privilegier"
+
+#: libraries/display_create_table.lib.php:46 pmd_general.php:86
+>>>>>>> upstream/master
 #: server_synchronize.php:456 server_synchronize.php:968
 msgid "Create table"
 msgstr "Opprett tabell"
@@ -6232,7 +7474,38 @@ msgstr "Kodingskonvertering"
 
 #: libraries/display_git_revision.lib.php:46
 #, php-format
+<<<<<<< HEAD
 msgid "%s from %s branch"
+=======
+msgid "%1$s from %2$s branch"
+msgstr ""
+
+#: libraries/display_git_revision.lib.php:48
+msgid "no branch"
+msgstr ""
+
+#: libraries/display_git_revision.lib.php:54
+msgid "Git revision"
+msgstr ""
+
+#: libraries/display_git_revision.lib.php:57
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "committed on %1$s by %2$s"
+msgstr "Opprett versjon %s av %s.%s"
+
+#: libraries/display_git_revision.lib.php:64
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "authored on %1$s by %2$s"
+msgstr "Opprett versjon %s av %s.%s"
+
+#: libraries/display_import.lib.php:61
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+>>>>>>> upstream/master
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:48
@@ -6432,7 +7705,7 @@ msgstr "Sorter etter nøkkel"
 #: libraries/display_tbl.lib.php:629 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
 #: libraries/export/htmlword.php:33 libraries/export/json.php:29
-#: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
+#: libraries/export/latex.php:35 libraries/export/mediawiki.php:20
 #: libraries/export/ods.php:29 libraries/export/odt.php:27
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
@@ -6542,7 +7815,11 @@ msgstr "Opprett bruker"
 msgid "Link not found"
 msgstr "Link ikke funnet"
 
+<<<<<<< HEAD
 #: libraries/engines/bdb.lib.php:23 main.php:245
+=======
+#: libraries/engines/bdb.lib.php:23 main.php:244
+>>>>>>> upstream/master
 msgid "Version information"
 msgstr "Versionsinformasjon"
 
@@ -7017,9 +8294,15 @@ msgstr "Vis MIME-typer"
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:335 server_privileges.php:886
 #: server_privileges.php:889 server_privileges.php:945
 #: server_privileges.php:1821 server_privileges.php:2387
+=======
+#: libraries/replication_gui.lib.php:335 server_privileges.php:887
+#: server_privileges.php:890 server_privileges.php:946
+#: server_privileges.php:1822 server_privileges.php:2388
+>>>>>>> upstream/master
 #: server_status.php:1262
 msgid "Host"
 msgstr "Vert"
@@ -7042,6 +8325,18 @@ msgstr "PHP-Versjon"
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
 msgstr "MediaWiki Tabell"
+
+#: libraries/export/mediawiki.php:51
+#, fuzzy
+#| msgid "Export contents"
+msgid "Export table names"
+msgstr "Eksporter innhold"
+
+#: libraries/export/mediawiki.php:58
+#, fuzzy
+#| msgid "horizontal (rotated headers)"
+msgid "Export table headers"
+msgstr "horisontal (roterte overskrifter)"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -7680,7 +8975,7 @@ msgid "Enabled"
 msgstr "Påslått"
 
 #: libraries/relation.lib.php:88 libraries/relation.lib.php:100
-#: pmd_relation_new.php:66
+#: pmd_relation_new.php:67
 msgid "General relation features"
 msgstr "Generelle relasjonsegenskaper"
 
@@ -7777,8 +9072,13 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:265 server_privileges.php:863
 #: server_privileges.php:866 server_privileges.php:873
+=======
+#: libraries/replication_gui.lib.php:265 server_privileges.php:864
+#: server_privileges.php:867 server_privileges.php:874
+>>>>>>> upstream/master
 #: server_synchronize.php:1350
 msgid "User name"
 msgstr "Brukernavn"
@@ -7824,11 +9124,16 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr "Legg til slavereplikasjonsbruker"
 
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:260 server_privileges.php:868
+=======
+#: libraries/replication_gui.lib.php:260 server_privileges.php:869
+>>>>>>> upstream/master
 msgid "Any user"
 msgstr "Alle brukere"
 
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
+<<<<<<< HEAD
 #: libraries/replication_gui.lib.php:352 server_privileges.php:869
 #: server_privileges.php:939 server_privileges.php:963
 #: server_privileges.php:2252 server_privileges.php:2282
@@ -7852,6 +9157,31 @@ msgid "Use Host Table"
 msgstr "Vis vert tabell"
 
 #: libraries/replication_gui.lib.php:337 server_privileges.php:947
+=======
+#: libraries/replication_gui.lib.php:352 server_privileges.php:870
+#: server_privileges.php:940 server_privileges.php:964
+#: server_privileges.php:2253 server_privileges.php:2283
+msgid "Use text field"
+msgstr "Bruk tekstfelt"
+
+#: libraries/replication_gui.lib.php:308 server_privileges.php:920
+msgid "Any host"
+msgstr "Alle verter"
+
+#: libraries/replication_gui.lib.php:312 server_privileges.php:924
+msgid "Local"
+msgstr "Lokal"
+
+#: libraries/replication_gui.lib.php:318 server_privileges.php:929
+msgid "This Host"
+msgstr "Denne vert"
+
+#: libraries/replication_gui.lib.php:324 server_privileges.php:935
+msgid "Use Host Table"
+msgstr "Vis vert tabell"
+
+#: libraries/replication_gui.lib.php:337 server_privileges.php:948
+>>>>>>> upstream/master
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -7997,7 +9327,11 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2543
+=======
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2544
+>>>>>>> upstream/master
 msgid "New"
 msgstr ""
 
@@ -9037,8 +10371,13 @@ msgstr "Vis versjoner"
 msgid "Protocol version"
 msgstr "Protokollversjon"
 
+<<<<<<< HEAD
 #: main.php:187 server_privileges.php:1665 server_privileges.php:1820
 #: server_privileges.php:1967 server_privileges.php:2386
+=======
+#: main.php:187 server_privileges.php:1666 server_privileges.php:1821
+#: server_privileges.php:1968 server_privileges.php:2387
+>>>>>>> upstream/master
 #: server_status.php:1261
 msgid "User"
 msgstr "Bruker"
@@ -9067,28 +10406,48 @@ msgstr "PHP tillegg"
 msgid "Show PHP information"
 msgstr "Vis PHP-informasjon"
 
+<<<<<<< HEAD
 #: main.php:250
 msgid "Official Homepage"
 msgstr "Offisiell phpMyAdmin-hjemmeside"
 
 #: main.php:251
+=======
+#: main.php:249
+msgid "Official Homepage"
+msgstr "Offisiell phpMyAdmin-hjemmeside"
+
+#: main.php:250
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Attributter"
 
+<<<<<<< HEAD
 #: main.php:252
+=======
+#: main.php:251
+>>>>>>> upstream/master
 #, fuzzy
 msgid "Get support"
 msgstr "Eksporter"
 
+<<<<<<< HEAD
 #: main.php:253
+=======
+#: main.php:252
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Ingen endring"
 
+<<<<<<< HEAD
 #: main.php:277
+=======
+#: main.php:276
+>>>>>>> upstream/master
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -9100,7 +10459,11 @@ msgstr ""
 "tjener kjører med denne standardinnstillingen, er åpen for misbruk, og du "
 "burde fikse dette sikkerhetshullet snarest."
 
+<<<<<<< HEAD
 #: main.php:285
+=======
+#: main.php:284
+>>>>>>> upstream/master
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -9109,7 +10472,11 @@ msgstr ""
 "Du har slått på mbstring.func_overload i din PHP konfigurasjon. Denne "
 "opsjonen er ikke kompatibel med phpMyAdmin og kan medføre skader på data!"
 
+<<<<<<< HEAD
 #: main.php:293
+=======
+#: main.php:292
+>>>>>>> upstream/master
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -9119,7 +10486,11 @@ msgstr ""
 "flerbyte tegnsett. Uten mbstring-tillegget så kan ikke phpMyAdmin splitte "
 "strenger korrekt og dette kan medføre uønskede resultater."
 
+<<<<<<< HEAD
 #: main.php:301
+=======
+#: main.php:300
+>>>>>>> upstream/master
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
@@ -9131,7 +10502,11 @@ msgstr ""
 "gyldighet konfigurert i phpMyAdmin, på grunn av dette så vil din innlogging "
 "utløpe raskere enn konfigurert i phpMyAdmin."
 
+<<<<<<< HEAD
 #: main.php:308
+=======
+#: main.php:307
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid ""
 #| "HP parameter http://php.net/manual/en/session.configuration.#ini.session."
@@ -9147,12 +10522,20 @@ msgstr ""
 "gyldighet konfigurert i phpMyAdmin, på grunn av dette så vil din innlogging "
 "utløpe raskere enn konfigurert i phpMyAdmin."
 
+<<<<<<< HEAD
 #: main.php:316
+=======
+#: main.php:315
+>>>>>>> upstream/master
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Konfigurasjonsfila trenger nå et hemmelig passordfrase (blowfish_secret)."
 
+<<<<<<< HEAD
 #: main.php:324
+=======
+#: main.php:323
+>>>>>>> upstream/master
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -9162,7 +10545,11 @@ msgstr ""
 "fortsatt i din phpMyAdmin mappe. Du bør fjerne den så fort phpMyAdming har "
 "blitt konfigurert."
 
+<<<<<<< HEAD
 #: main.php:330
+=======
+#: main.php:329
+>>>>>>> upstream/master
 #, fuzzy, php-format
 #| msgid ""
 #| "pMyAdmin configuration storage has been deactivated. To find out  click "
@@ -9173,7 +10560,11 @@ msgid ""
 msgstr ""
 "phpMyAdmin konfigurasjonslager har blitt deaktivert. Finn ut hvorfor %sher%s."
 
+<<<<<<< HEAD
 #: main.php:355
+=======
+#: main.php:354
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -9182,7 +10573,11 @@ msgstr ""
 "Din PHP MySQL bibliotekfilversjon %s er forskjellig fra din MySQL "
 "tjenerversjon %s. Dette kan forårsake uforutsett oppførsel."
 
+<<<<<<< HEAD
 #: main.php:379
+=======
+#: main.php:377
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -9210,79 +10605,87 @@ msgstr "Opprett tabell"
 msgid "Please select a database"
 msgstr "Vennligst velg en database"
 
-#: pmd_general.php:78
+#: pmd_general.php:79
 msgid "Show/Hide left menu"
 msgstr "Skjul/Vis venstre meny"
 
-#: pmd_general.php:82
+#: pmd_general.php:83
 msgid "Save position"
 msgstr "Lagre posisjon"
 
+<<<<<<< HEAD
 #: pmd_general.php:88 pmd_general.php:362
+=======
+#: pmd_general.php:89 pmd_general.php:362
+>>>>>>> upstream/master
 msgid "Create relation"
 msgstr "Opprett relasjon"
 
-#: pmd_general.php:94
+#: pmd_general.php:95
 msgid "Reload"
 msgstr "Oppdater"
 
-#: pmd_general.php:97
+#: pmd_general.php:98
 msgid "Help"
 msgstr "Hjelp"
 
-#: pmd_general.php:101
+#: pmd_general.php:102
 msgid "Angular links"
 msgstr "Vinklede linker"
 
-#: pmd_general.php:101
+#: pmd_general.php:102
 msgid "Direct links"
 msgstr "Direkte linker"
 
-#: pmd_general.php:105
+#: pmd_general.php:106
 msgid "Snap to grid"
 msgstr "Lås til ruter"
 
-#: pmd_general.php:109
+#: pmd_general.php:110
 msgid "Small/Big All"
 msgstr "Liten/Stor alle"
 
-#: pmd_general.php:112
+#: pmd_general.php:113
 msgid "Toggle small/big"
 msgstr "Veksle mellom liten/stor"
 
-#: pmd_general.php:113
+#: pmd_general.php:114
 #, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "For å velge relasjon, klikk :"
 
+<<<<<<< HEAD
 #: pmd_general.php:118 pmd_pdf.php:78
+=======
+#: pmd_general.php:119 pmd_pdf.php:79
+>>>>>>> upstream/master
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importer/Eksporter koordinater for PDF skjema"
 
-#: pmd_general.php:124
+#: pmd_general.php:125
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Kjør spørring"
 
-#: pmd_general.php:129
+#: pmd_general.php:130
 msgid "Move Menu"
 msgstr "Flytt meny"
 
-#: pmd_general.php:140
+#: pmd_general.php:141
 msgid "Hide/Show all"
 msgstr "Skjul/Vis alle"
 
-#: pmd_general.php:144
+#: pmd_general.php:145
 msgid "Hide/Show Tables with no relation"
 msgstr "Skjul/Vis tabeller uten relasjoner"
 
-#: pmd_general.php:161 tbl_change.php:351 tbl_change.php:363
+#: pmd_general.php:162 tbl_change.php:351 tbl_change.php:363
 msgid "Hide"
 msgstr "Skjul"
 
-#: pmd_general.php:184
+#: pmd_general.php:185
 msgid "Number of tables"
 msgstr "Antall tabeller"
 
@@ -9334,77 +10737,113 @@ msgstr "Opprett"
 msgid "Active options"
 msgstr "Tabellinnstillinger"
 
-#: pmd_pdf.php:30
+#: pmd_pdf.php:31
 msgid "Page has been created"
 msgstr "Siden har blitt opprettet"
 
-#: pmd_pdf.php:33
+#: pmd_pdf.php:34
 msgid "Page creation failed"
 msgstr "Sideopprettelsen feilet"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:89
+=======
+#: pmd_pdf.php:90
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "pages"
 msgid "Page"
 msgstr "sider"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:99
+=======
+#: pmd_pdf.php:100
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
 msgstr "Importer filer"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:100
+=======
+#: pmd_pdf.php:101
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export to selected page"
 msgstr "Eksporter/Importer til skala"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:102
+=======
+#: pmd_pdf.php:103
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "Lag en ny indeks"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:111
+=======
+#: pmd_pdf.php:112
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "User name"
 msgid "New page name: "
 msgstr "Brukernavn"
 
+<<<<<<< HEAD
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
 msgstr "Eksporter/Importer til skala"
 
 #: pmd_pdf.php:119
+=======
+#: pmd_pdf.php:115
+msgid "Export/Import to scale"
+msgstr "Eksporter/Importer til skala"
+
+#: pmd_pdf.php:120
+>>>>>>> upstream/master
 msgid "recommended"
 msgstr "anbefalt"
 
-#: pmd_relation_new.php:27
+#: pmd_relation_new.php:28
 msgid "Error: relation already exists."
 msgstr "Feil: relasjoner eksisterer allerede."
 
-#: pmd_relation_new.php:59 pmd_relation_new.php:84
+#: pmd_relation_new.php:60 pmd_relation_new.php:85
 msgid "Error: Relation not added."
 msgstr "Feil: Relasjon ikke opprettet."
 
-#: pmd_relation_new.php:60
+#: pmd_relation_new.php:61
 msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relasjon lagt til"
 
-#: pmd_relation_new.php:82
+#: pmd_relation_new.php:83
 msgid "Internal relation added"
 msgstr "Intern relasjon lagt til"
 
-#: pmd_relation_upd.php:58
+#: pmd_relation_upd.php:59
 msgid "Relation deleted"
 msgstr "Relasjon slettet"
 
+<<<<<<< HEAD
 #: pmd_save_pos.php:50
 msgid "Error saving coordinates for Designer."
 msgstr "Feil oppstod under lagring av Designerkoordinater."
 
 #: pmd_save_pos.php:58
+=======
+#: pmd_save_pos.php:70
+msgid "Error saving coordinates for Designer."
+msgstr "Feil oppstod under lagring av Designerkoordinater."
+
+#: pmd_save_pos.php:78
+>>>>>>> upstream/master
 msgid "Modifications have been saved"
 msgstr "Endringene er lagret"
 
@@ -9625,6 +11064,7 @@ msgstr ""
 msgid "disabled"
 msgstr "Avslått"
 
+<<<<<<< HEAD
 #: server_privileges.php:93 server_privileges.php:428
 msgid "Includes all privileges except GRANT."
 msgstr "Inkluder alle privilegier unntatt GRANT."
@@ -9699,12 +11139,89 @@ msgid "Allows importing data from and exporting data into files."
 msgstr "Tillater import og eksport av data til og fra filer."
 
 #: server_privileges.php:108 server_privileges.php:724
+=======
+#: server_privileges.php:94 server_privileges.php:429
+msgid "Includes all privileges except GRANT."
+msgstr "Inkluder alle privilegier unntatt GRANT."
+
+#: server_privileges.php:95 server_privileges.php:305
+#: server_privileges.php:700
+msgid "Allows altering the structure of existing tables."
+msgstr "Tillater endring av struktur på eksisterende tabeller."
+
+#: server_privileges.php:96 server_privileges.php:363
+#: server_privileges.php:706
+msgid "Allows altering and dropping stored routines."
+msgstr "Tillater endring og sletting av lagrede rutiner."
+
+#: server_privileges.php:97 server_privileges.php:273
+#: server_privileges.php:699
+msgid "Allows creating new databases and tables."
+msgstr "Tillater oppretting av nye databaser og tabeller."
+
+#: server_privileges.php:98 server_privileges.php:359
+#: server_privileges.php:705
+msgid "Allows creating stored routines."
+msgstr "Tillater oppreting av lagrede rutiner."
+
+#: server_privileges.php:99 server_privileges.php:699
+msgid "Allows creating new tables."
+msgstr "Tillater oppretting av nye tabeller."
+
+#: server_privileges.php:100 server_privileges.php:317
+#: server_privileges.php:703
+msgid "Allows creating temporary tables."
+msgstr "Tillater oppretting av midlertidige tabeller."
+
+#: server_privileges.php:101 server_privileges.php:367
+#: server_privileges.php:739
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "Tillater oppretting, sletting og navneendring av brukerkontoer."
+
+#: server_privileges.php:102 server_privileges.php:333
+#: server_privileges.php:346 server_privileges.php:711
+#: server_privileges.php:715
+msgid "Allows creating new views."
+msgstr "Tillater oppretting av nye visninger."
+
+#: server_privileges.php:103 server_privileges.php:269
+#: server_privileges.php:691
+msgid "Allows deleting data."
+msgstr "Tillater sletting av data."
+
+#: server_privileges.php:104 server_privileges.php:277
+#: server_privileges.php:702
+msgid "Allows dropping databases and tables."
+msgstr "Tillater sletting av databaser og tabeller."
+
+#: server_privileges.php:105 server_privileges.php:702
+msgid "Allows dropping tables."
+msgstr "Tillater sletting av tabeller."
+
+#: server_privileges.php:106 server_privileges.php:337
+#: server_privileges.php:719
+msgid "Allows to set up events for the event scheduler"
+msgstr "Tillater å sette opp hendelser for hendelseskalenderen"
+
+#: server_privileges.php:107 server_privileges.php:371
+#: server_privileges.php:707
+msgid "Allows executing stored routines."
+msgstr "Tillater utføring av lagrede rutiner."
+
+#: server_privileges.php:108 server_privileges.php:293
+#: server_privileges.php:694
+msgid "Allows importing data from and exporting data into files."
+msgstr "Tillater import og eksport av data til og fra filer."
+
+#: server_privileges.php:109 server_privileges.php:725
+>>>>>>> upstream/master
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Tillater å legge til brukere og privilegier uten å oppfriske "
 "privilegietabellene."
 
+<<<<<<< HEAD
 #: server_privileges.php:109 server_privileges.php:300
 #: server_privileges.php:700
 msgid "Allows creating and dropping indexes."
@@ -9732,6 +11249,35 @@ msgstr "Begrenser antall spørringer brukeren kan sende til tjeneren per time."
 
 #: server_privileges.php:114 server_privileges.php:791
 #: server_privileges.php:793
+=======
+#: server_privileges.php:110 server_privileges.php:301
+#: server_privileges.php:701
+msgid "Allows creating and dropping indexes."
+msgstr "Tillater oppretting og sletting av indekser."
+
+#: server_privileges.php:111 server_privileges.php:261
+#: server_privileges.php:620 server_privileges.php:689
+msgid "Allows inserting and replacing data."
+msgstr "Tillater å legge til og erstatte data."
+
+#: server_privileges.php:112 server_privileges.php:321
+#: server_privileges.php:734
+msgid "Allows locking tables for the current thread."
+msgstr "Tillater låsing av tabeller for den kjørende tråden."
+
+#: server_privileges.php:113 server_privileges.php:798
+#: server_privileges.php:800
+msgid "Limits the number of new connections the user may open per hour."
+msgstr "Begrenser antall nye tilkoblinger brukeren kan åpne per time."
+
+#: server_privileges.php:114 server_privileges.php:786
+#: server_privileges.php:788
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr "Begrenser antall spørringer brukeren kan sende til tjeneren per time."
+
+#: server_privileges.php:115 server_privileges.php:792
+#: server_privileges.php:794
+>>>>>>> upstream/master
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -9739,6 +11285,7 @@ msgstr ""
 "Begrenser antall kommandoer som kan endre tabeller eller databaser brukeren "
 "kan utføre per time."
 
+<<<<<<< HEAD
 #: server_privileges.php:115 server_privileges.php:803
 #: server_privileges.php:805
 msgid "Limits the number of simultaneous connections the user may have."
@@ -9756,17 +11303,42 @@ msgstr "har ingen effekt i denne versjonen av MySQL."
 
 #: server_privileges.php:118 server_privileges.php:280
 #: server_privileges.php:729
+=======
+#: server_privileges.php:116 server_privileges.php:804
+#: server_privileges.php:806
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr "Begrens antall samtidige tilkoblinger brukeren kan ha."
+
+#: server_privileges.php:117 server_privileges.php:289
+#: server_privileges.php:729
+msgid "Allows viewing processes of all users"
+msgstr "Tillater visning av prosessene til alle brukere"
+
+#: server_privileges.php:118 server_privileges.php:297
+#: server_privileges.php:630 server_privileges.php:735
+msgid "Has no effect in this MySQL version."
+msgstr "har ingen effekt i denne versjonen av MySQL."
+
+#: server_privileges.php:119 server_privileges.php:281
+#: server_privileges.php:730
+>>>>>>> upstream/master
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Tillater oppfrisking av tjenerinnstillinger og oppfrisking av mellomlager."
 
+<<<<<<< HEAD
 #: server_privileges.php:119 server_privileges.php:328
 #: server_privileges.php:736
+=======
+#: server_privileges.php:120 server_privileges.php:329
+#: server_privileges.php:737
+>>>>>>> upstream/master
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Gir tillatelse til brukeren til å spørre hvor replikasjonsslaver eller -"
 "tjenere er."
 
+<<<<<<< HEAD
 #: server_privileges.php:120 server_privileges.php:324
 #: server_privileges.php:737
 msgid "Needed for the replication slaves."
@@ -9794,6 +11366,35 @@ msgstr "Tillater avslutting av tjener."
 
 #: server_privileges.php:125 server_privileges.php:312
 #: server_privileges.php:727
+=======
+#: server_privileges.php:121 server_privileges.php:325
+#: server_privileges.php:738
+msgid "Needed for the replication slaves."
+msgstr "Trenges av replikasjonsslavene."
+
+#: server_privileges.php:122 server_privileges.php:257
+#: server_privileges.php:615 server_privileges.php:688
+msgid "Allows reading data."
+msgstr "Tillater lesing av data."
+
+#: server_privileges.php:123 server_privileges.php:309
+#: server_privileges.php:732
+msgid "Gives access to the complete list of databases."
+msgstr "Gir adgang til komplett liste over databaser."
+
+#: server_privileges.php:124 server_privileges.php:350
+#: server_privileges.php:355 server_privileges.php:704
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "Tillater utføring av SHOW CREATE VIEW spørringer."
+
+#: server_privileges.php:125 server_privileges.php:285
+#: server_privileges.php:731
+msgid "Allows shutting down the server."
+msgstr "Tillater avslutting av tjener."
+
+#: server_privileges.php:126 server_privileges.php:313
+#: server_privileges.php:728
+>>>>>>> upstream/master
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -9803,6 +11404,7 @@ msgstr ""
 "fleste administrative operasjoner som å sette globale variabler eller "
 "avslutting av andre brukeres tråder."
 
+<<<<<<< HEAD
 #: server_privileges.php:126 server_privileges.php:340
 #: server_privileges.php:719
 msgid "Allows creating and dropping triggers"
@@ -9818,10 +11420,28 @@ msgid "No privileges."
 msgstr "Ingen privilegier."
 
 #: server_privileges.php:474 server_privileges.php:475
+=======
+#: server_privileges.php:127 server_privileges.php:341
+#: server_privileges.php:720
+msgid "Allows creating and dropping triggers"
+msgstr "Tillater opprettelse og sletting av triggere"
+
+#: server_privileges.php:128 server_privileges.php:265
+#: server_privileges.php:625 server_privileges.php:690
+msgid "Allows changing data."
+msgstr "Tillater endring av data."
+
+#: server_privileges.php:129 server_privileges.php:423
+msgid "No privileges."
+msgstr "Ingen privilegier."
+
+#: server_privileges.php:475 server_privileges.php:476
+>>>>>>> upstream/master
 msgctxt "None privileges"
 msgid "None"
 msgstr "Ingen"
 
+<<<<<<< HEAD
 #: server_privileges.php:605 server_privileges.php:750
 #: server_privileges.php:2037 server_privileges.php:2043
 msgid "Table-specific privileges"
@@ -9865,34 +11485,100 @@ msgid "No user found."
 msgstr "Ingen bruker(e) funnet."
 
 #: server_privileges.php:1053
+=======
+#: server_privileges.php:606 server_privileges.php:751
+#: server_privileges.php:2038 server_privileges.php:2044
+msgid "Table-specific privileges"
+msgstr "Tabell-spesifikke privilegier"
+
+#: server_privileges.php:607 server_privileges.php:759
+#: server_privileges.php:1825
+msgid "Note: MySQL privilege names are expressed in English"
+msgstr "OBS: MySQL privilegiumnavn er på engelsk"
+
+#: server_privileges.php:684
+msgid "Administration"
+msgstr "Administrasjon"
+
+#: server_privileges.php:748 server_privileges.php:1824
+msgid "Global privileges"
+msgstr "Globale privilegier"
+
+#: server_privileges.php:750 server_privileges.php:2038
+msgid "Database-specific privileges"
+msgstr "Databasespesifikke privilegier"
+
+#: server_privileges.php:782
+msgid "Resource limits"
+msgstr "Ressursbegrensninger"
+
+#: server_privileges.php:783
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "Merk: Ved å sette disse til 0 (null) fjernes begrensningen."
+
+#: server_privileges.php:861
+msgid "Login Information"
+msgstr "Innlogingsinformasjon"
+
+#: server_privileges.php:958
+msgid "Do not change the password"
+msgstr "Ikke endre passordet"
+
+#: server_privileges.php:1010 server_privileges.php:2530
+msgid "No user found."
+msgstr "Ingen bruker(e) funnet."
+
+#: server_privileges.php:1054
+>>>>>>> upstream/master
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Brukeren %s finnes fra før!"
 
+<<<<<<< HEAD
 #: server_privileges.php:1137
 msgid "You have added a new user."
 msgstr "Du har lagt til en ny bruker."
 
 #: server_privileges.php:1361
+=======
+#: server_privileges.php:1138
+msgid "You have added a new user."
+msgstr "Du har lagt til en ny bruker."
+
+#: server_privileges.php:1362
+>>>>>>> upstream/master
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Du har oppdatert privilegiene til %s."
 
+<<<<<<< HEAD
 #: server_privileges.php:1383
+=======
+#: server_privileges.php:1384
+>>>>>>> upstream/master
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Du har fjernet privilegiene til %s"
 
+<<<<<<< HEAD
 #: server_privileges.php:1419
+=======
+#: server_privileges.php:1420
+>>>>>>> upstream/master
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Passordet til %s er endret."
 
+<<<<<<< HEAD
 #: server_privileges.php:1439
+=======
+#: server_privileges.php:1440
+>>>>>>> upstream/master
 #, php-format
 msgid "Deleting %s"
 msgstr "Sletter %s"
 
+<<<<<<< HEAD
 #: server_privileges.php:1453
 msgid "No users selected for deleting!"
 msgstr "Ingen brukere merket for sletting!"
@@ -9918,34 +11604,79 @@ msgid "Revoke"
 msgstr "Tilbakekall"
 
 #: server_privileges.php:1545
+=======
+#: server_privileges.php:1454
+msgid "No users selected for deleting!"
+msgstr "Ingen brukere merket for sletting!"
+
+#: server_privileges.php:1457
+msgid "Reloading the privileges"
+msgstr "Oppfrisker privilegiene"
+
+#: server_privileges.php:1475
+msgid "The selected users have been deleted successfully."
+msgstr "De valgte brukerne har blitt slettet."
+
+#: server_privileges.php:1510
+msgid "The privileges were reloaded successfully."
+msgstr "Oppfriskingen av privilegiene lyktes."
+
+#: server_privileges.php:1521 server_privileges.php:1967
+msgid "Edit Privileges"
+msgstr "Rediger privilegier"
+
+#: server_privileges.php:1530
+msgid "Revoke"
+msgstr "Tilbakekall"
+
+#: server_privileges.php:1546
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Export"
 msgid "Export all"
 msgstr "Eksporter"
 
+<<<<<<< HEAD
 #: server_privileges.php:1564 server_privileges.php:1847
 #: server_privileges.php:2479
 msgid "Any"
 msgstr "Alle"
 
 #: server_privileges.php:1644
+=======
+#: server_privileges.php:1565 server_privileges.php:1848
+#: server_privileges.php:2480
+msgid "Any"
+msgstr "Alle"
+
+#: server_privileges.php:1645
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "Privilegier"
 
+<<<<<<< HEAD
 #: server_privileges.php:1657
+=======
+#: server_privileges.php:1658
+>>>>>>> upstream/master
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilegier"
 
+<<<<<<< HEAD
 #: server_privileges.php:1685
+=======
+#: server_privileges.php:1686
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Brukeroversikt"
 
+<<<<<<< HEAD
 #: server_privileges.php:1825 server_privileges.php:2042
 #: server_privileges.php:2390
 msgid "Grant"
@@ -9965,6 +11696,27 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Slett databasene som har det samme navnet som brukerne."
 
 #: server_privileges.php:1948
+=======
+#: server_privileges.php:1826 server_privileges.php:2043
+#: server_privileges.php:2391
+msgid "Grant"
+msgstr "Rettighet"
+
+#: server_privileges.php:1922
+msgid "Remove selected users"
+msgstr "Fjern valgte brukere"
+
+#: server_privileges.php:1925
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Tilbakekall alle aktive privilegier fra brukerne og slett dem etterpå."
+
+#: server_privileges.php:1926 server_privileges.php:1927
+#: server_privileges.php:1928
+msgid "Drop the databases that have the same names as the users."
+msgstr "Slett databasene som har det samme navnet som brukerne."
+
+#: server_privileges.php:1949
+>>>>>>> upstream/master
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9977,6 +11729,7 @@ msgstr ""
 "privilegiene tjeneren bruker hvis det er utført manuelle endringer på den. I "
 "så fall bør du %soppfriske privilegiene%s før du fortsetter."
 
+<<<<<<< HEAD
 #: server_privileges.php:2001
 msgid "The selected user was not found in the privilege table."
 msgstr "Den valgte brukeren ble ikke funnet i privilegietabellen."
@@ -10014,18 +11767,62 @@ msgid "... delete the old one from the user tables."
 msgstr "... slett den gamle fra brukertabellene."
 
 #: server_privileges.php:2334
+=======
+#: server_privileges.php:2002
+msgid "The selected user was not found in the privilege table."
+msgstr "Den valgte brukeren ble ikke funnet i privilegietabellen."
+
+#: server_privileges.php:2044
+msgid "Column-specific privileges"
+msgstr "Kolonne-spesifikke privilegier"
+
+#: server_privileges.php:2250
+msgid "Add privileges on the following database"
+msgstr "Legg til privilegier til følgende database"
+
+#: server_privileges.php:2268
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
+
+#: server_privileges.php:2271
+msgid "Add privileges on the following table"
+msgstr "Legg til privilegier til følgende tabell"
+
+#: server_privileges.php:2328
+msgid "Change Login Information / Copy User"
+msgstr "Endre innloggingsinformasjon / kopiere bruker"
+
+#: server_privileges.php:2331
+msgid "Create a new user with the same privileges and ..."
+msgstr "Opprett ny bruker med de samme privilegier og ..."
+
+#: server_privileges.php:2333
+msgid "... keep the old one."
+msgstr "... behold den gamle."
+
+#: server_privileges.php:2334
+msgid "... delete the old one from the user tables."
+msgstr "... slett den gamle fra brukertabellene."
+
+#: server_privileges.php:2335
+>>>>>>> upstream/master
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 " ... tilbakekall alle aktive privilegier fra den gamle og slett den etterpå."
 
+<<<<<<< HEAD
 #: server_privileges.php:2335
+=======
+#: server_privileges.php:2336
+>>>>>>> upstream/master
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 " ... slett den gamle fra brukertabellene og deretter oppfrisk privilegiene."
 
+<<<<<<< HEAD
 #: server_privileges.php:2358
 msgid "Database for user"
 msgstr "Brukerdatabase"
@@ -10039,15 +11836,35 @@ msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Gi alle rettigheter på jokertegnavn (username\\_%)"
 
 #: server_privileges.php:2366
+=======
+#: server_privileges.php:2359
+msgid "Database for user"
+msgstr "Brukerdatabase"
+
+#: server_privileges.php:2361
+msgid "Create database with same name and grant all privileges"
+msgstr "Opprett database med samme navn og gi alle rettigheter"
+
+#: server_privileges.php:2363
+msgid "Grant all privileges on wildcard name (username\\_%)"
+msgstr "Gi alle rettigheter på jokertegnavn (username\\_%)"
+
+#: server_privileges.php:2367
+>>>>>>> upstream/master
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Gi alle privilegier for databasen &quot;%s&quot;"
 
+<<<<<<< HEAD
 #: server_privileges.php:2382
+=======
+#: server_privileges.php:2383
+>>>>>>> upstream/master
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Brukere som har adgang til &quot;%s&quot;"
 
+<<<<<<< HEAD
 #: server_privileges.php:2491
 msgid "global"
 msgstr "global"
@@ -10061,6 +11878,21 @@ msgid "wildcard"
 msgstr "jokertegn"
 
 #: server_privileges.php:2538
+=======
+#: server_privileges.php:2492
+msgid "global"
+msgstr "global"
+
+#: server_privileges.php:2494
+msgid "database-specific"
+msgstr "databasespesifikk"
+
+#: server_privileges.php:2496
+msgid "wildcard"
+msgstr "jokertegn"
+
+#: server_privileges.php:2539
+>>>>>>> upstream/master
 #, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
@@ -12749,6 +14581,7 @@ msgstr "Endre tabellens navn"
 #~ msgid "Iconic errors"
 #~ msgstr "Ikon feil"
 
+<<<<<<< HEAD
 #~ msgid "Use icons on main page"
 #~ msgstr "Bruk ikoner på hovedsiden"
 
@@ -13033,6 +14866,298 @@ msgstr "Endre tabellens navn"
 #~ msgstr "Mellomlagerstørrelse"
 
 #, fuzzy
+=======
+#~ msgid "Use less graphically intense tabs"
+#~ msgstr "Bruk mindre grafisk tunge faner"
+
+#~ msgid "Light tabs"
+#~ msgstr "Hurtigfaner"
+
+#~ msgid "Use icons on main page"
+#~ msgstr "Bruk ikoner på hovedsiden"
+
+#~ msgid ""
+#~ "Disable if you know that your pma_* tables are up to date. This prevents "
+#~ "compatibility checks and thereby increases performance"
+#~ msgstr ""
+#~ "Slå av hvis du vet at dine pma_* tabeller er oppdaterte. Denne forhindrer "
+#~ "kompabilitetssjekk og øker ytelsen"
+
+#~ msgid "Verbose check"
+#~ msgstr "Full kontroll"
+
+#, fuzzy
+#~| msgid "Versions"
+#~ msgid "Questions below 1,000"
+#~ msgstr "Versjoner"
+
+#, fuzzy
+#~| msgid "Current connection"
+#~ msgid "Current amount of Questions: %s"
+#~ msgstr "Nåværende tilkobling"
+
+#, fuzzy
+#~| msgid "Show SQL queries"
+#~ msgid "Percentage of slow queries"
+#~ msgstr "Vis SQL spørringer"
+
+#, fuzzy
+#~| msgid "Flush query cache"
+#~ msgid "Slow query rate"
+#~ msgstr "Flush query cache"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Long query time"
+#~ msgstr "SQL spørringer"
+
+#, fuzzy
+#~| msgid "Show query box"
+#~ msgid "Slow query logging"
+#~ msgstr "Vis spørringsboks"
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Release Series"
+#~ msgstr "Velg tabeller"
+
+#, fuzzy
+#~| msgid "Create version"
+#~ msgid "Current version: %s"
+#~ msgstr "Opprett versjon"
+
+#, fuzzy
+#~| msgid "Version"
+#~ msgid "Minor Version"
+#~ msgstr "Versjon"
+
+#, fuzzy
+#~| msgid "You should upgrade to %s %s or later."
+#~ msgid "You should upgrade, to a stable version of MySQL 5.5"
+#~ msgstr "Du burde oppgradere til %s %s eller nyere."
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Distribution"
+#~ msgstr "Beskrivelse"
+
+#, fuzzy
+#~| msgid "MySQL charset"
+#~ msgid "MySQL Architecture"
+#~ msgstr "MySQL-tegnsett"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache disabled"
+#~ msgstr "Spørringsmellomlager"
+
+#, fuzzy
+#~| msgid "The server is not responding"
+#~ msgid "The query cache is not enabled."
+#~ msgstr "Tjeneren svarer ikke"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query caching method"
+#~ msgstr "Spørringsmellomlager"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache efficiency (%%)"
+#~ msgstr "Spørringsmellomlager"
+
+#, fuzzy
+#~ msgid "Query Cache usage"
+#~ msgstr "Spørringsmellomlager"
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache fragmentation"
+#~ msgstr "Spørringsmellomlager"
+
+#, fuzzy
+#~| msgid "The amount of free memory for query cache."
+#~ msgid ""
+#~ "Cached queries are removed due to low query cache memory from the query "
+#~ "cache."
+#~ msgstr "Mengden ledig minne i spørringsmellomlager."
+
+#, fuzzy
+#~| msgid "Query cache"
+#~ msgid "Query cache max size"
+#~ msgstr "Spørringsmellomlager"
+
+#, fuzzy
+#~| msgid "Query results"
+#~ msgid "Query cache min result size"
+#~ msgstr "Spørringsresultater"
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Percentage of sorts that cause temporary tables"
+#~ msgstr "Tillater oppretting av midlertidige tabeller."
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Too many sorts are causing temporary tables."
+#~ msgstr "Tillater oppretting av midlertidige tabeller."
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Rate of sorts that cause temporary tables"
+#~ msgstr "Tillater oppretting av midlertidige tabeller."
+
+#, fuzzy
+#~| msgid "CHAR textarea rows"
+#~ msgid "Sort rows"
+#~ msgstr "CHAR textarea rader"
+
+#, fuzzy
+#~| msgid "There are no files to upload"
+#~ msgid "Rate of joins without indexes"
+#~ msgstr "Det er ingen filer å laste opp"
+
+#, fuzzy
+#~| msgid "There are no files to upload"
+#~ msgid "There are too many joins without indexes."
+#~ msgstr "Det er ingen filer å laste opp"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "Temp disk rate"
+#~ msgstr "%s tabell"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "MyISAM key buffer size"
+#~ msgstr "Sorteringsbufferstørrelse"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "Max %% MyISAM key buffer ever used"
+#~ msgstr "Sorteringsbufferstørrelse"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "MyISAM key buffer (index cache) %% used is low."
+#~ msgstr "Sorteringsbufferstørrelse"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid ""
+#~ "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+#~ msgstr "Sorteringsbufferstørrelse"
+
+#, fuzzy
+#~| msgid "Sort buffer size"
+#~ msgid "Percentage of MyISAM key buffer used"
+#~ msgstr "Sorteringsbufferstørrelse"
+
+#, fuzzy
+#~| msgid "Create table"
+#~ msgid "Rate of table open"
+#~ msgstr "Opprett tabell"
+
+#, fuzzy
+#~| msgid "The current number of pending writes."
+#~ msgid "The rate of opening tables is high."
+#~ msgstr "Antall ventende skrivinger."
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of used open files limit"
+#~ msgstr "Importfilformat"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of open files"
+#~ msgstr "Importfilformat"
+
+#, fuzzy
+#~| msgid "The number of pending log file fsyncs."
+#~ msgid "The rate of opening files is high."
+#~ msgstr "Antall ventende loggfil-fsyncs."
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Immediate table locks %%"
+#~ msgstr "Opprett ny tabell i database %s"
+
+#, fuzzy
+#~| msgid " number of times that a table lock was acquired immediately."
+#~ msgid "Too many table locks were not granted immediately."
+#~ msgstr "Antall ganger en tabellåsing ble utført umiddelbart."
+
+#, fuzzy
+#~| msgid "Key cache"
+#~ msgid "Thread cache"
+#~ msgstr "Nøkkelmellomlager"
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "Thread cache hit rate %%"
+#~ msgstr "Overvåkning er ikke aktiv."
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "Thread cache is not efficient."
+#~ msgstr "Overvåkning er ikke aktiv."
+
+#, fuzzy
+#~| msgid "The number of threads that are not sleeping."
+#~ msgid "There are too many threads that are slow to launch."
+#~ msgstr "Antall tråder som ikke sover."
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Percentage of used connections"
+#~ msgstr "Vedvarende forbindelser"
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Percentage of aborted connections"
+#~ msgstr "Vedvarende forbindelser"
+
+#, fuzzy
+#~| msgid "Persistent connections"
+#~ msgid "Rate of aborted connections"
+#~ msgstr "Vedvarende forbindelser"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of aborted clients"
+#~ msgstr "Importfilformat"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of aborted clients"
+#~ msgstr "Importfilformat"
+
+#, fuzzy
+#~| msgid "Could not save configuration"
+#~ msgid "You do not have InnoDB enabled."
+#~ msgstr "Kunne ikke lagre konfigurasjonen"
+
+#, fuzzy
+#~| msgid "Buffer pool size"
+#~ msgid "InnoDB log size"
+#~ msgstr "Mellomlagerstørrelse"
+
+#, fuzzy
+#~| msgid "The number writes done to the InnoDB buffer pool."
+#~ msgid ""
+#~ "The InnoDB log file size is not an appropriate size, in relation to the "
+#~ "InnoDB buffer pool."
+#~ msgstr "Antall skrivinger til InnoDBs midlertidig mellomlager."
+
+#, fuzzy
+#~| msgid "Buffer pool size"
+#~ msgid "InnoDB buffer pool size"
+#~ msgstr "Mellomlagerstørrelse"
+
+#, fuzzy
+>>>>>>> upstream/master
 #~| msgid "max. concurrent connections"
 #~ msgid "MyISAM concurrent inserts"
 #~ msgstr "maks. samtidige tilkoblinger"

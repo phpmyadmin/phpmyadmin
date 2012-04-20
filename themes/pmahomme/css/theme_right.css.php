@@ -1018,18 +1018,6 @@ fieldset.caution a:hover {
     background-color: #FF0000;
 }
 
-<?php if ($GLOBALS['cfg']['LightTabs']) { ?>
-/* active tab */
-ul#topmenu a.tabactive,
-ul#topmenu2 a.tabactive {
-    color: #000;
-}
-
-ul#topmenu ul {
-    background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-}
-<?php } else { ?>
-
 #topmenu {
     margin-top: .5em;
     padding: .1em .3em;
@@ -1100,7 +1088,6 @@ a.error {
     cursor: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
     color: #ccc;
 }
-<?php } ?>
 /* end topmenu */
 
 /* zoom search */
@@ -3421,18 +3408,6 @@ a.M_butt:hover {
     left: 0;
     background-color: #EAEEF0;
     border: #999 solid 1px;
-}
-
-#layer_action {
-    position: absolute;
-    left: 638px;
-    top: 52px;
-    z-index: 1000;
-    background-color: #CCFF99;
-    padding: 3px;
-    border: #009933 solid 1px;
-    white-space: nowrap;
-    font-weight: bold;
 }
 
 #layer_upd_relation {

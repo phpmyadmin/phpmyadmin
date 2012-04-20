@@ -8,12 +8,32 @@
 /**
  *
  */
+require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
 if (! $cfgRelation['designerwork']) {
     PMD_err_sav();
+}
+
+/**
+ * Sets globals from $_POST
+ */
+$post_params = array(
+    'IS_AJAX',
+    'die_save_pos',
+    'server',
+    't_h',
+    't_v',
+    't_x',
+    't_y'
+);
+
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
 }
 
 foreach ($t_x as $key => $value) {

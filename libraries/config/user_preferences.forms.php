@@ -106,6 +106,8 @@ $forms['Main_frame']['DbStructure'] = array(
     'ShowDbStructureCreation',
     'ShowDbStructureLastUpdate',
     'ShowDbStructureLastCheck');
+$forms['Main_frame']['TableStructure'] = array(
+    'HideStructureActions');
 $forms['Main_frame']['Browse'] = array(
     'NavigationBarIconic',
     'PropertiesIconic',
@@ -130,7 +132,6 @@ $forms['Main_frame']['Edit'] = array(
     'ForeignKeyDropdownOrder',
     'ForeignKeyMaxLimit');
 $forms['Main_frame']['Tabs'] = array(
-    'LightTabs',
     'DefaultTabServer',
     'DefaultTabDatabase',
     'DefaultTabTable');
