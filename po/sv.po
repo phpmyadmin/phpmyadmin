@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-11 00:48+0200\n"
+"PO-Revision-Date: 2012-04-20 20:53+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1798
@@ -1633,16 +1633,14 @@ msgid "Import"
 msgstr "Importera"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Kan inte importera konfiguration"
+msgstr "Importera monitorkonfiguration"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Välj den primära nyckeln eller en unik nyckel"
+msgstr "Välj fil att importera"
 
 #: js/messages.php:212
 msgid "Analyse Query"
@@ -3310,10 +3308,12 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Använd användarvänlig editor för att redigera SQL-frågor "
+"([a@http://codemirror.net/]CodeMirror[/a]) med syntaxmarkering och radnummer"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Aktivera CodeMirror"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3422,13 +3422,12 @@ msgstr "Standard tabellflik"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Oavsett tabellstruktur bör åtgärderna döljas"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Föreslå tabellstruktur"
+msgstr "Dölj åtgärder för tabellstruktur"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -3989,17 +3988,15 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr "Välj vilka detaljer som ska visas i databasstrukturen (tabellista)"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "Databasstruktur"
+msgstr "Tabellstruktur"
 
 #: libraries/config/messages.inc.php:231
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
-msgstr "Välj vilka detaljer som ska visas i databasstrukturen (tabellista)"
+msgstr "Inställningar för tabell struktur (kolumnlista)"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -5777,15 +5774,15 @@ msgstr "Omkodning:"
 #: libraries/display_git_revision.lib.php:46
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s från %2$s grenen"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
-msgstr ""
+msgstr "ingen gren"
 
 #: libraries/display_git_revision.lib.php:54
 msgid "Git revision"
-msgstr ""
+msgstr "Git revision"
 
 #: libraries/display_git_revision.lib.php:57
 #, fuzzy, php-format
