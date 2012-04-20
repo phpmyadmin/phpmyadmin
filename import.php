@@ -48,7 +48,7 @@ $_SESSION['Import_message']['go_back_url'] = null;
 $GLOBALS['reload'] = false;
 
 // Are we just executing plain query or sql file? (eg. non import, but query box/window run)
-if (!empty($sql_query)) {
+if (! empty($sql_query)) {
     // run SQL query
     $import_text = $sql_query;
     $import_type = 'query';
@@ -60,19 +60,19 @@ if (!empty($sql_query)) {
     }
 
     $sql_query = '';
-} elseif (!empty($sql_localfile)) {
+} elseif (! empty($sql_localfile)) {
     // run SQL file on server
     $local_import_file = $sql_localfile;
     $import_type = 'queryfile';
     $format = 'sql';
     unset($sql_localfile);
-} elseif (!empty($sql_file)) {
+} elseif (! empty($sql_file)) {
     // run uploaded SQL file
     $import_file = $sql_file;
     $import_type = 'queryfile';
     $format = 'sql';
     unset($sql_file);
-} elseif (!empty($id_bookmark)) {
+} elseif (! empty($id_bookmark)) {
     // run bookmark
     $import_type = 'query';
     $format = 'sql';
@@ -163,7 +163,7 @@ if (strlen($db)) {
 }
 
 @set_time_limit($cfg['ExecTimeLimit']);
-if (!empty($cfg['MemoryLimit'])) {
+if (! empty($cfg['MemoryLimit'])) {
     @ini_set('memory_limit', $cfg['MemoryLimit']);
 }
 
@@ -192,13 +192,13 @@ $reset_charset = false;
 $bookmark_created = false;
 
 // Bookmark Support: get a query back from bookmark if required
-if (!empty($id_bookmark)) {
+if (! empty($id_bookmark)) {
     $id_bookmark = (int)$id_bookmark;
     include_once 'libraries/bookmark.lib.php';
     switch ($action_bookmark) {
         case 0: // bookmarked query that have to be run
             $import_text = PMA_Bookmark_get($db, $id_bookmark, 'id', isset($action_bookmark_all));
-            if (isset($bookmark_variable) && !empty($bookmark_variable)) {
+            if (isset($bookmark_variable) && ! empty($bookmark_variable)) {
                 $import_text = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddSlashes($bookmark_variable) . '${2}', $import_text);
             }
 
@@ -242,7 +242,7 @@ if (isset($GLOBALS['show_as_php'])) {
 }
 
 // Store the query as a bookmark before executing it if bookmarklabel was given
-if (!empty($bkm_label) && !empty($import_text)) {
+if (! empty($bkm_label) && ! empty($import_text)) {
     include_once 'libraries/bookmark.lib.php';
     $bfields = array(
                  'dbase' => $db,
@@ -294,19 +294,19 @@ $read_limit = $memory_limit / 8; // Just to be sure, there might be lot of memor
 if (isset($_FILES['import_file'])) {
     $import_file = $_FILES['import_file']['tmp_name'];
 }
-if (!empty($local_import_file) && !empty($cfg['UploadDir'])) {
+if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
     // sanitize $local_import_file as it comes from a POST
     $local_import_file = PMA_securePath($local_import_file);
 
     $import_file  = PMA_userDir($cfg['UploadDir']) . $local_import_file;
-} elseif (empty($import_file) || !is_uploaded_file($import_file)) {
+} elseif (empty($import_file) || ! is_uploaded_file($import_file)) {
     $import_file  = 'none';
 }
 
 // Do we have file to import?
 
-if ($import_file != 'none' && !$error) {
+if ($import_file != 'none' && ! $error) {
     // work around open_basedir and other limitations
     $open_basedir = @ini_get('open_basedir');
 
@@ -314,7 +314,7 @@ if ($import_file != 'none' && !$error) {
     // before opening it. The doc explains how to create the "./tmp"
     // directory
 
-    if (!empty($open_basedir)) {
+    if (! empty($open_basedir)) {
 
         $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
 
@@ -389,11 +389,11 @@ if ($import_file != 'none' && !$error) {
         }
     }
     // use isset() because zip compression type does not use a handle
-    if (!$error && isset($import_handle) && $import_handle === false) {
+    if (! $error && isset($import_handle) && $import_handle === false) {
         $message = PMA_Message::error(__('File could not be read'));
         $error = true;
     }
-} elseif (!$error) {
+} elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
         $message = PMA_Message::error(__('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a].'));
         $error = true;
@@ -422,7 +422,7 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
 }
 
 // Something to skip?
-if (!$error && isset($skip)) {
+if (! $error && isset($skip)) {
     $original_skip = $skip;
     while ($skip > 0) {
         PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
@@ -432,7 +432,7 @@ if (!$error && isset($skip)) {
     unset($skip);
 }
 
-if (!$error) {
+if (! $error) {
     // Check for file existance
     if (!file_exists('libraries/import/' . $format . '.php')) {
         $error = true;
@@ -460,15 +460,15 @@ if ($reset_charset) {
 }
 
 // Show correct message
-if (!empty($id_bookmark) && $action_bookmark == 2) {
+if (! empty($id_bookmark) && $action_bookmark == 2) {
     $message = PMA_Message::success(__('The bookmark has been deleted.'));
     $display_query = $import_text;
     $error = false; // unset error marker, it was used just to skip processing
-} elseif (!empty($id_bookmark) && $action_bookmark == 1) {
+} elseif (! empty($id_bookmark) && $action_bookmark == 1) {
     $message = PMA_Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]' . sprintf(__('Bookmark %s created'), htmlspecialchars($bkm_label));
-} elseif ($finished && !$error) {
+} elseif ($finished && ! $error) {
     if ($import_type == 'query') {
         $message = PMA_Message::success();
     } else {
