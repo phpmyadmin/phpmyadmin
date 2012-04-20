@@ -882,7 +882,7 @@ function PMA_displayLoginInformationFields($mode = 'new')
                : $GLOBALS['username']
            ) . '"'
        )
-       . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
+       . ' onchange="pred_username.value = \'userdefined\';" autofocus="autofocus" />' . "\n"
        . '</div>' . "\n"
        . '<div class="item">' . "\n"
        . '<label for="select_pred_hostname">' . "\n"
