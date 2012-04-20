@@ -2671,7 +2671,6 @@ $cfg['SaveDir'] = '';
 
 /**
  * Directory where phpMyAdmin can save temporary files.
- * This is needed for MS Excel export, see documentation how to enable that.
  *
  * @global string $cfg['TempDir']
  */
