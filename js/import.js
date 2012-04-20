@@ -21,6 +21,11 @@ function changePluginOpts()
     } else {
         $("#import_notification").text("");
     }
+    if ( selected_plugin_name != "sql") {
+	    $('#check_tableselect').hide();
+    } else {
+   		$('#check_tableselect').show();
+    }
 }
 
 /**
@@ -87,4 +92,30 @@ $(document).ready(function() {
     .find("h3")
     .remove();
     //$("form[name=import] *").unwrap();
+});
+
+//Hide Import options when selecting tables
+$(document).ready(function() {
+	if( $('#tableselect').css('display')!='none' ) {
+		$('.importoptions').hide();
+		$('.formelementrow').hide();
+		$('#tableselect').show();
+		$('#submit').show();
+	}
+});
+
+$(document).ready(function() {
+	$('.expand').click(function () {
+			id = $(this).attr('id');
+			num = id.substr(7);
+		if ($(this).attr('alt') == '+') {
+			$('#inserts_'+num).show();
+			$(this).attr('src','themes/pmahomme/img/less.png');
+			$(this).attr('alt','-');
+		} else {	
+			$('#inserts_'+num).hide();
+			$(this).attr('src','themes/pmahomme/img/more.png');
+			$(this).attr('alt','+');
+		}
+	});
 });
