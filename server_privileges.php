@@ -84,12 +84,6 @@ foreach (array_keys($_POST) as $post_key) {
 
 require 'libraries/server_common.inc.php';
 
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $conditional_class = 'ajax';
-} else {
-    $conditional_class = '';
-}
-
 /**
  * Messages are built using the message name
  */
@@ -1515,7 +1509,7 @@ if (isset($_REQUEST['flush_privileges'])) {
 /**
  * defines some standard links
  */
-$link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
+$link_edit = '<a class="edit_user_anchor" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;dbname=%s'
@@ -1532,7 +1526,7 @@ $link_revoke = '<a href="server_privileges.php?' . str_replace('%', '%%', $GLOBA
     . PMA_getIcon('b_usrdrop.png', __('Revoke'))
     . '</a>';
 
-$link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
+$link_export = '<a class="export_user_anchor" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
@@ -1540,7 +1534,7 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
     . PMA_getIcon('b_tblexport.png', __('Export'))
     . '</a>';
 
-$link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
+$link_export_all = '<a class="export_user_anchor" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
     . '&amp;username=%s'
     . '&amp;hostname=%s'
     . '&amp;initial=%s'
@@ -1789,7 +1783,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
                 uksort($array_initials, "strnatcasecmp");
 
-                echo '<table id="initials_table" class="' . $conditional_class . '" <cellspacing="5"><tr>';
+                echo '<table id="initials_table" cellspacing="5"><tr>';
                 foreach ($array_initials as $tmp_initial => $initial_was_found) {
                     if ($initial_was_found) {
                         echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
@@ -1914,7 +1908,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
                 // add/delete user fieldset
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
-                   . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1" class="' . $conditional_class . '">' . "\n"
+                   . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1">' . "\n"
                    . PMA_getIcon('b_usradd.png')
                    . '            ' . __('Add user') . '</a>' . "\n"
                    . '    </fieldset>' . "\n"
@@ -1931,14 +1925,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '        </label>' . "\n"
                    . '    </fieldset>' . "\n"
                    . '    <fieldset id="fieldset_delete_user_footer" class="tblFooters">' . "\n"
-                   . '        <input type="submit" name="delete" value="' . __('Go') . '" id="buttonGo" class="' . $conditional_class . '"/>' . "\n"
+                   . '        <input type="submit" name="delete" value="' . __('Go') . '" id="buttonGo"/>' . "\n"
                    . '    </fieldset>' . "\n"
                    . '</form>' . "\n";
             } else {
 
                 unset ($row);
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
-                   . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1" class="' . $conditional_class . '">' . "\n"
+                   . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1">' . "\n"
                    . PMA_getIcon('b_usradd.png')
                    . '            ' . __('Add user') . '</a>' . "\n"
                    . '    </fieldset>' . "\n";
@@ -1949,7 +1943,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             }
 
             $flushnote = new PMA_Message(__('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'), PMA_Message::NOTICE);
-            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1" id="reload_privileges_anchor" class="' . $conditional_class . '">', false);
+            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1" id="reload_privileges_anchor">', false);
             $flushnote->addParam('</a>', false);
             $flushnote->display();
         }
@@ -2544,7 +2538,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         // Offer to create a new user for the current database
         $user_form .= '<fieldset id="fieldset_add_user">' . "\n"
            . '<legend>' . __('New') . '</legend>' . "\n"
-           . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'" rel="'.'checkprivs='.htmlspecialchars($checkprivs). '&amp;'.$GLOBALS['url_query'] . '" class="'.$conditional_class.'" name="db_specific">' . "\n"
+           . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'" rel="'.'checkprivs='.htmlspecialchars($checkprivs). '&amp;'.$GLOBALS['url_query'] . '" name="db_specific">' . "\n"
            . PMA_getIcon('b_usradd.png')
            . '        ' . __('Add user') . '</a>' . "\n"
            . '</fieldset>' . "\n";

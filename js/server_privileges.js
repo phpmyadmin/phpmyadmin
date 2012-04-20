@@ -144,12 +144,11 @@ $(document).ready(function() {
      *
      * @see         PMA_ajaxShowMessage()
      * @see         appendNewUser()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        add_user_click
      *
      */
-    $("#fieldset_add_user a.ajax").live("click", function(event) {
+    $("#fieldset_add_user a").live("click", function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -193,10 +192,10 @@ $(document).ready(function() {
                     if ($notice_class.text() == '') {
                         $notice_class.remove();
                     }
-                    if ($('#fieldset_add_user a.ajax').attr('name') == 'db_specific') {
+                    if ($('#fieldset_add_user a').attr('name') == 'db_specific') {
 
                         /*process the fieldset_add_user attribute and get the val of privileges*/
-                        var url = $('#fieldset_add_user a.ajax').attr('rel');
+                        var url = $('#fieldset_add_user a').attr('rel');
 
                         if (url.substring(url.length - 23, url.length) == "&goto=db_operations.php") {
                             url = url.substring(0, url.length - 23);
@@ -272,11 +271,10 @@ $(document).ready(function() {
      * Ajax event handler for 'Reload Privileges' anchor
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        reload_privileges_click
      */
-    $("#reload_privileges_anchor.ajax").live("click", function(event) {
+    $("#reload_privileges_anchor").live("click", function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
@@ -296,11 +294,10 @@ $(document).ready(function() {
      * AJAX handler for 'Revoke User'
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        revoke_user_click
      */
-    $("#fieldset_delete_user_footer #buttonGo.ajax").live('click', function(event) {
+    $("#fieldset_delete_user_footer #buttonGo").live('click', function(event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strRemovingSelectedUsers']);
@@ -351,9 +348,8 @@ $(document).ready(function() {
      * Step 1: Load Edit User Dialog
      * @memberOf    jQuery
      * @name        edit_user_click
-     * @see         $cfg['AjaxEnable']
      */
-    $("a.edit_user_anchor.ajax").live('click', function(event) {
+    $("a.edit_user_anchor").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -395,7 +391,6 @@ $(document).ready(function() {
      * Step 2: Submit the Edit User Dialog
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        edit_user_submit
      */
@@ -477,7 +472,6 @@ $(document).ready(function() {
      * AJAX handler for 'Export Privileges'
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        export_user_click
      */
@@ -535,7 +529,7 @@ $(document).ready(function() {
         );
     }
 
-    $("a.export_user_anchor.ajax").live('click', function(event) {
+    $("a.export_user_anchor").live('click', function(event) {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         /**
@@ -576,11 +570,10 @@ $(document).ready(function() {
      * AJAX handler to Paginate the Users Table
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */
-    $("#initials_table.ajax").find("a").live('click', function(event) {
+    $("#initials_table").find("a").live('click', function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage();

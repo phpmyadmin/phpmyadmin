@@ -287,9 +287,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     }
     unset($table_list);
     if (!PMA_is_system_schema($db)) {
-        $class = '';
-        $GLOBALS['cfg']['AjaxEnable'] ? $class="ajax" : '';
-        echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '"  class="'.$class .'" >'
+        echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '">'
             . PMA_getImage('b_snewtbl.png', _pgettext('short form', 'Create table'), array('id' => "icon_newtable"))
             . _pgettext('short form', 'Create table') . '</a></li></ul>';
     }

@@ -250,7 +250,7 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
         <input type="hidden" name="pos" value="<?php echo $pos; ?>" />
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
         <?php echo $input_for_real_end; ?>
-        <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '' ); ?> value="<?php echo $caption_output; ?>"<?php echo $title_output . $onclick; ?> />
+        <input type="submit" name="navig" value="<?php echo $caption_output; ?>"<?php echo $title_output . $onclick; ?> />
     </form>
 </td>
 <?php
@@ -427,7 +427,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-            <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
+            <input type="submit" name="navig" value="<?php echo __('Show'); ?> :" />
             <?php echo __('Start row') . ': ' . "\n"; ?>
             <input type="text" name="pos" size="3" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
             <?php echo __('Number of rows') . ': ' . "\n"; ?>
@@ -612,11 +612,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
     // Display options (if we are not in print view)
     if (! (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1')) {
-        echo '<form method="post" action="sql.php" name="displayOptionsForm" id="displayOptionsForm"';
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            echo ' class="ajax" ';
-        }
-        echo '>';
+        echo '<form method="post" action="sql.php" name="displayOptionsForm" id="displayOptionsForm">';
         $url_params = array(
             'db' => $db,
             'table' => $table,
@@ -713,20 +709,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // Start of form for multi-rows edit/delete/export
 
     if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
-        echo '<form method="post" action="tbl_row_action.php" name="resultsForm" id="resultsForm"';
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            echo ' class="ajax" ';
-        }
-        echo '>' . "\n";
+        echo '<form method="post" action="tbl_row_action.php" name="resultsForm" id="resultsForm">' . "\n";
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
         echo '<input type="hidden" name="goto"             value="sql.php" />' . "\n";
     }
 
-    echo '<table id="table_results" class="data';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        echo ' ajax';
-    }
-    echo '">' . "\n";
+    echo '<table id="table_results" class="data">' . "\n";
     if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
         || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
     ) {

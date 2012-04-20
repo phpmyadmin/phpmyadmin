@@ -530,13 +530,6 @@ $cfg['ServerDefault'] = 1;
  * Other core phpMyAdmin settings
  */
 /**
- * whether Ajax behavior is active
- *
- * @global boolean $cfg['AjaxEnable']
- */
-$cfg['AjaxEnable'] = true;
-
-/**
  * whether version check is active
  *
  * @global boolean $cfg['VersionCheck']
@@ -633,7 +626,7 @@ $cfg['ShowSQL'] = true;
 /**
  * retain SQL input on Ajax execute
  *
- * @global boolean $cfg['RetainQueryEditor']
+ * @global boolean $cfg['RetainQueryBox']
  */
 $cfg['RetainQueryBox'] = false;
 
