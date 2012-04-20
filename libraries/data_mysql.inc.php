@@ -287,12 +287,12 @@ if ($cfg['ShowFunctionFields']) {
 } // end if
 
 /**
- * This function returns the datatypes descriptions.
+ * This function returns datatypes descriptions.
  *
  * @return array MySQL datatypes descriptions.
  *
  */
-function MySQLSupportedDataTypesDescriptions()
+function SupportedDataTypesDescriptions()
 {
     return array(
         'TINYINT' => __('A very small integer. The signed range is -128 to 127. The unsigned range is 0 to 255.'),
@@ -338,6 +338,6 @@ function MySQLSupportedDataTypesDescriptions()
         'MULTIPOLYGON' => __('Constructs a WKB MultiPolygon value from a set of WKB Polygon arguments. If any argument is not a WKB Polygon, the return value is NULL.'),
         'GEOMETRYCOLLECTION' => __('Constructs a WKB GeometryCollection. If any argument is not a well-formed WKB representation of a geometry, the return value is NULL.'),
     );
-} // end MySQLSupportedDataTypesDescriptions()
+} // end SupportedDataTypesDescriptions()
 
 ?>

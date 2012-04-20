@@ -3412,7 +3412,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                 $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                 foreach ($value as $subvalue) {
                     if ($subvalue == $selected) {
-                        $retval .= "<option selected='selected' title='" . PMA_supportedDatatypesDescriptions($subvalue) . "'>";
+                        $retval .= "<option selected='selected' title='" . PMA_getDatatypeDescription($subvalue) . "'>";
                         $retval .= $subvalue;
                         $retval .= "</option>";
                     } else if ($subvalue === '-') {
@@ -3420,15 +3420,15 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                         $retval .= $subvalue;
                         $retval .= "</option>";
                     } else {
-                        $retval .= "<option title='" . PMA_supportedDatatypesDescriptions($subvalue) . "'>$subvalue</option>";
+                        $retval .= "<option title='" . PMA_getDatatypeDescription($subvalue) . "'>$subvalue</option>";
                     }
                 }
                 $retval .= '</optgroup>';
             } else {
                 if ($selected == $value) {
-                    $retval .= "<option selected='selected' title='" . PMA_supportedDatatypesDescriptions($value) . "'>$value</option>";
+                    $retval .= "<option selected='selected' title='" . PMA_getDatatypeDescription($value) . "'>$value</option>";
                 } else {
-                    $retval .= "<option title='" . PMA_supportedDatatypesDescriptions($value) . "'>$value</option>";
+                    $retval .= "<option title='" . PMA_getDatatypeDescription($value) . "'>$value</option>";
                 }
             }
         }
@@ -3453,25 +3453,6 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
 } // end PMA_getSupportedDatatypes()
 
 /**
- * This function returns the database specific function name that returns
- * supported data types descriptions.
- *
- * @return string The function name.
- *
- */
-function PMA_supportedDatatypesDescriptionsFunctionName()
-{
-    $server_type = PMA_getServerType();
-    $function_name = 'MySQL';
-
-    if ($server_type == 'Drizzle') {
-        $function_name = 'Drizzle';
-    }
-
-    return ($function_name . 'SupportedDataTypesDescriptions');
-} // end PMA_supportedDatatypesDescriptionsFunctionName()
-
-/**
  * This function returns the data type description.
  *
  * @param string $type The data type to get a description.
@@ -3479,16 +3460,14 @@ function PMA_supportedDatatypesDescriptionsFunctionName()
  * @return string 
  *
  */
-function PMA_supportedDatatypesDescriptions($type)
+function PMA_getDatatypeDescription($type)
 {
     $type = strtoupper($type);
-    $function_name = PMA_supportedDatatypesDescriptionsFunctionName();
-    $descriptions = call_user_func($function_name);
+    $descriptions = SupportedDataTypesDescriptions();
 
-    if (isset($descriptions[$type])) {
-        return htmlentities($descriptions[$type], ENT_QUOTES);
-    }
-} // end PMA_supportedDatatypesDescriptions()
+    return isset($descriptions[$type])
+        ? htmlentities($descriptions[$type], ENT_QUOTES) : '';
+} // end PMA_getDatatypeDescription()
 
 /**
  * Returns a list of datatypes that are not (yet) handled by PMA.

@@ -227,12 +227,12 @@ if ($cfg['ShowFunctionFields']) {
 } // end if
 
 /**
- * This function returns the datatypes descriptions.
+ * This function returns datatypes descriptions.
  *
  * @return array Drizzle datatypes descriptions.
  *
  */
-function DrizzleSupportedDataTypesDescriptions()
+function SupportedDataTypesDescriptions()
 {
     return array(
         'INTEGER' => __('Most common integer.'),
@@ -252,6 +252,6 @@ function DrizzleSupportedDataTypesDescriptions()
         'BLOB' => __('Data which is over XXX in size. Uses a binary collation for all index usage.'),
         'ENUM' => __('Static lists of strings.'),
     );
-} // end DrizzleSupportedDataTypesDescriptions()
+} // end SupportedDataTypesDescriptions()
 
 ?>
