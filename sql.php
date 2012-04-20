@@ -547,7 +547,8 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     $GLOBALS['querytime'] = $querytime_after - $querytime_before;
 
     // Displays an error message if required and stop parsing the script
-    if ($error        = PMA_DBI_getError()) {
+    $error = PMA_DBI_getError();
+    if ($error) {
         if ($is_gotofile) {
             if (strpos($goto, 'db_') === 0 && strlen($table)) {
                 $table = '';
