@@ -132,12 +132,14 @@ function editVariable(link)
     var mySaveLink = $(saveLink);
     var myCancelLink = $(cancelLink);
     var $cell = $(link).parent();
+    var $msgbox = PMA_ajaxShowMessage();
 
     $cell.addClass('edit');
     // remove edit link
     $cell.find('a.editLink').remove();
 
     mySaveLink.click(function() {
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         $.get('server_variables.php?' + url_query, {
                 ajax_request: true,
                 type: 'setval',
@@ -146,6 +148,7 @@ function editVariable(link)
             }, function(data) {
                 if (data.success) {
                     $cell.html(data.variable);
+                    PMA_ajaxRemoveMessage($msgbox);
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                     $cell.html($cell.find('span.oldContent').html());
@@ -184,6 +187,7 @@ function editVariable(link)
                 // Escape key
                 if(event.keyCode == 27) myCancelLink.trigger('click');
             });
+            PMA_ajaxRemoveMessage($msgbox);
         });
 
     return false;
