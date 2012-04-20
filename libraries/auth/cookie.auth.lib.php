@@ -159,9 +159,8 @@ function PMA_auth()
 <script type="text/javascript">
 //<![CDATA[
 // reveal the login form to users with JS enabled
-$(document).ready(function () {
-    $('form.login').show();
-    $('div.language').show();
+$(function () {
+    $('.hide').show();
 });
 //]]>
 </script>
