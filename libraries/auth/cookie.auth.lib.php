@@ -203,7 +203,7 @@ $(function () {
     PMA_message::error(__("Javascript must be enabled past this point"))->display();
     echo "</noscript>\n";
 
-    echo "<div class='language hide'>";
+    echo "<div class='hide'>";
     // Displays the languages form
     if (empty($GLOBALS['cfg']['Lang'])) {
         include_once './libraries/display_select_lang.lib.php';
