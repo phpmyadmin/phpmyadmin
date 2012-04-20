@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-20 20:53+0200\n"
+"PO-Revision-Date: 2012-04-20 20:56+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5785,16 +5785,16 @@ msgid "Git revision"
 msgstr "Git revision"
 
 #: libraries/display_git_revision.lib.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "committed on %1$s by %2$s"
-msgstr "Skapa version %1$s av %2$s"
+msgstr "inlaggd %1$s av %2$s"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "authored on %1$s by %2$s"
-msgstr "Skapa version %1$s av %2$s"
+msgstr "Skriven den %1$s av %2$s"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -6542,16 +6542,14 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki Tabell"
 
 #: libraries/export/mediawiki.php:51
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "Exportera innehåll"
+msgstr "Exportera tabellnamn"
 
 #: libraries/export/mediawiki.php:58
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "horisontell (roterade rubriker)"
+msgstr "Exportera tabellhuvuden"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -11628,10 +11626,9 @@ msgid "Spatial"
 msgstr "Spatial"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Bläddra bland distinkta värden"
+msgstr "Distinkta värden"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add primary key"
