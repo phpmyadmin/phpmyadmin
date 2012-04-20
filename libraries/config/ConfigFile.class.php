@@ -39,8 +39,8 @@ class ConfigFile
     private $persistKeys = array();
 
     /**
-     * Changes keys while updating config in {@link updateWithGlobalConfig()} or reading
-     * by {@link getConfig()} or {@link getConfigArray()}
+     * Changes keys while updating config in {@link updateWithGlobalConfig()}
+     * or reading by {@link getConfig()} or {@link getConfigArray()}
      * @var array
      */
     private $cfgUpdateReadMapping = array();
@@ -52,7 +52,8 @@ class ConfigFile
     private $setFilter;
 
     /**
-     * Instance id (key in $_SESSION array, separate for each server - ConfigFile{server id})
+     * Instance id (key in $_SESSION array, separate for each server -
+     * ConfigFile{server id})
      * @var string
      */
     private $id;
@@ -124,14 +125,15 @@ class ConfigFile
     }
 
     /**
-     * Sets names of config options which will be placed in config file even if they are set
-     * to their default values (use only full paths)
+     * Sets names of config options which will be placed in config file even if
+     * they are set to their default values (use only full paths)
      *
      * @param array $keys
      */
     public function setPersistKeys($keys)
     {
-        // checking key presence is much faster than searching so move values to keys
+        // checking key presence is much faster than searching so move values
+        // to keys
         $this->persistKeys = array_flip($keys);
     }
 
@@ -146,8 +148,8 @@ class ConfigFile
     }
 
     /**
-     * By default ConfigFile allows setting of all configuration keys, use this method
-     * to set up a filter on {@link set()} method
+     * By default ConfigFile allows setting of all configuration keys, use
+     * this method to set up a filter on {@link set()} method
      *
      * @param array|null $keys array of allowed keys or null to remove filter
      */
@@ -157,12 +159,14 @@ class ConfigFile
             $this->setFilter = null;
             return;
         }
-        // checking key presence is much faster than searching so move values to keys
+        // checking key presence is much faster than searching so move values
+        // to keys
         $this->setFilter = array_flip($keys);
     }
 
     /**
-     * Sets path mapping for updating config in {@link updateWithGlobalConfig()} or reading
+     * Sets path mapping for updating config in {
+     * @link updateWithGlobalConfig()} or reading
      * by {@link getConfig()} or {@link getConfigArray()}
      * @var array
      */
@@ -205,11 +209,13 @@ class ConfigFile
         if ($this->setFilter !== null && !isset($this->setFilter[$canonical_path])) {
             return;
         }
-        // remove if the path isn't protected and it's empty or has a default value
+        // remove if the path isn't protected and it's empty or has a default
+        // value
         if (!isset($this->persistKeys[$canonical_path])) {
             $default_value = $this->getDefault($canonical_path);
-            // we need oryginal config values not overwritten by user preferences
-            // to allow for overwriting options set in config.inc.php with default values
+            // we need oryginal config values not overwritten by user
+            // preferences to allow for overwriting options set in
+            // config.inc.php with default values
             $instance_default_value = PMA_array_read($canonical_path, $this->orgCfgObject->settings);
             if (($value === $default_value && (defined('PMA_SETUP') || $instance_default_value === $default_value))
                     || (empty($value) && empty($default_value) && (defined('PMA_SETUP') || empty($current_global)))) {
@@ -221,7 +227,8 @@ class ConfigFile
     }
 
     /**
-     * Flattens multidimensional array, changes indices to paths (eg. 'key/subkey').
+     * Flattens multidimensional array, changes indices to paths
+     * (eg. 'key/subkey').
      * Used as array_walk() callback.
      *
      * @param mixed $value
@@ -267,9 +274,9 @@ class ConfigFile
         $flat_cfg = $this->_flattenArrayResult;
         $this->_flattenArrayResult = null;
 
-        // save values
-        // map for translating a few user preferences paths, should be complemented
-        // by code reading from generated config to perform inverse mapping
+        // save values map for translating a few user preferences paths,
+        // should be complemented by code reading from generated config
+        // to perform inverse mapping
         foreach ($flat_cfg as $path => $value) {
             if (isset($this->cfgUpdateReadMapping[$path])) {
                 $path = $this->cfgUpdateReadMapping[$path];
