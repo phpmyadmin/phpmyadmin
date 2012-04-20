@@ -226,4 +226,32 @@ if ($cfg['ShowFunctionFields']) {
     unset($restrict_functions);
 } // end if
 
+/**
+ * This function returns the datatypes descriptions.
+ *
+ * @return array Drizzle datatypes descriptions.
+ *
+ */
+function DrizzleSupportedDataTypesDescriptions()
+{
+    return array(
+        'INTEGER' => __('Most common integer.'),
+        'BIGINT' => __('Larger-range integer.'),
+        'DECIMAL' => __('Fixed precision number.'),
+        'DOUBLE' => __('Systems native double type.'),
+        'BOOLEAN' => __('True or false.'),
+        'SERIAL' => __('A number is inserted in increasing order as rows are inserted into the table.'),
+        'UUID' => __('Stores Universally Unique Identifiers (UUID).'),
+        'DATE' => __('Dates only.'),
+        'DATETIME' => __('Both date and time.'),
+        'TIMESTAMP' => __('Both date and time.'),
+        'TIME' => __('Time of day.'),
+        'VARCHAR' => __('Variable length data.'),
+        'TEXT' => __('Data which is over XXX in size'),
+        'VARBINARY' => __('Variable length data.'),
+        'BLOB' => __('Data which is over XXX in size. Uses a binary collation for all index usage.'),
+        'ENUM' => __('Static lists of strings.'),
+    );
+} // end DrizzleSupportedDataTypesDescriptions()
+
 ?>
