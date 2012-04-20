@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-16 16:28+0200\n"
-"Last-Translator: Illes Szabolcs <iszabi@netkey.hu>\n"
+"PO-Revision-Date: 2012-04-20 00:10+0200\n"
+"Last-Translator: Gergely Nagy <gerrrike@yahoo.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -1232,20 +1232,18 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "Lekérdezési gyorsítótár"
+msgstr "Lekérdezési gyorsítótár hatékonysága"
 
 #: js/messages.php:94
 msgid "Query cache usage"
 msgstr "Lekérdezési gyorsítótár használat"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "Lekérdezési gyorsítótár"
+msgstr "Lekérdezési gyorsítótárat használatban"
 
 #: js/messages.php:97
 msgid "System CPU Usage"
@@ -1376,14 +1374,13 @@ msgid "Edit title and labels"
 msgstr "Cím és címkék szerkesztése"
 
 #: js/messages.php:136
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Rácshoz illesztés"
+msgstr "Diagram hozzáadása"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Legalább egy változót adjon meg a sorozathoz"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
@@ -1395,11 +1392,11 @@ msgstr "Nincs"
 
 #: js/messages.php:140
 msgid "Resume monitor"
-msgstr ""
+msgstr "Megfigyelés visszakapcsolása"
 
 #: js/messages.php:141
 msgid "Pause monitor"
-msgstr ""
+msgstr "Megfigyelés megállítása"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1499,7 +1496,7 @@ msgstr ""
 #: js/messages.php:167
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "Osztva %s -el"
 
 #: js/messages.php:168
 msgid "Unit"
@@ -1507,21 +1504,20 @@ msgstr "Egység"
 
 #: js/messages.php:170
 msgid "From slow log"
-msgstr ""
+msgstr "a slow naplóból"
 
 #: js/messages.php:171
 msgid "From general log"
-msgstr ""
+msgstr "az általános naplóból"
 
 #: js/messages.php:172
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Elemzés és naplók betöltése. Ez eltarthat egy ideig."
 
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Olvasási kérések"
+msgstr "Kérés elvetése"
 
 #: js/messages.php:174
 msgid ""
