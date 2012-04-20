@@ -356,11 +356,8 @@ foreach ($tables as $keyname => $each_table) {
     $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $truename . '</a>';
 
     if (! $db_is_information_schema) {
-        $empty_table = '<a ';
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            $empty_table .= 'class="truncate_table_anchor"';
-        }
-        $empty_table .= ' href="sql.php?' . $tbl_url_query
+        $empty_table = '<a class="truncate_table_anchor"'
+            . ' href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
         $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
             . '&amp;message_to_show='
@@ -475,11 +472,11 @@ foreach ($tables as $keyname => $each_table) {
     <td class="center"><?php echo $search_table; ?></td>
     <?php if (! $db_is_information_schema) { ?>
     <td class="insert_table center">
-        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : ''); ?> href="tbl_change.php?<?php echo $tbl_url_query; ?>">
+        <a href="tbl_change.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Insert']; ?></a></td>
     <td class="center"><?php echo $empty_table; ?></td>
     <td class="center">
-    <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="drop_table_anchor"' : ''); ?> href="sql.php?<?php echo $tbl_url_query;
+    <a class="drop_table_anchor" href="sql.php?<?php echo $tbl_url_query;
             ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php
             echo urlencode($drop_query); ?>&amp;message_to_show=<?php
             echo urlencode($drop_message); ?>" >

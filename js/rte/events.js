@@ -33,8 +33,6 @@ RTE.validateCustom = function () {
  * Attach Ajax event handlers for the "Change event type"
  * functionality in the events editor, so that the correct
  * rows are shown in the editor when changing the event type
- *
- * @see $cfg['AjaxEnable']
  */
 $(document).ready(function () {
     $('select[name=item_type]').live('change', function () {

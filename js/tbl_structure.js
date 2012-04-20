@@ -20,8 +20,6 @@
 $(document).ready(function() {
     /**
      * Attach Event Handler for 'Drop Column'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("a.drop_column_anchor").live('click', function(event) {
         event.preventDefault();
@@ -74,8 +72,6 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for 'Add Primary Key'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("div.action_primary a").live('click', function(event) {
         event.preventDefault();
@@ -114,8 +110,6 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for 'Drop Primary Key/Index'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $('a.drop_primary_key_index_anchor').live('click', function(event) {
         event.preventDefault();
@@ -169,7 +163,7 @@ $(document).ready(function() {
     /**
      *Ajax event handler for multi column change
     **/
-    $("#fieldsForm.ajax .mult_submit[value=change]").live('click', function(event){
+    $("#fieldsForm .mult_submit[value=change]").live('click', function(event){
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
@@ -188,7 +182,7 @@ $(document).ready(function() {
     /**
      *Ajax event handler for single column change
     **/
-    $("#fieldsForm.ajax #tablestructure tbody tr td.edit a").live('click', function(event){
+    $("#fieldsForm #tablestructure tbody tr td.edit a").live('click', function(event){
         event.preventDefault();
         /*Define the action and $url variabls for the post method*/
         var action = "tbl_alter.php";
@@ -204,7 +198,7 @@ $(document).ready(function() {
     /**
      *Ajax event handler for index edit
     **/
-    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function(event) {
+    $("#table_index tbody tr td.edit_index, #indexes .add_index").live('click', function(event) {
         event.preventDefault();
         if ($(this).find("a").length == 0) {
             // Add index
@@ -362,7 +356,7 @@ $(document).ready(function() {
     /**
      *Ajax event handler for Add column(s)
     **/
-    $("#addColumns.ajax input[type=submit]").live('click', function(event){
+    $("#addColumns input[type=submit]").live('click', function(event){
         event.preventDefault();
 
         /*Remove the hidden dialogs if there are*/
@@ -485,7 +479,6 @@ function changeColumns(action,url)
                 open: PMA_verifyColumnsProperties,
                 buttons : button_options
             }); // end dialog options
-            $("#append_fields_form input[name=do_save_data]").addClass("ajax");
             /*changed the z-index of the enum editor to allow the edit*/
             $("#enum_editor").css("z-index", "1100");
             $div = $("#change_column_dialog");
@@ -519,52 +512,46 @@ $(document).ready(function() {
          */
         if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
             // OK, form passed validation step
-            if ($form.hasClass('ajax')) {
-                PMA_prepareForAjaxRequest($form);
-                //User wants to submit the form
-                $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
-                    if ($("#sqlqueryresults").length != 0) {
-                        $("#sqlqueryresults").remove();
-                    } else if ($(".error").length != 0) {
-                        $(".error").remove();
+            PMA_prepareForAjaxRequest($form);
+            //User wants to submit the form
+            $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
+                if ($("#sqlqueryresults").length != 0) {
+                    $("#sqlqueryresults").remove();
+                } else if ($(".error").length != 0) {
+                    $(".error").remove();
+                }
+                if (data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
+                    $("#sqlqueryresults").html(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend((data.message));
+                    if ($("#change_column_dialog").length > 0) {
+                        $("#change_column_dialog").dialog("close").remove();
+                    } else if ($("#add_columns").length > 0) {
+                        $("#add_columns").dialog("close").remove();
                     }
-                    if (data.success == true) {
-                        PMA_ajaxShowMessage(data.message);
-                        $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                        $("#sqlqueryresults").html(data.sql_query);
-                        $("#result_query .notice").remove();
-                        $("#result_query").prepend((data.message));
-                        if ($("#change_column_dialog").length > 0) {
-                            $("#change_column_dialog").dialog("close").remove();
-                        } else if ($("#add_columns").length > 0) {
-                            $("#add_columns").dialog("close").remove();
+                    /*Reload the field form*/
+                    $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
+                        $("#fieldsForm").remove();
+                        $("#addColumns").remove();
+                        var $temp_div = $("<div id='temp_div'><div>").append(form_data);
+                        if ($("#sqlqueryresults").length != 0) {
+                            $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
+                        } else {
+                            $temp_div.find("#fieldsForm").insertAfter(".error");
                         }
-                        /*Reload the field form*/
-                        $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
-                            $("#fieldsForm").remove();
-                            $("#addColumns").remove();
-                            var $temp_div = $("<div id='temp_div'><div>").append(form_data);
-                            if ($("#sqlqueryresults").length != 0) {
-                                $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
-                            } else {
-                                $temp_div.find("#fieldsForm").insertAfter(".error");
-                            }
-                            $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
-                            /*Call the function to display the more options in table*/
-                            $table_clone = false;
-                            moreOptsMenuResize();
-                        });
-                    } else {
-                        var $temp_div = $("<div id='temp_div'><div>").append(data);
-                        var $error = $temp_div.find(".error code").addClass("error");
-                        PMA_ajaxShowMessage($error, false);
-                    }
-                }) // end $.post()
-            } else {
-                // non-Ajax submit
-                $form.append('<input type="hidden" name="do_save_data" value="Save" />');
-                $form.submit();
-            }
+                        $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
+                        /*Call the function to display the more options in table*/
+                        $table_clone = false;
+                        moreOptsMenuResize();
+                    });
+                } else {
+                    var $temp_div = $("<div id='temp_div'><div>").append(data);
+                    var $error = $temp_div.find(".error code").addClass("error");
+                    PMA_ajaxShowMessage($error, false);
+                }
+            }); // end $.post()
         }
     }) // end change table button "do_save_data"
 

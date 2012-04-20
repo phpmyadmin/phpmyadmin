@@ -244,12 +244,12 @@ if (isset($_REQUEST['submit_search'])) {
             $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
              $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
              ?>
-            <td> <a name="browse_search" href="<?php echo $browse_result_path; ?>" onclick="loadResult('<?php echo $browse_result_path ?> ',' <?php echo  $each_table?> ' , '<?php echo PMA_generate_common_url($GLOBALS['db'], $each_table)?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Browse') ?></a>   </td>
+            <td> <a name="browse_search" href="<?php echo $browse_result_path; ?>" onclick="loadResult('<?php echo $browse_result_path ?> ',' <?php echo  $each_table?> ' , '<?php echo PMA_generate_common_url($GLOBALS['db'], $each_table)?>');return false;" ><?php echo __('Browse') ?></a>   </td>
             <?php
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
             $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
             ?>
-            <td> <a name="delete_search" href="<?php echo $delete_result_path; ?>" onclick="deleteResult('<?php echo $delete_result_path ?>' , ' <?php printf(__('Delete the matches for the %s table?'), htmlspecialchars($each_table)); ?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Delete') ?></a>   </td>
+            <td> <a name="delete_search" href="<?php echo $delete_result_path; ?>" onclick="deleteResult('<?php echo $delete_result_path ?>' , ' <?php printf(__('Delete the matches for the %s table?'), htmlspecialchars($each_table)); ?>');return false;" ><?php echo __('Delete') ?></a>   </td>
             <?php
         } else {
             echo '<td>&nbsp;</td>' . "\n"
@@ -283,7 +283,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
  */
 ?>
 <a id="db_search"></a>
-<form id="db_search_form"<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> method="post" action="db_search.php" name="db_search">
+<form id="db_search_form" method="post" action="db_search.php" name="db_search">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db']); ?>
 <fieldset>
     <legend><?php echo __('Search in database'); ?></legend>

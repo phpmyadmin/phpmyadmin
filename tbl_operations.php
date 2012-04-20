@@ -260,7 +260,7 @@ $columns = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
 ?>
 <!-- Order the table -->
 <div class="operations_half_width">
-<form method="post" id="alterTableOrderby" action="tbl_operations.php" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
+<form method="post" id="alterTableOrderby" action="tbl_operations.php">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset id="fieldset_table_order">
     <legend><?php echo __('Alter table order by'); ?></legend>
@@ -527,7 +527,7 @@ if (isset($possible_row_formats[$tbl_storage_engine])) {
 
 <!-- Copy table -->
 <div class="operations_half_width">
-<form method="post" action="tbl_operations.php" name="copyTable" id="copyTable" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
+<form method="post" action="tbl_operations.php" name="copyTable" id="copyTable"
     onsubmit="return emptyFormElements(this, 'new_name')">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
@@ -593,7 +593,7 @@ if (isset($possible_row_formats[$tbl_storage_engine])) {
 <fieldset>
  <legend><?php echo __('Table maintenance'); ?></legend>
 
-<ul id="tbl_maintenance" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
+<ul id="tbl_maintenance">
 <?php
 // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
 if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
@@ -708,7 +708,7 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
         )
     );
     ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="truncate_tbl_anchor" class="ajax"' : ''); ?>>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" id="truncate_tbl_anchor">
             <?php echo __('Empty the table (TRUNCATE)'); ?></a>
         <?php echo PMA_showMySQLDocu('SQL-Syntax', 'TRUNCATE_TABLE'); ?>
     </li>
@@ -730,7 +730,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
         )
     );
     ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_tbl_anchor"' : ''); ?>>
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" id="drop_tbl_anchor">
             <?php echo __('Delete the table (DROP)'); ?></a>
         <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_TABLE'); ?>
     </li>

@@ -120,11 +120,9 @@ function PMA_adjustTotals() {
 $(document).ready(function() {
     /**
      * Ajax Event handler for 'Insert Table'
-     *
-     * @see     $cfg['AjaxEnable']
      */
     var current_insert_table;
-    $("td.insert_table a.ajax").live('click', function(event){
+    $("td.insert_table a").live('click', function(event){
         event.preventDefault();
         current_insert_table = $(this);
         var $url = $(this).attr("href");
@@ -181,8 +179,6 @@ $(document).ready(function() {
                 $dialog.find('.datefield, .datetimefield').each(function () {
                     PMA_addDatepicker($(this));
                 });
-                $("table.insertRowTable").addClass("ajax");
-                $("#buttonYes").addClass("ajax");
                 $div = $("#insert_table_dialog");
                 PMA_convertFootnotesToTooltips($div);
             }
@@ -191,7 +187,7 @@ $(document).ready(function() {
 
     });
 
-    $("#insertForm .insertRowTable.ajax input[type=submit]").live('click', function(event) {
+    $("#insertForm .insertRowTable input[type=submit]").live('click', function(event) {
         event.preventDefault();
         /**
          *  @var    the_form    object referring to the insert form
@@ -215,7 +211,7 @@ $(document).ready(function() {
         }) // end $.post()
     }) // end insert table button "Go"
 
-    $("#buttonYes.ajax").live('click', function(event){
+    $("#buttonYes").live('click', function(event){
         event.preventDefault();
         /**
          *  @var    the_form    object referring to the insert form
@@ -276,8 +272,6 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for 'Truncate Table'
-     *
-     * @see     $cfg['AjaxEnable']
      */
     $("a.truncate_table_anchor").live('click', function(event) {
         event.preventDefault();
@@ -328,8 +322,6 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for 'Drop Table'
-     *
-     * @see     $cfg['AjaxEnable']
      */
     $("a.drop_table_anchor").live('click', function(event) {
         event.preventDefault();
@@ -385,8 +377,6 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for 'Drop tracking'
-     *
-     * @see     $cfg['AjaxEnable']
      */
     $('a.drop_tracking_anchor').live('click', function(event) {
         event.preventDefault();

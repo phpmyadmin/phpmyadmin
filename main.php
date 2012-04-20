@@ -94,20 +94,13 @@ if ($server > 0
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
             if ($cfg['ShowChgPassword']) {
-                if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $conditional_class = 'ajax';
-                } else {
-                    $conditional_class = null;
-                }
                 PMA_printListItem(
                     __('Change password'),
                     'li_change_password',
                     'user_password.php?' . $common_url_query,
                     null,
                     null,
-                    'change_password_anchor',
-                    null,
-                    $conditional_class
+                    'change_password_anchor'
                 );
             }
         } // end if

@@ -238,7 +238,7 @@ $(document).ready(function(){
     });
 
     /* Create table */
-    $('#newtable a.ajax').click(function(event){
+    $('#newtable a').click(function(event){
         event.preventDefault();
         /*Getting the url */
         var url = $('#newtable a').attr("href");

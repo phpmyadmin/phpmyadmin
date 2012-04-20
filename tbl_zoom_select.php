@@ -223,8 +223,7 @@ if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
  */
 
 ?>
-<form method="post" action="tbl_zoom_select.php" name="insertForm" id="zoom_search_form"
-    <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
+<form method="post" action="tbl_zoom_select.php" name="insertForm" id="zoom_search_form">
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="back" value="tbl_zoom_select.php" />
@@ -417,8 +416,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
      * Form for displaying point data and also the scatter plot
      */
     ?>
-    <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form"
-        <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
+    <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="tbl_zoom_select.php" />

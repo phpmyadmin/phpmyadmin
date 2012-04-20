@@ -183,7 +183,7 @@ $hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Add FUL
 // table header
 $i = 0;
 ?>
-<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
+<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table);
     echo '<input type="hidden" name="table_type" value=';
     if ($db_is_information_schema) {
@@ -349,7 +349,7 @@ foreach ($fields as $row) {
             <?php echo $titles['Change']; ?></a>
     </td>
     <td class="drop center">
-        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
+        <a class="drop_column_anchor" href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Drop']; ?></a>
     </td>
     <?php }
@@ -454,7 +454,7 @@ foreach ($fields as $row) {
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
         <?php echo PMA_getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
-            <div  class="<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : ''); ?>replace_in_more">
+            <div class="action_primary replace_in_more">
                 <?php
                 if (isset($primary_enabled)) {
                      if ($primary_enabled) { ?>
@@ -632,7 +632,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     ?>
 
     <br />
-<form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
+<form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns"
     onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)">
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
@@ -663,7 +663,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 </form>
 <iframe class="IE_hack"></iframe>
 <hr />
-<div id="index_div" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> >
+<div id="index_div">
     <?php
 }
 
@@ -696,7 +696,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_storage_
                 );
                 ?>
                 <input type="hidden" name="create_index" value="1" />
-                <input class="add_index<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');?>" type="submit" value="<?php echo __('Go'); ?>" />
+                <input class="add_index" type="submit" value="<?php echo __('Go'); ?>" />
             </form>
         </fieldset>
     </div>
@@ -804,7 +804,7 @@ if ($cfg['ShowStats']) {
             ?>
     <tr class="tblFooters">
         <td colspan="3" class="center">
-            <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
+            <a href="sql.php?<?php echo $url_query; ?>&amp;pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
             echo PMA_getIcon('b_tbloptimize.png', __('Optimize table'));
             ?></a>
         </td>

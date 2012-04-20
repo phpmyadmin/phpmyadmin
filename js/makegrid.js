@@ -367,31 +367,29 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          * Send column preferences (column order and visibility) to the server.
          */
         sendColPrefs: function() {
-            if ($(g.t).is('.ajax')) {   // only send preferences if AjaxEnable is true
-                var post_params = {
-                    ajax_request: true,
-                    db: g.db,
-                    table: g.table,
-                    token: g.token,
-                    server: g.server,
-                    set_col_prefs: true,
-                    table_create_time: g.tableCreateTime
-                };
-                if (g.colOrder.length > 0) {
-                    $.extend(post_params, { col_order: g.colOrder.toString() });
-                }
-                if (g.colVisib.length > 0) {
-                    $.extend(post_params, { col_visib: g.colVisib.toString() });
-                }
-                $.post('sql.php', post_params, function(data) {
-                    if (data.success != true) {
-                        var $temp_div = $(document.createElement('div'));
-                        $temp_div.html(data.error);
-                        $temp_div.addClass("error");
-                        PMA_ajaxShowMessage($temp_div, false);
-                    }
-                });
+            var post_params = {
+                ajax_request: true,
+                db: g.db,
+                table: g.table,
+                token: g.token,
+                server: g.server,
+                set_col_prefs: true,
+                table_create_time: g.tableCreateTime
+            };
+            if (g.colOrder.length > 0) {
+                $.extend(post_params, { col_order: g.colOrder.toString() });
             }
+            if (g.colVisib.length > 0) {
+                $.extend(post_params, { col_visib: g.colVisib.toString() });
+            }
+            $.post('sql.php', post_params, function(data) {
+                if (data.success != true) {
+                    var $temp_div = $(document.createElement('div'));
+                    $temp_div.html(data.error);
+                    $temp_div.addClass("error");
+                    PMA_ajaxShowMessage($temp_div, false);
+                }
+            });
         },
 
         /**
@@ -1734,9 +1732,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     if (enableVisib) {
         g.initColVisib();
     }
-    if (enableGridEdit &&
-        $(t).is('.ajax'))   // make sure AjaxEnable is enabled in Settings
-    {
+    if (enableGridEdit) {
         g.initGridEdit();
     }
 

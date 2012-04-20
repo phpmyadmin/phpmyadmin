@@ -76,8 +76,6 @@ var RTE = {
 
 /**
  * Attach Ajax event handlers for the Routines, Triggers and Events editor.
- *
- * @see $cfg['AjaxEnable']
  */
 $(document).ready(function () {
     /**

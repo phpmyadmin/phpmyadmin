@@ -128,7 +128,7 @@ $(document).ready(function() {
 
 
     /**
-     * Event handler for sqlqueryform.ajax button_submit_query 
+     * Event handler for sqlqueryform button_submit_query 
      *
      * @memberOf    jQuery
      */
@@ -171,11 +171,10 @@ $(document).ready(function() {
      * Ajax Event handler for 'SQL Query Submit'
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        sqlqueryform_submit
      */
-    $("#sqlqueryform.ajax").live('submit', function(event) {
+    $("#sqlqueryform").live('submit', function(event) {
         event.preventDefault();
 
         var $form = $(this);
@@ -223,7 +222,7 @@ $(document).ready(function() {
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
                     // Unbind the submit event before reloading. See bug #3295529
-                    $("#sqlqueryform.ajax").die('submit');
+                    $("#sqlqueryform").die('submit');
                     $form.find('input[name=db]').val(data.db);
                     // need to regenerate the whole upper part
                     $form.find('input[name=ajax_request]').remove();
@@ -270,12 +269,10 @@ $(document).ready(function() {
 
     /**
      * Paginate when we click any of the navigation buttons
-     * (only if the element has the ajax class, see $cfg['AjaxEnable'])
      * @memberOf    jQuery
      * @name        paginate_nav_button_click
-     * @see         $cfg['AjaxEnable']
      */
-    $("input[name=navig].ajax").live('click', function(event) {
+    $("input[name=navig]").live('click', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -302,36 +299,29 @@ $(document).ready(function() {
      * Paginate results with Page Selector dropdown
      * @memberOf    jQuery
      * @name        paginate_dropdown_change
-     * @see         $cfg['AjaxEnable']
      */
     $("#pageselector").live('change', function(event) {
         var $form = $(this).parent("form");
 
-        if ($(this).hasClass('ajax')) {
-            event.preventDefault();
+        event.preventDefault();
 
-            var $msgbox = PMA_ajaxShowMessage();
+        var $msgbox = PMA_ajaxShowMessage();
 
-            $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function(data) {
-                $("#sqlqueryresults")
-                 .html(data)
-                 .trigger('makegrid');
-                PMA_init_slider();
-                PMA_ajaxRemoveMessage($msgbox);
-            }); // end $.post()
-        } else {
-            $form.submit();
-        }
-
+        $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function(data) {
+            $("#sqlqueryresults")
+             .html(data)
+             .trigger('makegrid');
+            PMA_init_slider();
+            PMA_ajaxRemoveMessage($msgbox);
+        }); // end $.post()
     }); // end Paginate results with Page Selector
 
     /**
      * Ajax Event handler for sorting the results table
      * @memberOf    jQuery
      * @name        table_results_sort_click
-     * @see         $cfg['AjaxEnable']
      */
-    $("#table_results.ajax").find("a[title=Sort]").live('click', function(event) {
+    $("#table_results").find("a[title=Sort]").live('click', function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage();
@@ -350,9 +340,8 @@ $(document).ready(function() {
      * Ajax Event handler for the display options
      * @memberOf    jQuery
      * @name        displayOptionsForm_submit
-     * @see         $cfg['AjaxEnable']
      */
-    $("#displayOptionsForm.ajax").live('submit', function(event) {
+    $("#displayOptionsForm").live('submit', function(event) {
         event.preventDefault();
 
         $form = $(this);
@@ -368,7 +357,7 @@ $(document).ready(function() {
 /**
  * Ajax Event for table row change
  * */
-    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function(event){
+    $("#resultsForm .mult_submit[value=edit]").live('click', function(event){
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
@@ -419,8 +408,6 @@ $(document).ready(function() {
                     //Remove the top menu container from the dialog
                     .find("#topmenucontainer").hide()
                     ; // end dialog options
-                    $("table.insertRowTable").addClass("ajax");
-                    $("#buttonYes").addClass("ajax");
                 }
                 PMA_ajaxRemoveMessage($msgbox);
             }); // end $.get()
@@ -432,7 +419,7 @@ $(document).ready(function() {
 /**
  * Click action for "Go" button in ajax dialog insertForm -> insertRowTable
  */
-    $("#insertForm .insertRowTable.ajax input[type=submit]").live('click', function(event) {
+    $("#insertForm .insertRowTable input[type=submit]").live('click', function(event) {
         event.preventDefault();
         /**
          *  @var    the_form    object referring to the insert form
@@ -446,7 +433,7 @@ $(document).ready(function() {
                 if ($("#pageselector").length != 0) {
                     $("#pageselector").trigger('change');
                 } else {
-                    $("input[name=navig].ajax").trigger('click');
+                    $("input[name=navig]").trigger('click');
                 }
 
             } else {
@@ -469,10 +456,10 @@ $(document).ready(function() {
         }); // end $.post()
     }); // end insert table button "Go"
 
-/**$("#buttonYes.ajax").live('click'
+/**$("#buttonYes").live('click'
  * Click action for #buttonYes button in ajax dialog insertForm
  */
-    $("#buttonYes.ajax").live('click', function(event){
+    $("#buttonYes").live('click', function(event){
         event.preventDefault();
         /**
          *  @var    the_form    object referring to the insert form
@@ -500,7 +487,7 @@ $(document).ready(function() {
                     if ($("#pageselector").length != 0) {
                         $("#pageselector").trigger('change');
                     } else {
-                        $("input[name=navig].ajax").trigger('click');
+                        $("input[name=navig]").trigger('click');
                     }
                     $("#result_query").remove();
                     $("#sqlqueryresults").prepend(data.sql_query);

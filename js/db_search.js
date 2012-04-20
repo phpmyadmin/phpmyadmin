@@ -20,36 +20,31 @@
  *
  * @param result_path Url of the page to load
  * @param table_name  Name of table to browse
- * @param ajaxEnable  Whether to use ajax or not
  *
  * @return nothing
  */
-function loadResult(result_path, table_name, link, ajaxEnable)
+function loadResult(result_path, table_name, link)
 {
     $(document).ready(function() {
-        if(ajaxEnable) {
-            /**   Hides the results shown by the delete criteria */
-            var $msg = PMA_ajaxShowMessage();
-            $('#sqlqueryform').hide();
-            $('#togglequerybox').hide();
-            /**  Load the browse results to the page */
-            $("#table-info").show();
-            $('#table-link').attr({"href" : 'sql.php?'+link }).text(table_name);
-            var url = result_path + " #sqlqueryresults";
-            $('#browse-results').load(url, null, function() {
-                $('html, body')
-                    .animate({
-                        scrollTop: $("#browse-results").offset().top
-                    }, 1000);
-                PMA_ajaxRemoveMessage($msg);
-                // because under db_search, window.parent.table is not defined yet,
-                // we assign it manually from #table-link
-                window.parent.table = $('#table-link').text().trim();
-                PMA_makegrid($('#table_results')[0], true, true, true, true);
-            }).show();
-        } else {
-            event.preventDefault();
-        }
+        /**   Hides the results shown by the delete criteria */
+        var $msg = PMA_ajaxShowMessage();
+        $('#sqlqueryform').hide();
+        $('#togglequerybox').hide();
+        /**  Load the browse results to the page */
+        $("#table-info").show();
+        $('#table-link').attr({"href" : 'sql.php?'+link }).text(table_name);
+        var url = result_path + " #sqlqueryresults";
+        $('#browse-results').load(url, null, function() {
+            $('html, body')
+                .animate({
+                    scrollTop: $("#browse-results").offset().top
+                }, 1000);
+            PMA_ajaxRemoveMessage($msg);
+            // because under db_search, window.parent.table is not defined yet,
+            // we assign it manually from #table-link
+            window.parent.table = $('#table-link').text().trim();
+            PMA_makegrid($('#table_results')[0], true, true, true, true);
+        }).show();
     });
 }
 
@@ -58,11 +53,10 @@ function loadResult(result_path, table_name, link, ajaxEnable)
  *
  * @param result_path Url of the page to load
  * @param msg         Text for the confirmation dialog
- * @param ajaxEnable  Whether to use ajax or not
  *
  * @return nothing
  */
-function deleteResult(result_path, msg, ajaxEnable)
+function deleteResult(result_path, msg)
 {
     $(document).ready(function() {
         /**  Hides the results shown by the browse criteria */
@@ -72,24 +66,20 @@ function deleteResult(result_path, msg, ajaxEnable)
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
         if(confirm(msg)) {
-            if(ajaxEnable) {
-                var $msg = PMA_ajaxShowMessage(PMA_messages['strDeleting'], false);
-                /** Load the deleted option to the page*/
-                $('#sqlqueryform').html('');
-                var url = result_path + " #result_query, #sqlqueryform";
-                $('#browse-results').load(url, function () {
-                    /** Refresh the search results after the deletion */
-                    document.getElementById('buttonGo').click();
-                    $('#togglequerybox').html(PMA_messages['strHideQueryBox']);
-                    PMA_ajaxRemoveMessage($msg);
-                    /** Show the results of the deletion option */
-                    $('#browse-results').show();
-                    $('#sqlqueryform').show();
-                    $('#togglequerybox').show();
-                });
-            } else {
-                event.preventDefault();
-            }
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strDeleting'], false);
+            /** Load the deleted option to the page*/
+            $('#sqlqueryform').html('');
+            var url = result_path + " #result_query, #sqlqueryform";
+            $('#browse-results').load(url, function () {
+                /** Refresh the search results after the deletion */
+                document.getElementById('buttonGo').click();
+                $('#togglequerybox').html(PMA_messages['strHideQueryBox']);
+                PMA_ajaxRemoveMessage($msg);
+                /** Show the results of the deletion option */
+                $('#browse-results').show();
+                $('#sqlqueryform').show();
+                $('#togglequerybox').show();
+            });
        }
     });
 }
@@ -179,11 +169,8 @@ $(document).ready(function() {
        });
     /**
      * Ajax Event handler for retrieving the result of an SQL Query
-     * (see $GLOBALS['cfg']['AjaxEnable'])
-     *
-     * @see     $GLOBALS['cfg']['AjaxEnable']
      */
-    $("#db_search_form.ajax").live('submit', function(event) {
+    $("#db_search_form").live('submit', function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching'], false);
