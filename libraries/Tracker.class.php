@@ -874,7 +874,7 @@ class PMA_Tracker
         $result = self::parseQuery($query);
 
         // Get database name
-        $dbname = trim($GLOBALS['db'], '`');
+        $dbname = trim(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', '`');
         // $dbname can be empty, for example when coming from Synchronize
         // and this is a query for the remote server
         if (empty($dbname)) {
