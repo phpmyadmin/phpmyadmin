@@ -2110,7 +2110,7 @@ function PMA_checkParameters($params, $request = true)
         }
     }
     if ($found_error) {
-        PMA_fatalError($error_message);
+        PMA_fatalError($error_message, null, false);
     }
 } // end function
 
