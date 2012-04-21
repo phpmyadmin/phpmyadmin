@@ -239,7 +239,7 @@ select{
     border: 1px solid #aaa;
     color: #333;
     padding: 3px;
-    background: url(themes/pmahomme/img/input_bg.gif);
+    background: white;
 }
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
