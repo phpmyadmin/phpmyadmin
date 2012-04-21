@@ -40,7 +40,7 @@ $(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 
+        var question =
             PMA_messages.strDropDatabaseStrongWarning + ' '
             + $.sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
 

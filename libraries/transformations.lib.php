@@ -10,7 +10,7 @@
  * filenames or functions should not be used.
  *
  * Please provide a comment for your function, what it does and what parameters are available.
- * 
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -272,9 +272,9 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
 
 /**
  * Replaces "[__BUFFER__]" occurences found in $options['string'] with the text
- * in $buffer, after performing a regular expression search and replace on 
+ * in $buffer, after performing a regular expression search and replace on
  * $buffer using $options['regex'] and $options['regex_replace'].
- * 
+ *
  * @param string $buffer        text that will be replaced in $options['string'],
  *                              after being formatted
  * @param array  $options       the options required to format $buffer

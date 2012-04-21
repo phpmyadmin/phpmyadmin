@@ -719,7 +719,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                 // empty all edit area, then rebuild it based on $td classes
                 $editArea.empty();
-                
+
                 // add show data row link if the data resulted by 'browse distinct values' in table structure
                 if ($td.find('input').hasClass('data_browse_link')) {
                     var showDataRowLink = document.createElement('div');
@@ -960,11 +960,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.isEditCellTextEditable = true;
                 } else if ($td.is('.datefield, .datetimefield, .timestampfield')) {
                     var $input_field = $(g.cEdit).find('.edit_box');
-                    
+
                     // remember current datetime value in $input_field, if it is not null
                     var is_null = $td.is('.null');
                     var current_datetime_value = !is_null ? $input_field.val() : '';
-                    
+
                     var showTimeOption = true;
                     if ($td.is('.datefield')) {
                         showTimeOption = false;
@@ -977,12 +977,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             $(g.cEdit).find('.null_div input[type=checkbox]').prop('checked', false);
                         }
                     });
-                    
+
                     // cancel any click on the datepicker element
                     $editArea.find('> *').click(function(e) {
                         e.stopPropagation();
                     });
-                    
+
                     // force to restore modified $input_field value after adding datepicker
                     // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
                     if (!is_null) {

@@ -374,7 +374,7 @@ $(function() {
                 'ajax_request':true,
                 'edit_user_dialog': true,
                 'token': token
-            }, 
+            },
             function(data) {
                 var $div = $('<div id="edit_user_dialog"></div>')
                 .append(data)
@@ -493,8 +493,8 @@ $(function() {
         button_options[PMA_messages['strClose']] = function() {
             $(this).dialog("close");
         };
-        $.post($(this.form).prop('action'), 
-            $(this.form).serialize() + '&submit_mult=export&ajax_request=true', 
+        $.post($(this.form).prop('action'),
+            $(this.form).serialize() + '&submit_mult=export&ajax_request=true',
             function(data) {
                 var $ajaxDialog = $('<div />')
                 .append(data.message)

@@ -42,7 +42,7 @@ function PMA_adjustTotals() {
     var sizeSum = 0;
     var overheadSum = 0;
     var rowSumApproximated = false;
-    
+
     $allTr.each(function () {
         var $this = $(this);
         // Get the number of rows for this SQL table
@@ -295,8 +295,8 @@ $(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 
-            PMA_messages.strTruncateTableStrongWarning + ' ' 
+        var question =
+            PMA_messages.strTruncateTableStrongWarning + ' '
             + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + curr_table_name);
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
@@ -354,8 +354,8 @@ $(function() {
          */
         var question;
         if (! is_view) {
-            question = 
-                PMA_messages.strDropTableStrongWarning + ' ' 
+            question =
+                PMA_messages.strDropTableStrongWarning + ' '
                 + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + curr_table_name);
         } else {
             question =

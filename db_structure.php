@@ -367,7 +367,7 @@ foreach ($tables as $keyname => $each_table) {
                 . '&amp;message_to_show='
                 . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
                 .'">';
-            
+
             $empty_table .= $titles['Empty'];
             $empty_table .= '</a>';
         } else {

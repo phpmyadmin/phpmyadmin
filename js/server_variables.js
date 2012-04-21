@@ -26,7 +26,7 @@ $(function() {
 
     // Filter options are invisible for disabled js users
     $('fieldset#tableFilter').css('display','');
-     
+
     $('#filterText').keyup(function(e) {
         if ($(this).val().length == 0) {
             textFilter=null;
@@ -43,7 +43,7 @@ $(function() {
             $('#filterText').val(name).trigger('keyup');
         }
     }
-    
+
     /* Table width limiting */
     $('table.data').after($tmpDiv=$('<span>'+testString+'</span>'));
     charWidth = $tmpDiv.width() / testString.length;
@@ -51,9 +51,9 @@ $(function() {
 
     $(window).resize(limitTableWidth);
     limitTableWidth();
-    
-    /* This function chops of long variable values to keep the table from overflowing horizontally 
-     * It does so by taking a test string and calculating an average font width and removing 'excess width / average font width' 
+
+    /* This function chops of long variable values to keep the table from overflowing horizontally
+     * It does so by taking a test string and calculating an average font width and removing 'excess width / average font width'
      * chars, so it is not very accurate.
      */
     function limitTableWidth() {
@@ -96,12 +96,12 @@ $(function() {
             });
         }
     }
-    
+
     /* Filters the rows by the user given regexp */
     function filterVariables() {
         var mark_next = false, firstCell;
         odd_row = false;
-        
+
         $('table.filteredData tbody tr').each(function() {
             firstCell = $(this).children(':first');
 

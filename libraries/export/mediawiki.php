@@ -170,7 +170,7 @@ if (isset($plugin_list)) {
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
      * @param string $error_url   the url to go back in case of error
-     * 
+     *
      * @param bool   $relation    whether to include relation comments
      * @param bool   $comments    whether to include the pmadb-style column comments
      *                            as comments in the structure; this is deprecated
@@ -187,15 +187,15 @@ if (isset($plugin_list)) {
      * @access public
      */
     function PMA_exportStructure(
-        $db, 
-        $table, 
-        $crlf, 
-        $error_url, 
-        $relation = false, 
-        $comments = false, 
-        $mime = false, 
-        $dates = false, 
-        $export_mode, 
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $relation = false,
+        $comments = false,
+        $mime = false,
+        $dates = false,
+        $export_mode,
         $export_type
     ) {
         switch($export_mode) {
@@ -211,7 +211,7 @@ if (isset($plugin_list)) {
             );
 
             // Begin the table construction
-            $output .= "{| class=\"wikitable\" style=\"text-align:center;\"" 
+            $output .= "{| class=\"wikitable\" style=\"text-align:center;\""
                      . PMA_exportCRLF();
 
             // Add the table name
@@ -274,10 +274,10 @@ if (isset($plugin_list)) {
      * @access  public
      */
     function PMA_exportData(
-        $db, 
-        $table, 
-        $crlf, 
-        $error_url, 
+        $db,
+        $table,
+        $crlf,
+        $error_url,
         $sql_query
     ) {
         // Print data comment
@@ -286,7 +286,7 @@ if (isset($plugin_list)) {
         // Begin the table construction
         // Use the "wikitable" class for style
         // Use the "sortable"  class for allowing tables to be sorted by column
-        $output  .= "{| class=\"wikitable sortable\" style=\"text-align:center;\"" 
+        $output  .= "{| class=\"wikitable sortable\" style=\"text-align:center;\""
                   . PMA_exportCRLF();
 
         // Add the table name

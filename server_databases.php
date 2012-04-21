@@ -90,7 +90,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         $action = 'server_databases.php';
         $submit_mult = 'drop_db';
         $err_url = 'server_databases.php?' . PMA_generate_common_url();
-        if (isset($_REQUEST['selected_dbs']) 
+        if (isset($_REQUEST['selected_dbs'])
             && !isset($_REQUEST['is_js_confirmed'])) {
             $selected_db = $_REQUEST['selected_dbs'];
         }

@@ -99,8 +99,8 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     $key = array_search($field, $fields_list);
     $extra_data['field_type'] = $fields_type[$key];
     $extra_data['field_collation'] = $fields_collation[$key];
-    
-    // HTML for operators 
+
+    // HTML for operators
     $html = '<select name="zoomFunc[]">';
     if (strncasecmp($fields_type[$key], 'enum', 4) == 0) {
         foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {

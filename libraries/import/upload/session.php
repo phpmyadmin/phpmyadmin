@@ -45,7 +45,7 @@ function PMA_getUploadStatus($id)
 
     $status = false;
     $sessionkey = ini_get('session.upload_progress.prefix') . $id;
-    
+
     if (isset($_SESSION[$sessionkey])) {
         $status = $_SESSION[$sessionkey];
     }

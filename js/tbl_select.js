@@ -14,7 +14,7 @@
  */
 $(function() {
     /**
-     * Prepare a div containing a link, otherwise it's incorrectly displayed 
+     * Prepare a div containing a link, otherwise it's incorrectly displayed
      * after a couple of clicks
      */
     $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
@@ -38,7 +38,7 @@ $(function() {
 
     /**
      * Ajax event handler for Table Search
-     * 
+     *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("#tbl_search_form.ajax").live('submit', function(event) {
@@ -60,13 +60,13 @@ $(function() {
                 $("#sqlqueryresults").trigger('makegrid');
                 $('#tbl_search_form')
                 // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
-                 .slideToggle()    
+                 .slideToggle()
                  .hide();
                 $('#togglesearchformlink')
                  // always start with the Show message
                  .text(PMA_messages['strShowSearchCriteria']);
                 $('#togglesearchformdiv')
-                 // now it's time to show the div containing the link 
+                 // now it's time to show the div containing the link
                  .show();
                  // needed for the display options slider in the results
                  PMA_init_slider();
@@ -141,7 +141,7 @@ $(function() {
         } else {
             $editorSpan.hide();
         }
-        
+
     });
 
     $('span.open_search_gis_editor').live('click', function(event) {

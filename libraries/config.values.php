@@ -73,7 +73,7 @@ $cfg_db['QueryWindowDefTab'] = array(
     'history', // SQL history
     'full');   // All (SQL and SQL history)
 $cfg_db['InitialSlidersState'] = array(
-    'open' => __('Open'), 
+    'open' => __('Open'),
     'closed' => __('Closed'),
     'disabled' => __('Disabled'));
 $cfg_db['Import']['format'] = array(

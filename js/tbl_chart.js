@@ -265,7 +265,7 @@ function PMA_queryChart(data, passedSettings)
     };
 
     if (passedSettings.chart.type == 'pie') {
-        settings.tooltip.formatter = function() { 
+        settings.tooltip.formatter = function() {
             return '<b>' + columnNames[0] + '</b><br/>' + this.y;
         };
     }

@@ -93,9 +93,9 @@ $(function() {
             var pos = $cnt.offset();
 
             // Hide if the mouseclick is outside the popupcontent
-            if (event.pageX < pos.left 
-               || event.pageY < pos.top 
-               || event.pageX > pos.left + $cnt.outerWidth() 
+            if (event.pageX < pos.left
+               || event.pageY < pos.top
+               || event.pageX > pos.left + $cnt.outerWidth()
                || event.pageY > pos.top + $cnt.outerHeight()
             ) {
                 $cnt.hide().removeClass('openedPopup');
@@ -138,7 +138,7 @@ $(function() {
     $('#serverStatusTabs').tabs({
         // Tab persistence
         cookie: { name: 'pma_serverStatusTabs', expires: 1 },
-        show: function(event, ui) { 
+        show: function(event, ui) {
             // Fixes line break in the menu bar when the page overflows and scrollbar appears
             menuResize();
 
@@ -156,7 +156,7 @@ $(function() {
                 // Delay loading a bit so the tab loads and the user gets to see a ajax loading icon
                 setTimeout(function() {
                     var scripts = [
-                        'js/jquery/timepicker.js', 
+                        'js/jquery/timepicker.js',
                         'js/jquery/jquery.json-2.2.js',
                         'js/jquery/jquery.sortableTable.js'];
                     if (cfg_CodemirrorEnable) {
@@ -165,7 +165,7 @@ $(function() {
                     scripts.push('js/server_status_monitor.js');
                     loadJavascript(scripts);
                 }, 50);
-                
+
                 monitorLoaded = true;
             }
 
@@ -477,7 +477,7 @@ $(function() {
                             dataLabels: {
                                 enabled: true,
                                 formatter: function() {
-                                    return '<b>' + this.point.name +'</b><br/> ' + 
+                                    return '<b>' + this.point.name +'</b><br/> ' +
                                             Highcharts.numberFormat(this.percentage, 2) + ' %';
                                }
                             }
@@ -485,8 +485,8 @@ $(function() {
                     },
                     tooltip: {
                         formatter: function() {
-                            return '<b>' + this.point.name + '</b><br/>' + 
-                                    Highcharts.numberFormat(this.y, 2) + '<br/>(' + 
+                            return '<b>' + this.point.name + '</b><br/>' +
+                                    Highcharts.numberFormat(this.y, 2) + '<br/>(' +
                                     Highcharts.numberFormat(this.percentage, 2) + ' %)';
                         }
                     }
@@ -625,7 +625,7 @@ $(function() {
         if (sumOther>0) {
             pointInfo += PMA_messages['strOther'] + ': ' + sumOther;
         }
-        
+
         return pointInfo;
     }
 
@@ -633,58 +633,58 @@ $(function() {
 
     $('a[href="#openAdvisorInstructions"]').click(function() {
         var dlgBtns = {};
-        
+
         dlgBtns[PMA_messages['strClose']] = function() {
             $(this).dialog('close');
         };
-        
+
         $('#advisorInstructionsDialog').attr('title', PMA_messages['strAdvisorSystem']);
         $('#advisorInstructionsDialog').dialog({
             width: 700,
-            buttons: dlgBtns 
+            buttons: dlgBtns
         });
     });
 
     $('a[href="#startAnalyzer"]').click(function() {
         var $cnt = $('#statustabs_advisor .tabInnerContent');
         $cnt.html('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
-        
+
         $.get('server_status.php?' + url_query, { ajax_request: true, advisor: true }, function(data) {
             var $tbody, $tr, str, even = true;
 
             data = $.parseJSON(data);
-            
+
             $cnt.html('');
-            
+
             if (data.parse.errors.length > 0) {
                 $cnt.append('<b>Rules file not well formed, following errors were found:</b><br />- ');
                 $cnt.append(data.parse.errors.join('<br/>- '));
                 $cnt.append('<p></p>');
             }
-            
+
             if (data.run.errors.length > 0) {
                 $cnt.append('<b>Errors occured while executing rule expressions:</b><br />- ');
                 $cnt.append(data.run.errors.join('<br/>- '));
                 $cnt.append('<p></p>');
             }
-            
+
             if (data.run.fired.length > 0) {
                 $cnt.append('<p><b>' + PMA_messages['strPerformanceIssues'] + '</b></p>');
                 $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr>' +
-                            '<th>' + PMA_messages['strIssuse'] + '</th><th>' + PMA_messages['strRecommendation'] + 
-                            '</th></tr></thead><tbody></tbody></table>'); 
+                            '<th>' + PMA_messages['strIssuse'] + '</th><th>' + PMA_messages['strRecommendation'] +
+                            '</th></tr></thead><tbody></tbody></table>');
                 $tbody = $cnt.find('table#rulesFired');
-                
+
                 var rc_stripped;
-                
+
                 $.each(data.run.fired, function(key, value) {
                     // recommendation may contain links, don't show those in overview table (clicking on them redirects the user)
                     rc_stripped = $.trim($('<div>').html(value.recommendation).text());
-                    $tbody.append($tr = $('<tr class="linkElem noclick ' + (even ? 'even' : 'odd') + '"><td>' + 
-                                            value.issue + '</td><td>' + rc_stripped + ' </td></tr>')); 
+                    $tbody.append($tr = $('<tr class="linkElem noclick ' + (even ? 'even' : 'odd') + '"><td>' +
+                                            value.issue + '</td><td>' + rc_stripped + ' </td></tr>'));
                     even = !even;
                     $tr.data('rule', value);
-                    
+
                     $tr.click(function() {
                         var rule = $(this).data('rule');
                         $('div#emptyDialog').dialog({title: PMA_messages['strRuleDetails']});
@@ -695,18 +695,18 @@ $(function() {
                             '<p><b>' + PMA_messages['strFormula'] + ':</b><br />' + rule.formula + '</p>' +
                             '<p><b>' + PMA_messages['strTest'] + ':</b><br />' + rule.test + '</p>'
                         );
-                        
+
                         var dlgBtns = {};
-                        dlgBtns[PMA_messages['strClose']] = function() { 
-                            $(this).dialog('close'); 
+                        dlgBtns[PMA_messages['strClose']] = function() {
+                            $(this).dialog('close');
                         };
-                        
+
                         $('div#emptyDialog').dialog({ width: 600, buttons: dlgBtns });
                     });
                 });
             }
         });
-                
+
         return false;
     });
 });

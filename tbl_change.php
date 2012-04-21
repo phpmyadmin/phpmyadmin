@@ -380,7 +380,7 @@ foreach ($rows as $row_id => $vrow) {
     $m_rows = $o_rows + 1;
     //store the default value for CharEditing
     $default_char_editing  = $cfg['CharEditing'];
-    
+
     $odd_row = true;
     for ($i = 0; $i < $fields_cnt; $i++) {
         if (! isset($table_fields[$i]['processed'])) {
@@ -594,7 +594,7 @@ foreach ($rows as $row_id => $vrow) {
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
             if (($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary']))
-                && (isset($_SESSION['tmp_user_values']['display_binary_as_hex']) 
+                && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
                     && $_SESSION['tmp_user_values']['display_binary_as_hex'])
                 && $cfg['ShowFunctionFields']
             ) {
@@ -960,8 +960,8 @@ foreach ($rows as $row_id => $vrow) {
                      * This case happens for CHAR or VARCHAR columns which have
                      * a size larger than the maximum size for input field.
                      */
-                    $cfg['CharEditing'] = 'textarea';  
-                } 
+                    $cfg['CharEditing'] = 'textarea';
+                }
             } else {
                 /**
                  * This case happens for example for INT or DATE columns;

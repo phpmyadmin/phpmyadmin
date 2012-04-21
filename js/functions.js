@@ -2230,8 +2230,8 @@ $(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 
-            PMA_messages.strDropDatabaseStrongWarning + ' ' 
+        var question =
+            PMA_messages.strDropDatabaseStrongWarning + ' '
             + $.sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE ' + escapeHtml(window.parent.db));
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
@@ -2358,7 +2358,7 @@ $(function() {
                     $(this).remove();
                 },
                 buttons : button_options,
-                beforeClose: function(ev, ui) { 
+                beforeClose: function(ev, ui) {
                     $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
                 }
             })
@@ -3223,8 +3223,8 @@ $(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 
-            PMA_messages.strDropTableStrongWarning + ' ' 
+        var question =
+            PMA_messages.strDropTableStrongWarning + ' '
             + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + window.parent.table);
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
@@ -3252,8 +3252,8 @@ $(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 
-            PMA_messages.strTruncateTableStrongWarning + ' ' 
+        var question =
+            PMA_messages.strTruncateTableStrongWarning + ' '
             + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + window.parent.table);
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {

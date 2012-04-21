@@ -176,7 +176,7 @@ $(function() {
     if ($('table.gis_table').length > 0) {
         initGISVisualization();
     }
-    
+
     $('#choice').live('click', function() {
         if ($(this).prop('checked') == false) {
             $('#placeholder').show();
@@ -186,7 +186,7 @@ $(function() {
             $('#openlayersmap').show();
         }
     });
-    
+
     $('#placeholder').live('mousewheel', function(event, delta) {
         if (delta > 0) {
             //zoom in
