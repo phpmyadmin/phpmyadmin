@@ -1126,7 +1126,7 @@ $(function() {
         }
         
         dlgBtns = {};
-        dlgBtns['Save'] = function() {
+        dlgBtns[PMA_messages['strSave']] = function() {
             runtime.charts[chartKey].title = $('div#emptyDialog input[name="chartTitle"]').attr('value');
             runtime.charts[chartKey].chart.setTitle({ text: runtime.charts[chartKey].title });
             
@@ -1139,7 +1139,7 @@ $(function() {
             $(this).dialog('close');
             saveMonitor();
         };
-        dlgBtns['Cancel'] = function() {
+        dlgBtns[PMA_messages['strCancel']] = function() {
             $(this).dialog('close');
         };
 
