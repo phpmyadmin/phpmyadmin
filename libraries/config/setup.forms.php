@@ -186,9 +186,7 @@ $forms['Left_frame']['Left_tables'] = array(
     'ShowTooltip',
     'ShowTooltipAliasTB');
 $forms['Main_frame']['Startup'] = array(
-    'ShowCreateDb' => ':group',
-        'SuggestDBName',
-        ':group:end',
+    'ShowCreateDb',
     'ShowStats',
     'ShowServerInfo',
     'ShowPhpInfo',

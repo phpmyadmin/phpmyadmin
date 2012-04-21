@@ -942,13 +942,6 @@ $cfg['ShowChgPassword'] = true;
  */
 $cfg['ShowCreateDb'] = true;
 
-/**
- * suggest a new DB name if possible (false = keep empty)
- *
- * @global boolean $cfg['SuggestDBName']
- */
-$cfg['SuggestDBName'] = true;
-
 
 /*******************************************************************************
  * Database structure
