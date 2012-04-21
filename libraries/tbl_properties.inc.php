@@ -241,7 +241,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     if (isset($row['Type'])) {
-        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+        $extracted_fieldspec = PMA_extractColumnSpec($row['Type']);
         if ($extracted_fieldspec['type'] == 'bit') {
             $row['Default'] = PMA_convert_bit_default_value($row['Default']);
         }

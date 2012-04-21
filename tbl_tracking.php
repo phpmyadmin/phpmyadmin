@@ -300,7 +300,7 @@ if (isset($_REQUEST['snapshot'])) {
             <td><?php echo (($field['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
             <td><?php
             if (isset($field['Default'])) {
-                $extracted_fieldspec = PMA_extractFieldSpec($field['Type']);
+                $extracted_fieldspec = PMA_extractColumnSpec($field['Type']);
                 if ($extracted_fieldspec['type'] == 'bit') {
                     // here, $field['Default'] contains something like b'010'
                     echo PMA_convert_bit_default_value($field['Default']);

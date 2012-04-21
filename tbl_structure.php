@@ -256,7 +256,7 @@ foreach ($fields as $row) {
     $aryFields[]      = $row['Field'];
 
     $type             = $row['Type'];
-    $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+    $extracted_fieldspec = PMA_extractColumnSpec($row['Type']);
 
     if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
         $type_nowrap  = '';

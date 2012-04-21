@@ -183,7 +183,7 @@ foreach ($tables as $table) {
         if ($row['Null'] == '') {
             $row['Null'] = 'NO';
         }
-        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+        $extracted_fieldspec = PMA_extractColumnSpec($row['Type']);
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
         if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {

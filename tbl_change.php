@@ -484,7 +484,7 @@ foreach ($rows as $row_id => $vrow) {
             }
         }
         $field = $table_fields[$i];
-        $extracted_fieldspec = PMA_extractFieldSpec($field['Type']);
+        $extracted_fieldspec = PMA_extractColumnSpec($field['Type']);
 
         if (-1 === $field['len']) {
             $field['len'] = PMA_DBI_field_len($vresult, $i);

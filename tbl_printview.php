@@ -152,7 +152,7 @@ foreach ($the_tables as $key => $table) {
 <tbody>
     <?php
     foreach ($columns as $row) {
-        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+        $extracted_fieldspec = PMA_extractColumnSpec($row['Type']);
         $type             = $extracted_fieldspec['print_type'];
         $attribute     = $extracted_fieldspec['attribute'];
 

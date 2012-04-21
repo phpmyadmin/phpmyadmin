@@ -2915,7 +2915,7 @@ function PMA_convert_bit_default_value($bit_default_value)
  * @return  array associative array containing type, spec_in_brackets
  *          and possibly enum_set_values (another array)
  */
-function PMA_extractFieldSpec($fieldspec)
+function PMA_extractColumnSpec($fieldspec)
 {
     $first_bracket_pos = strpos($fieldspec, '(');
     if ($first_bracket_pos) {
