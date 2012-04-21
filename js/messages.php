@@ -192,6 +192,8 @@ $js_messages['strTotalTime'] = __('Total time:');
 $js_messages['strProfilingResults'] = __('Profiling results');
 $js_messages['strTable'] = _pgettext('Display format', 'Table');
 $js_messages['strChart'] = __('Chart');
+$js_messages['strChartEdit'] = __('Edit chart');
+$js_messages['strSeries'] = __('Series');
 
 /* l10n: A collection of available filters */
 $js_messages['strFiltersForLogTable'] = __('Log table filter options');

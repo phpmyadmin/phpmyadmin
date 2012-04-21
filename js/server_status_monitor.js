@@ -1119,8 +1119,8 @@ $(function() {
             return;
         }
 
-        var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
-        htmlStr += '</p><p><b>Series:</b> </p><ol>';
+        var htmlStr = '<p><b>' + PMA_messages['strChartTitle'] + ': </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
+        htmlStr += '</p><p><b>' + PMA_messages['strSeries'] + ':</b> </p><ol>';
         for (var i = 0; i<chart.nodes.length; i++) {
             htmlStr += '<li><i>' + chart.nodes[i].dataPoints[0].name  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value="' + chart.nodes[i].name + '" /></li>';
         }
@@ -1145,7 +1145,7 @@ $(function() {
 
         $('div#emptyDialog').html(htmlStr + '</ol>');
         $('div#emptyDialog').dialog({
-            title: 'Edit chart',
+            title: PMA_messages['strChartEdit'],
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
