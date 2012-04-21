@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-21 12:03+0200\n"
+"PO-Revision-Date: 2012-04-21 17:10+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1614,16 +1614,14 @@ msgid "Import"
 msgstr "ආනයනය"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "වින්‍යාස ආනයනය අසමත් විය"
+msgstr "අධීක්ෂකයේ වින්‍යාසයන් ආනයනය"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක් තෝරන්න"
+msgstr "ඔබට ආනයනය කිරීමට අවශ්‍ය ගොනුව තෝරන්න"
 
 #: js/messages.php:212
 msgid "Analyse Query"
