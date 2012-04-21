@@ -36,8 +36,8 @@ RTE.validateCustom = function () {
  *
  * @see $cfg['AjaxEnable']
  */
-$(document).ready(function () {
+$(function () {
     $('select[name=item_type]').live('change', function () {
         $('tr.recurring_event_row, tr.onetime_event_row').toggle();
     }); // end $.live()
-}); // end of $(document).ready()
+}); // end of $()

@@ -91,7 +91,7 @@ function checkIndexType()
  * @name        document.ready
  * @memberOf    jQuery
  */
-$(document).ready(function() {
+$(function() {
     checkIndexType();
     checkIndexName("index_frm");
     $('#select_index_type').live('change', function(event){

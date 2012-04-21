@@ -951,7 +951,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo isset($url_query)?$url_query:PMA_generate_common_url($db);?>';
-$(document).ready(makeProfilingChart);
+$(makeProfilingChart);
 </script>
 <?php
         echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";

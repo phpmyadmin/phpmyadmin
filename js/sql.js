@@ -76,7 +76,7 @@ function getFieldName($this_field)
  * @name        document.ready
  * @memberOf    jQuery
  */
-$(document).ready(function() {
+$(function() {
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
     $('input#bkm_label').keyup(function() {
         $('input#id_bkm_all_users, input#id_bkm_replace')
@@ -522,7 +522,7 @@ $(document).ready(function() {
         }); // end $.post()
     });
 
-}, 'top.frame_content'); // end $(document).ready()
+}, 'top.frame_content'); // end $()
 
 
 /**
@@ -546,7 +546,7 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     }
 }
 
-$(document).ready(function() {
+$(function() {
 
     $('a.browse_foreign').live('click', function(e) {
         e.preventDefault();

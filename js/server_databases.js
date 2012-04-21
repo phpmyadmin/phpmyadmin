@@ -15,7 +15,7 @@
  * Drop Databases
  *
  */
-$(document).ready(function() {
+$(function() {
     /**
      * Attach Event Handler for 'Drop Databases'
      *
@@ -66,4 +66,4 @@ $(document).ready(function() {
                 }); // end $.post()
         }); // end $.PMA_confirm()
     }) ; //end of Drop Database action
-}); // end $(document).ready()
+}); // end $()

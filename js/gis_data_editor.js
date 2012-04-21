@@ -200,7 +200,7 @@ function insertDataAndClose() {
     closeGISEditor();
 }
 
-$(document).ready(function() {
+$(function() {
 
     // Remove the class that is added due to the URL being too long.
     $('span.open_gis_editor a').removeClass('formLinkSubmit');

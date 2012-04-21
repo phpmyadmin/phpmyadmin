@@ -25,7 +25,7 @@ function update_config()
     }
 }
 
-$(document).ready(function() {
+$(function() {
     $('#rep').text(conf_prefix);
     $('#db_type').change(update_config);
     $('#db_select').change(update_config);

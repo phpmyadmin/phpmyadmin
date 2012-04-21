@@ -117,7 +117,7 @@ function PMA_adjustTotals() {
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
 }
 
-$(document).ready(function() {
+$(function() {
     /**
      * Ajax Event handler for 'Insert Table'
      *
@@ -488,4 +488,4 @@ $(document).ready(function() {
         return false;
     }) //end Calculate Real End for InnoDB
 
-}, 'top.frame_content'); // end $(document).ready()
+}, 'top.frame_content'); // end $()

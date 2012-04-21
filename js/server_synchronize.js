@@ -318,7 +318,7 @@ function hideOrDisplayServerFields($server_selector, selected_option)
     }
 }
 
-$(document).ready(function() {
+$(function() {
     $('select.server_selector').change(function(evt) {
         var selected_option = $(evt.target).val();
         hideOrDisplayServerFields($(evt.target), selected_option);

@@ -49,7 +49,7 @@ echo '
     echo "\n";
     if (isset($_REQUEST['query'])) {
     echo '
-     $(document).ready(function() {
+     $(function() {
         $(".trigger").click(function() {
         $(".panel").toggle("fast");
         $(this).toggleClass("active");
