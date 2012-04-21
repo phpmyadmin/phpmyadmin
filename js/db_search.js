@@ -26,7 +26,7 @@
  */
 function loadResult(result_path, table_name, link, ajaxEnable)
 {
-    $(document).ready(function() {
+    $(function() {
         if(ajaxEnable) {
             /**   Hides the results shown by the delete criteria */
             var $msg = PMA_ajaxShowMessage();
@@ -64,7 +64,7 @@ function loadResult(result_path, table_name, link, ajaxEnable)
  */
 function deleteResult(result_path, msg, ajaxEnable)
 {
-    $(document).ready(function() {
+    $(function() {
         /**  Hides the results shown by the browse criteria */
         $("#table-info").hide();
         $('#browse-results').hide();
@@ -94,7 +94,7 @@ function deleteResult(result_path, msg, ajaxEnable)
     });
 }
 
-$(document).ready(function() {
+$(function() {
     /** Hide the table link in the initial search result */
     var icon = PMA_getImage('s_tbl.png', '', {'id': 'table-image'}).toString();
     $("#table-info").prepend(icon).hide();
@@ -225,4 +225,4 @@ $(document).ready(function() {
             PMA_ajaxRemoveMessage($msgbox);
         })
     })
-}, 'top.frame_content'); // end $(document).ready()
+}, 'top.frame_content'); // end $()

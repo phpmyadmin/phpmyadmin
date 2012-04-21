@@ -79,7 +79,7 @@ var RTE = {
  *
  * @see $cfg['AjaxEnable']
  */
-$(document).ready(function () {
+$(function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      */
@@ -384,4 +384,4 @@ $(document).ready(function () {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); // end $.live()
-}); // end of $(document).ready()
+}); // end of $()

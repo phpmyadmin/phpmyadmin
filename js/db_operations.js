@@ -18,7 +18,7 @@
  * Change charset
  */
 
-$(document).ready(function() {
+$(function() {
 
     /**
      * Ajax event handlers for 'Rename Database'

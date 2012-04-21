@@ -449,7 +449,7 @@ jQuery.extend({
 
 		readyList = jQuery._Deferred();
 
-		// Catch cases where $(document).ready() is called after the
+		// Catch cases where $() is called after the
 		// browser event has already occurred.
 		if ( document.readyState === "complete" ) {
 			// Handle it asynchronously to allow scripts the opportunity to delay ready

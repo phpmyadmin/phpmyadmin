@@ -166,7 +166,7 @@ function includePan(currentChart) {
     });
 }
 
-$(document).ready(function() {
+$(function() {
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
     var currentData = null;
