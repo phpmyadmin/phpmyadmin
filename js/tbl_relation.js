@@ -15,7 +15,7 @@ function show_hide_clauses($thisDropdown)
     }
 }
 
-$(document).ready(function() {
+$(function() {
     // initial display
     $('select.referenced_column_dropdown').each(function(index, one_dropdown) {
         show_hide_clauses($(one_dropdown));

@@ -8,7 +8,7 @@
  * Toggles the hiding and showing of each plugin's options
  * according to the currently selected plugin from the dropdown list
  */
-$(document).ready(function() {
+$(function() {
     $("#plugins").change(function() {
         $("#format_specific_opts div.format_specific_options").hide();
         var selected_plugin_name = $("#plugins option:selected").val();
@@ -19,7 +19,7 @@ $(document).ready(function() {
 /**
  * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure
  */
-$(document).ready(function() {
+$(function() {
     $("input[type='radio'][name='sql_structure_or_data']").change(function() {
         var comments_are_present = $("#checkbox_sql_include_comments").prop("checked");
         var show = $("input[type='radio'][name='sql_structure_or_data']:checked").val();
@@ -65,7 +65,7 @@ function toggle_structure_data_opts(pluginName)
     }
 }
 
-$(document).ready(function() {
+$(function() {
     $("input[type='radio'][name='latex_structure_or_data']").change(function() {
         toggle_structure_data_opts("latex");
     });
@@ -99,7 +99,7 @@ function toggle_save_to_file()
     }
 }
 
-$(document).ready(function() {
+$(function() {
     toggle_save_to_file();
     $("input[type='radio'][name='output_format']").change(toggle_save_to_file);
 });
@@ -128,7 +128,7 @@ function toggle_sql_include_comments()
 /**
  * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
  */
-$(document).ready(function() {
+$(function() {
     var $create = $("#checkbox_sql_create_table_statements");
     var $create_options = $("#ul_create_table_statements input");
     $create.change(function() {
@@ -144,7 +144,7 @@ $(document).ready(function() {
 /**
  * Disables the view output as text option if the output must be saved as a file
  */
-$(document).ready(function() {
+$(function() {
     $("#plugins").change(function() {
         var active_plugin = $("#plugins option:selected").val();
         var force_file = $("#force_file_" + active_plugin).val();
@@ -178,7 +178,7 @@ function toggle_quick_or_custom()
     }
 }
 
-$(document).ready(function() {
+$(function() {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
 });
 
@@ -186,7 +186,7 @@ $(document).ready(function() {
  * Sets up the interface for Javascript-enabled browsers since the default is for
  *  Javascript-disabled browsers
  */
-$(document).ready(function() {
+$(function() {
     if ($("input[type='hidden'][name='export_method']").val() != "custom-no-form") {
         $("#quick_or_custom").show();
     }
@@ -208,7 +208,7 @@ $(document).ready(function() {
 /**
  * Disables the "Dump some row(s)" sub-options when it is not selected
  */
-$(document).ready(function() {
+$(function() {
     $("input[type='radio'][name='allrows']").change(function() {
         if ($("input[type='radio'][name='allrows']").prop("checked")) {
             $("label[for='limit_to']").fadeTo('fast', 0.4);

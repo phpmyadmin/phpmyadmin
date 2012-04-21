@@ -1867,7 +1867,7 @@
    };
 
    // Assign cache and event initialisation on document load
-   $(document).ready(function()
+   $(function()
    {
       // Setup library cache with window scroll and dimensions of document
       $.fn.qtip.cache = {

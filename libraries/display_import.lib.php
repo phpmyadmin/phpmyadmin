@@ -31,7 +31,7 @@ if (empty($import_list)) {
     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
     <script type="text/javascript">
         //<![CDATA[
-        $(document).ready( function() {
+        $( function() {
             // add event when user click on "Go" button
             $('#buttonGo').bind('click', function() {
                 $('#upload_form_form').css("display", "none"); // hide form

@@ -138,7 +138,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  * @name        document.ready
  */
 
-$(document).ready(function() {
+$(function() {
     /**
      * AJAX event handler for 'Add a New User'
      *
@@ -614,6 +614,6 @@ $(document).ready(function() {
     });
 
     displayPasswordGenerateButton();
-}, 'top.frame_content'); //end $(document).ready()
+}, 'top.frame_content'); //end $()
 
 /**#@- */
