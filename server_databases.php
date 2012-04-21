@@ -10,6 +10,9 @@
  */
 require_once 'libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'server_databases.js';
+$GLOBALS['js_include'][] = 'functions.js';
+
 require 'libraries/server_common.inc.php';
 if (! PMA_DRIZZLE) {
     include_once 'libraries/replication.inc.php';
@@ -85,10 +88,19 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         $message = PMA_Message::error(__('No databases selected.'));
     } else {
         $action = 'server_databases.php';
-        $submit_mult = 'drop_db' ;
+        $submit_mult = 'drop_db';
         $err_url = 'server_databases.php?' . PMA_generate_common_url();
-        if (isset($_REQUEST['selected_dbs'])) {
+        if (isset($_REQUEST['selected_dbs']) 
+            && !isset($_REQUEST['is_js_confirmed'])) {
             $selected_db = $_REQUEST['selected_dbs'];
+        }
+        if (isset($_REQUEST['is_js_confirmed'])) {
+            $_REQUEST = array(
+                'query_type' => $submit_mult,
+                'selected' => $_REQUEST['selected_dbs'],
+                'mult_btn' => __('Yes'),
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table']);
         }
         include 'libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db, $GLOBALS['db']);
@@ -101,7 +113,9 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
             $message = PMA_Message::success(_ngettext('%1$d database has been dropped successfully.', '%1$d databases have been dropped successfully.', $number_of_databases));
             $message->addParam($number_of_databases);
         }
-
+    }
+    if ($GLOBALS['is_ajax_request'] && $message instanceof PMA_Message) {
+        PMA_ajaxResponse($message, $message->isSuccess());
     }
 }
 
@@ -282,7 +296,7 @@ if ($databases_count > 0) {
            . '<a href="server_databases.php' . $common_url_query . '" onclick="if (unMarkAllRows(\'tabledatabases\')) return false;">' . "\n"
            . '    ' . __('Uncheck All') . '</a>' . "\n"
            . '<i>' . __('With selected:') . '</i>' . "\n";
-        PMA_buttonOrImage('drop_selected_dbs', 'mult_submit', 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
+        PMA_buttonOrImage('drop_selected_dbs', 'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''), 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
     }
 
     if (empty($dbstats)) {
