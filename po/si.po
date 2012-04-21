@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-21 10:02+0200\n"
+"PO-Revision-Date: 2012-04-21 10:05+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -6746,7 +6746,7 @@ msgstr ""
 #: libraries/import/shp.php:338
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL ජ්‍යාමිතික දිගුව ESRI \"%s\" වර්ගය සඳහා සහාය නොදක්වයි."
 
 #: libraries/import/shp.php:376
 msgid "The imported file does not contain any data"
