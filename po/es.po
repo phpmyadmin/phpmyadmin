@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-09 16:09+0200\n"
+"PO-Revision-Date: 2012-04-18 17:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.9\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -962,8 +962,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Selecciones «GeomFromText» de la columna \"Función\" y pague la cadena "
-"ubicada debajo en el campo \"Valor\""
+"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena ubicada "
+"debajo en el campo \"Valor\""
 
 #: import.php:57
 #, php-format
@@ -12282,7 +12282,7 @@ msgid "Release Series"
 msgstr "Serie de versiones"
 
 #: po/advisory_rules.php:36
-msgid "The MySQL server version less then 5.1."
+msgid "The MySQL server version less than 5.1."
 msgstr "La versión del servidor MySQL es menor a 5.1."
 
 #: po/advisory_rules.php:37

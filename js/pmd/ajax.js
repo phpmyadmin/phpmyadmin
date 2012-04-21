@@ -52,6 +52,7 @@ function makeRequest(url, parameters)
 function alertContents()
 {
     if (http_request.readyState == 1) {
+        // @todo: replace with PMA_ajaxShowMessage() and remove layer_action
         document.getElementById("layer_action").style.left = (document.body.clientWidth + document.body.scrollLeft - 85) + 'px';
         document.getElementById("layer_action").style.top = (document.body.scrollTop + 10) + 'px';
         document.getElementById("layer_action").style.visibility = 'visible'; document.getElementById("layer_action").innerHTML = 'Loading...';
@@ -75,14 +76,6 @@ function alertContents()
     }
 }
 
-function layer_alert(text)
-{
-    document.getElementById("layer_action").innerHTML = text;
-    document.getElementById("layer_action").style.left = (document.body.clientWidth + document.body.scrollLeft - 20 - document.getElementById("layer_action").offsetWidth) + 'px';
-    document.getElementById("layer_action").style.visibility = 'visible'; 
-    setTimeout(function(){document.getElementById("layer_action").style.visibility = 'hidden';}, 2000);
-}
-
 /**
  *
  */
@@ -103,17 +96,17 @@ function PrintXML()
         //xmldoc.getElementsByTagName('root')[0].getAttribute("act")
 
         if (root.getAttribute('act') == 'save_pos') {
-            layer_alert(root.getAttribute('return'));
+            PMA_ajaxShowMessage(root.getAttribute('return'));
         }
         if (root.getAttribute('act') == 'relation_upd') {
-            layer_alert(root.getAttribute('return'));
+            PMA_ajaxShowMessage(root.getAttribute('return'));
             if (root.getAttribute('b') == '1') {
                 contr.splice(root.getAttribute('K'), 1);
                 Re_load();
             }
         }
         if (root.getAttribute('act') == 'relation_new') {
-            layer_alert(root.getAttribute('return'));
+            PMA_ajaxShowMessage(root.getAttribute('return'));
             if (root.getAttribute('b') == '1') {
                 var i    = contr.length;
                 var t1 = root.getAttribute('DB1') + '.' + root.getAttribute('T1');

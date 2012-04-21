@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-09 12:19+0200\n"
+"PO-Revision-Date: 2012-04-21 08:15+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -4312,7 +4312,7 @@ msgstr "表示できる SQL 文の最大の長さ"
 #: libraries/config/messages.inc.php:309 libraries/config/messages.inc.php:314
 #: libraries/config/messages.inc.php:341
 msgid "Users cannot set a higher value"
-msgstr "ユーザはこれより高い値を設定することはできません。"
+msgstr "ユーザはこれより高い値を設定することはできません"
 
 #: libraries/config/messages.inc.php:310
 msgid "Maximum number of databases displayed in left frame and database list"
@@ -4508,13 +4508,11 @@ msgstr "テーブルのソートを記憶する"
 
 #: libraries/config/messages.inc.php:354
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
-"カラム名ヘッダを何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になりま"
-"す。"
+msgstr "カラム名を何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
 
 #: libraries/config/messages.inc.php:355
 msgid "Repeat headers"
-msgstr "カラム名ヘッダの繰り返し"
+msgstr "カラム名の差し込み間隔"
 
 #: libraries/config/messages.inc.php:356
 msgid "Show help button instead of Documentation text"
@@ -9633,7 +9631,7 @@ msgstr "ランタイム情報"
 
 #: server_status.php:786
 msgid "All status variables"
-msgstr "全ての状態変数"
+msgstr "すべての状態変数"
 
 #: server_status.php:787
 msgid "Monitor"
@@ -12006,7 +12004,7 @@ msgid "Release Series"
 msgstr "バージョン系統"
 
 #: po/advisory_rules.php:36
-msgid "The MySQL server version less then 5.1."
+msgid "The MySQL server version less than 5.1."
 msgstr "MySQL サーバのバージョンが 5.1 未満です。"
 
 #: po/advisory_rules.php:37
