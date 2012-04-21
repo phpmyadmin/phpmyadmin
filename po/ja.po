@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-21 08:15+0200\n"
+"PO-Revision-Date: 2012-04-21 11:21+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3414,7 +3414,7 @@ msgstr "デフォルトのテーブルタブ"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr "テーブル構造の操作の欄を折り畳むかどうか。"
+msgstr "テーブル構造の操作欄の折り畳みをしないかどうか。"
 
 #: libraries/config/messages.inc.php:59
 #| msgid "Propose table structure"
