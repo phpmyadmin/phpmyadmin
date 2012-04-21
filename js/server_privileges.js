@@ -263,6 +263,7 @@ $(document).ready(function() {
             displayPasswordGenerateButton();
             PMA_convertFootnotesToTooltips($div);
             PMA_ajaxRemoveMessage($msgbox);
+            $div.find("input[autofocus]").focus();
         }); // end $.get()
 
     });//end of Add New User AJAX event handler

@@ -231,6 +231,7 @@ $js_messages['strCancel'] = __('Cancel');
 $js_messages['strLoading'] = __('Loading');
 $js_messages['strProcessingRequest'] = __('Processing Request');
 $js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
+$js_messages['strNoDatabasesSelected'] = __('No databases selected.');
 $js_messages['strDroppingColumn'] = __('Dropping Column');
 $js_messages['strAddingPrimaryKey'] = __('Adding Primary Key');
 $js_messages['strOK'] = __('OK');

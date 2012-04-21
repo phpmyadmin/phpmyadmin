@@ -1334,32 +1334,32 @@ if (! isset($_REQUEST['submit_connect'])
          </select>
       </td>
       </tr>
-    <tr class="even toggler remote-server">
-        <td><?php echo __('Server'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" <?php echo $possibly_readonly; ?>/></td>
+    <tr class="even toggler remote-server vmiddle">
+        <td><label for="<?php echo $type; ?>_host"><?php echo __('Server'); ?></label></td>
+        <td><input type="text" name="<?php echo $type; ?>_host" id="<?php echo $type; ?>_host" class="server-host" <?php echo $possibly_readonly; ?>/></td>
     </tr>
-    <tr class="odd toggler remote-server">
-        <td><?php echo __('Port'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_port" class="server-port" <?php echo $possibly_readonly; ?> value="3306" maxlength="5" size="5" /></td>
+    <tr class="odd toggler remote-server vmiddle">
+        <td><label for="<?php echo $type; ?>_port"><?php echo __('Port'); ?></label></td>
+        <td><input type="text" name="<?php echo $type; ?>_port" id="<?php echo $type; ?>_port" class="server-port" <?php echo $possibly_readonly; ?> value="3306" maxlength="5" size="5" /></td>
     </tr>
-    <tr class="even toggler remote-server">
-        <td><?php echo __('Socket'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_socket" class="server-socket" <?php echo $possibly_readonly; ?>/></td>
+    <tr class="even toggler remote-server vmiddle">
+        <td><label for="<?php echo $type; ?>_socket"><?php echo __('Socket'); ?></label></td>
+        <td><input type="text" name="<?php echo $type; ?>_socket" id="<?php echo $type; ?>_socket" class="server-socket" <?php echo $possibly_readonly; ?>/></td>
     </tr>
-    <tr class="odd toggler remote-server">
-        <td><?php echo __('User name'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" /></td>
+    <tr class="odd toggler remote-server vmiddle">
+        <td><label for="<?php echo $type; ?>_username"><?php echo __('User name'); ?></label></td>
+        <td><input type="text" name="<?php echo $type; ?>_username" id="<?php echo $type; ?>_username" class="server-user" /></td>
     </tr>
-    <tr class="even toggler remote-server">
-        <td><?php echo __('Password'); ?></td>
-        <td><input type="password" name="<?php echo $type; ?>_pass" class="server-pass" /> </td>
+    <tr class="even toggler remote-server vmiddle">
+        <td><label for="<?php echo $type; ?>_pass"><?php echo __('Password'); ?></label></td>
+        <td><input type="password" name="<?php echo $type; ?>_pass" id="<?php echo $type; ?>_pass" class="server-pass" /> </td>
     </tr>
-    <tr class="odd toggler remote-server">
-        <td><?php echo __('Database'); ?></td>
-        <td><input type="text" name="<?php echo $type; ?>_db" class="server-db" /></td>
+    <tr class="odd toggler remote-server vmiddle">
+        <td><label for="<?php echo $type; ?>_db"><?php echo __('Database'); ?></label></td>
+        <td><input type="text" name="<?php echo $type; ?>_db" id="<?php echo $type; ?>_db" class="server-db" /></td>
     </tr>
-    <tr class="even toggler current-server" style="display: none;">
-        <td><?php echo __('Database'); ?></td>
+    <tr class="even toggler current-server vmiddle" style="display: none;">
+        <td><label for="<?php echo $type; ?>_db_sel"><?php echo __('Database'); ?></label></td>
         <td>
 <?php
     $options_list = '';
@@ -1374,7 +1374,7 @@ if (! isset($_REQUEST['submit_connect'])
     if (count($databases) == 0) {
         echo __('No databases');
     } else {
-        echo '<select name="' . $type . '_db_sel">'
+        echo '<select name="' . $type . '_db_sel" id="' . $type . '_db_sel">'
          . $options_list
          . '</select>';
         unset($options_list);
