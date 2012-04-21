@@ -152,9 +152,9 @@ foreach ($the_tables as $key => $table) {
 <tbody>
     <?php
     foreach ($columns as $row) {
-        $extracted_fieldspec = PMA_extractColumnSpec($row['Type']);
-        $type             = $extracted_fieldspec['print_type'];
-        $attribute     = $extracted_fieldspec['attribute'];
+        $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
+        $type             = $extracted_columnspec['print_type'];
+        $attribute     = $extracted_columnspec['attribute'];
 
         if (! isset($row['Default'])) {
             if ($row['Null'] != ''  && $row['Null'] != 'NO') {

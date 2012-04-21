@@ -256,20 +256,20 @@ foreach ($fields as $row) {
     $aryFields[]      = $row['Field'];
 
     $type             = $row['Type'];
-    $extracted_fieldspec = PMA_extractColumnSpec($row['Type']);
+    $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
 
-    if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
+    if ('set' == $extracted_columnspec['type'] || 'enum' == $extracted_columnspec['type']) {
         $type_nowrap  = '';
     } else {
         $type_nowrap  = ' class="nowrap"';
     }
-    $type         = $extracted_fieldspec['print_type'];
+    $type         = $extracted_columnspec['print_type'];
     if (empty($type)) {
         $type     = ' ';
     }
 
     $field_charset = '';
-    if ($extracted_fieldspec['can_contain_collation'] && ! empty($row['Collation'])) {
+    if ($extracted_columnspec['can_contain_collation'] && ! empty($row['Collation'])) {
         $field_charset = $row['Collation'];
     }
 
@@ -280,7 +280,7 @@ foreach ($fields as $row) {
         $type_mime = '';
     }
 
-    $attribute     = $extracted_fieldspec['attribute'];
+    $attribute     = $extracted_columnspec['attribute'];
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
@@ -327,13 +327,13 @@ foreach ($fields as $row) {
         <?php echo $rownum; ?>
     </td>
     <th class="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
-    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $extracted_fieldspec['displayed_type']; echo $type_mime; ?></bdo></td>
+    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $extracted_columnspec['displayed_type']; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td class="column_attribute nowrap"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
     <td class="nowrap"><?php
     if (isset($row['Default'])) {
-        if ($extracted_fieldspec['type'] == 'bit') {
+        if ($extracted_columnspec['type'] == 'bit') {
             // here, $row['Default'] contains something like b'010'
             echo PMA_convert_bit_default_value($row['Default']);
         } else {

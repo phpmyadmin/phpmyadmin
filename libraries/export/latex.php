@@ -442,8 +442,8 @@ if (isset($plugin_list)) {
 
         $fields = PMA_DBI_get_columns($db, $table);
         foreach ($fields as $row) {
-            $extracted_fieldspec = PMA_extractColumnSpec($row['Type']);
-            $type = $extracted_fieldspec['print_type'];
+            $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
+            $type = $extracted_columnspec['print_type'];
             if (empty($type)) {
                 $type     = ' ';
             }

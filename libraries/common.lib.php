@@ -2908,28 +2908,28 @@ function PMA_convert_bit_default_value($bit_default_value)
 }
 
 /**
- * Extracts the various parts from a field type spec
+ * Extracts the various parts from a column spec
  *
- * @param string $fieldspec Field specification
+ * @param string $columnspec Column specification
  *
  * @return  array associative array containing type, spec_in_brackets
  *          and possibly enum_set_values (another array)
  */
-function PMA_extractColumnSpec($fieldspec)
+function PMA_extractColumnSpec($columnspec)
 {
-    $first_bracket_pos = strpos($fieldspec, '(');
+    $first_bracket_pos = strpos($columnspec, '(');
     if ($first_bracket_pos) {
         $spec_in_brackets = chop(
             substr(
-                $fieldspec,
+                $columnspec,
                 $first_bracket_pos + 1,
-                (strrpos($fieldspec, ')') - $first_bracket_pos - 1)
+                (strrpos($columnspec, ')') - $first_bracket_pos - 1)
             )
         );
         // convert to lowercase just to be sure
-        $type = strtolower(chop(substr($fieldspec, 0, $first_bracket_pos)));
+        $type = strtolower(chop(substr($columnspec, 0, $first_bracket_pos)));
     } else {
-        $type = strtolower($fieldspec);
+        $type = strtolower($columnspec);
         $spec_in_brackets = '';
     }
 
@@ -2941,9 +2941,9 @@ function PMA_extractColumnSpec($fieldspec)
         $index = 0;
 
         // While there is another character to process
-        while (isset($fieldspec[$index])) {
+        while (isset($columnspec[$index])) {
             // Grab the char to look at
-            $char = $fieldspec[$index];
+            $char = $columnspec[$index];
 
             // If it is a single quote, needs to be handled specially
             if ($char == "'") {
@@ -2955,8 +2955,8 @@ function PMA_extractColumnSpec($fieldspec)
                     // Otherwise, it may be either an end of a string,
                     // or a 'double quote' which can be handled as-is
                     // Check out the next character (if possible)
-                    $has_next = isset($fieldspec[$index + 1]);
-                    $next = $has_next ? $fieldspec[$index + 1] : null;
+                    $has_next = isset($columnspec[$index + 1]);
+                    $next = $has_next ? $columnspec[$index + 1] : null;
 
                     //If we have reached the end of our 'working' string (because
                     //there are no more chars,or the next char is not another quote)
@@ -2973,8 +2973,8 @@ function PMA_extractColumnSpec($fieldspec)
                     }
                 }
             } elseif ('\\' == $char
-                && isset($fieldspec[$index + 1])
-                && "'" == $fieldspec[$index + 1]
+                && isset($columnspec[$index + 1])
+                && "'" == $columnspec[$index + 1]
             ) {
                 // escaping of a quote?
                 $working .= "'";
@@ -2994,10 +2994,10 @@ function PMA_extractColumnSpec($fieldspec)
         $enum_set_values = array();
 
         /* Create printable type name */
-        $printtype = strtolower($fieldspec);
+        $printtype = strtolower($columnspec);
 
         // Strip the "BINARY" attribute, except if we find "BINARY(" because
-        // this would be a BINARY or VARBINARY field type;
+        // this would be a BINARY or VARBINARY column type;
         // by the way, a BLOB should not show the BINARY attribute
         // because this is not accepted in MySQL syntax.
         if (preg_match('@binary@', $printtype) && ! preg_match('@binary[\(]@', $printtype)) {

@@ -202,8 +202,8 @@ if (isset($plugin_list)) {
         foreach ($columns as $column) {
             $schema_insert .= '<tr class="print-category">';
 
-            $extracted_fieldspec = PMA_extractColumnSpec($column['Type']);
-            $type = htmlspecialchars($extracted_fieldspec['print_type']);
+            $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+            $type = htmlspecialchars($extracted_columnspec['print_type']);
             if (empty($type)) {
                 $type     = '&nbsp;';
             }
@@ -333,8 +333,8 @@ if (isset($plugin_list)) {
 
             $schema_insert .= '<tr class="print-category">';
 
-            $extracted_fieldspec = PMA_extractColumnSpec($column['Type']);
-            $type = htmlspecialchars($extracted_fieldspec['print_type']);
+            $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+            $type = htmlspecialchars($extracted_columnspec['print_type']);
             if (empty($type)) {
                 $type     = '&nbsp;';
             }

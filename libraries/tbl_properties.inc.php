@@ -241,8 +241,8 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     if (isset($row['Type'])) {
-        $extracted_fieldspec = PMA_extractColumnSpec($row['Type']);
-        if ($extracted_fieldspec['type'] == 'bit') {
+        $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
+        if ($extracted_columnspec['type'] == 'bit') {
             $row['Default'] = PMA_convert_bit_default_value($row['Default']);
         }
     }
@@ -283,8 +283,8 @@ for ($i = 0; $i < $num_fields; $i++) {
         $type        = '';
         $length = '';
     } else {
-        $type = $extracted_fieldspec['type'];
-        $length = $extracted_fieldspec['spec_in_brackets'];
+        $type = $extracted_columnspec['type'];
+        $length = $extracted_columnspec['spec_in_brackets'];
     }
 
     // some types, for example longtext, are reported as
@@ -395,8 +395,8 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
 
     $attribute     = '';
-    if (isset($extracted_fieldspec)) {
-        $attribute = $extracted_fieldspec['attribute'];
+    if (isset($extracted_columnspec)) {
+        $attribute = $extracted_columnspec['attribute'];
     }
 
     if (isset($row['Extra']) && $row['Extra'] == 'on update CURRENT_TIMESTAMP') {
