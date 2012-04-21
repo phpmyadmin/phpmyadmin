@@ -533,7 +533,7 @@ function checkTableEditForm(theForm, fieldsCnt)
     return true;
 } // enf of the 'checkTableEditForm()' function
 
-$(document).ready(function() {
+$(function() {
     /**
      * Row marking in horizontal mode (use "live" so that it works also for
      * next pages reached via AJAX); a tr may have the class noclick to remove
@@ -654,7 +654,7 @@ var last_shift_clicked_row = -1;
  * Row highlighting in horizontal mode (use "live"
  * so that it works also for pages reached via AJAX)
  */
-/*$(document).ready(function() {
+/*$(function() {
     $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
@@ -1070,7 +1070,7 @@ function pdfPaperSize(format, axis)
 /**
  * Jquery Coding for inline editing SQL_QUERY
  */
-$(document).ready(function() {
+$(function() {
     $("a.inline_edit_sql").live('click', function() {
         if ($('#sql_query_edit').length) {
             // An inline query editor is already open,
@@ -1330,7 +1330,7 @@ function PMA_ajaxRemoveMessage($this_msgbox)
     }
 }
 
-$(document).ready(function() {
+$(function() {
     /**
      * Allows the user to dismiss a notification
      * created with PMA_ajaxShowMessage()
@@ -1935,7 +1935,7 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
  *
  * Attach Ajax Event handlers for Create Table
  */
-$(document).ready(function() {
+$(function() {
 
      /**
      * Attach event handler to the submit action of the create table minimal form
@@ -2100,7 +2100,7 @@ $(document).ready(function() {
  * jQuery coding for 'Table operations'.  Used on tbl_operations.php
  * Attach Ajax Event handlers for Table operations
  */
-$(document).ready(function() {
+$(function() {
     /**
      *Ajax action for submitting the "Alter table order by"
     **/
@@ -2222,7 +2222,7 @@ $(document).ready(function() {
  *
  * @see $cfg['AjaxEnable']
  */
-$(document).ready(function() {
+$(function() {
     $("#drop_db_anchor").live('click', function(event) {
         event.preventDefault();
 
@@ -2244,7 +2244,7 @@ $(document).ready(function() {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Drop Database Ajax action
-}); // end of $(document).ready() for Drop Database
+}); // end of $() for Drop Database
 
 /**
  * Attach Ajax event handlers for 'Create Database'.  Used wherever libraries/
@@ -2252,7 +2252,7 @@ $(document).ready(function() {
  *
  * @see $cfg['AjaxEnable']
  */
-$(document).ready(function() {
+$(function() {
 
     $('#create_database_form.ajax').live('submit', function(event) {
         event.preventDefault();
@@ -2288,12 +2288,12 @@ $(document).ready(function() {
             }
         }); // end $.post()
     }); // end $().live()
-});  // end $(document).ready() for Create Database
+});  // end $() for Create Database
 
 /**
  * Attach Ajax event handlers for 'Change Password' on main.php
  */
-$(document).ready(function() {
+$(function() {
 
     /**
      * Attach Ajax event handler on the change password anchor
@@ -2379,13 +2379,13 @@ $(document).ready(function() {
      *
      * @see $cfg['AjaxEnable']
      */
-}); // end $(document).ready() for Change Password
+}); // end $() for Change Password
 
 /**
  * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
  * the page loads and when the selected data type changes
  */
-$(document).ready(function() {
+$(function() {
     // is called here for normal page loads and also when opening
     // the Create table dialog
     PMA_verifyColumnsProperties();
@@ -2450,7 +2450,7 @@ var $enum_editor_dialog = null;
 /**
  * Opens the ENUM/SET editor and controls its functions
  */
-$(document).ready(function() {
+$(function() {
     $("a.open_enum_editor").live('click', function() {
         // Get the name of the column that is being edited
         var colname = $(this).closest('tr').find('input:first').val();
@@ -2623,7 +2623,7 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
+$(function() {
     PMA_convertFootnotesToTooltips();
 });
 
@@ -3020,7 +3020,7 @@ $(window).load(function () {
 /**
  * Vertical pointer
  */
-$(document).ready(function() {
+$(function() {
     $('.vpointer').live('hover',
         //handlerInOut
         function(e) {
@@ -3030,9 +3030,9 @@ $(document).ready(function() {
             $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
         );
-}); // end of $(document).ready() for vertical pointer
+}); // end of $() for vertical pointer
 
-$(document).ready(function() {
+$(function() {
     /**
      * Vertical marker
      */
@@ -3130,7 +3130,7 @@ $(document).ready(function() {
             window.parent.frame_navigation.PMA_reloadRecentTable();
         }
     });
-}); // end of $(document).ready()
+}); // end of $()
 
 /**
  * Creates a message inside an object with a sliding effect
@@ -3215,7 +3215,7 @@ function PMA_slidingMessage(msg, $obj)
  *
  * @see $cfg['AjaxEnable']
  */
-$(document).ready(function() {
+$(function() {
     $("#drop_tbl_anchor").live('click', function(event) {
         event.preventDefault();
 
@@ -3237,14 +3237,14 @@ $(document).ready(function() {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
-}); // end of $(document).ready() for Drop Table
+}); // end of $() for Drop Table
 
 /**
  * Attach Ajax event handlers for Truncate Table.
  *
  * @see $cfg['AjaxEnable']
  */
-$(document).ready(function() {
+$(function() {
     $("#truncate_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
@@ -3279,12 +3279,12 @@ $(document).ready(function() {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Truncate Table Ajax action
-}); // end of $(document).ready() for Truncate Table
+}); // end of $() for Truncate Table
 
 /**
  * Attach CodeMirror2 editor to SQL edit area.
  */
-$(document).ready(function() {
+$(function() {
     var elm = $('#sqlquery');
     if (elm.length > 0 && typeof CodeMirror != 'undefined') {
         codemirror_editor = CodeMirror.fromTextArea(elm[0], {
@@ -3407,7 +3407,7 @@ loadJavascript=function(file) {
     }
 };
 
-$(document).ready(function() {
+$(function() {
     /**
      * Theme selector.
      */
@@ -3478,14 +3478,14 @@ function printPage()
     }
 }
 
-$(document).ready(function() {
+$(function() {
     $('input#print').click(printPage);
 });
 
 /**
  * Makes the breadcrumbs and the menu bar float at the top of the viewport
  */
-$(document).ready(function () {
+$(function () {
     if ($("#floating_menubar").length && $('#PMA_disable_floating_menubar').length == 0) {
         $("#floating_menubar")
             .css({

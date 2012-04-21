@@ -12,7 +12,7 @@
  * Actions ajaxified here:
  * Table Search
  */
-$(document).ready(function() {
+$(function() {
     /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed 
      * after a couple of clicks
@@ -174,4 +174,4 @@ $(document).ready(function() {
         }
     });
 
-}, 'top.frame_content'); // end $(document).ready()
+}, 'top.frame_content'); // end $()

@@ -73,7 +73,7 @@ if (!$GLOBALS['is_ajax_request']) {
 <?php
 if (empty($GLOBALS['error_message'])) {
     ?>
-$(document).ready(function() {
+$(function() {
 // updates current settings
 if (window.parent.setAll) {
     window.parent.setAll('<?php

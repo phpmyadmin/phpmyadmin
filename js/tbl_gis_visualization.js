@@ -170,7 +170,7 @@ function initGISVisualization() {
  * Panning on clicking the arrow buttons.
  * Displaying tooltips for GIS objects.
  */
-$(document).ready(function() {
+$(function() {
 
     // If we are in GIS visualization, initialize it
     if ($('table.gis_table').length > 0) {
