@@ -507,7 +507,7 @@ $(function() {
     });
 
     $('a[href="#importMonitorConfig"]').click(function() {
-        $('div#emptyDialog').attr('title', PMA_messages['strImportDialogTitle']);
+        $('div#emptyDialog').dialog('option', 'title', PMA_messages['strImportDialogTitle']);
         $('div#emptyDialog').html(PMA_messages['strImportDialogMessage'] + ':<br/><form action="file_echo.php?' + url_query + '&import=1" method="post" enctype="multipart/form-data">' +
             '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
         
@@ -849,7 +849,7 @@ $(function() {
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
 
             if (runtime.charts != null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
-                $('div#emptyDialog').attr('title',PMA_messages['strIncompatibleMonitorConfig']);
+                $('div#emptyDialog').dialog('option', 'title',PMA_messages['strIncompatibleMonitorConfig']);
                 $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
 
                 var dlgBtns = {};
@@ -1119,8 +1119,8 @@ $(function() {
             return;
         }
 
-        var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
-        htmlStr += '</p><p><b>Series:</b> </p><ol>';
+        var htmlStr = '<p><b>' + PMA_messages['strChartTitle'] + ': </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
+        htmlStr += '</p><p><b>' + PMA_messages['strSeries'] + ':</b> </p><ol>';
         for (var i = 0; i<chart.nodes.length; i++) {
             htmlStr += '<li><i>' + chart.nodes[i].dataPoints[0].name  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value="' + chart.nodes[i].name + '" /></li>';
         }
@@ -1142,10 +1142,10 @@ $(function() {
         dlgBtns['Cancel'] = function() {
             $(this).dialog('close');
         };
-        
-        $('div#emptyDialog').attr('title', 'Edit chart');
+
         $('div#emptyDialog').html(htmlStr + '</ol>');
         $('div#emptyDialog').dialog({
+            title: PMA_messages['strChartEdit'],
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
@@ -1337,6 +1337,7 @@ $(function() {
             opts.limitTypes = false;
         }
         
+        $('#emptyDialog').dialog('option', 'title', PMA_messages['strAnalysingLogsTitle']);
         $('#emptyDialog').html(PMA_messages['strAnalysingLogs'] + 
                                 ' <img class="ajaxIcon" src="' + pmaThemeImage + 
                                 'ajax_clock_small.gif" alt="">');
@@ -1378,7 +1379,7 @@ $(function() {
                     runtime.logDataCols = buildLogTable(logData);
 
                     /* Show some stats in the dialog */
-                    $('#emptyDialog').attr('title', PMA_messages['strLoadingLogs']);
+                    $('#emptyDialog').dialog('option', 'title', PMA_messages['strLoadingLogs']);
                     $('#emptyDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
                     $.each(logData.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
@@ -1426,6 +1427,7 @@ $(function() {
                     $('#emptyDialog').dialog( "option", "buttons", dlgBtns);
                     
                 } else {
+                    $('#emptyDialog').dialog('option', 'title', PMA_messages['strNoDataFoundTitle']);
                     $('#emptyDialog').html('<p>' + PMA_messages['strNoDataFound'] + '</p>');
                     
                     var dlgBtns = {};
