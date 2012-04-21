@@ -327,7 +327,7 @@ $(function() {
     }); //end of Truncate Table Ajax action
 
     /**
-     * Ajax Event handler for 'Drop Table'
+     * Ajax Event handler for 'Drop Table' or 'Drop View'
      *
      * @see     $cfg['AjaxEnable']
      */
@@ -348,7 +348,7 @@ $(function() {
         /**
          * @var is_view Boolean telling if we have a view
          */
-        var is_view = $curr_row.hasClass('is_view');
+        var is_view = $curr_row.hasClass('is_view') || $this_anchor.hasClass('view');
         /**
          * @var question    String containing the question to be asked for confirmation
          */

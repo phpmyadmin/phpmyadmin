@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 - bug #3518983 [designer] Error messages do not appear in the Designer
 - bug #3519747 [interface] Suhosin patch warning incorrectly displayed
 - bug #3520107 [interface] Server status page: Incorrect dialog box titles
+- bug #3516089 [structure] DROP does not work on defective VIEWs
 
 3.5.0.0 (2012-04-07)
 + rfe #2021981 [interface] Add support for mass prefix change.
