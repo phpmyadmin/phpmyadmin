@@ -246,14 +246,14 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 }
 
 $rownum    = 0;
-$aryFields = array();
+$columns_list = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
 $save_row  = array();
 $odd_row   = true;
 foreach ($fields as $row) {
     $save_row[] = $row;
     $rownum++;
-    $aryFields[]      = $row['Field'];
+    $columns_list[]   = $row['Field'];
 
     $type             = $row['Type'];
     $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
@@ -643,12 +643,12 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
     // I tried displaying the drop-down inside the label but with Firefox
     // the drop-down was blinking
-    $fieldOptions = '<select name="after_field" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
-    foreach ($aryFields as $fieldname) {
-        $fieldOptions .= '<option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
+    $column_selector = '<select name="after_field" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
+    foreach ($columns_list as $one_column_name) {
+        $column_selector .= '<option value="' . htmlspecialchars($one_column_name) . '">' . htmlspecialchars($one_column_name) . '</option>';
     }
-    unset($aryFields);
-    $fieldOptions .= '</select>';
+    unset($columns_list, $one_column_name);
+    $column_selector .= '</select>';
 
     $choices = array(
         'last'  => __('At End of Table'),
@@ -656,8 +656,8 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         'after' => sprintf(__('After %s'), '')
     );
     PMA_display_html_radio('field_where', $choices, 'last', false);
-    echo $fieldOptions;
-    unset($fieldOptions, $choices);
+    echo $column_selector;
+    unset($column_selector, $choices);
     ?>
 <input type="submit" value="<?php echo __('Go'); ?>" />
 </form>
