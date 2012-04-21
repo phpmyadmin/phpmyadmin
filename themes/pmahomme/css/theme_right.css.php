@@ -167,7 +167,7 @@ input[type=text] {
     -moz-box-shadow: 0 1px 2px #ddd;
     -webkit-box-shadow: 0 1px 2px #ddd;
 
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>input_bg.gif);
+    background: white;
     border: 1px solid #aaa;
     color: #555;
     padding: 4px;
@@ -184,7 +184,7 @@ input[type=password] {
     -moz-box-shadow: 0 1px 2px #ddd;
     -webkit-box-shadow: 0 1px 2px #ddd;
 
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>input_bg.gif);
+    background: white;
     border: 1px solid #aaa;
     color: #555;
     padding: 4px;
@@ -336,7 +336,7 @@ select {
     border: 1px solid #aaa;
     color: #333;
     padding: 3px;
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>input_bg.gif)
+    background: white;
 }
 
 select[multiple] {
@@ -471,7 +471,7 @@ td.marked,
 table tr.marked td,
 table tr.marked th,
 table tr.marked {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>marked_bg.png) repeat-x #b6c6d7;
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 <?php } ?>
@@ -482,7 +482,7 @@ table tr.marked {
 .even:hover,
 .hover,
 .structure_actions_dropdown {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>marked_bg.png) repeat-x #b6c6d7; /* 3.4 */
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
@@ -490,7 +490,7 @@ table tr.marked {
 table tr.odd:hover th,
 table tr.even:hover th,
 table tr.hover th {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>marked_bg.png) repeat-x #b6c6d7; /* 3.4 */
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 <?php } ?>
@@ -928,7 +928,7 @@ ul#topmenu2 li {
 }
 
 .menucontainer {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tab_bg.png) repeat-x;
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'dcdcdc'); ?>
     border-top: 1px solid #aaa;
 }
 
@@ -978,7 +978,7 @@ ul#topmenu ul.notonly {
 }
 
 ul#topmenu li:hover {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tab_hover_bg.png) repeat-x 50% 0%!important;
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'e5e5e5'); ?>
 }
 
 ul#topmenu li:hover ul,
