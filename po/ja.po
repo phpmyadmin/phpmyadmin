@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-17 11:33+0200\n"
+"PO-Revision-Date: 2012-04-21 08:15+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:352
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1798
@@ -1021,10 +1021,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "本当に実行しますか?"
+msgstr "「%s」を本当に実行しますか？"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:373
 msgid "You are about to DESTROY a complete database!"
@@ -1634,16 +1634,14 @@ msgid "Import"
 msgstr "インポート"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "設定がインポートできませんでした"
+msgstr "モニタ環境設定のインポート"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "主キーまたはユニークキーを選択してください"
+msgstr "インポートするファイルを選択してください"
 
 #: js/messages.php:212
 msgid "Analyse Query"
@@ -3416,13 +3414,12 @@ msgstr "デフォルトのテーブルタブ"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "テーブル構造の操作の欄を折り畳むかどうか。"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "テーブル構造を確認する"
+msgstr "テーブル構造の操作欄の折り畳み"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -3984,17 +3981,15 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr "データベースの構造 (テーブルの一覧) で詳細に表示させるかの選択"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "データベースの構造"
+msgstr "テーブルの構造"
 
 #: libraries/config/messages.inc.php:231
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
-msgstr "データベースの構造 (テーブルの一覧) で詳細に表示させるかの選択"
+msgstr "テーブルの構造 (カラムの一覧) における設定"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -4507,13 +4502,11 @@ msgstr "テーブルのソートを記憶する"
 
 #: libraries/config/messages.inc.php:357
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
-"カラム名ヘッダを何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になりま"
-"す。"
+msgstr "カラム名を何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
 
 #: libraries/config/messages.inc.php:358
 msgid "Repeat headers"
-msgstr "カラム名ヘッダの繰り返し"
+msgstr "カラム名の差し込み間隔"
 
 #: libraries/config/messages.inc.php:359
 msgid "Show help button instead of Documentation text"
@@ -5769,27 +5762,27 @@ msgstr "エンコーディングへの変換:"
 #: libraries/display_git_revision.lib.php:46
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s (%2$s ブランチ)"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
-msgstr ""
+msgstr "ブランチ無し"
 
 #: libraries/display_git_revision.lib.php:54
 msgid "Git revision"
-msgstr ""
+msgstr "Git のリビジョン"
 
 #: libraries/display_git_revision.lib.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "committed on %1$s by %2$s"
-msgstr "%2$s に世代 %1$s を作成"
+msgstr "最終コミット: %1$s、%2$s により"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "authored on %1$s by %2$s"
-msgstr "%2$s に世代 %1$s を作成"
+msgstr "パッチ作成: %1$s、%2$s により"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -6536,16 +6529,14 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki テーブル"
 
 #: libraries/export/mediawiki.php:51
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "内容をエクスポートする"
+msgstr "テーブル名をエクスポートする"
 
 #: libraries/export/mediawiki.php:58
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "水平 (縦ヘッダ)"
+msgstr "カラム名をエクスポートする"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -9630,7 +9621,7 @@ msgstr "ランタイム情報"
 
 #: server_status.php:799
 msgid "All status variables"
-msgstr "全ての状態変数"
+msgstr "すべての状態変数"
 
 #: server_status.php:800
 msgid "Monitor"
