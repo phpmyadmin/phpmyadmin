@@ -687,7 +687,7 @@ $(function() {
                     
                     $tr.click(function() {
                         var rule = $(this).data('rule');
-                        $('div#emptyDialog').attr('title', PMA_messages['strRuleDetails']);
+                        $('div#emptyDialog').dialog('option', 'title', PMA_messages['strRuleDetails']);
                         $('div#emptyDialog').html(
                             '<p><b>' + PMA_messages['strIssuse'] + ':</b><br />' + rule.issue + '</p>' +
                             '<p><b>' + PMA_messages['strRecommendation'] + ':</b><br />' + rule.recommendation + '</p>' +
@@ -718,7 +718,7 @@ function serverResponseError() {
     btns[PMA_messages['strReloadPage']] = function() {
         window.location.reload();
     };
-    $('#emptyDialog').attr('title', PMA_messages['strRefreshFailed']);
+    $('#emptyDialog').dialog('option', 'title', PMA_messages['strRefreshFailed']);
     $('#emptyDialog').html(
         PMA_getImage('s_attention.png') +
         PMA_messages['strInvalidResponseExplanation']
