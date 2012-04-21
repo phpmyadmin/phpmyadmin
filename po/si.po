@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-21 10:05+0200\n"
+"PO-Revision-Date: 2012-04-21 12:03+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -4815,8 +4815,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"සැසි අතර \"කල් පවත්නා\" ලෙස අතුරු මුහුණත සම්බන්ධ අභිරුචි තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
-"තබන්න, යෝජිත: [kbd]pma_table_uiprefs[/kbd]"
+"සැසි අතර \"කල් පවත්නා\" ලෙස වගු අතුරු මුහුණත සම්බන්ධ අභිරුචි තබාගැනීමේ "
+"විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "UI preferences table"
@@ -6758,7 +6758,7 @@ msgstr "නැත"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:153
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Kana වෙත පරිවර්තනය කරන්න"
 
 #: libraries/mult_submits.inc.php:275
 msgid "From"
@@ -6775,7 +6775,7 @@ msgstr "ඉදිරිපත් කරන්න"
 
 #: libraries/mult_submits.inc.php:288
 msgid "Add table prefix"
-msgstr ""
+msgstr "වගු නාම මූලයක් එක් කරන්න"
 
 #: libraries/mult_submits.inc.php:291
 msgid "Add prefix"
@@ -6934,7 +6934,7 @@ msgstr "යුනිකෝඩ්"
 #: libraries/mysql_charsets.lib.php:338 libraries/mysql_charsets.lib.php:345
 #: libraries/mysql_charsets.lib.php:367 libraries/mysql_charsets.lib.php:378
 msgid "multilingual"
-msgstr ""
+msgstr "බහුභාෂා"
 
 #: libraries/mysql_charsets.lib.php:345
 msgid "Central European"
@@ -6984,7 +6984,7 @@ msgstr "මුල් පිටුව"
 #: libraries/navigation_header.inc.php:66
 #: libraries/navigation_header.inc.php:67
 msgid "Log out"
-msgstr "ලොග්අවුට් වන්න"
+msgstr "පිටවන්න"
 
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:93
@@ -7006,12 +7006,12 @@ msgstr "OK"
 
 #: libraries/relation.lib.php:81
 msgid "Enabled"
-msgstr "සක්‍රිය කරන් ලද"
+msgstr "සක්‍රිය කරන ලද"
 
 #: libraries/relation.lib.php:88 libraries/relation.lib.php:100
 #: pmd_relation_new.php:67
 msgid "General relation features"
-msgstr ""
+msgstr "වගු සබඳතා වලට අදාල සාමාන්‍ය විශේෂාංග"
 
 #: libraries/relation.lib.php:104
 msgid "Display Features"
@@ -7034,6 +7034,8 @@ msgstr "බ්‍රව්සර රූපාන්තරනය"
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
+"ඔබගේ column_comments වගුව යාවත්කාලීන කරන්නේ කෙසේද යන්න පිළිබඳව ලියකියවිලි "
+"බලන්න"
 
 #: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:382
 msgid "Bookmarked SQL query"
@@ -7045,15 +7047,15 @@ msgstr "SQL ඉතිහාසය"
 
 #: libraries/relation.lib.php:136
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "කල්පවතිනා ලෙස සටහන් කෙරෙන මෑතදී භාවිතා කල වගු"
 
 #: libraries/relation.lib.php:140
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "කල්පවතිනා ලෙස සටහන් කෙරෙන වගු අතුරු මුහුණත සම්බන්ධ අභිරුචි"
 
 #: libraries/relation.lib.php:148
 msgid "User preferences"
-msgstr ""
+msgstr "භාවිතා කරන්නාගේ අභිරුචි"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
@@ -7063,10 +7065,12 @@ msgstr ""
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
+"<code>examples/create_tables.sql</code> භාවිතා කර අවශ්‍ය කරන වගු තනා ගන්න."
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."
 msgstr ""
+"පරිපාලක භාවිතා කරන්නෙක් තනා ඔහුට මෙම වගු සඳහා පරිශීලන වරප්‍රසාද ලබා දෙන්න."
 
 #: libraries/relation.lib.php:156
 msgid ""
@@ -7077,24 +7081,28 @@ msgstr ""
 #: libraries/relation.lib.php:157
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"යාවත්කාලීන කරන ලද වින්‍යාස ගොනුව පූරණය සඳහා phpMyAdmin වෙත නැවත වරක් ඇතුල් "
+"වන්න."
 
 #: libraries/relation.lib.php:1103
 msgid "no description"
-msgstr ""
+msgstr "විස්තරයක් නොමැත"
 
 #: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
-msgstr ""
+msgstr "Slave සඳහා වින්‍යාසයන්"
 
 #: libraries/replication_gui.lib.php:54 server_replication.php:386
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Master සේවාදායකය වෙනස් කරන්න හෝ නැවත වින්‍යාස කරන්න"
 
 #: libraries/replication_gui.lib.php:55
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
+"ඔබගේ වින්‍යාස ගොනුවේ (my.cnf) අනන්‍ය සේවාදායක-හැඳුනුමක් ඇති බවට තහවුරු "
+"කරගන්න. එසේ නොමැති නම් පහත පේළිය [mysqld] කොටසට ඇතුලත් කරන්න:"
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
@@ -7138,6 +7146,8 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"--report-host=host_name විකල්පය සමඟ ඇරඹි slave සේවාදායක පමණක් මෙම ලැයිස්තුවේ "
+"පෙන්වයි."
 
 #: libraries/replication_gui.lib.php:246 server_replication.php:224
 msgid "Add slave replication user"
@@ -7152,7 +7162,7 @@ msgstr "ඕනෑම භාවිතා කරන්නෙක්"
 #: server_privileges.php:940 server_privileges.php:964
 #: server_privileges.php:2253 server_privileges.php:2283
 msgid "Use text field"
-msgstr ""
+msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න"
 
 #: libraries/replication_gui.lib.php:308 server_privileges.php:920
 msgid "Any host"
@@ -7175,6 +7185,8 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
+"දායක වගුව භාවිතා කෙරෙයි නම් මෙම ක්ෂේත්‍රය නොසැලකෙන අතර දායක වගුවේ ඇති අගයන් "
+"භාවිතා කෙරේ."
 
 #: libraries/replication_gui.lib.php:366
 msgid "Generate Password"
