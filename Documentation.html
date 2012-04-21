@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-<!-- 
-vim: expandtab ts=4 sw=4 sts=4 tw=78 
+<!--
+vim: expandtab ts=4 sw=4 sts=4 tw=78
 -->
 <html lang="en-US" dir="ltr">
 <head>
@@ -80,7 +80,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
                 <li>To support upload progress bars, see <a href="#faq2_9">
                     <abbr title="Frequently Asked Questions">FAQ</abbr> 2.9</a>.</li>
                 <li>To support XML and Open Document Spreadsheet importing,
-                you need PHP 5.2.17 or newer and the 
+                you need PHP 5.2.17 or newer and the
                 <a href="http://www.php.net/libxml"><code>libxml</code></a> extension.</li>
         </ul>
     </li>
@@ -317,7 +317,7 @@ rm -rf config                      # remove not needed directory
         It is generally good idea to protect public phpMyAdmin installation
         against access by robots as they usually can not do anything good
         there. You can do this using <code>robots.txt</code> file in root of
-        your webserver or limit access by web server configuration, see 
+        your webserver or limit access by web server configuration, see
         <a href="#faq1_42"><abbr title="Frequently Asked Questions">FAQ</abbr> 1.42</a>.
     </li>
 </ol>
@@ -439,7 +439,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 </pre>
 
         (this of course requires that your <a href="#linked-tables">phpMyAdmin
-        configuration storage</a> be set up).  
+        configuration storage</a> be set up).
     <br /></li>
 
     <li>Then each of the <em>true</em> users should be granted a set of privileges
@@ -545,7 +545,7 @@ The Swekey is a low cost authentication USB key that can be used in
 web applications.<br /><br />
 When Swekey authentication is activated, phpMyAdmin requires the
 users's Swekey to be plugged before entering the login page (currently
-supported for cookie authentication mode only). Swekey Authentication is 
+supported for cookie authentication mode only). Swekey Authentication is
 disabled by default.<br /><br />
 To enable it, add the following line to <code>config.inc.php</code>:
 </p>
@@ -555,8 +555,8 @@ $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey.conf';
 <p>
 You then have to create the <code>swekey.conf</code> file that will associate
 each user with their Swekey Id. It is important to place this file outside
-of your web server's document root (in the example, it is located in <code>/etc</code>). A self documented sample file is provided 
-in the <code>examples</code> directory. Feel free to use it with your own 
+of your web server's document root (in the example, it is located in <code>/etc</code>). A self documented sample file is provided
+in the <code>examples</code> directory. Feel free to use it with your own
 users' information.<br /><br />
 If you want to purchase a Swekey please visit
 <a href="http://phpmyadmin.net/auth_key">http://phpmyadmin.net/auth_key</a>
@@ -616,13 +616,13 @@ since this link provides funding for phpMyAdmin.
 
     <dt id="cfg_SuhosinDisableWarning">$cfg['SuhosinDisableWarning'] boolean</dt>
     <dd>A warning is displayed on the main page if Suhosin is detected.
-    You can set this parameter to <code>TRUE</code> to stop this message 
+    You can set this parameter to <code>TRUE</code> to stop this message
     from appearing.</dd>
 
     <dt id="cfg_McryptDisableWarning">$cfg['McryptDisableWarning'] boolean</dt>
     <dd>Disable the default warning that is displayed if mcrypt is missing for
     cookie authentication.
-    You can set this parameter to <code>TRUE</code> to stop this message 
+    You can set this parameter to <code>TRUE</code> to stop this message
     from appearing.</dd>
 
     <dt id="cfg_TranslationWarningThreshold">$cfg['TranslationWarningThreshold'] integer</dt>
@@ -640,10 +640,10 @@ since this link provides funding for phpMyAdmin.
         passphrase of your choice. It will be used internally by the blowfish
         algorithm: you won&#8217;t be prompted for this passphrase. There is
         no maximum length for this secret.<br /><br />
-        
+
         Since version 3.1.0 phpMyAdmin can generate this on the fly, but it
         makes a bit weaker security as this generated secret is stored in
-        session and furthermore it makes impossible to recall user name from 
+        session and furthermore it makes impossible to recall user name from
         cookie.</dd>
 
     <dt id="cfg_Servers">$cfg['Servers'] array</dt>
@@ -766,11 +766,11 @@ since this link provides funding for phpMyAdmin.
                 as introduced in 2.10.0 allows you to log in from prepared PHP
                 session data or using supplied PHP script. This is useful for implementing single signon
                 from another application.
-                
-                Sample way how to seed session is in signon example: <code>examples/signon.php</code>. 
-                There is also alternative example using OpenID - <code>examples/openid.php</code> and 
+
+                Sample way how to seed session is in signon example: <code>examples/signon.php</code>.
+                There is also alternative example using OpenID - <code>examples/openid.php</code> and
                 example for scripts based solution - <code>examples/signon-script.php</code>.
-                
+
                 You need to
                 configure <a href="#cfg_Servers_SignonSession"
                 class="configrule">session name</a> or <a href="#cfg_Servers_SignonScript"
@@ -797,7 +797,7 @@ since this link provides funding for phpMyAdmin.
     <span id="cfg_Servers_auth_swekey_config">$cfg['Servers'][$i]['auth_swekey_config']</span> string<br />
     </dt>
     <dd>
-    The name of the file containing <a href="#swekey">Swekey</a> ids and login 
+    The name of the file containing <a href="#swekey">Swekey</a> ids and login
     names for hardware authentication. Leave empty to deactivate this feature.
     </dd>
     <dt id="servers_user">
@@ -852,7 +852,7 @@ since this link provides funding for phpMyAdmin.
 
     <dt><span id="cfg_Servers_hide_db">$cfg['Servers'][$i]['hide_db']</span> string
     </dt>
-    <dd>Regular expression for hiding some databases from unprivileged users. 
+    <dd>Regular expression for hiding some databases from unprivileged users.
         This only hides them
         from listing, but a user is still able to access them (using, for example,
         the SQL query area). To limit access, use the MySQL privilege system.
@@ -934,7 +934,7 @@ since this link provides funding for phpMyAdmin.
 
         To allow the usage of this functionality:
 
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin 
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin
                 configuration storage</li>
             <li>put the relation table name in
                 <code>$cfg['Servers'][$i]['relation']</code></li>
@@ -1111,7 +1111,7 @@ ALTER TABLE `pma_column_comments`
     </dt>
     <dd>
         Since release 3.3.x a tracking mechanism is available.
-        It helps you to track every <abbr title="structured query language">SQL</abbr> command which 
+        It helps you to track every <abbr title="structured query language">SQL</abbr> command which
         is executed by phpMyAdmin. The mechanism supports logging of data manipulation
         and data definition statements. After enabling it you can create versions of tables.
         <br/><br/>
@@ -1127,7 +1127,7 @@ ALTER TABLE `pma_column_comments`
         When you want to filter usernames you can enter * for all names or you enter a list of names separated by ','.
         In addition you can export the (filtered) report to a file or to a temporary database.
         <br/><br/>
-        
+
         To allow the usage of this functionality:
 
         <ul>
@@ -1150,7 +1150,7 @@ ALTER TABLE `pma_column_comments`
         </ul>
 
         and no version exists for it, the mechanism will
-        create a version for you automatically.        
+        create a version for you automatically.
     </dd>
 
     <dt id="tracking3">
@@ -1172,7 +1172,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     </dt>
     <dd>
         Whether a DROP VIEW IF EXISTS statement will be added as first line to the log when creating a view. Default value is true.
-        <br/><br/>       
+        <br/><br/>
     </dd>
 
 
@@ -1234,7 +1234,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Maximum number of rows saved in <a
         href="#cfg_Servers_table_uiprefs">$cfg['Servers'][$i]['table_uiprefs']</a> table.<br /><br />
 
-        When tables are dropped or renamed, table_uiprefs may contain invalid 
+        When tables are dropped or renamed, table_uiprefs may contain invalid
         data (referring to tables which no longer exist).<br />
         We only keep this number of newest rows in table_uiprefs and automatically delete older rows.</dd>
 
@@ -1245,7 +1245,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt><span id="cfg_Servers_AllowNoPassword">$cfg['Servers'][$i]['AllowNoPassword']</span>
         boolean</dt>
     <dd>Whether to allow logins without a password. The default
-    value of <code>false</code> for this parameter prevents unintended access 
+    value of <code>false</code> for this parameter prevents unintended access
     to a MySQL server with was left with an empty password for root or
     on which an anonymous (blank) user is defined.
     </dd>
@@ -1327,8 +1327,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Whether to count the number of tables for each database when preparing the list of databases for the navigation frame.
     </dd>
     <dt><span id="cfg_Servers_SignonScript">$cfg['Servers'][$i]['SignonScript']</span> string</dt>
-    <dd>Name of PHP script to be sourced and executed to obtain 
-    login credentials. This is alternative approach to session based single 
+    <dd>Name of PHP script to be sourced and executed to obtain
+    login credentials. This is alternative approach to session based single
     signon. The script needs to provide function
     <code>get_login_credentials</code> which returns list of username and
     password, accepting single parameter of existing username (can be empty).
@@ -1337,7 +1337,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt><span id="cfg_Servers_SignonSession">$cfg['Servers'][$i]['SignonSession']</span> string</dt>
     <dd>Name of session which will be used for signon authentication method.
     You should use something different than <code>phpMyAdmin</code>, because
-    this is session which phpMyAdmin uses internally. Takes effect only if 
+    this is session which phpMyAdmin uses internally. Takes effect only if
     <a href="#cfg_Servers_SignonScript" class="configrule">SignonScript</a>
     is not configured.
     </dd>
@@ -1443,7 +1443,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt id="cfg_CodemirrorEnable">$cfg['CodemirrorEnable'] boolean</dt>
     <dd>Defines whether to use a Javascript code editor for SQL query boxes.
         CodeMirror provides syntax highlighting and line numbers. <br />
-        However, middle-clicking for pasting the clipboard contents in some Linux 
+        However, middle-clicking for pasting the clipboard contents in some Linux
         distributions (such as Ubuntu) is not supported by all browsers.</dd>
 
     <dt id="cfg_AllowUserDropDatabase">$cfg['AllowUserDropDatabase'] boolean</dt>
@@ -1468,15 +1468,15 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Define whether the previous login should be recalled or not in cookie
         authentication mode.<br /><br />
 
-        This is automatically disabled if you do not have configured 
+        This is automatically disabled if you do not have configured
         <code><a href="#cfg_blowfish_secret">$cfg['blowfish_secret']</a></code>.
         </dd>
 
     <dt id="cfg_LoginCookieValidity">$cfg['LoginCookieValidity'] integer [number of seconds]</dt>
     <dd>Define how long is login cookie valid. Please note that php
-        configuration option <a href="http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc_maxlifetime</a> 
+        configuration option <a href="http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc_maxlifetime</a>
         might limit session validity and if session is lost, login cookie is
-        also invalidated. So it is a good idea to set <code>session.gc_maxlifetime</code> 
+        also invalidated. So it is a good idea to set <code>session.gc_maxlifetime</code>
         not lower than the value of $cfg['LoginCookieValidity'].</dd>
 
     <dt id="cfg_LoginCookieStore">$cfg['LoginCookieStore'] integer [number of seconds]</dt>
@@ -1613,7 +1613,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         &quot;tbl_change.php&quot; or &quot;sql.php&quot;.</dd>
 
     <dt id="cfg_HideStructureActions">$cfg['HideStructureActions'] boolean</dt>
-    <dd>Defines whether the table structure actions are hidden under a 
+    <dd>Defines whether the table structure actions are hidden under a
         &quot;More&quot; drop-down.</dd>
 
     <dt id="cfg_ShowStats">$cfg['ShowStats'] boolean</dt>
@@ -1648,15 +1648,15 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         be allowed to change their passwords.</dd>
 
     <dt id="cfg_ShowDbStructureCreation">$cfg['ShowDbStructureCreation'] boolean</dt>
-    <dd>Defines whether the database structure page (tables list) has a 
+    <dd>Defines whether the database structure page (tables list) has a
         &quot;Creation&quot; column that displays when each table was created.</dd>
 
     <dt id="cfg_ShowDbStructureLastUpdate">$cfg['ShowDbStructureLastUpdate'] boolean</dt>
-    <dd>Defines whether the database structure page (tables list) has a 
+    <dd>Defines whether the database structure page (tables list) has a
         &quot;Last update&quot; column that displays when each table was last updated.</dd>
 
     <dt id="cfg_ShowDbStructureLastCheck">$cfg['cfg_ShowDbStructureLastCheck'] boolean</dt>
-    <dd>Defines whether the database structure page (tables list) has a 
+    <dd>Defines whether the database structure page (tables list) has a
         &quot;Last check&quot; column that displays when each table was last checked.</dd>
 
     <dt id="cfg_NavigationBarIconic">$cfg['NavigationBarIconic'] string</dt>
@@ -1690,7 +1690,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         from editing when browsing a table's content. Valid values are:
         <ul><li><code>FALSE</code> to allow editing of all columns;</li>
             <li><code>'blob'</code> to allow editing of all columns except <code>BLOBS</code>;</li>
-            <li><code>'noblob'</code> to disallow editing of all columns except <code>BLOBS</code> 
+            <li><code>'noblob'</code> to disallow editing of all columns except <code>BLOBS</code>
                 (the opposite of <code>'blob'</code>);</li>
             <li><code>'all'</code> to disallow editing of all <code>BINARY</code> or
                 <code>BLOB</code> columns.</li>
@@ -1702,7 +1702,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         displayed in edit/insert mode. Since version 2.10, the user can
         toggle this setting from the interface.
     </dd>
-    
+
     <dt id="cfg_ShowFieldTypesInDataEditView">$cfg['ShowFieldTypesInDataEditView'] boolean</dt>
     <dd>Defines whether or not type fields should be initially
         displayed in edit/insert mode. The user can
@@ -1843,8 +1843,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         Default is auto.</dd>
     <dd>
         Enabled charset conversion activates a pull-down menu
-        in the Export and Import pages, to choose the character set when 
-        exporting a file. The default value in this menu comes from 
+        in the Export and Import pages, to choose the character set when
+        exporting a file. The default value in this menu comes from
         <code>$cfg['Export']['charset']</code> and <code>$cfg['Import']['charset']</code>.
         </dd>
 
@@ -2105,7 +2105,7 @@ $cfg['TrustedProxies'] =
 
     <dt id="cfg_TempDir">$cfg['TempDir'] string</dt>
     <dd>
-        The name of the directory where temporary files can be stored. 
+        The name of the directory where temporary files can be stored.
         <br /><br />
 
         This is needed for importing ESRI Shapefiles, see
@@ -2273,7 +2273,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
     <dt id="cfg_InitialSlidersState">$cfg['InitialSlidersState'] string</dt>
     <dd>If set to <code>'closed'</code>, the visual sliders are initially in a
-    closed state. A value of <code>'open'</code> does the reverse. To completely 
+    closed state. A value of <code>'open'</code> does the reverse. To completely
     disable all visual sliders, use <code>'disabled'</code>.</dd>
 
     <dt id="cfg_UserprefsDisallow">$cfg['UserprefsDisallow'] array</dt>
@@ -2282,14 +2282,14 @@ setfacl -d -m "g:www-data:rwx" tmp
         to <code>libraries/config/user_preferences.forms.php</code>.</dd>
 
     <dt id="cfg_UserprefsDeveloperTab">$cfg['UserprefsDeveloperTab'] boolean</dt>
-    <dd>Activates in the user preferences a tab containing options for 
+    <dd>Activates in the user preferences a tab containing options for
         developers of phpMyAdmin.</dd>
 
     <dt id="cfg_TitleTable">$cfg['TitleTable'] string</dt>
     <dt id="cfg_TitleDatabase">$cfg['TitleDatabase'] string</dt>
     <dt id="cfg_TitleServer">$cfg['TitleServer'] string</dt>
     <dt id="cfg_TitleDefault">$cfg['TitleDefault'] string</dt>
-    <dd>Allows you to specify window's title bar. You can use 
+    <dd>Allows you to specify window's title bar. You can use
         <a href="#faq6_27">format string expansion</a>.
     </dd>
 
@@ -2315,7 +2315,7 @@ setfacl -d -m "g:www-data:rwx" tmp
         <span id="cfg_DefaultQueryDatabase">$cfg['DefaultQueryDatabase']</span> string
     </dt>
     <dd>Default queries that will be displayed in query boxes when user didn't
-        specify any. You can use standard 
+        specify any. You can use standard
         <a href="#faq6_27">format string expansion</a>.
         </dd>
 
@@ -2639,7 +2639,7 @@ setfacl -d -m "g:www-data:rwx" tmp
         column (i.e. 'text/plain', 'image/jpeg' etc.)</li>
 </ol>
 
-<p> Additionally you should also provide additional function to provide 
+<p> Additionally you should also provide additional function to provide
     information about the transformation to the user. This function should
     have same name as transformation function just with appended
     <code>_info</code> suffix. This function accepts no parameters and returns
@@ -2776,7 +2776,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     uploading a file from the query box.</a></h4>
 
 <p> Since version 2.2.4, phpMyAdmin supports servers with open_basedir
-    restrictions. However you need to create temporary directory and 
+    restrictions. However you need to create temporary directory and
     configure it as <a href="#cfg_TempDir" class="configrule">$cfg['TempDir']</a>.
     The uploaded files will be moved there, and after execution of your
     <abbr title="structured query language">SQL</abbr> commands, removed.</p>
@@ -2798,8 +2798,8 @@ setfacl -d -m "g:www-data:rwx" tmp
     <a href="#faq1_15">1.15 I have problems with <em>mysql.user</em> column names.</a>
 </h4>
 
-<p> In previous MySQL versions, the <code>User</code> and <code>Password</code>columns 
-    were named <code>user</code> and <code>password</code>. Please modify your column 
+<p> In previous MySQL versions, the <code>User</code> and <code>Password</code>columns
+    were named <code>user</code> and <code>password</code>. Please modify your column
     names to align with current standards.</p>
 
 <h4 id="faq1_16">
@@ -2841,8 +2841,8 @@ setfacl -d -m "g:www-data:rwx" tmp
     <a id="faqmysqlversions" href="#faq1_17">1.17 Which MySQL versions does phpMyAdmin
     support?</a></h4>
 
-<p> Since phpMyAdmin 3.0.x, only MySQL 5.0.1 and newer are supported. For 
-    older MySQL versions, you need to use the latest 2.x branch. phpMyAdmin can 
+<p> Since phpMyAdmin 3.0.x, only MySQL 5.0.1 and newer are supported. For
+    older MySQL versions, you need to use the latest 2.x branch. phpMyAdmin can
     connect to your MySQL server using PHP's classic
     <a href="http://php.net/mysql">MySQL extension</a> as well as the
     <a href="http://php.net/mysqli">improved MySQL extension (MySQLi)</a> that
@@ -3105,7 +3105,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 <h4 id="faq1_38">
     <a href="#faq1_38">1.38 Can I use phpMyAdmin on a server on which Suhosin is enabled?</a></h4>
 
-<p> Yes but the default configuration values of Suhosin are known to cause 
+<p> Yes but the default configuration values of Suhosin are known to cause
     problems with some operations, for example editing a table with many
     columns and no primary key or with textual primary key.
 </p>
@@ -3121,7 +3121,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     matching configuration variable.
 </p>
 <p>
-    The default values for most Suhosin configuration options will work in most 
+    The default values for most Suhosin configuration options will work in most
     scenarios, however you might want to adjust at least following parameters:
 </p>
 
@@ -3143,8 +3143,8 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     </p>
 
 <h4 id="faq1_39">
-    <a href="#faq1_39">1.39 When I try to connect via https, I can log in, 
-    but then my connection is redirected back to http. What can cause this 
+    <a href="#faq1_39">1.39 When I try to connect via https, I can log in,
+    but then my connection is redirected back to http. What can cause this
     behavior?</a></h4>
 
 <p> Be sure that you have enabled <code>SSLOptions</code> and <code>StdEnvVars</code>
@@ -3158,8 +3158,8 @@ in your Apache configuration. See <a href="http://httpd.apache.org/docs/2.0/mod/
 <pre>
 ProxyPass /mirror/foo/ http://backend.example.com/
 ProxyPassReverse /mirror/foo/ http://backend.example.com/
-ProxyPassReverseCookieDomain backend.example.com public.example.com 
-ProxyPassReverseCookiePath / /mirror/foo/ 
+ProxyPassReverseCookieDomain backend.example.com public.example.com
+ProxyPassReverseCookiePath / /mirror/foo/
 </pre>
 
 <p>Note: if the backend url looks like http://host/~user/phpmyadmin,
@@ -3398,12 +3398,12 @@ RewriteRule .* - [F]
 <p> To be able to see a progress bar during your uploads, your server must
     have the <a href="http://pecl.php.net/package/APC">APC</a> extension,
     the <a href="http://pecl.php.net/package/uploadprogress">uploadprogress</a>
-    one, or you must be running PHP 5.4.0 or higher. 
+    one, or you must be running PHP 5.4.0 or higher.
     Moreover, the JSON extension has to be enabled in your PHP.</p>
 
     <p> If using APC, you must set <code>apc.rfc1867</code> to <code>on</code> in your php.ini.</p>
 
-    <p> If using PHP 5.4.0 or higher, you must set <code>session.upload_progress.enabled</code> 
+    <p> If using PHP 5.4.0 or higher, you must set <code>session.upload_progress.enabled</code>
         to <code>1</code> in your php.ini.</p>
 
 <h3 id="faqlimitations">Known limitations</h3>
@@ -3430,7 +3430,7 @@ RewriteRule .* - [F]
     Zip files for larger dump, you have to use another way.</p>
 
 <h4 id="faq3_3">
-    <a href="#faq3_3">3.3 With InnoDB tables, I lose foreign key relationships 
+    <a href="#faq3_3">3.3 With InnoDB tables, I lose foreign key relationships
     when I rename a table or a column.</a></h4>
 
 <p> This is an InnoDB bug, see <a href="http://bugs.mysql.com/bug.php?id=21704">http://bugs.mysql.com/bug.php?id=21704</a>.</p>
@@ -3592,10 +3592,10 @@ RewriteRule .* - [F]
 <h4 id="faq3_19">
     <a href="#faq3_19">3.19 When I import a file and have phpMyAdmin determine the appropriate data structure it only uses int, decimal, and varchar types.</a></h4>
 <p>
-    Currently, the import type-detection system can only assign these MySQL types to columns. In future, more will likely be added but for the time being 
+    Currently, the import type-detection system can only assign these MySQL types to columns. In future, more will likely be added but for the time being
     you will have to edit the structure to your liking post-import.
     <br /><br />
-    Also, you should note the fact that phpMyAdmin will use the size of the largest item in any given column as the column size for the appropriate type. If you 
+    Also, you should note the fact that phpMyAdmin will use the size of the largest item in any given column as the column size for the appropriate type. If you
     know you will be adding larger items to that column then you should manually adjust the column sizes accordingly. This is done for the sake of efficiency.
 </p>
 
@@ -3778,7 +3778,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
 <h4 id="faq5_6">
     <a href="#faq5_6">5.6 In Internet Explorer 5.0, 5.5 or 6.0, I get an error (like "Page not found")
     when trying to modify a row in a table with many columns, or with a text
-    column 
+    column
 </a></h4>
 <p>
     Your table neither have a primary key nor an unique one, so we must use a
@@ -3885,14 +3885,14 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
 <h4 id="faq5_18">
 <a href="#faq5_18">5.18 With Konqueror 4.2.x an invalid <code>LIMIT</code>
     clause is generated when I browse a table.</a></h4>
-<p> This happens only when both of these conditions are met: using the 
-    <code>http</code> authentication mode and <code>register_globals</code> being set 
-    to <code>On</code> on the server. It seems to be a browser-specific problem; 
+<p> This happens only when both of these conditions are met: using the
+    <code>http</code> authentication mode and <code>register_globals</code> being set
+    to <code>On</code> on the server. It seems to be a browser-specific problem;
     meanwhile use the <code>cookie</code> authentication mode.</p>
 
 <h4 id="faq5_19">
 <a href="#faq5_19">5.19 I get JavaScript errors in my browser.</a></h4>
-<p> Issues have been reported with some combinations of browser extensions. 
+<p> Issues have been reported with some combinations of browser extensions.
 To troubleshoot, disable all extensions then clear your browser cache
 to see if the problem goes away.</p>
 
@@ -4164,8 +4164,8 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     <a href="#faqsqlvalidator">6.14 How do I set up the
     <abbr title="structured query language">SQL</abbr> Validator?</a></h4>
 
-<p> 
-    To use SQL Validator, you need PHP with 
+<p>
+    To use SQL Validator, you need PHP with
     <abbr title="Extensible Markup Language">XML</abbr>,
     <abbr title="Perl Compatible Regular Expressions">PCRE</abbr> and
     <abbr title="PHP Extension and Application Repository">PEAR</abbr> support.
@@ -4314,7 +4314,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     6.6</a> for an example. Then, if there are 100 values or less in the
     foreign table, a drop-down list of values will be available.
     You will see two lists of values, the first list containing the key
-    and the display column, the second list containing the display column 
+    and the display column, the second list containing the display column
     and the key. The reason for this is to be able to type the first
     letter of either the key or the display column.<br /><br />
 
@@ -4335,7 +4335,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 <p> You can use
     <abbr title="comma separated values">CSV</abbr> for Microsoft Excel,
     which works out of the box.<br />
-    Since phpMyAdmin 3.4.5 support for direct export to Microsoft Excel 
+    Since phpMyAdmin 3.4.5 support for direct export to Microsoft Excel
     version 97 and newer was dropped.
 </p>
 
@@ -4360,9 +4360,9 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 
 <p>
     In all places where phpMyAdmin accepts format strings, you can use
-    <code>@VARIABLE@</code> expansion and 
+    <code>@VARIABLE@</code> expansion and
     <a href="http://php.net/strftime">strftime</a> format strings. The
-    expanded variables depend on a context (for example, if you haven't chosen a 
+    expanded variables depend on a context (for example, if you haven't chosen a
     table, you can not get the table name), but the following variables can be used:
 </p>
 <dl>
@@ -4387,7 +4387,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 <h4 id="wysiwyg">
     <a href="#wysiwyg">6.28 How can I easily edit relational schema for export?</a></h4>
 
-    <p> 
+    <p>
         By clicking on the button 'toggle scratchboard' on the page
         where you edit x/y coordinates of those elements you can activate a
         scratchboard where all your elements are placed. By clicking on an
@@ -4421,10 +4421,10 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 <h4 id="faq6_30">
     <a href="#faq6_30">6.30 Import: How can I import ESRI Shapefiles</a></h4>
 
-    <p> 
-        An ESRI Shapefile is actually a set of several files, where .shp file contains 
-        geometry data and .dbf file contains data related to those geometry data. 
-        To read data from .dbf file you need to have PHP compiled with the dBase extension 
+    <p>
+        An ESRI Shapefile is actually a set of several files, where .shp file contains
+        geometry data and .dbf file contains data related to those geometry data.
+        To read data from .dbf file you need to have PHP compiled with the dBase extension
         (--enable-dbase). Otherwise only geometry data will be imported.
     </p>
 
@@ -4432,14 +4432,14 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     <ul>
         <li>
             <p>
-            Configure upload directory with 
-            <a href="#cfg_UploadDir" class="configrule">$cfg['UploadDir']</a>, upload both 
+            Configure upload directory with
+            <a href="#cfg_UploadDir" class="configrule">$cfg['UploadDir']</a>, upload both
             .shp and .dbf files with the same filename and chose the .shp file from the import page.
             </p>
         </li>
         <li>
             <p>
-            Create a Zip archive with .shp and .dbf files and import it. For this to work, 
+            Create a Zip archive with .shp and .dbf files and import it. For this to work,
             you need to set <a href="#cfg_TempDir" class="configrule">$cfg['TempDir']</a> to a
             place where the web server user can write (for example <code>'./tmp'</code>).
             </p>
@@ -4463,20 +4463,20 @@ chmod o+rwx tmp
 <h4 id="faq6_32">
     <a href="#faq6_32">6.32 How can I use the zoom search feature?</a></h4>
 
-    <p> The Zoom search feature is an alternative to table search feature. It allows you to explore  
+    <p> The Zoom search feature is an alternative to table search feature. It allows you to explore
     a table by representing its data in a scatter plot. You can locate this feature by selecting
-    a table and clicking the 'Search' tab. One of the sub-tabs in the 'Table Search' page is 
+    a table and clicking the 'Search' tab. One of the sub-tabs in the 'Table Search' page is
     'Zoom Search'. <br/><br/>
 
     Consider the table REL_persons in <a href="#faq6_6"><abbr title="Frequently Asked Questions">
-    FAQ</abbr> 6.6</a> for an example. To use zoom search, two columns need to be selected, 
-    for example, id and town_code. The id values will be represented on one axis and town_code 
-    values on the other axis. Each row will be represented as a point in a scatter plot based 
+    FAQ</abbr> 6.6</a> for an example. To use zoom search, two columns need to be selected,
+    for example, id and town_code. The id values will be represented on one axis and town_code
+    values on the other axis. Each row will be represented as a point in a scatter plot based
     on its id and town_code. You can include two additional search criteria apart from the two
     fields to display.<br/><br/>
 
     You can choose which field should be displayed as label for each point. If a display
-    column has been set for the table (see <a href="#faqdisplay"><abbr title="Frequently Asked 
+    column has been set for the table (see <a href="#faqdisplay"><abbr title="Frequently Asked
     Questions">FAQ</abbr> 6.7</a>), it is taken as the label unless you specify otherwise.
     You can also select the maximum number of rows you want to be displayed in the plot by
     specifing it in the 'Max rows to plot' field. Once you have decided over your criteria,
@@ -4530,7 +4530,7 @@ chmod o+rwx tmp
     <a href="#faq7_3">7.3 I would like to help out with the development of
     phpMyAdmin. How should I proceed?</a></h4>
 
-<p>We welcome every contribution to the development of phpMyAdmin. 
+<p>We welcome every contribution to the development of phpMyAdmin.
    You can check out all the possibilities to contribute in the
    <a href="http://www.phpmyadmin.net/home_page/improve.php">contribute section on our website</a>.
    </p>
@@ -4547,7 +4547,7 @@ chmod o+rwx tmp
 <h4 id="faq8_2">
     <a href="#faq8_2">8.2 How can I protect phpMyAdmin against brute force attacks?</a></h4>
 
-<p> If you use Apache web server, phpMyAdmin exports information about 
+<p> If you use Apache web server, phpMyAdmin exports information about
     authentication to the Apache environment and it can be used in Apache logs.
     Currently there are two variables available:
 </p>
@@ -4556,7 +4556,7 @@ chmod o+rwx tmp
     <dd>User name of currently active user (he does not have to be logged
     in).</dd>
     <dt><code>userStatus</code></dt>
-    <dd>Status of currently active user, one of <code>ok</code> (user is 
+    <dd>Status of currently active user, one of <code>ok</code> (user is
     logged in), <code>mysql-denied</code> (MySQL denied user login),
     <code>allow-denied</code> (user denied by allow/deny rules),
     <code>root-denied</code> (root is denied in configuration),
@@ -4579,8 +4579,8 @@ LogFormat "%h %l %u %t \"%r\" %>s %b \
     <a href="#faq9_1">9.1 How can I synchronize two databases/tables in phpMyAdmin?</a></h4>
 
 <p> You can now synchronize databases/tables in phpMyAdmin using the Synchronize feature.
-It allows you to connect to local as well as remote servers. This requires you to enter 
-server host name, username, password, port and the name of the database. Therefore you can 
+It allows you to connect to local as well as remote servers. This requires you to enter
+server host name, username, password, port and the name of the database. Therefore you can
 now synchronize your databases placed on the same server or some remote server.
 </p>
 
@@ -4603,7 +4603,7 @@ needs to be filled explicitly for the source as well as target servers.
 <p>
 After successfully passing through the authentication phase, the source and
 target database table names will be displayed. It will be a tabular
-representation. 
+representation.
 </p>
 
 <p>
@@ -4612,7 +4612,7 @@ names have a <code>+</code> plus sign preceding them. This shows that these tabl
 are only present in source database and they need to be added to the
 target database in order to synchronize the target database. The tables
 whose names are not preceded by a <code>+</code> sign are already present in the
-target database. 
+target database.
 </p>
 
 <p>
