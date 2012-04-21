@@ -507,7 +507,7 @@ $(function() {
     });
 
     $('a[href="#importMonitorConfig"]').click(function() {
-        $('div#emptyDialog').dialog('option', 'title', PMA_messages['strImportDialogTitle']);
+        $('div#emptyDialog').dialog({title: PMA_messages['strImportDialogTitle']});
         $('div#emptyDialog').html(PMA_messages['strImportDialogMessage'] + ':<br/><form action="file_echo.php?' + url_query + '&import=1" method="post" enctype="multipart/form-data">' +
             '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
         
@@ -849,7 +849,7 @@ $(function() {
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
 
             if (runtime.charts != null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
-                $('div#emptyDialog').dialog('option', 'title',PMA_messages['strIncompatibleMonitorConfig']);
+                $('div#emptyDialog').dialog({title: PMA_messages['strIncompatibleMonitorConfig']});
                 $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
 
                 var dlgBtns = {};
@@ -1337,7 +1337,7 @@ $(function() {
             opts.limitTypes = false;
         }
         
-        $('#emptyDialog').dialog('option', 'title', PMA_messages['strAnalysingLogsTitle']);
+        $('#emptyDialog').dialog({title: PMA_messages['strAnalysingLogsTitle']});
         $('#emptyDialog').html(PMA_messages['strAnalysingLogs'] + 
                                 ' <img class="ajaxIcon" src="' + pmaThemeImage + 
                                 'ajax_clock_small.gif" alt="">');
@@ -1379,7 +1379,7 @@ $(function() {
                     runtime.logDataCols = buildLogTable(logData);
 
                     /* Show some stats in the dialog */
-                    $('#emptyDialog').dialog('option', 'title', PMA_messages['strLoadingLogs']);
+                    $('#emptyDialog').dialog({title: PMA_messages['strLoadingLogs']});
                     $('#emptyDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
                     $.each(logData.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
@@ -1427,7 +1427,7 @@ $(function() {
                     $('#emptyDialog').dialog( "option", "buttons", dlgBtns);
                     
                 } else {
-                    $('#emptyDialog').dialog('option', 'title', PMA_messages['strNoDataFoundTitle']);
+                    $('#emptyDialog').dialog({title: PMA_messages['strNoDataFoundTitle']});
                     $('#emptyDialog').html('<p>' + PMA_messages['strNoDataFound'] + '</p>');
                     
                     var dlgBtns = {};
