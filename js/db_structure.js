@@ -306,7 +306,7 @@ $(document).ready(function() {
     }); //end of Truncate Table Ajax action
 
     /**
-     * Ajax Event handler for 'Drop Table'
+     * Ajax Event handler for 'Drop Table' or 'Drop View'
      *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
@@ -329,7 +329,13 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 'DROP TABLE ' + curr_table_name;
+        var question = 'DROP ';
+        if ($this_anchor.hasClass('view')) {
+            question += 'VIEW';
+        } else {
+            question += 'TABLE';
+        }
+        question += ' ' + curr_table_name;
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 
