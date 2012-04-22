@@ -46,25 +46,9 @@ if (isset($_REQUEST['move_columns'])
      * first, load the definitions for all columns
      */
     $columns = PMA_DBI_get_columns_full($db, $table);
-    $definitions = array();
-    $column_names = array();
-    foreach($columns as $column => $data) {
-        $definitions[$column] = 
-            rtrim(
-                PMA_backquote($column) . ' '
-                . strtoupper($data['Type']) . ' '
-                . ($data['CHARACTER_SET_NAME'] !== false
-                    ? 'CHARACTER SET ' . $data['CHARACTER_SET_NAME'] . ' '
-                        . 'COLLATE ' . $data['Collation'] . ' '
-                    : '')
-                . ($data['Null'] == 'NO' ? 'NOT NULL ' : 'NULL ')
-                . ($data['Extra'] != '' ? strtoupper($data['Extra']) . ' ' : '')
-                . ($data['Default'] === null && $data['Null'] == 'YES' ? 'DEFAULT NULL ' : '')
-                . ($data['Default'] !== null ? 'DEFAULT \'' 
-                    . PMA_sqlAddSlashes($data['Default']) . '\' ' : '')
-                );
-        $column_names[] = $column;
-    }
+    $column_names = array_keys($columns);
+    $changes = array();
+
     // move columns from first to last
     for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
         $column = $_REQUEST['move_columns'][$i];
@@ -72,22 +56,41 @@ if (isset($_REQUEST['move_columns'])
         if ($column_names[$i] == $column) {
             continue;
         }
+
         // it is not, let's move it to index $i
-        $move_query = 'ALTER TABLE ' . PMA_backquote($table) . ' '
-            . 'CHANGE ' . PMA_backquote($column) . ' ' . $definitions[$column];
-        // to become first column?
-        if ($i == 0) {
-            $move_query .= ' FIRST';
-        }
-        else {
-            $move_query .= ' AFTER ' . PMA_backquote($columns[$i - 1]);
-        }
-        // move column here
-        $result = PMA_DBI_query($move_query);
-        $tmp_error = PMA_DBI_getError();
-        if ($tmp_error) {
-            PMA_ajaxResponse(PMA_Message::error($tmp_error), false);
-        }
+        $data = $columns[$column];
+        $extracted_fieldspec = PMA_extractFieldspec($data['Type']);
+        $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
+            $column,
+            $column,
+            strtoupper($extracted_fieldspec['type']),
+            $extracted_fieldspec['spec_in_brackets'],
+            $extracted_fieldspec['attribute'],
+            isset($data['Collation'])
+                ? $data['Collation']
+                : '',
+            $data['Null'] === 'YES'
+                ? 'NULL'
+                : 'NOT NULL',
+            $data['Null'] === 'YES' && $data['Default'] === null
+                ? 'NULL'
+                : ($data['Default'] != ''
+                    ? 'USER_DEFINED'
+                    : 'NONE'),
+            $data['Default'],
+            $data['Extra'] !== ''
+                ? $data['Extra']
+                : false,
+            $data['Comments'] !== ''
+                ? $data['Comments']
+                : false,
+            $key_fields,
+            $i,
+            '',
+            $i === 0
+                ? '-first'
+                : $column_names[$i - 1]
+                );
         // update current column_names array, first delete old position
         for($j = 0, $ll = count($column_names); $j < $ll; $j++) {
             if ($column_names[$j] == $column) {
@@ -96,6 +99,17 @@ if (isset($_REQUEST['move_columns'])
         }
         // insert moved column
         array_splice($column_names, $i, 0, $column);
+    }
+    if (empty($changes)) { // should never happen
+        PMA_ajaxResponse('', true);
+    }
+    $move_query = 'ALTER TABLE ' . PMA_backquote($table) . ' ';
+    $move_query .= implode(', ', $changes);
+    // move columns
+    $result = PMA_DBI_try_query($move_query);
+    $tmp_error = PMA_DBI_getError();
+    if ($tmp_error) {
+        PMA_ajaxResponse(PMA_Message::error($tmp_error), false);
     }
     PMA_ajaxResponse(PMA_Message::success(__('The columns have been moved successfully.')), true);
 }
