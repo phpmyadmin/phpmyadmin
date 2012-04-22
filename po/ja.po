@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-19 11:34+0200\n"
-"PO-Revision-Date: 2012-04-22 00:59+0200\n"
+"PO-Revision-Date: 2012-04-22 02:54+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3305,10 +3305,12 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"構文の色分けや行番号の付加といった分かりやすいエディタ ([a@http://codemirror.net/]CodeMirror[/a]) を、SQL "
+"クエリの編集の際に使用します。"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "CodeMirror を有効にする"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -6931,10 +6933,9 @@ msgid "Add prefix"
 msgstr "追加する接頭辞"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "本当に実行しますか?"
+msgstr "以下のクエリを本当に実行しますか？"
 
 #: libraries/mult_submits.inc.php:525 tbl_replace.php:335
 msgid "No change"
@@ -11137,10 +11138,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
 #: sql.php:388
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "本当に実行しますか?"
+msgstr "以下のクエリを本当に実行しますか？"
 
 #: sql.php:740 tbl_replace.php:391
 #, php-format
