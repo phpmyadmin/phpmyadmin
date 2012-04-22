@@ -366,7 +366,8 @@ class PMA_Config
         // find out if there is a .git folder
         $git_folder = '.git';
         if (! @file_exists($git_folder)
-            || ! @file_exists($git_folder . '/config')) {
+            || ! @file_exists($git_folder . '/config')
+        ) {
             $_SESSION['is_git_revision'] = false;
             return false;
         }
@@ -384,7 +385,8 @@ class PMA_Config
         // find out if there is a .git folder
         $git_folder = '.git';
         if (! @file_exists($git_folder)
-            || ! @file_exists($git_folder . '/config')) {
+            || ! @file_exists($git_folder . '/config')
+        ) {
             return;
         }
 

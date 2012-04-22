@@ -19,7 +19,8 @@ $cfgRelation = PMA_getRelationsParam();
  * We need relations enabled and we work only on database
  */
 if ($plugin_param !== 'database' || $GLOBALS['num_tables'] < 1
- || ! $cfgRelation['relwork'] || ! $cfgRelation['commwork']) {
+    || ! $cfgRelation['relwork'] || ! $cfgRelation['commwork']
+) {
     return;
 }
 

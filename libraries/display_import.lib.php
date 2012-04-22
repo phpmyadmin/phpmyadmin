@@ -236,7 +236,8 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             foreach ($cfg['AvailableCharsets'] as $temp_charset) {
                 echo '<option value="' . htmlentities($temp_charset) .  '"';
                 if ((empty($cfg['Import']['charset']) && $temp_charset == 'utf-8')
-                        || $temp_charset == $cfg['Import']['charset']) {
+                    || $temp_charset == $cfg['Import']['charset']
+                ) {
                     echo ' selected="selected"';
                 }
                 echo '>' . htmlentities($temp_charset) . '</option>';

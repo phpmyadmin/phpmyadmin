@@ -54,7 +54,8 @@ if (isset($_REQUEST['do_save_data'])) {
     $field_fulltext = array();
     for ($i = 0; $i < $field_cnt; ++$i) {
         if (isset($_REQUEST['field_key'][$i])
-         && strlen($_REQUEST['field_name'][$i])) {
+            && strlen($_REQUEST['field_name'][$i])
+        ) {
             if ($_REQUEST['field_key'][$i] == 'primary_' . $i) {
                 $field_primary[] = $i;
             }

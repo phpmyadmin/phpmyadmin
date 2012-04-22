@@ -221,9 +221,10 @@ class ConfigFile
                 $this->orgCfgObject->settings
             );
             if (($value === $default_value && (defined('PMA_SETUP')
-                    || $instance_default_value === $default_value))
-                    || (empty($value) && empty($default_value) && (defined('PMA_SETUP')
-                    || empty($current_global)))) {
+                || $instance_default_value === $default_value))
+                || (empty($value) && empty($default_value) && (defined('PMA_SETUP')
+                || empty($current_global)))
+            ) {
                 PMA_array_remove($path, $_SESSION[$this->id]);
                 return;
             }
@@ -452,7 +453,8 @@ class ConfigFile
         unset($_SESSION[$this->id]['Servers'][$last_server]);
 
         if (isset($_SESSION[$this->id]['ServerDefault'])
-            && $_SESSION[$this->id]['ServerDefault'] >= 0) {
+            && $_SESSION[$this->id]['ServerDefault'] >= 0
+        ) {
             unset($_SESSION[$this->id]['ServerDefault']);
         }
     }

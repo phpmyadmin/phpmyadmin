@@ -158,7 +158,8 @@ function PMA_auth_check()
 
     // User logged out -> ensure the new username is not the same
     if (!empty($old_usr)
-        && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)) {
+        && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)
+    ) {
         $PHP_AUTH_USER = '';
         // -> delete user's choices that were stored in session
         session_destroy();
@@ -197,7 +198,9 @@ function PMA_auth_set_user()
         $servers_cnt = count($cfg['Servers']);
         for ($i = 1; $i <= $servers_cnt; $i++) {
             if (isset($cfg['Servers'][$i])
-                && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host'] && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)) {
+                && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host']
+                && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)
+            ) {
                 $server        = $i;
                 $cfg['Server'] = $cfg['Servers'][$i];
                 break;

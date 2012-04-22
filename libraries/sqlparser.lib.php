@@ -318,7 +318,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             if (($c == '#')
                 || (($count2 + 1 < $len) && ($c == '/') && ($next_c == '*'))
                 || (($count2 + 2 == $len) && ($c == '-') && ($next_c == '-'))
-                || (($count2 + 2 < $len) && ($c == '-') && ($next_c == '-') && ((PMA_substr($sql, $count2 + 2, 1) <= ' ')))) {
+                || (($count2 + 2 < $len) && ($c == '-') && ($next_c == '-') && ((PMA_substr($sql, $count2 + 2, 1) <= ' ')))
+            ) {
                 $count2++;
                 $pos  = 0;
                 $type = 'bad';
@@ -476,8 +477,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              || $c == '@'
              || ($c == '.'
               && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
-              && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))) {
-
+              && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))
+            ) {
                 /* DEBUG
                 echo PMA_substr($sql, $count2);
                 echo '<hr />';
@@ -782,7 +783,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                       || ($d_bef_prev_upper == 'SET' && $d_prev_upper == '=')
                       || ($d_bef_prev_upper == 'CHARSET' && $d_prev_upper == '=')
                       || $d_prev_upper == 'CHARSET'
-                      ) && in_array($d_cur, $mysql_charsets)) {
+                      ) && in_array($d_cur, $mysql_charsets)
+                    ) {
                         $t_suffix = '_charset';
                     }
                 } elseif (in_array($d_cur, $mysql_charsets)
@@ -1173,8 +1175,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              || $arr[$i]['type'] == 'quote_single'
              || $arr[$i]['type'] == 'alpha_identifier'
              || ($arr[$i]['type'] == 'alpha_reservedWord'
-                && $arr[$i]['forbidden'] == false)) {
-
+                && $arr[$i]['forbidden'] == false)
+            ) {
                 switch ($arr[$i]['type']) {
                 case 'alpha_identifier':
                 case 'alpha_reservedWord':
@@ -1196,8 +1198,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 } // end switch
 
                 if ($subresult['querytype'] == 'SELECT'
-                 && ! $in_group_concat
-                 && ! ($seen_subquery && $arr[$i - 1]['type'] == 'punct_bracket_close_round')) {
+                    && ! $in_group_concat
+                    && ! ($seen_subquery && $arr[$i - 1]['type'] == 'punct_bracket_close_round')
+                ) {
                     if (!$seen_from) {
                         if ($previous_was_identifier && isset($chain)) {
                             // found alias for this select_expr, save it
@@ -1250,8 +1253,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // the "*" is not saved
 
             if (isset($chain) && !$seen_end_of_table_ref
-             && ((!$seen_from && $arr[$i]['type'] == 'punct_listsep')
-              || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data == 'FROM'))) {
+                && ((!$seen_from && $arr[$i]['type'] == 'punct_listsep')
+                || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data == 'FROM'))
+            ) {
                 $size_chain = count($chain);
                 $current_select_expr++;
                 $subresult['select_expr'][$current_select_expr] = array(
@@ -1295,7 +1299,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                  * @todo explain this:
                  */
                 if (($arr[$i]['type'] == 'alpha_reservedWord')
-                 && ($upper_data != 'FROM')) {
+                    && ($upper_data != 'FROM')
+                ) {
                     $previous_was_identifier = true;
                 }
 
@@ -1318,7 +1323,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              && ($arr[$i]['type'] == 'punct_listsep'
                || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data!="AS")
                || $seen_end_of_table_ref
-               || $i==$size-1)) {
+               || $i==$size-1)
+            ) {
 
                 $size_chain = count($chain);
                 $current_table_ref++;
@@ -1382,25 +1388,29 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // set the $previous_was_identifier to false if the current
             // token is not an identifier
             if (($arr[$i]['type'] != 'alpha_identifier')
-             && ($arr[$i]['type'] != 'quote_double')
-             && ($arr[$i]['type'] != 'quote_single')
-             && ($arr[$i]['type'] != 'quote_backtick')) {
+                && ($arr[$i]['type'] != 'quote_double')
+                && ($arr[$i]['type'] != 'quote_single')
+                && ($arr[$i]['type'] != 'quote_backtick')
+            ) {
                 $previous_was_identifier = false;
             } // end if
 
             // however, if we are on AS, we must keep the $previous_was_identifier
             if (($arr[$i]['type'] == 'alpha_reservedWord')
-             && ($upper_data == 'AS')) {
+                && ($upper_data == 'AS')
+            ) {
                 $previous_was_identifier = true;
             }
 
             if (($arr[$i]['type'] == 'alpha_reservedWord')
-             && ($upper_data =='ON' || $upper_data =='USING')) {
+                && ($upper_data =='ON' || $upper_data =='USING')
+            ) {
                 $save_table_ref = false;
             } // end if (data == ON)
 
             if (($arr[$i]['type'] == 'alpha_reservedWord')
-             && ($upper_data =='JOIN' || $upper_data =='FROM')) {
+                && ($upper_data =='JOIN' || $upper_data =='FROM')
+            ) {
                 $save_table_ref = true;
             } // end if (data == JOIN)
 
@@ -1420,9 +1430,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // but it's a modifier of the GROUP_CONCAT so
                 // it's not the real end of table refs
                 if (($i == $size-1)
-                 || ($arr[$i]['type'] == 'alpha_reservedWord'
-                 && !$in_group_concat
-                 && isset($words_ending_table_ref[$upper_data]))) {
+                    || ($arr[$i]['type'] == 'alpha_reservedWord'
+                    && !$in_group_concat
+                    && isset($words_ending_table_ref[$upper_data]))
+                ) {
                     $seen_end_of_table_ref = true;
                     // to be able to save the last table ref, but do not
                     // set it true if we found a word like "ON" that has
@@ -1538,8 +1549,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     // if the first reserved word is DROP or DELETE,
                     // we know this is a query that needs to be confirmed
                     if ($first_reserved_word=='DROP'
-                     || $first_reserved_word == 'DELETE'
-                     || $first_reserved_word == 'TRUNCATE') {
+                        || $first_reserved_word == 'DELETE'
+                        || $first_reserved_word == 'TRUNCATE'
+                    ) {
                         $subresult['queryflags']['need_confirm'] = 1;
                     }
 
@@ -1741,21 +1753,24 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $where_clause .= $arr[$i]['data'] . $sep;
 
                 if (($arr[$i]['type'] == 'quote_backtick')
-                 || ($arr[$i]['type'] == 'alpha_identifier')) {
+                    || ($arr[$i]['type'] == 'alpha_identifier')
+                ) {
                     $where_clause_identifiers[] = $arr[$i]['data'];
                 }
             }
 
             // to grab the rest of the query after the ORDER BY clause
             if (isset($subresult['queryflags']['select_from'])
-             && $subresult['queryflags']['select_from'] == 1
-             && ! $in_order_by
-             && $seen_order_by
-             && $upper_data != 'BY') {
+                && $subresult['queryflags']['select_from'] == 1
+                && ! $in_order_by
+                && $seen_order_by
+                && $upper_data != 'BY'
+            ) {
                 $unsorted_query .= $arr[$i]['data'];
                 if ($arr[$i]['type'] != 'punct_bracket_open_round'
-                 && $arr[$i]['type'] != 'punct_bracket_close_round'
-                 && $arr[$i]['type'] != 'punct') {
+                    && $arr[$i]['type'] != 'punct_bracket_close_round'
+                    && $arr[$i]['type'] != 'punct'
+                ) {
                     $unsorted_query .= $sep;
                 }
             }
@@ -1875,7 +1890,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             $clause = 'on_update';
                         }
                         if (isset($clause)
-                        && ($arr[$i+2]['type'] == 'alpha_reservedWord'
+                            && ($arr[$i+2]['type'] == 'alpha_reservedWord'
 
                 // ugly workaround because currently, NO is not
                 // in the list of reserved words in sqlparser.data
@@ -1886,16 +1901,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                           ) {
                             $third_upper_data = strtoupper($arr[$i+2]['data']);
                             if ($third_upper_data == 'CASCADE'
-                            || $third_upper_data == 'RESTRICT') {
+                                || $third_upper_data == 'RESTRICT'
+                            ) {
                                 $value = $third_upper_data;
                             } elseif ($third_upper_data == 'SET'
-                              || $third_upper_data == 'NO') {
+                                || $third_upper_data == 'NO'
+                            ) {
                                 if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
                                     $value = $third_upper_data . '_' . strtoupper($arr[$i+3]['data']);
                                 }
                             } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
                                 if ($clause == 'on_update'
-                                && $in_timestamp_options) {
+                                    && $in_timestamp_options
+                                ) {
                                     $create_table_fields[$current_identifier]['on_update_current_timestamp'] = true;
                                     $seen_default = false;
                                 }
@@ -2288,8 +2306,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 break;
             case 'punct':
                 $before         .= ' ';
-                if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']]) &&
-                        ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))) {
+                if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']])
+                    && ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))
+                ) {
                     $before .= PMA_showMySQLDocu(
                         'functions',
                         $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
@@ -2399,7 +2418,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // binary is marked as alpha_columnAttrib
                 // but should be marked as a reserved word
                 if (strtoupper($arr[$i]['data']) == 'BINARY'
-                  && $typearr[3] == 'alpha_identifier') {
+                    && $typearr[3] == 'alpha_identifier'
+                ) {
                     $after     .= ' ';
                 }
                 break;
@@ -2431,7 +2451,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     || (($typearr[1] == 'alpha_reservedWord')
                         && isset($keywords_no_newline[strtoupper($arr[$i - 1]['data'])])))
                     && ($typearr[1] != 'punct_level_plus')
-                    && (!isset($keywords_no_newline[$arr[$i]['data']]))) {
+                    && (!isset($keywords_no_newline[$arr[$i]['data']]))
+                ) {
                     // do not put a space before the first token, because
                     // we use a lot of pattern matching checking for the
                     // first reserved word at beginning of query

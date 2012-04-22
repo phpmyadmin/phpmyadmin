@@ -16,7 +16,8 @@ require_once 'libraries/mysql_charsets.lib.php';
  * No rows were selected => show again the query and tell that user.
  */
 if (! PMA_isValid($_REQUEST['rows_to_delete'], 'array')
- && ! isset($_REQUEST['mult_btn'])) {
+    && ! isset($_REQUEST['mult_btn'])
+) {
     $disp_message = __('No rows selected');
     $disp_query = '';
     include 'sql.php';

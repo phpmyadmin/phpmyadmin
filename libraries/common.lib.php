@@ -3026,10 +3026,9 @@ function PMA_extractColumnSpec($columnspec)
     }
 
     $can_contain_collation = false;
-    if (
-        ! $binary
-        &&
-        preg_match("@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@", $type)) {
+    if (! $binary
+        && preg_match("@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@", $type)
+    ) {
         $can_contain_collation = true;
     }
 

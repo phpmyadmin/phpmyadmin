@@ -128,7 +128,8 @@ function PMA_auth()
 
     /* Perform logout to custom URL */
     if (! empty($_REQUEST['old_usr'])
-     && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
+        && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
+    ) {
         PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
         exit;
     }
@@ -414,7 +415,8 @@ function PMA_auth_check()
 
     // servername
     if ($GLOBALS['cfg']['AllowArbitraryServer']
-     && ! empty($_COOKIE['pmaServer-' . $GLOBALS['server']])) {
+        && ! empty($_COOKIE['pmaServer-' . $GLOBALS['server']])
+    ) {
         $GLOBALS['pma_auth_server'] = $_COOKIE['pmaServer-' . $GLOBALS['server']];
     }
 
@@ -481,11 +483,12 @@ function PMA_auth_set_user()
     if ($cfg['Server']['user'] != $GLOBALS['PHP_AUTH_USER']) {
         foreach ($cfg['Servers'] as $idx => $current) {
             if ($current['host'] == $cfg['Server']['host']
-             && $current['port'] == $cfg['Server']['port']
-             && $current['socket'] == $cfg['Server']['socket']
-             && $current['ssl'] == $cfg['Server']['ssl']
-             && $current['connect_type'] == $cfg['Server']['connect_type']
-             && $current['user'] == $GLOBALS['PHP_AUTH_USER']) {
+                && $current['port'] == $cfg['Server']['port']
+                && $current['socket'] == $cfg['Server']['socket']
+                && $current['ssl'] == $cfg['Server']['ssl']
+                && $current['connect_type'] == $cfg['Server']['connect_type']
+                && $current['user'] == $GLOBALS['PHP_AUTH_USER']
+            ) {
                 $GLOBALS['server'] = $idx;
                 $cfg['Server']     = $current;
                 break;
@@ -494,7 +497,8 @@ function PMA_auth_set_user()
     } // end if
 
     if ($GLOBALS['cfg']['AllowArbitraryServer']
-     && ! empty($GLOBALS['pma_auth_server'])) {
+        && ! empty($GLOBALS['pma_auth_server'])
+    ) {
         /* Allow to specify 'host port' */
         $parts = explode(' ', $GLOBALS['pma_auth_server']);
         if (count($parts) == 2) {

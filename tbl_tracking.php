@@ -67,8 +67,10 @@ if (isset($_REQUEST['report_export'])) {
         foreach ( $data as $entry ) {
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
-              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
+            if ($timestamp >= $filter_ts_from
+                && $timestamp <= $filter_ts_to
+                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+            ) {
                 $tmp_entries[] = array( 'id' => $id,
                                     'timestamp' => $timestamp,
                                     'username'  => $entry['username'],
@@ -493,8 +495,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             }
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
-              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
+            if ($timestamp >= $filter_ts_from
+                && $timestamp <= $filter_ts_to
+                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+            ) {
         ?>
                 <tr class="noclick <?php echo $style; ?>">
                     <td><small><?php echo $i;?></small></td>
@@ -549,8 +553,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             }
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
-              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
+            if ($timestamp >= $filter_ts_from
+                && $timestamp <= $filter_ts_to
+                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+            ) {
         ?>
                 <tr class="noclick <?php echo $style; ?>">
                     <td><small><?php echo $i; ?></small></td>

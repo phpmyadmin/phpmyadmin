@@ -59,10 +59,10 @@ if (! isset($cfgRelation['pdf_pages'])) {
 
 if ($cfgRelation['pdfwork']) {
 
-   /**
-    * User object created for presenting the HTML options
-    * so, user can interact with it and perform export of relations schema
-    */
+    /**
+     * User object created for presenting the HTML options
+     * so, user can interact with it and perform export of relations schema
+     */
 
     include_once 'libraries/schema/User_Schema.class.php';
     $user_schema = new PMA_User_Schema();
@@ -103,14 +103,15 @@ if ($cfgRelation['pdfwork']) {
     $user_schema->showTableDashBoard();
 
     if (isset($_REQUEST['do'])
-    && ($_REQUEST['do'] == 'edcoord'
-       || ($_REQUEST['do']== 'selectpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0)
-       || ($_REQUEST['do'] == 'createpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0))) {
+        && ($_REQUEST['do'] == 'edcoord'
+        || ($_REQUEST['do']== 'selectpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0)
+        || ($_REQUEST['do'] == 'createpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0))
+    ) {
 
-      /**
-       * show Export schema generation options
-       */
-       $user_schema->displaySchemaGenerationOptions();
+        /**
+         * show Export schema generation options
+         */
+        $user_schema->displaySchemaGenerationOptions();
 
         if ((isset($showwysiwyg) && $showwysiwyg == '1')) {
             ?>
@@ -120,7 +121,7 @@ if ($cfgRelation['pdfwork']) {
             //]]>
             </script>
             <?php
-      }
+        }
     } // end if
 } // end if ($cfgRelation['pdfwork'])
 

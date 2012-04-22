@@ -254,7 +254,8 @@ for ($x = 0; $x < $col; $x++) {
     // then sorting is not available
     // Fix for Bug #570698
     if (isset($Sort[$x]) && isset($Field[$x])
-     && substr($Field[$x], -2) == '.*') {
+        && substr($Field[$x], -2) == '.*'
+    ) {
         $Sort[$x] = '';
     } //end if
 

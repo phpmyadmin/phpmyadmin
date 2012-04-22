@@ -24,7 +24,8 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
     // relation exists?
     $existrel_foreign = PMA_getForeigners($db, $T2, '', 'foreign');
     if (isset($existrel_foreign[$F2])
-     && isset($existrel_foreign[$F2]['constraint'])) {
+        && isset($existrel_foreign[$F2]['constraint'])
+    ) {
          PMD_return_new(0, __('Error: relation already exists.'));
     }
 // note: in InnoDB, the index does not requires to be on a PRIMARY

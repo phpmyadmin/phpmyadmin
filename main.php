@@ -56,7 +56,7 @@ if ($server > 0) {
         $server_info .= PMA_DBI_get_host_info();
     }
     if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
-    $server_info .= ')';
+        $server_info .= ')';
     }
     $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
 
@@ -69,7 +69,8 @@ if ($server > 0) {
 echo '<div id="maincontainer">' . "\n";
 echo '<div id="main_pane_left">';
 if ($server > 0
- || (! $cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1)) {
+    || (! $cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1)
+) {
     echo '<div class="group">';
     echo '<h2>' . __('General Settings') . '</h2>';
     echo '<ul>';
@@ -78,7 +79,8 @@ if ($server > 0
      * Displays the MySQL servers choice form
      */
     if (! $cfg['LeftDisplayServers']
-     && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
+        && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)
+    ) {
         echo '<li id="li_select_server">';
         include_once 'libraries/select_server.lib.php';
         PMA_select_server(true, true);
@@ -219,7 +221,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             );
             PMA_printListItem(
                 __('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension']. ' '
-                    . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
+                . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
                 'li_used_php_extension'
             );
         }
@@ -271,8 +273,9 @@ PMA_printListItem(__('List of changes'), 'li_pma_changes', PMA_linkURL('changelo
  * Warning if using the default MySQL privileged account
  */
 if ($server != 0
- && $cfg['Server']['user'] == 'root'
- && $cfg['Server']['password'] == '') {
+    && $cfg['Server']['user'] == 'root'
+    && $cfg['Server']['password'] == ''
+) {
     trigger_error(__('Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole by setting a password for user \'root\'.'), E_USER_WARNING);
 }
 
@@ -310,8 +313,9 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0 && $GLOBALS['cfg']['LoginCookieStor
 /**
  * Check if user does not have defined blowfish secret and it is being used.
  */
-if (!empty($_SESSION['auto_blowfish_secret']) &&
-        empty($GLOBALS['cfg']['blowfish_secret'])) {
+if (! empty($_SESSION['auto_blowfish_secret'])
+    && empty($GLOBALS['cfg']['blowfish_secret'])
+) {
     trigger_error(__('The configuration file now needs a secret passphrase (blowfish_secret).'), E_USER_WARNING);
 }
 
