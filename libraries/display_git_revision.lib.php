@@ -27,19 +27,21 @@ function PMA_printGitRevision()
         . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_MESSAGE')) . '">'
         . $commit_hash . '</strong>';
     if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTECOMMIT')) {
-        $commit_hash =
-            '<a href="'
-            . PMA_linkURL('https://github.com/phpmyadmin/phpmyadmin/commit/'
-                . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'))
+        $commit_hash = '<a href="'
+            . PMA_linkURL(
+                'https://github.com/phpmyadmin/phpmyadmin/commit/'
+                . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH')
+            )
             . '" target="_blank">' . $commit_hash . '</a>';
     }
 
     $branch = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH');
     if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTEBRANCH')) {
-        $branch =
-            '<a href="'
-            . PMA_linkURL('https://github.com/phpmyadmin/phpmyadmin/tree/'
-                . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH'))
+        $branch = '<a href="'
+            . PMA_linkURL(
+                'https://github.com/phpmyadmin/phpmyadmin/tree/'
+                . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH')
+            )
             . '" target="_blank">' . $branch . '</a>';
     }
     if ($branch !== false) {
@@ -51,22 +53,26 @@ function PMA_printGitRevision()
     ob_start();
     $committer = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER');
     $author = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR');
-    PMA_printListItem(__('Git revision') . ': '
+    PMA_printListItem(
+        __('Git revision') . ': '
         . $branch . ',<br /> '
         . sprintf(
             __('committed on %1$s by %2$s'),
             PMA_localisedDate(strtotime($committer['date'])),
             '<a href="' . PMA_linkURL('mailto:' . $committer['email']) . '">'
-                . htmlspecialchars($committer['name']) . '</a>')
+            . htmlspecialchars($committer['name']) . '</a>'
+        )
         . ($author != $committer
             ? ', <br />'
             . sprintf(
                 __('authored on %1$s by %2$s'),
                 PMA_localisedDate(strtotime($author['date'])),
                 '<a href="' . PMA_linkURL('mailto:' . $author['email']) . '">'
-                    . htmlspecialchars($author['name']) . '</a>')
+                . htmlspecialchars($author['name']) . '</a>'
+            )
             : ''),
-        'li_pma_version_git', null, null, null);
+        'li_pma_version_git', null, null, null
+    );
     $item = ob_get_contents();
     ob_end_clean();
     PMA_ajaxResponse($item, true);
