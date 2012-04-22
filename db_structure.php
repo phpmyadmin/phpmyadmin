@@ -356,23 +356,22 @@ foreach ($tables as $keyname => $each_table) {
     $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $truename . '</a>';
 
     if (! $db_is_information_schema) {
-        if ($may_have_rows) {
-            $empty_table = '<a ';
-            if ($GLOBALS['cfg']['AjaxEnable']) {
-                $empty_table .= 'class="truncate_table_anchor"';
-            }
-            $empty_table .= ' href="sql.php?' . $tbl_url_query
-                . '&amp;sql_query=';
-            $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
-                . '&amp;message_to_show='
-                . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
-                .'">';
-
-            $empty_table .= $titles['Empty'];
-            $empty_table .= '</a>';
-        } else {
-            $empty_table = $titles['NoEmpty'];
+        $empty_table = '<a ';
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            $empty_table .= 'class="truncate_table_anchor"';
         }
+        $empty_table .= ' href="sql.php?' . $tbl_url_query
+            . '&amp;sql_query=';
+        $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
+            . '&amp;message_to_show='
+            . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
+            .'">';
+        if ($may_have_rows) {
+            $empty_table .= $titles['Empty'];
+        } else {
+            $empty_table .= $titles['NoEmpty'];
+        }
+        $empty_table .= '</a>';
         // truncating views doesn't work
         if ($table_is_view) {
             $empty_table = '&nbsp;';
