@@ -2915,9 +2915,9 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
             $ret .= 'class="' . $class . '"';
         }
         $ret .= ' class="center">'
-           . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $where_clause_html . ']"'
+           . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $row_no . ']"'
            . ' class="multi_checkbox"'
-           . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
+           . ' value="' . $where_clause_html . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
            . '<input type="hidden" class="condition_array" value="' . htmlspecialchars(json_encode($condition_array)) . '" />'
            . '    </td>';
     }

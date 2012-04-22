@@ -69,7 +69,7 @@ if (!empty($submit_mult)) {
             // indicating WHERE clause. Then we build the array which is used
             // for the tbl_change.php script.
             $where_clause = array();
-            foreach ($_REQUEST['rows_to_delete'] as $i_where_clause => $del_query) {
+            foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
                 $where_clause[] = urldecode($i_where_clause);
             }
 
@@ -86,7 +86,7 @@ if (!empty($submit_mult)) {
             // indicating WHERE clause. Then we build the array which is used
             // for the tbl_change.php script.
             $where_clause = array();
-            foreach ($_REQUEST['rows_to_delete'] as $i_where_clause => $del_query) {
+            foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
                 $where_clause[] = urldecode($i_where_clause);
             }
 

@@ -167,7 +167,8 @@ if (!empty($submit_mult) && !empty($what)) {
     foreach ($selected AS $idx => $sval) {
         switch ($what) {
         case 'row_delete':
-            $full_query .= htmlspecialchars($sval)
+            $full_query .= 'DELETE FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+                . ' WHERE ' . urldecode($sval) . ' LIMIT 1'
                 . ';<br />';
             break;
         case 'drop_db':
@@ -250,7 +251,13 @@ if (!empty($submit_mult) && !empty($what)) {
         $_url_params['table']= $table;
     }
     foreach ($selected as $idx => $sval) {
-        $_url_params['selected'][] = $sval;
+        if ($what == 'row_delete'){
+            $_url_params['selected'][] = 'DELETE FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+            . ' WHERE ' . urldecode($sval) . ' LIMIT 1;';
+        }
+        else {
+            $_url_params['selected'][] = $sval;
+        }
     }
     if ($what == 'drop_tbl' && !empty($views)) {
         foreach ($views as $current) {
