@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-21 15:11+0200\n"
+"PO-Revision-Date: 2012-04-22 00:59+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3770,7 +3770,7 @@ msgstr "一般"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set some commonly used options"
-msgstr "共通に使われるオプションをセットする"
+msgstr "共通に使われるオプションの設定"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import defaults"
@@ -3991,7 +3991,7 @@ msgstr "タブ"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose how you want tabs to work"
-msgstr "アクションがあったときに動作するタブを選択します。"
+msgstr "アクションがあったときに動作させるタブの選択"
 
 #: libraries/config/messages.inc.php:228
 msgid "Text fields"
@@ -4508,7 +4508,7 @@ msgstr "テーブルのソートを記憶する"
 
 #: libraries/config/messages.inc.php:354
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr "カラム名を何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
+msgstr "カラム名を何行おきに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
 
 #: libraries/config/messages.inc.php:355
 msgid "Repeat headers"
