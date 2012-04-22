@@ -382,7 +382,7 @@ foreach ($tables as $keyname => $each_table) {
             . (($table_is_view || $each_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
             . ' ' . PMA_backquote($each_table['TABLE_NAME']);
         $drop_message = sprintf(
-            $table_is_view ? __('View %s has been dropped') : __('Table %s has been dropped'),
+            ($table_is_view || $each_table['ENGINE'] == null)? __('View %s has been dropped') : __('Table %s has been dropped'),
             str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']))
         );
     }
