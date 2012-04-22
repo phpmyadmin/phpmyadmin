@@ -11,7 +11,7 @@ function PMA_transformation_application_octetstream__download_info()
 {
     return array(
         'info' =>  __('Displays a link to download the binary data of the column. You can use the first option to specify the filename, or use the second option as the name of a column which contains the filename. If you use the second option, you need to set the first option to the empty string.'),
-        );
+    );
 }
 
 /**
@@ -40,15 +40,13 @@ function PMA_transformation_application_octetstream__download(&$buffer, $options
         }
     }
 
-    return
-      sprintf(
+    return sprintf(
         '<a href="transformation_wrapper.php%s&amp;ct=application/octet-stream&amp;cn=%s" title="%s">%s</a>',
-
         $options['wrapper_link'],
         urlencode($cn),
         htmlspecialchars($cn),
         htmlspecialchars($cn)
-      );
+    );
 }
 
 ?>

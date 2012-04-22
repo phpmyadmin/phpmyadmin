@@ -11,7 +11,7 @@ function PMA_transformation_text_plain__dateformat_info()
 {
     return array(
         'info' => __('Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as formatted date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.'),
-        );
+    );
 }
 
 /**
@@ -48,10 +48,10 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
     if ($meta->type == 'int') {
         $timestamp = $buffer;
 
-    // Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)
-    // TIMESTAMP (2 | 4) not supported here.
-    // (Note: prior to MySQL 4.1, TIMESTAMP has a display size, for example
-    // TIMESTAMP(8) means YYYYMMDD)
+        // Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)
+        // TIMESTAMP (2 | 4) not supported here.
+        // (Note: prior to MySQL 4.1, TIMESTAMP has a display size, for example
+        // TIMESTAMP(8) means YYYYMMDD)
     } else if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
 
         if (strlen($buffer) == 14 || strlen($buffer) == 8) {
@@ -71,7 +71,7 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
         if (checkdate($d['month'], $d['day'], $d['year'])) {
             $timestamp = mktime($d['hour'], $d['minute'], $d['second'], $d['month'], $d['day'], $d['year']);
         }
-    // If all fails, assume one of the dozens of valid strtime() syntaxes (http://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
+        // If all fails, assume one of the dozens of valid strtime() syntaxes (http://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
     } else {
         if (preg_match('/^[0-9]\d{1,9}$/', $buffer)) {
             $timestamp = (int)$buffer;

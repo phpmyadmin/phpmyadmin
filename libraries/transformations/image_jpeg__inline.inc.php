@@ -11,7 +11,7 @@ function PMA_transformation_image_jpeg__inline_info()
 {
     return array(
         'info' => __('Displays a clickable thumbnail. The options are the maximum width and height in pixels. The original aspect ratio is preserved.'),
-        );
+    );
 }
 
 /**
