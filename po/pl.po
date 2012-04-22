@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-21 08:21-0400\n"
-"PO-Revision-Date: 2012-04-18 12:01+0200\n"
+"PO-Revision-Date: 2012-04-21 16:04+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1800
@@ -1647,16 +1647,14 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:209
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Nie można zaimportować konfiguracji"
+msgstr "Importuj konfigurację monitora"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Należy wybrać klucz główny lub klucz jednoznaczny"
+msgstr "Proszę wybrać plik, który chcesz zaimportować"
 
 #: js/messages.php:212
 msgid "Analyse Query"
@@ -3329,10 +3327,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Użyj przyjaznego dla użytkownika edytora do edycji zapytań SQL "
+"([@http://codemirror.net/]CodeMirror[/a]) z kolorowaniem składni i numerami "
+"linii"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Włącz CodeMirror"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3442,13 +3443,12 @@ msgstr "Domyślna zakładka tabeli"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Czy działania struktury tabeli powinny być ukryte"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Zaproponowanie struktury tabeli"
+msgstr "Ukryj działania struktury tabeli"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4012,19 +4012,15 @@ msgstr ""
 "tabel)"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "Struktura bazy danych"
+msgstr "Struktura tabeli"
 
 #: libraries/config/messages.inc.php:231
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
-"Wybierz, które szczegóły, chcesz pokazać w strukturze bazy danych (lista "
-"tabel)"
+msgstr "Ustawienia dla struktury tabeli (lista kolumn)"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -5824,27 +5820,27 @@ msgstr "Kodowanie konwersji:"
 #: libraries/display_git_revision.lib.php:46
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s z %2$s gałęzi"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
-msgstr ""
+msgstr "brak gałęzi"
 
 #: libraries/display_git_revision.lib.php:54
 msgid "Git revision"
-msgstr ""
+msgstr "Zmiany Git"
 
 #: libraries/display_git_revision.lib.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "committed on %1$s by %2$s"
-msgstr "Utwórz wersję %1$s dla %2$s"
+msgstr "miejsce na %1$s dla %2$s"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "authored on %1$s by %2$s"
-msgstr "Utwórz wersję %1$s dla %2$s"
+msgstr "autorem %1$s dla %2$s"
 
 #: libraries/display_import.lib.php:61
 msgid ""
@@ -6596,16 +6592,14 @@ msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
 
 #: libraries/export/mediawiki.php:51
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "Eksportuj zawartość"
+msgstr "Eksport nazw tabel"
 
 #: libraries/export/mediawiki.php:58
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "poziomo (obrócone nagłówki)"
+msgstr "Eksport nagłówków tabeli"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -11704,10 +11698,9 @@ msgid "Spatial"
 msgstr "Przestrzenny"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Przeglądaj różne wartości"
+msgstr "Różne wartości"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add primary key"

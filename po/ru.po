@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-21 08:21-0400\n"
-"PO-Revision-Date: 2012-04-18 23:24+0200\n"
+"PO-Revision-Date: 2012-04-21 10:48+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1800
@@ -1901,7 +1901,7 @@ msgstr ""
 
 #: js/messages.php:309
 msgid "Strings are converted into integer for plotting"
-msgstr "Для построения графиков, строки конвертируются в числа."
+msgstr "Для построения графиков, строки конвертируются в числа"
 
 #: js/messages.php:311
 msgid "Select two columns"
@@ -5830,10 +5830,10 @@ msgid "Encoding Conversion:"
 msgstr "Изменение кодировки:"
 
 #: libraries/display_git_revision.lib.php:46
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s from %s branch"
 msgid "%1$s from %2$s branch"
-msgstr "%s из %s ветки"
+msgstr "%1$s из %2$s ветки"
 
 #: libraries/display_git_revision.lib.php:48
 msgid "no branch"
@@ -5844,16 +5844,16 @@ msgid "Git revision"
 msgstr "Git ревизия"
 
 #: libraries/display_git_revision.lib.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "committed on %s by %s"
 msgid "committed on %1$s by %2$s"
-msgstr "отправлено %s, %s"
+msgstr "отправлено %1$s, %2$s"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %s by %s"
 msgid "authored on %1$s by %2$s"
-msgstr "создано %s, %s"
+msgstr "создано %1$s, %2$s"
 
 #: libraries/display_import.lib.php:61
 msgid ""
