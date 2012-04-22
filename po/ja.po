@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-21 08:21-0400\n"
-"PO-Revision-Date: 2012-04-21 08:15+0200\n"
+"PO-Revision-Date: 2012-04-22 02:54+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3307,10 +3307,12 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"構文の色分けや行番号の付加といった分かりやすいエディタ ([a@http://codemirror.net/]CodeMirror[/a]) を、SQL "
+"クエリの編集の際に使用します。"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "CodeMirror を有効にする"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3416,7 +3418,7 @@ msgstr "デフォルトのテーブルタブ"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr "テーブル構造の操作の欄を折り畳むかどうか。"
+msgstr "テーブル構造の操作欄の折り畳みをしないかどうか。"
 
 #: libraries/config/messages.inc.php:59
 msgid "Hide table structure actions"
@@ -3759,7 +3761,7 @@ msgstr "一般"
 
 #: libraries/config/messages.inc.php:173
 msgid "Set some commonly used options"
-msgstr "共通に使われるオプションをセットする"
+msgstr "共通に使われるオプションの設定"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import defaults"
@@ -3995,7 +3997,7 @@ msgstr "タブ"
 
 #: libraries/config/messages.inc.php:233
 msgid "Choose how you want tabs to work"
-msgstr "アクションがあったときに動作するタブを選択します。"
+msgstr "アクションがあったときに動作させるタブの選択"
 
 #: libraries/config/messages.inc.php:234
 msgid "Text fields"
@@ -4500,8 +4502,7 @@ msgstr "テーブルのソートを記憶する"
 
 #: libraries/config/messages.inc.php:357
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
-"カラム名を何行に置きに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
+msgstr "カラム名を何行おきに挿入するか。[kbd]0[/kbd] でこの機能は無効になります。"
 
 #: libraries/config/messages.inc.php:358
 msgid "Repeat headers"
@@ -5347,8 +5348,9 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
-"ZIP_(ファイルフォーマット)]ZIP[/a] 圧縮を有効にします。"
+"インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/ZIP_%28%E3%83%95%E3%82"
+"%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%"
+"29]ZIP[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:530
 msgid "ZIP"
@@ -6913,10 +6915,9 @@ msgid "Add prefix"
 msgstr "追加する接頭辞"
 
 #: libraries/mult_submits.inc.php:305
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "本当に実行しますか?"
+msgstr "以下のクエリを本当に実行しますか？"
 
 #: libraries/mult_submits.inc.php:525 tbl_replace.php:335
 msgid "No change"
@@ -11114,10 +11115,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
 #: sql.php:388
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "本当に実行しますか?"
+msgstr "以下のクエリを本当に実行しますか？"
 
 #: sql.php:767 tbl_replace.php:391
 #, php-format
