@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-20 09:33+0200\n"
-"Last-Translator: Hizer Cache <cache@aol.com.br>\n"
+"PO-Revision-Date: 2012-04-23 02:11+0200\n"
+"Last-Translator: Lucas David <lucasolivdavid@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -5377,6 +5377,9 @@ msgid ""
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
+"Exibir linhas afetadas de cada instrução nas consultas de multipla-"
+"instrução. Veja em libraries/import.lib.php quantas consultas uma instrução "
+"pode conter por padrão."
 
 #: libraries/config/messages.inc.php:520
 msgid "Verbose multiple statements"
@@ -5384,11 +5387,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:521 setup/frames/index.inc.php:243
 msgid "Check for latest version"
-msgstr ""
+msgstr "Verifique a última versão"
 
 #: libraries/config/messages.inc.php:522
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Habilitar checagem pela última versão na página principal do phpMyAdmin"
 
 #: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
@@ -5396,13 +5399,16 @@ msgstr ""
 #: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
 #: setup/lib/index.lib.php:224
 msgid "Version check"
-msgstr ""
+msgstr "Verificação de versão"
 
 #: libraries/config/messages.inc.php:524
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"Habilitar compressão "
+"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] para operações de "
+"importação e exportação"
 
 #: libraries/config/messages.inc.php:525
 msgid "ZIP"
@@ -5439,12 +5445,12 @@ msgstr "Planilha Open Document"
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:166
 msgid "Quick"
-msgstr ""
+msgstr "Rápido"
 
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:170
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:190
@@ -5470,7 +5476,7 @@ msgstr "Abrir Documento de Texto"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Não pode iniciar conexão com biblioteca Drizzle"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
 #| msgid "Could not open file: %s"
