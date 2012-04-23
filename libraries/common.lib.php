@@ -3411,7 +3411,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                 $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                 foreach ($value as $subvalue) {
                     if ($subvalue == $selected) {
-                        $retval .= "<option selected='selected'>";
+                        $retval .= "<option selected='selected' title='" . PMA_getDatatypeDescription($subvalue) . "'>";
                         $retval .= $subvalue;
                         $retval .= "</option>";
                     } else if ($subvalue === '-') {
@@ -3419,15 +3419,15 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                         $retval .= $subvalue;
                         $retval .= "</option>";
                     } else {
-                        $retval .= "<option>$subvalue</option>";
+                        $retval .= "<option title='" . PMA_getDatatypeDescription($subvalue) . "'>$subvalue</option>";
                     }
                 }
                 $retval .= '</optgroup>';
             } else {
                 if ($selected == $value) {
-                    $retval .= "<option selected='selected'>$value</option>";
+                    $retval .= "<option selected='selected' title='" . PMA_getDatatypeDescription($value) . "'>$value</option>";
                 } else {
-                    $retval .= "<option>$value</option>";
+                    $retval .= "<option title='" . PMA_getDatatypeDescription($value) . "'>$value</option>";
                 }
             }
         }
@@ -3450,6 +3450,23 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
 
     return $retval;
 } // end PMA_getSupportedDatatypes()
+
+/**
+ * This function returns the data type description.
+ *
+ * @param string $type The data type to get a description.
+ *
+ * @return string 
+ *
+ */
+function PMA_getDatatypeDescription($type)
+{
+    $type = strtoupper($type);
+    $descriptions = SupportedDataTypesDescriptions();
+
+    return isset($descriptions[$type])
+        ? htmlentities($descriptions[$type], ENT_QUOTES) : '';
+} // end PMA_getDatatypeDescription()
 
 /**
  * Returns a list of datatypes that are not (yet) handled by PMA.

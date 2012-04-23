@@ -3,18 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-21 08:21-0400\n"
+"POT-Creation-Date: 2012-04-23 13:06-0300\n"
 "PO-Revision-Date: 2011-11-04 13:00+0200\n"
 "Last-Translator: karrikas <karrikas@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.1.6\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1800
 msgid "Show all"
 msgstr "Dena erakutsi"
@@ -24,7 +24,7 @@ msgstr "Dena erakutsi"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1145
 #: libraries/schema/Pdf_Relation_Schema.class.php:1169
 #: libraries/schema/User_Schema.class.php:399
-#: libraries/select_lang.lib.php:504
+#: libraries/select_lang.lib.php:506
 msgid "Page number:"
 msgstr "Orri zenbakia:"
 
@@ -38,20 +38,20 @@ msgstr ""
 "parent window or your browser is blocking cross-window updates of your "
 "security settings"
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3151
-#: libraries/common.lib.php:3158 libraries/common.lib.php:3374
-#: libraries/common.lib.php:3375 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3150
+#: libraries/common.lib.php:3157 libraries/common.lib.php:3373
+#: libraries/common.lib.php:3374 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Bilatu"
 
 #: browse_foreigners.php:159 db_operations.php:409 db_operations.php:449
-#: db_operations.php:561 db_operations.php:590 db_search.php:352
-#: gis_data_editor.php:314 js/messages.php:227
-#: libraries/auth/cookie.auth.lib.php:270 libraries/core.lib.php:530
+#: db_operations.php:562 db_operations.php:591 db_search.php:352
+#: gis_data_editor.php:314 js/messages.php:231
+#: libraries/auth/cookie.auth.lib.php:271 libraries/core.lib.php:530
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
-#: libraries/display_export.lib.php:364 libraries/display_import.lib.php:311
+#: libraries/display_export.lib.php:364 libraries/display_import.lib.php:312
 #: libraries/display_tbl.lib.php:707 libraries/replication_gui.lib.php:76
 #: libraries/replication_gui.lib.php:375 libraries/rte/rte_events.lib.php:493
 #: libraries/rte/rte_routines.lib.php:969
@@ -62,23 +62,23 @@ msgstr "Bilatu"
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/schema/User_Schema.class.php:490
 #: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:424
-#: libraries/sql_query_form.lib.php:479 libraries/tbl_properties.inc.php:574
-#: pmd_pdf.php:125 prefs_manage.php:267 prefs_manage.php:318
+#: libraries/sql_query_form.lib.php:479 libraries/tbl_properties.inc.php:578
+#: pmd_pdf.php:125 prefs_manage.php:271 prefs_manage.php:322
 #: server_binlog.php:109 server_privileges.php:818 server_privileges.php:1934
 #: server_privileges.php:2298 server_privileges.php:2345
 #: server_privileges.php:2377 server_replication.php:265
 #: server_replication.php:349 server_replication.php:380
 #: server_synchronize.php:1390 tbl_change.php:373 tbl_change.php:1119
-#: tbl_indexes.php:289 tbl_operations.php:282 tbl_operations.php:319
-#: tbl_operations.php:523 tbl_operations.php:585 tbl_operations.php:788
-#: tbl_select.php:259 tbl_structure.php:662 tbl_structure.php:699
-#: tbl_tracking.php:450 tbl_tracking.php:588 tbl_zoom_select.php:330
+#: tbl_indexes.php:289 tbl_operations.php:292 tbl_operations.php:329
+#: tbl_operations.php:534 tbl_operations.php:597 tbl_operations.php:800
+#: tbl_select.php:259 tbl_structure.php:663 tbl_structure.php:700
+#: tbl_tracking.php:452 tbl_tracking.php:594 tbl_zoom_select.php:330
 #: view_create.php:173 view_operations.php:99
 msgid "Go"
 msgstr "Joan"
 
 #: browse_foreigners.php:174 browse_foreigners.php:178
-#: libraries/Index.class.php:457 tbl_tracking.php:338
+#: libraries/Index.class.php:457 tbl_tracking.php:340
 #, fuzzy
 msgid "Keyname"
 msgstr "Giltzaren izena"
@@ -113,7 +113,7 @@ msgid "Database comment: "
 msgstr "Datu-basearen iruzkina: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
-#: libraries/tbl_properties.inc.php:661 tbl_operations.php:364
+#: libraries/tbl_properties.inc.php:665 tbl_operations.php:374
 #: tbl_printview.php:125
 msgid "Table comments"
 msgstr "Taularen iruzkinak"
@@ -127,7 +127,7 @@ msgstr "Taularen iruzkinak"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:269 libraries/tbl_select.lib.php:86
 #: tbl_change.php:339 tbl_indexes.php:214 tbl_printview.php:137
-#: tbl_relation.php:411 tbl_tracking.php:276 tbl_tracking.php:342
+#: tbl_relation.php:411 tbl_tracking.php:278 tbl_tracking.php:344
 #: tbl_zoom_select.php:450
 msgid "Column"
 msgstr "Zutabea"
@@ -146,7 +146,7 @@ msgstr "Zutabea"
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:87
 #: server_privileges.php:2391 tbl_change.php:318 tbl_change.php:351
 #: tbl_printview.php:138 tbl_printview.php:273 tbl_structure.php:204
-#: tbl_structure.php:759 tbl_tracking.php:277 tbl_tracking.php:339
+#: tbl_structure.php:760 tbl_tracking.php:279 tbl_tracking.php:341
 msgid "Type"
 msgstr "Mota"
 
@@ -158,19 +158,19 @@ msgstr "Mota"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_properties.inc.php:102 tbl_change.php:366
-#: tbl_printview.php:139 tbl_structure.php:207 tbl_tracking.php:279
-#: tbl_tracking.php:345 tbl_zoom_select.php:451
+#: tbl_printview.php:139 tbl_structure.php:207 tbl_tracking.php:281
+#: tbl_tracking.php:347 tbl_zoom_select.php:451
 msgid "Null"
 msgstr "Nulua"
 
-#: db_datadict.php:167 db_structure.php:600 libraries/export/htmlword.php:197
+#: db_datadict.php:167 db_structure.php:609 libraries/export/htmlword.php:197
 #: libraries/export/htmlword.php:317 libraries/export/latex.php:397
 #: libraries/export/odt.php:268 libraries/export/odt.php:396
 #: libraries/export/texytext.php:198 libraries/export/texytext.php:316
 #: libraries/schema/Pdf_Relation_Schema.class.php:1312
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:99 tbl_printview.php:140
-#: tbl_structure.php:208 tbl_tracking.php:280
+#: tbl_structure.php:208 tbl_tracking.php:282
 msgid "Default"
 msgstr "Lehenetsia"
 
@@ -193,26 +193,26 @@ msgstr "Esteka:"
 msgid "Comments"
 msgstr "Iruzkinak"
 
-#: db_datadict.php:235 js/messages.php:247 libraries/Index.class.php:359
+#: db_datadict.php:235 js/messages.php:251 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/Index.class.php:704
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:229
 #: libraries/export/htmlword.php:360 libraries/export/latex.php:460
 #: libraries/export/odt.php:299 libraries/export/odt.php:444
 #: libraries/export/texytext.php:228 libraries/export/texytext.php:357
-#: libraries/mult_submits.inc.php:321
+#: libraries/mult_submits.inc.php:328
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:132
 #: server_privileges.php:1574 server_privileges.php:1584
 #: server_privileges.php:1858 server_privileges.php:1869
 #: server_privileges.php:2210 server_privileges.php:2215
 #: server_privileges.php:2508 sql.php:330 sql.php:394 tbl_printview.php:191
-#: tbl_structure.php:333 tbl_tracking.php:300 tbl_tracking.php:355
-#: tbl_tracking.php:360
+#: tbl_structure.php:333 tbl_tracking.php:302 tbl_tracking.php:357
+#: tbl_tracking.php:362
 msgid "No"
 msgstr "Ez"
 
-#: db_datadict.php:235 js/messages.php:246 libraries/Index.class.php:360
+#: db_datadict.php:235 js/messages.php:250 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/Index.class.php:704
 #: libraries/config.values.php:45 libraries/config.values.php:51
 #: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:229
@@ -222,17 +222,17 @@ msgstr "Ez"
 #: libraries/mult_submits.inc.php:68 libraries/mult_submits.inc.php:100
 #: libraries/mult_submits.inc.php:109 libraries/mult_submits.inc.php:114
 #: libraries/mult_submits.inc.php:119 libraries/mult_submits.inc.php:124
-#: libraries/mult_submits.inc.php:283 libraries/mult_submits.inc.php:296
-#: libraries/mult_submits.inc.php:320 libraries/mult_submits.inc.php:327
+#: libraries/mult_submits.inc.php:290 libraries/mult_submits.inc.php:303
+#: libraries/mult_submits.inc.php:327 libraries/mult_submits.inc.php:334
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:131
-#: server_databases.php:101 server_databases.php:108
+#: server_databases.php:102 server_databases.php:109
 #: server_privileges.php:1572 server_privileges.php:1582
 #: server_privileges.php:1855 server_privileges.php:1869
 #: server_privileges.php:2210 server_privileges.php:2213
 #: server_privileges.php:2508 sql.php:393 tbl_printview.php:191
-#: tbl_structure.php:41 tbl_structure.php:333 tbl_tracking.php:300
-#: tbl_tracking.php:353 tbl_tracking.php:358
+#: tbl_structure.php:41 tbl_structure.php:333 tbl_tracking.php:302
+#: tbl_tracking.php:355 tbl_tracking.php:360
 msgid "Yes"
 msgstr "Bai"
 
@@ -241,7 +241,7 @@ msgid "View dump (schema) of database"
 msgstr "Ikusi datu-basearen iraulketa (eskema)"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:104 db_tracking.php:47
-#: export.php:375 navigation.php:286
+#: export.php:375 navigation.php:287
 msgid "No tables found in database."
 msgstr "Ez da taularik aurkitu datu-basean."
 
@@ -274,70 +274,70 @@ msgstr "%s datu-basea hona kopiatua izan da: %s."
 msgid "Rename database to"
 msgstr "Datu-basea berrizendatu izen honetara"
 
-#: db_operations.php:469
+#: db_operations.php:470
 msgid "Remove database"
 msgstr "Datu-basea kendu"
 
-#: db_operations.php:481
+#: db_operations.php:482
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "%s datu-basea ezabatua izan da."
 
-#: db_operations.php:486
+#: db_operations.php:487
 msgid "Drop the database (DROP)"
 msgstr "Datu-basea ezabatu (DROP)"
 
-#: db_operations.php:515
+#: db_operations.php:516
 msgid "Copy database to"
 msgstr "Datu-basea kopiatu "
 
-#: db_operations.php:522 tbl_operations.php:552 tbl_tracking.php:443
+#: db_operations.php:523 tbl_operations.php:563 tbl_tracking.php:445
 msgid "Structure only"
 msgstr "Egitura soilik"
 
-#: db_operations.php:523 tbl_operations.php:553 tbl_tracking.php:445
+#: db_operations.php:524 tbl_operations.php:564 tbl_tracking.php:447
 msgid "Structure and data"
 msgstr "Egitura eta datuak"
 
-#: db_operations.php:524 tbl_operations.php:554 tbl_tracking.php:444
+#: db_operations.php:525 tbl_operations.php:565 tbl_tracking.php:446
 msgid "Data only"
 msgstr "Datuak soilik"
 
-#: db_operations.php:532
+#: db_operations.php:533
 msgid "CREATE DATABASE before copying"
 msgstr "DATU-BASEA SORTU kopiatu aurretik "
 
-#: db_operations.php:535 libraries/config/messages.inc.php:130
+#: db_operations.php:536 libraries/config/messages.inc.php:130
 #: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:133
-#: libraries/config/messages.inc.php:139 tbl_operations.php:560
+#: libraries/config/messages.inc.php:139 tbl_operations.php:571
 #, php-format
 msgid "Add %s"
 msgstr "%s gehitu"
 
-#: db_operations.php:539 libraries/config/messages.inc.php:123
-#: tbl_operations.php:316 tbl_operations.php:562
+#: db_operations.php:540 libraries/config/messages.inc.php:123
+#: tbl_operations.php:326 tbl_operations.php:573
 msgid "Add AUTO_INCREMENT value"
 msgstr "Gehitu AUTO_INCREMENT balioa"
 
-#: db_operations.php:543 tbl_operations.php:569
+#: db_operations.php:544 tbl_operations.php:580
 msgid "Add constraints"
 msgstr "Murrizketak gehitu"
 
-#: db_operations.php:558
+#: db_operations.php:559
 msgid "Switch to copied database"
 msgstr "Kopiatutako datu-basea hautatu "
 
-#: db_operations.php:581 libraries/Index.class.php:463
+#: db_operations.php:582 libraries/Index.class.php:463
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:88
-#: server_collations.php:44 server_collations.php:56 tbl_operations.php:380
-#: tbl_structure.php:205 tbl_structure.php:864 tbl_tracking.php:278
-#: tbl_tracking.php:344
+#: libraries/tbl_properties.inc.php:671 libraries/tbl_select.lib.php:88
+#: server_collations.php:44 server_collations.php:56 tbl_operations.php:390
+#: tbl_structure.php:205 tbl_structure.php:865 tbl_tracking.php:280
+#: tbl_tracking.php:346
 msgid "Collation"
 msgstr "Ordenamendua"
 
-#: db_operations.php:598
+#: db_operations.php:599
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -346,7 +346,7 @@ msgstr ""
 "Estekatutako taulekin lan egiteko hobespen gehigarriak ezgaitu dira . "
 "Zergatia jakiteko egizu klik %shemen%s."
 
-#: db_operations.php:632
+#: db_operations.php:633
 msgid "Edit or export relational schema"
 msgstr "Aldatu edo esportatu erlazio-eskema"
 
@@ -357,15 +357,15 @@ msgstr "Aldatu edo esportatu erlazio-eskema"
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:275 server_privileges.php:1985
 #: server_privileges.php:2043 server_privileges.php:2312
-#: server_synchronize.php:450 server_synchronize.php:962 tbl_tracking.php:668
+#: server_synchronize.php:450 server_synchronize.php:962 tbl_tracking.php:674
 msgid "Table"
 msgstr "Taula"
 
 #: db_printview.php:102 libraries/Table.class.php:295
 #: libraries/build_html_for_db.lib.php:31 libraries/db_structure.lib.php:42
 #: libraries/header_printview.inc.php:64 libraries/import.lib.php:153
-#: navigation.php:588 navigation.php:610 tbl_printview.php:354
-#: tbl_structure.php:450 tbl_structure.php:524 tbl_structure.php:874
+#: navigation.php:593 navigation.php:615 tbl_printview.php:354
+#: tbl_structure.php:451 tbl_structure.php:525 tbl_structure.php:875
 msgid "Rows"
 msgstr "Errenkadak"
 
@@ -373,32 +373,32 @@ msgstr "Errenkadak"
 msgid "Size"
 msgstr "Tamaina"
 
-#: db_printview.php:160 db_structure.php:557 libraries/export/sql.php:806
+#: db_printview.php:160 db_structure.php:566 libraries/export/sql.php:806
 msgid "in use"
 msgstr "lanean"
 
 #: db_printview.php:186 libraries/db_info.inc.php:77
 #: libraries/db_structure.lib.php:60 libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1287 tbl_printview.php:394
-#: tbl_structure.php:906
+#: tbl_structure.php:907
 msgid "Creation"
 msgstr "Sortzea"
 
 #: db_printview.php:195 libraries/db_info.inc.php:82
 #: libraries/db_structure.lib.php:65 libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1292 tbl_printview.php:404
-#: tbl_structure.php:914
+#: tbl_structure.php:915
 msgid "Last update"
 msgstr "Azken eguneraketa"
 
 #: db_printview.php:204 libraries/db_info.inc.php:87
 #: libraries/db_structure.lib.php:70 libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1297 tbl_printview.php:414
-#: tbl_structure.php:922
+#: tbl_structure.php:923
 msgid "Last check"
 msgstr "Azken egiaztapena"
 
-#: db_printview.php:221 db_structure.php:576
+#: db_printview.php:221 db_structure.php:585
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -419,81 +419,81 @@ msgstr "Aldatu %serakitzaile bisualrera%s"
 msgid "Sort"
 msgstr "Ordenatu"
 
-#: db_qbe.php:234 db_qbe.php:268 libraries/db_structure.lib.php:113
+#: db_qbe.php:234 db_qbe.php:269 libraries/db_structure.lib.php:113
 #: libraries/db_structure.lib.php:122 libraries/display_tbl.lib.php:569
 #: libraries/display_tbl.lib.php:972 libraries/display_tbl.lib.php:975
-#: server_databases.php:192 server_databases.php:209 tbl_operations.php:277
+#: server_databases.php:193 server_databases.php:210 tbl_operations.php:287
 #: tbl_select.php:246
 msgid "Ascending"
 msgstr "Goranzko"
 
-#: db_qbe.php:235 db_qbe.php:276 libraries/db_structure.lib.php:114
+#: db_qbe.php:235 db_qbe.php:277 libraries/db_structure.lib.php:114
 #: libraries/db_structure.lib.php:123 libraries/display_tbl.lib.php:574
 #: libraries/display_tbl.lib.php:971 libraries/display_tbl.lib.php:976
-#: server_databases.php:192 server_databases.php:209 tbl_operations.php:278
+#: server_databases.php:193 server_databases.php:210 tbl_operations.php:288
 #: tbl_select.php:247
 msgid "Descending"
 msgstr "Beherantz"
 
-#: db_qbe.php:289 db_tracking.php:91 libraries/display_tbl.lib.php:430
-#: tbl_change.php:296 tbl_tracking.php:673
+#: db_qbe.php:290 db_tracking.php:91 libraries/display_tbl.lib.php:430
+#: tbl_change.php:296 tbl_tracking.php:679
 msgid "Show"
 msgstr "Erakutsi"
 
-#: db_qbe.php:325
+#: db_qbe.php:326
 msgid "Criteria"
 msgstr "Irizpidea"
 
-#: db_qbe.php:379 db_qbe.php:461 db_qbe.php:553 db_qbe.php:584
+#: db_qbe.php:380 db_qbe.php:462 db_qbe.php:554 db_qbe.php:585
 msgid "Ins"
 msgstr "Txertatu"
 
-#: db_qbe.php:383 db_qbe.php:465 db_qbe.php:550 db_qbe.php:581
+#: db_qbe.php:384 db_qbe.php:466 db_qbe.php:551 db_qbe.php:582
 msgid "And"
 msgstr "Eta"
 
-#: db_qbe.php:392 db_qbe.php:473 db_qbe.php:555 db_qbe.php:586
+#: db_qbe.php:393 db_qbe.php:474 db_qbe.php:556 db_qbe.php:587
 msgid "Del"
 msgstr "Ezabatu"
 
-#: db_qbe.php:396 db_qbe.php:477 db_qbe.php:548 db_qbe.php:579
+#: db_qbe.php:397 db_qbe.php:478 db_qbe.php:549 db_qbe.php:580
 #: server_privileges.php:472 tbl_change.php:946 tbl_indexes.php:284
 #: tbl_select.php:220
 msgid "Or"
 msgstr "Edo"
 
-#: db_qbe.php:533
+#: db_qbe.php:534
 msgid "Modify"
 msgstr "Aldatu"
 
-#: db_qbe.php:608
+#: db_qbe.php:609
 msgid "Add/Delete criteria rows"
 msgstr "Gehitu/ezabatu irizpide-errenkada"
 
-#: db_qbe.php:620
+#: db_qbe.php:621
 msgid "Add/Delete columns"
 msgstr "Gehitu/ezabatu errenkadak"
 
-#: db_qbe.php:633 db_qbe.php:656
+#: db_qbe.php:634 db_qbe.php:657
 msgid "Update Query"
 msgstr "Kontsulta eguneratu"
 
-#: db_qbe.php:639
+#: db_qbe.php:640
 msgid "Use Tables"
 msgstr "Taulak erabili"
 
-#: db_qbe.php:662
+#: db_qbe.php:663
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-kontsulta <b>%s</b> datu-basean:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1254
+#: db_qbe.php:956 libraries/common.lib.php:1254
 msgid "Submit Query"
 msgstr "Kontsulta bidali"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
-#: libraries/auth/cookie.auth.lib.php:612 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:616 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "Sarbidea ukatua"
@@ -528,9 +528,9 @@ msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%s emaitza <i>%s</i> taulan"
 msgstr[1] "%s emaitzak <i>%s</i> taulan"
 
-#: db_search.php:247 libraries/common.lib.php:3153
-#: libraries/common.lib.php:3372 libraries/common.lib.php:3373
-#: libraries/tbl_links.inc.php:55 tbl_structure.php:559
+#: db_search.php:247 libraries/common.lib.php:3152
+#: libraries/common.lib.php:3371 libraries/common.lib.php:3372
+#: libraries/tbl_links.inc.php:55 tbl_structure.php:560
 msgid "Browse"
 msgstr "Arakatu"
 
@@ -545,9 +545,9 @@ msgstr "%s taulako aukeratuak ezabatu"
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:433
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:436
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
-#: tbl_tracking.php:460 tbl_tracking.php:481 tbl_tracking.php:538
+#: tbl_tracking.php:462 tbl_tracking.php:483 tbl_tracking.php:542
 msgid "Delete"
 msgstr "Ezabatu"
 
@@ -591,138 +591,138 @@ msgstr "Ez da taularik aurkitu datu-basean"
 msgid "unknown"
 msgstr "ezezaguna"
 
-#: db_structure.php:368 tbl_operations.php:707
+#: db_structure.php:367 tbl_operations.php:719
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "%s taula hustu egin da"
 
-#: db_structure.php:385 tbl_operations.php:726
+#: db_structure.php:384 tbl_operations.php:738
 #, php-format
 msgid "View %s has been dropped"
 msgstr "%s Ikuspegia ezabatua izan da"
 
-#: db_structure.php:385 tbl_operations.php:726
+#: db_structure.php:384 tbl_operations.php:738
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "%s taula ezabatu egin da"
 
-#: db_structure.php:395 tbl_create.php:283
+#: db_structure.php:394 tbl_create.php:285
 msgid "Tracking is active."
 msgstr "Jarraipena aktibatuta dago."
 
-#: db_structure.php:400 tbl_create.php:286
+#: db_structure.php:399 tbl_create.php:288
 msgid "Tracking is not active."
 msgstr "Jarraipena ez dago aktibatuta."
 
-#: db_structure.php:509 libraries/display_tbl.lib.php:2365
+#: db_structure.php:518 libraries/display_tbl.lib.php:2365
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Ikuspegi honek gutxienez errenkada kopuru hau dauka. Mesedez %sdocumentation%"
-"s erreferentzia egin."
+"Ikuspegi honek gutxienez errenkada kopuru hau dauka. Mesedez %sdocumentation"
+"%s erreferentzia egin."
 
-#: db_structure.php:525 db_structure.php:548 libraries/header.inc.php:169
+#: db_structure.php:534 db_structure.php:557 libraries/header.inc.php:169
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:211
 msgid "View"
 msgstr "Ikusipegia"
 
-#: db_structure.php:583 libraries/db_structure.lib.php:35
+#: db_structure.php:592 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:92 server_replication.php:31
 #: server_replication.php:192 server_status.php:612
 msgid "Replication"
 msgstr "Ihardetsi"
 
-#: db_structure.php:587
+#: db_structure.php:596
 msgid "Sum"
 msgstr "Gehiketa"
 
-#: db_structure.php:594 libraries/StorageEngine.class.php:341
+#: db_structure.php:603 libraries/StorageEngine.class.php:341
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s da MySQL zerbitzarian lehenetsitako biltegiratzeko mota."
 
-#: db_structure.php:642 db_structure.php:659 db_structure.php:660
+#: db_structure.php:651 db_structure.php:668 db_structure.php:669
 #: libraries/display_tbl.lib.php:2507 libraries/display_tbl.lib.php:2512
-#: libraries/mult_submits.inc.php:39 server_databases.php:293
-#: server_databases.php:298 server_privileges.php:1892
-#: server_privileges.php:1900 tbl_structure.php:547 tbl_structure.php:556
+#: libraries/mult_submits.inc.php:39 server_databases.php:294
+#: server_databases.php:299 server_privileges.php:1892
+#: server_privileges.php:1900 tbl_structure.php:548 tbl_structure.php:557
 msgid "With selected:"
 msgstr "Ikurdunak:"
 
-#: db_structure.php:645 libraries/display_tbl.lib.php:2502
-#: server_databases.php:295 server_privileges.php:756
-#: server_privileges.php:1895 tbl_structure.php:550
+#: db_structure.php:654 libraries/display_tbl.lib.php:2502
+#: server_databases.php:296 server_privileges.php:756
+#: server_privileges.php:1895 tbl_structure.php:551
 msgid "Check All"
 msgstr "Guztiak egiaztatu"
 
-#: db_structure.php:649 libraries/display_tbl.lib.php:2503
-#: libraries/replication_gui.lib.php:35 server_databases.php:297
-#: server_privileges.php:759 server_privileges.php:1899 tbl_structure.php:554
+#: db_structure.php:658 libraries/display_tbl.lib.php:2503
+#: libraries/replication_gui.lib.php:35 server_databases.php:298
+#: server_privileges.php:759 server_privileges.php:1899 tbl_structure.php:555
 msgid "Uncheck All"
 msgstr "Desautatu dena"
 
-#: db_structure.php:654
+#: db_structure.php:663
 msgid "Check tables having overhead"
 msgstr "Arazteko hondakinak egiaztatu"
 
-#: db_structure.php:662 libraries/common.lib.php:3385
-#: libraries/common.lib.php:3386 libraries/config/messages.inc.php:168
+#: db_structure.php:671 libraries/common.lib.php:3384
+#: libraries/common.lib.php:3385 libraries/config/messages.inc.php:168
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2525 libraries/display_tbl.lib.php:2666
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:290 server_privileges.php:1540 server_privileges.php:1904
+#: prefs_manage.php:294 server_privileges.php:1540 server_privileges.php:1904
 #: server_status.php:1634 setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Esportatu"
 
-#: db_structure.php:664 db_structure.php:712
-#: libraries/display_tbl.lib.php:2615 tbl_structure.php:603
+#: db_structure.php:673 db_structure.php:721
+#: libraries/display_tbl.lib.php:2615 tbl_structure.php:604
 msgid "Print view"
 msgstr "Inprimatzeko ikuspegia"
 
-#: db_structure.php:668 libraries/common.lib.php:3381
-#: libraries/common.lib.php:3382
+#: db_structure.php:677 libraries/common.lib.php:3380
+#: libraries/common.lib.php:3381
 msgid "Empty"
 msgstr "Hutsik"
 
-#: db_structure.php:670 db_tracking.php:106 libraries/Index.class.php:507
-#: libraries/common.lib.php:3379 libraries/common.lib.php:3380
-#: server_databases.php:299 tbl_structure.php:151 tbl_structure.php:152
-#: tbl_structure.php:563
+#: db_structure.php:679 db_tracking.php:106 libraries/Index.class.php:507
+#: libraries/common.lib.php:3378 libraries/common.lib.php:3379
+#: server_databases.php:300 tbl_structure.php:151 tbl_structure.php:152
+#: tbl_structure.php:564
 msgid "Drop"
 msgstr "Ezabatu"
 
-#: db_structure.php:672 tbl_operations.php:610
+#: db_structure.php:681 tbl_operations.php:622
 msgid "Check table"
 msgstr "Taula egiaztatu"
 
-#: db_structure.php:675 tbl_operations.php:667 tbl_structure.php:808
+#: db_structure.php:684 tbl_operations.php:679 tbl_structure.php:809
 msgid "Optimize table"
 msgstr "Taula optimizatu"
 
-#: db_structure.php:677 tbl_operations.php:652
+#: db_structure.php:686 tbl_operations.php:664
 msgid "Repair table"
 msgstr "Taula konpondu"
 
-#: db_structure.php:680 tbl_operations.php:637
+#: db_structure.php:689 tbl_operations.php:649
 msgid "Analyze table"
 msgstr "Taula aztertu"
 
-#: db_structure.php:682
+#: db_structure.php:691
 msgid "Add prefix to table"
 msgstr "Gehitu aurrizkia taulari"
 
-#: db_structure.php:684 libraries/mult_submits.inc.php:272
+#: db_structure.php:693 libraries/mult_submits.inc.php:279
 msgid "Replace table prefix"
 msgstr "Taularen aurrizkia aldatu"
 
-#: db_structure.php:686 libraries/mult_submits.inc.php:272
+#: db_structure.php:695 libraries/mult_submits.inc.php:279
 msgid "Copy table with prefix"
 msgstr "Taula aurrizkiarekin kopiatu"
 
-#: db_structure.php:715 libraries/schema/User_Schema.class.php:426
+#: db_structure.php:724 libraries/schema/User_Schema.class.php:426
 msgid "Data Dictionary"
 msgstr "Datu-hiztegia"
 
@@ -735,11 +735,11 @@ msgstr "Taulak jarraipenarekin"
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
 #: libraries/export/sql.php:609 libraries/export/texytext.php:69
 #: libraries/export/xml.php:293 libraries/header.inc.php:152
-#: libraries/header_printview.inc.php:59 server_databases.php:191
+#: libraries/header_printview.inc.php:59 server_databases.php:192
 #: server_privileges.php:1980 server_privileges.php:2043
 #: server_privileges.php:2306 server_status.php:1263
 #: server_synchronize.php:1358 server_synchronize.php:1362
-#: tbl_tracking.php:667
+#: tbl_tracking.php:673
 msgid "Database"
 msgstr "Datu-basea"
 
@@ -747,24 +747,24 @@ msgstr "Datu-basea"
 msgid "Last version"
 msgstr "Azken bertsioa"
 
-#: db_tracking.php:87 tbl_tracking.php:670
+#: db_tracking.php:87 tbl_tracking.php:676
 msgid "Created"
 msgstr "Sortua"
 
-#: db_tracking.php:88 tbl_tracking.php:671
+#: db_tracking.php:88 tbl_tracking.php:677
 msgid "Updated"
 msgstr "Eguneratua"
 
-#: db_tracking.php:89 js/messages.php:183 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:89 js/messages.php:185 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:78 libraries/server_links.inc.php:51
-#: server_status.php:1266 sql.php:961 tbl_tracking.php:672
+#: server_status.php:1266 sql.php:961 tbl_tracking.php:678
 msgid "Status"
 msgstr "Egoera"
 
 #: db_tracking.php:90 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
-#: server_databases.php:224 server_privileges.php:1829
+#: server_databases.php:225 server_privileges.php:1829
 #: server_privileges.php:2047 server_privileges.php:2394 tbl_structure.php:221
 msgid "Action"
 msgstr "Ekintza"
@@ -773,11 +773,11 @@ msgstr "Ekintza"
 msgid "Delete tracking data for this table"
 msgstr "Ezabatu taula honetako jarraipen datuak"
 
-#: db_tracking.php:123 tbl_tracking.php:624 tbl_tracking.php:682
+#: db_tracking.php:123 tbl_tracking.php:630 tbl_tracking.php:688
 msgid "active"
 msgstr "aktibo"
 
-#: db_tracking.php:125 tbl_tracking.php:626 tbl_tracking.php:684
+#: db_tracking.php:125 tbl_tracking.php:632 tbl_tracking.php:690
 msgid "not active"
 msgstr "ez aktibo"
 
@@ -785,11 +785,11 @@ msgstr "ez aktibo"
 msgid "Versions"
 msgstr "Bertsioak"
 
-#: db_tracking.php:141 tbl_tracking.php:434 tbl_tracking.php:702
+#: db_tracking.php:141 tbl_tracking.php:436 tbl_tracking.php:708
 msgid "Tracking report"
 msgstr "Jarraipen informea "
 
-#: db_tracking.php:142 tbl_tracking.php:254 tbl_tracking.php:704
+#: db_tracking.php:142 tbl_tracking.php:256 tbl_tracking.php:710
 msgid "Structure snapshot"
 msgstr "Egitura kaptura"
 
@@ -797,7 +797,7 @@ msgstr "Egitura kaptura"
 msgid "Untracked tables"
 msgstr "Jarraipen gabeko taulak"
 
-#: db_tracking.php:207 tbl_structure.php:629
+#: db_tracking.php:207 tbl_structure.php:630
 msgid "Track table"
 msgstr "Taularen jarraipena egin"
 
@@ -857,45 +857,45 @@ msgstr "Erabili OpenStreetMaps Oinarri geruza moduan"
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:151 js/messages.php:325
+#: gis_data_editor.php:151 js/messages.php:329
 #: libraries/display_tbl.lib.php:695
 msgid "Geometry"
 msgstr "Geometria"
 
-#: gis_data_editor.php:171 js/messages.php:321
+#: gis_data_editor.php:171 js/messages.php:325
 msgid "Point"
 msgstr "Puntu"
 
 #: gis_data_editor.php:172 gis_data_editor.php:196 gis_data_editor.php:244
-#: gis_data_editor.php:296 js/messages.php:319
+#: gis_data_editor.php:296 js/messages.php:323
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:174 gis_data_editor.php:198 gis_data_editor.php:246
-#: gis_data_editor.php:298 js/messages.php:320
+#: gis_data_editor.php:298 js/messages.php:324
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:194 gis_data_editor.php:242 gis_data_editor.php:294
-#: js/messages.php:322
+#: js/messages.php:326
 #, php-format
 msgid "Point %d"
 msgstr "%d puntua"
 
 #: gis_data_editor.php:203 gis_data_editor.php:249 gis_data_editor.php:301
-#: js/messages.php:328
+#: js/messages.php:332
 msgid "Add a point"
 msgstr "Puntua gehitu"
 
-#: gis_data_editor.php:219 js/messages.php:323
+#: gis_data_editor.php:219 js/messages.php:327
 msgid "Linestring"
 msgstr "Lerro kateak"
 
-#: gis_data_editor.php:222 gis_data_editor.php:278 js/messages.php:327
+#: gis_data_editor.php:222 gis_data_editor.php:278 js/messages.php:331
 msgid "Outer Ring"
 msgstr "Kanpo eraztuna"
 
-#: gis_data_editor.php:224 gis_data_editor.php:280 js/messages.php:326
+#: gis_data_editor.php:224 gis_data_editor.php:280 js/messages.php:330
 msgid "Inner Ring"
 msgstr "Barne eraztuna"
 
@@ -903,15 +903,15 @@ msgstr "Barne eraztuna"
 msgid "Add a linestring"
 msgstr "Lerro kate berria gehitu"
 
-#: gis_data_editor.php:251 gis_data_editor.php:303 js/messages.php:329
+#: gis_data_editor.php:251 gis_data_editor.php:303 js/messages.php:333
 msgid "Add an inner ring"
 msgstr "Gehitu barne eraztuna"
 
-#: gis_data_editor.php:265 js/messages.php:324
+#: gis_data_editor.php:265 js/messages.php:328
 msgid "Polygon"
 msgstr "Poligono"
 
-#: gis_data_editor.php:305 js/messages.php:330
+#: gis_data_editor.php:305 js/messages.php:334
 msgid "Add a polygon"
 msgstr "Gehitu poligonoa"
 
@@ -932,8 +932,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:216 import.php:443
@@ -998,8 +998,8 @@ msgstr ""
 
 #: import.php:496 libraries/Message.class.php:177
 #: libraries/display_tbl.lib.php:2402 libraries/rte/rte_routines.lib.php:1208
-#: libraries/sql_query_form.lib.php:114 tbl_operations.php:227
-#: tbl_relation.php:300 tbl_row_action.php:118 view_operations.php:60
+#: libraries/sql_query_form.lib.php:114 tbl_operations.php:237
+#: tbl_relation.php:300 tbl_row_action.php:119 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Zure SQL-kontsula arrakastaz burutu da"
 
@@ -1024,7 +1024,7 @@ msgstr "\"DROP DATABASE\" sententziak ezgaituta daude."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Benetan nahi al duzu "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:303 sql.php:373
+#: js/messages.php:31 libraries/mult_submits.inc.php:310 sql.php:373
 msgid "You are about to DESTROY a complete database!"
 msgstr "Datu-base osoa SUNTSITZERA zoaz!"
 
@@ -1108,14 +1108,14 @@ msgstr "Pribilegioak berkargatzen"
 msgid "Removing Selected Users"
 msgstr "Hautatutako erabiltzaileak baztertu"
 
-#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:254
-#: tbl_tracking.php:434
+#: js/messages.php:58 js/messages.php:137 tbl_tracking.php:256
+#: tbl_tracking.php:436
 msgid "Close"
 msgstr "Itxi"
 
-#: js/messages.php:61 js/messages.php:280 libraries/Index.class.php:485
+#: js/messages.php:61 js/messages.php:284 libraries/Index.class.php:485
 #: libraries/common.lib.php:649 libraries/common.lib.php:1230
-#: libraries/common.lib.php:3383 libraries/common.lib.php:3384
+#: libraries/common.lib.php:3382 libraries/common.lib.php:3383
 #: libraries/config/messages.inc.php:491 libraries/display_tbl.lib.php:1405
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1141,9 +1141,9 @@ msgstr "Datu estatikoak"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:161 server_databases.php:252
+#: libraries/engines/innodb.lib.php:161 server_databases.php:253
 #: server_status.php:1141 server_status.php:1210 tbl_printview.php:311
-#: tbl_structure.php:796
+#: tbl_structure.php:797
 msgid "Total"
 msgstr "Gutira"
 
@@ -1381,7 +1381,7 @@ msgstr ""
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:529 pmd_general.php:520
+#: libraries/tbl_properties.inc.php:533 pmd_general.php:523
 #: server_privileges.php:2196 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1512,602 +1512,624 @@ msgid "From general log"
 msgstr ""
 
 #: js/messages.php:172
+#, fuzzy
+msgid "Analysing logs"
+msgstr "Lokal"
+
+#: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: js/messages.php:173
+#: js/messages.php:174
 msgid "Cancel request"
 msgstr ""
 
-#: js/messages.php:174
+#: js/messages.php:175
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:175
+#: js/messages.php:176
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:176
+#: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:178
+#: js/messages.php:179
 #, fuzzy
 msgid "Jump to Log table"
 msgstr "Datu-baserik ez"
 
-#: js/messages.php:179
+#: js/messages.php:180
+#, fuzzy
+#| msgid "No databases"
+msgid "No data found"
+msgstr "Datu-baserik ez"
+
+#: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: js/messages.php:181
+#: js/messages.php:183
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
 msgstr "Aztertu"
 
-#: js/messages.php:182
+#: js/messages.php:184
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "SQL-a azaldu"
 
-#: js/messages.php:184 js/messages.php:515 libraries/export/htmlword.php:396
+#: js/messages.php:186 js/messages.php:519 libraries/export/htmlword.php:396
 #: libraries/export/odt.php:504 libraries/export/texytext.php:393
 #: libraries/rte/rte_list.lib.php:68 server_status.php:1265 sql.php:962
 msgid "Time"
 msgstr "Denbora"
 
-#: js/messages.php:185
+#: js/messages.php:187
 #, fuzzy
 #| msgid "Total"
 msgid "Total time:"
 msgstr "Gutira"
 
-#: js/messages.php:186
+#: js/messages.php:188
 #, fuzzy
 #| msgid "SQL result"
 msgid "Profiling results"
 msgstr "SQL emaitza"
 
-#: js/messages.php:187
+#: js/messages.php:189
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Taula"
 
-#: js/messages.php:188
+#: js/messages.php:190
 #, fuzzy
 #| msgid "Charset"
 msgid "Chart"
 msgstr "Karaktere-jokoa"
 
-#. l10n: A collection of available filters
 #: js/messages.php:191
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Edit chart"
+msgstr "Gehitu %s zutabe"
+
+#: js/messages.php:192
+#, fuzzy
+msgid "Series"
+msgstr "SQL kontsulta"
+
+#. l10n: A collection of available filters
+#: js/messages.php:195
 #, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
 msgstr "Taularen hobespenak"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:193
+#: js/messages.php:197
 msgid "Filter"
 msgstr ""
 
-#: js/messages.php:194
+#: js/messages.php:198
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:195
+#: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:196
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
 msgstr "Errenkada kopurua orriko"
 
-#: js/messages.php:197
+#: js/messages.php:201
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "Gutira"
 
-#: js/messages.php:199
+#: js/messages.php:203
 #, fuzzy
 msgid "Loading logs"
 msgstr "Lokal"
 
-#: js/messages.php:200
+#: js/messages.php:204
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:201
+#: js/messages.php:205
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:202
+#: js/messages.php:206
 #, fuzzy
 msgid "Reload page"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: js/messages.php:204
+#: js/messages.php:208
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:206
+#: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:207
+#: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
 
-#: js/messages.php:208 libraries/config/messages.inc.php:174
+#: js/messages.php:212 libraries/config/messages.inc.php:174
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:171
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:233 server_status.php:1634 setup/frames/menu.inc.php:21
+#: prefs_manage.php:237 server_status.php:1634 setup/frames/menu.inc.php:21
 #, fuzzy
 msgid "Import"
 msgstr "Esportatu"
 
-#: js/messages.php:209
+#: js/messages.php:213
 #, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
 msgstr "Konfiguratutako monitore lokal bateraezina"
 
-#: js/messages.php:210
+#: js/messages.php:214
 msgid "Please select the file you want to import"
 msgstr ""
 
-#: js/messages.php:212
+#: js/messages.php:216
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Kontsulta eguneratu"
 
-#: js/messages.php:216
+#: js/messages.php:220
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:217
+#: js/messages.php:221
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:218
+#: js/messages.php:222
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:219
+#: js/messages.php:223
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Dokumentazioa"
 
-#: js/messages.php:220
+#: js/messages.php:224
 msgid "Rule details"
 msgstr ""
 
-#: js/messages.php:221
+#: js/messages.php:225
 #, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
 msgstr "Dokumentazioa"
 
-#: js/messages.php:222
+#: js/messages.php:226
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:223
+#: js/messages.php:227
 msgid "Test"
 msgstr ""
 
-#: js/messages.php:228 pmd_general.php:398 pmd_general.php:435
-#: pmd_general.php:555 pmd_general.php:603 pmd_general.php:679
-#: pmd_general.php:733 pmd_general.php:796 pmd_general.php:827
+#: js/messages.php:232 pmd_general.php:401 pmd_general.php:438
+#: pmd_general.php:558 pmd_general.php:606 pmd_general.php:682
+#: pmd_general.php:736 pmd_general.php:799 pmd_general.php:830
 msgid "Cancel"
 msgstr ""
 
-#: js/messages.php:231
+#: js/messages.php:235
 #, fuzzy
 msgid "Loading"
 msgstr "Lokal"
 
-#: js/messages.php:232
+#: js/messages.php:236
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "Prozesuak"
 
-#: js/messages.php:233 libraries/rte/rte_export.lib.php:39
+#: js/messages.php:237 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:234 server_databases.php:88
+#: js/messages.php:238 server_databases.php:88
 msgid "No databases selected."
 msgstr "Ez dago datu-baserik aukeratuta."
 
-#: js/messages.php:235
+#: js/messages.php:239
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:236
+#: js/messages.php:240
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:237 pmd_general.php:396 pmd_general.php:553
-#: pmd_general.php:601 pmd_general.php:677 pmd_general.php:731
-#: pmd_general.php:794
+#: js/messages.php:241 pmd_general.php:399 pmd_general.php:556
+#: pmd_general.php:604 pmd_general.php:680 pmd_general.php:734
+#: pmd_general.php:797
 msgid "OK"
 msgstr "Zuzena"
 
-#: js/messages.php:238
+#: js/messages.php:242
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:241
+#: js/messages.php:245
 #, fuzzy
 msgid "Renaming Databases"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: js/messages.php:242
+#: js/messages.php:246
 #, fuzzy
 msgid "Reload Database"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: js/messages.php:243
+#: js/messages.php:247
 #, fuzzy
 msgid "Copying Database"
 msgstr "Datu-baserik ez"
 
-#: js/messages.php:244
+#: js/messages.php:248
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Karaktere-jokoa"
 
-#: js/messages.php:245
+#: js/messages.php:249
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
 msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu."
 
-#: js/messages.php:250
+#: js/messages.php:254
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Taulak erabili"
 
-#: js/messages.php:251
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
 msgstr "Indizeak"
 
-#: js/messages.php:252
+#: js/messages.php:256
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
 msgstr "Sareta erakutsi"
 
-#: js/messages.php:253 libraries/mult_submits.inc.php:313
+#: js/messages.php:257 libraries/mult_submits.inc.php:320
 msgid "Foreign key check:"
 msgstr ""
 
-#: js/messages.php:254 libraries/mult_submits.inc.php:317
+#: js/messages.php:258 libraries/mult_submits.inc.php:324
 #, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
 msgstr "Gaituta"
 
-#: js/messages.php:255 libraries/mult_submits.inc.php:317
+#: js/messages.php:259 libraries/mult_submits.inc.php:324
 #, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
 msgstr "Ezgaituta"
 
-#: js/messages.php:258
+#: js/messages.php:262
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Bilatu"
 
-#: js/messages.php:259
+#: js/messages.php:263
 #, fuzzy
 msgid "Hide search results"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:260
+#: js/messages.php:264
 #, fuzzy
 msgid "Show search results"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:261
+#: js/messages.php:265
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Arakatu"
 
-#: js/messages.php:262
+#: js/messages.php:266
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "%s ezabatzen"
 
-#: js/messages.php:265
+#: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:268 libraries/rte/rte_routines.lib.php:689
+#: js/messages.php:272 libraries/rte/rte_routines.lib.php:689
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET editorea"
 
-#: js/messages.php:269
+#: js/messages.php:273
 #, php-format
 msgid "Values for column %s"
 msgstr "%s zutaberako balioak"
 
-#: js/messages.php:270
+#: js/messages.php:274
 msgid "Values for a new column"
 msgstr "Zutabe berrirako balioak"
 
-#: js/messages.php:271
+#: js/messages.php:275
 msgid "Enter each value in a separate field"
 msgstr "Sartu balioak banatutako eremuetan"
 
-#: js/messages.php:272
+#: js/messages.php:276
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "Erabiltzaile berria gehitu"
 
-#: js/messages.php:275
+#: js/messages.php:279
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:278
+#: js/messages.php:282
 #, fuzzy
 msgid "Hide query box"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:279
+#: js/messages.php:283
 #, fuzzy
 msgid "Show query box"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:281 tbl_row_action.php:20
+#: js/messages.php:285 tbl_row_action.php:21
 msgid "No rows selected"
 msgstr ""
 
-#: js/messages.php:282 libraries/display_tbl.lib.php:2516 querywindow.php:87
-#: tbl_structure.php:150 tbl_structure.php:562
+#: js/messages.php:286 libraries/display_tbl.lib.php:2516 querywindow.php:88
+#: tbl_structure.php:150 tbl_structure.php:563
 msgid "Change"
 msgstr "Aldatu"
 
-#: js/messages.php:283
+#: js/messages.php:287
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:286 libraries/config/FormDisplay.tpl.php:355
+#: js/messages.php:290 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:355
-#: libraries/tbl_properties.inc.php:718 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:722 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:243 tbl_change.php:1071
 #: tbl_gis_visualization.php:186 tbl_indexes.php:281 tbl_relation.php:579
 msgid "Save"
 msgstr "Gorde"
 
-#: js/messages.php:289
+#: js/messages.php:293
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:290
+#: js/messages.php:294
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL kontsulta"
 
-#: js/messages.php:293 libraries/tbl_select.lib.php:113
+#: js/messages.php:297 libraries/tbl_select.lib.php:113
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "Bilatu"
 
-#: js/messages.php:295
+#: js/messages.php:299
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:297
+#: js/messages.php:301
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:299
+#: js/messages.php:303
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
 
-#: js/messages.php:301
+#: js/messages.php:305
 msgid "Click and drag the mouse to navigate the plot."
 msgstr ""
 
-#: js/messages.php:303
+#: js/messages.php:307
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 
-#: js/messages.php:305
+#: js/messages.php:309
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:307
+#: js/messages.php:311
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:309
+#: js/messages.php:313
 msgid "Strings are converted into integer for plotting"
 msgstr ""
 
-#: js/messages.php:311
+#: js/messages.php:315
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "Gehitu/ezabatu irizpide-zutabea"
 
-#: js/messages.php:312
+#: js/messages.php:316
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:313
+#: js/messages.php:317
 #, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
 msgstr "SQL emaitza"
 
-#: js/messages.php:314
+#: js/messages.php:318
 #, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
 msgstr "Edukinen taula"
 
-#: js/messages.php:317 tbl_change.php:333 tbl_indexes.php:229
+#: js/messages.php:321 tbl_change.php:333 tbl_indexes.php:229
 #: tbl_indexes.php:256
 msgid "Ignore"
 msgstr "Ezikusi"
 
-#: js/messages.php:318 libraries/display_tbl.lib.php:1406
+#: js/messages.php:322 libraries/display_tbl.lib.php:1406
 msgid "Copy"
 msgstr ""
 
-#: js/messages.php:333
+#: js/messages.php:337
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add columns"
 msgstr "Gehitu %s zutabe"
 
-#: js/messages.php:336
+#: js/messages.php:340
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:337
+#: js/messages.php:341
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:338
+#: js/messages.php:342
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:339 pmd_general.php:92 tbl_relation.php:561
+#: js/messages.php:343 pmd_general.php:92 tbl_relation.php:561
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Aukeratu erakutsi beharreko eremua"
 
-#: js/messages.php:340
+#: js/messages.php:344
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:343
+#: js/messages.php:347
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:346
+#: js/messages.php:350
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:347
+#: js/messages.php:351
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:348
+#: js/messages.php:352
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:349
+#: js/messages.php:353
 msgid "Click to sort"
 msgstr ""
 
-#: js/messages.php:350
+#: js/messages.php:354
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:351
+#: js/messages.php:355
 msgid "Double-click to copy column name"
 msgstr ""
 
-#: js/messages.php:352
+#: js/messages.php:356
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:354
+#: js/messages.php:358
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:355
+#: js/messages.php:359
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:356
+#: js/messages.php:360
 msgid "Go to link"
 msgstr ""
 
-#: js/messages.php:357
+#: js/messages.php:361
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
 msgstr "Zutabe izenak"
 
-#: js/messages.php:358
+#: js/messages.php:362
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:359
+#: js/messages.php:363
 #, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)"
 msgstr "Errenkadak erakusten"
 
-#: js/messages.php:362
+#: js/messages.php:366
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Pasahitza aldatu"
 
-#: js/messages.php:363 libraries/replication_gui.lib.php:369
+#: js/messages.php:367 libraries/replication_gui.lib.php:369
 #, fuzzy
 msgid "Generate"
 msgstr "Egilea:"
 
-#: js/messages.php:364
+#: js/messages.php:368
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Pasahitza aldatu"
 
-#: js/messages.php:367 tbl_structure.php:455
+#: js/messages.php:371 tbl_structure.php:456
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Astel"
 
-#: js/messages.php:370 setup/lib/index.lib.php:176
+#: js/messages.php:374 setup/lib/index.lib.php:176
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2115,30 +2137,30 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:372
+#: js/messages.php:376
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:373
+#: js/messages.php:377
 #, fuzzy
 msgid "up to date"
 msgstr "Datu-baserik ez"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:392
+#: js/messages.php:396
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Batez"
 
-#: js/messages.php:396
+#: js/messages.php:400
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Aurrekoa"
 
-#: js/messages.php:401
+#: js/messages.php:405
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2146,96 +2168,96 @@ msgid "Next"
 msgstr "Hurrengoa"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:404
+#: js/messages.php:408
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Gutira"
 
-#: js/messages.php:408
+#: js/messages.php:412
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binarioa "
 
-#: js/messages.php:409
+#: js/messages.php:413
 msgid "February"
 msgstr ""
 
-#: js/messages.php:410
+#: js/messages.php:414
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:411
+#: js/messages.php:415
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Api"
 
-#: js/messages.php:412
+#: js/messages.php:416
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:413
+#: js/messages.php:417
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Eka"
 
-#: js/messages.php:414
+#: js/messages.php:418
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Uzt"
 
-#: js/messages.php:415
+#: js/messages.php:419
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Abu"
 
-#: js/messages.php:416
+#: js/messages.php:420
 msgid "September"
 msgstr ""
 
-#: js/messages.php:417
+#: js/messages.php:421
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Urr"
 
-#: js/messages.php:418
+#: js/messages.php:422
 msgid "November"
 msgstr ""
 
-#: js/messages.php:419
+#: js/messages.php:423
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:426 libraries/common.lib.php:1642
+#: js/messages.php:430 libraries/common.lib.php:1642
 msgid "Jan"
 msgstr "Urt"
 
 #. l10n: Short month name
-#: js/messages.php:428 libraries/common.lib.php:1644
+#: js/messages.php:432 libraries/common.lib.php:1644
 msgid "Feb"
 msgstr "Ots"
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1646
+#: js/messages.php:434 libraries/common.lib.php:1646
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1648
+#: js/messages.php:436 libraries/common.lib.php:1648
 msgid "Apr"
 msgstr "Api"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1650
+#: js/messages.php:438 libraries/common.lib.php:1650
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2243,78 +2265,78 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/common.lib.php:1652
+#: js/messages.php:440 libraries/common.lib.php:1652
 msgid "Jun"
 msgstr "Eka"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/common.lib.php:1654
+#: js/messages.php:442 libraries/common.lib.php:1654
 msgid "Jul"
 msgstr "Uzt"
 
 #. l10n: Short month name
-#: js/messages.php:440 libraries/common.lib.php:1656
+#: js/messages.php:444 libraries/common.lib.php:1656
 msgid "Aug"
 msgstr "Abu"
 
 #. l10n: Short month name
-#: js/messages.php:442 libraries/common.lib.php:1658
+#: js/messages.php:446 libraries/common.lib.php:1658
 msgid "Sep"
 msgstr "Ira"
 
 #. l10n: Short month name
-#: js/messages.php:444 libraries/common.lib.php:1660
+#: js/messages.php:448 libraries/common.lib.php:1660
 msgid "Oct"
 msgstr "Urr"
 
 #. l10n: Short month name
-#: js/messages.php:446 libraries/common.lib.php:1662
+#: js/messages.php:450 libraries/common.lib.php:1662
 msgid "Nov"
 msgstr "Aza"
 
 #. l10n: Short month name
-#: js/messages.php:448 libraries/common.lib.php:1664
+#: js/messages.php:452 libraries/common.lib.php:1664
 msgid "Dec"
 msgstr "Abe"
 
-#: js/messages.php:454
+#: js/messages.php:458
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Iga"
 
-#: js/messages.php:455
+#: js/messages.php:459
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Astel"
 
-#: js/messages.php:456
+#: js/messages.php:460
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Astea"
 
-#: js/messages.php:457
+#: js/messages.php:461
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:458
+#: js/messages.php:462
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:459
+#: js/messages.php:463
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Osti"
 
-#: js/messages.php:460
+#: js/messages.php:464
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:467
+#: js/messages.php:471
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2322,113 +2344,113 @@ msgid "Sun"
 msgstr "Iga"
 
 #. l10n: Short week day name
-#: js/messages.php:469 libraries/common.lib.php:1669
+#: js/messages.php:473 libraries/common.lib.php:1669
 msgid "Mon"
 msgstr "Astel"
 
 #. l10n: Short week day name
-#: js/messages.php:471 libraries/common.lib.php:1671
+#: js/messages.php:475 libraries/common.lib.php:1671
 msgid "Tue"
 msgstr "Astea"
 
 #. l10n: Short week day name
-#: js/messages.php:473 libraries/common.lib.php:1673
+#: js/messages.php:477 libraries/common.lib.php:1673
 msgid "Wed"
 msgstr "Astez"
 
 #. l10n: Short week day name
-#: js/messages.php:475 libraries/common.lib.php:1675
+#: js/messages.php:479 libraries/common.lib.php:1675
 msgid "Thu"
 msgstr "Oste"
 
 #. l10n: Short week day name
-#: js/messages.php:477 libraries/common.lib.php:1677
+#: js/messages.php:481 libraries/common.lib.php:1677
 msgid "Fri"
 msgstr "Osti"
 
 #. l10n: Short week day name
-#: js/messages.php:479 libraries/common.lib.php:1679
+#: js/messages.php:483 libraries/common.lib.php:1679
 msgid "Sat"
 msgstr "Lar"
 
 #. l10n: Minimal week day name
-#: js/messages.php:486
+#: js/messages.php:490
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Iga"
 
 #. l10n: Minimal week day name
-#: js/messages.php:488
+#: js/messages.php:492
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Astel"
 
 #. l10n: Minimal week day name
-#: js/messages.php:490
+#: js/messages.php:494
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Astea"
 
 #. l10n: Minimal week day name
-#: js/messages.php:492
+#: js/messages.php:496
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Astez"
 
 #. l10n: Minimal week day name
-#: js/messages.php:494
+#: js/messages.php:498
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Oste"
 
 #. l10n: Minimal week day name
-#: js/messages.php:496
+#: js/messages.php:500
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Osti"
 
 #. l10n: Minimal week day name
-#: js/messages.php:498
+#: js/messages.php:502
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Lar"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:502
+#: js/messages.php:506
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:505
+#: js/messages.php:509
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:507
+#: js/messages.php:511
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Batez"
 
-#: js/messages.php:516
+#: js/messages.php:520
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:517
+#: js/messages.php:521
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "lanean"
 
-#: js/messages.php:518
+#: js/messages.php:522
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2456,20 +2478,20 @@ msgstr "orduko"
 msgid "per day"
 msgstr ""
 
-#: libraries/Config.class.php:886
+#: libraries/Config.class.php:905
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr ""
 
-#: libraries/Config.class.php:922
+#: libraries/Config.class.php:941
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.class.php:950
+#: libraries/Config.class.php:969
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1527
+#: libraries/Config.class.php:1546
 msgid "Font size"
 msgstr ""
 
@@ -2530,28 +2552,28 @@ msgid "No index defined!"
 msgstr "Ez dago indizerik definituta!"
 
 #: libraries/Index.class.php:435 libraries/Index.class.php:445
-#: libraries/build_html_for_db.lib.php:41 tbl_structure.php:683
-#: tbl_tracking.php:334
+#: libraries/build_html_for_db.lib.php:41 tbl_structure.php:684
+#: tbl_tracking.php:336
 msgid "Indexes"
 msgstr "Indizeak"
 
-#: libraries/Index.class.php:459 libraries/tbl_properties.inc.php:471
-#: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:566
-#: tbl_tracking.php:340
+#: libraries/Index.class.php:459 libraries/tbl_properties.inc.php:475
+#: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:567
+#: tbl_tracking.php:342
 msgid "Unique"
 msgstr "Bakarra"
 
-#: libraries/Index.class.php:460 tbl_tracking.php:341
+#: libraries/Index.class.php:460 tbl_tracking.php:343
 msgid "Packed"
 msgstr ""
 
-#: libraries/Index.class.php:462 tbl_tracking.php:343
+#: libraries/Index.class.php:462 tbl_tracking.php:345
 msgid "Cardinality"
 msgstr "Kardinalitatea"
 
 #: libraries/Index.class.php:465 libraries/rte/rte_events.lib.php:480
-#: libraries/rte/rte_routines.lib.php:956 tbl_tracking.php:282
-#: tbl_tracking.php:346
+#: libraries/rte/rte_routines.lib.php:956 tbl_tracking.php:284
+#: tbl_tracking.php:348
 #, fuzzy
 msgid "Comment"
 msgstr "Iruzkinak"
@@ -2573,14 +2595,14 @@ msgid ""
 msgstr ""
 
 #: libraries/List_Database.class.php:390 libraries/config/messages.inc.php:181
-#: libraries/server_links.inc.php:43 server_databases.php:133
+#: libraries/server_links.inc.php:43 server_databases.php:134
 #: server_privileges.php:1980
 msgid "Databases"
 msgstr "Datu-baseak"
 
 #: libraries/Message.class.php:196 libraries/common.lib.php:615
 #: libraries/core.lib.php:220 libraries/import.lib.php:142 tbl_change.php:942
-#: tbl_operations.php:227 tbl_relation.php:298 view_operations.php:60
+#: tbl_operations.php:237 tbl_relation.php:298 view_operations.php:60
 msgid "Error"
 msgstr "Errorea"
 
@@ -2704,17 +2726,17 @@ msgstr ""
 msgid "Default theme %s not found!"
 msgstr ""
 
-#: libraries/Theme_Manager.class.php:154
+#: libraries/Theme_Manager.class.php:156
 #, php-format
 msgid "Theme %s not found!"
 msgstr ""
 
-#: libraries/Theme_Manager.class.php:225
+#: libraries/Theme_Manager.class.php:227
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr ""
 
-#: libraries/Theme_Manager.class.php:307 themes.php:20 themes.php:27
+#: libraries/Theme_Manager.class.php:309 themes.php:20 themes.php:27
 msgid "Theme"
 msgstr ""
 
@@ -2723,7 +2745,7 @@ msgid "Cannot connect: invalid settings."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:88
-#: libraries/auth/cookie.auth.lib.php:190 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:191 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Ongietorriak %s(e)ra"
@@ -2731,8 +2753,8 @@ msgstr "Ongietorriak %s(e)ra"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:112
@@ -2751,62 +2773,62 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:203 libraries/header.inc.php:90
+#: libraries/auth/cookie.auth.lib.php:204 libraries/header.inc.php:90
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
 msgstr "Puntu honetarako cookie-ek gaituta egon behar dute."
 
-#: libraries/auth/cookie.auth.lib.php:222
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "Log in"
 msgstr "Hasi saioa"
 
-#: libraries/auth/cookie.auth.lib.php:224
-#: libraries/auth/cookie.auth.lib.php:226
+#: libraries/auth/cookie.auth.lib.php:225
+#: libraries/auth/cookie.auth.lib.php:227
 #: libraries/navigation_header.inc.php:80
 #: libraries/navigation_header.inc.php:82
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin dokumentazioa"
 
-#: libraries/auth/cookie.auth.lib.php:236
 #: libraries/auth/cookie.auth.lib.php:237
+#: libraries/auth/cookie.auth.lib.php:238
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:236
+#: libraries/auth/cookie.auth.lib.php:237
 msgid "Server:"
 msgstr "Zerbitzaria"
 
-#: libraries/auth/cookie.auth.lib.php:241
+#: libraries/auth/cookie.auth.lib.php:242
 msgid "Username:"
 msgstr "Erabiltzaile-izena:"
 
-#: libraries/auth/cookie.auth.lib.php:245
+#: libraries/auth/cookie.auth.lib.php:246
 msgid "Password:"
 msgstr "Pasahitza:"
 
-#: libraries/auth/cookie.auth.lib.php:252
+#: libraries/auth/cookie.auth.lib.php:253
 msgid "Server Choice"
 msgstr "Zerbitzariaren hautaketa"
 
-#: libraries/auth/cookie.auth.lib.php:298 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:299 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Puntu honetarako cookie-ek gaituta egon behar dute."
 
-#: libraries/auth/cookie.auth.lib.php:610
+#: libraries/auth/cookie.auth.lib.php:614
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:614
+#: libraries/auth/cookie.auth.lib.php:618
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:624
-#: libraries/auth/cookie.auth.lib.php:626
+#: libraries/auth/cookie.auth.lib.php:628
+#: libraries/auth/cookie.auth.lib.php:630
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Ezinezkoa MySql zerbitzarian saioa hastea"
@@ -2856,12 +2878,12 @@ msgstr "Taulak"
 #: libraries/config/user_preferences.forms.php:269
 #: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:686 server_replication.php:347 tbl_printview.php:277
-#: tbl_structure.php:765
+#: tbl_structure.php:766
 msgid "Data"
 msgstr "Datuak"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:296 tbl_structure.php:782
+#: tbl_printview.php:296 tbl_structure.php:783
 msgid "Overhead"
 msgstr "Arazteko hondakina"
 
@@ -2934,16 +2956,16 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
 #: libraries/common.inc.php:667 libraries/config/messages.inc.php:513
-#: libraries/header.inc.php:138 main.php:179 server_status.php:797
+#: libraries/header.inc.php:138 main.php:181 server_status.php:797
 #: server_synchronize.php:1338
 msgid "Server"
 msgstr "Zerbitzaria"
 
-#: libraries/common.inc.php:854
+#: libraries/common.inc.php:855
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:972
+#: libraries/common.inc.php:973
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s bertsiora edo handiago batera eguneratu beharko zenuke."
@@ -2977,7 +2999,7 @@ msgstr "en"
 #: libraries/common.lib.php:520 libraries/config/FormDisplay.tpl.php:140
 #: libraries/display_export.lib.php:238 libraries/engines/pbxt.lib.php:109
 #: libraries/relation.lib.php:78 libraries/sql_query_form.lib.php:398
-#: libraries/sql_query_form.lib.php:401 main.php:245 server_variables.php:139
+#: libraries/sql_query_form.lib.php:401 main.php:247 server_variables.php:139
 msgid "Documentation"
 msgstr "Dokumentazioa"
 
@@ -3114,64 +3136,64 @@ msgstr ""
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/common.lib.php:3149 libraries/common.lib.php:3156
-#: libraries/common.lib.php:3378 libraries/config/setup.forms.php:297
+#: libraries/common.lib.php:3148 libraries/common.lib.php:3155
+#: libraries/common.lib.php:3377 libraries/config/setup.forms.php:297
 #: libraries/config/setup.forms.php:334 libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:590 pmd_general.php:155
-#: server_privileges.php:686 server_replication.php:346 tbl_tracking.php:272
+#: libraries/tbl_properties.inc.php:594 pmd_general.php:155
+#: server_privileges.php:686 server_replication.php:346 tbl_tracking.php:274
 msgid "Structure"
 msgstr "Egitura"
 
-#: libraries/common.lib.php:3150 libraries/common.lib.php:3157
+#: libraries/common.lib.php:3149 libraries/common.lib.php:3156
 #: libraries/config/messages.inc.php:218 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
-#: querywindow.php:64
+#: querywindow.php:65
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3152 libraries/common.lib.php:3376
-#: libraries/common.lib.php:3377 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3151 libraries/common.lib.php:3375
+#: libraries/common.lib.php:3376 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Txertatu"
 
-#: libraries/common.lib.php:3159 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3158 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Eragiketak"
 
-#: libraries/common.lib.php:3310 libraries/sql_query_form.lib.php:449
-#: prefs_manage.php:243
+#: libraries/common.lib.php:3309 libraries/sql_query_form.lib.php:449
+#: prefs_manage.php:247
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:3329
+#: libraries/common.lib.php:3328
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Fitxategiak igotzeko web-zerbitzariaren direktorioa"
 
-#: libraries/common.lib.php:3350 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3349 libraries/sql_query_form.lib.php:458
 #: tbl_change.php:943
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Igoerentzat ezarri duzun direktorioa ez dago eskuragarri"
 
-#: libraries/common.lib.php:3359
+#: libraries/common.lib.php:3358
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:3387 libraries/common.lib.php:3388
+#: libraries/common.lib.php:3386 libraries/common.lib.php:3387
 msgid "Execute"
 msgstr ""
 
-#: libraries/common.lib.php:3867
+#: libraries/common.lib.php:3883
 msgid "Print"
 msgstr "Inprimatu"
 
@@ -3204,7 +3226,7 @@ msgstr "Itxi gabeko komatxoak"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
-#: pmd_relation_new.php:68
+#: pmd_relation_new.php:69
 msgid "Disabled"
 msgstr "Ezgaituta"
 
@@ -3265,76 +3287,76 @@ msgid "neither of the above"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:83
-#: libraries/config/validate.lib.php:440
+#: libraries/config/validate.lib.php:441
 msgid "Not a positive number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:84
-#: libraries/config/validate.lib.php:452
+#: libraries/config/validate.lib.php:453
 msgid "Not a non-negative number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:85
-#: libraries/config/validate.lib.php:428
+#: libraries/config/validate.lib.php:429
 msgid "Not a valid port number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:86
-#: libraries/config/FormDisplay.class.php:550
-#: libraries/config/validate.lib.php:380 libraries/config/validate.lib.php:467
+#: libraries/config/FormDisplay.class.php:552
+#: libraries/config/validate.lib.php:380 libraries/config/validate.lib.php:468
 msgid "Incorrect value"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:87
-#: libraries/config/validate.lib.php:481
+#: libraries/config/validate.lib.php:482
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:513
+#: libraries/config/FormDisplay.class.php:514
 #, php-format
 msgid "Missing data for %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:713
-#: libraries/config/FormDisplay.class.php:717
+#: libraries/config/FormDisplay.class.php:715
+#: libraries/config/FormDisplay.class.php:719
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "Aldagaia"
 
-#: libraries/config/FormDisplay.class.php:714
-#: libraries/config/FormDisplay.class.php:719
+#: libraries/config/FormDisplay.class.php:716
+#: libraries/config/FormDisplay.class.php:721
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:735
+#: libraries/config/FormDisplay.class.php:737
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:741
+#: libraries/config/FormDisplay.class.php:743
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:749
+#: libraries/config/FormDisplay.class.php:751
 msgid "SQL Validator is disabled"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:756
+#: libraries/config/FormDisplay.class.php:758
 #, fuzzy
 #| msgid "Link not found"
 msgid "SOAP extension not found"
 msgstr "Esteka aurkitugabea"
 
-#: libraries/config/FormDisplay.class.php:764
+#: libraries/config/FormDisplay.class.php:767
 #, php-format
 msgid "maximum %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.tpl.php:141 main.php:246
+#: libraries/config/FormDisplay.tpl.php:141 main.php:248
 msgid "Wiki"
 msgstr ""
 
@@ -3357,8 +3379,8 @@ msgid "Allow users to customize this value"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:356
-#: libraries/schema/User_Schema.class.php:511 prefs_manage.php:322
-#: prefs_manage.php:327 tbl_change.php:1120
+#: libraries/schema/User_Schema.class.php:511 prefs_manage.php:326
+#: prefs_manage.php:331 tbl_change.php:1120
 msgid "Reset"
 msgstr "Reset egin"
 
@@ -3629,7 +3651,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr ""
 
-#: libraries/config/messages.inc.php:74 prefs_manage.php:301
+#: libraries/config/messages.inc.php:74 prefs_manage.php:305
 msgid "Save as file"
 msgstr "Bidali"
 
@@ -3639,7 +3661,7 @@ msgid "Character set of the file"
 msgstr "Fitxategiaren karaktereen kodeketa:"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: tbl_gis_visualization.php:174 tbl_printview.php:336 tbl_structure.php:834
+#: tbl_gis_visualization.php:174 tbl_printview.php:336 tbl_structure.php:835
 msgid "Format"
 msgstr "Formatoa"
 
@@ -5313,8 +5335,8 @@ msgid ""
 "kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:501 tbl_tracking.php:479
-#: tbl_tracking.php:536
+#: libraries/config/messages.inc.php:501 tbl_tracking.php:481
+#: tbl_tracking.php:540
 #, fuzzy
 msgid "Username"
 msgstr "Erabiltzaile-izena:"
@@ -5538,7 +5560,7 @@ msgstr ""
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 
-#: libraries/config/validate.lib.php:387
+#: libraries/config/validate.lib.php:388
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
@@ -5556,6 +5578,315 @@ msgstr ""
 
 #: libraries/core.lib.php:428
 msgid "possible deep recursion attack"
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:238
+msgid "Most common integer."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:239
+msgid "Larger-range integer."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:240
+msgid "Fixed precision number."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:241
+msgid "Systems native double type."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:242
+msgid "True or false."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:243
+msgid ""
+"A number is inserted in increasing order as rows are inserted into the table."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:244
+msgid "Stores Universally Unique Identifiers (UUID)."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:245
+#, fuzzy
+#| msgid "Data only"
+msgid "Dates only."
+msgstr "Datuak soilik"
+
+#: libraries/data_drizzle.inc.php:246 libraries/data_drizzle.inc.php:247
+msgid "Both date and time."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:248
+msgid "Time of day."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:249 libraries/data_drizzle.inc.php:251
+msgid "Variable length data."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:250
+msgid "Data which is over XXX in size"
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:252
+msgid ""
+"Data which is over XXX in size. Uses a binary collation for all index usage."
+msgstr ""
+
+#: libraries/data_drizzle.inc.php:253
+msgid "Static lists of strings."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:298
+msgid ""
+"A very small integer. The signed range is -128 to 127. The unsigned range is "
+"0 to 255."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:299
+msgid ""
+"A small integer. The signed range is -32768 to 32767. The unsigned range is "
+"0 to 65535."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:300
+msgid ""
+"A medium-sized integer. The signed range is -8388608 to 8388607. The "
+"unsigned range is 0 to 16777215."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:301
+msgid ""
+"A normal-size integer. The signed range is -2147483648 to 2147483647. The "
+"unsigned range is 0 to 4294967295."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:302
+msgid ""
+"A large integer. The signed range is -9223372036854775808 to "
+"9223372036854775807. The unsigned range is 0 to 18446744073709551615."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:303
+msgid ""
+"A packed \"exact\" fixed-point number. The maximum number of digits (M) for "
+"DECIMAL is 65. The maximum number of supported decimals (D) is 30. If D is "
+"omitted, the default is 0. If M is omitted, the default is 10."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:304
+msgid ""
+"A small (single-precision) floating-point number. Allowable values are "
+"-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E"
+"+38."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:305
+msgid ""
+"A normal-size (double-precision) floating-point number. Allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"2.2250738585072014E-308 to 1.7976931348623157E+308."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:306
+msgid ""
+"Synonyms for DOUBLE. Exception: If the REAL_AS_FLOAT SQL mode is enabled, "
+"REAL is a synonym for FLOAT rather than DOUBLE."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:307
+msgid ""
+"A bit-field type. M indicates the number of bits per value, from 1 to 64. "
+"The default is 1 if M is omitted."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:308
+msgid ""
+"These types are synonyms for TINYINT(1). A value of zero is considered "
+"false. Nonzero values are considered true."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:309
+msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:310
+msgid ""
+"A date. The supported range is '1000-01-01' to '9999-12-31'. MySQL displays "
+"DATE values in 'YYYY-MM-DD' format, but allows assignment of values to DATE "
+"columns using either strings or numbers."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:311
+msgid ""
+"A date and time combination. The supported range is '1000-01-01 00:00:00' to "
+"'9999-12-31 23:59:59'. MySQL displays DATETIME values in 'YYYY-MM-DD HH:MM:"
+"SS' format, but allows assignment of values to DATETIME columns using either "
+"strings or numbers."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:312
+msgid ""
+"A timestamp. The range is '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' "
+"UTC. TIMESTAMP values are stored as the number of seconds since the epoch "
+"('1970-01-01 00:00:00' UTC)."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:313
+msgid ""
+"A time. The range is '-838:59:59' to '838:59:59'. MySQL displays TIME values "
+"in 'HH:MM:SS' format, but allows assignment of values to TIME columns using "
+"either strings or numbers."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:314
+msgid ""
+"A year in two-digit or four-digit format. The default is four-digit format. "
+"In four-digit format, the allowable values are 1901 to 2155, and 0000. In "
+"two-digit format, the allowable values are 70 to 69, representing years from "
+"1970 to 2069."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:315
+msgid ""
+"A fixed-length string that is always right-padded with spaces to the "
+"specified length when stored. M represents the column length in characters. "
+"The range of M is 0 to 255. If M is omitted, the length is 1."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:316
+msgid ""
+"A variable-length string. M represents the maximum column length in "
+"characters. The range of M is 0 to 65,535."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:317
+msgid ""
+"A TEXT column with a maximum length of 255 (28 - 1) characters. Each "
+"TINYTEXT value is stored using a one-byte length prefix that indicates the "
+"number of bytes in the value."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:318
+msgid ""
+"A TEXT column with a maximum length of 65,535 (216 - 1) characters. Each "
+"TEXT value is stored using a two-byte length prefix that indicates the "
+"number of bytes in the value."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:319
+msgid ""
+"A TEXT column with a maximum length of 16,777,215 (224 - 1) characters. Each "
+"MEDIUMTEXT value is stored using a three-byte length prefix that indicates "
+"the number of bytes in the value."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:320
+msgid ""
+"A TEXT column with a maximum length of 4,294,967,295 or 4GB (232 - 1) "
+"characters. Each LONGTEXT value is stored using a four-byte length prefix "
+"that indicates the number of bytes in the value."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:321
+msgid ""
+"The BINARY type is similar to the CHAR type, but stores binary byte strings "
+"rather than non-binary character strings. M represents the column length in "
+"bytes."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:322
+msgid ""
+"The VARBINARY type is similar to the VARCHAR type, but stores binary byte "
+"strings rather than non-binary character strings. M represents the maximum "
+"column length in bytes."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:323
+msgid ""
+"A BLOB column with a maximum length of 255 (28 - 1) bytes. Each TINYBLOB "
+"value is stored using a one-byte length prefix that indicates the number of "
+"bytes in the value."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:324
+msgid ""
+"A BLOB column with a maximum length of 16,777,215 (224 - 1) bytes. Each "
+"MEDIUMBLOB value is stored using a three-byte length prefix that indicates "
+"the number of bytes in the value."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:325
+msgid ""
+"A BLOB column with a maximum length of 65,535 (216 - 1) bytes. Each BLOB "
+"value is stored using a two-byte length prefix that indicates the number of "
+"bytes in the value."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:326
+msgid ""
+"A BLOB column with a maximum length of 4,294,967,295 or 4GB (232 - 1) bytes. "
+"Each LONGBLOB value is stored using a four-byte length prefix that indicates "
+"the number of bytes in the value."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:327
+msgid ""
+"An enumeration. A string object that can have only one value, chosen from "
+"the list of values 'value1', 'value2', ..., NULL or the special '' error "
+"value. An ENUM column can have a maximum of 65,535 distinct values."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:328
+msgid ""
+"A set. A string object that can have zero or more values, each of which must "
+"be chosen from the list of values 'value1', 'value2', ... A SET column can "
+"have a maximum of 64 members."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:330
+msgid "Constructs a WKB Point using its coordinates."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:331
+msgid ""
+"Constructs a WKB LineString value from a number of WKB Point arguments. If "
+"any argument is not a WKB Point, the return value is NULL. If the number of "
+"Point arguments is less than two, the return value is NULL."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:332
+msgid ""
+"Constructs a WKB Polygon value from a number of WKB LineString arguments. If "
+"any argument does not represent the WKB of a LinearRing (that is, not a "
+"closed and simple LineString) the return value is NULL."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:333
+msgid ""
+"Constructs a WKB MultiPoint value using WKB Point arguments. If any argument "
+"is not a WKB Point, the return value is NULL."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:334
+msgid ""
+"Constructs a WKB MultiLineString value using WKB LineString arguments. If "
+"any argument is not a WKB LineString, the return value is NULL."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:335
+msgid ""
+"Constructs a WKB MultiPolygon value from a set of WKB Polygon arguments. If "
+"any argument is not a WKB Polygon, the return value is NULL."
+msgstr ""
+
+#: libraries/data_mysql.inc.php:336
+msgid ""
+"Constructs a WKB GeometryCollection. If any argument is not a well-formed "
+"WKB representation of a geometry, the return value is NULL."
 msgstr ""
 
 #: libraries/database_interface.lib.php:1835
@@ -5627,7 +5958,7 @@ msgstr ""
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/display_change_password.lib.php:29 main.php:103
+#: libraries/display_change_password.lib.php:29 main.php:105
 #: user_password.php:202
 msgid "Change password"
 msgstr "Pasahitza aldatu"
@@ -5798,8 +6129,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:285
@@ -5807,7 +6138,7 @@ msgid "use this for future exports"
 msgstr ""
 
 #: libraries/display_export.lib.php:291 libraries/display_import.lib.php:233
-#: libraries/display_import.lib.php:246 libraries/sql_query_form.lib.php:474
+#: libraries/display_import.lib.php:247 libraries/sql_query_form.lib.php:474
 msgid "Character set of the file:"
 msgstr "Fitxategiaren karaktereen kodeketa:"
 
@@ -5841,7 +6172,7 @@ msgstr "\"Bzip-ez trinkotua\""
 msgid "View output as text"
 msgstr "Bidali"
 
-#: libraries/display_export.lib.php:343 libraries/display_import.lib.php:289
+#: libraries/display_export.lib.php:343 libraries/display_import.lib.php:290
 #: libraries/export/codegen.php:38
 #, fuzzy
 #| msgid "Format"
@@ -5860,29 +6191,29 @@ msgid ""
 "options for other formats."
 msgstr ""
 
-#: libraries/display_export.lib.php:357 libraries/display_import.lib.php:304
+#: libraries/display_export.lib.php:357 libraries/display_import.lib.php:305
 msgid "Encoding Conversion:"
 msgstr ""
 
-#: libraries/display_git_revision.lib.php:46
+#: libraries/display_git_revision.lib.php:48
 #, php-format
 msgid "%1$s from %2$s branch"
 msgstr ""
 
-#: libraries/display_git_revision.lib.php:48
+#: libraries/display_git_revision.lib.php:50
 msgid "no branch"
 msgstr ""
 
-#: libraries/display_git_revision.lib.php:54
+#: libraries/display_git_revision.lib.php:57
 msgid "Git revision"
 msgstr ""
 
-#: libraries/display_git_revision.lib.php:57
+#: libraries/display_git_revision.lib.php:60
 #, fuzzy, php-format
 msgid "committed on %1$s by %2$s"
 msgstr "Zerbitzariaren bertsioa"
 
-#: libraries/display_git_revision.lib.php:64
+#: libraries/display_git_revision.lib.php:68
 #, fuzzy, php-format
 msgid "authored on %1$s by %2$s"
 msgstr "Zerbitzariaren bertsioa"
@@ -5961,30 +6292,30 @@ msgstr ""
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/display_import.lib.php:253
+#: libraries/display_import.lib.php:254
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
 msgstr "Testu partzialak"
 
-#: libraries/display_import.lib.php:259
+#: libraries/display_import.lib.php:260
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: libraries/display_import.lib.php:266
+#: libraries/display_import.lib.php:267
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
 
-#: libraries/display_import.lib.php:273
+#: libraries/display_import.lib.php:274
 msgid "Number of rows to skip, starting from the first row:"
 msgstr ""
 
-#: libraries/display_import.lib.php:295
+#: libraries/display_import.lib.php:296
 msgid "Format-Specific Options:"
 msgstr ""
 
@@ -6056,11 +6387,11 @@ msgstr "Gakoaren arabera ordenatu"
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
 #: libraries/import.lib.php:1144 libraries/import.lib.php:1167
-#: libraries/import/csv.php:33 libraries/import/docsql.php:35
+#: libraries/import/csv.php:33 libraries/import/docsql.php:36
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:23 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:862
-#: tbl_select.php:199 tbl_structure.php:850
+#: tbl_select.php:199 tbl_structure.php:851
 #, fuzzy
 msgid "Options"
 msgstr "Eragiketak"
@@ -6163,7 +6494,7 @@ msgstr "Zerbitzariaren bertsioa"
 msgid "Link not found"
 msgstr "Esteka aurkitugabea"
 
-#: libraries/engines/bdb.lib.php:23 main.php:244
+#: libraries/engines/bdb.lib.php:23 main.php:246
 #, fuzzy
 msgid "Version information"
 msgstr "Saioa hasteko informazioa"
@@ -6457,8 +6788,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:130
@@ -6912,21 +7243,21 @@ msgid ""
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/import/csv.php:191 libraries/import/csv.php:451
+#: libraries/import/csv.php:191 libraries/import/csv.php:453
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/import/csv.php:337
+#: libraries/import/csv.php:339
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/import/docsql.php:28
+#: libraries/import/docsql.php:29
 msgid "DocSQL"
 msgstr ""
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
+#: libraries/import/docsql.php:33 libraries/tbl_properties.inc.php:571
 #: server_synchronize.php:455 server_synchronize.php:967
 msgid "Table name"
 msgstr ""
@@ -6999,36 +7330,36 @@ msgstr "Batez"
 msgid "Convert to Kana"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:275
+#: libraries/mult_submits.inc.php:282
 #, fuzzy
 #| msgid "Fri"
 msgid "From"
 msgstr "Osti"
 
-#: libraries/mult_submits.inc.php:278
+#: libraries/mult_submits.inc.php:285
 msgid "To"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:283 libraries/mult_submits.inc.php:296
+#: libraries/mult_submits.inc.php:290 libraries/mult_submits.inc.php:303
 #: libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Bidali"
 
-#: libraries/mult_submits.inc.php:288
+#: libraries/mult_submits.inc.php:295
 msgid "Add table prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:291
+#: libraries/mult_submits.inc.php:298
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:305
+#: libraries/mult_submits.inc.php:312
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
 msgstr "Benetan nahi al duzu "
 
-#: libraries/mult_submits.inc.php:525 tbl_replace.php:335
+#: libraries/mult_submits.inc.php:532 tbl_replace.php:335
 msgid "No change"
 msgstr "Aldaketarik ez"
 
@@ -7260,7 +7591,7 @@ msgid "Enabled"
 msgstr "Gaituta"
 
 #: libraries/relation.lib.php:88 libraries/relation.lib.php:100
-#: pmd_relation_new.php:68
+#: pmd_relation_new.php:69
 msgid "General relation features"
 msgstr "Erlazioen ezaaugarri orokorrak"
 
@@ -7292,7 +7623,7 @@ msgstr ""
 msgid "Bookmarked SQL query"
 msgstr "Kontsulta gogokoetan gordea"
 
-#: libraries/relation.lib.php:128 querywindow.php:74 querywindow.php:174
+#: libraries/relation.lib.php:128 querywindow.php:75 querywindow.php:176
 msgid "SQL history"
 msgstr "SQL-historia"
 
@@ -7377,9 +7708,9 @@ msgstr "Aldagaia"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
-#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
-#: pmd_general.php:785 server_status.php:1504 tbl_change.php:367
-#: tbl_printview.php:330 tbl_structure.php:826 tbl_zoom_select.php:452
+#: pmd_general.php:489 pmd_general.php:548 pmd_general.php:671
+#: pmd_general.php:788 server_status.php:1504 tbl_change.php:367
+#: tbl_printview.php:330 tbl_structure.php:827 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "balioa"
 
@@ -7935,7 +8266,7 @@ msgstr "Atributuak"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1313
 #: libraries/schema/Pdf_Relation_Schema.class.php:1334 tbl_structure.php:209
-#: tbl_tracking.php:281
+#: tbl_tracking.php:283
 msgid "Extra"
 msgstr "Extra"
 
@@ -8038,12 +8369,12 @@ msgid "Toggle scratchboard"
 msgstr "Aldatu \"scratchboard\"-a"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:493
+#: libraries/select_lang.lib.php:495
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:511 libraries/select_lang.lib.php:520
-#: libraries/select_lang.lib.php:529
+#: libraries/select_lang.lib.php:513 libraries/select_lang.lib.php:522
+#: libraries/select_lang.lib.php:531
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr ""
@@ -8128,7 +8459,7 @@ msgstr "SQL kontsulta(k) exekutatu %s datu-basean"
 msgid "Run SQL query/queries on database %s"
 msgstr "SQL kontsulta(k) exekutatu %s datu-basean"
 
-#: libraries/sql_query_form.lib.php:267 navigation.php:259
+#: libraries/sql_query_form.lib.php:267 navigation.php:260
 #: setup/frames/index.inc.php:247
 msgid "Clear"
 msgstr ""
@@ -8218,23 +8549,23 @@ msgstr "IRAULKETAREN HASIERA"
 msgid "END RAW"
 msgstr "IRAULKETAREN AMAIERA"
 
-#: libraries/sqlparser.lib.php:383
+#: libraries/sqlparser.lib.php:384
 msgid "Automatically appended backtick to the end of query!"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:386
+#: libraries/sqlparser.lib.php:387
 msgid "Unclosed quote"
 msgstr "Itxi gabeko komatxoak"
 
-#: libraries/sqlparser.lib.php:538
+#: libraries/sqlparser.lib.php:539
 msgid "Invalid Identifer"
 msgstr "Indentifikatzaile okerra"
 
-#: libraries/sqlparser.lib.php:654
+#: libraries/sqlparser.lib.php:655
 msgid "Unknown Punctuation String"
 msgstr "Puntuazio ikurra ezezaguna"
 
-#: libraries/sqlvalidator.lib.php:67
+#: libraries/sqlvalidator.lib.php:68
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
@@ -8281,9 +8612,9 @@ msgstr ""
 "Lehenetsitako balioak erabiltzeko, mesedez sartu balio bakar bat, komatxo "
 "edota alderantzikaturiko barrarik gabe, formato hau erabiliz: a"
 
-#: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:477
+#: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:481
 #: tbl_printview.php:286 tbl_structure.php:154 tbl_structure.php:159
-#: tbl_structure.php:567 tbl_structure.php:773
+#: tbl_structure.php:568 tbl_structure.php:774
 msgid "Index"
 msgstr "Indizea"
 
@@ -8331,40 +8662,40 @@ msgstr "Batez"
 msgid "As defined:"
 msgstr "Honela definitua:"
 
-#: libraries/tbl_properties.inc.php:465 tbl_structure.php:153
-#: tbl_structure.php:158 tbl_structure.php:565
+#: libraries/tbl_properties.inc.php:469 tbl_structure.php:153
+#: tbl_structure.php:158 tbl_structure.php:566
 msgid "Primary"
 msgstr "Lehen mailakoa"
 
-#: libraries/tbl_properties.inc.php:484 tbl_structure.php:157
-#: tbl_structure.php:162 tbl_structure.php:574
+#: libraries/tbl_properties.inc.php:488 tbl_structure.php:157
+#: tbl_structure.php:162 tbl_structure.php:575
 msgid "Fulltext"
 msgstr "Testu osoa"
 
-#: libraries/tbl_properties.inc.php:573 tbl_structure.php:642
+#: libraries/tbl_properties.inc.php:577 tbl_structure.php:643
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "Gehitu %s zutabe"
 
-#: libraries/tbl_properties.inc.php:575 tbl_structure.php:636
+#: libraries/tbl_properties.inc.php:579 tbl_structure.php:637
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
 msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu."
 
-#: libraries/tbl_properties.inc.php:663 server_engines.php:47
-#: tbl_operations.php:372
+#: libraries/tbl_properties.inc.php:667 server_engines.php:47
+#: tbl_operations.php:382
 msgid "Storage Engine"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:697
+#: libraries/tbl_properties.inc.php:701
 msgid "PARTITION definition"
 msgstr ""
 
-#: libraries/tbl_select.lib.php:89 pmd_general.php:497 pmd_general.php:517
-#: pmd_general.php:639 pmd_general.php:652 pmd_general.php:715
-#: pmd_general.php:769
+#: libraries/tbl_select.lib.php:89 pmd_general.php:500 pmd_general.php:520
+#: pmd_general.php:642 pmd_general.php:655 pmd_general.php:718
+#: pmd_general.php:772
 #, fuzzy
 msgid "Operator"
 msgstr "Eragiketak"
@@ -8543,7 +8874,7 @@ msgstr ""
 msgid "Manage your settings"
 msgstr "Erlazioen ezaaugarri orokorrak"
 
-#: libraries/user_preferences.inc.php:50 prefs_manage.php:293
+#: libraries/user_preferences.inc.php:50 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
@@ -8575,97 +8906,97 @@ msgstr ""
 msgid "Error in ZIP archive:"
 msgstr ""
 
-#: main.php:74
+#: main.php:75
 #, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
 msgstr "Erlazioen ezaaugarri orokorrak"
 
-#: main.php:118
+#: main.php:120
 msgid "Server connection collation"
 msgstr ""
 
-#: main.php:132
+#: main.php:134
 msgid "Appearance Settings"
 msgstr ""
 
-#: main.php:161 prefs_manage.php:276
+#: main.php:163 prefs_manage.php:280
 #, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
 msgstr "Erlazioen ezaaugarri orokorrak"
 
-#: main.php:177
+#: main.php:179
 #, fuzzy
 #| msgid "Databases"
 msgid "Database server"
 msgstr "Datu-baseak"
 
-#: main.php:180
+#: main.php:182
 msgid "Software"
 msgstr ""
 
-#: main.php:181
+#: main.php:183
 #, fuzzy
 #| msgid "Server version"
 msgid "Software version"
 msgstr "Zerbitzariaren bertsioa"
 
-#: main.php:183
+#: main.php:185
 msgid "Protocol version"
 msgstr ""
 
-#: main.php:187 server_privileges.php:1668 server_privileges.php:1823
+#: main.php:189 server_privileges.php:1668 server_privileges.php:1823
 #: server_privileges.php:1970 server_privileges.php:2389
 #: server_status.php:1261
 msgid "User"
 msgstr "Erabiltzailea"
 
-#: main.php:192
+#: main.php:194
 #, fuzzy
 msgid "Server charset"
 msgstr "Zerbitzariaren hautaketa"
 
-#: main.php:204
+#: main.php:206
 msgid "Web server"
 msgstr ""
 
-#: main.php:217
+#: main.php:219
 #, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version"
 msgstr "Datu-basearen iruzkina: "
 
-#: main.php:221
+#: main.php:223
 #, fuzzy
 msgid "PHP extension"
 msgstr "PHP Bertsioa"
 
-#: main.php:229
+#: main.php:231
 msgid "Show PHP information"
 msgstr "PHP informazioa erakutsi"
 
-#: main.php:249
+#: main.php:251
 msgid "Official Homepage"
 msgstr "phpMyAdmin-en webgune ofiziala"
 
-#: main.php:250
+#: main.php:252
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Atributuak"
 
-#: main.php:251
+#: main.php:253
 msgid "Get support"
 msgstr ""
 
-#: main.php:252
+#: main.php:254
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Aldaketarik ez"
 
-#: main.php:276
+#: main.php:279
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -8677,21 +9008,21 @@ msgstr ""
 "lehenetsitako balio hauekin ari da lanean; atzipen-saiakera arrotzei irekita "
 "beraz. Segurtasun-zulo hau konpondu beharko zenuke."
 
-#: main.php:284
+#: main.php:287
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: main.php:292
+#: main.php:295
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 
-#: main.php:300
+#: main.php:303
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
@@ -8699,26 +9030,26 @@ msgid ""
 "sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:307
+#: main.php:310
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: main.php:315
+#: main.php:319
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Konfigurazio-fitxategiak orain ezkutuko pasahitz bat behar du "
 "(blowfish_secret)."
 
-#: main.php:323
+#: main.php:327
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
 
-#: main.php:329
+#: main.php:333
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -8730,37 +9061,37 @@ msgstr ""
 "Estekatutako taulekin lan egiteko hobespen gehigarriak ezgaitu dira . "
 "Zergatia jakiteko egizu klik %shemen%s."
 
-#: main.php:354
+#: main.php:358
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: main.php:377
+#: main.php:381
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
 
-#: navigation.php:175 server_databases.php:314 server_synchronize.php:1375
+#: navigation.php:175 server_databases.php:315 server_synchronize.php:1375
 msgid "No databases"
 msgstr "Datu-baserik ez"
 
-#: navigation.php:260
+#: navigation.php:261
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter tables by name"
 msgstr "Taularen \"Order By\" aldatu"
 
-#: navigation.php:293 navigation.php:294
+#: navigation.php:294 navigation.php:295
 #, fuzzy
 msgctxt "short form"
 msgid "Create table"
 msgstr "Orri berri bat sortu"
 
-#: navigation.php:299 navigation.php:465
+#: navigation.php:300 navigation.php:470
 msgid "Please select a database"
 msgstr "Datu-base bat hautatu mesedez"
 
@@ -8772,7 +9103,7 @@ msgstr ""
 msgid "Save position"
 msgstr ""
 
-#: pmd_general.php:89 pmd_general.php:362
+#: pmd_general.php:89 pmd_general.php:365
 msgid "Create relation"
 msgstr ""
 
@@ -8841,47 +9172,47 @@ msgstr ""
 msgid "Number of tables"
 msgstr ""
 
-#: pmd_general.php:428
+#: pmd_general.php:431
 msgid "Delete relation"
 msgstr ""
 
-#: pmd_general.php:470 pmd_general.php:529
+#: pmd_general.php:473 pmd_general.php:532
 #, fuzzy
 msgid "Relation operator"
 msgstr "Erlazioen ikuspegia"
 
-#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
-#: pmd_general.php:779
+#: pmd_general.php:483 pmd_general.php:542 pmd_general.php:665
+#: pmd_general.php:782
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "Esportatu"
 
-#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
-#: pmd_general.php:785
+#: pmd_general.php:489 pmd_general.php:548 pmd_general.php:671
+#: pmd_general.php:788
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "kontsultan"
 
-#: pmd_general.php:490 pmd_general.php:586
+#: pmd_general.php:493 pmd_general.php:589
 #, fuzzy
 msgid "Rename to"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: pmd_general.php:492 pmd_general.php:591
+#: pmd_general.php:495 pmd_general.php:594
 #, fuzzy
 #| msgid "User name"
 msgid "New name"
 msgstr "Erabiltzaile-izena"
 
-#: pmd_general.php:495 pmd_general.php:710
+#: pmd_general.php:498 pmd_general.php:713
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "Sortu"
 
-#: pmd_general.php:820
+#: pmd_general.php:823
 #, fuzzy
 #| msgid "Table options"
 msgid "Active options"
@@ -8932,19 +9263,19 @@ msgstr ""
 msgid "recommended"
 msgstr ""
 
-#: pmd_relation_new.php:28
+#: pmd_relation_new.php:29
 msgid "Error: relation already exists."
 msgstr ""
 
-#: pmd_relation_new.php:61 pmd_relation_new.php:86
+#: pmd_relation_new.php:62 pmd_relation_new.php:87
 msgid "Error: Relation not added."
 msgstr ""
 
-#: pmd_relation_new.php:62
+#: pmd_relation_new.php:63
 msgid "FOREIGN KEY relation added"
 msgstr ""
 
-#: pmd_relation_new.php:84
+#: pmd_relation_new.php:85
 #, fuzzy
 msgid "Internal relation added"
 msgstr "Barne-erlazioak"
@@ -8978,64 +9309,64 @@ msgstr ""
 msgid "Do you want to import remaining settings?"
 msgstr ""
 
-#: prefs_manage.php:227 prefs_manage.php:253
+#: prefs_manage.php:231 prefs_manage.php:257
 msgid "Saved on: @DATE@"
 msgstr ""
 
-#: prefs_manage.php:241
+#: prefs_manage.php:245
 #, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
 msgstr "Fitxategiak inportatu"
 
-#: prefs_manage.php:247
+#: prefs_manage.php:251
 msgid "Import from browser's storage"
 msgstr ""
 
-#: prefs_manage.php:250
+#: prefs_manage.php:254
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 
-#: prefs_manage.php:256
+#: prefs_manage.php:260
 msgid "You have no saved settings!"
 msgstr ""
 
-#: prefs_manage.php:260 prefs_manage.php:314
+#: prefs_manage.php:264 prefs_manage.php:318
 msgid "This feature is not supported by your web browser"
 msgstr ""
 
-#: prefs_manage.php:265
+#: prefs_manage.php:269
 msgid "Merge with current configuration"
 msgstr ""
 
-#: prefs_manage.php:279
+#: prefs_manage.php:283
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
 
-#: prefs_manage.php:304
+#: prefs_manage.php:308
 msgid "Save to browser's storage"
 msgstr ""
 
-#: prefs_manage.php:308
+#: prefs_manage.php:312
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
 
-#: prefs_manage.php:310
+#: prefs_manage.php:314
 msgid "Existing settings will be overwritten!"
 msgstr ""
 
-#: prefs_manage.php:325
+#: prefs_manage.php:329
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
-#: querywindow.php:69
+#: querywindow.php:70
 msgid "Import files"
 msgstr "Fitxategiak inportatu"
 
-#: querywindow.php:80
+#: querywindow.php:81
 msgid "All"
 msgstr "Guztiak"
 
@@ -9081,7 +9412,7 @@ msgstr ""
 msgid "Original position"
 msgstr ""
 
-#: server_binlog.php:185 tbl_structure.php:752
+#: server_binlog.php:185 tbl_structure.php:753
 #, fuzzy
 msgid "Information"
 msgstr "Saioa hasteko informazioa"
@@ -9090,7 +9421,7 @@ msgstr "Saioa hasteko informazioa"
 msgid "Character Sets and Collations"
 msgstr "Karaktere-multzoak eta ordenamenduak"
 
-#: server_databases.php:113
+#: server_databases.php:114
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -9098,24 +9429,24 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%s datu-base arrakastaz ezabatu dira."
 msgstr[1] "%s datu-base arrakastaz ezabatu dira."
 
-#: server_databases.php:133
+#: server_databases.php:134
 msgid "Databases statistics"
 msgstr "Datu-baseen estatistikak"
 
-#: server_databases.php:216 server_replication.php:209
+#: server_databases.php:217 server_replication.php:209
 #: server_replication.php:239
 msgid "Master replication"
 msgstr ""
 
-#: server_databases.php:218 server_replication.php:278
+#: server_databases.php:219 server_replication.php:278
 msgid "Slave replication"
 msgstr ""
 
-#: server_databases.php:305 server_databases.php:306
+#: server_databases.php:306 server_databases.php:307
 msgid "Enable Statistics"
 msgstr "Estatistikak gaitu"
 
-#: server_databases.php:308
+#: server_databases.php:309
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -9151,7 +9482,7 @@ msgstr ""
 msgid "Library"
 msgstr ""
 
-#: server_plugins.php:101 server_plugins.php:136 tbl_tracking.php:669
+#: server_plugins.php:101 server_plugins.php:136 tbl_tracking.php:675
 #, fuzzy
 msgid "Version"
 msgstr "PHP Bertsioa"
@@ -9529,8 +9860,8 @@ msgstr "Erabiltzaileen izen berdina duten datu-baseak ezabatu."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Oharra: phpMyAdmin-ek erabiltzaileen pribilegioak' zuzenean MySQL-ren "
 "pribilegioen taulatik' eskuratzen ditu. Taula hauen edukiak, tartean eskuz "
@@ -9962,7 +10293,7 @@ msgstr ""
 msgid "Questions since startup: %s"
 msgstr ""
 
-#: server_status.php:986 tbl_printview.php:329 tbl_structure.php:825
+#: server_status.php:986 tbl_printview.php:329 tbl_structure.php:826
 msgid "Statements"
 msgstr "Sententziak"
 
@@ -11272,7 +11603,7 @@ msgstr ""
 msgid "Label"
 msgstr "Etiketa"
 
-#: tbl_addfield.php:189 tbl_alter.php:113 tbl_indexes.php:99
+#: tbl_addfield.php:190 tbl_alter.php:113 tbl_indexes.php:99
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Hautatutako erabiltzaileak arrakastaz ezabatu dira."
@@ -11410,7 +11741,7 @@ msgstr "balioa"
 msgid "Table %s already exists!"
 msgstr "%s erabiltzailea badago lehendik ere!"
 
-#: tbl_create.php:227
+#: tbl_create.php:229
 #, fuzzy, php-format
 msgid "Table %1$s has been created."
 msgstr "%s taula ezabatu egin da"
@@ -11527,105 +11858,105 @@ msgstr "%s taula hona kopiatua izan da: %s."
 msgid "The table name is empty!"
 msgstr "Taularen izena hutsik dago!"
 
-#: tbl_operations.php:266
+#: tbl_operations.php:276
 msgid "Alter table order by"
 msgstr "Taularen \"Order By\" aldatu"
 
-#: tbl_operations.php:275
+#: tbl_operations.php:285
 msgid "(singly)"
 msgstr "(soilik)"
 
-#: tbl_operations.php:295
+#: tbl_operations.php:305
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Taula hona mugitu (datu-basea<b>.</b>taula):"
 
-#: tbl_operations.php:353
+#: tbl_operations.php:363
 msgid "Table options"
 msgstr "Taularen hobespenak"
 
-#: tbl_operations.php:357
+#: tbl_operations.php:367
 msgid "Rename table to"
 msgstr "Taula berrizendatu izen honetara: "
 
-#: tbl_operations.php:535
+#: tbl_operations.php:546
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Taula hona kopiatu: (datu-base<b>.</b>taula):"
 
-#: tbl_operations.php:582
+#: tbl_operations.php:594
 msgid "Switch to copied table"
 msgstr "Kopiatutako taulara aldatu"
 
-#: tbl_operations.php:594
+#: tbl_operations.php:606
 msgid "Table maintenance"
 msgstr "Taularen mantenua"
 
-#: tbl_operations.php:622
+#: tbl_operations.php:634
 msgid "Defragment table"
 msgstr ""
 
-#: tbl_operations.php:678
+#: tbl_operations.php:690
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "%s taularen cachea hustu egin da"
 
-#: tbl_operations.php:686
+#: tbl_operations.php:698
 #, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Taularen cachea hustu (\"FLUSH\")"
 
-#: tbl_operations.php:695
+#: tbl_operations.php:707
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
 msgstr "Taula honen datuak irauli"
 
-#: tbl_operations.php:712
+#: tbl_operations.php:724
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: tbl_operations.php:734
+#: tbl_operations.php:746
 #, fuzzy
 msgid "Delete the table (DROP)"
 msgstr "Datu-baserik ez"
 
-#: tbl_operations.php:756
+#: tbl_operations.php:768
 #, fuzzy
 msgid "Partition maintenance"
 msgstr "Taularen mantenua"
 
-#: tbl_operations.php:764
+#: tbl_operations.php:776
 #, php-format
 msgid "Partition %s"
 msgstr ""
 
-#: tbl_operations.php:767
+#: tbl_operations.php:779
 msgid "Analyze"
 msgstr "Aztertu"
 
-#: tbl_operations.php:768
+#: tbl_operations.php:780
 #, fuzzy
 msgid "Check"
 msgstr "Txekiera"
 
-#: tbl_operations.php:769
+#: tbl_operations.php:781
 msgid "Optimize"
 msgstr ""
 
-#: tbl_operations.php:770
+#: tbl_operations.php:782
 msgid "Rebuild"
 msgstr ""
 
-#: tbl_operations.php:771
+#: tbl_operations.php:783
 #, fuzzy
 msgid "Repair"
 msgstr "Taula konpondu"
 
-#: tbl_operations.php:785
+#: tbl_operations.php:797
 msgid "Remove partitioning"
 msgstr ""
 
-#: tbl_operations.php:811
+#: tbl_operations.php:823
 msgid "Check referential integrity:"
 msgstr "Erreferentzien integritatea egiaztatu:"
 
@@ -11635,39 +11966,39 @@ msgstr "Erreferentzien integritatea egiaztatu:"
 msgid "Showing tables"
 msgstr "Taulak erakutsi"
 
-#: tbl_printview.php:270 tbl_structure.php:756
+#: tbl_printview.php:270 tbl_structure.php:757
 msgid "Space usage"
 msgstr "Erabilitako lekua"
 
-#: tbl_printview.php:274 tbl_structure.php:760
+#: tbl_printview.php:274 tbl_structure.php:761
 msgid "Usage"
 msgstr "Erabilpena"
 
-#: tbl_printview.php:301 tbl_structure.php:787
+#: tbl_printview.php:301 tbl_structure.php:788
 msgid "Effective"
 msgstr "Eraginkorra"
 
-#: tbl_printview.php:326 tbl_structure.php:822
+#: tbl_printview.php:326 tbl_structure.php:823
 msgid "Row Statistics"
 msgstr "Errenkadaren estatistikak"
 
-#: tbl_printview.php:340 tbl_structure.php:837
+#: tbl_printview.php:340 tbl_structure.php:838
 msgid "static"
 msgstr ""
 
-#: tbl_printview.php:342 tbl_structure.php:839
+#: tbl_printview.php:342 tbl_structure.php:840
 msgid "dynamic"
 msgstr "dinamikoa"
 
-#: tbl_printview.php:364 tbl_structure.php:882
+#: tbl_printview.php:364 tbl_structure.php:883
 msgid "Row length"
 msgstr "Errenkadaren luzera"
 
-#: tbl_printview.php:374 tbl_structure.php:890
+#: tbl_printview.php:374 tbl_structure.php:891
 msgid "Row size"
 msgstr "Errenkadaren tamaina "
 
-#: tbl_printview.php:384 tbl_structure.php:898
+#: tbl_printview.php:384 tbl_structure.php:899
 msgid "Next autoindex"
 msgstr ""
 
@@ -11714,7 +12045,7 @@ msgstr "Errenkada kopurua orriko"
 msgid "Display order:"
 msgstr "Ordena erakutsi:"
 
-#: tbl_structure.php:156 tbl_structure.php:161 tbl_structure.php:571
+#: tbl_structure.php:156 tbl_structure.php:161 tbl_structure.php:572
 msgid "Spatial"
 msgstr ""
 
@@ -11740,7 +12071,7 @@ msgstr ""
 msgid "Add FULLTEXT index"
 msgstr ""
 
-#: tbl_structure.php:343 tbl_tracking.php:314
+#: tbl_structure.php:343 tbl_tracking.php:316
 #, fuzzy
 #| msgid "None"
 msgctxt "None for default"
@@ -11753,218 +12084,218 @@ msgstr "Batez"
 msgid "Column %s has been dropped"
 msgstr "%s taula ezabatu egin da"
 
-#: tbl_structure.php:365 tbl_structure.php:461
+#: tbl_structure.php:365 tbl_structure.php:462
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "Lehen mailako gakoa gehitu zaio %s-(r)i"
 
 #: tbl_structure.php:380 tbl_structure.php:395 tbl_structure.php:418
-#: tbl_structure.php:433 tbl_structure.php:474 tbl_structure.php:487
-#: tbl_structure.php:501 tbl_structure.php:514
+#: tbl_structure.php:434 tbl_structure.php:475 tbl_structure.php:488
+#: tbl_structure.php:502 tbl_structure.php:515
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Indize bat gehitu gehitu zaio %s-(r)i"
 
-#: tbl_structure.php:455
+#: tbl_structure.php:456
 #, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
 msgstr "PHP informazioa erakutsi"
 
-#: tbl_structure.php:597
+#: tbl_structure.php:598
 #, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
 msgstr "Inprimatzeko ikuspegia"
 
-#: tbl_structure.php:614
+#: tbl_structure.php:615
 msgid "Relation view"
 msgstr "Erlazioen ikuspegia"
 
-#: tbl_structure.php:622
+#: tbl_structure.php:623
 msgid "Propose table structure"
 msgstr "Taularen egituraren proposamena "
 
-#: tbl_structure.php:640
+#: tbl_structure.php:641
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "Gehitu %s zutabe"
 
-#: tbl_structure.php:654
+#: tbl_structure.php:655
 msgid "At End of Table"
 msgstr "Taularen amaieran"
 
-#: tbl_structure.php:655
+#: tbl_structure.php:656
 msgid "At Beginning of Table"
 msgstr "Taularen hasieran"
 
-#: tbl_structure.php:656
+#: tbl_structure.php:657
 #, php-format
 msgid "After %s"
 msgstr "%s(a)ren ondoren"
 
-#: tbl_structure.php:694
+#: tbl_structure.php:695
 #, fuzzy, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Indize bat sortu &nbsp;%s&nbsp; zutabetan"
 
-#: tbl_structure.php:853
+#: tbl_structure.php:854
 msgid "partitioned"
 msgstr ""
 
-#: tbl_tracking.php:110
+#: tbl_tracking.php:112
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: tbl_tracking.php:176
+#: tbl_tracking.php:178
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
 
-#: tbl_tracking.php:190
+#: tbl_tracking.php:192
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Jarraipena aktibatuta dago."
 
-#: tbl_tracking.php:204
+#: tbl_tracking.php:206
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Jarraipena aktibatuta dago."
 
-#: tbl_tracking.php:218
+#: tbl_tracking.php:220
 msgid "SQL statements executed."
 msgstr ""
 
-#: tbl_tracking.php:224
+#: tbl_tracking.php:226
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: tbl_tracking.php:225
+#: tbl_tracking.php:227
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: tbl_tracking.php:234
+#: tbl_tracking.php:236
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: tbl_tracking.php:265
+#: tbl_tracking.php:267
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: tbl_tracking.php:407
+#: tbl_tracking.php:409
 msgid "Tracking data definition successfully deleted"
 msgstr ""
 
-#: tbl_tracking.php:409 tbl_tracking.php:426
+#: tbl_tracking.php:411 tbl_tracking.php:428
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
 msgstr "Kontsulta mota"
 
-#: tbl_tracking.php:424
+#: tbl_tracking.php:426
 msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
-#: tbl_tracking.php:436
+#: tbl_tracking.php:438
 msgid "Tracking statements"
 msgstr ""
 
-#: tbl_tracking.php:452 tbl_tracking.php:580
+#: tbl_tracking.php:454 tbl_tracking.php:586
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 
-#: tbl_tracking.php:457
+#: tbl_tracking.php:459
 #, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
 msgstr "Datuak txertatu eta ordezkatzea baimentzen du."
 
-#: tbl_tracking.php:468
+#: tbl_tracking.php:470
 #, fuzzy
 #| msgid "No databases"
 msgid "No data"
 msgstr "Datu-baserik ez"
 
-#: tbl_tracking.php:478 tbl_tracking.php:535
+#: tbl_tracking.php:480 tbl_tracking.php:539
 #, fuzzy
 msgid "Date"
 msgstr "Datuak"
 
-#: tbl_tracking.php:480
+#: tbl_tracking.php:482
 msgid "Data definition statement"
 msgstr ""
 
-#: tbl_tracking.php:537
+#: tbl_tracking.php:541
 msgid "Data manipulation statement"
 msgstr ""
 
-#: tbl_tracking.php:583
+#: tbl_tracking.php:589
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: tbl_tracking.php:584
+#: tbl_tracking.php:590
 msgid "SQL dump"
 msgstr ""
 
-#: tbl_tracking.php:585
+#: tbl_tracking.php:591
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: tbl_tracking.php:585
+#: tbl_tracking.php:591
 msgid "SQL execution"
 msgstr ""
 
-#: tbl_tracking.php:597
+#: tbl_tracking.php:603
 #, php-format
 msgid "Export as %s"
 msgstr ""
 
-#: tbl_tracking.php:637
+#: tbl_tracking.php:643
 msgid "Show versions"
 msgstr ""
 
-#: tbl_tracking.php:721
+#: tbl_tracking.php:727
 #, fuzzy, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Deactivate tracking for %s"
 msgstr "Ezabatu taula honetako jarraipen datuak"
 
-#: tbl_tracking.php:723
+#: tbl_tracking.php:729
 msgid "Deactivate now"
 msgstr ""
 
-#: tbl_tracking.php:734
+#: tbl_tracking.php:740
 #, php-format
 msgid "Activate tracking for %s"
 msgstr ""
 
-#: tbl_tracking.php:736
+#: tbl_tracking.php:742
 msgid "Activate now"
 msgstr ""
 
-#: tbl_tracking.php:749
+#: tbl_tracking.php:755
 #, fuzzy, php-format
 msgid "Create version %1$s of %2$s"
 msgstr "Zerbitzariaren bertsioa"
 
-#: tbl_tracking.php:753
+#: tbl_tracking.php:759
 msgid "Track these data definition statements:"
 msgstr ""
 
-#: tbl_tracking.php:761
+#: tbl_tracking.php:767
 msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: tbl_tracking.php:769
+#: tbl_tracking.php:775
 #, fuzzy
 msgid "Create version"
 msgstr "Zerbitzariaren bertsioa"
