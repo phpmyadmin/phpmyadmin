@@ -3,8 +3,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2012-04-23 13:06-0300\n"
 "PO-Revision-Date: 2012-04-21 11:16+0200\n"
+=======
+"POT-Creation-Date: 2012-04-21 08:21-0400\n"
+"PO-Revision-Date: 2012-04-22 22:01+0200\n"
+>>>>>>> upstream/master
 "Last-Translator: Alex Marin <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -8259,13 +8264,12 @@ msgstr "Lungime/Setare"
 
 #: libraries/rte/rte_routines.lib.php:876
 msgid "Add parameter"
-msgstr ""
+msgstr "Adăugați parametru"
 
 #: libraries/rte/rte_routines.lib.php:880
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove last parameter"
-msgstr "Redenumire bază de date în"
+msgstr "Ștergeți ultimul parametru"
 
 #: libraries/rte/rte_routines.lib.php:885
 msgid "Return type"
@@ -8285,26 +8289,25 @@ msgstr "Opțiuni tabel"
 
 #: libraries/rte/rte_routines.lib.php:928
 msgid "Is deterministic"
-msgstr ""
+msgstr "Este determinist"
 
 #: libraries/rte/rte_routines.lib.php:937
-#, fuzzy
 #| msgid "Query type"
 msgid "Security type"
-msgstr "Tip interogare"
+msgstr "Tip de securitate"
 
 #: libraries/rte/rte_routines.lib.php:944
 msgid "SQL data access"
-msgstr ""
+msgstr "Acces date SQL"
 
 #: libraries/rte/rte_routines.lib.php:1009
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Trebuie să introduceți un nume de rutină"
 
 #: libraries/rte/rte_routines.lib.php:1035
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Direcție invalidă \"%s\" dată pentru parametru."
 
 #: libraries/rte/rte_routines.lib.php:1049
 #: libraries/rte/rte_routines.lib.php:1089
@@ -8312,44 +8315,47 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"Trebuie să oferiți lungime/valori pentru parametrii de tipul ENUM, SET, "
+"VARCHAR și VARBINARY ai rutinei."
 
 #: libraries/rte/rte_routines.lib.php:1067
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
+"Trebuie să introduceți un nume și un tip pentru fiecare parametru al "
+"rutinei."
 
 #: libraries/rte/rte_routines.lib.php:1077
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "Rutina trebuie să întoarcă un tip valid."
 
 #: libraries/rte/rte_routines.lib.php:1123
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Trebuie să introduceți o definiție a rutinei."
 
 #: libraries/rte/rte_routines.lib.php:1213
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d rând afectat de ultima declarație din cadrul procedurii"
+msgstr[1] "%d rânduri afectate de ultima declarație din cadrul procedurii"
+msgstr[2] "%d rânduri afectate de ultima declarație din cadrul procedurii"
 
 #: libraries/rte/rte_routines.lib.php:1229
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Permite executarea rutinelor stocate."
+msgstr "Rezultatele execuției rutinei %s"
 
 #: libraries/rte/rte_routines.lib.php:1305
 #: libraries/rte/rte_routines.lib.php:1311
 msgid "Execute routine"
-msgstr ""
+msgstr "Executați rutina"
 
 #: libraries/rte/rte_routines.lib.php:1364
 #: libraries/rte/rte_routines.lib.php:1367
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Rutine"
+msgstr "Parametrii rutinei"
 
 #: libraries/rte/rte_routines.lib.php:1374 libraries/tbl_select.lib.php:82
 #: tbl_change.php:307 tbl_change.php:363
@@ -8425,27 +8431,24 @@ msgid "Export of routine %s"
 msgstr "Import fișiere"
 
 #: libraries/rte/rte_words.lib.php:25
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Rutine"
+msgstr "rutină"
 
 #: libraries/rte/rte_words.lib.php:26
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Nu dețineți drepturi de acces pentru a vă afla aici!"
+msgstr "Nu dețineți privilegiile necesare pentru a crea o rutină"
 
 #: libraries/rte/rte_words.lib.php:27
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Nu s-a găsit nici un tabel în baza de date."
+msgstr "Nicio rutină cu numele %1$s nu a fost gasită în baza de date %2$s"
 
 #: libraries/rte/rte_words.lib.php:28
-#, fuzzy
 msgid "There are no routines to display."
-msgstr "Tabelele urmărite"
+msgstr "Nu există rutine de afișat."
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
@@ -8512,9 +8515,8 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "Nu s-a găsit nici un tabel în baza de date."
 
 #: libraries/rte/rte_words.lib.php:52
-#, fuzzy
 msgid "There are no events to display."
-msgstr "Tabelele urmărite"
+msgstr "Nu există evenimente de afișat."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:233
 #: libraries/schema/Eps_Relation_Schema.class.php:423
@@ -8545,10 +8547,9 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Schema bazei de date \"%s\" - Pagina %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:203
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "This page does not contain any tables!"
-msgstr "File %s does not contain any key id"
+msgstr "Această pagină nu conține nicio tabelă!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:231
 msgid "SCHEMA ERROR: "
@@ -8685,21 +8686,19 @@ msgid "Unknown language: %1$s."
 msgstr "Limbă necunoscută: %1$s."
 
 #: libraries/select_server.lib.php:35 libraries/select_server.lib.php:40
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "Server"
+msgstr "Server Curent"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Utilizator"
+msgstr "Utilizatori"
 
 #: libraries/server_links.inc.php:81 server_synchronize.php:1227
 #: server_synchronize.php:1234
 msgid "Synchronize"
-msgstr ""
+msgstr "Sincronizați"
 
 #: libraries/server_links.inc.php:86 server_binlog.php:77
 #: server_status.php:607
@@ -8725,14 +8724,13 @@ msgid "Engines"
 msgstr "Motoare"
 
 #: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1260
-#, fuzzy
 msgid "Source database"
-msgstr "Caută în baza de date"
+msgstr "Baza de date sursă"
 
 #: libraries/server_synchronize.lib.php:1340
 #: libraries/server_synchronize.lib.php:1348
 msgid "Current server"
-msgstr ""
+msgstr "Server curent"
 
 #: libraries/server_synchronize.lib.php:1342
 #: libraries/server_synchronize.lib.php:1350
@@ -8742,12 +8740,11 @@ msgstr "Server Web"
 
 #: libraries/server_synchronize.lib.php:1345
 msgid "Difference"
-msgstr ""
+msgstr "Diferență"
 
 #: libraries/server_synchronize.lib.php:1346 server_synchronize.php:1262
-#, fuzzy
 msgid "Target database"
-msgstr "Caută în baza de date"
+msgstr "Baza de date țintă"
 
 #: libraries/server_synchronize.lib.php:1381
 #: libraries/server_synchronize.lib.php:1390
@@ -9515,42 +9512,64 @@ msgstr "Număr de tabele"
 msgid "Delete relation"
 msgstr "Șterge relația"
 
+<<<<<<< HEAD
 #: pmd_general.php:473 pmd_general.php:532
 #, fuzzy
+=======
+#: pmd_general.php:470 pmd_general.php:529
+>>>>>>> upstream/master
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Relație ștearsă"
+msgstr "Operator relațional"
 
+<<<<<<< HEAD
 #: pmd_general.php:483 pmd_general.php:542 pmd_general.php:665
 #: pmd_general.php:782
 #, fuzzy
+=======
+#: pmd_general.php:480 pmd_general.php:539 pmd_general.php:662
+#: pmd_general.php:779
+>>>>>>> upstream/master
 #| msgid "Export"
 msgid "Except"
-msgstr "Exportă"
+msgstr "Cu excepția"
 
+<<<<<<< HEAD
 #: pmd_general.php:489 pmd_general.php:548 pmd_general.php:671
 #: pmd_general.php:788
 #, fuzzy
+=======
+#: pmd_general.php:486 pmd_general.php:545 pmd_general.php:668
+#: pmd_general.php:785
+>>>>>>> upstream/master
 #| msgid "in query"
 msgid "subquery"
-msgstr "în interogarea"
+msgstr "subinterogare"
 
 #: pmd_general.php:493 pmd_general.php:589
 #, fuzzy
 msgid "Rename to"
 msgstr "Redenumire tabel la"
 
+<<<<<<< HEAD
 #: pmd_general.php:495 pmd_general.php:594
 #, fuzzy
+=======
+#: pmd_general.php:492 pmd_general.php:591
+>>>>>>> upstream/master
 #| msgid "User name"
 msgid "New name"
-msgstr "Nume utilizator"
+msgstr "Nume nou"
 
+<<<<<<< HEAD
 #: pmd_general.php:498 pmd_general.php:713
 #, fuzzy
+=======
+#: pmd_general.php:495 pmd_general.php:710
+>>>>>>> upstream/master
 #| msgid "Create"
 msgid "Aggregate"
-msgstr "Creează"
+msgstr "Agregat"
 
 #: pmd_general.php:823
 #, fuzzy
@@ -9559,19 +9578,17 @@ msgid "Active options"
 msgstr "Opțiuni tabel"
 
 #: pmd_pdf.php:31
-#, fuzzy
 msgid "Page has been created"
-msgstr "Tabelul %1$s a fost creat."
+msgstr "Pagina a fost creată"
 
 #: pmd_pdf.php:34
 msgid "Page creation failed"
-msgstr ""
+msgstr "Pagina nu a putut fi creată"
 
 #: pmd_pdf.php:90
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "pagini"
+msgstr "Pagină"
 
 #: pmd_pdf.php:100
 #, fuzzy
@@ -9645,7 +9662,7 @@ msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
 
 #: prefs_manage.php:114
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Configurația conține date incorecte pentru anumite câmpuri."
 
 #: prefs_manage.php:130
 msgid "Do you want to import remaining settings?"
