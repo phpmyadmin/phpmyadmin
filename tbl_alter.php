@@ -81,7 +81,7 @@ if (isset($_REQUEST['move_columns'])
             $data['Extra'] !== ''
                 ? $data['Extra']
                 : false,
-            $data['Comments'] !== ''
+            isset($data['Comments']) && $data['Comments'] !== ''
                 ? $data['Comments']
                 : false,
             $key_fields,
