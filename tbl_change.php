@@ -380,7 +380,7 @@ foreach ($rows as $row_id => $vrow) {
     $m_rows = $o_rows + 1;
     //store the default value for CharEditing
     $default_char_editing  = $cfg['CharEditing'];
-    
+
     $odd_row = true;
     for ($i = 0; $i < $fields_cnt; $i++) {
         if (! isset($table_fields[$i]['processed'])) {
@@ -484,7 +484,7 @@ foreach ($rows as $row_id => $vrow) {
             }
         }
         $field = $table_fields[$i];
-        $extracted_fieldspec = PMA_extractFieldSpec($field['Type']);
+        $extracted_columnspec = PMA_extractColumnSpec($field['Type']);
 
         if (-1 === $field['len']) {
             $field['len'] = PMA_DBI_field_len($vresult, $i);
@@ -537,7 +537,7 @@ foreach ($rows as $row_id => $vrow) {
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
                 $special_chars = PMA_printable_bit_value(
-                    $vrow[$field['Field']], $extracted_fieldspec['spec_in_brackets']
+                    $vrow[$field['Field']], $extracted_columnspec['spec_in_brackets']
                 );
             } elseif (in_array($field['True_Type'], $gis_data_types)) {
                 // Convert gis data to Well Know Text format
@@ -594,7 +594,7 @@ foreach ($rows as $row_id => $vrow) {
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
             if (($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary']))
-                && (isset($_SESSION['tmp_user_values']['display_binary_as_hex']) 
+                && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
                     && $_SESSION['tmp_user_values']['display_binary_as_hex'])
                 && $cfg['ShowFunctionFields']
             ) {
@@ -757,7 +757,7 @@ foreach ($rows as $row_id => $vrow) {
         } elseif ($field['pma_type'] == 'enum') {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
-                foreach ($extracted_fieldspec['enum_set_values'] as $val) {
+                foreach ($extracted_columnspec['enum_set_values'] as $val) {
                     // Removes automatic MySQL escape format
                     $val = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $val));
                     $table_fields[$i]['values'][] = array(
@@ -828,7 +828,7 @@ foreach ($rows as $row_id => $vrow) {
         } elseif ($field['pma_type'] == 'set') {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
-                foreach ($extracted_fieldspec['enum_set_values'] as $val) {
+                foreach ($extracted_columnspec['enum_set_values'] as $val) {
                     $table_fields[$i]['values'][] = array(
                         'plain' => $val,
                         'html'  => htmlspecialchars($val),
@@ -954,14 +954,14 @@ foreach ($rows as $row_id => $vrow) {
         } elseif (! in_array($field['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
             if ($field['is_char']) {
-                $fieldsize = $extracted_fieldspec['spec_in_brackets'];
+                $fieldsize = $extracted_columnspec['spec_in_brackets'];
                 if ($fieldsize > $cfg['MaxSizeForInputField']) {
                     /**
                      * This case happens for CHAR or VARCHAR columns which have
                      * a size larger than the maximum size for input field.
                      */
-                    $cfg['CharEditing'] = 'textarea';  
-                } 
+                    $cfg['CharEditing'] = 'textarea';
+                }
             } else {
                 /**
                  * This case happens for example for INT or DATE columns;

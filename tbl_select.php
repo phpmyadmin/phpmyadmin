@@ -39,7 +39,7 @@ $post_params = array(
     'names',
     'order',
     'orderField',
-    'param', 
+    'param',
     'session_max_rows',
     'table',
     'types',

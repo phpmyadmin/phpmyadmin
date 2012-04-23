@@ -366,7 +366,8 @@ class PMA_Config
         // find out if there is a .git folder
         $git_folder = '.git';
         if (! @file_exists($git_folder)
-            || ! @file_exists($git_folder . '/config')) {
+            || ! @file_exists($git_folder . '/config')
+        ) {
             $_SESSION['is_git_revision'] = false;
             return false;
         }
@@ -384,7 +385,8 @@ class PMA_Config
         // find out if there is a .git folder
         $git_folder = '.git';
         if (! @file_exists($git_folder)
-            || ! @file_exists($git_folder . '/config')) {
+            || ! @file_exists($git_folder . '/config')
+        ) {
             return;
         }
 
@@ -405,59 +407,30 @@ class PMA_Config
             $hash = trim($ref_head);
         }
 
+        $commit = false;
         if ( !isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $git_file_name = $git_folder . '/objects/' . substr($hash, 0, 2)
                     . '/' . substr($hash, 2);
-            if (! file_exists($git_file_name) ) {
-                return;
+            if (file_exists($git_file_name) ) {
+                if (! $commit = @file_get_contents($git_file_name)) {
+                    return;
+                }
+                $commit = explode("\0", gzuncompress($commit), 2);
+                $commit = explode("\n", $commit[1]);
+                $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
             }
-            if (! $commit = @file_get_contents($git_file_name)) {
-                return;
-            }
-            $commit = explode("\0", gzuncompress($commit), 2);
-            $commit = explode("\n", $commit[1]);
-            $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
         } else {
             $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
         }
 
-        $author = array('name' => '', 'email' => '', 'date' => '');
-        $committer = array('name' => '', 'email' => '', 'date' => '');
-
-        do {
-            $dataline = array_shift($commit);
-            $datalinearr = explode(' ', $dataline, 2);
-            $linetype = $datalinearr[0];
-            if (in_array($linetype, array('author', 'committer')))
-            {
-                $user = $datalinearr[1];
-                preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
-                $user2 = array(
-                    'name' => trim($user[1]),
-                    'email' => trim($user[2]),
-                    'date' => date('Y-m-d H:i:s', $user[3]));
-                if (isset($user[4]))
-                {
-                    $user2['date'] .= $user[4];
-                }
-                $$linetype = $user2;
-            }
-        }
-        while ($dataline != '');
-        $message = trim(implode(' ', $commit));
-
         // check if commit exists in Github
         $is_remote_commit = false;
-        if (isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])) {
+        if ($commit !== false && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])) {
             $is_remote_commit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
         } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/' . $hash;
-            $is_found = $this->checkHTTP($link);
+            $is_found = $this->checkHTTP($link, !$commit);
             switch($is_found) {
-                case true:
-                    $is_remote_commit = true;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
-                    break;
                 case false:
                     $is_remote_commit = false;
                     $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
@@ -465,6 +438,14 @@ class PMA_Config
                 case null:
                     // no remote link for now, but don't cache this as Github is down
                     $is_remote_commit = false;
+                    break;
+                default:
+                    $is_remote_commit = true;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
+                    if ($commit === false) {
+                        // if no local commit data, try loading from Github
+                        $commit_json = json_decode($is_found);
+                    }
                     break;
             }
         }
@@ -494,6 +475,44 @@ class PMA_Config
             }
         }
 
+        if ($commit !== false) {
+            $author = array('name' => '', 'email' => '', 'date' => '');
+            $committer = array('name' => '', 'email' => '', 'date' => '');
+
+            do {
+                $dataline = array_shift($commit);
+                $datalinearr = explode(' ', $dataline, 2);
+                $linetype = $datalinearr[0];
+                if (in_array($linetype, array('author', 'committer')))
+                {
+                    $user = $datalinearr[1];
+                    preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
+                    $user2 = array(
+                        'name' => trim($user[1]),
+                        'email' => trim($user[2]),
+                        'date' => date('Y-m-d H:i:s', $user[3]));
+                    if (isset($user[4]))
+                    {
+                        $user2['date'] .= $user[4];
+                    }
+                    $$linetype = $user2;
+                }
+            }
+            while ($dataline != '');
+            $message = trim(implode(' ', $commit));
+
+        } elseif (isset($commit_json)) {
+            $author = array(
+                'name' => $commit_json->author->name,
+                'email' => $commit_json->author->email,
+                'date' => $commit_json->author->date);
+            $committer = array(
+                'name' => $commit_json->committer->name,
+                'email' => $commit_json->committer->email,
+                'date' => $commit_json->committer->date);
+            $message = trim($commit_json->message);
+        }
+
         $this->set('PMA_VERSION_GIT', 1);
         $this->set('PMA_VERSION_GIT_COMMITHASH', $hash);
         $this->set('PMA_VERSION_GIT_BRANCH', $branch);
@@ -505,16 +524,16 @@ class PMA_Config
     }
 
     /**
-     * Checks if given URL is 200 or 404
+     * Checks if given URL is 200 or 404, optionally returns data
      */
-    function checkHTTP($link)
+    function checkHTTP($link, $get_body = false)
     {
         if (! function_exists('curl_init')) {
             return null;
         }
         $ch = curl_init($link);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_NOBODY, 1);
+        curl_setopt($ch, CURLOPT_NOBODY, !$get_body);
         curl_setopt($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
@@ -528,7 +547,7 @@ class PMA_Config
         $ok = 'HTTP/1.1 200 OK';
         $notfound = 'HTTP/1.1 404 Not Found';
         if (substr($data, 0, strlen($ok)) === $ok) {
-            return true;
+            return $get_body ? substr($data, strpos($data, "\r\n\r\n") + 4) : true;
         } elseif (substr($data, 0, strlen($notfound)) === $notfound) {
             return false;
         }

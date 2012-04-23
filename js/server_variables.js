@@ -26,7 +26,7 @@ $(function() {
 
     // Filter options are invisible for disabled js users
     $('fieldset#tableFilter').css('display','');
-     
+
     $('#filterText').keyup(function(e) {
         if ($(this).val().length == 0) {
             textFilter=null;
@@ -43,7 +43,7 @@ $(function() {
             $('#filterText').val(name).trigger('keyup');
         }
     }
-    
+
     /* Table width limiting */
     $('table.data').after($tmpDiv=$('<span>'+testString+'</span>'));
     charWidth = $tmpDiv.width() / testString.length;
@@ -51,9 +51,9 @@ $(function() {
 
     $(window).resize(limitTableWidth);
     limitTableWidth();
-    
-    /* This function chops of long variable values to keep the table from overflowing horizontally 
-     * It does so by taking a test string and calculating an average font width and removing 'excess width / average font width' 
+
+    /* This function chops of long variable values to keep the table from overflowing horizontally
+     * It does so by taking a test string and calculating an average font width and removing 'excess width / average font width'
      * chars, so it is not very accurate.
      */
     function limitTableWidth() {
@@ -96,12 +96,12 @@ $(function() {
             });
         }
     }
-    
+
     /* Filters the rows by the user given regexp */
     function filterVariables() {
         var mark_next = false, firstCell;
         odd_row = false;
-        
+
         $('table.filteredData tbody tr').each(function() {
             firstCell = $(this).children(':first');
 
@@ -132,12 +132,14 @@ function editVariable(link)
     var mySaveLink = $(saveLink);
     var myCancelLink = $(cancelLink);
     var $cell = $(link).parent();
+    var $msgbox = PMA_ajaxShowMessage();
 
     $cell.addClass('edit');
     // remove edit link
     $cell.find('a.editLink').remove();
 
     mySaveLink.click(function() {
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         $.get('server_variables.php?' + url_query, {
                 ajax_request: true,
                 type: 'setval',
@@ -146,6 +148,7 @@ function editVariable(link)
             }, function(data) {
                 if (data.success) {
                     $cell.html(data.variable);
+                    PMA_ajaxRemoveMessage($msgbox);
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                     $cell.html($cell.find('span.oldContent').html());
@@ -184,6 +187,7 @@ function editVariable(link)
                 // Escape key
                 if(event.keyCode == 27) myCancelLink.trigger('click');
             });
+            PMA_ajaxRemoveMessage($msgbox);
         });
 
     return false;

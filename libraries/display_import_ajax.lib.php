@@ -79,9 +79,10 @@ function PMA_import_uploadprogressCheck()
   */
 function PMA_import_sessionCheck()
 {
-    if (PMA_PHP_INT_VERSION < 50400 
+    if (PMA_PHP_INT_VERSION < 50400
         || ! ini_get('session.upload_progress.enabled')
-        || ! function_exists('curl_exec')) {
+        || ! function_exists('curl_exec')
+    ) {
         return false;
     }
     return true;

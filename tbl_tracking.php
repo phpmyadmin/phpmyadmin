@@ -67,8 +67,10 @@ if (isset($_REQUEST['report_export'])) {
         foreach ( $data as $entry ) {
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
-              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
+            if ($timestamp >= $filter_ts_from
+                && $timestamp <= $filter_ts_to
+                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+            ) {
                 $tmp_entries[] = array( 'id' => $id,
                                     'timestamp' => $timestamp,
                                     'username'  => $entry['username'],
@@ -300,8 +302,8 @@ if (isset($_REQUEST['snapshot'])) {
             <td><?php echo (($field['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
             <td><?php
             if (isset($field['Default'])) {
-                $extracted_fieldspec = PMA_extractFieldSpec($field['Type']);
-                if ($extracted_fieldspec['type'] == 'bit') {
+                $extracted_columnspec = PMA_extractColumnSpec($field['Type']);
+                if ($extracted_columnspec['type'] == 'bit') {
                     // here, $field['Default'] contains something like b'010'
                     echo PMA_convert_bit_default_value($field['Default']);
                 } else {
@@ -493,8 +495,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             }
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
-              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
+            if ($timestamp >= $filter_ts_from
+                && $timestamp <= $filter_ts_to
+                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+            ) {
         ?>
                 <tr class="noclick <?php echo $style; ?>">
                     <td><small><?php echo $i;?></small></td>
@@ -549,8 +553,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             }
             $timestamp = strtotime($entry['date']);
 
-            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
-              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
+            if ($timestamp >= $filter_ts_from
+                && $timestamp <= $filter_ts_to
+                && (in_array('*', $filter_users) || in_array($entry['username'], $filter_users))
+            ) {
         ?>
                 <tr class="noclick <?php echo $style; ?>">
                     <td><small><?php echo $i; ?></small></td>

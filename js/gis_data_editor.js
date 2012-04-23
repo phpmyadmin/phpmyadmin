@@ -173,7 +173,7 @@ function openGISEditor() {
     $gis_editor.css({"top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
     $backgrouond.css({"opacity":"0.7"});
 
-    $gis_editor.append('<div id="gis_data_editor"><img class="ajaxIcon" id="loadingMonitorIcon" src="' 
+    $gis_editor.append('<div id="gis_data_editor"><img class="ajaxIcon" id="loadingMonitorIcon" src="'
             + pmaThemeImage + 'ajax_clock_small.gif" alt=""></div>'
     );
 
@@ -200,7 +200,7 @@ function insertDataAndClose() {
     closeGISEditor();
 }
 
-$(document).ready(function() {
+$(function() {
 
     // Remove the class that is added due to the URL being too long.
     $('span.open_gis_editor a').removeClass('formLinkSubmit');

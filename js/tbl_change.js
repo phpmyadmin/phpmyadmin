@@ -226,7 +226,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
  * Submit Data to be inserted into the table.
  * Restart insertion with 'N' rows.
  */
-$(document).ready(function() {
+$(function() {
 
     $('span.open_gis_editor').live('click', function(event) {
         event.preventDefault();
@@ -255,7 +255,7 @@ $(document).ready(function() {
      * Uncheck the null checkbox as geometry data is placed on the input field
      */
     $("input[name='gis_data[save]']").live('click', function(event) {
-        var input_name = $('form#gis_data_editor_form').find("input[name='input_name']").val();   
+        var input_name = $('form#gis_data_editor_form').find("input[name='input_name']").val();
         var $null_checkbox = $("input[name='" + input_name + "']").parents('tr').find('.checkbox_null');
         $null_checkbox.prop('checked', false);
     });
@@ -282,7 +282,7 @@ $(document).ready(function() {
 
     /**
      * Reset the auto_increment column to 0 when selecting any of the
-     * insert options in submit_type-dropdown. Only perform the reset 
+     * insert options in submit_type-dropdown. Only perform the reset
      * when we are in edit-mode, and not in insert-mode(no previous value
      * available).
      */
@@ -554,4 +554,4 @@ $(document).ready(function() {
             }
         }
     })
-}, 'top.frame_content'); //end $(document).ready()
+}, 'top.frame_content'); //end $()

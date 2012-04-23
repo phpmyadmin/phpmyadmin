@@ -1041,7 +1041,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                     echo ' vbottom';
                 }
-                echo '" data-column="' . htmlspecialchars($fields_meta[$i]->name) . '">' 
+                echo '" data-column="' . htmlspecialchars($fields_meta[$i]->name) . '">'
                     . $order_link . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
@@ -2787,7 +2787,7 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 {
 
     global $db;
-    
+
     $result = ' class="' . PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated, $transform_function, $default_function) . '">';
 
     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
@@ -2866,12 +2866,12 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
     } else {
         $result .= ($transform_function != $default_function ? $transform_function($data, $transform_options, $meta) : $transform_function($data, array(), $meta));
     }
-    
+
     // create hidden field if results from structure table
     if (isset($_GET['browse_distinct']) && ($_GET['browse_distinct'] == 1)) {
-        
+
         $where_comparison = " = '" . $data . "'";
-        
+
         $_url_params_for_show_data_row = array(
                                 'db'    => $db,
                                 'table' => $meta->orgtable,
@@ -2881,11 +2881,11 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
                                                     . ' WHERE ' . PMA_backquote($meta->orgname)
                                                     . $where_comparison,
         );
-        
+
         $result .= '<input type="hidden" class="data_browse_link" value="' . PMA_generate_common_url($_url_params_for_show_data_row). '" />';
-        
+
     }
-    
+
     $result .= '</td>' . "\n";
 
     return $result;
@@ -2915,9 +2915,9 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
             $ret .= 'class="' . $class . '"';
         }
         $ret .= ' class="center">'
-           . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $where_clause_html . ']"'
+           . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $row_no . ']"'
            . ' class="multi_checkbox"'
-           . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
+           . ' value="' . $where_clause_html . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
            . '<input type="hidden" class="condition_array" value="' . htmlspecialchars(json_encode($condition_array)) . '" />'
            . '    </td>';
     }

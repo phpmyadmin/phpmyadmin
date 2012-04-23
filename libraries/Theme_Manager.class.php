@@ -122,7 +122,8 @@ class PMA_Theme_Manager
 
         // check if user have a theme cookie
         if (! $this->getThemeCookie()
-         || ! $this->setActiveTheme($this->getThemeCookie())) {
+            || ! $this->setActiveTheme($this->getThemeCookie())
+        ) {
             // otherwise use default theme
             if ($GLOBALS['cfg']['ThemeDefault']) {
                 $this->setActiveTheme($GLOBALS['cfg']['ThemeDefault']);
@@ -136,7 +137,8 @@ class PMA_Theme_Manager
     function checkConfig()
     {
         if ($this->_themes_path != trim($GLOBALS['cfg']['ThemePath'])
-         || $this->theme_default != $GLOBALS['cfg']['ThemeDefault']) {
+            || $this->theme_default != $GLOBALS['cfg']['ThemeDefault']
+        ) {
             $this->init();
         } else {
             // at least the theme path needs to be checked every time for new

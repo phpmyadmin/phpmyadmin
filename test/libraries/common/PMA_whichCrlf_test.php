@@ -15,7 +15,7 @@ require_once 'libraries/common.lib.php';
 
 class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
 {
-    
+
     /**
      * @using runkit pecl extension
      * if not define PMA_USR_OS, then define it as Win

@@ -166,7 +166,7 @@ function includePan(currentChart) {
     });
 }
 
-$(document).ready(function() {
+$(function() {
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
     var currentData = null;
@@ -349,7 +349,7 @@ $(document).ready(function() {
             newSeries[0].marker = {
                 symbol: 'circle'
             };
-            //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. 
+            //Logic similar to plot generation, replot only if xAxis changes or yAxis changes.
             //Code includes a lot of checks so as to replot only when necessary
             if (xChange) {
                 xCord[currentData] = selectedRow[xLabel];
@@ -357,7 +357,7 @@ $(document).ready(function() {
                     currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
                     currentChart.xAxis[0].setExtremes(Array.min(xCord) - 6, Array.max(xCord) + 6);
                 } else if (xType == 'time') {
-                    currentChart.series[0].data[currentData].update({ 
+                    currentChart.series[0].data[currentData].update({
                         x : getTimeStamp(selectedRow[xLabel], $('#types_0').val())
                     });
                 } else {
@@ -370,20 +370,20 @@ $(document).ready(function() {
 
                     $.each(data, function(key, value) {
                         if (yType != 'text') {
-                            newSeries[0].data.push({ 
-                                name: value[dataLabel], 
-                                x: tempX[0][i], 
-                                y: value[yLabel], 
-                                marker: {fillColor: colorCodes[i % 8]}, 
-                                id: i 
+                            newSeries[0].data.push({
+                                name: value[dataLabel],
+                                x: tempX[0][i],
+                                y: value[yLabel],
+                                marker: {fillColor: colorCodes[i % 8]},
+                                id: i
                             });
                         } else {
-                            newSeries[0].data.push({ 
-                                name: value[dataLabel], 
-                                x: tempX[0][i], 
-                                y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]}, 
-                                id: i 
+                            newSeries[0].data.push({
+                                name: value[dataLabel],
+                                x: tempX[0][i],
+                                y: tempY[0][i],
+                                marker: {fillColor: colorCodes[i % 8]},
+                                id: i
                             });
                         }
                         i++;
@@ -408,7 +408,7 @@ $(document).ready(function() {
                     currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
                     currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6, Array.max(yCord) + 6);
                 } else if (yType == 'time') {
-                    currentChart.series[0].data[currentData].update({ 
+                    currentChart.series[0].data[currentData].update({
                         y : getTimeStamp(selectedRow[yLabel], $('#types_1').val())
                     });
                 } else {
@@ -421,20 +421,20 @@ $(document).ready(function() {
 
                     $.each(data, function(key, value) {
                         if (xType != 'text' ) {
-                            newSeries[0].data.push({ 
-                                name: value[dataLabel], 
-                                x: value[xLabel], 
-                                y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]}, 
-                                id: i 
+                            newSeries[0].data.push({
+                                name: value[dataLabel],
+                                x: value[xLabel],
+                                y: tempY[0][i],
+                                marker: {fillColor: colorCodes[i % 8]},
+                                id: i
                             });
                         } else {
-                            newSeries[0].data.push({ 
-                                name: value[dataLabel], 
-                                x: tempX[0][i], 
-                                y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]}, 
-                                id: i 
+                            newSeries[0].data.push({
+                                name: value[dataLabel],
+                                x: tempX[0][i],
+                                y: tempY[0][i],
+                                marker: {fillColor: colorCodes[i % 8]},
+                                id: i
                             });
                         }
                         i++;
@@ -685,12 +685,12 @@ $(document).ready(function() {
             $.each(data, function(key, value) {
                 var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel], $('#types_0').val());
                 var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel], $('#types_1').val());
-                series[0].data.push({ 
-                    name: value[dataLabel], 
-                    x: xVal, 
-                    y: yVal, 
-                    marker: {fillColor: colorCodes[it % 8]}, 
-                    id: it 
+                series[0].data.push({
+                    name: value[dataLabel],
+                    x: xVal,
+                    y: yVal,
+                    marker: {fillColor: colorCodes[it % 8]},
+                    id: it
                 });
                 xCord.push(value[xLabel]);
                 yCord.push(value[yLabel]);
@@ -722,12 +722,12 @@ $(document).ready(function() {
             tempX = getCord(xCord);
             $.each(data, function(key, value) {
                 var yVal = (yType == 'numeric') ? value[yLabel] : getTimeStamp(value[yLabel], $('#types_1').val());
-                series[0].data.push({ 
-                    name: value[dataLabel], 
-                    x: tempX[0][it], 
-                    y: yVal, 
-                    marker: {fillColor: colorCodes[it % 8]}, 
-                    id: it 
+                series[0].data.push({
+                    name: value[dataLabel],
+                    x: tempX[0][it],
+                    y: yVal,
+                    marker: {fillColor: colorCodes[it % 8]},
+                    id: it
                 });
                 it++;
             });
@@ -761,12 +761,12 @@ $(document).ready(function() {
             tempY = getCord(yCord);
             $.each(data, function(key, value) {
                 var xVal = (xType == 'numeric') ? value[xLabel] : getTimeStamp(value[xLabel], $('#types_0').val());
-                series[0].data.push({ 
-                    name: value[dataLabel], 
-                    y: tempY[0][it], 
-                    x: xVal, 
-                    marker: {fillColor: colorCodes[it % 8]}, 
-                    id: it 
+                series[0].data.push({
+                    name: value[dataLabel],
+                    y: tempY[0][it],
+                    x: xVal,
+                    marker: {fillColor: colorCodes[it % 8]},
+                    id: it
                 });
                 it++;
             });
@@ -799,12 +799,12 @@ $(document).ready(function() {
             tempX = getCord(xCord);
             tempY = getCord(yCord);
             $.each(data, function(key, value) {
-                series[0].data.push({ 
-                    name: value[dataLabel], 
-                    x: tempX[0][it], 
-                    y: tempY[0][it], 
-                    marker: {fillColor: colorCodes[it % 8]}, 
-                    id: it 
+                series[0].data.push({
+                    name: value[dataLabel],
+                    x: tempX[0][it],
+                    y: tempY[0][it],
+                    marker: {fillColor: colorCodes[it % 8]},
+                    id: it
                 });
                 it++;
             });

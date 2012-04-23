@@ -175,14 +175,14 @@ function PMA_changePassAuthType($_url_params, $password)
      * Changes password cookie if required
      * Duration = till the browser is closed for password (we don't want this to be saved)
      */
-    if ($cfg['Server']['auth_type'] == 'cookie') {
+    if ($GLOBALS['cfg']['Server']['auth_type'] == 'cookie') {
         $GLOBALS['PMA_Config']->setCookie('pmaPass-' . $server, PMA_blowfish_encrypt($password, $GLOBALS['cfg']['blowfish_secret']));
     }
     /**
      * For http auth. mode, the "back" link will also enforce new
      * authentication
      */
-    if ($cfg['Server']['auth_type'] == 'http') {
+    if ($GLOBALS['cfg']['Server']['auth_type'] == 'http') {
         $_url_params['old_usr'] = 'relog';
     }
     return $_url_params;

@@ -464,233 +464,223 @@ function PMA_sprites() {
             'width'    => '16',
             'height'   => '16'
         ),
-        'item_ltr' => array(
-            'position' => '93',
-            'width'    => '5',
-            'height'   => '9'
-        ),
         'item' => array(
-            'position' => '94',
+            'position' => '93',
             'width'    => '9',
             'height'   => '9'
         ),
-        'item_rtl' => array(
-            'position' => '95',
-            'width'    => '5',
-            'height'   => '9'
-        ),
         'more' => array(
-            'position' => '96',
+            'position' => '94',
             'width'    => '13',
             'height'   => '16'
         ),
         'new_data_hovered' => array(
-            'position' => '97',
+            'position' => '95',
             'width'    => '16',
             'height'   => '16'
         ),
         'new_data' => array(
-            'position' => '98',
+            'position' => '96',
             'width'    => '16',
             'height'   => '16'
         ),
         'new_data_selected_hovered' => array(
-            'position' => '99',
+            'position' => '97',
             'width'    => '16',
             'height'   => '16'
         ),
         'new_data_selected' => array(
-            'position' => '100',
+            'position' => '98',
             'width'    => '16',
             'height'   => '16'
         ),
         'new_struct_hovered' => array(
-            'position' => '101',
+            'position' => '99',
             'width'    => '16',
             'height'   => '16'
         ),
         'new_struct' => array(
-            'position' => '102',
+            'position' => '100',
             'width'    => '16',
             'height'   => '16'
         ),
         'new_struct_selected_hovered' => array(
-            'position' => '103',
+            'position' => '101',
             'width'    => '16',
             'height'   => '16'
         ),
         'new_struct_selected' => array(
-            'position' => '104',
+            'position' => '102',
             'width'    => '16',
             'height'   => '16'
         ),
         'pause' => array(
-            'position' => '105',
+            'position' => '103',
             'width'    => '16',
             'height'   => '16'
         ),
         'php_sym' => array(
-            'position' => '106',
+            'position' => '104',
             'width'    => '16',
             'height'   => '16'
         ),
         'play' => array(
-            'position' => '107',
+            'position' => '105',
             'width'    => '16',
             'height'   => '16'
         ),
         's_asci' => array(
-            'position' => '108',
+            'position' => '106',
             'width'    => '16',
             'height'   => '16'
         ),
         's_asc' => array(
-            'position' => '109',
+            'position' => '107',
             'width'    => '16',
             'height'   => '16'
         ),
         's_attention' => array(
-            'position' => '110',
+            'position' => '108',
             'width'    => '16',
             'height'   => '16'
         ),
         's_cancel2' => array(
-            'position' => '111',
+            'position' => '109',
             'width'    => '16',
             'height'   => '16'
         ),
         's_cancel' => array(
-            'position' => '112',
+            'position' => '110',
             'width'    => '16',
             'height'   => '16'
         ),
         's_cog' => array(
-            'position' => '113',
+            'position' => '111',
             'width'    => '16',
             'height'   => '16'
         ),
         's_db' => array(
-            'position' => '114',
+            'position' => '112',
             'width'    => '16',
             'height'   => '16'
         ),
         's_desc' => array(
-            'position' => '115',
+            'position' => '113',
             'width'    => '16',
             'height'   => '16'
         ),
         's_error2' => array(
-            'position' => '116',
+            'position' => '114',
             'width'    => '11',
             'height'   => '11'
         ),
         's_error' => array(
-            'position' => '117',
+            'position' => '115',
             'width'    => '16',
             'height'   => '16'
         ),
         's_host' => array(
-            'position' => '118',
+            'position' => '116',
             'width'    => '16',
             'height'   => '16'
         ),
         's_info' => array(
-            'position' => '119',
+            'position' => '117',
             'width'    => '16',
             'height'   => '16'
         ),
         's_lang' => array(
-            'position' => '120',
+            'position' => '118',
             'width'    => '16',
             'height'   => '16'
         ),
         's_loggoff' => array(
-            'position' => '121',
+            'position' => '119',
             'width'    => '16',
             'height'   => '16'
         ),
         's_notice' => array(
-            'position' => '122',
+            'position' => '120',
             'width'    => '16',
             'height'   => '16'
         ),
         's_okay' => array(
-            'position' => '123',
+            'position' => '121',
             'width'    => '16',
             'height'   => '16'
         ),
         's_passwd' => array(
-            'position' => '124',
+            'position' => '122',
             'width'    => '16',
             'height'   => '16'
         ),
         's_process' => array(
-            'position' => '125',
+            'position' => '123',
             'width'    => '16',
             'height'   => '16'
         ),
         's_really' => array(
-            'position' => '126',
+            'position' => '124',
             'width'    => '11',
             'height'   => '11'
         ),
         's_reload' => array(
-            'position' => '127',
+            'position' => '125',
             'width'    => '16',
             'height'   => '16'
         ),
         's_replication' => array(
-            'position' => '128',
+            'position' => '126',
             'width'    => '16',
             'height'   => '16'
         ),
         's_rights' => array(
-            'position' => '129',
+            'position' => '127',
             'width'    => '16',
             'height'   => '16'
         ),
         's_sortable' => array(
-            'position' => '130',
+            'position' => '128',
             'width'    => '16',
             'height'   => '16'
         ),
         's_status' => array(
-            'position' => '131',
+            'position' => '129',
             'width'    => '16',
             'height'   => '16'
         ),
         's_success' => array(
-            'position' => '132',
+            'position' => '130',
             'width'    => '16',
             'height'   => '16'
         ),
         's_sync' => array(
-            'position' => '133',
+            'position' => '131',
             'width'    => '16',
             'height'   => '16'
         ),
         's_tbl' => array(
-            'position' => '134',
+            'position' => '132',
             'width'    => '16',
             'height'   => '16'
         ),
         's_theme' => array(
-            'position' => '135',
+            'position' => '133',
             'width'    => '16',
             'height'   => '16'
         ),
         's_vars' => array(
-            'position' => '136',
+            'position' => '134',
             'width'    => '16',
             'height'   => '16'
         ),
         's_views' => array(
-            'position' => '137',
+            'position' => '135',
             'width'    => '16',
             'height'   => '16'
         ),
         'window-new' => array(
-            'position' => '138',
+            'position' => '136',
             'width'    => '16',
             'height'   => '16'
         ),

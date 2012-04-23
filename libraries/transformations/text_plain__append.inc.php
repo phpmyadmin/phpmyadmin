@@ -12,7 +12,7 @@ function PMA_transformation_text_plain__append_info()
 {
     return array(
         'info' => __('Appends text to a string. The only option is the text to be appended (enclosed in single quotes, default empty string).'),
-        );
+    );
 }
 
 function PMA_transformation_text_plain__append($buffer, $options = array(), $meta = '')

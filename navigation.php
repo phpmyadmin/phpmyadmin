@@ -239,7 +239,8 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     $db_tooltip = '';
 
     if ($GLOBALS['cfg']['ShowTooltip']
-      && $GLOBALS['cfgRelation']['commwork']) {
+        && $GLOBALS['cfgRelation']['commwork']
+    ) {
         $_db_tooltip = PMA_getDbComment($GLOBALS['db']);
         if ($_db_tooltip) {
             $db_tooltip = $_db_tooltip;
@@ -348,7 +349,9 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                 $element_counter++;
                 echo '<li class="dbgroup">';
                 if ((! empty($_REQUEST['dbgroup']) && $_REQUEST['dbgroup'] == $group)
-                  || $db_start == $group || strpos($db_start, $group) === 0) {
+                    || $db_start == $group
+                    || strpos($db_start, $group) === 0
+                ) {
                     // display + only if this db(group) is not preselected
                     printf($href_left, $element_counter, PMA_generate_common_url());
                     printf($img_minus, $element_counter);
@@ -358,7 +361,9 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                 }
                 echo '</a> ' . $group . "\n";
                 if ((! empty($_REQUEST['dbgroup']) && $_REQUEST['dbgroup'] == $group)
-                  || $db_start == $group || strpos($db_start, $group) === 0) {
+                    || $db_start == $group
+                    || strpos($db_start, $group) === 0
+                ) {
                     echo '<ul id="subel' . $element_counter . '">' . "\n";
                 } else {
                     echo '<ul id="subel' . $element_counter . '"'

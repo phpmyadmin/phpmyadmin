@@ -14,7 +14,7 @@
 
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
 
- $(document).ready(function(){
+ $(function(){
     $(window).bind('beforeunload', function(){        // onbeforeunload for the frame window.
         if (_change == 1 && _staying == 0)
             return PMA_messages['strLeavingDesigner'];

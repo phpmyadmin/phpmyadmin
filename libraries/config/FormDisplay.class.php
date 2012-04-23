@@ -449,7 +449,8 @@ class FormDisplay
             // equality comparison only if both values are numeric or not numeric
             // (allows to skip 0 == 'string' equalling to true) or identity (for string-string)
             if (($vk == $value && !(is_numeric($value_cmp) xor is_numeric($vk)))
-                    || $vk === $value) {
+                || $vk === $value
+            ) {
                 // keep boolean value as boolean
                 if (!is_bool($value)) {
                     settype($value, gettype($vk));
@@ -521,7 +522,8 @@ class FormDisplay
                 // user preferences allow/disallow
                 if ($is_setup_script && isset($this->userprefs_keys[$system_path])) {
                     if (isset($this->userprefs_disallow[$system_path])
-                            && isset($_POST[$key . '-userprefs-allow'])) {
+                        && isset($_POST[$key . '-userprefs-allow'])
+                    ) {
                         unset($this->userprefs_disallow[$system_path]);
                     } else if (!isset($_POST[$key . '-userprefs-allow'])) {
                         $this->userprefs_disallow[$system_path] = true;
@@ -760,7 +762,8 @@ class FormDisplay
         }
         if (!defined('PMA_SETUP')) {
             if (($system_path == 'MaxDbList' || $system_path == 'MaxTableList'
-                    || $system_path == 'QueryHistoryMax')) {
+                || $system_path == 'QueryHistoryMax')
+            ) {
                 $opts['comment'] = sprintf(__('maximum %s'), $GLOBALS['cfg'][$system_path]);
             }
         }

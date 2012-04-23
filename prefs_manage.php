@@ -139,24 +139,28 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         // check for ThemeDefault and fontsize
         $params = array();
         if (isset($config['ThemeDefault'])
-                && $_SESSION['PMA_Theme_Manager']->theme->getId() != $config['ThemeDefault']
-                && $_SESSION['PMA_Theme_Manager']->checkTheme($config['ThemeDefault'])) {
+            && $_SESSION['PMA_Theme_Manager']->theme->getId() != $config['ThemeDefault']
+            && $_SESSION['PMA_Theme_Manager']->checkTheme($config['ThemeDefault'])
+        ) {
             $_SESSION['PMA_Theme_Manager']->setActiveTheme($config['ThemeDefault']);
             $_SESSION['PMA_Theme_Manager']->setThemeCookie();
             $params['reload_left_frame'] = true;
         }
         if (isset($config['fontsize'])
-                && $config['fontsize'] != $GLOBALS['PMA_Config']->get('fontsize')) {
+            && $config['fontsize'] != $GLOBALS['PMA_Config']->get('fontsize')
+        ) {
             $params['set_fontsize'] = $config['fontsize'];
             $params['reload_left_frame'] = true;
         }
         if (isset($config['lang'])
-                && $config['lang'] != $GLOBALS['lang']) {
+            && $config['lang'] != $GLOBALS['lang']
+        ) {
             $params['lang'] = $config['lang'];
             $params['reload_left_frame'] = true;
         }
         if (isset($config['collation_connection'])
-                && $config['collation_connection'] != $GLOBALS['collation_connection']) {
+            && $config['collation_connection'] != $GLOBALS['collation_connection']
+        ) {
             $params['collation_connection'] = $config['collation_connection'];
             $params['reload_left_frame'] = true;
         }

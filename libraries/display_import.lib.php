@@ -31,7 +31,7 @@ if (empty($import_list)) {
     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
     <script type="text/javascript">
         //<![CDATA[
-        $(document).ready( function() {
+        $( function() {
             // add event when user click on "Go" button
             $('#buttonGo').bind('click', function() {
                 $('#upload_form_form').css("display", "none"); // hide form
@@ -236,7 +236,8 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             foreach ($cfg['AvailableCharsets'] as $temp_charset) {
                 echo '<option value="' . htmlentities($temp_charset) .  '"';
                 if ((empty($cfg['Import']['charset']) && $temp_charset == 'utf-8')
-                        || $temp_charset == $cfg['Import']['charset']) {
+                    || $temp_charset == $cfg['Import']['charset']
+                ) {
                     echo ' selected="selected"';
                 }
                 echo '>' . htmlentities($temp_charset) . '</option>';

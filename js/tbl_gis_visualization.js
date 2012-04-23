@@ -170,13 +170,13 @@ function initGISVisualization() {
  * Panning on clicking the arrow buttons.
  * Displaying tooltips for GIS objects.
  */
-$(document).ready(function() {
+$(function() {
 
     // If we are in GIS visualization, initialize it
     if ($('table.gis_table').length > 0) {
         initGISVisualization();
     }
-    
+
     $('#choice').live('click', function() {
         if ($(this).prop('checked') == false) {
             $('#placeholder').show();
@@ -186,7 +186,7 @@ $(document).ready(function() {
             $('#openlayersmap').show();
         }
     });
-    
+
     $('#placeholder').live('mousewheel', function(event, delta) {
         if (delta > 0) {
             //zoom in

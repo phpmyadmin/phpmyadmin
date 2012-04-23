@@ -183,17 +183,17 @@ foreach ($tables as $table) {
         if ($row['Null'] == '') {
             $row['Null'] = 'NO';
         }
-        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+        $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
-        if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
+        if ('set' == $extracted_columnspec['type'] || 'enum' == $extracted_columnspec['type']) {
             $type_nowrap  = '';
 
         } else {
             $type_nowrap  = ' class="nowrap"';
         }
-        $type = htmlspecialchars($extracted_fieldspec['print_type']);
-        $attribute     = $extracted_fieldspec['attribute'];
+        $type = htmlspecialchars($extracted_columnspec['print_type']);
+        $attribute     = $extracted_columnspec['attribute'];
         if (! isset($row['Default'])) {
             if ($row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';

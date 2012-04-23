@@ -1340,9 +1340,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetFont($this->_ff, '');
 
             foreach ($columns as $row) {
-                $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
-                $type                = $extracted_fieldspec['print_type'];
-                $attribute           = $extracted_fieldspec['attribute'];
+                $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
+                $type                = $extracted_columnspec['print_type'];
+                $attribute           = $extracted_columnspec['attribute'];
                 if (! isset($row['Default'])) {
                     if ($row['Null'] != '' && $row['Null'] != 'NO') {
                         $row['Default'] = 'NULL';

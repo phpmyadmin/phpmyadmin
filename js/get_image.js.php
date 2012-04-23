@@ -68,7 +68,7 @@ function PMA_getImage(image, alternate, attributes) {
             // this is private
             alt: '',
             title: '',
-            src: (typeof PMA_TEST_THEME == 'undefined' ? '' : '../') 
+            src: (typeof PMA_TEST_THEME == 'undefined' ? '' : '../')
                 + 'themes/dot.gif'
         },
         isSprite: true,

@@ -246,30 +246,30 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 }
 
 $rownum    = 0;
-$aryFields = array();
+$columns_list = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
 $save_row  = array();
 $odd_row   = true;
 foreach ($fields as $row) {
     $save_row[] = $row;
     $rownum++;
-    $aryFields[]      = $row['Field'];
+    $columns_list[]   = $row['Field'];
 
     $type             = $row['Type'];
-    $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+    $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
 
-    if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
+    if ('set' == $extracted_columnspec['type'] || 'enum' == $extracted_columnspec['type']) {
         $type_nowrap  = '';
     } else {
         $type_nowrap  = ' class="nowrap"';
     }
-    $type         = $extracted_fieldspec['print_type'];
+    $type         = $extracted_columnspec['print_type'];
     if (empty($type)) {
         $type     = ' ';
     }
 
     $field_charset = '';
-    if ($extracted_fieldspec['can_contain_collation'] && ! empty($row['Collation'])) {
+    if ($extracted_columnspec['can_contain_collation'] && ! empty($row['Collation'])) {
         $field_charset = $row['Collation'];
     }
 
@@ -280,7 +280,7 @@ foreach ($fields as $row) {
         $type_mime = '';
     }
 
-    $attribute     = $extracted_fieldspec['attribute'];
+    $attribute     = $extracted_columnspec['attribute'];
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
@@ -327,13 +327,13 @@ foreach ($fields as $row) {
         <?php echo $rownum; ?>
     </td>
     <th class="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
-    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $extracted_fieldspec['displayed_type']; echo $type_mime; ?></bdo></td>
+    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $extracted_columnspec['displayed_type']; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td class="column_attribute nowrap"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
     <td class="nowrap"><?php
     if (isset($row['Default'])) {
-        if ($extracted_fieldspec['type'] == 'bit') {
+        if ($extracted_columnspec['type'] == 'bit') {
             // here, $row['Default'] contains something like b'010'
             echo PMA_convert_bit_default_value($row['Default']);
         } else {
@@ -426,7 +426,8 @@ foreach ($fields as $row) {
     <?php
         if (! empty($tbl_storage_engine) && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA' || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
             // FULLTEXT is possible on TEXT, CHAR and VARCHAR
-            && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
+            && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
+        ) {
             echo "\n";
             ?>
     <td class="fulltext replaced_by_more center nowrap">
@@ -643,12 +644,12 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
     // I tried displaying the drop-down inside the label but with Firefox
     // the drop-down was blinking
-    $fieldOptions = '<select name="after_field" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
-    foreach ($aryFields as $fieldname) {
-        $fieldOptions .= '<option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
+    $column_selector = '<select name="after_field" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
+    foreach ($columns_list as $one_column_name) {
+        $column_selector .= '<option value="' . htmlspecialchars($one_column_name) . '">' . htmlspecialchars($one_column_name) . '</option>';
     }
-    unset($aryFields);
-    $fieldOptions .= '</select>';
+    unset($columns_list, $one_column_name);
+    $column_selector .= '</select>';
 
     $choices = array(
         'last'  => __('At End of Table'),
@@ -656,8 +657,8 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         'after' => sprintf(__('After %s'), '')
     );
     PMA_display_html_radio('field_where', $choices, 'last', false);
-    echo $fieldOptions;
-    unset($fieldOptions, $choices);
+    echo $column_selector;
+    unset($column_selector, $choices);
     ?>
 <input type="submit" value="<?php echo __('Go'); ?>" />
 </form>

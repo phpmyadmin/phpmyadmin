@@ -43,7 +43,8 @@ $querydisplay_tabs = array(
 );
 
 if (isset($_REQUEST['querydisplay_tab'])
- && in_array($_REQUEST['querydisplay_tab'], $querydisplay_tabs)) {
+    && in_array($_REQUEST['querydisplay_tab'], $querydisplay_tabs)
+) {
     $querydisplay_tab = $_REQUEST['querydisplay_tab'];
 } else {
     $querydisplay_tab = $GLOBALS['cfg']['QueryWindowDefTab'];
@@ -169,7 +170,8 @@ PMA_sqlQueryForm($query_to_display, $querydisplay_tab);
 
 $_sql_history = PMA_getHistory($GLOBALS['cfg']['Server']['user']);
 if (! empty($_sql_history)
- && ($querydisplay_tab == 'history' || $querydisplay_tab == 'full')) {
+    && ($querydisplay_tab == 'history' || $querydisplay_tab == 'full')
+) {
     $tab = $querydisplay_tab != 'full' ? 'sql' : 'full';
     echo __('SQL history') . ':<br />'
         . '<ul>';

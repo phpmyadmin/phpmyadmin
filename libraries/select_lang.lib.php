@@ -273,6 +273,8 @@ function PMA_langDetails($lang)
         return array('lv|latvian', 'lv', 'Latvie&scaron;u');
     case 'mk':
         return array('mk|macedonian', 'mk', 'Macedonian');
+    case 'ml':
+        return array('ml|malayalam', 'ml', 'Malayalam');
     case 'mn':
         return array('mn|mongolian', 'mn', '&#1052;&#1086;&#1085;&#1075;&#1086;&#1083;');
     case 'ms':

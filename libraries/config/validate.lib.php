@@ -382,7 +382,8 @@ function validate_trusted_proxies($path, $values)
         }
         // now let's check whether we really have an IP address
         if (filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false
-            && filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
+            && filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false
+        ) {
             $ip = htmlspecialchars(trim($matches[1]));
             $result[$path][] = sprintf(__('Incorrect IP address: %s'), $ip);
             continue;

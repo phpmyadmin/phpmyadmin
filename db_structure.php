@@ -378,10 +378,10 @@ foreach ($tables as $keyname => $each_table) {
         }
 
         $drop_query = 'DROP '
-            . ($table_is_view ? 'VIEW' : 'TABLE')
+            . (($table_is_view || $each_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
             . ' ' . PMA_backquote($each_table['TABLE_NAME']);
         $drop_message = sprintf(
-            $table_is_view ? __('View %s has been dropped') : __('Table %s has been dropped'),
+            ($table_is_view || $each_table['ENGINE'] == null)? __('View %s has been dropped') : __('Table %s has been dropped'),
             str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']))
         );
     }
@@ -479,7 +479,17 @@ foreach ($tables as $keyname => $each_table) {
             <?php echo $titles['Insert']; ?></a></td>
     <td class="center"><?php echo $empty_table; ?></td>
     <td class="center">
-    <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="drop_table_anchor"' : ''); ?> href="sql.php?<?php echo $tbl_url_query;
+    <a 
+    <?php if ($GLOBALS['cfg']['AjaxEnable']) {
+            echo 'class="drop_table_anchor';
+            if ($table_is_view || $each_table['ENGINE'] == null) {
+                // this class is used in db_structure.js to display the
+                // correct confirmation message
+                echo ' view';
+            }
+            echo '"';
+          }
+    ?> href="sql.php?<?php echo $tbl_url_query;
             ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php
             echo urlencode($drop_query); ?>&amp;message_to_show=<?php
             echo urlencode($drop_message); ?>" >

@@ -97,11 +97,13 @@ if (isset($_REQUEST['submitoptions'])) {
         }
     }
     if (isset($_REQUEST['comment'])
-      && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']) {
+        && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']
+    ) {
         $table_alters[] = 'COMMENT = \'' . PMA_sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-      && strtolower($_REQUEST['new_tbl_storage_engine']) !== strtolower($tbl_storage_engine)) {
+        && strtolower($_REQUEST['new_tbl_storage_engine']) !== strtolower($tbl_storage_engine)
+    ) {
         $table_alters[] = 'ENGINE = ' . $_REQUEST['new_tbl_storage_engine'];
         $tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
@@ -113,51 +115,59 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['tbl_collation'])
-      && $_REQUEST['tbl_collation'] !== $tbl_collation) {
+        && $_REQUEST['tbl_collation'] !== $tbl_collation
+    ) {
         $table_alters[] = 'DEFAULT ' . PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
     }
 
     if (($is_myisam_or_aria || $is_isam)
-      && isset($_REQUEST['new_pack_keys'])
-      && $_REQUEST['new_pack_keys'] != (string)$pack_keys) {
+        && isset($_REQUEST['new_pack_keys'])
+        && $_REQUEST['new_pack_keys'] != (string)$pack_keys
+    ) {
         $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
     }
 
     $checksum = empty($checksum) ? '0' : '1';
     $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
     if ($is_myisam_or_aria
-      && $_REQUEST['new_checksum'] !== $checksum) {
+        && $_REQUEST['new_checksum'] !== $checksum
+    ) {
         $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
     }
 
     $_REQUEST['new_transactional'] = empty($_REQUEST['new_transactional']) ? '0' : '1';
     if ($is_aria
-      && $_REQUEST['new_transactional'] !== $transactional) {
+        && $_REQUEST['new_transactional'] !== $transactional
+    ) {
         $table_alters[] = 'TRANSACTIONAL = ' . $_REQUEST['new_transactional'];
     }
 
     $_REQUEST['new_page_checksum'] = empty($_REQUEST['new_page_checksum']) ? '0' : '1';
     if ($is_aria
-      && $_REQUEST['new_page_checksum'] !== $page_checksum) {
+        && $_REQUEST['new_page_checksum'] !== $page_checksum
+    ) {
         $table_alters[] = 'PAGE_CHECKSUM = ' . $_REQUEST['new_page_checksum'];
     }
 
     $delay_key_write = empty($delay_key_write) ? '0' : '1';
     $_REQUEST['new_delay_key_write'] = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
     if ($is_myisam_or_aria
-      && $_REQUEST['new_delay_key_write'] !== $delay_key_write) {
+        && $_REQUEST['new_delay_key_write'] !== $delay_key_write
+    ) {
         $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
     }
 
     if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-      &&  ! empty($_REQUEST['new_auto_increment'])
-      && (! isset($auto_increment) || $_REQUEST['new_auto_increment'] !== $auto_increment)) {
+        &&  ! empty($_REQUEST['new_auto_increment'])
+        && (! isset($auto_increment) || $_REQUEST['new_auto_increment'] !== $auto_increment)
+    ) {
         $table_alters[] = 'auto_increment = ' . PMA_sqlAddSlashes($_REQUEST['new_auto_increment']);
     }
 
     if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
-      &&  ! empty($_REQUEST['new_row_format'])
-      && (! isset($row_format) || strtolower($_REQUEST['new_row_format']) !== strtolower($row_format))) {
+        &&  ! empty($_REQUEST['new_row_format'])
+        && (! isset($row_format) || strtolower($_REQUEST['new_row_format']) !== strtolower($row_format))
+    ) {
         $table_alters[] = 'ROW_FORMAT = ' . PMA_sqlAddSlashes($_REQUEST['new_row_format']);
     }
 
@@ -452,7 +462,8 @@ if ($is_aria) {
 } // end if (ARIA)
 
 if (isset($auto_increment) && strlen($auto_increment) > 0
-  && ($is_myisam_or_aria || $is_innodb || $is_pbxt)) {
+    && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
+) {
     ?>
     <tr><td><label for="auto_increment_opt">AUTO_INCREMENT</label></td>
         <td><input type="text" name="new_auto_increment" id="auto_increment_opt"
@@ -570,7 +581,8 @@ if (isset($possible_row_formats[$tbl_storage_engine])) {
         <?php
         } // endif
         if (isset($_COOKIE['pma_switch_to_new'])
-          && $_COOKIE['pma_switch_to_new'] == 'true') {
+            && $_COOKIE['pma_switch_to_new'] == 'true'
+        ) {
             $pma_switch_to_new = 'true';
         }
     ?>

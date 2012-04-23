@@ -55,7 +55,8 @@ if (! empty($sql_query)) {
         $wheres = array();
 
         if (isset($where_clause) && is_array($where_clause)
-         && count($where_clause) > 0) {
+            && count($where_clause) > 0
+        ) {
             $wheres[] = '(' . implode(') OR (', $where_clause) . ')';
         }
 

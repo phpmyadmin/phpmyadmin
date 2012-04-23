@@ -17,7 +17,7 @@
  * Drop Primary Key/Index
  *
  */
-$(document).ready(function() {
+$(function() {
     /**
      * Attach Event Handler for 'Drop Column'
      *
@@ -424,7 +424,7 @@ $(document).ready(function() {
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()
     });
-}); // end $(document).ready()
+}); // end $()
 
 /**
  * Loads the append_fields_form to the Change dialog allowing users
@@ -499,7 +499,7 @@ function changeColumns(action,url)
  * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
  * Attach Ajax Event handlers for Change Table
  */
-$(document).ready(function() {
+$(function() {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
     **/

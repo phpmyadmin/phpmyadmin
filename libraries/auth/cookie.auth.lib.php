@@ -128,7 +128,8 @@ function PMA_auth()
 
     /* Perform logout to custom URL */
     if (! empty($_REQUEST['old_usr'])
-     && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
+        && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
+    ) {
         PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
         exit;
     }
@@ -159,9 +160,8 @@ function PMA_auth()
 <script type="text/javascript">
 //<![CDATA[
 // reveal the login form to users with JS enabled
-$(document).ready(function () {
-    $('form.login').show();
-    $('div.language').show();
+$(function () {
+    $('.hide').show();
 });
 //]]>
 </script>
@@ -204,7 +204,7 @@ $(document).ready(function () {
     PMA_message::error(__("Javascript must be enabled past this point"))->display();
     echo "</noscript>\n";
 
-    echo "<div class='language hide'>";
+    echo "<div class='hide'>";
     // Displays the languages form
     if (empty($GLOBALS['cfg']['Lang'])) {
         include_once './libraries/display_select_lang.lib.php';
@@ -415,7 +415,8 @@ function PMA_auth_check()
 
     // servername
     if ($GLOBALS['cfg']['AllowArbitraryServer']
-     && ! empty($_COOKIE['pmaServer-' . $GLOBALS['server']])) {
+        && ! empty($_COOKIE['pmaServer-' . $GLOBALS['server']])
+    ) {
         $GLOBALS['pma_auth_server'] = $_COOKIE['pmaServer-' . $GLOBALS['server']];
     }
 
@@ -482,11 +483,12 @@ function PMA_auth_set_user()
     if ($cfg['Server']['user'] != $GLOBALS['PHP_AUTH_USER']) {
         foreach ($cfg['Servers'] as $idx => $current) {
             if ($current['host'] == $cfg['Server']['host']
-             && $current['port'] == $cfg['Server']['port']
-             && $current['socket'] == $cfg['Server']['socket']
-             && $current['ssl'] == $cfg['Server']['ssl']
-             && $current['connect_type'] == $cfg['Server']['connect_type']
-             && $current['user'] == $GLOBALS['PHP_AUTH_USER']) {
+                && $current['port'] == $cfg['Server']['port']
+                && $current['socket'] == $cfg['Server']['socket']
+                && $current['ssl'] == $cfg['Server']['ssl']
+                && $current['connect_type'] == $cfg['Server']['connect_type']
+                && $current['user'] == $GLOBALS['PHP_AUTH_USER']
+            ) {
                 $GLOBALS['server'] = $idx;
                 $cfg['Server']     = $current;
                 break;
@@ -495,7 +497,8 @@ function PMA_auth_set_user()
     } // end if
 
     if ($GLOBALS['cfg']['AllowArbitraryServer']
-     && ! empty($GLOBALS['pma_auth_server'])) {
+        && ! empty($GLOBALS['pma_auth_server'])
+    ) {
         /* Allow to specify 'host port' */
         $parts = explode(' ', $GLOBALS['pma_auth_server']);
         if (count($parts) == 2) {

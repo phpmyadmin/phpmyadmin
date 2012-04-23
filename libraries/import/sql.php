@@ -218,7 +218,8 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
         // Not enough data to decide
         if ((($i == ($len - 1) && ($ch == '-' || $ch == '/'))
           || ($i == ($len - 2) && (($ch == '-' && $buffer[$i + 1] == '-')
-            || ($ch == '/' && $buffer[$i + 1] == '*')))) && !$GLOBALS['finished']) {
+            || ($ch == '/' && $buffer[$i + 1] == '*')))) && !$GLOBALS['finished']
+        ) {
             break;
         }
 
@@ -228,7 +229,7 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
           && (($i < ($len - 2) && $buffer[$i + 2] <= ' ')
            || ($i == ($len - 1)  && $GLOBALS['finished'])))
          || ($i < ($len - 1) && $ch == '/' && $buffer[$i + 1] == '*')
-                ) {
+        ) {
             // Copy current string to SQL
             if ($start_pos != $i) {
                 $sql .= substr($buffer, $start_pos, $i - $start_pos);

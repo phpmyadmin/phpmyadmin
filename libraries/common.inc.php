@@ -818,8 +818,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
     if (isset($GLOBALS['collation_connection'])) {
         $GLOBALS['PMA_Config']->setCookie(
-            'pma_collation_connection', 
-            $GLOBALS['collation_connection']);
+            'pma_collation_connection',
+            $GLOBALS['collation_connection']
+        );
     }
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();

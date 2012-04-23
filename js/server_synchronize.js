@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * for server_synchronize.php 
+ * for server_synchronize.php
  *
  */
 
@@ -247,13 +247,13 @@ function ApplySelectedChanges(token)
 
 
 /**
- * Validates a partial form (source part or target part) 
+ * Validates a partial form (source part or target part)
  *
- * @param   which   'src' or 'trg' 
- * @return  boolean  whether the partial form is valid 
+ * @param   which   'src' or 'trg'
+ * @return  boolean  whether the partial form is valid
  *
  */
-function validateSourceOrTarget(which) 
+function validateSourceOrTarget(which)
 {
     var partial_form_is_ok = true;
 
@@ -264,20 +264,20 @@ function validateSourceOrTarget(which)
             || $("input[name='" + which + "_db']").val() == ''
             // must have at least a host or a socket
             || ($("input[name='" + which + "_host']").val() == ''
-                && $("input[name='" + which + "_socket']").val() == '')    
+                && $("input[name='" + which + "_socket']").val() == '')
             // port can be empty
                 ) {
-            partial_form_is_ok = false; 
+            partial_form_is_ok = false;
         }
     }
     return partial_form_is_ok;
-} 
+}
 /**
 * Displays an error message if any text field
 * is left empty other than the port field, unless
 * we are dealing with the "current connection" choice
 *
-* @return  boolean  whether the form is valid 
+* @return  boolean  whether the form is valid
 */
 function validateConnectionParams()
 {
@@ -318,7 +318,7 @@ function hideOrDisplayServerFields($server_selector, selected_option)
     }
 }
 
-$(document).ready(function() {
+$(function() {
     $('select.server_selector').change(function(evt) {
         var selected_option = $(evt.target).val();
         hideOrDisplayServerFields($(evt.target), selected_option);

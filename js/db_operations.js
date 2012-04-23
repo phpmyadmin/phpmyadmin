@@ -18,7 +18,7 @@
  * Change charset
  */
 
-$(document).ready(function() {
+$(function() {
 
     /**
      * Ajax event handlers for 'Rename Database'
@@ -49,7 +49,7 @@ $(document).ready(function() {
 
             $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function(data) {
                 if(data.success == true) {
-                    
+
                     PMA_ajaxShowMessage(data.message);
 
                     window.parent.db = data.newname;
@@ -88,7 +88,7 @@ $(document).ready(function() {
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase']);
 
         var $form = $(this);
-        
+
         PMA_prepareForAjaxRequest($form);
 
         $.get($form.attr('action'), $form.serialize(), function(data) {
@@ -110,7 +110,7 @@ $(document).ready(function() {
             else {
                 $('#floating_menubar').after(data.error);
             }
-            
+
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get
     }) // end copy database
@@ -137,5 +137,5 @@ $(document).ready(function() {
             }
         }) // end $.get()
     }) // end change charset
-    
+
 }, 'top.frame_content');

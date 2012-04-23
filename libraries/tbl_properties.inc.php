@@ -241,8 +241,8 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     if (isset($row['Type'])) {
-        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
-        if ($extracted_fieldspec['type'] == 'bit') {
+        $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
+        if ($extracted_columnspec['type'] == 'bit') {
             $row['Default'] = PMA_convert_bit_default_value($row['Default']);
         }
     }
@@ -283,8 +283,8 @@ for ($i = 0; $i < $num_fields; $i++) {
         $type        = '';
         $length = '';
     } else {
-        $type = $extracted_fieldspec['type'];
-        $length = $extracted_fieldspec['spec_in_brackets'];
+        $type = $extracted_columnspec['type'];
+        $length = $extracted_columnspec['spec_in_brackets'];
     }
 
     // some types, for example longtext, are reported as
@@ -354,8 +354,9 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     // for a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
     if ($type_upper == 'TIMESTAMP'
-     && ! empty($default_current_timestamp)
-     && isset($row['Default'])) {
+       && ! empty($default_current_timestamp)
+       && isset($row['Default'])
+    ) {
         $row['Default'] = '';
     }
 
@@ -395,8 +396,8 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
 
     $attribute     = '';
-    if (isset($extracted_fieldspec)) {
-        $attribute = $extracted_fieldspec['attribute'];
+    if (isset($extracted_columnspec)) {
+        $attribute = $extracted_columnspec['attribute'];
     }
 
     if (isset($row['Extra']) && $row['Extra'] == 'on update CURRENT_TIMESTAMP') {
@@ -411,22 +412,25 @@ for ($i = 0; $i < $num_fields; $i++) {
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
     if (PMA_MYSQL_INT_VERSION < 50025
-     && isset($row['Field'])
-     && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
-     && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
-     && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true) {
+        && isset($row['Field'])
+        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
+        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
+        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true
+    ) {
         $row['Null'] = '';
     }
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
     if (isset($row['Field'])
-     && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
+        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])
+    ) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
     if ((isset($row['Field'])
-      && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
-     || (isset($submit_default_current_timestamp) && $submit_default_current_timestamp)) {
+        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
+        || (isset($submit_default_current_timestamp) && $submit_default_current_timestamp)
+    ) {
         $default_current_timestamp = true;
     } else {
         $default_current_timestamp = false;

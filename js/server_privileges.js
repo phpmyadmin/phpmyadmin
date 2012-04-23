@@ -138,7 +138,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  * @name        document.ready
  */
 
-$(document).ready(function() {
+$(function() {
     /**
      * AJAX event handler for 'Add a New User'
      *
@@ -263,6 +263,7 @@ $(document).ready(function() {
             displayPasswordGenerateButton();
             PMA_convertFootnotesToTooltips($div);
             PMA_ajaxRemoveMessage($msgbox);
+            $div.find("input[autofocus]").focus();
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
@@ -373,7 +374,7 @@ $(document).ready(function() {
                 'ajax_request':true,
                 'edit_user_dialog': true,
                 'token': token
-            }, 
+            },
             function(data) {
                 var $div = $('<div id="edit_user_dialog"></div>')
                 .append(data)
@@ -492,8 +493,8 @@ $(document).ready(function() {
         button_options[PMA_messages['strClose']] = function() {
             $(this).dialog("close");
         };
-        $.post($(this.form).prop('action'), 
-            $(this.form).serialize() + '&submit_mult=export&ajax_request=true', 
+        $.post($(this.form).prop('action'),
+            $(this.form).serialize() + '&submit_mult=export&ajax_request=true',
             function(data) {
                 var $ajaxDialog = $('<div />')
                 .append(data.message)
@@ -613,6 +614,6 @@ $(document).ready(function() {
     });
 
     displayPasswordGenerateButton();
-}, 'top.frame_content'); //end $(document).ready()
+}, 'top.frame_content'); //end $()
 
 /**#@- */

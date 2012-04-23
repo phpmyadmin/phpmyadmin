@@ -234,9 +234,11 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                     }
                     $i++;
                     $ch = $buffer[$i];
-                    if ($csv_enclosed == $csv_escaped && ($ch == $csv_terminated
-                     || $ch == $csv_new_line || ($csv_new_line == 'auto'
-                      && ($ch == "\r" || $ch == "\n")))) {
+                    if ($csv_enclosed == $csv_escaped
+                        && ($ch == $csv_terminated
+                        || $ch == $csv_new_line
+                        || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n")))
+                    ) {
                         break;
                     }
                 }

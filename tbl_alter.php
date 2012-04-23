@@ -134,8 +134,9 @@ if (isset($_REQUEST['do_save_data'])) {
 
         // update mime types
         if (isset($_REQUEST['field_mimetype'])
-         && is_array($_REQUEST['field_mimetype'])
-         && $cfg['BrowseMIME']) {
+            && is_array($_REQUEST['field_mimetype'])
+            && $cfg['BrowseMIME']
+        ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && strlen($_REQUEST['field_name'][$fieldindex])

@@ -76,7 +76,7 @@ function getFieldName($this_field)
  * @name        document.ready
  * @memberOf    jQuery
  */
-$(document).ready(function() {
+$(function() {
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
     $('input#bkm_label').keyup(function() {
         $('input#id_bkm_all_users, input#id_bkm_replace')
@@ -128,7 +128,7 @@ $(document).ready(function() {
 
 
     /**
-     * Event handler for sqlqueryform.ajax button_submit_query 
+     * Event handler for sqlqueryform.ajax button_submit_query
      *
      * @memberOf    jQuery
      */
@@ -136,12 +136,12 @@ $(document).ready(function() {
         var $form = $(this).closest("form");
         // the Go button related to query submission was clicked,
         // instead of the one related to Bookmarks, so empty the
-        // id_bookmark selector to avoid misinterpretation in 
+        // id_bookmark selector to avoid misinterpretation in
         // import.php about what needs to be done
         $form.find("select[name=id_bookmark]").val("");
         // let normal event propagation happen
     });
-  
+
     /**
      * Event handler for hitting enter on sqlqueryform bookmark_variable
      * (the Variable textfield in Bookmarked SQL query section)
@@ -154,8 +154,8 @@ $(document).ready(function() {
         if (keycode == 13) { // keycode for enter key
             // When you press enter in the sqlqueryform, which
             // has 2 submit buttons, the default is to run the
-            // #button_submit_query, because of the tabindex 
-            // attribute. 
+            // #button_submit_query, because of the tabindex
+            // attribute.
             // This submits #button_submit_bookmark instead,
             // because when you are in the Bookmarked SQL query
             // section and hit enter, you expect it to do the
@@ -522,7 +522,7 @@ $(document).ready(function() {
         }); // end $.post()
     });
 
-}, 'top.frame_content'); // end $(document).ready()
+}, 'top.frame_content'); // end $()
 
 
 /**
@@ -546,7 +546,7 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     }
 }
 
-$(document).ready(function() {
+$(function() {
 
     $('a.browse_foreign').live('click', function(e) {
         e.preventDefault();

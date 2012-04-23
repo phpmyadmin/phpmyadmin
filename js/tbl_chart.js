@@ -5,7 +5,7 @@ var chart_series_index = -1;
 var chart_data;
 var temp_chart_title;
 
-$(document).ready(function() {
+$(function() {
     var currentChart = null;
     chart_series = 'columns';
     chart_xaxis_idx = $('select[name="chartXAxis"]').val();
@@ -265,7 +265,7 @@ function PMA_queryChart(data, passedSettings)
     };
 
     if (passedSettings.chart.type == 'pie') {
-        settings.tooltip.formatter = function() { 
+        settings.tooltip.formatter = function() {
             return '<b>' + columnNames[0] + '</b><br/>' + this.y;
         };
     }

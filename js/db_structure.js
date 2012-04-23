@@ -42,7 +42,7 @@ function PMA_adjustTotals() {
     var sizeSum = 0;
     var overheadSum = 0;
     var rowSumApproximated = false;
-    
+
     $allTr.each(function () {
         var $this = $(this);
         // Get the number of rows for this SQL table
@@ -117,7 +117,7 @@ function PMA_adjustTotals() {
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
 }
 
-$(document).ready(function() {
+$(function() {
     /**
      * Ajax Event handler for 'Insert Table'
      *
@@ -295,8 +295,8 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 
-            PMA_messages.strTruncateTableStrongWarning + ' ' 
+        var question =
+            PMA_messages.strTruncateTableStrongWarning + ' '
             + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + curr_table_name);
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
@@ -327,7 +327,7 @@ $(document).ready(function() {
     }); //end of Truncate Table Ajax action
 
     /**
-     * Ajax Event handler for 'Drop Table'
+     * Ajax Event handler for 'Drop Table' or 'Drop View'
      *
      * @see     $cfg['AjaxEnable']
      */
@@ -348,14 +348,14 @@ $(document).ready(function() {
         /**
          * @var is_view Boolean telling if we have a view
          */
-        var is_view = $curr_row.hasClass('is_view');
+        var is_view = $curr_row.hasClass('is_view') || $this_anchor.hasClass('view');
         /**
          * @var question    String containing the question to be asked for confirmation
          */
         var question;
         if (! is_view) {
-            question = 
-                PMA_messages.strDropTableStrongWarning + ' ' 
+            question =
+                PMA_messages.strDropTableStrongWarning + ' '
                 + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + curr_table_name);
         } else {
             question =
@@ -488,4 +488,4 @@ $(document).ready(function() {
         return false;
     }) //end Calculate Real End for InnoDB
 
-}, 'top.frame_content'); // end $(document).ready()
+}, 'top.frame_content'); // end $()

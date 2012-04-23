@@ -22,15 +22,15 @@ $(function() {
     $('div#logAnalyseDialog .datetimefield').each(function() {
         PMA_addDatepicker($(this));
     });
-    
+
     /**** Monitor charting implementation ****/
     /* Saves the previous ajax response for differential values */
     var oldChartData = null;
     // Holds about to created chart
     var newChart = null;
     var chartSpacing;
-    
-    // Whenever the monitor object (runtime.charts) or the settings object (monitorSettings) 
+
+    // Whenever the monitor object (runtime.charts) or the settings object (monitorSettings)
     // changes in a way incompatible to the previous version, increase this number
     // It will reset the users monitor and settings object in his localStorage to the default configuration
     var monitorProtocolVersion = '1.0';
@@ -55,7 +55,7 @@ $(function() {
         xmin: -1,
         xmax: -1
     };
-    
+
     var monitorSettings = null;
 
     var defaultMonitorSettings = {
@@ -69,7 +69,7 @@ $(function() {
 
     // Allows drag and drop rearrange and print/edit icons on charts
     var editMode = false;
-    
+
     /* List of preconfigured charts that the user may select */
     var presetCharts = {
         // Query cache efficiency
@@ -93,20 +93,20 @@ $(function() {
             } ]
         }
     };
-    
+
     /* Add OS specific system info charts to the preset chart list */
     switch(server_os) {
-    case 'WINNT': 
-        $.extend(presetCharts, { 
+    case 'WINNT':
+        $.extend(presetCharts, {
             'cpu': {
                 title: PMA_messages['strSystemCPUUsage'],
-                nodes: [ { 
-                    name: PMA_messages['strAverageLoad'], 
-                    dataPoints: [{ type: 'cpu', name: 'loadavg'}], 
+                nodes: [ {
+                    name: PMA_messages['strAverageLoad'],
+                    dataPoints: [{ type: 'cpu', name: 'loadavg'}],
                     unit: '%'
                 } ]
             },
-            
+
             'memory': {
                 title: PMA_messages['strSystemMemory'],
                 nodes: [ {
@@ -122,7 +122,7 @@ $(function() {
                       unit: PMA_messages['strMiB']
                 } ]
             },
-            
+
             'swap': {
                 title: PMA_messages['strSystemSwap'],
                 nodes: [ {
@@ -139,7 +139,7 @@ $(function() {
             }
         });
         break;
-        
+
     case 'Linux':
         $.extend(presetCharts, {
             'cpu': {
@@ -367,7 +367,7 @@ $(function() {
             // To many cells in one row => put into next row
             $tr.find('td').each(function() {
                 if (numColumns > monitorSettings.columns) {
-                    if ($tr.next().length == 0) { 
+                    if ($tr.next().length == 0) {
                         $tr.after('<tr></tr>');
                     }
                     $tr.next().prepend($(this));
@@ -462,14 +462,14 @@ $(function() {
 
             $(this).dialog("close");
         };
-        
+
         dlgButtons[PMA_messages['strClose']] = function() {
             newChart = null;
             $('span#clearSeriesLink').hide();
             $('#seriesPreview').html('');
             $(this).dialog("close");
         };
-        
+
         var $presetList = $('div#addChartDialog select[name="presetCharts"]');
         if ($presetList.html().length == 0) {
             $.each(presetCharts, function(key, value) {
@@ -480,7 +480,7 @@ $(function() {
                 $('input[name="chartTitle"]').val(presetCharts[$(this).val()].title);
             });
         }
-        
+
         $('div#addChartDialog').dialog({
             width: 'auto',
             height: 'auto',
@@ -491,7 +491,7 @@ $(function() {
 
         return false;
     });
-    
+
     $('a[href="#exportMonitorConfig"]').click(function() {
         var gridCopy = {};
 
@@ -501,34 +501,34 @@ $(function() {
             gridCopy[key].settings = elem.settings;
             gridCopy[key].title = elem.title;
         });
-        
+
         var exportData = {
             monitorCharts: gridCopy,
             monitorSettings: monitorSettings
         };
         var $form;
-        
+
         $('body').append($form = $('<form method="post" action="file_echo.php?' + url_query + '&filename=1" style="display:none;"></form>'));
-        
+
         $form.append('<input type="hidden" name="monitorconfig" value="' + encodeURI($.toJSON(exportData)) + '">');
         $form.submit();
         $form.remove();
     });
 
     $('a[href="#importMonitorConfig"]').click(function() {
-        $('div#emptyDialog').attr('title', PMA_messages['strImportDialogTitle']);
+        $('div#emptyDialog').dialog({title: PMA_messages['strImportDialogTitle']});
         $('div#emptyDialog').html(PMA_messages['strImportDialogMessage'] + ':<br/><form action="file_echo.php?' + url_query + '&import=1" method="post" enctype="multipart/form-data">' +
             '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
-        
+
         var dlgBtns = {};
-        
+
         dlgBtns[PMA_messages['strImport']] = function() {
             var $iframe, $form;
             $('body').append($iframe = $('<iframe id="monitorConfigUpload" style="display:none;"></iframe>'));
             var d = $iframe[0].contentWindow.document;
             d.open(); d.close();
             mew = d;
-            
+
             $iframe.load(function() {
                 var json;
 
@@ -542,14 +542,14 @@ $(function() {
                     $('div#emptyDialog').dialog('close');
                     return;
                 }
-            
+
                 // Basic check, is this a monitor config json?
                 if (!json || ! json.monitorCharts || ! json.monitorCharts) {
                     alert(PMA_messages['strFailedParsingConfig']);
                     $('div#emptyDialog').dialog('close');
                     return;
                 }
-                
+
                 // If json ok, try applying config
                 try {
                     window.localStorage['monitorCharts'] = $.toJSON(json.monitorCharts);
@@ -562,20 +562,20 @@ $(function() {
                     window.localStorage.removeItem('monitorSettings');
                     rebuildGrid();
                 }
-                
+
                 $('div#emptyDialog').dialog('close');
             });
-            
+
             $("body", d).append($form = $('div#emptyDialog').find('form'));
             $form.submit();
             $('div#emptyDialog').append('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
         };
-        
+
         dlgBtns[PMA_messages['strCancel']] = function() {
             $(this).dialog('close');
         };
-        
-        
+
+
         $('div#emptyDialog').dialog({
             width: 'auto',
             height: 'auto',
@@ -604,7 +604,7 @@ $(function() {
         }
         return false;
     });
-    
+
     $('a[href="#monitorInstructionsDialog"]').click(function() {
         var $dialog = $('div#monitorInstructionsDialog');
 
@@ -656,7 +656,7 @@ $(function() {
                                 + $.sprintf(PMA_messages['strSmallerLongQueryTimeAdvice'], logVars['long_query_time'])
                                 + '<br />';
                         }
-                        
+
                         if (logVars['long_query_time'] < 2) {
                             str += PMA_getImage('s_success.png') + ' '
                                 + $.sprintf(PMA_messages['strLongQueryTimeSet'], logVars['long_query_time'])
@@ -675,7 +675,7 @@ $(function() {
                         if (logVars['log_output'] == 'TABLE') {
                             varValue = 'FILE';
                         }
-                        
+
                         str += '- <a class="set" href="#log_output-' + varValue + '">'
                             + $.sprintf(PMA_messages['strSetLogOutput'], varValue)
                             + ' </a><br />';
@@ -729,8 +729,8 @@ $(function() {
                 }
             );
         };
-        
-        
+
+
         loadLogVars();
 
         return false;
@@ -739,7 +739,7 @@ $(function() {
     $('input[name="chartType"]').change(function() {
         $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
         var title = $('input[name="chartTitle"]').val();
-        if (title == PMA_messages['strChartTitle'] 
+        if (title == PMA_messages['strChartTitle']
            || title == $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
         ) {
             $('input[name="chartTitle"]')
@@ -788,7 +788,7 @@ $(function() {
         if ($('input#variableInput').val() == "") {
             return false;
         }
-        
+
         if (newChart == null) {
             $('#seriesPreview').html('');
 
@@ -858,17 +858,17 @@ $(function() {
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
 
             if (runtime.charts != null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
-                $('div#emptyDialog').attr('title', PMA_messages['strIncompatibleMonitorConfig']);
+                $('div#emptyDialog').dialog({title: PMA_messages['strIncompatibleMonitorConfig']});
                 $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
 
                 var dlgBtns = {};
                 dlgBtns[PMA_messages['strClose']] = function() { $(this).dialog('close'); };
 
-                $('div#emptyDialog').dialog({ 
+                $('div#emptyDialog').dialog({
                     width: 400,
-                    buttons: dlgBtns 
+                    buttons: dlgBtns
                 });
-            }            
+            }
         }
 
         if (runtime.charts == null) {
@@ -893,13 +893,13 @@ $(function() {
         /* Calculate how much spacing there is between each chart */
         $('table#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
         chartSpacing = {
-            width: $('table#chartGrid td:nth-child(2)').offset().left 
+            width: $('table#chartGrid td:nth-child(2)').offset().left
                     - $('table#chartGrid td:nth-child(1)').offset().left,
-            height: $('table#chartGrid tr:nth-child(2) td:nth-child(2)').offset().top 
+            height: $('table#chartGrid tr:nth-child(2) td:nth-child(2)').offset().top
                     - $('table#chartGrid tr:nth-child(1) td:nth-child(1)').offset().top
         };
         $('table#chartGrid').html('');
-        
+
         /* Add all charts - in correct order */
         var keys = [];
         $.each(runtime.charts, function(key, value) {
@@ -918,11 +918,11 @@ $(function() {
 
         // Empty cells should keep their size so you can drop onto them
         $('table#chartGrid tr td').css('width', chartSize().width + 'px');
-        
+
         buildRequiredDataList();
         refreshChartGrid();
     }
-    
+
     /* Destroys all monitor related resources */
     function destroyGrid() {
         if (runtime.charts) {
@@ -932,22 +932,22 @@ $(function() {
                 } catch(err) {}
             });
         }
-        
+
         try {
             runtime.refreshRequest.abort();
         } catch(err) {}
-        try {    
+        try {
             clearTimeout(runtime.refreshTimeout);
         } catch(err) {}
-            
+
         $('table#chartGrid').html('');
 
         runtime.charts = null;
         runtime.chartAI = 0;
         monitorSettings = null;
     }
-    
-    /* Calls destroyGrid() and initGrid(), but before doing so it saves the chart 
+
+    /* Calls destroyGrid() and initGrid(), but before doing so it saves the chart
      * data from each chart and restores it after the monitor is initialized again */
     function rebuildGrid() {
         var oldData = null;
@@ -961,10 +961,10 @@ $(function() {
                 }
             });
         }
-        
+
         destroyGrid();
         initGrid();
-        
+
         if (oldData) {
             $.each(runtime.charts, function(key, chartObj) {
                 for (var j = 0, l = chartObj.nodes.length; j < l; j++) {
@@ -973,7 +973,7 @@ $(function() {
                     }
                 }
             });
-        }      
+        }
     }
 
     /* Calculactes the dynamic chart size that depends on the column width */
@@ -1019,12 +1019,12 @@ $(function() {
                             loadLog('slow');
                             $(this).dialog("close");
                         };
-                        
+
                         dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
                             loadLog('general');
                             $(this).dialog("close");
                         };
-                        
+
                         function loadLog(type) {
                             var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').prop('value')) || min;
                             var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').prop('value')) || max;
@@ -1037,7 +1037,7 @@ $(function() {
                                 limitTypes: $('input#limitTypes').prop('checked')
                             });
                         }
-                        
+
                         $('#logAnalyseDialog').dialog({
                             width: 'auto',
                             height: 'auto',
@@ -1095,7 +1095,7 @@ $(function() {
 
         chartObj.chart = PMA_createChart(settings);
         chartObj.numPoints = 0;
-        
+
         if (initialize != true) {
             runtime.charts['c' + runtime.chartAI] = chartObj;
             buildRequiredDataList();
@@ -1113,7 +1113,7 @@ $(function() {
         if (! htmlnode ) {
             return;
         }
-        
+
         var chart = null;
         var chartKey = null;
         $.each(runtime.charts, function(key, value) {
@@ -1123,52 +1123,52 @@ $(function() {
                 return false;
             }
         });
-        
+
         if (chart == null) {
             return;
         }
 
-        var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
-        htmlStr += '</p><p><b>Series:</b> </p><ol>';
+        var htmlStr = '<p><b>' + PMA_messages['strChartTitle'] + ': </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
+        htmlStr += '</p><p><b>' + PMA_messages['strSeries'] + ':</b> </p><ol>';
         for (var i = 0; i<chart.nodes.length; i++) {
             htmlStr += '<li><i>' + chart.nodes[i].dataPoints[0].name  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value="' + chart.nodes[i].name + '" /></li>';
         }
-        
+
         dlgBtns = {};
-        dlgBtns['Save'] = function() {
+        dlgBtns[PMA_messages['strSave']] = function() {
             runtime.charts[chartKey].title = $('div#emptyDialog input[name="chartTitle"]').val();
             runtime.charts[chartKey].chart.setTitle({ text: runtime.charts[chartKey].title });
-            
+
             $('div#emptyDialog input[name*="chartSerie"]').each(function() {
                 var $t = $(this);
                 var idx = $t.attr('name').split('-')[1];
                 runtime.charts[chartKey].nodes[idx].name = $t.val();
                 runtime.charts[chartKey].chart.series[idx].name = $t.val();
             });
-            
+
             $(this).dialog('close');
             saveMonitor();
         };
-        dlgBtns['Cancel'] = function() {
+        dlgBtns[PMA_messages['strCancel']] = function() {
             $(this).dialog('close');
         };
-        
-        $('div#emptyDialog').attr('title', 'Edit chart');
+
         $('div#emptyDialog').html(htmlStr + '</ol>');
         $('div#emptyDialog').dialog({
+            title: PMA_messages['strChartEdit'],
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
         });
     }
-    
+
     /* Removes a chart from the grid */
     function removeChart(chartObj) {
         var htmlnode = chartObj.options.chart.renderTo;
         if (! htmlnode ) {
             return;
         }
-        
+
         $.each(runtime.charts, function(key, value) {
             if (value.chart.options.chart.renderTo == htmlnode) {
                 delete runtime.charts[key];
@@ -1192,10 +1192,10 @@ $(function() {
     function refreshChartGrid() {
         /* Send to server */
         runtime.refreshRequest = $.post('server_status.php?' + url_query, {
-            ajax_request: true, 
-            chart_data: 1, 
-            type: 'chartgrid', 
-            requiredData: $.toJSON(runtime.dataList) 
+            ajax_request: true,
+            chart_data: 1,
+            type: 'chartgrid',
+            requiredData: $.toJSON(runtime.dataList)
         }, function(data) {
             var chartData;
             try {
@@ -1205,7 +1205,7 @@ $(function() {
             }
             var value, i = 0;
             var diff;
-            
+
             /* Update values in each graph */
             $.each(runtime.charts, function(orderKey, elem) {
                 var key = elem.chartID;
@@ -1230,7 +1230,7 @@ $(function() {
                     elem.chart.xAxis[0].setExtremes(runtime.xmin, runtime.xmax, false);
 
                     /* Calculate y value */
-                    
+
                     // If transform function given, use it
                     if (elem.nodes[j].transformFn) {
                         value = chartValueTransform(
@@ -1246,7 +1246,7 @@ $(function() {
                         value = parseFloat(chartData[key][j][0].value);
 
                         if (elem.nodes[j].display == 'differential') {
-                            if (oldChartData == null || oldChartData[key] == null) { 
+                            if (oldChartData == null || oldChartData[key] == null) {
                                 continue;
                             }
                             value -= oldChartData[key][j][0].value;
@@ -1256,7 +1256,7 @@ $(function() {
                             value = value / elem.nodes[j].valueDivisor;
                         }
                     }
-                    
+
                     // Set y value, if defined
                     if (value != undefined) {
                         elem.chart.series[j].addPoint(
@@ -1280,9 +1280,9 @@ $(function() {
             runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
         });
     }
-    
+
     /* Function that supplies special value transform functions for chart values */
-    function chartValueTransform(name, cur, prev) {        
+    function chartValueTransform(name, cur, prev) {
         switch(name) {
         case 'cpu-linux':
             if (prev == null) {
@@ -1323,7 +1323,7 @@ $(function() {
      */
     function buildRequiredDataList() {
         runtime.dataList = {};
-        // Store an own id, because the property name is subject of reordering, 
+        // Store an own id, because the property name is subject of reordering,
         // thus destroying our mapping with runtime.charts <=> runtime.dataList
         var chartID = 0;
         $.each(runtime.charts, function(key, chart) {
@@ -1347,9 +1347,10 @@ $(function() {
         if (! opts.limitTypes) {
             opts.limitTypes = false;
         }
-        
-        $('#emptyDialog').html(PMA_messages['strAnalysingLogs'] + 
-                                ' <img class="ajaxIcon" src="' + pmaThemeImage + 
+
+        $('#emptyDialog').dialog({title: PMA_messages['strAnalysingLogsTitle']});
+        $('#emptyDialog').html(PMA_messages['strAnalysingLogs'] +
+                                ' <img class="ajaxIcon" src="' + pmaThemeImage +
                                 'ajax_clock_small.gif" alt="">');
         var dlgBtns = {};
 
@@ -1377,19 +1378,19 @@ $(function() {
                 removeVariables: opts.removeVariables,
                 limitTypes: opts.limitTypes
             },
-            function(data) { 
+            function(data) {
                 var logData;
                 try {
                     logData = $.parseJSON(data);
                 } catch(err) {
                     return serverResponseError();
                 }
-                
+
                 if (logData.rows.length != 0) {
                     runtime.logDataCols = buildLogTable(logData);
 
                     /* Show some stats in the dialog */
-                    $('#emptyDialog').attr('title', PMA_messages['strLoadingLogs']);
+                    $('#emptyDialog').dialog({title: PMA_messages['strLoadingLogs']});
                     $('#emptyDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
                     $.each(logData.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
@@ -1433,25 +1434,26 @@ $(function() {
                         $(this).dialog("close");
                         $(document).scrollTop($('div#logTable').offset().top);
                     };
-                    
+
                     $('#emptyDialog').dialog( "option", "buttons", dlgBtns);
-                    
+
                 } else {
+                    $('#emptyDialog').dialog({title: PMA_messages['strNoDataFoundTitle']});
                     $('#emptyDialog').html('<p>' + PMA_messages['strNoDataFound'] + '</p>');
-                    
+
                     var dlgBtns = {};
-                    dlgBtns[PMA_messages['strClose']] = function() { 
-                        $(this).dialog("close"); 
+                    dlgBtns[PMA_messages['strClose']] = function() {
+                        $(this).dialog("close");
                     };
-                    
+
                     $('#emptyDialog').dialog( "option", "buttons", dlgBtns );
                 }
             }
         );
 
-        /* Handles the actions performed when the user uses any of the log table filters 
+        /* Handles the actions performed when the user uses any of the log table filters
          * which are the filter by name and grouping with ignoring data in WHERE clauses
-         * 
+         *
          * @param boolean Should be true when the users enabled or disabled to group queries ignoring data in WHERE clauses
         */
         function filterQueries(varFilterChange) {
@@ -1463,7 +1465,7 @@ $(function() {
             } else {
                 textFilter = new RegExp(val, 'i');
             }
-            
+
             var rowSum = 0, totalSum = 0, i = 0, q;
             var noVars = $('div#logTable input#noWHEREData').prop('checked');
             var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
@@ -1474,7 +1476,7 @@ $(function() {
             var sumColumnName = runtime.logDataCols[runtime.logDataCols.length - 1];
             var isSlowLog = opts.src == 'slow';
             var columnSums = {};
-            
+
             // For the slow log we have to count many columns (query_time, lock_time, rows_examined, rows_sent, etc.)
             var countRow = function(query, row) {
                 var cells = row.match(/<td>(.*?)<\/td>/gi);
@@ -1489,16 +1491,16 @@ $(function() {
                 columnSums[query][2] += parseInt(cells[4].replace(/(<td>|<\/td>)/gi, ''));
                 columnSums[query][3] += parseInt(cells[5].replace(/(<td>|<\/td>)/gi, ''));
             };
-            
+
             // We just assume the sql text is always in the second last column, and that the total count is right of it
             $('div#logTable table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')').each(function() {
                 var $t = $(this);
-                // If query is a SELECT and user enabled or disabled to group queries ignoring data in where statements, we 
+                // If query is a SELECT and user enabled or disabled to group queries ignoring data in where statements, we
                 // need to re-calculate the sums of each row
                 if (varFilterChange && $t.html().match(/^SELECT/i)) {
                     if (noVars) {
                         // Group on => Sum up identical columns, and hide all but 1
-                        
+
                         q = $t.text().replace(equalsFilter, '$1=...$6').trim();
                         q = q.replace(functionFilter, ' $1(...)');
 
@@ -1560,7 +1562,7 @@ $(function() {
                 hide = false;
                 i++;
             });
-                       
+
             // We finished summarizing counts => Update count values of all grouped entries
             if (varFilterChange) {
                 if (noVars) {
@@ -1569,11 +1571,11 @@ $(function() {
                         if (filteredQueries[key] <= 1) {
                             return;
                         }
-                        
+
                         row =  $table.children('tr:nth-child(' + (value + 1) + ')');
                         numCol = row.children(':nth-child(' + (runtime.logDataCols.length) + ')');
                         numCol.text(filteredQueries[key]);
-                        
+
                         if (isSlowLog) {
                             row.children('td:nth-child(3)').text(secToTime(columnSums[key][0]));
                             row.children('td:nth-child(4)').text(secToTime(columnSums[key][1]));
@@ -1582,9 +1584,9 @@ $(function() {
                         }
                     });
                 }
-                
-                $('div#logTable table').trigger("update"); 
-                setTimeout(function() {                    
+
+                $('div#logTable table').trigger("update");
+                setTimeout(function() {
                     $('div#logTable table').trigger('sorton', [[[runtime.logDataCols.length - 1, 1]]]);
                 }, 0);
             }
@@ -1602,14 +1604,14 @@ $(function() {
         var time = timeStr.split(':');
         return parseInt(time[0]*3600) + parseInt(time[1]*60) + parseInt(time[2]);
     }
-    
+
     /* Turns a number into a timespan (100 into 00:01:40) */
     function secToTime(timeInt) {
         var hours = Math.floor(timeInt / 3600);
         timeInt -= hours*3600;
         var minutes = Math.floor(timeInt / 60);
         timeInt -= minutes*60;
-        
+
         if (hours < 10) {
             hours = '0' + hours;
         }
@@ -1619,10 +1621,10 @@ $(function() {
         if (timeInt < 10) {
             timeInt = '0' + timeInt;
         }
-        
+
         return hours + ':' + minutes + ':' + timeInt;
     }
-    
+
     /* Constructs the log table out of the retrieved server data */
     function buildLogTable(data) {
         var rows = data.rows;
@@ -1639,7 +1641,7 @@ $(function() {
             }
             return value;
         };
-        
+
         for (var i = 0, l = rows.length; i < l; i++) {
             if (i == 0) {
                 $.each(rows[0], function(key, value) {
@@ -1704,7 +1706,7 @@ $(function() {
 
         return cols;
     }
-        
+
     /* Opens the query analyzer dialog */
     function openQueryAnalyzer() {
         var rowData = $(this).parent().data('query');
@@ -1724,11 +1726,11 @@ $(function() {
 
         var profilingChart = null;
         var dlgBtns = {};
-        
-        dlgBtns[PMA_messages['strAnalyzeQuery']] = function() { 
-            loadQueryAnalysis(rowData); 
+
+        dlgBtns[PMA_messages['strAnalyzeQuery']] = function() {
+            loadQueryAnalysis(rowData);
         };
-        dlgBtns[PMA_messages['strClose']] = function() { 
+        dlgBtns[PMA_messages['strClose']] = function() {
             if (profilingChart != null) {
                 profilingChart.destroy();
             }
@@ -1749,13 +1751,13 @@ $(function() {
             buttons: dlgBtns
         });
     }
-    
+
     /* Loads and displays the analyzed query data */
     function loadQueryAnalysis(rowData) {
         var db = rowData.db || '';
-        
+
         $('div#queryAnalyzerDialog div.placeHolder').html(
-            PMA_messages['strAnalyzing'] + ' <img class="ajaxIcon" src="' + 
+            PMA_messages['strAnalyzing'] + ' <img class="ajaxIcon" src="' +
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
         $.post('server_status.php?' + url_query, {
@@ -1775,7 +1777,7 @@ $(function() {
             // Float sux, I'll use table :(
             $('div#queryAnalyzerDialog div.placeHolder')
                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
-            
+
             var explain = '<b>' + PMA_messages['strExplainOutput'] + '</b> ' + explain_docu;
             if (data.explain.length > 1) {
                 explain += ' (';
@@ -1792,7 +1794,7 @@ $(function() {
                 explain += '<div class="explain-' + i + '"' + (i>0? 'style="display:none;"' : '' ) + '>';
                 $.each(data.explain[i], function(key, value) {
                     value = (value == null)?'null':value;
-                    
+
                     if (key == 'type' && value.toLowerCase() == 'all') {
                         value = '<span class="attention">' + value + '</span>';
                     }
@@ -1803,17 +1805,17 @@ $(function() {
                 });
                 explain += '</div>';
             }
-            
+
             explain += '<p><b>' + PMA_messages['strAffectedRows'] + '</b> ' + data.affectedRows;
 
             $('div#queryAnalyzerDialog div.placeHolder td.explain').append(explain);
-            
+
             $('div#queryAnalyzerDialog div.placeHolder a[href*="#showExplain"]').click(function() {
                 var id = $(this).attr('href').split('-')[1];
                 $(this).parent().find('div[class*="explain"]').hide();
                 $(this).parent().find('div[class*="explain-' + id + '"]').show();
             });
-            
+
             if (data.profiling) {
                 var chartData = [];
                 var numberTable = '<table class="queryNums"><thead><tr><th>' + PMA_messages['strStatus'] + '</th><th>' + PMA_messages['strTime'] + '</th></tr></thead><tbody>';
@@ -1829,12 +1831,12 @@ $(function() {
                 }
                 numberTable += '<tr><td><b>' + PMA_messages['strTotalTime'] + '</b></td><td>' + PMA_prettyProfilingNum(totalTime, 2) + '</td></tr>';
                 numberTable += '</tbody></table>';
-                
+
                 $('div#queryAnalyzerDialog div.placeHolder td.chart').append(
                     '<b>' + PMA_messages['strProfilingResults'] + ' ' + profiling_docu + '</b> ' +
                     '(<a href="#showNums">' + PMA_messages['strTable'] + '</a>, <a href="#showChart">' + PMA_messages['strChart'] + '</a>)<br/>' +
                     numberTable + ' <div id="queryProfiling"></div>');
-                
+
                 $('div#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function() {
                     $('div#queryAnalyzerDialog div#queryProfiling').hide();
                     $('div#queryAnalyzerDialog table.queryNums').show();
