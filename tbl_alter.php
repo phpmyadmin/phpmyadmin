@@ -48,6 +48,7 @@ if (isset($_REQUEST['move_columns'])
     $columns = PMA_DBI_get_columns_full($db, $table);
     $column_names = array_keys($columns);
     $changes = array();
+    $we_dont_change_keys = array();
 
     // move columns from first to last
     for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
@@ -60,6 +61,23 @@ if (isset($_REQUEST['move_columns'])
         // it is not, let's move it to index $i
         $data = $columns[$column];
         $extracted_fieldspec = PMA_extractFieldspec($data['Type']);
+        if (isset($data['Extra']) && $data['Extra'] == 'on update CURRENT_TIMESTAMP') {
+            $extracted_fieldspec['attribute'] = $data['Extra'];
+            unset($data['Extra']);
+        }
+        $current_timestamp = false;
+        if ($data['Type'] == 'timestamp' && $data['Default'] == 'CURRENT_TIMESTAMP') {
+            $current_timestamp = true;
+        }
+        $default_type = 
+            $data['Null'] === 'YES' && $data['Default'] === null
+                ? 'NULL'
+                : ($current_timestamp
+                    ? 'CURRENT_TIMESTAMP'
+                    : ($data['Default'] == ''
+                        ? 'NONE'
+                        : 'USER_DEFINED'));
+
         $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
             $column,
             $column,
@@ -72,21 +90,19 @@ if (isset($_REQUEST['move_columns'])
             $data['Null'] === 'YES'
                 ? 'NULL'
                 : 'NOT NULL',
-            $data['Null'] === 'YES' && $data['Default'] === null
-                ? 'NULL'
-                : ($data['Default'] != ''
-                    ? 'USER_DEFINED'
-                    : 'NONE'),
-            $data['Default'],
-            $data['Extra'] !== ''
+            $default_type,
+            $current_timestamp
+                ? ''
+                : $data['Default'],
+            isset($data['Extra']) && $data['Extra'] !== ''
                 ? $data['Extra']
                 : false,
             isset($data['Comments']) && $data['Comments'] !== ''
                 ? $data['Comments']
                 : false,
-            $key_fields,
+            $we_dont_change_keys,
             $i,
-            '',
+            $data['Default'],
             $i === 0
                 ? '-first'
                 : $column_names[$i - 1]
