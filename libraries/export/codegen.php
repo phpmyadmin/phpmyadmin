@@ -156,8 +156,9 @@ if (isset($plugin_list)) {
         function getPureType()
         {
             $pos=strpos($this->type, "(");
-            if ($pos > 0)
+            if ($pos > 0) {
                 return substr($this->type, 0, $pos);
+            }
             return $this->type;
         }
         function isNotNull()
@@ -170,32 +171,65 @@ if (isset($plugin_list)) {
         }
         function getDotNetPrimitiveType()
         {
-            if (strpos($this->type, "int") === 0) return "int";
-            if (strpos($this->type, "long") === 0) return "long";
-            if (strpos($this->type, "char") === 0) return "string";
-            if (strpos($this->type, "varchar") === 0) return "string";
-            if (strpos($this->type, "text") === 0) return "string";
-            if (strpos($this->type, "longtext") === 0) return "string";
-            if (strpos($this->type, "tinyint") === 0) return "bool";
-            if (strpos($this->type, "datetime") === 0) return "DateTime";
+            if (strpos($this->type, "int") === 0) {
+                return "int";
+            }
+            if (strpos($this->type, "long") === 0) {
+                return "long";
+            }
+            if (strpos($this->type, "char") === 0) {
+                return "string";
+            }
+            if (strpos($this->type, "varchar") === 0) {
+                return "string";
+            }
+            if (strpos($this->type, "text") === 0) {
+                return "string";
+            }
+            if (strpos($this->type, "longtext") === 0) {
+                return "string";
+            }
+            if (strpos($this->type, "tinyint") === 0) {
+                return "bool";
+            }
+            if (strpos($this->type, "datetime") === 0) {
+                return "DateTime";
+            }
             return "unknown";
         }
         function getDotNetObjectType()
         {
-            if (strpos($this->type, "int") === 0) return "Int32";
-            if (strpos($this->type, "long") === 0) return "Long";
-            if (strpos($this->type, "char") === 0) return "String";
-            if (strpos($this->type, "varchar") === 0) return "String";
-            if (strpos($this->type, "text") === 0) return "String";
-            if (strpos($this->type, "longtext") === 0) return "String";
-            if (strpos($this->type, "tinyint") === 0) return "Boolean";
-            if (strpos($this->type, "datetime") === 0) return "DateTime";
+            if (strpos($this->type, "int") === 0) {
+                return "Int32";
+            }
+            if (strpos($this->type, "long") === 0) {
+                return "Long";
+            }
+            if (strpos($this->type, "char") === 0) {
+                return "String";
+            }
+            if (strpos($this->type, "varchar") === 0) {
+                return "String";
+            }
+            if (strpos($this->type, "text") === 0) {
+                return "String";
+            }
+            if (strpos($this->type, "longtext") === 0) {
+                return "String";
+            }
+            if (strpos($this->type, "tinyint") === 0) {
+                return "Boolean";
+            }
+            if (strpos($this->type, "datetime") === 0) {
+                return "DateTime";
+            }
             return "Unknown";
         }
         function getIndexName()
         {
-            if (strlen($this->key)>0)
+            if (strlen($this->key) > 0) {
                 return "index=\"" . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8') . "\"";
+            }
             return "";
         }
         function isPK()
@@ -241,10 +275,10 @@ if (isset($plugin_list)) {
 
     function handleNHibernateCSBody($db, $table, $crlf)
     {
-        $lines=array();
-        $result=PMA_DBI_query(sprintf('DESC %s.%s', PMA_backquote($db), PMA_backquote($table)));
+        $lines = array();
+        $result = PMA_DBI_query(sprintf('DESC %s.%s', PMA_backquote($db), PMA_backquote($table)));
         if ($result) {
-            $tableProperties=array();
+            $tableProperties = array();
             while ($row = PMA_DBI_fetch_row($result)) {
                 $tableProperties[] = new TableProperty($row);
             }

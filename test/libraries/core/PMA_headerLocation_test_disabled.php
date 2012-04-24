@@ -39,13 +39,14 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
     {
         parent::__construct();
         $this->runkitExt = false;
-        if (function_exists("runkit_constant_redefine"))
+        if (function_exists("runkit_constant_redefine")) {
             $this->runkitExt = true;
+        }
 
         $this->apdExt = false;
-        if (function_exists("rename_function"))
+        if (function_exists("rename_function")) {
             $this->apdExt = true;
-
+        }
 
         if ($this->apdExt && !$GLOBALS['test_header']) {
 
@@ -69,8 +70,9 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
                 );
 
             foreach ($substs as $func => $ren_func) {
-                if (function_exists("__overridden__"))
+                if (function_exists("__overridden__")) {
                     rename_function("__overridden__", str_replace(array('.', ' '), array('', ''), microtime()));
+                }
                 override_function($func, $args[$func], $substs[$func]);
                 rename_function("__overridden__", str_replace(array('.', ' '), array('', ''), microtime()));
             }
@@ -130,22 +132,22 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
         // cleaning constants
         if ($this->runkitExt) {
 
-            if ($this->oldIISvalue != 'non-defined')
+            if ($this->oldIISvalue != 'non-defined') {
                 runkit_constant_redefine('PMA_IS_IIS', $this->oldIISvalue);
-            elseif (defined('PMA_IS_IIS')) {
+            } elseif (defined('PMA_IS_IIS')) {
                 runkit_constant_remove('PMA_IS_IIS');
             }
 
-            if ($this->oldSIDvalue != 'non-defined')
+            if ($this->oldSIDvalue != 'non-defined') {
                 runkit_constant_redefine('SID', $this->oldSIDvalue);
-            elseif (defined('SID')) {
+            } elseif (defined('SID')) {
                 runkit_constant_remove('SID');
             }
         }
 
-        if ($this->apdExt)
+        if ($this->apdExt) {
             unset($GLOBALS['header']);
-
+        }
     }
 
 
@@ -232,13 +234,13 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
     public function testSendHeaderLocationIisLongUri()
     {
-        if (defined('PMA_IS_IIS') && $this->runkitExt)
+        if (defined('PMA_IS_IIS') && $this->runkitExt) {
             runkit_constant_redefine('PMA_IS_IIS', true);
-        elseif (!defined('PMA_IS_IIS'))
+        } elseif (!defined('PMA_IS_IIS')) {
             define('PMA_IS_IIS', true);
-        else
+        } else {
             $this->markTestSkipped('Cannot redefine constant/function - missing APD or/and runkit extension');
-
+        }
 
         // over 600 chars
         $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test';
