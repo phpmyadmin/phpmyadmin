@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-22 02:54+0200\n"
+"PO-Revision-Date: 2012-04-24 11:45+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8596,7 +8596,7 @@ msgstr "データベースが選択されていません。"
 #: server_databases.php:80
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "データベース %s を正常に削除しました"
+msgstr "データベース %s を正常に削除しました。"
 
 #: server_databases.php:104
 msgid "Databases statistics"
