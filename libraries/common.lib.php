@@ -2395,8 +2395,8 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
 
         This helps me a lot when navigating through giant tables.
 
-        Test case: table with 2.28 million sets, 76190 pages. Page of interest is
-        between 72376 and 76190.
+        Test case: table with 2.28 million sets, 76190 pages. Page of interest
+        is between 72376 and 76190.
         Selecting page 72376.
         Now, old version enumerated only +/- 10 pages around 72376 and the
         percentage increment produced steps of about 3000.
@@ -2425,8 +2425,8 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
             }
         }
 
-        // Since because of ellipsing of the current page some numbers may be double,
-        // we unify our array:
+        // Since because of ellipsing of the current page some numbers may be
+        // double, we unify our array:
         sort($pages);
         $pages = array_unique($pages);
     }
@@ -2671,8 +2671,9 @@ function PMA_display_html_radio($html_field_name, $choices, $checked_choice = ''
  * @param string $select_name   name for the select element
  * @param array  $choices       choices values
  * @param string $active_choice the choice to select by default
- * @param string $id            id of the select element; can be different in case
- *                              the dropdown is present more than once on the page
+ * @param string $id            id of the select element; can be different in
+ *                              case the dropdown is present more than once
+ *                              on the page
  *
  * @return string
  *
@@ -2709,11 +2710,12 @@ function PMA_generate_slider_effect($id, $message)
         return;
     }
     /**
-     * Bad hack on the next line. document.write() conflicts with jQuery, hence,
-     * opening the <div> with PHP itself instead of JavaScript.
+     * Bad hack on the next line. document.write() conflicts with jQuery,
+     * hence, opening the <div> with PHP itself instead of JavaScript.
      *
-     * @todo find a better solution that uses $.append(), the recommended method
-     * maybe by using an additional param, the id of the div to append to
+     * @todo find a better solution that uses $.append(), the recommended
+     * method maybe by using an additional param, the id of the div to
+     * append to
      */
     ?>
 <div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?> class="pma_auto_slider" title="<?php echo htmlspecialchars($message); ?>">
@@ -3161,7 +3163,8 @@ function PMA_getTitleForTarget($target)
 }
 
 /**
- * Formats user string, expanding @VARIABLES@, accepting strftime format string.
+ * Formats user string, expanding @VARIABLES@, accepting strftime format
+ * string.
  *
  * @param string   $string  Text where to do expansion.
  * @param function $escape  Function to call for escaping variable values.
@@ -3173,12 +3176,14 @@ function PMA_getTitleForTarget($target)
 function PMA_expandUserString($string, $escape = null, $updates = array())
 {
     /* Content */
-    $vars['http_host'] = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
+    $vars['http_host'] = PMA_getenv('HTTP_HOST');
     $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
     $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
-    $vars['server_verbose_or_name'] = ! empty($GLOBALS['cfg']['Server']['verbose'])
-        ? $GLOBALS['cfg']['Server']['verbose']
-        : $GLOBALS['cfg']['Server']['host'];
+    if (empty($GLOBALS['cfg']['Server']['verbose'])) {
+        $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['verbose'];
+    } else {
+        $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['host'];
+    }
     $vars['database'] = $GLOBALS['db'];
     $vars['table'] = $GLOBALS['table'];
     $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
@@ -3246,8 +3251,8 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
  *                                       html of the message
  * @param bool               $success    success whether the ajax request
  *                                       was successfull
- * @param array              $extra_data extra data  optional -
- *                                       any other data as part of the json request
+ * @param array              $extra_data extra data  optional - any other data
+ *                                       as part of the json request
  *
  * @return void
  */
@@ -3292,7 +3297,8 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 }
 
 /**
- * Display the form used to browse anywhere on the local server for a file to import
+ * Display the form used to browse anywhere on the local server for a file to
+ * import
  *
  * @param string $max_upload_size maximum upload size
  *
@@ -3316,7 +3322,8 @@ function PMA_browseUploadFile($max_upload_size)
 }
 
 /**
- * Display the form used to select a file to import from the server upload directory
+ * Display the form used to select a file to import from the server upload
+ * directory
  *
  * @param array  $import_list array of import types
  * @param string $uploaddir   upload directory
@@ -3325,7 +3332,11 @@ function PMA_browseUploadFile($max_upload_size)
  */
 function PMA_selectUploadFile($import_list, $uploaddir)
 {
-    echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
+    echo '<label for="radio_local_import_file">'
+        . sprintf(
+            __("Select from the web server upload directory <b>%s</b>:"),
+            htmlspecialchars(PMA_userDir($uploaddir)))
+        . '</label>';
     $extensions = '';
     foreach ($import_list as $key => $val) {
         if (! empty($extensions)) {
@@ -3391,7 +3402,8 @@ function PMA_buildActionTitles()
 /**
  * This function processes the datatypes supported by the DB, as specified in
  * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
- * if a datatype is supported) or an HTML snippet that creates a drop-down list.
+ * if a datatype is supported) or an HTML snippet that creates a drop-down
+ * list.
  *
  * @param bool   $html     Whether to generate an html snippet or an array
  * @param string $selected The value to mark as selected in HTML mode
@@ -3669,7 +3681,8 @@ function PMA_getFunctionsForField($field, $insert_mode)
     ) {
         $default_function = $cfg['DefaultFunctions']['first_timestamp'];
     }
-    // For primary keys of type char(36) or varchar(36) UUID if the default function
+    // For primary keys of type char(36) or varchar(36) UUID if the default
+    // function
     // Only applies to insert mode, as it would silently trash data on updates.
     if ($insert_mode
         && $field['Key'] == 'PRI'
@@ -3684,7 +3697,8 @@ function PMA_getFunctionsForField($field, $insert_mode)
 
     // Create the output
     $retval = '                <option></option>' . "\n";
-    // loop on the dropdown array and print all available options for that field.
+    // loop on the dropdown array and print all available options for that
+    // field.
     foreach ($dropdown as $each_dropdown) {
         $retval .= '                ';
         $retval .= '<option';
@@ -3696,8 +3710,8 @@ function PMA_getFunctionsForField($field, $insert_mode)
         $op_spacing_needed = true;
     }
     // For compatibility's sake, do not let out all other functions. Instead
-    // print a separator (blank) and then show ALL functions which weren't shown
-    // yet.
+    // print a separator (blank) and then show ALL functions which weren't
+    // shown yet.
     $cnt_functions = count($cfg['Functions']);
     for ($j = 0; $j < $cnt_functions; $j++) {
         if (! isset($dropdown_built[$cfg['Functions'][$j]])
@@ -3863,7 +3877,8 @@ function PMA_analyzeLimitClause($limit_clause)
 function PMA_printButton()
 {
     echo '<p class="print_ignore">';
-    echo '<input type="button" class="button" id="print" value="' . __('Print') . '" />';
+    echo '<input type="button" class="button" id="print" value="'
+        . __('Print') . '" />';
     echo '</p>';
 }
 ?>
