@@ -3161,7 +3161,8 @@ function PMA_getTitleForTarget($target)
 }
 
 /**
- * Formats user string, expanding @VARIABLES@, accepting strftime format string.
+ * Formats user string, expanding @VARIABLES@, accepting strftime format
+ * string.
  *
  * @param string   $string  Text where to do expansion.
  * @param function $escape  Function to call for escaping variable values.
@@ -3246,8 +3247,8 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
  *                                       html of the message
  * @param bool               $success    success whether the ajax request
  *                                       was successfull
- * @param array              $extra_data extra data  optional -
- *                                       any other data as part of the json request
+ * @param array              $extra_data extra data  optional - any other data
+ *                                       as part of the json request
  *
  * @return void
  */
@@ -3292,7 +3293,8 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 }
 
 /**
- * Display the form used to browse anywhere on the local server for a file to import
+ * Display the form used to browse anywhere on the local server for a file to
+ * import
  *
  * @param string $max_upload_size maximum upload size
  *
@@ -3316,7 +3318,8 @@ function PMA_browseUploadFile($max_upload_size)
 }
 
 /**
- * Display the form used to select a file to import from the server upload directory
+ * Display the form used to select a file to import from the server upload
+ * directory
  *
  * @param array  $import_list array of import types
  * @param string $uploaddir   upload directory
@@ -3325,7 +3328,11 @@ function PMA_browseUploadFile($max_upload_size)
  */
 function PMA_selectUploadFile($import_list, $uploaddir)
 {
-    echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
+    echo '<label for="radio_local_import_file">'
+        . sprintf(
+            __("Select from the web server upload directory <b>%s</b>:"),
+            htmlspecialchars(PMA_userDir($uploaddir)))
+        . '</label>';
     $extensions = '';
     foreach ($import_list as $key => $val) {
         if (! empty($extensions)) {
@@ -3391,7 +3398,8 @@ function PMA_buildActionTitles()
 /**
  * This function processes the datatypes supported by the DB, as specified in
  * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
- * if a datatype is supported) or an HTML snippet that creates a drop-down list.
+ * if a datatype is supported) or an HTML snippet that creates a drop-down
+ * list.
  *
  * @param bool   $html     Whether to generate an html snippet or an array
  * @param string $selected The value to mark as selected in HTML mode
@@ -3669,7 +3677,8 @@ function PMA_getFunctionsForField($field, $insert_mode)
     ) {
         $default_function = $cfg['DefaultFunctions']['first_timestamp'];
     }
-    // For primary keys of type char(36) or varchar(36) UUID if the default function
+    // For primary keys of type char(36) or varchar(36) UUID if the default
+    // function
     // Only applies to insert mode, as it would silently trash data on updates.
     if ($insert_mode
         && $field['Key'] == 'PRI'
@@ -3684,7 +3693,8 @@ function PMA_getFunctionsForField($field, $insert_mode)
 
     // Create the output
     $retval = '                <option></option>' . "\n";
-    // loop on the dropdown array and print all available options for that field.
+    // loop on the dropdown array and print all available options for that
+    // field.
     foreach ($dropdown as $each_dropdown) {
         $retval .= '                ';
         $retval .= '<option';
@@ -3696,8 +3706,8 @@ function PMA_getFunctionsForField($field, $insert_mode)
         $op_spacing_needed = true;
     }
     // For compatibility's sake, do not let out all other functions. Instead
-    // print a separator (blank) and then show ALL functions which weren't shown
-    // yet.
+    // print a separator (blank) and then show ALL functions which weren't
+    // shown yet.
     $cnt_functions = count($cfg['Functions']);
     for ($j = 0; $j < $cnt_functions; $j++) {
         if (! isset($dropdown_built[$cfg['Functions'][$j]])
@@ -3863,7 +3873,8 @@ function PMA_analyzeLimitClause($limit_clause)
 function PMA_printButton()
 {
     echo '<p class="print_ignore">';
-    echo '<input type="button" class="button" id="print" value="' . __('Print') . '" />';
+    echo '<input type="button" class="button" id="print" value="'
+        . __('Print') . '" />';
     echo '</p>';
 }
 ?>
