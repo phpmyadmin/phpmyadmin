@@ -186,7 +186,8 @@ if (! $is_superuser) {
     include 'libraries/footer.inc.php';
 }
 
-$random_n = mt_rand(0, 1000000); // a random number that will be appended to the id of the user forms
+// a random number that will be appended to the id of the user forms
+$random_n = mt_rand(0, 1000000);
 
 /**
  * Escapes wildcard in a database+table specification
@@ -210,11 +211,11 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
         $db_and_table = '*.*';
     } else {
         if (strlen($tablename)) {
-            $db_and_table = PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.';
-            $db_and_table .= PMA_backquote($tablename);
+            $db_and_table =
+                PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.'
+                . PMA_backquote($tablename);
         } else {
-            $db_and_table = PMA_backquote($dbname) . '.';
-            $db_and_table .= '*';
+            $db_and_table = PMA_backquote($dbname) . '.*';
         }
     }
     return $db_and_table;
@@ -232,8 +233,10 @@ function PMA_rangeOfUsers($initial = '')
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
     if (! empty($initial)) {
-        $ret = " WHERE `User` LIKE '" . PMA_sqlAddSlashes($initial, true) . "%'"
-            . " OR `User` LIKE '" . PMA_sqlAddSlashes(strtolower($initial), true) . "%'";
+        $ret = " WHERE `User` LIKE '"
+            . PMA_sqlAddSlashes($initial, true) . "%'"
+            . " OR `User` LIKE '"
+            . PMA_sqlAddSlashes(strtolower($initial), true) . "%'";
     } else {
         $ret = '';
     }
@@ -378,11 +381,15 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
             'ASSOC', $GLOBALS['userlink']
         );
-        $av_grants = explode('\',\'', substr($row1['Type'], 5, strlen($row1['Type']) - 7));
+        $av_grants = explode(
+            '\',\'',
+            substr($row1['Type'], 5, strlen($row1['Type']) - 7)
+        );
         unset($row1);
         $users_grants = explode(',', $row['Table_priv']);
         foreach ($av_grants as $current_grant) {
-            $row[$current_grant . '_priv'] = in_array($current_grant, $users_grants) ? 'Y' : 'N';
+            $row[$current_grant . '_priv'] =
+                in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
         unset($current_grant);
         unset($av_grants);
@@ -402,7 +409,8 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
                 && empty($GLOBALS[$current_grant[0] . '_none']))))
             ) {
                 if ($enableHTML) {
-                    $privs[] = '<dfn title="' . $current_grant[2] . '">' . $current_grant[1] . '</dfn>';
+                    $privs[] = '<dfn title="' . $current_grant[2] . '">'
+                        . $current_grant[1] . '</dfn>';
                 } else {
                     $privs[] = $current_grant[1];
                 }
@@ -410,11 +418,13 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
              && is_array($GLOBALS[$current_grant[0]])
              && empty($GLOBALS[$current_grant[0] . '_none'])) {
                 if ($enableHTML) {
-                    $priv_string = '<dfn title="' . $current_grant[2] . '">' . $current_grant[1] . '</dfn>';
+                    $priv_string = '<dfn title="' . $current_grant[2] . '">'
+                        . $current_grant[1] . '</dfn>';
                 } else {
                     $priv_string = $current_grant[1];
                 }
-                $privs[] = $priv_string . ' (`' . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
+                $privs[] = $priv_string . ' (`'
+                    . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
             } else {
                 $allPrivileges = false;
             }
@@ -426,9 +436,15 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
         } else {
             $privs[] = 'USAGE';
         }
-    } elseif ($allPrivileges && (! isset($GLOBALS['grant_count']) || count($privs) == $GLOBALS['grant_count'])) {
+    } elseif ($allPrivileges
+            && (! isset($GLOBALS['grant_count'])
+            || count($privs) == $GLOBALS['grant_count'])
+        ) {
         if ($enableHTML) {
-            $privs = array('<dfn title="' . __('Includes all privileges except GRANT.') . '">ALL PRIVILEGES</dfn>');
+            $privs = array('<dfn title="'
+                . __('Includes all privileges except GRANT.')
+                . '">ALL PRIVILEGES</dfn>'
+            );
         } else {
             $privs = array('ALL PRIVILEGES');
         }
@@ -474,7 +490,8 @@ function PMA_displayColumnPrivs($columns, $row, $name_for_select,
         . '_none"><input type="checkbox"'
         . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
         . ' name="' . $name_for_select . '_none" id="checkbox_'
-        . $name_for_select . '_none" title="' . _pgettext('None privileges', 'None') . '" />'
+        . $name_for_select . '_none" title="'
+        . _pgettext('None privileges', 'None') . '" />'
         . _pgettext('None privileges', 'None') . '</label>' . "\n"
        . '    </div>' . "\n";
 } // end function
@@ -553,17 +570,27 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
         // the view for Show is spelled with lowercase v
         // and there is a space between the words
 
-        $av_grants = explode('\',\'', substr($row1['Type'], strpos($row1['Type'], '(') + 2, strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3));
+        $av_grants = explode(
+            '\',\'',
+            substr(
+                $row1['Type'],
+                strpos($row1['Type'], '(') + 2,
+                strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3
+            )
+        );
         unset($row1);
         $users_grants = explode(',', $row['Table_priv']);
 
         foreach ($av_grants as $current_grant) {
-            $row[$current_grant . '_priv'] = in_array($current_grant, $users_grants) ? 'Y' : 'N';
+            $row[$current_grant . '_priv'] =
+                in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
 
         // get collumns
-        $res = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote(PMA_unescape_mysql_wildcards($db)) . '.' . PMA_backquote($table) . ';');
+        $res = PMA_DBI_try_query('SHOW COLUMNS FROM '
+            . PMA_backquote(PMA_unescape_mysql_wildcards($db))
+            . '.' . PMA_backquote($table) . ';');
         $columns = array();
         if ($res) {
             while ($row1 = PMA_DBI_fetch_row($res)) {
