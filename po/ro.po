@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-21 08:21-0400\n"
-"PO-Revision-Date: 2012-04-24 14:08+0200\n"
+"PO-Revision-Date: 2012-04-24 14:18+0200\n"
 "Last-Translator: Alex Marin <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -9324,19 +9324,20 @@ msgstr "Importați din fișier"
 
 #: prefs_manage.php:247
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importați din depozitul browser-ului"
 
 #: prefs_manage.php:250
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"Setările vor fi importate din depozitul local al browser-ului dumneavoastră."
 
 #: prefs_manage.php:256
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "Nu aveți setări salvate!"
 
 #: prefs_manage.php:260 prefs_manage.php:314
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Această facilitate nu este suportată de browser-ul dumneavoastră web"
 
 #: prefs_manage.php:265
 msgid "Merge with current configuration"
@@ -10033,6 +10034,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Acum, adăugați următoarele linii la sfârșitul secțiunii [mysqld] în fișierul "
+"dumneavoastră my.cnf, după care vă rugăm să restartați server-ul MySQL."
 
 #: server_replication.php:260
 msgid ""
@@ -10040,19 +10043,23 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"După ce ați restartat server-ul MySQL, vă rugăm să apăsați butonul Go. Apoi "
+"ar trebui să vedeți un mesaj care vă informează că acest server <b>este</b> "
+"configurat ca master"
 
 #: server_replication.php:323
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Thread-ul SQL slave nu rulează!"
 
 #: server_replication.php:326
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Thread-ul IO slave nu rulează!"
 
 #: server_replication.php:335
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Server-ul este configurat ca slave într-un proces de replicare. Doriți să:"
 
 #: server_replication.php:338
 msgid "See slave status table"
