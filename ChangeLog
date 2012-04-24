@@ -36,6 +36,8 @@ phpMyAdmin - ChangeLog
 + Removed some directives: verbose_check, SuggestDBName, LightTabs
 - Patch #3500882 Fixing checkbox behaviour while editing identical rows
 
+3.5.2.0 (not yet released)
+
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
 - bug #3511471 [interface] View name not seen in navi panel (MySQL 5.1)
