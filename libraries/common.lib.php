@@ -2395,8 +2395,8 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
 
         This helps me a lot when navigating through giant tables.
 
-        Test case: table with 2.28 million sets, 76190 pages. Page of interest is
-        between 72376 and 76190.
+        Test case: table with 2.28 million sets, 76190 pages. Page of interest
+        is between 72376 and 76190.
         Selecting page 72376.
         Now, old version enumerated only +/- 10 pages around 72376 and the
         percentage increment produced steps of about 3000.
@@ -2425,8 +2425,8 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
             }
         }
 
-        // Since because of ellipsing of the current page some numbers may be double,
-        // we unify our array:
+        // Since because of ellipsing of the current page some numbers may be
+        // double, we unify our array:
         sort($pages);
         $pages = array_unique($pages);
     }
@@ -2671,8 +2671,9 @@ function PMA_display_html_radio($html_field_name, $choices, $checked_choice = ''
  * @param string $select_name   name for the select element
  * @param array  $choices       choices values
  * @param string $active_choice the choice to select by default
- * @param string $id            id of the select element; can be different in case
- *                              the dropdown is present more than once on the page
+ * @param string $id            id of the select element; can be different in
+ *                              case the dropdown is present more than once
+ *                              on the page
  *
  * @return string
  *
@@ -2709,11 +2710,12 @@ function PMA_generate_slider_effect($id, $message)
         return;
     }
     /**
-     * Bad hack on the next line. document.write() conflicts with jQuery, hence,
-     * opening the <div> with PHP itself instead of JavaScript.
+     * Bad hack on the next line. document.write() conflicts with jQuery,
+     * hence, opening the <div> with PHP itself instead of JavaScript.
      *
-     * @todo find a better solution that uses $.append(), the recommended method
-     * maybe by using an additional param, the id of the div to append to
+     * @todo find a better solution that uses $.append(), the recommended
+     * method maybe by using an additional param, the id of the div to
+     * append to
      */
     ?>
 <div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?> class="pma_auto_slider" title="<?php echo htmlspecialchars($message); ?>">
