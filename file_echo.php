@@ -62,7 +62,9 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
 /* For monitor chart config import */
 } else if (isset($_REQUEST['import'])) {
     header('Content-type: text/plain');
-    if(!file_exists($_FILES['file']['tmp_name'])) exit();
+    if (!file_exists($_FILES['file']['tmp_name'])) {
+        exit();
+    }
     echo file_get_contents($_FILES['file']['tmp_name']);
 }
 ?>
