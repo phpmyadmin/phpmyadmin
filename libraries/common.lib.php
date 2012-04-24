@@ -3174,7 +3174,7 @@ function PMA_getTitleForTarget($target)
 function PMA_expandUserString($string, $escape = null, $updates = array())
 {
     /* Content */
-    $vars['http_host'] = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
+    $vars['http_host'] = PMA_getenv('HTTP_HOST');
     $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
     $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
     $vars['server_verbose_or_name'] = ! empty($GLOBALS['cfg']['Server']['verbose'])
