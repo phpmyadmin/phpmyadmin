@@ -48,9 +48,9 @@ function display_tabs_top($tabs)
 {
 ?>
 <ul class="tabs">
-<?php foreach ($tabs as $tab_id => $tab_name): ?>
+<?php foreach ($tabs as $tab_id => $tab_name) { ?>
     <li><a href="#<?php echo $tab_id ?>"><?php echo htmlspecialchars($tab_name); ?></a></li>
-<?php endforeach; ?>
+<?php } ?>
 </ul>
 <br clear="right" />
 <div class="tabs_contents">
@@ -293,7 +293,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     if ($is_setup_script && isset($opts['userprefs_allow'])) {
     ?>
     <td class="userprefs-allow" title="<?php echo __('Allow users to customize this value') ?>">
-        <input type="checkbox" name="<?php echo $path ?>-userprefs-allow" <?php if ($opts['userprefs_allow']) echo 'checked="checked"' ?> />
+        <input type="checkbox" name="<?php echo $path ?>-userprefs-allow" <?php if ($opts['userprefs_allow']) { echo 'checked="checked"'; }; ?> />
     </td>
     <?php
     } else if ($is_setup_script) {

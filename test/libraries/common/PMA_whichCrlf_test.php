@@ -24,15 +24,17 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
     public function testWhichCrlf()
     {
         $runkit = function_exists('runkit_constant_redefine');
-        if ($runkit && defined('PMA_USR_OS'))
+        if ($runkit && defined('PMA_USR_OS')) {
             $pma_usr_os = PMA_USR_OS;
+        }
 
         if (defined('PMA_USR_OS') && !$runkit) {
 
-            if (PMA_USR_OS == 'Win')
+            if (PMA_USR_OS == 'Win') {
                 $this->assertEquals("\r\n", PMA_whichCrlf());
-            else
+            } else {
                 $this->assertEquals("\n", PMA_whichCrlf());
+            }
 
             $this->markTestIncomplete('Cannot redefine constant');
 
@@ -43,19 +45,21 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
                 $this->assertEquals("\n", PMA_whichCrlf());
             }
 
-            if ($runkit)
+            if ($runkit) {
                 runkit_constant_redefine('PMA_USR_OS', 'Win');
-            else
+            } else {
                 define('PMA_USR_OS', 'Win');
+            }
             $this->assertEquals("\r\n", PMA_whichCrlf());
 
         }
 
         if ($runkit) {
-            if (isset($pma_usr_os))
+            if (isset($pma_usr_os)) {
                 runkit_constant_redefine('PMA_USR_OS', 'Win');
-            else
+            } else {
                 runkit_constant_remove('PMA_USR_OS');
+            }
         }
     }
 
