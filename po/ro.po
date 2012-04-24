@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-22 22:01+0200\n"
+"PO-Revision-Date: 2012-04-24 14:18+0200\n"
 "Last-Translator: Alex Marin <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -9308,13 +9308,12 @@ msgstr "Modificările au fost salvate"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr ""
+msgstr "Nu se pot salva setările, formularul trimis conține erori"
 
 #: prefs_manage.php:78
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+msgstr "Nu s-a putut importa configurația"
 
 #: prefs_manage.php:110
 msgid "Configuration contains incorrect data for some fields."
@@ -9322,33 +9321,33 @@ msgstr "Configurația conține date incorecte pentru anumite câmpuri."
 
 #: prefs_manage.php:126
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Doriți să importați setările rămase?"
 
 #: prefs_manage.php:223 prefs_manage.php:249
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Salvat pe: @DATE@"
 
 #: prefs_manage.php:237
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Import fișiere"
+msgstr "Importați din fișier"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Importați din depozitul browser-ului"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
+"Setările vor fi importate din depozitul local al browser-ului dumneavoastră."
 
 #: prefs_manage.php:252
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "Nu aveți setări salvate!"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "Această facilitate nu este suportată de browser-ul dumneavoastră web"
 
 #: prefs_manage.php:261
 msgid "Merge with current configuration"
@@ -10034,6 +10033,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Acum, adăugați următoarele linii la sfârșitul secțiunii [mysqld] în fișierul "
+"dumneavoastră my.cnf, după care vă rugăm să restartați server-ul MySQL."
 
 #: server_replication.php:228
 msgid ""
@@ -10041,19 +10042,23 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"După ce ați restartat server-ul MySQL, vă rugăm să apăsați butonul Go. Apoi "
+"ar trebui să vedeți un mesaj care vă informează că acest server <b>este</b> "
+"configurat ca master"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Thread-ul SQL slave nu rulează!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Thread-ul IO slave nu rulează!"
 
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Server-ul este configurat ca slave într-un proces de replicare. Doriți să:"
 
 #: server_replication.php:306
 msgid "See slave status table"
