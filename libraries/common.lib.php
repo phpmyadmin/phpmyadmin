@@ -3177,9 +3177,11 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
     $vars['http_host'] = PMA_getenv('HTTP_HOST');
     $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
     $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
-    $vars['server_verbose_or_name'] = ! empty($GLOBALS['cfg']['Server']['verbose'])
-        ? $GLOBALS['cfg']['Server']['verbose']
-        : $GLOBALS['cfg']['Server']['host'];
+    if (empty($GLOBALS['cfg']['Server']['verbose'])) {
+        $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['verbose'];
+    } else {
+        $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['host'];
+    }
     $vars['database'] = $GLOBALS['db'];
     $vars['table'] = $GLOBALS['table'];
     $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
