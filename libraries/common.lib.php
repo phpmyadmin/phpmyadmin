@@ -3180,9 +3180,9 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
     $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
     $vars['server_verbose'] = $GLOBALS['cfg']['Server']['verbose'];
     if (empty($GLOBALS['cfg']['Server']['verbose'])) {
-        $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['verbose'];
-    } else {
         $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['host'];
+    } else {
+        $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['verbose'];
     }
     $vars['database'] = $GLOBALS['db'];
     $vars['table'] = $GLOBALS['table'];
