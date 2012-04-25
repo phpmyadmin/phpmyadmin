@@ -417,22 +417,22 @@ class PMA_Config
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/' . $hash;
             $is_found = $this->checkHTTP($link, !$commit);
             switch($is_found) {
-                case false:
-                    $is_remote_commit = false;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
-                    break;
-                case null:
-                    // no remote link for now, but don't cache this as Github is down
-                    $is_remote_commit = false;
-                    break;
-                default:
-                    $is_remote_commit = true;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
-                    if ($commit === false) {
-                        // if no local commit data, try loading from Github
-                        $commit_json = json_decode($is_found);
-                    }
-                    break;
+            case false:
+                $is_remote_commit = false;
+                $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
+                break;
+            case null:
+                // no remote link for now, but don't cache this as Github is down
+                $is_remote_commit = false;
+                break;
+            default:
+                $is_remote_commit = true;
+                $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
+                if ($commit === false) {
+                    // if no local commit data, try loading from Github
+                    $commit_json = json_decode($is_found);
+                }
+                break;
             }
         }
 
@@ -445,18 +445,18 @@ class PMA_Config
                 $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/trees/' . $branch;
                 $is_found = $this->checkHTTP($link);
                 switch($is_found) {
-                    case true:
-                        $is_remote_branch = true;
-                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
-                        break;
-                    case false:
-                        $is_remote_branch = false;
-                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
-                        break;
-                    case null:
-                        // no remote link for now, but don't cache this as Github is down
-                        $is_remote_branch = false;
-                        break;
+                case true:
+                    $is_remote_branch = true;
+                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
+                    break;
+                case false:
+                    $is_remote_branch = false;
+                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
+                    break;
+                case null:
+                    // no remote link for now, but don't cache this as Github is down
+                    $is_remote_branch = false;
+                    break;
                 }
             }
         }

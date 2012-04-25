@@ -211,8 +211,8 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
         $db_and_table = '*.*';
     } else {
         if (strlen($tablename)) {
-            $db_and_table =
-                PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.'
+            $db_and_table
+                = PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.'
                 . PMA_backquote($tablename);
         } else {
             $db_and_table = PMA_backquote($dbname) . '.*';
@@ -388,8 +388,8 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
         unset($row1);
         $users_grants = explode(',', $row['Table_priv']);
         foreach ($av_grants as $current_grant) {
-            $row[$current_grant . '_priv'] =
-                in_array($current_grant, $users_grants) ? 'Y' : 'N';
+            $row[$current_grant . '_priv']
+                = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
         unset($current_grant);
         unset($av_grants);
@@ -582,8 +582,8 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
         $users_grants = explode(',', $row['Table_priv']);
 
         foreach ($av_grants as $current_grant) {
-            $row[$current_grant . '_priv'] =
-                in_array($current_grant, $users_grants) ? 'Y' : 'N';
+            $row[$current_grant . '_priv']
+                = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
 

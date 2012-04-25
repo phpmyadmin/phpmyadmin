@@ -935,10 +935,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
                 $is_in_sort = false;
                 $sort_name = str_replace('`', '', $sort_tbl) . $name_to_use_in_sort;
-                if (
-                   $sort_name == str_replace('`', '', $new_sort_expression_nodirection)
-                   ||
-                   $sort_name == str_replace('`', '', $sort_expression_nodirection)
+                if ($sort_name == str_replace('`', '', $new_sort_expression_nodirection)
+                    || $sort_name == str_replace('`', '', $sort_expression_nodirection)
                 ) {
                     $is_in_sort = true;
                 }

@@ -189,7 +189,8 @@ class PMA_Table
 
         // use cached data or load information with SHOW command
         if (isset(PMA_Table::$cache[$db][$table])
-                || $GLOBALS['cfg']['Server']['DisableIS']) {
+            || $GLOBALS['cfg']['Server']['DisableIS']
+        ) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
             return $type == 'VIEW';
         }
@@ -380,8 +381,8 @@ class PMA_Table
     static function generateFieldSpec($name, $type, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
         $default_value = '', $extra = '', $comment = '',
-        &$field_primary, $index)
-    {
+        &$field_primary, $index
+    ) {
 
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
@@ -596,8 +597,8 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment = '', &$field_primary, $index, $default_orig)
-    {
+        $extra, $comment = '', &$field_primary, $index, $default_orig
+    ) {
         return PMA_backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
                 $newcol, $type, $length, $attribute,
@@ -1143,6 +1144,7 @@ class PMA_Table
      * @param string $new_name new table name
      * @param string $new_db   new database name
      * @param bool   $is_view  is this for a VIEW rename?
+     *
      * @todo    remove the $is_view parameter (also in callers)
      *
      * @return bool success
