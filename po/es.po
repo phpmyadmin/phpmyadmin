@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-25 12:34-0400\n"
-"PO-Revision-Date: 2012-04-19 16:45+0200\n"
+"PO-Revision-Date: 2012-04-25 20:09+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1827
@@ -1509,10 +1509,9 @@ msgid "From general log"
 msgstr "Del registro general"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Cargando registros"
+msgstr "Analizando registros"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1553,10 +1552,9 @@ msgid "Jump to Log table"
 msgstr "Saltar a la tabla de registros"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "No hay datos"
+msgstr "No se encontraron datos"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1595,16 +1593,14 @@ msgid "Chart"
 msgstr "Gráfico"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Agregar gráfico"
+msgstr "Editar gráfico"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Series:"
+msgstr "Series"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -5599,87 +5595,98 @@ msgstr "posible ataque de recursión extrema"
 
 #: libraries/data_drizzle.inc.php:238
 msgid "Most common integer."
-msgstr ""
+msgstr "Entero más común."
 
 #: libraries/data_drizzle.inc.php:239
 msgid "Larger-range integer."
-msgstr ""
+msgstr "Entero de más rango."
 
 #: libraries/data_drizzle.inc.php:240
 msgid "Fixed precision number."
-msgstr ""
+msgstr "Número de precisión fija."
 
 #: libraries/data_drizzle.inc.php:241
 msgid "Systems native double type."
-msgstr ""
+msgstr "Tipo doble nativo al sistema."
 
 #: libraries/data_drizzle.inc.php:242
 msgid "True or false."
-msgstr ""
+msgstr "Verdadero o falso."
 
 #: libraries/data_drizzle.inc.php:243
 msgid ""
 "A number is inserted in increasing order as rows are inserted into the table."
 msgstr ""
+"Un número agregado en orden crecience a medida que se agregan filas a la "
+"tabla."
 
 #: libraries/data_drizzle.inc.php:244
 msgid "Stores Universally Unique Identifiers (UUID)."
-msgstr ""
+msgstr "Almacena indentificadores únicos universales («UUID»)."
 
 #: libraries/data_drizzle.inc.php:245
-#, fuzzy
 #| msgid "Data only"
 msgid "Dates only."
-msgstr "Solamente datos"
+msgstr "Sólamente fechas."
 
 #: libraries/data_drizzle.inc.php:246 libraries/data_drizzle.inc.php:247
 msgid "Both date and time."
-msgstr ""
+msgstr "Fecha y hora."
 
 #: libraries/data_drizzle.inc.php:248
 msgid "Time of day."
-msgstr ""
+msgstr "Sólo hora del día."
 
 #: libraries/data_drizzle.inc.php:249 libraries/data_drizzle.inc.php:251
 msgid "Variable length data."
-msgstr ""
+msgstr "Datos de longitud variable."
 
 #: libraries/data_drizzle.inc.php:250
 msgid "Text up to 2^16 characters."
-msgstr ""
+msgstr "Texto de hasta 2^16 caracteres."
 
 #: libraries/data_drizzle.inc.php:252
 msgid ""
 "Data up to 2^16 characters. Uses a binary collation for all index usage."
 msgstr ""
+"Datos de hasta 2^16 caracteres. Utiliza un cotejamiento binario para todo "
+"uso de índices."
 
 #: libraries/data_drizzle.inc.php:253
 msgid "Static lists of strings."
-msgstr ""
+msgstr "Lista estática de cadenas."
 
 #: libraries/data_mysql.inc.php:299
 msgid ""
 "A very small integer. The signed range is -128 to 127. The unsigned range is "
 "0 to 255."
 msgstr ""
+"Un entero muy pequeño. El rango con signo es de -128 a 127. El rango sin "
+"signo es de 0 a 255."
 
 #: libraries/data_mysql.inc.php:300
 msgid ""
 "A small integer. The signed range is -32,768 to 32,767. The unsigned range "
 "is 0 to 65,535."
 msgstr ""
+"Un entero pequeño. El rango con signo es desde -32768 a 32767. El rango sin "
+"signo es desde 0 a 65535."
 
 #: libraries/data_mysql.inc.php:301
 msgid ""
 "A medium-sized integer. The signed range is -8,388,608 to 8,388,607. The "
 "unsigned range is 0 to 16,777,215."
 msgstr ""
+"Un entero de tamaño medio. El rango con signo es desde -8388608 a 8388607. "
+"El rango sin signo es desde 0 a 16777215."
 
 #: libraries/data_mysql.inc.php:302
 msgid ""
 "A normal-size integer. The signed range is -2,147,483,648 to 2,147,483,647. "
 "The unsigned range is 0 to 4,294,967,295."
 msgstr ""
+"Un entero de tamaño normal. El rango con signo es desde 2147483648 a "
+"2147483647. El rango sin signo es desde 0 a 4294967295."
 
 #: libraries/data_mysql.inc.php:303
 msgid ""
@@ -5687,6 +5694,8 @@ msgid ""
 "9,223,372,036,854,775,807. The unsigned range is 0 to "
 "18,446,744,073,709,551,615."
 msgstr ""
+"En entero grande. El rango con signo es desde -9223372036854775808 a "
+"9223372036854775807. El rango sin signo es desde 0 a 18446744073709551615."
 
 #: libraries/data_mysql.inc.php:304
 msgid ""
@@ -5694,6 +5703,10 @@ msgid ""
 "DECIMAL is 65. The maximum number of supported decimals (D) is 30. If D is "
 "omitted, the default is 0. If M is omitted, the default is 10."
 msgstr ""
+"Un número decimal fijo compacto y «exacto». La mayor cantidad de dígitos (M) "
+"para DECIMAL es 65. El mayor número posible  de decimales (D) es 30. Si se "
+"omite D, tiene un valor predeterminado de 0. Si se omite M, su valor "
+"predeterminado es 10."
 
 #: libraries/data_mysql.inc.php:305
 msgid ""
@@ -5701,6 +5714,9 @@ msgid ""
 "3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E"
 "+38."
 msgstr ""
+"Un número de coma flotante pequeño (de precisión simple). Los valores "
+"posibles son desde -3.402823466E+38 a -1.175494351E-38, 0 y desde "
+"1.175494351E-38 a 3.402823466E+38."
 
 #: libraries/data_mysql.inc.php:306
 msgid ""
@@ -5708,28 +5724,37 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308."
 msgstr ""
+"Un número de coma flotante normal (precisión doble). Los valores permitidos "
+"son desde -1.7976931348623157E+308 a -2.2250738585072014E-308, 0 y desde "
+"2.2250738585072014E-308 a 1.7976931348623157E+308."
 
 #: libraries/data_mysql.inc.php:307
 msgid ""
 "Synonyms for DOUBLE. Exception: If the REAL_AS_FLOAT SQL mode is enabled, "
 "REAL is a synonym for FLOAT rather than DOUBLE."
 msgstr ""
+"Sinónimos de DOUBLE. Excepción: si el modo SQL «REAL_AS_FLOAT» está activo, "
+"REAL es sinónimo de FLOAT en lugar de DOUBLE."
 
 #: libraries/data_mysql.inc.php:308
 msgid ""
 "A bit-field type. M indicates the number of bits per value, from 1 to 64. "
 "The default is 1 if M is omitted."
 msgstr ""
+"Una máscara de bits. M indica la cantidad de bits por valor, de 1 a 64. Si "
+"se omite M, el valor predeterminado es 1."
 
 #: libraries/data_mysql.inc.php:309
 msgid ""
 "These types are synonyms for TINYINT(1). A value of zero is considered "
 "false. Nonzero values are considered true."
 msgstr ""
+"Estos tipos son sinónimos de TINYINT(1). Un valor de cero es considerado "
+"falso. Cualquier valor distinto de cero es considerado verdadero."
 
 #: libraries/data_mysql.inc.php:310
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE."
-msgstr ""
+msgstr "Un sinónimo de BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE."
 
 #: libraries/data_mysql.inc.php:311
 msgid ""
@@ -5737,6 +5762,9 @@ msgid ""
 "DATE values in 'YYYY-MM-DD' format, but allows assignment of values to DATE "
 "columns using either strings or numbers."
 msgstr ""
+"Una fecha. El rango válido es desde «01-Ene-1000» a «31-Dic-9999». MySQL "
+"muestra valores DATE en el formato YYYY-MM-DD, pero permite la asignación de "
+"valores a columnas DATE utilizando tanto cadenas como números."
 
 #: libraries/data_mysql.inc.php:312
 msgid ""
@@ -5745,6 +5773,11 @@ msgid ""
 "SS' format, but allows assignment of values to DATETIME columns using either "
 "strings or numbers."
 msgstr ""
+"Una combinación de fecha y marca temporal. El rango soportado es desde "
+"«01-Ene-1000 00:00:00» hasta «31-Dec-9999 23:59:59». MySQL muestra los "
+"valores DATETIME en el formato YYY-MM-DD HH:MM:SS, pero permite la "
+"asignación de valores a columnas DATETIME utilizando tanto cadenas como "
+"números."
 
 #: libraries/data_mysql.inc.php:313
 msgid ""
@@ -5752,6 +5785,9 @@ msgid ""
 "UTC. TIMESTAMP values are stored as the number of seconds since the epoch "
 "('1970-01-01 00:00:00' UTC)."
 msgstr ""
+"Una marca temporal. El rango es «01-Ene-1970 00:00:01» UTC a «09-Ene-2038 "
+"03:14:07» URC. Los valores TIMESTAMPS son almacenados como la cantidad de "
+"segundos desde el «epoch» (01-Ene-1970 00:00:00 UTC)."
 
 #: libraries/data_mysql.inc.php:314
 msgid ""
@@ -5759,6 +5795,9 @@ msgid ""
 "in 'HH:MM:SS' format, but allows assignment of values to TIME columns using "
 "either strings or numbers."
 msgstr ""
+"Una tiempo. El rango es -838:59:59 a 838:59:59. MySQL muestra los valores "
+"TIME en el formato HH:MM:SS pero permite la asignación de valores a columnas "
+"TIME utilizando tanto cadenas como números."
 
 #: libraries/data_mysql.inc.php:315
 msgid ""
@@ -5767,6 +5806,10 @@ msgid ""
 "two-digit format, the allowable values are 70 to 69, representing years from "
 "1970 to 2069."
 msgstr ""
+"Un año en formato de dos dígitos o de cuatro dígitos. El formato "
+"predeterminado es de cuatro dígitos y los valores posibles son desde 1901 a "
+"2155 y 0000. En el formato de dos dígitos los valores posibles son desde 70 "
+"a 69, que representan los años desde 1970 a 2069."
 
 #: libraries/data_mysql.inc.php:316
 msgid ""
@@ -5774,12 +5817,18 @@ msgid ""
 "specified length when stored. M represents the column length in characters. "
 "The range of M is 0 to 255. If M is omitted, the length is 1."
 msgstr ""
+"Una cadena de longitu fija que es siempre completada a la derecha con "
+"espacios hasta la longitud especificada al ser almacenada. M representa la "
+"longitud de la columna en caracteres. El rango de M es desde 0 a 255. Si M "
+"es omitido, el valor predeterminado es 1."
 
 #: libraries/data_mysql.inc.php:317
 msgid ""
 "A variable-length string. M represents the maximum column length in "
 "characters. The range of M is 0 to 65,535."
 msgstr ""
+"Una vadena de longitud variable. M representa la longitud máxima de la "
+"columna en caracteres. El rango de M es desde 0 a 65535."
 
 #: libraries/data_mysql.inc.php:318
 msgid ""
@@ -5787,6 +5836,9 @@ msgid ""
 "TINYTEXT value is stored using a one-byte length prefix that indicates the "
 "number of bytes in the value."
 msgstr ""
+"Una columna de texto con una longitud máxima de 255 (2^8 - 1) caracteres. "
+"Cada valor TINYTEXT es almacenado con un prefijo de 1 byte que indica la "
+"cantidad de bytes en el valor."
 
 #: libraries/data_mysql.inc.php:319
 msgid ""
@@ -5794,6 +5846,9 @@ msgid ""
 "TEXT value is stored using a two-byte length prefix that indicates the "
 "number of bytes in the value."
 msgstr ""
+"Una columna de texto con una longitud máxima de 65535 (2^16 - 1) caracteres. "
+"Cada valor TEXT es almacenado con un prefijo de 2 bytes que indica la "
+"cantidad de bytes en el valor."
 
 #: libraries/data_mysql.inc.php:320
 msgid ""
@@ -5801,6 +5856,9 @@ msgid ""
 "Each MEDIUMTEXT value is stored using a three-byte length prefix that "
 "indicates the number of bytes in the value."
 msgstr ""
+"Una columna de texto con una longitud máxima de 16777215 (2^24 - 1) "
+"caracteres. Cada valor MEDIUMTEXT es almacenado con un prefijo de 3 bytes "
+"que indica la cantidad de bytes en el valor."
 
 #: libraries/data_mysql.inc.php:321
 msgid ""
@@ -5808,6 +5866,9 @@ msgid ""
 "characters. Each LONGTEXT value is stored using a four-byte length prefix "
 "that indicates the number of bytes in the value."
 msgstr ""
+"Una columna de texto con una longitud máxima de 4294967295 (2^32 - 1) "
+"caracteres. Cada valor TEXT es almacenado con un prefijo de 4 bytes que "
+"indica la cantidad de bytes en el valor."
 
 #: libraries/data_mysql.inc.php:322
 msgid ""
@@ -5815,6 +5876,9 @@ msgid ""
 "rather than non-binary character strings. M represents the column length in "
 "bytes."
 msgstr ""
+"El tipo BINARY es similar al tipo CHAR, pero almacena cadenas binarias de "
+"bytes en lugar de cadenas de caracteres no binarios. M representa la "
+"longitud de la columna en bytes."
 
 #: libraries/data_mysql.inc.php:323
 msgid ""
@@ -5822,6 +5886,9 @@ msgid ""
 "strings rather than non-binary character strings. M represents the maximum "
 "column length in bytes."
 msgstr ""
+"El tipo VARBINARY es similar al tipo VARCHAR, pero almacena cadenas binarias "
+"de bytes en lugar de cadenas de caracteres no binarios. M representa la "
+"longitud máxima de la columna en bytes."
 
 #: libraries/data_mysql.inc.php:324
 msgid ""
@@ -5829,6 +5896,9 @@ msgid ""
 "value is stored using a one-byte length prefix that indicates the number of "
 "bytes in the value."
 msgstr ""
+"Una columna de bloque de texto («BLOB») con una longitud máxima de 255 (2^8 "
+"- 1) bytes. Cada valor TINYBLOB es almacenado con un prefijo de 1 byte que "
+"indica la cantidad de bytes en el valor."
 
 #: libraries/data_mysql.inc.php:325
 msgid ""
@@ -5836,6 +5906,9 @@ msgid ""
 "MEDIUMBLOB value is stored using a three-byte length prefix that indicates "
 "the number of bytes in the value."
 msgstr ""
+"Una columna de bloque de texto («BLOB») con una longitud máxima de 16777215 "
+"(2^24 - 1) bytes. Cada valor MEDIUMBLOB es almacenado con un prefijo de 3 "
+"bytes que indica la cantidad de bytes en el valor."
 
 #: libraries/data_mysql.inc.php:326
 msgid ""
@@ -5843,6 +5916,9 @@ msgid ""
 "value is stored using a two-byte length prefix that indicates the number of "
 "bytes in the value."
 msgstr ""
+"Una columna de bloque de texto («BLOB») con una longitud máxima de 65535 "
+"(2^16 - 1) bytes. Cada valor BLOB es almacenado con un prefijo de 2 bytes "
+"que indica la cantidad de bytes en el valor."
 
 #: libraries/data_mysql.inc.php:327
 msgid ""
@@ -5850,6 +5926,9 @@ msgid ""
 "bytes. Each LONGBLOB value is stored using a four-byte length prefix that "
 "indicates the number of bytes in the value."
 msgstr ""
+"Una columna de bloque de texto («BLOB») con una longitud máxima de "
+"4294967295 (2^32 - 1) bytes (4GB). Cada valor LONGBLOB es almacenado con un "
+"prefijo de 4 bytes que indica la cantidad de bytes en el valor."
 
 #: libraries/data_mysql.inc.php:328
 msgid ""
@@ -5857,6 +5936,9 @@ msgid ""
 "the list of values 'value1', 'value2', ..., NULL or the special '' error "
 "value. An ENUM column can have a maximum of 65,535 distinct values."
 msgstr ""
+"Una enumeración. Una cadena que puede tener sólo un valor, elegido entre la "
+"lista de valores 'valor1', 'valor2', ..., NULL o el valor especial de error "
+"''. Una columna ENUM puede tener un máximo de 65535 valores distintos."
 
 #: libraries/data_mysql.inc.php:329
 msgid ""
@@ -5864,10 +5946,13 @@ msgid ""
 "be chosen from the list of values 'value1', 'value2', ... A SET column can "
 "have a maximum of 64 members."
 msgstr ""
+"Un conjunto. Una cadena que puede tener cero o más valores, cada uno de los "
+"cuales tiene que estar en la lista de valores 'valor1', 'valor2', ... Una "
+"columna SET puede tener un máximo de 64 miembros."
 
 #: libraries/data_mysql.inc.php:331
 msgid "Constructs a WKB Point using its coordinates."
-msgstr ""
+msgstr "Construye un punto WKB utilizando sus coordenadas."
 
 #: libraries/data_mysql.inc.php:332
 msgid ""
@@ -5875,6 +5960,10 @@ msgid ""
 "any argument is not a WKB Point, the return value is NULL. If the number of "
 "Point arguments is less than two, the return value is NULL."
 msgstr ""
+"Construye una cadena de líneas WKB («LineString») de los puntos WKB "
+"provistos. Si alguno de los parámetros no es un punto WKB, el valor devuelto "
+"es NULL. Si la cantidad de parámetros es menor a 2, el valor devuelto es "
+"NULL."
 
 #: libraries/data_mysql.inc.php:333
 msgid ""
@@ -5882,30 +5971,45 @@ msgid ""
 "any argument does not represent the WKB of a LinearRing (that is, not a "
 "closed and simple LineString) the return value is NULL."
 msgstr ""
+"Construye un polígono WKB de los «LineString» WKB provistos. Si alguno de "
+"los parámetros no representa el WKB de un anillo lineal («LinearRing») - no "
+"es un «LineString» simple y cerrado - el valor devuelto es NULL."
 
 #: libraries/data_mysql.inc.php:334
 msgid ""
 "Constructs a WKB MultiPoint value using WKB Point arguments. If any argument "
 "is not a WKB Point, the return value is NULL."
 msgstr ""
+"Construye un valor multi-punto WKB («MultiPoint») de los puntos WKB "
+"provistos. Si alguno de los parámetros no es un punto WKB, el valor devuelto "
+"es NULL."
 
 #: libraries/data_mysql.inc.php:335
 msgid ""
 "Constructs a WKB MultiLineString value using WKB LineString arguments. If "
 "any argument is not a WKB LineString, the return value is NULL."
 msgstr ""
+"Construye un valor de cadenas de líneas múltiples WKB («MultiLineString») de "
+"«LineString» WKB provistos. Si cualquier parámetro no es un «LineString» "
+"WKB, el valor devuelto es NULL."
 
 #: libraries/data_mysql.inc.php:336
 msgid ""
 "Constructs a WKB MultiPolygon value from a set of WKB Polygon arguments. If "
 "any argument is not a WKB Polygon, the return value is NULL."
 msgstr ""
+"Construye un valor multi-polígono WKB («MultiPolygon») de los polígonos WKB "
+"provistos. Si alguno de los parámetros no es un polígono WKB, el valor "
+"devuelto es NULL."
 
 #: libraries/data_mysql.inc.php:337
 msgid ""
 "Constructs a WKB GeometryCollection. If any argument is not a well-formed "
 "WKB representation of a geometry, the return value is NULL."
 msgstr ""
+"Construye una colección geométrica WKB («GeometryCollection»). Si cualquier "
+"parámetro provisto no es una representación WKB válida de una geometría, el "
+"valor devuelto es NULL."
 
 #: libraries/database_interface.lib.php:1835
 msgid ""
@@ -8589,10 +8693,9 @@ msgid "Index"
 msgstr "Índice"
 
 #: libraries/tbl_properties.inc.php:131
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Eliminar columna(s)"
+msgstr "Mover columna"
 
 #: libraries/tbl_properties.inc.php:140
 #, php-format
@@ -8651,13 +8754,13 @@ msgstr "Texto completo"
 
 #: libraries/tbl_properties.inc.php:543
 msgid "first"
-msgstr ""
+msgstr "primera"
 
 #: libraries/tbl_properties.inc.php:549
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Después de %s"
+msgstr "después de %s"
 
 #: libraries/tbl_properties.inc.php:616 tbl_structure.php:665
 #, php-format
@@ -11776,10 +11879,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Los cambios en la Tabla %1$s se hicieron exitosamente"
 
 #: tbl_alter.php:130
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Los usuarios seleccionados fueron borrados exitosamente."
+msgstr "Las columnas fueron movidas exitosamente."
 
 #: tbl_change.php:755
 msgid "Because of its length,<br /> this column might not be editable"
@@ -12234,14 +12336,13 @@ msgid "Show more actions"
 msgstr "Mostrar más acciones"
 
 #: tbl_structure.php:582 tbl_structure.php:654
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Eliminar columna(s)"
+msgstr "Mover columnas"
 
 #: tbl_structure.php:583
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Mueva las columnas arrastrándolas hacia arriba o hacia abajo."
 
 #: tbl_structure.php:616
 msgid "Edit view"
