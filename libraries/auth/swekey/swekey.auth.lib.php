@@ -25,8 +25,9 @@ function Swekey_auth_check()
         foreach ($valid_swekeys as $line) {
             if (preg_match("/^[0-9A-F]{32}:.+$/", $line) != false) {
                 $items = explode(":", $line);
-                if (count($items) == 2)
+                if (count($items) == 2) {
                     $_SESSION['SWEKEY']['VALID_SWEKEYS'][$items[0]] = trim($items[1]);
+                }
             } elseif (preg_match("/^[A-Z_]+=.*$/", $line) != false) {
                 $items = explode("=", $line);
                 $_SESSION['SWEKEY']['CONF_'.trim($items[0])] = trim($items[1]);
@@ -34,24 +35,31 @@ function Swekey_auth_check()
         }
 
         // Set default values for settings
-        if (! isset($_SESSION['SWEKEY']['CONF_SERVER_CHECK']))
+        if (! isset($_SESSION['SWEKEY']['CONF_SERVER_CHECK'])) {
             $_SESSION['SWEKEY']['CONF_SERVER_CHECK'] = "";
-        if (! isset($_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN']))
+        }
+        if (! isset($_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN'])) {
             $_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN'] = "";
-        if (! isset($_SESSION['SWEKEY']['CONF_SERVER_STATUS']))
+        }
+        if (! isset($_SESSION['SWEKEY']['CONF_SERVER_STATUS'])) {
              $_SESSION['SWEKEY']['CONF_SERVER_STATUS'] = "";
-        if (! isset($_SESSION['SWEKEY']['CONF_CA_FILE']))
+        }
+        if (! isset($_SESSION['SWEKEY']['CONF_CA_FILE'])) {
             $_SESSION['SWEKEY']['CONF_CA_FILE'] = "";
-        if (! isset($_SESSION['SWEKEY']['CONF_ENABLE_TOKEN_CACHE']))
+        }
+        if (! isset($_SESSION['SWEKEY']['CONF_ENABLE_TOKEN_CACHE'])) {
             $_SESSION['SWEKEY']['CONF_ENABLE_TOKEN_CACHE'] = true;
-        if (! isset($_SESSION['SWEKEY']['CONF_DEBUG']))
+        }
+        if (! isset($_SESSION['SWEKEY']['CONF_DEBUG'])) {
                $_SESSION['SWEKEY']['CONF_DEBUG'] = false;
+        }
      }
 
     // check if a web key has been authenticated
     if ($_SESSION['SWEKEY']['ENABLED']) {
-        if (empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY']))
+        if (empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'])) {
            return false;
+        }
     }
 
     return true;
@@ -63,11 +71,13 @@ function Swekey_auth_check()
  */
 function Swekey_auth_error()
 {
-    if (! isset($_SESSION['SWEKEY']))
+    if (! isset($_SESSION['SWEKEY'])) {
         return null;
+    }
 
-    if (! $_SESSION['SWEKEY']['ENABLED'])
+    if (! $_SESSION['SWEKEY']['ENABLED']) {
         return null;
+    }
 
     include_once './libraries/auth/swekey/authentication.inc.php';
 
@@ -80,15 +90,20 @@ function Swekey_auth_error()
                 echo $key.',';
         ?>";
         var connected_keys = Swekey_ListKeyIds().split(",");
-         for (i in connected_keys)
-               if (connected_keys[i] != null && connected_keys[i].length == 32)
-                if (valids.indexOf(connected_keys[i]) >= 0)
+        for (i in connected_keys) {
+            if (connected_keys[i] != null && connected_keys[i].length == 32) {
+                if (valids.indexOf(connected_keys[i]) >= 0) {
                    return connected_keys[i];
+                }
+            }
+        }
 
 
-        if (connected_keys.length > 0)
-               if (connected_keys[0].length == 32)
-                  return "unknown_key_" + connected_keys[0];
+        if (connected_keys.length > 0) {
+            if (connected_keys[0].length == 32) {
+                return "unknown_key_" + connected_keys[0];
+            }
+        }
 
         return "none";
     }
@@ -97,23 +112,24 @@ function Swekey_auth_error()
 
     function timedCheck()
     {
-        if (key != Swekey_GetValidKey())
-        {
+        if (key != Swekey_GetValidKey()) {
             window.location.search = "?swekey_reset";
-        }
-        else
+        } else {
             setTimeout("timedCheck()",1000);
+        }
     }
 
     setTimeout("timedCheck()",1000);
     </script>
      <?php
 
-    if (! empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY']))
+    if (! empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'])) {
         return null;
+    }
 
-    if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0)
+    if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0) {
         return sprintf(__('File %s does not contain any key id'), $GLOBALS['cfg']['Server']['auth_swekey_config']);
+    }
 
     include_once "libraries/auth/swekey/swekey.php";
 
@@ -126,8 +142,9 @@ function Swekey_auth_error()
     if (empty($caFile)) {
         $caFile = __FILE__;
         $pos = strrpos($caFile, '/');
-        if ($pos === false)
+        if ($pos === false) {
             $pos = strrpos($caFile, '\\'); // windows
+        }
         $caFile = substr($caFile, 0, $pos + 1).'musbe-ca.crt';
 //        echo "\n<!-- $caFile -->\n";
 //        if (file_exists($caFile))
@@ -184,8 +201,9 @@ function Swekey_auth_error()
         window.location.search="?swekey_id=" + key + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
     } else {
         var url = "" + window.location;
-        if (url.indexOf("?") > 0)
+        if (url.indexOf("?") > 0) {
             url = url.substr(0, url.indexOf("?"));
+        }
         Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
         var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);
         window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
@@ -233,24 +251,22 @@ function Swekey_login($input_name, $input_go)
             var swekey_status = document.createElement('img');
             swekey_status.setAttribute('onclick', 'open_swekey_site()');
             swekey_status.setAttribute('style', 'width:8px; height:16px; border:0px; vspace:0px; hspace:0px; frameborder:no');
-            if (user == null)
-            {
+            if (user == null) {
                 swekey_status.setAttribute('src', 'http://artwork.swekey.com/unplugged-8x16.png');
                 //swekey_status.setAttribute('title', 'No swekey plugged');
                 input_go.disabled = true;
-            }
-            else
-            {
+            } else {
                 swekey_status.setAttribute('src', 'http://artwork.swekey.com/plugged-8x16.png');
                 //swekey_status.setAttribute('title', 'swekey plugged');
                 input_username.value = user;
             }
-             input_username.readOnly = true;
+            input_username.readOnly = true;
 
-            if (input_username.nextSibling == null)
+            if (input_username.nextSibling == null) {
                 input_username.parentNode.appendChild(swekey_status);
-            else
+            } else {
                 input_username.parentNode.insertBefore(swekey_status, input_username.nextSibling);
+            }
 
         <?php
         echo '</script>';
