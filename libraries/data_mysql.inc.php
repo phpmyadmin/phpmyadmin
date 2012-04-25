@@ -300,7 +300,7 @@ function PMA_supportedDataTypesDescriptions()
         'SMALLINT' => __('A small integer. The signed range is -32,768 to 32,767. The unsigned range is 0 to 65,535.'),
         'MEDIUMINT' => __('A medium-sized integer. The signed range is -8,388,608 to 8,388,607. The unsigned range is 0 to 16,777,215.'),
         'INT' => __('A normal-size integer. The signed range is -2,147,483,648 to 2,147,483,647. The unsigned range is 0 to 4,294,967,295.'),
-        'BIGINT' => __('A large integer. The signed range is -9223372036854775808 to 9223372036854775807. The unsigned range is 0 to 18,446,744,073,709,551,615.'),
+        'BIGINT' => __('A large integer. The signed range is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. The unsigned range is 0 to 18,446,744,073,709,551,615.'),
         'DECIMAL' => __('A packed "exact" fixed-point number. The maximum number of digits (M) for DECIMAL is 65. The maximum number of supported decimals (D) is 30. If D is omitted, the default is 0. If M is omitted, the default is 10.'),
         'FLOAT' => __('A small (single-precision) floating-point number. Allowable values are -3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38.'),
         'DOUBLE' => __('A normal-size (double-precision) floating-point number. Allowable values are -1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and 2.2250738585072014E-308 to 1.7976931348623157E+308.'),
