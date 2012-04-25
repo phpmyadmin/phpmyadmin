@@ -31,7 +31,7 @@ mysqli_report(MYSQLI_REPORT_OFF);
  * some older mysql client libs are missing these constants ...
  */
 if (! defined('MYSQLI_BINARY_FLAG')) {
-   define('MYSQLI_BINARY_FLAG', 128);
+    define('MYSQLI_BINARY_FLAG', 128);
 }
 
 /**
@@ -305,6 +305,8 @@ function PMA_DBI_data_seek($result, $offset)
  * Frees memory associated with the result
  *
  * @param mysqli_result $result
+ *
+ * @return void
  */
 function PMA_DBI_free_result($result)
 {
