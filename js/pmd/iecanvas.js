@@ -10,17 +10,17 @@
 if (!window.all)  // if IE
 {
   document.attachEvent("onreadystatechange", // document load
-    function ()
-    {
-      if (document.readyState == "complete")
-      {
+    function () {
+      if (document.readyState == "complete") {
         var el  =  document.getElementById("canvas");
         var outerHTML = el.outerHTML;
         var newEl = document.createElement(outerHTML);
         el.parentNode.replaceChild(newEl, el);
         el = newEl;
         el.getContext = function () {
-          if (this.cont) return this.cont;
+          if (this.cont) {
+              return this.cont;
+          }
           return this.cont = new PMD_2D(this);
         };
 
@@ -35,8 +35,9 @@ if (!window.all)  // if IE
   function convert_style(str) {
     var m = Array();
     m = str.match(/.*\((\d*),(\d*),(\d*),(\d*)\)/);
-    for(var i = 1; i<=3; i++ )
+    for (var i = 1; i<=3; i++) {
       m[i] = (m[i]*1).toString(16).length < 2 ? '0' + (m[i]*1).toString(16) : (m[i]*1).toString(16);
+    }
     return ['#' + m[1] + m[2] + m[3], 1];
   }
 //------------------------------------------------------------------------------
