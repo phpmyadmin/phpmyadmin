@@ -14,6 +14,11 @@ if (! defined('PHPMYADMIN')) {
  */
 class PMA_Types
 {
+    /**
+     * Returns list of unary operators.
+     *
+     * @return array
+     */
     public function getUnaryOperators() {
         return array(
            'IS NULL',
@@ -23,6 +28,13 @@ class PMA_Types
         );
     }
 
+    /**
+     * Check whether operator is unary.
+     *
+     * @param string $op operator name
+     *
+     * @return boolean
+     */
     public function isUnaryOperator($op) {
         return in_array($op, $this->getUnaryOperators());
     }
