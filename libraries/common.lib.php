@@ -3345,7 +3345,8 @@ function PMA_selectUploadFile($import_list, $uploaddir)
     echo '<label for="radio_local_import_file">'
         . sprintf(
             __("Select from the web server upload directory <b>%s</b>:"),
-            htmlspecialchars(PMA_userDir($uploaddir)))
+            htmlspecialchars(PMA_userDir($uploaddir))
+        )
         . '</label>';
     $extensions = '';
     foreach ($import_list as $key => $val) {

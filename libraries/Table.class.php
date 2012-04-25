@@ -293,7 +293,8 @@ class PMA_Table
         // if called static, with parameters
         if (! empty($db) && ! empty($table)) {
             $engine = PMA_Table::sGetStatusInfo(
-                $db, $table, 'ENGINE', null, true);
+                $db, $table, 'ENGINE', null, true
+            );
         }
 
         return (! empty($engine) && ((strtoupper($engine) == 'MERGE') || (strtoupper($engine) == 'MRG_MYISAM')));

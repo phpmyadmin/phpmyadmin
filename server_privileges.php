@@ -588,9 +588,11 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
 
         // get collumns
-        $res = PMA_DBI_try_query('SHOW COLUMNS FROM '
+        $res = PMA_DBI_try_query(
+            'SHOW COLUMNS FROM '
             . PMA_backquote(PMA_unescape_mysql_wildcards($db))
-            . '.' . PMA_backquote($table) . ';');
+            . '.' . PMA_backquote($table) . ';'
+        );
         $columns = array();
         if ($res) {
             while ($row1 = PMA_DBI_fetch_row($res)) {
