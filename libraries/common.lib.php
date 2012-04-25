@@ -458,7 +458,8 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
                 $lang = _pgettext('MySQL 5.0 documentation language', 'en');
             }
         }
-        $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
+        $url = $cfg['MySQLManualBase']
+            . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
         if (! empty($anchor)) {
             $url .= '#' . $anchor;
         }
@@ -469,9 +470,11 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     if ($just_open) {
         return $open_link;
     } elseif ($big_icon) {
-        return $open_link . PMA_getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
+        return $open_link
+            . PMA_getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return $open_link . PMA_getImage('b_help.png', __('Documentation')) . '</a>';
+        return $open_link
+            . PMA_getImage('b_help.png', __('Documentation')) . '</a>';
     } else {
         return '[' . $open_link . __('Documentation') . '</a>]';
     }
@@ -3481,7 +3484,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
  *
  * @param string $type The data type to get a description.
  *
- * @return string 
+ * @return string
  *
  */
 function PMA_getDatatypeDescription($type)
