@@ -2703,11 +2703,13 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
         $header_shown = true;
     }
     if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
+        $ajax_class = $GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '';
+        echo "<span class='create_view$ajax_class'>";
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
             PMA_getIcon('b_views.png', __('Create view'), true),
             '', true, true, ''
-        ) . "\n";
+        ) . "</span>\n";
     }
     if ($header_shown) {
         echo '</fieldset><br />';

@@ -63,11 +63,19 @@ if (isset($_REQUEST['createview'])) {
     }
 
     if (PMA_DBI_try_query($sql_query)) {
-        $message = PMA_Message::success();
-        include './' . $cfg['DefaultTabDatabase'];
-        exit();
+        if ($GLOBALS['is_ajax_request'] != true) {
+            $message = PMA_Message::success();
+            include './' . $cfg['DefaultTabDatabase'];
+            exit();
+        } else {
+            PMA_ajaxResponse(PMA_showMessage(PMA_Message::success(), $sql_query), 1);
+        }
     } else {
-        $message = PMA_Message::rawError(PMA_DBI_getError());
+        if ($GLOBALS['is_ajax_request'] != true) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        } else {
+            PMA_ajaxResponse(PMA_Message::error("<i>$sql_query</i><br /><br />" . PMA_DBI_getError()), 0);
+        }
     }
 }
 
@@ -90,8 +98,9 @@ if (PMA_isValid($_REQUEST['view'], 'array')) {
  * We use db links because a VIEW is not necessarily on a single table
  */
 $num_tables = 0;
-require_once './libraries/db_links.inc.php';
-
+if ($GLOBALS['is_ajax_request'] != true) {
+    require_once './libraries/db_links.inc.php';
+}
 $url_params['db'] = $GLOBALS['db'];
 $url_params['reload'] = 1;
 
@@ -104,9 +113,8 @@ $url_params['reload'] = 1;
 <form method="post" action="view_create.php">
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
-    <legend>CREATE VIEW</legend>
-
-    <table>
+    <legend><?php echo __('Create view') . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_VIEW'); ?></legend>
+    <table class="rte_table">
     <tr><td><label for="or_replace">OR REPLACE</label></td>
         <td><input type="checkbox" name="view[or_replace]" id="or_replace"
                 <?php if ($view['or_replace']) { ?>
@@ -135,20 +143,21 @@ $url_params['reload'] = 1;
                 value="<?php echo htmlspecialchars($view['name']); ?>" />
         </td>
     </tr>
-
     <tr><td><?php echo __('Column names'); ?></td>
         <td><input type="text" maxlength="100" size="50" name="view[column_names]"
                 onfocus="this.select()"
                 value="<?php echo htmlspecialchars($view['column_names']); ?>" />
         </td>
     </tr>
-
     <tr><td>AS</td>
         <td>
             <textarea name="view[as]" rows="<?php echo $cfg['TextareaRows']; ?>"
                 cols="<?php echo $cfg['TextareaCols']; ?>"
-                dir="<?php echo $text_dir; ?>" onfocus="this.select();"
-                ><?php echo htmlspecialchars($view['as']); ?></textarea>
+                dir="<?php echo $text_dir; ?>"<?php
+                if ($GLOBALS['cfg']['TextareaAutoSelect'] || true) {
+                    echo ' onclick="selectContent(this, sql_box_locked, true)"';
+                }
+                ?>><?php echo htmlspecialchars($view['as']); ?></textarea>
         </td>
     </tr>
     <tr><td>WITH</td>
@@ -161,17 +170,28 @@ $url_params['reload'] = 1;
                 }
                 echo ' id="view_with_' . str_replace(' ', '_', htmlspecialchars($option)) . '"';
                 echo ' value="' . htmlspecialchars($option) . '" />';
-                echo '<label for="view_with_' . str_replace(' ', '_', htmlspecialchars($option)) . '">';
-                echo htmlspecialchars($option) . '</label>&nbsp;';
+                echo '<label for="view_with_' . str_replace(' ', '_', htmlspecialchars($option)) . '">&nbsp;';
+                echo htmlspecialchars($option) . '</label><br />';
             }
             ?>
         </td>
     </tr>
     </table>
 </fieldset>
+<?php
+    if ($GLOBALS['is_ajax_request'] != true) {
+?>
 <fieldset class="tblFooters">
     <input type="submit" name="createview" value="<?php echo __('Go'); ?>" />
 </fieldset>
+<?php
+    } else {
+?>
+    <input type="hidden" name="createview" value="1" />
+    <input type="hidden" name="ajax_request" value="1" />
+<?php
+    }
+?>
 </form>
 </div>
 <?php
