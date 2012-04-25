@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-25 13:01+0100\n"
-"PO-Revision-Date: 2012-04-19 11:44+0200\n"
+"PO-Revision-Date: 2012-04-25 14:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1827
@@ -1494,10 +1494,9 @@ msgid "From general log"
 msgstr "Z obecného záznamu dotazů"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Nahrávám záznamy"
+msgstr "Zkoumám záznamy"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1537,10 +1536,9 @@ msgid "Jump to Log table"
 msgstr "Přejít na tabulku se záznamem"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Nejsou k dispozici žádná data"
+msgstr "Nebyla nalezena žádná data"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1580,16 +1578,14 @@ msgid "Chart"
 msgstr "Graf"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Přidat graf"
+msgstr "Upravit graf"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Série:"
+msgstr "Série"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
