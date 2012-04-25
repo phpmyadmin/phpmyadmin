@@ -17,11 +17,6 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
 
-if ($GLOBALS['cfg']['CodemirrorEnable']) {
-    $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
-    $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
-}
-
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/sql_query_form.lib.php';
 
