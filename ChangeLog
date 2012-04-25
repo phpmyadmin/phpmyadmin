@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 + Removed some directives: verbose_check, SuggestDBName, LightTabs
 - Patch #3500882 Fixing checkbox behaviour while editing identical rows
 + rfe #3441722 [interface] Display description of datatypes
++ rfe #3517835 [structure] Move columns easily
 
 3.5.2.0 (not yet released)
 
