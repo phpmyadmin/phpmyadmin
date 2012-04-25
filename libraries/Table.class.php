@@ -169,7 +169,8 @@ class PMA_Table
      */
     function getFullName($backquoted = false)
     {
-        return $this->getDbName($backquoted) . '.' . $this->getName($backquoted);
+        return $this->getDbName($backquoted) . '.'
+            . $this->getName($backquoted);
     }
 
     /**
@@ -187,7 +188,8 @@ class PMA_Table
         }
 
         // use cached data or load information with SHOW command
-        if (isset(PMA_Table::$cache[$db][$table]) || $GLOBALS['cfg']['Server']['DisableIS']) {
+        if (isset(PMA_Table::$cache[$db][$table])
+                || $GLOBALS['cfg']['Server']['DisableIS']) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
             return $type == 'VIEW';
         }
@@ -239,7 +241,10 @@ class PMA_Table
      */
     function loadStructure()
     {
-        $table_info = PMA_DBI_get_tables_full($this->getDbName(), $this->getName());
+        $table_info = PMA_DBI_get_tables_full(
+            $this->getDbName(),
+            $this->getName()
+        );
 
         if (false === $table_info) {
             return false;
@@ -250,13 +255,17 @@ class PMA_Table
         if ($this->get('TABLE_ROWS') === null) {
             $this->set(
                 'TABLE_ROWS',
-                PMA_Table::countRecords($this->getDbName(), $this->getName(), true)
+                PMA_Table::countRecords(
+                    $this->getDbName(),
+                    $this->getName(),
+                    true
+                )
             );
         }
 
         $create_options = explode(' ', $this->get('TABLE_ROWS'));
 
-        // export create options by its name as variables into gloabel namespace
+        // export create options by its name as variables into global namespace
         // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
         foreach ($create_options as $each_create_option) {
             $each_create_option = explode('=', $each_create_option);
@@ -283,7 +292,8 @@ class PMA_Table
         $engine = null;
         // if called static, with parameters
         if (! empty($db) && ! empty($table)) {
-            $engine = PMA_Table::sGetStatusInfo($db, $table, 'ENGINE', null, true);
+            $engine = PMA_Table::sGetStatusInfo(
+                $db, $table, 'ENGINE', null, true);
         }
 
         return (! empty($engine) && ((strtoupper($engine) == 'MERGE') || (strtoupper($engine) == 'MRG_MYISAM')));
@@ -292,7 +302,8 @@ class PMA_Table
     static public function sGetToolTip($db, $table)
     {
         return PMA_Table::sGetStatusInfo($db, $table, 'Comment')
-            . ' (' . PMA_Table::countRecords($db, $table) . ' ' . __('Rows') . ')';
+            . ' (' . PMA_Table::countRecords($db, $table)
+            . ' ' . __('Rows') . ')';
     }
 
     /**
@@ -330,7 +341,10 @@ class PMA_Table
         // array_key_exists allows for null values
         if (!array_key_exists($info, PMA_Table::$cache[$db][$table])) {
             if (! $disable_error) {
-                trigger_error(__('unknown table status: ') . $info, E_USER_WARNING);
+                trigger_error(
+                    __('unknown table status: ') . $info,
+                    E_USER_WARNING
+                );
             }
             return false;
         }
@@ -349,15 +363,16 @@ class PMA_Table
      * @param bool|string $null           with 'NULL' or 'NOT NULL'
      * @param string      $default_type   whether default is CURRENT_TIMESTAMP,
      *                                    NULL, NONE, USER_DEFINED
-     * @param string      $default_value  default value for USER_DEFINED default type
+     * @param string      $default_value  default value for USER_DEFINED
+     *                                    default type
      * @param string      $extra          'AUTO_INCREMENT'
      * @param string      $comment        field comment
      * @param array       &$field_primary list of fields for PRIMARY KEY
      * @param string      $index
      *
      * @todo    move into class PMA_Column
-     * @todo on the interface, some js to clear the default value when the default
-     * current_timestamp is checked
+     * @todo on the interface, some js to clear the default value when the
+     * default current_timestamp is checked
      *
      * @return  string  field specification
      */
@@ -514,8 +529,9 @@ class PMA_Table
 
             // for a VIEW, $row_count is always false at this point
             if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
-                // Make an exception for views in I_S and D_D schema in Drizzle, as these map to
-                // in-memory data and should execute fast enough
+                // Make an exception for views in I_S and D_D schema in
+                // Drizzle, as these map to in-memory data and should execute
+                // fast enough
                 if (! $is_view || (PMA_DRIZZLE && PMA_is_system_schema($db))) {
                     $row_count = PMA_DBI_fetch_value(
                         'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
@@ -530,8 +546,8 @@ class PMA_Table
                     if ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
                         $row_count = 0;
                     } else {
-                        // Counting all rows of a VIEW could be too long, so use
-                        // a LIMIT clause.
+                        // Counting all rows of a VIEW could be too long,
+                        // so use a LIMIT clause.
                         // Use try_query because it can fail (when a VIEW is
                         // based on a table that no longer exists)
                         $result = PMA_DBI_try_query(
@@ -590,17 +606,19 @@ class PMA_Table
     } // end function
 
     /**
-     * Inserts existing entries in a PMA_* table by reading a value from an old entry
+     * Inserts existing entries in a PMA_* table by reading a value from an old
+     * entry
      *
-     * @param string $work         The array index, which Relation feature to check
-     *                             ('relwork', 'commwork', ...)
+     * @param string $work         The array index, which Relation feature to
+     *                             check ('relwork', 'commwork', ...)
      * @param string $pma_table    The array index, which PMA-table to update
      *                             ('bookmark', 'relation', ...)
      * @param array  $get_fields   Which fields will be SELECT'ed from the old entry
      * @param array  $where_fields Which fields will be used for the WHERE query
      *                             (array('FIELDNAME' => 'FIELDVALUE'))
-     * @param array  $new_fields   Which fields will be used as new VALUES. These are
-     *                             the important keys which differ from the old entry
+     * @param array  $new_fields   Which fields will be used as new VALUES.
+     *                             These are the important keys which differ
+     *                             from the old entry
      *                             (array('FIELDNAME' => 'NEW FIELDVALUE'))
      *
      * @global relation variable
@@ -836,7 +854,8 @@ class PMA_Table
                 $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_constraints_query']);
                 $i = 0;
 
-                // find the first $table_delimiter, it must be the source table name
+                // find the first $table_delimiter, it must be the source
+                // table name
                 while ($parsed_sql[$i]['type'] != $table_delimiter) {
                     $i++;
                     // maybe someday we should guard against going over limit
@@ -845,11 +864,13 @@ class PMA_Table
                     //}
                 }
 
-                // replace it by the target table name, no need to PMA_backquote()
+                // replace it by the target table name, no need
+                // to PMA_backquote()
                 $parsed_sql[$i]['data'] = $target;
 
-                // now we must remove all $table_delimiter that follow a CONSTRAINT
-                // keyword, because a constraint name must be unique in a db
+                // now we must remove all $table_delimiter that follow a
+                // CONSTRAINT keyword, because a constraint name must be
+                // unique in a db
 
                 $cnt = $parsed_sql['len'] - 1;
 
@@ -887,7 +908,8 @@ class PMA_Table
             PMA_DBI_query($sql_set_mode);
             $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
 
-            $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
+            $sql_insert_data = 'INSERT INTO ' . $target
+                . ' SELECT * FROM ' . $source;
             PMA_DBI_query($sql_insert_data);
             $GLOBALS['sql_query']      .= "\n\n" . $sql_insert_data . ';';
         }
@@ -920,8 +942,8 @@ class PMA_Table
                 unset($remove_query);
             }
 
-            // updating bookmarks is not possible since only a single table is moved,
-            // and not the whole DB.
+            // updating bookmarks is not possible since only a single table is
+            // moved, and not the whole DB.
 
             if ($GLOBALS['cfgRelation']['displaywork']) {
                 $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_info'])
@@ -1286,8 +1308,16 @@ class PMA_Table
      */
     public function getUniqueColumns($backquoted = true)
     {
-        $sql = PMA_DBI_get_table_indexes_sql($this->getDbName(), $this->getName(), 'Non_unique = 0');
-        $uniques = PMA_DBI_fetch_result($sql, array('Key_name', null), 'Column_name');
+        $sql = PMA_DBI_get_table_indexes_sql(
+            $this->getDbName(),
+            $this->getName(),
+            'Non_unique = 0'
+        );
+        $uniques = PMA_DBI_fetch_result(
+            $sql,
+            array('Key_name', null),
+            'Column_name'
+        );
 
         $return = array();
         foreach ($uniques as $index) {
@@ -1315,7 +1345,11 @@ class PMA_Table
      */
     public function getIndexedColumns($backquoted = true)
     {
-        $sql = PMA_DBI_get_table_indexes_sql($this->getDbName(), $this->getName(), 'Seq_in_index = 1');
+        $sql = PMA_DBI_get_table_indexes_sql(
+            $this->getDbName(),
+            $this->getName(),
+            'Seq_in_index = 1'
+        );
         $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
 
         $return = array();
@@ -1401,7 +1435,8 @@ class PMA_Table
             return $message;
         }
 
-        // Remove some old rows in table_uiprefs if it exceeds the configured maximum rows
+        // Remove some old rows in table_uiprefs if it exceeds the configured
+        // maximum rows
         $sql_query = 'SELECT COUNT(*) FROM ' . $pma_table;
         $rows_count = PMA_DBI_fetch_value($sql_query);
         $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];

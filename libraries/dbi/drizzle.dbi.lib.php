@@ -28,15 +28,15 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
 /**
  * Helper function for connecting to the database server
  *
- * @param   PMA_Drizzle  $drizzle
- * @param   string       $host
- * @param   int          $port
- * @param   string       $uds
- * @param   string       $user
- * @param   string       $password
- * @param   string       $db
- * @param   int          $options
- * @return  PMA_DrizzleCon
+ * @param PMA_Drizzle $drizzle
+ * @param string      $host
+ * @param int         $port
+ * @param string      $uds
+ * @param string      $user
+ * @param string      $password
+ * @param string      $db
+ * @param int         $options
+ * @return PMA_DrizzleCon
  */
 function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password, $db = null, $options = DRIZZLE_CON_NONE)
 {
@@ -52,12 +52,12 @@ function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password, $d
 /**
  * connects to the database server
  *
- * @param   string  $user           drizzle user name
- * @param   string  $password       drizzle user password
- * @param   bool    $is_controluser
- * @param   array   $server host/port/socket
- * @param   bool    $auxiliary_connection (when true, don't go back to login if connection fails)
- * @return  mixed   false on error or a mysqli object on success
+ * @param string $user                    drizzle user name
+ * @param string $password                drizzle user password
+ * @param bool   $is_controluser
+ * @param array  $server host/port/socket
+ * @param bool   $auxiliary_connection    (when true, don't go back to login if connection fails)
+ * @return mixed false on error or a mysqli object on success
  */
 function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
 {
@@ -134,8 +134,8 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 /**
  * selects given database
  *
- * @param string          $dbname  database name to select
- * @param PMA_DrizzleCom  $link    connection object
+ * @param string         $dbname database name to select
+ * @param PMA_DrizzleCom $link   connection object
  * @return bool
  */
 function PMA_DBI_select_db($dbname, $link = null)
@@ -153,10 +153,10 @@ function PMA_DBI_select_db($dbname, $link = null)
 /**
  * runs a query and returns the result
  *
- * @param   string          $query    query to execute
- * @param   PMA_DrizzleCon  $link     connection object
- * @param   int             $options
- * @return  PMA_DrizzleResult
+ * @param string         $query   query to execute
+ * @param PMA_DrizzleCon $link    connection object
+ * @param int            $options
+ * @return PMA_DrizzleResult
  */
 function PMA_DBI_real_query($query, $link, $options)
 {
@@ -170,8 +170,8 @@ function PMA_DBI_real_query($query, $link, $options)
 /**
  * returns array of rows with associative and numeric keys from $result
  *
- * @param   PMA_DrizzleResult  $result
- * @return  array
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @return array
  */
 function PMA_DBI_fetch_array($result)
 {
@@ -181,8 +181,8 @@ function PMA_DBI_fetch_array($result)
 /**
  * returns array of rows with associative keys from $result
  *
- * @param   PMA_DrizzleResult  $result
- * @return  array
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @return array
  */
 function PMA_DBI_fetch_assoc($result)
 {
@@ -192,8 +192,8 @@ function PMA_DBI_fetch_assoc($result)
 /**
  * returns array of rows with numeric keys from $result
  *
- * @param   PMA_DrizzleResult  $result
- * @return  array
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @return array
  */
 function PMA_DBI_fetch_row($result)
 {
@@ -203,9 +203,9 @@ function PMA_DBI_fetch_row($result)
 /**
  * Adjusts the result pointer to an arbitrary row in the result
  *
- * @param   PMA_DrizzleResult  $result
- * @param   int                $offset
- * @return  boolean true on success, false on failure
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @param int               $offset
+ * @return boolean true on success, false on failure
  */
 function PMA_DBI_data_seek($result, $offset)
 {
@@ -215,7 +215,7 @@ function PMA_DBI_data_seek($result, $offset)
 /**
  * Frees memory associated with the result
  *
- * @param  PMA_DrizzleResult  $result
+ * @param PMA_DrizzleResult  $result
  */
 function PMA_DBI_free_result($result)
 {
@@ -227,7 +227,7 @@ function PMA_DBI_free_result($result)
 /**
  * Check if there are any more query results from a multi query
  *
- * @return  bool         false
+ * @return bool false
  */
 function PMA_DBI_more_results()
 {
@@ -241,7 +241,7 @@ function PMA_DBI_more_results()
 /**
  * Prepare next result from multi_query
  *
- * @return  bool         false
+ * @return bool false
  */
 function PMA_DBI_next_result()
 {
@@ -254,8 +254,8 @@ function PMA_DBI_next_result()
 
 /**
  * Returns a string representing the type of connection used
- * @param   PMA_DrizzleCon  $link   connection object
- * @return  string          type of connection used
+ * @param PMA_DrizzleCon $link  connection object
+ * @return string type of connection used
  */
 function PMA_DBI_get_host_info($link = null)
 {
@@ -275,8 +275,8 @@ function PMA_DBI_get_host_info($link = null)
 
 /**
  * Returns the version of the Drizzle protocol used
- * @param   PMA_DrizzleCon  $link   connection object
- * @return  int         version of the Drizzle protocol used
+ * @param PMA_DrizzleCon $link  connection object
+ * @return int version of the Drizzle protocol used
  */
 function PMA_DBI_get_proto_info($link = null)
 {
@@ -293,7 +293,7 @@ function PMA_DBI_get_proto_info($link = null)
 
 /**
  * returns a string that represents the client library version
- * @return  string          Drizzle client library version
+ * @return string Drizzle client library version
  */
 function PMA_DBI_get_client_info()
 {
@@ -303,8 +303,8 @@ function PMA_DBI_get_client_info()
 /**
  * returns last error message or false if no errors occured
  *
- * @param   PMA_DrizzleCon  $link  connection object
- * @return  string|bool  $error or false
+ * @param PMA_DrizzleCon $link connection object
+ * @return string|bool $error or false
  */
 function PMA_DBI_getError($link = null)
 {
@@ -343,8 +343,8 @@ function PMA_DBI_getError($link = null)
 /**
  * returns the number of rows returned by last query
  *
- * @param   PMA_DrizzleResult  $result
- * @return  string|int
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @return string|int
  */
 function PMA_DBI_num_rows($result)
 {
@@ -359,8 +359,8 @@ function PMA_DBI_num_rows($result)
 /**
  * returns last inserted auto_increment id for given $link or $GLOBALS['userlink']
  *
- * @param   PMA_DrizzleCon  $link  connection object
- * @return  string|int
+ * @param PMA_DrizzleCon $link connection object
+ * @return string|int
  */
 function PMA_DBI_insert_id($link = null)
 {
@@ -386,9 +386,9 @@ function PMA_DBI_insert_id($link = null)
 /**
  * returns the number of rows affected by last query
  *
- * @param   PMA_DrizzleResult  $link            connection object
- * @param   bool               $get_from_cache
- * @return  string|int
+ * @param PMA_DrizzleResult $link           connection object
+ * @param bool              $get_from_cache
+ * @return string|int
  */
 function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
 {
@@ -409,8 +409,8 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
 /**
  * returns metainfo for fields in $result
  *
- * @param   PMA_DrizzleResult  $result
- * @return  array  meta info for fields in $result
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @return array meta info for fields in $result
  */
 function PMA_DBI_get_fields_meta($result)
 {
@@ -500,8 +500,8 @@ function PMA_DBI_get_fields_meta($result)
 /**
  * return number of fields in given $result
  *
- * @param   PMA_DrizzleResult  $result
- * @return  int  field count
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @return int field count
  */
 function PMA_DBI_num_fields($result)
 {
@@ -511,9 +511,9 @@ function PMA_DBI_num_fields($result)
 /**
  * returns the length of the given field $i in $result
  *
- * @param   PMA_DrizzleResult  $result
- * @param   int                $i       field
- * @return  int  length of field
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @param int               $i      field
+ * @return int length of field
  */
 function PMA_DBI_field_len($result, $i)
 {
@@ -524,9 +524,9 @@ function PMA_DBI_field_len($result, $i)
 /**
  * returns name of $i. field in $result
  *
- * @param   PMA_DrizzleResult  $result
- * @param   int                $i       field
- * @return  string  name of $i. field in $result
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @param int               $i      field
+ * @return string name of $i. field in $result
  */
 function PMA_DBI_field_name($result, $i)
 {
@@ -537,9 +537,9 @@ function PMA_DBI_field_name($result, $i)
 /**
  * returns concatenated string of human readable field flags
  *
- * @param   PMA_DrizzleResult  $result
- * @param   int                $i       field
- * @return  string  field flags
+ * @param PMA_DrizzleResult $result Drizzle result object
+ * @param int               $i      field
+ * @return string field flags
  */
 function PMA_DBI_field_flags($result, $i)
 {
@@ -576,7 +576,9 @@ function PMA_DBI_field_flags($result, $i)
     // structure. Watch out: some types like DATE returns 63 in charsetnr
     // so we have to check also the type.
     // Unfortunately there is no equivalent in the mysql extension.
-    if (($type == DRIZZLE_COLUMN_TYPE_DRIZZLE_BLOB || $type == DRIZZLE_COLUMN_TYPE_DRIZZLE_VARCHAR) && 63 == $charsetnr) {
+    if (($type == DRIZZLE_COLUMN_TYPE_DRIZZLE_BLOB
+            || $type == DRIZZLE_COLUMN_TYPE_DRIZZLE_VARCHAR)
+            && 63 == $charsetnr) {
         $flags .= 'binary ';
     }
     if ($f & DRIZZLE_COLUMN_FLAGS_ZEROFILL) {
