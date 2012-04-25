@@ -251,11 +251,10 @@ if (!empty($submit_mult) && !empty($what)) {
         $_url_params['table']= $table;
     }
     foreach ($selected as $idx => $sval) {
-        if ($what == 'row_delete'){
+        if ($what == 'row_delete') {
             $_url_params['selected'][] = 'DELETE FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
             . ' WHERE ' . urldecode($sval) . ' LIMIT 1;';
-        }
-        else {
+        } else {
             $_url_params['selected'][] = $sval;
         }
     }
@@ -506,11 +505,15 @@ if (!empty($submit_mult) && !empty($what)) {
         include './sql.php';
     } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
-        if(!isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') { // for disabling foreign key checks while dropping tables
+        // for disabling foreign key checks while dropping tables
+        if (! isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') {
             PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 0;');
         }
         $result = PMA_DBI_try_query($sql_query);
-        if(!isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl' && $default_fk_check_value) {
+        if (! isset($_REQUEST['fk_check'])
+            && $query_type == 'drop_tbl'
+            && $default_fk_check_value
+        ) {
             PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 1;');
         }
         if ($result && !empty($sql_query_views)) {

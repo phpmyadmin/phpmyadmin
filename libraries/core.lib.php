@@ -738,16 +738,16 @@ function PMA_includeJS($url, $ie_conditional = false)
     if ($ie_conditional !== false) {
         if ($ie_conditional === true) {
             $include .= '<!--[if IE]>' . "\n    ";
-        }
-        else {
+        } else {
             $include .= '<!--[if IE ' . $ie_conditional . ']>' . "\n    ";
         }
     }
     if (strpos($url, '?') === false) {
-        $include .= '<script src="js/' . $url . '?ts=' . filemtime('js/' . $url) . '" type="text/javascript"></script>' . "\n";
-    }
-    else {
-        $include .= '<script src="js/' . $url . '" type="text/javascript"></script>' . "\n";
+        $include .= '<script src="js/' . $url . '?ts=' . filemtime('js/' . $url)
+            . '" type="text/javascript"></script>' . "\n";
+    } else {
+        $include .= '<script src="js/' . $url
+            . '" type="text/javascript"></script>' . "\n";
     }
     if ($ie_conditional !== false) {
         $include .= '<![endif]-->' . "\n";

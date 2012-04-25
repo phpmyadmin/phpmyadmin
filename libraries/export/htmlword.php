@@ -400,7 +400,7 @@ if (isset($plugin_list)) {
 
         $triggers = PMA_DBI_get_triggers($db, $table);
 
-        foreach($triggers as $trigger) {
+        foreach ($triggers as $trigger) {
             $dump .= '<tr class="print-category">';
             $dump .= '<td class="print">' . htmlspecialchars($trigger['name']) . '</td>';
             $dump .= '<td class="print">' . htmlspecialchars($trigger['action_timing']) . '</td>';

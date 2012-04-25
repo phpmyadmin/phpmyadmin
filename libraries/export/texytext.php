@@ -397,7 +397,7 @@ if (isset($plugin_list)) {
 
         $triggers = PMA_DBI_get_triggers($db, $table);
 
-        foreach($triggers as $trigger) {
+        foreach ($triggers as $trigger) {
             $dump .= '|' . $trigger['name'];
             $dump .= '|' . $trigger['action_timing'];
             $dump .= '|' . $trigger['event_manipulation'];

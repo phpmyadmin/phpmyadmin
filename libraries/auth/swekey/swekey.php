@@ -18,25 +18,25 @@
 /**
  * Errors codes
  */
-define ("SWEKEY_ERR_INVALID_DEV_STATUS", 901);   // The satus of the device is not SWEKEY_STATUS_OK
-define ("SWEKEY_ERR_INTERNAL", 902);             // Should never occurd
-define ("SWEKEY_ERR_OUTDATED_RND_TOKEN", 910);   // You random token is too old
-define ("SWEKEY_ERR_INVALID_OTP", 911);          // The otp was not correct
+define("SWEKEY_ERR_INVALID_DEV_STATUS", 901);   // The satus of the device is not SWEKEY_STATUS_OK
+define("SWEKEY_ERR_INTERNAL", 902);             // Should never occurd
+define("SWEKEY_ERR_OUTDATED_RND_TOKEN", 910);   // You random token is too old
+define("SWEKEY_ERR_INVALID_OTP", 911);          // The otp was not correct
 
 /**
  * Those errors are considered as an attack and your site will be blacklisted during one minute
  * if you receive one of those errors
  */
-define ("SWEKEY_ERR_BADLY_ENCODED_REQUEST", 920);
-define ("SWEKEY_ERR_INVALID_RND_TOKEN", 921);
-define ("SWEKEY_ERR_DEV_NOT_FOUND", 922);
+define("SWEKEY_ERR_BADLY_ENCODED_REQUEST", 920);
+define("SWEKEY_ERR_INVALID_RND_TOKEN", 921);
+define("SWEKEY_ERR_DEV_NOT_FOUND", 922);
 
 /**
  * Default values for configuration.
  */
-define ('SWEKEY_DEFAULT_CHECK_SERVER', 'https://auth-check.musbe.net');
-define ('SWEKEY_DEFAULT_RND_SERVER', 'https://auth-rnd-gen.musbe.net');
-define ('SWEKEY_DEFAULT_STATUS_SERVER', 'https://auth-status.musbe.net');
+define('SWEKEY_DEFAULT_CHECK_SERVER', 'https://auth-check.musbe.net');
+define('SWEKEY_DEFAULT_RND_SERVER', 'https://auth-rnd-gen.musbe.net');
+define('SWEKEY_DEFAULT_STATUS_SERVER', 'https://auth-status.musbe.net');
 
 /**
  * The last error of an operation is alway put in this global var
@@ -54,22 +54,26 @@ $gSwekeyLastResult = "<not set>";
  */
 
 global $gSwekeyCheckServer;
-if (! isset($gSwekeyCheckServer))
+if (! isset($gSwekeyCheckServer)) {
     $gSwekeyCheckServer = SWEKEY_DEFAULT_CHECK_SERVER;
+}
 
 global $gSwekeyRndTokenServer;
-if (! isset($gSwekeyRndTokenServer))
+if (! isset($gSwekeyRndTokenServer)) {
     $gSwekeyRndTokenServer = SWEKEY_DEFAULT_RND_SERVER;
+}
 
 global $gSwekeyStatusServer;
-if (! isset($gSwekeyStatusServer))
+if (! isset($gSwekeyStatusServer)) {
     $gSwekeyStatusServer = SWEKEY_DEFAULT_STATUS_SERVER;
+}
 
 global $gSwekeyCA;
 
 global $gSwekeyTokenCacheEnabled;
-if (! isset($gSwekeyTokenCacheEnabled))
+if (! isset($gSwekeyTokenCacheEnabled)) {
     $gSwekeyTokenCacheEnabled = true;
+}
 
 /**
  *  Change the address of the Check server.
@@ -81,10 +85,11 @@ if (! isset($gSwekeyTokenCacheEnabled))
 function Swekey_SetCheckServer($server)
 {
     global $gSwekeyCheckServer;
-    if (empty($server))
+    if (empty($server)) {
         $gSwekeyCheckServer = SWEKEY_DEFAULT_CHECK_SERVER;
-    else
+    } else {
         $gSwekeyCheckServer = $server;
+    }
 }
 
 /**
@@ -97,10 +102,11 @@ function Swekey_SetCheckServer($server)
 function Swekey_SetRndTokenServer($server)
 {
     global $gSwekeyRndTokenServer;
-    if (empty($server))
+    if (empty($server)) {
         $gSwekeyRndTokenServer = SWEKEY_DEFAULT_RND_SERVER;
-    else
+    } else {
         $gSwekeyRndTokenServer = $server;
+    }
 }
 
 /**
@@ -113,10 +119,11 @@ function Swekey_SetRndTokenServer($server)
 function Swekey_SetStatusServer($server)
 {
     global $gSwekeyStatusServer;
-    if (empty($server))
+    if (empty($server)) {
         $gSwekeyStatusServer = SWEKEY_DEFAULT_STATUS_SERVER;
-    else
+    } else {
         $gSwekeyStatusServer = $server;
+    }
 }
 
 /**
@@ -128,7 +135,7 @@ function Swekey_SetStatusServer($server)
 function Swekey_SetCAFile($cafile)
 {
     global $gSwekeyCA;
-       $gSwekeyCA = $cafile;
+    $gSwekeyCA = $cafile;
 }
 
 /**
@@ -271,8 +278,7 @@ function Swekey_HttpGet($url, &$response_code)
                $res = $reply->getBody();
                $info = $r->getResponseInfo();
                $response_code = $info['response_code'];
-               if ($response_code != 200)
-               {
+               if ($response_code != 200) {
                     $gSwekeyLastError = $response_code;
                     error_log("SWEKEY_ERROR:Error ".$gSwekeyLastError." getting ".$url);
                     return "";
@@ -298,8 +304,8 @@ function Swekey_HttpGet($url, &$response_code)
     $res = @file_get_contents($url);
     $response_code = substr($http_response_header[0], 9, 3); //HTTP/1.0
     if ($response_code == 200) {
-       $gSwekeyLastResult = $res;
-       return $res;
+        $gSwekeyLastResult = $res;
+        return $res;
     }
 
     $gSwekeyLastError = $response_code;
@@ -389,7 +395,7 @@ function Swekey_GetFastHalfRndToken()
         }
     }
 
-   return $res."00000000000000000000000000000000";
+    return $res."00000000000000000000000000000000";
 }
 
 /**
@@ -403,9 +409,9 @@ function Swekey_GetFastHalfRndToken()
 function Swekey_GetFastRndToken()
 {
     $res = Swekey_GetFastHalfRndToken();
-    if (strlen($res) == 64)
+    if (strlen($res) == 64) {
         return substr($res, 0, 32).strtoupper(md5("Musbe Authentication Key" + mt_rand() + date(DATE_ATOM)));
-
+    }
     return "";
 }
 
@@ -430,22 +436,22 @@ function Swekey_CheckOtp($id, $rt, $otp)
  * Values that are associated with a key.
  * The following values can be returned by the Swekey_GetStatus() function
  */
-define ("SWEKEY_STATUS_OK", 0);
-define ("SWEKEY_STATUS_NOT_FOUND", 1);  // The key does not exist in the db
-define ("SWEKEY_STATUS_INACTIVE", 2);   // The key has never been activated
-define ("SWEKEY_STATUS_LOST", 3);       // The user has lost his key
-define ("SWEKEY_STATUS_STOLEN", 4);       // The key was stolen
-define ("SWEKEY_STATUS_FEE_DUE", 5);       // The annual fee was not paid
-define ("SWEKEY_STATUS_OBSOLETE", 6);   // The hardware is no longer supported
-define ("SWEKEY_STATUS_UNKOWN", 201);   // We could not connect to the authentication server
+define("SWEKEY_STATUS_OK", 0);
+define("SWEKEY_STATUS_NOT_FOUND", 1);  // The key does not exist in the db
+define("SWEKEY_STATUS_INACTIVE", 2);   // The key has never been activated
+define("SWEKEY_STATUS_LOST", 3);       // The user has lost his key
+define("SWEKEY_STATUS_STOLEN", 4);       // The key was stolen
+define("SWEKEY_STATUS_FEE_DUE", 5);       // The annual fee was not paid
+define("SWEKEY_STATUS_OBSOLETE", 6);   // The hardware is no longer supported
+define("SWEKEY_STATUS_UNKOWN", 201);   // We could not connect to the authentication server
 
 /**
  * Values that are associated with a key.
  * The Javascript Api can also return the following values
  */
-define ("SWEKEY_STATUS_REPLACED", 100);     // This key has been replaced by a backup key
-define ("SWEKEY_STATUS_BACKUP_KEY", 101); // This key is a backup key that is not activated yet
-define ("SWEKEY_STATUS_NOTPLUGGED", 200); // This key is not plugged in the computer
+define("SWEKEY_STATUS_REPLACED", 100);     // This key has been replaced by a backup key
+define("SWEKEY_STATUS_BACKUP_KEY", 101); // This key is a backup key that is not activated yet
+define("SWEKEY_STATUS_NOTPLUGGED", 200); // This key is not plugged in the computer
 
 
 /**
@@ -459,17 +465,28 @@ function Swekey_GetStatusStr($status)
 {
     switch($status)
     {
-       case SWEKEY_STATUS_OK            : return 'OK';
-       case SWEKEY_STATUS_NOT_FOUND        : return 'Key does not exist in the db';
-       case SWEKEY_STATUS_INACTIVE        : return 'Key not activated';
-       case SWEKEY_STATUS_LOST            : return 'Key was lost';
-       case SWEKEY_STATUS_STOLEN        : return 'Key was stolen';
-       case SWEKEY_STATUS_FEE_DUE        : return 'The annual fee was not paid';
-       case SWEKEY_STATUS_OBSOLETE        : return 'Key no longer supported';
-       case SWEKEY_STATUS_REPLACED        : return 'This key has been replaced by a backup key';
-       case SWEKEY_STATUS_BACKUP_KEY    : return 'This key is a backup key that is not activated yet';
-       case SWEKEY_STATUS_NOTPLUGGED    : return 'This key is not plugged in the computer';
-       case SWEKEY_STATUS_UNKOWN        : return 'Unknow Status, could not connect to the authentication server';
+    case SWEKEY_STATUS_OK :
+        return 'OK';
+    case SWEKEY_STATUS_NOT_FOUND :
+        return 'Key does not exist in the db';
+    case SWEKEY_STATUS_INACTIVE :
+        return 'Key not activated';
+    case SWEKEY_STATUS_LOST :
+        return 'Key was lost';
+    case SWEKEY_STATUS_STOLEN :
+        return 'Key was stolen';
+    case SWEKEY_STATUS_FEE_DUE :
+        return 'The annual fee was not paid';
+    case SWEKEY_STATUS_OBSOLETE :
+        return 'Key no longer supported';
+    case SWEKEY_STATUS_REPLACED :
+        return 'This key has been replaced by a backup key';
+    case SWEKEY_STATUS_BACKUP_KEY :
+        return 'This key is a backup key that is not activated yet';
+    case SWEKEY_STATUS_NOTPLUGGED :
+        return 'This key is not plugged in the computer';
+    case SWEKEY_STATUS_UNKOWN :
+        return 'Unknow Status, could not connect to the authentication server';
     }
     return 'unknown status '.$status;
 }
@@ -486,9 +503,9 @@ function Swekey_GetStatus($id)
 {
     global $gSwekeyStatusServer;
     $res = Swekey_HttpGet($gSwekeyStatusServer.'/GET-STATUS/'.$id, $response_code);
-    if ($response_code == 200)
+    if ($response_code == 200) {
         return intval($res);
-
+    }
     return SWEKEY_STATUS_UNKOWN;
 }
 

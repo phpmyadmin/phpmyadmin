@@ -151,8 +151,9 @@ foreach ($serverVars as $name => $value) {
     <td class="value"><?php echo formatVariable($name, $value); ?></td>
     <td class="value"><?php
     // To display variable documentation link
-    if (isset($VARIABLE_DOC_LINKS[$name]))
+    if (isset($VARIABLE_DOC_LINKS[$name])) {
         echo PMA_showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], false, $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]);
+    }
     ?></td>
     <?php
     if ($has_session_value) {
@@ -177,9 +178,11 @@ function formatVariable($name, $value)
     global $VARIABLE_DOC_LINKS;
 
     if (is_numeric($value)) {
-        if (isset($VARIABLE_DOC_LINKS[$name][3]) && $VARIABLE_DOC_LINKS[$name][3]=='byte')
+        if (isset($VARIABLE_DOC_LINKS[$name][3]) && $VARIABLE_DOC_LINKS[$name][3]=='byte') {
             return '<abbr title="'.PMA_formatNumber($value, 0).'">'.implode(' ', PMA_formatByteDown($value, 3, 3)).'</abbr>';
-        else return PMA_formatNumber($value, 0);
+        } else {
+            return PMA_formatNumber($value, 0);
+        }
     }
     return htmlspecialchars($value);
 }

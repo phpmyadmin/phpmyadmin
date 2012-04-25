@@ -513,7 +513,7 @@ if (isset($plugin_list)) {
 
         $triggers = PMA_DBI_get_triggers($db, $table);
 
-        foreach($triggers as $trigger) {
+        foreach ($triggers as $trigger) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . htmlspecialchars($trigger['name']) . '</text:p>'

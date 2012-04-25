@@ -3318,8 +3318,7 @@ function PMA_browseUploadFile($max_upload_size)
 {
     if ($GLOBALS['is_upload'] && !empty($GLOBALS['cfg']['UploadDir'])) {
         echo '<label for="radio_import_file">';
-    }
-    else {
+    } else {
         echo '<label for="input_import_file">';
     }
     echo __("Browse your computer:") . '</label>';
@@ -3345,7 +3344,8 @@ function PMA_selectUploadFile($import_list, $uploaddir)
     echo '<label for="radio_local_import_file">'
         . sprintf(
             __("Select from the web server upload directory <b>%s</b>:"),
-            htmlspecialchars(PMA_userDir($uploaddir)))
+            htmlspecialchars(PMA_userDir($uploaddir))
+        )
         . '</label>';
     $extensions = '';
     foreach ($import_list as $key => $val) {

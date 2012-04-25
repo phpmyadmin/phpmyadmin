@@ -55,7 +55,7 @@ function PMA_RTE_getList($type, $items)
         $retval .= "            <th>" . __('Returns') . "</th>\n";
         $retval .= "        </tr>\n";
         $retval .= "        <tr style='display: none'>\n"; // see comment above
-        for($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < 7; $i++) {
             $retval .= "            <td></td>\n";
         }
         break;
@@ -69,7 +69,7 @@ function PMA_RTE_getList($type, $items)
         $retval .= "            <th>" . __('Event') . "</th>\n";
         $retval .= "        </tr>\n";
         $retval .= "        <tr style='display: none'>\n"; // see comment above
-        for($i = 0; $i < (empty($table) ? 7 : 6); $i++) {
+        for ($i = 0; $i < (empty($table) ? 7 : 6); $i++) {
             $retval .= "            <td></td>\n";
         }
         break;
@@ -80,7 +80,7 @@ function PMA_RTE_getList($type, $items)
         $retval .= "            <th>" . __('Type') . "</th>\n";
         $retval .= "        </tr>\n";
         $retval .= "        <tr style='display: none'>\n"; // see comment above
-        for($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < 6; $i++) {
             $retval .= "            <td></td>\n";
         }
         break;

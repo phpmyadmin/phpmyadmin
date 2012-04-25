@@ -276,8 +276,9 @@ function PMA_replication_master_replicated_dbs($link = null)
 
     $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $link);
     while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
-        if (PMA_is_system_schema($tmp_row[0]))
+        if (PMA_is_system_schema($tmp_row[0])) {
             continue;
+        }
         if (count($do_db) == 0) {
             if (array_search($tmp_row[0], $ignore_db) !== false) {
                 continue;

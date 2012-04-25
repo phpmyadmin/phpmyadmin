@@ -405,10 +405,11 @@ if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_R
         if ($delete_id == (int)$delete_id) {
             unset($data['ddlog'][$delete_id]);
 
-            if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DDL', $data['ddlog']))
+            if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DDL', $data['ddlog'])) {
                 $msg = PMA_Message::success(__('Tracking data definition successfully deleted'));
-            else
+            } else {
                 $msg = PMA_Message::rawError(__('Query error'));
+            }
             $msg->display();
         }
     }
@@ -422,10 +423,11 @@ if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_R
         if ($delete_id == (int)$delete_id) {
             unset($data['dmlog'][$delete_id]);
 
-            if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DML', $data['dmlog']))
+            if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DML', $data['dmlog'])) {
                 $msg = PMA_Message::success(__('Tracking data manipulation successfully deleted'));
-            else
+            } else {
                 $msg = PMA_Message::rawError(__('Query error'));
+            }
             $msg->display();
         }
     }

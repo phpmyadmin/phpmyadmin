@@ -130,9 +130,9 @@ class Linux
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
         $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
 
-        foreach ($mem as $idx=>$value)
+        foreach ($mem as $idx=>$value) {
             $mem[$idx] = intval($value);
-
+        }
         return $mem;
     }
 }

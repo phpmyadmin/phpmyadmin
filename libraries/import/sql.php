@@ -193,7 +193,9 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
                 }
                 // Was not the quote escaped?
                 $j = $pos - 1;
-                while ($buffer[$j] == '\\') $j--;
+                while ($buffer[$j] == '\\') {
+                    $j--;
+                }
                 // Even count means it was not escaped
                 $endq = (((($pos - 1) - $j) % 2) == 0);
                 // Skip the string

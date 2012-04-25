@@ -417,22 +417,22 @@ class PMA_Config
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/' . $hash;
             $is_found = $this->checkHTTP($link, !$commit);
             switch($is_found) {
-                case false:
-                    $is_remote_commit = false;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
-                    break;
-                case null:
-                    // no remote link for now, but don't cache this as Github is down
-                    $is_remote_commit = false;
-                    break;
-                default:
-                    $is_remote_commit = true;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
-                    if ($commit === false) {
-                        // if no local commit data, try loading from Github
-                        $commit_json = json_decode($is_found);
-                    }
-                    break;
+            case false:
+                $is_remote_commit = false;
+                $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
+                break;
+            case null:
+                // no remote link for now, but don't cache this as Github is down
+                $is_remote_commit = false;
+                break;
+            default:
+                $is_remote_commit = true;
+                $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
+                if ($commit === false) {
+                    // if no local commit data, try loading from Github
+                    $commit_json = json_decode($is_found);
+                }
+                break;
             }
         }
 
@@ -445,18 +445,18 @@ class PMA_Config
                 $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/trees/' . $branch;
                 $is_found = $this->checkHTTP($link);
                 switch($is_found) {
-                    case true:
-                        $is_remote_branch = true;
-                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
-                        break;
-                    case false:
-                        $is_remote_branch = false;
-                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
-                        break;
-                    case null:
-                        // no remote link for now, but don't cache this as Github is down
-                        $is_remote_branch = false;
-                        break;
+                case true:
+                    $is_remote_branch = true;
+                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
+                    break;
+                case false:
+                    $is_remote_branch = false;
+                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
+                    break;
+                case null:
+                    // no remote link for now, but don't cache this as Github is down
+                    $is_remote_branch = false;
+                    break;
                 }
             }
         }
@@ -469,22 +469,19 @@ class PMA_Config
                 $dataline = array_shift($commit);
                 $datalinearr = explode(' ', $dataline, 2);
                 $linetype = $datalinearr[0];
-                if (in_array($linetype, array('author', 'committer')))
-                {
+                if (in_array($linetype, array('author', 'committer'))) {
                     $user = $datalinearr[1];
                     preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
                     $user2 = array(
                         'name' => trim($user[1]),
                         'email' => trim($user[2]),
                         'date' => date('Y-m-d H:i:s', $user[3]));
-                    if (isset($user[4]))
-                    {
+                    if (isset($user[4])) {
                         $user2['date'] .= $user[4];
                     }
                     $$linetype = $user2;
                 }
-            }
-            while ($dataline != '');
+            } while ($dataline != '');
             $message = trim(implode(' ', $commit));
 
         } elseif (isset($commit_json)) {
@@ -1185,7 +1182,7 @@ class PMA_Config
         }
 
         // Reconstruct URL using parsed parts
-        if($this->get('SSLPort')) {
+        if ($this->get('SSLPort')) {
             $port_number = $this->get('SSLPort');
         } else {
             $port_number = 443;

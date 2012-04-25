@@ -39,7 +39,7 @@ if (isset($_REQUEST['nopass'])) {
     }
     $change_password_message = PMA_setChangePasswordMsg();
     $message = $change_password_message['msg'];
-    if(! $change_password_message['error']) {
+    if (! $change_password_message['error']) {
         PMA_changePassword($password, $message, $change_password_message);
     } else {
         PMA_getChangePassMessage($change_password_message);

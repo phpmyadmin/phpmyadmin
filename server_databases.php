@@ -213,12 +213,14 @@ if ($databases_count > 0) {
     }
 
     foreach ($replication_types as $type) {
-      if ($type=="master")
-        $name = __('Master replication');
-      elseif ($type == "slave")
-        $name = __('Slave replication');
-      if (${"server_{$type}_status"})
-        echo '    <th>'. $name .'</th>' . "\n";
+        if ($type=="master") {
+            $name = __('Master replication');
+        } elseif ($type == "slave") {
+            $name = __('Slave replication');
+        }
+        if (${"server_{$type}_status"}) {
+            echo '    <th>'. $name .'</th>' . "\n";
+        }
     }
 
     if ($is_superuser && ! PMA_DRIZZLE) {

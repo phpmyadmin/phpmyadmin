@@ -304,9 +304,10 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
             $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
             $whereClause = PMA_tbl_search_getWhereClause($fields[$i], $names[$i], $types[$i], $collations[$i], $func_type, $unaryFlag, $tmp_geom_func);
 
-            if($whereClause)
+            if ($whereClause) {
                 $w[] = $whereClause;
-            } // end for
+            }
+        } // end while
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
         }
