@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-25 13:27+0200\n"
-"PO-Revision-Date: 2012-04-22 02:54+0200\n"
+"PO-Revision-Date: 2012-04-25 12:50+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3654,7 +3654,7 @@ msgstr "SQL 互換モード"
 
 #: libraries/config/messages.inc.php:126 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>CREATE TABLE</code> オプション："
+msgstr "<code>CREATE TABLE</code> オプション"
 
 #: libraries/config/messages.inc.php:127
 msgid "Creation/Update/Check dates"
@@ -5891,9 +5891,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"制限時間が近くなったときに、スクリプト側でインポートを中断できるようにする。"
-"<i>(大きなファイルをインポートする場合には便利ですが、トランザクションが壊れ"
-"ることもあります。)</i>"
+"制限時間が近くなったときに、スクリプト側でインポートを中断できるようにする "
+"<i>(大きなファイルをインポートする場合には便利ですが、トランザクションが壊れることもあります)</i>"
 
 #: libraries/display_import.lib.php:274
 msgid "Number of rows to skip, starting from the first row:"
@@ -6672,8 +6671,8 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"TIMESTAMP のカラムを UTC（協定世界時）でダンプする<i>(ダンプするサーバと読み"
-"込ませるサーバのタイムゾーンが異なる場合に有効です。)</i>"
+"TIMESTAMP のカラムを UTC (協定世界時) でダンプする "
+"<i>(ダンプするサーバと読み込ませるサーバのタイムゾーンが異なる場合に有効です)</i>"
 
 #: libraries/export/sql.php:345 libraries/export/xml.php:45
 msgid "Procedures"
