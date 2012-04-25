@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-25 14:59+0200\n"
+"POT-Creation-Date: 2012-04-25 12:34-0400\n"
 "PO-Revision-Date: 2012-04-21 16:04+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.10\n"
@@ -63,7 +63,7 @@ msgstr "Szukaj"
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/schema/User_Schema.class.php:490
 #: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:417
-#: libraries/sql_query_form.lib.php:472 libraries/tbl_properties.inc.php:578
+#: libraries/sql_query_form.lib.php:472 libraries/tbl_properties.inc.php:617
 #: pmd_pdf.php:125 prefs_manage.php:271 prefs_manage.php:322
 #: server_binlog.php:109 server_privileges.php:845 server_privileges.php:1961
 #: server_privileges.php:2325 server_privileges.php:2372
@@ -72,7 +72,7 @@ msgstr "Szukaj"
 #: server_synchronize.php:1390 tbl_change.php:373 tbl_change.php:1119
 #: tbl_indexes.php:289 tbl_operations.php:292 tbl_operations.php:329
 #: tbl_operations.php:534 tbl_operations.php:597 tbl_operations.php:800
-#: tbl_select.php:259 tbl_structure.php:663 tbl_structure.php:700
+#: tbl_select.php:259 tbl_structure.php:685 tbl_structure.php:722
 #: tbl_tracking.php:452 tbl_tracking.php:594 tbl_zoom_select.php:330
 #: view_create.php:173 view_operations.php:99
 msgid "Go"
@@ -113,7 +113,7 @@ msgid "Database comment: "
 msgstr "Komentarz bazy danych: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
-#: libraries/tbl_properties.inc.php:665 tbl_operations.php:374
+#: libraries/tbl_properties.inc.php:704 tbl_operations.php:374
 #: tbl_printview.php:125
 msgid "Table comments"
 msgstr "Komentarze tabeli"
@@ -125,7 +125,7 @@ msgstr "Komentarze tabeli"
 #: libraries/export/texytext.php:313 libraries/export/texytext.php:390
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
-#: libraries/tbl_properties.inc.php:269 libraries/tbl_select.lib.php:86
+#: libraries/tbl_properties.inc.php:279 libraries/tbl_select.lib.php:86
 #: tbl_change.php:339 tbl_indexes.php:214 tbl_printview.php:137
 #: tbl_relation.php:411 tbl_tracking.php:278 tbl_tracking.php:344
 #: tbl_zoom_select.php:450
@@ -146,7 +146,7 @@ msgstr "Kolumna"
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:87
 #: server_privileges.php:2418 tbl_change.php:318 tbl_change.php:351
 #: tbl_printview.php:138 tbl_printview.php:273 tbl_structure.php:204
-#: tbl_structure.php:760 tbl_tracking.php:279 tbl_tracking.php:341
+#: tbl_structure.php:782 tbl_tracking.php:279 tbl_tracking.php:341
 msgid "Type"
 msgstr "Typ"
 
@@ -327,9 +327,9 @@ msgstr "Przełącz do przekopiowanej bazy danych"
 #: db_operations.php:582 libraries/Index.class.php:463
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
-#: libraries/tbl_properties.inc.php:671 libraries/tbl_select.lib.php:88
+#: libraries/tbl_properties.inc.php:710 libraries/tbl_select.lib.php:88
 #: server_collations.php:44 server_collations.php:56 tbl_operations.php:390
-#: tbl_structure.php:205 tbl_structure.php:865 tbl_tracking.php:280
+#: tbl_structure.php:205 tbl_structure.php:887 tbl_tracking.php:280
 #: tbl_tracking.php:346
 msgid "Collation"
 msgstr "Metoda porównywania napisów"
@@ -362,7 +362,7 @@ msgstr "Tabela"
 #: libraries/build_html_for_db.lib.php:31 libraries/db_structure.lib.php:42
 #: libraries/header_printview.inc.php:64 libraries/import.lib.php:153
 #: navigation.php:593 navigation.php:615 tbl_printview.php:354
-#: tbl_structure.php:451 tbl_structure.php:525 tbl_structure.php:875
+#: tbl_structure.php:451 tbl_structure.php:525 tbl_structure.php:897
 msgid "Rows"
 msgstr "Rekordy"
 
@@ -377,21 +377,21 @@ msgstr "w użyciu"
 #: db_printview.php:186 libraries/db_info.inc.php:77
 #: libraries/db_structure.lib.php:60 libraries/export/sql.php:758
 #: libraries/schema/Pdf_Relation_Schema.class.php:1287 tbl_printview.php:394
-#: tbl_structure.php:907
+#: tbl_structure.php:929
 msgid "Creation"
 msgstr "Tworzenie"
 
 #: db_printview.php:195 libraries/db_info.inc.php:82
 #: libraries/db_structure.lib.php:65 libraries/export/sql.php:763
 #: libraries/schema/Pdf_Relation_Schema.class.php:1292 tbl_printview.php:404
-#: tbl_structure.php:915
+#: tbl_structure.php:937
 msgid "Last update"
 msgstr "Ostatnia aktualizacja"
 
 #: db_printview.php:204 libraries/db_info.inc.php:87
 #: libraries/db_structure.lib.php:70 libraries/export/sql.php:768
 #: libraries/schema/Pdf_Relation_Schema.class.php:1297 tbl_printview.php:414
-#: tbl_structure.php:923
+#: tbl_structure.php:945
 msgid "Last check"
 msgstr "Ostatnie sprawdzanie"
 
@@ -615,8 +615,8 @@ msgstr "Śledzenie nie jest aktywne."
 #: db_structure.php:518 libraries/display_tbl.lib.php:2365
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Ten widok ma przynajmniej taką liczbę wierszy (rekordów). Proszę odnieść się "
 "do %sdokumentacji%s."
@@ -676,7 +676,7 @@ msgid "Export"
 msgstr "Eksport"
 
 #: db_structure.php:673 db_structure.php:721
-#: libraries/display_tbl.lib.php:2615 tbl_structure.php:604
+#: libraries/display_tbl.lib.php:2615 tbl_structure.php:622
 msgid "Print view"
 msgstr "Podgląd wydruku"
 
@@ -696,7 +696,7 @@ msgstr "Usuń"
 msgid "Check table"
 msgstr "Sprawdź tabelę"
 
-#: db_structure.php:684 tbl_operations.php:679 tbl_structure.php:809
+#: db_structure.php:684 tbl_operations.php:679 tbl_structure.php:831
 msgid "Optimize table"
 msgstr "Optymalizuj tabelę"
 
@@ -795,7 +795,7 @@ msgstr "Migawka struktury"
 msgid "Untracked tables"
 msgstr "Tabele nieśledzone"
 
-#: db_tracking.php:207 tbl_structure.php:630
+#: db_tracking.php:207 tbl_structure.php:648
 msgid "Track table"
 msgstr "Śledź tabelę"
 
@@ -932,11 +932,11 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Prawdopodobnie próbowano wczytać zbyt duży plik. Proszę zapoznać się "
-"%sdokumentacją%s, aby obejść to ograniczenie."
+"Prawdopodobnie próbowano wczytać zbyt duży plik. Proszę zapoznać się %"
+"sdokumentacją%s, aby obejść to ograniczenie."
 
 #: import.php:216 import.php:443
 msgid "Showing bookmark"
@@ -1149,7 +1149,7 @@ msgstr "Dane statyczne"
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:161 server_databases.php:253
 #: server_status.php:1141 server_status.php:1210 tbl_printview.php:311
-#: tbl_structure.php:797
+#: tbl_structure.php:819
 msgid "Total"
 msgstr "Ogółem"
 
@@ -1372,7 +1372,7 @@ msgstr "Proszę dodać przynajmniej jedną zmienną do serii"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:576 libraries/export/sql.php:1113
-#: libraries/tbl_properties.inc.php:533 pmd_general.php:523
+#: libraries/tbl_properties.inc.php:572 pmd_general.php:523
 #: server_privileges.php:2223 server_status.php:1292 server_status.php:1731
 #: tbl_zoom_select.php:251 tbl_zoom_select.php:295
 msgid "None"
@@ -1872,7 +1872,7 @@ msgstr "Czas wykonywania zapytania"
 
 #: js/messages.php:290 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:355
-#: libraries/tbl_properties.inc.php:722 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:761 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:243 tbl_change.php:1071
 #: tbl_gis_visualization.php:186 tbl_indexes.php:281 tbl_relation.php:579
 msgid "Save"
@@ -2361,20 +2361,20 @@ msgstr "na godzinę"
 msgid "per day"
 msgstr "na dzień"
 
-#: libraries/Config.class.php:905
+#: libraries/Config.class.php:891
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr "Usuń katalog \"./Config\" przed użyciem phpMyAdmin!"
 
-#: libraries/Config.class.php:941
+#: libraries/Config.class.php:927
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Istniejący plik konfiguracyjny (%s) nie jest czytelny."
 
-#: libraries/Config.class.php:969
+#: libraries/Config.class.php:955
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "Złe uprawnienia pliku konfiguracyjnego, nie powinien być zapisywalny!"
 
-#: libraries/Config.class.php:1546
+#: libraries/Config.class.php:1532
 msgid "Font size"
 msgstr "Rozmiar czcionki"
 
@@ -2440,12 +2440,12 @@ msgid "No index defined!"
 msgstr "Brak zdefiniowanego indeksu!"
 
 #: libraries/Index.class.php:435 libraries/Index.class.php:445
-#: libraries/build_html_for_db.lib.php:41 tbl_structure.php:684
+#: libraries/build_html_for_db.lib.php:41 tbl_structure.php:706
 #: tbl_tracking.php:336
 msgid "Indexes"
 msgstr "Indeksy"
 
-#: libraries/Index.class.php:459 libraries/tbl_properties.inc.php:475
+#: libraries/Index.class.php:459 libraries/tbl_properties.inc.php:485
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:567
 #: tbl_tracking.php:342
 msgid "Unique"
@@ -2559,29 +2559,29 @@ msgstr "Ten serwer MySQL nie obsługuje mechanizmu składowania %s."
 msgid "unknown table status: "
 msgstr "nieznany status tabeli: "
 
-#: libraries/Table.class.php:1154
+#: libraries/Table.class.php:1165
 msgid "Invalid database"
 msgstr "Niewłaściwa baza danych"
 
-#: libraries/Table.class.php:1168 tbl_get_field.php:27
+#: libraries/Table.class.php:1179 tbl_get_field.php:27
 msgid "Invalid table name"
 msgstr "Niewłaściwa nazwa tabeli"
 
-#: libraries/Table.class.php:1199
+#: libraries/Table.class.php:1210
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Błąd podczas zmiany nazwy tabeli z %1$s na %2$s"
 
-#: libraries/Table.class.php:1286
+#: libraries/Table.class.php:1297
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabela %1$s ma nazwę zmienioną na %2$s."
 
-#: libraries/Table.class.php:1430
+#: libraries/Table.class.php:1441
 msgid "Could not save table UI preferences"
 msgstr "Nie można zapisać preferencji UI tabeli"
 
-#: libraries/Table.class.php:1454
+#: libraries/Table.class.php:1465
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -2590,7 +2590,7 @@ msgstr ""
 "Nie udało się czyszczenie preferencji tabeli UI (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1581
+#: libraries/Table.class.php:1592
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -2646,8 +2646,8 @@ msgstr "Witamy w %s"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Prawdopodobnie powodem jest brak utworzonego pliku konfiguracyjnego. Możesz "
 "użyć %1$s skryptu instalacyjnego %2$s, aby utworzyć jedną."
@@ -2765,12 +2765,12 @@ msgstr "Tabele"
 #: libraries/config/user_preferences.forms.php:269
 #: libraries/export/latex.php:212 libraries/export/sql.php:1113
 #: server_privileges.php:713 server_replication.php:347 tbl_printview.php:277
-#: tbl_structure.php:766
+#: tbl_structure.php:788
 msgid "Data"
 msgstr "Dane"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:296 tbl_structure.php:783
+#: tbl_printview.php:296 tbl_structure.php:805
 msgid "Overhead"
 msgstr "Nadmiar"
 
@@ -3017,7 +3017,7 @@ msgstr "Kliknij, aby przełączać"
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:594 pmd_general.php:155
+#: libraries/tbl_properties.inc.php:633 pmd_general.php:155
 #: server_privileges.php:713 server_replication.php:346 tbl_tracking.php:274
 msgid "Structure"
 msgstr "Struktura"
@@ -3533,7 +3533,7 @@ msgid "Character set of the file"
 msgstr "Kodowanie znaków pliku"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: tbl_gis_visualization.php:174 tbl_printview.php:336 tbl_structure.php:835
+#: tbl_gis_visualization.php:174 tbl_printview.php:336 tbl_structure.php:857
 msgid "Format"
 msgstr "Format"
 
@@ -3632,7 +3632,7 @@ msgstr "Etykieta klucza"
 
 #: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
 #: libraries/config/messages.inc.php:138 libraries/export/odt.php:411
-#: libraries/tbl_properties.inc.php:137
+#: libraries/tbl_properties.inc.php:147
 msgid "MIME type"
 msgstr "Typ MIME"
 
@@ -5058,8 +5058,8 @@ msgstr "Szczegółowa nazwa serwera"
 #: libraries/config/messages.inc.php:456
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie "
-"(wiersze)\";"
+"Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie (wiersze)"
+"\";"
 
 #: libraries/config/messages.inc.php:457
 msgid "Allow to display all the rows"
@@ -5644,8 +5644,8 @@ msgstr ""
 
 #: libraries/data_mysql.inc.php:305
 msgid ""
-"A small (single-precision) floating-point number. Allowable values are "
-"-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E"
+"A small (single-precision) floating-point number. Allowable values are -"
+"3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E"
 "+38."
 msgstr ""
 
@@ -6076,13 +6076,13 @@ msgstr ", @TABLE@ zostanie zastąpione nazwą wybranej tabeli"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Wartość ta jest interpretowana za pomocą %1$sstrftime%2$s, dzięki czemu "
 "można używać wartości czsu formatowania. Dodatkowo po transformacji stanie "
-"się: %3$s. Inne teksty będą przechowywane tak jak są. Zobacz szczegóły w "
-"%4$sFAQ%5$s."
+"się: %3$s. Inne teksty będą przechowywane tak jak są. Zobacz szczegóły w %4"
+"$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:285
 msgid "use this for future exports"
@@ -6330,7 +6330,7 @@ msgstr "Sortuj wg klucza"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:23 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:862
-#: tbl_select.php:199 tbl_structure.php:851
+#: tbl_select.php:199 tbl_structure.php:873
 msgid "Options"
 msgstr "Opcje"
 
@@ -6758,8 +6758,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacja i dodatkowe informacje o PBXT można znaleźć na %sStronie "
 "domowej PrimeBase XT%s."
@@ -7216,7 +7216,7 @@ msgstr "Niewłaściwa suma kolumn w CSV w linii %d."
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:33 libraries/tbl_properties.inc.php:571
+#: libraries/import/docsql.php:33 libraries/tbl_properties.inc.php:610
 #: server_synchronize.php:455 server_synchronize.php:967
 msgid "Table name"
 msgstr "Nazwa tabeli"
@@ -7562,7 +7562,7 @@ msgstr "Tworzenie PDF-ów"
 msgid "Displaying Column Comments"
 msgstr "Wyświetl komentarze dla kolumn"
 
-#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:138
+#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:148
 #: transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "Sposób prezentacji danych"
@@ -7671,7 +7671,7 @@ msgstr "Zmienna"
 #: libraries/rte/rte_routines.lib.php:1376 libraries/tbl_select.lib.php:90
 #: pmd_general.php:489 pmd_general.php:548 pmd_general.php:671
 #: pmd_general.php:788 server_status.php:1504 tbl_change.php:367
-#: tbl_printview.php:330 tbl_structure.php:827 tbl_zoom_select.php:452
+#: tbl_printview.php:330 tbl_structure.php:849 tbl_zoom_select.php:452
 msgid "Value"
 msgstr "Wartość"
 
@@ -8473,8 +8473,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Analizator składni SQL nie mógł zostać zainicjowany. Sprawdź, czy "
-"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w "
-"%sdokumentacji%s."
+"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w %"
+"sdokumentacji%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8506,26 +8506,32 @@ msgstr ""
 "cytowania odwrotnym ukośnikiem czy ujmowania w cudzysłowy, używając takiego "
 "formatu: a"
 
-#: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:481
+#: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:491
 #: tbl_printview.php:286 tbl_structure.php:154 tbl_structure.php:159
-#: tbl_structure.php:568 tbl_structure.php:774
+#: tbl_structure.php:568 tbl_structure.php:796
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/tbl_properties.inc.php:130
+#: libraries/tbl_properties.inc.php:131
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Move column"
+msgstr "Usuń kolumnę(y)"
+
+#: libraries/tbl_properties.inc.php:140
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij "
-"%sopisy transformacji%s"
+"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij %"
+"sopisy transformacji%s"
 
-#: libraries/tbl_properties.inc.php:139
+#: libraries/tbl_properties.inc.php:149
 msgid "Transformation options"
 msgstr "Opcje transformacji"
 
-#: libraries/tbl_properties.inc.php:140
+#: libraries/tbl_properties.inc.php:150
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -8537,48 +8543,58 @@ msgstr ""
 "apostrof (\"'\"), należy je poprzedzić odwrotnym ukośnikiem (np.: '\\\\xyz' "
 "lub 'a\\'b')."
 
-#: libraries/tbl_properties.inc.php:323
+#: libraries/tbl_properties.inc.php:333
 msgid "ENUM or SET data too long?"
 msgstr "Dane dla ENUM lub SET zbyt długie?"
 
-#: libraries/tbl_properties.inc.php:325
+#: libraries/tbl_properties.inc.php:335
 msgid "Get more editing space"
 msgstr "Więcej miejsca dla edycji"
 
-#: libraries/tbl_properties.inc.php:349
+#: libraries/tbl_properties.inc.php:359
 msgctxt "for default"
 msgid "None"
 msgstr "Brak"
 
-#: libraries/tbl_properties.inc.php:350
+#: libraries/tbl_properties.inc.php:360
 msgid "As defined:"
 msgstr "Zdefiniowana następująco:"
 
-#: libraries/tbl_properties.inc.php:469 tbl_structure.php:153
+#: libraries/tbl_properties.inc.php:479 tbl_structure.php:153
 #: tbl_structure.php:158 tbl_structure.php:566
 msgid "Primary"
 msgstr "Podstawowy"
 
-#: libraries/tbl_properties.inc.php:488 tbl_structure.php:157
+#: libraries/tbl_properties.inc.php:498 tbl_structure.php:157
 #: tbl_structure.php:162 tbl_structure.php:575
 msgid "Fulltext"
 msgstr "Pełny tekst"
 
-#: libraries/tbl_properties.inc.php:577 tbl_structure.php:643
+#: libraries/tbl_properties.inc.php:543
+msgid "first"
+msgstr ""
+
+#: libraries/tbl_properties.inc.php:549
+#, fuzzy, php-format
+#| msgid "After %s"
+msgid "after %s"
+msgstr "Po %s"
+
+#: libraries/tbl_properties.inc.php:616 tbl_structure.php:665
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Dodaj %s kolumnę(y)"
 
-#: libraries/tbl_properties.inc.php:579 tbl_structure.php:637
+#: libraries/tbl_properties.inc.php:618 tbl_structure.php:659
 msgid "You have to add at least one column."
 msgstr "Musisz dodać co najmniej jedną kolumnę."
 
-#: libraries/tbl_properties.inc.php:667 server_engines.php:47
+#: libraries/tbl_properties.inc.php:706 server_engines.php:47
 #: tbl_operations.php:382
 msgid "Storage Engine"
 msgstr "Mechanizm składowania"
 
-#: libraries/tbl_properties.inc.php:701
+#: libraries/tbl_properties.inc.php:740
 msgid "PARTITION definition"
 msgstr "Definicja partycji"
 
@@ -8946,8 +8962,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja"
-"%s."
+"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja%"
+"s."
 
 #: navigation.php:175 server_databases.php:315 server_synchronize.php:1375
 msgid "No databases"
@@ -9253,7 +9269,7 @@ msgstr "Pozycja"
 msgid "Original position"
 msgstr "Oryginalna pozycja"
 
-#: server_binlog.php:185 tbl_structure.php:753
+#: server_binlog.php:185 tbl_structure.php:775
 msgid "Information"
 msgstr "Informacje"
 
@@ -9677,8 +9693,8 @@ msgstr "Usuń bazy danych o takich samych nazwach jak użytkownicy."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień "
 "MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, "
@@ -10117,7 +10133,7 @@ msgstr ""
 msgid "Questions since startup: %s"
 msgstr "Pytania od uruchomienia: %s"
 
-#: server_status.php:986 tbl_printview.php:329 tbl_structure.php:826
+#: server_status.php:986 tbl_printview.php:329 tbl_structure.php:848
 msgid "Statements"
 msgstr "Oświadczenia"
 
@@ -11492,8 +11508,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"W przypadku korzystania z uwierzytelniania cookie i przechowywać "
-"%sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
+"W przypadku korzystania z uwierzytelniania cookie i przechowywać %"
+"sciasteczek logowania%s nie jest 0, %sWażności plików cookie%s logowania "
 "muszą być ustawione na wartość mniejsza lub równa jej."
 
 #: setup/lib/index.lib.php:297
@@ -11606,10 +11622,16 @@ msgstr "Problemy z indeksami tabeli `%s`"
 msgid "Label"
 msgstr "Nazwa"
 
-#: tbl_addfield.php:190 tbl_alter.php:113 tbl_indexes.php:99
+#: tbl_addfield.php:190 tbl_alter.php:209 tbl_indexes.php:99
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Tabela %1$s została pomyślnie zmodyfikowana"
+
+#: tbl_alter.php:130
+#, fuzzy
+#| msgid "The selected users have been deleted successfully."
+msgid "The columns have been moved successfully."
+msgstr "Wybrani użytkownicy zostali usunięci pomyślnie."
 
 #: tbl_change.php:755
 msgid "Because of its length,<br /> this column might not be editable"
@@ -11933,39 +11955,39 @@ msgstr "Sprawdź spójność powiązań:"
 msgid "Showing tables"
 msgstr "Pokaż tabele"
 
-#: tbl_printview.php:270 tbl_structure.php:757
+#: tbl_printview.php:270 tbl_structure.php:779
 msgid "Space usage"
 msgstr "Wykorzystanie przestrzeni"
 
-#: tbl_printview.php:274 tbl_structure.php:761
+#: tbl_printview.php:274 tbl_structure.php:783
 msgid "Usage"
 msgstr "Używanie"
 
-#: tbl_printview.php:301 tbl_structure.php:788
+#: tbl_printview.php:301 tbl_structure.php:810
 msgid "Effective"
 msgstr "Efektywne"
 
-#: tbl_printview.php:326 tbl_structure.php:823
+#: tbl_printview.php:326 tbl_structure.php:845
 msgid "Row Statistics"
 msgstr "Statystyka wiersza"
 
-#: tbl_printview.php:340 tbl_structure.php:838
+#: tbl_printview.php:340 tbl_structure.php:860
 msgid "static"
 msgstr "statycznie"
 
-#: tbl_printview.php:342 tbl_structure.php:840
+#: tbl_printview.php:342 tbl_structure.php:862
 msgid "dynamic"
 msgstr "dynamiczny"
 
-#: tbl_printview.php:364 tbl_structure.php:883
+#: tbl_printview.php:364 tbl_structure.php:905
 msgid "Row length"
 msgstr "Długość wiersza"
 
-#: tbl_printview.php:374 tbl_structure.php:891
+#: tbl_printview.php:374 tbl_structure.php:913
 msgid "Row size"
 msgstr "Rozmiar wiersza"
 
-#: tbl_printview.php:384 tbl_structure.php:899
+#: tbl_printview.php:384 tbl_structure.php:921
 msgid "Next autoindex"
 msgstr "Następny autoindeks"
 
@@ -12061,41 +12083,51 @@ msgstr "Do %s dodany został indeks"
 msgid "Show more actions"
 msgstr "Pokaż więcej akcji"
 
-#: tbl_structure.php:598
+#: tbl_structure.php:582 tbl_structure.php:654
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Move columns"
+msgstr "Usuń kolumnę(y)"
+
+#: tbl_structure.php:583
+msgid "Move the columns by dragging them up and down."
+msgstr ""
+
+#: tbl_structure.php:616
 msgid "Edit view"
 msgstr "Edycja widoku"
 
-#: tbl_structure.php:615
+#: tbl_structure.php:633
 msgid "Relation view"
 msgstr "Widok relacyjny"
 
-#: tbl_structure.php:623
+#: tbl_structure.php:641
 msgid "Propose table structure"
 msgstr "Zaproponowanie struktury tabeli"
 
-#: tbl_structure.php:641
+#: tbl_structure.php:663
 msgid "Add column"
 msgstr "Dodaj kolumnę"
 
-#: tbl_structure.php:655
+#: tbl_structure.php:677
 msgid "At End of Table"
 msgstr "Na końcu tabeli"
 
-#: tbl_structure.php:656
+#: tbl_structure.php:678
 msgid "At Beginning of Table"
 msgstr "Na początku tabeli"
 
-#: tbl_structure.php:657
+#: tbl_structure.php:679
 #, php-format
 msgid "After %s"
 msgstr "Po %s"
 
-#: tbl_structure.php:695
+#: tbl_structure.php:717
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Utwórz indeks na kolumnach %s"
 
-#: tbl_structure.php:854
+#: tbl_structure.php:876
 msgid "partitioned"
 msgstr "partycjonowanie"
 
