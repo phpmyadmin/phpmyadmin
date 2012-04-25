@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 + Hide language select box if there are no locales installed
 + Removed some directives: verbose_check, SuggestDBName, LightTabs
 - Patch #3500882 Fixing checkbox behaviour while editing identical rows
++ rfe #3441722 [interface] Display description of datatypes
 
 3.5.2.0 (not yet released)
 
