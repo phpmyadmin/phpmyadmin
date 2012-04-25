@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-25 12:34-0400\n"
-"PO-Revision-Date: 2012-04-25 21:20+0200\n"
+"PO-Revision-Date: 2012-04-25 21:46+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5629,6 +5629,9 @@ msgid ""
 "9,223,372,036,854,775,807. The unsigned range is 0 to "
 "18,446,744,073,709,551,615."
 msgstr ""
+"Büyük bir tamsayı. İşaretli aralığı -9,223,372,036,854,775,808'den "
+"9,223,372,036,854,775,807'ye dir. İşaretsiz aralığı 0'dan "
+"18,446,744,073,709,551,615'e dir."
 
 #: libraries/data_mysql.inc.php:304
 msgid ""
@@ -11403,11 +11406,11 @@ msgid ""
 "version is %s, released on %s."
 msgstr ""
 "Git sürümünü kullanıyorsunuz, [kbd]git pull[/kbd] çalıştırın :-)[br]Son "
-"kararlı sürüm %s, %s tarihinde yayınlandı."
+"sağlam sürüm %s, %s tarihinde yayınlandı."
 
 #: setup/lib/index.lib.php:191
 msgid "No newer stable version is available"
-msgstr "Daha yeni kararlı sürüm mevcut değil"
+msgstr "Daha yeni sağlam sürüm mevcut değil"
 
 #: setup/lib/index.lib.php:281
 #, php-format
