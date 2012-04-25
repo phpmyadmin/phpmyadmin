@@ -221,14 +221,7 @@ $(function () {
     <legend>
 <?php
     echo __('Log in');
-    echo '<a href="Documentation.html" target="documentation" ' .
-        'title="' . __('phpMyAdmin documentation') . '"> ';
-    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        echo PMA_getImage('b_help.png', __('phpMyAdmin documentation'));
-    } else {
-        echo '(*)';
-    }
-    echo '</a>';
+    echo PMA_showDocu('');
 ?>
 </legend>
 
