@@ -3473,7 +3473,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
 function PMA_getDatatypeDescription($type)
 {
     $type = strtoupper($type);
-    $descriptions = SupportedDataTypesDescriptions();
+    $descriptions = PMA_supportedDataTypesDescriptions();
 
     return isset($descriptions[$type])
         ? htmlentities($descriptions[$type], ENT_QUOTES) : '';

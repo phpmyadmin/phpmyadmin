@@ -293,7 +293,7 @@ if ($cfg['ShowFunctionFields']) {
  * @return array MySQL datatypes descriptions.
  *
  */
-function SupportedDataTypesDescriptions()
+function PMA_supportedDataTypesDescriptions()
 {
     return array(
         'TINYINT' => __('A very small integer. The signed range is -128 to 127. The unsigned range is 0 to 255.'),
@@ -336,6 +336,6 @@ function SupportedDataTypesDescriptions()
         'MULTIPOLYGON' => __('Constructs a WKB MultiPolygon value from a set of WKB Polygon arguments. If any argument is not a WKB Polygon, the return value is NULL.'),
         'GEOMETRYCOLLECTION' => __('Constructs a WKB GeometryCollection. If any argument is not a well-formed WKB representation of a geometry, the return value is NULL.'),
     );
-} // end SupportedDataTypesDescriptions()
+} // end PMA_supportedDataTypesDescriptions()
 
 ?>

@@ -232,7 +232,7 @@ if ($cfg['ShowFunctionFields']) {
  * @return array Drizzle datatypes descriptions.
  *
  */
-function SupportedDataTypesDescriptions()
+function PMA_supportedDataTypesDescriptions()
 {
     return array(
         'INTEGER' => __('Most common integer.'),
@@ -252,6 +252,6 @@ function SupportedDataTypesDescriptions()
         'BLOB' => __('Data which is over XXX in size. Uses a binary collation for all index usage.'),
         'ENUM' => __('Static lists of strings.'),
     );
-} // end SupportedDataTypesDescriptions()
+} // end PMA_supportedDataTypesDescriptions()
 
 ?>
