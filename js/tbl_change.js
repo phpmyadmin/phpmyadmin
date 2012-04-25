@@ -112,11 +112,7 @@ function isDate(val,tmstmp)
             return false;
         }
         if (val.substring(0, pos + 2).length == 2) {
-            if (val.substring(0, pos + 2).length == 2) {
-                year=parseInt("20" + val.substring(0,pos+2));
-            } else {
-                year=parseInt("19" + val.substring(0,pos+2));
-            }
+            year = parseInt("20" + val.substring(0,pos+2));
         }
         if (tmstmp == true) {
             if (year < 1978) {
