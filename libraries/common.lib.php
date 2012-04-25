@@ -3422,23 +3422,37 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                 $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                 foreach ($value as $subvalue) {
                     if ($subvalue == $selected) {
-                        $retval .= "<option selected='selected' title='" . PMA_getDatatypeDescription($subvalue) . "'>";
-                        $retval .= $subvalue;
-                        $retval .= "</option>";
+                        $retval .= sprintf(
+                            "<option selected='selected' title='%s'>%s</option>",
+                            PMA_getDatatypeDescription($subvalue),
+                            $subvalue
+                        );
                     } else if ($subvalue === '-') {
                         $retval .= "<option disabled='disabled'>";
                         $retval .= $subvalue;
                         $retval .= "</option>";
                     } else {
-                        $retval .= "<option title='" . PMA_getDatatypeDescription($subvalue) . "'>$subvalue</option>";
+                        $retval .= sprintf(
+                            "<option title='%s'>%s</option>",
+                            PMA_getDatatypeDescription($subvalue),
+                            $subvalue
+                        );
                     }
                 }
                 $retval .= '</optgroup>';
             } else {
                 if ($selected == $value) {
-                    $retval .= "<option selected='selected' title='" . PMA_getDatatypeDescription($value) . "'>$value</option>";
+                    $retval .= sprintf(
+                        "<option selected='selected' title='%s'>%s</option>",
+                        PMA_getDatatypeDescription($value),
+                        $value
+                    );
                 } else {
-                    $retval .= "<option title='" . PMA_getDatatypeDescription($value) . "'>$value</option>";
+                    $retval .= sprintf(
+                        "<option title='%s'>%s</option>",
+                        PMA_getDatatypeDescription($value),
+                        $value
+                    );
                 }
             }
         }
