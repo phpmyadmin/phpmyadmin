@@ -128,7 +128,7 @@ display_form_top(
 );
 ?>
 <div class="form">
-<?php if ($cf->getServerCount() > 0): ?>
+<?php if ($cf->getServerCount() > 0) { ?>
 <table cellspacing="0" class="datatable" style="table-layout: fixed">
 <tr>
     <th>#</th>
@@ -136,7 +136,7 @@ display_form_top(
     <th><?php echo __('Authentication type') ?></th>
     <th colspan="2">DSN</th>
 </tr>
-<?php foreach ($cf->getServers() as $id => $server): ?>
+<?php foreach ($cf->getServers() as $id => $server) { ?>
 <tr>
     <td><?php echo $id ?></td>
     <td><?php echo htmlspecialchars($cf->getServerName($id)) ?></td>
@@ -149,9 +149,9 @@ display_form_top(
         </small>
     </td>
 </tr>
-<?php endforeach; ?>
+<?php } ?>
 </table>
-<?php else: ?>
+<?php } ?>
 <table width="100%">
 <tr>
     <td>

@@ -121,12 +121,12 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
                 <?php echo PMA_generate_common_hidden_inputs() . "\n"; ?>
                 <input type="hidden" name="json" value="<?php echo htmlspecialchars($json) ?>" />
                 <input type="hidden" name="fix_errors" value="1" />
-                <?php if (!empty($_POST['import_merge'])): ?>
+                <?php if (! empty($_POST['import_merge'])) { ?>
                 <input type="hidden" name="import_merge" value="1" />
-                <?php endif; ?>
-                <?php if ($return_url): ?>
+                <?php } ?>
+                <?php if ($return_url) { ?>
                 <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($return_url) ?>" />
-                <?php endif; ?>
+                <?php } ?>
                 <p><?php echo __('Do you want to import remaining settings?') ?></p>
                 <input type="submit" name="submit_import" value="<?php echo __('Yes') ?>" />
                 <input type="submit" name="submit_ignore" value="<?php echo __('No') ?>" />

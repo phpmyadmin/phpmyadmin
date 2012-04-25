@@ -33,14 +33,16 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
 // improve: check all other requirements for InnoDB relations
     $result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($T1) . ';');
     $index_array1   = array(); // will be use to emphasis prim. keys in the table view
-    while ($row = PMA_DBI_fetch_assoc($result))
+    while ($row = PMA_DBI_fetch_assoc($result)) {
         $index_array1[$row['Column_name']] = 1;
+    }
     PMA_DBI_free_result($result);
 
     $result     = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($T2) . ';');
     $index_array2  = array(); // will be used to emphasis prim. keys in the table view
-    while ($row = PMA_DBI_fetch_assoc($result))
+    while ($row = PMA_DBI_fetch_assoc($result)) {
         $index_array2[$row['Column_name']] = 1;
+    }
     PMA_DBI_free_result($result);
 
     if (! empty($index_array1[$F1]) && ! empty($index_array2[$F2])) {

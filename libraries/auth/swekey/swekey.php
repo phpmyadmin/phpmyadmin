@@ -54,22 +54,26 @@ $gSwekeyLastResult = "<not set>";
  */
 
 global $gSwekeyCheckServer;
-if (! isset($gSwekeyCheckServer))
+if (! isset($gSwekeyCheckServer)) {
     $gSwekeyCheckServer = SWEKEY_DEFAULT_CHECK_SERVER;
+}
 
 global $gSwekeyRndTokenServer;
-if (! isset($gSwekeyRndTokenServer))
+if (! isset($gSwekeyRndTokenServer)) {
     $gSwekeyRndTokenServer = SWEKEY_DEFAULT_RND_SERVER;
+}
 
 global $gSwekeyStatusServer;
-if (! isset($gSwekeyStatusServer))
+if (! isset($gSwekeyStatusServer)) {
     $gSwekeyStatusServer = SWEKEY_DEFAULT_STATUS_SERVER;
+}
 
 global $gSwekeyCA;
 
 global $gSwekeyTokenCacheEnabled;
-if (! isset($gSwekeyTokenCacheEnabled))
+if (! isset($gSwekeyTokenCacheEnabled)) {
     $gSwekeyTokenCacheEnabled = true;
+}
 
 /**
  *  Change the address of the Check server.
@@ -81,10 +85,11 @@ if (! isset($gSwekeyTokenCacheEnabled))
 function Swekey_SetCheckServer($server)
 {
     global $gSwekeyCheckServer;
-    if (empty($server))
+    if (empty($server)) {
         $gSwekeyCheckServer = SWEKEY_DEFAULT_CHECK_SERVER;
-    else
+    } else {
         $gSwekeyCheckServer = $server;
+    }
 }
 
 /**
@@ -97,10 +102,11 @@ function Swekey_SetCheckServer($server)
 function Swekey_SetRndTokenServer($server)
 {
     global $gSwekeyRndTokenServer;
-    if (empty($server))
+    if (empty($server)) {
         $gSwekeyRndTokenServer = SWEKEY_DEFAULT_RND_SERVER;
-    else
+    } else {
         $gSwekeyRndTokenServer = $server;
+    }
 }
 
 /**
@@ -113,10 +119,11 @@ function Swekey_SetRndTokenServer($server)
 function Swekey_SetStatusServer($server)
 {
     global $gSwekeyStatusServer;
-    if (empty($server))
+    if (empty($server)) {
         $gSwekeyStatusServer = SWEKEY_DEFAULT_STATUS_SERVER;
-    else
+    } else {
         $gSwekeyStatusServer = $server;
+    }
 }
 
 /**
@@ -128,7 +135,7 @@ function Swekey_SetStatusServer($server)
 function Swekey_SetCAFile($cafile)
 {
     global $gSwekeyCA;
-       $gSwekeyCA = $cafile;
+    $gSwekeyCA = $cafile;
 }
 
 /**
@@ -402,9 +409,9 @@ function Swekey_GetFastHalfRndToken()
 function Swekey_GetFastRndToken()
 {
     $res = Swekey_GetFastHalfRndToken();
-    if (strlen($res) == 64)
+    if (strlen($res) == 64) {
         return substr($res, 0, 32).strtoupper(md5("Musbe Authentication Key" + mt_rand() + date(DATE_ATOM)));
-
+    }
     return "";
 }
 
@@ -485,9 +492,9 @@ function Swekey_GetStatus($id)
 {
     global $gSwekeyStatusServer;
     $res = Swekey_HttpGet($gSwekeyStatusServer.'/GET-STATUS/'.$id, $response_code);
-    if ($response_code == 200)
+    if ($response_code == 200) {
         return intval($res);
-
+    }
     return SWEKEY_STATUS_UNKOWN;
 }
 
