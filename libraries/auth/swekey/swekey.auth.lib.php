@@ -53,12 +53,12 @@ function Swekey_auth_check()
         if (! isset($_SESSION['SWEKEY']['CONF_DEBUG'])) {
                $_SESSION['SWEKEY']['CONF_DEBUG'] = false;
         }
-     }
+    }
 
     // check if a web key has been authenticated
     if ($_SESSION['SWEKEY']['ENABLED']) {
         if (empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'])) {
-           return false;
+            return false;
         }
     }
 
@@ -197,17 +197,17 @@ function Swekey_auth_error()
     if (! isset($swekey_id)) {
         ?>
         <script>
-    if (key.length != 32) {
-        window.location.search="?swekey_id=" + key + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
-    } else {
-        var url = "" + window.location;
-        if (url.indexOf("?") > 0) {
-            url = url.substr(0, url.indexOf("?"));
+        if (key.length != 32) {
+            window.location.search="?swekey_id=" + key + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
+        } else {
+            var url = "" + window.location;
+            if (url.indexOf("?") > 0) {
+                url = url.substr(0, url.indexOf("?"));
+            }
+            Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
+            var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);
+            window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
         }
-        Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
-        var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);
-        window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
-    }
         </script>
         <?php
         return __('Authenticating...');
@@ -237,7 +237,7 @@ function Swekey_login($input_name, $input_go)
         if (empty($_SESSION['SWEKEY']['FORCE_USER'])) {
             echo 'var user = null;';
         } else {
-           echo 'var user = "'.$_SESSION['SWEKEY']['FORCE_USER'].'";';
+            echo 'var user = "'.$_SESSION['SWEKEY']['FORCE_USER'].'";';
         }
 
         ?>
