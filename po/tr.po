@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-06 17:02+0200\n"
+"PO-Revision-Date: 2012-04-25 21:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1895,7 +1895,7 @@ msgstr ""
 
 #: js/messages.php:307
 msgid "Strings are converted into integer for plotting"
-msgstr "Satırlar çizim yapmak için tam sayıya dönüştürülür"
+msgstr "Dizgiler çizim yapmak için tamsayıya dönüştürülür"
 
 #: js/messages.php:309
 msgid "Select two columns"
@@ -5747,7 +5747,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
-msgstr "ilerdeki dışa aktarımlar için bunu kullan"
+msgstr "ileriki dışa aktarımlar için bunu kullan"
 
 #: libraries/display_export.lib.php:276 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
@@ -11048,7 +11048,7 @@ msgstr "Sunucudan geçersiz sürüm dizgisi alındı"
 
 #: setup/lib/index.lib.php:162
 msgid "Unparsable version string"
-msgstr "Eşleştirilemez sürüm dizgisi"
+msgstr "Ayrıştırılamaz sürüm dizgisi"
 
 #: setup/lib/index.lib.php:180
 #, php-format
@@ -11057,11 +11057,11 @@ msgid ""
 "version is %s, released on %s."
 msgstr ""
 "Git sürümünü kullanıyorsunuz, [kbd]git pull[/kbd] çalıştırın :-)[br]Son "
-"kararlı sürüm %s, %s tarihinde yayınlandı."
+"sağlam sürüm %s, %s tarihinde yayınlandı."
 
 #: setup/lib/index.lib.php:186
 msgid "No newer stable version is available"
-msgstr "Daha yeni kararlı sürüm mevcut değil"
+msgstr "Daha yeni sağlam sürüm mevcut değil"
 
 #: setup/lib/index.lib.php:274
 #, php-format
