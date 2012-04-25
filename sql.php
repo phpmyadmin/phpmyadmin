@@ -18,6 +18,7 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 // the next one needed because sql.php may do a "goto" to tbl_structure.php
 $GLOBALS['js_include'][] = 'tbl_structure.js';
+$GLOBALS['js_include'][] = 'indexes.js';
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
 
 if ($GLOBALS['cfg']['CodemirrorEnable']) {

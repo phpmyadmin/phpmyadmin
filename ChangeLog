@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 + rfe #3517835 [structure] Move columns easily
 
 3.5.2.0 (not yet released)
+- bug #3521416 [interface] JS error when editing index
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
