@@ -328,14 +328,14 @@ function PMA_supportedDataTypesDescriptions()
         'LONGBLOB' => __('A BLOB column with a maximum length of 4,294,967,295 or 4GB (2^32 - 1) bytes, stored with a two-byte prefix indicating the length of the value'),
         'ENUM' => __("An enumeration, chosen from the list of up to 65,535 values or the special '' error value"),
         'SET' => __("A single value chosen from a set of up to 64 members"),
-        'GEOMETRY' => '',
-        'POINT' => __('Constructs a WKB Point using its coordinates.'),
-        'LINESTRING' => __('Constructs a WKB LineString value from a number of WKB Point arguments. If any argument is not a WKB Point, the return value is NULL. If the number of Point arguments is less than two, the return value is NULL.'),
-        'POLYGON' => __('Constructs a WKB Polygon value from a number of WKB LineString arguments. If any argument does not represent the WKB of a LinearRing (that is, not a closed and simple LineString) the return value is NULL.'),
-        'MULTIPOINT' => __('Constructs a WKB MultiPoint value using WKB Point arguments. If any argument is not a WKB Point, the return value is NULL.'),
-        'MULTILINESTRING' => __('Constructs a WKB MultiLineString value using WKB LineString arguments. If any argument is not a WKB LineString, the return value is NULL.'),
-        'MULTIPOLYGON' => __('Constructs a WKB MultiPolygon value from a set of WKB Polygon arguments. If any argument is not a WKB Polygon, the return value is NULL.'),
-        'GEOMETRYCOLLECTION' => __('Constructs a WKB GeometryCollection. If any argument is not a well-formed WKB representation of a geometry, the return value is NULL.'),
+        'GEOMETRY' => __('A type that can store a geometry of any type'),
+        'POINT' => __('A point in 2-dimensional space'),
+        'LINESTRING' => __('A curve with linear interpolation between points'),
+        'POLYGON' => __('A polygon'),
+        'MULTIPOINT' => __('A collection of points'),
+        'MULTILINESTRING' => __('A collection of curves with linear interpolation between points'),
+        'MULTIPOLYGON' => __('A collection of polygons'),
+        'GEOMETRYCOLLECTION' => __('A collection of geometry objects of any type'),
     );
 } // end PMA_supportedDataTypesDescriptions()
 
