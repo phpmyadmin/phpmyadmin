@@ -3318,8 +3318,7 @@ function PMA_browseUploadFile($max_upload_size)
 {
     if ($GLOBALS['is_upload'] && !empty($GLOBALS['cfg']['UploadDir'])) {
         echo '<label for="radio_import_file">';
-    }
-    else {
+    } else {
         echo '<label for="input_import_file">';
     }
     echo __("Browse your computer:") . '</label>';

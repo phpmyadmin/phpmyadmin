@@ -271,8 +271,7 @@ function Swekey_HttpGet($url, &$response_code)
                $res = $reply->getBody();
                $info = $r->getResponseInfo();
                $response_code = $info['response_code'];
-               if ($response_code != 200)
-               {
+               if ($response_code != 200) {
                     $gSwekeyLastError = $response_code;
                     error_log("SWEKEY_ERROR:Error ".$gSwekeyLastError." getting ".$url);
                     return "";

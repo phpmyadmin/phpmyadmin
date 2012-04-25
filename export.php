@@ -16,8 +16,7 @@ require_once 'libraries/plugin_interface.lib.php';
  * Sets globals from all $_POST (in export.php only)
  * Would it not be tiresome to list all export-plugin options here?
  */
-foreach ($_POST as $one_post_param => $one_post_value)
-{
+foreach ($_POST as $one_post_param => $one_post_value) {
     $GLOBALS[$one_post_param] = $one_post_value;
 }
 

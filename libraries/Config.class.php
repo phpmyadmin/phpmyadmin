@@ -469,22 +469,19 @@ class PMA_Config
                 $dataline = array_shift($commit);
                 $datalinearr = explode(' ', $dataline, 2);
                 $linetype = $datalinearr[0];
-                if (in_array($linetype, array('author', 'committer')))
-                {
+                if (in_array($linetype, array('author', 'committer'))) {
                     $user = $datalinearr[1];
                     preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
                     $user2 = array(
                         'name' => trim($user[1]),
                         'email' => trim($user[2]),
                         'date' => date('Y-m-d H:i:s', $user[3]));
-                    if (isset($user[4]))
-                    {
+                    if (isset($user[4])) {
                         $user2['date'] .= $user[4];
                     }
                     $$linetype = $user2;
                 }
-            }
-            while ($dataline != '');
+            } while ($dataline != '');
             $message = trim(implode(' ', $commit));
 
         } elseif (isset($commit_json)) {
@@ -1185,7 +1182,7 @@ class PMA_Config
         }
 
         // Reconstruct URL using parsed parts
-        if($this->get('SSLPort')) {
+        if ($this->get('SSLPort')) {
             $port_number = $this->get('SSLPort');
         } else {
             $port_number = 443;
