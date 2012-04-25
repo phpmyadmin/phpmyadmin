@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-25 12:34-0400\n"
-"PO-Revision-Date: 2012-04-25 20:36+0200\n"
+"PO-Revision-Date: 2012-04-25 21:20+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11394,7 +11394,7 @@ msgstr "Sunucudan geçersiz sürüm dizgisi alındı"
 
 #: setup/lib/index.lib.php:164
 msgid "Unparsable version string"
-msgstr "Eşleştirilemez sürüm dizgisi"
+msgstr "Ayrıştırılamaz sürüm dizgisi"
 
 #: setup/lib/index.lib.php:184
 #, php-format
