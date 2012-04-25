@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-25 13:01+0100\n"
+"POT-Creation-Date: 2012-04-25 14:59+0200\n"
 "PO-Revision-Date: 2012-04-25 12:50+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "すべて表示"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:46
-#: libraries/common.lib.php:2471
+#: libraries/common.lib.php:2481
 #: libraries/schema/Pdf_Relation_Schema.class.php:1145
 #: libraries/schema/Pdf_Relation_Schema.class.php:1169
 #: libraries/schema/User_Schema.class.php:399
@@ -38,9 +38,9 @@ msgstr ""
 "たか、ブラウザのセキュリティ設定でクロスウィンドウの更新をブロックしているも"
 "のと思われます。"
 
-#: browse_foreigners.php:156 libraries/common.lib.php:3152
-#: libraries/common.lib.php:3159 libraries/common.lib.php:3384
-#: libraries/common.lib.php:3385 libraries/db_links.inc.php:60
+#: browse_foreigners.php:156 libraries/common.lib.php:3162
+#: libraries/common.lib.php:3169 libraries/common.lib.php:3394
+#: libraries/common.lib.php:3395 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "検索"
@@ -48,7 +48,7 @@ msgstr "検索"
 #: browse_foreigners.php:159 db_operations.php:409 db_operations.php:449
 #: db_operations.php:562 db_operations.php:591 db_search.php:352
 #: gis_data_editor.php:314 js/messages.php:231
-#: libraries/auth/cookie.auth.lib.php:271 libraries/core.lib.php:530
+#: libraries/auth/cookie.auth.lib.php:264 libraries/core.lib.php:530
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:364 libraries/display_import.lib.php:312
@@ -61,8 +61,8 @@ msgstr "検索"
 #: libraries/schema/User_Schema.class.php:207
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/schema/User_Schema.class.php:490
-#: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:424
-#: libraries/sql_query_form.lib.php:479 libraries/tbl_properties.inc.php:578
+#: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:417
+#: libraries/sql_query_form.lib.php:472 libraries/tbl_properties.inc.php:578
 #: pmd_pdf.php:125 prefs_manage.php:271 prefs_manage.php:322
 #: server_binlog.php:109 server_privileges.php:845 server_privileges.php:1961
 #: server_privileges.php:2325 server_privileges.php:2372
@@ -482,13 +482,13 @@ msgstr "利用するテーブル"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "データベース <b>%s</b> のSQL:"
 
-#: db_qbe.php:956 libraries/common.lib.php:1254
+#: db_qbe.php:956 libraries/common.lib.php:1264
 msgid "Submit Query"
 msgstr "クエリを実行する"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
-#: libraries/auth/cookie.auth.lib.php:616 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:609 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "アクセスは拒否されました"
@@ -520,8 +520,8 @@ msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgstr[0] "%1$s 件 (テーブル <i>%2$s</i>)"
 
-#: db_search.php:247 libraries/common.lib.php:3154
-#: libraries/common.lib.php:3382 libraries/common.lib.php:3383
+#: db_search.php:247 libraries/common.lib.php:3164
+#: libraries/common.lib.php:3392 libraries/common.lib.php:3393
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:560
 msgid "Browse"
 msgstr "表示"
@@ -537,7 +537,7 @@ msgstr "テーブル %s に対して条件に一致したものを削除しま�
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:417 pmd_general.php:436
+#: libraries/sql_query_form.lib.php:410 pmd_general.php:436
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:245
 #: tbl_tracking.php:462 tbl_tracking.php:483 tbl_tracking.php:542
 msgid "Delete"
@@ -656,8 +656,8 @@ msgstr "すべてのチェックを外す"
 msgid "Check tables having overhead"
 msgstr "オーバーヘッドのあるテーブルを確認する"
 
-#: db_structure.php:671 libraries/common.lib.php:3395
-#: libraries/common.lib.php:3396 libraries/config/messages.inc.php:168
+#: db_structure.php:671 libraries/common.lib.php:3405
+#: libraries/common.lib.php:3406 libraries/config/messages.inc.php:168
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2525 libraries/display_tbl.lib.php:2666
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -671,13 +671,13 @@ msgstr "エクスポート"
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: db_structure.php:677 libraries/common.lib.php:3391
-#: libraries/common.lib.php:3392
+#: db_structure.php:677 libraries/common.lib.php:3401
+#: libraries/common.lib.php:3402
 msgid "Empty"
 msgstr "空にする"
 
 #: db_structure.php:679 db_tracking.php:106 libraries/Index.class.php:507
-#: libraries/common.lib.php:3389 libraries/common.lib.php:3390
+#: libraries/common.lib.php:3399 libraries/common.lib.php:3400
 #: server_databases.php:300 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:564
 msgid "Drop"
@@ -1008,7 +1008,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL は正常に実行されました"
 
-#: import_status.php:117 libraries/common.lib.php:710
+#: import_status.php:117 libraries/common.lib.php:720
 #: libraries/schema/Export_Relation_Schema.class.php:240 user_password.php:205
 msgid "Back"
 msgstr "戻る"
@@ -1111,8 +1111,8 @@ msgid "Close"
 msgstr "閉じる"
 
 #: js/messages.php:61 js/messages.php:284 libraries/Index.class.php:485
-#: libraries/common.lib.php:649 libraries/common.lib.php:1230
-#: libraries/common.lib.php:3393 libraries/common.lib.php:3394
+#: libraries/common.lib.php:659 libraries/common.lib.php:1240
+#: libraries/common.lib.php:3403 libraries/common.lib.php:3404
 #: libraries/config/messages.inc.php:491 libraries/display_tbl.lib.php:1405
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1148,12 +1148,12 @@ msgid "Other"
 msgstr "その他"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/common.lib.php:1484
+#: js/messages.php:72 libraries/common.lib.php:1494
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/common.lib.php:1486
+#: js/messages.php:74 libraries/common.lib.php:1496
 msgid "."
 msgstr "."
 
@@ -1235,13 +1235,13 @@ msgid "System swap"
 msgstr "システムスワップ"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
+#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1444
 #: server_status.php:1714
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1432
+#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1442
 #: server_status.php:1714
 msgid "KiB"
 msgstr "KiB"
@@ -1299,27 +1299,27 @@ msgid "Connections"
 msgstr "接続"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:121 libraries/common.lib.php:1430
+#: js/messages.php:121 libraries/common.lib.php:1440
 msgid "B"
 msgstr "バイト"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:124 libraries/common.lib.php:1436
+#: js/messages.php:124 libraries/common.lib.php:1446
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:125 libraries/common.lib.php:1438
+#: js/messages.php:125 libraries/common.lib.php:1448
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:126 libraries/common.lib.php:1440
+#: js/messages.php:126 libraries/common.lib.php:1450
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:127 libraries/common.lib.php:1442
+#: js/messages.php:127 libraries/common.lib.php:1452
 msgid "EiB"
 msgstr "EiB"
 
@@ -2135,63 +2135,63 @@ msgid "December"
 msgstr "12 月"
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1642
+#: js/messages.php:430 libraries/common.lib.php:1652
 msgid "Jan"
 msgstr "1 月"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1644
+#: js/messages.php:432 libraries/common.lib.php:1654
 msgid "Feb"
 msgstr "2 月"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1646
+#: js/messages.php:434 libraries/common.lib.php:1656
 msgid "Mar"
 msgstr "3 月"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/common.lib.php:1648
+#: js/messages.php:436 libraries/common.lib.php:1658
 msgid "Apr"
 msgstr "4 月"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/common.lib.php:1650
+#: js/messages.php:438 libraries/common.lib.php:1660
 msgctxt "Short month name"
 msgid "May"
 msgstr "5 月"
 
 #. l10n: Short month name
-#: js/messages.php:440 libraries/common.lib.php:1652
+#: js/messages.php:440 libraries/common.lib.php:1662
 msgid "Jun"
 msgstr "6 月"
 
 #. l10n: Short month name
-#: js/messages.php:442 libraries/common.lib.php:1654
+#: js/messages.php:442 libraries/common.lib.php:1664
 msgid "Jul"
 msgstr "7 月"
 
 #. l10n: Short month name
-#: js/messages.php:444 libraries/common.lib.php:1656
+#: js/messages.php:444 libraries/common.lib.php:1666
 msgid "Aug"
 msgstr "8 月"
 
 #. l10n: Short month name
-#: js/messages.php:446 libraries/common.lib.php:1658
+#: js/messages.php:446 libraries/common.lib.php:1668
 msgid "Sep"
 msgstr "9 月"
 
 #. l10n: Short month name
-#: js/messages.php:448 libraries/common.lib.php:1660
+#: js/messages.php:448 libraries/common.lib.php:1670
 msgid "Oct"
 msgstr "10 月"
 
 #. l10n: Short month name
-#: js/messages.php:450 libraries/common.lib.php:1662
+#: js/messages.php:450 libraries/common.lib.php:1672
 msgid "Nov"
 msgstr "11 月"
 
 #. l10n: Short month name
-#: js/messages.php:452 libraries/common.lib.php:1664
+#: js/messages.php:452 libraries/common.lib.php:1674
 msgid "Dec"
 msgstr "12 月"
 
@@ -2229,32 +2229,32 @@ msgid "Sun"
 msgstr "日"
 
 #. l10n: Short week day name
-#: js/messages.php:473 libraries/common.lib.php:1669
+#: js/messages.php:473 libraries/common.lib.php:1679
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name
-#: js/messages.php:475 libraries/common.lib.php:1671
+#: js/messages.php:475 libraries/common.lib.php:1681
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name
-#: js/messages.php:477 libraries/common.lib.php:1673
+#: js/messages.php:477 libraries/common.lib.php:1683
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name
-#: js/messages.php:479 libraries/common.lib.php:1675
+#: js/messages.php:479 libraries/common.lib.php:1685
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name
-#: js/messages.php:481 libraries/common.lib.php:1677
+#: js/messages.php:481 libraries/common.lib.php:1687
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name
-#: js/messages.php:483 libraries/common.lib.php:1679
+#: js/messages.php:483 libraries/common.lib.php:1689
 msgid "Sat"
 msgstr "土"
 
@@ -2477,7 +2477,7 @@ msgstr ""
 msgid "Databases"
 msgstr "データベース"
 
-#: libraries/Message.class.php:196 libraries/common.lib.php:615
+#: libraries/Message.class.php:196 libraries/common.lib.php:625
 #: libraries/core.lib.php:220 libraries/import.lib.php:142 tbl_change.php:942
 #: tbl_operations.php:237 tbl_relation.php:298 view_operations.php:60
 msgid "Error"
@@ -2656,54 +2656,47 @@ msgstr "Javascript を有効にしてください"
 msgid "Log in"
 msgstr "ログイン"
 
-#: libraries/auth/cookie.auth.lib.php:225
-#: libraries/auth/cookie.auth.lib.php:227
-#: libraries/navigation_header.inc.php:80
-#: libraries/navigation_header.inc.php:82
-msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin のドキュメント"
-
-#: libraries/auth/cookie.auth.lib.php:237
-#: libraries/auth/cookie.auth.lib.php:238
+#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "「ホスト名／IP アドレス」と「ポート」を空白で区切って入力することができます。"
 
-#: libraries/auth/cookie.auth.lib.php:237
+#: libraries/auth/cookie.auth.lib.php:230
 msgid "Server:"
 msgstr "サーバ:"
 
-#: libraries/auth/cookie.auth.lib.php:242
+#: libraries/auth/cookie.auth.lib.php:235
 msgid "Username:"
 msgstr "ユーザ名:"
 
-#: libraries/auth/cookie.auth.lib.php:246
+#: libraries/auth/cookie.auth.lib.php:239
 msgid "Password:"
 msgstr "パスワード:"
 
-#: libraries/auth/cookie.auth.lib.php:253
+#: libraries/auth/cookie.auth.lib.php:246
 msgid "Server Choice"
 msgstr "サーバの選択"
 
-#: libraries/auth/cookie.auth.lib.php:299 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:292 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "クッキーを有効にしてください。"
 
-#: libraries/auth/cookie.auth.lib.php:614
+#: libraries/auth/cookie.auth.lib.php:607
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "パスワードなしログインは設定 (AllowNoPassword 参照) によって禁止されています"
 
-#: libraries/auth/cookie.auth.lib.php:618
+#: libraries/auth/cookie.auth.lib.php:611
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s 秒以上操作をしませんでした。ログインし直してください。"
 
-#: libraries/auth/cookie.auth.lib.php:628
-#: libraries/auth/cookie.auth.lib.php:630
+#: libraries/auth/cookie.auth.lib.php:621
+#: libraries/auth/cookie.auth.lib.php:623
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL サーバにログインできません"
@@ -2847,40 +2840,37 @@ msgstr "%s を %s 以降にアップグレードしてください。"
 msgid "Max: %s%s"
 msgstr "最長: %s%s"
 
+#: libraries/common.lib.php:405 libraries/common.lib.php:408
+#: libraries/common.lib.php:497 libraries/config/FormDisplay.tpl.php:140
+#: libraries/display_export.lib.php:238 libraries/engines/pbxt.lib.php:109
+#: libraries/relation.lib.php:78 main.php:247 server_variables.php:139
+msgid "Documentation"
+msgstr "ドキュメント"
+
 #. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:450
+#: libraries/common.lib.php:473
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
 msgstr "en"
 
 #. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:454
+#: libraries/common.lib.php:477
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
 msgstr "ja"
 
 #. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:458
+#: libraries/common.lib.php:481
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/common.lib.php:472 libraries/common.lib.php:474
-#: libraries/common.lib.php:476 libraries/common.lib.php:494
-#: libraries/common.lib.php:498 libraries/common.lib.php:517
-#: libraries/common.lib.php:520 libraries/config/FormDisplay.tpl.php:140
-#: libraries/display_export.lib.php:238 libraries/engines/pbxt.lib.php:109
-#: libraries/relation.lib.php:78 libraries/sql_query_form.lib.php:398
-#: libraries/sql_query_form.lib.php:401 main.php:247 server_variables.php:139
-msgid "Documentation"
-msgstr "ドキュメント"
-
-#: libraries/common.lib.php:627 libraries/header_printview.inc.php:62
+#: libraries/common.lib.php:637 libraries/header_printview.inc.php:62
 #: server_status.php:601 server_status.php:1268
 msgid "SQL query"
 msgstr "実行した SQL"
 
-#: libraries/common.lib.php:668 libraries/rte/rte_events.lib.php:103
+#: libraries/common.lib.php:678 libraries/rte/rte_events.lib.php:103
 #: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
 #: libraries/rte/rte_events.lib.php:131 libraries/rte/rte_routines.lib.php:253
 #: libraries/rte/rte_routines.lib.php:258
@@ -2893,115 +2883,115 @@ msgstr "実行した SQL"
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
-#: libraries/common.lib.php:1163
+#: libraries/common.lib.php:1173
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL 検証への接続に失敗しました！"
 
-#: libraries/common.lib.php:1204 libraries/config/messages.inc.php:492
+#: libraries/common.lib.php:1214 libraries/config/messages.inc.php:492
 msgid "Explain SQL"
 msgstr "EXPLAIN で確認"
 
-#: libraries/common.lib.php:1208
+#: libraries/common.lib.php:1218
 msgid "Skip Explain SQL"
 msgstr "SQL の EXPLAIN 解析をスキップ"
 
-#: libraries/common.lib.php:1243
+#: libraries/common.lib.php:1253
 msgid "Without PHP Code"
 msgstr "PHP コードを省略"
 
-#: libraries/common.lib.php:1246 libraries/config/messages.inc.php:494
+#: libraries/common.lib.php:1256 libraries/config/messages.inc.php:494
 msgid "Create PHP Code"
 msgstr "PHP コードの作成"
 
-#: libraries/common.lib.php:1266 libraries/config/messages.inc.php:493
+#: libraries/common.lib.php:1276 libraries/config/messages.inc.php:493
 #: server_status.php:808 server_status.php:830 server_status.php:850
 msgid "Refresh"
 msgstr "再描画"
 
-#: libraries/common.lib.php:1276
+#: libraries/common.lib.php:1286
 msgid "Skip Validate SQL"
 msgstr "SQL の検証をスキップ"
 
-#: libraries/common.lib.php:1279 libraries/config/messages.inc.php:496
+#: libraries/common.lib.php:1289 libraries/config/messages.inc.php:496
 msgid "Validate SQL"
 msgstr "SQL の検証"
 
-#: libraries/common.lib.php:1338
+#: libraries/common.lib.php:1348
 msgid "Inline edit of this query"
 msgstr "このクエリをインラインで編集します"
 
-#: libraries/common.lib.php:1340
+#: libraries/common.lib.php:1350
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "インライン"
 
-#: libraries/common.lib.php:1406 sql.php:957
+#: libraries/common.lib.php:1416 sql.php:957
 msgid "Profiling"
 msgstr "プロファイリング"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1667
+#: libraries/common.lib.php:1677
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "日"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1683
+#: libraries/common.lib.php:1693
 #: libraries/transformations/text_plain__dateformat.inc.php:37
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %B %d 日 %H:%M"
 
-#: libraries/common.lib.php:2016
+#: libraries/common.lib.php:2026
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 日 %s 時間 %s 分 %s 秒"
 
-#: libraries/common.lib.php:2105
+#: libraries/common.lib.php:2115
 msgid "Missing parameter:"
 msgstr "パラメータがありません："
 
-#: libraries/common.lib.php:2480 libraries/common.lib.php:2483
+#: libraries/common.lib.php:2490 libraries/common.lib.php:2493
 #: libraries/display_tbl.lib.php:309
 msgctxt "First page"
 msgid "Begin"
 msgstr "先頭"
 
-#: libraries/common.lib.php:2481 libraries/common.lib.php:2484
+#: libraries/common.lib.php:2491 libraries/common.lib.php:2494
 #: libraries/display_tbl.lib.php:310 server_binlog.php:135
 #: server_binlog.php:137
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
-#: libraries/common.lib.php:2511 libraries/common.lib.php:2514
+#: libraries/common.lib.php:2521 libraries/common.lib.php:2524
 #: libraries/display_tbl.lib.php:376 server_binlog.php:170
 #: server_binlog.php:172
 msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
 
-#: libraries/common.lib.php:2512 libraries/common.lib.php:2515
+#: libraries/common.lib.php:2522 libraries/common.lib.php:2525
 #: libraries/display_tbl.lib.php:393
 msgctxt "Last page"
 msgid "End"
 msgstr "最後"
 
-#: libraries/common.lib.php:2582
+#: libraries/common.lib.php:2592
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "データベース「%s」に移動します。"
 
-#: libraries/common.lib.php:2602
+#: libraries/common.lib.php:2612
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/common.lib.php:2754
+#: libraries/common.lib.php:2764
 msgid "Click to toggle"
 msgstr "クリックでオン／オフ切り替え"
 
-#: libraries/common.lib.php:3150 libraries/common.lib.php:3157
-#: libraries/common.lib.php:3388 libraries/config/setup.forms.php:297
+#: libraries/common.lib.php:3160 libraries/common.lib.php:3167
+#: libraries/common.lib.php:3398 libraries/config/setup.forms.php:297
 #: libraries/config/setup.forms.php:334 libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
@@ -3013,7 +3003,7 @@ msgstr "クリックでオン／オフ切り替え"
 msgid "Structure"
 msgstr "構造"
 
-#: libraries/common.lib.php:3151 libraries/common.lib.php:3158
+#: libraries/common.lib.php:3161 libraries/common.lib.php:3168
 #: libraries/config/messages.inc.php:218 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3021,42 +3011,42 @@ msgstr "構造"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3153 libraries/common.lib.php:3386
-#: libraries/common.lib.php:3387 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3163 libraries/common.lib.php:3396
+#: libraries/common.lib.php:3397 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "挿入"
 
-#: libraries/common.lib.php:3160 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3170 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/common.lib.php:3315 libraries/sql_query_form.lib.php:449
+#: libraries/common.lib.php:3325 libraries/sql_query_form.lib.php:442
 #: prefs_manage.php:247
 msgid "Browse your computer:"
 msgstr "アップロードファイル:"
 
-#: libraries/common.lib.php:3337
+#: libraries/common.lib.php:3347
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ウェブサーバ上のアップロードディレクトリ <b>%s</b> から選択する："
 
-#: libraries/common.lib.php:3360 libraries/sql_query_form.lib.php:458
+#: libraries/common.lib.php:3370 libraries/sql_query_form.lib.php:451
 #: tbl_change.php:943
 msgid "The directory you set for upload work cannot be reached"
 msgstr "指定したアップロードディレクトリが利用できません"
 
-#: libraries/common.lib.php:3369
+#: libraries/common.lib.php:3379
 msgid "There are no files to upload"
 msgstr "アップロードファイルがありません"
 
-#: libraries/common.lib.php:3397 libraries/common.lib.php:3398
+#: libraries/common.lib.php:3407 libraries/common.lib.php:3408
 msgid "Execute"
 msgstr "実行"
 
-#: libraries/common.lib.php:3897
+#: libraries/common.lib.php:3921
 msgid "Print"
 msgstr "印刷"
 
@@ -5539,12 +5529,12 @@ msgid "Variable length data."
 msgstr ""
 
 #: libraries/data_drizzle.inc.php:250
-msgid "Data which is over XXX in size"
+msgid "Text up to 2^16 characters."
 msgstr ""
 
 #: libraries/data_drizzle.inc.php:252
 msgid ""
-"Data which is over XXX in size. Uses a binary collation for all index usage."
+"Data up to 2^16 characters. Uses a binary collation for all index usage."
 msgstr ""
 
 #: libraries/data_drizzle.inc.php:253
@@ -6036,7 +6026,7 @@ msgid "use this for future exports"
 msgstr "今後のエクスポートでこれを使用する"
 
 #: libraries/display_export.lib.php:291 libraries/display_import.lib.php:233
-#: libraries/display_import.lib.php:247 libraries/sql_query_form.lib.php:474
+#: libraries/display_import.lib.php:247 libraries/sql_query_form.lib.php:467
 msgid "Character set of the file:"
 msgstr "ファイルの文字セット:"
 
@@ -7235,7 +7225,7 @@ msgid "To"
 msgstr "付け替え先"
 
 #: libraries/mult_submits.inc.php:290 libraries/mult_submits.inc.php:303
-#: libraries/sql_query_form.lib.php:409
+#: libraries/sql_query_form.lib.php:402
 msgid "Submit"
 msgstr "実行する"
 
@@ -7451,6 +7441,11 @@ msgstr "メインページ"
 #: libraries/navigation_header.inc.php:67
 msgid "Log out"
 msgstr "ログアウト"
+
+#: libraries/navigation_header.inc.php:80
+#: libraries/navigation_header.inc.php:82
+msgid "phpMyAdmin documentation"
+msgstr "phpMyAdmin のドキュメント"
 
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:93
@@ -8315,11 +8310,11 @@ msgstr "デリミタ"
 msgid "Show this query here again"
 msgstr "実行したクエリをここに表示する"
 
-#: libraries/sql_query_form.lib.php:413
+#: libraries/sql_query_form.lib.php:406
 msgid "View only"
 msgstr "表示のみ"
 
-#: libraries/sql_query_form.lib.php:461 tbl_change.php:946
+#: libraries/sql_query_form.lib.php:454 tbl_change.php:946
 msgid "web server upload directory"
 msgstr "ウェブサーバ上のアップロードディレクトリ"
 
