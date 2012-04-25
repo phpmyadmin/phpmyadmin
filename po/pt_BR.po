@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-25 12:34-0400\n"
-"PO-Revision-Date: 2012-04-23 02:11+0200\n"
+"PO-Revision-Date: 2012-04-25 19:23+0200\n"
 "Last-Translator: Lucas David <lucasolivdavid@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -5497,7 +5497,7 @@ msgstr "Não foi possivel se conectar ao servidor Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Falha ao conectar com o servidor MySQL"
 
 #: libraries/config/validate.lib.php:254
 msgid "Empty username while using config authentication method"
@@ -5522,7 +5522,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:388
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Endereço de IP incorreto: %s"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/core.lib.php:257
@@ -5534,6 +5534,7 @@ msgstr "pt_BR"
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
+"A extensão %s não está presente. Por favor, verifique a configuração do PHP"
 
 #: libraries/core.lib.php:428
 msgid "possible deep recursion attack"
@@ -5856,17 +5857,18 @@ msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
-"(ou o soquete do servidor MySQL local não está configurado corretamente)"
+"O servidor não está respondendo (ou o soquete do servidor local não está "
+"configurado corretamente)"
 
 #: libraries/database_interface.lib.php:1838
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "O servidor não está respondendo"
+msgstr "O servidor não está respondendo."
 
 #: libraries/database_interface.lib.php:1842
 msgid "Please check privileges of directory containing database."
 msgstr ""
+"Por favor verifique os privilégios do diretório que contém o banco de dados."
 
 #: libraries/database_interface.lib.php:1850
 msgid "Details..."
@@ -5880,7 +5882,7 @@ msgstr "Banco de Dados parece estar vazio!"
 #: libraries/db_links.inc.php:65 libraries/relation.lib.php:144
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
-msgstr ""
+msgstr "Rastreando"
 
 #: libraries/db_links.inc.php:70
 msgid "Query"
@@ -5950,10 +5952,9 @@ msgstr "Compatível com MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Criar novo Banco de Dados"
+msgstr "Criar banco de dados"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
@@ -5991,16 +5992,16 @@ msgid "Exporting databases from the current server"
 msgstr "Exportar bancos de dados do servidor atual"
 
 #: libraries/display_export.lib.php:87
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Criar nova tabela no Banco de Dados %s"
+msgstr "Exportar tabelas do banco de dados \"%s\""
 
 #: libraries/display_export.lib.php:89
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Criar nova tabela no Banco de Dados %s"
+msgstr "Exportar linhas da tabela \"%s\""
 
 #: libraries/display_export.lib.php:95
 #, fuzzy
@@ -6015,7 +6016,7 @@ msgstr "Rápida - mostrar apenas as opções mínimas"
 #: libraries/display_export.lib.php:127
 #, fuzzy
 msgid "Custom - display all possible options"
-msgstr "Opções de exportação do Banco de Dados"
+msgstr "Customizada - exibir todas as opções possíveis"
 
 #: libraries/display_export.lib.php:135
 msgid "Database(s):"
@@ -6050,16 +6051,15 @@ msgid "Output:"
 msgstr "Saída:"
 
 #: libraries/display_export.lib.php:186 libraries/display_export.lib.php:212
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Salvar no servidor no diretório %s"
+msgstr "Salvar no do servidor, no diretório <b>%s</b>"
 
 #: libraries/display_export.lib.php:204
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Enviado"
+msgstr "Salvar saída em um arquivo"
 
 #: libraries/display_export.lib.php:225
 msgid "File name template:"
@@ -6090,7 +6090,8 @@ msgid ""
 msgstr ""
 "Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
 "strings de formatação de tempo. Adicionalmente a seguinte transformação "
-"ocorrerá: %3$s. Outros textos serão mantidos como são."
+"ocorrerá: %3$s. Outros textos serão mantidos como são. Veja a %4$sFAQ%5$s "
+"para detalhes"
 
 #: libraries/display_export.lib.php:285
 msgid "use this for future exports"
@@ -6124,10 +6125,9 @@ msgid "bzipped"
 msgstr "\"compactado com bzip\""
 
 #: libraries/display_export.lib.php:338
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Enviado"
+msgstr "Ver saida como texto"
 
 #: libraries/display_export.lib.php:343 libraries/display_import.lib.php:290
 #: libraries/export/codegen.php:38
@@ -6294,9 +6294,8 @@ msgid "Language"
 msgstr "Linguagem"
 
 #: libraries/display_tbl.lib.php:409
-#, fuzzy
 msgid "Save edited data"
-msgstr "Diretório raiz de dados"
+msgstr "Salvar dados editados"
 
 #: libraries/display_tbl.lib.php:415
 msgid "Restore column order"
