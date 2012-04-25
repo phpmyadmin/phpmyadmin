@@ -651,7 +651,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     ?>
 
     <a href="#" id="move_columns_anchor"><?php
-    echo PMA_getIcon('b_props.png', __('Move columns'), true);
+    echo PMA_getIcon('b_move.png', __('Move columns'), true);
     ?></a>
 
     <br />
