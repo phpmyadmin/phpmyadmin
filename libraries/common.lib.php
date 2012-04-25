@@ -387,6 +387,27 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
 
 
 /**
+ * Displays a link to the documentation
+ *
+ * @param string $url documentation link
+ *
+ * @return  string  the html link
+ *
+ * @access  public
+ */
+function PMA_showDocLink($link, $target = 'documentation')
+{
+    $linkstart = '<a href="' . $link . '" target="' . $target . '">';
+    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+        return $linkstart
+            . PMA_getImage('b_help.png', __('Documentation'))
+            . '</a>';
+    } else {
+        return '['. $linkstart . __('Documentation') . '</a>]';
+    }
+} // end of the 'PMA_showDocLink()' function
+
+/**
  * Displays a link to the official MySQL documentation
  *
  * @param string $chapter   chapter of "HTML, one page per chapter" documentation
@@ -472,11 +493,8 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     } elseif ($big_icon) {
         return $open_link
             . PMA_getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
-    } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return $open_link
-            . PMA_getImage('b_help.png', __('Documentation')) . '</a>';
     } else {
-        return '[' . $open_link . __('Documentation') . '</a>]';
+        return PMA_showDocLink(PMA_linkURL($url), 'mysql_doc');
     }
 } // end of the 'PMA_showMySQLDocu()' function
 
@@ -492,14 +510,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
  */
 function PMA_showDocu($anchor)
 {
-    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="Documentation.html#' . $anchor . '" target="documentation">'
-             . PMA_getImage('b_help.png', __('Documentation'))
-             . '</a>';
-    } else {
-        return '[<a href="Documentation.html#' . $anchor . '" target="documentation">'
-        . __('Documentation') . '</a>]';
-    }
+    return PMA_showDocLink('Documentation.html#' . $anchor);
 } // end of the 'PMA_showDocu()' function
 
 /**
@@ -515,13 +526,7 @@ function PMA_showPHPDocu($target)
 {
     $url = PMA_getPHPDocLink($target);
 
-    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . $url . '" target="documentation">'
-             . PMA_getImage('b_help.png', __('Documentation'))
-             . '</a>';
-    } else {
-        return '[<a href="' . $url . '" target="documentation">' . __('Documentation') . '</a>]';
-    }
+    return PMA_showDocLink($url);
 } // end of the 'PMA_showPHPDocu()' function
 
 /**
