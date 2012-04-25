@@ -387,13 +387,15 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
 
 
 /**
- * Displays a link to the documentation
+ * Displays a link to the documentation either as icon or
+ * as text depending on ReplaceHelpImg
  *
- * @param string $url documentation link
+ * @param string $link   documentation link
+ * @param string $target optional link target
  *
- * @return  string  the html link
+ * @return string the html link
  *
- * @access  public
+ * @access public
  */
 function PMA_showDocLink($link, $target = 'documentation')
 {
