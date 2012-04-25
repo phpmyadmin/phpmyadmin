@@ -8,17 +8,29 @@ function onKeyDownArrowsHandler(e)
 {
     e = e||window.event;
     var o = (e.srcElement||e.target);
-    if (!o) return;
-    if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") return;
-    if (navigator.userAgent.toLowerCase().indexOf('applewebkit/') != -1) {
-        if (e.ctrlKey || e.shiftKey || !e.altKey) return;
-    } else {
-        if (!e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (!o) {
+        return;
     }
-    if (!o.id) return;
+    if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") {
+        return;
+    }
+    if (navigator.userAgent.toLowerCase().indexOf('applewebkit/') != -1) {
+        if (e.ctrlKey || e.shiftKey || !e.altKey) {
+            return;
+        }
+    } else {
+        if (!e.ctrlKey || e.shiftKey || e.altKey) {
+            return;
+        }
+    }
+    if (!o.id) {
+        return;
+    }
 
     var pos = o.id.split("_");
-    if (pos[0] != "field" || typeof pos[2] == "undefined") return;
+    if (pos[0] != "field" || typeof pos[2] == "undefined") {
+        return;
+    }
 
     var x = pos[2], y=pos[1];
 
@@ -27,19 +39,45 @@ function onKeyDownArrowsHandler(e)
     {
         if (switch_movement) {
             switch(e.keyCode) {
-                case 38: x--; break; // up
-                case 40: x++; break; // down
-                case 37: y--; break; // left
-                case 39: y++; break; // right
-                default: return;
+                case 38:
+                    // up
+                    x--;
+                    break;
+                case 40:
+                    // down
+                    x++;
+                    break;
+                case 37:
+                    // left
+                    y--;
+                    break;
+                case 39:
+                    // right
+                    y++;
+                    break;
+                default:
+                    return;
             }
         } else {
             switch(e.keyCode) {
-                case 38: y--; break; // up
-                case 40: y++; break; // down
-                case 37: x--; break; // left
-                case 39: x++; break; // right
-                default: return;
+                case 38:
+                    // up
+                    y--;
+                    break;
+                case 40:
+                    // down
+                    y++;
+                    break;
+                case 37:
+                    // left
+                    x--;
+                    break;
+                case 39:
+                    // right
+                    x++;
+                    break;
+                default:
+                    return;
             }
         }
 
@@ -49,10 +87,14 @@ function onKeyDownArrowsHandler(e)
             var id = "field_" + y + "_" + x + "_0";
             var nO = document.getElementById(id);
         }
-        if (nO) break;
+        if (nO) {
+            break;
+        }
     }
 
-    if (!nO) return;
+    if (!nO) {
+        return;
+    }
     nO.focus();
     if (nO.tagName != 'SELECT') {
         nO.select();
