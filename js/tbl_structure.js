@@ -652,6 +652,7 @@ function reloadFieldForm() {
         $("#moveColumns").removeClass("move-active");
         /*Call the function to display the more options in table*/
         $table_clone = false;
+        $("div.replace_in_more").hide(); // fix "more" dropdown
         moreOptsMenuResize();
     });
 }
@@ -789,6 +790,6 @@ function moreOptsMenuResize() {
 }
 $(window).resize(moreOptsMenuResize);
 $(function () {
-    $(".replace_in_more").hide();
+    $("div.replace_in_more").hide();
     moreOptsMenuResize();
 });
