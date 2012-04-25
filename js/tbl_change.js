@@ -91,43 +91,45 @@ function fractionReplace(num)
 */
 function isDate(val,tmstmp)
 {
-    val=val.replace(/[.|*|^|+|//|@]/g,'-');
-    var arrayVal=val.split("-");
-    for(var a=0;a<arrayVal.length;a++)
-    {
-        if(arrayVal[a].length==1)
+    val = val.replace(/[.|*|^|+|//|@]/g,'-');
+    var arrayVal = val.split("-");
+    for (var a=0;a<arrayVal.length;a++) {
+        if (arrayVal[a].length==1) {
             arrayVal[a]=fractionReplace(arrayVal[a]);
+        }
     }
     val=arrayVal.join("-");
     var pos=2;
             dtexp=new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30)))$/);
-        if(val.length==8)
-        {
+        if (val.length == 8) {
             dtexp=new RegExp(/^([0-9]{2})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30)))$/);
             pos=0;
         }
-        if(dtexp.test(val))
-        {
+        if (dtexp.test(val)) {
             var month=parseInt(val.substring(pos+3,pos+5));
             var day=parseInt(val.substring(pos+6,pos+8));
             var year=parseInt(val.substring(0,pos+2));
-            if(month==2&&day>daysInFebruary(year))
+            if (month == 2 && day > daysInFebruary(year)) {
                 return false;
-            if(val.substring(0,pos+2).length==2)
-            {
-                if(val.substring(0,pos+2).length==2)
-                    year=parseInt("20"+val.substring(0,pos+2));
-                else
-                    year=parseInt("19"+val.substring(0,pos+2));
             }
-            if(tmstmp==true)
-            {
-                if(year<1978) return false;
-                if(year>2038||(year>2037&&day>19&&month>=1)||(year>2037&&month>1)) return false;
+            if (val.substring(0, pos + 2).length == 2) {
+                if (val.substring(0, pos + 2).length == 2) {
+                    year=parseInt("20" + val.substring(0,pos+2));
+                } else {
+                    year=parseInt("19" + val.substring(0,pos+2));
                 }
-        }
-        else
+            }
+            if (tmstmp == true) {
+                if (year < 1978) {
+                    return false;
+                }
+                if (year > 2038 || (year > 2037 && day > 19 && month >= 1) || (year > 2037 && month > 1)) {
+                    return false;
+                }
+            }
+        } else {
             return false;
+        }
         return true;
 }
 
