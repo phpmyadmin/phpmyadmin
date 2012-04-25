@@ -124,6 +124,11 @@ require './libraries/Tracker.class.php';
  */
 require './libraries/Table.class.php';
 
+/**
+ * the PMA_Types class
+ */
+require './libraries/Types.class.php';
+
 if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * common functions
@@ -972,6 +977,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (PMA_MYSQL_INT_VERSION < 50015) {
             PMA_fatalError(__('You should upgrade to %s %s or later.'), array('MySQL', '5.0.15'));
         }
+
+        /**
+         * Type handling object.
+         */
+        $GLOBALS['PMA_Types'] = new PMA_Types();
 
         if (PMA_DRIZZLE) {
             // DisableIS must be set to false for Drizzle, it maps SHOW commands
