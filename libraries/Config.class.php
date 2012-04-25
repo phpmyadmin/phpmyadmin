@@ -253,21 +253,7 @@ class PMA_Config
                         $this->set('PMA_IS_GD2', 0);
                     }
                 } else {
-                    /* We must do hard way... but almost no chance to execute this */
-                    ob_start();
-                    phpinfo(INFO_MODULES); /* Only modules */
-                    $a = strip_tags(ob_get_contents());
-                    ob_end_clean();
-                    /* Get GD version string from phpinfo output */
-                    if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
-                        if (strstr($v, '2.')) {
-                            $this->set('PMA_IS_GD2', 1);
-                        } else {
-                            $this->set('PMA_IS_GD2', 0);
-                        }
-                    } else {
-                        $this->set('PMA_IS_GD2', 0);
-                    }
+                    $this->set('PMA_IS_GD2', 0);
                 }
             }
         }
