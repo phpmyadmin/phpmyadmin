@@ -439,8 +439,9 @@ function unique(arrayName)
     {
         for(var j=0; j<newArray.length;j++ )
         {
-            if(newArray[j]==arrayName[i])
+            if(newArray[j]==arrayName[i]) {
                 continue label;
+            }
         }
         newArray[newArray.length] = arrayName[i];
     }
@@ -625,9 +626,12 @@ function add_array(add,arr)
  */
 function remove_array(rem,arr)
 {
-    for(var i=0; i<rem.length; i++){
-        for(var j=0; j<arr.length; j++)
-            if(rem[i] == arr[j]) { arr.splice(j,1); }
+    for (var i=0; i<rem.length; i++) {
+        for (var j=0; j<arr.length; j++) {
+            if (rem[i] == arr[j]) {
+                arr.splice(j,1);
+            }
+        }
     }
     return arr;
 }

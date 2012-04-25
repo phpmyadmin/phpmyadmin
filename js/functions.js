@@ -1711,7 +1711,9 @@ function PMA_createChart(passedSettings)
                     if (thisChart.options.chart.forExport == true ||
                         ! thisChart.options.realtime ||
                         ! thisChart.options.realtime.callback ||
-                        ! server_time_diff) return;
+                        ! server_time_diff) {
+                        return;
+                    }
 
                     thisChart.options.realtime.timeoutCallBack = function() {
                         thisChart.options.realtime.postRequest = $.post(
@@ -1721,8 +1723,9 @@ function PMA_createChart(passedSettings)
                                 try {
                                     curValue = jQuery.parseJSON(data);
                                 } catch (err) {
-                                    if (thisChart.options.realtime.error)
+                                    if (thisChart.options.realtime.error) {
                                         thisChart.options.realtime.error(err);
+                                    }
                                     return;
                                 }
 
@@ -1903,8 +1906,9 @@ function PMA_SQLPrettyPrint(string)
     var output = '';
     var tabs = function(cnt) {
         var ret = '';
-        for (var i=0; i<4*cnt; i++)
+        for (var i=0; i<4*cnt; i++) {
             ret += " ";
+        }
         return ret;
     };
 
@@ -1990,7 +1994,9 @@ function PMA_SQLPrettyPrint(string)
         // One less indentation for statement parts (from, where, order by, etc.) and a newline
         statementPart = statements[currentStatement].indexOf(tokens[i][1]);
         if (statementPart != -1) {
-            if (i > 0) output += "\n";
+            if (i > 0) {
+                output += "\n";
+            }
             output += tabs(indentLevel) + tokens[i][1].toUpperCase();
             output += "\n" + tabs(indentLevel + 1);
             lastStatementPart = tokens[i][1];
@@ -3501,23 +3507,32 @@ $(function() {
         var prevent = (p == null) ? true : p;
         if (prevent) {
             return this.each(function () {
-                if ($.browser.msie || $.browser.safari) $(this).bind('selectstart', function () {
-                    return false;
-                });
-                else if ($.browser.mozilla) {
+                if ($.browser.msie || $.browser.safari) {
+                    $(this).bind('selectstart', function () {
+                        return false;
+                    });
+                } else if ($.browser.mozilla) {
                     $(this).css('MozUserSelect', 'none');
                     $('body').trigger('focus');
-                } else if ($.browser.opera) $(this).bind('mousedown', function () {
-                    return false;
-                });
-                else $(this).attr('unselectable', 'on');
+                } else if ($.browser.opera) {
+                    $(this).bind('mousedown', function () {
+                        return false;
+                    });
+                } else {
+                    $(this).attr('unselectable', 'on');
+                }
             });
         } else {
             return this.each(function () {
-                if ($.browser.msie || $.browser.safari) $(this).unbind('selectstart');
-                else if ($.browser.mozilla) $(this).css('MozUserSelect', 'inherit');
-                else if ($.browser.opera) $(this).unbind('mousedown');
-                else $(this).removeAttr('unselectable');
+                if ($.browser.msie || $.browser.safari) {
+                    $(this).unbind('selectstart');
+                } else if ($.browser.mozilla) {
+                    $(this).css('MozUserSelect', 'inherit');
+                } else if ($.browser.opera) {
+                    $(this).unbind('mousedown');
+                } else {
+                    $(this).removeAttr('unselectable');
+                }
             });
         }
     }; //end noSelect
@@ -3646,8 +3661,12 @@ function PMA_clearSelection() {
         document.selection.empty();
     } else if (window.getSelection) {
         var sel = window.getSelection();
-        if (sel.empty) sel.empty();
-        if (sel.removeAllRanges) sel.removeAllRanges();
+        if (sel.empty) {
+            sel.empty();
+        }
+        if (sel.removeAllRanges) {
+            sel.removeAllRanges();
+        }
     }
 }
 
