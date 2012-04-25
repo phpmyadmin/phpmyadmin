@@ -15,17 +15,18 @@
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
 
  $(function(){
-    $(window).bind('beforeunload', function(){        // onbeforeunload for the frame window.
-        if (_change == 1 && _staying == 0)
+    $(window).bind('beforeunload', function() {        // onbeforeunload for the frame window.
+        if (_change == 1 && _staying == 0) {
             return PMA_messages['strLeavingDesigner'];
-        else if (_change == 1 && _staying == 1)
+        } else if (_change == 1 && _staying == 1) {
             _staying = 0;
+        }
     });
-    $(window).unload(function(){
+    $(window).unload(function() {
         _change = 0;
     });
-    window.top.onbeforeunload = function(){     // onbeforeunload for the browser main window.
-        if (_change == 1 && _staying == 0){
+    window.top.onbeforeunload = function() {     // onbeforeunload for the browser main window.
+        if (_change == 1 && _staying == 0) {
             _staying = 1;                                                   //  Helps if the user stays on the page  as there
             setTimeout('make_zero();', 100);                    //   is no other way of knowing whether the user stayed or not.
             return PMA_messages['strLeavingDesigner'];
@@ -33,8 +34,8 @@
     };
 });
 
- function make_zero(){   // Function called if the user stays after seeing the confirmation prompt.
-      _staying = 0;
+function make_zero() {   // Function called if the user stays after seeing the confirmation prompt.
+    _staying = 0;
 }
 
 
@@ -243,11 +244,13 @@ function Re_load()
     var x2;
     var a = new Array();
     Clear();
-    for (K in contr)
-        for (key in contr[K])                     // contr name
-            for (key2 in contr[K][key])           // table name
-                for (key3 in contr[K][key][key2]) // field name
-                {
+    for (K in contr) {
+        for (key in contr[K]) {
+            // contr name
+            for (key2 in contr[K][key]) {
+                // table name
+                for (key3 in contr[K][key][key2]) {
+                    // field name
                     if (!document.getElementById("check_vis_" + key2).checked ||
                         !document.getElementById("check_vis_" + contr[K][key][key2][key3][0]).checked) {
                         // if hide
@@ -323,6 +326,9 @@ function Re_load()
                     //alert(y1 + ' - ' + key2 + "." + key3);
                     Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, getColorByTarget( contr[K][key][key2][key3][0]+'.'+contr[K][key][key2][key3][1] ) );
                 }
+            }
+        }
+    }
 }
 
 /**
@@ -511,7 +517,6 @@ function Angular_direct()
 //++++++++++++++++++++++++++++++ RELATION ++++++++++++++++++++++++++++++++++++++
 function Start_relation()
 {
-    if (ON_display_field) {
         return;
     }
 
@@ -698,9 +703,9 @@ function Canvas_click(id)
     var a = new Array();
     var Key0, Key1, Key2, Key3, Key, x1, x2;
     Clear();
-    for (K in contr)
-        for (key in contr[K])
-            for (key2 in contr[K][key])
+    for (K in contr) {
+        for (key in contr[K]) {
+            for (key2 in contr[K][key]) {
                 for (key3 in contr[K][key][key2]) {
                     if (!document.getElementById("check_vis_"+key2).checked ||
                         !document.getElementById("check_vis_"+contr[K][key][key2][key3][0]).checked) continue; // if hide
@@ -758,6 +763,9 @@ function Canvas_click(id)
                         Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, getColorByTarget( contr[K][key][key2][key3][0]+'.'+contr[K][key][key2][key3][1] ));
                     }
                 }
+            }
+        }
+    }
     if (selected) {
         // select relations
         //alert(Key0+' - '+Key1+' - '+Key2+' - '+Key3);
@@ -827,12 +835,18 @@ function in_array_k(x, m)
 function No_have_constr(id_this)
 {
     var a = new Array();
-    for (K in contr)
-        for (key in contr[K])                     // contr name
-            for (key2 in contr[K][key])           // table name
-                for (key3 in contr[K][key][key2]) // field name
+    for (K in contr) {
+        for (key in contr[K]) {
+            // contr name
+            for (key2 in contr[K][key]) {
+                // table name
+                for (key3 in contr[K][key][key2]) {
+                    // field name
                     a[key2] = a[contr[K][key][key2][key3][0]] = 1; // exist constr
-
+                }
+            }
+        }
+    }
 
     if (id_this.alt == 'v') {
         id_this.alt = '>';
@@ -843,15 +857,15 @@ function No_have_constr(id_this)
     }
     var E = document.form1;
     for (i = 0; i < E.elements.length; i++) {
-        if (E.elements[i].type == "checkbox" && E.elements[i].id.substring(0, 10) == 'check_vis_')
-        {
-            if (!in_array_k(E.elements[i].value, a))
-            if (id_this.alt == 'v') {
-                E.elements[i].checked = true;
-                document.getElementById(E.elements[i].value).style.display = 'block';
-            } else {
-                E.elements[i].checked = false;
-                document.getElementById(E.elements[i].value).style.display = 'none';
+        if (E.elements[i].type == "checkbox" && E.elements[i].id.substring(0, 10) == 'check_vis_') {
+            if (!in_array_k(E.elements[i].value, a)) {
+                if (id_this.alt == 'v') {
+                    E.elements[i].checked = true;
+                    document.getElementById(E.elements[i].value).style.display = 'block';
+                } else {
+                    E.elements[i].checked = false;
+                    document.getElementById(E.elements[i].value).style.display = 'none';
+                }
             }
         }
     }
@@ -965,15 +979,15 @@ function getColorByTarget( target )
 {
   var color = '';  //"rgba(0,100,150,1)";
 
-  for (i in TargetColors)
+  for (i in TargetColors) {
    if (TargetColors[i][0]==target) {
     color = TargetColors[i][1];
     break;
    }
+  }
 
 
-  if (color.length==0)
-  {
+  if (color.length==0) {
    var i = TargetColors.length+1;
    var d = i % 6;
    var j = (i - d) / 6;
