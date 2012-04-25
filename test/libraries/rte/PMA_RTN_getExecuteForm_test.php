@@ -20,6 +20,15 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
     {
         global $cfg;
 
+        if (function_exists('PMA_supportedDataTypesDescriptions')) {
+            $this->markTestSkipped(
+              'Skipping test since we need to reload data_mysql.inc.php, but cannot do it at this point'
+            );
+            return;
+        } else {
+            include 'libraries/data_mysql.inc.php';
+        }
+
         if (! defined('PMA_MYSQL_INT_VERSION')) {
             define('PMA_MYSQL_INT_VERSION', 51000);
         }
@@ -54,7 +63,6 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
             $cfg['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
             $GLOBALS['tear_down']['default'] = true;
         }
-        include 'libraries/data_mysql.inc.php';
     }
 
     public function tearDown()
