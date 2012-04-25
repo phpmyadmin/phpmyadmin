@@ -247,9 +247,9 @@ function PMA_supportedDataTypesDescriptions()
         'TIMESTAMP' => __('Both date and time.'),
         'TIME' => __('Time of day.'),
         'VARCHAR' => __('Variable length data.'),
-        'TEXT' => __('Data which is over XXX in size'),
+        'TEXT' => __('Text up to 2^16 characters.'),
         'VARBINARY' => __('Variable length data.'),
-        'BLOB' => __('Data which is over XXX in size. Uses a binary collation for all index usage.'),
+        'BLOB' => __('Data up to 2^16 characters. Uses a binary collation for all index usage.'),
         'ENUM' => __('Static lists of strings.'),
     );
 } // end PMA_supportedDataTypesDescriptions()
