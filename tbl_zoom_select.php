@@ -358,7 +358,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
         $cnt_func = count($zoomFunc[$i]);
         $func_type = $zoomFunc[$i];
         list($charsets[$i]) = explode('_', $collations[$i]);
-        $unaryFlag = $GLOBALS['PMA_Types']->isUnaryOperator($func_type) ? true : false;
+        $unaryFlag = $GLOBALS['PMA_Types']->isUnaryOperator($func_type);
         $whereClause = PMA_tbl_search_getWhereClause(
             $fields[$i], $inputs[$i], $types[$i],
             $collations[$i], $func_type, $unaryFlag
