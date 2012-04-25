@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-25 12:34-0400\n"
-"PO-Revision-Date: 2012-04-25 20:09+0200\n"
+"PO-Revision-Date: 2012-04-25 20:36+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1912,7 +1912,7 @@ msgstr ""
 
 #: js/messages.php:313
 msgid "Strings are converted into integer for plotting"
-msgstr "Satırlar çizim yapmak için tam sayıya dönüştürülür"
+msgstr "Dizgiler çizim yapmak için tamsayıya dönüştürülür"
 
 #: js/messages.php:315
 msgid "Select two columns"
@@ -5596,24 +5596,32 @@ msgid ""
 "A very small integer. The signed range is -128 to 127. The unsigned range is "
 "0 to 255."
 msgstr ""
+"Çok küçük bir tamsayı. İşaretli aralığı -128'den 127'ye dir. İşaretsiz "
+"aralığı 0'dan 255'e dir."
 
 #: libraries/data_mysql.inc.php:300
 msgid ""
 "A small integer. The signed range is -32,768 to 32,767. The unsigned range "
 "is 0 to 65,535."
 msgstr ""
+"Küçük bir tamsayı. İşaretli aralığı -32,768'den 32,767'ye dir. İşaretsiz "
+"aralığı 0'dan 65,535'e dir."
 
 #: libraries/data_mysql.inc.php:301
 msgid ""
 "A medium-sized integer. The signed range is -8,388,608 to 8,388,607. The "
 "unsigned range is 0 to 16,777,215."
 msgstr ""
+"Orta boyutta bir tamsayı. İşaretli aralığı -8,388,608'den 8,388,607'ye dir. "
+"İşaretsiz aralığı 0'dan 16,777,215'e dir."
 
 #: libraries/data_mysql.inc.php:302
 msgid ""
 "A normal-size integer. The signed range is -2,147,483,648 to 2,147,483,647. "
 "The unsigned range is 0 to 4,294,967,295."
 msgstr ""
+"Normal boyutta bir tamsayı. İşaretli aralığı -2,147,483,648'den "
+"2,147,483,647'ye dir. İşaretsiz aralığı 0'dan 4,294,967,295'e dir."
 
 #: libraries/data_mysql.inc.php:303
 msgid ""
