@@ -119,10 +119,11 @@ class PMA_Types
      */
     public function getTypeOperators($type, $null) {
         $ret = array();
+        $class = $this->getTypeClass($type);
 
         if (strncasecmp($type, 'enum', 4) == 0) {
             $ret = array_merge($ret, $this->getEnumOperators());
-        } elseif (preg_match('@char|blob|text|set@i', $type)) {
+        } elseif ($class == 'CHAR') {
             $ret = array_merge($ret, $this->getTextOperators());
         } else {
             $ret = array_merge($ret, $this->getNumberOperators());
