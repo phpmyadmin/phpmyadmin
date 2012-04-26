@@ -543,7 +543,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'WEEKOFYEAR',
                 'YEARWEEK',
             );
-            // $restrict_functions holds all known functions, remove these that are unavailable on current server
+            // remove functions that are unavailable on current server
             if (PMA_MYSQL_INT_VERSION < 50500) {
                 $ret = array_diff($ret, array('TO_SECONDS'));
             }
