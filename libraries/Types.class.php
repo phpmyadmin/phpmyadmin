@@ -19,7 +19,8 @@ class PMA_Types
      *
      * @return array
      */
-    public function getUnaryOperators() {
+    public function getUnaryOperators()
+    {
         return array(
            'IS NULL',
            'IS NOT NULL',
@@ -35,7 +36,8 @@ class PMA_Types
      *
      * @return boolean
      */
-    public function isUnaryOperator($op) {
+    public function isUnaryOperator($op)
+    {
         return in_array($op, $this->getUnaryOperators());
     }
 
@@ -44,7 +46,8 @@ class PMA_Types
      *
      * @return array
      */
-    public function getNullOperators() {
+    public function getNullOperators()
+    {
         return array(
            'IS NULL',
            'IS NOT NULL',
@@ -56,7 +59,8 @@ class PMA_Types
      *
      * @return array
      */
-    public function getEnumOperators() {
+    public function getEnumOperators()
+    {
         return array(
            '=',
            '!=',
@@ -68,7 +72,8 @@ class PMA_Types
      *
      * @return array
      */
-    public function getTextOperators() {
+    public function getTextOperators()
+    {
         return array(
            'LIKE',
            'LIKE %...%',
@@ -92,7 +97,8 @@ class PMA_Types
      *
      * @return array
      */
-    public function getNumberOperators() {
+    public function getNumberOperators()
+    {
         return array(
            '=',
            '>',
@@ -117,7 +123,8 @@ class PMA_Types
      *
      * @return array
      */
-    public function getTypeOperators($type, $null) {
+    public function getTypeOperators($type, $null)
+    {
         $ret = array();
         $class = $this->getTypeClass($type);
 
@@ -144,7 +151,8 @@ class PMA_Types
      *
      * @return array
      */
-    public function getTypeOperatorsHtml($type, $null) {
+    public function getTypeOperatorsHtml($type, $null)
+    {
         $html = '';
 
         foreach ($this->getTypeOperators($type, $null) as $fc) {
@@ -164,7 +172,8 @@ class PMA_Types
      * @return string
      *
      */
-    public function getTypeDescription($type) {
+    public function getTypeDescription($type)
+    {
         return '';
     }
 
@@ -177,7 +186,8 @@ class PMA_Types
      * @return string
      *
      */
-    public function getTypeClass($type) {
+    public function getTypeClass($type)
+    {
         return '';
     }
 
@@ -189,7 +199,8 @@ class PMA_Types
      * @return array
      *
      */
-    public function getFunctionsClass($class) {
+    public function getFunctionsClass($class)
+    {
         return array();
     }
 
@@ -201,7 +212,8 @@ class PMA_Types
      * @return array
      *
      */
-    public function getFunctions($type) {
+    public function getFunctions($type)
+    {
         $class = $this->getTypeClass($type);
         return $this->getFunctionsClass($class);
     }
@@ -212,7 +224,8 @@ class PMA_Types
      * @return array
      *
      */
-    public function getAllFunctions() {
+    public function getAllFunctions()
+    {
         $ret = array_merge(
             $this->getFunctionsClass('CHAR'),
             $this->getFunctionsClass('NUMBER'),
@@ -237,7 +250,8 @@ class PMA_Types_MySQL extends PMA_Types
      * @return string
      *
      */
-    public function getTypeDescription($type) {
+    public function getTypeDescription($type)
+    {
         $type = strtoupper($type);
         switch ($type) {
             case 'TINYINT':
@@ -331,7 +345,8 @@ class PMA_Types_MySQL extends PMA_Types
      * @return string
      *
      */
-    public function getTypeClass($type) {
+    public function getTypeClass($type)
+    {
         $type = strtoupper($type);
         switch ($type) {
             case 'TINYINT':
@@ -395,7 +410,8 @@ class PMA_Types_MySQL extends PMA_Types
      * @return array
      *
      */
-    public function getFunctionsClass($class) {
+    public function getFunctionsClass($class)
+    {
         switch ($class) {
             case 'CHAR':
                 return array(
@@ -553,7 +569,8 @@ class PMA_Types_Drizzle extends PMA_Types
      * @return string
      *
      */
-    public function getTypeDescription($type) {
+    public function getTypeDescription($type)
+    {
         $type = strtoupper($type);
         switch ($type) {
             case 'INTEGER':
@@ -603,7 +620,8 @@ class PMA_Types_Drizzle extends PMA_Types
      * @return string
      *
      */
-    public function getTypeClass($type) {
+    public function getTypeClass($type)
+    {
         $type = strtoupper($type);
         switch ($type) {
             case 'INTEGER':
@@ -643,7 +661,8 @@ class PMA_Types_Drizzle extends PMA_Types
      * @return array
      *
      */
-    public function getFunctionsClass($class) {
+    public function getFunctionsClass($class)
+    {
         switch ($class) {
             case 'CHAR':
                 $ret = array(
