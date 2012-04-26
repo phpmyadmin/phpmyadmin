@@ -16,10 +16,6 @@ require_once 'libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
 
-if ($GLOBALS['cfg']['CodemirrorEnable']) {
-    $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
-    $GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
-}
 $_add_user_error = false;
 
 /**
