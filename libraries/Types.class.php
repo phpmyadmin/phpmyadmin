@@ -181,6 +181,18 @@ class PMA_Types
     }
 
     /**
+     * Returns array fo function available for a class.
+     *
+     * @param string $class The class to get function list.
+     *
+     * @return array
+     *
+     */
+    public function getFunctionsClass($class) {
+        return array();
+    }
+
+    /**
      * Returns array fo function available for a type.
      *
      * @param string $type The data type to get function list.
@@ -189,7 +201,8 @@ class PMA_Types
      *
      */
     public function getFunctions($type) {
-        return array();
+        $class = $this->getTypeClass($type);
+        return $this->getFunctionsClass($class);
     }
 
     /**
@@ -203,7 +216,7 @@ class PMA_Types
             $this->getFunctions('CHAR'),
             $this->getFunctions('NUMBER'),
             $this->getFunctions('DATE'),
-            $this->getFunctions('UUID'),
+            $this->getFunctions('UUID')
         );
         sort($ret);
         return $ret;
@@ -374,16 +387,14 @@ class PMA_Types_MySQL extends PMA_Types
     }
 
     /**
-     * Returns array fo function available for a type.
+     * Returns array fo function available for a class.
      *
-     * @param string $type The data type to get function list.
+     * @param string $class The class to get function list.
      *
      * @return array
      *
      */
-    public function getFunctions($type) {
-        $class = $this->getTypeClass($type);
-
+    public function getFunctionsClass($class) {
         switch ($class) {
             case 'CHAR':
                 return array(
@@ -624,16 +635,14 @@ class PMA_Types_Drizzle extends PMA_Types
     }
 
     /**
-     * Returns array fo function available for a type.
+     * Returns array fo function available for a class.
      *
-     * @param string $type The data type to get function list.
+     * @param string $class The class to get function list.
      *
      * @return array
      *
      */
-    public function getFunctions($type) {
-        $class = $this->getTypeClass($type);
-
+    public function getFunctionsClass($class) {
         switch ($class) {
             case 'CHAR':
                 return array(
