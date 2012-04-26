@@ -2406,23 +2406,10 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dd>Possible attributes for columns. In most cases you don't need to edit
         this.</dd>
 
-    <dt id="cfg_Functions">$cfg['Functions'] array</dt>
-    <dd>A list of functions MySQL supports. In most cases you don't need to
-        edit this.</dd>
-
-    <dt id="cfg_RestrictColumnTypes">$cfg['RestrictColumnTypes'] array</dt>
-    <dd>Mapping of column types to meta types used for preferring displayed
-        functions. In most cases you don't need to edit this.</dd>
-
-    <dt id="cfg_RestrictFunctions">$cfg['RestrictFunctions'] array</dt>
-    <dd>Functions preferred for column meta types as defined in
-        <a href="#cfg_RestrictColumnTypes" class="configrule">$cfg['RestrictColumnTypes']</a>. In most cases you don't need
-        to edit this.</dd>
-
     <dt id="cfg_DefaultFunctions">$cfg['DefaultFunctions'] array</dt>
     <dd>Functions selected by default when inserting/changing row, Functions
-        are defined for meta types from
-        <a href="#cfg_RestrictColumnTypes" class="configrule">$cfg['RestrictColumnTypes']</a> and for
+        are defined for meta types as (FUNC_NUMBER, FUNC_DATE, FUNC_CHAR,
+        FUNC_SPATIAL, FUNC_UUID) and for
         <code>first_timestamp</code>, which is used for first timestamp column
         in table.</dd>
 

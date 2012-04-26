@@ -2815,37 +2815,6 @@ $cfg['ColumnTypes'] = array();
  */
 $cfg['AttributeTypes'] = array();
 
-
-if ($cfg['ShowFunctionFields']) {
-    /**
-     * Available functions
-     *
-     * This variable is filled in data_*.inc.php
-     *
-     * @global array $cfg['Functions']
-     */
-    $cfg['Functions'] = array();
-
-    /**
-     * Which column types will be mapped to which Group?
-     *
-     * This variable is filled in data_*.inc.php
-     *
-     * @global array $cfg['RestrictColumnTypes']
-     */
-    $cfg['RestrictColumnTypes'] = array();
-
-    /**
-     * Map above defined groups to any function
-     *
-     * This variable is filled in data_*.inc.php
-     *
-     * @global array $cfg['RestrictFunctions']
-     */
-    $cfg['RestrictFunctions'] = array();
-
-} // end if
-
 /**
  * Default functions for above defined groups
  *
