@@ -141,32 +141,10 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
             <td><?php echo $fields_collation[$i]; ?></td>
             <td><select name="func[]">
         <?php
-        if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
-            foreach ($GLOBALS['PMA_Types']->getEnumOperators() as $fc) {
-                echo "\n" . '                        '
-                   . '<option value="' . htmlspecialchars($fc) . '">'
-                   . htmlspecialchars($fc) . '</option>';
-            }
-        } elseif (preg_match('@char|blob|text|set@i', $fields_type[$i])) {
-            foreach ($GLOBALS['PMA_Types']->getTextOperators() as $fc) {
-            echo "\n" . '                        '
-               . '<option value="' . htmlspecialchars($fc) . '">'
-               . htmlspecialchars($fc) . '</option>';
-            }
-        } else {
-            foreach ($GLOBALS['PMA_Types']->getNumberOperators() as $fc) {
-                echo "\n" . '                        '
-                   . '<option value="' .  htmlspecialchars($fc) . '">'
-                   . htmlspecialchars($fc) . '</option>';
-            }
-        } // end if... else...
-        if ($fields_null[$i]) {
-            foreach ($GLOBALS['PMA_Types']->getNullOperators() as $fc) {
-                echo "\n" . '                        '
-                   . '<option value="' .  htmlspecialchars($fc) . '">'
-                   . htmlspecialchars($fc) . '</option>';
-            }
-        }
+        echo $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+            $fields_type[$i],
+            $fields_null[$i]
+        );
         ?>
 
                 </select>

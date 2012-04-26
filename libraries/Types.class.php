@@ -108,4 +108,50 @@ class PMA_Types
            'NOT BETWEEN',
         );
     }
+
+    /**
+     * Returns operators for given type
+     *
+     * @param string  $type Type of field
+     * @param boolean $null Whether field can be NULL
+     *
+     * @return array
+     */
+    public function getTypeOperators($type, $null) {
+        $ret = array();
+
+        if (strncasecmp($type, 'enum', 4) == 0) {
+            $ret = array_merge($ret, $this->getEnumOperators());
+        } elseif (preg_match('@char|blob|text|set@i', $type)) {
+            $ret = array_merge($ret, $this->getTextOperators());
+        } else {
+            $ret = array_merge($ret, $this->getNumberOperators());
+        }
+
+        if ($null) {
+            $ret = array_merge($ret, $this->getNullOperators());
+        }
+
+        return $ret;
+    }
+
+    /**
+     * Returns operators for given type as html options
+     *
+     * @param string  $type Type of field
+     * @param boolean $null Whether field can be NULL
+     *
+     * @return array
+     */
+    public function getTypeOperatorsHtml($type, $null) {
+        $html = '';
+
+        foreach ($this->getTypeOperators($type, $null) as $fc) {
+            $html .= "\n" . '                        '
+                . '<option value="' . htmlspecialchars($fc) . '">'
+                . htmlspecialchars($fc) . '</option>';
+        }
+
+        return $html;
+    }
 }

@@ -102,33 +102,10 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
 
     // HTML for operators
     $html = '<select name="zoomFunc[]">';
-    if (strncasecmp($fields_type[$key], 'enum', 4) == 0) {
-        foreach ($GLOBALS['PMA_Types']->getEnumOperators() as $fc) {
-            $html .= "\n" . '                        '
-                . '<option value="' . htmlspecialchars($fc) . '">'
-                . htmlspecialchars($fc) . '</option>';
-        }
-    } elseif (preg_match('@char|blob|text|set@i', $fields_type[$key])) {
-        foreach ($GLOBALS['PMA_Types']->getTextOperators() as $fc) {
-            $html .= "\n" . '                        '
-                . '<option value="' . htmlspecialchars($fc) . '">'
-                . htmlspecialchars($fc) . '</option>';
-        }
-    } else {
-        foreach ($GLOBALS['PMA_Types']->getNumberOperators() as $fc) {
-            $html .= "\n" . '                        '
-                . '<option value="' .  htmlspecialchars($fc) . '">'
-                . htmlspecialchars($fc) . '</option>';
-        }
-    } // end if... else...
-
-    if ($fields_null[$key]) {
-        foreach ($GLOBALS['PMA_Types']->getNullOperators() as $fc) {
-            $html .= "\n" . '                        '
-                . '<option value="' .  htmlspecialchars($fc) . '">'
-                . htmlspecialchars($fc) . '</option>';
-        }
-    }
+    $html .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+        $fields_type[$key],
+        $fields_null[$key]
+    );
     $html .= '</select>';
     $extra_data['field_operators'] = $html;
 
