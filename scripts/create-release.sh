@@ -132,6 +132,9 @@ echo "* Removing unneeded files"
 # if someone runs /test/wui.php and there are test failures
 rm -rf test
 
+# Remove phpcs coding standard definition
+rm -rf PMAStandard
+
 # Testsuite setup
 rm -f build.xml phpunit.xml.dist
 
