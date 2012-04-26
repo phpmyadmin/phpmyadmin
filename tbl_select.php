@@ -154,7 +154,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
                . htmlspecialchars($fc) . '</option>';
             }
         } else {
-            foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
+            foreach ($GLOBALS['PMA_Types']->getNumberOperators() as $fc) {
                 echo "\n" . '                        '
                    . '<option value="' .  htmlspecialchars($fc) . '">'
                    . htmlspecialchars($fc) . '</option>';

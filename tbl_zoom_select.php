@@ -115,7 +115,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
                 . htmlspecialchars($fc) . '</option>';
         }
     } else {
-        foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
+        foreach ($GLOBALS['PMA_Types']->getNumberOperators() as $fc) {
             $html .= "\n" . '                        '
                 . '<option value="' .  htmlspecialchars($fc) . '">'
                 . htmlspecialchars($fc) . '</option>';

@@ -2860,26 +2860,6 @@ if ($cfg['ShowFunctionFields']) {
 } // end if
 
 /**
- * Search operators
- *
- * @global array $cfg['NumOperators']
- */
-$cfg['NumOperators'] = array(
-   '=',
-   '>',
-   '>=',
-   '<',
-   '<=',
-   '!=',
-   'LIKE',
-   'NOT LIKE',
-   'IN (...)',
-   'NOT IN (...)',
-   'BETWEEN',
-   'NOT BETWEEN',
-);
-
-/**
  * Max rows retreived for zoom search
  */
 $cfg['maxRowPlotLimit'] = 500;

@@ -87,4 +87,25 @@ class PMA_Types
         );
     }
 
+    /**
+     * Number search operators
+     *
+     * @return array
+     */
+    public function getNumberOperators() {
+        return array(
+           '=',
+           '>',
+           '>=',
+           '<',
+           '<=',
+           '!=',
+           'LIKE',
+           'NOT LIKE',
+           'IN (...)',
+           'NOT IN (...)',
+           'BETWEEN',
+           'NOT BETWEEN',
+        );
+    }
 }
