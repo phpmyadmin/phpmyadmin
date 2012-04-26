@@ -151,7 +151,7 @@ display_form_top(
 </tr>
 <?php } ?>
 </table>
-<?php } ?>
+<?php } else { ?>
 <table width="100%">
 <tr>
     <td>
@@ -159,7 +159,7 @@ display_form_top(
     </td>
 </tr>
 </table>
-<?php endif; ?>
+<?php } ?>
 <table width="100%">
 <tr>
     <td class="lastrow" style="text-align: left">
