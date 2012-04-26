@@ -246,6 +246,17 @@ class PMA_Types
     {
         return array();
     }
+
+    /**
+     * Returns array of all column types available.
+     *
+     * @return array
+     *
+     */
+    public function getColumns()
+    {
+        return array();
+    }
 }
 
 /**
@@ -582,6 +593,87 @@ class PMA_Types_MySQL extends PMA_Types
            'on update CURRENT_TIMESTAMP',
         );
     }
+
+    /**
+     * Returns array of all column types available.
+     *
+     * VARCHAR, TINYINT, TEXT and DATE are listed first, based on
+     * estimated popularity.
+     *
+     * @return array
+     *
+     */
+    public function getColumns()
+    {
+        return array(
+            // most used
+            'INT',
+            'VARCHAR',
+            'TEXT',
+            'DATE',
+
+            // numeric
+            'NUMERIC' => array(
+                'TINYINT',
+                'SMALLINT',
+                'MEDIUMINT',
+                'INT',
+                'BIGINT',
+                '-',
+                'DECIMAL',
+                'FLOAT',
+                'DOUBLE',
+                'REAL',
+                '-',
+                'BIT',
+                'BOOLEAN',
+                'SERIAL',
+            ),
+
+
+            // Date/Time
+            'DATE and TIME' => array(
+                'DATE',
+                'DATETIME',
+                'TIMESTAMP',
+                'TIME',
+                'YEAR',
+            ),
+
+            // Text
+            'STRING' => array(
+                'CHAR',
+                'VARCHAR',
+                '-',
+                'TINYTEXT',
+                'TEXT',
+                'MEDIUMTEXT',
+                'LONGTEXT',
+                '-',
+                'BINARY',
+                'VARBINARY',
+                '-',
+                'TINYBLOB',
+                'MEDIUMBLOB',
+                'BLOB',
+                'LONGBLOB',
+                '-',
+                'ENUM',
+                'SET',
+            ),
+
+            'SPATIAL' => array(
+                'GEOMETRY',
+                'POINT',
+                'LINESTRING',
+                'POLYGON',
+                'MULTIPOINT',
+                'MULTILINESTRING',
+                'MULTIPOLYGON',
+                'GEOMETRYCOLLECTION',
+            ),
+        );
+    }
 }
 
 /**
@@ -829,5 +921,60 @@ class PMA_Types_Drizzle extends PMA_Types
            '',
            'on update CURRENT_TIMESTAMP',
         );
+    }
+
+    /**
+     * Returns array of all column types available.
+     *
+     * @return array
+     *
+     */
+    public function getColumns()
+    {
+        $ret = array(
+            // most used
+            'INTEGER',
+            'VARCHAR',
+            'TEXT',
+            'DATE',
+
+            // numeric
+            'NUMERIC' => array(
+                'INTEGER',
+                'BIGINT',
+                '-',
+                'DECIMAL',
+                'DOUBLE',
+                '-',
+                'BOOLEAN',
+                'SERIAL',
+                'UUID',
+            ),
+
+
+            // Date/Time
+            'DATE and TIME' => array(
+                'DATE',
+                'DATETIME',
+                'TIMESTAMP',
+                'TIME',
+            ),
+
+            // Text
+            'STRING' => array(
+                'VARCHAR',
+                'TEXT',
+                '-',
+                'VARBINARY',
+                'BLOB',
+                '-',
+                'ENUM',
+            ),
+        );
+        if (PMA_MYSQL_INT_VERSION >= 20120130) {
+            $ret['STRING'][] = '-';
+            $ret['STRING'][] = 'IPV6';
+        }
+        return $ret;
     }
 }

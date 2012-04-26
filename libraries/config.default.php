@@ -2797,16 +2797,6 @@ $cfg['DBG']['sql'] = false;
  */
 
 /**
- * Column types;
- * VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
- *
- * This variable is filled in data_*.inc.php
- *
- * @global array $cfg['ColumnTypes']
- */
-$cfg['ColumnTypes'] = array();
-
-/**
  * Default functions for above defined groups
  *
  * @global array $cfg['DefaultFunctions']

@@ -3411,7 +3411,7 @@ function PMA_buildActionTitles()
 
 /**
  * This function processes the datatypes supported by the DB, as specified in
- * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
+ * PMA_Types->getColumns() and either returns an array (useful for quickly checking
  * if a datatype is supported) or an HTML snippet that creates a drop-down list.
  *
  * @param bool   $html     Whether to generate an html snippet or an array
@@ -3427,7 +3427,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
     if ($html) {
         // NOTE: the SELECT tag in not included in this snippet.
         $retval = '';
-        foreach ($cfg['ColumnTypes'] as $key => $value) {
+        foreach ($GLOBALS['PMA_Types']->getColumns() as $key => $value) {
             if (is_array($value)) {
                 $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                 foreach ($value as $subvalue) {
@@ -3468,7 +3468,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
         }
     } else {
         $retval = array();
-        foreach ($cfg['ColumnTypes'] as $value) {
+        foreach ($GLOBALS['PMA_Types']->getColumns() as $value) {
             if (is_array($value)) {
                 foreach ($value as $subvalue) {
                     if ($subvalue !== '-') {

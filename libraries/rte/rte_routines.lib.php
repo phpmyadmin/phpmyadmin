@@ -985,6 +985,7 @@ function PMA_RTN_getQueryFromRequest()
     global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_directions;
 
     $_REQUEST['item_type'] = isset($_REQUEST['item_type']) ? $_REQUEST['item_type'] : '';
+    $column_types = $GLOBALS['PMA_Types']->getColumns();
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
@@ -1050,12 +1051,12 @@ function PMA_RTN_getQueryFromRequest()
                     }
                 }
                 if (! empty($_REQUEST['item_param_opts_text'][$i])) {
-                    if (in_array($_REQUEST['item_param_type'][$i], $cfg['ColumnTypes']['STRING'])) {
+                    if (in_array($_REQUEST['item_param_type'][$i], $column_types['STRING'])) {
                         $params .= ' CHARSET ' . strtolower($_REQUEST['item_param_opts_text'][$i]);
                     }
                 }
                 if (! empty($_REQUEST['item_param_opts_num'][$i])) {
-                    if (in_array($_REQUEST['item_param_type'][$i], $cfg['ColumnTypes']['NUMERIC'])) {
+                    if (in_array($_REQUEST['item_param_type'][$i], $column_types['NUMERIC'])) {
                         $params .= ' ' . strtoupper($_REQUEST['item_param_opts_num'][$i]);
                     }
                 }
@@ -1090,12 +1091,12 @@ function PMA_RTN_getQueryFromRequest()
             }
         }
         if (! empty($_REQUEST['item_returnopts_text'])) {
-            if (in_array($_REQUEST['item_returntype'], $cfg['ColumnTypes']['STRING'])) {
+            if (in_array($_REQUEST['item_returntype'], $column_types['STRING'])) {
                 $query .= ' CHARSET ' . strtolower($_REQUEST['item_returnopts_text']);
             }
         }
         if (! empty($_REQUEST['item_returnopts_num'])) {
-            if (in_array($_REQUEST['item_returntype'], $cfg['ColumnTypes']['NUMERIC'])) {
+            if (in_array($_REQUEST['item_returntype'], $column_types['NUMERIC'])) {
                 $query .= ' ' . strtoupper($_REQUEST['item_returnopts_num']);
             }
         }
