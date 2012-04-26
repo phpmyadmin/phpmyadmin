@@ -461,25 +461,31 @@ foreach ($tables as $keyname => $each_table) {
     <th><?php echo $browse_table_label; ?>
         <?php echo (! empty($tracking_icon) ? $tracking_icon : ''); ?>
     </th>
-   <?php if ($server_slave_status) { ?><td class="center"><?php
+    <?php
+    if ($server_slave_status) {
+       ?><td class="center"><?php
         echo $ignored
             ? PMA_getImage('s_cancel.png', 'NOT REPLICATED')
             : ''.
         $do
             ? PMA_getImage('s_success.png', 'REPLICATED')
-            : ''; ?></td><?php } ?>
+            : ''; ?></td><?php
+    }
+    ?>
     <td class="center"><?php echo $browse_table; ?></td>
     <td class="center">
         <a href="tbl_structure.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Structure']; ?></a></td>
     <td class="center"><?php echo $search_table; ?></td>
-    <?php if (! $db_is_information_schema) { ?>
+    <?php
+    if (! $db_is_information_schema) {
+        ?>
     <td class="insert_table center">
         <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : ''); ?> href="tbl_change.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Insert']; ?></a></td>
     <td class="center"><?php echo $empty_table; ?></td>
     <td class="center">
-    <a 
+    <a
     <?php if ($GLOBALS['cfg']['AjaxEnable']) {
             echo 'class="drop_table_anchor';
             if ($table_is_view || $each_table['ENGINE'] == null) {
@@ -494,7 +500,8 @@ foreach ($tables as $keyname => $each_table) {
             echo urlencode($drop_query); ?>&amp;message_to_show=<?php
             echo urlencode($drop_message); ?>" >
             <?php echo $titles['Drop']; ?></a></td>
-    <?php } // end if (! $db_is_information_schema)
+    <?php
+    } // end if (! $db_is_information_schema)
 
     // there is a null value in the ENGINE
     // - when the table needs to be repaired, or
@@ -530,41 +537,62 @@ foreach ($tables as $keyname => $each_table) {
         }
     ?>
     <td class="value tbl_rows"><?php echo $row_count_pre . PMA_formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
-        <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
+    <?php
+    if (!($cfg['PropertiesNumColumns'] > 1)) {
+    ?>
     <td class="nowrap"><?php echo ($table_is_view ? __('View') : $each_table['ENGINE']); ?></td>
-            <?php if (isset($collation)) { ?>
+        <?php
+        if (isset($collation)) {
+        ?>
     <td class="nowrap"><?php echo $collation ?></td>
-            <?php } ?>
-        <?php } ?>
-
-        <?php if ($is_show_stats) { ?>
+    <?php
+        }
+    }
+    if ($is_show_stats) {
+    ?>
     <td class="value tbl_size"><a
         href="tbl_structure.php?<?php echo $tbl_url_query; ?>#showusage"
         ><?php echo '<span>' . $formatted_size . '</span> <span class="unit">' . $unit . '</span>'; ?></a></td>
     <td class="value tbl_overhead"><?php echo $overhead; ?></td>
-        <?php } // end if
-        if ($GLOBALS['cfg']['ShowDbStructureCreation']) { ?>
+    <?php
+    } // end if
+    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+    ?>
     <td class="value tbl_creation"><?php echo $create_time ? PMA_localisedDate(strtotime($create_time)) : '-'; ?></td>
-        <?php } // end if
-        if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) { ?>
+    <?php
+    } // end if
+    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+    ?>
     <td class="value tbl_last_update"><?php echo $update_time ? PMA_localisedDate(strtotime($update_time)) : '-'; ?></td>
-        <?php } // end if
-        if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) { ?>
+    <?php
+    } // end if
+    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+    ?>
     <td class="value tbl_last_check"><?php echo $check_time ? PMA_localisedDate(strtotime($check_time)) : '-'; ?></td>
-        <?php } // end if ?>
-    <?php } elseif ($table_is_view) { ?>
+    <?php
+    } // end if
+    } elseif ($table_is_view) {
+    ?>
     <td class="value">-</td>
     <td><?php echo __('View'); ?></td>
     <td>---</td>
-        <?php if ($is_show_stats) { ?>
+        <?php
+        if ($is_show_stats) {
+            ?>
     <td class="value">-</td>
     <td class="value">-</td>
-        <?php } ?>
-    <?php } else { ?>
+        <?php
+        }
+        ?>
+    <?php
+    } else {
+        ?>
     <td colspan="<?php echo ($colspan_for_structure - ($db_is_information_schema ? 5 : 8)) ?>"
         class="center">
         <?php echo __('in use'); ?></td>
-    <?php } // end if (isset($each_table['TABLE_ROWS'])) else ?>
+    <?php
+    } // end if (isset($each_table['TABLE_ROWS'])) else
+    ?>
 </tr>
     <?php
 } // end foreach

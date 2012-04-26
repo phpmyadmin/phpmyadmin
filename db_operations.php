@@ -490,12 +490,12 @@ echo __('Remove database');
 </ul>
 </fieldset>
 </div>
-<?php } ?>
-    <?php
-    /**
-     * Copy database
-     */
-    ?>
+<?php
+}
+/**
+ * Copy database
+ */
+?>
         <div class="operations_half_width clearfloat">
         <form id="copy_db_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : ''); ?>method="post" action="db_operations.php"
         onsubmit="return emptyFormElements(this, 'newname')">
