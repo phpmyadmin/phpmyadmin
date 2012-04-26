@@ -981,7 +981,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Type handling object.
          */
-        $GLOBALS['PMA_Types'] = new PMA_Types();
+        if (PMA_DRIZZLE) {
+            $GLOBALS['PMA_Types'] = new PMA_Types_Drizzle();
+        } else {
+            $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        }
 
         if (PMA_DRIZZLE) {
             // DisableIS must be set to false for Drizzle, it maps SHOW commands

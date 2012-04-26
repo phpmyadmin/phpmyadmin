@@ -155,3 +155,17 @@ class PMA_Types
         return $html;
     }
 }
+
+/**
+ * Class holding type definitions for MySQL.
+ */
+class PMA_Types_MySQL extends PMA_Types
+{
+}
+
+/**
+ * Class holding type definitions for Drizzle.
+ */
+class PMA_Types_Drizzle extends PMA_Types
+{
+}
