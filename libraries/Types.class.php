@@ -709,7 +709,6 @@ class PMA_Types_Drizzle extends PMA_Types
             return __("A system's default double-precision floating-point number");
         case 'BOOLEAN':
             return __('True or false');
-        // Drizzle doesn't have UNSIGNED types
         case 'SERIAL':
             return __('An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE');
         case 'UUID':
@@ -730,7 +729,6 @@ class PMA_Types_Drizzle extends PMA_Types
             return __('A variable-length (0-65,535) string, uses binary collation for all comparisons');
         case 'BLOB':
             return __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a four-byte prefix indicating the length of the value');
-        // there is no limit on ENUM length
         case 'ENUM':
             return __("An enumeration, chosen from the list of defined values");
         }
