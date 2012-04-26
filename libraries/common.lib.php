@@ -3679,11 +3679,11 @@ function PMA_getFunctionsForField($field, $insert_mode)
     $dropdown = array();
     $default_function   = '';
 
+    $dropdown = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
+
     // Can we get field class based values?
     $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
     if (! empty($current_class)) {
-        $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])];
-        $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
         if (isset($cfg['DefaultFunctions']['FUNC_' . $current_class])) {
             $default_function   = $cfg['DefaultFunctions']['FUNC_' . $current_class];
         }

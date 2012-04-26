@@ -179,6 +179,18 @@ class PMA_Types
     public function getTypeClass($type) {
         return '';
     }
+
+    /**
+     * Returns array fo function available for a type.
+     *
+     * @param string $type The data type to get function list.
+     *
+     * @return array
+     *
+     */
+    public function getFunctions($type) {
+        return array();
+    }
 }
 
 /**
@@ -343,6 +355,160 @@ class PMA_Types_MySQL extends PMA_Types
 
         return '';
     }
+
+    /**
+     * Returns array fo function available for a type.
+     *
+     * @param string $type The data type to get function list.
+     *
+     * @return array
+     *
+     */
+    public function getFunctions($type) {
+        $class = $this->getTypeClass($type);
+
+        switch ($class) {
+            case 'CHAR':
+                return array(
+                    'BIN',
+                    'CHAR',
+                    'CURRENT_USER',
+                    'COMPRESS',
+                    'DATABASE',
+                    'DAYNAME',
+                    'DES_DECRYPT',
+                    'DES_ENCRYPT',
+                    'ENCRYPT',
+                    'HEX',
+                    'INET_NTOA',
+                    'LOAD_FILE',
+                    'LOWER',
+                    'LTRIM',
+                    'MD5',
+                    'MONTHNAME',
+                    'OLD_PASSWORD',
+                    'PASSWORD',
+                    'QUOTE',
+                    'REVERSE',
+                    'RTRIM',
+                    'SHA1',
+                    'SOUNDEX',
+                    'SPACE',
+                    'TRIM',
+                    'UNCOMPRESS',
+                    'UNHEX',
+                    'UPPER',
+                    'USER',
+                    'UUID',
+                    'VERSION',
+                );
+
+            case 'DATE':
+                return array(
+                    'CURRENT_DATE',
+                    'CURRENT_TIME',
+                    'DATE',
+                    'FROM_DAYS',
+                    'FROM_UNIXTIME',
+                    'LAST_DAY',
+                    'NOW',
+                    'SEC_TO_TIME',
+                    'SYSDATE',
+                    'TIME',
+                    'TIMESTAMP',
+                    'UTC_DATE',
+                    'UTC_TIME',
+                    'UTC_TIMESTAMP',
+                    'YEAR',
+                );
+
+            case 'NUMBER':
+                $ret = array(
+                    'ABS',
+                    'ACOS',
+                    'ASCII',
+                    'ASIN',
+                    'ATAN',
+                    'BIT_LENGTH',
+                    'BIT_COUNT',
+                    'CEILING',
+                    'CHAR_LENGTH',
+                    'CONNECTION_ID',
+                    'COS',
+                    'COT',
+                    'CRC32',
+                    'DAYOFMONTH',
+                    'DAYOFWEEK',
+                    'DAYOFYEAR',
+                    'DEGREES',
+                    'EXP',
+                    'FLOOR',
+                    'HOUR',
+                    'INET_ATON',
+                    'LENGTH',
+                    'LN',
+                    'LOG',
+                    'LOG2',
+                    'LOG10',
+                    'MICROSECOND',
+                    'MINUTE',
+                    'MONTH',
+                    'OCT',
+                    'ORD',
+                    'PI',
+                    'QUARTER',
+                    'RADIANS',
+                    'RAND',
+                    'ROUND',
+                    'SECOND',
+                    'SIGN',
+                    'SIN',
+                    'SQRT',
+                    'TAN',
+                    'TO_DAYS',
+                    'TO_SECONDS',
+                    'TIME_TO_SEC',
+                    'UNCOMPRESSED_LENGTH',
+                    'UNIX_TIMESTAMP',
+                    'UUID_SHORT',
+                    'WEEK',
+                    'WEEKDAY',
+                    'WEEKOFYEAR',
+                    'YEARWEEK',
+                );
+                // $restrict_functions holds all known functions, remove these that are unavailable on current server
+                if (PMA_MYSQL_INT_VERSION < 50500) {
+                    $ret = array_diff($ret, array('TO_SECONDS'));
+                }
+                if (PMA_MYSQL_INT_VERSION < 50120) {
+                    $ret = array_diff($ret, array('UUID_SHORT'));
+                }
+                return $ret;
+
+            case 'SPATIAL':
+                return array(
+                    'GeomFromText',
+                    'GeomFromWKB',
+
+                    'GeomCollFromText',
+                    'LineFromText',
+                    'MLineFromText',
+                    'PointFromText',
+                    'MPointFromText',
+                    'PolyFromText',
+                    'MPolyFromText',
+
+                    'GeomCollFromWKB',
+                    'LineFromWKB',
+                    'MLineFromWKB',
+                    'PointFromWKB',
+                    'MPointFromWKB',
+                    'PolyFromWKB',
+                    'MPolyFromWKB',
+                );
+        }
+        return array();
+    }
 }
 
 /**
@@ -438,5 +604,122 @@ class PMA_Types_Drizzle extends PMA_Types
                 return '';
         }
         return '';
+    }
+
+    /**
+     * Returns array fo function available for a type.
+     *
+     * @param string $type The data type to get function list.
+     *
+     * @return array
+     *
+     */
+    public function getFunctions($type) {
+        $class = $this->getTypeClass($type);
+
+        switch ($class) {
+            case 'CHAR':
+                return array(
+                    'BIN',
+                    'CHAR',
+                    'CURRENT_USER',
+                    'COMPRESS',
+                    'DATABASE',
+                    'DAYNAME',
+                    'HEX',
+                    'LOAD_FILE',
+                    'LOWER',
+                    'LTRIM',
+                    'MD5',
+                    'MONTHNAME',
+                    'QUOTE',
+                    'REVERSE',
+                    'RTRIM',
+                    'SCHEMA',
+                    'SPACE',
+                    'TRIM',
+                    'UNCOMPRESS',
+                    'UNHEX',
+                    'UPPER',
+                    'USER',
+                    'UUID',
+                    'VERSION',
+                );
+
+            case 'UUID':
+                return array(
+                    'UUID',
+                );
+
+            case 'DATE':
+                return array(
+                    'CURRENT_DATE',
+                    'CURRENT_TIME',
+                    'DATE',
+                    'FROM_DAYS',
+                    'FROM_UNIXTIME',
+                    'LAST_DAY',
+                    'NOW',
+                    'SYSDATE',
+                    //'TIME', // https://bugs.launchpad.net/drizzle/+bug/804571
+                    'TIMESTAMP',
+                    'UTC_DATE',
+                    'UTC_TIME',
+                    'UTC_TIMESTAMP',
+                    'YEAR',
+                );
+
+            case 'NUMBER':
+                return array(
+                    'ABS',
+                    'ACOS',
+                    'ASCII',
+                    'ASIN',
+                    'ATAN',
+                    'BIT_COUNT',
+                    'CEILING',
+                    'CHAR_LENGTH',
+                    'CONNECTION_ID',
+                    'COS',
+                    'COT',
+                    'CRC32',
+                    'DAYOFMONTH',
+                    'DAYOFWEEK',
+                    'DAYOFYEAR',
+                    'DEGREES',
+                    'EXP',
+                    'FLOOR',
+                    'HOUR',
+                    'LENGTH',
+                    'LN',
+                    'LOG',
+                    'LOG2',
+                    'LOG10',
+                    'MICROSECOND',
+                    'MINUTE',
+                    'MONTH',
+                    'OCT',
+                    'ORD',
+                    'PI',
+                    'QUARTER',
+                    'RADIANS',
+                    'RAND',
+                    'ROUND',
+                    'SECOND',
+                    'SIGN',
+                    'SIN',
+                    'SQRT',
+                    'TAN',
+                    'TO_DAYS',
+                    'TIME_TO_SEC',
+                    'UNCOMPRESSED_LENGTH',
+                    'UNIX_TIMESTAMP',
+                    //'WEEK', // same as TIME
+                    'WEEKDAY',
+                    'WEEKOFYEAR',
+                    'YEARWEEK',
+                );
+        }
+        return array();
     }
 }
