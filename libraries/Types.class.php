@@ -38,4 +38,16 @@ class PMA_Types
     public function isUnaryOperator($op) {
         return in_array($op, $this->getUnaryOperators());
     }
+
+    /**
+     * Returns list of operators checking for NULL.
+     *
+     * @return array
+     */
+    public function getNullOperators() {
+        return array(
+           'IS NULL',
+           'IS NOT NULL',
+        );
+    }
 }

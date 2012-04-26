@@ -123,7 +123,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     } // end if... else...
 
     if ($fields_null[$key]) {
-        foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
+        foreach ($GLOBALS['PMA_Types']->getNullOperators() as $fc) {
             $html .= "\n" . '                        '
                 . '<option value="' .  htmlspecialchars($fc) . '">'
                 . htmlspecialchars($fc) . '</option>';

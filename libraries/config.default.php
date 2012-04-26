@@ -2922,16 +2922,6 @@ $cfg['SetOperators'] = array(
 );
 
 /**
- * Search operators
- *
- * @global array $cfg['NullOperators']
- */
-$cfg['NullOperators'] = array(
-   'IS NULL',
-   'IS NOT NULL',
-);
-
-/**
  * Max rows retreived for zoom search
  */
 $cfg['maxRowPlotLimit'] = 500;

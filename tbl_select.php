@@ -161,7 +161,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
             }
         } // end if... else...
         if ($fields_null[$i]) {
-            foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
+            foreach ($GLOBALS['PMA_Types']->getNullOperators() as $fc) {
                 echo "\n" . '                        '
                    . '<option value="' .  htmlspecialchars($fc) . '">'
                    . htmlspecialchars($fc) . '</option>';
