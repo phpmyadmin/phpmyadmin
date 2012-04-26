@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-25 12:34-0400\n"
-"PO-Revision-Date: 2012-04-19 12:34+0200\n"
+"PO-Revision-Date: 2012-04-26 02:22+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
 #: libraries/display_tbl.lib.php:362 server_privileges.php:1827
@@ -1502,10 +1502,9 @@ msgid "From general log"
 msgstr "Depuis le journal général"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Chargement des journaux en cours"
+msgstr "Analyse des journaux en cours"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1546,7 +1545,6 @@ msgid "Jump to Log table"
 msgstr "Aller à la table du journal"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
 msgstr "Aucune donnée"
@@ -1587,16 +1585,14 @@ msgid "Chart"
 msgstr "Tableau"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Ajouter un graphique"
+msgstr "Éditer le graphique"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Séries : "
+msgstr "Séries"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -5550,87 +5546,100 @@ msgstr "possible attaque récursive"
 
 #: libraries/data_drizzle.inc.php:238
 msgid "Most common integer."
-msgstr ""
+msgstr "Entier le plus commun."
 
 #: libraries/data_drizzle.inc.php:239
 msgid "Larger-range integer."
-msgstr ""
+msgstr "Entier de plus grande étendue."
 
 #: libraries/data_drizzle.inc.php:240
 msgid "Fixed precision number."
-msgstr ""
+msgstr "Nombre à précision fixe."
 
 #: libraries/data_drizzle.inc.php:241
 msgid "Systems native double type."
-msgstr ""
+msgstr "Type double du système."
 
 #: libraries/data_drizzle.inc.php:242
 msgid "True or false."
-msgstr ""
+msgstr "Vrai ou faux."
 
 #: libraries/data_drizzle.inc.php:243
 msgid ""
 "A number is inserted in increasing order as rows are inserted into the table."
 msgstr ""
+"Un nombre est inséré en ordre croissant à mesure que les lignes sont "
+"insérées dans la table."
 
 #: libraries/data_drizzle.inc.php:244
 msgid "Stores Universally Unique Identifiers (UUID)."
-msgstr ""
+msgstr "Contient un identificateur universellement unique (UUID)."
 
 #: libraries/data_drizzle.inc.php:245
-#, fuzzy
 #| msgid "Data only"
 msgid "Dates only."
-msgstr "Données seulement"
+msgstr "Seulement les dates."
 
 #: libraries/data_drizzle.inc.php:246 libraries/data_drizzle.inc.php:247
 msgid "Both date and time."
-msgstr ""
+msgstr "À la fois la date et l'heure."
 
 #: libraries/data_drizzle.inc.php:248
 msgid "Time of day."
-msgstr ""
+msgstr "Heure du jour."
 
 #: libraries/data_drizzle.inc.php:249 libraries/data_drizzle.inc.php:251
 msgid "Variable length data."
-msgstr ""
+msgstr "Donnée de longueur variable."
 
 #: libraries/data_drizzle.inc.php:250
 msgid "Text up to 2^16 characters."
-msgstr ""
+msgstr "Texte d'une longueur maximum de 2^16 caractères."
 
 #: libraries/data_drizzle.inc.php:252
 msgid ""
 "Data up to 2^16 characters. Uses a binary collation for all index usage."
 msgstr ""
+"Données d'une longueur maximum de 2^16 caractères. Utilise un "
+"interclassement binaire pour tous les index."
 
 #: libraries/data_drizzle.inc.php:253
 msgid "Static lists of strings."
-msgstr ""
+msgstr "Liste statique de chaînes."
 
 #: libraries/data_mysql.inc.php:299
 msgid ""
 "A very small integer. The signed range is -128 to 127. The unsigned range is "
 "0 to 255."
 msgstr ""
+"Un très petit nombre entier. La fourchette des nombres avec signe est de "
+"-128 à 127. Pour les nombres sans signe, c'est de 0 à 255."
 
 #: libraries/data_mysql.inc.php:300
 msgid ""
 "A small integer. The signed range is -32,768 to 32,767. The unsigned range "
 "is 0 to 65,535."
 msgstr ""
+"Un petit nombre entier. La fourchette des nombres avec signe est de -32 768 "
+"à 32 767. Pour les nombres sans signe, c'est de 0 à 65 535."
 
 #: libraries/data_mysql.inc.php:301
 msgid ""
 "A medium-sized integer. The signed range is -8,388,608 to 8,388,607. The "
 "unsigned range is 0 to 16,777,215."
 msgstr ""
+"Un nombre entier de taille moyenne. La fourchette des nombres avec signe est "
+"de -8 388 608 à 8 388 607. Pour les nombres sans signe, c'est de 0 à 16 777 "
+"215."
 
 #: libraries/data_mysql.inc.php:302
 msgid ""
 "A normal-size integer. The signed range is -2,147,483,648 to 2,147,483,647. "
 "The unsigned range is 0 to 4,294,967,295."
 msgstr ""
+"Un nombre entier de taille normale. La fourchette des nombres avec signe est "
+"de -2 147 483 648 à 2 147 483 647. Pour les nombres sans signe, c'est de 0 "
+"à 4 294 967 295."
 
 #: libraries/data_mysql.inc.php:303
 msgid ""
@@ -5638,6 +5647,9 @@ msgid ""
 "9,223,372,036,854,775,807. The unsigned range is 0 to "
 "18,446,744,073,709,551,615."
 msgstr ""
+"Un grand nombre entier. La fourchette des nombres avec signe est de -9 223 "
+"372 036 854 775 808 à 9 223 372 036 854 775 807. Pour les nombres sans "
+"signe, c'est de 0 à 18 446 744 073 709 551 615."
 
 #: libraries/data_mysql.inc.php:304
 msgid ""
@@ -8531,10 +8543,9 @@ msgid "Index"
 msgstr "Index"
 
 #: libraries/tbl_properties.inc.php:131
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Supprimer des colonnes"
+msgstr "Déplacer une colonne"
 
 #: libraries/tbl_properties.inc.php:140
 #, php-format
@@ -8593,10 +8604,10 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:549
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Après %s"
+msgstr "après %s"
 
 #: libraries/tbl_properties.inc.php:616 tbl_structure.php:665
 #, php-format
@@ -11677,10 +11688,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "La table %1$s a été modifiée avec succès"
 
 #: tbl_alter.php:130
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Les utilisateurs sélectionnés ont été effacés."
+msgstr "Les colonnes ont été déplacées avec succès."
 
 #: tbl_change.php:755
 msgid "Because of its length,<br /> this column might not be editable"
@@ -12135,10 +12145,9 @@ msgid "Show more actions"
 msgstr "Montrer d'autres actions"
 
 #: tbl_structure.php:582 tbl_structure.php:654
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Supprimer des colonnes"
+msgstr "Déplacer des colonnes"
 
 #: tbl_structure.php:583
 msgid "Move the columns by dragging them up and down."
