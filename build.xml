@@ -73,7 +73,7 @@
               --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/highcharts/*,*/openlayers/*,*/jquery/*,*/build/*,*/bfShapeFiles/*
               --report=checkstyle
               --report-file=${basedir}/build/logs/checkstyle.xml
-              --standard=PEAR
+              --standard=PMAStandard
               ${source}" />
   </exec>
  </target>
