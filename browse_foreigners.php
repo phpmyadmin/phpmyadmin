@@ -106,18 +106,30 @@ require_once 'libraries/header_scripts.inc.php';
             var field = 'fields';
             var field_null = 'fields_null';
 
-            <?php if (isset($rownumber)) { ?>
+            <?php
+            if (isset($rownumber)) {
+            ?>
             var element_name = field + '[multi_edit][<?php echo htmlspecialchars($rownumber); ?>][' + fieldmd5 + ']';
             var null_name = field_null + '[multi_edit][<?php echo htmlspecialchars($rownumber); ?>][' + fieldmd5 + ']';
-            <?php } else { ?>
+            <?php
+            } else {
+            ?>
             var element_name = field + '[]';
-            <?php } ?>
+            <?php
+            }
+            ?>
 
-            <?php if (isset($fieldkey) && is_numeric($fieldkey)) { ?>
+            <?php
+            if (isset($fieldkey) && is_numeric($fieldkey)) {
+            ?>
             var element_name_alt = field + '[<?php echo $fieldkey; ?>]';
-            <?php } else { ?>
+            <?php
+            } else {
+            ?>
             var element_name_alt = field + '[0]';
-            <?php } ?>
+            <?php
+            }
+            ?>
 
             if (opener.document.insertForm.elements[element_name]) {
                 // Edit/Insert form
@@ -149,9 +161,13 @@ require_once 'libraries/header_scripts.inc.php';
 <input type="hidden" name="field" value="<?php echo htmlspecialchars($field); ?>" />
 <input type="hidden" name="fieldkey"
     value="<?php echo isset($fieldkey) ? htmlspecialchars($fieldkey) : ''; ?>" />
-<?php if (isset($rownumber)) { ?>
+<?php
+if (isset($rownumber)) {
+?>
 <input type="hidden" name="rownumber" value="<?php echo htmlspecialchars($rownumber); ?>" />
-<?php } ?>
+<?php
+}
+?>
 <span class="formelement">
     <label for="input_foreign_filter"><?php echo __('Search') . ':'; ?></label>
     <input type="text" name="foreign_filter" id="input_foreign_filter"
