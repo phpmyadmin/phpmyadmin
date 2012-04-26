@@ -226,35 +226,4 @@ if ($cfg['ShowFunctionFields']) {
     unset($restrict_functions);
 } // end if
 
-/**
- * This function returns datatypes descriptions.
- *
- * @return array Drizzle datatypes descriptions.
- *
- */
-function PMA_supportedDataTypesDescriptions()
-{
-    // if possible, for easy translation these strings should be the same as for MySQL
-    return array(
-        'INTEGER' => __('A 4-byte integer, range is -2,147,483,648 to 2,147,483,647'),
-        'BIGINT' => __('An 8-byte integer, range is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807'),
-        'DECIMAL' => __('A fixed-point number (M, D) - the maximum number of digits (M) is 65 (default 10), the maximum number of decimals (D) is 30 (default 0)'),
-        'DOUBLE' => __("A system's default double-precision floating-point number"),
-        'BOOLEAN' => __('True or false'),
-        // Drizzle doesn't have UNSIGNED types
-        'SERIAL' => __('An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE'),
-        'UUID' => __('Stores a Universally Unique Identifier (UUID)'),
-        'DATE' => sprintf(__("A date, supported range is '%s' to '%s'"), '0001-01-01', '9999-12-31'),
-        'DATETIME' => sprintf(__("A date and time combination, supported range is '%s' to '%s'"), '0001-01-01 00:00:0', '9999-12-31 23:59:59'),
-        'TIMESTAMP' => __("A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' UTC; TIMESTAMP(6) can store microseconds"),
-        'TIME' => sprintf(__("A time, range is '%s' to '%s'"), '00:00:00', '23:59:59'),
-        'VARCHAR' => sprintf(__('A variable-length (%s) string, the effective maximum length is subject to the maximum row size'), '0-16,383'),
-        'TEXT' => __('A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored with a two-byte prefix indicating the length of the value in bytes'),
-        'VARBINARY' => __('A variable-length (0-65,535) string, uses binary collation for all comparisons'),
-        'BLOB' => __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a four-byte prefix indicating the length of the value'),
-        // there is no limit on ENUM length
-        'ENUM' => __("An enumeration, chosen from the list of defined values"),
-    );
-} // end PMA_supportedDataTypesDescriptions()
-
 ?>

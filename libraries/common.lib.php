@@ -3434,7 +3434,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                     if ($subvalue == $selected) {
                         $retval .= sprintf(
                             "<option selected='selected' title='%s'>%s</option>",
-                            PMA_getDatatypeDescription($subvalue),
+                            $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
                             $subvalue
                         );
                     } else if ($subvalue === '-') {
@@ -3444,7 +3444,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                     } else {
                         $retval .= sprintf(
                             "<option title='%s'>%s</option>",
-                            PMA_getDatatypeDescription($subvalue),
+                            $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
                             $subvalue
                         );
                     }
@@ -3454,13 +3454,13 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                 if ($selected == $value) {
                     $retval .= sprintf(
                         "<option selected='selected' title='%s'>%s</option>",
-                        PMA_getDatatypeDescription($value),
+                        $GLOBALS['PMA_Types']->getTypeDescription($value),
                         $value
                     );
                 } else {
                     $retval .= sprintf(
                         "<option title='%s'>%s</option>",
-                        PMA_getDatatypeDescription($value),
+                        $GLOBALS['PMA_Types']->getTypeDescription($value),
                         $value
                     );
                 }
@@ -3485,23 +3485,6 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
 
     return $retval;
 } // end PMA_getSupportedDatatypes()
-
-/**
- * This function returns the data type description.
- *
- * @param string $type The data type to get a description.
- *
- * @return string
- *
- */
-function PMA_getDatatypeDescription($type)
-{
-    $type = strtoupper($type);
-    $descriptions = PMA_supportedDataTypesDescriptions();
-
-    return isset($descriptions[$type])
-        ? htmlentities($descriptions[$type], ENT_QUOTES) : '';
-} // end PMA_getDatatypeDescription()
 
 /**
  * Returns a list of datatypes that are not (yet) handled by PMA.
