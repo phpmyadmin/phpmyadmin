@@ -2844,20 +2844,21 @@ if ($cfg['ShowFunctionFields']) {
      */
     $cfg['RestrictFunctions'] = array();
 
-    /**
-     * Default functions for above defined groups
-     *
-     * @global array $cfg['DefaultFunctions']
-     */
-    $cfg['DefaultFunctions'] = array(
-        'FUNC_CHAR' => '',
-        'FUNC_DATE' => '',
-        'FUNC_NUMBER' => '',
-        'FUNC_SPATIAL' => 'GeomFromText',
-        'FUNC_UUID' => 'UUID',
-        'first_timestamp' => 'NOW',
-    );
 } // end if
+
+/**
+ * Default functions for above defined groups
+ *
+ * @global array $cfg['DefaultFunctions']
+ */
+$cfg['DefaultFunctions'] = array(
+    'FUNC_CHAR' => '',
+    'FUNC_DATE' => '',
+    'FUNC_NUMBER' => '',
+    'FUNC_SPATIAL' => 'GeomFromText',
+    'FUNC_UUID' => 'UUID',
+    'first_timestamp' => 'NOW',
+);
 
 /**
  * Max rows retreived for zoom search
