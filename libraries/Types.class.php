@@ -166,6 +166,19 @@ class PMA_Types
     public function getTypeDescription($type) {
         return '';
     }
+
+    /**
+     * Returns class of a type, used for functions available for type
+     * or default values.
+     *
+     * @param string $type The data type to get a class.
+     *
+     * @return string
+     *
+     */
+    public function getTypeClass($type) {
+        return '';
+    }
 }
 
 /**
@@ -265,6 +278,71 @@ class PMA_Types_MySQL extends PMA_Types
         }
         return '';
     }
+
+    /**
+     * Returns class of a type, used for functions available for type
+     * or default values.
+     *
+     * @param string $type The data type to get a class.
+     *
+     * @return string
+     *
+     */
+    public function getTypeClass($type) {
+        $type = strtoupper($type);
+        switch ($type) {
+            case 'TINYINT':
+            case 'SMALLINT':
+            case 'MEDIUMINT':
+            case 'INT':
+            case 'BIGINT':
+            case 'DECIMAL':
+            case 'FLOAT':
+            case 'DOUBLE':
+            case 'REAL':
+            case 'BIT':
+            case 'BOOLEAN':
+            case 'SERIAL':
+                return 'NUMBER';
+
+            case 'DATE':
+            case 'DATETIME':
+            case 'TIMESTAMP':
+            case 'TIME':
+            case 'YEAR':
+                return 'DATE';
+
+            case 'CHAR':
+            case 'VARCHAR':
+            case 'TINYTEXT':
+            case 'TEXT':
+            case 'MEDIUMTEXT':
+            case 'LONGTEXT':
+            case 'BINARY':
+            case 'VARBINARY':
+            case 'TINYBLOB':
+            case 'MEDIUMBLOB':
+            case 'BLOB':
+            case 'LONGBLOB':
+                return 'CHAR';
+
+            case 'ENUM':
+            case 'SET':
+                return ''
+
+            case 'GEOMETRY':
+            case 'POINT':
+            case 'LINESTRING':
+            case 'POLYGON':
+            case 'MULTIPOINT':
+            case 'MULTILINESTRING':
+            case 'MULTIPOLYGON':
+            case 'GEOMETRYCOLLECTION':
+                return 'SPATIAL';
+        }
+
+        return '';
+    }
 }
 
 /**
@@ -317,6 +395,47 @@ class PMA_Types_Drizzle extends PMA_Types
             // there is no limit on ENUM length
             case 'ENUM':
                 return __("An enumeration, chosen from the list of defined values");
+        }
+        return '';
+    }
+
+    /**
+     * Returns class of a type, used for functions available for type
+     * or default values.
+     *
+     * @param string $type The data type to get a class.
+     *
+     * @return string
+     *
+     */
+    public function getTypeClass($type) {
+        $type = strtoupper($type);
+        switch ($type) {
+            case 'INTEGER':
+            case 'BIGINT':
+            case 'DECIMAL':
+            case 'DOUBLE':
+            case 'BOOLEAN':
+            case 'SERIAL':
+                return 'NUMBER';
+
+            case 'DATE':
+            case 'DATETIME':
+            case 'TIMESTAMP':
+            case 'TIME':
+                return 'DATE';
+
+            case 'VARCHAR':
+            case 'TEXT':
+            case 'VARBINARY':
+            case 'BLOB':
+                return 'CHAR';
+
+            case 'UUID':
+                return 'UUID';
+
+            case 'ENUM':
+                return '';
         }
         return '';
     }
