@@ -27,7 +27,7 @@
  * @version   Release: 1.3.3
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class PEAR_Sniffs_Commenting_InlineCommentSniff implements PHP_CodeSniffer_Sniff
+class PMAStandard_Sniffs_Commenting_InlineCommentSniff implements PHP_CodeSniffer_Sniff
 {
 
 
