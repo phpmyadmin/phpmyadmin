@@ -2912,16 +2912,6 @@ $cfg['EnumOperators'] = array(
 );
 
 /**
- * Search operators
- *
- * @global array $cfg['SetOperators']
- */
-$cfg['SetOperators'] = array(
-   'IN',
-   'NOT IN',
-);
-
-/**
  * Max rows retreived for zoom search
  */
 $cfg['maxRowPlotLimit'] = 500;
