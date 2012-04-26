@@ -22,13 +22,7 @@ class PMA_RTN_getDataFromRequest_test extends PHPUnit_Framework_TestCase
 
         $cfg['ShowFunctionFields'] = false;
 
-        if (function_exists('PMA_supportedDataTypesDescriptions')) {
-            $this->markTestSkipped(
-              'Skipping test since we need to reload data_mysql.inc.php, but cannot do it at this point'
-            );
-        } else {
-            include 'libraries/data_mysql.inc.php';
-        }
+        include 'libraries/data_mysql.inc.php';
     }
 
     /**
