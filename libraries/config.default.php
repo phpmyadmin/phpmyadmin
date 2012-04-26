@@ -428,7 +428,7 @@ $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 
 /**
- * Disable use of INFORMATION_SCHEMA. Is always 'true' for Drizzle.
+ * Disable use of INFORMATION_SCHEMA. Is always 'false' for Drizzle.
  *
  * @see http://sf.net/support/tracker.php?aid=1849494
  * @see http://bugs.mysql.com/19588
@@ -702,15 +702,6 @@ $cfg['UseDbSearch'] = true;
  * @global boolean $cfg['IgnoreMultiSubmitErrors']
  */
 $cfg['IgnoreMultiSubmitErrors'] = false;
-
-/**
- * if set to true, PMA will show the affected rows of EACH statement on
- * multiple-statement queries. See the libraries/import.php file for
- * hard coded defaults on how many queries a statement may contain!
- *
- * @global boolean $cfg['VerboseMultiSubmit']
- */
-$cfg['VerboseMultiSubmit'] = true;
 
 /**
  * allow login to any user entered server in cookie based authentication

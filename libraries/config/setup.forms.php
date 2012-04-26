@@ -145,7 +145,6 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'QueryHistoryDB',
     'QueryHistoryMax',
     'IgnoreMultiSubmitErrors',
-    'VerboseMultiSubmit',
     'MaxCharactersInDisplayedSQL',
     'EditInWindow',
     //'QueryWindowWidth', // overridden in theme
