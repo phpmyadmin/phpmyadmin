@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Generic class holding type definitions.
+ *
+ * @package PhpMyAdmin
  */
 class PMA_Types
 {
@@ -261,6 +263,8 @@ class PMA_Types
 
 /**
  * Class holding type definitions for MySQL.
+ *
+ * @package PhpMyAdmin
  */
 class PMA_Types_MySQL extends PMA_Types
 {
@@ -678,6 +682,8 @@ class PMA_Types_MySQL extends PMA_Types
 
 /**
  * Class holding type definitions for Drizzle.
+ *
+ * @package PhpMyAdmin
  */
 class PMA_Types_Drizzle extends PMA_Types
 {
