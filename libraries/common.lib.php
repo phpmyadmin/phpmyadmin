@@ -3676,18 +3676,17 @@ function PMA_getFunctionsForField($field, $insert_mode)
     global $cfg, $analyzed_sql, $data;
 
     $selected = '';
-    // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
-    // or something similar. Then directly look up the entry in the
-    // RestrictFunctions array, which'll then reveal the available dropdown options
-    if (isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
-        && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])
-    ) {
+    $dropdown = array();
+    $default_function   = '';
+
+    // Can we get field class based values?
+    $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
+    if (! empty($current_class)) {
         $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])];
         $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
-        $default_function   = $cfg['DefaultFunctions'][$current_func_type];
-    } else {
-        $dropdown = array();
-        $default_function   = '';
+        if (isset($cfg['DefaultFunctions']['FUNC_' . $current_class])) {
+            $default_function   = $cfg['DefaultFunctions']['FUNC_' . $current_class];
+        }
     }
     $dropdown_built = array();
     $op_spacing_needed = false;
