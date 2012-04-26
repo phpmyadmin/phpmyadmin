@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-26 10:44+0200\n"
-"PO-Revision-Date: 2012-04-26 10:27+0200\n"
+"PO-Revision-Date: 2012-04-26 16:05+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2613,18 +2613,16 @@ msgid "Theme"
 msgstr "Tema"
 
 #: libraries/Types.class.php:188
-#, fuzzy
 #| msgid ""
 #| "A very small integer. The signed range is -128 to 127. The unsigned range "
 #| "is 0 to 255."
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Çok küçük bir tamsayı. İşaretli aralığı -128'den 127'ye dir. İşaretsiz "
-"aralığı 0'dan 255'e dir."
+"1-bayt'lık bir tamsayı, işaretli aralığı -128'den 127'ye kadardır, işaretsiz "
+"aralığı 0'dan 255'e kadardır"
 
 #: libraries/Types.class.php:190
-#, fuzzy
 #| msgid ""
 #| "A small integer. The signed range is -32,768 to 32,767. The unsigned "
 #| "range is 0 to 65,535."
@@ -2632,11 +2630,10 @@ msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"Küçük bir tamsayı. İşaretli aralığı -32,768'den 32,767'ye dir. İşaretsiz "
-"aralığı 0'dan 65,535'e dir."
+"2-bayt'lık bir tamsayı, işaretli aralığı -32,768'den 32,767'ye kadardır, "
+"işaretsiz aralığı 0'dan 65,535'e kadardır"
 
 #: libraries/Types.class.php:192
-#, fuzzy
 #| msgid ""
 #| "A medium-sized integer. The signed range is -8,388,608 to 8,388,607. The "
 #| "unsigned range is 0 to 16,777,215."
@@ -2644,11 +2641,10 @@ msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
-"Orta boyutta bir tamsayı. İşaretli aralığı -8,388,608'den 8,388,607'ye dir. "
-"İşaretsiz aralığı 0'dan 16,777,215'e dir."
+"3-bayt'lık bir tamsayı, işaretli aralığı -8,388,608'den 8,388,607'ye "
+"kadardır, işaretsiz aralığı 0'dan 16,777,215'e kadardır"
 
 #: libraries/Types.class.php:194
-#, fuzzy
 #| msgid ""
 #| "A normal-size integer. The signed range is -2,147,483,648 to "
 #| "2,147,483,647. The unsigned range is 0 to 4,294,967,295."
@@ -2656,8 +2652,8 @@ msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
-"Normal boyutta bir tamsayı. İşaretli aralığı -2,147,483,648'den "
-"2,147,483,647'ye dir. İşaretsiz aralığı 0'dan 4,294,967,295'e dir."
+"4-bayt'lık bir tamsayı, işaretli aralığı -2,147,483,648'den 2,147,483,647'ye "
+"kadardır, işaretsiz aralığı 0'dan 4,294,967,295'e kadardır."
 
 #: libraries/Types.class.php:196
 #, fuzzy
