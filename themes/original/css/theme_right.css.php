@@ -2099,7 +2099,8 @@ fieldset .disabled-field td {
 }
 
 .rte_table td {
-    vertical-align:     middle;
+    vertical-align: middle;
+    padding: 0.2em;
 }
 
 .rte_table tr td:nth-child(1) {
