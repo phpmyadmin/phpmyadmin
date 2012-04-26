@@ -9,6 +9,7 @@ require_once 'libraries/common.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once './libraries/Types.class.php';
+require_once 'libraries/Theme.class.php';
 /*
  * Include to test.
  */
@@ -23,6 +24,9 @@ class PMA_RTN_getEditorForm_test extends PHPUnit_Framework_TestCase
         $cfg['ShowFunctionFields'] = false;
 
         $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['pmaThemeImage'] = 'theme/';
 
         if (! function_exists('PMA_generateCharsetDropdownBox')) {
             function PMA_generateCharsetDropdownBox() {}
