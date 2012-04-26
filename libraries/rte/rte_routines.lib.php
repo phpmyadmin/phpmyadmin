@@ -1143,6 +1143,7 @@ function PMA_RTN_handleExecute()
             $queries   = array();
             $end_query = array();
             $args      = array();
+            $all_functions = $GLOBALS['PMA_Types']->getAllFunctions();
             for ($i=0; $i<$routine['item_num_params']; $i++) {
                 if (isset($_REQUEST['params'][$routine['item_param_name'][$i]])) {
                     $value = $_REQUEST['params'][$routine['item_param_name'][$i]];
@@ -1151,7 +1152,7 @@ function PMA_RTN_handleExecute()
                     }
                     $value = PMA_sqlAddSlashes($value);
                     if (! empty($_REQUEST['funcs'][$routine['item_param_name'][$i]])
-                        && in_array($_REQUEST['funcs'][$routine['item_param_name'][$i]], $cfg['Functions'])
+                        && in_array($_REQUEST['funcs'][$routine['item_param_name'][$i]], $all_functions)
                     ) {
                         $queries[] = "SET @p$i={$_REQUEST['funcs'][$routine['item_param_name'][$i]]}('$value');\n";
                     } else {

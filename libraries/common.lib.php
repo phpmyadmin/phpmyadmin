@@ -3734,14 +3734,15 @@ function PMA_getFunctionsForField($field, $insert_mode)
     // For compatibility's sake, do not let out all other functions. Instead
     // print a separator (blank) and then show ALL functions which weren't
     // shown yet.
-    $cnt_functions = count($cfg['Functions']);
+    $functions = $GLOBALS['PMA_Types']->getAllFunctions();
+    $cnt_functions = count($functions);
     for ($j = 0; $j < $cnt_functions; $j++) {
-        if (! isset($dropdown_built[$cfg['Functions'][$j]])
-            || $dropdown_built[$cfg['Functions'][$j]] != 'true'
+        if (! isset($dropdown_built[$functions[$j]])
+            || $dropdown_built[$functions[$j]] != 'true'
         ) {
             // Is current function defined as default?
-            $selected = ($field['first_timestamp'] && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                        || (! $field['first_timestamp'] && $cfg['Functions'][$j] == $default_function)
+            $selected = ($field['first_timestamp'] && $functions[$j] == $cfg['DefaultFunctions']['first_timestamp'])
+                        || (! $field['first_timestamp'] && $functions[$j] == $default_function)
                       ? ' selected="selected"'
                       : '';
             if ($op_spacing_needed == true) {
@@ -3751,7 +3752,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
             }
 
             $retval .= '                ';
-            $retval .= '<option' . $selected . '>' . $cfg['Functions'][$j]
+            $retval .= '<option' . $selected . '>' . $functions[$j]
                 . '</option>' . "\n";
         }
     } // end for
