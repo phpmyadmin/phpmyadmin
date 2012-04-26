@@ -3316,7 +3316,8 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
  */
 function PMA_browseUploadFile($max_upload_size)
 {
-    if ($GLOBALS['is_upload'] && !empty($GLOBALS['cfg']['UploadDir'])) {
+    if (isset($GLOBALS['is_upload']) && $GLOBALS['is_upload']
+            && !empty($GLOBALS['cfg']['UploadDir'])) {
         echo '<label for="radio_import_file">';
     } else {
         echo '<label for="input_import_file">';
