@@ -103,7 +103,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     // HTML for operators
     $html = '<select name="zoomFunc[]">';
     if (strncasecmp($fields_type[$key], 'enum', 4) == 0) {
-        foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
+        foreach ($GLOBALS['PMA_Types']->getEnumOperators() as $fc) {
             $html .= "\n" . '                        '
                 . '<option value="' . htmlspecialchars($fc) . '">'
                 . htmlspecialchars($fc) . '</option>';

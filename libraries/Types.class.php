@@ -50,4 +50,17 @@ class PMA_Types
            'IS NOT NULL',
         );
     }
+
+    /**
+     * ENUM search operators
+     *
+     * @return array
+     */
+    public function getEnumOperators() {
+        return array(
+           '=',
+           '!=',
+        );
+    }
+
 }

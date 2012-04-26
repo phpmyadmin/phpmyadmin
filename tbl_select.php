@@ -142,7 +142,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
             <td><select name="func[]">
         <?php
         if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
-            foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
+            foreach ($GLOBALS['PMA_Types']->getEnumOperators() as $fc) {
                 echo "\n" . '                        '
                    . '<option value="' . htmlspecialchars($fc) . '">'
                    . htmlspecialchars($fc) . '</option>';

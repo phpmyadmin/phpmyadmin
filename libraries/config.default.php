@@ -2902,16 +2902,6 @@ $cfg['TextOperators'] = array(
 );
 
 /**
- * Search operators
- *
- * @global array $cfg['EnumOperators']
- */
-$cfg['EnumOperators'] = array(
-   '=',
-   '!=',
-);
-
-/**
  * Max rows retreived for zoom search
  */
 $cfg['maxRowPlotLimit'] = 500;
