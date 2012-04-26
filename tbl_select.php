@@ -299,7 +299,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
         while (list($i, $func_type) = each($func)) {
 
             list($charsets[$i]) = explode('_', $collations[$i]);
-            $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
+            $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($func_type);
 
             $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
             $whereClause = PMA_tbl_search_getWhereClause($fields[$i], $names[$i], $types[$i], $collations[$i], $func_type, $unaryFlag, $tmp_geom_func);

@@ -2932,18 +2932,6 @@ $cfg['NullOperators'] = array(
 );
 
 /**
- * Search operators
- *
- * @global array $cfg['UnaryOperators']
- */
-$cfg['UnaryOperators'] = array(
-   'IS NULL' => 1,
-   'IS NOT NULL' => 1,
-   "= ''" => 1,
-   "!= ''" => 1
-);
-
-/**
  * Max rows retreived for zoom search
  */
 $cfg['maxRowPlotLimit'] = 500;
