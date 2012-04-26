@@ -33,7 +33,8 @@ phpMyAdmin - ChangeLog
 - bug #3510196 [core] Improved redirecting with ForceSSL option
 + rfe #3518852 [edit] edit blob but not other binary, new option $cfg['ProtectBinary'] = 'noblob'
 + Hide language select box if there are no locales installed
-+ Removed some directives: verbose_check, SuggestDBName, LightTabs
++ Removed some directives: verbose_check, SuggestDBName, LightTabs,
+VerboseMultiSubmit
 - Patch #3500882 Fixing checkbox behaviour while editing identical rows
 + rfe #3441722 [interface] Display description of datatypes
 + rfe #3517835 [structure] Move columns easily

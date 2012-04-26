@@ -63,7 +63,6 @@ $forms['Sql_queries']['Sql_queries'] = array(
     'Confirm',
     'QueryHistoryMax',
     'IgnoreMultiSubmitErrors',
-    'VerboseMultiSubmit',
     'MaxCharactersInDisplayedSQL',
     'EditInWindow',
     //'QueryWindowWidth', // overridden in theme

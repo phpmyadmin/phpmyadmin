@@ -138,15 +138,13 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             }
                             $my_die[] = array('sql' => $import_run_buffer['full'], 'error' => PMA_DBI_getError());
 
-                            if ($cfg['VerboseMultiSubmit']) {
-                                $msg .= __('Error');
-                            }
+                            $msg .= __('Error');
 
                             if (!$cfg['IgnoreMultiSubmitErrors']) {
                                 $error = true;
                                 return;
                             }
-                        } elseif ($cfg['VerboseMultiSubmit']) {
+                        } else {
                             $a_num_rows = (int)@PMA_DBI_num_rows($result);
                             $a_aff_rows = (int)@PMA_DBI_affected_rows();
                             if ($a_num_rows > 0) {
@@ -190,13 +188,8 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
             // (if $run_query is false, we are just displaying so show
             // the complete query in the textarea)
             if (! $go_sql && $run_query) {
-                if ($cfg['VerboseMultiSubmit'] && ! empty($sql_query)) {
+                if (! empty($sql_query)) {
                     if (strlen($sql_query) > 50000 || $executed_queries > 50 || $max_sql_len > 1000) {
-                        $sql_query = '';
-                        $sql_query_disabled = true;
-                    }
-                } else {
-                    if (strlen($sql_query) > 10000 || $executed_queries > 10 || $max_sql_len > 500) {
                         $sql_query = '';
                         $sql_query_disabled = true;
                     }

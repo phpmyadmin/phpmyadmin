@@ -704,15 +704,6 @@ $cfg['UseDbSearch'] = true;
 $cfg['IgnoreMultiSubmitErrors'] = false;
 
 /**
- * if set to true, PMA will show the affected rows of EACH statement on
- * multiple-statement queries. See the libraries/import.php file for
- * hard coded defaults on how many queries a statement may contain!
- *
- * @global boolean $cfg['VerboseMultiSubmit']
- */
-$cfg['VerboseMultiSubmit'] = true;
-
-/**
  * allow login to any user entered server in cookie based authentication
  *
  * @global boolean $cfg['AllowArbitraryServer']
