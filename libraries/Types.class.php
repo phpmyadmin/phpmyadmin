@@ -235,6 +235,17 @@ class PMA_Types
         sort($ret);
         return $ret;
     }
+
+    /**
+     * Returns array of all attributes available.
+     *
+     * @return array
+     *
+     */
+    public function getAttributes()
+    {
+        return array();
+    }
 }
 
 /**
@@ -554,6 +565,23 @@ class PMA_Types_MySQL extends PMA_Types
         }
         return array();
     }
+
+    /**
+     * Returns array of all attributes available.
+     *
+     * @return array
+     *
+     */
+    public function getAttributes()
+    {
+        return array(
+           '',
+           'BINARY',
+           'UNSIGNED',
+           'UNSIGNED ZEROFILL',
+           'on update CURRENT_TIMESTAMP',
+        );
+    }
 }
 
 /**
@@ -787,5 +815,19 @@ class PMA_Types_Drizzle extends PMA_Types
             );
         }
         return array();
+    }
+
+    /**
+     * Returns array of all attributes available.
+     *
+     * @return array
+     *
+     */
+    public function getAttributes()
+    {
+        return array(
+           '',
+           'on update CURRENT_TIMESTAMP',
+        );
     }
 }

@@ -59,9 +59,4 @@ if ($auto_column_types && PMA_MYSQL_INT_VERSION >= 20120130) {
 }
 unset($auto_column_types);
 
-$cfg['AttributeTypes'] = !empty($cfg['AttributeTypes']) ? $cfg['AttributeTypes'] : array(
-   '',
-   'on update CURRENT_TIMESTAMP',
-);
-
 ?>

@@ -358,9 +358,7 @@ rm -rf config                      # remove not needed directory
 
 <p> Simply copy <em>./config.inc.php</em> from your previous installation into the newly
     unpacked one. Configuration files from old versions may
-    require some tweaking as some options have been changed or removed; in
-    particular, the definition of <code>$cfg['AttributeTypes']</code> has changed
-    so you better remove it from your file and just use the default one.
+    require some tweaking as some options have been changed or removed.
     For compatibility with PHP 6, remove a <code>set_magic_quotes_runtime(0);</code>
     statement that you might find near the end of your configuration file.</p>
 
@@ -2401,10 +2399,6 @@ setfacl -d -m "g:www-data:rwx" tmp
     <dt id="cfg_ColumnTypes">$cfg['ColumnTypes'] array</dt>
     <dd>All possible types of a MySQL column. In most cases you don't need to
         edit this.</dd>
-
-    <dt id="cfg_AttributeTypes">$cfg['AttributeTypes'] array</dt>
-    <dd>Possible attributes for columns. In most cases you don't need to edit
-        this.</dd>
 
     <dt id="cfg_DefaultFunctions">$cfg['DefaultFunctions'] array</dt>
     <dd>Functions selected by default when inserting/changing row, Functions

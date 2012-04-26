@@ -2807,15 +2807,6 @@ $cfg['DBG']['sql'] = false;
 $cfg['ColumnTypes'] = array();
 
 /**
- * Attributes
- *
- * This variable is filled in data_*.inc.php
- *
- * @global array $cfg['AttributeTypes']
- */
-$cfg['AttributeTypes'] = array();
-
-/**
  * Default functions for above defined groups
  *
  * @global array $cfg['DefaultFunctions']

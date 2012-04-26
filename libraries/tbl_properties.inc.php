@@ -446,13 +446,14 @@ for ($i = 0; $i < $num_fields; $i++) {
         $default_current_timestamp = false;
     }
 
-    $cnt_attribute_types = count($cfg['AttributeTypes']);
+    $attribute_types = $GLOBALS['PMA_Types']->getAttributes();
+    $cnt_attribute_types = count($attribute_types);
     for ($j = 0; $j < $cnt_attribute_types; $j++) {
-        $content_cells[$i][$ci] .= '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
-        if (strtoupper($attribute) == strtoupper($cfg['AttributeTypes'][$j])) {
+        $content_cells[$i][$ci] .= '                <option value="'. $attribute_types[$j] . '"';
+        if (strtoupper($attribute) == strtoupper($attribute_types[$j])) {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        $content_cells[$i][$ci] .= '>' . $cfg['AttributeTypes'][$j] . '</option>';
+        $content_cells[$i][$ci] .= '>' . $attribute_types[$j] . '</option>';
     }
 
     $content_cells[$i][$ci] .= '</select>';
@@ -543,7 +544,7 @@ for ($i = 0; $i < $num_fields; $i++) {
                 . '>' . __('first') . '</option>';
 
             for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
-                $content_cells[$i][$ci] .= 
+                $content_cells[$i][$ci] .=
                     '<option value="' . $move_columns[$mi]->name . '"'
                     . (($current_index == $mi || $current_index == $mi + 1) ? ' disabled="disabled"' : '')
                     .'>' . sprintf(__('after %s'), PMA_backquote($move_columns[$mi]->name)) . '</option>';
