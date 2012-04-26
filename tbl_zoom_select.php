@@ -109,7 +109,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
                 . htmlspecialchars($fc) . '</option>';
         }
     } elseif (preg_match('@char|blob|text|set@i', $fields_type[$key])) {
-        foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
+        foreach ($GLOBALS['PMA_Types']->getTextOperators() as $fc) {
             $html .= "\n" . '                        '
                 . '<option value="' . htmlspecialchars($fc) . '">'
                 . htmlspecialchars($fc) . '</option>';

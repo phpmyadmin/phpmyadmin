@@ -148,7 +148,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
                    . htmlspecialchars($fc) . '</option>';
             }
         } elseif (preg_match('@char|blob|text|set@i', $fields_type[$i])) {
-            foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
+            foreach ($GLOBALS['PMA_Types']->getTextOperators() as $fc) {
             echo "\n" . '                        '
                . '<option value="' . htmlspecialchars($fc) . '">'
                . htmlspecialchars($fc) . '</option>';

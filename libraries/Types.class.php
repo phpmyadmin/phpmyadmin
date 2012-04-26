@@ -63,4 +63,28 @@ class PMA_Types
         );
     }
 
+    /**
+     * TEXT search operators
+     *
+     * @return array
+     */
+    public function getTextOperators() {
+        return array(
+           'LIKE',
+           'LIKE %...%',
+           'NOT LIKE',
+           '=',
+           '!=',
+           'REGEXP',
+           'REGEXP ^...$',
+           'NOT REGEXP',
+           "= ''",
+           "!= ''",
+           'IN (...)',
+           'NOT IN (...)',
+           'BETWEEN',
+           'NOT BETWEEN',
+        );
+    }
+
 }

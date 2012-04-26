@@ -2880,28 +2880,6 @@ $cfg['NumOperators'] = array(
 );
 
 /**
- * Search operators
- *
- * @global array $cfg['TextOperators']
- */
-$cfg['TextOperators'] = array(
-   'LIKE',
-   'LIKE %...%',
-   'NOT LIKE',
-   '=',
-   '!=',
-   'REGEXP',
-   'REGEXP ^...$',
-   'NOT REGEXP',
-   "= ''",
-   "!= ''",
-   'IN (...)',
-   'NOT IN (...)',
-   'BETWEEN',
-   'NOT BETWEEN',
-);
-
-/**
  * Max rows retreived for zoom search
  */
 $cfg['maxRowPlotLimit'] = 500;
