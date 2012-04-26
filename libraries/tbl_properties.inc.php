@@ -27,13 +27,6 @@ require_once './libraries/StorageEngine.class.php';
  */
 require_once './libraries/Partition.class.php';
 
-// load additional configuration variables
-if (PMA_DRIZZLE) {
-    include_once './libraries/data_drizzle.inc.php';
-} else {
-    include_once './libraries/data_mysql.inc.php';
-}
-
 $length_values_input_size = 8;
 
 $_form_params = array(
