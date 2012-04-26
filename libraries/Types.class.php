@@ -645,7 +645,7 @@ class PMA_Types_Drizzle extends PMA_Types
     public function getFunctionsClass($class) {
         switch ($class) {
             case 'CHAR':
-                return array(
+                $ret = array(
                     'BIN',
                     'CHAR',
                     'CURRENT_USER',
@@ -671,6 +671,26 @@ class PMA_Types_Drizzle extends PMA_Types
                     'UUID',
                     'VERSION',
                 );
+
+                // check for some functions known to be in modules
+                $functions = array(
+                    'MYSQL_PASSWORD',
+                    'ROT13',
+                );
+
+                // add new functions
+                $sql = "SELECT upper(plugin_name) f
+                    FROM data_dictionary.plugins
+                    WHERE plugin_name IN ('" . implode("','", $functions) . "')
+                      AND plugin_type = 'Function'
+                      AND is_active";
+                $drizzle_functions = PMA_DBI_fetch_result($sql, 'f', 'f');
+                if (count($drizzle_functions) > 0) {
+                    $ret = array_merge($ret, $drizzle_functions);
+                    sort($ret);
+                }
+
+                return $ret;
 
             case 'UUID':
                 return array(
