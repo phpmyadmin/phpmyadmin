@@ -213,10 +213,10 @@ class PMA_Types
      */
     public function getAllFunctions() {
         $ret = array_merge(
-            $this->getFunctions('CHAR'),
-            $this->getFunctions('NUMBER'),
-            $this->getFunctions('DATE'),
-            $this->getFunctions('UUID')
+            $this->getFunctionsClass('CHAR'),
+            $this->getFunctionsClass('NUMBER'),
+            $this->getFunctionsClass('DATE'),
+            $this->getFunctionsClass('UUID')
         );
         sort($ret);
         return $ret;
