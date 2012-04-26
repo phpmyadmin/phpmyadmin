@@ -159,9 +159,6 @@ $(function() {
                         'js/jquery/timepicker.js',
                         'js/jquery/jquery.json-2.2.js',
                         'js/jquery/jquery.sortableTable.js'];
-                    if (cfg_CodemirrorEnable) {
-                        scripts.push('js/codemirror/lib/codemirror.js', 'js/codemirror/mode/mysql/mysql.js');
-                    }
                     scripts.push('js/server_status_monitor.js');
                     loadJavascript(scripts);
                 }, 50);
