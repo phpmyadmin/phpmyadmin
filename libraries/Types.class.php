@@ -328,7 +328,7 @@ class PMA_Types_MySQL extends PMA_Types
 
             case 'ENUM':
             case 'SET':
-                return ''
+                return '';
 
             case 'GEOMETRY':
             case 'POINT':
