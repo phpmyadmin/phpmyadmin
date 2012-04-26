@@ -191,6 +191,23 @@ class PMA_Types
     public function getFunctions($type) {
         return array();
     }
+
+    /**
+     * Returns array of all functions available.
+     *
+     * @return array
+     *
+     */
+    public function getAllFunctions() {
+        $ret = array_merge(
+            $this->getFunctions('CHAR'),
+            $this->getFunctions('NUMBER'),
+            $this->getFunctions('DATE'),
+            $this->getFunctions('UUID'),
+        );
+        sort($ret);
+        return $ret;
+    }
 }
 
 /**
