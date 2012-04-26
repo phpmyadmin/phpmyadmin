@@ -7,7 +7,7 @@
  */
 
 require_once 'libraries/common.lib.php';
-
+require_once './libraries/Types.class.php';
 
 /*
  * Include to test.
@@ -22,7 +22,7 @@ class PMA_RTN_getDataFromRequest_test extends PHPUnit_Framework_TestCase
 
         $cfg['ShowFunctionFields'] = false;
 
-        include 'libraries/data_mysql.inc.php';
+        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
     }
 
     /**

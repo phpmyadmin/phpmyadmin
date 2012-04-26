@@ -9,6 +9,7 @@ require_once 'libraries/common.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
+require_once './libraries/Types.class.php';
 /*
  * Include to test.
  */
@@ -20,7 +21,7 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
     {
         global $cfg;
 
-        include 'libraries/data_mysql.inc.php';
+        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
 
         if (! defined('PMA_MYSQL_INT_VERSION')) {
             define('PMA_MYSQL_INT_VERSION', 51000);
