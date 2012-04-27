@@ -172,7 +172,7 @@ if (isset($_REQUEST['submit_create_version'])) {
     }
     $tracking_set = rtrim($tracking_set, ',');
 
-    if (PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set )) {
+    if (PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set)) {
         $msg = PMA_Message::success(
             sprintf(
                 __('Version %1$s was created, tracking for %2$s is active.'),

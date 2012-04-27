@@ -29,7 +29,7 @@ require_once 'libraries/RecentTable.class.php';
  * Check if it is an ajax request to reload the recent tables list.
  */
 if ($GLOBALS['is_ajax_request'] && $_REQUEST['recent_table']) {
-    PMA_ajaxResponse('', true, array('options' => PMA_RecentTable::getInstance()->getHtmlSelectOption()) );
+    PMA_ajaxResponse('', true, array('options' => PMA_RecentTable::getInstance()->getHtmlSelectOption()));
 }
 
 // keep the offset of the db list in session before closing it

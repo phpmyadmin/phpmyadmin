@@ -74,7 +74,7 @@ if (isset($plugin_list)) {
      */
     function PMA_exportDBHeader($db)
     {
-        PMA_exportOutputHandler('// Database \'' . $db . '\'' . $GLOBALS['crlf'] );
+        PMA_exportOutputHandler('// Database \'' . $db . '\'' . $GLOBALS['crlf']);
         return true;
     }
 

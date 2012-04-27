@@ -34,7 +34,7 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
 
-        $this->expectOutputRegex("/Missing parameter: field/" );
+        $this->expectOutputRegex("/Missing parameter: field/");
 
         PMA_checkParameters(array('db', 'table', 'field'));
     }

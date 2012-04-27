@@ -701,7 +701,7 @@ if ($action == 'tbl_create.php') {
             <?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </th>
         <td width="25">&nbsp;</td>
-        <th><?php echo __('Collation') ;?>:&nbsp;</th>
+        <th><?php echo __('Collation');?>:&nbsp;</th>
     </tr>
     <tr><td><input type="text" name="comment" size="40" maxlength="80"
                 value="<?php echo (isset($_REQUEST['comment']) ? htmlspecialchars($_REQUEST['comment']) : ''); ?>"

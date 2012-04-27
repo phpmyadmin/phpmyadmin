@@ -192,7 +192,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         <?php if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
         <span class="doc">
             <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $base_dir . $opts['doc']  ?>" target="documentation"><?php echo $icons['help']; ?></a><?php } ?>
-            <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><?php echo $icons['info']; ?></a><?php } ?>
+            <?php if (!empty($opts['wiki'])) { ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><?php echo $icons['info']; ?></a><?php } ?>
         </span>
         <?php } ?>
         <?php if ($option_is_disabled) { ?>
