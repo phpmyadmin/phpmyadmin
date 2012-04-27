@@ -30,9 +30,19 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
     $cache_affected_rows = false;
 
     if ($show_error) {
-        $result = PMA_DBI_query($sql, $GLOBALS['controllink'], $options, $cache_affected_rows);
+        $result = PMA_DBI_query(
+            $sql,
+            $GLOBALS['controllink'],
+            $options,
+            $cache_affected_rows
+        );
     } else {
-        $result = @PMA_DBI_try_query($sql, $GLOBALS['controllink'], $options, $cache_affected_rows);
+        $result = @PMA_DBI_try_query(
+            $sql,
+            $GLOBALS['controllink'],
+            $options,
+            $cache_affected_rows
+        );
     } // end if... else...
 
     if ($result) {
@@ -58,7 +68,9 @@ function PMA_getRelationsParam($verbose = false)
     $GLOBALS['cfgRelation'] = $_SESSION['relation'][$GLOBALS['server']];
 
     if ($verbose) {
-        PMA_printRelationsParamDiagnostic($_SESSION['relation'][$GLOBALS['server']]);
+        PMA_printRelationsParamDiagnostic(
+            $_SESSION['relation'][$GLOBALS['server']]
+        );
     }
 
     return $_SESSION['relation'][$GLOBALS['server']];
@@ -93,68 +105,195 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     echo '<table>' . "\n";
 
-    PMA_printDiagMessageForParameter('pmadb', $GLOBALS['cfg']['Server']['pmadb'], $messages, 'pmadb');
+    PMA_printDiagMessageForParameter(
+        'pmadb',
+        $GLOBALS['cfg']['Server']['pmadb'],
+        $messages,
+        'pmadb'
+    );
 
-    PMA_printDiagMessageForParameter('relation', isset($cfgRelation['relation']), $messages, 'relation');
+    PMA_printDiagMessageForParameter(
+        'relation',
+        isset($cfgRelation['relation']),
+        $messages,
+        'relation'
+    );
 
-    PMA_printDiagMessageForFeature(__('General relation features'), 'relwork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('General relation features'),
+        'relwork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('table_info', isset($cfgRelation['table_info']), $messages, 'table_info');
+    PMA_printDiagMessageForParameter(
+        'table_info',
+        isset($cfgRelation['table_info']),
+        $messages
+        'table_info'
+    );
 
-    PMA_printDiagMessageForFeature(__('Display Features'), 'displaywork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('Display Features'),
+        'displaywork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('table_coords', isset($cfgRelation['table_coords']), $messages, 'table_coords');
+    PMA_printDiagMessageForParameter(
+        'table_coords',
+        isset($cfgRelation['table_coords']),
+        $messages,
+        'table_coords'
+    );
 
-    PMA_printDiagMessageForParameter('pdf_pages', isset($cfgRelation['pdf_pages']), $messages, 'table_coords');
+    PMA_printDiagMessageForParameter(
+        'pdf_pages',
+        isset($cfgRelation['pdf_pages']),
+        $messages,
+        'table_coords'
+    );
 
-    PMA_printDiagMessageForFeature(__('Creation of PDFs'), 'pdfwork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('Creation of PDFs'),
+        'pdfwork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('column_info', isset($cfgRelation['column_info']), $messages, 'col_com');
+    PMA_printDiagMessageForParameter(
+        'column_info',
+        isset($cfgRelation['column_info']),
+        $messages,
+        'col_com'
+    );
 
-    PMA_printDiagMessageForFeature(__('Displaying Column Comments'), 'commwork', $messages, false);
+    PMA_printDiagMessageForFeature(
+        __('Displaying Column Comments'),
+        'commwork',
+        $messages,
+        false
+    );
 
-    PMA_printDiagMessageForFeature(__('Browser transformation'), 'mimework', $messages);
+    PMA_printDiagMessageForFeature(
+        __('Browser transformation'),
+        'mimework',
+        $messages
+    );
 
     if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
-        echo '<tr><td colspan=2 class="left">' . __('Please see the documentation on how to update your column_comments table') . '</td></tr>' . "\n";
+        echo '<tr><td colspan=2 class="left">'
+            . __('Please see the documentation on how to update your column_comments table')
+            . '</td></tr>' . "\n";
     }
 
-    PMA_printDiagMessageForParameter('bookmarktable', isset($cfgRelation['bookmark']), $messages, 'bookmark');
+    PMA_printDiagMessageForParameter(
+        'bookmarktable',
+        isset($cfgRelation['bookmark']),
+        $messages,
+        'bookmark'
+    );
 
-    PMA_printDiagMessageForFeature(__('Bookmarked SQL query'), 'bookmarkwork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('Bookmarked SQL query'),
+        'bookmarkwork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('history', isset($cfgRelation['history']), $messages, 'history');
+    PMA_printDiagMessageForParameter(
+        'history',
+        isset($cfgRelation['history']),
+        $messages,
+        'history'
+    );
 
-    PMA_printDiagMessageForFeature(__('SQL history'), 'historywork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('SQL history'),
+        'historywork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('designer_coords', isset($cfgRelation['designer_coords']), $messages, 'designer_coords');
+    PMA_printDiagMessageForParameter(
+        'designer_coords',
+        isset($cfgRelation['designer_coords']),
+        $messages,
+        'designer_coords'
+    );
 
-    PMA_printDiagMessageForFeature(__('Designer'), 'designerwork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('Designer'),
+        'designerwork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('recent', isset($cfgRelation['recent']), $messages, 'recent');
+    PMA_printDiagMessageForParameter(
+        'recent',
+        isset($cfgRelation['recent']),
+        $messages,
+        'recent'
+    );
 
-    PMA_printDiagMessageForFeature(__('Persistent recently used tables'), 'recentwork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('Persistent recently used tables'),
+        'recentwork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('table_uiprefs', isset($cfgRelation['table_uiprefs']), $messages, 'table_uiprefs');
+    PMA_printDiagMessageForParameter(
+        'table_uiprefs',
+        isset($cfgRelation['table_uiprefs']),
+        $messages,
+        'table_uiprefs'
+    );
 
-    PMA_printDiagMessageForFeature(__('Persistent tables\' UI preferences'), 'uiprefswork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('Persistent tables\' UI preferences'),
+        'uiprefswork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('tracking', isset($cfgRelation['tracking']), $messages, 'tracking');
+    PMA_printDiagMessageForParameter(
+        'tracking',
+        isset($cfgRelation['tracking']),
+        $messages,
+        'tracking'
+    );
 
-    PMA_printDiagMessageForFeature(__('Tracking'), 'trackingwork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('Tracking'),
+        'trackingwork',
+        $messages
+    );
 
-    PMA_printDiagMessageForParameter('userconfig', isset($cfgRelation['userconfig']), $messages, 'userconfig');
+    PMA_printDiagMessageForParameter(
+        'userconfig',
+        isset($cfgRelation['userconfig']),
+        $messages,
+        'userconfig'
+    );
 
-    PMA_printDiagMessageForFeature(__('User preferences'), 'userconfigwork', $messages);
+    PMA_printDiagMessageForFeature(
+        __('User preferences'),
+        'userconfigwork',
+        $messages
+    )
 
     echo '</table>' . "\n";
 
     echo '<p>' . __('Quick steps to setup advanced features:') . '</p>';
     echo '<ul>';
-    echo '<li>' . __('Create the needed tables with the <code>examples/create_tables.sql</code>.') . ' ' . PMA_showDocu('linked-tables') . '</li>';
-    echo '<li>' . __('Create a pma user and give access to these tables.') . ' ' . PMA_showDocu('pmausr') . '</li>';
-    echo '<li>' . __('Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.') . ' ' . PMA_showDocu('quick_install') . '</li>';
-    echo '<li>' . __('Re-login to phpMyAdmin to load the updated configuration file.') . '</li>';
+    echo '<li>'
+        . __('Create the needed tables with the <code>examples/create_tables.sql</code>.')
+        . ' ' . PMA_showDocu('linked-tables')
+        . '</li>';
+    echo '<li>'
+        . __('Create a pma user and give access to these tables.')
+        . ' ' . PMA_showDocu('pmausr')
+        . '</li>';
+    echo '<li>'
+        . __('Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.')
+        . ' ' . PMA_showDocu('quick_install')
+        . '</li>';
+    echo '<li>'
+        . __('Re-login to phpMyAdmin to load the updated configuration file.')
+        . '</li>';
     echo '</ul>';
 }
 
