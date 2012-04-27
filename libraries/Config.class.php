@@ -266,9 +266,9 @@ class PMA_Config
      */
     function checkWebServer()
     {
+        // some versions return Microsoft-IIS, some Microsoft/IIS
+        // we could use a preg_match() but it's slower
         if (PMA_getenv('SERVER_SOFTWARE')
-            // some versions return Microsoft-IIS, some Microsoft/IIS
-            // we could use a preg_match() but it's slower
             && stristr(PMA_getenv('SERVER_SOFTWARE'), 'Microsoft')
             && stristr(PMA_getenv('SERVER_SOFTWARE'), 'IIS')
         ) {

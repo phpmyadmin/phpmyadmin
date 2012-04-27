@@ -424,8 +424,8 @@ foreach ($fields as $row) {
         ?>
     </td>
     <?php
+        // FULLTEXT is possible on TEXT, CHAR and VARCHAR
         if (! empty($tbl_storage_engine) && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA' || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
-            // FULLTEXT is possible on TEXT, CHAR and VARCHAR
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
         ) {
             echo "\n";

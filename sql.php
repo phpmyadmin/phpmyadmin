@@ -348,11 +348,11 @@ if (isset($btnDrop) && $btnDrop == __('No')) {
  *
  * Also bypassed if only showing php code.or validating a SQL query
  */
+// if we are coming from a "Create PHP code" or a "Without PHP Code"
+// dialog, we won't execute the query anyway, so don't confirm
 if (! $cfg['Confirm']
     || isset($_REQUEST['is_js_confirmed'])
     || isset($btnDrop)
-    // if we are coming from a "Create PHP code" or a "Without PHP Code"
-    // dialog, we won't execute the query anyway, so don't confirm
     || isset($GLOBALS['show_as_php'])
     || ! empty($GLOBALS['validatequery'])
 ) {

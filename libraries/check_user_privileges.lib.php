@@ -103,9 +103,9 @@ function PMA_analyseShowGrant()
                     continue;
                 }
 
+                // does this db exist?
                 if ((preg_match('/' . $re0 . '%|_/', $show_grants_dbname)
                     && ! preg_match('/\\\\%|\\\\_/', $show_grants_dbname))
-                    // does this db exist?
                     || (! PMA_DBI_try_query('USE ' .  preg_replace('/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test))
                     && substr(PMA_DBI_getError(), 1, 4) != 1044)
                 ) {

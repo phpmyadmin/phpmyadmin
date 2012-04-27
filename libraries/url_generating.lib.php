@@ -223,9 +223,9 @@ function PMA_generate_common_url()
 
     $separator = PMA_get_arg_separator();
 
+    // avoid overwriting when creating navi panel links to servers
     if (isset($GLOBALS['server'])
         && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
-        // avoid overwriting when creating navi panel links to servers
         && ! isset($params['server'])
     ) {
         $params['server'] = $GLOBALS['server'];
