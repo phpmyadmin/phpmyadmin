@@ -21,7 +21,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @see PMA_generate_common_url()
  *
- * @return  string   string with input fields
+ * @return string   string with input fields
  *
  * @global  string   the current language
  * @global  string   the current conversion charset
@@ -179,7 +179,7 @@ function PMA_getHiddenFields($values, $pre = '')
  *               - if first param is not array: optional character to use
  *               instead of '&amp;' for dividing URL parameters
  *
- * @return  string   string with URL parameters
+ * @return string   string with URL parameters
  * @access  public
  */
 function PMA_generate_common_url()
@@ -266,7 +266,7 @@ function PMA_generate_common_url()
  * @param string $encode whether to encode separator or not,
  * currently 'none' or 'html'
  *
- * @return  string  character used for separating url parts usally ; or &
+ * @return string  character used for separating url parts usally ; or &
  * @access  public
  */
 function PMA_get_arg_separator($encode = 'none')

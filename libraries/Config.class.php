@@ -540,7 +540,7 @@ class PMA_Config
     /**
      * loads default values from default source
      *
-     * @return  boolean     success
+     * @return boolean     success
      */
     function loadDefaults()
     {
@@ -892,7 +892,7 @@ class PMA_Config
     /**
      * check config source
      *
-     * @return  boolean whether source is valid or not
+     * @return boolean whether source is valid or not
      */
     function checkConfigSource()
     {
@@ -991,7 +991,7 @@ class PMA_Config
     /**
      * returns source for current config
      *
-     * @return  string  config source
+     * @return string  config source
      */
     function getSource()
     {

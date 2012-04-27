@@ -11,7 +11,7 @@
 /**
  * Displays authentication form
  *
- * @return  boolean   always true
+ * @return boolean   always true
  *
  * @access  public
  */
@@ -24,7 +24,7 @@ function PMA_auth()
 /**
  * Gets advanced authentication settings
  *
- * @return  boolean   always true
+ * @return boolean   always true
  *
  * @access  public
  */
@@ -37,7 +37,7 @@ function PMA_auth_check()
 /**
  * Set the user and password after last checkings if required
  *
- * @return  boolean   always true
+ * @return boolean   always true
  *
  * @access  public
  */
@@ -61,7 +61,7 @@ function PMA_auth_set_user()
  * @global  boolean   tell the "PMA_mysqlDie()" function headers have been
  *                    sent
  *
- * @return  boolean   always true (no return indeed)
+ * @return boolean   always true (no return indeed)
  *
  * @access  public
  */

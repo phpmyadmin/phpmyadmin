@@ -70,7 +70,7 @@ function get_tabs()
 /**
  * retrieves table column info
  *
- * @return  array   table column nfo
+ * @return array   table column nfo
  */
 function get_tab_info()
 {
@@ -160,7 +160,7 @@ function get_script_contr()
 }
 
 /**
- * @return  array unique or primary indizes
+ * @return array unique or primary indizes
  */
 function get_pk_or_unique_keys()
 {
@@ -172,7 +172,7 @@ function get_pk_or_unique_keys()
  *
  * @param boolean whether to include ony unique ones
  *
- * @return  array indizes
+ * @return array indizes
  */
 function get_all_keys($unique_only = false)
 {
@@ -199,7 +199,7 @@ function get_all_keys($unique_only = false)
 /**
  *
  *
- * @return  array   ???
+ * @return array   ???
  */
 function get_script_tabs()
 {
@@ -220,7 +220,7 @@ function get_script_tabs()
 }
 
 /**
- * @return  array   table positions and sizes
+ * @return array   table positions and sizes
  */
 function get_tab_pos()
 {

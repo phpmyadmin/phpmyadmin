@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @param string  $index   The index of the string to get
  *
- * @return  string  The requested string or an empty string, if not available
+ * @return string  The requested string or an empty string, if not available
  */
 function PMA_RTE_getWord($index)
 {

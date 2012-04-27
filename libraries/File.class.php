@@ -101,7 +101,7 @@ class PMA_File
      * deletes file if it is temporary, usally from a moved upload file
      *
      * @access  public
-     * @return  boolean success
+     * @return boolean success
      */
     function cleanUp()
     {
@@ -116,7 +116,7 @@ class PMA_File
      * deletes the file
      *
      * @access  public
-     * @return  boolean success
+     * @return boolean success
      */
     function delete()
     {
@@ -129,7 +129,7 @@ class PMA_File
      *
      * @param boolean $is_temp sets the temp flag
      *
-     * @return  boolean PMA_File::$_is_temp
+     * @return boolean PMA_File::$_is_temp
      * @access  public
      */
     function isTemp($is_temp = null)
@@ -156,7 +156,7 @@ class PMA_File
 
     /**
      *
-     * @return  string  binary file content
+     * @return string  binary file content
      *
      * @access  public
      */
@@ -204,7 +204,7 @@ class PMA_File
      * accessor
      *
      * @access  public
-     * @return  string  PMA_File::$_name
+     * @return string  PMA_File::$_name
      */
     function getName()
     {
@@ -215,7 +215,7 @@ class PMA_File
      *
      * @param string $name name of file uploaded
      *
-     * @return  boolean success
+     * @return boolean success
      * @access  public
      */
     function setUploadedFile($name)
@@ -235,7 +235,7 @@ class PMA_File
      * @param string $key       the md5 hash of the column name
      * @param string $rownumber
      *
-     * @return  boolean success
+     * @return boolean success
      * @access  public
      */
     function setUploadedFromTblChangeRequest($key, $rownumber)
@@ -303,7 +303,7 @@ class PMA_File
      * @param string $rownumber
      * @param string $key
      *
-     * @return  array
+     * @return array
      * @access  public
      * @static
      */
@@ -326,7 +326,7 @@ class PMA_File
      * @param string $key       the md5 hash of the column name
      * @param string $rownumber
      *
-     * @return  boolean success
+     * @return boolean success
      * @access  public
      */
     function setSelectedFromTblChangeRequest($key, $rownumber = null)
@@ -343,7 +343,7 @@ class PMA_File
 
     /**
      * @access  public
-     * @return  string  error message
+     * @return string  error message
      */
     function getError()
     {
@@ -352,7 +352,7 @@ class PMA_File
 
     /**
      * @access  public
-     * @return  boolean whether an error occured or not
+     * @return boolean whether an error occured or not
      */
     function isError()
     {
@@ -366,7 +366,7 @@ class PMA_File
      * @param string $key       the md5 hash of the column name
      * @param string $rownumber
      *
-     * @return  boolean success
+     * @return boolean success
      * @access  public
      */
     function checkTblChangeForm($key, $rownumber)
@@ -389,7 +389,7 @@ class PMA_File
      *
      * @param string $name
      *
-     * @return  boolean success
+     * @return boolean success
      * @access  public
      */
     function setLocalSelectedFile($name)
@@ -410,7 +410,7 @@ class PMA_File
 
     /**
      * @access  public
-     * @return  boolean whether the file is readable or not
+     * @return boolean whether the file is readable or not
      */
     function isReadable()
     {
@@ -429,7 +429,7 @@ class PMA_File
      *
      * @todo move check of $cfg['TempDir'] into PMA_Config?
      * @access  public
-     * @return  boolean whether uploaded fiel is fine or not
+     * @return boolean whether uploaded fiel is fine or not
      */
     function checkUploadedFile()
     {
@@ -472,7 +472,7 @@ class PMA_File
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
      * @access  protected
-     * @return  string MIME type of compression, none for none
+     * @return string MIME type of compression, none for none
      */
     function _detectCompression()
     {
@@ -604,7 +604,7 @@ class PMA_File
     }
 
     /**
-     * @return  string MIME type of compression, none for none
+     * @return string MIME type of compression, none for none
      * @access  public
      */
     function getCompression()
@@ -621,7 +621,7 @@ class PMA_File
      *
      * @param integer $length numbers of chars/bytes to skip
      *
-     * @return  boolean
+     * @return boolean
      * @todo this function is unused
      */
     function advanceFilePointer($length)

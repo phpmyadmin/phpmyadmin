@@ -44,7 +44,7 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
  * @param string $out_charset output character set
  * @param string $str         the string to convert
  *
- * @return  mixed    converted string or false on failure
+ * @return mixed    converted string or false on failure
  *
  * @access  public
  *

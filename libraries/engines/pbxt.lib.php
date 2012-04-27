@@ -16,7 +16,7 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
     /**
      * returns array with variable names dedicated to PBXT storage engine
      *
-     * @return  array   variable names
+     * @return array   variable names
      */
     function getVariables()
     {

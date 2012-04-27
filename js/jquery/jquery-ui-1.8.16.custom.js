@@ -8670,7 +8670,7 @@ $.extend(Datepicker.prototype, {
 
 	/* Retrieve the instance data for the target control.
 	   @param target  element - the target input field or division or span
-	   @return  object - the associated instance data
+	   @return object - the associated instance data
 	   @throws  error if a jQuery problem getting data */
 	_getInst: function(target) {
 		try {
@@ -8989,7 +8989,7 @@ $.extend(Datepicker.prototype, {
 
 	/* Retrieve the size of left and top borders for an element.
 	   @param elem  (jQuery object) the element of interest
-	   @return  (number[2]) the left and top borders */
+	   @return (number[2]) the left and top borders */
 	_getBorders: function(elem) {
 		var convert = function(value) {
 			return {thin: 1, medium: 2, thick: 3}[value] || value;
@@ -9200,7 +9200,7 @@ $.extend(Datepicker.prototype, {
 
 	/* Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
 	   @param date  Date - the date to get the week for
-	   @return  number - the number of the week within the year that contains this date */
+	   @return number - the number of the week within the year that contains this date */
 	iso8601Week: function(date) {
 		var checkDate = new Date(date.getTime());
 		// Find Thursday of this week starting on Monday
@@ -9222,7 +9222,7 @@ $.extend(Datepicker.prototype, {
 	                     dayNames         string[7] - names of the days from Sunday (optional)
 	                     monthNamesShort  string[12] - abbreviated names of the months (optional)
 	                     monthNames       string[12] - names of the months (optional)
-	   @return  Date - the extracted date value or null if value is blank */
+	   @return Date - the extracted date value or null if value is blank */
 	parseDate: function (format, value, settings) {
 		if (format == null || value == null)
 			throw 'Invalid arguments';
@@ -9404,7 +9404,7 @@ $.extend(Datepicker.prototype, {
 	                     dayNames         string[7] - names of the days from Sunday (optional)
 	                     monthNamesShort  string[12] - abbreviated names of the months (optional)
 	                     monthNames       string[12] - names of the months (optional)
-	   @return  string - the date in the above format */
+	   @return string - the date in the above format */
 	formatDate: function (format, date, settings) {
 		if (!date)
 			return '';
@@ -9612,7 +9612,7 @@ $.extend(Datepicker.prototype, {
 	   > 12 when midnight changeover, but then cannot generate
 	   midnight datetime, so jump to 1AM, otherwise reset.
 	   @param date  (Date) the date to check
-	   @return  (Date) the corrected date */
+	   @return (Date) the corrected date */
 	_daylightSavingAdjust: function(date) {
 		if (!date) return null;
 		date.setHours(date.getHours() > 12 ? date.getHours() + 2 : 0);
@@ -10024,7 +10024,7 @@ function isArray(a) {
 /* Invoke the datepicker functionality.
    @param options  string - a command, optionally followed by additional parameters or
                     Object - settings for attaching new datepicker functionality
-   @return  jQuery object */
+   @return jQuery object */
 $.fn.datepicker = function(options){
 	
 	/* Verify an empty collection wasn't passed - Fixes #6976 */

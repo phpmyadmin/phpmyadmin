@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  * @param string  $a_string       the string to format
  * @param boolean $add_backquotes whether to add backquotes to the string or not
  *
- * @return  string   the formatted string
+ * @return string   the formatted string
  *
  * @access  public
  */
@@ -46,7 +46,7 @@ function PMA_jsFormat($a_string = '', $add_backquotes = true)
  *
  * @param string $string the string to be escaped
  *
- * @return  string  the escaped string
+ * @return string  the escaped string
  */
 function PMA_escapeJsString($string)
 {

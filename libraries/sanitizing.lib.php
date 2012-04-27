@@ -88,7 +88,7 @@ function PMA_replaceBBLink($found)
  * @param boolean $escape  whether to escape html in result
  * @param boolean $safe    whether string is safe (can keep < and > chars)
  *
- * @return  string   the sanitized message
+ * @return string   the sanitized message
  */
 function PMA_sanitize($message, $escape = false, $safe = false)
 {
@@ -149,7 +149,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
  *
  * @param string $filename The filename
  *
- * @return  string  the sanitized filename
+ * @return string  the sanitized filename
  *
  */
 function PMA_sanitize_filename($filename)

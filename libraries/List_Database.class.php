@@ -162,7 +162,7 @@ require_once './libraries/List.class.php';
     /**
      * checks the only_db configuration
      *
-     * @return  boolean false if there is no only_db, otherwise true
+     * @return boolean false if there is no only_db, otherwise true
      */
     protected function _checkOnlyDatabase()
     {
@@ -214,7 +214,7 @@ require_once './libraries/List.class.php';
     /**
      * returns default item
      *
-     * @return  string  default item
+     * @return string  default item
      */
     public function getDefault()
     {
@@ -231,7 +231,7 @@ require_once './libraries/List.class.php';
      * @param integer $offset
      * @param integer $count
      *
-     * @return  array   db list
+     * @return array   db list
      */
     public function getGroupedDetails($offset, $count)
     {
@@ -310,7 +310,7 @@ require_once './libraries/List.class.php';
      * @param integer $offset
      * @param integer $count
      *
-     * @return  array  some items
+     * @return array  some items
      */
     public function getLimitedItems($offset, $count)
     {
@@ -320,7 +320,7 @@ require_once './libraries/List.class.php';
     /**
      * returns html code for list with dbs
      *
-     * @return  string  html code list
+     * @return string  html code list
      */
     public function getHtmlListGrouped($selected = '', $offset, $count)
     {
@@ -376,7 +376,7 @@ require_once './libraries/List.class.php';
      * as mostly names will be in english, we set the whole selectbox to LTR
      * and EN
      *
-     * @return  string  html code select
+     * @return string  html code select
      */
     public function getHtmlSelectGrouped($selected = '', $offset, $count)
     {

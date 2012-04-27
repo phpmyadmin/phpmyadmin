@@ -59,7 +59,7 @@ class PMA_Theme_Manager
      * sets path to folder containing the themes
      *
      * @param string  $path   path to themes folder
-     * @return  boolean success
+     * @return boolean success
      */
     function setThemesPath($path)
     {
@@ -73,7 +73,7 @@ class PMA_Theme_Manager
 
     /**
      * @public
-     * @return  string
+     * @return string
      */
     function getThemesPath()
     {
@@ -171,7 +171,7 @@ class PMA_Theme_Manager
     }
 
     /**
-     * @return  string  cookie name
+     * @return string  cookie name
      */
     function getThemeCookieName()
     {
@@ -185,7 +185,7 @@ class PMA_Theme_Manager
 
     /**
      * returns name of theme stored in the cookie
-     * @return  string  theme name from cookie
+     * @return string  theme name from cookie
      */
     function getThemeCookie()
     {
@@ -217,7 +217,7 @@ class PMA_Theme_Manager
     /**
      * @private
      * @param string $folder
-     * @return  boolean
+     * @return boolean
      */
     private function _checkThemeFolder($folder)
     {

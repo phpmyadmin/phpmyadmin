@@ -31,7 +31,7 @@ function PMA_langName($tmplang)
 /**
  * Tries to find the language to use
  *
- * @return  bool  success if valid lang is found, otherwise false
+ * @return bool  success if valid lang is found, otherwise false
  */
 function PMA_langCheck()
 {
@@ -112,7 +112,7 @@ function PMA_langCheck()
  *
  * @param string &$lang language to set
  *
- * @return  bool  success
+ * @return bool  success
  */
 function PMA_langSet(&$lang)
 {
@@ -133,7 +133,7 @@ function PMA_langSet(&$lang)
  * @param string  $str     string to analyze
  * @param integer $envType type of the PHP environment variable which value is $str
  *
- * @return  bool    true on success, otherwise false
+ * @return bool    true on success, otherwise false
  *
  * @access  private
  */

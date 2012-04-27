@@ -488,7 +488,7 @@ class Horde_Cipher_blowfish
  * @param string $data   original data
  * @param string $secret the secret
  *
- * @return  string  the encrypted result
+ * @return string  the encrypted result
  *
  * @access  public
  *
@@ -516,7 +516,7 @@ function PMA_blowfish_encrypt($data, $secret)
  * @param string $encdata encrypted data
  * @param string $secret  the secret
  *
- * @return  string  original data
+ * @return string  original data
  *
  * @access  public
  *

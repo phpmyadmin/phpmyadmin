@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  * @param boolean $show_error whether to display SQL error messages or not
  * @param int     $options    query options
  *
- * @return  integer   the result set, or false if no result set
+ * @return integer   the result set, or false if no result set
  *
  * @access  public
  *
@@ -55,7 +55,7 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 /**
  * @param bool $verbose whether to print diagnostic info
  *
- * @return  array   $cfgRelation
+ * @return array   $cfgRelation
  */
 function PMA_getRelationsParam($verbose = false)
 {
@@ -341,7 +341,7 @@ function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $
  * but added some stuff to check what will work
  *
  * @access  protected
- * @return  array    the relation parameters for the current user
+ * @return array    the relation parameters for the current user
  */
 function PMA__getRelationsParam()
 {
@@ -487,7 +487,7 @@ function PMA__getRelationsParam()
  * @param string $column the name of the column to check for
  * @param string $source the source for foreign key information
  *
- * @return  array    db,table,column
+ * @return array    db,table,column
  *
  * @access  public
  */
@@ -590,7 +590,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
  * @param string $db    the name of the db to check for
  * @param string $table the name of the table to check for
  *
- * @return  string   field name
+ * @return string   field name
  *
  * @access  public
  */
@@ -639,7 +639,7 @@ function PMA_getDisplayField($db, $table)
  * @param string $db    the name of the db to check for
  * @param string $table the name of the table to check for
  *
- * @return  array    [field_name] = comment
+ * @return array    [field_name] = comment
  *
  * @access  public
  */
@@ -669,7 +669,7 @@ function PMA_getComments($db, $table = '')
  *
  * @param string $db the name of the db to check for
  *
- * @return  string   comment
+ * @return string   comment
  *
  * @access  public
  */
@@ -703,7 +703,7 @@ function PMA_getDbComment($db)
  *
  * @access  public
  *
- * @return  string   comment
+ * @return string   comment
  */
 function PMA_getDbComments()
 {
@@ -735,7 +735,7 @@ function PMA_getDbComments()
  * @param string $db      the name of the db
  * @param string $comment the value of the column
  *
- * @return  boolean  true, if comment-query was made.
+ * @return boolean  true, if comment-query was made.
  *
  * @access  public
  */
@@ -842,7 +842,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
  *
  * @param string $username the username
  *
- * @return  array    list of history items
+ * @return array    list of history items
  *
  * @access  public
  */
@@ -912,7 +912,7 @@ function PMA_purgeHistory($username)
  * @param string $data    the current data of the dropdown
  * @param string $mode    the needed mode
  *
- * @return  array   the <option value=""><option>s
+ * @return array   the <option value=""><option>s
  *
  * @access  protected
  */
@@ -977,7 +977,7 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
  * @param string $data            the current data of the dropdown (field in row)
  * @param int    $max             maximum number of items in the dropdown
  *
- * @return  string   the <option value=""><option>s
+ * @return string   the <option value=""><option>s
  *
  * @access  public
  */
@@ -1058,7 +1058,7 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
  * @param string $foreign_filter a possible filter
  * @param string $foreign_limit  a possible LIMIT clause
  *
- * @return  array    data about the foreign keys
+ * @return array    data about the foreign keys
  *
  * @access  public
  */
@@ -1139,7 +1139,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
  *
  * @param string $from whether to go from master to foreign or vice versa
  *
- * @return  boolean  always true
+ * @return boolean  always true
  *
  * @global  array    $tab_left the list of tables that we still couldn't connect
  * @global  array    $tab_know the list of allready connected tables

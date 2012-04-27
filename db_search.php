@@ -117,7 +117,7 @@ if (isset($_REQUEST['submit_search'])) {
      *                               (1 -> 1 word at least, 2 -> all words,
      *                                3 -> exact string, 4 -> regexp)
      *
-     * @return  array    3 SQL querys (for count, display and delete results)
+     * @return array    3 SQL querys (for count, display and delete results)
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
      * PMA_backquote

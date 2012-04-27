@@ -16,7 +16,7 @@
  * @param md5Field    string   the md5 hashed field name
  * @param multi_edit  string   the multi_edit row sequence number
  *
- * @return  boolean  always true
+ * @return boolean  always true
  */
 function nullify(theType, urlField, md5Field, multi_edit)
 {

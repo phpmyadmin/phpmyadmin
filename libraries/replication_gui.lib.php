@@ -202,7 +202,7 @@ function PMA_replication_print_slaves_table($hidden = false)
 /**
  * get the correct username and hostname lengths for this MySQL server
  *
- * @return  array   username length, hostname length
+ * @return array   username length, hostname length
  */
 
 function PMA_replication_get_username_hostname_length()

@@ -113,7 +113,7 @@ function PMA_setFrameSize()
  * retrieves a named value from cookie
  *
  * @param string  name    name of the value to retrieve
- * @return  string  value   value for the given name from cookie
+ * @return string  value   value for the given name from cookie
  */
 function PMA_getCookie(name)
 {

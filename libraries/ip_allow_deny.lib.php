@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Gets the "true" IP address of the current user
  *
- * @return  string   the ip of the user
+ * @return string   the ip of the user
  *
  * @access  private
  */
@@ -63,7 +63,7 @@ function PMA_getIp()
  * @param string $testRange string of IP range to match
  * @param string $ipToTest  string of IP to test against range
  *
- * @return  boolean    always true
+ * @return boolean    always true
  *
  * @access  public
  */
@@ -117,7 +117,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
  *
  * @param string $type 'allow' | 'deny' type of rule to match
  *
- * @return  bool   Matched a rule ?
+ * @return bool   Matched a rule ?
  *
  * @access  public
  *

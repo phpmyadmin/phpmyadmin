@@ -250,7 +250,7 @@ function ApplySelectedChanges(token)
  * Validates a partial form (source part or target part)
  *
  * @param which   'src' or 'trg'
- * @return  boolean  whether the partial form is valid
+ * @return boolean  whether the partial form is valid
  *
  */
 function validateSourceOrTarget(which)
@@ -277,7 +277,7 @@ function validateSourceOrTarget(which)
 * is left empty other than the port field, unless
 * we are dealing with the "current connection" choice
 *
-* @return  boolean  whether the form is valid
+* @return boolean  whether the form is valid
 */
 function validateConnectionParams()
 {

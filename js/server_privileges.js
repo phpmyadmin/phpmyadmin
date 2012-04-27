@@ -15,7 +15,7 @@
  * @see     PMA_messages['strPasswordEmpty']
  * @see     PMA_messages['strPasswordNotSame']
  * @param object   the form
- * @return  boolean  whether the field value is valid or not
+ * @return boolean  whether the field value is valid or not
  */
 function checkPassword(the_form)
 {
@@ -54,7 +54,7 @@ function checkPassword(the_form)
 /**
  * Validates the "add a user" form
  *
- * @return  boolean  whether the form is validated or not
+ * @return boolean  whether the form is validated or not
  */
 function checkAddUser(the_form)
 {

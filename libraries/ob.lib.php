@@ -21,7 +21,7 @@ if (! defined('PHPMYADMIN')) {
  * doing.
  *
  * @staticvar integer remember last calculated value
- * @return  integer  the output buffer mode
+ * @return integer  the output buffer mode
  */
 function PMA_outBufferModeGet()
 {

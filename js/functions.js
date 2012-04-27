@@ -74,7 +74,7 @@ function PMA_prepareForAjaxRequest($form)
  *
  * @param object   the form that holds the password fields
  *
- * @return  boolean  always true
+ * @return boolean  always true
  */
 function suggestPassword(passwd_form)
 {
@@ -247,7 +247,7 @@ function selectContent( element, lock, only_once )
  * @param object   the link
  * @param object   the sql query to submit
  *
- * @return  boolean  whether to run the query or not
+ * @return boolean  whether to run the query or not
  */
 function confirmLink(theLink, theSqlQuery)
 {
@@ -285,7 +285,7 @@ function confirmLink(theLink, theSqlQuery)
  * @param object   the form
  * @param object   the sql query textarea
  *
- * @return  boolean  whether to run the query or not
+ * @return boolean  whether to run the query or not
  *
  * @see     checkSqlQuery()
  */
@@ -351,7 +351,7 @@ function confirmQuery(theForm1, sqlQuery1)
  *
  * @param object   the form
  *
- * @return  boolean  always false
+ * @return boolean  always false
  *
  * @see     confirmQuery()
  */
@@ -410,7 +410,7 @@ function checkSqlQuery(theForm)
  * @param object   the form
  * @param string   the name of the form field to put the focus on
  *
- * @return  boolean  whether the form field is empty or not
+ * @return boolean  whether the form field is empty or not
  */
 function emptyCheckTheField(theForm, theFieldName)
 {
@@ -426,7 +426,7 @@ function emptyCheckTheField(theForm, theFieldName)
  * @param object   the form
  * @param string   the name of the form field to put the focus on
  *
- * @return  boolean  whether the form field is empty or not
+ * @return boolean  whether the form field is empty or not
  */
 function emptyFormElements(theForm, theFieldName)
 {
@@ -446,7 +446,7 @@ function emptyFormElements(theForm, theFieldName)
  * @param integer  the minimum authorized value
  * @param integer  the maximum authorized value
  *
- * @return  boolean  whether a valid number has been submitted or not
+ * @return boolean  whether a valid number has been submitted or not
  */
 function checkFormElementInRange(theForm, theFieldName, message, min, max)
 {
@@ -700,7 +700,7 @@ function unMarkAllRows(container_id)
  *
  * @param string   container_id  the container id
  * @param boolean  state         new value for checkbox (true or false)
- * @return  boolean  always true
+ * @return boolean  always true
  */
 function setCheckboxes(container_id, state)
 {
@@ -716,7 +716,7 @@ function setCheckboxes(container_id, state)
   * @param string   the element name
   * @param boolean  whether to check or to uncheck options
   *
-  * @return  boolean  always true
+  * @return boolean  always true
   */
 function setSelectOptions(the_form, the_select, do_check)
 {
@@ -1403,7 +1403,7 @@ $(function() {
  * @param mixed   timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000. If set to 'false', the
  *                              notification will never disappear
- * @return  jQuery object       jQuery Element that holds the message div
+ * @return jQuery object       jQuery Element that holds the message div
  *                              this object can be passed to PMA_ajaxRemoveMessage()
  *                              to remove the notification
  */
@@ -1687,7 +1687,7 @@ function PMA_createTableDialog( $div, url , target)
  *                                  error: Callback function when the get request fails. TODO: Apply callback on timeouts aswell
  *                              }
  *
- * @return  object   The created highcharts instance
+ * @return object   The created highcharts instance
  */
 function PMA_createChart(passedSettings)
 {
@@ -1867,7 +1867,7 @@ function PMA_createProfilingChart(data, options)
  *
  * @param integer     Number to be formatted, should be in the range of microsecond to second
  * @param integer     Acuracy, how many numbers right to the comma should be
- * @return  string      The formatted number
+ * @return string      The formatted number
  */
 function PMA_prettyProfilingNum(num, acc)
 {
@@ -1891,7 +1891,7 @@ function PMA_prettyProfilingNum(num, acc)
  * Formats a SQL Query nicely with newlines and indentation. Depends on Codemirror and MySQL Mode!
  *
  * @param string      Query to be formatted
- * @return  string      The formatted query
+ * @return string      The formatted query
  */
 function PMA_SQLPrettyPrint(string)
 {
@@ -2085,7 +2085,7 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
  *
  * @param string      text_selector   string to select the sortKey's text
  *
- * @return  jQuery Object for chaining purposes
+ * @return jQuery Object for chaining purposes
  */
 jQuery.fn.PMA_sort_table = function(text_selector) {
     return this.each(function() {
@@ -2834,7 +2834,7 @@ $(function() {
  * key, lock index name to 'PRIMARY'
  * @param string   form_id  Variable which parses the form name as
  *                            the input
- * @return  boolean  false    if there is no index form, true else
+ * @return boolean  false    if there is no index form, true else
  */
 function checkIndexName(form_id)
 {
@@ -3344,7 +3344,7 @@ $(function() {
  *                 provided, one will be created below the
  *                 navigation links at the top of the page
  *
- * @return  bool   True on success, false on failure
+ * @return bool   True on success, false on failure
  */
 function PMA_slidingMessage(msg, $obj)
 {

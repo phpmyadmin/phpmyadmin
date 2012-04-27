@@ -77,7 +77,7 @@ function PMA_transformation_getOptions($option_string)
  *
  * @access  public
  * @staticvar   array   mimetypes
- * @return  array    array[mimetype], array[transformation]
+ * @return array    array[mimetype], array[transformation]
  */
 function PMA_getAvailableMIMEtypes()
 {
@@ -204,7 +204,7 @@ function PMA_getMIME($db, $table, $strict = false)
  *
  * @access  public
  *
- * @return  boolean  true, if comment-query was made.
+ * @return boolean  true, if comment-query was made.
  */
 function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $transformation_options, $forcedelete = false

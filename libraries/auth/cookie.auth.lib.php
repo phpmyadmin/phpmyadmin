@@ -53,7 +53,7 @@ if (function_exists('mcrypt_encrypt')) {
      * @param string  original data
      * @param string  the secret
      *
-     * @return  string  the encrypted result
+     * @return string  the encrypted result
      *
      * @access  public
      *
@@ -70,7 +70,7 @@ if (function_exists('mcrypt_encrypt')) {
      * @param string  encrypted data
      * @param string  the secret
      *
-     * @return  string  original data
+     * @return string  original data
      *
      * @access  public
      *
@@ -337,7 +337,7 @@ if (top != self || document.body.className != 'loginform') {
  *          arbitrary server, or? so we should also check if this is filled and
  *          not only if allowed
  *
- * @return  boolean   whether we get authentication settings or not
+ * @return boolean   whether we get authentication settings or not
  *
  * @access  public
  */
@@ -463,7 +463,7 @@ function PMA_auth_check()
 /**
  * Set the user and password after last checkings if required
  *
- * @return  boolean   always true
+ * @return boolean   always true
  *
  * @access  public
  */

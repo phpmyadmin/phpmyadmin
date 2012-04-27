@@ -30,7 +30,7 @@ abstract class PMA_List extends ArrayObject
     /**
      * returns item only if there is only one in the list
      *
-     * @return  single item
+     * @return single item
      */
     public function getSingleItem()
     {
@@ -44,7 +44,7 @@ abstract class PMA_List extends ArrayObject
     /**
      * defines what is an empty item (0, '', false or null)
      *
-     * @return  mixed   an empty item
+     * @return mixed   an empty item
      */
     public function getEmpty()
     {
@@ -55,7 +55,7 @@ abstract class PMA_List extends ArrayObject
      * checks if the given db names exists in the current list, if there is
      * missing at least one item it returns false otherwise true
      *
-     * @return  boolean true if all items exists, otheriwse false
+     * @return boolean true if all items exists, otheriwse false
      */
     public function exists()
     {
@@ -76,7 +76,7 @@ abstract class PMA_List extends ArrayObject
      *                                            selecting current db
      * @param boolean $include_information_schema whether include information schema
      *
-     * @return  string  HTML option tags
+     * @return string  HTML option tags
      */
     public function getHtmlOptions($selected = '', $include_information_schema = true)
     {
@@ -104,7 +104,7 @@ abstract class PMA_List extends ArrayObject
     /**
      * returns default item
      *
-     * @return  string  default item
+     * @return string  default item
      */
     public function getDefault()
     {

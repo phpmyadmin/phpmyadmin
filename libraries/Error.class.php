@@ -178,7 +178,7 @@ class PMA_Error extends PMA_Message
     /**
      * returns PMA_Error::$_backtrace
      *
-     * @return  array PMA_Error::$_backtrace
+     * @return array PMA_Error::$_backtrace
      */
     public function getBacktrace()
     {
@@ -188,7 +188,7 @@ class PMA_Error extends PMA_Message
     /**
      * returns PMA_Error::$_file
      *
-     * @return  string PMA_Error::$_file
+     * @return string PMA_Error::$_file
      */
     public function getFile()
     {
@@ -198,7 +198,7 @@ class PMA_Error extends PMA_Message
     /**
      * returns PMA_Error::$_line
      *
-     * @return  integer PMA_Error::$_line
+     * @return integer PMA_Error::$_line
      */
     public function getLine()
     {
@@ -208,7 +208,7 @@ class PMA_Error extends PMA_Message
     /**
      * returns type of error
      *
-     * @return  string  type of error
+     * @return string  type of error
      */
     public function getType()
     {
@@ -218,7 +218,7 @@ class PMA_Error extends PMA_Message
     /**
      * returns level of error
      *
-     * @return  string  level of error
+     * @return string  level of error
      */
     public function getLevel()
     {
@@ -228,7 +228,7 @@ class PMA_Error extends PMA_Message
     /**
      * returns title prepared for HTML Title-Tag
      *
-     * @return  string   HTML escaped and truncated title
+     * @return string   HTML escaped and truncated title
      */
     public function getHtmlTitle()
     {
@@ -329,7 +329,7 @@ class PMA_Error extends PMA_Message
     /**
      * whether this error is a user error
      *
-     * @return  boolean
+     * @return boolean
      */
     public function isUserError()
     {
@@ -344,7 +344,7 @@ class PMA_Error extends PMA_Message
      *
      * @param string $dest path to be shorten
      *
-     * @return  string shortened path
+     * @return string shortened path
      * @static
      */
     static function relPath($dest)

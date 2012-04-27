@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 class PMA_StorageEngine_ndbcluster extends PMA_StorageEngine
 {
     /**
-     * @return  array
+     * @return array
      */
     function getVariables()
     {
@@ -25,7 +25,7 @@ class PMA_StorageEngine_ndbcluster extends PMA_StorageEngine
     }
 
     /**
-     * @return  string  SQL query LIKE pattern
+     * @return string  SQL query LIKE pattern
      */
     function getVariablesLikePattern()
     {
@@ -36,7 +36,7 @@ class PMA_StorageEngine_ndbcluster extends PMA_StorageEngine
      * returns string with filename for the MySQL helppage
      * about this storage engne
      *
-     * @return  string  mysql helppage filename
+     * @return string  mysql helppage filename
      */
     function getMysqlHelpPage()
     {

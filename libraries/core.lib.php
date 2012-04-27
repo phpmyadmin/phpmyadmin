@@ -36,7 +36,7 @@ if (! defined('PHPMYADMIN')) {
  * @param mixed $default default value
  * @param mixed $type    var type or array of values to check against $var
  *
- * @return  mixed   $var or $default
+ * @return mixed   $var or $default
  *
  * @see     PMA_isValid()
  */
@@ -86,7 +86,7 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * @param mixed $type    var type or array of valid values to check against $var
  * @param mixed $compare var to compare with $var
  *
- * @return  boolean whether valid or not
+ * @return boolean whether valid or not
  *
  * @todo add some more var types like hex, bin, ...?
  * @see     http://php.net/gettype
@@ -179,7 +179,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
  *
  * @param string $path The path to check
  *
- * @return   string  The secured path
+ * @return string  The secured path
  *
  * @access  public
  */
@@ -201,7 +201,7 @@ function PMA_securePath($path)
  * @param string|array $message_args  arguments applied to $error_message
  * @param boolean      $delete_session whether to delete session cookie
  *
- * @return  exit
+ * @return exit
  */
 function PMA_fatalError($error_message, $message_args = null, $delete_session = true)
 {
@@ -242,7 +242,7 @@ function PMA_fatalError($error_message, $message_args = null, $delete_session = 
  *
  * @param string $target anchor in documentation
  *
- * @return  string  the URL
+ * @return string  the URL
  *
  * @access  public
  */
@@ -295,7 +295,7 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
  *
  * @param string $db database to count tables for
  *
- * @return  integer count of tables in $db
+ * @return integer count of tables in $db
  */
 function PMA_getTableCount($db)
 {
@@ -358,7 +358,7 @@ function PMA_get_real_size($size = 0)
  * @param array   array to merge
  * @param array   ...
  *
- * @return  array   merged array
+ * @return array   merged array
  *
  * @see     http://php.net/array_merge
  * @see     http://php.net/array_merge_recursive
@@ -451,7 +451,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
  * @param string &$page     page to check
  * @param array  $whitelist whitelist to check page against
  *
- * @return  boolean whether $page is valid or not (in $whitelist or not)
+ * @return boolean whether $page is valid or not (in $whitelist or not)
  */
 function PMA_checkPageValidity(&$page, $whitelist)
 {
@@ -480,7 +480,7 @@ function PMA_checkPageValidity(&$page, $whitelist)
  *
  * @param string $var_name variable name
  *
- * @return  string  value of $var or empty string
+ * @return string  value of $var or empty string
  */
 function PMA_getenv($var_name)
 {
@@ -503,7 +503,7 @@ function PMA_getenv($var_name)
  *
  * @param string $uri the header to send
  *
- * @return  boolean  always true
+ * @return boolean  always true
  */
 function PMA_sendHeaderLocation($uri)
 {

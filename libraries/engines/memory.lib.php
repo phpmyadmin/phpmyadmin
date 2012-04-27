@@ -16,7 +16,7 @@ class PMA_StorageEngine_memory extends PMA_StorageEngine
     /**
      * returns array with variable names dedicated to MyISAM storage engine
      *
-     * @return  array   variable names
+     * @return array   variable names
      */
     function getVariables()
     {

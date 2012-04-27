@@ -78,7 +78,7 @@ function PMA_RTN_main()
  *
  * @param string  $value    A string containing one parameter of a routine
  *
- * @return  array             Parsed information about the input parameter
+ * @return array             Parsed information about the input parameter
  */
 function PMA_RTN_parseOneParameter($value)
 {
@@ -138,7 +138,7 @@ function PMA_RTN_parseOneParameter($value)
  * @param array   $parsed_query  Parsed query, returned by by PMA_SQP_parse()
  * @param string  $routine_type  Routine type: 'PROCEDURE' or 'FUNCTION'
  *
- * @return  array   Information about the parameteres of a routine.
+ * @return array   Information about the parameteres of a routine.
  */
 function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
 {
@@ -203,7 +203,7 @@ function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
  *
  * @param array   $parsed_query   Parsed query, returned by PMA_SQP_parse()
  *
- * @return  string  The definer of a routine.
+ * @return string  The definer of a routine.
  */
 function PMA_RTN_parseRoutineDefiner($parsed_query)
 {
@@ -389,7 +389,7 @@ function PMA_RTN_handleEditor()
  * the 'Add another parameter', 'Remove last parameter' and
  * 'Change routine type' functionalities when JS is disabled.
  *
- * @return  array    Data necessary to create the routine editor.
+ * @return array    Data necessary to create the routine editor.
  */
 function PMA_RTN_getDataFromRequest()
 {
@@ -505,7 +505,7 @@ function PMA_RTN_getDataFromRequest()
  * @param bool     $all    Whether to return all data or just
  *                           the info about parameters.
  *
- * @return  array    Data necessary to create the routine editor.
+ * @return array    Data necessary to create the routine editor.
  */
 function PMA_RTN_getDataFromName($name, $type, $all = true)
 {
@@ -630,7 +630,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
  * @param string   $class      Class used to hide the direction column, if the
  *                               row is for a stored function.
  *
- * @return    string    HTML code of one row of parameter table for the editor.
+ * @return string    HTML code of one row of parameter table for the editor.
  */
 function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
 {
@@ -736,7 +736,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
  *                                 PMA_RTN_getDataFromRequest() or
  *                                 PMA_RTN_getDataFromName()
  *
- * @return  string   HTML code for the editor.
+ * @return string   HTML code for the editor.
  */
 function PMA_RTN_getEditorForm($mode, $operation, $routine)
 {
@@ -978,7 +978,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
 /**
  * Composes the query necessary to create a routine from an HTTP request.
  *
- * @return  string  The CREATE [ROUTINE | PROCEDURE] query.
+ * @return string  The CREATE [ROUTINE | PROCEDURE] query.
  */
 function PMA_RTN_getQueryFromRequest()
 {
@@ -1334,7 +1334,7 @@ function PMA_RTN_handleExecute()
  * @param array    $routine      Data for the routine returned by
  *                                 PMA_RTN_getDataFromName()
  *
- * @return  string   HTML code for the routine execution dialog.
+ * @return string   HTML code for the routine execution dialog.
  */
 function PMA_RTN_getExecuteForm($routine)
 {

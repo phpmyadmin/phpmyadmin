@@ -19,7 +19,7 @@ class PMA_Partition
      * returns array of partition names for a specific db/table
      *
      * @access  public
-     * @return  array   of partition names
+     * @return array   of partition names
      */
     static public function getPartitionNames($db, $table)
     {
@@ -37,7 +37,7 @@ class PMA_Partition
      * @staticvar boolean $have_partitioning
      * @staticvar boolean $already_checked
      * @access  public
-     * @return  boolean
+     * @return boolean
      */
     static public function havePartitioning()
     {

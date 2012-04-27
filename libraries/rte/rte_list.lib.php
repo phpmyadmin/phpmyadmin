@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  * @param string   $type    One of ['routine'|'trigger'|'event']
  * @param array    $items   An array of items
  *
- * @return   string   HTML code of the list of items
+ * @return string   HTML code of the list of items
  */
 function PMA_RTE_getList($type, $items)
 {
@@ -124,7 +124,7 @@ function PMA_RTE_getList($type, $items)
  * @param array    $routine    An array of routine data
  * @param string   $rowclass   Empty or one of ['even'|'odd']
  *
- * @return   string   HTML code of a row for the list of routines
+ * @return string   HTML code of a row for the list of routines
  */
 function PMA_RTN_getRowForList($routine, $rowclass = '')
 {
@@ -233,7 +233,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
  * @param array    $trigger    An array of routine data
  * @param string   $rowclass   Empty or one of ['even'|'odd']
  *
- * @return   string   HTML code of a cell for the list of triggers
+ * @return string   HTML code of a cell for the list of triggers
  */
 function PMA_TRI_getRowForList($trigger, $rowclass = '')
 {
@@ -302,7 +302,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
  * @param array    $event      An array of routine data
  * @param string   $rowclass   Empty or one of ['even'|'odd']
  *
- * @return   string   HTML code of a cell for the list of events
+ * @return string   HTML code of a cell for the list of events
  */
 function PMA_EVN_getRowForList($event, $rowclass = '')
 {

@@ -183,7 +183,7 @@ class zipfile
     /**
      * Echo central dir if ->doWrite==true, else build string to return
      *
-     * @return  string  if ->doWrite {empty string} else the ZIP file contents
+     * @return string  if ->doWrite {empty string} else the ZIP file contents
      *
      * @access public
      */

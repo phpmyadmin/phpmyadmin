@@ -228,7 +228,7 @@ function PMA_EVN_handleEditor()
 /**
  * This function will generate the values that are required to for the editor
  *
- * @return  array    Data necessary to create the editor.
+ * @return array    Data necessary to create the editor.
  */
 function PMA_EVN_getDataFromRequest()
 {
@@ -263,7 +263,7 @@ function PMA_EVN_getDataFromRequest()
  *
  * @param string   $name   The name of the event.
  *
- * @return  array    Data necessary to create the editor.
+ * @return array    Data necessary to create the editor.
  */
 function PMA_EVN_getDataFromName($name)
 {
@@ -316,7 +316,7 @@ function PMA_EVN_getDataFromName($name)
  *                              PMA_EVN_getDataFromRequest() or
  *                              PMA_EVN_getDataFromName()
  *
- * @return  string   HTML code for the editor.
+ * @return string   HTML code for the editor.
  */
 function PMA_EVN_getEditorForm($mode, $operation, $item)
 {
@@ -502,7 +502,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 /**
  * Composes the query necessary to create an event from an HTTP request.
  *
- * @return  string  The CREATE EVENT query.
+ * @return string  The CREATE EVENT query.
  */
 function PMA_EVN_getQueryFromRequest()
 {

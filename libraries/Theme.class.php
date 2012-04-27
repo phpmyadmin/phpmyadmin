@@ -73,7 +73,7 @@ class PMA_Theme
 
     /**
      * @access  public
-     * @return  boolean     whether loading them info was successful or not
+     * @return boolean     whether loading them info was successful or not
      */
     function loadInfo()
     {
@@ -112,7 +112,7 @@ class PMA_Theme
      * @static
      * @access  public
      * @param string  $folder path to theme
-     * @return  object  PMA_Theme
+     * @return object  PMA_Theme
      */
     static public function load($folder)
     {
@@ -156,7 +156,7 @@ class PMA_Theme
      * returns path to theme
      *
      * @access  public
-     * @return  string  $path   path to theme
+     * @return string  $path   path to theme
      */
     function getPath()
     {
@@ -167,7 +167,7 @@ class PMA_Theme
      * returns layout file
      *
      * @access  public
-     * @return  string  layout file
+     * @return string  layout file
      */
     function getLayoutFile()
     {
@@ -200,7 +200,7 @@ class PMA_Theme
      * returns version
      *
      * @access  public
-     * @return  string  version
+     * @return string  version
      */
     function getVersion()
     {
@@ -213,7 +213,7 @@ class PMA_Theme
      *
      * @access  public
      * @param string  $version    version to compare to
-     * @return  boolean
+     * @return boolean
      */
     function checkVersion($version)
     {
@@ -235,7 +235,7 @@ class PMA_Theme
      * returns name
      *
      * @access  public
-     * @return  string name
+     * @return string name
      */
     function getName()
     {
@@ -257,7 +257,7 @@ class PMA_Theme
      * returns id
      *
      * @access  public
-     * @return  string  id
+     * @return string  id
      */
     function getId()
     {
@@ -275,7 +275,7 @@ class PMA_Theme
 
     /**
      * @access  public
-     * @return  string image path for this theme
+     * @return string image path for this theme
      */
     function getImgPath()
     {

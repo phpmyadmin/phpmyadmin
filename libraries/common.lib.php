@@ -222,7 +222,7 @@ function PMA_generateHiddenMaxFileSize($max_size)
  * @param bool   $php_code whether this function is used as part of the
  *                         "Create PHP code" dialog
  *
- * @return  string   the slashed string
+ * @return string   the slashed string
  *
  * @access  public
  */
@@ -273,7 +273,7 @@ function PMA_escape_mysql_wildcards($name)
  *
  * @param string $name the string to escape
  *
- * @return  string   the escaped string
+ * @return string   the escaped string
  *
  * @access  public
  */
@@ -418,7 +418,7 @@ function PMA_showDocLink($link, $target = 'documentation')
  * @param string $anchor    anchor to page part
  * @param bool   $just_open whether only the opening <a> tag should be returned
  *
- * @return  string  the html link
+ * @return string  the html link
  *
  * @access  public
  */
@@ -506,7 +506,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
  *
  * @param string $anchor anchor in documentation
  *
- * @return  string  the html link
+ * @return string  the html link
  *
  * @access  public
  */
@@ -538,7 +538,7 @@ function PMA_showPHPDocu($target)
  * @param bool   $bbcode
  * @param string $type    message types
  *
- * @return  string html code for a footnote marker
+ * @return string html code for a footnote marker
  *
  * @access  public
  */
@@ -739,7 +739,7 @@ function PMA_mysqlDie(
  * @param integer  $limit_offset list offset
  * @param int|bool $limit_count  max tables to return
  *
- * @return  array    (recursive) grouped table list
+ * @return array    (recursive) grouped table list
  */
 function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count = false)
 {
@@ -866,7 +866,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
  * @param boolean $do_it  a flag to bypass this function (used by dump
  *                        functions)
  *
- * @return  mixed    the "backquoted" database, table or field name
+ * @return mixed    the "backquoted" database, table or field name
  *
  * @access  public
  */
@@ -909,7 +909,7 @@ function PMA_backquote($a_name, $do_it = true)
  * @param mixed $a_name the "backquoted" database, table or field name
  *                      or array of it
  *
- * @return  mixed    the "backquoted" database, table or field name
+ * @return mixed    the "backquoted" database, table or field name
  *
  * @access  public
  */
@@ -935,7 +935,7 @@ function PMA_removeBackquote($a_name)
 /**
  * Defines the <CR><LF> value depending on the user OS.
  *
- * @return  string   the <CR><LF> value to use
+ * @return string   the <CR><LF> value to use
  *
  * @access  public
  */
@@ -1002,7 +1002,7 @@ if (typeof(window.parent) != 'undefined'
  * @param string  $type      the type (level) of the message
  * @param boolean $is_view   is this a message after a VIEW operation?
  *
- * @return  string
+ * @return string
  *
  * @access  public
  */
@@ -1378,7 +1378,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
  *
  * @access  public
  *
- * @return  boolean whether profiling is supported
+ * @return boolean whether profiling is supported
  */
 function PMA_profilingSupported()
 {
@@ -1425,7 +1425,7 @@ function PMA_profilingCheckbox($sql_query)
  * @param int    $limes the sensitiveness
  * @param int    $comma the number of decimals to retain
  *
- * @return   array    the formatted value and its unit
+ * @return array    the formatted value and its unit
  *
  * @access  public
  */
@@ -1521,7 +1521,7 @@ function PMA_localizeNumber($value)
  * @param boolean $noTrailingZero removes trailing zeros right of the comma
  *                                (default: true)
  *
- * @return  string   the formatted value and its unit
+ * @return string   the formatted value and its unit
  *
  * @access  public
  */
@@ -1619,7 +1619,7 @@ function PMA_formatNumber(
  *
  * @param string $formatted_size the size expression (for example 8MB)
  *
- * @return  integer  The numerical part of the expression (for example 8)
+ * @return integer  The numerical part of the expression (for example 8)
  */
 function PMA_extractValueFromFormattedSize($formatted_size)
 {
@@ -1641,7 +1641,7 @@ function PMA_extractValueFromFormattedSize($formatted_size)
  * @param string $timestamp the current timestamp
  * @param string $format    format
  *
- * @return  string   the formatted date
+ * @return string   the formatted date
  *
  * @access  public
  */
@@ -1720,7 +1720,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * @param array  $url_params
  * @param string $base_dir
  *
- * @return  string  html code for one tab, a link if valid otherwise a span
+ * @return string  html code for one tab, a link if valid otherwise a span
  *
  * @access  public
  */
@@ -1825,7 +1825,7 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
  * @param string $base_dir
  * @param string $menu_id
  *
- * @return  string  html-code for tab-navigation
+ * @return string  html-code for tab-navigation
  */
 function PMA_generate_html_tabs($tabs, $url_params, $base_dir = '', $menu_id = 'topmenu')
 {
@@ -2041,7 +2041,7 @@ function PMA_timespanFormat($seconds)
  * @access  public
  * @todo    add a multibyte safe function PMA_STR_split()
  *
- * @return  string      The flipped string
+ * @return string      The flipped string
  */
 function PMA_flipstring($string, $Separator = "<br />\n")
 {
@@ -2135,7 +2135,7 @@ function PMA_checkParameters($params, $request = true)
  *
  * @access  public
  *
- * @return  array     the calculated condition and whether condition is unique
+ * @return array     the calculated condition and whether condition is unique
  */
 function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique = false)
 {
@@ -2556,7 +2556,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
  *
  * @param string $dir with wildcard for user
  *
- * @return  string  per user directory
+ * @return string  per user directory
  */
 function PMA_userDir($dir)
 {
@@ -2573,7 +2573,7 @@ function PMA_userDir($dir)
  *
  * @param string $database database
  *
- * @return  string  html link to default db page
+ * @return string  html link to default db page
  */
 function PMA_getDbLink($database = null)
 {
@@ -2742,7 +2742,7 @@ function PMA_generate_slider_effect($id, $message)
  * @param string $callback    A JS snippet to execute when the request is
  *                            successfully processed
  *
- * @return   string   HTML code for the toggle button
+ * @return string   HTML code for the toggle button
  */
 function PMA_toggleButton($action, $select_name, $options, $callback)
 {
@@ -2882,7 +2882,7 @@ function PMA_cacheUnset($var, $server = 0)
  * @param numeric $value  coming from a BIT field
  * @param integer $length length
  *
- * @return  string  the printable value
+ * @return string  the printable value
  */
 function PMA_printable_bit_value($value, $length)
 {
@@ -2899,7 +2899,7 @@ function PMA_printable_bit_value($value, $length)
  *
  * @param string $value value
  *
- * @return  boolean
+ * @return boolean
  */
 function PMA_contains_nonprintable_ascii($value)
 {
@@ -2912,7 +2912,7 @@ function PMA_contains_nonprintable_ascii($value)
  *
  * @param string $bit_default_value value
  *
- * @return  string the converted value
+ * @return string the converted value
  */
 function PMA_convert_bit_default_value($bit_default_value)
 {
@@ -2924,7 +2924,7 @@ function PMA_convert_bit_default_value($bit_default_value)
  *
  * @param string $columnspec Column specification
  *
- * @return  array associative array containing type, spec_in_brackets
+ * @return array associative array containing type, spec_in_brackets
  *          and possibly enum_set_values (another array)
  */
 function PMA_extractColumnSpec($columnspec)
@@ -3071,7 +3071,7 @@ function PMA_extractColumnSpec($columnspec)
  *
  * @param string $engine engine
  *
- * @return  boolean
+ * @return boolean
  */
 function PMA_foreignkey_supported($engine)
 {
@@ -3088,7 +3088,7 @@ function PMA_foreignkey_supported($engine)
  *
  * @param string $content content
  *
- * @return  string the content with characters replaced
+ * @return string the content with characters replaced
  */
 function PMA_replace_binary_contents($content)
 {
@@ -3132,7 +3132,7 @@ function PMA_asWKT($data, $includeSRID = false)
  *
  * @param string $string string
  *
- * @return  string with the chars replaced
+ * @return string with the chars replaced
  */
 
 function PMA_duplicateFirstNewline($string)
@@ -3385,7 +3385,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
 /**
  * Build titles and icons for action links
  *
- * @return   array   the action titles
+ * @return array   the action titles
  */
 function PMA_buildActionTitles()
 {
@@ -3419,7 +3419,7 @@ function PMA_buildActionTitles()
  * @param bool   $html     Whether to generate an html snippet or an array
  * @param string $selected The value to mark as selected in HTML mode
  *
- * @return  mixed   An HTML snippet or an array of datatypes.
+ * @return mixed   An HTML snippet or an array of datatypes.
  *
  */
 function PMA_getSupportedDatatypes($html = false, $selected = '')
@@ -3492,7 +3492,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
  * Returns a list of datatypes that are not (yet) handled by PMA.
  * Used by: tbl_change.php and libraries/db_routines.inc.php
  *
- * @return   array   list of datatypes
+ * @return array   list of datatypes
  */
 function PMA_unsupportedDatatypes()
 {
@@ -3670,7 +3670,7 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
  * @global   array    $analyzed_sql   Analyzed SQL query
  * @global   mixed    $data           data of currently edited row (used to detect whether to choose defaults)
  *
- * @return   string   An HTML snippet of a dropdown list with function
+ * @return string   An HTML snippet of a dropdown list with function
  *                    names appropriate for the requested column.
  */
 function PMA_getFunctionsForField($field, $insert_mode)

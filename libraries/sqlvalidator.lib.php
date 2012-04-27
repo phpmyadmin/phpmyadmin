@@ -51,7 +51,7 @@ if ($cfg['SQLValidator']['use'] == true) {
  *
  * @param string   SQL query to validate
  *
- * @return  string   Validator result string
+ * @return string   Validator result string
  *
  * @global  array    The PMA configuration array
  */

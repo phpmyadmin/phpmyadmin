@@ -117,7 +117,7 @@ class PMA_Index
      * @param string $table  table
      * @param string $schema schema
      *
-     * @return  array  array of indexes
+     * @return array  array of indexes
      */
     static public function getFromTable($table, $schema)
     {
@@ -136,7 +136,7 @@ class PMA_Index
      * @param string $table  table
      * @param string $schema schema
      *
-     * @return  mixed primary index or false if no one exists
+     * @return mixed primary index or false if no one exists
      */
     static public function getPrimary($table, $schema)
     {
@@ -155,7 +155,7 @@ class PMA_Index
      * @param string $table  table
      * @param string $schema schema
      *
-     * @return  boolean whether loading was successful
+     * @return boolean whether loading was successful
      */
     static protected function _loadIndexes($table, $schema)
     {
@@ -226,7 +226,7 @@ class PMA_Index
      *
      * @param string $column the column
      *
-     * @return  boolean  true if $column indexed in this index
+     * @return boolean  true if $column indexed in this index
      */
     public function hasColumn($column)
     {
@@ -314,7 +314,7 @@ class PMA_Index
     /**
      * Return a list of all index choices
      *
-     * @return  array index choices
+     * @return array index choices
      */
     static public function getIndexChoices()
     {
@@ -417,7 +417,7 @@ class PMA_Index
      * @param string  $schema     The schema name
      * @param boolean $print_mode Whether the output is for the print mode
      *
-     * @return  array  Index collection array
+     * @return array  Index collection array
      *
      * @access  public
      */
@@ -569,7 +569,7 @@ class PMA_Index
      * @param string $table  table name
      * @param string $schema schema name
      *
-     * @return  string  Output HTML
+     * @return string  Output HTML
      * @access  public
      */
     static public function findDuplicates($table, $schema)

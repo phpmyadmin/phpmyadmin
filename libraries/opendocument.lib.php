@@ -26,7 +26,7 @@ $GLOBALS['OpenDocumentNS'] = 'xmlns:office="urn:oasis:names:tc:opendocument:xmln
  * @param string $mime desired MIME type
  * @param string $data document content
  *
- * @return  string  OASIS OpenDocument data
+ * @return string  OASIS OpenDocument data
  *
  * @access  public
  */

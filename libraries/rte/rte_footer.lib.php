@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  * @param string   $priv   Privilege to check for adding a new item
  * @param string   $name   MySQL name of the item
  *
- * @return   string   An HTML snippet with the link to add a new item
+ * @return string   An HTML snippet with the link to add a new item
  */
 function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
@@ -49,7 +49,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
 /**
  * Creates a fieldset for adding a new routine, if the user has the privileges.
  *
- * @return   string    HTML code with containing the fotter fieldset
+ * @return string    HTML code with containing the fotter fieldset
  */
 function PMA_RTN_getFooterLinks()
 {
@@ -59,7 +59,7 @@ function PMA_RTN_getFooterLinks()
 /**
  * Creates a fieldset for adding a new trigger, if the user has the privileges.
  *
- * @return   string    HTML code with containing the fotter fieldset
+ * @return string    HTML code with containing the fotter fieldset
  */
 function PMA_TRI_getFooterLinks()
 {
@@ -69,7 +69,7 @@ function PMA_TRI_getFooterLinks()
 /**
  * Creates a fieldset for adding a new event, if the user has the privileges.
  *
- * @return   string    HTML code with containing the fotter fieldset
+ * @return string    HTML code with containing the fotter fieldset
  */
 function PMA_EVN_getFooterLinks()
 {

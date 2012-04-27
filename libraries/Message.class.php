@@ -168,7 +168,7 @@ class PMA_Message
      * @param string $string a localized string
      *                       e.g. __('Your SQL query has been executed successfully')
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function success($string = '')
@@ -187,7 +187,7 @@ class PMA_Message
      *
      * @param string $string a localized string e.g. __('Error')
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function error($string = '')
@@ -208,7 +208,7 @@ class PMA_Message
      *                       e.g. __('The additional features for working with linked
      *                       tables have been deactivated. To find out why click %shere%s.')
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function notice($string)
@@ -224,7 +224,7 @@ class PMA_Message
      * @param string  $message
      * @param integer $type
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function raw($message, $type = PMA_Message::NOTICE)
@@ -241,7 +241,7 @@ class PMA_Message
      *
      * @param integer $rows Number of rows
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function affected_rows($rows)
@@ -258,7 +258,7 @@ class PMA_Message
      *
      * @param integer $rows Number of rows
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function deleted_rows($rows)
@@ -275,7 +275,7 @@ class PMA_Message
      *
      * @param integer $rows Number of rows
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function inserted_rows($rows)
@@ -292,7 +292,7 @@ class PMA_Message
      *
      * @param string $message
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function rawError($message)
@@ -307,7 +307,7 @@ class PMA_Message
      *
      * @param string $message
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function rawNotice($message)
@@ -322,7 +322,7 @@ class PMA_Message
      *
      * @param string $message
      *
-     * @return  PMA_Message
+     * @return PMA_Message
      * @static
      */
     static public function rawSuccess($message)
@@ -336,7 +336,7 @@ class PMA_Message
      *
      * @param boolean $set
      *
-     * @return  boolean whether this is a success message or not
+     * @return boolean whether this is a success message or not
      */
     public function isSuccess($set = false)
     {
@@ -353,7 +353,7 @@ class PMA_Message
      *
      * @param boolean $set
      *
-     * @return  boolean whether this is a notice message or not
+     * @return boolean whether this is a notice message or not
      */
     public function isNotice($set = false)
     {
@@ -370,7 +370,7 @@ class PMA_Message
      *
      * @param boolean $set
      *
-     * @return  boolean whether this is an error message or not
+     * @return boolean whether this is an error message or not
      */
     public function isError($set = false)
     {
@@ -539,7 +539,7 @@ class PMA_Message
      *
      * @param mixed $message the message(s)
      *
-     * @return  mixed  the sanitized message(s)
+     * @return mixed  the sanitized message(s)
      * @access  public
      * @static
      */
@@ -562,7 +562,7 @@ class PMA_Message
      *
      * @param string $message the message
      *
-     * @return  string  the decoded message
+     * @return string  the decoded message
      * @access  public
      * @static
      */
@@ -574,7 +574,7 @@ class PMA_Message
     /**
      * wrapper for sprintf()
      *
-     * @return  string formatted
+     * @return string formatted
      */
     static public function format()
     {
@@ -590,7 +590,7 @@ class PMA_Message
     /**
      * returns unique PMA_Message::$_hash, if not exists it will be created
      *
-     * @return  string PMA_Message::$_hash
+     * @return string PMA_Message::$_hash
      */
     public function getHash()
     {
@@ -608,7 +608,7 @@ class PMA_Message
     /**
      * returns compiled message
      *
-     * @return  string complete message
+     * @return string complete message
      */
     public function getMessage()
     {
@@ -641,7 +641,7 @@ class PMA_Message
     /**
      * returns PMA_Message::$_string
      *
-     * @return  string PMA_Message::$_string
+     * @return string PMA_Message::$_string
      */
     public function getString()
     {
@@ -651,7 +651,7 @@ class PMA_Message
     /**
      * returns PMA_Message::$_number
      *
-     * @return  integer PMA_Message::$_number
+     * @return integer PMA_Message::$_number
      */
     public function getNumber()
     {
@@ -661,7 +661,7 @@ class PMA_Message
     /**
      * returns level of message
      *
-     * @return  string  level of message
+     * @return string  level of message
      */
     public function getLevel()
     {
@@ -694,7 +694,7 @@ class PMA_Message
      *
      * @param boolean $is_displayed
      *
-     * @return  boolean PMA_Message::$_is_displayed
+     * @return boolean PMA_Message::$_is_displayed
      */
     public function isDisplayed($is_displayed = false)
     {

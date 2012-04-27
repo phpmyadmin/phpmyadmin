@@ -16,7 +16,7 @@
  * @global  string    the default font size to use in case of failure
  * @global  string    the big font size to use in case of failure
  *
- * @return  boolean   always true (no return indeed)
+ * @return boolean   always true (no return indeed)
  *
  * @access  public
  */
@@ -96,7 +96,7 @@ function PMA_auth()
  * @global  string    the password for the WebSite Professional server
  * @global  string    the username of the user who logs out
  *
- * @return  boolean   whether we get authentication settings or not
+ * @return boolean   whether we get authentication settings or not
  *
  * @access  public
  */
@@ -183,7 +183,7 @@ function PMA_auth_check()
  * @global  string    the current username
  * @global  string    the current password
  *
- * @return  boolean   always true
+ * @return boolean   always true
  *
  * @access  public
  */
@@ -222,7 +222,7 @@ function PMA_auth_set_user()
 /**
  * User is not allowed to login to MySQL -> authentication failed
  *
- * @return  boolean   always true (no return indeed)
+ * @return boolean   always true (no return indeed)
  *
  * @access  public
  */

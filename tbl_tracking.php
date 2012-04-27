@@ -57,7 +57,7 @@ if (isset($_REQUEST['report_export'])) {
  * @param string  "to" date
  * @param string  users
  *
- * @return  array   filtered entries
+ * @return array   filtered entries
  *
  */
     function PMA_filter_tracking($data, $filter_ts_from, $filter_ts_to, $filter_users)

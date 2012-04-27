@@ -222,7 +222,7 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
  *
  * @param string $initial the user's initial
  *
- * @return  string   the generated condition
+ * @return string   the generated condition
  */
 function PMA_rangeOfUsers($initial = '')
 {
@@ -247,7 +247,7 @@ function PMA_rangeOfUsers($initial = '')
  *
  * @global  resource $user_link the database connection
  *
- * @return  array
+ * @return array
  */
 function PMA_extractPrivInfo($row = '', $enableHTML = false)
 {
@@ -503,7 +503,7 @@ function PMA_displayColumnPrivs($columns, $row, $name_for_select,
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
  *
- * @return  void
+ * @return void
  */
 function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
 {
@@ -856,7 +856,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
  * @global  array      $cfg     the phpMyAdmin configuration
  * @global  ressource  $user_link the database connection
  *
- * @return  void
+ * @return void
  */
 function PMA_displayLoginInformationFields($mode = 'new')
 {

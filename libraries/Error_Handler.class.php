@@ -296,7 +296,7 @@ class PMA_Error_Handler
     /**
      * return count of errors
      *
-     * @return  integer number of errors occoured
+     * @return integer number of errors occoured
      */
     public function countErrors()
     {
@@ -306,7 +306,7 @@ class PMA_Error_Handler
     /**
      * return count of user errors
      *
-     * @return  integer number of user errors occoured
+     * @return integer number of user errors occoured
      */
     public function countUserErrors()
     {
@@ -325,7 +325,7 @@ class PMA_Error_Handler
     /**
      * whether use errors occured or not
      *
-     * @return  boolean
+     * @return boolean
      */
     public function hasUserErrors()
     {
@@ -335,7 +335,7 @@ class PMA_Error_Handler
     /**
      * whether errors occured or not
      *
-     * @return  boolean
+     * @return boolean
      */
     public function hasErrors()
     {

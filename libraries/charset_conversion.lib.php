@@ -62,7 +62,7 @@ if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
  * @param string $dest_charset target charset
  * @param string $what         what to convert
  *
- * @return  string   converted text
+ * @return string   converted text
  *
  * @access  public
  *

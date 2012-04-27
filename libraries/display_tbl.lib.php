@@ -38,7 +38,7 @@ require_once './libraries/Index.class.php';
  *                                (just a copy of $unlim_num_rows if it exists, else
  *                                computed inside this function)
  *
- * @return  array    an array with explicit indexes for all the display
+ * @return array    an array with explicit indexes for all the display
  *                   elements
  *
  * @global  string   the database name
@@ -471,7 +471,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
  * @param string  $sort_expression_nodirection sort expression without direction
  * @param string  $sort_direction              sort direction
  *
- * @return  boolean  $clause_is_unique
+ * @return boolean  $clause_is_unique
  *
  * @global  string   $db               the database name
  * @global  string   $table            the table name
@@ -1155,7 +1155,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
  * @param bool   $condition_field whether to add CSS class condition
  * @param string $value           value to display
  *
- * @return  string  the td
+ * @return string  the td
  */
 function PMA_buildValueDisplay($class, $condition_field, $value)
 {
@@ -1170,7 +1170,7 @@ function PMA_buildValueDisplay($class, $condition_field, $value)
  * @param object $meta            the meta-information about this field
  * @param string $align           cell allignment
  *
- * @return  string  the td
+ * @return string  the td
  */
 function PMA_buildNullDisplay($class, $condition_field, $meta, $align = '')
 {
@@ -1186,7 +1186,7 @@ function PMA_buildNullDisplay($class, $condition_field, $meta, $align = '')
  * @param object $meta            the meta-information about this field
  * @param string $align           cell allignment
  *
- * @return  string  the td
+ * @return string  the td
  */
 function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '')
 {
@@ -1246,7 +1246,7 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
  * @param array   $map          the list of relations
  * @param array   $analyzed_sql the analyzed query
  *
- * @return  boolean  always true
+ * @return boolean  always true
  *
  * @global string   $db                the database name
  * @global string   $table             the table name
@@ -1841,7 +1841,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 /**
  * Do display the result table with the vertical direction mode.
  *
- * @return  boolean  always true
+ * @return boolean  always true
  *
  * @global  array    $vertical_display the information to display
  *
@@ -2728,7 +2728,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
  * @param object $meta               the meta-information about this field
  * @param array  $url_params         parameters that should go to the download link
  *
- * @return  mixed  string or float
+ * @return mixed  string or float
  */
 function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta, $url_params = array())
 {
@@ -2781,7 +2781,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * @param array  $transform_options  array of options for transformation
  * @param bool   $is_field_truncated whether the field is truncated
  *
- * @return  string  formatted data
+ * @return string  formatted data
  */
 function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated )
 {
@@ -2903,7 +2903,7 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
  * @param string $id_suffix         suffix for the id
  * @param string $class             css classes for the td element
  *
- * @return  string  the generated HTML
+ * @return string  the generated HTML
  */
 
 function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix, $class)
@@ -2933,7 +2933,7 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
  * @param string $where_clause      where cluase
  * @param string $where_clause_html url encoded where cluase
  *
- * @return  string  the generated HTML
+ * @return string  the generated HTML
  */
 function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html)
 {
@@ -2962,7 +2962,7 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
  * @param string $where_clause_html url encoded where cluase
  * @param string $class             css classes for the td element
  *
- * @return  string  the generated HTML
+ * @return string  the generated HTML
  */
 function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, $class)
 {
@@ -2994,7 +2994,7 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
  * @param string $js_conf text for the JS confirmation
  * @param string $class   css classes for the td element
  *
- * @return  string  the generated HTML
+ * @return string  the generated HTML
  */
 function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
 {
@@ -3032,7 +3032,7 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
  * @param string $del_str           text for the delete link
  * @param string $js_conf           text for the JS confirmation
  *
- * @return  string  the generated HTML
+ * @return string  the generated HTML
  */
 function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf)
 {

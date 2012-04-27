@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 class PMA_StorageEngine_innodb extends PMA_StorageEngine
 {
     /**
-     * @return  array
+     * @return array
      */
     function getVariables()
     {
@@ -114,7 +114,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
-     * @return  string  SQL query LIKE pattern
+     * @return string  SQL query LIKE pattern
      */
     function getVariablesLikePattern()
     {
@@ -122,7 +122,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
-     * @return  array   detail pages
+     * @return array   detail pages
      */
     function getInfoPages()
     {
@@ -138,7 +138,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     /**
      * returns html tables with stats over inno db buffer pool
      *
-     * @return  string  html table with stats
+     * @return string  html table with stats
      */
     function getPageBufferpool()
     {
@@ -266,7 +266,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     /**
      * returns InnoDB status
      *
-     * @return  string  result of SHOW INNODB STATUS inside pre tags
+     * @return string  result of SHOW INNODB STATUS inside pre tags
      */
     function getPageStatus()
     {
@@ -279,7 +279,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      * returns content for page $id
      *
      * @param string  $id page id
-     * @return  string  html output
+     * @return string  html output
      */
     function getPage($id)
     {
@@ -296,7 +296,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      * returns string with filename for the MySQL helppage
      * about this storage engne
      *
-     * @return  string  mysql helppage filename
+     * @return string  mysql helppage filename
      */
     function getMysqlHelpPage()
     {

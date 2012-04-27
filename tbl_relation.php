@@ -69,7 +69,7 @@ $options_array = array(
  * @param array  $choices           Choices for dropdown
  * @param string $selected_value    Selected value
  *
- * @return  string   The existing value (for selected)
+ * @return string   The existing value (for selected)
  *
  * @access  public
  */
@@ -94,7 +94,7 @@ function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $sele
  *
  * @param string $text original string
  *
- * @return  array   containing the elements (and their surrounding backquotes)
+ * @return array   containing the elements (and their surrounding backquotes)
  *
  * @access  public
  */

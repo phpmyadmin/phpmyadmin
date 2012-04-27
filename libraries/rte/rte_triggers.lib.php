@@ -203,7 +203,7 @@ function PMA_TRI_handleEditor()
 /**
  * This function will generate the values that are required to for the editor
  *
- * @return  array    Data necessary to create the editor.
+ * @return array    Data necessary to create the editor.
  */
 function PMA_TRI_getDataFromRequest()
 {
@@ -227,7 +227,7 @@ function PMA_TRI_getDataFromRequest()
  *
  * @param string   $name   The name of the trigger.
  *
- * @return  array    Data necessary to create the editor.
+ * @return array    Data necessary to create the editor.
  */
 function PMA_TRI_getDataFromName($name)
 {
@@ -265,7 +265,7 @@ function PMA_TRI_getDataFromName($name)
  *                                 PMA_TRI_getDataFromRequest() or
  *                                 PMA_TRI_getDataFromName()
  *
- * @return  string   HTML code for the editor.
+ * @return string   HTML code for the editor.
  */
 function PMA_TRI_getEditorForm($mode, $item)
 {
@@ -382,7 +382,7 @@ function PMA_TRI_getEditorForm($mode, $item)
 /**
  * Composes the query necessary to create a trigger from an HTTP request.
  *
- * @return  string  The CREATE TRIGGER query.
+ * @return string  The CREATE TRIGGER query.
  */
 function PMA_TRI_getQueryFromRequest()
 {

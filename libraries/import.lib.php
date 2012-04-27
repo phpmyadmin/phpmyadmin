@@ -343,7 +343,7 @@ function PMA_importGetNextChunk($size = 32768)
  * @access  public
  *
  * @param int $num
- * @return  string The column's "Excel" name
+ * @return string The column's "Excel" name
  */
 function PMA_getColumnAlphaName($num)
 {
@@ -389,7 +389,7 @@ function PMA_getColumnAlphaName($num)
  *
  * @param string $name column name(i.e. "A", or "BC", etc.)
  *
- * @return  int The column number
+ * @return int The column number
  * @access  public
  */
 function PMA_getColumnNumberFromName($name)
@@ -451,7 +451,7 @@ define("FORMATTEDSQL", 2);
  *
  * @param string $last_cumulative_size
  *
- * @return  int Precision of the given decimal size notation
+ * @return int Precision of the given decimal size notation
  * @access  public
  */
 function PMA_getM($last_cumulative_size)
@@ -465,7 +465,7 @@ function PMA_getM($last_cumulative_size)
  *
  * @param string $last_cumulative_size
  *
- * @return  int Scale of the given decimal size notation
+ * @return int Scale of the given decimal size notation
  * @access  public
  */
 function PMA_getD($last_cumulative_size)
@@ -482,7 +482,7 @@ function PMA_getD($last_cumulative_size)
  *
  * @param string &$cell cell content
  *
- * @return  array Contains the precision, scale, and full size
+ * @return array Contains the precision, scale, and full size
  *                representation of the given decimal cell
  * @access  public
  */
@@ -508,7 +508,7 @@ function PMA_getDecimalSize(&$cell)
  *                                     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
  * @param string &$cell                The current cell
  *
- * @return  string  Size of the given cell in the type-appropriate format
+ * @return string  Size of the given cell in the type-appropriate format
  * @access  public
  *
  * @todo    Handle the error cases more elegantly
@@ -722,7 +722,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
  * @param string &$cell                String representation of the cell for which
  *                                     a best-fit type is to be determined
  *
- * @return  int  The MySQL type representation
+ * @return int  The MySQL type representation
  *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  * @access  public
  */
@@ -762,7 +762,7 @@ function PMA_detectType($last_cumulative_type, &$cell)
  *
  * @param array &$table array(string $table_name, array $col_names, array $rows)
  *
- * @return  array    array(array $types, array $sizes)
+ * @return array    array(array $types, array $sizes)
  * @access  public
  *
  * @link http://wiki.phpmyadmin.net/pma/Import
@@ -864,7 +864,7 @@ $import_notice = null;
  * @param array  &$additional_sql Additional SQL statements to be executed
  * @param array  $options         Associative array of options
  *
- * @return  void
+ * @return void
  * @access  public
  *
  * @link http://wiki.phpmyadmin.net/pma/Import

@@ -181,7 +181,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
  *
  * @param string $message the message
  *
- * @return  string  $message
+ * @return string  $message
  */
 function PMA_DBI_convert_message($message)
 {
@@ -282,7 +282,7 @@ function PMA_DBI_convert_message($message)
  * @param string $database name of database
  * @param mixed  $link     mysql link resource|object
  *
- * @return  array   tables names
+ * @return array   tables names
  */
 function PMA_DBI_get_tables($database, $link = null)
 {
@@ -301,7 +301,7 @@ function PMA_DBI_get_tables($database, $link = null)
  * @param string $a first argument to sort
  * @param string $b second argument to sort
  *
- * @return  integer  a value representing whether $a should be before $b in the
+ * @return integer  a value representing whether $a should be before $b in the
  *                   sorted array or not
  *
  * @access  private
@@ -349,7 +349,7 @@ function PMA_usort_comparison_callback($a, $b)
  *
  * @todo    move into PMA_Table
  *
- * @return  array           list of tables in given db(s)
+ * @return array           list of tables in given db(s)
  */
 function PMA_DBI_get_tables_full($database, $table = false,
     $tbl_is_group = false,  $link = null, $limit_offset = 0,
@@ -1034,7 +1034,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
  *
  * @see PMA_DBI_get_columns()
  *
- * @return  string
+ * @return string
  */
 function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = false)
 {
@@ -1096,7 +1096,7 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
  * @param boolean $full     whether to return full info or only column names
  * @param mixed   $link     mysql link resource
  *
- * @return  false|array   array indexed by column names or,
+ * @return false|array   array indexed by column names or,
  *                        if $column is given, flat array description
  */
 function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $link = null)
@@ -1146,7 +1146,7 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $
  * @param string  $table    name of table to retrieve columns from
  * @param mixed   $link     mysql link resource
  *
- * @return  null|array
+ * @return null|array
  */
 function PMA_DBI_get_column_names($database, $table, $link = null)
 {
@@ -1167,7 +1167,7 @@ function PMA_DBI_get_column_names($database, $table, $link = null)
 * @param string $table    name of the table whose indexes are to be retreived
 * @param string $where    additional conditions for WHERE
 *
-* @return   array   $indexes
+* @return array   $indexes
 */
 function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
 {
@@ -1209,7 +1209,7 @@ function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
 * @param string $table    name of the table whose indexes are to be retrieved
 * @param mixed  $link     mysql link resource
 *
-* @return   array   $indexes
+* @return array   $indexes
 */
 function PMA_DBI_get_table_indexes($database, $table, $link = null)
 {
@@ -1229,7 +1229,7 @@ function PMA_DBI_get_table_indexes($database, $table, $link = null)
  * @param int    $type PMA_DBI_GETVAR_SESSION|PMA_DBI_GETVAR_GLOBAL
  * @param mixed  $link mysql link resource|object
  *
- * @return  mixed   value for mysql server variable
+ * @return mixed   value for mysql server variable
  */
 function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
 {

@@ -61,7 +61,7 @@ class Form
      * Returns type of given option
      *
      * @param string  $option_name path or field name
-     * @return  string|null  one of: boolean, integer, double, string, select, array
+     * @return string|null  one of: boolean, integer, double, string, select, array
      */
     public function getOptionType($option_name)
     {
@@ -75,7 +75,7 @@ class Form
      * Returns allowed values for select fields
      *
      * @param string  $option_path
-     * @return  array
+     * @return array
      */
     public function getOptionValueList($option_path)
     {

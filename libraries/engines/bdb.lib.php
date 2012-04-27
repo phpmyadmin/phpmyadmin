@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 class PMA_StorageEngine_bdb extends PMA_StorageEngine
 {
     /**
-     * @return  array   variable names
+     * @return array   variable names
      */
     function getVariables()
     {
@@ -68,7 +68,7 @@ class PMA_StorageEngine_bdb extends PMA_StorageEngine
      * returns string with filename for the MySQL helppage
      * about this storage engne
      *
-     * @return  string  mysql helppage filename
+     * @return string  mysql helppage filename
      */
     function getMysqlHelpPage()
     {

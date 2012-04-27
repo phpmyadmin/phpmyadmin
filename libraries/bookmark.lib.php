@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Defines the bookmark parameters for the current user
  *
- * @return  array    the bookmark parameters for the current user
+ * @return array    the bookmark parameters for the current user
  * @access  public
  */
 function PMA_Bookmark_getParams()
@@ -93,7 +93,7 @@ function PMA_Bookmark_getList($db)
  * @param boolean $action_bookmark_all true: get all bookmarks regardless of the owning user
  * @param boolean $exact_user_match    whether to ignore bookmarks with no user
  *
- * @return  string    the sql query
+ * @return string    the sql query
  *
  * @access  public
  *
@@ -133,7 +133,7 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
  *                           $fields['query'] is urlencoded
  * @param boolean $all_users whether to make the bookmark available for all users
  *
- * @return  boolean   whether the INSERT succeeds or not
+ * @return boolean   whether the INSERT succeeds or not
  *
  * @access  public
  *

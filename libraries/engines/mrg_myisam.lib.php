@@ -22,7 +22,7 @@ class PMA_StorageEngine_mrg_myisam extends PMA_StorageEngine_merge
      * returns string with filename for the MySQL helppage
      * about this storage engne
      *
-     * @return  string  mysql helppage filename
+     * @return string  mysql helppage filename
      */
     function getMysqlHelpPage()
     {

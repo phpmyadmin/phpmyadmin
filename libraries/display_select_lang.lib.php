@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
  * @param array &$a the array to be sorted
  * @param mixed &$b a required parameter
  *
- * @return  the sorted array
+ * @return the sorted array
  * @access  private
  */
 function PMA_language_cmp(&$a, &$b)

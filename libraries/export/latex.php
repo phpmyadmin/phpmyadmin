@@ -87,7 +87,7 @@ if (isset($plugin_list)) {
      *
      * @param string $string the string to convert
      *
-     * @return  string      the converted string with escape codes
+     * @return string      the converted string with escape codes
      *
      * @access  private
      */
@@ -104,7 +104,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return  bool        Whether it succeeded
+     * @return bool        Whether it succeeded
      *
      * @access  public
      */

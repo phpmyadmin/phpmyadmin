@@ -54,7 +54,7 @@ class PMA_StorageEngine
      * @static
      * @staticvar array $storage_engines storage engines
      * @access  public
-     * @return  array    of storage engines
+     * @return array    of storage engines
      */
     static public function getStorageEngines()
     {
@@ -91,7 +91,7 @@ class PMA_StorageEngine
      * @param boolean $offerUnavailableEngines Should unavailable storage engines be offered?
      *
      * @static
-     * @return  string  html selectbox
+     * @return string  html selectbox
      */
     static public function getHtmlSelect($name = 'engine', $id = null,
       $selected = null, $offerUnavailableEngines = false)
@@ -131,7 +131,7 @@ class PMA_StorageEngine
      *
      * @param string $engine The engine ID
      *
-     * @return  object  The engine plugin
+     * @return object  The engine plugin
      */
     static public function getEngine($engine)
     {
@@ -154,7 +154,7 @@ class PMA_StorageEngine
      * @param string $engine name of engine
      *
      * @static
-     * @return  boolean whether $engine is valid or not
+     * @return boolean whether $engine is valid or not
      */
     static public function isValid($engine)
     {
@@ -230,7 +230,7 @@ class PMA_StorageEngine
     /**
      * returns array with detailed info about engine specific server variables
      *
-     * @return  array   with detailed info about specific engine server variables
+     * @return array   with detailed info about specific engine server variables
      */
     function getVariablesStatus()
     {
@@ -332,7 +332,7 @@ class PMA_StorageEngine
     /**
      * public String getSupportInformationMessage()
      *
-     * @return  string   The localized message.
+     * @return string   The localized message.
      */
     function getSupportInformationMessage()
     {
@@ -361,7 +361,7 @@ class PMA_StorageEngine
      * for a particular engine.
      *
      * @abstract
-     * @return   Array   The list of variables.
+     * @return Array   The list of variables.
      */
     function getVariables()
     {
@@ -372,7 +372,7 @@ class PMA_StorageEngine
      * returns string with filename for the MySQL helppage
      * about this storage engne
      *
-     * @return  string  mysql helppage filename
+     * @return string  mysql helppage filename
      */
     function getMysqlHelpPage()
     {
@@ -383,7 +383,7 @@ class PMA_StorageEngine
      * public string getVariablesLikePattern()
      *
      * @abstract
-     * @return  string  SQL query LIKE pattern
+     * @return string  SQL query LIKE pattern
      */
     function getVariablesLikePattern()
     {
@@ -396,7 +396,7 @@ class PMA_StorageEngine
      * Returns a list of available information pages with labels
      *
      * @abstract
-     * @return  array    The list
+     * @return array    The list
      */
     function getInfoPages()
     {
@@ -411,7 +411,7 @@ class PMA_StorageEngine
      * @param string $id The page ID
      *
      * @abstract
-     * @return  string      The page
+     * @return string      The page
      *          boolean     or false on error.
      */
     function getPage($id)

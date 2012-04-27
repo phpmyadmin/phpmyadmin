@@ -79,7 +79,7 @@ class PMA_Table
      * returns table name
      *
      * @see PMA_Table::getName()
-     * @return  string  table name
+     * @return string  table name
      */
     function __toString()
     {
@@ -123,7 +123,7 @@ class PMA_Table
      *
      * @param boolean $backquoted whether to quote name with backticks ``
      *
-     * @return  string  table name
+     * @return string  table name
      */
     function getName($backquoted = false)
     {
@@ -150,7 +150,7 @@ class PMA_Table
      *
      * @param boolean $backquoted whether to quote name with backticks ``
      *
-     * @return  string  database name for this table
+     * @return string  database name for this table
      */
     function getDbName($backquoted = false)
     {
@@ -223,7 +223,7 @@ class PMA_Table
      *
      * @param string $param name for value to return
      *
-     * @return  mixed   value for $param
+     * @return mixed   value for $param
      */
     function get($param)
     {
@@ -286,7 +286,7 @@ class PMA_Table
      * @param string $db    the database name
      * @param string $table the table name
      *
-     * @return  boolean  true if it is a merge table
+     * @return boolean  true if it is a merge table
      */
     static public function isMerge($db = null, $table = null)
     {
@@ -378,7 +378,7 @@ class PMA_Table
      * @todo on the interface, some js to clear the default value when the
      * default current_timestamp is checked
      *
-     * @return  string  field specification
+     * @return string  field specification
      */
     static function generateFieldSpec($name, $type, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
@@ -603,7 +603,7 @@ class PMA_Table
      *
      * @see PMA_Table::generateFieldSpec()
      *
-     * @return  string  field specification
+     * @return string  field specification
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
@@ -1126,7 +1126,7 @@ class PMA_Table
      * @todo add check for valid chars in filename on current system/os
      * @see  http://dev.mysql.com/doc/refman/5.0/en/legal-names.html
      *
-     * @return  boolean whether the string is valid or not
+     * @return boolean whether the string is valid or not
      */
     function isValidName($table_name)
     {
