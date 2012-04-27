@@ -1435,6 +1435,8 @@ class PMA_Config
     }
 
     /**
+     * Saves config file.
+     *
      * @todo finish
      *
      * @return void

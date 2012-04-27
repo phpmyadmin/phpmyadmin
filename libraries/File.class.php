@@ -10,9 +10,11 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * File wrapper class
  *
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
+ *
  * @package PhpMyAdmin
  */
 class PMA_File
@@ -155,6 +157,7 @@ class PMA_File
     }
 
     /**
+     * Gets file content
      *
      * @return string  binary file content
      *
@@ -192,7 +195,10 @@ class PMA_File
     }
 
     /**
+     * Whether file is uploaded.
+     *
      * @access  public
+     *
      * @return bool
      */
     function isUploaded()
@@ -212,6 +218,7 @@ class PMA_File
     }
 
     /**
+     * Initializes object from uploaded file.
      *
      * @param string $name name of file uploaded
      *
@@ -232,6 +239,8 @@ class PMA_File
     }
 
     /**
+     *
+     *
      * @param string $key       the md5 hash of the column name
      * @param string $rownumber
      *

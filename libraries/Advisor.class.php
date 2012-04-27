@@ -1,8 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * A simple rules engine, that parses and executes the rules in advisory_rules.txt. Adjusted to phpMyAdmin
- *
+ * A simple rules engine, that parses and executes the rules in advisory_rules.txt.
+ * Adjusted to phpMyAdmin.
  *
  * @package PhpMyAdmin
  */
