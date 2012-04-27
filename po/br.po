@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-26 12:37-0400\n"
+"POT-Creation-Date: 2012-04-27 14:33+0200\n"
 "PO-Revision-Date: 2012-03-14 16:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: br\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 0.6\n"
 
@@ -43,8 +43,8 @@ msgstr ""
 "prenestroù gant ho merdeer evit abegoù surentez."
 
 #: browse_foreigners.php:172 libraries/common.lib.php:3162
-#: libraries/common.lib.php:3169 libraries/common.lib.php:3395
-#: libraries/common.lib.php:3396 libraries/db_links.inc.php:60
+#: libraries/common.lib.php:3169 libraries/common.lib.php:3396
+#: libraries/common.lib.php:3397 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Klask"
@@ -52,7 +52,7 @@ msgstr "Klask"
 #: browse_foreigners.php:175 db_operations.php:409 db_operations.php:449
 #: db_operations.php:562 db_operations.php:591 db_search.php:352
 #: gis_data_editor.php:314 js/messages.php:231
-#: libraries/auth/cookie.auth.lib.php:264 libraries/core.lib.php:530
+#: libraries/auth/cookie.auth.lib.php:264 libraries/core.lib.php:527
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:364 libraries/display_import.lib.php:312
@@ -72,7 +72,7 @@ msgstr "Klask"
 #: server_privileges.php:2323 server_privileges.php:2370
 #: server_privileges.php:2402 server_replication.php:265
 #: server_replication.php:349 server_replication.php:380
-#: server_synchronize.php:1390 tbl_change.php:366 tbl_change.php:1112
+#: server_synchronize.php:1485 tbl_change.php:366 tbl_change.php:1112
 #: tbl_indexes.php:289 tbl_operations.php:292 tbl_operations.php:329
 #: tbl_operations.php:534 tbl_operations.php:597 tbl_operations.php:800
 #: tbl_select.php:237 tbl_structure.php:685 tbl_structure.php:722
@@ -122,10 +122,10 @@ msgid "Table comments"
 msgstr "Evezhiadennoù diwar-benn an daolenn"
 
 #: db_datadict.php:163 db_qbe.php:199 libraries/Index.class.php:461
-#: libraries/export/htmlword.php:194 libraries/export/htmlword.php:314
+#: libraries/export/htmlword.php:198 libraries/export/htmlword.php:318
 #: libraries/export/latex.php:394 libraries/export/odt.php:259
-#: libraries/export/odt.php:387 libraries/export/texytext.php:195
-#: libraries/export/texytext.php:313 libraries/export/texytext.php:390
+#: libraries/export/odt.php:387 libraries/export/texytext.php:199
+#: libraries/export/texytext.php:317 libraries/export/texytext.php:395
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:272 libraries/tbl_select.lib.php:86
@@ -136,10 +136,10 @@ msgid "Column"
 msgstr "Bann"
 
 #: db_datadict.php:164 db_printview.php:103 libraries/Index.class.php:458
-#: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:195
-#: libraries/export/htmlword.php:315 libraries/export/latex.php:395
+#: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:199
+#: libraries/export/htmlword.php:319 libraries/export/latex.php:395
 #: libraries/export/odt.php:262 libraries/export/odt.php:390
-#: libraries/export/texytext.php:196 libraries/export/texytext.php:314
+#: libraries/export/texytext.php:200 libraries/export/texytext.php:318
 #: libraries/rte/rte_list.lib.php:54 libraries/rte/rte_list.lib.php:80
 #: libraries/rte/rte_routines.lib.php:835
 #: libraries/rte/rte_routines.lib.php:860
@@ -154,10 +154,10 @@ msgid "Type"
 msgstr "Seurt"
 
 #: db_datadict.php:166 libraries/Index.class.php:464
-#: libraries/export/htmlword.php:196 libraries/export/htmlword.php:316
+#: libraries/export/htmlword.php:200 libraries/export/htmlword.php:320
 #: libraries/export/latex.php:396 libraries/export/odt.php:265
-#: libraries/export/odt.php:393 libraries/export/texytext.php:197
-#: libraries/export/texytext.php:315
+#: libraries/export/odt.php:393 libraries/export/texytext.php:201
+#: libraries/export/texytext.php:319
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_properties.inc.php:95 tbl_change.php:359
@@ -166,10 +166,10 @@ msgstr "Seurt"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:167 db_structure.php:637 libraries/export/htmlword.php:197
-#: libraries/export/htmlword.php:317 libraries/export/latex.php:397
+#: db_datadict.php:167 db_structure.php:637 libraries/export/htmlword.php:201
+#: libraries/export/htmlword.php:321 libraries/export/latex.php:397
 #: libraries/export/odt.php:268 libraries/export/odt.php:396
-#: libraries/export/texytext.php:198 libraries/export/texytext.php:316
+#: libraries/export/texytext.php:202 libraries/export/texytext.php:320
 #: libraries/schema/Pdf_Relation_Schema.class.php:1312
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:92 tbl_printview.php:140
@@ -177,9 +177,9 @@ msgstr "Null"
 msgid "Default"
 msgstr "Dre ziouer"
 
-#: db_datadict.php:171 libraries/export/htmlword.php:319
+#: db_datadict.php:171 libraries/export/htmlword.php:323
 #: libraries/export/latex.php:399 libraries/export/odt.php:400
-#: libraries/export/texytext.php:318
+#: libraries/export/texytext.php:322
 #: libraries/schema/Pdf_Relation_Schema.class.php:1314
 #: libraries/schema/Pdf_Relation_Schema.class.php:1335 tbl_printview.php:143
 msgid "Links to"
@@ -187,9 +187,9 @@ msgstr "Liammet ouzh"
 
 #: db_datadict.php:173 db_printview.php:109
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:113
-#: libraries/config/messages.inc.php:135 libraries/export/htmlword.php:322
+#: libraries/config/messages.inc.php:135 libraries/export/htmlword.php:326
 #: libraries/export/latex.php:402 libraries/export/odt.php:405
-#: libraries/export/texytext.php:321
+#: libraries/export/texytext.php:325
 #: libraries/schema/Pdf_Relation_Schema.class.php:1325
 #: libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_properties.inc.php:115 tbl_printview.php:145
@@ -199,10 +199,10 @@ msgstr "Evezhiadennoù"
 #: db_datadict.php:235 js/messages.php:251 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/Index.class.php:704
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:229
-#: libraries/export/htmlword.php:360 libraries/export/latex.php:460
+#: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:233
+#: libraries/export/htmlword.php:364 libraries/export/latex.php:460
 #: libraries/export/odt.php:299 libraries/export/odt.php:444
-#: libraries/export/texytext.php:228 libraries/export/texytext.php:357
+#: libraries/export/texytext.php:232 libraries/export/texytext.php:361
 #: libraries/mult_submits.inc.php:327
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:132
@@ -218,10 +218,10 @@ msgstr "Ket"
 #: db_datadict.php:235 js/messages.php:250 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/Index.class.php:704
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:229
-#: libraries/export/htmlword.php:360 libraries/export/latex.php:460
+#: libraries/config/FormDisplay.tpl.php:230 libraries/export/htmlword.php:233
+#: libraries/export/htmlword.php:364 libraries/export/latex.php:460
 #: libraries/export/odt.php:299 libraries/export/odt.php:444
-#: libraries/export/texytext.php:228 libraries/export/texytext.php:357
+#: libraries/export/texytext.php:232 libraries/export/texytext.php:361
 #: libraries/mult_submits.inc.php:68 libraries/mult_submits.inc.php:100
 #: libraries/mult_submits.inc.php:109 libraries/mult_submits.inc.php:114
 #: libraries/mult_submits.inc.php:119 libraries/mult_submits.inc.php:124
@@ -354,12 +354,12 @@ msgstr "Embann pe ezporzhiañ ur chema kar"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:193
 #: libraries/config/messages.inc.php:515 libraries/db_structure.lib.php:32
-#: libraries/export/pdf.php:98 libraries/export/xml.php:360
+#: libraries/export/pdf.php:98 libraries/export/xml.php:364
 #: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:275 server_privileges.php:2010
 #: server_privileges.php:2068 server_privileges.php:2337
-#: server_synchronize.php:450 server_synchronize.php:962 tbl_tracking.php:676
+#: server_synchronize.php:524 server_synchronize.php:1044 tbl_tracking.php:676
 msgid "Table"
 msgstr "Taolenn"
 
@@ -531,7 +531,7 @@ msgstr[0] "%s glotadenn en daolenn <i>%s</i>"
 msgstr[1] "%s klotadenn en daolenn <i>%s</i>"
 
 #: db_search.php:247 libraries/common.lib.php:3164
-#: libraries/common.lib.php:3393 libraries/common.lib.php:3394
+#: libraries/common.lib.php:3394 libraries/common.lib.php:3395
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:560
 msgid "Browse"
 msgstr "Furchal"
@@ -619,11 +619,11 @@ msgstr "N'eo ket oberiant an heuliañ."
 #: db_structure.php:525 libraries/display_tbl.lib.php:2363
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an %"
-"steulioù titouriñ%s."
+"Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an "
+"%steulioù titouriñ%s."
 
 #: db_structure.php:543 db_structure.php:577 libraries/header.inc.php:169
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:211
@@ -669,8 +669,8 @@ msgstr "Diaskañ pep tra"
 msgid "Check tables having overhead"
 msgstr "Askañ an taolennoù gant dilerc'hioù"
 
-#: db_structure.php:699 libraries/common.lib.php:3406
-#: libraries/common.lib.php:3407 libraries/config/messages.inc.php:168
+#: db_structure.php:699 libraries/common.lib.php:3407
+#: libraries/common.lib.php:3408 libraries/config/messages.inc.php:168
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:2523 libraries/display_tbl.lib.php:2664
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -684,13 +684,13 @@ msgstr "Ezporzhiañ"
 msgid "Print view"
 msgstr "Stumm da voullañ"
 
-#: db_structure.php:705 libraries/common.lib.php:3402
-#: libraries/common.lib.php:3403
+#: db_structure.php:705 libraries/common.lib.php:3403
+#: libraries/common.lib.php:3404
 msgid "Empty"
 msgstr "Goullonderiñ"
 
 #: db_structure.php:707 db_tracking.php:106 libraries/Index.class.php:507
-#: libraries/common.lib.php:3400 libraries/common.lib.php:3401
+#: libraries/common.lib.php:3401 libraries/common.lib.php:3402
 #: server_databases.php:302 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:564
 msgid "Drop"
@@ -733,14 +733,14 @@ msgid "Tracked tables"
 msgstr "Taolennoù heuliet-pizh"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:509
-#: libraries/export/htmlword.php:83 libraries/export/latex.php:156
+#: libraries/export/htmlword.php:84 libraries/export/latex.php:156
 #: libraries/export/odt.php:114 libraries/export/pdf.php:98
-#: libraries/export/sql.php:609 libraries/export/texytext.php:69
-#: libraries/export/xml.php:293 libraries/header.inc.php:152
+#: libraries/export/sql.php:609 libraries/export/texytext.php:70
+#: libraries/export/xml.php:294 libraries/header.inc.php:152
 #: libraries/header_printview.inc.php:59 server_databases.php:192
 #: server_privileges.php:2005 server_privileges.php:2068
 #: server_privileges.php:2331 server_status.php:1261
-#: server_synchronize.php:1358 server_synchronize.php:1362
+#: server_synchronize.php:1453 server_synchronize.php:1457
 #: tbl_tracking.php:675
 msgid "Database"
 msgstr "Diaz roadennoù"
@@ -936,11 +936,11 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an %"
-"steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
+"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an "
+"%steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
 
 #: import.php:216 import.php:443
 msgid "Showing bookmark"
@@ -950,14 +950,13 @@ msgstr "O tiskouez ar sined"
 msgid "The bookmark has been deleted."
 msgstr "Diverket eo bet ar sined."
 
-#: import.php:315 import.php:368 libraries/File.class.php:403
-#: libraries/File.class.php:486
+#: import.php:315 import.php:368 libraries/File.class.php:412
+#: libraries/File.class.php:495
 msgid "File could not be read"
 msgstr "N'haller ket lenn ar restr"
 
 #: import.php:323 import.php:332 import.php:351 import.php:360
-#: libraries/File.class.php:556 libraries/File.class.php:564
-#: libraries/File.class.php:580 libraries/File.class.php:588
+#: libraries/File.class.php:556
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -1022,11 +1021,11 @@ msgid "Your SQL query has been executed successfully"
 msgstr "Sevenet eo bet ho reked SQL ervat"
 
 #: import_status.php:117 libraries/common.lib.php:720
-#: libraries/schema/Export_Relation_Schema.class.php:240 user_password.php:205
+#: libraries/schema/Export_Relation_Schema.class.php:240 user_password.php:210
 msgid "Back"
 msgstr "Distreiñ"
 
-#: index.php:163
+#: index.php:162
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "Un tamm aesoc'h eo phpMyAdmin gant ur merdeer a <b>skor ar frammoù</b>."
@@ -1104,11 +1103,11 @@ msgstr "Goullo eo anv ar servijer !"
 msgid "The user name is empty!"
 msgstr "Goullo eo anv an implijer !"
 
-#: js/messages.php:53 server_privileges.php:1432 user_password.php:102
+#: js/messages.php:53 server_privileges.php:1432 user_password.php:103
 msgid "The password is empty!"
 msgstr "Goullo eo ar ger-tremen !"
 
-#: js/messages.php:54 server_privileges.php:1430 user_password.php:105
+#: js/messages.php:54 server_privileges.php:1430 user_password.php:106
 msgid "The passwords aren't the same!"
 msgstr "Ne glot ket ar gerioù-tremen !"
 
@@ -1132,7 +1131,7 @@ msgstr "Serriñ"
 
 #: js/messages.php:61 js/messages.php:284 libraries/Index.class.php:485
 #: libraries/common.lib.php:659 libraries/common.lib.php:1240
-#: libraries/common.lib.php:3404 libraries/common.lib.php:3405
+#: libraries/common.lib.php:3405 libraries/common.lib.php:3406
 #: libraries/config/messages.inc.php:491 libraries/display_tbl.lib.php:1403
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1568,8 +1567,8 @@ msgstr "O tilesa..."
 msgid "Explain output"
 msgstr "Displegañ SQL"
 
-#: js/messages.php:186 js/messages.php:519 libraries/export/htmlword.php:396
-#: libraries/export/odt.php:504 libraries/export/texytext.php:393
+#: js/messages.php:186 js/messages.php:519 libraries/export/htmlword.php:401
+#: libraries/export/odt.php:504 libraries/export/texytext.php:398
 #: libraries/rte/rte_list.lib.php:68 server_status.php:1263 sql.php:957
 msgid "Time"
 msgstr ""
@@ -2376,25 +2375,45 @@ msgstr "Munut"
 msgid "Second"
 msgstr "Eilenn"
 
-#: libraries/Advisor.class.php:171
+#: libraries/Advisor.class.php:65
 #, php-format
-msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
+msgid "PHP threw following error: %s"
 msgstr ""
 
-#: libraries/Advisor.class.php:334 server_status.php:963
+#: libraries/Advisor.class.php:86
+#, php-format
+msgid "Failed evaluating precondition for rule '%s'"
+msgstr ""
+
+#: libraries/Advisor.class.php:100
+#, php-format
+msgid "Failed calculating value for rule '%s'"
+msgstr ""
+
+#: libraries/Advisor.class.php:116
+#, php-format
+msgid "Failed running test for rule '%s'"
+msgstr ""
+
+#: libraries/Advisor.class.php:193
+#, php-format
+msgid "Failed formatting string for rule '%s'"
+msgstr ""
+
+#: libraries/Advisor.class.php:365 server_status.php:963
 msgid "per second"
 msgstr ""
 
-#: libraries/Advisor.class.php:337 server_status.php:958
+#: libraries/Advisor.class.php:368 server_status.php:958
 msgid "per minute"
 msgstr ""
 
-#: libraries/Advisor.class.php:340 server_status.php:954 server_status.php:990
+#: libraries/Advisor.class.php:371 server_status.php:954 server_status.php:990
 #: server_status.php:1112 server_status.php:1163
 msgid "per hour"
 msgstr ""
 
-#: libraries/Advisor.class.php:343
+#: libraries/Advisor.class.php:374
 msgid "per day"
 msgstr ""
 
@@ -2411,7 +2430,7 @@ msgstr ""
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1529
+#: libraries/Config.class.php:1531
 msgid "Font size"
 msgstr "Ment an destenn"
 
@@ -2419,17 +2438,17 @@ msgstr "Ment an destenn"
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: libraries/File.class.php:227
+#: libraries/File.class.php:234
 msgid "File was not an uploaded file."
 msgstr ""
 
-#: libraries/File.class.php:259
+#: libraries/File.class.php:268
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Brasoc'h eo ment ar restr pellgarget eget ar vevenn aotreet gant ar "
 "c'hemennad upload_max_filesize directive e php.ini."
 
-#: libraries/File.class.php:262
+#: libraries/File.class.php:271
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -2437,27 +2456,27 @@ msgstr ""
 "Brasoc'h eo ment ar restr pellgarget eget ar vevenn aotreet gant ar "
 "c'hemennad MAX_FILE_SIZE spisaet er furmskrid HTML."
 
-#: libraries/File.class.php:265
+#: libraries/File.class.php:274
 msgid "The uploaded file was only partially uploaded."
 msgstr "Hanter bellgarget eo bet ar restr nemetken."
 
-#: libraries/File.class.php:268
+#: libraries/File.class.php:277
 msgid "Missing a temporary folder."
 msgstr "Mankout a ra ur c'havlec'h padennek."
 
-#: libraries/File.class.php:271
+#: libraries/File.class.php:280
 msgid "Failed to write file to disk."
 msgstr "Fazi en ur skrivañ ar restr war ar bladenn."
 
-#: libraries/File.class.php:274
+#: libraries/File.class.php:283
 msgid "File upload stopped by extension."
 msgstr "Harzet eo bet ar pellgargañ gant an astenn."
 
-#: libraries/File.class.php:277
+#: libraries/File.class.php:286
 msgid "Unknown error in file upload."
 msgstr "Fazi dianav en ur bellgargañ ar restr."
 
-#: libraries/File.class.php:442
+#: libraries/File.class.php:451
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -2465,11 +2484,11 @@ msgstr ""
 "Fazi en ur zilec'hiañ ar restr pellgarget; gwelet [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 
-#: libraries/File.class.php:454
+#: libraries/File.class.php:463
 msgid "Error while moving uploaded file."
 msgstr ""
 
-#: libraries/File.class.php:462
+#: libraries/File.class.php:471
 msgid "Cannot read (moved) upload file."
 msgstr ""
 
@@ -2528,7 +2547,7 @@ msgid "Databases"
 msgstr "Diazoù roadennoù"
 
 #: libraries/Message.class.php:196 libraries/common.lib.php:625
-#: libraries/core.lib.php:220 libraries/import.lib.php:141 tbl_change.php:935
+#: libraries/core.lib.php:217 libraries/import.lib.php:141 tbl_change.php:935
 #: tbl_operations.php:237 tbl_relation.php:298 view_operations.php:60
 msgid "Error"
 msgstr "Fazi"
@@ -2632,35 +2651,35 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/Theme.class.php:148
+#: libraries/Theme.class.php:149
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "N'eus ket eus un hent reizh evit skeudennoù an tem %s !"
 
-#: libraries/Theme.class.php:356
+#: libraries/Theme.class.php:359
 msgid "No preview available."
 msgstr "N'haller ket rakwelet."
 
-#: libraries/Theme.class.php:359
+#: libraries/Theme.class.php:362
 msgid "take it"
 msgstr "tapit-eñ"
 
-#: libraries/Theme_Manager.class.php:113
+#: libraries/Theme_Manager.class.php:114
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "N'eo ket bet kavet an tem dre ziouer %s !"
 
-#: libraries/Theme_Manager.class.php:156
+#: libraries/Theme_Manager.class.php:157
 #, php-format
 msgid "Theme %s not found!"
 msgstr "N'eo ket bet kavet an tem %s !"
 
-#: libraries/Theme_Manager.class.php:227
+#: libraries/Theme_Manager.class.php:229
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "N'eo ket bet kavet an hent evit an tem  %s !"
 
-#: libraries/Theme_Manager.class.php:309 themes.php:20 themes.php:27
+#: libraries/Theme_Manager.class.php:313 themes.php:20 themes.php:27
 msgid "Theme"
 msgstr "Tem"
 
@@ -2701,14 +2720,14 @@ msgstr ""
 
 #: libraries/Types.class.php:296
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:298
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -2935,11 +2954,11 @@ msgstr "Degemer mat e %s"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar %"
-"1$sskript kefluniañ%2$s da sevel unan."
+"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar "
+"%1$sskript kefluniañ%2$s da sevel unan."
 
 #: libraries/auth/config.auth.lib.php:112
 msgid ""
@@ -3138,7 +3157,7 @@ msgstr "Anv ostiz direizh evit ar servijer %1$s. Gwiriit ar c'hefluniadur."
 
 #: libraries/common.inc.php:672 libraries/config/messages.inc.php:513
 #: libraries/header.inc.php:138 main.php:181 server_status.php:795
-#: server_synchronize.php:1338
+#: server_synchronize.php:1433
 msgid "Server"
 msgstr "Servijer"
 
@@ -3159,7 +3178,7 @@ msgstr "Ment vrasañ : %s%s"
 #: libraries/common.lib.php:405 libraries/common.lib.php:408
 #: libraries/common.lib.php:497 libraries/config/FormDisplay.tpl.php:140
 #: libraries/display_export.lib.php:238 libraries/engines/pbxt.lib.php:109
-#: libraries/relation.lib.php:78 main.php:247 server_variables.php:139
+#: libraries/relation.lib.php:90 main.php:247 server_variables.php:139
 msgid "Documentation"
 msgstr "Teuliadur"
 
@@ -3315,13 +3334,13 @@ msgid "Click to toggle"
 msgstr "Klikañ evit gwintañ"
 
 #: libraries/common.lib.php:3160 libraries/common.lib.php:3167
-#: libraries/common.lib.php:3399 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3400 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
 #: libraries/config/user_preferences.forms.php:258
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:371
-#: libraries/import.lib.php:1160 libraries/tbl_links.inc.php:61
+#: libraries/import.lib.php:1161 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:627 pmd_general.php:155
 #: server_privileges.php:711 server_replication.php:346 tbl_tracking.php:274
 msgid "Structure"
@@ -3335,8 +3354,8 @@ msgstr "Framm"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3163 libraries/common.lib.php:3397
-#: libraries/common.lib.php:3398 libraries/sql_query_form.lib.php:289
+#: libraries/common.lib.php:3163 libraries/common.lib.php:3398
+#: libraries/common.lib.php:3399 libraries/sql_query_form.lib.php:289
 #: libraries/sql_query_form.lib.php:292 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Ensoc'hañ"
@@ -3347,30 +3366,30 @@ msgstr "Ensoc'hañ"
 msgid "Operations"
 msgstr "Oberiadennoù"
 
-#: libraries/common.lib.php:3325 libraries/sql_query_form.lib.php:442
+#: libraries/common.lib.php:3326 libraries/sql_query_form.lib.php:442
 #: prefs_manage.php:247
 msgid "Browse your computer:"
 msgstr "Furchal en hoc'h urzhiataer"
 
-#: libraries/common.lib.php:3347
+#: libraries/common.lib.php:3348
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Diuzit e-mesk kavlec'h pellgargañ ar servijer web <b>%s</b> :"
 
-#: libraries/common.lib.php:3371 libraries/sql_query_form.lib.php:451
+#: libraries/common.lib.php:3372 libraries/sql_query_form.lib.php:451
 #: tbl_change.php:936
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Ar c'havlec'h treuzkas n'hall ket bezañ diraezet."
 
-#: libraries/common.lib.php:3380
+#: libraries/common.lib.php:3381
 msgid "There are no files to upload"
 msgstr "N'eus restr ebet da enporzhiañ"
 
-#: libraries/common.lib.php:3408 libraries/common.lib.php:3409
+#: libraries/common.lib.php:3409 libraries/common.lib.php:3410
 msgid "Execute"
 msgstr "Seveniñ"
 
-#: libraries/common.lib.php:3905
+#: libraries/common.lib.php:3906
 msgid "Print"
 msgstr "Moullañ"
 
@@ -3400,7 +3419,7 @@ msgid "Closed"
 msgstr "Serr"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
-#: libraries/relation.lib.php:82 libraries/relation.lib.php:89
+#: libraries/relation.lib.php:94 libraries/relation.lib.php:101
 #: pmd_relation_new.php:71
 msgid "Disabled"
 msgstr "Diweredekaet"
@@ -3455,67 +3474,67 @@ msgid "neither of the above"
 msgstr "Dibab ebet a-zouez ar re zo a-us"
 
 #: libraries/config/FormDisplay.class.php:83
-#: libraries/config/validate.lib.php:441
+#: libraries/config/validate.lib.php:450
 msgid "Not a positive number"
 msgstr "N'eo ket un niver pozitivel"
 
 #: libraries/config/FormDisplay.class.php:84
-#: libraries/config/validate.lib.php:453
+#: libraries/config/validate.lib.php:463
 msgid "Not a non-negative number"
 msgstr "N'eo ket un niver annegativel"
 
 #: libraries/config/FormDisplay.class.php:85
-#: libraries/config/validate.lib.php:429
+#: libraries/config/validate.lib.php:437
 msgid "Not a valid port number"
 msgstr "Niverenn borzh direizh"
 
 #: libraries/config/FormDisplay.class.php:86
-#: libraries/config/FormDisplay.class.php:552
-#: libraries/config/validate.lib.php:380 libraries/config/validate.lib.php:468
+#: libraries/config/FormDisplay.class.php:555
+#: libraries/config/validate.lib.php:386 libraries/config/validate.lib.php:479
 msgid "Incorrect value"
 msgstr "Talvoud direizh"
 
 #: libraries/config/FormDisplay.class.php:87
-#: libraries/config/validate.lib.php:482
+#: libraries/config/validate.lib.php:494
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr "Rankout a ra an talvoud bezañ par da pe bihanoc'h eget %s"
 
-#: libraries/config/FormDisplay.class.php:514
+#: libraries/config/FormDisplay.class.php:517
 #, php-format
 msgid "Missing data for %s"
 msgstr "Roadennoù a vank evit %s"
 
-#: libraries/config/FormDisplay.class.php:715
-#: libraries/config/FormDisplay.class.php:719
+#: libraries/config/FormDisplay.class.php:721
+#: libraries/config/FormDisplay.class.php:725
 msgid "unavailable"
 msgstr "N'eo ket hegerz"
 
-#: libraries/config/FormDisplay.class.php:716
-#: libraries/config/FormDisplay.class.php:721
+#: libraries/config/FormDisplay.class.php:722
+#: libraries/config/FormDisplay.class.php:727
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" zo rekis dezhañ an astenn %s"
 
-#: libraries/config/FormDisplay.class.php:737
+#: libraries/config/FormDisplay.class.php:743
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr "Ne'z aio ket an enporzhiañ en-dro, un arc'hwel a vank (%s)"
 
-#: libraries/config/FormDisplay.class.php:743
+#: libraries/config/FormDisplay.class.php:749
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr "Ne'z aio ket an ezporzhiañ en-dro, un arc'hwel a vank (%s)"
 
-#: libraries/config/FormDisplay.class.php:751
+#: libraries/config/FormDisplay.class.php:757
 msgid "SQL Validator is disabled"
 msgstr "Diweredekaet eo kadarnataer SQL"
 
-#: libraries/config/FormDisplay.class.php:758
+#: libraries/config/FormDisplay.class.php:764
 msgid "SOAP extension not found"
 msgstr "N'eo ket bet kavet an astenn SOAP"
 
-#: libraries/config/FormDisplay.class.php:767
+#: libraries/config/FormDisplay.class.php:773
 #, php-format
 msgid "maximum %s"
 msgstr "%s d'ar muiañ"
@@ -5437,7 +5456,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
 #: libraries/replication_gui.lib.php:355 server_privileges.php:979
 #: server_privileges.php:983 server_privileges.php:994
-#: server_privileges.php:1850 server_synchronize.php:1354
+#: server_privileges.php:1850 server_synchronize.php:1449
 msgid "Password"
 msgstr ""
 
@@ -5560,7 +5579,7 @@ msgstr ""
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:152
 #: setup/lib/index.lib.php:163 setup/lib/index.lib.php:175
 #: setup/lib/index.lib.php:183 setup/lib/index.lib.php:190
-#: setup/lib/index.lib.php:230
+#: setup/lib/index.lib.php:231
 msgid "Version check"
 msgstr ""
 
@@ -5634,75 +5653,75 @@ msgstr ""
 msgid "Open Document Text"
 msgstr ""
 
-#: libraries/config/validate.lib.php:198
+#: libraries/config/validate.lib.php:200
 msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
-#: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
+#: libraries/config/validate.lib.php:207 libraries/config/validate.lib.php:214
 #, fuzzy
 #| msgid "Could not open file: %s"
 msgid "Could not connect to Drizzle server"
 msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
 
-#: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
+#: libraries/config/validate.lib.php:225 libraries/config/validate.lib.php:232
 msgid "Could not connect to MySQL server"
 msgstr ""
 
-#: libraries/config/validate.lib.php:254
+#: libraries/config/validate.lib.php:257
 msgid "Empty username while using config authentication method"
 msgstr ""
 
-#: libraries/config/validate.lib.php:258
+#: libraries/config/validate.lib.php:261
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
 
-#: libraries/config/validate.lib.php:262
+#: libraries/config/validate.lib.php:265
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
 
-#: libraries/config/validate.lib.php:295
+#: libraries/config/validate.lib.php:299
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr ""
 
-#: libraries/config/validate.lib.php:299
+#: libraries/config/validate.lib.php:303
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 
-#: libraries/config/validate.lib.php:388
+#: libraries/config/validate.lib.php:394
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
 #. l10n: Please check that translation actually exists.
-#: libraries/core.lib.php:257
+#: libraries/core.lib.php:254
 msgctxt "PHP documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/core.lib.php:278
+#: libraries/core.lib.php:275
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/core.lib.php:428
+#: libraries/core.lib.php:425
 msgid "possible deep recursion attack"
 msgstr ""
 
-#: libraries/database_interface.lib.php:1835
+#: libraries/database_interface.lib.php:1846
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 
-#: libraries/database_interface.lib.php:1838
+#: libraries/database_interface.lib.php:1849
 msgid "The server is not responding."
 msgstr ""
 
-#: libraries/database_interface.lib.php:1842
+#: libraries/database_interface.lib.php:1853
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/database_interface.lib.php:1850
+#: libraries/database_interface.lib.php:1861
 msgid "Details..."
 msgstr ""
 
@@ -5711,7 +5730,7 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/db_links.inc.php:65 libraries/relation.lib.php:144
+#: libraries/db_links.inc.php:65 libraries/relation.lib.php:260
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
 msgstr ""
@@ -5720,7 +5739,7 @@ msgstr ""
 msgid "Query"
 msgstr ""
 
-#: libraries/db_links.inc.php:75 libraries/relation.lib.php:132
+#: libraries/db_links.inc.php:75 libraries/relation.lib.php:221
 msgid "Designer"
 msgstr ""
 
@@ -5739,9 +5758,9 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: libraries/db_links.inc.php:104 libraries/export/htmlword.php:450
+#: libraries/db_links.inc.php:104 libraries/export/htmlword.php:456
 #: libraries/export/odt.php:571 libraries/export/sql.php:1051
-#: libraries/export/texytext.php:445 libraries/export/xml.php:57
+#: libraries/export/texytext.php:451 libraries/export/xml.php:57
 #: libraries/rte/rte_words.lib.php:41 libraries/tbl_links.inc.php:103
 msgid "Triggers"
 msgstr ""
@@ -5752,13 +5771,13 @@ msgid ""
 "3.11[/a]"
 msgstr ""
 
-#: libraries/dbi/drizzle.dbi.lib.php:115 libraries/dbi/mysql.dbi.lib.php:118
+#: libraries/dbi/drizzle.dbi.lib.php:117 libraries/dbi/mysql.dbi.lib.php:120
 #: libraries/dbi/mysqli.dbi.lib.php:192
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
 #: libraries/display_change_password.lib.php:29 main.php:105
-#: user_password.php:202
+#: user_password.php:207
 msgid "Change password"
 msgstr ""
 
@@ -5796,12 +5815,12 @@ msgid "No Privileges"
 msgstr ""
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:86
-#: server_synchronize.php:456 server_synchronize.php:968
+#: server_synchronize.php:530 server_synchronize.php:1050
 msgid "Create table"
 msgstr ""
 
-#: libraries/display_create_table.lib.php:51 libraries/export/htmlword.php:395
-#: libraries/export/odt.php:501 libraries/export/texytext.php:392
+#: libraries/display_create_table.lib.php:51 libraries/export/htmlword.php:400
+#: libraries/export/odt.php:501 libraries/export/texytext.php:397
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:859
 #: libraries/rte/rte_routines.lib.php:1373 libraries/tbl_properties.inc.php:85
@@ -5904,8 +5923,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:285
@@ -6141,7 +6160,7 @@ msgstr ""
 #: libraries/export/pdf.php:29 libraries/export/php_array.php:29
 #: libraries/export/sql.php:88 libraries/export/texytext.php:31
 #: libraries/export/xml.php:27 libraries/export/yaml.php:30
-#: libraries/import.lib.php:1137 libraries/import.lib.php:1160
+#: libraries/import.lib.php:1138 libraries/import.lib.php:1161
 #: libraries/import/csv.php:25 libraries/import/docsql.php:36
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:23 libraries/import/sql.php:20
@@ -6527,8 +6546,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:130
@@ -6575,36 +6594,36 @@ msgstr ""
 msgid "Data dump options"
 msgstr ""
 
-#: libraries/export/htmlword.php:128 libraries/export/odt.php:173
-#: libraries/export/sql.php:1220 libraries/export/texytext.php:114
+#: libraries/export/htmlword.php:132 libraries/export/odt.php:173
+#: libraries/export/sql.php:1220 libraries/export/texytext.php:118
 msgid "Dumping data for table"
 msgstr ""
 
-#: libraries/export/htmlword.php:397 libraries/export/odt.php:507
-#: libraries/export/texytext.php:394 libraries/rte/rte_list.lib.php:69
+#: libraries/export/htmlword.php:402 libraries/export/odt.php:507
+#: libraries/export/texytext.php:399 libraries/rte/rte_list.lib.php:69
 #: libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
 msgstr ""
 
-#: libraries/export/htmlword.php:398 libraries/export/odt.php:510
-#: libraries/export/texytext.php:395 libraries/rte/rte_events.lib.php:465
+#: libraries/export/htmlword.php:403 libraries/export/odt.php:510
+#: libraries/export/texytext.php:400 libraries/rte/rte_events.lib.php:465
 #: libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:354
 msgid "Definition"
 msgstr ""
 
-#: libraries/export/htmlword.php:443 libraries/export/odt.php:564
-#: libraries/export/sql.php:1040 libraries/export/texytext.php:438
+#: libraries/export/htmlword.php:449 libraries/export/odt.php:564
+#: libraries/export/sql.php:1040 libraries/export/texytext.php:444
 msgid "Table structure for table"
 msgstr ""
 
-#: libraries/export/htmlword.php:455 libraries/export/odt.php:577
-#: libraries/export/sql.php:1063 libraries/export/texytext.php:450
+#: libraries/export/htmlword.php:461 libraries/export/odt.php:577
+#: libraries/export/sql.php:1063 libraries/export/texytext.php:456
 msgid "Structure for view"
 msgstr ""
 
-#: libraries/export/htmlword.php:459 libraries/export/odt.php:582
-#: libraries/export/sql.php:1072 libraries/export/texytext.php:454
+#: libraries/export/htmlword.php:465 libraries/export/odt.php:582
+#: libraries/export/sql.php:1072 libraries/export/texytext.php:460
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -6870,49 +6889,49 @@ msgstr ""
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)."
 
-#: libraries/import.lib.php:1132
+#: libraries/import.lib.php:1133
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1133
+#: libraries/import.lib.php:1134
 msgid "View a structure's contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1134
+#: libraries/import.lib.php:1135
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1135
+#: libraries/import.lib.php:1136
 msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1139
+#: libraries/import.lib.php:1140
 #, fuzzy, php-format
 #| msgid "Jump to database"
 msgid "Go to database: %s"
 msgstr "Mont d'an diaz roadennoù"
 
-#: libraries/import.lib.php:1142 libraries/import.lib.php:1167
+#: libraries/import.lib.php:1143 libraries/import.lib.php:1168
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "Roadennoù a vank evit %s"
 
-#: libraries/import.lib.php:1162
+#: libraries/import.lib.php:1163
 #, fuzzy, php-format
 #| msgid "Set value: %s"
 msgid "Go to table: %s"
 msgstr "Lakaat an talvoud da %s"
 
-#: libraries/import.lib.php:1165
+#: libraries/import.lib.php:1166
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Ar framm hepken"
 
-#: libraries/import.lib.php:1173
+#: libraries/import.lib.php:1174
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
@@ -6962,7 +6981,7 @@ msgid "DocSQL"
 msgstr ""
 
 #: libraries/import/docsql.php:33 libraries/tbl_properties.inc.php:604
-#: server_synchronize.php:455 server_synchronize.php:967
+#: server_synchronize.php:529 server_synchronize.php:1049
 msgid "Table name"
 msgstr ""
 
@@ -7276,92 +7295,92 @@ msgstr ""
 msgid "This format has no options"
 msgstr ""
 
-#: libraries/relation.lib.php:76
+#: libraries/relation.lib.php:88
 msgid "not OK"
 msgstr ""
 
-#: libraries/relation.lib.php:80
+#: libraries/relation.lib.php:92
 #, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "Mat eo"
 
-#: libraries/relation.lib.php:81
+#: libraries/relation.lib.php:93
 msgid "Enabled"
 msgstr ""
 
-#: libraries/relation.lib.php:88 libraries/relation.lib.php:100
+#: libraries/relation.lib.php:100 libraries/relation.lib.php:123
 #: pmd_relation_new.php:71
 msgid "General relation features"
 msgstr ""
 
-#: libraries/relation.lib.php:104
+#: libraries/relation.lib.php:136
 msgid "Display Features"
 msgstr ""
 
-#: libraries/relation.lib.php:110
+#: libraries/relation.lib.php:156
 msgid "Creation of PDFs"
 msgstr ""
 
-#: libraries/relation.lib.php:114
+#: libraries/relation.lib.php:169
 msgid "Displaying Column Comments"
 msgstr ""
 
-#: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:141
+#: libraries/relation.lib.php:176 libraries/tbl_properties.inc.php:141
 #: transformation_overview.php:46
 msgid "Browser transformation"
 msgstr ""
 
-#: libraries/relation.lib.php:119
+#: libraries/relation.lib.php:183
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 
-#: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:382
+#: libraries/relation.lib.php:195 libraries/sql_query_form.lib.php:382
 msgid "Bookmarked SQL query"
 msgstr ""
 
-#: libraries/relation.lib.php:128 querywindow.php:75 querywindow.php:171
+#: libraries/relation.lib.php:208 querywindow.php:75 querywindow.php:171
 msgid "SQL history"
 msgstr ""
 
-#: libraries/relation.lib.php:136
+#: libraries/relation.lib.php:234
 msgid "Persistent recently used tables"
 msgstr ""
 
-#: libraries/relation.lib.php:140
+#: libraries/relation.lib.php:247
 msgid "Persistent tables' UI preferences"
 msgstr ""
 
-#: libraries/relation.lib.php:148
+#: libraries/relation.lib.php:273
 msgid "User preferences"
 msgstr ""
 
-#: libraries/relation.lib.php:152
+#: libraries/relation.lib.php:280
 msgid "Quick steps to setup advanced features:"
 msgstr ""
 
-#: libraries/relation.lib.php:154
+#: libraries/relation.lib.php:283
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:155
+#: libraries/relation.lib.php:287
 msgid "Create a pma user and give access to these tables."
 msgstr ""
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:291
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:157
+#: libraries/relation.lib.php:295
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1103
+#: libraries/relation.lib.php:1242
 msgid "no description"
 msgstr ""
 
@@ -7383,11 +7402,11 @@ msgstr ""
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
 #: libraries/replication_gui.lib.php:265 server_privileges.php:891
 #: server_privileges.php:894 server_privileges.php:901
-#: server_synchronize.php:1350
+#: server_synchronize.php:1445
 msgid "User name"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:70 server_synchronize.php:1342
+#: libraries/replication_gui.lib.php:70 server_synchronize.php:1437
 msgid "Port"
 msgstr ""
 
@@ -8060,8 +8079,8 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: libraries/server_links.inc.php:81 server_synchronize.php:1227
-#: server_synchronize.php:1234
+#: libraries/server_links.inc.php:81 server_synchronize.php:1322
+#: server_synchronize.php:1329
 msgid "Synchronize"
 msgstr ""
 
@@ -8088,7 +8107,7 @@ msgstr ""
 msgid "Engines"
 msgstr ""
 
-#: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1260
+#: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1355
 msgid "Source database"
 msgstr ""
 
@@ -8106,7 +8125,7 @@ msgstr ""
 msgid "Difference"
 msgstr ""
 
-#: libraries/server_synchronize.lib.php:1346 server_synchronize.php:1262
+#: libraries/server_synchronize.lib.php:1346 server_synchronize.php:1357
 msgid "Target database"
 msgstr ""
 
@@ -8640,7 +8659,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: navigation.php:175 server_databases.php:317 server_synchronize.php:1375
+#: navigation.php:175 server_databases.php:317 server_synchronize.php:1470
 msgid "No databases"
 msgstr ""
 
@@ -9360,8 +9379,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:2029
@@ -10625,104 +10644,104 @@ msgstr ""
 msgid "Could not connect to the target"
 msgstr ""
 
-#: server_synchronize.php:134 server_synchronize.php:137 tbl_create.php:55
+#: server_synchronize.php:148 server_synchronize.php:154 tbl_create.php:55
 #: tbl_get_field.php:20
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
-#: server_synchronize.php:294
+#: server_synchronize.php:362
 msgid "Structure Synchronization"
 msgstr ""
 
-#: server_synchronize.php:298
+#: server_synchronize.php:366
 msgid "Data Synchronization"
 msgstr ""
 
-#: server_synchronize.php:415 server_synchronize.php:906
+#: server_synchronize.php:489 server_synchronize.php:988
 msgid "not present"
 msgstr ""
 
-#: server_synchronize.php:451 server_synchronize.php:963
+#: server_synchronize.php:525 server_synchronize.php:1045
 msgid "Structure Difference"
 msgstr ""
 
-#: server_synchronize.php:452 server_synchronize.php:964
+#: server_synchronize.php:526 server_synchronize.php:1046
 msgid "Data Difference"
 msgstr ""
 
-#: server_synchronize.php:457 server_synchronize.php:969
+#: server_synchronize.php:531 server_synchronize.php:1051
 msgid "Add column(s)"
 msgstr ""
 
-#: server_synchronize.php:458 server_synchronize.php:970
+#: server_synchronize.php:532 server_synchronize.php:1052
 msgid "Remove column(s)"
 msgstr ""
 
-#: server_synchronize.php:459 server_synchronize.php:971
+#: server_synchronize.php:533 server_synchronize.php:1053
 msgid "Alter column(s)"
 msgstr ""
 
-#: server_synchronize.php:460 server_synchronize.php:972
+#: server_synchronize.php:534 server_synchronize.php:1054
 msgid "Remove index(s)"
 msgstr ""
 
-#: server_synchronize.php:461 server_synchronize.php:973
+#: server_synchronize.php:535 server_synchronize.php:1055
 msgid "Apply index(s)"
 msgstr ""
 
-#: server_synchronize.php:462 server_synchronize.php:974
+#: server_synchronize.php:536 server_synchronize.php:1056
 msgid "Update row(s)"
 msgstr ""
 
-#: server_synchronize.php:463 server_synchronize.php:975
+#: server_synchronize.php:537 server_synchronize.php:1057
 msgid "Insert row(s)"
 msgstr ""
 
-#: server_synchronize.php:474 server_synchronize.php:987
+#: server_synchronize.php:549 server_synchronize.php:1070
 msgid "Would you like to delete all the previous rows from target tables?"
 msgstr ""
 
-#: server_synchronize.php:479 server_synchronize.php:992
+#: server_synchronize.php:554 server_synchronize.php:1075
 msgid "Apply Selected Changes"
 msgstr ""
 
-#: server_synchronize.php:483 server_synchronize.php:995
+#: server_synchronize.php:558 server_synchronize.php:1078
 msgid "Synchronize Databases"
 msgstr ""
 
-#: server_synchronize.php:497
+#: server_synchronize.php:572
 msgid "Selected target tables have been synchronized with source tables."
 msgstr ""
 
-#: server_synchronize.php:1042
+#: server_synchronize.php:1125
 msgid "Target database has been synchronized with source database"
 msgstr ""
 
-#: server_synchronize.php:1100
+#: server_synchronize.php:1193
 #, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
 msgstr "Rekedoù resevet"
 
-#: server_synchronize.php:1282
+#: server_synchronize.php:1377
 msgid "Enter manually"
 msgstr ""
 
-#: server_synchronize.php:1290
+#: server_synchronize.php:1385
 msgid "Current connection"
 msgstr ""
 
-#: server_synchronize.php:1331
+#: server_synchronize.php:1426
 #, php-format
 msgid "Configuration: %s"
 msgstr ""
 
-#: server_synchronize.php:1346
+#: server_synchronize.php:1441
 msgid "Socket"
 msgstr ""
 
-#: server_synchronize.php:1394
+#: server_synchronize.php:1489
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -10904,7 +10923,7 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: setup/lib/index.lib.php:281
+#: setup/lib/index.lib.php:282
 #, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
@@ -10913,39 +10932,39 @@ msgid ""
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 
-#: setup/lib/index.lib.php:283
+#: setup/lib/index.lib.php:284
 msgid ""
 "You didn't have blowfish secret set and have enabled cookie authentication, "
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
 
-#: setup/lib/index.lib.php:284
+#: setup/lib/index.lib.php:285
 #, php-format
 msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
 
-#: setup/lib/index.lib.php:286
+#: setup/lib/index.lib.php:287
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
 
-#: setup/lib/index.lib.php:287
+#: setup/lib/index.lib.php:288
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
 
-#: setup/lib/index.lib.php:289
+#: setup/lib/index.lib.php:290
 #, php-format
 msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
 
-#: setup/lib/index.lib.php:291
+#: setup/lib/index.lib.php:292
 #, php-format
 msgid ""
 "%sLogin cookie validity%s greater than 1440 seconds may cause random session "
@@ -10953,21 +10972,21 @@ msgid ""
 "(currently %d)."
 msgstr ""
 
-#: setup/lib/index.lib.php:293
+#: setup/lib/index.lib.php:294
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 
-#: setup/lib/index.lib.php:295
+#: setup/lib/index.lib.php:296
 #, php-format
 msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
-#: setup/lib/index.lib.php:297
+#: setup/lib/index.lib.php:298
 #, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
@@ -10976,7 +10995,7 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 
-#: setup/lib/index.lib.php:299
+#: setup/lib/index.lib.php:300
 #, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
@@ -10986,37 +11005,37 @@ msgid ""
 "http[/kbd]."
 msgstr ""
 
-#: setup/lib/index.lib.php:301
+#: setup/lib/index.lib.php:302
 #, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
 
-#: setup/lib/index.lib.php:303
+#: setup/lib/index.lib.php:304
 #, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
 
-#: setup/lib/index.lib.php:331
+#: setup/lib/index.lib.php:332
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
 
-#: setup/lib/index.lib.php:345
+#: setup/lib/index.lib.php:346
 msgid "You should use mysqli for performance reasons."
 msgstr ""
 
-#: setup/lib/index.lib.php:380
+#: setup/lib/index.lib.php:381
 msgid "You allow for connecting to the server without a password."
 msgstr ""
 
-#: setup/lib/index.lib.php:404
+#: setup/lib/index.lib.php:405
 msgid "Key is too short, it should have at least 8 characters."
 msgstr ""
 
-#: setup/lib/index.lib.php:411
+#: setup/lib/index.lib.php:412
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
@@ -11787,7 +11806,7 @@ msgstr ""
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr ""
 
-#: user_password.php:98
+#: user_password.php:99
 msgid "The profile has been updated."
 msgstr ""
 
