@@ -128,7 +128,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     PMA_printDiagMessageForParameter(
         'table_info',
         isset($cfgRelation['table_info']),
-        $messages
+        $messages,
         'table_info'
     );
 
