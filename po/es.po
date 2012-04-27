@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-27 15:44+0200\n"
+"PO-Revision-Date: 2012-04-27 19:27+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -2753,20 +2753,20 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Un sinónimo de BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:716
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date, supported range is '%s' to '%s'"
 msgid "A date, supported range is \"%1$s\" to \"%2$s\""
-msgstr "Una fecha, el rango válido es de «%s» a «%s»"
+msgstr "Una fecha, el rango válido es de «%1$s» a «%2$s»"
 
 #: libraries/Types.class.php:309 libraries/Types.class.php:718
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date and time combination, supported range is '%s' to '%s'"
 msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
 msgstr ""
-"Una combinación de fecha y marca temporal, el rango válido es de «%s» a «%s»"
+"Una combinación de fecha y marca temporal, el rango válido es de «%1$s» a «%"
+"2$s»"
 
 #: libraries/Types.class.php:311
-#, fuzzy
 #| msgid ""
 #| "A timestamp, range is '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' "
 #| "UTC, stored as the number of seconds since the epoch ('1970-01-01 "
@@ -2777,14 +2777,14 @@ msgid ""
 "\" UTC)"
 msgstr ""
 "Una marca temporal; el rango es de «01-Ene-1970 00:00:01» UTC a «09-Ene-2038 "
-"03:14:07» UTC almacenados como la cantidad de segundos desde el «epoch» (01-"
-"Ene-1970 00:00:00 UTC)"
+"03:14:07» UTC almacenados como la cantidad de segundos desde el «epoch» "
+"(«01-Ene-1970 00:00:00» UTC)"
 
 #: libraries/Types.class.php:313 libraries/Types.class.php:722
-#, fuzzy, php-format
+#, php-format
 #| msgid "A time, range is '%s' to '%s'"
 msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr "Una marca temporal, el rango es de «%s» a «%s»"
+msgstr "Una marca temporal, el rango es de «%1$s» a «%2$s»"
 
 #: libraries/Types.class.php:315
 msgid ""
@@ -2840,7 +2840,6 @@ msgstr ""
 "valor en bytes"
 
 #: libraries/Types.class.php:327
-#, fuzzy
 #| msgid ""
 #| "A TEXT column with a maximum length of 4,294,967,295 or 4GB (2^32 - 1) "
 #| "characters, stored with a four-byte prefix indicating the length of the "
@@ -2850,7 +2849,7 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"Una columna de texto con una longitud máxima de 4294967295 (2^32 - 1) "
+"Una columna de texto con una longitud máxima de 4294967295 ó 4Gb (2^32 - 1) "
 "caracteres, almacenado con un prefijo de 4 bytes que indica la longitud del "
 "valor en bytes"
 
@@ -2889,7 +2888,6 @@ msgstr ""
 "longitud del valor"
 
 #: libraries/Types.class.php:337
-#, fuzzy
 #| msgid ""
 #| "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored "
 #| "with a four-byte prefix indicating the length of the value"
@@ -2898,11 +2896,10 @@ msgid ""
 "a two-byte prefix indicating the length of the value"
 msgstr ""
 "Una columna de bloque de texto («BLOB») con una longitud máxima de 65535 "
-"(2^16 - 1) bytes, almacenado con un prefijo de 4 bytes que indica la "
+"(2^16 - 1) bytes, almacenado con un prefijo de 2 bytes que indica la "
 "longitud del valor"
 
 #: libraries/Types.class.php:339
-#, fuzzy
 #| msgid ""
 #| "A BLOB column with a maximum length of 4,294,967,295 or 4GB (2^32 - 1) "
 #| "bytes, stored with a two-byte prefix indicating the length of the value"
@@ -2910,9 +2907,9 @@ msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Una columna de bloque de texto («BLOB») con una longitud máxima de 4294967295 "
-"(2^32 - 1) bytes (4GB), almacenado con un prefijo de 2 bytes que indica la "
-"longitud del valor"
+"Una columna de bloque de texto («BLOB») con una longitud máxima de "
+"4294967295 (2^32 - 1) bytes (4GB), almacenado con un prefijo de 4 bytes que "
+"indica la longitud del valor"
 
 #: libraries/Types.class.php:341
 msgid ""
