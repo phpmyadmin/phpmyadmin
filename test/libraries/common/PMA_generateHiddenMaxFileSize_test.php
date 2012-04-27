@@ -4,7 +4,6 @@
  * Test for PMA_generateHiddenMaxFileSize from common.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_generateHiddenMaxFileSize_test.php
  * @group common.lib-tests
  */
 

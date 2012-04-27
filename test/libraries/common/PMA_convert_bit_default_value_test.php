@@ -4,7 +4,6 @@
  * Test for PMA_convert_bit_default_value from common.lib
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_convert_bit_default_value_test.php
  * @group common.lib-tests
  */
 

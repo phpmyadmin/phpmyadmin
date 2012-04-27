@@ -4,7 +4,6 @@
  * Test for format number and byte
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_formatNumberByteDown_test.php
  * @group common.lib-tests
  */
 

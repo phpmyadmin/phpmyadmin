@@ -4,7 +4,6 @@
  * Test for supporting foreign key
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_foreignKeySupported_test.php
  * @group common.lib-tests
  */
 

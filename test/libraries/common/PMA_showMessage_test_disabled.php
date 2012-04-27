@@ -4,7 +4,6 @@
  * Test for PMA_showMessage from common.lib
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_showMessage_test.php
  * @group common.lib-tests
  */
 

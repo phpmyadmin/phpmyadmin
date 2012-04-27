@@ -4,7 +4,6 @@
  * Test for PMA_getIcon() from common.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_getIcon_test.php
  * @group common.lib-tests
  */
 

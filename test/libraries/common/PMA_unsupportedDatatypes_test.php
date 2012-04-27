@@ -4,7 +4,6 @@
  * Test for PMA_unsupportedDatatypes from common.lib
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_unsupportedDatatypes_test.php
  * @group common.lib-tests
  */
 

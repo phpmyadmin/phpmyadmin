@@ -4,7 +4,6 @@
  * Tests for PMA_pow() function from common.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_pow_test.php
  * @group common.lib-tests
  */
 

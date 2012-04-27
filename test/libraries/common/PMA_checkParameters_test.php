@@ -4,7 +4,6 @@
  * Test for PMA_checkParameters from common.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_checkParameters_test.php
  * @group common.lib-tests
  */
 

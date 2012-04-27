@@ -4,7 +4,6 @@
  * Test for PMA_displayMaximumUploadSize from common.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_displayMaximumUploadSize_test.php
  * @group common.lib-tests
  */
 

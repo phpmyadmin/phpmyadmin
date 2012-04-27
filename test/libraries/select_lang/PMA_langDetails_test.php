@@ -4,7 +4,6 @@
  * Test for PMA_langDetails from select_lang.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_langDetails_test.php
  * @group select_lang.lib-tests
  */
 

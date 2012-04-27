@@ -4,7 +4,6 @@
  * Test for caching data in session
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_cache_test.php
  * @group common.lib-tests
  */
 

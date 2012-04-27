@@ -4,7 +4,6 @@
  * Test for PMA_extractValueFromFormattedSize from common.lib
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_extractValueFromFormattedSize_test.php
  * @group common.lib-tests
  */
 

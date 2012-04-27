@@ -4,7 +4,6 @@
  * Test for PMA_showHint() function from common.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_showHint_test.php
  */
 
 /**

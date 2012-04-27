@@ -4,7 +4,6 @@
  * Test for PMA_getDbLink_test from common.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_getDbLink_test.php
  * @group common.lib-tests
  */
 

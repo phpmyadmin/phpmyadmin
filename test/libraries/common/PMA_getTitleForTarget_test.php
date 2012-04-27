@@ -4,7 +4,6 @@
  * Test for PMA_getTitleForTarget from common.lib
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_getTitleForTarget_test.php
  * @group common.lib-tests
  */
 

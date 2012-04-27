@@ -4,7 +4,6 @@
  * Test for PMA_generate_html_dropdown_test from common.lib.php
  *
  * @package PhpMyAdmin-test
- * @version $Id: PMA_display_html_checkbox_test.php
  * @group common.lib-tests
  */
 
