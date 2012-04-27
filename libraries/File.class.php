@@ -546,6 +546,18 @@ class PMA_File
         $this->_handle = $handle;
     }
 
+
+    /**
+     * Sets error message for unsupported compression.
+     */
+    function errorUnsupported()
+    {
+        $this->_error_message = sprintf(
+            __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'),
+            $this->getCompression()
+        );
+    }
+
     /**
      * @return bool
      */
@@ -562,7 +574,7 @@ class PMA_File
             if ($GLOBALS['cfg']['BZipDump'] && @function_exists('bzopen')) {
                 $this->_handle = @bzopen($this->getName(), 'r');
             } else {
-                $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
+                $this->errorUnsupported();
                 return false;
             }
             break;
@@ -570,7 +582,7 @@ class PMA_File
             if ($GLOBALS['cfg']['GZipDump'] && @function_exists('gzopen')) {
                 $this->_handle = @gzopen($this->getName(), 'r');
             } else {
-                $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
+                $this->errorUnsupported();
                 return false;
             }
             break;
@@ -586,7 +598,7 @@ class PMA_File
                 }
                 unset($result);
             } else {
-                $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
+                $this->errorUnsupported();
                 return false;
             }
             break;
@@ -594,7 +606,7 @@ class PMA_File
             $this->_handle = @fopen($this->getName(), 'r');
             break;
         default:
-            $this->_error_message = sprintf(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'), $this->getCompression());
+            $this->errorUnsupported();
             return false;
             break;
         }
