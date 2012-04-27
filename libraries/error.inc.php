@@ -10,7 +10,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-header('Content-Type: text/html; charset=utf-8');
+if (!defined('TESTSUITE')) {
+    header('Content-Type: text/html; charset=utf-8');
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $lang; ?>" dir="<?php echo $dir; ?>">
