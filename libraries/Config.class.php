@@ -1566,6 +1566,9 @@ class PMA_Config
     function removeCookie($cookie)
     {
         if (defined('TESTSUITE')) {
+            if (isset($_COOKIE[$cookie])) {
+                unset($_COOKIE[$cookie]);
+            }
             return true;
         }
         return setcookie(
@@ -1618,6 +1621,7 @@ class PMA_Config
                 $v = time() + $validity;
             }
             if (defined('TESTSUITE')) {
+                $_COOKIE[$cookie] = $value;
                 return true;
             }
             return setcookie(
