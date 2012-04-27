@@ -3435,17 +3435,17 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                 foreach ($value as $subvalue) {
                     if ($subvalue == $selected) {
                         $retval .= sprintf(
-                            "<option selected='selected' title='%s'>%s</option>",
+                            '<option selected="selected" title="%s">%s</option>',
                             $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
                             $subvalue
                         );
                     } else if ($subvalue === '-') {
-                        $retval .= "<option disabled='disabled'>";
+                        $retval .= '<option disabled="disabled">';
                         $retval .= $subvalue;
-                        $retval .= "</option>";
+                        $retval .= '</option>';
                     } else {
                         $retval .= sprintf(
-                            "<option title='%s'>%s</option>",
+                            '<option title="%s">%s</option>',
                             $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
                             $subvalue
                         );
@@ -3455,13 +3455,13 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
             } else {
                 if ($selected == $value) {
                     $retval .= sprintf(
-                        "<option selected='selected' title='%s'>%s</option>",
+                        '<option selected="selected" title="%s">%s</option>',
                         $GLOBALS['PMA_Types']->getTypeDescription($value),
                         $value
                     );
                 } else {
                     $retval .= sprintf(
-                        "<option title='%s'>%s</option>",
+                        '<option title="%s">%s</option>',
                         $GLOBALS['PMA_Types']->getTypeDescription($value),
                         $value
                     );
