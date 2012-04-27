@@ -334,9 +334,9 @@ class PMA_Types_MySQL extends PMA_Types
         case 'MEDIUMBLOB':
             return __('A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored with a three-byte prefix indicating the length of the value');
         case 'BLOB':
-            return __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a four-byte prefix indicating the length of the value');
+            return __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a two-byte prefix indicating the length of the value');
         case 'LONGBLOB':
-            return __('A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) bytes, stored with a two-byte prefix indicating the length of the value');
+            return __('A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) bytes, stored with a four-byte prefix indicating the length of the value');
         case 'ENUM':
             return __("An enumeration, chosen from the list of up to 65,535 values or the special '' error value");
         case 'SET':
