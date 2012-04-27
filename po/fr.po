@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-27 16:59+0200\n"
+"PO-Revision-Date: 2012-04-27 18:39+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -2748,15 +2748,14 @@ msgstr "Un alias pour BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #: libraries/Types.class.php:307 libraries/Types.class.php:716
 #, php-format
 msgid "A date, supported range is \"%1$s\" to \"%2$s\""
-msgstr ""
+msgstr "Une date, la fourchette est de «%1$s» à «%2$s»"
 
 #: libraries/Types.class.php:309 libraries/Types.class.php:718
 #, php-format
 msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
-msgstr ""
+msgstr "Une combinaison date et heure, la fourchette est «%1$s» à «%2$s»"
 
 #: libraries/Types.class.php:311
-#, fuzzy
 #| msgid ""
 #| "A timestamp, range is '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' "
 #| "UTC, stored as the number of seconds since the epoch ('1970-01-01 "
@@ -2766,14 +2765,14 @@ msgid ""
 "UTC, stored as the number of seconds since the epoch (\"1970-01-01 00:00:00"
 "\" UTC)"
 msgstr ""
-"Un type d'horodatage, la fourchette est de '1970-01-01 00:00:01' UTC à '2038-"
-"01-09 03:14:07' UTC, en nombre de secondes depuis le moment de référence "
-"('1970-01-01 00:00:00' UTC)"
+"Un type d'horodatage, la fourchette est de «1970-01-01 00:00:01» UTC à "
+"«2038-01-09 03:14:07» UTC, en nombre de secondes depuis le moment de "
+"référence («1970-01-01 00:00:00» UTC)"
 
 #: libraries/Types.class.php:313 libraries/Types.class.php:722
 #, php-format
 msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr ""
+msgstr "Une heure, la fourchette est «%1$s» à «%2$s»"
 
 #: libraries/Types.class.php:315
 msgid ""
@@ -2882,28 +2881,33 @@ msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Une colonne BLOB d'une longueur maximum de 4 294 967 295 ou 4GiB (2^32 - 1), "
+"stockée avec un préfixe de quatre octets indiquant la longueur de la valeur"
 
 #: libraries/Types.class.php:341
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Une énumération, choisie parmi une liste comportant jusqu'à 65 535 valeurs "
+"ou la valeur spéciale '' indiquant une erreur"
 
 #: libraries/Types.class.php:343
 msgid "A single value chosen from a set of up to 64 members"
 msgstr ""
+"Une valeur unique choisie parmi un ensemble comportant jusqu'à 64 membres"
 
 #: libraries/Types.class.php:345
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Un type pouvant stocker une valeur géométrique de tout type"
 
 #: libraries/Types.class.php:347
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Un point dans un espace à deux dimensions"
 
 #: libraries/Types.class.php:349
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Une courbe avec une interpolation linéaire entre les points"
 
 #: libraries/Types.class.php:351
 msgid "A polygon"
@@ -2911,19 +2915,20 @@ msgstr "Un polygone"
 
 #: libraries/Types.class.php:353
 msgid "A collection of points"
-msgstr ""
+msgstr "Une collection de points"
 
 #: libraries/Types.class.php:355
 msgid "A collection of curves with linear interpolation between points"
 msgstr ""
+"Une collection de courbes avec l'interpolation linéaire entre les points"
 
 #: libraries/Types.class.php:357
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Une collection de polygones"
 
 #: libraries/Types.class.php:359
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Une collection d'objets de géométrie de tout type"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -2942,6 +2947,8 @@ msgstr ""
 #: libraries/Types.class.php:708
 msgid "A system's default double-precision floating-point number"
 msgstr ""
+"Une nombre à virgule flottante double précision du type par défaut du "
+"système"
 
 #: libraries/Types.class.php:710
 msgid "True or false"
@@ -2949,7 +2956,7 @@ msgstr "Vrai ou faux"
 
 #: libraries/Types.class.php:712
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Un alias pour BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:714
 msgid "Stores a Universally Unique Identifier (UUID)"
@@ -2960,22 +2967,28 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Une colonne d'horodatage, la fourchette est de «0001-01-01 00:00:00» UTC à "
+"«9999-12-31 23:59:59» UTC; TIMESTAMP(6) peut stocker des microsecondes"
 
 #: libraries/Types.class.php:728
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Une chaîne de longueur variable (0 - 65 535), utilise un interclassement "
+"binaire pour toutes les comparaisons"
 
 #: libraries/Types.class.php:730
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"Une colonne BLOB d'une longueur maximum de 65 535 (2^16 - 1) octets, stockée "
+"avec un préfixe de quatre octets indiquant la longueur de la valeur"
 
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Une énumération, choisie parmi la liste de valeurs définies"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -8602,7 +8615,7 @@ msgstr "Texte entier"
 
 #: libraries/tbl_properties.inc.php:537
 msgid "first"
-msgstr ""
+msgstr "en premier"
 
 #: libraries/tbl_properties.inc.php:543
 #, php-format
@@ -12149,7 +12162,7 @@ msgstr "Déplacer des colonnes"
 
 #: tbl_structure.php:583
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Déplacez les colonnes en les faisant glisser vers le haut ou le bas."
 
 #: tbl_structure.php:616
 msgid "Edit view"
