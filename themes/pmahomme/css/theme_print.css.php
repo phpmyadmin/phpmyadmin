@@ -4,7 +4,7 @@
  * print css file from theme Original
  *
  * @package PhpMyAdmin-theme
- * @subpackage pmahomme
+ * @subpackage PMAHomme
  */
 ?>
 /* For printview */

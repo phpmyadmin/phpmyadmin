@@ -4,7 +4,7 @@
  * main css file from theme pmahomme
  *
  * @package PhpMyAdmin-theme
- * @subpackage pmahomme
+ * @subpackage PMAHomme
  */
 
 // unplanned execution path
