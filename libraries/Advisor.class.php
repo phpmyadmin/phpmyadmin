@@ -42,7 +42,8 @@ class Advisor
 
         // Step 2: Read and parse the list of rules
         $this->parseResult = $this->parseRulesFile();
-        // Step 3: Feed the variables to the rules and let them fire. Sets $runResult
+        // Step 3: Feed the variables to the rules and let them fire. Sets
+        // $runResult
         $this->runRules();
 
         return array(
@@ -155,7 +156,12 @@ class Advisor
         return array($rule['justification']);
     }
 
-    // Adds a rule to the result list
+    /**
+     * Adds a rule to the result list
+     *
+     * @param $type string type of rule
+     * @param $rule array  rule itslef
+     */
     function addRule($type, $rule)
     {
         switch($type) {
@@ -218,9 +224,16 @@ class Advisor
             : $matches[1];
     }
 
-    // Runs a code expression, replacing variable names with their respective values
-    // ignoreUntil: if > 0, it doesn't replace any variables until that string
-    // position, but still evaluates the whole expr
+    /**
+     * Runs a code expression, replacing variable names with their respective
+     * values
+     *
+     * @param $expr        string expressoin to evaluate
+     * @param $ignoreUntil int    if > 0, it doesn't replace any variables until that string
+     *                            position, but still evaluates the whole expr
+     *
+     * @return result of evaluated expression
+     */
     function ruleExprEvaluate($expr, $ignoreUntil = 0)
     {
         if ($ignoreUntil > 0) {
@@ -255,7 +268,10 @@ class Advisor
         return $value;
     }
 
-    // Reads the rule file into an array, throwing errors messages on syntax errors
+    /**
+     * Reads the rule file into an array, throwing errors messages on syntax
+     * errors.
+     */
     static function parseRulesFile()
     {
         $file = file('libraries/advisory_rules.txt');
