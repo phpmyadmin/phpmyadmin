@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 14:33+0200\n"
-"PO-Revision-Date: 2012-04-27 16:01+0200\n"
+"PO-Revision-Date: 2012-04-27 16:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -2763,6 +2763,9 @@ msgid ""
 "UTC, stored as the number of seconds since the epoch ('1970-01-01 00:00:00' "
 "UTC)"
 msgstr ""
+"Un type d'horodatage, la fourchette est de '1970-01-01 00:00:01' UTC à "
+"'2038-01-09 03:14:07' UTC, en nombre de secondes depuis le moment de "
+"référence ('1970-01-01 00:00:00' UTC)"
 
 #: libraries/Types.class.php:314 libraries/Types.class.php:723
 #, php-format
@@ -2774,12 +2777,16 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Une année à quatre chiffres (4 par défaut) ou à deux chiffres (2), la "
+"fourchette est de 70 (1970) à 69 (2069) ou 1901 à 2155 ainsi que 0000"
 
 #: libraries/Types.class.php:318
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Une chaîne de longueur fixe (0-255, 1 par défaut) qui est toujours complétée "
+"à droite par des espaces lorsqu'enregistrée"
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:725
 #, php-format
@@ -2787,6 +2794,8 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Une chaîne de longueur variable (%s), la longueur effective réelle dépend de "
+"la taille maximum d'une ligne"
 
 #: libraries/Types.class.php:322
 msgid ""
