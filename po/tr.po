@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-27 18:39+0200\n"
+"PO-Revision-Date: 2012-04-27 18:43+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2333,21 +2333,19 @@ msgstr "'%s' kuralı için önkoşul değerlendirmesi başarısız"
 #: libraries/Advisor.class.php:100
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "'%s' kuralı için değer hesaplaması başarısız"
 
 #: libraries/Advisor.class.php:116
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "'%s' kuralı için çalıştırılan deneme başarısız"
 
 #: libraries/Advisor.class.php:193
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'"
-msgstr ""
-"'%s' kuralı için dizgi biçimlendirme başarısız. PHP aşağıdaki hatayı "
-"yöneltti: %s"
+msgstr "'%s' kuralı için dizgi biçimlendirme başarısız"
 
 #: libraries/Advisor.class.php:365 server_status.php:963
 msgid "per second"
@@ -2728,19 +2726,18 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE için bir kod adı"
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:716
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date, supported range is '%s' to '%s'"
 msgid "A date, supported range is \"%1$s\" to \"%2$s\""
-msgstr "Bir tarih, desteklenen aralık '%s' ile '%s' arası"
+msgstr "Bir tarih, desteklenen aralık \"%1$s\" ile \"%2$s\" arası"
 
 #: libraries/Types.class.php:309 libraries/Types.class.php:718
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date and time combination, supported range is '%s' to '%s'"
 msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
-msgstr "Bir tarih ve saat birleşimi, desteklenen aralık '%s' ile '%s' arası"
+msgstr "Bir tarih ve saat birleşimi, desteklenen aralık \"%1$s\" ile \"%2$s\" arası"
 
 #: libraries/Types.class.php:311
-#, fuzzy
 #| msgid ""
 #| "A timestamp, range is '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' "
 #| "UTC, stored as the number of seconds since the epoch ('1970-01-01 "
@@ -2750,15 +2747,15 @@ msgid ""
 "UTC, stored as the number of seconds since the epoch (\"1970-01-01 00:00:00"
 "\" UTC)"
 msgstr ""
-"Bir zaman damgası, aralığı '1970-01-01 00:00:01' UTC ile '2038-01-09 "
-"03:14:07' UTC arası, devirden ('1970-01-01 00:00:00' UTC) bu yana saniye "
+"Bir zaman damgası, aralığı \"1970-01-01 00:00:01\" UTC ile \"2038-01-09 "
+"03:14:07\" UTC arası, devirden (\"1970-01-01 00:00:00\" UTC) bu yana saniye "
 "sayısı olarak saklanır"
 
 #: libraries/Types.class.php:313 libraries/Types.class.php:722
-#, fuzzy, php-format
+#, php-format
 #| msgid "A time, range is '%s' to '%s'"
 msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr "Bir saat, aralığı '%s' ile '%s' arası"
+msgstr "Bir saat, aralığı \"%1$s\" ile \"%2$s\" arası"
 
 #: libraries/Types.class.php:315
 msgid ""
