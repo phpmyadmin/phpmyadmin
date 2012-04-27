@@ -106,76 +106,76 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     echo '<table>' . "\n";
 
     PMA_printDiagMessageForParameter(
+        'pmadb',
+        $GLOBALS['cfg']['Server']['pmadb'],
+        $messages,
         'pmadb'
-         $GLOBALS['cfg']['Server']['pmadb']
-         $messages
-         'pmadb'
     );
 
     PMA_printDiagMessageForParameter(
+        'relation',
+        isset($cfgRelation['relation']),
+        $messages,
         'relation'
-         isset($cfgRelation['relation'])
-         $messages
-         'relation'
     );
 
     PMA_printDiagMessageForFeature(
-        __('General relation features')
-         'relwork'
-         $messages
+        __('General relation features'),
+        'relwork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
+        'table_info',
+        isset($cfgRelation['table_info']),
+        $messages
         'table_info'
-         isset($cfgRelation['table_info'])
-         $messages
-         'table_info'
     );
 
     PMA_printDiagMessageForFeature(
-        __('Display Features')
-         'displaywork'
-         $messages
+        __('Display Features'),
+        'displaywork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
+        'table_coords',
+        isset($cfgRelation['table_coords']),
+        $messages,
         'table_coords'
-         isset($cfgRelation['table_coords'])
-         $messages
-         'table_coords'
     );
 
     PMA_printDiagMessageForParameter(
-        'pdf_pages'
-         isset($cfgRelation['pdf_pages'])
-         $messages
-         'table_coords'
+        'pdf_pages',
+        isset($cfgRelation['pdf_pages']),
+        $messages,
+        'table_coords'
     );
 
     PMA_printDiagMessageForFeature(
-        __('Creation of PDFs')
-         'pdfwork'
-         $messages
+        __('Creation of PDFs'),
+        'pdfwork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
-        'column_info'
-         isset($cfgRelation['column_info'])
-         $messages
-         'col_com'
+        'column_info',
+        isset($cfgRelation['column_info']),
+        $messages,
+        'col_com'
     );
 
     PMA_printDiagMessageForFeature(
-        __('Displaying Column Comments')
-         'commwork'
-         $messages
-         false
+        __('Displaying Column Comments'),
+        'commwork',
+        $messages,
+        false
     );
 
     PMA_printDiagMessageForFeature(
-        __('Browser transformation')
-         'mimework'
-         $messages
+        __('Browser transformation'),
+        'mimework',
+        $messages
     );
 
     if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
@@ -185,95 +185,95 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     }
 
     PMA_printDiagMessageForParameter(
-        'bookmarktable'
-         isset($cfgRelation['bookmark'])
-         $messages
-         'bookmark'
+        'bookmarktable',
+        isset($cfgRelation['bookmark']),
+        $messages,
+        'bookmark'
     );
 
     PMA_printDiagMessageForFeature(
-        __('Bookmarked SQL query')
-         'bookmarkwork'
-         $messages
+        __('Bookmarked SQL query'),
+        'bookmarkwork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
+        'history',
+        isset($cfgRelation['history']),
+        $messages,
         'history'
-         isset($cfgRelation['history'])
-         $messages
-         'history'
     );
 
     PMA_printDiagMessageForFeature(
-        __('SQL history')
-         'historywork'
-         $messages
+        __('SQL history'),
+        'historywork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
+        'designer_coords',
+        isset($cfgRelation['designer_coords']),
+        $messages,
         'designer_coords'
-         isset($cfgRelation['designer_coords'])
-         $messages
-         'designer_coords'
     );
 
     PMA_printDiagMessageForFeature(
-        __('Designer')
-         'designerwork'
-         $messages
+        __('Designer'),
+        'designerwork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
+        'recent',
+        isset($cfgRelation['recent']),
+        $messages,
         'recent'
-         isset($cfgRelation['recent'])
-         $messages
-         'recent'
     );
 
     PMA_printDiagMessageForFeature(
-        __('Persistent recently used tables')
-         'recentwork'
-         $messages
+        __('Persistent recently used tables'),
+        'recentwork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
+        'table_uiprefs',
+        isset($cfgRelation['table_uiprefs']),
+        $messages,
         'table_uiprefs'
-         isset($cfgRelation['table_uiprefs'])
-         $messages
-         'table_uiprefs'
     );
 
     PMA_printDiagMessageForFeature(
-        __('Persistent tables\' UI preferences')
-         'uiprefswork'
-         $messages
+        __('Persistent tables\' UI preferences'),
+        'uiprefswork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
+        'tracking',
+        isset($cfgRelation['tracking']),
+        $messages,
         'tracking'
-         isset($cfgRelation['tracking'])
-         $messages
-         'tracking'
     );
 
     PMA_printDiagMessageForFeature(
-        __('Tracking')
-         'trackingwork'
-         $messages
+        __('Tracking'),
+        'trackingwork',
+        $messages
     );
 
     PMA_printDiagMessageForParameter(
+        'userconfig',
+        isset($cfgRelation['userconfig']),
+        $messages,
         'userconfig'
-         isset($cfgRelation['userconfig'])
-         $messages
-         'userconfig'
     );
 
     PMA_printDiagMessageForFeature(
-        __('User preferences')
-         'userconfigwork'
-         $messages
-    );
+        __('User preferences'),
+        'userconfigwork',
+        $messages
+    )
 
     echo '</table>' . "\n";
 
