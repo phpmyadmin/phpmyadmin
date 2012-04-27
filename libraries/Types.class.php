@@ -158,9 +158,8 @@ class PMA_Types
         $html = '';
 
         foreach ($this->getTypeOperators($type, $null) as $fc) {
-            $html .= "\n" . '                        '
-                . '<option value="' . htmlspecialchars($fc) . '">'
-                . htmlspecialchars($fc) . '</option>';
+            $escaped = htmlspecialchars($fc);
+            $html .= '<option value="' . $escaped  . '">' . $escaped  . '</option>';
         }
 
         return $html;
