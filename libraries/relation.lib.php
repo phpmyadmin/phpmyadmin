@@ -273,7 +273,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
         __('User preferences'),
         'userconfigwork',
         $messages
-    )
+    );
 
     echo '</table>' . "\n";
 
