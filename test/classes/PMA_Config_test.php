@@ -549,13 +549,9 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testSetUserValue()
     {
-        $this->object->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
+        $this->object->setUserValue(null, 'lang', 'cs', 'en');
         $this->object->setUserValue("TEST_COOKIE_USER_VAL", '', 'cfg_val_1');
-
-        // Remove the following lines when you implement this test.
-//        $this->markTestIncomplete(
-//          'This test has not been implemented yet.'
-//        );
+        $this->assertEquals($this->object->getUserValue("TEST_COOKIE_USER_VAL", 'fail'), 'cfg_val_1');
     }
 
     /**
@@ -563,10 +559,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testGetUserValue()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $this->assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
     }
 
     /**
