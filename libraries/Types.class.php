@@ -324,7 +324,7 @@ class PMA_Types_MySQL extends PMA_Types
         case 'MEDIUMTEXT':
             return __('A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, stored with a three-byte prefix indicating the length of the value in bytes');
         case 'LONGTEXT':
-            return __('A TEXT column with a maximum length of 4,294,967,295 or 4GB (2^32 - 1) characters, stored with a four-byte prefix indicating the length of the value in bytes');
+            return __('A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) characters, stored with a four-byte prefix indicating the length of the value in bytes');
         case 'BINARY':
             return __('Similar to the CHAR type, but stores binary byte strings rather than non-binary character strings');
         case 'VARBINARY':
@@ -336,7 +336,7 @@ class PMA_Types_MySQL extends PMA_Types
         case 'BLOB':
             return __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a four-byte prefix indicating the length of the value');
         case 'LONGBLOB':
-            return __('A BLOB column with a maximum length of 4,294,967,295 or 4GB (2^32 - 1) bytes, stored with a two-byte prefix indicating the length of the value');
+            return __('A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) bytes, stored with a two-byte prefix indicating the length of the value');
         case 'ENUM':
             return __("An enumeration, chosen from the list of up to 65,535 values or the special '' error value");
         case 'SET':
