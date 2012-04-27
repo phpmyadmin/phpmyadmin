@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-26 12:37-0400\n"
-"PO-Revision-Date: 2012-04-26 17:50+0200\n"
+"PO-Revision-Date: 2012-04-27 03:47+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
@@ -2695,6 +2695,8 @@ msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Sopomenka za DOUBLE (izjema: v načinu SQL REAL_AS_FLOAT je sopomenka za "
+"FLOAT)"
 
 #: libraries/Types.class.php:302
 msgid ""
@@ -2710,17 +2712,17 @@ msgstr ""
 
 #: libraries/Types.class.php:306
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Vzdevek za BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:308 libraries/Types.class.php:717
 #, php-format
 msgid "A date, supported range is '%s' to '%s'"
-msgstr ""
+msgstr "Datum; podprt je razpon od '%s' do '%s'"
 
 #: libraries/Types.class.php:310 libraries/Types.class.php:719
 #, php-format
 msgid "A date and time combination, supported range is '%s' to '%s'"
-msgstr ""
+msgstr "Kombinacija datuma in časa; podprt je razpon od '%s' do '%s'"
 
 #: libraries/Types.class.php:312
 msgid ""
@@ -2732,7 +2734,7 @@ msgstr ""
 #: libraries/Types.class.php:314 libraries/Types.class.php:723
 #, php-format
 msgid "A time, range is '%s' to '%s'"
-msgstr ""
+msgstr "Čas; razpon je od '%s' do '%s'"
 
 #: libraries/Types.class.php:316
 msgid ""
