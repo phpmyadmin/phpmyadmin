@@ -115,14 +115,27 @@ if ((isset($_REQUEST['submit_connect']))) {
             if (${"{$con}_connection"} != null) {
                 ${"{$con}_link"} = PMA_DBI_connect(
                     ${"{$con}_username"},
-                    ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"}
+                    ${"{$con}_password"},
+                    $is_controluser = false,
+                    ${"{$con}_server"}
                 );
             } else {
                 ${"{$con}_link"} = null;
             }
-            ${"{$con}_db_selected"} = PMA_DBI_select_db(${"{$con}_db"}, ${"{$con}_link"});
-            ${"{$con}_version"} = PMA_DBI_fetch_value('SELECT VERSION()', 0, 0, ${"{$con}_link"});
-            ${"{$con}_is_drizzle"} = (bool)preg_match('/\d{4}\./', ${"{$con}_version"});
+            ${"{$con}_db_selected"} = PMA_DBI_select_db(
+                ${"{$con}_db"},
+                ${"{$con}_link"}
+            );
+            ${"{$con}_version"} = PMA_DBI_fetch_value(
+                'SELECT VERSION()',
+                0,
+                0,
+                ${"{$con}_link"}
+            );
+            ${"{$con}_is_drizzle"} = (bool)preg_match(
+                '/\d{4}\./',
+                ${"{$con}_version"}
+            );
         } // end foreach ($cons as $con)
 
         if (($src_db_selected != 1) || ($trg_db_selected != 1)) {
@@ -131,10 +144,16 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             echo '<div class="error">';
             if ($src_db_selected != 1) {
-                echo sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($src_db));
+                echo sprintf(
+                    __('\'%s\' database does not exist.'),
+                    htmlspecialchars($src_db)
+                );
             }
             if ($trg_db_selected != 1) {
-                echo sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($trg_db));
+                echo sprintf(
+                    __('\'%s\' database does not exist.'),
+                    htmlspecialchars($trg_db)
+                );
             }
             echo '</div>';
             unset($_REQUEST['submit_connect']);
@@ -166,43 +185,91 @@ if ((isset($_REQUEST['submit_connect']))) {
             * Using PMA_getMatchingTables to find which of the tables' names match
             * in target and source database.
             */
-            PMA_getMatchingTables($trg_tables, $src_tables, $matching_tables, $source_tables_uncommon);
+            PMA_getMatchingTables(
+                $trg_tables,
+                $src_tables,
+                $matching_tables,
+                $source_tables_uncommon
+            );
             /**
             * Finding the uncommon tables for the target database
             * using function PMA_getNonMatchingTargetTables()
             */
-            PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, $target_tables_uncommon);
+            PMA_getNonMatchingTargetTables(
+                $trg_tables,
+                $matching_tables,
+                $target_tables_uncommon
+            );
 
             /**
             * Initializing several arrays to save the data and structure
             * difference between the source and target databases.
             */
-            $row_count = array();   //number of rows in source table that needs to be created in target database
-            $fields_num = array();  //number of fields in each matching table
-            $delete_array = array(); //stores the primary key values for target tables that have excessive rows than corresponding source tables.
-            $insert_array = array(array(array()));// stores the primary key values for the rows in each source table that are not present in target tables.
-            $update_array = array(array(array())); //stores the primary key values, name of field to be updated, value of the field to be updated for
-                                                    // each row of matching table.
-            $matching_tables_fields = array(); //contains the fields' names for each matching table
-            $matching_tables_keys   = array(); //contains the primary keys' names for each matching table
-            $uncommon_tables_fields = array(); //coantains the fields for all the source tables that are not present in target
+            // number of rows in source table that needs to be created in target
+            // database
+            $row_count = array();
+            // number of fields in each matching table
+            $fields_num = array();
+            // stores the primary key values for target tables that have
+            // excessive rows than corresponding source tables.
+            $delete_array = array();
+            // stores the primary key values for the rows in each source table
+            // that are not present in target tables.
+            $insert_array = array(array(array()));
+            // stores the primary key values, name of field to be updated,
+            // value of the field to be updated for each row of matching table.
+            $update_array = array(array(array()));
+
+            // contains the fields' names for each matching table
+            $matching_tables_fields = array();
+            // contains the primary keys' names for each matching table
+            $matching_tables_keys   = array();
+            // coantains the fields for all the source tables that are not
+            // present in target
+            $uncommon_tables_fields = array();
             $matching_tables_num = sizeof($matching_tables);
 
-            $source_columns = array();  //contains the full columns' information for all the source tables' columns
-            $target_columns = array();  //contains the full columns' information for all the target tables' columns
-            $uncommon_columns = array(); //contains names of columns present in source table but absent from the corresponding target table
-            $source_indexes = array();   //contains indexes on all the source tables
-            $target_indexes = array();   //contains indexes on all the target tables
-            $add_indexes_array = array(); //contains the indexes name present in source but absent from target tables
-            $target_tables_keys = array(); //contains the keys of all the target tables
-            $alter_indexes_array = array();  //contains the names of all the indexes for each table that need to be altered in target database
-            $remove_indexes_array = array();  //contains the names of indexes that are excessive in target tables
-            $alter_str_array = array(array());  //contains the criteria for each column that needs to be altered in target tables
-            $add_column_array = array(array()); //contains the name of columns that need to be added in target tables
+            // contains the full columns' information for all the source
+            // tables' columns
+            $source_columns = array();
+            // contains the full columns' information for all the target
+            // tables' columns
+            $target_columns = array();
+            // contains names of columns present in source table but absent from
+            // the corresponding target table
+            $uncommon_columns = array();
+            // contains indexes on all the source tables
+            $source_indexes = array();
+            // contains indexes on all the target tables
+            $target_indexes = array();
+            // contains the indexes name present in source but absent from
+            // target tables
+            $add_indexes_array = array();
+            // contains the keys of all the target tables
+            $target_tables_keys = array();
+            // contains the names of all the indexes for each table that need
+            // to be altered in target database
+            $alter_indexes_array = array();
+            // contains the names of indexes that are excessive in target tables
+            $remove_indexes_array = array();
+            // contains the criteria for each column that needs to be altered
+            // in target tables
+            $alter_str_array = array(array());
+            // contains the name of columns that need to be added in target tables
+            $add_column_array = array(array());
             /**
-            * The criteria array contains all the criteria against which columns are compared for differences.
-            */
-            $criteria = array('Field', 'Type', 'Null', 'Collation', 'Key', 'Default', 'Comment');
+             * The criteria array contains all the criteria against which columns
+             * are compared for differences.
+             */
+            $criteria = array(
+                'Field',
+                'Type',
+                'Null',
+                'Collation',
+                'Key',
+                'Default',
+                'Comment'
+            );
 
             for ($i = 0; $i < sizeof($matching_tables); $i++) {
                 /**
@@ -226,7 +293,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 PMA_indexesDiffInTables(
                     $src_db, $trg_db, $src_link, $trg_link,
                     $matching_tables, $source_indexes, $target_indexes,
-                    $add_indexes_array, $alter_indexes_array, $remove_indexes_array, $i
+                    $add_indexes_array, $alter_indexes_array,
+                    $remove_indexes_array, $i
                 );
             }
 
@@ -378,8 +446,14 @@ if ((isset($_REQUEST['submit_connect']))) {
                     || ($num_add_index > 0)
                     || ($num_remove_index > 0)
                 ) {
-                    $btn_structure_params = array($i, $num_alter_cols, $num_insert_cols,
-                        $num_remove_cols, $num_add_index, $num_remove_index);
+                    $btn_structure_params = array(
+                        $i,
+                        $num_alter_cols,
+                        $num_insert_cols,
+                        $num_remove_cols,
+                        $num_add_index,
+                        $num_remove_index
+                    );
                 }
 
                 /**
@@ -467,8 +541,9 @@ if ((isset($_REQUEST['submit_connect']))) {
             </table>
             </div></fieldset>';
             /**
-            *  This fieldset displays the checkbox to confirm deletion of previous rows from target tables
-            */
+             * This fieldset displays the checkbox to confirm deletion of previous
+             * rows from target tables
+             */
             echo '<fieldset>
             <p><input type= "checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">'
                 . __('Would you like to delete all the previous rows from target tables?')
@@ -551,12 +626,17 @@ if (isset($_REQUEST['Table_ids'])) {
     } // end foreach ($cons as $con)
 
     /**
-    * Initializing arrays to save the table ids whose data and structure difference is to be applied
-    */
-    $matching_table_data_diff = array();  //stores id of matching table having data difference
-    $matching_table_structure_diff = array(); //stores id of matching tables having structure difference
-    $uncommon_table_structure_diff = array(); //stores id of uncommon tables having structure difference
-    $uncommon_table_data_diff = array();     //stores id of uncommon tables having data difference
+     * Initializing arrays to save the table ids whose data and structure
+     * difference is to be applied
+     */
+    // stores id of matching table having data difference
+    $matching_table_data_diff = array();
+    // stores id of matching tables having structure difference
+    $matching_table_structure_diff = array();
+    // stores id of uncommon tables having structure difference
+    $uncommon_table_structure_diff = array();
+    // stores id of uncommon tables having data difference
+    $uncommon_table_data_diff = array();
 
     for ($i = 0; isset($_REQUEST[$i]); $i++ ) {
         if (isset($_REQUEST[$i])) {
@@ -644,9 +724,10 @@ if (isset($_REQUEST['Table_ids'])) {
         }
     }
     /**
-    * Applying the data difference. First checks if structure diff is applied or not.
-    * If not, then apply structure difference first then apply data difference.
-    */
+     * Applying the data difference. First checks if structure diff is applied
+     * or not.  If not, then apply structure difference first then apply data
+     * difference.
+     */
     for ($p = 0; $p < sizeof($matching_table_data_diff); $p++) {
         if ($_REQUEST['checked'] == 'true') {
             PMA_findDeleteRowsFromTargetTables(
@@ -798,9 +879,10 @@ if (isset($_REQUEST['Table_ids'])) {
         unset($row_count[$uncommon_table_data_diff[$r]]);
     }
     /**
-    * Again all the tables from source and target database are displayed with their differences.
-    * The differences have been removed from tables that have been synchronized
-    */
+     * Again all the tables from source and target database are displayed with
+     * their differences. The differences have been removed from tables that
+     * have been synchronized
+     */
     echo '<form name="applied_difference" id="synchronize_form" method="post" action="server_synchronize.php">'
         . PMA_generate_common_hidden_inputs('', '');
 
@@ -980,8 +1062,9 @@ if (isset($_REQUEST['Table_ids'])) {
         </div></fieldset>';
 
     /**
-    *  This fieldset displays the checkbox to confirm deletion of previous rows from target tables
-    */
+     * This fieldset displays the checkbox to confirm deletion of previous
+     * rows from target tables
+     */
     echo '<fieldset>
         <p><input type="checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">'
         . __('Would you like to delete all the previous rows from target tables?') . '</label> </p>
@@ -1071,7 +1154,12 @@ if (isset($_REQUEST['synchronize_db'])) {
     * connecting the source and target servers
     */
     if ('cur' != $_SESSION['src_type']) {
-        $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $_SESSION['src_server']);
+        $src_link = PMA_DBI_connect(
+            $src_username,
+            $src_password,
+            $is_controluser = false,
+            $_SESSION['src_server']
+        );
         $src_version = PMA_DBI_fetch_value('SELECT VERSION()', 0, 0, $src_link);
         $src_is_drizzle = (bool)preg_match('/\d{4}\./', $src_version);
     } else {
@@ -1083,7 +1171,12 @@ if (isset($_REQUEST['synchronize_db'])) {
         $GLOBALS['db'] = $_SESSION['src_db'];
     }
     if ('cur' != $_SESSION['trg_type']) {
-        $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $_SESSION['trg_server']);
+        $trg_link = PMA_DBI_connect(
+            $trg_username,
+            $trg_password,
+            $is_controluser = false,
+            $_SESSION['trg_server']
+        );
         $trg_version = PMA_DBI_fetch_value('SELECT VERSION()', 0, 0, $trg_link);
         $trg_is_drizzle = (bool)preg_match('/\d{4}\./', $trg_version);
     } else {
@@ -1103,9 +1196,10 @@ if (isset($_REQUEST['synchronize_db'])) {
     */
     for ($p = 0; $p < sizeof($matching_tables); $p++) {
         /**
-        *  If the check box is checked for deleting previous rows from the target database tables then
-        *  first find out rows to be deleted and then delete the rows.
-        */
+         * If the check box is checked for deleting previous rows from the
+         * target database tables then first find out rows to be deleted
+         * and then delete the rows.
+         */
         if (isset($_REQUEST['delete_rows'])) {
             PMA_findDeleteRowsFromTargetTables(
                 $delete_array, $matching_tables, $p,
@@ -1186,7 +1280,8 @@ if (isset($_REQUEST['synchronize_db'])) {
             $trg_link, $matching_tables_fields, $insert_array, $p,
             $matching_tables_keys, $matching_tables_keys, $source_columns,
             $add_column_array, $criteria, $target_tables_keys, $uncommon_tables,
-            $uncommon_tables_fields, $uncommon_cols, $alter_str_array, $source_indexes,
+            $uncommon_tables_fields, $uncommon_cols, $alter_str_array,
+            $source_indexes,
             $target_indexes, $add_indexes_array,
             $alter_indexes_array, $delete_array, $update_array, true
         );
