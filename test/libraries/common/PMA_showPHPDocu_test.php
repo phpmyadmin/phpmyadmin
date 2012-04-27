@@ -25,10 +25,8 @@ class PMA_showPHPDocu_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
     }
 
-    function testShwoPHPDocuReplaceHelpImg()
+    function testShowPHPDocu()
     {
-        $GLOBALS['cfg']['ReplaceHelpImg'] = true;
-
         $target = "docu";
         $lang = _pgettext('PHP documentation language', 'en');
         $expected = '<a href="./url.php?url=http%3A%2F%2Fphp.net%2Fmanual%2F' . $lang
@@ -38,19 +36,4 @@ class PMA_showPHPDocu_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, PMA_showPHPDocu($target));
     }
-
-    function testShwoPHPDocuNotReplaceHelpImg()
-    {
-        $GLOBALS['cfg']['ReplaceHelpImg'] = false;
-
-        $target = "docu";
-        $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '[<a href="./url.php?url=http%3A%2F%2Fphp.net%2Fmanual%2F' . $lang
-            . '%2F' . $target . '&amp;server=99&amp;lang=en&amp;token=token'
-            . '" target="documentation">' . __('Documentation') . '</a>]';
-
-        $this->assertEquals($expected, PMA_showPHPDocu($target));
-    }
-
-
 }

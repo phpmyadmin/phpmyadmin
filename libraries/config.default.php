@@ -2525,13 +2525,6 @@ $cfg['TitleServer'] = '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
  */
 $cfg['TitleDefault'] = '@HTTP_HOST@ | @PHPMYADMIN@';
 
-/**
- * show help button instead of Documentation text (true|false)?
- *
- * @global boolean $cfg['ReplaceHelpImg']
- */
-$cfg['ReplaceHelpImg'] = true;
-
 
 /*******************************************************************************
  * theme manager
