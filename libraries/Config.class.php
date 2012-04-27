@@ -724,7 +724,10 @@ class PMA_Config
         if (! is_readable($this->getSource())) {
             $this->source_mtime = 0;
             die(
-                sprintf(__('Existing configuration file (%s) is not readable.'),
+                sprintf(
+                    function_exists('__')
+                    ? __('Existing configuration file (%s) is not readable.')
+                    : 'Existing configuration file (%s) is not readable.',
                     $this->getSource()
                 )
             );
