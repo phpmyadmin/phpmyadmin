@@ -222,46 +222,45 @@ function PMA_DBI_convert_message($message)
 
     if (! empty($server_language) && isset($encodings[$server_language])) {
         $encoding = $encodings[$server_language];
+    } else {
+        /* Fallback to CP1252 if we can not detect */
+        $encoding = 'CP1252';
+    }
 
-        if (function_exists('iconv')) {
-            if ((@stristr(PHP_OS, 'AIX'))
-                && (@strcasecmp(ICONV_IMPL, 'unknown') == 0)
-                && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)
-            ) {
-                include_once './libraries/iconv_wrapper.lib.php';
-                $message = PMA_aix_iconv_wrapper(
-                    $encoding,
-                    'utf-8' . $GLOBALS['cfg']['IconvExtraParams'],
-                    $message
-                );
-            } else {
-                $message = iconv(
-                    $encoding,
-                    'utf-8' . $GLOBALS['cfg']['IconvExtraParams'],
-                    $message
-                );
-            }
-        } elseif (function_exists('recode_string')) {
-            $message = recode_string(
-                $encoding . '..'  . 'utf-8',
+    if (function_exists('iconv')) {
+        if ((@stristr(PHP_OS, 'AIX'))
+            && (@strcasecmp(ICONV_IMPL, 'unknown') == 0)
+            && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)
+        ) {
+            include_once './libraries/iconv_wrapper.lib.php';
+            $message = PMA_aix_iconv_wrapper(
+                $encoding,
+                'utf-8' . $GLOBALS['cfg']['IconvExtraParams'],
                 $message
             );
-        } elseif (function_exists('libiconv')) {
-            $message = libiconv($encoding, 'utf-8', $message);
-        } elseif (function_exists('mb_convert_encoding')) {
-            // do not try unsupported charsets
-            if (! in_array($server_language, array('ukrainian', 'greek', 'serbian'))) {
-                $message = mb_convert_encoding(
-                    $message,
-                    'utf-8',
-                    $encoding
-                );
-            }
+        } else {
+            $message = iconv(
+                $encoding,
+                'utf-8' . $GLOBALS['cfg']['IconvExtraParams'],
+                $message
+            );
         }
-    } else {
-        /**
-         * @todo lang not found, try all, what TODO ?
-         */
+    } elseif (function_exists('recode_string')) {
+        $message = recode_string(
+            $encoding . '..'  . 'utf-8',
+            $message
+        );
+    } elseif (function_exists('libiconv')) {
+        $message = libiconv($encoding, 'utf-8', $message);
+    } elseif (function_exists('mb_convert_encoding')) {
+        // do not try unsupported charsets
+        if (! in_array($server_language, array('ukrainian', 'greek', 'serbian'))) {
+            $message = mb_convert_encoding(
+                $message,
+                'utf-8',
+                $encoding
+            );
+        }
     }
 
     return $message;
