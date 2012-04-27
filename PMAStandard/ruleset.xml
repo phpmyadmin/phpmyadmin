@@ -8,6 +8,7 @@
     <exclude name="PEAR.Commenting.ClassComment" />
     <exclude name="PEAR.Commenting.FunctionComment" />
     <exclude name="PEAR.Commenting.InlineComment" />
+    <exclude name="Generic.Files.LineLength" />
   </rule>
 </ruleset>
 

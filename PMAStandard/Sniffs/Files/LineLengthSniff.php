@@ -1,6 +1,6 @@
 <?php
 /**
- * Generic_Sniffs_Files_LineLengthSniff.
+ * PMAStandard_Sniffs_Files_LineLengthSniff.
  *
  * PHP version 5
  *
@@ -14,7 +14,7 @@
  */
 
 /**
- * Generic_Sniffs_Files_LineLengthSniff.
+ * PMAStandard_Sniffs_Files_LineLengthSniff.
  *
  * Checks all lines in the file, and throws warnings if they are over 80
  * characters in length and errors if they are over 100. Both these
@@ -29,7 +29,7 @@
  * @version   Release: 1.3.3
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class Generic_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
+class PMAStandard_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
 {
 
     /**
@@ -37,7 +37,7 @@ class Generic_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
      *
      * @var int
      */
-    public $lineLimit = 80;
+    public $lineLimit = 85;
 
     /**
      * The limit that the length of a line must not exceed.
@@ -46,7 +46,7 @@ class Generic_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
      *
      * @var int
      */
-    public $absoluteLineLimit = 100;
+    public $absoluteLineLimit = 0;
 
 
     /**
@@ -121,6 +121,14 @@ class Generic_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
         }
 
         if (preg_match('|@license|', $lineContent) !== 0) {
+            return;
+        }
+
+        if (preg_match('|__\("[^"]{40,999}"\)|', $lineContent) !== 0) {
+            return;
+        }
+
+        if (preg_match("|__\('[^']{40,999}'\)|", $lineContent) !== 0) {
             return;
         }
 
