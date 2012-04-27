@@ -304,13 +304,13 @@ class PMA_Types_MySQL extends PMA_Types
         case 'SERIAL':
             return __('An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE');
         case 'DATE':
-            return sprintf(__('A date, supported range is "%1$s" to "%2$s"'), '1000-01-01', '9999-12-31');
+            return sprintf(__('A date, supported range is %1$s to %2$s'), '1000-01-01', '9999-12-31');
         case 'DATETIME':
-            return sprintf(__('A date and time combination, supported range is "%1$s" to "%2$s"'), '1000-01-01 00:00:00', '9999-12-31 23:59:59');
+            return sprintf(__('A date and time combination, supported range is %1$s to %2$s'), '1000-01-01 00:00:00', '9999-12-31 23:59:59');
         case 'TIMESTAMP':
-            return __('A timestamp, range is "1970-01-01 00:00:01" UTC to "2038-01-09 03:14:07" UTC, stored as the number of seconds since the epoch ("1970-01-01 00:00:00" UTC)');
+            return __('A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)');
         case 'TIME':
-            return sprintf(__('A time, range is "%1$s" to "%2$s"'), '-838:59:59', '838:59:59');
+            return sprintf(__('A time, range is %1$s to %2$s'), '-838:59:59', '838:59:59');
         case 'YEAR':
             return __("A year in four-digit (4, default) or two-digit (2) format, the allowable values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000");
         case 'CHAR':
@@ -713,9 +713,9 @@ class PMA_Types_Drizzle extends PMA_Types
         case 'UUID':
             return __('Stores a Universally Unique Identifier (UUID)');
         case 'DATE':
-            return sprintf(__('A date, supported range is "%1$s" to "%2$s"'), '0001-01-01', '9999-12-31');
+            return sprintf(__('A date, supported range is \"%1$s\" to \"%2$s\"'), '0001-01-01', '9999-12-31');
         case 'DATETIME':
-            return sprintf(__('A date and time combination, supported range is "%1$s" to "%2$s"'), '0001-01-01 00:00:0', '9999-12-31 23:59:59');
+            return sprintf(__('A date and time combination, supported range is \"%1$s\" to \"%2$s\"'), '0001-01-01 00:00:0', '9999-12-31 23:59:59');
         case 'TIMESTAMP':
             return __("A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' UTC; TIMESTAMP(6) can store microseconds");
         case 'TIME':
