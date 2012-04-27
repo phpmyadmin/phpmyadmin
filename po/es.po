@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 14:33+0200\n"
-"PO-Revision-Date: 2012-04-26 17:57+0200\n"
+"PO-Revision-Date: 2012-04-27 15:43+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2344,31 +2344,29 @@ msgstr "Segundo"
 #: libraries/Advisor.class.php:65
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP lanzó el siguiente error: %s"
 
 #: libraries/Advisor.class.php:86
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Falló la evaluación de la precondición para la regla '%s'"
 
 #: libraries/Advisor.class.php:100
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Falló el cálculo del valor para la regla '%s'"
 
 #: libraries/Advisor.class.php:116
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Falló la ejecución de la prueba para la regla '%s'"
 
 #: libraries/Advisor.class.php:193
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'"
-msgstr ""
-"No se pudo dar formato a una cadena para la regla '%s'. PHP devolvió el "
-"siguiente error: %s"
+msgstr "No se pudo dar formato a una cadena para la regla '%s'"
 
 #: libraries/Advisor.class.php:365 server_status.php:963
 msgid "per second"
