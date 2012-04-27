@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @package phpMyAdmin-Transformation
+ * @package PhpMyAdmin-Transformation
  * Has one option: the text to be appended (default '')
  */
 if (! defined('PHPMYADMIN')) {
