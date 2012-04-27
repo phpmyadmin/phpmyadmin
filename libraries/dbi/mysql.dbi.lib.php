@@ -29,6 +29,7 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
  * @param string  $password
  * @param int     $client_flags
  * @param bool    $persistent
+ *
  * @return mixed   false on error or a mysql connection resource on success
  */
 function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistent = false)
@@ -60,6 +61,7 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persist
  * @param bool   $is_controluser
  * @param array  $server               host/port/socket/persistent
  * @param bool   $auxiliary_connection (when true, don't go back to login if connection fails)
+ *
  * @return mixed false on error or a mysqli object on success
  */
 function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
@@ -139,6 +141,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
  *
  * @param string   $dbname name of db to select
  * @param resource $link   mysql link resource
+ *
  * @return bool
  */
 function PMA_DBI_select_db($dbname, $link = null)
@@ -159,6 +162,7 @@ function PMA_DBI_select_db($dbname, $link = null)
  * @param string   $query   query to run
  * @param resource $link    mysql link resource
  * @param int      $options query options
+ *
  * @return mixed
  */
 function PMA_DBI_real_query($query, $link, $options)
@@ -176,6 +180,7 @@ function PMA_DBI_real_query($query, $link, $options)
  * returns array of rows with associative and numeric keys from $result
  *
  * @param resource $result result  MySQL result
+ *
  * @return array
  */
 function PMA_DBI_fetch_array($result)
@@ -187,6 +192,7 @@ function PMA_DBI_fetch_array($result)
  * returns array of rows with associative keys from $result
  *
  * @param resource $result MySQL result
+ *
  * @return array
  */
 function PMA_DBI_fetch_assoc($result)
@@ -198,6 +204,7 @@ function PMA_DBI_fetch_assoc($result)
  * returns array of rows with numeric keys from $result
  *
  * @param resource $result MySQL result
+ *
  * @return array
  */
 function PMA_DBI_fetch_row($result)
@@ -210,6 +217,7 @@ function PMA_DBI_fetch_row($result)
  *
  * @param $result
  * @param $offset
+ *
  * @return bool true on success, false on failure
  */
 function PMA_DBI_data_seek($result, $offset)
@@ -261,6 +269,7 @@ function PMA_DBI_next_result()
  * Returns a string representing the type of connection used
  *
  * @param resource $link mysql link
+ *
  * @return string type of connection used
  */
 function PMA_DBI_get_host_info($link = null)
@@ -279,6 +288,7 @@ function PMA_DBI_get_host_info($link = null)
  * Returns the version of the MySQL protocol used
  *
  * @param resource $link mysql link
+ *
  * @return int version of the MySQL protocol used
  */
 function PMA_DBI_get_proto_info($link = null)
@@ -307,6 +317,7 @@ function PMA_DBI_get_client_info()
  * returns last error message or false if no errors occured
  *
  * @param resource $link mysql link
+ *
  * @return string|bool $error or false
  */
 function PMA_DBI_getError($link = null)
@@ -348,6 +359,7 @@ function PMA_DBI_getError($link = null)
  * returns the number of rows returned by last query
  *
  * @param resource $result MySQL result
+ *
  * @return string|int
  */
 function PMA_DBI_num_rows($result)
@@ -363,6 +375,7 @@ function PMA_DBI_num_rows($result)
  * returns last inserted auto_increment id for given $link or $GLOBALS['userlink']
  *
  * @param resource $link the mysql object
+ *
  * @return string|int
  */
 function PMA_DBI_insert_id($link = null)
@@ -387,6 +400,7 @@ function PMA_DBI_insert_id($link = null)
  *
  * @param resource $link the mysql object
  * @param bool     $get_from_cache
+ *
  * @return string|int
  */
 function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
@@ -411,6 +425,7 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
  *
  * @todo add missing keys like in mysqli_query (decimals)
  * @param resource $result MySQL result
+ *
  * @return array meta info for fields in $result
  */
 function PMA_DBI_get_fields_meta($result)
@@ -431,6 +446,7 @@ function PMA_DBI_get_fields_meta($result)
  * return number of fields in given $result
  *
  * @param resource $result MySQL result
+ *
  * @return int  field count
  */
 function PMA_DBI_num_fields($result)
@@ -443,6 +459,7 @@ function PMA_DBI_num_fields($result)
  *
  * @param resource $result MySQL result
  * @param int      $i       field
+ *
  * @return int length of field
  */
 function PMA_DBI_field_len($result, $i)
@@ -455,6 +472,7 @@ function PMA_DBI_field_len($result, $i)
  *
  * @param resource $result MySQL result
  * @param int      $i       field
+ *
  * @return string name of $i. field in $result
  */
 function PMA_DBI_field_name($result, $i)
@@ -467,6 +485,7 @@ function PMA_DBI_field_name($result, $i)
  *
  * @param resource $result MySQL result
  * @param int      $i       field
+ *
  * @return string field flags
  */
 function PMA_DBI_field_flags($result, $i)

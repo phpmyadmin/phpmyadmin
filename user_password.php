@@ -70,6 +70,7 @@ require './libraries/footer.inc.php';
  *
  * @param array   $change_password_message
  * @param string  $sql_query
+ *
  * @return void
  */
 function PMA_getChangePassMessage($change_password_message, $sql_query = '')
@@ -115,6 +116,7 @@ function PMA_setChangePasswordMsg()
  * @param string  $password
  * @param string  $message
  * @param array   $change_password_message
+ *
  * @return void
  */
 function PMA_changePassword($password, $message, $change_password_message)
@@ -152,6 +154,7 @@ function PMA_changePassHashingFunction()
  * @param array   $_url_params
  * @param string  $sql_query
  * @param string  $hashing_function
+ *
  * @return void
  */
 function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function)
@@ -167,6 +170,7 @@ function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_que
  *
  * @param array   $_url_params
  * @param string  $password
+ *
  * @return array   $_url_params
  */
 function PMA_changePassAuthType($_url_params, $password)
@@ -194,6 +198,7 @@ function PMA_changePassAuthType($_url_params, $password)
  * @param string  $message
  * @param string  $sql_query
  * @param array   $_url_params
+ *
  * @return void
  */
 function PMA_changePassDisplayPage($message, $sql_query, $_url_params)

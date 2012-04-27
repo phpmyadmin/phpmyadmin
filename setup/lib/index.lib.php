@@ -198,6 +198,7 @@ function PMA_version_check()
  * Calculates numerical equivalent of phpMyAdmin version string
  *
  * @param string  $version
+ *
  * @return mixed  false on failure, integer on success
  */
 function version_to_int($version)

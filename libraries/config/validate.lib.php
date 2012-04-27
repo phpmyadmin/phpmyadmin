@@ -66,6 +66,7 @@ function PMA_config_get_validators()
  * @param string|array  $validator_id
  * @param array         $values
  * @param bool          $isPostSource  tells whether $values are directly from POST request
+ *
  * @return bool|array
  */
 function PMA_config_validate($validator_id, &$values, $isPostSource)
@@ -183,6 +184,7 @@ function test_php_errormsg($start = true)
  * @param string $user
  * @param string $pass
  * @param string $error_key
+ *
  * @return bool|array
  */
 function test_db_connection($extension, $connect_type, $host, $port, $socket, $user, $pass = null, $error_key = 'Server')
@@ -244,6 +246,7 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
  *
  * @param string $path
  * @param array  $values
+ *
  * @return array
  */
 function validate_server($path, $values)
@@ -278,6 +281,7 @@ function validate_server($path, $values)
  *
  * @param string $path
  * @param array  $values
+ *
  * @return array
  */
 function validate_pmadb($path, $values)
@@ -318,6 +322,7 @@ function validate_pmadb($path, $values)
  *
  * @param string $path
  * @param array  $values
+ *
  * @return array
  */
 function validate_regex($path, $values)
@@ -350,6 +355,7 @@ function validate_regex($path, $values)
  *
  * @param string $path
  * @param array  $values
+ *
  * @return array
  */
 function validate_trusted_proxies($path, $values)
@@ -402,6 +408,7 @@ function validate_trusted_proxies($path, $values)
  * @param bool   $allow_zero      allow zero
  * @param int    $max_value       max allowed value
  * @param string $error_string    error message key: $GLOBALS["strConfig$error_lang_key"]
+ *
  * @return string  empty string if test is successful
  */
 function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error_string)
@@ -422,6 +429,7 @@ function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error
  *
  * @param string $path
  * @param array  $values
+ *
  * @return array
  */
 function validate_port_number($path, $values)
@@ -434,6 +442,7 @@ function validate_port_number($path, $values)
  *
  * @param string $path
  * @param array  $values
+ *
  * @return array
  */
 function validate_positive_number($path, $values)
@@ -446,6 +455,7 @@ function validate_positive_number($path, $values)
  *
  * @param string $path
  * @param array  $values
+ *
  * @return array
  */
 function validate_non_negative_number($path, $values)
@@ -460,6 +470,7 @@ function validate_non_negative_number($path, $values)
  * @param string $path
  * @param array  $values
  * @param string $regex
+ *
  * @return void
  */
 function validate_by_regex($path, $values, $regex)
@@ -474,6 +485,7 @@ function validate_by_regex($path, $values, $regex)
  * @param string $path
  * @param array  $values
  * @param int    $max_value
+ *
  * @return array
  */
 function validate_upper_bound($path, $values, $max_value)

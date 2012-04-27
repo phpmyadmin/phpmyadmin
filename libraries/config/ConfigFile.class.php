@@ -296,6 +296,7 @@ class ConfigFile
      *
      * @param string $path
      * @param mixed  $default
+     *
      * @return mixed
      */
     public function get($path, $default = null)
@@ -310,6 +311,7 @@ class ConfigFile
      *
      * @param string $canonical_path
      * @param mixed  $default
+     *
      * @return mixed
      */
     public function getDefault($canonical_path, $default = null)
@@ -323,6 +325,7 @@ class ConfigFile
      *
      * @param string $path
      * @param mixed  $default
+     *
      * @return mixed
      */
     public function getValue($path, $default = null)
@@ -339,6 +342,7 @@ class ConfigFile
      * Returns canonical path
      *
      * @param string $path
+     *
      * @return string
      */
     public function getCanonicalPath($path)
@@ -351,6 +355,7 @@ class ConfigFile
      *
      * @param string $path
      * @param mixed  $default
+     *
      * @return mixed
      */
     public function getDbEntry($path, $default = null)
@@ -386,6 +391,7 @@ class ConfigFile
      * Returns DSN of given server
      *
      * @param integer $server
+     *
      * @return string
      */
     function getServerDSN($server)
@@ -419,6 +425,7 @@ class ConfigFile
      * Returns server name
      *
      * @param int $id
+     *
      * @return string
      */
     public function getServerName($id)

@@ -16,6 +16,7 @@ $ID_KEY = ini_get('session.upload_progress.name');
  * This is implementation for session.upload_progress in PHP 5.4+.
  *
  * @param string $id
+ *
  * @return array|null
  */
 function PMA_getUploadStatus($id)

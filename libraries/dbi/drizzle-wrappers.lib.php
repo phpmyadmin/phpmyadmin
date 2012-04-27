@@ -122,6 +122,7 @@ class PMA_Drizzle extends Drizzle
      * @param $password
      * @param $db
      * @param $options
+     *
      * @return PMA_DrizzleCon
      */
     public function addTcp($host, $port, $user, $password, $db, $options)
@@ -140,6 +141,7 @@ class PMA_Drizzle extends Drizzle
      * @param $password
      * @param $db
      * @param $options
+     *
      * @return PMA_DrizzleCon
      */
     public function addUds($uds, $user, $password, $db, $options)
@@ -188,6 +190,7 @@ class PMA_DrizzleCon
      * @param string $query
      * @param int    $bufferMode  PMA_Drizzle::BUFFER_RESULT, PMA_Drizzle::BUFFER_ROW
      * @param int    $fetchMode   PMA_Drizzle::FETCH_ASSOC, PMA_Drizzle::FETCH_NUM or PMA_Drizzle::FETCH_BOTH
+     *
      * @return PMA_DrizzleResult
      */
     public function query($query, $bufferMode = PMA_Drizzle::BUFFER_RESULT, $fetchMode = PMA_Drizzle::FETCH_ASSOC)
@@ -218,6 +221,7 @@ class PMA_DrizzleCon
      *
      * @param $method
      * @param $args
+     *
      * @return mixed
      */
     public function __call($method, $args)
@@ -375,6 +379,7 @@ class PMA_DrizzleResult
      * Fetches next for from this result set
      *
      * @param int $fetchMode  fetch mode to use, if none given the default one is used
+     *
      * @return array|null
      */
     public function fetchRow($fetchMode = null)
@@ -403,6 +408,7 @@ class PMA_DrizzleResult
      * Adjusts the result pointer to an arbitrary row in buffered result
      *
      * @param $row_index
+     *
      * @return bool
      */
     public function seek($row_index)

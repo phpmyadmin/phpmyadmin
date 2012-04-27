@@ -112,6 +112,7 @@ class PMA_Theme
      * @static
      * @access  public
      * @param string  $folder path to theme
+     *
      * @return object  PMA_Theme
      */
     static public function load($folder)
@@ -213,6 +214,7 @@ class PMA_Theme
      *
      * @access  public
      * @param string  $version    version to compare to
+     *
      * @return boolean
      */
     function checkVersion($version)
@@ -287,6 +289,7 @@ class PMA_Theme
      *
      * @access  public
      * @param string  $type   left, right or print
+     *
      * @return bool
      */
     function loadCss(&$type)

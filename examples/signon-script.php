@@ -18,6 +18,7 @@
  * It can optionally use configured username as parameter.
  *
  * @param string $user
+ *
  * @return array
  */
 function get_login_credentials($user)

@@ -16,6 +16,7 @@ $ID_KEY = "UPLOAD_IDENTIFIER";
  * This is implementation for uploadprogress extension.
  *
  * @param string $id
+ *
  * @return array|null
  */
 function PMA_getUploadStatus($id)

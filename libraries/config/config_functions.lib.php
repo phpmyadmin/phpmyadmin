@@ -13,6 +13,7 @@
  *
  * @param string  $lang_key  key in $GLOBALS WITHOUT 'strSetup' prefix
  * @param mixed   $args,...  arguments for sprintf
+ *
  * @return string
  */
 function PMA_lang($lang_key, $args = null)
@@ -36,6 +37,7 @@ function PMA_lang($lang_key, $args = null)
  * @param string $canonical_path
  * @param string $type  'name', 'desc' or 'cmt'
  * @param mixed  $default
+ *
  * @return string
  */
 function PMA_lang_name($canonical_path, $type = 'name', $default = 'key')

@@ -114,6 +114,7 @@ class FormDisplay
      *
      * @param bool  $allow_partial_save  allows for partial form saving on failed validation
      * @param bool  $check_form_submit   whether check for $_POST['submit_save']
+     *
      * @return boolean
      */
     public function process($allow_partial_save = true, $check_form_submit = true)
@@ -438,6 +439,7 @@ class FormDisplay
      *
      * @param string  $value
      * @param array   $allowed
+     *
      * @return bool
      */
     private function _validateSelect(&$value, array $allowed)
@@ -466,6 +468,7 @@ class FormDisplay
      *
      * @param array|string  $forms               array of form names
      * @param bool          $allow_partial_save  allows for partial form saving on failed validation
+     *
      * @return boolean  true on success (no errors and all saved)
      */
     public function save($forms, $allow_partial_save = true)
@@ -634,6 +637,7 @@ class FormDisplay
      * Returns link to documentation
      *
      * @param string $path
+     *
      * @return string
      */
     public function getDocLink($path)
@@ -649,6 +653,7 @@ class FormDisplay
      * Returns link to wiki
      *
      * @param string $path
+     *
      * @return string
      */
     public function getWikiLink($path)
@@ -677,6 +682,7 @@ class FormDisplay
      * Changes path so it can be used in URLs
      *
      * @param string $path
+     *
      * @return string
      */
     private function _getOptName($path)

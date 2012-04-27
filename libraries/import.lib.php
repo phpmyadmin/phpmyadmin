@@ -343,6 +343,7 @@ function PMA_importGetNextChunk($size = 32768)
  * @access  public
  *
  * @param int $num
+ *
  * @return string The column's "Excel" name
  */
 function PMA_getColumnAlphaName($num)

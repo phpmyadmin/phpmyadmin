@@ -955,6 +955,7 @@ class PMA_Tracker
      * Converts int<>string for Drizzle, does nothing for MySQL
      *
      * @param int|string $tracking_set
+     *
      * @return int|string
      */
     static private function transformTrackingSet($tracking_set)
