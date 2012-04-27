@@ -241,7 +241,7 @@ $(function() {
         var button_options = {};
         button_options[PMA_messages['strGo']] = function() {
             /**
-             *  @var    the_form    object referring to the export form
+             * @var    the_form    object referring to the export form
              */
             var $form = $("#index_frm");
             PMA_prepareForAjaxRequest($form);
@@ -370,7 +370,7 @@ $(function() {
         }
 
         /**
-         *  @var    button_options  Object that stores the options passed to jQueryUI
+         * @var    button_options  Object that stores the options passed to jQueryUI
          *                          dialog
          */
         var button_options = {};
@@ -451,7 +451,7 @@ $(function() {
         var $form = $("#addColumns");
 
         /**
-         *  @var    button_options  Object that stores the options passed to jQueryUI
+         * @var    button_options  Object that stores the options passed to jQueryUI
          *                          dialog
          */
         var button_options = {};
@@ -523,7 +523,7 @@ function changeColumns(action,url)
     var $div = $('<div id="change_column_dialog"></div>');
 
     /**
-     *  @var    button_options  Object that stores the options passed to jQueryUI
+     * @var    button_options  Object that stores the options passed to jQueryUI
      *                          dialog
      */
     var button_options = {};
@@ -583,7 +583,7 @@ $(function() {
     $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
         /**
-         *  @var    the_form    object referring to the export form
+         * @var    the_form    object referring to the export form
          */
         var $form = $("#append_fields_form");
 

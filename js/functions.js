@@ -1569,7 +1569,7 @@ function PMA_showNoticeForEnum(selectElement)
 function PMA_createTableDialog( $div, url , target)
 {
      /**
-      *  @var    button_options  Object that stores the options passed to jQueryUI
+      * @var    button_options  Object that stores the options passed to jQueryUI
       *                          dialog
       */
      var button_options = {};
@@ -2053,7 +2053,7 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
     }
 
     /**
-     *  @var    button_options  Object that stores the options passed to jQueryUI
+     * @var    button_options  Object that stores the options passed to jQueryUI
      *                          dialog
      */
     var button_options = {};
@@ -2170,7 +2170,7 @@ $(function() {
         event.preventDefault();
 
         /**
-         *  @var    the_form    object referring to the create table form
+         * @var    the_form    object referring to the create table form
          */
         var $form = $("#create_table_form");
 
@@ -2273,7 +2273,7 @@ $(function() {
         event.preventDefault();
 
         /**
-         *  @var    the_form    object referring to the create table form
+         * @var    the_form    object referring to the create table form
          */
         var $form = $("#create_table_form");
 

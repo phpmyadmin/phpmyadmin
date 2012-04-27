@@ -308,7 +308,7 @@ if ($import_file != 'none' && ! $error) {
 
     /**
      *  Handle file compression
-     *  @todo duplicate code exists in File.class.php
+     * @todo duplicate code exists in File.class.php
      */
     $compression = PMA_detectCompression($import_file);
     if ($compression === false) {

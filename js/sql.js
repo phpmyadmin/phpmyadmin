@@ -376,7 +376,7 @@ $(function() {
             var $div = $('<div id="change_row_dialog"></div>');
 
             /**
-             *  @var    button_options  Object that stores the options passed to jQueryUI
+             * @var    button_options  Object that stores the options passed to jQueryUI
              *                          dialog
              */
             var button_options = {};
@@ -435,7 +435,7 @@ $(function() {
     $("#insertForm .insertRowTable.ajax input[type=submit]").live('click', function(event) {
         event.preventDefault();
         /**
-         *  @var    the_form    object referring to the insert form
+         * @var    the_form    object referring to the insert form
          */
         var $form = $("#insertForm");
         PMA_prepareForAjaxRequest($form);
@@ -475,7 +475,7 @@ $(function() {
     $("#buttonYes.ajax").live('click', function(event){
         event.preventDefault();
         /**
-         *  @var    the_form    object referring to the insert form
+         * @var    the_form    object referring to the insert form
          */
         var $form = $("#insertForm");
         /**Get the submit type in the form*/

@@ -22,8 +22,8 @@ define('PMA_CHK_DROP', 1);
 /**
  *  Check whether timeout is getting close
  *
- *  @return boolean true if timeout is close
- *  @access public
+ * @return boolean true if timeout is close
+ * @access public
  */
 function PMA_checkTimeout()
 {
@@ -44,10 +44,10 @@ function PMA_checkTimeout()
 /**
  *  Detects what compression filse uses
  *
- *  @param string $filepath filename to check
+ * @param string $filepath filename to check
  *
- *  @return string MIME type of compression, none for none
- *  @access public
+ * @return string MIME type of compression, none for none
+ * @access public
  */
 function PMA_detectCompression($filepath)
 {

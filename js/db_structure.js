@@ -139,7 +139,7 @@ $(function() {
            var target = "tbl_change.php";
 
         /**
-         *  @var    button_options  Object that stores the options passed to jQueryUI
+         * @var    button_options  Object that stores the options passed to jQueryUI
          *                          dialog
          */
         var button_options = {};
@@ -194,7 +194,7 @@ $(function() {
     $("#insertForm .insertRowTable.ajax input[type=submit]").live('click', function(event) {
         event.preventDefault();
         /**
-         *  @var    the_form    object referring to the insert form
+         * @var    the_form    object referring to the insert form
          */
         var $form = $("#insertForm");
         $("#result_query").remove();
@@ -218,7 +218,7 @@ $(function() {
     $("#buttonYes.ajax").live('click', function(event){
         event.preventDefault();
         /**
-         *  @var    the_form    object referring to the insert form
+         * @var    the_form    object referring to the insert form
          */
         var $form = $("#insertForm");
         /**Get the submit type and the after insert type in the form*/
