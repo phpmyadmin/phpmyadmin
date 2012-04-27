@@ -17,7 +17,7 @@ var query_to_load = '';
 /**
  * sets current selected db
  *
- * @param    string    db name
+ * @param string    db name
  */
 function setDb(new_db)
 {
@@ -50,7 +50,7 @@ function setDb(new_db)
 /**
  * sets current selected table (called from navigation.php)
  *
- * @param    string    table name
+ * @param string    table name
  */
 function setTable(new_table)
 {
@@ -77,7 +77,7 @@ function setTable(new_table)
 /**
  * reloads main frame
  *
- * @param    string    url    name of page to be loaded
+ * @param string    url    name of page to be loaded
  */
 function refreshMain(url)
 {
@@ -101,7 +101,7 @@ function refreshMain(url)
 /**
  * reloads navigation frame
  *
- * @param    boolean    force   force reloading
+ * @param boolean    force   force reloading
  */
 function refreshNavigation(force)
 {
@@ -296,8 +296,8 @@ function refreshQuerywindow( url )
  * opens new url in target frame, with default being left frame
  * valid is 'main' and 'querywindow' all others leads to 'left'
  *
- * @param    string    targeturl    new url to load
- * @param    string    target       frame where to load the new url
+ * @param string    targeturl    new url to load
+ * @param string    target       frame where to load the new url
  */
 function goTo(targeturl, target)
 {

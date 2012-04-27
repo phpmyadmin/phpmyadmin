@@ -294,8 +294,8 @@ class ConfigFile
     /**
      * Returns config value or $default if it's not set
      *
-     * @param  string $path
-     * @param  mixed  $default
+     * @param string $path
+     * @param mixed  $default
      * @return mixed
      */
     public function get($path, $default = null)
@@ -308,8 +308,8 @@ class ConfigFile
      * exist in config.default.php ($cfg) and config.values.php
      * ($_cfg_db['_overrides'])
      *
-     * @param  string $canonical_path
-     * @param  mixed  $default
+     * @param string $canonical_path
+     * @param mixed  $default
      * @return mixed
      */
     public function getDefault($canonical_path, $default = null)
@@ -321,8 +321,8 @@ class ConfigFile
      * Returns config value, if it's not set uses the default one; returns
      * $default if the path isn't set and doesn't contain a default value
      *
-     * @param  string $path
-     * @param  mixed  $default
+     * @param string $path
+     * @param mixed  $default
      * @return mixed
      */
     public function getValue($path, $default = null)
@@ -349,8 +349,8 @@ class ConfigFile
     /**
      * Returns config database entry for $path ($cfg_db in config_info.php)
      *
-     * @param  string $path
-     * @param  mixed  $default
+     * @param string $path
+     * @param mixed  $default
      * @return mixed
      */
     public function getDbEntry($path, $default = null)

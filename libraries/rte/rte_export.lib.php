@@ -13,8 +13,8 @@ if (! defined('PHPMYADMIN')) {
  * This function is called from one of the other functions in this file
  * and it completes the handling of the export functionality.
  *
- * @param  string  $item_name    The name of the item that we are exporting
- * @param  string  $export_data  The SQL query to create the requested item
+ * @param string  $item_name    The name of the item that we are exporting
+ * @param string  $export_data  The SQL query to create the requested item
  */
 function PMA_RTE_handleExport($item_name, $export_data)
 {

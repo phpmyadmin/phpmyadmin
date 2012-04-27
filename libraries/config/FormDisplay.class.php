@@ -112,8 +112,8 @@ class FormDisplay
     /**
      * Processes forms, returns true on successful save
      *
-     * @param  bool  $allow_partial_save  allows for partial form saving on failed validation
-     * @param  bool  $check_form_submit   whether check for $_POST['submit_save']
+     * @param bool  $allow_partial_save  allows for partial form saving on failed validation
+     * @param bool  $check_form_submit   whether check for $_POST['submit_save']
      * @return boolean
      */
     public function process($allow_partial_save = true, $check_form_submit = true)
@@ -436,8 +436,8 @@ class FormDisplay
     /**
      * Validates select field and casts $value to correct type
      *
-     * @param  string  $value
-     * @param  array   $allowed
+     * @param string  $value
+     * @param array   $allowed
      * @return bool
      */
     private function _validateSelect(&$value, array $allowed)
@@ -464,8 +464,8 @@ class FormDisplay
     /**
      * Validates and saves form data to session
      *
-     * @param  array|string  $forms               array of form names
-     * @param  bool          $allow_partial_save  allows for partial form saving on failed validation
+     * @param array|string  $forms               array of form names
+     * @param bool          $allow_partial_save  allows for partial form saving on failed validation
      * @return boolean  true on success (no errors and all saved)
      */
     public function save($forms, $allow_partial_save = true)

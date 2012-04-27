@@ -60,7 +60,7 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
- * @param   object   the form
+ * @param object   the form
  */
 function PMA_prepareForAjaxRequest($form)
 {
@@ -72,7 +72,7 @@ function PMA_prepareForAjaxRequest($form)
 /**
  * Generate a new password and copy it to the password input areas
  *
- * @param   object   the form that holds the password fields
+ * @param object   the form that holds the password fields
  *
  * @return  boolean  always true
  */
@@ -179,7 +179,7 @@ function displayPasswordGenerateButton()
 /*
  * Adds a date/time picker to an element
  *
- * @param   object  $this_element   a jQuery object pointing to the element
+ * @param object  $this_element   a jQuery object pointing to the element
  */
 function PMA_addDatepicker($this_element, options)
 {
@@ -219,10 +219,10 @@ function PMA_addDatepicker($this_element, options)
 /**
  * selects the content of a given object, f.e. a textarea
  *
- * @param   object  element     element of which the content will be selected
- * @param   var     lock        variable which holds the lock for this element
+ * @param object  element     element of which the content will be selected
+ * @param var     lock        variable which holds the lock for this element
  *                              or true, if no lock exists
- * @param   boolean only_once   if true this is only done once
+ * @param boolean only_once   if true this is only done once
  *                              f.e. only on first focus
  */
 function selectContent( element, lock, only_once )
@@ -244,8 +244,8 @@ function selectContent( element, lock, only_once )
  * Displays a confirmation box before submitting a "DROP/DELETE/ALTER" query.
  * This function is called while clicking links
  *
- * @param   object   the link
- * @param   object   the sql query to submit
+ * @param object   the link
+ * @param object   the sql query to submit
  *
  * @return  boolean  whether to run the query or not
  */
@@ -282,8 +282,8 @@ function confirmLink(theLink, theSqlQuery)
  * sumitting it if required.
  * This function is called by the 'checkSqlQuery()' js function.
  *
- * @param   object   the form
- * @param   object   the sql query textarea
+ * @param object   the form
+ * @param object   the sql query textarea
  *
  * @return  boolean  whether to run the query or not
  *
@@ -349,7 +349,7 @@ function confirmQuery(theForm1, sqlQuery1)
  * Displays an error message if the user submitted the sql query form with no
  * sql query, else checks for "DROP/DELETE/ALTER" statements
  *
- * @param   object   the form
+ * @param object   the form
  *
  * @return  boolean  always false
  *
@@ -407,8 +407,8 @@ function checkSqlQuery(theForm)
  * Check if a form's element is empty.
  * An element containing only spaces is also considered empty
  *
- * @param   object   the form
- * @param   string   the name of the form field to put the focus on
+ * @param object   the form
+ * @param string   the name of the form field to put the focus on
  *
  * @return  boolean  whether the form field is empty or not
  */
@@ -423,8 +423,8 @@ function emptyCheckTheField(theForm, theFieldName)
 /**
  * Check whether a form field is empty or not
  *
- * @param   object   the form
- * @param   string   the name of the form field to put the focus on
+ * @param object   the form
+ * @param string   the name of the form field to put the focus on
  *
  * @return  boolean  whether the form field is empty or not
  */
@@ -441,10 +441,10 @@ function emptyFormElements(theForm, theFieldName)
 /**
  * Ensures a value submitted in a form is numeric and is in a range
  *
- * @param   object   the form
- * @param   string   the name of the form field to check
- * @param   integer  the minimum authorized value
- * @param   integer  the maximum authorized value
+ * @param object   the form
+ * @param string   the name of the form field to check
+ * @param integer  the minimum authorized value
+ * @param integer  the maximum authorized value
  *
  * @return  boolean  whether a valid number has been submitted or not
  */
@@ -671,7 +671,7 @@ var marked_row = new Array;
  * marks all rows and selects its first checkbox inside the given element
  * the given element is usaly a table or a div containing the table or tables
  *
- * @param    container    DOM element
+ * @param container    DOM element
  */
 function markAllRows(container_id)
 {
@@ -685,7 +685,7 @@ function markAllRows(container_id)
  * marks all rows and selects its first checkbox inside the given element
  * the given element is usaly a table or a div containing the table or tables
  *
- * @param    container    DOM element
+ * @param container    DOM element
  */
 function unMarkAllRows(container_id)
 {
@@ -698,8 +698,8 @@ function unMarkAllRows(container_id)
 /**
  * Checks/unchecks all checkbox in given conainer (f.e. a form, fieldset or div)
  *
- * @param   string   container_id  the container id
- * @param   boolean  state         new value for checkbox (true or false)
+ * @param string   container_id  the container id
+ * @param boolean  state         new value for checkbox (true or false)
  * @return  boolean  always true
  */
 function setCheckboxes(container_id, state)
@@ -712,9 +712,9 @@ function setCheckboxes(container_id, state)
 /**
   * Checks/unchecks all options of a <select> element
   *
-  * @param   string   the form name
-  * @param   string   the element name
-  * @param   boolean  whether to check or to uncheck options
+  * @param string   the form name
+  * @param string   the element name
+  * @param boolean  whether to check or to uncheck options
   *
   * @return  boolean  always true
   */
@@ -1398,9 +1398,9 @@ $(function() {
  * This will show a message that will not disappear automatically, but it
  * can be dismissed by the user after he has finished reading it.
  *
- * @param   string  message     string containing the message to be shown.
+ * @param string  message     string containing the message to be shown.
  *                              optional, defaults to 'Loading...'
- * @param   mixed   timeout     number of milliseconds for the message to be visible
+ * @param mixed   timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000. If set to 'false', the
  *                              notification will never disappear
  * @return  jQuery object       jQuery Element that holds the message div
@@ -1505,7 +1505,7 @@ function PMA_ajaxShowMessage(message, timeout)
 /**
  * Removes the message shown for an Ajax operation when it's completed
  *
- * @param  jQuery object   jQuery Element that holds the notification
+ * @param jQuery object   jQuery Element that holds the notification
  *
  * @return nothing
  */
@@ -1673,7 +1673,7 @@ function PMA_createTableDialog( $div, url , target)
 /**
  * Creates a highcharts chart in the given container
  *
- * @param   var     settings    object with highcharts properties that should be applied. (See also http://www.highcharts.com/ref/)
+ * @param var     settings    object with highcharts properties that should be applied. (See also http://www.highcharts.com/ref/)
  *                              requires at least settings.chart.renderTo and settings.series to be set.
  *                              In addition there may be an additional property object 'realtime' that allows for realtime charting:
  *                              realtime: {
@@ -1865,8 +1865,8 @@ function PMA_createProfilingChart(data, options)
 /**
  * Formats a profiling duration nicely (in us and ms time). Used in PMA_createProfilingChart() and server_status.js
  *
- * @param   integer     Number to be formatted, should be in the range of microsecond to second
- * @param   integer     Acuracy, how many numbers right to the comma should be
+ * @param integer     Number to be formatted, should be in the range of microsecond to second
+ * @param integer     Acuracy, how many numbers right to the comma should be
  * @return  string      The formatted number
  */
 function PMA_prettyProfilingNum(num, acc)
@@ -1890,7 +1890,7 @@ function PMA_prettyProfilingNum(num, acc)
 /**
  * Formats a SQL Query nicely with newlines and indentation. Depends on Codemirror and MySQL Mode!
  *
- * @param   string      Query to be formatted
+ * @param string      Query to be formatted
  * @return  string      The formatted query
  */
 function PMA_SQLPrettyPrint(string)
@@ -2041,10 +2041,10 @@ function PMA_SQLPrettyPrint(string)
  * jQuery function that uses jQueryUI's dialogs to confirm with user. Does not
  *  return a jQuery object yet and hence cannot be chained
  *
- * @param   string      question
- * @param   string      url         URL to be passed to the callbackFn to make
+ * @param string      question
+ * @param string      url         URL to be passed to the callbackFn to make
  *                                  an Ajax call to
- * @param   function    callbackFn  callback to execute after user clicks on OK
+ * @param function    callbackFn  callback to execute after user clicks on OK
  */
 
 jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
@@ -2083,7 +2083,7 @@ jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
  * jQuery function to sort a table's body after a new row has been appended to it.
  * Also fixes the even/odd classes of the table rows at the end.
  *
- * @param   string      text_selector   string to select the sortKey's text
+ * @param string      text_selector   string to select the sortKey's text
  *
  * @return  jQuery Object for chaining purposes
  */
@@ -2832,7 +2832,7 @@ $(function() {
 /**
  * Ensures indexes names are valid according to their type and, for a primary
  * key, lock index name to 'PRIMARY'
- * @param   string   form_id  Variable which parses the form name as
+ * @param string   form_id  Variable which parses the form name as
  *                            the input
  * @return  boolean  false    if there is no index form, true else
  */
@@ -2866,7 +2866,7 @@ function checkIndexName(form_id)
 /**
  * function to convert the footnotes to tooltips
  *
- * @param   jquery-Object   $div    a div jquery object which specifies the
+ * @param jquery-Object   $div    a div jquery object which specifies the
  *                                  domain for searching footnootes. If we
  *                                  ommit this parameter the function searches
  *                                  the footnotes in the whole body
@@ -3337,8 +3337,8 @@ $(function() {
 /**
  * Creates a message inside an object with a sliding effect
  *
- * @param   msg    A string containing the text to display
- * @param   $obj   a jQuery object containing the reference
+ * @param msg    A string containing the text to display
+ * @param $obj   a jQuery object containing the reference
  *                 to the element where to put the message
  *                 This is optional, if no element is
  *                 provided, one will be created below the

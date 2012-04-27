@@ -14,8 +14,8 @@ var pma_saveframesize_timeout = null;
 /**
  * opens/closes (hides/shows) tree elements
  *
- * @param   string  id          id of the element in the DOM
- * @param   boolean only_open   do not close/hide element
+ * @param string  id          id of the element in the DOM
+ * @param boolean only_open   do not close/hide element
  */
 function toggle(id, only_open)
 {
@@ -112,7 +112,7 @@ function PMA_setFrameSize()
 /**
  * retrieves a named value from cookie
  *
- * @param   string  name    name of the value to retrieve
+ * @param string  name    name of the value to retrieve
  * @return  string  value   value for the given name from cookie
  */
 function PMA_getCookie(name)
@@ -135,12 +135,12 @@ function PMA_getCookie(name)
 /**
  * stores a named value into cookie
  *
- * @param   string  name    name of value
- * @param   string  value   value to be stored
- * @param   Date    expires expire time
- * @param   string  path
- * @param   string  domain
- * @param   boolean secure
+ * @param string  name    name of value
+ * @param string  value   value to be stored
+ * @param Date    expires expire time
+ * @param string  path
+ * @param string  domain
+ * @param boolean secure
  */
 function PMA_setCookie(name, value, expires, path, domain, secure)
 {
@@ -154,7 +154,7 @@ function PMA_setCookie(name, value, expires, path, domain, secure)
 /**
  * hide all LI elements with second A tag which doesn`t contain requested value
  *
- * @param   string  value    requested value
+ * @param string  value    requested value
  *
  */
 function fast_filter(value)

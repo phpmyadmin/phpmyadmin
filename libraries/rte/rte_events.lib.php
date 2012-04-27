@@ -261,7 +261,7 @@ function PMA_EVN_getDataFromRequest()
  * This function will generate the values that are required to complete
  * the "Edit event" form given the name of a event.
  *
- * @param   string   $name   The name of the event.
+ * @param string   $name   The name of the event.
  *
  * @return  array    Data necessary to create the editor.
  */
@@ -307,12 +307,12 @@ function PMA_EVN_getDataFromName($name)
 /**
  * Displays a form used to add/edit an event
  *
- * @param   string   $mode      If the editor will be used edit an event
+ * @param string   $mode      If the editor will be used edit an event
  *                              or add a new one: 'edit' or 'add'.
- * @param   string   $operation If the editor was previously invoked with
+ * @param string   $operation If the editor was previously invoked with
  *                              JS turned off, this will hold the name of
  *                              the current operation
- * @param   array    $item      Data for the event returned by
+ * @param array    $item      Data for the event returned by
  *                              PMA_EVN_getDataFromRequest() or
  *                              PMA_EVN_getDataFromName()
  *

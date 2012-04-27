@@ -278,7 +278,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     /**
      * returns content for page $id
      *
-     * @param   string  $id page id
+     * @param string  $id page id
      * @return  string  html output
      */
     function getPage($id)

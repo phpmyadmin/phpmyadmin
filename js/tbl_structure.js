@@ -506,9 +506,9 @@ $(function() {
 /**
  * Loads the append_fields_form to the Change dialog allowing users
  * to change the columns
- * @param   string    action  Variable which parses the name of the
+ * @param string    action  Variable which parses the name of the
  *                             destination file
- * @param   string    $url    Variable which parses the data for the
+ * @param string    $url    Variable which parses the data for the
  *                             post action
  */
 function changeColumns(action,url)

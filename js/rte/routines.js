@@ -10,7 +10,7 @@ RTE.param_template = '';
 /**
  * Overriding the postDialogShow() function defined in common.js
  *
- * @param   data   JSON-encoded data from the ajax request
+ * @param data   JSON-encoded data from the ajax request
  */
 RTE.postDialogShow = function (data) {
     // Cache the template for a parameter table row
@@ -121,14 +121,14 @@ RTE.validateCustom = function () {
  * parameters and the return variable in the routine editor
  * as necessary.
  *
- * @param    $type    a jQuery object containing the reference
+ * @param $type    a jQuery object containing the reference
  *                    to the "Type" dropdown box
- * @param    $len     a jQuery object containing the reference
+ * @param $len     a jQuery object containing the reference
  *                    to the "Length" input box
- * @param    $text    a jQuery object containing the reference
+ * @param $text    a jQuery object containing the reference
  *                    to the dropdown box with options for
  *                    parameters of text type
- * @param    $num     a jQuery object containing the reference
+ * @param $num     a jQuery object containing the reference
  *                    to the dropdown box with options for
  *                    parameters of numeric type
  */

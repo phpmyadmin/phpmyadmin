@@ -274,8 +274,8 @@ function validateField(id, type, onKeyUp, params)
 /**
  * Returns valdiation functions associated with form field
  *
- * @param  {String}  field_id     form field id
- * @param  {boolean} onKeyUpOnly  see validateField
+ * @param {String}  field_id     form field id
+ * @param {boolean} onKeyUpOnly  see validateField
  * @type Array
  * @return array of [function, paramseters to be passed to function]
  */

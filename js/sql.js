@@ -29,7 +29,7 @@ function PMA_urlencode(str)
  * Get the field name for the current field.  Required to construct the query
  * for grid editing
  *
- * @param   $this_field  jQuery object that points to the current field's tr
+ * @param $this_field  jQuery object that points to the current field's tr
  */
 function getFieldName($this_field)
 {

@@ -24,11 +24,11 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
 /**
  * Helper function for connecting to the database server
  *
- * @param   string  $server
- * @param   string  $user
- * @param   string  $password
- * @param   int     $client_flags
- * @param   bool    $persistent
+ * @param string  $server
+ * @param string  $user
+ * @param string  $password
+ * @param int     $client_flags
+ * @param bool    $persistent
  * @return  mixed   false on error or a mysql connection resource on success
  */
 function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistent = false)

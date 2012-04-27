@@ -13,8 +13,8 @@ if (! defined('PHPMYADMIN')) {
  * Creates a list of items containing the relevant
  * information and some action links.
  *
- * @param    string   $type    One of ['routine'|'trigger'|'event']
- * @param    array    $items   An array of items
+ * @param string   $type    One of ['routine'|'trigger'|'event']
+ * @param array    $items   An array of items
  *
  * @return   string   HTML code of the list of items
  */
@@ -121,8 +121,8 @@ function PMA_RTE_getList($type, $items)
 /**
  * Creates the contents for a row in the list of routines
  *
- * @param    array    $routine    An array of routine data
- * @param    string   $rowclass   Empty or one of ['even'|'odd']
+ * @param array    $routine    An array of routine data
+ * @param string   $rowclass   Empty or one of ['even'|'odd']
  *
  * @return   string   HTML code of a row for the list of routines
  */
@@ -230,8 +230,8 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
 /**
  * Creates the contents for a row in the list of triggers
  *
- * @param    array    $trigger    An array of routine data
- * @param    string   $rowclass   Empty or one of ['even'|'odd']
+ * @param array    $trigger    An array of routine data
+ * @param string   $rowclass   Empty or one of ['even'|'odd']
  *
  * @return   string   HTML code of a cell for the list of triggers
  */
@@ -299,8 +299,8 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
 /**
  * Creates the contents for a row in the list of events
  *
- * @param    array    $event      An array of routine data
- * @param    string   $rowclass   Empty or one of ['even'|'odd']
+ * @param array    $event      An array of routine data
+ * @param string   $rowclass   Empty or one of ['even'|'odd']
  *
  * @return   string   HTML code of a cell for the list of events
  */

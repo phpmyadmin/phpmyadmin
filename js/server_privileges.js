@@ -14,7 +14,7 @@
  *
  * @see     PMA_messages['strPasswordEmpty']
  * @see     PMA_messages['strPasswordNotSame']
- * @param   object   the form
+ * @param object   the form
  * @return  boolean  whether the field value is valid or not
  */
 function checkPassword(the_form)
@@ -77,9 +77,9 @@ function checkAddUser(the_form)
  * When a new user is created and retrieved over Ajax, append the user's row to
  * the user's table
  *
- * @param   new_user_string         the html for the new user's row
- * @param   new_user_initial        the first alphabet of the user's name
- * @param   new_user_initial_string html to replace the initial for pagination
+ * @param new_user_string         the html for the new user's row
+ * @param new_user_initial        the first alphabet of the user's name
+ * @param new_user_initial_string html to replace the initial for pagination
  */
 function appendNewUser(new_user_string, new_user_initial, new_user_initial_string)
 {

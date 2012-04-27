@@ -61,7 +61,7 @@
 /**
  * Display the decoded bug report in ASCII format
  *
- * @param  string  the text data
+ * @param string  the text data
  *
  * @return string  the text enclosed by "<pre>...</pre>" tags
  *

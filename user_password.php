@@ -68,8 +68,8 @@ require './libraries/footer.inc.php';
 /**
  * Send the message as an ajax request
  *
- * @param   array   $change_password_message
- * @param   string  $sql_query
+ * @param array   $change_password_message
+ * @param string  $sql_query
  * @return  void
  */
 function PMA_getChangePassMessage($change_password_message, $sql_query = '')
@@ -112,9 +112,9 @@ function PMA_setChangePasswordMsg()
 /**
  * Change the password
  *
- * @param   string  $password
- * @param   string  $message
- * @param   array   $change_password_message
+ * @param string  $password
+ * @param string  $message
+ * @param array   $change_password_message
  * @return  void
  */
 function PMA_changePassword($password, $message, $change_password_message)
@@ -148,10 +148,10 @@ function PMA_changePassHashingFunction()
 /**
  * Generate the error url and submit the query
  *
- * @param   string  $password
- * @param   array   $_url_params
- * @param   string  $sql_query
- * @param   string  $hashing_function
+ * @param string  $password
+ * @param array   $_url_params
+ * @param string  $sql_query
+ * @param string  $hashing_function
  * @return  void
  */
 function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function)
@@ -165,8 +165,8 @@ function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_que
 /**
  * Change password authentication type
  *
- * @param   array   $_url_params
- * @param   string  $password
+ * @param array   $_url_params
+ * @param string  $password
  * @return  array   $_url_params
  */
 function PMA_changePassAuthType($_url_params, $password)
@@ -191,9 +191,9 @@ function PMA_changePassAuthType($_url_params, $password)
 /**
  * Display the page
  *
- * @param   string  $message
- * @param   string  $sql_query
- * @param   array   $_url_params
+ * @param string  $message
+ * @param string  $sql_query
+ * @param array   $_url_params
  * @return  void
  */
 function PMA_changePassDisplayPage($message, $sql_query, $_url_params)

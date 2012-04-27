@@ -11,8 +11,8 @@
  * for formatting. Takes variable number of arguments.
  * Based on PMA_sanitize from sanitize.lib.php.
  *
- * @param  string  $lang_key  key in $GLOBALS WITHOUT 'strSetup' prefix
- * @param  mixed   $args,...  arguments for sprintf
+ * @param string  $lang_key  key in $GLOBALS WITHOUT 'strSetup' prefix
+ * @param mixed   $args,...  arguments for sprintf
  * @return string
  */
 function PMA_lang($lang_key, $args = null)

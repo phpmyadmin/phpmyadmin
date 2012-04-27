@@ -60,7 +60,7 @@ class Form
     /**
      * Returns type of given option
      *
-     * @param   string  $option_name path or field name
+     * @param string  $option_name path or field name
      * @return  string|null  one of: boolean, integer, double, string, select, array
      */
     public function getOptionType($option_name)
@@ -74,7 +74,7 @@ class Form
     /**
      * Returns allowed values for select fields
      *
-     * @param   string  $option_path
+     * @param string  $option_path
      * @return  array
      */
     public function getOptionValueList($option_path)
@@ -116,9 +116,9 @@ class Form
      * array_walk callback function, reads path of form fields from
      * array (see file comment in setup.forms.php or user_preferences.forms.inc)
      *
-     * @param   mixed   $value
-     * @param   mixed   $key
-     * @param   mixed   $prefix
+     * @param mixed   $value
+     * @param mixed   $key
+     * @param mixed   $prefix
      */
     private function _readFormPathsCallback($value, $key, $prefix)
     {

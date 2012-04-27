@@ -13,14 +13,14 @@ var row_class = 'even';
 * rows to be updated, number of rows to be inserted, number of
 * columns to be added, number of columns to be removed, etc.
 *
-* @param  index         index of matching table
-* @param  update_size   number of rows/column to be updated
-* @param  insert_size   number of rows/coulmns to be inserted
-* @param  remove_size   number of columns to be removed
-* @param  insert_index  number of indexes to be inserted
-* @param  remove_index  number of indexes to be removed
-* @param  img_obj       image object
-* @param  table_name    name of the table
+* @param index         index of matching table
+* @param update_size   number of rows/column to be updated
+* @param insert_size   number of rows/coulmns to be inserted
+* @param remove_size   number of columns to be removed
+* @param insert_index  number of indexes to be inserted
+* @param remove_index  number of indexes to be removed
+* @param img_obj       image object
+* @param table_name    name of the table
 */
 
 function showDetails(i, update_size, insert_size, remove_size, insert_index, remove_index, img_obj, table_name)
@@ -221,7 +221,7 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
  * Generates the URL containing the list of selected table ids for synchronization and
  * a variable checked for confirmation of deleting previous rows from target tables
  *
- * @param   token   the token generated for each PMA form
+ * @param token   the token generated for each PMA form
  *
  */
 function ApplySelectedChanges(token)
@@ -249,7 +249,7 @@ function ApplySelectedChanges(token)
 /**
  * Validates a partial form (source part or target part)
  *
- * @param   which   'src' or 'trg'
+ * @param which   'src' or 'trg'
  * @return  boolean  whether the partial form is valid
  *
  */

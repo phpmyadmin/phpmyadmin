@@ -24,7 +24,7 @@ function SVGManager() {
 }
 
 /* Determine whether a given ActiveX control is available.
-   @param  classId  (string) the ID for the ActiveX control
+   @param classId  (string) the ID for the ActiveX control
    @return  (boolean) true if found, false if not */
 function detectActiveX(classId) {
 	try {
@@ -166,7 +166,7 @@ $.extend(SVGManager.prototype, {
 	},
 
 	/* Return the SVG wrapper created for a given container.
-	   @param  container  (string) selector for the container or
+	   @param container  (string) selector for the container or
 	                      (element) the container for the SVG object or
 	                      jQuery collection - first entry is the container
 	   @return  (SVGWrapper) the corresponding SVG wrapper element, or null if not attached */
@@ -177,7 +177,7 @@ $.extend(SVGManager.prototype, {
 	},
 
 	/* Remove the SVG functionality from a div.
-	   @param  container  (element) the container for the SVG object */
+	   @param container  (element) the container for the SVG object */
 	_destroySVG: function(container) {
 		var $container = $(container);
 		if (!$container.hasClass(this.markerClassName)) {
@@ -194,8 +194,8 @@ $.extend(SVGManager.prototype, {
 	   The constructor function must take a single parameter that is
 	   a reference to the owning SVG root object. This allows the 
 	   extension to access the basic SVG functionality.
-	   @param  name      (string) the name of the SVGWrapper attribute to access the new class
-	   @param  extClass  (function) the extension class constructor */
+	   @param name      (string) the name of the SVGWrapper attribute to access the new class
+	   @param extClass  (function) the extension class constructor */
 	addExtension: function(name, extClass) {
 		this._extensions.push([name, extClass]);
 	}
@@ -231,8 +231,8 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Configure the SVG root.
-	   @param  settings  (object) additional settings for the root
-	   @param  clear     (boolean) true to remove existing attributes first,
+	   @param settings  (object) additional settings for the root
+	   @param clear     (boolean) true to remove existing attributes first,
 	                     false to add to what is already there (optional)
 	   @return  (SVGWrapper) this root */
 	configure: function(settings, clear) {
@@ -252,15 +252,15 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Locate a specific element in the SVG document.
-	   @param  id  (string) the element's identifier
+	   @param id  (string) the element's identifier
 	   @return  (element) the element reference, or null if not found */
 	getElementById: function(id) {
 		return this._svg.ownerDocument.getElementById(id);
 	},
 
 	/* Change the attributes for a SVG node.
-	   @param  element   (SVG element) the node to change
-	   @param  settings  (object) the new settings
+	   @param element   (SVG element) the node to change
+	   @param settings  (object) the new settings
 	   @return  (SVGWrapper) this root */
 	change: function(element, settings) {
 		if (element) {
@@ -304,9 +304,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a title.
-	   @param  parent    (element or jQuery) the parent node for the new title (optional)
-	   @param  text      (string) the text of the title
-	   @param  settings  (object) additional settings for the title (optional)
+	   @param parent    (element or jQuery) the parent node for the new title (optional)
+	   @param text      (string) the text of the title
+	   @param settings  (object) additional settings for the title (optional)
 	   @return  (element) the new title node */
 	title: function(parent, text, settings) {
 		var args = this._args(arguments, ['text']);
@@ -316,9 +316,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a description.
-	   @param  parent    (element or jQuery) the parent node for the new description (optional)
-	   @param  text      (string) the text of the description
-	   @param  settings  (object) additional settings for the description (optional)
+	   @param parent    (element or jQuery) the parent node for the new description (optional)
+	   @param text      (string) the text of the description
+	   @param settings  (object) additional settings for the description (optional)
 	   @return  (element) the new description node */
 	describe: function(parent, text, settings) {
 		var args = this._args(arguments, ['text']);
@@ -328,9 +328,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a definitions node.
-	   @param  parent    (element or jQuery) the parent node for the new definitions (optional)
-	   @param  id        (string) the ID of this definitions (optional)
-	   @param  settings  (object) additional settings for the definitions (optional)
+	   @param parent    (element or jQuery) the parent node for the new definitions (optional)
+	   @param id        (string) the ID of this definitions (optional)
+	   @param settings  (object) additional settings for the definitions (optional)
 	   @return  (element) the new definitions node */
 	defs: function(parent, id, settings) {
 		var args = this._args(arguments, ['id'], ['id']);
@@ -339,13 +339,13 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a symbol definition.
-	   @param  parent    (element or jQuery) the parent node for the new symbol (optional)
-	   @param  id        (string) the ID of this symbol
-	   @param  x1        (number) the left coordinate for this symbol
-	   @param  y1        (number) the top coordinate for this symbol
-	   @param  width     (number) the width of this symbol
-	   @param  height    (number) the height of this symbol
-	   @param  settings  (object) additional settings for the symbol (optional)
+	   @param parent    (element or jQuery) the parent node for the new symbol (optional)
+	   @param id        (string) the ID of this symbol
+	   @param x1        (number) the left coordinate for this symbol
+	   @param y1        (number) the top coordinate for this symbol
+	   @param width     (number) the width of this symbol
+	   @param height    (number) the height of this symbol
+	   @param settings  (object) additional settings for the symbol (optional)
 	   @return  (element) the new symbol node */
 	symbol: function(parent, id, x1, y1, width, height, settings) {
 		var args = this._args(arguments, ['id', 'x1', 'y1', 'width', 'height']);
@@ -355,14 +355,14 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a marker definition.
-	   @param  parent    (element or jQuery) the parent node for the new marker (optional)
-	   @param  id        (string) the ID of this marker
-	   @param  refX      (number) the x-coordinate for the reference point
-	   @param  refY      (number) the y-coordinate for the reference point
-	   @param  mWidth    (number) the marker viewport width
-	   @param  mHeight   (number) the marker viewport height
-	   @param  orient    (string or int) 'auto' or angle (degrees) (optional)
-	   @param  settings  (object) additional settings for the marker (optional)
+	   @param parent    (element or jQuery) the parent node for the new marker (optional)
+	   @param id        (string) the ID of this marker
+	   @param refX      (number) the x-coordinate for the reference point
+	   @param refY      (number) the y-coordinate for the reference point
+	   @param mWidth    (number) the marker viewport width
+	   @param mHeight   (number) the marker viewport height
+	   @param orient    (string or int) 'auto' or angle (degrees) (optional)
+	   @param settings  (object) additional settings for the marker (optional)
 	   @return  (element) the new marker node */
 	marker: function(parent, id, refX, refY, mWidth, mHeight, orient, settings) {
 		var args = this._args(arguments, ['id', 'refX', 'refY',
@@ -373,9 +373,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a style node.
-	   @param  parent    (element or jQuery) the parent node for the new node (optional)
-	   @param  styles    (string) the CSS styles
-	   @param  settings  (object) additional settings for the node (optional)
+	   @param parent    (element or jQuery) the parent node for the new node (optional)
+	   @param styles    (string) the CSS styles
+	   @param settings  (object) additional settings for the node (optional)
 	   @return  (element) the new style node */
 	style: function(parent, styles, settings) {
 		var args = this._args(arguments, ['styles']);
@@ -389,10 +389,10 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a script node.
-	   @param  parent    (element or jQuery) the parent node for the new node (optional)
-	   @param  script    (string) the JavaScript code
-	   @param  type      (string) the MIME type for the code (optional, default 'text/javascript')
-	   @param  settings  (object) additional settings for the node (optional)
+	   @param parent    (element or jQuery) the parent node for the new node (optional)
+	   @param script    (string) the JavaScript code
+	   @param type      (string) the MIME type for the code (optional, default 'text/javascript')
+	   @param settings  (object) additional settings for the node (optional)
 	   @return  (element) the new script node */
 	script: function(parent, script, type, settings) {
 		var args = this._args(arguments, ['script', 'type'], ['type']);
@@ -407,16 +407,16 @@ $.extend(SVGWrapper.prototype, {
 
 	/* Add a linear gradient definition.
 	   Specify all of x1, y1, x2, y2 or none of them.
-	   @param  parent    (element or jQuery) the parent node for the new gradient (optional)
-	   @param  id        (string) the ID for this gradient
-	   @param  stops     (string[][]) the gradient stops, each entry is
+	   @param parent    (element or jQuery) the parent node for the new gradient (optional)
+	   @param id        (string) the ID for this gradient
+	   @param stops     (string[][]) the gradient stops, each entry is
 	                     [0] is offset (0.0-1.0 or 0%-100%), [1] is colour, 
 						 [2] is opacity (optional)
-	   @param  x1        (number) the x-coordinate of the gradient start (optional)
-	   @param  y1        (number) the y-coordinate of the gradient start (optional)
-	   @param  x2        (number) the x-coordinate of the gradient end (optional)
-	   @param  y2        (number) the y-coordinate of the gradient end (optional)
-	   @param  settings  (object) additional settings for the gradient (optional)
+	   @param x1        (number) the x-coordinate of the gradient start (optional)
+	   @param y1        (number) the y-coordinate of the gradient start (optional)
+	   @param x2        (number) the x-coordinate of the gradient end (optional)
+	   @param y2        (number) the y-coordinate of the gradient end (optional)
+	   @param settings  (object) additional settings for the gradient (optional)
 	   @return  (element) the new gradient node */
 	linearGradient: function(parent, id, stops, x1, y1, x2, y2, settings) {
 		var args = this._args(arguments,
@@ -429,16 +429,16 @@ $.extend(SVGWrapper.prototype, {
 
 	/* Add a radial gradient definition.
 	   Specify all of cx, cy, r, fx, fy or none of them.
-	   @param  parent    (element or jQuery) the parent node for the new gradient (optional)
-	   @param  id        (string) the ID for this gradient
-	   @param  stops     (string[][]) the gradient stops, each entry
+	   @param parent    (element or jQuery) the parent node for the new gradient (optional)
+	   @param id        (string) the ID for this gradient
+	   @param stops     (string[][]) the gradient stops, each entry
 	                     [0] is offset, [1] is colour, [2] is opacity (optional)
-	   @param  cx        (number) the x-coordinate of the largest circle centre (optional)
-	   @param  cy        (number) the y-coordinate of the largest circle centre (optional)
-	   @param  r         (number) the radius of the largest circle (optional)
-	   @param  fx        (number) the x-coordinate of the gradient focus (optional)
-	   @param  fy        (number) the y-coordinate of the gradient focus (optional)
-	   @param  settings  (object) additional settings for the gradient (optional)
+	   @param cx        (number) the x-coordinate of the largest circle centre (optional)
+	   @param cy        (number) the y-coordinate of the largest circle centre (optional)
+	   @param r         (number) the radius of the largest circle (optional)
+	   @param fx        (number) the x-coordinate of the gradient focus (optional)
+	   @param fy        (number) the y-coordinate of the gradient focus (optional)
+	   @param settings  (object) additional settings for the gradient (optional)
 	   @return  (element) the new gradient node */
 	radialGradient: function(parent, id, stops, cx, cy, r, fx, fy, settings) {
 		var args = this._args(arguments,
@@ -463,17 +463,17 @@ $.extend(SVGWrapper.prototype, {
 
 	/* Add a pattern definition.
 	   Specify all of vx, vy, xwidth, vheight or none of them.
-	   @param  parent    (element or jQuery) the parent node for the new pattern (optional)
-	   @param  id        (string) the ID for this pattern
-	   @param  x         (number) the x-coordinate for the left edge of the pattern
-	   @param  y         (number) the y-coordinate for the top edge of the pattern
-	   @param  width     (number) the width of the pattern
-	   @param  height    (number) the height of the pattern
-	   @param  vx        (number) the minimum x-coordinate for view box (optional)
-	   @param  vy        (number) the minimum y-coordinate for the view box (optional)
-	   @param  vwidth    (number) the width of the view box (optional)
-	   @param  vheight   (number) the height of the view box (optional)
-	   @param  settings  (object) additional settings for the pattern (optional)
+	   @param parent    (element or jQuery) the parent node for the new pattern (optional)
+	   @param id        (string) the ID for this pattern
+	   @param x         (number) the x-coordinate for the left edge of the pattern
+	   @param y         (number) the y-coordinate for the top edge of the pattern
+	   @param width     (number) the width of the pattern
+	   @param height    (number) the height of the pattern
+	   @param vx        (number) the minimum x-coordinate for view box (optional)
+	   @param vy        (number) the minimum y-coordinate for the view box (optional)
+	   @param vwidth    (number) the width of the view box (optional)
+	   @param vheight   (number) the height of the view box (optional)
+	   @param settings  (object) additional settings for the pattern (optional)
 	   @return  (element) the new pattern node */
 	pattern: function(parent, id, x, y, width, height, vx, vy, vwidth, vheight, settings) {
 		var args = this._args(arguments, ['id', 'x', 'y', 'width', 'height',
@@ -485,13 +485,13 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a mask definition.
-	   @param  parent    (element or jQuery) the parent node for the new mask (optional)
-	   @param  id        (string) the ID for this mask
-	   @param  x         (number) the x-coordinate for the left edge of the mask
-	   @param  y         (number) the y-coordinate for the top edge of the mask
-	   @param  width     (number) the width of the mask
-	   @param  height    (number) the height of the mask
-	   @param  settings  (object) additional settings for the mask (optional)
+	   @param parent    (element or jQuery) the parent node for the new mask (optional)
+	   @param id        (string) the ID for this mask
+	   @param x         (number) the x-coordinate for the left edge of the mask
+	   @param y         (number) the y-coordinate for the top edge of the mask
+	   @param width     (number) the width of the mask
+	   @param height    (number) the height of the mask
+	   @param settings  (object) additional settings for the mask (optional)
 	   @return  (element) the new mask node */
 	mask: function(parent, id, x, y, width, height, settings) {
 		var args = this._args(arguments, ['id', 'x', 'y', 'width', 'height']);
@@ -514,16 +514,16 @@ $.extend(SVGWrapper.prototype, {
 
 	/* Add an embedded SVG element.
 	   Specify all of vx, vy, vwidth, vheight or none of them.
-	   @param  parent    (element or jQuery) the parent node for the new node (optional)
-	   @param  x         (number) the x-coordinate for the left edge of the node
-	   @param  y         (number) the y-coordinate for the top edge of the node
-	   @param  width     (number) the width of the node
-	   @param  height    (number) the height of the node
-	   @param  vx        (number) the minimum x-coordinate for view box (optional)
-	   @param  vy        (number) the minimum y-coordinate for the view box (optional)
-	   @param  vwidth    (number) the width of the view box (optional)
-	   @param  vheight   (number) the height of the view box (optional)
-	   @param  settings  (object) additional settings for the node (optional)
+	   @param parent    (element or jQuery) the parent node for the new node (optional)
+	   @param x         (number) the x-coordinate for the left edge of the node
+	   @param y         (number) the y-coordinate for the top edge of the node
+	   @param width     (number) the width of the node
+	   @param height    (number) the height of the node
+	   @param vx        (number) the minimum x-coordinate for view box (optional)
+	   @param vy        (number) the minimum y-coordinate for the view box (optional)
+	   @param vwidth    (number) the width of the view box (optional)
+	   @param vheight   (number) the height of the view box (optional)
+	   @param settings  (object) additional settings for the node (optional)
 	   @return  (element) the new node */
 	svg: function(parent, x, y, width, height, vx, vy, vwidth, vheight, settings) {
 		var args = this._args(arguments, ['x', 'y', 'width', 'height',
@@ -535,9 +535,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Create a group.
-	   @param  parent    (element or jQuery) the parent node for the new group (optional)
-	   @param  id        (string) the ID of this group (optional)
-	   @param  settings  (object) additional settings for the group (optional)
+	   @param parent    (element or jQuery) the parent node for the new group (optional)
+	   @param id        (string) the ID of this group (optional)
+	   @param settings  (object) additional settings for the group (optional)
 	   @return  (element) the new group node */
 	group: function(parent, id, settings) {
 		var args = this._args(arguments, ['id'], ['id']);
@@ -546,13 +546,13 @@ $.extend(SVGWrapper.prototype, {
 
 	/* Add a usage reference.
 	   Specify all of x, y, width, height or none of them.
-	   @param  parent    (element or jQuery) the parent node for the new node (optional)
-	   @param  x         (number) the x-coordinate for the left edge of the node (optional)
-	   @param  y         (number) the y-coordinate for the top edge of the node (optional)
-	   @param  width     (number) the width of the node (optional)
-	   @param  height    (number) the height of the node (optional)
-	   @param  ref       (string) the ID of the definition node
-	   @param  settings  (object) additional settings for the node (optional)
+	   @param parent    (element or jQuery) the parent node for the new node (optional)
+	   @param x         (number) the x-coordinate for the left edge of the node (optional)
+	   @param y         (number) the y-coordinate for the top edge of the node (optional)
+	   @param width     (number) the width of the node (optional)
+	   @param height    (number) the height of the node (optional)
+	   @param ref       (string) the ID of the definition node
+	   @param settings  (object) additional settings for the node (optional)
 	   @return  (element) the new node */
 	use: function(parent, x, y, width, height, ref, settings) {
 		var args = this._args(arguments, ['x', 'y', 'width', 'height', 'ref']);
@@ -569,9 +569,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a link, which applies to all child elements.
-	   @param  parent    (element or jQuery) the parent node for the new link (optional)
-	   @param  ref       (string) the target URL
-	   @param  settings  (object) additional settings for the link (optional)
+	   @param parent    (element or jQuery) the parent node for the new link (optional)
+	   @param ref       (string) the target URL
+	   @param settings  (object) additional settings for the link (optional)
 	   @return  (element) the new link node */
 	link: function(parent, ref, settings) {
 		var args = this._args(arguments, ['ref']);
@@ -581,13 +581,13 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add an image.
-	   @param  parent    (element or jQuery) the parent node for the new image (optional)
-	   @param  x         (number) the x-coordinate for the left edge of the image
-	   @param  y         (number) the y-coordinate for the top edge of the image
-	   @param  width     (number) the width of the image
-	   @param  height    (number) the height of the image
-	   @param  ref       (string) the path to the image
-	   @param  settings  (object) additional settings for the image (optional)
+	   @param parent    (element or jQuery) the parent node for the new image (optional)
+	   @param x         (number) the x-coordinate for the left edge of the image
+	   @param y         (number) the y-coordinate for the top edge of the image
+	   @param width     (number) the width of the image
+	   @param height    (number) the height of the image
+	   @param ref       (string) the path to the image
+	   @param settings  (object) additional settings for the image (optional)
 	   @return  (element) the new image node */
 	image: function(parent, x, y, width, height, ref, settings) {
 		var args = this._args(arguments, ['x', 'y', 'width', 'height', 'ref']);
@@ -599,9 +599,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Draw a path.
-	   @param  parent    (element or jQuery) the parent node for the new shape (optional)
-	   @param  path      (string or SVGPath) the path to draw
-	   @param  settings  (object) additional settings for the shape (optional)
+	   @param parent    (element or jQuery) the parent node for the new shape (optional)
+	   @param path      (string or SVGPath) the path to draw
+	   @param settings  (object) additional settings for the shape (optional)
 	   @return  (element) the new shape node */
 	path: function(parent, path, settings) {
 		var args = this._args(arguments, ['path']);
@@ -611,14 +611,14 @@ $.extend(SVGWrapper.prototype, {
 
 	/* Draw a rectangle.
 	   Specify both of rx and ry or neither.
-	   @param  parent    (element or jQuery) the parent node for the new shape (optional)
-	   @param  x         (number) the x-coordinate for the left edge of the rectangle
-	   @param  y         (number) the y-coordinate for the top edge of the rectangle
-	   @param  width     (number) the width of the rectangle
-	   @param  height    (number) the height of the rectangle
-	   @param  rx        (number) the x-radius of the ellipse for the rounded corners (optional)
-	   @param  ry        (number) the y-radius of the ellipse for the rounded corners (optional)
-	   @param  settings  (object) additional settings for the shape (optional)
+	   @param parent    (element or jQuery) the parent node for the new shape (optional)
+	   @param x         (number) the x-coordinate for the left edge of the rectangle
+	   @param y         (number) the y-coordinate for the top edge of the rectangle
+	   @param width     (number) the width of the rectangle
+	   @param height    (number) the height of the rectangle
+	   @param rx        (number) the x-radius of the ellipse for the rounded corners (optional)
+	   @param ry        (number) the y-radius of the ellipse for the rounded corners (optional)
+	   @param settings  (object) additional settings for the shape (optional)
 	   @return  (element) the new shape node */
 	rect: function(parent, x, y, width, height, rx, ry, settings) {
 		var args = this._args(arguments, ['x', 'y', 'width', 'height', 'rx', 'ry'], ['rx']);
@@ -628,11 +628,11 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Draw a circle.
-	   @param  parent    (element or jQuery) the parent node for the new shape (optional)
-	   @param  cx        (number) the x-coordinate for the centre of the circle
-	   @param  cy        (number) the y-coordinate for the centre of the circle
-	   @param  r         (number) the radius of the circle
-	   @param  settings  (object) additional settings for the shape (optional)
+	   @param parent    (element or jQuery) the parent node for the new shape (optional)
+	   @param cx        (number) the x-coordinate for the centre of the circle
+	   @param cy        (number) the y-coordinate for the centre of the circle
+	   @param r         (number) the radius of the circle
+	   @param settings  (object) additional settings for the shape (optional)
 	   @return  (element) the new shape node */
 	circle: function(parent, cx, cy, r, settings) {
 		var args = this._args(arguments, ['cx', 'cy', 'r']);
@@ -641,12 +641,12 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Draw an ellipse.
-	   @param  parent    (element or jQuery) the parent node for the new shape (optional)
-	   @param  cx        (number) the x-coordinate for the centre of the ellipse
-	   @param  cy        (number) the y-coordinate for the centre of the ellipse
-	   @param  rx        (number) the x-radius of the ellipse
-	   @param  ry        (number) the y-radius of the ellipse
-	   @param  settings  (object) additional settings for the shape (optional)
+	   @param parent    (element or jQuery) the parent node for the new shape (optional)
+	   @param cx        (number) the x-coordinate for the centre of the ellipse
+	   @param cy        (number) the y-coordinate for the centre of the ellipse
+	   @param rx        (number) the x-radius of the ellipse
+	   @param ry        (number) the y-radius of the ellipse
+	   @param settings  (object) additional settings for the shape (optional)
 	   @return  (element) the new shape node */
 	ellipse: function(parent, cx, cy, rx, ry, settings) {
 		var args = this._args(arguments, ['cx', 'cy', 'rx', 'ry']);
@@ -655,12 +655,12 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Draw a line.
-	   @param  parent    (element or jQuery) the parent node for the new shape (optional)
-	   @param  x1        (number) the x-coordinate for the start of the line
-	   @param  y1        (number) the y-coordinate for the start of the line
-	   @param  x2        (number) the x-coordinate for the end of the line
-	   @param  y2        (number) the y-coordinate for the end of the line
-	   @param  settings  (object) additional settings for the shape (optional)
+	   @param parent    (element or jQuery) the parent node for the new shape (optional)
+	   @param x1        (number) the x-coordinate for the start of the line
+	   @param y1        (number) the y-coordinate for the start of the line
+	   @param x2        (number) the x-coordinate for the end of the line
+	   @param y2        (number) the y-coordinate for the end of the line
+	   @param settings  (object) additional settings for the shape (optional)
 	   @return  (element) the new shape node */
 	line: function(parent, x1, y1, x2, y2, settings) {
 		var args = this._args(arguments, ['x1', 'y1', 'x2', 'y2']);
@@ -669,9 +669,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Draw a polygonal line.
-	   @param  parent    (element or jQuery) the parent node for the new shape (optional)
-	   @param  points    (number[][]) the x-/y-coordinates for the points on the line
-	   @param  settings  (object) additional settings for the shape (optional)
+	   @param parent    (element or jQuery) the parent node for the new shape (optional)
+	   @param points    (number[][]) the x-/y-coordinates for the points on the line
+	   @param settings  (object) additional settings for the shape (optional)
 	   @return  (element) the new shape node */
 	polyline: function(parent, points, settings) {
 		var args = this._args(arguments, ['points']);
@@ -679,9 +679,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Draw a polygonal shape.
-	   @param  parent    (element or jQuery) the parent node for the new shape (optional)
-	   @param  points    (number[][]) the x-/y-coordinates for the points on the shape
-	   @param  settings  (object) additional settings for the shape (optional)
+	   @param parent    (element or jQuery) the parent node for the new shape (optional)
+	   @param points    (number[][]) the x-/y-coordinates for the points on the shape
+	   @param settings  (object) additional settings for the shape (optional)
 	   @return  (element) the new shape node */
 	polygon: function(parent, points, settings) {
 		var args = this._args(arguments, ['points']);
@@ -700,12 +700,12 @@ $.extend(SVGWrapper.prototype, {
 
 	/* Draw text.
 	   Specify both of x and y or neither of them.
-	   @param  parent    (element or jQuery) the parent node for the text (optional)
-	   @param  x         (number or number[]) the x-coordinate(s) for the text (optional)
-	   @param  y         (number or number[]) the y-coordinate(s) for the text (optional)
-	   @param  value     (string) the text content or
+	   @param parent    (element or jQuery) the parent node for the text (optional)
+	   @param x         (number or number[]) the x-coordinate(s) for the text (optional)
+	   @param y         (number or number[]) the y-coordinate(s) for the text (optional)
+	   @param value     (string) the text content or
 	                     (SVGText) text with spans and references
-	   @param  settings  (object) additional settings for the text (optional)
+	   @param settings  (object) additional settings for the text (optional)
 	   @return  (element) the new text node */
 	text: function(parent, x, y, value, settings) {
 		var args = this._args(arguments, ['x', 'y', 'value']);
@@ -721,11 +721,11 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Draw text along a path.
-	   @param  parent    (element or jQuery) the parent node for the text (optional)
-	   @param  path      (string) the ID of the path
-	   @param  value     (string) the text content or
+	   @param parent    (element or jQuery) the parent node for the text (optional)
+	   @param path      (string) the ID of the path
+	   @param value     (string) the text content or
 	                     (SVGText) text with spans and references
-	   @param  settings  (object) additional settings for the text (optional)
+	   @param settings  (object) additional settings for the text (optional)
 	   @return  (element) the new text node */
 	textpath: function(parent, path, value, settings) {
 		var args = this._args(arguments, ['path', 'value']);
@@ -770,9 +770,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add a custom SVG element.
-	   @param  parent    (element or jQuery) the parent node for the new element (optional)
-	   @param  name      (string) the name of the element
-	   @param  settings  (object) additional settings for the element (optional)
+	   @param parent    (element or jQuery) the parent node for the new element (optional)
+	   @param name      (string) the name of the element
+	   @param settings  (object) additional settings for the element (optional)
 	   @return  (element) the new custom node */
 	other: function(parent, name, settings) {
 		var args = this._args(arguments, ['name']);
@@ -795,8 +795,8 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Add an existing SVG node to the diagram.
-	   @param  parent  (element or jQuery) the parent node for the new node (optional)
-	   @param  node    (element) the new node to add or
+	   @param parent  (element or jQuery) the parent node for the new node (optional)
+	   @param node    (element) the new node to add or
 	                   (string) the jQuery selector for the node or
 	                   (jQuery collection) set of nodes to add
 	   @return  (SVGWrapper) this wrapper */
@@ -874,9 +874,9 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Load an external SVG document.
-	   @param  url       (string) the location of the SVG document or
+	   @param url       (string) the location of the SVG document or
 	                     the actual SVG content
-	   @param  settings  (boolean) see addTo below or
+	   @param settings  (boolean) see addTo below or
 	                     (function) see onLoad below or
 	                     (object) additional settings for the load with attributes below:
 	                       addTo       (boolean) true to add to what's already there,
@@ -976,7 +976,7 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Delete a specified node.
-	   @param  node  (element or jQuery) the drawing node to remove
+	   @param node  (element or jQuery) the drawing node to remove
 	   @return  (SVGWrapper) this root */
 	remove: function(node) {
 		node = (node.jquery ? node[0] : node);
@@ -985,7 +985,7 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Delete everything in the current document.
-	   @param  attrsToo  (boolean) true to clear any root attributes as well,
+	   @param attrsToo  (boolean) true to clear any root attributes as well,
 	                     false to leave them (optional)
 	   @return  (SVGWrapper) this root */
 	clear: function(attrsToo) {
@@ -999,7 +999,7 @@ $.extend(SVGWrapper.prototype, {
 	},
 
 	/* Serialise the current diagram into an SVG text document.
-	   @param  node  (SVG element) the starting node (optional)
+	   @param node  (SVG element) the starting node (optional)
 	   @return  (string) the SVG as text */
 	toSVG: function(node) {
 		node = node || this._svg;
@@ -1076,10 +1076,10 @@ $.extend(SVGPath.prototype, {
 	},
 
 	/* Move the pointer to a position.
-	   @param  x         (number) x-coordinate to move to or
+	   @param x         (number) x-coordinate to move to or
 	                     (number[][]) x-/y-coordinates to move to
-	   @param  y         (number) y-coordinate to move to (omitted if x is array)
-	   @param  relative  (boolean) true for coordinates relative to the current point,
+	   @param y         (number) y-coordinate to move to (omitted if x is array)
+	   @param relative  (boolean) true for coordinates relative to the current point,
 	                     false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	move: function(x, y, relative) {
@@ -1088,10 +1088,10 @@ $.extend(SVGPath.prototype, {
 	},
 
 	/* Draw a line to a position.
-	   @param  x         (number) x-coordinate to move to or
+	   @param x         (number) x-coordinate to move to or
 	                     (number[][]) x-/y-coordinates to move to
-	   @param  y         (number) y-coordinate to move to (omitted if x is array)
-	   @param  relative  (boolean) true for coordinates relative to the current point,
+	   @param y         (number) y-coordinate to move to (omitted if x is array)
+	   @param relative  (boolean) true for coordinates relative to the current point,
 	                     false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	line: function(x, y, relative) {
@@ -1100,9 +1100,9 @@ $.extend(SVGPath.prototype, {
 	},
 
 	/* Draw a horizontal line to a position.
-	   @param  x         (number) x-coordinate to draw to or
+	   @param x         (number) x-coordinate to draw to or
 	                     (number[]) x-coordinates to draw to
-	   @param  relative  (boolean) true for coordinates relative to the current point,
+	   @param relative  (boolean) true for coordinates relative to the current point,
 	                     false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	horiz: function(x, relative) {
@@ -1111,9 +1111,9 @@ $.extend(SVGPath.prototype, {
 	},
 
 	/* Draw a vertical line to a position.
-	   @param  y         (number) y-coordinate to draw to or
+	   @param y         (number) y-coordinate to draw to or
 	                     (number[]) y-coordinates to draw to
-	   @param  relative  (boolean) true for coordinates relative to the current point,
+	   @param relative  (boolean) true for coordinates relative to the current point,
 	                     false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	vert: function(y, relative) {
@@ -1122,14 +1122,14 @@ $.extend(SVGPath.prototype, {
 	},
 
 	/* Draw a cubic Bézier curve.
-	   @param  x1        (number) x-coordinate of beginning control point or
+	   @param x1        (number) x-coordinate of beginning control point or
 	                     (number[][]) x-/y-coordinates of control and end points to draw to
-	   @param  y1        (number) y-coordinate of beginning control point (omitted if x1 is array)
-	   @param  x2        (number) x-coordinate of ending control point (omitted if x1 is array)
-	   @param  y2        (number) y-coordinate of ending control point (omitted if x1 is array)
-	   @param  x         (number) x-coordinate of curve end (omitted if x1 is array)
-	   @param  y         (number) y-coordinate of curve end (omitted if x1 is array)
-	   @param  relative  (boolean) true for coordinates relative to the current point,
+	   @param y1        (number) y-coordinate of beginning control point (omitted if x1 is array)
+	   @param x2        (number) x-coordinate of ending control point (omitted if x1 is array)
+	   @param y2        (number) y-coordinate of ending control point (omitted if x1 is array)
+	   @param x         (number) x-coordinate of curve end (omitted if x1 is array)
+	   @param y         (number) y-coordinate of curve end (omitted if x1 is array)
+	   @param relative  (boolean) true for coordinates relative to the current point,
 	                     false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	curveC: function(x1, y1, x2, y2, x, y, relative) {
@@ -1139,12 +1139,12 @@ $.extend(SVGPath.prototype, {
 
 	/* Continue a cubic Bézier curve.
 	   Starting control point is the reflection of the previous end control point.
-	   @param  x2        (number) x-coordinate of ending control point or
+	   @param x2        (number) x-coordinate of ending control point or
 	                     (number[][]) x-/y-coordinates of control and end points to draw to
-	   @param  y2        (number) y-coordinate of ending control point (omitted if x2 is array)
-	   @param  x         (number) x-coordinate of curve end (omitted if x2 is array)
-	   @param  y         (number) y-coordinate of curve end (omitted if x2 is array)
-	   @param  relative  (boolean) true for coordinates relative to the current point,
+	   @param y2        (number) y-coordinate of ending control point (omitted if x2 is array)
+	   @param x         (number) x-coordinate of curve end (omitted if x2 is array)
+	   @param y         (number) y-coordinate of curve end (omitted if x2 is array)
+	   @param relative  (boolean) true for coordinates relative to the current point,
 	                     false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	smoothC: function(x2, y2, x, y, relative) {
@@ -1153,12 +1153,12 @@ $.extend(SVGPath.prototype, {
 	},
 
 	/* Draw a quadratic Bézier curve.
-	   @param  x1        (number) x-coordinate of control point or
+	   @param x1        (number) x-coordinate of control point or
 	                     (number[][]) x-/y-coordinates of control and end points to draw to
-	   @param  y1        (number) y-coordinate of control point (omitted if x1 is array)
-	   @param  x         (number) x-coordinate of curve end (omitted if x1 is array)
-	   @param  y         (number) y-coordinate of curve end (omitted if x1 is array)
-	   @param  relative  (boolean) true for coordinates relative to the current point,
+	   @param y1        (number) y-coordinate of control point (omitted if x1 is array)
+	   @param x         (number) x-coordinate of curve end (omitted if x1 is array)
+	   @param y         (number) y-coordinate of curve end (omitted if x1 is array)
+	   @param relative  (boolean) true for coordinates relative to the current point,
 	                     false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	curveQ: function(x1, y1, x, y, relative) {
@@ -1168,10 +1168,10 @@ $.extend(SVGPath.prototype, {
 
 	/* Continue a quadratic Bézier curve.
 	   Control point is the reflection of the previous control point.
-	   @param  x         (number) x-coordinate of curve end or
+	   @param x         (number) x-coordinate of curve end or
 	                     (number[][]) x-/y-coordinates of points to draw to
-	   @param  y         (number) y-coordinate of curve end (omitted if x is array)
-	   @param  relative  (boolean) true for coordinates relative to the current point,
+	   @param y         (number) y-coordinate of curve end (omitted if x is array)
+	   @param relative  (boolean) true for coordinates relative to the current point,
 	                     false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	smoothQ: function(x, y, relative) {
@@ -1198,17 +1198,17 @@ $.extend(SVGPath.prototype, {
 	},
 
 	/* Draw an arc to a position.
-	   @param  rx         (number) x-radius of arc or
+	   @param rx         (number) x-radius of arc or
 	                      (number/boolean[][]) x-/y-coordinates and flags for points to draw to
-	   @param  ry         (number) y-radius of arc (omitted if rx is array)
-	   @param  xRotate    (number) x-axis rotation (degrees, clockwise) (omitted if rx is array)
-	   @param  large      (boolean) true to draw the large part of the arc,
+	   @param ry         (number) y-radius of arc (omitted if rx is array)
+	   @param xRotate    (number) x-axis rotation (degrees, clockwise) (omitted if rx is array)
+	   @param large      (boolean) true to draw the large part of the arc,
 	                      false to draw the small part (omitted if rx is array)
-	   @param  clockwise  (boolean) true to draw the clockwise arc,
+	   @param clockwise  (boolean) true to draw the clockwise arc,
 	                      false to draw the anti-clockwise arc (omitted if rx is array)
-	   @param  x          (number) x-coordinate of arc end (omitted if rx is array)
-	   @param  y          (number) y-coordinate of arc end (omitted if rx is array)
-	   @param  relative   (boolean) true for coordinates relative to the current point,
+	   @param x          (number) x-coordinate of arc end (omitted if rx is array)
+	   @param y          (number) y-coordinate of arc end (omitted if rx is array)
+	   @param relative   (boolean) true for coordinates relative to the current point,
 	                      false for coordinates being absolute
 	   @return  (SVGPath) this path */
 	arc: function(rx, ry, xRotate, large, clockwise, x, y, relative) {
@@ -1272,7 +1272,7 @@ $.extend(SVGText.prototype, {
 	},
 
 	/* Add a straight string value.
-	   @param  value  (string) the actual text
+	   @param value  (string) the actual text
 	   @return  (SVGText) this text object */
 	string: function(value) {
 		this._parts[this._parts.length] = ['text', value];
@@ -1280,8 +1280,8 @@ $.extend(SVGText.prototype, {
 	},
 
 	/* Add a separate text span that has its own settings.
-	   @param  value     (string) the actual text
-	   @param  settings  (object) the settings for this text
+	   @param value     (string) the actual text
+	   @param settings  (object) the settings for this text
 	   @return  (SVGText) this text object */
 	span: function(value, settings) {
 		this._parts[this._parts.length] = ['tspan', value, settings];
@@ -1289,8 +1289,8 @@ $.extend(SVGText.prototype, {
 	},
 
 	/* Add a reference to a previously defined text string.
-	   @param  id        (string) the ID of the actual text
-	   @param  settings  (object) the settings for this text
+	   @param id        (string) the ID of the actual text
+	   @param settings  (object) the settings for this text
 	   @return  (SVGText) this text object */
 	ref: function(id, settings) {
 		this._parts[this._parts.length] = ['tref', id, settings];
@@ -1298,9 +1298,9 @@ $.extend(SVGText.prototype, {
 	},
 
 	/* Add text drawn along a path.
-	   @param  id        (string) the ID of the path
-	   @param  value     (string) the actual text
-	   @param  settings  (object) the settings for this text
+	   @param id        (string) the ID of the path
+	   @param value     (string) the actual text
+	   @param settings  (object) the settings for this text
 	   @return  (SVGText) this text object */
 	path: function(id, value, settings) {
 		this._parts[this._parts.length] = ['textpath', value, 
@@ -1310,8 +1310,8 @@ $.extend(SVGText.prototype, {
 });
 
 /* Attach the SVG functionality to a jQuery selection.
-   @param  command  (string) the command to run (optional, default 'attach')
-   @param  options  (object) the new settings to use for these SVG instances
+   @param command  (string) the command to run (optional, default 'attach')
+   @param options  (object) the new settings to use for these SVG instances
    @return jQuery (object) for chaining further calls */
 $.fn.svg = function(options) {
 	var otherArgs = Array.prototype.slice.call(arguments, 1);

@@ -50,8 +50,8 @@ if (function_exists('mcrypt_encrypt')) {
     /**
      * Encryption using blowfish algorithm (mcrypt)
      *
-     * @param   string  original data
-     * @param   string  the secret
+     * @param string  original data
+     * @param string  the secret
      *
      * @return  string  the encrypted result
      *
@@ -67,8 +67,8 @@ if (function_exists('mcrypt_encrypt')) {
     /**
      * Decryption using blowfish algorithm (mcrypt)
      *
-     * @param   string  encrypted data
-     * @param   string  the secret
+     * @param string  encrypted data
+     * @param string  the secret
      *
      * @return  string  original data
      *
