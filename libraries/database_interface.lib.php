@@ -220,11 +220,12 @@ function PMA_DBI_convert_message($message)
     );
     if ($server_language) {
         $found = array();
-        if (preg_match(
-                '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i',
-                $server_language,
-                $found
-            )) {
+        $match = preg_match(
+            '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i',
+            $server_language,
+            $found
+        );
+        if ($match) {
             $server_language = $found[1];
         }
     }
