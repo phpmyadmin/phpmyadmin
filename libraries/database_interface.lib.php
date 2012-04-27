@@ -213,9 +213,18 @@ function PMA_DBI_convert_message($message)
         'german'        => 'CP1252', //'latin1',
     );
 
-    if ($server_language = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'language\';', 0, 1)) {
+    $server_language = PMA_DBI_fetch_value(
+        'SHOW VARIABLES LIKE \'language\';',
+        0,
+        1
+    );
+    if ($server_language) {
         $found = array();
-        if (preg_match('&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i', $server_language, $found)) {
+        if (preg_match(
+                '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i',
+                $server_language,
+                $found
+            )) {
             $server_language = $found[1];
         }
     }
