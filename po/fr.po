@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 14:33+0200\n"
-"PO-Revision-Date: 2012-04-27 16:50+0200\n"
+"PO-Revision-Date: 2012-04-27 16:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -2839,30 +2839,40 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Similaire au type CHAR, mais stocke des chaînes binaires au lieu de chaînes "
+"non binaires"
 
 #: libraries/Types.class.php:332
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Similaire au type VARCHAR, mais stocke des chaînes binaires au lieu de "
+"chaînes non binaires"
 
 #: libraries/Types.class.php:334
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Une colonne BLOB d'une longueur maximum de 255 (2^8 - 1) octets, stockée "
+"avec un préfixe d'un octet indiquant la longueur de la valeur"
 
 #: libraries/Types.class.php:336
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Une colonne BLOB d'une longueur maximum de 16 777 215 (2^24 - 1) octets, "
+"stockée avec un préfixe de trois octets indiquant la longueur de la valeur"
 
 #: libraries/Types.class.php:338 libraries/Types.class.php:731
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"Une colonne BLOB d'une longueur maximum de 65 535 (2^16 - 1) octets, stockée "
+"avec un préfixe de quatre octets indiquant la longueur de la valeur"
 
 #: libraries/Types.class.php:340
 msgid ""
