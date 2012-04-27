@@ -549,7 +549,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testSetUserValue()
     {
-        $this->object->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
+        $this->object->setUserValue(null, 'lang', 'cs', 'en');
         $this->object->setUserValue("TEST_COOKIE_USER_VAL", '', 'cfg_val_1');
 
         // Remove the following lines when you implement this test.
