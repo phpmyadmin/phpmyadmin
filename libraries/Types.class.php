@@ -194,7 +194,7 @@ class PMA_Types
     }
 
     /**
-     * Returns array fo function available for a class.
+     * Returns array for functions available for a class.
      *
      * @param string $class The class to get function list.
      *
@@ -207,7 +207,7 @@ class PMA_Types
     }
 
     /**
-     * Returns array fo function available for a type.
+     * Returns array for functions available for a type.
      *
      * @param string $type The data type to get function list.
      *
@@ -429,7 +429,7 @@ class PMA_Types_MySQL extends PMA_Types
     }
 
     /**
-     * Returns array fo function available for a class.
+     * Returns array for functions available for a class.
      *
      * @param string $class The class to get function list.
      *
@@ -778,7 +778,7 @@ class PMA_Types_Drizzle extends PMA_Types
     }
 
     /**
-     * Returns array fo function available for a class.
+     * Returns array for functions available for a class.
      *
      * @param string $class The class to get function list.
      *
