@@ -52,6 +52,8 @@ class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => "'a','b'",
                     'enum_set_values' => array('a', 'b'),
                     'attribute' => ' ',
+                    'can_contain_collation' => true,
+                    'displayed_type' => "set('a', 'b')",
                     ),
                 ),
             array(
@@ -65,6 +67,8 @@ class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => "'\'a','b'",
                     'enum_set_values' => array("'a", 'b'),
                     'attribute' => ' ',
+                    'can_contain_collation' => true,
+                    'displayed_type' => "set('\'a', 'b')",
                     ),
                 ),
             array(
@@ -78,6 +82,8 @@ class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => "'''a','b'",
                     'enum_set_values' => array("'a", 'b'),
                     'attribute' => ' ',
+                    'can_contain_collation' => true,
+                    'displayed_type' => "set('''a', 'b')",
                     ),
                 ),
             array(
@@ -91,6 +97,8 @@ class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => '',
                     'enum_set_values' => array(),
                     'attribute' => 'UNSIGNED ZEROFILL',
+                    'can_contain_collation' => false,
+                    'displayed_type' => "int",
                     ),
                 ),
             array(
@@ -104,6 +112,8 @@ class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => '255',
                     'enum_set_values' => array(),
                     'attribute' => ' ',
+                    'can_contain_collation' => true,
+                    'displayed_type' => "varchar(255)",
                     ),
                 ),
             array(
@@ -117,6 +127,8 @@ class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => '255',
                     'enum_set_values' => array(),
                     'attribute' => ' ',
+                    'can_contain_collation' => false,
+                    'displayed_type' => "varbinary(255)",
                     ),
                 ),
             );

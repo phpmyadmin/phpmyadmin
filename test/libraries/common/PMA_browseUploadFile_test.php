@@ -12,9 +12,15 @@
  * Include to test.
  */
 require_once 'libraries/common.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_browseUploadFile_test extends PHPUnit_Framework_TestCase
 {
+
+    protected function setUp()
+    {
+        $GLOBALS['is_upload'] = false;
+    }
 
     /*
      * Data provider for test
@@ -39,7 +45,7 @@ class PMA_browseUploadFile_test extends PHPUnit_Framework_TestCase
     function testBrowseUploadFile($size, $unit, $res)
     {
         $this->expectOutputString(
-            '<label for="radio_import_file">' . __("Browse your computer:") . '</label>'
+            '<label for="input_import_file">' . __("Browse your computer:") . '</label>'
             . '<div id="upload_form_status" style="display: none;"></div>'
             . '<div id="upload_form_status_info" style="display: none;"></div>'
             . '<input type="file" name="import_file" id="input_import_file" />'
