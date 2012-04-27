@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-21 10:48+0200\n"
+"PO-Revision-Date: 2012-04-27 21:01+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5064,7 +5064,7 @@ msgid ""
 msgstr ""
 "Отключите данную функцию, если вы уверены, что ваши таблицы pma_* не "
 "нуждаются в обновлении. Это предотвратит лишние проверки совместимости и "
-"соответственно увеличит производительность."
+"соответственно увеличит производительность"
 
 #: libraries/config/messages.inc.php:452
 msgid "Verbose check"
@@ -12612,7 +12612,7 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 "Это означает сканирование всей таблицы при объединении. Добавление индексов "
-"для полей используемых в условии, значительно увеличит скорость объединения."
+"для полей используемых в условии, значительно увеличит скорость объединения"
 
 #: po/advisory_rules.php:128
 #, php-format
