@@ -637,20 +637,14 @@ $(function() {
 /**
  * Reload fields table
  */
-
 function reloadFieldForm() {
     $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
-        $("#fieldsForm").remove();
-        $("#addColumns").remove();
         var $temp_div = $("<div id='temp_div'><div>").append(form_data);
-        if ($("#sqlqueryresults").length != 0) {
-            $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
-        } else {
-            $temp_div.find("#fieldsForm").insertAfter("#floating_menubar");
-        }
-        $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
+        $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
+        $("#addColumns").replaceWith($temp_div.find("#addColumns"));
+        $('#move_columns_dialog ul').replaceWith($temp_div.find("#move_columns_dialog ul"));
         $("#moveColumns").removeClass("move-active");
-        /*Call the function to display the more options in table*/
+        /* Call the function to display the more options in table */
         $table_clone = false;
         $("div.replace_in_more").hide(); // fix "more" dropdown
         moreOptsMenuResize();
