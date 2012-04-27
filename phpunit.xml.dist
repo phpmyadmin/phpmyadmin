@@ -16,7 +16,7 @@
     <php>
         <const name="TESTSUITE_SERVER" value="localhost"/>
         <const name="TESTSUITE_USER" value="root"/>
-        <const name="TESTSUITE_PASSWORD" value="root"/>
+        <const name="TESTSUITE_PASSWORD" value=""/>
         <const name="TESTSUITE_DATABASE" value="test"/>
         <const name="TESTSUITE_PHPMYADMIN_HOST" value="http://localhost" />
         <const name="TESTSUITE_PHPMYADMIN_URL" value="/phpmyadmin" />
