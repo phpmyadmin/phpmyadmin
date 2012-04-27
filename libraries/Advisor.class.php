@@ -52,6 +52,19 @@ class Advisor
         );
     }
 
+    /**
+     * Stores current error in run results.
+     *
+     * @param $description string Description of an error.
+     * @param $exception   object Exception raised
+     */
+    function storeError($description, $exception)
+    {
+        $this->runResult['errors'][] = $description
+            . ' '
+            . sprintf(__('PHP threw following error: %s'), $exception->getMessage());
+    }
+
     function runRules()
     {
         $this->runResult = array(
@@ -69,9 +82,10 @@ class Advisor
                 try {
                      $precond = $this->ruleExprEvaluate($rule['precondition']);
                 } catch (Exception $e) {
-                    $this->runResult['errors'][] = 'Failed evaluating precondition for rule \''
-                        . $rule['name'] . '\'. PHP threw following error: '
-                        . $e->getMessage();
+                    $this->storeError(
+                        sprintf(__('Failed evaluating precondition for rule \'%s\''), $rule['name']),
+                        $e
+                    );
                     continue;
                 }
             }
@@ -82,9 +96,10 @@ class Advisor
                 try {
                     $value = $this->ruleExprEvaluate($rule['formula']);
                 } catch(Exception $e) {
-                    $this->runResult['errors'][] = 'Failed calculating value for rule \''
-                        . $rule['name'] . '\'. PHP threw following error: '
-                        . $e->getMessage();
+                    $this->storeError(
+                        sprintf(__('Failed calculating value for rule \'%s\''), $rule['name']),
+                        $e
+                    );
                     continue;
                 }
 
@@ -97,9 +112,10 @@ class Advisor
                         $this->addRule('notfired', $rule);
                     }
                 }  catch(Exception $e) {
-                    $this->runResult['errors'][] = 'Failed running test for rule \''
-                        . $rule['name'] . '\'. PHP threw following error: '
-                        . $e->getMessage();
+                    $this->storeError(
+                        sprintf(__('Failed running test for rule \'%s\''), $rule['name']),
+                        $e
+                    );
                 }
             }
         }
@@ -173,10 +189,9 @@ class Advisor
                     /* Translate */
                     $str = $this->translate($jst[0], $jst[1]);
                 } catch (Exception $e) {
-                    $this->runResult['errors'][] = sprintf(
-                        __('Failed formatting string for rule \'%s\'. PHP threw following error: %s'),
-                        $rule['name'],
-                        $e->getMessage()
+                    $this->storeError(
+                        sprintf(__('Failed formatting string for rule \'%s\''), $rule['name']),
+                        $e
                     );
                     return;
                 }
