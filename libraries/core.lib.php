@@ -570,7 +570,14 @@ function PMA_no_cache_header()
     header('Expires: ' . date(DATE_RFC1123)); // rfc2616 - Section 14.21
     header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
     if (PMA_USR_BROWSER_AGENT == 'IE') {
-        /* FIXME: Why is this speecial case for IE needed? */
+        /* On SSL IE sometimes fails with:
+         *
+         * Internet Explorer was not able to open this Internet site. The
+         * requested site is either unavailable or cannot be found. Please
+         * try again later.
+         *
+         * Adding Pragma: public fixes this.
+         */
         header('Pragma: public');
     } else {
         header('Pragma: no-cache'); // HTTP/1.0
