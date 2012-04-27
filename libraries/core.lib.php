@@ -88,7 +88,6 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  *
  * @return  boolean whether valid or not
  *
- * @todo create some testsuites
  * @todo add some more var types like hex, bin, ...?
  * @see     http://php.net/gettype
  */
