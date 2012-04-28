@@ -4,11 +4,13 @@ var chart_series;
 var chart_series_index = -1;
 var chart_data;
 var temp_chart_title;
+var y_values_text;
 
 $(function() {
     var currentChart = null;
     chart_series = 'columns';
     chart_xaxis_idx = $('select[name="chartXAxis"]').val();
+    y_values_text = $('input[name="yaxis_label"]').val();
 
     $('#resizer').resizable({
         minHeight:240,
@@ -88,6 +90,9 @@ $(function() {
 
     $('select[name="chartXAxis"]').change(function() {
         chart_xaxis_idx = this.value;
+        var xaxis_title = $(this).children('option:selected').text();
+        $('input[name="xaxis_label"]').val(xaxis_title);
+        currentSettings.xAxis.title.text = xaxis_title;
         drawChart();
     });
     $('select[name="chartSeries"]').change(function() {
@@ -95,13 +100,18 @@ $(function() {
         chart_series_index = this.selectedIndex;
         if (chart_series_index != 0) {
             $('span.span_pie').show();
-        } else if ($(this).children('option').size() > 2) {
+            var yaxis_title = $(this).children('option:selected').text();            
+        } else {
             $('span.span_pie').hide();
             if (currentSettings.chart.type == 'pie') {
                 $('input#radio_line').prop('checked', true);
                 currentSettings.chart.type = 'line';
             }
+            var yaxis_title = y_values_text;        
         }
+        $('input[name="yaxis_label"]').val(yaxis_title);
+        currentSettings.yAxis.title.text = yaxis_title;
+
         drawChart();
     });
 
