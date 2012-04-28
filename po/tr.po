@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-28 00:58+0200\n"
+"PO-Revision-Date: 2012-04-28 11:15+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2822,12 +2822,16 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"CHAR türü benzeridir ama binari olmayan karakter dizgileri yerine binari "
+"bayt dizgilerini saklar"
 
 #: libraries/Types.class.php:331
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"VARCHAR türü benzeridir ama binari olmayan karakter dizgileri yerine binari "
+"bayt dizgilerini saklar"
 
 #: libraries/Types.class.php:333
 msgid ""
@@ -2866,44 +2870,45 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Bir numaralandırma, 65,535 değerine kadar olan listeden seçilir ya da özel \" "
+"hata değeridir"
 
 #: libraries/Types.class.php:343
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "64 üyeye kadar olan bir gruptan seçilen tek bir değerdir"
 
 #: libraries/Types.class.php:345
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Herhangi bir türün geometrisini saklayabilen bir tür"
 
 #: libraries/Types.class.php:347
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "2-boyutlu uzayda bir nokta"
 
 #: libraries/Types.class.php:349
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Noktalar arasındaki doğrusal eklentili bir eğri"
 
 #: libraries/Types.class.php:351
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Poligon ekle"
+msgstr "Poligon"
 
 #: libraries/Types.class.php:353
 msgid "A collection of points"
-msgstr ""
+msgstr "Noktalar topluluğu"
 
 #: libraries/Types.class.php:355
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Noktalar arasındaki doğrusal eklentili bir eğri topluluğu"
 
 #: libraries/Types.class.php:357
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Poligonlar topluluğu"
 
 #: libraries/Types.class.php:359
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Herhangi bir türün geometri nesneleri topluluğu"
 
 #: libraries/Types.class.php:702
 #, fuzzy
