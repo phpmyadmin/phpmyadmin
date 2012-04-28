@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-28 11:15+0200\n"
+"PO-Revision-Date: 2012-04-28 11:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2911,17 +2911,14 @@ msgid "A collection of geometry objects of any type"
 msgstr "Herhangi bir türün geometri nesneleri topluluğu"
 
 #: libraries/Types.class.php:702
-#, fuzzy
 #| msgid ""
 #| "A normal-size integer. The signed range is -2,147,483,648 to "
 #| "2,147,483,647. The unsigned range is 0 to 4,294,967,295."
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
 msgstr ""
-"Normal boyutta bir tamsayı. İşaretli aralığı -2,147,483,648'den "
-"2,147,483,647'ye dir. İşaretsiz aralığı 0'dan 4,294,967,295'e dir."
+"4-bayt'lık bir tamsayı, aralığı -2,147,483,648'den 2,147,483,647'ye kadardır"
 
 #: libraries/Types.class.php:704
-#, fuzzy
 #| msgid ""
 #| "A large integer. The signed range is -9,223,372,036,854,775,808 to "
 #| "9,223,372,036,854,775,807. The unsigned range is 0 to "
@@ -2930,51 +2927,54 @@ msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
-"Büyük bir tamsayı. İşaretli aralığı -9,223,372,036,854,775,808'den "
-"9,223,372,036,854,775,807'ye dir. İşaretsiz aralığı 0'dan "
-"18,446,744,073,709,551,615'e dir."
+"8-bayt'lık bir tamsayı, aralığı -9,223,372,036,854,775,808'den "
+"9,223,372,036,854,775,807'ye kadardır"
 
 #: libraries/Types.class.php:708
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Sistemin varsayılan çift duyarlıklı kayan noktalı bir sayısı"
 
 #: libraries/Types.class.php:710
-#, fuzzy
 #| msgid "True or false."
 msgid "True or false"
-msgstr "True veya false."
+msgstr "True veya false"
 
 #: libraries/Types.class.php:712
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "BIGINT NOT NULL AUTO_INCREMENT UNIQUE için bir kod adı"
 
 #: libraries/Types.class.php:714
-#, fuzzy
 #| msgid "Stores Universally Unique Identifiers (UUID)."
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr "Evrensel Depolanan Benzersiz Tanımlayıcı (UUID)."
+msgstr "Evrensel Benzersiz Tanımlayıcıyı (UUID) saklar"
 
 #: libraries/Types.class.php:720
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Bir zaman damgası, aralığı \"0001-01-01 00:00:00\" UTC ile \"9999-12-31 "
+"23:59:59\" UTC arası; TIMESTAMP(6) mikro saniyeleri saklayabilir"
 
 #: libraries/Types.class.php:728
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Değişken uzunlukta bir (0-65,535) dizgi, tüm karşılaştırmalar için binari "
+"karşılaştırma kullanır"
 
 #: libraries/Types.class.php:730
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 65,535 (2^16 - 1) bayt uzunluğunda bir BLOB sütunu, değerin "
+"uzunluğunu gösteren dört-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Bir numaralandırma, tanımlanmış değerlerin listesinden seçilir"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -8590,7 +8590,7 @@ msgstr "Tam metin"
 
 #: libraries/tbl_properties.inc.php:537
 msgid "first"
-msgstr ""
+msgstr "ilk"
 
 #: libraries/tbl_properties.inc.php:543
 #, php-format
@@ -12098,7 +12098,7 @@ msgstr "Sütunları taşı"
 
 #: tbl_structure.php:583
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Sütunları yukarı ve aşağı sürükleyerek taşıyın."
 
 #: tbl_structure.php:616
 msgid "Edit view"
