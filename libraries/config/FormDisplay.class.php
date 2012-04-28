@@ -288,9 +288,10 @@ class FormDisplay
      *                                      (null - no support, true/false - enabled/disabled)
      * @param array  &$js_default           array which stores JavaScript code to be displayed
      */
-    private function _displayFieldInput(Form $form, $field, $system_path, $work_path,
-            $translated_path, $show_restore_default, $userprefs_allow, array &$js_default)
-    {
+    private function _displayFieldInput(
+            Form $form, $field, $system_path, $work_path,
+            $translated_path, $show_restore_default, $userprefs_allow, array &$js_default
+    ) {
         $name = PMA_lang_name($system_path);
         $description = PMA_lang_name($system_path, 'desc', '');
 

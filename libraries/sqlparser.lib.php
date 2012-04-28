@@ -2114,9 +2114,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @access public
      */
-    function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
-        $number_of_tokens=-1)
-    {
+    function PMA_SQP_formatHtml(
+        $arr, $mode='color', $start_token=0,
+        $number_of_tokens=-1
+    ) {
         global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array

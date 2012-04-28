@@ -497,9 +497,10 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
  * @param string  $tab_group_full full tab group name
  * @param string  $table_db       db of this table
  */
-function PMA_displayTableList($tables, $visible = false,
-    $tab_group_full = '', $table_db = '')
-{
+function PMA_displayTableList(
+    $tables, $visible = false,
+    $tab_group_full = '', $table_db = ''
+) {
     if (! is_array($tables) || count($tables) === 0) {
         return;
     }

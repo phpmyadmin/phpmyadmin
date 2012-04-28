@@ -375,9 +375,10 @@ class Table_Stats
      * @see PMA_SVG, Table_Stats::Table_Stats_setWidth,
      *       Table_Stats::Table_Stats_setHeight
      */
-    function __construct($tableName, $font, $fontSize, $pageNumber,
-    &$same_wide_width, $showKeys = false, $showInfo = false)
-    {
+    function __construct(
+        $tableName, $font, $fontSize, $pageNumber,
+        &$same_wide_width, $showKeys = false, $showInfo = false
+    ) {
         global $svg, $cfgRelation, $db;
 
         $this->_tableName = $tableName;
@@ -890,9 +891,10 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @see _setMinMax,Table_Stats::__construct(),Relation_Stats::__construct()
      */
-    private function _addRelation($masterTable,$font,$fontSize, $masterField,
-    $foreignTable, $foreignField, $showInfo)
-    {
+    private function _addRelation(
+        $masterTable,$font,$fontSize, $masterField,
+        $foreignTable, $foreignField, $showInfo
+    ) {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new Table_Stats(
                 $masterTable, $font, $fontSize, $this->pageNumber,

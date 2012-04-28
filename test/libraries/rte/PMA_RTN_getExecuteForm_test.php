@@ -28,7 +28,9 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
         }
 
         if (! function_exists('PMA_generateCharsetDropdownBox')) {
-            function PMA_generateCharsetDropdownBox() {}
+            function PMA_generateCharsetDropdownBox()
+            {
+            }
         }
         if (! defined('PMA_CSDROPDOWN_CHARSET')) {
             define('PMA_CSDROPDOWN_CHARSET', '');
