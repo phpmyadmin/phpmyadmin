@@ -46,7 +46,7 @@ if (!empty($path)) {
 // do not force transparent session ids, see bug #3398788
 //@ini_set('session.use_trans_sid', true);
 @ini_set(
-     'url_rewriter.tags',
+    'url_rewriter.tags',
     'a=href,frame=src,input=src,form=fakeentry,fieldset='
 );
 //ini_set('arg_separator.output', '&amp;');

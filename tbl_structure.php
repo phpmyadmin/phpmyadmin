@@ -614,7 +614,7 @@ if ($tbl_is_view) {
             )
         ),
         PMA_getIcon('b_edit.png', __('Edit view'), true)
-        );
+    );
 }
 ?>
 

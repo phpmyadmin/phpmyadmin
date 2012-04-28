@@ -167,11 +167,11 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
         $oMock->setNumber($nr);
 
         $this->assertEquals(
-             sprintf(
-                 '<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
-                 $nr, $instance, $nr
-             ),
-             PMA_showHint($oMock, false)
+            sprintf(
+                '<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
+                $nr, $instance, $nr
+            ),
+            PMA_showHint($oMock, false)
         );
 
         $key = $oMock->getHash();

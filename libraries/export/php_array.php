@@ -56,7 +56,7 @@ if (isset($plugin_list)) {
     function PMA_exportHeader()
     {
         PMA_exportOutputHandler(
-              '<?php' . $GLOBALS['crlf']
+            '<?php' . $GLOBALS['crlf']
             . '/**' . $GLOBALS['crlf']
             . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
             . ' * @version 0.2b' . $GLOBALS['crlf']

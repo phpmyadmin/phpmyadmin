@@ -320,13 +320,13 @@ if (isset($plugin_list)) {
             $lines[] = '        #endregion';
             $lines[] = '        #region Public Properties';
             foreach ($tableProperties as $tablePropertie) {
-                $lines[] = $tablePropertie->formatCs(''
-                    . '        public virtual #dotNetPrimitiveType# #ucfirstName#' . "\n"
+                $lines[] = $tablePropertie->formatCs(
+                    '        public virtual #dotNetPrimitiveType# #ucfirstName#' . "\n"
                     . '        {' . "\n"
                     . '            get {return _#name#;}' . "\n"
                     . '            set {_#name#=value;}' . "\n"
                     . '        }'
-                    );
+                );
             }
             $lines[] = '        #endregion';
             $lines[] = '    }';

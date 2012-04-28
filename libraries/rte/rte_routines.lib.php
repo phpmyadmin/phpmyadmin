@@ -61,11 +61,13 @@ function PMA_RTN_main()
      */
     if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
         trigger_error(
-            __('You are using PHP\'s deprecated \'mysql\' extension, '
-            . 'which is not capable of handling multi queries. '
-            . '[strong]The execution of some stored routines may fail![/strong] '
-            . 'Please use the improved \'mysqli\' extension to '
-            . 'avoid any problems.'),
+            __(
+                'You are using PHP\'s deprecated \'mysql\' extension, '
+                . 'which is not capable of handling multi queries. '
+                . '[strong]The execution of some stored routines may fail![/strong] '
+                . 'Please use the improved \'mysqli\' extension to '
+                . 'avoid any problems.'
+            ),
             E_USER_WARNING
         );
     }
@@ -1257,8 +1259,12 @@ function PMA_RTN_handleExecute()
             } else {
                 $output = '';
                 $message = PMA_message::error(
-                    sprintf(__('The following query has failed: "%s"'), $query) . '<br /><br />'
-                        . __('MySQL said: ') . PMA_DBI_getError(null)
+                    sprintf(
+                        __('The following query has failed: "%s"'),
+                        $query
+                    )
+                    . '<br /><br />'
+                    . __('MySQL said: ') . PMA_DBI_getError(null)
                 );
             }
             // Print/send output
