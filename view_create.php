@@ -99,7 +99,7 @@ if (PMA_isValid($_REQUEST['view'], 'array')) {
  */
 $num_tables = 0;
 if ($GLOBALS['is_ajax_request'] != true) {
-    require_once './libraries/db_links.inc.php';
+    include_once './libraries/db_links.inc.php';
 }
 $url_params['db'] = $GLOBALS['db'];
 $url_params['reload'] = 1;
