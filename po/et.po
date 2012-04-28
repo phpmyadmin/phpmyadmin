@@ -11975,7 +11975,7 @@ msgstr "Liiguta veergusid"
 
 #: tbl_structure.php:583
 msgid "Move the columns by dragging them up and down."
-msgstr "Veergusid saad liigutada nende lohistamisega üles ja alla"
+msgstr "Veergusid saad liigutada nende lohistamisega üles ja alla."
 
 #: tbl_structure.php:616
 msgid "Edit view"
