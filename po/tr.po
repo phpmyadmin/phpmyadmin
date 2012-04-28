@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-27 18:43+0200\n"
+"PO-Revision-Date: 2012-04-28 00:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2771,6 +2771,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Saklandığında belirlenmiş uzunluğa sağdan takviyeli boşluklu sabit uzunluk "
+"(0-255, varsayılan 1) dizgisi"
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:724
 #, php-format
@@ -2778,24 +2780,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Değişken uzunluk (%s) dizgisi, en fazla satır boyutu etkili en fazla uzunluk "
+"konusudur"
 
 #: libraries/Types.class.php:321
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En fazla 255 (2^8 - 1) karakter uzunluğunda bir TEXT sütunu, bayt'larda "
+"değerin uzunluğunu gösteren bir-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:323 libraries/Types.class.php:726
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En fazla 65,535 (2^16 - 1) karakter uzunluğunda bir TEXT sütunu, bayt'larda "
+"değerin uzunluğunu gösteren iki-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:325
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En fazla 16,777,215 (2^24 - 1) karakter uzunluğunda bir TEXT sütunu, "
+"bayt'larda değerin uzunluğunu gösteren üç-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:327
 msgid ""
@@ -2803,6 +2813,9 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"En fazla 4,294,967,295 veya 4GiB (2^32 - 1) karakter uzunluğunda bir TEXT "
+"sütunu, bayt'larda değerin uzunluğunu gösteren dört-bayt'lık bir ön ek ile "
+"saklanır"
 
 #: libraries/Types.class.php:329
 msgid ""
@@ -2821,24 +2834,32 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 255 (2^8 - 1) bayt uzunluğunda bir BLOB sütunu, değerin uzunluğunu "
+"gösteren bir-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:335
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 16,777,215 (2^24 - 1) bayt uzunluğunda bir BLOB sütunu, değerin "
+"uzunluğunu gösteren üç-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:337
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 65,535 (2^16 - 1) bayt uzunluğunda bir BLOB sütunu, değerin "
+"uzunluğunu gösteren iki-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 4,294,967,295 veya 4GiB (2^32 - 1) bayt uzunluğunda bir BLOB "
+"sütunu, değerin uzunluğunu gösteren dört-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:341
 msgid ""
