@@ -31,16 +31,19 @@ class PMA_List_Database extends PMA_List
 {
     /**
      * @var mixed   database link resource|object to be used
+     * @access protected
      */
     protected $_db_link = null;
 
     /**
      * @var mixed   user database link resource|object
+     * @access protected
      */
     protected $_db_link_user = null;
 
     /**
      * @var mixed   controluser database link resource|object
+     * @access protected
      */
     protected $_db_link_control = null;
 
@@ -52,6 +55,7 @@ class PMA_List_Database extends PMA_List
 
     /**
      * @var string command to retrieve databases from server
+     * @access protected
      */
     protected $_command = null;
 
@@ -60,6 +64,8 @@ class PMA_List_Database extends PMA_List
      *
      * @param mixed $db_link_user    user database link resource|object
      * @param mixed $db_link_control control database link resource|object
+     *
+     * @return void
      */
     public function __construct($db_link_user = null, $db_link_control = null)
     {
@@ -73,6 +79,8 @@ class PMA_List_Database extends PMA_List
 
     /**
      * checks if the configuration wants to hide some databases
+     *
+     * @return void
      */
     protected function _checkHideDatabase()
     {
@@ -147,6 +155,7 @@ class PMA_List_Database extends PMA_List
     /**
      * builds up the list
      *
+     * @return void
      */
     public function build()
     {
@@ -213,7 +222,7 @@ class PMA_List_Database extends PMA_List
     /**
      * returns default item
      *
-     * @return string  default item
+     * @return string default item
      */
     public function getDefault()
     {
@@ -230,7 +239,7 @@ class PMA_List_Database extends PMA_List
      * @param integer $offset
      * @param integer $count
      *
-     * @return array   db list
+     * @return array db list
      */
     public function getGroupedDetails($offset, $count)
     {
@@ -319,7 +328,7 @@ class PMA_List_Database extends PMA_List
     /**
      * returns html code for list with dbs
      *
-     * @return string  html code list
+     * @return string html code list
      */
     public function getHtmlListGrouped($selected = '', $offset, $count)
     {
@@ -375,7 +384,7 @@ class PMA_List_Database extends PMA_List
      * as mostly names will be in english, we set the whole selectbox to LTR
      * and EN
      *
-     * @return string  html code select
+     * @return string html code select
      */
     public function getHtmlSelectGrouped($selected = '', $offset, $count)
     {
@@ -422,6 +431,7 @@ class PMA_List_Database extends PMA_List
      * this is just a backup, if all is fine this can be deleted later
      *
      * @deprecated
+     * @return void
      */
     protected function _checkAgainstPrivTables()
     {
