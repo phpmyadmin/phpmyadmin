@@ -96,11 +96,12 @@ url_query = '<?php echo $url_query;?>';
         </span>
         <br>
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
+    </div>
         <?php
         $keys = array_keys($data[0]);
         $yaxis = -1;
         if (count($keys) > 1) { ?>
-            <br />
+            <div style="float:left; padding-left:40px;">
             <label for="select_chartXAxis"><?php echo __('X-Axis:'); ?></label>
             <select name="chartXAxis" id="select_chartXAxis">
             <?php
@@ -131,11 +132,10 @@ url_query = '<?php echo $url_query;?>';
             }
         ?>
         </select>
+        </div>
         <?php
         }
         ?>
-
-    </div>
     <div style="float:left; padding-left:40px;">
         <label for="xaxis_label"><?php echo __('X-Axis label:'); ?></label>
         <input style="margin-top:0;" type="text" name="xaxis_label" id="xaxis_label"
