@@ -23,14 +23,6 @@ if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER == '6'
     @ini_set('zlib.output_compression', 'Off');
 }
 
-if ($GLOBALS['text_dir'] === 'ltr') {
-    $right = 'right';
-    $left = 'left';
-} else {
-    $right = 'left';
-    $left = 'right';
-}
-
 // Send correct type:
 header('Content-Type: text/css; charset=UTF-8');
 
