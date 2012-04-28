@@ -168,9 +168,11 @@ function PMA_queryChart(data, passedSettings)
     }
 
     var columnNames = [];
-
     var series = new Array();
-    var xaxis = { type: 'linear' };
+    var xaxis = { 
+        type: 'linear', 
+        categories: new Array() 
+    };
     var yaxis = new Object();
 
     $.each(data[0], function(index, element) {
@@ -182,8 +184,7 @@ function PMA_queryChart(data, passedSettings)
         case 'spline':
         case 'line':
         case 'bar':
-            xaxis.categories = new Array();
-
+        case 'pie':
             if (chart_series == 'columns') {
                 var j = 0;
                 for (var i = 0, l = columnNames.length; i<l; i++) {
@@ -234,28 +235,6 @@ function PMA_queryChart(data, passedSettings)
                     }
                 });
             }
-
-            if (columnNames.length == 2) {
-                yaxis.title = { text: columnNames[0] };
-            }
-            break;
-
-        case 'pie':
-            series[0] = new Object();
-            series[0].data = new Array();
-            series[0].name = chart_series;
-            $.each(data, function(key, value) {
-                var floatVal;
-                if (value[chart_series] != null) {
-                    floatVal = parseFloat(value[chart_series]);
-                } else {
-                    floatVal = null;
-                }
-                series[0].data.push({
-                    name: value[columnNames[chart_xaxis_idx]],
-                    y: floatVal
-                });
-            });
             break;
     }
 
