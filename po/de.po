@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-27 11:06-0400\n"
+"POT-Creation-Date: 2012-04-27 13:04-0400\n"
 "PO-Revision-Date: 2012-04-18 18:32+0200\n"
 "Last-Translator: Jan Dittberner <jandd@debian.org>\n"
 "Language-Team: none\n"
@@ -2742,27 +2742,28 @@ msgstr ""
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
-#: libraries/Types.class.php:307 libraries/Types.class.php:716
-#, php-format
-msgid "A date, supported range is \"%1$s\" to \"%2$s\""
-msgstr ""
+#: libraries/Types.class.php:307
+#, fuzzy, php-format
+#| msgid "authored on %s by %s"
+msgid "A date, supported range is %1$s to %2$s"
+msgstr "geschrieben am %s von %s"
 
-#: libraries/Types.class.php:309 libraries/Types.class.php:718
+#: libraries/Types.class.php:309
 #, php-format
-msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
+msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
 
 #: libraries/Types.class.php:311
 msgid ""
-"A timestamp, range is \"1970-01-01 00:00:01\" UTC to \"2038-01-09 03:14:07\" "
-"UTC, stored as the number of seconds since the epoch (\"1970-01-01 00:00:00"
-"\" UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 
-#: libraries/Types.class.php:313 libraries/Types.class.php:722
-#, php-format
-msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr ""
+#: libraries/Types.class.php:313
+#, fuzzy, php-format
+#| msgid "Error renaming table %1$s to %2$s"
+msgid "A time, range is %1$s to %2$s"
+msgstr "Fehler beim umbenennen von Tabelle %1$s nach %2$s"
 
 #: libraries/Types.class.php:315
 msgid ""
@@ -2914,10 +2915,26 @@ msgstr ""
 msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr ""
 
+#: libraries/Types.class.php:716
+#, php-format
+msgid "A date, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
+msgstr ""
+
+#: libraries/Types.class.php:718
+#, php-format
+msgid ""
+"A date and time combination, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
+msgstr ""
+
 #: libraries/Types.class.php:720
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
+msgstr ""
+
+#: libraries/Types.class.php:722
+#, php-format
+msgid "A time, range is \"%1$s\" to \"%2$s\""
 msgstr ""
 
 #: libraries/Types.class.php:728

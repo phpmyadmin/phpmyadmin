@@ -34,7 +34,7 @@ phpMyAdmin - ChangeLog
 + rfe #3518852 [edit] edit blob but not other binary, new option $cfg['ProtectBinary'] = 'noblob'
 + Hide language select box if there are no locales installed
 + Removed some directives: verbose_check, SuggestDBName, LightTabs,
-VerboseMultiSubmit
+VerboseMultiSubmit, ReplaceHelpImg
 - Patch #3500882 Fixing checkbox behaviour while editing identical rows
 + rfe #3441722 [interface] Display description of datatypes
 + rfe #3517835 [structure] Move columns easily
@@ -42,6 +42,7 @@ VerboseMultiSubmit
 
 3.5.2.0 (not yet released)
 - bug #3521416 [interface] JS error when editing index
+- bug #3521313 [core] Call to undefined function __()
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered

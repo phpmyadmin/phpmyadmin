@@ -127,7 +127,6 @@ $forms['Features']['Other_core_settings'] = array(
     'VersionCheck',
     'NaturalOrder',
     'InitialSlidersState',
-    'ReplaceHelpImg',
     'MaxDbList',
     'MaxTableList',
     'ShowHint',

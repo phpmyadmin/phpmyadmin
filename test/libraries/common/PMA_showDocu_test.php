@@ -20,27 +20,12 @@ class PMA_showDocu_test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
-    function testShowDocuReplaceHelpImg()
+    function testShowDocu()
     {
-        $GLOBALS['cfg']['ReplaceHelpImg'] = true;
-
         $anchor = "relation";
         $expected = '<a href="Documentation.html#' . $anchor . '" target="documentation">'
                   . '<img src="themes/dot.gif" title="' . __('Documentation') . '" '
                   . 'alt="' . __('Documentation') . '" class="icon ic_b_help" /></a>';
-
-        $this->assertEquals($expected, PMA_showDocu($anchor));
-
-    }
-
-    function testShowDocuNotReplaceHelpImg()
-    {
-        $GLOBALS['cfg']['ReplaceHelpImg'] = false;
-
-        $anchor = "relation";
-        $expected = '[<a href="Documentation.html#' . $anchor . '" target="documentation">'
-                  . __('Documentation')
-                  . '</a>]';
 
         $this->assertEquals($expected, PMA_showDocu($anchor));
 

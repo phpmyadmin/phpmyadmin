@@ -22,7 +22,7 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $_SESSION['PMA_Theme'] = new PMA_Theme();
-        $GLOBALS['cfg'] = array('ReplaceHelpImg' => true, 'ServerDefault' => 1);
+        $GLOBALS['cfg'] = array('ServerDefault' => 1);
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';

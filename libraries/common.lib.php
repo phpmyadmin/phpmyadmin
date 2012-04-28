@@ -387,8 +387,7 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
 
 
 /**
- * Displays a link to the documentation either as icon or
- * as text depending on ReplaceHelpImg
+ * Displays a link to the documentation as an icon
  *
  * @param string $link   documentation link
  * @param string $target optional link target
@@ -399,14 +398,9 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  */
 function PMA_showDocLink($link, $target = 'documentation')
 {
-    $linkstart = '<a href="' . $link . '" target="' . $target . '">';
-    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return $linkstart
-            . PMA_getImage('b_help.png', __('Documentation'))
-            . '</a>';
-    } else {
-        return '['. $linkstart . __('Documentation') . '</a>]';
-    }
+    return '<a href="' . $link . '" target="' . $target . '">'
+        . PMA_getImage('b_help.png', __('Documentation'))
+        . '</a>';
 } // end of the 'PMA_showDocLink()' function
 
 /**
@@ -3435,17 +3429,17 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
                 foreach ($value as $subvalue) {
                     if ($subvalue == $selected) {
                         $retval .= sprintf(
-                            "<option selected='selected' title='%s'>%s</option>",
+                            '<option selected="selected" title="%s">%s</option>',
                             $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
                             $subvalue
                         );
                     } else if ($subvalue === '-') {
-                        $retval .= "<option disabled='disabled'>";
+                        $retval .= '<option disabled="disabled">';
                         $retval .= $subvalue;
-                        $retval .= "</option>";
+                        $retval .= '</option>';
                     } else {
                         $retval .= sprintf(
-                            "<option title='%s'>%s</option>",
+                            '<option title="%s">%s</option>',
                             $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
                             $subvalue
                         );
@@ -3455,13 +3449,13 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
             } else {
                 if ($selected == $value) {
                     $retval .= sprintf(
-                        "<option selected='selected' title='%s'>%s</option>",
+                        '<option selected="selected" title="%s">%s</option>',
                         $GLOBALS['PMA_Types']->getTypeDescription($value),
                         $value
                     );
                 } else {
                     $retval .= sprintf(
-                        "<option title='%s'>%s</option>",
+                        '<option title="%s">%s</option>',
                         $GLOBALS['PMA_Types']->getTypeDescription($value),
                         $value
                     );
