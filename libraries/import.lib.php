@@ -32,7 +32,7 @@ function PMA_checkTimeout()
         return false;
     } elseif ($timeout_passed) {
         return true;
-    /* 5 in next row might be too much */
+        /* 5 in next row might be too much */
     } elseif ((time() - $timestamp) > ($maximum_time - 5)) {
         $timeout_passed = true;
         return true;
@@ -173,7 +173,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                         }
                     } // end run query
                 } // end if not DROP DATABASE
-            // end non empty query
+                // end non empty query
             } elseif (!empty($import_run_buffer['full'])) {
                 if ($go_sql) {
                     $complete_query .= $import_run_buffer['full'];
@@ -315,7 +315,7 @@ function PMA_importGetNextChunk($size = 32768)
             // UTF-8
             if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
                 $result = substr($result, 3);
-            // UTF-16 BE, LE
+                // UTF-16 BE, LE
             } elseif (strncmp($result, "\xFE\xFF", 2) == 0 || strncmp($result, "\xFF\xFE", 2) == 0) {
                 $result = substr($result, 2);
             }

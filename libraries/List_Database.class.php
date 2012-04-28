@@ -24,11 +24,10 @@ require_once './libraries/List.class.php';
  * @todo this object should be attached to the PMA_Server object
  * @todo ? make use of INFORMATION_SCHEMA
  * @todo ? support --skip-showdatabases and user has only global rights
- * @access public
  * @since phpMyAdmin 2.9.10
  * @package PhpMyAdmin
  */
-/*public*/ class PMA_List_Database extends PMA_List
+class PMA_List_Database extends PMA_List
 {
     /**
      * @var mixed   database link resource|object to be used

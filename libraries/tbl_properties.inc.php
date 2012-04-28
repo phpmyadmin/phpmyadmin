@@ -176,16 +176,16 @@ for ($i = 0; $i < $num_fields; $i++) {
         $row['DefaultValue'] = (isset($_REQUEST['field_default_value'][$i]) ? $_REQUEST['field_default_value'][$i] : '');
 
         switch ($row['DefaultType']) {
-            case 'NONE' :
-                $row['Default'] = null;
-                break;
-            case 'USER_DEFINED' :
-                $row['Default'] = $row['DefaultValue'];
-                break;
-            case 'NULL' :
-            case 'CURRENT_TIMESTAMP' :
-                $row['Default'] = $row['DefaultType'];
-                break;
+        case 'NONE' :
+            $row['Default'] = null;
+            break;
+        case 'USER_DEFINED' :
+            $row['Default'] = $row['DefaultValue'];
+            break;
+        case 'NULL' :
+        case 'CURRENT_TIMESTAMP' :
+            $row['Default'] = $row['DefaultType'];
+            break;
         }
 
         $row['Extra']     = (isset($_REQUEST['field_extra'][$i]) ? $_REQUEST['field_extra'][$i] : false);
@@ -215,28 +215,30 @@ for ($i = 0; $i < $num_fields; $i++) {
     } elseif (isset($fields_meta[$i])) {
         $row = $fields_meta[$i];
         switch ($row['Default']) {
-            case null:
-                if ($row['Null'] == 'YES') {
-                    $row['DefaultType']  = 'NULL';
-                    $row['DefaultValue'] = '';
-    // SHOW FULL COLUMNS does not report the case when there is a DEFAULT value
-    // which is empty so we need to use the results of SHOW CREATE TABLE
-                } elseif (isset($row) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_value'])) {
-                    $row['DefaultType']  = 'USER_DEFINED';
-                    $row['DefaultValue'] = $row['Default'];
-                } else {
-                    $row['DefaultType']  = 'NONE';
-                    $row['DefaultValue'] = '';
-                }
-                break;
-            case 'CURRENT_TIMESTAMP':
-                $row['DefaultType']  = 'CURRENT_TIMESTAMP';
+        case null:
+            if ($row['Null'] == 'YES') {
+                $row['DefaultType']  = 'NULL';
                 $row['DefaultValue'] = '';
-                break;
-            default:
+            // SHOW FULL COLUMNS does not report the case when there is a DEFAULT value
+            // which is empty so we need to use the results of SHOW CREATE TABLE
+            } elseif (isset($row)
+                && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_value'])
+            ) {
                 $row['DefaultType']  = 'USER_DEFINED';
                 $row['DefaultValue'] = $row['Default'];
-                break;
+            } else {
+                $row['DefaultType']  = 'NONE';
+                $row['DefaultValue'] = '';
+            }
+            break;
+        case 'CURRENT_TIMESTAMP':
+            $row['DefaultType']  = 'CURRENT_TIMESTAMP';
+            $row['DefaultValue'] = '';
+            break;
+        default:
+            $row['DefaultType']  = 'USER_DEFINED';
+            $row['DefaultValue'] = $row['Default'];
+            break;
         }
     }
 
@@ -521,26 +523,26 @@ for ($i = 0; $i < $num_fields; $i++) {
             . ' name="field_move_to[' . $i . ']" size="1" width="5em">'
             . '<option value="" selected="selected">&nbsp;</option>';
 
-            // find index of current column
-            $current_index = 0;
-            for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
-                if ($move_columns[$mi]->name == $row['Field']) {
-                    $current_index = $mi;
-                    break;
-                }
+        // find index of current column
+        $current_index = 0;
+        for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
+            if ($move_columns[$mi]->name == $row['Field']) {
+                $current_index = $mi;
+                break;
             }
-            $content_cells[$i][$ci] .= '<option value="-first"'
-                . ($current_index == 0 ? ' disabled="disabled"' : '')
-                . '>' . __('first') . '</option>';
+        }
+        $content_cells[$i][$ci] .= '<option value="-first"'
+            . ($current_index == 0 ? ' disabled="disabled"' : '')
+            . '>' . __('first') . '</option>';
 
-            for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
-                $content_cells[$i][$ci] .=
-                    '<option value="' . $move_columns[$mi]->name . '"'
-                    . (($current_index == $mi || $current_index == $mi + 1) ? ' disabled="disabled"' : '')
-                    .'>' . sprintf(__('after %s'), PMA_backquote($move_columns[$mi]->name)) . '</option>';
-            }
+        for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
+            $content_cells[$i][$ci] .=
+                '<option value="' . $move_columns[$mi]->name . '"'
+                . (($current_index == $mi || $current_index == $mi + 1) ? ' disabled="disabled"' : '')
+                .'>' . sprintf(__('after %s'), PMA_backquote($move_columns[$mi]->name)) . '</option>';
+        }
 
-            $content_cells[$i][$ci] .= '</select>';
+        $content_cells[$i][$ci] .= '</select>';
         $ci++;
     }
 
