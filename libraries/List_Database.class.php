@@ -409,7 +409,11 @@ class PMA_List_Database extends PMA_List
             foreach ($dbs as $db) {
                 $return .= '<option value="' . htmlspecialchars($db['name']) . '"'
                     .' title="' . htmlspecialchars($db['comment']) . '"';
-                if ($db['name'] == $selected || (PMA_DRIZZLE && strtolower($db['name']) == strtolower($selected))) {
+                if ($db['name'] == $selected
+                    || (PMA_DRIZZLE
+                        && strtolower($db['name']) == strtolower($selected)
+                    )
+                ) {
                     $return .= ' selected="selected"';
                 }
                 $return .= '>' . htmlspecialchars($cut ? $db['disp_name_cut'] : $db['disp_name']);
@@ -474,7 +478,15 @@ class PMA_List_Database extends PMA_List
                             // TODO: db names may contain characters
                             //       that are regexp instructions
                             $re        = '(^|(\\\\\\\\)+|[^\])';
-                            $tmp_regex = preg_replace('/' . addcslashes($re, '/') . '%/', '\\1.*', preg_replace('/' . addcslashes($re, '/') . '_/', '\\1.{1}', $tmp_matchpattern));
+                            $tmp_regex = preg_replace(
+                                '/' . addcslashes($re, '/') . '%/',
+                                '\\1.*',
+                                preg_replace(
+                                    '/' . addcslashes($re, '/') . '_/',
+                                    '\\1.{1}',
+                                    $tmp_matchpattern
+                                )
+                            );
                             // Fixed db name matching
                             // 2000-08-28 -- Benjamin Gandon
                             if (preg_match('/^' . addcslashes($tmp_regex, '/') . '$/', $tmp_db)) {
@@ -490,7 +502,10 @@ class PMA_List_Database extends PMA_List
         } // end if
 
         // 2. get allowed dbs from the "mysql.tables_priv" table
-        $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
+        $local_query = 'SELECT DISTINCT `Db` FROM `mysql`.`tables_priv`';
+        $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
+        $local_query .= ' AND `User` = \''
+        $local_query .= PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
         $rs          = PMA_DBI_try_query($local_query, $GLOBALS['controllink']);
         if ($rs && @PMA_DBI_num_rows($rs)) {
             while ($row = PMA_DBI_fetch_assoc($rs)) {
