@@ -1,14 +1,18 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 var chart_xaxis_idx = -1;
 var chart_series;
-var chart_series_index = -1;
 var chart_data;
 var temp_chart_title;
 var y_values_text;
 
 $(function() {
     var currentChart = null;
-    chart_series = 'columns';
+    chart_series = $('select[name="chartSeries"]').val();
+    // If no series is selected null is returned. 
+    // In such case nitialize chart_series to empty array.
+    if (chart_series == null) {
+        chart_series = new Array();
+    }
     chart_xaxis_idx = $('select[name="chartXAxis"]').val();
     y_values_text = $('input[name="yaxis_label"]').val();
 
@@ -89,16 +93,16 @@ $(function() {
     });
 
     $('select[name="chartXAxis"]').change(function() {
-        chart_xaxis_idx = this.value;
+        chart_xaxis_idx = $(this).val();
         var xaxis_title = $(this).children('option:selected').text();
         $('input[name="xaxis_label"]').val(xaxis_title);
         currentSettings.xAxis.title.text = xaxis_title;
         drawChart();
     });
     $('select[name="chartSeries"]').change(function() {
-        chart_series = this.value;
-        chart_series_index = this.selectedIndex;
-        if (chart_series_index != 0) {
+        chart_series = $(this).val();
+
+        if (chart_series.length == 1) {
             $('span.span_pie').show();
             var yaxis_title = $(this).children('option:selected').text();            
         } else {
@@ -161,9 +165,7 @@ function isColumnNumeric(columnName)
     var first = true; 
     var isNumeric = false;
     $('select[name="chartSeries"] option').each(function() {
-        if (first) {
-            first = false;
-        } else if ($(this).val() == columnName) {
+        if ($(this).val() == columnName) {
             isNumeric = true;
             return false;
         }
@@ -195,55 +197,31 @@ function PMA_queryChart(data, passedSettings)
         case 'line':
         case 'bar':
         case 'pie':
-            if (chart_series == 'columns') {
-                var j = 0;
-                for (var i = 0, l = columnNames.length; i<l; i++) {
-                    if (! isColumnNumeric(columnNames[i])) {
-                        continue;
-                    }
-                    if (i != chart_xaxis_idx) {
-                        series[j] = new Object();
-                        series[j].data = new Array();
-                        series[j].name = columnNames[i];
-
-                        $.each(data, function(key, value) {
-                            var floatVal;
-                            if (value[columnNames[i]] != null) {
-                                floatVal = parseFloat(value[columnNames[i]]);
-                            } else {
-                                floatVal = null;
-                            }
-                            series[j].data.push({
-                                name: value[columnNames[chart_xaxis_idx]],
-                                y: floatVal
-                            });
-                            if (j == 0 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]]) {
-                                xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
-                            }
-                        });
-                        j++;
-                    }
+            var j = 0;
+            for (var i = 0; i < columnNames.length; i++) {
+                if (! isColumnNumeric(columnNames[i]) || $.inArray(columnNames[i], chart_series) == -1) {
+                    continue;
                 }
-            } else {
-                series[0] = new Object();
-                series[0].data = new Array();
-                series[0].name = chart_series;
+                series[j] = new Object();
+                series[j].data = new Array();
+                series[j].name = columnNames[i];
 
                 $.each(data, function(key, value) {
                     var floatVal;
-                    if (value[chart_series] != null) {
-                        floatVal = parseFloat(value[chart_series]);
+                    if (value[columnNames[i]] != null) {
+                        floatVal = parseFloat(value[columnNames[i]]);
                     } else {
                         floatVal = null;
                     }
-                    series[0].data.push({
+                    series[j].data.push({
                         name: value[columnNames[chart_xaxis_idx]],
                         y: floatVal
                     });
-                    if (! xaxis.categories[value[columnNames[chart_xaxis_idx]]]) {
+                    if (j == 0 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]]) {
                         xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
                     }
                 });
+                j++;
             }
             break;
     }

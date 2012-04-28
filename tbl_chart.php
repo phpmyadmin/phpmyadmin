@@ -108,7 +108,7 @@ url_query = '<?php echo $url_query;?>';
             foreach ($keys as $idx => $key) {
                 if ($yaxis == -1 && (($idx == count($data[0]) - 1) || preg_match("/(date|time)/i", $key))) {
                     echo '<option value="' . htmlspecialchars($idx) . '" selected="selected">' . htmlspecialchars($key) . '</option>';
-                    $yaxis=$idx;
+                    $yaxis = $idx;
                 } else {
                     echo '<option value="' . htmlspecialchars($idx) . '">' . htmlspecialchars($key) . '</option>';
                 }
@@ -117,13 +117,16 @@ url_query = '<?php echo $url_query;?>';
             ?>
         </select><br />
         <label for="select_chartSeries"><?php echo __('Series:'); ?></label>
-        <select name="chartSeries" id="select_chartSeries">
-            <option value="columns"><?php echo __('The remaining columns'); ?></option>
+        <select name="chartSeries" id="select_chartSeries" multiple="multiple">
             <?php
             $numeric_types = array('int', 'real', 'year', 'bit');
             foreach ($keys as $idx => $key) {
                 if (in_array($fields_meta[$idx]->type, $numeric_types)) {
-                    echo '<option>' . htmlspecialchars($key) . '</option>';
+                    if ($idx == $yaxis) {
+                        echo '<option value"' . htmlspecialchars($key) . '">' . htmlspecialchars($key) . '</option>';
+                    } else {
+                        echo '<option value"' . htmlspecialchars($key) . '" selected="selected">' . htmlspecialchars($key) . '</option>';
+                    }
                 }
             }
         ?>
