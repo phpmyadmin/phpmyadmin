@@ -93,6 +93,15 @@ $(function() {
     $('select[name="chartSeries"]').change(function() {
         chart_series = this.value;
         chart_series_index = this.selectedIndex;
+        if (chart_series_index != 0) {
+            $('span.span_pie').show();
+        } else if ($(this).children('option').size() > 2) {
+            $('span.span_pie').hide();
+            if (currentSettings.chart.type == 'pie') {
+                $('input#radio_line').prop('checked', true);
+                currentSettings.chart.type = 'line';
+            }
+        }
         drawChart();
     });
 
@@ -137,6 +146,21 @@ function in_array(element, array)
     return false;
 }
 
+function isColumnNumeric(columnName)
+{
+    var first = true; 
+    var isNumeric = false;
+    $('select[name="chartSeries"] option').each(function() {
+        if (first) {
+            first = false;
+        } else if ($(this).val() == columnName) {
+            isNumeric = true;
+            return false;
+        }
+    });
+    return isNumeric;
+}
+
 function PMA_queryChart(data, passedSettings)
 {
     if ($('#querychart').length == 0) {
@@ -162,53 +186,54 @@ function PMA_queryChart(data, passedSettings)
 
             if (chart_series == 'columns') {
                 var j = 0;
-                for (var i = 0, l = columnNames.length; i<l; i++)
+                for (var i = 0, l = columnNames.length; i<l; i++) {
+                    if (! isColumnNumeric(columnNames[i])) {
+                        continue;
+                    }
                     if (i != chart_xaxis_idx) {
                         series[j] = new Object();
                         series[j].data = new Array();
                         series[j].name = columnNames[i];
 
                         $.each(data, function(key, value) {
-                            series[j].data.push(parseFloat(value[columnNames[i]]));
-                            if ( j == 0 && chart_xaxis_idx != -1 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]])
+                            var floatVal;
+                            if (value[columnNames[i]] != null) {
+                                floatVal = parseFloat(value[columnNames[i]]);
+                            } else {
+                                floatVal = null;
+                            }
+                            series[j].data.push({
+                                name: value[columnNames[chart_xaxis_idx]],
+                                y: floatVal
+                            });
+                            if (j == 0 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]]) {
                                 xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
+                            }
                         });
                         j++;
                     }
+                }
             } else {
-                var j = 0;
-                var seriesIndex = new Object();
-                // Get series types and build series object from the query data
-                $.each(data, function(index, element) {
-                    var contains = false;
-                    for (var i = 0, l = series.length; i < l; i++) {
-                        if (series[i].name == element[chart_series]) {
-                            contains = true;
-                        }
-                    }
+                series[0] = new Object();
+                series[0].data = new Array();
+                series[0].name = chart_series;
 
-                    if (! contains) {
-                        seriesIndex[element[chart_series]] = j;
-                        series[j] = new Object();
-                        series[j].data = new Array();
-                        series[j].name = element[chart_series]; // columnNames[i];
-                        j++;
-                    }
-                });
-
-                var type;
-                // Get series points from query data
                 $.each(data, function(key, value) {
-                    type = value[chart_series];
-                    series[seriesIndex[type]].data.push(parseFloat(value[columnNames[0]]));
-
-                    if ( ! in_array(value[columnNames[chart_xaxis_idx]], xaxis.categories)) {
+                    var floatVal;
+                    if (value[chart_series] != null) {
+                        floatVal = parseFloat(value[chart_series]);
+                    } else {
+                        floatVal = null;
+                    }
+                    series[0].data.push({
+                        name: value[columnNames[chart_xaxis_idx]],
+                        y: floatVal
+                    });
+                    if (! xaxis.categories[value[columnNames[chart_xaxis_idx]]]) {
                         xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
                     }
                 });
             }
-
-
 
             if (columnNames.length == 2) {
                 yaxis.title = { text: columnNames[0] };
@@ -218,12 +243,19 @@ function PMA_queryChart(data, passedSettings)
         case 'pie':
             series[0] = new Object();
             series[0].data = new Array();
+            series[0].name = chart_series;
             $.each(data, function(key, value) {
-                    series[0].data.push({
-                        name: value[columnNames[chart_xaxis_idx]],
-                        y: parseFloat(value[columnNames[0]])
-                    });
+                var floatVal;
+                if (value[chart_series] != null) {
+                    floatVal = parseFloat(value[chart_series]);
+                } else {
+                    floatVal = null;
+                }
+                series[0].data.push({
+                    name: value[columnNames[chart_xaxis_idx]],
+                    y: floatVal
                 });
+            });
             break;
     }
 
@@ -263,12 +295,6 @@ function PMA_queryChart(data, passedSettings)
             }
         }
     };
-
-    if (passedSettings.chart.type == 'pie') {
-        settings.tooltip.formatter = function() {
-            return '<b>' + columnNames[0] + '</b><br/>' + this.y;
-        };
-    }
 
     // Overwrite/Merge default settings with passedsettings
     $.extend(true, settings, passedSettings);

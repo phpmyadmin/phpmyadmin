@@ -48,6 +48,7 @@ if (strlen($GLOBALS['table'])) {
 $data = array();
 
 $result = PMA_DBI_try_query($sql_query);
+$fields_meta = PMA_DBI_get_fields_meta($result);
 while ($row = PMA_DBI_fetch_assoc($result)) {
     $data[] = $row;
 }
@@ -85,8 +86,10 @@ url_query = '<?php echo $url_query;?>';
         <label for ="radio_line"><?php echo _pgettext('Chart type', 'Line'); ?></label>
         <input type="radio" name="chartType" value="spline" id="radio_spline" />
         <label for ="radio_spline"><?php echo _pgettext('Chart type', 'Spline'); ?></label>
+        <span class="span_pie" style="display:none;">
         <input type="radio" name="chartType" value="pie" id="radio_pie" />
         <label for ="radio_pie"><?php echo _pgettext('Chart type', 'Pie'); ?></label>
+        </span>
         <span class="barStacked" style="display:none;">
         <input type="checkbox" name="barStacked" value="1" id="checkbox_barStacked" />
         <label for ="checkbox_barStacked"><?php echo __('Stacked'); ?></label>
@@ -117,8 +120,11 @@ url_query = '<?php echo $url_query;?>';
         <select name="chartSeries" id="select_chartSeries">
             <option value="columns"><?php echo __('The remaining columns'); ?></option>
             <?php
+            $numeric_types = array('int', 'real', 'year', 'bit');
             foreach ($keys as $idx => $key) {
-                echo '<option>' . htmlspecialchars($key) . '</option>';
+                if (in_array($fields_meta[$idx]->type, $numeric_types)) {
+                    echo '<option>' . htmlspecialchars($key) . '</option>';
+                }
             }
         ?>
         </select>
