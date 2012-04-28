@@ -504,7 +504,7 @@ class PMA_List_Database extends PMA_List
         // 2. get allowed dbs from the "mysql.tables_priv" table
         $local_query = 'SELECT DISTINCT `Db` FROM `mysql`.`tables_priv`';
         $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
-        $local_query .= ' AND `User` = \''
+        $local_query .= ' AND `User` = \'';
         $local_query .= PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
         $rs          = PMA_DBI_try_query($local_query, $GLOBALS['controllink']);
         if ($rs && @PMA_DBI_num_rows($rs)) {
