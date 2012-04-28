@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-28 10:48+0200\n"
+"PO-Revision-Date: 2012-04-29 00:12+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2331,12 +2331,12 @@ msgstr "Det gick inte att evaluera förutsättningen för regeln '%s'"
 #: libraries/Advisor.class.php:100
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Det gick inte att beräkna värdet för regeln '%s'"
 
 #: libraries/Advisor.class.php:116
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Lyckades inte köra test för regeln '%s'"
 
 #: libraries/Advisor.class.php:193
 #, php-format
@@ -2636,6 +2636,8 @@ msgstr "Tema"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"En 1-byte heltal, signerat intervall är -128 till 127, osignerad intervall "
+"är 0 till 255"
 
 #: libraries/Types.class.php:285
 msgid ""
