@@ -419,8 +419,8 @@ class PMA_User_Schema
             <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
             <label for="show_table_dim_opt"><?php echo __('Show dimension of tables'); ?>
             </label><br />
-            <input type="checkbox" name="all_table_same_wide" id="all_table_same_wide" />
-            <label for="all_table_same_wide"><?php echo __('Display all tables with the same width'); ?>
+            <input type="checkbox" name="all_tables_same_width" id="all_tables_same_width" />
+            <label for="all_tables_same_width"><?php echo __('Display all tables with the same width'); ?>
             </label><br />
             <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
             <label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />

@@ -1327,7 +1327,7 @@ $(function() {
             $("#orientation_opt").prop("disabled",true);
             $("#with_doc").prop("disabled",true);
             $("#show_table_dim_opt").removeProp("disabled");
-            $("#all_table_same_wide").removeProp("disabled");
+            $("#all_tables_same_width").removeProp("disabled");
             $("#paper_opt").removeProp("disabled");
             $("#show_color_opt").removeProp("disabled");
             //$(this).css("background-color","yellow");
@@ -1335,7 +1335,7 @@ $(function() {
             $("#show_grid_opt").prop("disabled",true);
             $("#with_doc").prop("disabled",true);
             $("#show_table_dim_opt").prop("disabled",true);
-            $("#all_table_same_wide").prop("disabled",true);
+            $("#all_tables_same_width").prop("disabled",true);
             $("#paper_opt").removeProp("disabled");
             $("#show_color_opt").removeProp("disabled");
             $("#orientation_opt").removeProp("disabled");
@@ -1344,7 +1344,7 @@ $(function() {
             $("#orientation_opt").removeProp("disabled");
             $("#with_doc").prop("disabled",true);
             $("#show_table_dim_opt").prop("disabled",true);
-            $("#all_table_same_wide").prop("disabled",true);
+            $("#all_tables_same_width").prop("disabled",true);
             $("#paper_opt").prop("disabled",true);
             $("#show_color_opt").prop("disabled",true);
         } else if ($("#export_type").val()=='pdf') {
@@ -1352,7 +1352,7 @@ $(function() {
             $("#orientation_opt").removeProp("disabled");
             $("#with_doc").removeProp("disabled");
             $("#show_table_dim_opt").removeProp("disabled");
-            $("#all_table_same_wide").removeProp("disabled");
+            $("#all_tables_same_width").removeProp("disabled");
             $("#paper_opt").removeProp("disabled");
             $("#show_color_opt").removeProp("disabled");
         } else {

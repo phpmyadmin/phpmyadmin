@@ -817,7 +817,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setShowColor(isset($_POST['show_color']));
         $this->setShowKeys(isset($_POST['show_keys']));
         $this->setTableDimension(isset($_POST['show_table_dimension']));
-        $this->setAllTableSameWidth(isset($_POST['all_table_same_wide']));
+        $this->setAllTableSameWidth(isset($_POST['all_tables_same_width']));
         $this->setOrientation($_POST['orientation']);
         $this->setExportType($_POST['export_type']);
 

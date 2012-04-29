@@ -30,7 +30,7 @@ require_once "libraries/schema/Export_Relation_Schema.class.php";
  */
 
 $post_params = array(
-    'all_table_same_wide',
+    'all_tables_same_width',
     'chpage',
     'db',
     'do',
