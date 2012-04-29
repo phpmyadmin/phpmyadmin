@@ -896,14 +896,14 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 </tr>
             <?php
         } // end vertical mode
-    }
 
-    //     ... at the left column of the result table header if possible
-    //     and required
-    elseif (($GLOBALS['cfg']['RowActionLinks'] == 'left'
+    } elseif (($GLOBALS['cfg']['RowActionLinks'] == 'left'
         || $GLOBALS['cfg']['RowActionLinks'] == 'both')
         && $is_display['text_btn'] == '1'
     ) {
+        //     ... at the left column of the result table header if possible
+        //     and required
+
         $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn'
             && $is_display['del_lnk'] != 'nn') ? 4 : 0;
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
@@ -920,12 +920,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 . '        ' . "\n"
                 . '    </th>' . "\n";
         } // end vertical mode
-    }
 
-    //     ... elseif no button, displays empty(ies) col(s) if required
-    elseif (($GLOBALS['cfg']['RowActionLinks'] == 'left'
+    } elseif (($GLOBALS['cfg']['RowActionLinks'] == 'left'
             || $GLOBALS['cfg']['RowActionLinks'] == 'both')
         && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')) {
+        //     ... elseif no button, displays empty(ies) col(s) if required
+
         $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn'
             && $is_display['del_lnk'] != 'nn') ? 4 : 0;
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
@@ -938,14 +938,14 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         } else {
             $vertical_display['textbtn'] = '    <td' . $rowspan . '></td>' . "\n";
         } // end vertical mode
-    }
 
-    //     ... elseif display an empty column if the actions links are disabled to
-    //         match the rest of the table
-    elseif ($GLOBALS['cfg']['RowActionLinks'] == 'none'
+    } elseif ($GLOBALS['cfg']['RowActionLinks'] == 'none'
         && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
             || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')
     ) {
+        //     ... elseif display an empty column if the actions links are disabled to
+        //         match the rest of the table
+
         echo '<th></th>';
     }
 
