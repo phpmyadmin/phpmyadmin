@@ -204,7 +204,7 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $view);
         foreach ($columns as $column) {
-            $schema_insert .= PMA_getOneColumnDefinition($column);
+            $schema_insert .= PMA_formatOneColumnDefinition($column);
             $schema_insert .= '</tr>';
         }
 
@@ -296,7 +296,7 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
-            $schema_insert .= PMA_getOneColumnDefinition($column);
+            $schema_insert .= PMA_formatOneColumnDefinition($column);
             $field_name = $column['Field'];
 
             if ($do_relation && $have_rel) {
@@ -404,7 +404,7 @@ if (isset($plugin_list)) {
     }
 
     /**
-     * Gets the definition for one column 
+     * Formats the definition for one column 
      *
      * @param array $column  info about this column 
      *
@@ -412,7 +412,7 @@ if (isset($plugin_list)) {
      *
      * @access public
      */
-    function PMA_getOneColumnDefinition(
+    function PMA_formatOneColumnDefinition(
         $column
     ) {
         /**
