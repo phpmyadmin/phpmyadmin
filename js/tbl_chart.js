@@ -191,39 +191,31 @@ function PMA_queryChart(data, passedSettings)
         columnNames.push(index);
     });
 
-    switch(passedSettings.chart.type) {
-        case 'column':
-        case 'spline':
-        case 'line':
-        case 'bar':
-        case 'pie':
-            var j = 0;
-            for (var i = 0; i < columnNames.length; i++) {
-                if (! isColumnNumeric(columnNames[i]) || $.inArray(columnNames[i], chart_series) == -1) {
-                    continue;
-                }
-                series[j] = new Object();
-                series[j].data = new Array();
-                series[j].name = columnNames[i];
+    var j = 0;
+    for (var i = 0; i < columnNames.length; i++) {
+        if (! isColumnNumeric(columnNames[i]) || $.inArray(columnNames[i], chart_series) == -1) {
+            continue;
+        }
+        series[j] = new Object();
+        series[j].data = new Array();
+        series[j].name = columnNames[i];
 
-                $.each(data, function(key, value) {
-                    var floatVal;
-                    if (value[columnNames[i]] != null) {
-                        floatVal = parseFloat(value[columnNames[i]]);
-                    } else {
-                        floatVal = null;
-                    }
-                    series[j].data.push({
-                        name: value[columnNames[chart_xaxis_idx]],
-                        y: floatVal
-                    });
-                    if (j == 0 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]]) {
-                        xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
-                    }
-                });
-                j++;
+        $.each(data, function(key, value) {
+            var floatVal;
+            if (value[columnNames[i]] != null) {
+                floatVal = parseFloat(value[columnNames[i]]);
+            } else {
+                floatVal = null;
             }
-            break;
+            series[j].data.push({
+                name: value[columnNames[chart_xaxis_idx]],
+                y: floatVal
+            });
+            if (j == 0 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]]) {
+                xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
+            }
+        });
+        j++;
     }
 
     // Prevent the user from seeing the JSON code
