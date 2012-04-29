@@ -1738,7 +1738,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             }// end if
 
             // Wrap MIME-transformations. [MIME]
-            $default_function = 'default_function'; // default_function
+            $default_function = 'PMA_mimeDefaultFunction'; // default_function
             $transform_function = $default_function;
             $transform_options = array();
 
@@ -2695,7 +2695,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             // fetch first row of the result set
             $row = PMA_DBI_fetch_row($dt_result);
             // initializing default arguments
-            $default_function = 'default_function';
+            $default_function = 'PMA_mimeDefaultFunction';
             $transform_function = $default_function;
             $transform_options = array();
             // check for non printable sorted row data
@@ -2979,7 +2979,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 /**
  * replace some html-unfriendly stuff
  */
-function default_function($buffer)
+function PMA_mimeDefaultFunction($buffer)
 {
     $buffer = htmlspecialchars($buffer);
     $buffer = str_replace(
