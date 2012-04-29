@@ -153,7 +153,11 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                 }); // domready
                 //]]>
     </script>
-    <form action="import.php" method="post" enctype="multipart/form-data" name="import"<?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo ' target="import_upload_iframe"'; ?>>
+    <form action="import.php" method="post" enctype="multipart/form-data"
+        name="import"<?php
+        if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
+            echo ' target="import_upload_iframe"';
+        } ?>>
     <input type="hidden" name="<?php echo $ID_KEY; ?>" value="<?php echo $upload_id ; ?>" />
     <?php
     if ($import_type == 'server') {

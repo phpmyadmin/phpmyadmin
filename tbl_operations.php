@@ -257,7 +257,7 @@ if (isset($result) && empty($message_to_show)) {
 }
 
 $url_params['goto']
-    = $url_params['back'] 
+    = $url_params['back']
     = 'tbl_operations.php';
 
 /**
@@ -402,13 +402,22 @@ if ($is_myisam_or_aria || $is_isam) {
         <td><label for="new_pack_keys">PACK_KEYS</label></td>
         <td><select name="new_pack_keys" id="new_pack_keys">
                 <option value="DEFAULT"
-                    <?php if ($pack_keys == 'DEFAULT') echo 'selected="selected"'; ?>
+                    <?php
+                    if ($pack_keys == 'DEFAULT') {
+                        echo 'selected="selected"';
+                    } ?>
                     >DEFAULT</option>
                 <option value="0"
-                    <?php if ($pack_keys == '0') echo 'selected="selected"'; ?>
+                    <?php
+                    if ($pack_keys == '0') {
+                        echo 'selected="selected"';
+                    } ?>
                     >0</option>
                 <option value="1"
-                    <?php if ($pack_keys == '1') echo 'selected="selected"'; ?>
+                    <?php
+                    if ($pack_keys == '1') {
+                        echo 'selected="selected"';
+                    } ?>
                     >1</option>
             </select>
         </td>

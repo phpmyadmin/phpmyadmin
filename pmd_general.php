@@ -204,9 +204,12 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 
 <table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
    style="position: absolute;
-          left: <?php if (isset($tab_pos[$t_n])) echo $tab_pos[$t_n]["X"]; else echo rand(180, 800); ?>px;
-          top: <?php if (isset($tab_pos[$t_n])) echo $tab_pos[$t_n]["Y"]; else echo rand(30, 500); ?>px;
-          visibility: <?php if (isset($tab_pos[$t_n])) echo $tab_pos[$t_n]["H"] ? "visible" : "hidden"; ?>;
+          left: <?php
+          echo isset($tab_pos[$t_n])) ? $tab_pos[$t_n]["X"] : rand(180, 800); ?>px;
+          top: <?php
+          echo isset($tab_pos[$t_n])) ? $tab_pos[$t_n]["Y"] : rand(30, 500); ?>px;
+          visibility: <?php
+          echo !isset($tab_pos[$t_n])) || $tab_pos[$t_n]["H"] ? "visible" : "hidden"; ?>;
          ">
 <thead>
 <tr>

@@ -195,7 +195,9 @@ $i = 0;
     } ?>
 
 <table id="tablestructure" class="data<?php
-    if ($GLOBALS['cfg']['PropertiesIconic'] === true) echo ' PropertiesIconic'; ?>">
+    if ($GLOBALS['cfg']['PropertiesIconic'] === true) {
+        echo ' PropertiesIconic';
+    } ?>">
 <thead>
 <tr>
     <th></th>

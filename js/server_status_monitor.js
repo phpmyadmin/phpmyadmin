@@ -906,8 +906,9 @@ $(function() {
             keys.push(key);
         });
         keys.sort();
-        for (var i = 0; i<keys.length; i++)
+        for (var i = 0; i < keys.length; i++) {
             addChart(runtime.charts[keys[i]], true);
+        }
 
         /* Fill in missing cells */
         var numCharts = $('table#chartGrid .monitorChart').length;
@@ -956,8 +957,9 @@ $(function() {
             $.each(runtime.charts, function(key, chartObj) {
                 for (var i = 0, l = chartObj.nodes.length; i < l; i++) {
                     oldData[chartObj.nodes[i].dataPoint] = [];
-                    for (var j = 0, ll = chartObj.chart.series[i].data.length; j < ll; j++)
+                    for (var j = 0, ll = chartObj.chart.series[i].data.length; j < ll; j++) {
                         oldData[chartObj.nodes[i].dataPoint].push([chartObj.chart.series[i].data[j].x, chartObj.chart.series[i].data[j].y]);
+                    }
                 }
             });
         }
@@ -988,8 +990,9 @@ $(function() {
     /* Adds a chart to the chart grid */
     function addChart(chartObj, initialize) {
         series = [];
-        for (var j = 0, l = chartObj.nodes.length; j < l; j++)
+        for (var j = 0, l = chartObj.nodes.length; j < l; j++) {
             series.push(chartObj.nodes[j]);
+        }
 
         settings = {
             chart: {
@@ -1304,13 +1307,17 @@ $(function() {
             // cur[0].value is Qcache_hits, cur[1].value is Com_select
             var diffQHits = cur[0].value - prev[0].value;
             // No NaN please :-)
-            if (cur[1].value - prev[1].value == 0) return 0;
+            if (cur[1].value - prev[1].value == 0) {
+                return 0;
+            }
 
             return diffQHits / (cur[1].value - prev[1].value + diffQHits) * 100;
 
         // Query cache usage (%)
         case 'qcu':
-            if (cur[1].value == 0) return 0;
+            if (cur[1].value == 0) {
+                return 0;
+            }
             // cur[0].value is Qcache_free_memory, cur[1].value is query_cache_size
             return 100 - cur[0].value / cur[1].value * 100;
 
@@ -1661,9 +1668,9 @@ $(function() {
                 if (j == cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
                     $tRow.append($tCell = $('<td class="linkElem">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
                     $tCell.click(openQueryAnalyzer);
-                } else
+                } else {
                     $tRow.append('<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>');
-
+                }
 
                 $tRow.data('query', rows[i]);
             }

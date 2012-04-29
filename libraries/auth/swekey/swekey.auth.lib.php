@@ -86,8 +86,9 @@ function Swekey_auth_error()
     function Swekey_GetValidKey()
     {
         var valids = "<?php
-            foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value)
+            foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
                 echo $key.',';
+            }
         ?>";
         var connected_keys = Swekey_ListKeyIds().split(",");
         for (i in connected_keys) {

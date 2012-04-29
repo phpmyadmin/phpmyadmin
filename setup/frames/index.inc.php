@@ -240,9 +240,18 @@ display_input(
         <input type="submit" name="submit_display" value="<?php echo __('Display') ?>" />
         <input type="submit" name="submit_download" value="<?php echo __('Download') ?>" />
         &nbsp; &nbsp;
-        <input type="submit" name="submit_save" value="<?php echo __('Save') ?>"<?php if (!$config_writable) echo ' disabled="disabled"' ?> />
-        <input type="submit" name="submit_load" value="<?php echo __('Load') ?>"<?php if (!$config_exists) echo ' disabled="disabled"' ?> />
-        <input type="submit" name="submit_delete" value="<?php echo __('Delete') ?>"<?php if (!$config_exists || !$config_writable) echo ' disabled="disabled"' ?> />
+        <input type="submit" name="submit_save" value="<?php echo __('Save') ?>"<?php
+            if (!$config_writable) {
+                echo ' disabled="disabled"';
+            } ?> />
+        <input type="submit" name="submit_load" value="<?php echo __('Load') ?>"<?php
+            if (!$config_exists) {
+                echo ' disabled="disabled"';
+            } ?> />
+        <input type="submit" name="submit_delete" value="<?php echo __('Delete') ?>"<?php
+            if (!$config_exists || !$config_writable) {
+                echo ' disabled="disabled"';
+            } ?> />
         &nbsp; &nbsp;
         <input type="submit" name="submit_clear" value="<?php echo __('Clear') ?>" class="red" />
     </td>
