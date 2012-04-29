@@ -232,17 +232,6 @@ if (isset($plugin_list)) {
     function PMA_getTableDefStandIn($db, $view, $crlf)
     {
         /**
-         * Get the unique keys in the table
-         */
-        $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
-        foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
-            }
-        }
-
-        /**
          * Gets fields properties
          */
         PMA_DBI_select_db($db);
@@ -304,17 +293,6 @@ if (isset($plugin_list)) {
     function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $show_dates = false, $add_semicolon = true, $view = false)
     {
         global $cfgRelation;
-
-        /**
-         * Get the unique keys in the table
-         */
-        $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
-        foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
-            }
-        }
 
         /**
          * Gets fields properties
