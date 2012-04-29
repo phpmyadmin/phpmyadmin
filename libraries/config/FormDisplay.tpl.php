@@ -190,7 +190,8 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     <th>
         <label for="<?php echo htmlspecialchars($path) ?>"><?php
             echo $name ?></label>
-        <?php if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
+        <?php
+    if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
         <span class="doc">
             <?php if (!empty($opts['doc'])) {
                 ?><a href="<?php echo $base_dir . $opts['doc']  ?>"
@@ -201,17 +202,17 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
             } ?>
         </span>
         <?php
-        }
-        if ($option_is_disabled) {
+    }
+    if ($option_is_disabled) {
             ?>
             <span class="disabled-notice" title="<?php echo __(
             'This setting is disabled, it will not be applied to your configuration')
             ?>"><?php echo __('Disabled') ?></span>
         <?php
-        }
-        if (!empty($description)) {
-            ?><small><?php echo $description ?></small><?php
-        } ?>
+    }
+    if (!empty($description)) {
+        ?><small><?php echo $description ?></small><?php
+    } ?>
     </th>
     <td>
     <?php

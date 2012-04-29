@@ -111,9 +111,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
                 '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
                 . 'PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS)@i',
                 $GLOBALS['sql_query'], $which
-                );
+            );
             if (isset($which[1])
-                && strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0) {
+                && strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0
+                ) {
                 $do_display['edit_lnk'] = 'nn'; // no edit link
                 $do_display['del_lnk']  = 'kp'; // "kill process" type edit link
             } else {
@@ -142,7 +143,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
                 // 2.3.2 Displays edit/delete/sort/insert links?
                 if ($is_link
                     && ($fields_meta[$i]->table == ''
-                        || $fields_meta[$i]->table != $prev_table)
+                    || $fields_meta[$i]->table != $prev_table)
                 ) {
                     $do_display['edit_lnk'] = 'nn'; // don't display links
                     $do_display['del_lnk']  = 'nn';
@@ -182,7 +183,8 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         //   of sorting VIEW results.
         if (isset($unlim_num_rows)
             && $unlim_num_rows < 2
-            && ! PMA_Table::isView($db, $table)) {
+            && ! PMA_Table::isView($db, $table)
+        ) {
             // force display of navbar for vertical/horizontal display-choice.
             // $do_display['nav_bar']  = (string) '0';
             $do_display['sort_lnk'] = (string) '0';
@@ -249,7 +251,8 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
     }
     // for false or 'both'
     if (false === $GLOBALS['cfg']['NavigationBarIconic']
-        || 'both' === $GLOBALS['cfg']['NavigationBarIconic']) {
+        || 'both' === $GLOBALS['cfg']['NavigationBarIconic']
+    ) {
         $caption_output .= '&nbsp;' . $title;
     }
     $title_output = ' title="' . $title . '"';
@@ -296,8 +299,7 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
  * @see     PMA_displayTable()
  */
 function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
-    $id_for_direction_dropdown)
-{
+    $id_for_direction_dropdown) {
     global $db, $table, $goto;
     global $num_rows, $unlim_num_rows;
     global $is_innodb;
@@ -322,14 +324,15 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
     <?php
     // Move to the beginning or to the previous page
     if ($_SESSION['tmp_user_values']['pos']
-        && $_SESSION['tmp_user_values']['max_rows'] != 'all') {
+        && $_SESSION['tmp_user_values']['max_rows'] != 'all'
+        ) {
         PMA_displayTableNavigationOneButton(
             '&lt;&lt;', _pgettext('First page', 'Begin'), 0, $html_sql_query
-            );
+        );
         PMA_displayTableNavigationOneButton(
             '&lt;', _pgettext('Previous page', 'Previous'), $pos_prev,
             $html_sql_query
-            );
+        );
 
     } // end move back
 
@@ -340,11 +343,11 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
         $pageNow = @floor(
             $_SESSION['tmp_user_values']['pos']
             / $_SESSION['tmp_user_values']['max_rows']
-            ) + 1;
+        ) + 1;
         $nbTotalPage = @ceil(
             $unlim_num_rows
             / $_SESSION['tmp_user_values']['max_rows']
-            );
+        );
 
         if ($nbTotalPage > 1) { //if2
        ?>
@@ -380,7 +383,8 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
     // Display the "Show all" button if allowed
     if (($num_rows < $unlim_num_rows)
         && ($GLOBALS['cfg']['ShowAll']
-            || ($GLOBALS['cfg']['MaxRows'] * 5 >= $unlim_num_rows))) {
+        || ($GLOBALS['cfg']['MaxRows'] * 5 >= $unlim_num_rows))
+    ) {
         echo "\n";
         ?>
     <td>
@@ -399,8 +403,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
     } // end show all
 
     // Move to the next page or to the last one
-    if (($_SESSION['tmp_user_values']['pos']
-            + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows)
+    if (($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows)
         && $num_rows >= $_SESSION['tmp_user_values']['max_rows']
         && $_SESSION['tmp_user_values']['max_rows'] != 'all'
     ) {
@@ -494,12 +497,12 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
                 'horizontal'        => __('horizontal'),
                 'horizontalflipped' => __('horizontal (rotated headers)'),
                 'vertical'          => __('vertical')
-                );
+            );
             echo PMA_generate_html_dropdown(
                 'disp_direction', $choices,
                 $_SESSION['tmp_user_values']['disp_direction'],
                 $id_for_direction_dropdown
-                );
+            );
             unset($choices);
         }
 
@@ -550,8 +553,8 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
  */
 function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     $analyzed_sql = '', $sort_expression = '', $sort_expression_nodirection = '',
-    $sort_direction = '')
-{
+    $sort_direction = '') {
+
     global $db, $table, $goto;
     global $sql_query, $num_rows;
     global $vertical_display, $highlight_columns;
@@ -560,6 +563,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     // "Show all" button has been clicked
     $sql_md5 = md5($GLOBALS['sql_query']);
     $session_max_rows = $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
+
+    $direction = isset($_SESSION['tmp_user_values']['disp_direction'])
+        ? $_SESSION['tmp_user_values']['disp_direction']
+        : '';
 
     if ($analyzed_sql == '') {
         $analyzed_sql = array();
@@ -593,8 +600,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             // do we have any index?
             if ($indexes) {
 
-                if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-                    || $_SESSION['tmp_user_values']['disp_direction']
+                if ($direction == 'horizontal'
+                    || $direction
                         == 'horizontalflipped'
                 ) {
                     $span = $fields_cnt;
@@ -852,15 +859,15 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         echo ' ajax';
     }
     echo '">' . "\n";
-    if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-        || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+    if ($direction == 'horizontal'
+        || $direction == 'horizontalflipped'
     ) {
         echo '<thead><tr>' . "\n";
     }
 
     // 1. Displays the full/partial text button (part 1)...
-    if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-        || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+    if ($direction == 'horizontal'
+        || $direction == 'horizontalflipped'
     ) {
         $colspan  = ($is_display['edit_lnk'] != 'nn'
             && $is_display['del_lnk'] != 'nn')
@@ -879,8 +886,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     ) {
         $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn'
             && $is_display['del_lnk'] != 'nn') ? 4 : 0;
-        if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-            || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+        if ($direction == 'horizontal'
+            || $direction == 'horizontalflipped'
         ) {
             ?>
     <th colspan="<?php echo $fields_cnt; ?>"></th>
@@ -906,8 +913,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 
         $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn'
             && $is_display['del_lnk'] != 'nn') ? 4 : 0;
-        if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-            || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+        if ($direction == 'horizontal'
+            || $direction == 'horizontalflipped'
         ) {
             ?>
                 <th <?php echo $colspan; ?>><?php
@@ -928,8 +935,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 
         $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn'
             && $is_display['del_lnk'] != 'nn') ? 4 : 0;
-        if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-            || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+        if ($direction == 'horizontal'
+            || $direction == 'horizontalflipped'
         ) {
             ?>
     <td<?php echo $colspan; ?>></td>
@@ -940,8 +947,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         } // end vertical mode
 
     } elseif ($GLOBALS['cfg']['RowActionLinks'] == 'none'
-        && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-            || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')
+        && ($direction == 'horizontal'
+            || $direction == 'horizontalflipped')
     ) {
         //     ... elseif display an empty column if the actions links are disabled to
         //         match the rest of the table
@@ -958,7 +965,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     //       Do not show comments, if using horizontalflipped mode,
     //       because of space usage
     if ($GLOBALS['cfg']['ShowBrowseComments']
-        && $_SESSION['tmp_user_values']['disp_direction'] != 'horizontalflipped'
+        && $direction != 'horizontalflipped'
     ) {
         $comments_map = array();
         if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0])) {
@@ -1164,13 +1171,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                     $GLOBALS['cfg']['HeaderFlipType'] = 'fake';
                 }
             }
-            if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+            if ($direction == 'horizontalflipped'
                 && $GLOBALS['cfg']['HeaderFlipType'] == 'css'
             ) {
                 $order_link_params['style'] = 'direction: ltr; writing-mode: tb-rl;';
             }
             $order_link_params['title'] = __('Sort');
-            $order_link_content = ($_SESSION['tmp_user_values']['disp_direction']
+            $order_link_content = ($direction
                 == 'horizontalflipped'
                 && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'
                 ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name),
@@ -1179,8 +1186,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             $order_link = PMA_linkOrButton($order_url,
                 $order_link_content . $order_img, $order_link_params, false, true);
 
-            if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-                || $_SESSION['tmp_user_values']['disp_direction']
+            if ($direction == 'horizontal'
+                || $direction
                     == 'horizontalflipped'
             ) {
                 echo '<th';
@@ -1201,7 +1208,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 }
                 echo ' class="' . implode(' ', $th_class);
 
-                if ($_SESSION['tmp_user_values']['disp_direction']
+                if ($direction
                         == 'horizontalflipped') {
                     echo ' vbottom';
                 }
@@ -1217,8 +1224,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 
         // 2.2 Results can't be sorted
         else {
-            if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-                || $_SESSION['tmp_user_values']['disp_direction']
+            if ($direction == 'horizontal'
+                || $direction
                     == 'horizontalflipped'
             ) {
                 echo '<th';
@@ -1231,12 +1238,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                     $th_class[] = 'condition';
                 }
                 echo ' class="' . implode(' ', $th_class);
-                if ($_SESSION['tmp_user_values']['disp_direction']
+                if ($direction
                         == 'horizontalflipped') {
                     echo ' vbottom';
                 }
                 echo '"';
-                if ($_SESSION['tmp_user_values']['disp_direction']
+                if ($direction
                         == 'horizontalflipped'
                     && $GLOBALS['cfg']['HeaderFlipType'] == 'css'
                 ) {
@@ -1244,7 +1251,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 }
                 echo ' data-column="' . htmlspecialchars($fields_meta[$i]->name)
                     . '">';
-                if ($_SESSION['tmp_user_values']['disp_direction']
+                if ($direction
                         == 'horizontalflipped'
                     && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'
                 ) {
@@ -1275,8 +1282,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
             ? 4
             : 1;
-        if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-            || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+        if ($direction == 'horizontal'
+            || $direction == 'horizontalflipped'
         ) {
             echo "\n";
             ?>
@@ -1303,8 +1310,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
             ? 4
             : 1;
-        if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-            || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+        if ($direction == 'horizontal'
+            || $direction == 'horizontalflipped'
         ) {
             echo "\n";
             ?>
@@ -1316,8 +1323,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         } // end vertical mode
     }
 
-    if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-        || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
+    if ($direction == 'horizontal'
+        || $direction == 'horizontalflipped'
     ) {
         ?>
 </tr>
