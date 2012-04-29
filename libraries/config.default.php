@@ -2115,6 +2115,13 @@ $cfg['Import']['xls_empty_rows'] = true;
 $cfg['Import']['xlsx_col_names'] = false;
 
 /**
+ *
+ *
+ * @global string $cfg['Import']['mediawiki_performance_indicator']
+ */
+$cfg['Import']['mediawiki_performance_indicator'] = 'memory';
+
+/**
  * Link to the official MySQL documentation.
  * Be sure to include no trailing slash on the path.
  * See http://dev.mysql.com/doc/ for more information
