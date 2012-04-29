@@ -517,6 +517,7 @@ function Angular_direct()
 //++++++++++++++++++++++++++++++ RELATION ++++++++++++++++++++++++++++++++++++++
 function Start_relation()
 {
+    if (ON_display_field) {
         return;
     }
 
