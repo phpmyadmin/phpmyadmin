@@ -403,7 +403,31 @@ $(function() {
                         buttons: button_options_error
                     }); // end dialog options
                 } else {
-                    reloadFieldForm(data.message);
+                    // sort the fields table
+                    var $fields_table = $("table#tablestructure tbody");
+                    // remove all existing rows and remember them
+                    var $rows = $fields_table.find("tr").remove();
+                    // loop through the correct order
+                    for (var i in data.columns) {
+                        var the_column = data.columns[i];
+                        var $the_row
+                            = $rows
+                            .find("input:checkbox[value=" + the_column + "]")
+                            .closest("tr");
+                        // append the row for this column to the table
+                        $fields_table.append($the_row);
+                    }
+                    var $firstrow = $fields_table.find("tr").eq(0);
+                    // Adjust the row numbers and colors
+                    for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
+                        $row
+                        .find('td:nth-child(2)')
+                        .text($row.index() + 1)
+                        .end()
+                        .removeClass("odd even")
+                        .addClass($row.index() % 2 == 0 ? "odd" : "even");
+                    }
+                    PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');
                 }
             });
