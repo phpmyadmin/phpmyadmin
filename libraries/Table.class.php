@@ -492,8 +492,7 @@ class PMA_Table
         // move column
         if ($move_to == '-first') { // dash can't appear as part of column name
             $query .= ' FIRST';
-        }
-        elseif ($move_to != '') {
+        } elseif ($move_to != '') {
             $query .= ' AFTER ' . PMA_backquote($move_to);
         }
         return $query;

@@ -108,7 +108,7 @@ if (isset($_REQUEST['move_columns'])
                 : $column_names[$i - 1]
                 );
         // update current column_names array, first delete old position
-        for($j = 0, $ll = count($column_names); $j < $ll; $j++) {
+        for ($j = 0, $ll = count($column_names); $j < $ll; $j++) {
             if ($column_names[$j] == $column) {
                 unset($column_names[$j]);
             }

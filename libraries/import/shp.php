@@ -261,13 +261,12 @@ if (isset($plugin_list)) {
                     $shp->FileName = $file_name;
                 }
             }
-        }
-        // If file is in UploadDir, use .dbf file in the same UploadDir
-        // to load extra data.
-        elseif (! empty($local_import_file)
+        } elseif (! empty($local_import_file)
             && ! empty($cfg['UploadDir'])
             && $compression == 'none'
         ) {
+            // If file is in UploadDir, use .dbf file in the same UploadDir
+            // to load extra data.
             // Replace the .shp with .*,
             // so the bsShapeFiles library correctly locates .dbf file.
             $file_name = substr($import_file, 0, strlen($import_file) - 4) . '.*';
