@@ -310,7 +310,7 @@ if (isset($plugin_list)) {
             }
 
             $schema_insert .= '</tr>';
-        } // end while
+        } // end foreach 
 
         $schema_insert .= '</table>';
         return $schema_insert;
