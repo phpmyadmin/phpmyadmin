@@ -39,7 +39,7 @@ $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 /**
  * Moving columns
  */
-if (isset($_REQUEST['move_columns']) 
+if (isset($_REQUEST['move_columns'])
     && is_array($_REQUEST['move_columns'])
     && $GLOBALS['is_ajax_request']) {
     /*
@@ -127,7 +127,13 @@ if (isset($_REQUEST['move_columns'])
     if ($tmp_error) {
         PMA_ajaxResponse(PMA_Message::error($tmp_error), false);
     }
-    PMA_ajaxResponse(PMA_Message::success(__('The columns have been moved successfully.')), true);
+    PMA_ajaxResponse(
+        PMA_Message::success(__('The columns have been moved successfully.')),
+        true,
+        array(
+            'columns' => $column_names
+        )
+    );
 }
 
 /**
