@@ -655,14 +655,14 @@ $(function() {
                         var $error = $temp_div.find(".error code").addClass("error");
                         PMA_ajaxShowMessage($error, false);
                     }
-                }) // end $.post()
+                }); // end $.post()
             } else {
                 // non-Ajax submit
                 $form.append('<input type="hidden" name="do_save_data" value="Save" />');
                 $form.submit();
             }
         }
-    }) // end change table button "do_save_data"
+    }); // end change table button "do_save_data"
 
 }, 'top.frame_content'); //end $(document).ready for 'Change Table'
 

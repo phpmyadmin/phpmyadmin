@@ -170,7 +170,7 @@ $(function() {
                         $(this).remove();
                     },
                     buttons : button_options_error
-                })// end dialog options
+                }); // end dialog options
             } else {
                 var $dialog = $div
                     .append(data)
@@ -197,7 +197,7 @@ $(function() {
                 PMA_convertFootnotesToTooltips($div);
             }
             PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.get()
+        }); // end $.get()
 
     });
 
@@ -222,8 +222,8 @@ $(function() {
             /**Update the row count at the tableForm*/
             current_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
             PMA_adjustTotals();
-        }) // end $.post()
-    }) // end insert table button "Go"
+        }); // end $.post()
+    }); // end insert table button "Go"
 
     $("#buttonYes.ajax").live('click', function(event){
         event.preventDefault();
@@ -259,7 +259,7 @@ $(function() {
             /**Update the row count at the tableForm*/
             current_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
             PMA_adjustTotals();
-        }) // end $.post()
+        }); // end $.post()
     });
 
      /**
@@ -332,8 +332,8 @@ $(function() {
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
-            }) // end $.get()
-        }) //end $.PMA_confirm()
+            }); // end $.get()
+        }); //end $.PMA_confirm()
     }); //end of Truncate Table Ajax action
 
     /**
@@ -494,8 +494,8 @@ $(function() {
 
         $(this).PMA_confirm(question, '', function() {
             return true;
-        })
+        });
         return false;
-    }) //end Calculate Real End for InnoDB
+    }); //end Calculate Real End for InnoDB
 
 }, 'top.frame_content'); // end $()
