@@ -9,12 +9,14 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- *
+ * GNU iconv code set to IBM AIX libiconv code set table
+ * Keys of this table should be in lowercase, 
+ * and searches should be performed using lowercase!
  */
-# GNU iconv code set to IBM AIX libiconv code set table
-# Keys of this table should be in lowercase, and searches should be performed using lowercase!
 $gnu_iconv_to_aix_iconv_codepage_map = array (
-    // "iso-8859-[1-9]" --> "ISO8859-[1-9]" according to http://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/libs/basetrf2/setlocale.htm
+    // "iso-8859-[1-9]" --> "ISO8859-[1-9]" according to 
+    // http://publibn.boulder.ibm.com/doc_link/en_US/
+    //     a_doc_lib/libs/basetrf2/setlocale.htm
     'iso-8859-1' => 'ISO8859-1',
     'iso-8859-2' => 'ISO8859-2',
     'iso-8859-3' => 'ISO8859-3',
@@ -25,10 +27,12 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
     'iso-8859-8' => 'ISO8859-8',
     'iso-8859-9' => 'ISO8859-9',
 
-    // "big5" --> "IBM-eucTW" according to http://kadesh.cepba.upc.es/mancpp/classref/ref/ITranscoder_DSC.htm
+    // "big5" --> "IBM-eucTW" according to 
+    // http://kadesh.cepba.upc.es/mancpp/classref/ref/ITranscoder_DSC.htm
     'big5' => 'IBM-eucTW',
 
-    // Other mappings corresponding to the phpMyAdmin dropdown box when using the charset conversion feature
+    // Other mappings corresponding to the phpMyAdmin dropdown box when using the 
+    // charset conversion feature
     'euc-jp' => 'IBM-eucJP',
     'koi8-r' => 'IBM-eucKR',
     'ks_c_5601-1987' => 'KSC5601.1987-0',
@@ -58,24 +62,33 @@ function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str)
     $translit_search = strpos(strtolower($out_charset), '//translit');
     $using_translit = (!($translit_search === false));
 
-    // Extract "plain" output character set name (without any transliteration argument)
-    $out_charset_plain = ($using_translit ? substr($out_charset, 0, $translit_search) : $out_charset);
+    // Extract "plain" output character set name 
+    // (without any transliteration argument)
+    $out_charset_plain = ($using_translit 
+        ? substr($out_charset, 0, $translit_search) 
+        : $out_charset);
 
     // Transform name of input character set (if found)
-    if (array_key_exists(strtolower($in_charset), $gnu_iconv_to_aix_iconv_codepage_map)) {
+    if (array_key_exists(strtolower($in_charset), 
+        $gnu_iconv_to_aix_iconv_codepage_map)) {
         $in_charset = $gnu_iconv_to_aix_iconv_codepage_map[strtolower($in_charset)];
     }
 
     // Transform name of "plain" output character set (if found)
-    if (array_key_exists(strtolower($out_charset_plain), $gnu_iconv_to_aix_iconv_codepage_map)) {
-        $out_charset_plain = $gnu_iconv_to_aix_iconv_codepage_map[strtolower($out_charset_plain)];
+    if (array_key_exists(strtolower($out_charset_plain), 
+        $gnu_iconv_to_aix_iconv_codepage_map)) {
+        $out_charset_plain = $gnu_iconv_to_aix_iconv_codepage_map[
+            strtolower($out_charset_plain)];
     }
 
     // Add transliteration argument again (exactly as specified by user) if used
     // Build the output character set name that we will use
-    $out_charset = ($using_translit ? $out_charset_plain . substr($out_charset, $translit_search) : $out_charset_plain);
+    $out_charset = ($using_translit 
+        ? $out_charset_plain . substr($out_charset, $translit_search) 
+        : $out_charset_plain);
 
-    // NOTE: Transliteration not supported; we will use the "plain" output character set name
+    // NOTE: Transliteration not supported; we will use the "plain" 
+    // output character set name
     $out_charset = $out_charset_plain;
 
     // Call iconv() with the possibly modified parameters
