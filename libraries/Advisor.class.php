@@ -190,7 +190,7 @@ class Advisor
                     $str = $this->translate($jst[0], $jst[1]);
                 } catch (Exception $e) {
                     $this->storeError(
-                        sprintf(__('Failed formatting string for rule \'%s\''), $rule['name']),
+                        sprintf(__('Failed formatting string for rule \'%s\'.'), $rule['name']),
                         $e
                     );
                     return;
