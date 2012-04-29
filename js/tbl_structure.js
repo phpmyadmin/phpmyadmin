@@ -440,20 +440,19 @@ $(function() {
             col_list.append(columns[i]);
         }
         col_list.sortable({
-                axis: 'y',
-                containment: $("#move_columns_dialog div")
-            })
-            .disableSelection();
+            axis: 'y',
+            containment: $("#move_columns_dialog div")
+        }).disableSelection();
         var $form = $("#move_columns_dialog form");
         $form.data("serialized-unmoved", $form.serialize());
 
         $("#move_columns_dialog").dialog({
-                modal: true,
-                buttons: button_options,
-                beforeClose: function () {
-                    $("#move_columns_anchor").removeClass("move-active");
-                }
-            });
+            modal: true,
+            buttons: button_options,
+            beforeClose: function () {
+                $("#move_columns_anchor").removeClass("move-active");
+            }
+        });
     });
 
     /**
