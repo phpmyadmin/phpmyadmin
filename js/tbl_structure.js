@@ -403,8 +403,7 @@ $(function() {
                         buttons: button_options_error
                     }); // end dialog options
                 } else {
-                    PMA_ajaxShowMessage(data.message);
-                    reloadFieldForm();
+                    reloadFieldForm(data.message);
                     $this.dialog('close');
                 }
             });
@@ -619,6 +618,7 @@ $(function() {
             if ($form.hasClass('ajax')) {
                 PMA_prepareForAjaxRequest($form);
                 //User wants to submit the form
+                PMA_ajaxShowMessage();
                 $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
                     if ($("#sqlqueryresults").length != 0) {
                         $("#sqlqueryresults").remove();
@@ -626,7 +626,6 @@ $(function() {
                         $(".error").remove();
                     }
                     if (data.success == true) {
-                        PMA_ajaxShowMessage(data.message);
                         $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                         $("#sqlqueryresults").html(data.sql_query);
                         $("#result_query .notice").remove();
@@ -637,7 +636,7 @@ $(function() {
                             $("#add_columns").dialog("close").remove();
                         }
                         /*Reload the field form*/
-                        reloadFieldForm();
+                        reloadFieldForm(data.message);
                     } else {
                         var $temp_div = $("<div id='temp_div'><div>").append(data);
                         var $error = $temp_div.find(".error code").addClass("error");
@@ -657,7 +656,7 @@ $(function() {
 /**
  * Reload fields table
  */
-function reloadFieldForm() {
+function reloadFieldForm(message) {
     $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
         var $temp_div = $("<div id='temp_div'><div>").append(form_data);
         $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
@@ -668,6 +667,9 @@ function reloadFieldForm() {
         $table_clone = false;
         $("div.replace_in_more").hide(); // fix "more" dropdown
         moreOptsMenuResize();
+        setTimeout(function() {
+            PMA_ajaxShowMessage(message);
+        }, 500);
     });
 }
 
