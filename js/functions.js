@@ -1575,12 +1575,12 @@ function PMA_createTableDialog( $div, url , target)
      var button_options = {};
      // in the following function we need to use $(this)
      button_options[PMA_messages['strCancel']] = function() {
-         $(this).closest('.ui-dialog-content').dialog('close').remove();
+         $(this).closest('.ui-dialog-content').dialog('close');
      };
 
      var button_options_error = {};
      button_options_error[PMA_messages['strOK']] = function() {
-         $(this).closest('.ui-dialog-content').dialog('close').remove();
+         $(this).closest('.ui-dialog-content').dialog('close');
      };
 
      // allow create-table form only once
@@ -1600,6 +1600,9 @@ function PMA_createTableDialog( $div, url , target)
                  height: 230,
                  width: 900,
                  open: PMA_verifyColumnsProperties,
+                 close: function() {
+                     $(this).remove();
+                 },
                  buttons : button_options_error
              })// end dialog options
              //remove the redundant [Back] link in the error message.
@@ -1660,6 +1663,7 @@ function PMA_createTableDialog( $div, url , target)
                      // resize topmenu
                      menuResize();
                      menuResize(); // somehow need to call it twice to work
+                     $(this).remove();
                  },
                  buttons: button_options
              }); // end dialog options
@@ -2549,7 +2553,7 @@ $(function() {
         };
 
         button_options[PMA_messages['strCancel']] = function() {
-            $(this).dialog('close').remove();
+            $(this).dialog('close');
         };
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
             $('<div id="change_password_dialog"></div>')

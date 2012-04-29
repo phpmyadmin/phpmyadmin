@@ -477,12 +477,12 @@ $(function() {
         var button_options = {};
         // in the following function we need to use $(this)
         button_options[PMA_messages['strCancel']] = function() {
-            $(this).dialog('close').remove();
+            $(this).dialog('close');
         };
 
         var button_options_error = {};
         button_options_error[PMA_messages['strOK']] = function() {
-            $(this).dialog('close').remove();
+            $(this).dialog('close');
         };
         var $msgbox = PMA_ajaxShowMessage();
 
@@ -496,6 +496,9 @@ $(function() {
                     height: 230,
                     width: 900,
                     open: PMA_verifyColumnsProperties,
+                    close: function() {
+                        $(this).remove();
+                    },
                     modal: true,
                     buttons : button_options_error
                 }); // end dialog options
@@ -507,6 +510,9 @@ $(function() {
                     height: 600,
                     width: 900,
                     open: PMA_verifyColumnsProperties,
+                    close: function() {
+                        $(this).remove();
+                    },
                     modal: true,
                     buttons : button_options
                 }); // end dialog options
@@ -549,12 +555,12 @@ function changeColumns(action,url)
     var button_options = {};
     // in the following function we need to use $(this)
     button_options[PMA_messages['strCancel']] = function() {
-        $(this).dialog('close').remove();
+        $(this).dialog('close');
     };
 
     var button_options_error = {};
     button_options_error[PMA_messages['strOK']] = function() {
-        $(this).dialog('close').remove();
+        $(this).dialog('close');
     };
     var $msgbox = PMA_ajaxShowMessage();
 
@@ -569,6 +575,9 @@ function changeColumns(action,url)
                 width: 900,
                 modal: true,
                 open: PMA_verifyColumnsProperties,
+                close: function() {
+                    $(this).remove();
+                },
                 buttons : button_options_error
             }); // end dialog options
         } else {
@@ -580,6 +589,9 @@ function changeColumns(action,url)
                 width: 900,
                 modal: true,
                 open: PMA_verifyColumnsProperties,
+                close: function() {
+                    $(this).remove();
+                }, 
                 buttons : button_options
             }); // end dialog options
             $("#append_fields_form input[name=do_save_data]").addClass("ajax");
