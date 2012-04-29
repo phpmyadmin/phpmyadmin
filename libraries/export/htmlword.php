@@ -204,34 +204,7 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $view);
         foreach ($columns as $column) {
-            $schema_insert .= '<tr class="print-category">';
-
-            $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
-            $type = htmlspecialchars($extracted_columnspec['print_type']);
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            if (! isset($column['Default'])) {
-                if ($column['Null'] != 'NO') {
-                    $column['Default'] = 'NULL';
-                }
-            }
-
-            $fmt_pre = '';
-            $fmt_post = '';
-            if (in_array($column['Field'], $unique_keys)) {
-                $fmt_pre = '<strong>' . $fmt_pre;
-                $fmt_post = $fmt_post . '</strong>';
-            }
-            if ($column['Key'] == 'PRI') {
-                $fmt_pre = '<em>' . $fmt_pre;
-                $fmt_post = $fmt_post . '</em>';
-            }
-            $schema_insert .= '<td class="print">' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post . '</td>';
-            $schema_insert .= '<td class="print">' . htmlspecialchars($type) . '</td>';
-            $schema_insert .= '<td class="print">' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
-            $schema_insert .= '<td class="print">' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '') . '</td>';
+            $schema_insert .= PMA_getOneColumnDefinition($column);
             $schema_insert .= '</tr>';
         }
 
@@ -266,17 +239,6 @@ if (isset($plugin_list)) {
         global $cfgRelation;
 
         $schema_insert = '';
-
-        /**
-         * Get the unique keys in the table
-         */
-        $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
-        foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
-            }
-        }
 
         /**
          * Gets fields properties
@@ -334,36 +296,7 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
-
-            $schema_insert .= '<tr class="print-category">';
-
-            $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
-            $type = htmlspecialchars($extracted_columnspec['print_type']);
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            if (! isset($column['Default'])) {
-                if ($column['Null'] != 'NO') {
-                    $column['Default'] = 'NULL';
-                }
-            }
-
-            $fmt_pre = '';
-            $fmt_post = '';
-            if (in_array($column['Field'], $unique_keys)) {
-                $fmt_pre = '<strong>' . $fmt_pre;
-                $fmt_post = $fmt_post . '</strong>';
-            }
-            if ($column['Key'] == 'PRI') {
-                $fmt_pre = '<em>' . $fmt_pre;
-                $fmt_post = $fmt_post . '</em>';
-            }
-            $schema_insert .= '<td class="print">' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post . '</td>';
-            $schema_insert .= '<td class="print">' . htmlspecialchars($type) . '</td>';
-            $schema_insert .= '<td class="print">' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
-            $schema_insert .= '<td class="print">' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '') . '</td>';
-
+            $schema_insert .= PMA_getOneColumnDefinition($column);
             $field_name = $column['Field'];
 
             if ($do_relation && $have_rel) {
@@ -470,5 +403,71 @@ if (isset($plugin_list)) {
         return PMA_exportOutputHandler($dump);
     }
 
+    /**
+     * Gets the definition for one column 
+     *
+     * @param array $column  info about this column 
+     *
+     * @return string        Formatted column definition
+     *
+     * @access public
+     */
+    function PMA_getOneColumnDefinition(
+        $column
+    ) {
+        /**
+         * Get the unique keys in the table
+         */
+        $unique_keys = array();
+        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        foreach ($keys as $key) {
+            if ($key['Non_unique'] == 0) {
+                $unique_keys[] = $key['Column_name'];
+            }
+        }
+
+        /**
+         * Formats the definition 
+         */
+        $definition = '<tr class="print-category">';
+        $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+        $type = htmlspecialchars($extracted_columnspec['print_type']);
+        if (empty($type)) {
+            $type = '&nbsp;';
+        }
+
+        if (! isset($column['Default'])) {
+            if ($column['Null'] != 'NO') {
+                $column['Default'] = 'NULL';
+            }
+        }
+
+        $fmt_pre = '';
+        $fmt_post = '';
+        if (in_array($column['Field'], $unique_keys)) {
+            $fmt_pre = '<strong>' . $fmt_pre;
+            $fmt_post = $fmt_post . '</strong>';
+        }
+        if ($column['Key'] == 'PRI') {
+            $fmt_pre = '<em>' . $fmt_pre;
+            $fmt_post = $fmt_post . '</em>';
+        }
+        $definition .= '<td class="print">' . $fmt_pre 
+            . htmlspecialchars($column['Field']) . $fmt_post . '</td>';
+        $definition .= '<td class="print">' . htmlspecialchars($type)
+            . '</td>';
+        $definition .= '<td class="print">' 
+            . (($column['Null'] == '' || $column['Null'] == 'NO') 
+                ? __('No') 
+                : __('Yes')) 
+            . '</td>';
+        $definition .= '<td class="print">' 
+            . htmlspecialchars(isset($column['Default'])
+                ? $column['Default'] 
+                : '') 
+            . '</td>';
+
+        return $definition;
+    }
 }
 ?>
