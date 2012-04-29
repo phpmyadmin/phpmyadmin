@@ -599,7 +599,8 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             /* New val if M or D is greater than current largest */
             if ($size[M] > $oldM || $size[D] > $oldD) {
                 /* Take the largest of both types */
-                return (string)((($size[M] > $oldM) ? $size[M] : $oldM) . "," . (($size[D] > $oldD) ? $size[D] : $oldD));
+                return (string) ((($size[M] > $oldM) ? $size[M] : $oldM)
+                    . "," . (($size[D] > $oldD) ? $size[D] : $oldD));
             } else {
                 return $last_cumulative_size;
             }

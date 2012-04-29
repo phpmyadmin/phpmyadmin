@@ -188,18 +188,23 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
 ?>
 <tr<?php echo $tr_class ?>>
     <th>
-        <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
+        <label for="<?php echo htmlspecialchars($path) ?>"><?php
+            echo $name ?></label>
         <?php if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
         <span class="doc">
             <?php if (!empty($opts['doc'])) {
-                ?><a href="<?php echo $base_dir . $opts['doc']  ?>" target="documentation"><?php echo $icons['help']; ?></a><?php } ?>
+                ?><a href="<?php echo $base_dir . $opts['doc']  ?>"
+                target="documentation"><?php echo $icons['help']; ?></a><?php } ?>
             <?php if (!empty($opts['wiki'])) {
-                ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><?php echo $icons['info']; ?></a><?php } ?>
+                ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><?php
+                echo $icons['info']; ?></a><?php } ?>
         </span>
         <?php } ?>
         <?php if ($option_is_disabled) {
             ?>
-            <span class="disabled-notice" title="<?php echo __('This setting is disabled, it will not be applied to your configuration') ?>"><?php echo __('Disabled') ?></span>
+            <span class="disabled-notice" title="<?php echo __(
+            'This setting is disabled, it will not be applied to your configuration')
+            ?>"><?php echo __('Disabled') ?></span>
         <?php } ?>
         <?php if (!empty($description)) {
             ?><small><?php echo $description ?></small><?php } ?>
