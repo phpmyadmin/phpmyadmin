@@ -330,7 +330,7 @@ class PMA_List_Database extends PMA_List
      *
      * @return string html code list
      */
-    public function getHtmlListGrouped($selected = '', $offset, $count)
+    public function getHtmlListGrouped($selected = '', $offset = 0, $count = 0)
     {
         if (true === $selected) {
             $selected = $this->getDefault();
@@ -386,7 +386,7 @@ class PMA_List_Database extends PMA_List
      *
      * @return string html code select
      */
-    public function getHtmlSelectGrouped($selected = '', $offset, $count)
+    public function getHtmlSelectGrouped($selected = '', $offset = 0, $count = 0)
     {
         if (true === $selected) {
             $selected = $this->getDefault();

@@ -383,7 +383,7 @@ class PMA_Table
     static function generateFieldSpec($name, $type, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
         $default_value = '', $extra = '', $comment = '',
-        &$field_primary, $index, $default_orig, $move_to
+        &$field_primary = null, $index, $default_orig, $move_to
     ) {
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
