@@ -232,17 +232,6 @@ if (isset($plugin_list)) {
     function PMA_getTableDefStandIn($db, $view, $crlf)
     {
         /**
-         * Get the unique keys in the table
-         */
-        $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
-        foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
-            }
-        }
-
-        /**
          * Gets fields properties
          */
         PMA_DBI_select_db($db);
@@ -269,41 +258,11 @@ if (isset($plugin_list)) {
             . '</table:table-cell>';
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
 
-        $columns = PMA_DBI_get_columns($db, $table);
+        $columns = PMA_DBI_get_columns($db, $view);
         foreach ($columns as $column) {
-            $field_name = $column['Field'];
-            $GLOBALS['odt_buffer'] .= '<table:table-row>';
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($field_name) . '</text:p>'
-                . '</table:table-cell>';
-
-            $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
-            $type = htmlspecialchars($extracted_columnspec['print_type']);
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($type) . '</text:p>'
-                . '</table:table-cell>';
-            if (!isset($column['Default'])) {
-                if ($column['Null'] != 'NO') {
-                    $column['Default'] = 'NULL';
-                } else {
-                    $column['Default'] = '';
-                }
-            } else {
-                $column['Default'] = $column['Default'];
-            }
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</text:p>'
-                . '</table:table-cell>';
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($column['Default']) . '</text:p>'
-                . '</table:table-cell>';
-
+            $GLOBALS['odt_buffer'] .= PMA_formatOneColumnDefinition($column);
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
-        } // end while
+        } // end foreach 
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
         return true;
@@ -334,17 +293,6 @@ if (isset($plugin_list)) {
     function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $show_dates = false, $add_semicolon = true, $view = false)
     {
         global $cfgRelation;
-
-        /**
-         * Get the unique keys in the table
-         */
-        $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
-        foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
-            }
-        }
 
         /**
          * Gets fields properties
@@ -416,36 +364,7 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
-            $field_name = $column['Field'];
-            $GLOBALS['odt_buffer'] .= '<table:table-row>';
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($field_name) . '</text:p>'
-                . '</table:table-cell>';
-
-            $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
-            $type = htmlspecialchars($extracted_columnspec['print_type']);
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($type) . '</text:p>'
-                . '</table:table-cell>';
-            if (!isset($column['Default'])) {
-                if ($column['Null'] != 'NO') {
-                    $column['Default'] = 'NULL';
-                } else {
-                    $column['Default'] = '';
-                }
-            } else {
-                $column['Default'] = $column['Default'];
-            }
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</text:p>'
-                . '</table:table-cell>';
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($column['Default']) . '</text:p>'
-                . '</table:table-cell>';
+            $GLOBALS['odt_buffer'] .= PMA_formatOneColumnDefinition($column);
 
             if ($do_relation && $have_rel) {
                 if (isset($res_rel[$field_name])) {
@@ -477,7 +396,7 @@ if (isset($plugin_list)) {
                 }
             }
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
-        } // end while
+        } // end foreach 
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
         return true;
@@ -587,5 +506,53 @@ if (isset($plugin_list)) {
         return PMA_exportOutputHandler($dump);
     } // end of the 'PMA_exportStructure' function
 
+    /**
+     * Formats the definition for one column 
+     *
+     * @param array $column  info about this column 
+     *
+     * @return string        Formatted column definition
+     *
+     * @access public
+     */
+    function PMA_formatOneColumnDefinition(
+        $column
+    ) {
+        $field_name = $column['Field'];
+        $definition =  '<table:table-row>';
+        $definition .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . htmlspecialchars($field_name) . '</text:p>'
+            . '</table:table-cell>';
+
+        $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+        $type = htmlspecialchars($extracted_columnspec['print_type']);
+        if (empty($type)) {
+            $type     = '&nbsp;';
+        }
+
+        $definition .= '<table:table-cell office:value-type="string">'
+                . '<text:p>' . htmlspecialchars($type) . '</text:p>'
+                . '</table:table-cell>';
+        if (! isset($column['Default'])) {
+            if ($column['Null'] != 'NO') {
+                $column['Default'] = 'NULL';
+            } else {
+                $column['Default'] = '';
+            }
+        } else {
+            $column['Default'] = $column['Default'];
+        }
+        $definition .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' 
+            . (($column['Null'] == '' || $column['Null'] == 'NO') 
+                ? __('No') 
+                : __('Yes')) 
+            . '</text:p>'
+            . '</table:table-cell>';
+        $definition .= '<table:table-cell office:value-type="string">'
+            . '<text:p>' . htmlspecialchars($column['Default']) . '</text:p>'
+            . '</table:table-cell>';
+        return $definition;
+    }
 } // end else
 ?>
