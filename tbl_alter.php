@@ -69,8 +69,8 @@ if (isset($_REQUEST['move_columns'])
         if ($data['Type'] == 'timestamp' && $data['Default'] == 'CURRENT_TIMESTAMP') {
             $current_timestamp = true;
         }
-        $default_type = 
-            $data['Null'] === 'YES' && $data['Default'] === null
+        $default_type
+            = $data['Null'] === 'YES' && $data['Default'] === null
                 ? 'NULL'
                 : ($current_timestamp
                     ? 'CURRENT_TIMESTAMP'

@@ -256,8 +256,9 @@ if (isset($result) && empty($message_to_show)) {
     unset($_message, $_type);
 }
 
-$url_params['goto'] =
-$url_params['back'] = 'tbl_operations.php';
+$url_params['goto']
+    = $url_params['back'] 
+    = 'tbl_operations.php';
 
 /**
  * Get columns names
