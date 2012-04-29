@@ -177,7 +177,7 @@ if (isset($plugin_list)) {
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        $keys        = PMA_DBI_get_table_indexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
@@ -202,39 +202,11 @@ if (isset($plugin_list)) {
         $text_output .= '|' . __('Default');
         $text_output .= "\n|------\n";
 
-        $columns = PMA_DBI_get_columns($db, $table);
+        $columns = PMA_DBI_get_columns($db, $view);
         foreach ($columns as $column) {
-
-            $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
-            $type = $extracted_columnspec['print_type'];
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            if (! isset($column['Default'])) {
-                if ($column['Null'] != 'NO') {
-                    $column['Default'] = 'NULL';
-                }
-            }
-
-            $fmt_pre = '';
-            $fmt_post = '';
-            if (in_array($column['Field'], $unique_keys)) {
-                $fmt_pre = '**' . $fmt_pre;
-                $fmt_post = $fmt_post . '**';
-            }
-            if ($column['Key']=='PRI') {
-                $fmt_pre = '//' . $fmt_pre;
-                $fmt_post = $fmt_post . '//';
-            }
-            $text_output .= '|' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
-            $text_output .= '|' . htmlspecialchars($type);
-            $text_output .= '|' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
-            $text_output .= '|' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '');
-
-            $field_name = $column['Field'];
+            $text_output .= PMA_formatOneColumnDefinition($column, $unique_keys);
             $text_output .= "\n";
-        } // end while
+        } // end foreach
 
         return $text_output;
     }
@@ -333,34 +305,7 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
-
-            $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
-            $type = $extracted_columnspec['print_type'];
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            if (! isset($column['Default'])) {
-                if ($column['Null'] != 'NO') {
-                    $column['Default'] = 'NULL';
-                }
-            }
-
-            $fmt_pre = '';
-            $fmt_post = '';
-            if (in_array($column['Field'], $unique_keys)) {
-                $fmt_pre = '**' . $fmt_pre;
-                $fmt_post = $fmt_post . '**';
-            }
-            if ($column['Key']=='PRI') {
-                $fmt_pre = '//' . $fmt_pre;
-                $fmt_post = $fmt_post . '//';
-            }
-            $text_output .= '|' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
-            $text_output .= '|' . htmlspecialchars($type);
-            $text_output .= '|' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
-            $text_output .= '|' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '');
-
+            $text_output .= PMA_formatOneColumnDefinition($column, $unique_keys);
             $field_name = $column['Field'];
 
             if ($do_relation && $have_rel) {
@@ -374,7 +319,7 @@ if (isset($plugin_list)) {
             }
 
             $text_output .= "\n";
-        } // end while
+        } // end foreach
 
         return $text_output;
     } // end of the 'PMA_getTableDef()' function
@@ -465,5 +410,46 @@ if (isset($plugin_list)) {
         return PMA_exportOutputHandler($dump);
     }
 
+    /**
+     * Formats the definition for one column 
+     *
+     * @param array $column  info about this column 
+     * @param array $unique_keys  unique keys for this table 
+     *
+     * @return string        Formatted column definition
+     *
+     * @access public
+     */
+    function PMA_formatOneColumnDefinition(
+        $column, $unique_keys
+    ) {
+        $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+        $type = $extracted_columnspec['print_type'];
+        if (empty($type)) {
+            $type     = '&nbsp;';
+        }
+
+        if (! isset($column['Default'])) {
+            if ($column['Null'] != 'NO') {
+                $column['Default'] = 'NULL';
+            }
+        }
+
+        $fmt_pre = '';
+        $fmt_post = '';
+        if (in_array($column['Field'], $unique_keys)) {
+            $fmt_pre = '**' . $fmt_pre;
+            $fmt_post = $fmt_post . '**';
+        }
+        if ($column['Key']=='PRI') {
+            $fmt_pre = '//' . $fmt_pre;
+            $fmt_post = $fmt_post . '//';
+        }
+        $definition = '|' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
+        $definition .= '|' . htmlspecialchars($type);
+        $definition .= '|' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
+        $definition .= '|' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '');
+        return $definition;
+    }
 }
 ?>
