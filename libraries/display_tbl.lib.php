@@ -2976,6 +2976,9 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     }
 } // end of the 'PMA_displayTable()' function
 
+/**
+ * replace some html-unfriendly stuff
+ */
 function default_function($buffer)
 {
     $buffer = htmlspecialchars($buffer);
