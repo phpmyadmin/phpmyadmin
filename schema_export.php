@@ -28,8 +28,30 @@ require_once "libraries/schema/Export_Relation_Schema.class.php";
  * call and include the appropriate Schema Class depending on $export_type
  * default is PDF
  */
-global  $db, $export_type;
-if (!isset($export_type) || !preg_match('/^[a-zA-Z]+$/', $export_type)) {
+
+$post_params = array(
+    'all_table_same_wide',
+    'chpage',
+    'db',
+    'do',
+    'export_type',
+    'orientation',
+    'paper',
+    'names',
+    'pdf_page_number',
+    'show_color',
+    'show_grid',
+    'show_keys',
+    'show_table_dimension',
+    'with_doc'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
+
+if (! isset($export_type) || ! preg_match('/^[a-zA-Z]+$/', $export_type)) {
     $export_type = 'pdf';
 }
 PMA_DBI_select_db($db);
