@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-29 00:12+0200\n"
+"PO-Revision-Date: 2012-04-29 09:47+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2644,24 +2644,33 @@ msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Ett 2-bytes heltal, signerad inom intervallet -32.768 till 32.767, osignerad "
+"inomm intervallet 0 till 65.535"
 
 #: libraries/Types.class.php:287
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Ett 3-bytes heltal, signerat inom intervallet -8.388.608 till 8.388.607, "
+"osignerat inom intervallet 0 till 16.777.215"
 
 #: libraries/Types.class.php:289
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
+"Ett 4-bitars heltal, signerat inom intervallet -2147483648 till 2147483647, "
+"osignerat inom intervallet 0 till 4294967295."
 
 #: libraries/Types.class.php:291
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Ett 8-bitars heltal, signerat inom intervallet -9.223.372.036.854.775.808 "
+"till 9.223.372.036.854.775.807, osignerat inom intervallet 0 till "
+"18.446.744.073.709.551.615"
 
 #: libraries/Types.class.php:293 libraries/Types.class.php:706
 msgid ""
