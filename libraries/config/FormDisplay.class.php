@@ -288,9 +288,10 @@ class FormDisplay
      *                                      (null - no support, true/false - enabled/disabled)
      * @param array  &$js_default           array which stores JavaScript code to be displayed
      */
-    private function _displayFieldInput(Form $form, $field, $system_path, $work_path,
-            $translated_path, $show_restore_default, $userprefs_allow, array &$js_default)
-    {
+    private function _displayFieldInput(
+        Form $form, $field, $system_path, $work_path,
+        $translated_path, $show_restore_default, $userprefs_allow, array &$js_default
+    ) {
         $name = PMA_lang_name($system_path);
         $description = PMA_lang_name($system_path, 'desc', '');
 
@@ -317,38 +318,38 @@ class FormDisplay
             $opts['errors'] = $this->errors[$work_path];
         }
         switch ($form->getOptionType($field)) {
-            case 'string':
-                $type = 'text';
-                break;
-            case 'short_string':
-                $type = 'short_text';
-                break;
-            case 'double':
-            case 'integer':
-                $type = 'number_text';
-                break;
-            case 'boolean':
-                $type = 'checkbox';
-                break;
-            case 'select':
-                $type = 'select';
-                $opts['values'] = $form->getOptionValueList($form->fields[$field]);
-                break;
-            case 'array':
-                $type = 'list';
-                $value = (array) $value;
-                $value_default = (array) $value_default;
-                break;
-            case 'group':
-                if (substr($field, 7, 4) != 'end:') { // :group:end is changed to :group:end:{unique id} in Form class
-                    display_group_header(substr($field, 7));
-                } else {
-                    display_group_footer();
-                }
-                return;
-            case 'NULL':
-                trigger_error("Field $system_path has no type", E_USER_WARNING);
-                return;
+        case 'string':
+            $type = 'text';
+            break;
+        case 'short_string':
+            $type = 'short_text';
+            break;
+        case 'double':
+        case 'integer':
+            $type = 'number_text';
+            break;
+        case 'boolean':
+            $type = 'checkbox';
+            break;
+        case 'select':
+            $type = 'select';
+            $opts['values'] = $form->getOptionValueList($form->fields[$field]);
+            break;
+        case 'array':
+            $type = 'list';
+            $value = (array) $value;
+            $value_default = (array) $value_default;
+            break;
+        case 'group':
+            if (substr($field, 7, 4) != 'end:') { // :group:end is changed to :group:end:{unique id} in Form class
+                display_group_header(substr($field, 7));
+            } else {
+                display_group_footer();
+            }
+            return;
+        case 'NULL':
+            trigger_error("Field $system_path has no type", E_USER_WARNING);
+            return;
         }
 
         // TrustedProxies requires changes before displaying
@@ -364,23 +365,23 @@ class FormDisplay
         // send default value to form's JS
         $js_line = '\'' . $translated_path . '\': ';
         switch ($type) {
-            case 'text':
-            case 'short_text':
-            case 'number_text':
-                $js_line .= '\'' . PMA_escapeJsString($value_default) . '\'';
-                break;
-            case 'checkbox':
-                $js_line .= $value_default ? 'true' : 'false';
-                break;
-            case 'select':
-                $value_default_js = is_bool($value_default)
-                    ? (int) $value_default
-                    : $value_default;
-                $js_line .= '[\'' . PMA_escapeJsString($value_default_js) . '\']';
-                break;
-            case 'list':
-                $js_line .= '\'' . PMA_escapeJsString(implode("\n", $value_default)) . '\'';
-                break;
+        case 'text':
+        case 'short_text':
+        case 'number_text':
+            $js_line .= '\'' . PMA_escapeJsString($value_default) . '\'';
+            break;
+        case 'checkbox':
+            $js_line .= $value_default ? 'true' : 'false';
+            break;
+        case 'select':
+            $value_default_js = is_bool($value_default)
+                ? (int) $value_default
+                : $value_default;
+            $js_line .= '[\'' . PMA_escapeJsString($value_default_js) . '\']';
+            break;
+        case 'list':
+            $js_line .= '\'' . PMA_escapeJsString(implode("\n", $value_default)) . '\'';
+            break;
         }
         $js_default[] = $js_line;
 
@@ -535,45 +536,45 @@ class FormDisplay
 
                 // cast variables to correct type
                 switch ($type) {
-                    case 'double':
-                        settype($_POST[$key], 'float');
-                        break;
-                    case 'boolean':
-                    case 'integer':
-                        if ($_POST[$key] !== '') {
-                            settype($_POST[$key], $type);
+                case 'double':
+                    settype($_POST[$key], 'float');
+                    break;
+                case 'boolean':
+                case 'integer':
+                    if ($_POST[$key] !== '') {
+                        settype($_POST[$key], $type);
+                    }
+                    break;
+                case 'select':
+                    // special treatment for NavigationBarIconic and PropertiesIconic
+                    if ($key === 'NavigationBarIconic' || $key === 'PropertiesIconic') {
+                        if ($_POST[$key] !== 'both') {
+                            settype($_POST[$key], 'boolean');
                         }
-                        break;
-                    case 'select':
-                        // special treatment for NavigationBarIconic and PropertiesIconic
-                        if ($key === 'NavigationBarIconic' || $key === 'PropertiesIconic') {
-                            if ($_POST[$key] !== 'both') {
-                                settype($_POST[$key], 'boolean');
-                            }
+                    }
+                    if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
+                        $this->errors[$work_path][] = __('Incorrect value');
+                        $result = false;
+                        continue;
+                    }
+                    break;
+                case 'string':
+                case 'short_string':
+                    $_POST[$key] = trim($_POST[$key]);
+                    break;
+                case 'array':
+                    // eliminate empty values and ensure we have an array
+                    $post_values = is_array($_POST[$key])
+                        ? $_POST[$key]
+                        : explode("\n", $_POST[$key]);
+                    $_POST[$key] = array();
+                    foreach ($post_values as $v) {
+                        $v = trim($v);
+                        if ($v !== '') {
+                            $_POST[$key][] = $v;
                         }
-                        if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
-                            $this->errors[$work_path][] = __('Incorrect value');
-                            $result = false;
-                            continue;
-                        }
-                        break;
-                    case 'string':
-                    case 'short_string':
-                        $_POST[$key] = trim($_POST[$key]);
-                        break;
-                    case 'array':
-                        // eliminate empty values and ensure we have an array
-                        $post_values = is_array($_POST[$key])
-                            ? $_POST[$key]
-                            : explode("\n", $_POST[$key]);
-                        $_POST[$key] = array();
-                        foreach ($post_values as $v) {
-                            $v = trim($v);
-                            if ($v !== '') {
-                                $_POST[$key][] = $v;
-                            }
-                        }
-                        break;
+                    }
+                    break;
                 }
 
                 // now we have value with proper type

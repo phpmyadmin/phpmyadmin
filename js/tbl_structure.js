@@ -418,8 +418,28 @@ $(function() {
             $(this).dialog('close').remove();
         };
 
-        $("#move_columns_dialog ul")
-            .sortable({
+        var columns = [];
+
+        $("#tablestructure tbody tr").each(function () {
+            var col_name = $(this).find("input:checkbox").eq(0).val();
+            var hidden_input = $("<input/>")
+                .prop({
+                    name: "move_columns[]",
+                    type: "hidden"
+                })
+                .val(col_name);
+            columns[columns.length] = $("<li/>")
+                .addClass("placeholderDrag")
+                .text(col_name)
+                .append(hidden_input);
+        });
+
+        var col_list = $("#move_columns_dialog ul")
+            .find("li").remove().end();
+        for(var i in columns) {
+            col_list.append(columns[i]);
+        }
+        col_list.sortable({
                 axis: 'y',
                 containment: $("#move_columns_dialog div")
             })

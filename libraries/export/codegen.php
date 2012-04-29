@@ -297,36 +297,36 @@ if (isset($plugin_list)) {
             $lines[] = '    public class ' . cgMakeIdentifier($table);
             $lines[] = '    {';
             $lines[] = '        #region Member Variables';
-            foreach ($tableProperties as $tablePropertie) {
-                $lines[] = $tablePropertie->formatCs('        protected #dotNetPrimitiveType# _#name#;');
+            foreach ($tableProperties as $tableProperty) {
+                $lines[] = $tableProperty->formatCs('        protected #dotNetPrimitiveType# _#name#;');
             }
             $lines[] = '        #endregion';
             $lines[] = '        #region Constructors';
             $lines[] = '        public ' . cgMakeIdentifier($table).'() { }';
             $temp = array();
-            foreach ($tableProperties as $tablePropertie) {
-                if (! $tablePropertie->isPK()) {
-                    $temp[] = $tablePropertie->formatCs('#dotNetPrimitiveType# #name#');
+            foreach ($tableProperties as $tableProperty) {
+                if (! $tableProperty->isPK()) {
+                    $temp[] = $tableProperty->formatCs('#dotNetPrimitiveType# #name#');
                 }
             }
             $lines[] = '        public ' . cgMakeIdentifier($table) . '(' . implode(', ', $temp) . ')';
             $lines[] = '        {';
-            foreach ($tableProperties as $tablePropertie) {
-                if (! $tablePropertie->isPK()) {
-                    $lines[] = $tablePropertie->formatCs('            this._#name#=#name#;');
+            foreach ($tableProperties as $tableProperty) {
+                if (! $tableProperty->isPK()) {
+                    $lines[] = $tableProperty->formatCs('            this._#name#=#name#;');
                 }
             }
             $lines[] = '        }';
             $lines[] = '        #endregion';
             $lines[] = '        #region Public Properties';
-            foreach ($tableProperties as $tablePropertie) {
-                $lines[] = $tablePropertie->formatCs(''
-                    . '        public virtual #dotNetPrimitiveType# #ucfirstName#' . "\n"
+            foreach ($tableProperties as $tableProperty) {
+                $lines[] = $tableProperty->formatCs(
+                    '        public virtual #dotNetPrimitiveType# #ucfirstName#' . "\n"
                     . '        {' . "\n"
                     . '            get {return _#name#;}' . "\n"
                     . '            set {_#name#=value;}' . "\n"
                     . '        }'
-                    );
+                );
             }
             $lines[] = '        #endregion';
             $lines[] = '    }';
@@ -349,16 +349,16 @@ if (isset($plugin_list)) {
         $result = PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
         if ($result) {
             while ($row = PMA_DBI_fetch_row($result)) {
-                $tablePropertie = new TableProperty($row);
-                if ($tablePropertie->isPK()) {
-                    $lines[] = $tablePropertie->formatXml(
+                $tableProperty = new TableProperty($row);
+                if ($tableProperty->isPK()) {
+                    $lines[] = $tableProperty->formatXml(
                         '        <id name="#ucfirstName#" type="#dotNetObjectType#" unsaved-value="0">' . "\n"
                         . '            <column name="#name#" sql-type="#type#" not-null="#notNull#" unique="#unique#" index="PRIMARY"/>' . "\n"
                         . '            <generator class="native" />' . "\n"
                         . '        </id>'
                     );
                 } else {
-                    $lines[] = $tablePropertie->formatXml(
+                    $lines[] = $tableProperty->formatXml(
                         '        <property name="#ucfirstName#" type="#dotNetObjectType#">' . "\n"
                         . '            <column name="#name#" sql-type="#type#" not-null="#notNull#" #indexName#/>' . "\n"
                         . '        </property>'

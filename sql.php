@@ -213,7 +213,10 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     // set column order
     if (isset($_REQUEST['col_order'])) {
         $col_order = explode(',', $_REQUEST['col_order']);
-        $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+        $retval = $pmatable->setUiProp(
+            PMA_Table::PROP_COLUMN_ORDER, $col_order,
+            $_REQUEST['table_create_time']
+            );
         if (gettype($retval) != 'boolean') {
             PMA_ajaxResponse($retval->getString(), false);
         }
@@ -222,7 +225,10 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     // set column visibility
     if ($retval === true && isset($_REQUEST['col_visib'])) {
         $col_visib = explode(',', $_REQUEST['col_visib']);
-        $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+        $retval = $pmatable->setUiProp(
+            PMA_Table::PROP_COLUMN_VISIB, $col_visib,
+            $_REQUEST['table_create_time']
+            );
         if (gettype($retval) != 'boolean') {
             PMA_ajaxResponse($retval->getString(), false);
         }
@@ -244,7 +250,11 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
     );
 
     if (! empty($book_sql_query)) {
-        $GLOBALS['using_bookmark_message'] = PMA_message::notice(__('Using bookmark "%s" as default browse query.'));
+        $GLOBALS['using_bookmark_message'] = PMA_message::notice(
+            __(
+                'Using bookmark "%s" as default browse query.'
+            )
+            );
         $GLOBALS['using_bookmark_message']->addParam($table);
         $GLOBALS['using_bookmark_message']->addMessage(PMA_showDocu('faq6_22'));
         $sql_query = $book_sql_query;
@@ -290,7 +300,9 @@ PMA_displayTable_checkConfigParams();
  */
 if (isset($find_real_end) && $find_real_end) {
     $unlim_num_rows = PMA_Table::countRecords($db, $table, $force_exact = true);
-    $_SESSION['tmp_user_values']['pos'] = @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']) - 1) * $_SESSION['tmp_user_values']['max_rows']);
+    $_SESSION['tmp_user_values']['pos'] = @((ceil(
+        $unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']
+    ) - 1) * $_SESSION['tmp_user_values']['max_rows']);
 }
 
 
@@ -298,9 +310,16 @@ if (isset($find_real_end) && $find_real_end) {
  * Bookmark add
  */
 if (isset($store_bkm)) {
-    PMA_Bookmark_save($fields, (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
+    PMA_Bookmark_save(
+        $fields, (isset($bkm_all_users)
+            && $bkm_all_users == 'true'
+        ? true
+        : false)
+        );
     // go back to sql.php to redisplay query; do not use &amp; in this case:
-    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&label=' . $fields['label']);
+    PMA_sendHeaderLocation(
+        $cfg['PmaAbsoluteUri'] . $goto . '&label=' . $fields['label']
+    );
 } // end if
 
 /**
@@ -333,7 +352,9 @@ if (isset($btnDrop) && $btnDrop == __('No')) {
         $active_page = $goto;
         include '' . PMA_securePath($goto);
     } else {
-        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
+        PMA_sendHeaderLocation(
+            $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto)
+        );
     }
     exit();
 } // end if
@@ -365,7 +386,9 @@ if ($do_confirm) {
     $stripped_sql_query = $sql_query;
     include_once 'libraries/header.inc.php';
     if ($is_drop_database) {
-        echo '<h1 class="error">' . __('You are about to DESTROY a complete database!') . '</h1>';
+        echo '<h1 class="error">' . __(
+                'You are about to DESTROY a complete database!'
+            ) . '</h1>';
     }
     echo '<form action="sql.php" method="post">' . "\n"
         .PMA_generate_common_hidden_inputs($db, $table);

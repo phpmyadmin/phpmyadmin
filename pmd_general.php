@@ -204,30 +204,35 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 
 <table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
    style="position: absolute;
-          left: <?php if (isset($tab_pos[$t_n])) echo $tab_pos[$t_n]["X"]; else echo rand(180, 800); ?>px;
-          top: <?php if (isset($tab_pos[$t_n])) echo $tab_pos[$t_n]["Y"]; else echo rand(30, 500); ?>px;
-          visibility: <?php if (isset($tab_pos[$t_n])) echo $tab_pos[$t_n]["H"] ? "visible" : "hidden"; ?>;
+          left: <?php
+          echo isset($tab_pos[$t_n])) ? $tab_pos[$t_n]["X"] : rand(180, 800); ?>px;
+          top: <?php
+          echo isset($tab_pos[$t_n])) ? $tab_pos[$t_n]["Y"] : rand(30, 500); ?>px;
+          visibility: <?php
+          echo !isset($tab_pos[$t_n])) || $tab_pos[$t_n]["H"]
+            ? "visible"
+            : "hidden"; ?>;
          ">
 <thead>
 <tr>
     <?php
-    if (isset($_REQUEST['query'])) {
-        echo '<td class="select_all">';
-        echo '<input type="checkbox" value="select_all_'.htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
-        echo 'id="select_all_'.htmlspecialchars($t_n_url).'" title="select all" ';
-        echo 'onclick="Select_all(\''. htmlspecialchars($t_n_url) .'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\')"></td>';
-    }?>
+if (isset($_REQUEST['query'])) {
+    echo '<td class="select_all">';
+    echo '<input type="checkbox" value="select_all_'.htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
+    echo 'id="select_all_'.htmlspecialchars($t_n_url).'" title="select all" ';
+    echo 'onclick="Select_all(\''. htmlspecialchars($t_n_url) .'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\')"></td>';
+}?>
     <td class="small_tab" onmouseover="this.className='small_tab2';"
         onmouseout="this.className='small_tab';"
         id="id_hide_tbody_<?php echo $t_n_url ?>"
         onclick="Small_tab('<?php echo $t_n_url ?>', 1)"><?php
         // no space alloawd here, between tags and content !!!
         // JavaScript function does require this
-        if (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) {
-            echo 'v';
-        } else {
-            echo '&gt;';
-        }
+if (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) {
+    echo 'v';
+} else {
+    echo '&gt;';
+}
         ?></td>
     <td class="small_tab_pref" onmouseover="this.className='small_tab_pref2';"
         onmouseout="this.className='small_tab_pref';"
@@ -244,43 +249,43 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         echo $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
         ?></td>
     <?php
-    if (isset($_REQUEST['query'])) {
-        echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
-        echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
-        echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
-    }?>
+if (isset($_REQUEST['query'])) {
+echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
+echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
+echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
+}?>
 </tr>
 </thead>
 <tbody id="id_tbody_<?php echo $t_n_url ?>"
     <?php
-    if (isset($tab_pos[$t_n]) && empty($tab_pos[$t_n]["V"])) {
-        echo 'style="display: none;"';
-    }?>>
+if (isset($tab_pos[$t_n]) && empty($tab_pos[$t_n]["V"])) {
+    echo 'style="display: none;"';
+} ?>>
     <?php
-    $display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
-    for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++) {
+$display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
+for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++) {
         ?>
 <tr id="id_tr_<?php
         echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '.'
             . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>"
         <?php
-        if ($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) {
-            echo ' class="tab_field_3" ';
-        } else {
-            echo ' class="tab_field" ';
-        }
+    if ($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) {
+        echo ' class="tab_field_3" ';
+    } else {
+        echo ' class="tab_field" ';
+    }
         ?>
     onmouseover="old_class = this.className; this.className = 'tab_field_2';"
     onmouseout="this.className = old_class;"
     onmousedown="Click_field('<?php
-        echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]."','".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
-        if (! PMA_foreignkey_supported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
-            echo (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
-        } else {
-            // if foreign keys are supported, it's not necessary that the
-            // index is a primary key
-            echo (isset($tables_all_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
-        }
+    echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]."','".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
+    if (! PMA_foreignkey_supported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+        echo (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
+    } else {
+        // if foreign keys are supported, it's not necessary that the
+        // index is a primary key
+        echo (isset($tables_all_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
+    }
         ?>)">
     <?php
     if (isset($_REQUEST['query'])) {
@@ -294,37 +299,37 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         id="<?php echo $t_n_url.".".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
         <div class="nowrap">
         <?php
-        if (isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])) {
-            ?>
-                <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/FieldKey_small.png"
-                    alt="*" />
-            <?php
-        } else {
-            ?>
-                    <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Field_small<?php
-            if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
-                || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
-            ) {
-                echo '_char';
-            } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
-                || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
-                || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
-                || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
-            ) {
-                echo '_int';
-            } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
-                || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
-                || strstr($tab_column[$t_n]["TYPE"][$j], 'year')
-            ) {
-                echo '_date';
-            }
-            ?>.png" alt="*" />
-            <?php
+    if (isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])) {
+        ?>
+            <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/FieldKey_small.png"
+                alt="*" />
+        <?php
+    } else {
+        ?>
+                <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Field_small<?php
+        if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
+            || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
+        ) {
+            echo '_char';
+        } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
+            || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
+            || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
+            || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
+        ) {
+            echo '_int';
+        } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
+            || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
+            || strstr($tab_column[$t_n]["TYPE"][$j], 'year')
+        ) {
+            echo '_date';
         }
-        echo htmlspecialchars(
-            $tab_column[$t_n]["COLUMN_NAME"][$j] . " : " . $tab_column[$t_n]["TYPE"][$j],
-            ENT_QUOTES
-        );
+        ?>.png" alt="*" />
+        <?php
+    }
+    echo htmlspecialchars(
+        $tab_column[$t_n]["COLUMN_NAME"][$j] . " : " . $tab_column[$t_n]["TYPE"][$j],
+        ENT_QUOTES
+    );
         ?>
         </div>
    </td>
@@ -338,7 +343,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     } ?>
 </tr>
         <?php
-    }
+}
     ?>
 </tbody>
 </table>

@@ -408,8 +408,9 @@ $(function() {
 
         if (word.length == 0) {
             textFilter = null;
+        } else {
+            textFilter = new RegExp("(^| )" + word, 'i');
         }
-        else textFilter = new RegExp("(^| )" + word, 'i');
 
         text = word;
 

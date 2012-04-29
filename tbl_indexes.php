@@ -20,7 +20,8 @@ foreach (PMA_DBI_get_columns_full($db, $table) as $row) {
         $tmp[2] = substr(
             preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
         );
-        $fields[$row['Field']] = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+        $fields[$row['Field']] = $tmp[1] . '(' 
+            . str_replace(',', ', ', $tmp[2]) . ')';
     } else {
         $fields[$row['Field']] = $row['Type'];
     }
@@ -54,7 +55,8 @@ if (isset($_REQUEST['do_save_data'])) {
         if ($_REQUEST['old_index'] == 'PRIMARY') {
             $sql_query .= ' DROP PRIMARY KEY,';
         } else {
-            $sql_query .= ' DROP INDEX ' . PMA_backquote($_REQUEST['old_index']) . ',';
+            $sql_query .= ' DROP INDEX ' 
+                . PMA_backquote($_REQUEST['old_index']) . ',';
         }
     } // end if
 
@@ -64,7 +66,8 @@ if (isset($_REQUEST['do_save_data'])) {
             if ($index->getName() == '') {
                 $index->setName('PRIMARY');
             } elseif ($index->getName() != 'PRIMARY') {
-                $error = PMA_Message::error(__('The name of the primary key must be "PRIMARY"!'));
+                $error = PMA_Message::error(__(
+                    'The name of the primary key must be "PRIMARY"!'));
             }
             $sql_query .= ' ADD PRIMARY KEY';
             break;
@@ -98,7 +101,8 @@ if (isset($_REQUEST['do_save_data'])) {
 
     if (! $error) {
         PMA_DBI_query($sql_query);
-        $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
+        $message = PMA_Message::success(__(
+            'Table %1$s has been altered successfully'));
         $message->addParam($table);
 
         if ( $GLOBALS['is_ajax_request'] == true) {
@@ -147,7 +151,10 @@ if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
 // end preparing form values
 ?>
 
-<form action="tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>
+<form action="tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php
+    echo ($GLOBALS['cfg']['AjaxEnable'] 
+        ? ' class="ajax"' 
+        : ''); ?>
     onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') {
         this.elements['index[Key_name]'].disabled = false}">
 <?php
@@ -188,12 +195,14 @@ if ($GLOBALS['is_ajax_request'] != true) {
             <strong>
                 <label for="input_index_name">
                     <?php echo __('Index name:'); ?>
-                    <?php echo PMA_showhint(PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))); ?>
+                    <?php echo PMA_showhint(PMA_Message::notice(__(
+                    '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))); ?>
                 </label>
             </strong>
         </div>
         <input type="text" name="index[Key_name]" id="input_index_name" size="25"
-            value="<?php echo htmlspecialchars($index->getName()); ?>" onfocus="this.select()" />
+            value="<?php echo htmlspecialchars($index->getName()); ?>"
+            onfocus="this.select()" />
     </div>
     <div>
         <div class="label">
@@ -231,12 +240,17 @@ foreach ($index->getColumns() as $column) {
             <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
     foreach ($fields as $field_name => $field_type) {
-        if (($index->getType() != 'FULLTEXT' || preg_match('/(char|text)/i', $field_type))
-            && ($index->getType() != 'SPATIAL' || in_array($field_type, $spatial_types))
+        if (($index->getType() != 'FULLTEXT' 
+                || preg_match('/(char|text)/i', $field_type))
+            && ($index->getType() != 'SPATIAL' 
+                || in_array($field_type, $spatial_types))
         ) {
             echo '<option value="' . htmlspecialchars($field_name) . '"'
-                 . (($field_name == $column->getName()) ? ' selected="selected"' : '') . '>'
-                 . htmlspecialchars($field_name) . ' [' . htmlspecialchars($field_type) . ']'
+                 . (($field_name == $column->getName()) 
+                    ? ' selected="selected"' 
+                    : '') . '>'
+                 . htmlspecialchars($field_name) . ' [' 
+                 . htmlspecialchars($field_type) . ']'
                  . '</option>' . "\n";
         }
     } // end foreach $fields
@@ -245,7 +259,10 @@ foreach ($index->getColumns() as $column) {
     </td>
     <td><input type="text" size="5" onfocus="this.select()"
             name="index[columns][sub_parts][]"
-            value="<?php if ($index->getType() != 'SPATIAL') { echo $column->getSubPart(); } ?>" />
+            value="<?php
+            if ($index->getType() != 'SPATIAL') {
+                echo $column->getSubPart();
+            } ?>" />
     </td>
 </tr>
     <?php
@@ -259,7 +276,8 @@ for ($i = 0; $i < $add_fields; $i++) {
     <?php
     foreach ($fields as $field_name => $field_type) {
         echo '<option value="' . htmlspecialchars($field_name) . '">'
-             . htmlspecialchars($field_name) . ' [' . htmlspecialchars($field_type) . ']'
+             . htmlspecialchars($field_name) . ' [' 
+             . htmlspecialchars($field_type) . ']'
              . '</option>' . "\n";
     } // end foreach $fields
     ?>

@@ -153,59 +153,64 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                 }); // domready
                 //]]>
     </script>
-    <form action="import.php" method="post" enctype="multipart/form-data" name="import"<?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo ' target="import_upload_iframe"'; ?>>
+    <form action="import.php" method="post" enctype="multipart/form-data"
+        name="import"<?php
+if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
+    echo ' target="import_upload_iframe"';
+} ?>>
     <input type="hidden" name="<?php echo $ID_KEY; ?>" value="<?php echo $upload_id ; ?>" />
     <?php
-    if ($import_type == 'server') {
-        echo PMA_generate_common_hidden_inputs('', '', 1);
-    } elseif ($import_type == 'database') {
-        echo PMA_generate_common_hidden_inputs($db, '', 1);
-    } else {
-        echo PMA_generate_common_hidden_inputs($db, $table, 1);
-    }
-    echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />'."\n";
+if ($import_type == 'server') {
+    echo PMA_generate_common_hidden_inputs('', '', 1);
+} elseif ($import_type == 'database') {
+    echo PMA_generate_common_hidden_inputs($db, '', 1);
+} else {
+    echo PMA_generate_common_hidden_inputs($db, $table, 1);
+}
+echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />'."\n";
     ?>
 
     <div class="exportoptions" id="header">
         <h2>
             <?php echo PMA_getImage('b_import.png', __('Import')); ?>
             <?php
-            if ($import_type == 'server') {
-                echo __('Importing into the current server');
-            } elseif ($import_type == 'database') {
-                printf(__('Importing into the database "%s"'), htmlspecialchars($db));
-            } else {
-                printf(__('Importing into the table "%s"'), htmlspecialchars($table));
-            }?>
+if ($import_type == 'server') {
+    echo __('Importing into the current server');
+} elseif ($import_type == 'database') {
+    printf(__('Importing into the database "%s"'), htmlspecialchars($db));
+} else {
+    printf(__('Importing into the table "%s"'), htmlspecialchars($table));
+}?>
         </h2>
     </div>
 
     <div class="importoptions">
         <h3><?php echo __('File to Import:'); ?></h3>
         <?php
-        // zip, gzip and bzip2 encode features
-        $compressions = array();
+// zip, gzip and bzip2 encode features
+$compressions = array();
 
-        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-            $compressions[] = 'gzip';
-        }
-        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-            $compressions[] = 'bzip2';
-        }
-        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
-            $compressions[] = 'zip';
-        }
-        // We don't have show anything about compression, when no supported
-        if ($compressions != array()) {
-            echo '<div class="formelementrow" id="compression_info">';
-            printf(__('File may be compressed (%s) or uncompressed.'), implode(", ", $compressions));
-            echo '<br />';
-            echo __('A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b>');
-            echo '</div>';
-        }?>
+if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+    $compressions[] = 'gzip';
+}
+if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+    $compressions[] = 'bzip2';
+}
+if ($cfg['ZipDump'] && @function_exists('zip_open')) {
+    $compressions[] = 'zip';
+}
+// We don't have show anything about compression, when no supported
+if ($compressions != array()) {
+    echo '<div class="formelementrow" id="compression_info">';
+    printf(__('File may be compressed (%s) or uncompressed.'), implode(", ", $compressions));
+    echo '<br />';
+    echo __('A compressed file\'s name must end in <b>.[format].[compression]</b>. Example: <b>.sql.zip</b>');
+    echo '</div>';
+}?>
 
         <div class="formelementrow" id="upload_form">
-        <?php if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
+        <?php
+if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <ul>
             <li>
                 <input type="radio" name="file_location" id="radio_import_file" />
@@ -216,37 +221,38 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                 <?php PMA_selectUploadFile($import_list, $cfg['UploadDir']); ?>
             </li>
             </ul>
-        <?php } else if ($GLOBALS['is_upload']) {
-            $uid = uniqid("");
-            PMA_browseUploadFile($max_upload_size);
-        } else if (!$GLOBALS['is_upload']) {
-            PMA_Message::notice(__('File uploads are not allowed on this server.'))->display();
-        } else if (!empty($cfg['UploadDir'])) {
-            PMA_selectUploadFile($import_list, $cfg['UploadDir']);
-        } // end if (web-server upload directory)
-        ?>
+        <?php
+} elseif ($GLOBALS['is_upload']) {
+    $uid = uniqid('');
+    PMA_browseUploadFile($max_upload_size);
+} elseif (!$GLOBALS['is_upload']) {
+    PMA_Message::notice(__('File uploads are not allowed on this server.'))->display();
+} elseif (!empty($cfg['UploadDir'])) {
+    PMA_selectUploadFile($import_list, $cfg['UploadDir']);
+} // end if (web-server upload directory)
+?>
         </div>
 
        <div class="formelementrow" id="charaset_of_file">
         <?php // charset of file
-        if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
-            echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>';
-            reset($cfg['AvailableCharsets']);
-            echo '<select id="charset_of_file" name="charset_of_file" size="1">';
-            foreach ($cfg['AvailableCharsets'] as $temp_charset) {
-                echo '<option value="' . htmlentities($temp_charset) .  '"';
-                if ((empty($cfg['Import']['charset']) && $temp_charset == 'utf-8')
-                    || $temp_charset == $cfg['Import']['charset']
-                ) {
-                    echo ' selected="selected"';
-                }
-                echo '>' . htmlentities($temp_charset) . '</option>';
-            }
-            echo ' </select><br />';
-        } else {
-            echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>' . "\n";
-            echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', false);
-        } // end if (recoding)
+if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
+    echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>';
+    reset($cfg['AvailableCharsets']);
+    echo '<select id="charset_of_file" name="charset_of_file" size="1">';
+    foreach ($cfg['AvailableCharsets'] as $temp_charset) {
+        echo '<option value="' . htmlentities($temp_charset) .  '"';
+        if ((empty($cfg['Import']['charset']) && $temp_charset == 'utf-8')
+            || $temp_charset == $cfg['Import']['charset']
+        ) {
+            echo ' selected="selected"';
+        }
+        echo '>' . htmlentities($temp_charset) . '</option>';
+    }
+    echo ' </select><br />';
+} else {
+    echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>' . "\n";
+    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', false);
+} // end if (recoding)
         ?>
         </div>
     </div>
@@ -254,12 +260,12 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         <h3><?php echo __('Partial Import:'); ?></h3>
 
         <?php
-        if (isset($timeout_passed) && $timeout_passed) {
-            echo '<div class="formelementrow">' . "\n";
-            echo '<input type="hidden" name="skip" value="' . $offset . '" />';
-            echo sprintf(__('Previous import timed out, after resubmitting will continue from position %d.'), $offset) . '';
-            echo '</div>' . "\n";
-        }
+if (isset($timeout_passed) && $timeout_passed) {
+    echo '<div class="formelementrow">' . "\n";
+    echo '<input type="hidden" name="skip" value="' . $offset . '" />';
+    echo sprintf(__('Previous import timed out, after resubmitting will continue from position %d.'), $offset) . '';
+    echo '</div>' . "\n";
+}
         ?>
         <div class="formelementrow">
             <input type="checkbox" name="allow_interrupt" value="yes"
@@ -268,21 +274,21 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         </div>
 
         <?php
-        if (! (isset($timeout_passed) && $timeout_passed)) {
-            ?>
+if (! (isset($timeout_passed) && $timeout_passed)) {
+        ?>
         <div class="formelementrow">
             <label for="text_skip_queries"><?php echo __('Number of rows to skip, starting from the first row:'); ?></label>
             <input type="text" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
         </div>
             <?php
-        } else {
-            // If timeout has passed,
-            // do not show the Skip dialog to avoid the risk of someone
-            // entering a value here that would interfere with "skip"
-            ?>
+} else {
+    // If timeout has passed,
+    // do not show the Skip dialog to avoid the risk of someone
+    // entering a value here that would interfere with "skip"
+    ?>
         <input type="hidden" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
             <?php
-        }
+}
         ?>
     </div>
 
@@ -299,14 +305,15 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     </div>
         <div class="clearfloat"></div>
     <?php
-    // Encoding setting form appended by Y.Kawada
-    if (function_exists('PMA_set_enc_form')) { ?>
+// Encoding setting form appended by Y.Kawada
+if (function_exists('PMA_set_enc_form')) { ?>
         <div class="importoptions" id="kanji_encoding">
             <h3><?php echo __('Encoding Conversion:'); ?></h3>
             <?php echo PMA_set_enc_form('            '); ?>
         </div>
-    <?php }
-    echo "\n";
+    <?php
+}
+echo "\n";
     ?>
     <div class="importoptions" id="submit">
         <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />

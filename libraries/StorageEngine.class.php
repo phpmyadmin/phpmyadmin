@@ -93,9 +93,10 @@ class PMA_StorageEngine
      * @static
      * @return string  html selectbox
      */
-    static public function getHtmlSelect($name = 'engine', $id = null,
-      $selected = null, $offerUnavailableEngines = false)
-    {
+    static public function getHtmlSelect(
+        $name = 'engine', $id = null,
+        $selected = null, $offerUnavailableEngines = false
+    ) {
         $selected   = strtolower($selected);
         $output     = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
@@ -269,7 +270,9 @@ class PMA_StorageEngine
         return $mysql_vars;
     }
 
-    function engine_init() {}
+    function engine_init()
+    {
+    }
 
     /**
      * Constructor

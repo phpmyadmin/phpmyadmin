@@ -22,7 +22,8 @@ class PMA_escapeJsString_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($target, PMA_escapeJsString($source));
     }
 
-    public function escapeDataProvider() {
+    public function escapeDataProvider()
+    {
         return array(
             array('\\\';', '\';'),
             array('\r\n\\\'<scrIpt></\' + \'script>', "\r\n'<scrIpt></sCRIPT>"),

@@ -113,9 +113,9 @@ class PMA_Theme_Manager
                 sprintf(
                     __('Default theme %s not found!'),
                     htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])
-                    ),
+                ),
                 E_USER_ERROR
-                );
+            );
             $GLOBALS['cfg']['ThemeDefault'] = false;
         }
 

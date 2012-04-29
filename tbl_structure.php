@@ -195,7 +195,9 @@ $i = 0;
     } ?>
 
 <table id="tablestructure" class="data<?php
-    if ($GLOBALS['cfg']['PropertiesIconic'] === true) echo ' PropertiesIconic'; ?>">
+if ($GLOBALS['cfg']['PropertiesIconic'] === true) {
+    echo ' PropertiesIconic';
+} ?>">
 <thead>
 <tr>
     <th></th>
@@ -585,13 +587,6 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         <div>
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <ul>
-<?php
-foreach ($fields as $row) { ?>
-
-                <li class="placeholderDrag"><?php echo $field = htmlspecialchars($row['Field']); ?>
-                    <input type="hidden" name="move_columns[]" value="<?php echo $field; ?>" /></li>
-<?php } ?>
-
             </ul>
         </div>
     </form>
@@ -614,7 +609,7 @@ if ($tbl_is_view) {
             )
         ),
         PMA_getIcon('b_edit.png', __('Edit view'), true)
-        );
+    );
 }
 ?>
 

@@ -7,8 +7,11 @@
  */
 
 $match = array();
-preg_match('@^([0-9]{1,2})(?:.([0-9]{1,2})(?:.([0-9]{1,2}))?)?@',
-        phpversion(), $match);
+preg_match(
+    '@^([0-9]{1,2})(?:.([0-9]{1,2})(?:.([0-9]{1,2}))?)?@',
+    phpversion(),
+    $match
+);
 if (isset($match) && ! empty($match[1])) {
     if (! isset($match[2])) {
         $match[2] = 0;
@@ -19,8 +22,10 @@ if (isset($match) && ! empty($match[1])) {
     /**
      * @ignore
      */
-    define('PMA_PHP_INT_VERSION',
-        (int) sprintf('%d%02d%02d', $match[1], $match[2], $match[3]));
+    define(
+        'PMA_PHP_INT_VERSION',
+        (int)sprintf('%d%02d%02d', $match[1], $match[2], $match[3])
+    );
 } else {
     /**
      * @ignore
@@ -34,8 +39,10 @@ class PMA_STR_sub_test extends PHPUnit_Framework_TestCase
 {
     public function testMultiByte()
     {
-        $this->assertEquals('čšě',
-            PMA_substr('čšěčščěš', 0, 3));
+        $this->assertEquals(
+            'čšě',
+            PMA_substr('čšěčščěš', 0, 3)
+        );
     }
 }
 ?>

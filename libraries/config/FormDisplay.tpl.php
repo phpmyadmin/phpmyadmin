@@ -188,17 +188,31 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
 ?>
 <tr<?php echo $tr_class ?>>
     <th>
-        <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
-        <?php if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
+        <label for="<?php echo htmlspecialchars($path) ?>"><?php
+            echo $name ?></label>
+        <?php
+    if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
         <span class="doc">
-            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $base_dir . $opts['doc']  ?>" target="documentation"><?php echo $icons['help']; ?></a><?php } ?>
-            <?php if (!empty($opts['wiki'])) { ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><?php echo $icons['info']; ?></a><?php } ?>
+            <?php if (!empty($opts['doc'])) {
+                ?><a href="<?php echo $base_dir . $opts['doc']  ?>"
+                target="documentation"><?php echo $icons['help']; ?></a><?php } ?>
+            <?php if (!empty($opts['wiki'])) {
+                ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><?php
+                echo $icons['info']; ?></a><?php
+            } ?>
         </span>
-        <?php } ?>
-        <?php if ($option_is_disabled) { ?>
-            <span class="disabled-notice" title="<?php echo __('This setting is disabled, it will not be applied to your configuration') ?>"><?php echo __('Disabled') ?></span>
-        <?php } ?>
-        <?php if (!empty($description)) { ?><small><?php echo $description ?></small><?php } ?>
+        <?php
+    }
+    if ($option_is_disabled) {
+            ?>
+            <span class="disabled-notice" title="<?php echo __(
+            'This setting is disabled, it will not be applied to your configuration')
+            ?>"><?php echo __('Disabled') ?></span>
+        <?php
+    }
+    if (!empty($description)) {
+        ?><small><?php echo $description ?></small><?php
+    } ?>
     </th>
     <td>
     <?php
@@ -293,7 +307,10 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     if ($is_setup_script && isset($opts['userprefs_allow'])) {
     ?>
     <td class="userprefs-allow" title="<?php echo __('Allow users to customize this value') ?>">
-        <input type="checkbox" name="<?php echo $path ?>-userprefs-allow" <?php if ($opts['userprefs_allow']) { echo 'checked="checked"'; }; ?> />
+        <input type="checkbox" name="<?php echo $path ?>-userprefs-allow" <?php
+        if ($opts['userprefs_allow']) {
+            echo 'checked="checked"';
+        }; ?> />
     </td>
     <?php
     } else if ($is_setup_script) {

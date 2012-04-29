@@ -1088,13 +1088,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($in_extract) {
                     $number_of_brackets_in_extract--;
                     if ($number_of_brackets_in_extract == 0) {
-                       $in_extract = false;
+                        $in_extract = false;
                     }
                 }
                 if ($in_group_concat) {
                     $number_of_brackets_in_group_concat--;
                     if ($number_of_brackets_in_group_concat == 0) {
-                       $in_group_concat = false;
+                        $in_group_concat = false;
                     }
                 }
             }
@@ -1821,8 +1821,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $seen_default = false;
 
         for ($i = 0; $i < $size; $i++) {
-        // DEBUG echo "Loop 3 <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
-
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
                 $upper_data = strtoupper($arr[$i]['data']);
 
@@ -2116,9 +2114,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @access public
      */
-    function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
-        $number_of_tokens=-1)
-    {
+    function PMA_SQP_formatHtml(
+        $arr, $mode='color', $start_token=0,
+        $number_of_tokens=-1
+    ) {
         global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array

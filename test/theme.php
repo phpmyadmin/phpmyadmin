@@ -57,7 +57,7 @@ printf(
     'Server',
     __('Server'),
     'ic_s_host'
-    );
+);
 
 echo $separator;
 printf(
@@ -67,7 +67,7 @@ printf(
     'Database',
     __('Database'),
     'ic_s_db'
-    );
+);
 
 echo $separator;
 printf(
@@ -81,7 +81,7 @@ printf(
     (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
         ? 'ic_b_views'
         : 'ic_s_tbl')
-    );
+);
 
 echo '<span class="table_comment" id="span_table_comment">'
     .'&quot;Table comment&quot;</span>' . "\n";

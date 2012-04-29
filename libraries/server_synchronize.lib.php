@@ -407,10 +407,10 @@ function PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_lin
  * @param array   $matching_table_keys
  * @param boolean $display
  */
-function PMA_updateTargetTables($table, $update_array, $src_db, $trg_db,
+function PMA_updateTargetTables(
+    $table, $update_array, $src_db, $trg_db,
     $trg_link, $matching_table_index, $matching_table_keys, $display
-)
-{
+) {
     if (isset($update_array[$matching_table_index])) {
         if (sizeof($update_array[$matching_table_index])) {
 

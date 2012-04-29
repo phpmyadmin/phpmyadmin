@@ -494,6 +494,8 @@ class PMA_Config
                 'email' => $commit_json->committer->email,
                 'date' => $commit_json->committer->date);
             $message = trim($commit_json->message);
+        } else {
+            return;
         }
 
         $this->set('PMA_VERSION_GIT', 1);

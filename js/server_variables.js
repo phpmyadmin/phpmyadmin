@@ -183,9 +183,13 @@ function editVariable(link)
             $('input#variableEditArea').focus();
             $('input#variableEditArea').keydown(function(event) {
                 // Enter key
-                if(event.keyCode == 13) mySaveLink.trigger('click');
+                if (event.keyCode == 13) {
+                    mySaveLink.trigger('click');
+                }
                 // Escape key
-                if(event.keyCode == 27) myCancelLink.trigger('click');
+                if (event.keyCode == 27) {
+                    myCancelLink.trigger('click');
+                }
             });
             PMA_ajaxRemoveMessage($msgbox);
         });

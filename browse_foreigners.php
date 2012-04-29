@@ -68,7 +68,7 @@ if (is_array($foreignData['disp_row'])) {
             20,
             10,
             __('Page number:')
-            );
+        );
     }
 }
 ?>

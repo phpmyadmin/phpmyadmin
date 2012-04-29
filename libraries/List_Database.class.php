@@ -24,24 +24,26 @@ require_once './libraries/List.class.php';
  * @todo this object should be attached to the PMA_Server object
  * @todo ? make use of INFORMATION_SCHEMA
  * @todo ? support --skip-showdatabases and user has only global rights
- * @access public
  * @since phpMyAdmin 2.9.10
  * @package PhpMyAdmin
  */
-/*public*/ class PMA_List_Database extends PMA_List
+class PMA_List_Database extends PMA_List
 {
     /**
      * @var mixed   database link resource|object to be used
+     * @access protected
      */
     protected $_db_link = null;
 
     /**
      * @var mixed   user database link resource|object
+     * @access protected
      */
     protected $_db_link_user = null;
 
     /**
      * @var mixed   controluser database link resource|object
+     * @access protected
      */
     protected $_db_link_control = null;
 
@@ -53,6 +55,7 @@ require_once './libraries/List.class.php';
 
     /**
      * @var string command to retrieve databases from server
+     * @access protected
      */
     protected $_command = null;
 
@@ -61,6 +64,8 @@ require_once './libraries/List.class.php';
      *
      * @param mixed $db_link_user    user database link resource|object
      * @param mixed $db_link_control control database link resource|object
+     *
+     * @return void
      */
     public function __construct($db_link_user = null, $db_link_control = null)
     {
@@ -74,6 +79,8 @@ require_once './libraries/List.class.php';
 
     /**
      * checks if the configuration wants to hide some databases
+     *
+     * @return void
      */
     protected function _checkHideDatabase()
     {
@@ -148,6 +155,7 @@ require_once './libraries/List.class.php';
     /**
      * builds up the list
      *
+     * @return void
      */
     public function build()
     {
@@ -214,7 +222,7 @@ require_once './libraries/List.class.php';
     /**
      * returns default item
      *
-     * @return string  default item
+     * @return string default item
      */
     public function getDefault()
     {
@@ -231,7 +239,7 @@ require_once './libraries/List.class.php';
      * @param integer $offset
      * @param integer $count
      *
-     * @return array   db list
+     * @return array db list
      */
     public function getGroupedDetails($offset, $count)
     {
@@ -320,9 +328,9 @@ require_once './libraries/List.class.php';
     /**
      * returns html code for list with dbs
      *
-     * @return string  html code list
+     * @return string html code list
      */
-    public function getHtmlListGrouped($selected = '', $offset, $count)
+    public function getHtmlListGrouped($selected = '', $offset = 0, $count = 0)
     {
         if (true === $selected) {
             $selected = $this->getDefault();
@@ -376,9 +384,9 @@ require_once './libraries/List.class.php';
      * as mostly names will be in english, we set the whole selectbox to LTR
      * and EN
      *
-     * @return string  html code select
+     * @return string html code select
      */
-    public function getHtmlSelectGrouped($selected = '', $offset, $count)
+    public function getHtmlSelectGrouped($selected = '', $offset = 0, $count = 0)
     {
         if (true === $selected) {
             $selected = $this->getDefault();
@@ -401,7 +409,11 @@ require_once './libraries/List.class.php';
             foreach ($dbs as $db) {
                 $return .= '<option value="' . htmlspecialchars($db['name']) . '"'
                     .' title="' . htmlspecialchars($db['comment']) . '"';
-                if ($db['name'] == $selected || (PMA_DRIZZLE && strtolower($db['name']) == strtolower($selected))) {
+                if ($db['name'] == $selected
+                    || (PMA_DRIZZLE
+                        && strtolower($db['name']) == strtolower($selected)
+                    )
+                ) {
                     $return .= ' selected="selected"';
                 }
                 $return .= '>' . htmlspecialchars($cut ? $db['disp_name_cut'] : $db['disp_name']);
@@ -423,6 +435,7 @@ require_once './libraries/List.class.php';
      * this is just a backup, if all is fine this can be deleted later
      *
      * @deprecated
+     * @return void
      */
     protected function _checkAgainstPrivTables()
     {
@@ -465,7 +478,15 @@ require_once './libraries/List.class.php';
                             // TODO: db names may contain characters
                             //       that are regexp instructions
                             $re        = '(^|(\\\\\\\\)+|[^\])';
-                            $tmp_regex = preg_replace('/' . addcslashes($re, '/') . '%/', '\\1.*', preg_replace('/' . addcslashes($re, '/') . '_/', '\\1.{1}', $tmp_matchpattern));
+                            $tmp_regex = preg_replace(
+                                '/' . addcslashes($re, '/') . '%/',
+                                '\\1.*',
+                                preg_replace(
+                                    '/' . addcslashes($re, '/') . '_/',
+                                    '\\1.{1}',
+                                    $tmp_matchpattern
+                                )
+                            );
                             // Fixed db name matching
                             // 2000-08-28 -- Benjamin Gandon
                             if (preg_match('/^' . addcslashes($tmp_regex, '/') . '$/', $tmp_db)) {
@@ -481,7 +502,10 @@ require_once './libraries/List.class.php';
         } // end if
 
         // 2. get allowed dbs from the "mysql.tables_priv" table
-        $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
+        $local_query = 'SELECT DISTINCT `Db` FROM `mysql`.`tables_priv`';
+        $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
+        $local_query .= ' AND `User` = \'';
+        $local_query .= PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
         $rs          = PMA_DBI_try_query($local_query, $GLOBALS['controllink']);
         if ($rs && @PMA_DBI_num_rows($rs)) {
             while ($row = PMA_DBI_fetch_assoc($rs)) {

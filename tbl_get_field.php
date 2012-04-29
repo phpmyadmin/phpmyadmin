@@ -43,6 +43,6 @@ PMA_download_header(
     $table . '-' .  $transform_key . '.bin',
     PMA_detectMIME($result),
     strlen($result)
-    );
+);
 echo $result;
 ?>

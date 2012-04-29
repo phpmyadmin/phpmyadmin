@@ -257,7 +257,10 @@ if (isset($clause_is_unique)) {
 ?>
 
 <!-- Insert/Edit form -->
-<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
+<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" <?php
+    if ($is_upload) {
+        echo ' enctype="multipart/form-data"';
+    } ?>>
 <?php
 echo PMA_generate_common_hidden_inputs($_form_params);
 

@@ -27,7 +27,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<span class="nowrap"></span>',
             PMA_getIcon('b_comment.png')
-            );
+        );
     }
 
     function testGetIconWithPropertiesIconic()
@@ -37,7 +37,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
             PMA_getIcon('b_comment.png')
-            );
+        );
     }
 
     function testGetIconAlternate()
@@ -49,7 +49,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
             '<span class="nowrap"><img src="themes/dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment" /></span>',
             PMA_getIcon('b_comment.png', $alternate_text)
-            );
+        );
     }
 
     function testGetIconWithForceText()
@@ -61,7 +61,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
             '<span class="nowrap"><img src="themes/dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment" /> ' . $alternate_text . '</span>',
             PMA_getIcon('b_comment.png', $alternate_text, true)
-            );
+        );
 
     }
 }

@@ -32,7 +32,7 @@ function PMA_checkTimeout()
         return false;
     } elseif ($timeout_passed) {
         return true;
-    /* 5 in next row might be too much */
+        /* 5 in next row might be too much */
     } elseif ((time() - $timestamp) > ($maximum_time - 5)) {
         $timeout_passed = true;
         return true;
@@ -173,7 +173,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                         }
                     } // end run query
                 } // end if not DROP DATABASE
-            // end non empty query
+                // end non empty query
             } elseif (!empty($import_run_buffer['full'])) {
                 if ($go_sql) {
                     $complete_query .= $import_run_buffer['full'];
@@ -315,7 +315,7 @@ function PMA_importGetNextChunk($size = 32768)
             // UTF-8
             if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
                 $result = substr($result, 3);
-            // UTF-16 BE, LE
+                // UTF-16 BE, LE
             } elseif (strncmp($result, "\xFE\xFF", 2) == 0 || strncmp($result, "\xFF\xFE", 2) == 0) {
                 $result = substr($result, 2);
             }
@@ -523,11 +523,10 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
      */
     if (! strcmp('NULL', $cell)) {
         return $last_cumulative_size;
-    }
-    /**
-     * What to do if the current cell is of type VARCHAR
-     */
-    elseif ($curr_type == VARCHAR) {
+    } elseif ($curr_type == VARCHAR) {
+        /**
+         * What to do if the current cell is of type VARCHAR
+         */
         /**
          * The last cumulative type was VARCHAR
          */
@@ -537,11 +536,10 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             } else {
                 return $last_cumulative_size;
             }
-        }
-        /**
-         * The last cumulative type was DECIMAL
-         */
-        elseif ($last_cumulative_type == DECIMAL) {
+        } elseif ($last_cumulative_type == DECIMAL) {
+            /**
+             * The last cumulative type was DECIMAL
+             */
             $oldM = PMA_getM($last_cumulative_size);
 
             if ($curr_size >= $oldM) {
@@ -549,38 +547,34 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             } else {
                 return $oldM;
             }
-        }
-        /**
-         * The last cumulative type was BIGINT or INT
-         */
-        elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
+        } elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
+            /**
+             * The last cumulative type was BIGINT or INT
+             */
             if ($curr_size >= $last_cumulative_size) {
                 return $curr_size;
             } else {
                 return $last_cumulative_size;
             }
-        }
-        /**
-         * This is the first row to be analyzed
-         */
-        elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+        } elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+            /**
+             * This is the first row to be analyzed
+             */
             return $curr_size;
-        }
-        /**
-         * An error has DEFINITELY occurred
-         */
-        else {
+        } else {
+            /**
+             * An error has DEFINITELY occurred
+             */
             /**
              * TODO: Handle this MUCH more elegantly
              */
 
             return -1;
         }
-    }
-    /**
-     * What to do if the current cell is of type DECIMAL
-     */
-    elseif ($curr_type == DECIMAL) {
+    } elseif ($curr_type == DECIMAL) {
+        /**
+         * What to do if the current cell is of type DECIMAL
+         */
         /**
          * The last cumulative type was VARCHAR
          */
@@ -593,11 +587,10 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             } else {
                 return $last_cumulative_size;
             }
-        }
-        /**
-         * The last cumulative type was DECIMAL
-         */
-        elseif ($last_cumulative_type == DECIMAL) {
+        } elseif ($last_cumulative_type == DECIMAL) {
+            /**
+             * The last cumulative type was DECIMAL
+             */
             $size = PMA_getDecimalSize($cell);
 
             $oldM = PMA_getM($last_cumulative_size);
@@ -606,15 +599,15 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             /* New val if M or D is greater than current largest */
             if ($size[M] > $oldM || $size[D] > $oldD) {
                 /* Take the largest of both types */
-                return (string)((($size[M] > $oldM) ? $size[M] : $oldM) . "," . (($size[D] > $oldD) ? $size[D] : $oldD));
+                return (string) ((($size[M] > $oldM) ? $size[M] : $oldM)
+                    . "," . (($size[D] > $oldD) ? $size[D] : $oldD));
             } else {
                 return $last_cumulative_size;
             }
-        }
-        /**
-         * The last cumulative type was BIGINT or INT
-         */
-        elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
+        } elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
+            /**
+             * The last cumulative type was BIGINT or INT
+             */
             /* Convert $last_cumulative_size from int to decimal format */
             $size = PMA_getDecimalSize($cell);
 
@@ -623,31 +616,28 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             } else {
                 return ($last_cumulative_size.",".$size[D]);
             }
-        }
-        /**
-         * This is the first row to be analyzed
-         */
-        elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+        } elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+            /**
+             * This is the first row to be analyzed
+             */
             /* First row of the column */
             $size = PMA_getDecimalSize($cell);
 
             return $size[FULL];
-        }
-        /**
-         * An error has DEFINITELY occurred
-         */
-        else {
+        } else {
+            /**
+             * An error has DEFINITELY occurred
+             */
             /**
              * TODO: Handle this MUCH more elegantly
              */
 
             return -1;
         }
-    }
-    /**
-     * What to do if the current cell is of type BIGINT or INT
-     */
-    elseif ($curr_type == BIGINT || $curr_type == INT) {
+    } elseif ($curr_type == BIGINT || $curr_type == INT) {
+        /**
+         * What to do if the current cell is of type BIGINT or INT
+         */
         /**
          * The last cumulative type was VARCHAR
          */
@@ -657,11 +647,10 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             } else {
                 return $last_cumulative_size;
             }
-        }
-        /**
-         * The last cumulative type was DECIMAL
-         */
-        elseif ($last_cumulative_type == DECIMAL) {
+        } elseif ($last_cumulative_type == DECIMAL) {
+            /**
+             * The last cumulative type was DECIMAL
+             */
             $oldM = PMA_getM($last_cumulative_size);
             $oldD = PMA_getD($last_cumulative_size);
             $oldInt = $oldM - $oldD;
@@ -675,38 +664,34 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
                 /* Use $newInt + $oldD as new M */
                 return (($newInt + $oldD) . "," . $oldD);
             }
-        }
-        /**
-         * The last cumulative type was BIGINT or INT
-         */
-        elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
+        } elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
+            /**
+             * The last cumulative type was BIGINT or INT
+             */
             if ($curr_size >= $last_cumulative_size) {
                 return $curr_size;
             } else {
                 return $last_cumulative_size;
             }
-        }
-        /**
-         * This is the first row to be analyzed
-         */
-        elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+        } elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+            /**
+             * This is the first row to be analyzed
+             */
             return $curr_size;
-        }
-        /**
-         * An error has DEFINITELY occurred
-         */
-        else {
+        } else {
+            /**
+             * An error has DEFINITELY occurred
+             */
             /**
              * TODO: Handle this MUCH more elegantly
              */
 
             return -1;
         }
-    }
-    /**
-     * An error has DEFINITELY occurred
-     */
-    else {
+    } else {
+        /**
+         * An error has DEFINITELY occurred
+         */
         /**
          * TODO: Handle this MUCH more elegantly
          */

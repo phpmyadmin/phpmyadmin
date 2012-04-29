@@ -383,7 +383,7 @@ class PMA_Table
     static function generateFieldSpec($name, $type, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
         $default_value = '', $extra = '', $comment = '',
-        &$field_primary, $index, $default_orig, $move_to
+        &$field_primary = null, $index, $default_orig, $move_to
     ) {
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
@@ -492,8 +492,7 @@ class PMA_Table
         // move column
         if ($move_to == '-first') { // dash can't appear as part of column name
             $query .= ' FIRST';
-        }
-        elseif ($move_to != '') {
+        } elseif ($move_to != '') {
             $query .= ' AFTER ' . PMA_backquote($move_to);
         }
         return $query;
@@ -1489,15 +1488,20 @@ class PMA_Table
     {
         $server_id = $GLOBALS['server'];
         // set session variable if it's still undefined
-        if (! isset($_SESSION['tmp_user_values']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
-            $_SESSION['tmp_user_values']['table_uiprefs'][$server_id][$this->db_name][$this->name] =
+        if (! isset($_SESSION['tmp_user_values']['table_uiprefs'][$server_id]
+            [$this->db_name][$this->name])
+            ) {
+            $_SESSION['tmp_user_values']['table_uiprefs']
+                [$server_id][$this->db_name][$this->name]
+                =
                 // check whether we can get from pmadb
                 (strlen($GLOBALS['cfg']['Server']['pmadb'])
                 && strlen($GLOBALS['cfg']['Server']['table_uiprefs']))
                     ?  $this->getUiPrefsFromDb()
                     : array();
         }
-        $this->uiprefs =& $_SESSION['tmp_user_values']['table_uiprefs'][$server_id][$this->db_name][$this->name];
+        $this->uiprefs =& $_SESSION['tmp_user_values']['table_uiprefs'][$server_id]
+            [$this->db_name][$this->name];
     }
 
     /**
