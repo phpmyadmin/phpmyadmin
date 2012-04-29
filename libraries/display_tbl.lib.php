@@ -549,8 +549,8 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
  * @see     PMA_displayTable()
  */
 function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
-    $analyzed_sql = '', $sort_expression, $sort_expression_nodirection,
-    $sort_direction)
+    $analyzed_sql = '', $sort_expression = '', $sort_expression_nodirection = '',
+    $sort_direction = '')
 {
     global $db, $table, $goto;
     global $sql_query, $num_rows;
