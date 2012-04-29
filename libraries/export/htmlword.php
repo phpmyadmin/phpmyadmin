@@ -201,10 +201,20 @@ if (isset($plugin_list)) {
         $schema_insert .= '<td class="print"><strong>' . __('Default') . '</strong></td>';
         $schema_insert .= '</tr>';
 
+        /**
+         * Get the unique keys in the table
+         */
+        $unique_keys = array();
+        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        foreach ($keys as $key) {
+            if ($key['Non_unique'] == 0) {
+                $unique_keys[] = $key['Column_name'];
+            }
+        }
 
         $columns = PMA_DBI_get_columns($db, $view);
         foreach ($columns as $column) {
-            $schema_insert .= PMA_formatOneColumnDefinition($column);
+            $schema_insert .= PMA_formatOneColumnDefinition($column, $unique_keys);
             $schema_insert .= '</tr>';
         }
 
@@ -295,8 +305,18 @@ if (isset($plugin_list)) {
         $schema_insert .= '</tr>';
 
         $columns = PMA_DBI_get_columns($db, $table);
+        /**
+         * Get the unique keys in the table
+         */
+        $unique_keys = array();
+        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        foreach ($keys as $key) {
+            if ($key['Non_unique'] == 0) {
+                $unique_keys[] = $key['Column_name'];
+            }
+        }
         foreach ($columns as $column) {
-            $schema_insert .= PMA_formatOneColumnDefinition($column);
+            $schema_insert .= PMA_formatOneColumnDefinition($column, $unique_keys);
             $field_name = $column['Field'];
 
             if ($do_relation && $have_rel) {
@@ -407,28 +427,15 @@ if (isset($plugin_list)) {
      * Formats the definition for one column 
      *
      * @param array $column  info about this column 
+     * @param array $unique_keys  unique keys of the table 
      *
      * @return string        Formatted column definition
      *
      * @access public
      */
     function PMA_formatOneColumnDefinition(
-        $column
+        $column, $unique_keys
     ) {
-        /**
-         * Get the unique keys in the table
-         */
-        $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
-        foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
-            }
-        }
-
-        /**
-         * Formats the definition 
-         */
         $definition = '<tr class="print-category">';
         $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
         $type = htmlspecialchars($extracted_columnspec['print_type']);
