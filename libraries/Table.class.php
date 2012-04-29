@@ -1489,9 +1489,10 @@ class PMA_Table
         $server_id = $GLOBALS['server'];
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmp_user_values']['table_uiprefs'][$server_id]
-                [$this->db_name][$this->name])) {
-            $_SESSION['tmp_user_values']['table_uiprefs'][$server_id][$this->db_name]
-                [$this->name] 
+            [$this->db_name][$this->name])
+            ) {
+            $_SESSION['tmp_user_values']['table_uiprefs']
+                [$server_id][$this->db_name][$this->name]
                 =
                 // check whether we can get from pmadb
                 (strlen($GLOBALS['cfg']['Server']['pmadb'])

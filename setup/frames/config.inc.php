@@ -37,9 +37,9 @@ check_config_rw($config_readable, $config_writable, $config_exists);
     <td class="lastrow" style="text-align: left">
         <input type="submit" name="submit_download" value="<?php echo __('Download') ?>" class="green" />
         <input type="submit" name="submit_save" value="<?php echo __('Save') ?>"<?php
-            if (!$config_writable) {
-                echo ' disabled="disabled"';
-            } ?> />
+if (!$config_writable) {
+    echo ' disabled="disabled"';
+} ?> />
     </td>
 </tr>
 <?php
