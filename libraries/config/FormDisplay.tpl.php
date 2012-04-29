@@ -197,17 +197,21 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
                 target="documentation"><?php echo $icons['help']; ?></a><?php } ?>
             <?php if (!empty($opts['wiki'])) {
                 ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><?php
-                echo $icons['info']; ?></a><?php } ?>
+                echo $icons['info']; ?></a><?php
+            } ?>
         </span>
-        <?php } ?>
-        <?php if ($option_is_disabled) {
+        <?php
+        }
+        if ($option_is_disabled) {
             ?>
             <span class="disabled-notice" title="<?php echo __(
             'This setting is disabled, it will not be applied to your configuration')
             ?>"><?php echo __('Disabled') ?></span>
-        <?php } ?>
-        <?php if (!empty($description)) {
-            ?><small><?php echo $description ?></small><?php } ?>
+        <?php
+        }
+        if (!empty($description)) {
+            ?><small><?php echo $description ?></small><?php
+        } ?>
     </th>
     <td>
     <?php
