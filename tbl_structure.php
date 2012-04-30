@@ -70,7 +70,6 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         $action = 'tbl_structure.php';
         include 'libraries/mult_submits.inc.php';
         //require_once 'libraries/header.inc.php';
-        //require_once 'libraries/tbl_links.inc.php';
 
         if (empty($message)) {
             $message = PMA_Message::success();
@@ -722,14 +721,6 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 <div id="index_div" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> >
     <?php
 }
-
-/**
- * If there are more than 20 rows, displays browse/select/insert/empty/drop
- * links again
- */
-if (count($fields) > 20) {
-    include 'libraries/tbl_links.inc.php';
-} // end if (count($fields) > 20)
 
 /**
  * Displays indexes
