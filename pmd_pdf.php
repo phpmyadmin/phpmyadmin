@@ -9,6 +9,23 @@ require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
 /**
+  * Sets globals from $_POST
+  */
+$post_params = array(
+    'db',
+    'mode',
+    'newpage',
+    'pdf_page_number',
+    'scale'
+);
+
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
+
+/**
  * If called directly from the designer, first save the positions
  */
 if (! isset($scale)) {
