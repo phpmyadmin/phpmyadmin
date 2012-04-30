@@ -17,7 +17,7 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
 
-require 'libraries/tbl_common.php';
+require 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
 
 require_once 'libraries/sql_query_form.lib.php';

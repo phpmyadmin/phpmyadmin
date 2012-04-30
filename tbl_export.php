@@ -15,7 +15,7 @@ $GLOBALS['js_include'][] = 'export.js';
 /**
  * Gets tables informations and displays top links
  */
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_export.php&amp;back=tbl_export.php';
 require_once 'libraries/tbl_info.inc.php';
 

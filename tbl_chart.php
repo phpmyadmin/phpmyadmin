@@ -27,7 +27,7 @@ $GLOBALS['js_include'][] = 'canvg/canvg.js';
 if (strlen($GLOBALS['table'])) {
     $url_params['goto'] = $cfg['DefaultTabTable'];
     $url_params['back'] = 'tbl_sql.php';
-    include 'libraries/tbl_common.php';
+    include 'libraries/tbl_common.inc.php';
     include 'libraries/tbl_info.inc.php';
 } elseif (strlen($GLOBALS['db'])) {
     $url_params['goto'] = $cfg['DefaultTabDatabase'];

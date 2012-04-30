@@ -19,7 +19,7 @@
 require_once 'libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'tbl_relation.js';
 
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php';
 
 /**

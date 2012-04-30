@@ -57,7 +57,7 @@ foreach ($post_params as $one_post_param) {
  */
 if (! isset($param) || $param[0] == '') {
     // Gets some core libraries
-    include_once 'libraries/tbl_common.php';
+    include_once 'libraries/tbl_common.inc.php';
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 

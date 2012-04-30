@@ -11,7 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Index.class.php';
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 
 // Get fields and stores their name/type
 $fields = array();

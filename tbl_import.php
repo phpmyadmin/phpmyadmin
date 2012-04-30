@@ -15,7 +15,7 @@ $GLOBALS['js_include'][] = 'import.js';
 /**
  * Gets tables informations and displays top links
  */
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
 
 require_once 'libraries/tbl_info.inc.php';

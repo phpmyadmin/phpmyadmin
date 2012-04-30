@@ -26,7 +26,7 @@ PMA_checkParameters(array('db', 'table'));
 /**
  * Gets tables informations
  */
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 require_once 'libraries/tbl_info.inc.php';
 
 $active_page = 'tbl_structure.php';

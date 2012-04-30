@@ -86,7 +86,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Runs common work
  */
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
