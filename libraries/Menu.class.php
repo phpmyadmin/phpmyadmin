@@ -126,113 +126,89 @@ class Menu {
          */
         $cfgRelation = PMA_getRelationsParam();
 
+        $tabs = array();
+
         /**
          * export, search and qbe links if there is at least one table
          */
         if ($num_tables == 0) {
-            $tab_qbe['warning'] = __('Database seems to be empty!');
-            $tab_search['warning'] = __('Database seems to be empty!');
-            $tab_export['warning'] = __('Database seems to be empty!');
+            $tabs['qbe']['warning'] = __('Database seems to be empty!');
+            $tabs['search']['warning'] = __('Database seems to be empty!');
+            $tabs['export']['warning'] = __('Database seems to be empty!');
         }
 
-        $tab_structure['link']  = 'db_structure.php';
-        $tab_structure['text']  = __('Structure');
-        $tab_structure['icon']  = 'b_props.png';
+        $tabs['structure']['link'] = 'db_structure.php';
+        $tabs['structure']['text'] = __('Structure');
+        $tabs['structure']['icon'] = 'b_props.png';
 
-        $tab_sql['link']        = 'db_sql.php';
-        $tab_sql['args']['db_query_force'] = 1;
-        $tab_sql['text']        = __('SQL');
-        $tab_sql['icon']        = 'b_sql.png';
+        $tabs['sql']['link'] = 'db_sql.php';
+        $tabs['sql']['args']['db_query_force'] = 1;
+        $tabs['sql']['text'] = __('SQL');
+        $tabs['sql']['icon'] = 'b_sql.png';
 
-        $tab_export['text']     = __('Export');
-        $tab_export['icon']     = 'b_export.png';
-        $tab_export['link']     = 'db_export.php';
+        $tabs['search']['text'] = __('Search');
+        $tabs['search']['icon'] = 'b_search.png';
+        $tabs['search']['link'] = 'db_search.php';
 
-        $tab_search['text']     = __('Search');
-        $tab_search['icon']     = 'b_search.png';
-        $tab_search['link']     = 'db_search.php';
+        $tabs['qbe']['text'] = __('Query');
+        $tabs['qbe']['icon'] = 's_db.png';
+        $tabs['qbe']['link'] = 'db_qbe.php';
 
-        if (PMA_Tracker::isActive()) {
-            $tab_tracking['text'] = __('Tracking');
-            $tab_tracking['icon'] = 'eye.png';
-            $tab_tracking['link'] = 'db_tracking.php';
-        }
-
-        $tab_qbe['text']        = __('Query');
-        $tab_qbe['icon']        = 's_db.png';
-        $tab_qbe['link']        = 'db_qbe.php';
-
-        if ($cfgRelation['designerwork']) {
-            $tab_designer['text']   = __('Designer');
-            $tab_designer['icon']   = 'b_relations.png';
-            $tab_designer['link']   = 'pmd_general.php';
-        }
+        $tabs['export']['text'] = __('Export');
+        $tabs['export']['icon'] = 'b_export.png';
+        $tabs['export']['link'] = 'db_export.php';
 
         if (! $db_is_information_schema) {
-            $tab_import['link']     = 'db_import.php';
-            $tab_import['text']     = __('Import');
-            $tab_import['icon']     = 'b_import.png';
-            $tab_operation['link']  = 'db_operations.php';
-            $tab_operation['text']  = __('Operations');
-            $tab_operation['icon']  = 'b_tblops.png';
-            if ($this->is_superuser && !PMA_DRIZZLE) {
-                $tab_privileges['link'] = 'server_privileges.php';
-                $tab_privileges['args']['checkprivs']       = $this->db;
+            $tabs['import']['link'] = 'db_import.php';
+            $tabs['import']['text'] = __('Import');
+            $tabs['import']['icon'] = 'b_import.png';
+
+            $tabs['operation']['link'] = 'db_operations.php';
+            $tabs['operation']['text'] = __('Operations');
+            $tabs['operation']['icon'] = 'b_tblops.png';
+
+            if ($this->is_superuser && ! PMA_DRIZZLE) {
+                $tabs['privileges']['link'] = 'server_privileges.php';
+                $tabs['privileges']['args']['checkprivs'] = $this->db;
                 // stay on database view
-                $tab_privileges['args']['viewing_mode'] = 'db';
-                $tab_privileges['text'] = __('Privileges');
-                $tab_privileges['icon'] = 's_rights.png';
+                $tabs['privileges']['args']['viewing_mode'] = 'db';
+                $tabs['privileges']['text'] = __('Privileges');
+                $tabs['privileges']['icon'] = 's_rights.png';
             }
-            $tab_routines['link']   = 'db_routines.php';
-            $tab_routines['text']   = __('Routines');
-            $tab_routines['icon']   = 'b_routines.png';
-
-            $tab_events['link']     = 'db_events.php';
-            $tab_events['text']     = __('Events');
-            $tab_events['icon']     = 'b_events.png';
-
-            $tab_triggers['link']   = 'db_triggers.php';
-            $tab_triggers['text']   = __('Triggers');
-            $tab_triggers['icon']   = 'b_triggers.png';
-        }
-
-        /**
-         * Displays tab links
-         */
-        $tabs = array();
-        $tabs[] =& $tab_structure;
-        $tabs[] =& $tab_sql;
-        $tabs[] =& $tab_search;
-        $tabs[] =& $tab_qbe;
-        $tabs[] =& $tab_export;
-        if (! $db_is_information_schema) {
-            $tabs[] =& $tab_import;
-            $tabs[] =& $tab_operation;
-            if ($this->is_superuser && !PMA_DRIZZLE) {
-                $tabs[] =& $tab_privileges;
+            if (! PMA_DRIZZLE) {
+                $tabs['routines']['link'] = 'db_routines.php';
+                $tabs['routines']['text'] = __('Routines');
+                $tabs['routines']['icon'] = 'b_routines.png';
             }
-            if (!PMA_DRIZZLE) {
-                $tabs[] =& $tab_routines;
+            if (PMA_MYSQL_INT_VERSION >= 50106
+                && ! PMA_DRIZZLE
+                && PMA_currentUserHasPrivilege('EVENT', $this->db)
+            ) {
+                $tabs['events']['link'] = 'db_events.php';
+                $tabs['events']['text'] = __('Events');
+                $tabs['events']['icon'] = 'b_events.png';
             }
-            if (PMA_MYSQL_INT_VERSION >= 50106 && ! PMA_DRIZZLE) {
-                if (PMA_currentUserHasPrivilege('EVENT', $this->db)) {
-                    $tabs[] =& $tab_events;
-                }
-            }
-            if (!PMA_DRIZZLE) {
-                if (PMA_currentUserHasPrivilege('TRIGGER', $this->db)) {
-                    $tabs[] =& $tab_triggers;
-                }
+            if (! PMA_DRIZZLE
+                && PMA_currentUserHasPrivilege('TRIGGER', $this->db)
+            ) {
+                $tabs['triggers']['link'] = 'db_triggers.php';
+                $tabs['triggers']['text'] = __('Triggers');
+                $tabs['triggers']['icon'] = 'b_triggers.png';
             }
         }
+
         if (PMA_Tracker::isActive()) {
-            $tabs[] =& $tab_tracking;
+            $tabs['tracking']['text'] = __('Tracking');
+            $tabs['tracking']['icon'] = 'eye.png';
+            $tabs['tracking']['link'] = 'db_tracking.php';
         }
-        if (! $db_is_information_schema) {
-            if ($cfgRelation['designerwork']) {
-                $tabs[] =& $tab_designer;
-            }
+
+        if (! $db_is_information_schema && $cfgRelation['designerwork']) {
+            $tabs['designer']['text'] = __('Designer');
+            $tabs['designer']['icon'] = 'b_relations.png';
+            $tabs['designer']['link'] = 'pmd_general.php';
         }
+
         return $tabs;
     }
 
