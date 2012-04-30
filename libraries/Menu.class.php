@@ -104,15 +104,15 @@ class PMA_Menu {
             ? ''
             : ':' . $GLOBALS['cfg']['Server']['port'];
 
-        $separator = "<span class='separator item'>&nbsp;»</span>\n";
+        $separator = "<span class='separator item'>&nbsp;»</span>";
         $item = '<a href="%1$s?%2$s" class="item">';
 
         if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
             $item .= '%4$s: ';
         }
-        $item .= '%3$s</a>' . "\n";
-        $retval .= "<div id='floating_menubar'></div>\n";
-        $retval .= "<div id='serverinfo'>\n";
+        $item .= '%3$s</a>';
+        $retval .= "<div id='floating_menubar'></div>";
+        $retval .= "<div id='serverinfo'>";
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $retval .= PMA_getImage(
                 's_host.png',
@@ -183,9 +183,10 @@ class PMA_Menu {
                             $show_comment
                         );
                     }
-                    $retval .= '<span class="table_comment" id="span_table_comment">';
-                    $retval .= '&quot;' . htmlspecialchars($show_comment);
-                    $retval .= '&quot;</span>' . "\n";
+                    $retval .= '<span class="table_comment"';
+                    $retval .= ' id="span_table_comment">&quot;';
+                    $retval .= htmlspecialchars($show_comment);
+                    $retval .= '&quot;</span>';
                 } // end if
             } else {
                 // no table selected, display database comment if present
@@ -206,7 +207,7 @@ class PMA_Menu {
                         $retval .= '<span class="table_comment"'
                             . ' id="span_table_comment">&quot;'
                             . htmlspecialchars($comment)
-                            . '&quot;</span>' . "\n";
+                            . '&quot;</span>';
                     } // end if
                 }
             }
@@ -225,8 +226,12 @@ class PMA_Menu {
     {
         $db_is_information_schema = PMA_is_system_schema($this->db);
         $tbl_is_view = PMA_Table::isView($this->db, $this->table);
+
         $table_status = PMA_Table::sGetStatusInfo($this->db, $this->table);
-        $table_info_num_rows = isset($table_status['Rows']) ? $table_status['Rows'] : 0;
+        $table_info_num_rows = 0;
+        if (isset($table_status['Rows'])) {
+            $table_info_num_rows = $table_status['Rows'];
+        }
 
         $tabs = array();
 
@@ -247,7 +252,7 @@ class PMA_Menu {
         $tabs['search']['text'] = __('Search');
         $tabs['search']['link'] = 'tbl_select.php';
 
-        if (!$db_is_information_schema) {
+        if (! $db_is_information_schema) {
             $tabs['insert']['icon'] = 'b_insrow.png';
             $tabs['insert']['link'] = 'tbl_change.php';
             $tabs['insert']['text'] = __('Insert');
@@ -262,7 +267,7 @@ class PMA_Menu {
          * Don't display "Import" and "Operations"
          * for views and information_schema
          */
-        if (! $tbl_is_view && !$db_is_information_schema) {
+        if (! $tbl_is_view && ! $db_is_information_schema) {
             $tabs['import']['icon'] = 'b_tblimport.png';
             $tabs['import']['link'] = 'tbl_import.php';
             $tabs['import']['text'] = __('Import');
@@ -276,24 +281,26 @@ class PMA_Menu {
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['link'] = 'tbl_tracking.php';
         }
-        if (!$db_is_information_schema && !PMA_DRIZZLE) {
-            if (PMA_currentUserHasPrivilege('TRIGGER', $this->db, $this->table) && ! $tbl_is_view) {
-                $tabs['triggers']['link'] = 'tbl_triggers.php';
-                $tabs['triggers']['text'] = __('Triggers');
-                $tabs['triggers']['icon'] = 'b_triggers.png';
-            }
+        if (! $db_is_information_schema
+            && ! PMA_DRIZZLE
+            && PMA_currentUserHasPrivilege('TRIGGER', $this->db, $this->table)
+            && ! $tbl_is_view
+        ) {
+            $tabs['triggers']['link'] = 'tbl_triggers.php';
+            $tabs['triggers']['text'] = __('Triggers');
+            $tabs['triggers']['icon'] = 'b_triggers.png';
         }
 
         /**
          * Views support a limited number of operations
          */
-        if ($tbl_is_view && !$db_is_information_schema) {
+        if ($tbl_is_view && ! $db_is_information_schema) {
             $tabs['operation']['icon'] = 'b_tblops.png';
             $tabs['operation']['link'] = 'view_operations.php';
             $tabs['operation']['text'] = __('Operations');
         }
 
-        if ($table_info_num_rows == 0 && !$tbl_is_view) {
+        if ($table_info_num_rows == 0 && ! $tbl_is_view) {
             $tabs['browse']['warning'] = __('Table seems to be empty!');
             $tabs['search']['warning'] = __('Table seems to be empty!');
         }
@@ -410,9 +417,16 @@ class PMA_Menu {
     private function _getServerTabs()
     {
         $is_superuser = PMA_isSuperuser();
-        $binary_logs = PMA_DRIZZLE
-            ? null
-            : PMA_DBI_fetch_result('SHOW MASTER LOGS', 'Log_name', null, null, PMA_DBI_QUERY_STORE);
+        $binary_logs = null;
+        if (! PMA_DRIZZLE){
+            $binary_logs = PMA_DBI_fetch_result(
+                'SHOW MASTER LOGS',
+                'Log_name',
+                null,
+                null,
+                PMA_DBI_QUERY_STORE
+            );
+        }
 
         $tabs = array();
 
