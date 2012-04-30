@@ -10,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 
 require_once './libraries/common.inc.php';
 require_once './libraries/RecentTable.class.php';
+require_once 'libraries/Menu.class.php';
 
 
 /**
@@ -213,6 +214,9 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
             echo '</div>';
         }
     }
+
+    new Menu($GLOBALS['server'], $GLOBALS['db'], $GLOBALS['table']);
+
     /**
      * Sets a variable to remember headers have been sent
      */
