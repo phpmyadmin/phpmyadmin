@@ -260,7 +260,9 @@ foreach ($fields as $row) {
     $type             = $row['Type'];
     $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
 
-    if ('set' == $extracted_columnspec['type'] || 'enum' == $extracted_columnspec['type']) {
+    if ('set' == $extracted_columnspec['type']
+        || 'enum' == $extracted_columnspec['type']
+    ) {
         $type_nowrap  = '';
     } else {
         $type_nowrap  = ' class="nowrap"';
@@ -271,13 +273,20 @@ foreach ($fields as $row) {
     }
 
     $field_charset = '';
-    if ($extracted_columnspec['can_contain_collation'] && ! empty($row['Collation'])) {
+    if ($extracted_columnspec['can_contain_collation']
+        && ! empty($row['Collation'])
+    ) {
         $field_charset = $row['Collation'];
     }
 
     // Display basic mimetype [MIME]
-    if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME'] && isset($mime_map[$row['Field']]['mimetype'])) {
-        $type_mime = '<br />MIME: ' . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
+    if ($cfgRelation['commwork']
+        && $cfgRelation['mimework']
+        && $cfg['BrowseMIME']
+        && isset($mime_map[$row['Field']]['mimetype'])
+    ) {
+        $type_mime = '<br />MIME: '
+            . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
     } else {
         $type_mime = '';
     }
@@ -293,7 +302,10 @@ foreach ($fields as $row) {
     // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
-    if (!empty($analyzed_sql[0]['create_table_fields'][$row['Field']]['type']) && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null']) {
+    if (! empty($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
+        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
+        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null']
+    ) {
         $row['Null'] = '';
     }
 
@@ -313,7 +325,9 @@ foreach ($fields as $row) {
     // underline commented fields and display a hover-title (CSS only)
 
     if (isset($comments_map[$row['Field']])) {
-        $displayed_field_name = '<span class="commented_column" title="' . htmlspecialchars($comments_map[$row['Field']]) . '">' . $field_name . '</span>';
+        $displayed_field_name = '<span class="commented_column" title="'
+            . htmlspecialchars($comments_map[$row['Field']]) . '">'
+            . $field_name . '</span>';
     }
 
     if ($primary && $primary->hasColumn($field_name)) {
@@ -559,22 +573,50 @@ $checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 <i><?php echo __('With selected:'); ?></i>
 
 <?php
-PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', __('Browse'), 'b_browse.png', 'browse');
+PMA_buttonOrImage(
+    'submit_mult', 'mult_submit', 'submit_mult_browse',
+    __('Browse'), 'b_browse.png', 'browse'
+);
 
 if (! $tbl_is_view && ! $db_is_information_schema) {
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', __('Change'), 'b_edit.png', 'change');
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', __('Drop'), 'b_drop.png', 'drop');
+    PMA_buttonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_change',
+        __('Change'), 'b_edit.png', 'change'
+    );
+    PMA_buttonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_drop',
+        __('Drop'), 'b_drop.png', 'drop'
+    );
     if ('ARCHIVE' != $tbl_storage_engine) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', __('Primary'), 'b_primary.png', 'primary');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', __('Unique'), 'b_unique.png', 'unique');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', __('Index'), 'b_index.png', 'index');
+        PMA_buttonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_primary',
+            __('Primary'), 'b_primary.png', 'primary'
+        );
+        PMA_buttonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_unique',
+            __('Unique'), 'b_unique.png', 'unique'
+        );
+        PMA_buttonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_index',
+            __('Index'), 'b_index.png', 'index'
+        );
     }
 
     if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_spatial', __('Spatial'), 'b_spatial.png', 'spatial');
+        PMA_buttonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_spatial',
+            __('Spatial'), 'b_spatial.png', 'spatial'
+        );
     }
-    if (! empty($tbl_storage_engine) && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA')) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', __('Fulltext'), 'b_ftext.png', 'ftext');
+    if (! empty($tbl_storage_engine)
+        && ($tbl_storage_engine == 'MYISAM'
+        || $tbl_storage_engine == 'ARIA'
+        || $tbl_storage_engine == 'MARIA')
+    ) {
+        PMA_buttonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_fulltext',
+            __('Fulltext'), 'b_ftext.png', 'ftext'
+        );
     }
 }
 ?>
@@ -697,7 +739,10 @@ if (count($fields) > 20) {
  * Displays indexes
  */
 
-if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_storage_engine) {
+if (! $tbl_is_view
+    && ! $db_is_information_schema
+    && 'ARCHIVE' !=  $tbl_storage_engine
+) {
     PMA_generate_slider_effect('indexes', __('Indexes'));
     /**
      * Display indexes
@@ -730,12 +775,16 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_storage_
 if ($cfg['ShowStats']) {
     echo '<div id="tablestatistics">';
     if (empty($showtable)) {
-        $showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], null, true);
+        $showtable = PMA_Table::sGetStatusInfo(
+            $GLOBALS['db'], $GLOBALS['table'], null, true
+        );
     }
 
     $nonisam     = false;
     $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
-    if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
+    if (isset($showtable['Type'])
+        && ! preg_match('@ISAM|HEAP@i', $showtable['Type'])
+    ) {
         $nonisam = true;
     }
 
@@ -746,20 +795,40 @@ if ($cfg['ShowStats']) {
     // this is to display for example 261.2 MiB instead of 268k KiB
     $max_digits = 3;
     $decimals = 1;
-    list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length'], $max_digits, $decimals);
+    list($data_size, $data_unit) = PMA_formatByteDown(
+        $showtable['Data_length'], $max_digits, $decimals
+    );
     if ($mergetable == false) {
-        list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length'], $max_digits, $decimals);
+        list($index_size, $index_unit) = PMA_formatByteDown(
+            $showtable['Index_length'], $max_digits, $decimals
+        );
     }
     // InnoDB returns a huge value in Data_free, do not use it
-    if (! $is_innodb && isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-        list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free'], $max_digits, $decimals);
-        list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'], $max_digits, $decimals);
+    if (! $is_innodb
+        && isset($showtable['Data_free'])
+        && $showtable['Data_free'] > 0
+    ) {
+        list($free_size, $free_unit) = PMA_formatByteDown(
+            $showtable['Data_free'], $max_digits, $decimals
+        );
+        list($effect_size, $effect_unit) = PMA_formatByteDown(
+            $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'],
+            $max_digits, $decimals
+        );
     } else {
-        list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'], $max_digits, $decimals);
+        list($effect_size, $effect_unit) = PMA_formatByteDown(
+            $showtable['Data_length'] + $showtable['Index_length'],
+            $max_digits, $decimals
+        );
     }
-    list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'], $max_digits, $decimals);
+    list($tot_size, $tot_unit) = PMA_formatByteDown(
+        $showtable['Data_length'] + $showtable['Index_length'],
+        $max_digits, $decimals
+    );
     if ($table_info_num_rows > 0) {
-        list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+        list($avg_size, $avg_unit) = PMA_formatByteDown(
+            ($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1
+        );
     }
 
     // Displays them

@@ -16,7 +16,9 @@ $url_params['back'] = 'tbl_tracking.php';
 
 // Init vars for tracking report
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
-    $data = PMA_Tracker::getTrackedData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']);
+    $data = PMA_Tracker::getTrackedData(
+        $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']
+    );
 
     $selection_schema = false;
     $selection_data   = false;
@@ -49,17 +51,16 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 // Prepare export
 if (isset($_REQUEST['report_export'])) {
 
-/**
- * Filters tracking entries
- *
- * @param array   the entries to filter
- * @param string  "from" date
- * @param string  "to" date
- * @param string  users
- *
- * @return array   filtered entries
- *
- */
+    /**
+     * Filters tracking entries
+     *
+     * @param array  the entries to filter
+     * @param string "from" date
+     * @param string "to" date
+     * @param string users
+     *
+     * @return array filtered entries
+     */
     function PMA_filter_tracking($data, $filter_ts_from, $filter_ts_to, $filter_users)
     {
         $tmp_entries = array();
@@ -84,13 +85,27 @@ if (isset($_REQUEST['report_export'])) {
 
     $entries = array();
     // Filtering data definition statements
-    if ($_REQUEST['logtype'] == 'schema' || $_REQUEST['logtype'] == 'schema_and_data') {
-        $entries = array_merge($entries, PMA_filter_tracking($data['ddlog'], $filter_ts_from, $filter_ts_to, $filter_users));
+    if ($_REQUEST['logtype'] == 'schema'
+        || $_REQUEST['logtype'] == 'schema_and_data'
+    ) {
+        $entries = array_merge(
+            $entries,
+            PMA_filter_tracking(
+                $data['ddlog'], $filter_ts_from, $filter_ts_to, $filter_users
+            )
+        );
     }
 
     // Filtering data manipulation statements
-    if ($_REQUEST['logtype'] == 'data' || $_REQUEST['logtype'] == 'schema_and_data') {
-        $entries = array_merge($entries, PMA_filter_tracking($data['dmlog'], $filter_ts_from, $filter_ts_to, $filter_users));
+    if ($_REQUEST['logtype'] == 'data'
+        || $_REQUEST['logtype'] == 'schema_and_data'
+    ) {
+        $entries = array_merge(
+            $entries,
+            PMA_filter_tracking(
+                $data['dmlog'], $filter_ts_from, $filter_ts_to, $filter_users
+            )
+        );
     }
 
     // Sort it
@@ -101,7 +116,10 @@ if (isset($_REQUEST['report_export'])) {
         $statements[$key] = $row['statement'];
     }
 
-    array_multisort($timestamps, SORT_ASC, $ids, SORT_ASC, $usernames, SORT_ASC, $statements, SORT_ASC, $entries);
+    array_multisort(
+        $timestamps, SORT_ASC, $ids, SORT_ASC, $usernames,
+        SORT_ASC, $statements, SORT_ASC, $entries
+    );
 
 }
 
@@ -109,8 +127,10 @@ if (isset($_REQUEST['report_export'])) {
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfile') {
     @ini_set('url_rewriter.tags', '');
 
-    $dump = "# " . sprintf(__('Tracking report for table `%s`'), htmlspecialchars($_REQUEST['table'])) . "\n" .
-            "# " . date('Y-m-d H:i:s') . "\n";
+    $dump = "# " . sprintf(
+        __('Tracking report for table `%s`'), htmlspecialchars($_REQUEST['table'])
+    )
+    . "\n" . "# " . date('Y-m-d H:i:s') . "\n";
     foreach ($entries as $entry) {
         $dump .= $entry['statement'];
     }
@@ -172,7 +192,10 @@ if (isset($_REQUEST['submit_create_version'])) {
     }
     $tracking_set = rtrim($tracking_set, ',');
 
-    if (PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set)) {
+    $versionCreated = PMA_Tracker::createVersion(
+        $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set
+    );
+    if ($versionCreated) {
         $msg = PMA_Message::success(
             sprintf(
                 __('Version %1$s was created, tracking for %2$s is active.'),
@@ -186,7 +209,10 @@ if (isset($_REQUEST['submit_create_version'])) {
 
 // Deactivate tracking
 if (isset($_REQUEST['submit_deactivate_now'])) {
-    if (PMA_Tracker::deactivateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
+    $deactivated = PMA_Tracker::deactivateTracking(
+        $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
+    );
+    if ($deactivated) {
         $msg = PMA_Message::success(
             sprintf(
                 __('Tracking for %1$s was deactivated at version %2$s.'),
@@ -200,7 +226,10 @@ if (isset($_REQUEST['submit_deactivate_now'])) {
 
 // Activate tracking
 if (isset($_REQUEST['submit_activate_now'])) {
-    if (PMA_Tracker::activateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
+    $activated = PMA_Tracker::activateTracking(
+        $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']
+    );
+    if ($activated) {
         $msg = PMA_Message::success(
             sprintf(
                 __('Tracking for %1$s was activated at version %2$s.'),
@@ -394,7 +423,9 @@ if (isset($_REQUEST['snapshot'])) {
 /*
  *  Tracking report
  */
-if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_REQUEST['delete_dmlog']))) {
+if (isset($_REQUEST['report'])
+    && (isset($_REQUEST['delete_ddlog']) || isset($_REQUEST['delete_dmlog']))
+) {
 
     if (isset($_REQUEST['delete_ddlog'])) {
 
@@ -405,7 +436,11 @@ if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_R
         if ($delete_id == (int)$delete_id) {
             unset($data['ddlog'][$delete_id]);
 
-            if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DDL', $data['ddlog'])) {
+            $successfullyDeleted = PMA_Tracker::changeTrackingData(
+                $_REQUEST['db'], $_REQUEST['table'],
+                $_REQUEST['version'], 'DDL', $data['ddlog']
+            );
+            if ($successfullyDeleted) {
                 $msg = PMA_Message::success(__('Tracking data definition successfully deleted'));
             } else {
                 $msg = PMA_Message::rawError(__('Query error'));
@@ -423,7 +458,11 @@ if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_R
         if ($delete_id == (int)$delete_id) {
             unset($data['dmlog'][$delete_id]);
 
-            if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DML', $data['dmlog'])) {
+            $successfullyDeleted = PMA_Tracker::changeTrackingData(
+                $_REQUEST['db'], $_REQUEST['table'],
+                $_REQUEST['version'], 'DML', $data['dmlog']
+            );
+            if ($successfullyDeleted) {
                 $msg = PMA_Message::success(__('Tracking data manipulation successfully deleted'));
             } else {
                 $msg = PMA_Message::rawError(__('Query error'));
