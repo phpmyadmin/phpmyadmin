@@ -4,13 +4,11 @@ class Menu {
     private $server;
     private $db;
     private $table;
-    private $is_superuser;
 
     public function __construct($server, $db, $table){
         $this->server = $server;
         $this->db = $db;
         $this->table = $table;
-        $this->is_superuser = PMA_isSuperuser();
 
         if (! $GLOBALS['is_ajax_request']) {
             echo $this->getMenu();
@@ -121,6 +119,8 @@ class Menu {
     {
         $db_is_information_schema = PMA_is_system_schema($this->db);
         $num_tables = count(PMA_DBI_get_tables($this->db));
+        $is_superuser = PMA_isSuperuser();
+
         /**
          * Gets the relation settings
          */
@@ -167,7 +167,7 @@ class Menu {
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['icon'] = 'b_tblops.png';
 
-            if ($this->is_superuser && ! PMA_DRIZZLE) {
+            if ($is_superuser && ! PMA_DRIZZLE) {
                 $tabs['privileges']['link'] = 'server_privileges.php';
                 $tabs['privileges']['args']['checkprivs'] = $this->db;
                 // stay on database view
@@ -214,6 +214,7 @@ class Menu {
 
     private function getServerTabs()
     {
+        $is_superuser = PMA_isSuperuser();
         $binary_logs = PMA_DRIZZLE
             ? null
             : PMA_DBI_fetch_result('SHOW MASTER LOGS', 'Log_name', null, null, PMA_DBI_QUERY_STORE);
@@ -232,7 +233,7 @@ class Menu {
         $tabs['status']['link'] = 'server_status.php';
         $tabs['status']['text'] = __('Status');
 
-        if ($this->is_superuser && ! PMA_DRIZZLE) {
+        if ($is_superuser && ! PMA_DRIZZLE) {
             $tabs['rights']['icon'] = 's_rights.png';
             $tabs['rights']['link'] = 'server_privileges.php';
             $tabs['rights']['text'] = __('Users');
@@ -264,7 +265,7 @@ class Menu {
             $tabs['binlog']['text'] = __('Binary log');
         }
 
-        if ($this->is_superuser && ! PMA_DRIZZLE) {
+        if ($is_superuser && ! PMA_DRIZZLE) {
             $tabs['replication']['icon'] = 's_replication.png';
             $tabs['replication']['link'] = 'server_replication.php';
             $tabs['replication']['text'] = __('Replication');
