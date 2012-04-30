@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-30 16:52+0200\n"
+"PO-Revision-Date: 2012-04-30 19:25+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -416,7 +416,7 @@ msgstr "Сұраныс орындалуы үшін, көрсетілімдегі
 #: db_qbe.php:189
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "%sСұраныстарды көз мөлшерiмен құрастырушыға%s ауысып қосылу"
 
 #: db_qbe.php:225 libraries/db_structure.lib.php:106
 #: libraries/display_tbl.lib.php:1014
@@ -504,11 +504,11 @@ msgstr "Рұқсат жоқ"
 
 #: db_search.php:43 db_search.php:301
 msgid "at least one of the words"
-msgstr "Кез-келген сөз"
+msgstr "кез-келген сөз"
 
 #: db_search.php:44 db_search.php:302
 msgid "all words"
-msgstr "Барлық сөздер"
+msgstr "барлық сөздер"
 
 #: db_search.php:45 db_search.php:303
 msgid "the exact phrase"
@@ -516,7 +516,7 @@ msgstr "дәл сәйкестiк"
 
 #: db_search.php:46 db_search.php:304
 msgid "as regular expression"
-msgstr ""
+msgstr "жүйелі түрде айтылу"
 
 #: db_search.php:216
 #, php-format
@@ -527,8 +527,8 @@ msgstr "\"<i>%s</i>\" %s іздеу нәтижесі:"
 #, php-format
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s кестедегi сәйкестiк <i>%2$s</i>"
+msgstr[1] "%1$s кестедегi сәйкестiктер <i>%2$s</i>"
 
 #: db_search.php:247 libraries/common.lib.php:3164
 #: libraries/common.lib.php:3394 libraries/common.lib.php:3395
