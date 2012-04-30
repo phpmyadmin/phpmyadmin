@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-30 20:05+0200\n"
+"PO-Revision-Date: 2012-04-30 20:34+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -539,7 +539,7 @@ msgstr "Шолу"
 #: db_search.php:252
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Кесте %s үшін сәйкестіктерді өшіру керек пе?"
+msgstr "Кесте %s үшін сәйкестіктерді өшіреміз бе?"
 
 #: db_search.php:252 libraries/display_tbl.lib.php:1439
 #: libraries/display_tbl.lib.php:2480
@@ -557,8 +557,8 @@ msgstr "Жою"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Барлығы:</b> <i>%s</i> сәйкестік"
+msgstr[1] "<b>Барлығы:</b> <i>%s</i> сәйкестіктер"
 
 #: db_search.php:289
 msgid "Search in database"
@@ -600,18 +600,18 @@ msgid "Table %s has been emptied"
 msgstr "%s кестесі аластанды"
 
 #: db_structure.php:384 tbl_operations.php:738
-#, php-format
+#, fuzzy, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "%s көрсетілімі жойылған"
 
 #: db_structure.php:384 tbl_operations.php:738
 #, php-format
 msgid "Table %s has been dropped"
-msgstr ""
+msgstr "%s кестесі жойылған болатын"
 
 #: db_structure.php:394 tbl_create.php:285
 msgid "Tracking is active."
-msgstr ""
+msgstr "Бақылау қосулы"
 
 #: db_structure.php:399 tbl_create.php:288
 msgid "Tracking is not active."
@@ -627,7 +627,7 @@ msgstr ""
 #: db_structure.php:543 db_structure.php:577 libraries/header.inc.php:169
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:211
 msgid "View"
-msgstr ""
+msgstr "Түр"
 
 #: db_structure.php:620 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:92 server_replication.php:31
@@ -640,9 +640,9 @@ msgid "Sum"
 msgstr "Барлығы"
 
 #: db_structure.php:631 libraries/StorageEngine.class.php:341
-#, php-format
+#, fuzzy, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s - MySQL сервері кестесінің мәліметтердіі үнсіз орнату."
+msgstr "%s - MySQL сервері кестесінің мәліметтерді үнсіз орнату."
 
 #: db_structure.php:679 db_structure.php:696 db_structure.php:697
 #: libraries/display_tbl.lib.php:2505 libraries/display_tbl.lib.php:2510
