@@ -75,8 +75,8 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
 }
 
 /**
- * Handle AJAX request for changing field information(value,collation,operators,field values)
- * in input form
+ * Handle AJAX request for changing field information
+ * (value,collation,operators,field values) in input form
  * @var post_params Object containing parameters for the POST request
  */
 
@@ -92,7 +92,8 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
 
 
     // Gets the list and number of fields
-    list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($_REQUEST['db'], $_REQUEST['table']);
+    list($fields_list, $fields_type, $fields_collation, $fields_null)
+        = PMA_tbl_getFields($_REQUEST['db'], $_REQUEST['table']);
 
     $foreigners = PMA_getForeigners($db, $table);
     $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
@@ -158,7 +159,8 @@ $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
 // Gets the list and number of fields
 
-list($fields_list, $fields_type, $fields_collation, $fields_null) = PMA_tbl_getFields($db, $table);
+list($fields_list, $fields_type, $fields_collation, $fields_null)
+    = PMA_tbl_getFields($db, $table);
 $fields_cnt = count($fields_list);
 
 // retrieve keys into foreign fields, if any
@@ -315,7 +317,11 @@ echo '" /></td></tr>';
  * Handle the input criteria and generate the query result
  * Form for displaying query results
  */
-if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' && $inputs[0] != $inputs[1]) {
+if (isset($zoom_submit)
+    && $inputs[0] != 'pma_null'
+    && $inputs[1] != 'pma_null'
+    && $inputs[0] != $inputs[1]
+) {
 
     /*
      * Query generation part
@@ -355,13 +361,16 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
     $result = PMA_DBI_query($sql_query . ";", null, PMA_DBI_QUERY_STORE);
     $fields_meta = PMA_DBI_get_fields_meta($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
-        //Need a row with indexes as 0,1,2 for the PMA_getUniqueCondition hence using a temporary array
+        //Need a row with indexes as 0,1,2 for the PMA_getUniqueCondition
+        // hence using a temporary array
         $tmpRow = array();
         foreach ($row as $val) {
             $tmpRow[] = $val;
         }
         //Get unique conditon on each row (will be needed for row update)
-        $uniqueCondition = PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $tmpRow, true);
+        $uniqueCondition = PMA_getUniqueCondition(
+            $result, $fields_cnt, $fields_meta, $tmpRow, true
+        );
 
         //Append it to row array as where_clause
         $row['where_clause'] = $uniqueCondition[0];

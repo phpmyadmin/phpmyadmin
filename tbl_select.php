@@ -78,7 +78,8 @@ if (! isset($param) || $param[0] == '') {
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
-    list($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present) = PMA_tbl_getFields($db, $table);
+    list($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present)
+        = PMA_tbl_getFields($db, $table);
     $fields_cnt = count($fields_list);
 
     // retrieve keys into foreign fields, if any
@@ -155,7 +156,10 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
 
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
 
-        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $fields_type, $i, $db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true);
+        echo PMA_getForeignFields_Values(
+            $foreigners, $foreignData, $field, $fields_type, $i, $db, $table,
+            $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
+        );
 
         ?>
             <input type="hidden" name="names[<?php echo $i; ?>]"
@@ -280,7 +284,10 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
             $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($func_type);
 
             $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
-            $whereClause = PMA_tbl_search_getWhereClause($fields[$i], $names[$i], $types[$i], $collations[$i], $func_type, $unaryFlag, $tmp_geom_func);
+            $whereClause = PMA_tbl_search_getWhereClause(
+                $fields[$i], $names[$i], $types[$i], $collations[$i],
+                $func_type, $unaryFlag, $tmp_geom_func
+            );
 
             if ($whereClause) {
                 $w[] = $whereClause;

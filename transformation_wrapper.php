@@ -48,11 +48,19 @@ foreach ($request_params as $one_request_param) {
  */
 PMA_DBI_select_db($db);
 if (isset($where_clause)) {
-    $result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';', null, PMA_DBI_QUERY_STORE);
-    $row         = PMA_DBI_fetch_assoc($result);
+    $result = PMA_DBI_query(
+        'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';',
+        null,
+        PMA_DBI_QUERY_STORE
+    );
+    $row    = PMA_DBI_fetch_assoc($result);
 } else {
-    $result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
-    $row         = PMA_DBI_fetch_assoc($result);
+    $result = PMA_DBI_query(
+        'SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;',
+        null,
+        PMA_DBI_QUERY_STORE
+    );
+    $row    = PMA_DBI_fetch_assoc($result);
 }
 
 // No row returned
@@ -64,7 +72,10 @@ $default_ct = 'application/octet-stream';
 
 if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     $mime_map = PMA_getMime($db, $table);
-    $mime_options = PMA_transformation_getOptions((isset($mime_map[$transform_key]['transformation_options']) ? $mime_map[$transform_key]['transformation_options'] : ''));
+    $mime_options = PMA_transformation_getOptions(
+        isset($mime_map[$transform_key]['transformation_options'])
+        ? $mime_map[$transform_key]['transformation_options'] : ''
+    );
 
     foreach ($mime_options AS $key => $option) {
         if (substr($option, 0, 10) == '; charset=') {
@@ -82,7 +93,10 @@ require_once './libraries/header_http.inc.php';
 if (isset($ct) && !empty($ct)) {
     $mime_type = $ct;
 } else {
-    $mime_type = (isset($mime_map[$transform_key]['mimetype']) ? str_replace('_', '/', $mime_map[$transform_key]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
+    $mime_type = (isset($mime_map[$transform_key]['mimetype'])
+        ? str_replace('_', '/', $mime_map[$transform_key]['mimetype'])
+        : $default_ct)
+    . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 }
 
 PMA_download_header($cn, $mime_type);
@@ -116,9 +130,13 @@ if (! isset($resize)) {
         $destImage = ImageCreateTrueColor($destWidth, $destHeight);
     }
 
-//    ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
-// better quality but slower:
-    ImageCopyResampled($destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
+    // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
+    // $destWidth, $destHeight, $srcWidth, $srcHeight);
+    // better quality but slower:
+    ImageCopyResampled(
+        $destImage, $srcImage, 0, 0, 0, 0, $destWidth,
+        $destHeight, $srcWidth, $srcHeight
+    );
 
     if ($resize == 'jpeg') {
         ImageJPEG($destImage, '', 75);
