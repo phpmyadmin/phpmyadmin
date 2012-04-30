@@ -39,6 +39,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + rfe #3441722 [interface] Display description of datatypes
 + rfe #3517835 [structure] Move columns easily
 + Ajaxified "Create View" functionality
++ [import] New plugin: import mediawiki
 
 3.5.2.0 (not yet released)
 - bug #3521416 [interface] JS error when editing index
