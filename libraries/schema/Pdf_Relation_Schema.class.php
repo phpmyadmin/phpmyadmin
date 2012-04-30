@@ -826,7 +826,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setShowColor(isset($_POST['show_color']));
         $this->setShowKeys(isset($_POST['show_keys']));
         $this->setTableDimension(isset($_POST['show_table_dimension']));
-        $this->setAllTableSameWidth(isset($_POST['all_tables_same_width']));
+        $this->setAllTablesSameWidth(isset($_POST['all_tables_same_width']));
         $this->setWithDataDictionary($_POST['with_doc']);
         $this->setOrientation($_POST['orientation']);
         $this->setPaper($_POST['paper']);

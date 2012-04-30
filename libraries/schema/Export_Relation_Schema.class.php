@@ -89,7 +89,7 @@ class PMA_Export_Relation_Schema
      *
      * @access public
      */
-    public function setAllTableSameWidth($value)
+    public function setAllTablesSameWidth($value)
     {
         $this->sameWide = (isset($value) && $value == 'on') ? 1 : 0;
     }
