@@ -28,11 +28,6 @@ require 'libraries/server_synchronize.lib.php';
 @set_time_limit($cfg['ExecTimeLimit']);
 
 /**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
-
-/**
 * Enables warnings on the page
 */
 //$cfg['Error_Handler']['display'] = true;

@@ -929,7 +929,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 include 'libraries/db_info.inc.php';
             } else {
                 include 'libraries/server_common.inc.php';
-                include 'libraries/server_links.inc.php';
             }
         } else {
             include_once 'libraries/header.inc.php';

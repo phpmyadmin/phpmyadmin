@@ -39,7 +39,6 @@ if (strlen($GLOBALS['table'])) {
     $url_params['goto'] = $cfg['DefaultTabServer'];
     $url_params['back'] = 'sql.php';
     include 'libraries/server_common.inc.php';
-    include 'libraries/server_links.inc.php';
 }
 
 /*

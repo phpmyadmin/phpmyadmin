@@ -154,7 +154,6 @@ if (!empty($submit_mult) && !empty($what)) {
         include './libraries/db_info.inc.php';
     } else {
         include_once './libraries/server_common.inc.php';
-        include_once './libraries/server_links.inc.php';
     }
 
     // Builds the query

@@ -9,13 +9,9 @@
  * Does the common work
  */
 require_once 'libraries/common.inc.php';
+require 'libraries/server_common.inc.php';
 
 $GLOBALS['js_include'][] = 'export.js';
-
-/**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
 
 $export_page_title = __('View dump (schema) of databases') . "\n";
 $checkall_url = 'server_export.php?'

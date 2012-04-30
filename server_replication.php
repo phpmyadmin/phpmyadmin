@@ -25,7 +25,7 @@ require_once 'libraries/server_synchronize.lib.php';
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    include 'libraries/server_links.inc.php';
+    include 'libraries/header.inc.php';
     echo '<h2>' . "\n"
         . PMA_getIcon('s_replication.png')
         . __('Replication') . "\n"
@@ -181,10 +181,7 @@ if (isset($GLOBALS['sr_take_action'])) {
     }
     unset($refresh);
 }
-/**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
+
 
 echo '<div id="replication">';
 echo ' <h2>';
