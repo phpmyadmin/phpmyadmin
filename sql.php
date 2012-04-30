@@ -923,7 +923,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 include 'libraries/tbl_common.php';
                 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
                 include 'libraries/tbl_info.inc.php';
-                include 'libraries/tbl_links.inc.php';
             } elseif (strlen($db)) {
                 include 'libraries/db_common.inc.php';
                 include 'libraries/db_info.inc.php';

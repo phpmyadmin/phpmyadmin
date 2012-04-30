@@ -34,11 +34,6 @@ $back = 'tbl_sql.php';
 require_once 'libraries/tbl_info.inc.php';
 
 /**
- * Displays top menu links
- */
-require_once 'libraries/tbl_links.inc.php';
-
-/**
  * Query box, bookmark, insert data from textfile
  */
 PMA_sqlQueryForm(

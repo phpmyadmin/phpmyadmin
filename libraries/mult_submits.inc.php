@@ -148,7 +148,6 @@ if (!empty($submit_mult) && !empty($what)) {
         include './libraries/tbl_common.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         include './libraries/tbl_info.inc.php';
-        include_once './libraries/tbl_links.inc.php';
     } elseif (strlen($db)) {
         include './libraries/db_common.inc.php';
         include './libraries/db_info.inc.php';

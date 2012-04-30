@@ -44,16 +44,6 @@ foreach ($post_params as $one_post_param) {
  */
 require_once 'libraries/tbl_info.inc.php';
 
-// Note: in libraries/tbl_links.inc.php we get and display the table comment.
-// For InnoDB, this comment contains the REFER information but any update
-// has not been done yet (will be done in tbl_relation.php later).
-$avoid_show_comment = true;
-
-/**
- * Displays top menu links
- */
-require_once 'libraries/tbl_links.inc.php';
-
 $options_array = array(
     'CASCADE'   => 'CASCADE',
     'SET_NULL'  => 'SET NULL',

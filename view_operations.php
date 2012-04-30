@@ -47,11 +47,6 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 }
 
-/**
- * Displays top menu links
- */
-require_once './libraries/tbl_links.inc.php';
-
 if (isset($result)) {
     // set to success by default, because result set could be empty
     // (for example, a table rename)

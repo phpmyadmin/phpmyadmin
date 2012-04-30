@@ -223,12 +223,6 @@ if ($reread_info) {
 }
 unset($reread_info);
 
-/**
- * Displays top menu links in non ajax requests
- */
-if (!isset($_REQUEST['ajax_request'])) {
-    include_once 'libraries/tbl_links.inc.php';
-}
 if (isset($result) && empty($message_to_show)) {
     // set to success by default, because result set could be empty
     // (for example, a table rename)

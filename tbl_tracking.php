@@ -146,10 +146,6 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfil
  * Gets tables informations
  */
 
-/**
- * Displays top menu links
- */
-require_once './libraries/tbl_links.inc.php';
 echo '<br />';
 
 /**

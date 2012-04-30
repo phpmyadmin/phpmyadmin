@@ -101,10 +101,6 @@ $url_params['back'] = 'tbl_structure.php';
  */
 require_once 'libraries/tbl_info.inc.php';
 
-/**
- * Displays top menu links
- */
-require_once 'libraries/tbl_links.inc.php';
 require_once 'libraries/Index.class.php';
 
 // 2. Gets table keys and retains them

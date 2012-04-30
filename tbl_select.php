@@ -66,11 +66,6 @@ if (! isset($param) || $param[0] == '') {
      */
     include_once 'libraries/tbl_info.inc.php';
 
-    /**
-     * Displays top menu links
-     */
-    include_once 'libraries/tbl_links.inc.php';
-
     if (! isset($goto)) {
         $goto = $GLOBALS['cfg']['DefaultTabTable'];
     }
