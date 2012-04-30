@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-30 19:25+0200\n"
+"PO-Revision-Date: 2012-04-30 20:05+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -539,7 +539,7 @@ msgstr "Шолу"
 #: db_search.php:252
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr ""
+msgstr "Кесте %s үшін сәйкестіктерді өшіру керек пе?"
 
 #: db_search.php:252 libraries/display_tbl.lib.php:1439
 #: libraries/display_tbl.lib.php:2480
