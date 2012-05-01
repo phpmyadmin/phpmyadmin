@@ -20,19 +20,47 @@ if (isset($plugin_list)) {
         'extension' => 'csv',
         'mime_type' => 'text/comma-separated-values',
         'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
-            array('type' => 'text', 'name' => 'separator', 'text' => __('Columns separated with:')),
-            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed with:')),
-            array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped with:')),
-            array('type' => 'text', 'name' => 'terminated', 'text' => __('Lines terminated with:')),
-            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:')),
-            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove carriage return/line feed characters within columns')),
-            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
-            array('type' => 'hidden', 'name' => 'structure_or_data'),
-            array('type' => 'end_group'),
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
             ),
-        'options_text' => __('Options'),
-        );
+            array('type' => 'text',
+                'name' => 'separator',
+                'text' => __('Columns separated with:')
+            ),
+            array('type' => 'text',
+                'name' => 'enclosed',
+                'text' => __('Columns enclosed with:')
+            ),
+            array('type' => 'text',
+                'name' => 'escaped',
+                'text' => __('Columns escaped with:')
+            ),
+            array('type' => 'text',
+                'name' => 'terminated',
+                'text' => __('Lines terminated with:')
+            ),
+            array('type' => 'text',
+                'name' => 'null',
+                'text' => __('Replace NULL with:')
+            ),
+            array('type' => 'bool',
+                'name' => 'removeCRLF',
+                'text' => __(
+                    'Remove carriage return/line feed characters within columns'
+                )
+            ),
+            array('type' => 'bool',
+                'name' => 'columns',
+                'text' => __('Put columns names in the first row')
+            ),
+            array('type' => 'hidden',
+                'name' => 'structure_or_data'
+            ),
+            array('type' => 'end_group'),
+        ),
+        'options_text' => __('Options')
+    );
 } else {
 
     /**
@@ -170,10 +198,14 @@ if (isset($plugin_list)) {
                     $schema_insert .= stripslashes(PMA_DBI_field_name($result, $i));
                 } else {
                     $schema_insert .= $csv_enclosed
-                                   . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, stripslashes(PMA_DBI_field_name($result, $i)))
-                                   . $csv_enclosed;
+                        . str_replace(
+                              $csv_enclosed,
+                              $csv_escaped . $csv_enclosed,
+                              stripslashes(PMA_DBI_field_name($result, $i))
+                          )
+                        .  $csv_enclosed;
                 }
-                $schema_insert     .= $csv_separator;
+                $schema_insert .= $csv_separator;
             } // end for
             $schema_insert = trim(substr($schema_insert, 0, -1));
             if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
@@ -193,8 +225,18 @@ if (isset($plugin_list)) {
                         $row[$j] = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                     }
                     // remove CRLF characters within field
-                    if (isset($GLOBALS[$what . '_removeCRLF']) && $GLOBALS[$what . '_removeCRLF']) {
-                        $row[$j] = str_replace("\n", "", str_replace("\r", "", $row[$j]));
+                    if (isset($GLOBALS[$what . '_removeCRLF'])
+                        && $GLOBALS[$what . '_removeCRLF']
+                    ) {
+                        $row[$j] = str_replace(
+                            "\n",
+                            "",
+                            str_replace(
+                                "\r",
+                                "",
+                                $row[$j]
+                            )
+                        );
                     }
                     if ($csv_enclosed == '') {
                         $schema_insert .= $row[$j];
@@ -202,13 +244,25 @@ if (isset($plugin_list)) {
                         // also double the escape string if found in the data
                         if ($csv_escaped != $csv_enclosed) {
                             $schema_insert .= $csv_enclosed
-                                       . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, str_replace($csv_escaped, $csv_escaped . $csv_escaped, $row[$j]))
-                                       . $csv_enclosed;
+                                . str_replace(
+                                      $csv_enclosed,
+                                      $csv_escaped . $csv_enclosed,
+                                      str_replace(
+                                          $csv_escaped,
+                                          $csv_escaped . $csv_escaped,
+                                          $row[$j]
+                                      )
+                                  )
+                                . $csv_enclosed;
                         } else {
                             // avoid a problem when escape string equals enclose
                             $schema_insert .= $csv_enclosed
-                                       . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, $row[$j])
-                                       . $csv_enclosed;
+                            . str_replace(
+                                $csv_enclosed,
+                                $csv_escaped . $csv_enclosed,
+                                $row[$j]
+                            )
+                            . $csv_enclosed;
                         }
                     }
                 } else {
