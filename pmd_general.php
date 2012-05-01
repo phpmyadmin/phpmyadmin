@@ -26,7 +26,7 @@ foreach ($get_params as $one_get_param) {
     }
 }
 
-$tab_column       = get_tab_info();
+$tab_column       = get_columns_info();
 $script_tabs      = get_script_tabs();
 $script_contr     = get_script_contr();
 $tab_pos          = get_tab_pos();

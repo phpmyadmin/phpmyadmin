@@ -26,7 +26,7 @@ $GLOBALS['script_display_field']
  * retrieves table info and stores it in $GLOBALS['PMD']
  *
  */
-function get_tabs()
+function get_tables_info()
 {
     $GLOBALS['PMD']['TABLE_NAME'] = array();// that foreach no error
     $GLOBALS['PMD']['OWNER'] = array();
@@ -72,7 +72,7 @@ function get_tabs()
  *
  * @return array   table column nfo
  */
-function get_tab_info()
+function get_columns_info()
 {
     PMA_DBI_select_db($GLOBALS['db']);
     $tab_column = array();
@@ -241,5 +241,5 @@ function get_tab_pos()
     return count($tab_pos) ? $tab_pos : null;
 }
 
-get_tabs();
+get_tables_info();
 ?>
