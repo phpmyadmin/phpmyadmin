@@ -90,7 +90,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -106,7 +106,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -120,7 +120,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -134,11 +134,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table in Texy format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
      *
@@ -149,8 +149,8 @@ if (isset($plugin_list)) {
         global $what;
 
         if (! PMA_exportOutputHandler(
-            '== ' . __('Dumping data for table') . ' ' . $table . "\n\n")
-        ) {
+            '== ' . __('Dumping data for table') . ' ' . $table . "\n\n"
+        )) {
             return false;
         }
 
@@ -393,10 +393,10 @@ if (isset($plugin_list)) {
     /**
      * Outputs triggers
      *
-     * @param string $db     database name
-     * @param string $table  table name
+     * @param string $db    database name
+     * @param string $table table name
      *
-     * @return string        Formatted triggers list
+     * @return string Formatted triggers list
      *
      * @access public
      */
@@ -432,24 +432,24 @@ if (isset($plugin_list)) {
     /**
      * Outputs table's structure
      *
-     * @param string  $db           database name
-     * @param string  $table        table name
-     * @param string  $crlf         the end of line sequence
-     * @param string  $error_url    the url to go back in case of error
-     * @param bool    $do_relation  whether to include relation comments
-     * @param bool    $do_comments  whether to include the pmadb-style column
+     * @param string $db          database name
+     * @param string $table       table name
+     * @param string $crlf        the end of line sequence
+     * @param string $error_url   the url to go back in case of error
+     * @param bool   $do_relation whether to include relation comments
+     * @param bool   $do_comments whether to include the pmadb-style column
      *                                comments as comments in the structure;
      *                                this is deprecated but the parameter is
      *                                left here because export.php calls
      *                                PMA_exportStructure() also for other
      *                                export types which use this parameter
-     * @param bool    $do_mime      whether to include mime comments
-     * @param bool    $dates        whether to include creation/update/check dates
-     * @param string  $export_mode  'create_table', 'triggers', 'create_view',
-     *                              'stand_in'
-     * @param string  $export_type  'server', 'database', 'table'
+     * @param bool   $do_mime     whether to include mime comments
+     * @param bool   $dates       whether to include creation/update/check dates
+     * @param string $export_mode 'create_table', 'triggers', 'create_view',
+     *                            'stand_in'
+     * @param string $export_type 'server', 'database', 'table'
      *
-     * @return bool      Whether it succeeded
+     * @return bool Whether it succeeded
      *
      * @access public
      */
@@ -503,10 +503,10 @@ if (isset($plugin_list)) {
     /**
      * Formats the definition for one column 
      *
-     * @param array $column  info about this column 
-     * @param array $unique_keys  unique keys for this table 
+     * @param array $column      info about this column 
+     * @param array $unique_keys unique keys for this table 
      *
-     * @return string        Formatted column definition
+     * @return string Formatted column definition
      *
      * @access public
      */
