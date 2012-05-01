@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 18:03+0200\n"
-"PO-Revision-Date: 2012-05-01 20:27+0200\n"
+"PO-Revision-Date: 2012-05-01 21:30+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7322,10 +7322,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "¡Este plugin no tiene soporte para importaciones comprimidas!"
 
 #: libraries/import/mediawiki.php:246
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "El formato de los datos CSV en la línea %d no es válido."
+msgstr "El formato de los datos mediawiki no es válido en la línea: <br />%s."
 
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
