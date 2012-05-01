@@ -23,7 +23,9 @@ require_once './libraries/common.inc.php';
 /**
  * limits for table list
  */
-if (! isset($_SESSION['tmp_user_values']['table_limit_offset']) || $_SESSION['tmp_user_values']['table_limit_offset_db'] != $db) {
+if (! isset($_SESSION['tmp_user_values']['table_limit_offset'])
+    || $_SESSION['tmp_user_values']['table_limit_offset_db'] != $db
+) {
     $_SESSION['tmp_user_values']['table_limit_offset'] = 0;
     $_SESSION['tmp_user_values']['table_limit_offset_db'] = $db;
 }
@@ -50,7 +52,9 @@ function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
         }
     } else {
         // remove InnoDB comment from end, just the minimal part (*? is non greedy)
-        $table['Comment'] = preg_replace('@; InnoDB free:.*?$@', '', $table['Comment']);
+        $table['Comment'] = preg_replace(
+            '@; InnoDB free:.*?$@', '', $table['Comment']
+        );
     }
     // views have VIEW as comment so it's not a real comment put by a user
     if ('VIEW' == $table['Comment']) {
@@ -111,7 +115,8 @@ if (PMA_is_system_schema($db)) {
  */
 $tables = array();
 
-// When used in Nested table group mode, only show tables matching the given groupname
+// When used in Nested table group mode,
+// only show tables matching the given groupname
 if (PMA_isValid($tbl_group) && !$cfg['ShowTooltipAliasTB']) {
     $tbl_group_sql = ' LIKE "' . PMA_escape_mysql_wildcards($tbl_group) . '%"';
 } else {
@@ -125,7 +130,9 @@ if ($cfg['ShowTooltip']) {
 
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
 if (true === $cfg['SkipLockedTables']) {
-    $db_info_result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_backquote($db) . ';');
+    $db_info_result = PMA_DBI_query(
+        'SHOW OPEN TABLES FROM ' . PMA_backquote($db) . ';'
+    );
 
     // Blending out tables in use
     if ($db_info_result && PMA_DBI_num_rows($db_info_result) > 0) {
@@ -158,13 +165,15 @@ if (true === $cfg['SkipLockedTables']) {
                         }
 
                         if (! empty($tbl_group) && $cfg['ShowTooltipAliasTB']
-                            && !preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])
+                            && ! preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])
                         ) {
                             continue;
                         }
 
                         if ($cfg['ShowTooltip']) {
-                            PMA_fillTooltip($tooltip_truename, $tooltip_aliasname, $sts_tmp);
+                            PMA_fillTooltip(
+                                $tooltip_truename, $tooltip_aliasname, $sts_tmp
+                            );
                         }
 
                         $tables[$sts_tmp['Name']]    = $sts_tmp;
@@ -218,11 +227,15 @@ if (! isset($sot_ready)) {
 
     if (! empty($tbl_group) && ! $cfg['ShowTooltipAliasTB']) {
         // only tables for selected group
-        $tables = PMA_DBI_get_tables_full($db, $tbl_group, true, null, 0, false, $sort, $sort_order);
+        $tables = PMA_DBI_get_tables_full(
+            $db, $tbl_group, true, null, 0, false, $sort, $sort_order
+        );
     } elseif (! empty($tbl_group) && $cfg['ShowTooltipAliasTB']) {
         // only tables for selected group,
         // but grouping is done on comment ...
-        $tables = PMA_DBI_get_tables_full($db, $tbl_group, 'comment', null, 0, false, $sort, $sort_order);
+        $tables = PMA_DBI_get_tables_full(
+            $db, $tbl_group, 'comment', null, 0, false, $sort, $sort_order
+        );
     } else {
         // all tables in db
         // - get the total number of tables
@@ -237,10 +250,14 @@ if (! isset($sot_ready)) {
              *
              * @todo Page selector for table names?
              */
-            $tables = PMA_DBI_get_tables_full($db, false, false, null, 0, false, $sort, $sort_order);
+            $tables = PMA_DBI_get_tables_full(
+                $db, false, false, null, 0, false, $sort, $sort_order
+            );
         } else {
             // fetch the details for a possible limited subset
-            $tables = PMA_DBI_get_tables_full($db, false, false, null, $pos, true, $sort, $sort_order);
+            $tables = PMA_DBI_get_tables_full(
+                $db, false, false, null, $pos, true, $sort, $sort_order
+            );
         }
     }
 

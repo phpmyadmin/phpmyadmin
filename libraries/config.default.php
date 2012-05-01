@@ -470,7 +470,8 @@ $cfg['Servers'][$i]['ShowDatabasesCommand'] = 'SHOW DATABASES';
 $cfg['Servers'][$i]['CountTables'] = false;
 
 /**
- * Whether the tracking mechanism creates versions for tables and views automatically.
+ * Whether the tracking mechanism creates
+ * versions for tables and views automatically.
  *
  * @global bool $cfg['Servers'][$i]['tracking_version_auto_create']
  */
@@ -478,19 +479,20 @@ $cfg['Servers'][$i]['CountTables'] = false;
 $cfg['Servers'][$i]['tracking_version_auto_create'] = false;
 
 /**
- * Defines the list of statements the auto-creation uses for new versions.
+ * Defines the list of statements
+ * the auto-creation uses for new versions.
  *
  * @global string $cfg['Servers'][$i]['tracking_default_statements']
  */
 
-$cfg['Servers'][$i]['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,' .
-                                          'CREATE INDEX,DROP INDEX,' .
-                                          'INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,' .
-                                          'CREATE VIEW,ALTER VIEW,DROP VIEW,' .
-                                          'CREATE DATABASE,ALTER DATABASE,DROP DATABASE';
+$cfg['Servers'][$i]['tracking_default_statements']
+    = 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,' .
+      'DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,' .
+      'ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE';
 
 /**
- * Whether a DROP VIEW IF EXISTS statement will be added as first line to the log when creating a view.
+ * Whether a DROP VIEW IF EXISTS statement will be added
+ * as first line to the log when creating a view.
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_view']
  */
@@ -498,7 +500,8 @@ $cfg['Servers'][$i]['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,D
 $cfg['Servers'][$i]['tracking_add_drop_view'] = true;
 
 /**
- * Whether a DROP TABLE IF EXISTS statement will be added as first line to the log when creating a table.
+ * Whether a DROP TABLE IF EXISTS statement will be added
+ * as first line to the log when creating a table.
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_table']
  */
@@ -506,7 +509,8 @@ $cfg['Servers'][$i]['tracking_add_drop_view'] = true;
 $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
 
 /**
- * Whether a DROP DATABASE IF EXISTS statement will be added as first line to the log when creating a database.
+ * Whether a DROP DATABASE IF EXISTS statement will be added
+ * as first line to the log when creating a database.
  *
  * @global bool $cfg['Servers'][$i]['tracking_add_drop_database']
  */
@@ -791,7 +795,8 @@ $cfg['LeftFrameDBSeparator'] = '_';
 $cfg['LeftFrameTableSeparator']= '__';
 
 /**
- * How many sublevels should be displayed when splitting up tables by the above Separator
+ * How many sublevels should be displayed when splitting up tables
+ * by the above Separator
  *
  * @global integer $cfg['LeftFrameTableLevel']
  */
@@ -1580,7 +1585,8 @@ $cfg['Export']['latex_structure_caption'] = 'strLatexStructure';
  *
  * @global string $cfg['Export']['latex_structure_continued_caption']
  */
-$cfg['Export']['latex_structure_continued_caption'] = 'strLatexStructure strLatexContinued';
+$cfg['Export']['latex_structure_continued_caption']
+    = 'strLatexStructure strLatexContinued';
 
 /**
  *
@@ -2126,13 +2132,14 @@ $cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
 
 /**
  * Type of MySQL documentation:
- *   viewable   - "viewable online", current one used on MySQL website
- *   searchable - "Searchable, with user comments"
- *   chapters   - "HTML, one page per chapter"
- *   chapters_old - "HTML, one page per chapter", format used prior to MySQL 5.0 release
- *   big        - "HTML, all on one page"
- *   old        - old style used in phpMyAdmin 2.3.0 and sooner
- *   none       - do not show documentation links
+ *   viewable     - "viewable online", current one used on MySQL website
+ *   searchable   - "Searchable, with user comments"
+ *   chapters     - "HTML, one page per chapter"
+ *   chapters_old - "HTML, one page per chapter",
+ *                  format used prior to MySQL 5.0 release
+ *   big          - "HTML, all on one page"
+ *   old          - old style used in phpMyAdmin 2.3.0 and sooner
+ *   none         - do not show documentation links
  *
  * @global string $cfg['MySQLManualType']
  */
@@ -2402,7 +2409,7 @@ $cfg['RepeatCells'] = 100;
 
 /**
  * Set to true if Edit link should open the query to edit in the query window
- * (assuming JavaScript is enabled), and to false if we should edit in the right panel
+ * and to false if we should edit in the right panel
  *
  * @global boolean $cfg['EditInWindow']
  */

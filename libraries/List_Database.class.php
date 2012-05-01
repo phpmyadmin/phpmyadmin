@@ -128,7 +128,9 @@ class PMA_List_Database extends PMA_List
             // failed to get database list, try the control user
             // (hopefully there is one and he has SHOW DATABASES right)
             $this->_db_link = $this->_db_link_control;
-            $database_list = PMA_DBI_fetch_result($command, null, null, $this->_db_link);
+            $database_list = PMA_DBI_fetch_result(
+                $command, null, null, $this->_db_link
+            );
 
             PMA_DBI_getError();
 
@@ -211,7 +213,8 @@ class PMA_List_Database extends PMA_List
                 continue;
             }
 
-            // @todo induce error, about not using wildcards with SHOW DATABASE disabled?
+            // @todo induce error, about not using wildcards
+            // with SHOW DATABASE disabled?
         }
 
         $this->exchangeArray($items);
@@ -339,7 +342,8 @@ class PMA_List_Database extends PMA_List
         $return = '<ul id="databaseList" lang="en" dir="ltr">' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
-                $return .= '<li class="group"><span>' . htmlspecialchars($group) . '</span><ul>' . "\n";
+                $return .= '<li class="group"><span>' . htmlspecialchars($group)
+                    . '</span><ul>' . "\n";
                 // whether display db_name cut by the group part
                 $cut = true;
             } else {
@@ -411,8 +415,7 @@ class PMA_List_Database extends PMA_List
                     .' title="' . htmlspecialchars($db['comment']) . '"';
                 if ($db['name'] == $selected
                     || (PMA_DRIZZLE
-                        && strtolower($db['name']) == strtolower($selected)
-                    )
+                    && strtolower($db['name']) == strtolower($selected))
                 ) {
                     $return .= ' selected="selected"';
                 }

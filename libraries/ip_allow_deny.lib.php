@@ -31,10 +31,15 @@ function PMA_getIp()
 
     /* Do we trust this IP as a proxy? If yes we will use it's header. */
     if (isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
-        $trusted_header_value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+        $trusted_header_value
+            = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
         $matches = array();
-        // the $ checks that the header contains only one IP address, ?: makes sure the () don't capture
-        $is_ip = preg_match('|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|', $trusted_header_value, $matches);
+        // the $ checks that the header contains only one IP address,
+        // ?: makes sure the () don't capture
+        $is_ip = preg_match(
+            '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
+            $trusted_header_value, $matches
+        );
         if ($is_ip && (count($matches) == 1)) {
             // True IP behind a proxy
             return $matches[0];
@@ -70,11 +75,17 @@ function PMA_getIp()
 function PMA_ipMaskTest($testRange, $ipToTest)
 {
     $result = true;
-
-    if (preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs)) {
+    $match = preg_match(
+        '|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|',
+        $testRange,
+        $regs
+    );
+    if ($match) {
         // performs a mask match
         $ipl    = ip2long($ipToTest);
-        $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);
+        $rangel = ip2long(
+            $regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]
+        );
 
         $maskl  = 0;
 

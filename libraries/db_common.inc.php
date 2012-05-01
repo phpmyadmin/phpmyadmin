@@ -46,8 +46,11 @@ if (! isset($is_db) || ! $is_db) {
         }
     }
     // Not a valid db name -> back to the welcome page
+    $uri = $cfg['PmaAbsoluteUri'] . 'main.php?'
+        . PMA_generate_common_url('', '', '&')
+        . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (! strlen($db) || ! $is_db) {
-        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        PMA_sendHeaderLocation($uri);
         exit;
     }
 } // end if (ensures db exists)
@@ -57,7 +60,8 @@ if (! isset($is_db) || ! $is_db) {
  */
 if (isset($submitcollation) && !empty($db_collation)) {
     list($db_charset) = explode('_', $db_collation);
-    $sql_query        = 'ALTER DATABASE ' . PMA_backquote($db) . ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
+    $sql_query        = 'ALTER DATABASE ' . PMA_backquote($db) . ' DEFAULT'
+        . PMA_generateCharsetQueryPart($db_collation);
     $result           = PMA_DBI_query($sql_query);
     $message          = PMA_Message::success();
     unset($db_charset, $db_collation);

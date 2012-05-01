@@ -197,8 +197,8 @@ function PMA_securePath($path)
  *
  * loads language file if not loaded already
  *
- * @param string       $error_message the error message or named error message
- * @param string|array $message_args  arguments applied to $error_message
+ * @param string       $error_message  the error message or named error message
+ * @param string|array $message_args   arguments applied to $error_message
  * @param boolean      $delete_session whether to delete session cookie
  *
  * @return exit
@@ -226,7 +226,10 @@ function PMA_fatalError($error_message, $message_args = null, $delete_session = 
     $error = $error_message;
 
     // on fatal errors it cannot hurt to always delete the current session
-    if ($delete_session && isset($GLOBALS['session_name']) && isset($_COOKIE[$GLOBALS['session_name']])) {
+    if ($delete_session
+        && isset($GLOBALS['session_name'])
+        && isset($_COOKIE[$GLOBALS['session_name']])
+    ) {
         $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
     }
 
@@ -380,12 +383,16 @@ function PMA_array_merge_recursive()
         }
         foreach ($args[1] as $key2 => $value2) {
             if (isset($args[0][$key2]) && !is_int($key2)) {
-                $args[0][$key2] = PMA_array_merge_recursive($args[0][$key2], $value2);
+                $args[0][$key2] = PMA_array_merge_recursive(
+                    $args[0][$key2], $value2
+                );
             } else {
-                // we erase the parent array, otherwise we cannot override a directive that
-                // contains array elements, like this:
-                // (in config.default.php) $cfg['ForeignKeyDropdownOrder'] = array('id-content','content-id');
-                // (in config.inc.php) $cfg['ForeignKeyDropdownOrder'] = array('content-id');
+                // we erase the parent array, otherwise we cannot override
+                // a directive that contains array elements, like this:
+                // (in config.default.php)
+                // $cfg['ForeignKeyDropdownOrder']= array('id-content','content-id');
+                // (in config.inc.php)
+                // $cfg['ForeignKeyDropdownOrder']= array('content-id');
                 if (is_int($key2) && $key2 == 0) {
                     unset($args[0]);
                 }
@@ -544,7 +551,10 @@ function PMA_sendHeaderLocation($uri)
                     debug_print_backtrace();
                     echo '</pre>';
                 }
-                trigger_error('PMA_sendHeaderLocation called when headers are already sent!', E_USER_ERROR);
+                trigger_error(
+                    'PMA_sendHeaderLocation called when headers are already sent!',
+                    E_USER_ERROR
+                );
             }
             // bug #1523784: IE6 does not like 'Refresh: 0', it
             // results in a blank page
@@ -782,7 +792,8 @@ function PMA_AddJSCode($str)
  *
  * @param string $key    Name of value to set
  * @param mixed  $value  Value to set, can be either string or array of strings
- * @param bool   $escape Whether to escape value or keep it as it is (for inclusion of js code)
+ * @param bool   $escape Whether to escape value or keep it as it is
+ *                       (for inclusion of js code)
  *
  * @return void
  */
