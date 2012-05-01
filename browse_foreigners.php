@@ -36,7 +36,10 @@ if (isset($foreign_navig) && $foreign_navig == __('Show all')) {
     unset($foreign_limit);
 }
 
-$foreignData = PMA_getForeignData($foreigners, $field, $override_total, isset($foreign_filter) ? $foreign_filter : '', $foreign_limit);
+$foreignData = PMA_getForeignData(
+    $foreigners, $field, $override_total,
+    isset($foreign_filter) ? $foreign_filter : '', $foreign_limit
+);
 
 if (isset($rownumber)) {
     $rownumber_param = '&amp;rownumber=' . urlencode($rownumber);
@@ -49,8 +52,11 @@ $showall = '';
 
 if (is_array($foreignData['disp_row'])) {
 
-    if ($cfg['ShowAll'] && ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows'])) {
-        $showall = '<input type="submit" name="foreign_navig" value="' . __('Show all') . '" />';
+    if ($cfg['ShowAll']
+        && ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows'])
+    ) {
+        $showall = '<input type="submit" name="foreign_navig" value="'
+                 . __('Show all') . '" />';
     }
 
     $session_max_rows = $GLOBALS['cfg']['MaxRows'];
@@ -72,8 +78,11 @@ if (is_array($foreignData['disp_row'])) {
     }
 }
 ?>
+<?php
+$current_language = $available_languages[$lang][1]; 
+?>
 <!DOCTYPE HTML>
-<html lang="<?php echo $available_languages[$lang][1]; ?>" dir="<?php echo $text_dir; ?>">
+<html lang="<?php echo $current_language;  ?>" dir="<?php echo $text_dir; ?>">
 
 <head>
     <title>phpMyAdmin</title>
@@ -236,7 +245,8 @@ if (is_array($foreignData['disp_row'])) {
         $val_ordered_current_row++;
 
         if (PMA_strlen($val_ordered_current_val) <= $cfg['LimitChars']) {
-            $val_ordered_current_val = htmlspecialchars($val_ordered_current_val);
+            $val_ordered_current_val
+                = htmlspecialchars($val_ordered_current_val);
             $val_ordered_current_val_title = '';
         } else {
             $val_ordered_current_val_title
@@ -247,14 +257,16 @@ if (is_array($foreignData['disp_row'])) {
             );
         }
         if (PMA_strlen($key_ordered_current_val) <= $cfg['LimitChars']) {
-            $key_ordered_current_val = htmlspecialchars($key_ordered_current_val);
+            $key_ordered_current_val
+                = htmlspecialchars($key_ordered_current_val);
             $key_ordered_current_val_title = '';
         } else {
             $key_ordered_current_val_title
                 = htmlspecialchars($key_ordered_current_val);
             $key_ordered_current_val
                 = htmlspecialchars(
-                    PMA_substr($key_ordered_current_val, 0, $cfg['LimitChars']) . '...'
+                    PMA_substr($key_ordered_current_val, 0, $cfg['LimitChars'])
+                    . '...'
                 );
         }
 
@@ -268,19 +280,24 @@ if (is_array($foreignData['disp_row'])) {
         <td class="nowrap">
         <?php
         echo ($key_ordered_current_equals_data ? '<strong>' : '')
-            .'<a href="#" title="' . __('Use this value')
+            . '<a href="#" title="' . __('Use this value')
             . ($key_ordered_current_val_title != '' ? ': ' . $key_ordered_current_val_title : '') . '"'
-            .' onclick="formupdate(\'' . md5($field) . '\', \''
+            . ' onclick="formupdate(\'' . md5($field) . '\', \''
             . PMA_jsFormat($key_ordered_current_key, false) . '\'); return false;">'
-            .htmlspecialchars($key_ordered_current_key) . '</a>' . ($key_ordered_current_equals_data ? '</strong>' : '');
+            . htmlspecialchars($key_ordered_current_key)
+            . '</a>' . ($key_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
         <td>
         <?php
         echo ($key_ordered_current_equals_data ? '<strong>' : '')
-            . '<a href="#" title="' . __('Use this value') . ($key_ordered_current_val_title != '' ? ': '
+            . '<a href="#" title="' . __('Use this value')
+            . ($key_ordered_current_val_title != '' ? ': '
             . $key_ordered_current_val_title : '') . '" onclick="formupdate(\''
-            . md5($field) . '\', \'' . PMA_jsFormat($key_ordered_current_key, false) . '\'); return false;">'
-            . $key_ordered_current_val . '</a>' . ($key_ordered_current_equals_data ? '</strong>' : '');
+            . md5($field) . '\', \''
+            . PMA_jsFormat($key_ordered_current_key, false)
+            . '\'); return false;">'
+            . $key_ordered_current_val . '</a>'
+            . ($key_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
         <td width="20%">
             <img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>"
@@ -289,17 +306,22 @@ if (is_array($foreignData['disp_row'])) {
         <td>
         <?php
         echo ($val_ordered_current_equals_data ? '<strong>' : '')
-            . '<a href="#" title="' . __('Use this value') .  ($val_ordered_current_val_title != '' ? ': '
-            . $val_ordered_current_val_title : '') . '" onclick="formupdate(\'' . md5($field)
-            . '\', \'' . PMA_jsFormat($val_ordered_current_key, false) . '\'); return false;">'
-            . $val_ordered_current_val . '</a>' . ($val_ordered_current_equals_data ? '</strong>' : '');
+            . '<a href="#" title="' . __('Use this value')
+            .  ($val_ordered_current_val_title != '' ? ': '
+            . $val_ordered_current_val_title : '') . '" onclick="formupdate(\''
+            . md5($field) . '\', \''
+            . PMA_jsFormat($val_ordered_current_key, false)
+            . '\'); return false;">'
+            . $val_ordered_current_val . '</a>'
+            . ($val_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
         <td class="nowrap">
         <?php
         echo ($val_ordered_current_equals_data ? '<strong>' : '') . '<a href="#" title="'
-        . __('Use this value') .  ($val_ordered_current_val_title != '' ? ': ' . $val_ordered_current_val_title : '')
+        . __('Use this value') . ($val_ordered_current_val_title != '' ? ': ' . $val_ordered_current_val_title : '')
         . '" onclick="formupdate(\'' . md5($field) . '\', \''
-        . PMA_jsFormat($val_ordered_current_key, false) . '\'); return false;">' . htmlspecialchars($val_ordered_current_key)
+        . PMA_jsFormat($val_ordered_current_key, false) . '\'); return false;">'
+        . htmlspecialchars($val_ordered_current_key)
         . '</a>' . ($val_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
     </tr>
