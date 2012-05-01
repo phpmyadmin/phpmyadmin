@@ -436,6 +436,9 @@ if (isset($plugin_list)) {
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
      * @param string $error_url   the url to go back in case of error
+     * @param string $export_mode 'create_table', 'triggers', 'create_view',
+     *                            'stand_in'
+     * @param string $export_type 'server', 'database', 'table'
      * @param bool   $do_relation whether to include relation comments
      * @param bool   $do_comments whether to include the pmadb-style column
      *                                comments as comments in the structure;
@@ -445,9 +448,6 @@ if (isset($plugin_list)) {
      *                                export types which use this parameter
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
-     * @param string $export_mode 'create_table', 'triggers', 'create_view',
-     *                            'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
      *
      * @return bool Whether it succeeded
      *
@@ -458,12 +458,12 @@ if (isset($plugin_list)) {
         $table,
         $crlf,
         $error_url,
+        $export_mode,
+        $export_type,
         $do_relation = false,
         $do_comments = false,
         $do_mime = false,
-        $dates = false,
-        $export_mode,
-        $export_type
+        $dates = false
     ) {
         $dump = '';
 
