@@ -200,9 +200,9 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                         }
                     }
                 }
+                echo '<div class="clearfloat"></div>';
+                echo '</div>';
             }
-            echo '<div class="clearfloat"></div>';
-            echo '</div>';
         }
         /**
          * Sets a variable to remember headers have been sent
