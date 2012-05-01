@@ -18,46 +18,48 @@ if (isset($plugin_list)) {
         'text' => __('Texy! text'),
         'extension' => 'txt',
         'mime_type' => 'text/plain',
-        'options' => array(
-            /* what to dump (structure/data/both) */
-            array(
-                'type' => 'begin_group',
-                'text' => __('Dump table'),
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'radio',
-                'name' => 'structure_or_data',
-                'values' => array(
-                    'structure' => __('structure'),
-                    'data' => __('data'),
-                    'structure_and_data' => __('structure and data')
-                )
-            ),
-            array(
-                'type' => 'end_group'
-            ),
-            array(
-                'type' => 'begin_group', 
-                'name' => 'data',
-                'text' => __('Data dump options'),
-                'force' => 'structure'
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'null',
-                'text' => __('Replace NULL by')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'columns',
-                'text' => __('Put columns names in the first row')
-            ),
-            array(
-                'type' => 'end_group'
-            ),
+        'options' => array(),
+        'options_text' => __('Options')
+    );
+
+    $plugin_list['texytext']['options'][] = array(
+        /* what to dump (structure/data/both) */
+        array(
+            'type' => 'begin_group',
+            'text' => __('Dump table'),
+            'name' => 'general_opts'
         ),
-        'options_text' => __('Options'),
+        array(
+            'type' => 'radio',
+            'name' => 'structure_or_data',
+            'values' => array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        ),
+        array(
+            'type' => 'end_group'
+        ),
+        array(
+            'type' => 'begin_group', 
+            'name' => 'data',
+            'text' => __('Data dump options'),
+            'force' => 'structure'
+        ),
+        array(
+            'type' => 'text',
+            'name' => 'null',
+            'text' => __('Replace NULL by')
+        ),
+        array(
+            'type' => 'bool',
+            'name' => 'columns',
+            'text' => __('Put columns names in the first row')
+        ),
+        array(
+            'type' => 'end_group'
+        )
     );
 } else {
 

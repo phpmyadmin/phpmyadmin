@@ -18,20 +18,22 @@ if (isset($plugin_list)) {
         'text' => 'JSON',
         'extension' => 'json',
         'mime_type' => 'text/plain',
-        'options' => array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data',
-            ),
-            array(
-                'type' => 'end_group'
-            )
+        'options' => array(),
+        'options_text' => __('Options')
+    );
+
+    $plugin_list['json']['options'][] = array(
+        array(
+            'type' => 'begin_group',
+            'name' => 'general_opts'
         ),
-        'options_text' => __('Options'),
+        array(
+            'type' => 'hidden',
+            'name' => 'structure_or_data',
+        ),
+        array(
+            'type' => 'end_group'
+        )
     );
 } else {
 

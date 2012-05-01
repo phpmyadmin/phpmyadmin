@@ -27,23 +27,24 @@ if (isset($plugin_list)) {
         'text' => __('LaTeX'),
         'extension' => 'tex',
         'mime_type' => 'application/x-tex',
-        'options' => array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'caption',
-                'text' => __('Include table caption')
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        ),
-        'options_text' => __('Options'),
+        'options' => array(),
+        'options_text' => __('Options')
     );
 
+    $plugin_list['latex']['options'][] = array(
+        array(
+            'type' => 'begin_group',
+            'name' => 'general_opts'
+        ),
+        array(
+            'type' => 'bool',
+            'name' => 'caption',
+            'text' => __('Include table caption')
+        ),
+        array(
+            'type' => 'end_group'
+        )
+    );
     /* what to dump (structure/data/both) */
     $plugin_list['latex']['options'][] = array(
         'type' => 'begin_group',

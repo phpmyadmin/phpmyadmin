@@ -19,20 +19,22 @@ if (isset($plugin_list)) {
         'text' => __('XML'),
         'extension' => 'xml',
         'mime_type' => 'text/xml',
-        'options' => array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data'
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        ),
+        'options' => array(),
         'options_text' => __('Options')
+    );
+
+    $plugin_list['xml']['options'][] = array(
+        array(
+            'type' => 'begin_group',
+            'name' => 'general_opts'
+        ),
+        array(
+            'type' => 'hidden',
+            'name' => 'structure_or_data'
+        ),
+        array(
+            'type' => 'end_group'
+        )
     );
 
     /* Export structure */

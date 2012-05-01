@@ -27,7 +27,8 @@ if (isset($plugin_list)) {
             'text' => __('SQL'),
             'extension' => 'sql',
             'mime_type' => 'text/x-sql',
-            'options' => array()
+            'options' => array(),
+            'options_text' => __('Options')
         );
 
         $plugin_list['sql']['options'][] = array(
@@ -102,8 +103,6 @@ if (isset($plugin_list)) {
                 'sysvar_foreign_key_checks'
             )
         );
-
-        $plugin_list['sql']['options_text'] = __('Options');
 
         /* compatibility maximization */
         $compats = PMA_DBI_getCompatibilities();

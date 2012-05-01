@@ -19,7 +19,11 @@ if (isset($plugin_list)) {
         'text' => __('CSV'),
         'extension' => 'csv',
         'mime_type' => 'text/comma-separated-values',
-        'options' => array(
+        'options' => array(),
+        'options_text' => __('Options')
+    );
+
+    $plugin_list['csv']['options'][] = array(
             array(
                 'type' => 'begin_group',
                 'name' => 'general_opts'
@@ -57,9 +61,7 @@ if (isset($plugin_list)) {
             array('type' => 'hidden',
                 'name' => 'structure_or_data'
             ),
-            array('type' => 'end_group'),
-        ),
-        'options_text' => __('Options')
+            array('type' => 'end_group')
     );
 } else {
 

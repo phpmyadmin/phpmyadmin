@@ -25,8 +25,8 @@ if (isset($plugin_list)) {
         'extension' => 'odt',
         'mime_type' => 'application/vnd.oasis.opendocument.text',
         'force_file' => true,
-        'options' => array(), /* Filled later */
-        'options_text' => __('Options'),
+        'options' => array(),
+        'options_text' => __('Options')
     );
 
     /* what to dump (structure/data/both) */

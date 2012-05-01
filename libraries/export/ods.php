@@ -19,30 +19,32 @@ if (isset($plugin_list)) {
         'extension' => 'ods',
         'mime_type' => 'application/vnd.oasis.opendocument.spreadsheet',
         'force_file' => true,
-        'options' => array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'null',
-                'text' => __('Replace NULL with:')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'columns',
-                'text' => __('Put columns names in the first row')
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data'
-            ),
-            array(
-                'type' => 'end_group'
-            ),
+        'options' => array(),
+        'options_text' => __('Options')
+    );
+
+    $plugin_list['ods']['options'][] = array(
+        array(
+            'type' => 'begin_group',
+            'name' => 'general_opts'
         ),
-        'options_text' => __('Options'),
+        array(
+            'type' => 'text',
+            'name' => 'null',
+            'text' => __('Replace NULL with:')
+        ),
+        array(
+            'type' => 'bool',
+            'name' => 'columns',
+            'text' => __('Put columns names in the first row')
+        ),
+        array(
+            'type' => 'hidden',
+            'name' => 'structure_or_data'
+        ),
+        array(
+            'type' => 'end_group'
+        )
     );
 } else {
 

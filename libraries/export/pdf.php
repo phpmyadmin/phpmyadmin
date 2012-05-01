@@ -19,32 +19,34 @@ if (isset($plugin_list)) {
         'extension' => 'pdf',
         'mime_type' => 'application/pdf',
         'force_file' => true,
-        'options' => array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'message_only',
-                'name' => 'explanation',
-                'text' => __(
-                    '(Generates a report containing the data of a single table)'
-                )
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'report_title',
-                'text' => __('Report title:')
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data'
-            ),
-            array(
-                'type' => 'end_group'
+        'options' => array(),
+        'options_text' => __('Options')
+    );
+
+    $plugin_list['pdf']['options'][] = array(
+        array(
+            'type' => 'begin_group',
+            'name' => 'general_opts'
+        ),
+        array(
+            'type' => 'message_only',
+            'name' => 'explanation',
+            'text' => __(
+                '(Generates a report containing the data of a single table)'
             )
         ),
-        'options_text' => __('Options'),
+        array(
+            'type' => 'text',
+            'name' => 'report_title',
+            'text' => __('Report title:')
+        ),
+        array(
+            'type' => 'hidden',
+            'name' => 'structure_or_data'
+        ),
+        array(
+            'type' => 'end_group'
+        )
     );
 } else {
 

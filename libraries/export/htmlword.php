@@ -19,48 +19,50 @@ if (isset($plugin_list)) {
         'extension' => 'doc',
         'mime_type' => 'application/vnd.ms-word',
         'force_file' => true,
-        'options' => array(
-            /* what to dump (structure/data/both) */
-            array(
-                'type' => 'begin_group',
-                'name' => 'dump_what',
-                'text' => __('Dump table')
-            ),
-            array(
-                'type' => 'radio',
-                'name' => 'structure_or_data',
-                'values' => array(
-                    'structure' => __('structure'),
-                    'data' => __('data'),
-                    'structure_and_data' => __('structure and data')
-                )
-            ),
-            array(
-                'type' => 'end_group'
-            ),
+        'options' => array(),
+        'options_text' => __('Options')
+    );
 
-            /* data options */
-            array(
-                'type' => 'begin_group',
-                'name' => 'data',
-                'text' => __('Data dump options'),
-                'force' => 'structure'
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'null',
-                'text' => __('Replace NULL with:')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'columns',
-                'text' => __('Put columns names in the first row')
-            ),
-            array(
-                'type' => 'end_group'
-            ),
+    $plugin_list['htmlword']['options'][] = array(
+        /* what to dump (structure/data/both) */
+        array(
+            'type' => 'begin_group',
+            'name' => 'dump_what',
+            'text' => __('Dump table')
         ),
-        'options_text' => __('Options'),
+        array(
+            'type' => 'radio',
+            'name' => 'structure_or_data',
+            'values' => array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        ),
+        array(
+            'type' => 'end_group'
+        ),
+
+        /* data options */
+        array(
+            'type' => 'begin_group',
+            'name' => 'data',
+            'text' => __('Data dump options'),
+            'force' => 'structure'
+        ),
+        array(
+            'type' => 'text',
+            'name' => 'null',
+            'text' => __('Replace NULL with:')
+        ),
+        array(
+            'type' => 'bool',
+            'name' => 'columns',
+            'text' => __('Put columns names in the first row')
+        ),
+        array(
+            'type' => 'end_group'
+        )
     );
 } else {
 
