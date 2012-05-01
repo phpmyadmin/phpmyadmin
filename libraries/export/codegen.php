@@ -69,9 +69,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {
@@ -81,9 +81,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportHeader()
     {
@@ -93,11 +93,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBHeader($db)
     {
@@ -107,11 +107,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBFooter($db)
     {
@@ -121,11 +121,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBCreate($db)
     {
@@ -135,15 +135,15 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
@@ -158,8 +158,9 @@ if (isset($plugin_list)) {
     }
 
     /**
-     *
-     * @package PhpMyAdmin-Export
+     * TableProperty class
+     * 
+     * @package    PhpMyAdmin-Export
      * @subpackage Codegen
      */
     class TableProperty
@@ -428,19 +429,19 @@ if (isset($plugin_list)) {
                 if ($tableProperty->isPK()) {
                     $lines[] = $tableProperty->formatXml(
                         '        <id name="#ucfirstName#" type="#dotNetObjectType#"'
-                            . ' unsaved-value="0">' . "\n"
+                        . ' unsaved-value="0">' . "\n"
                         . '            <column name="#name#" sql-type="#type#"'
-                            . ' not-null="#notNull#" unique="#unique#"'
-                            . ' index="PRIMARY"/>' . "\n"
+                        . ' not-null="#notNull#" unique="#unique#"'
+                        . ' index="PRIMARY"/>' . "\n"
                         . '            <generator class="native" />' . "\n"
                         . '        </id>'
                     );
                 } else {
                     $lines[] = $tableProperty->formatXml(
                         '        <property name="#ucfirstName#"'
-                            . ' type="#dotNetObjectType#">' . "\n"
+                        . ' type="#dotNetObjectType#">' . "\n"
                         . '            <column name="#name#" sql-type="#type#"'
-                            . ' not-null="#notNull#" #indexName#/>' . "\n"
+                        . ' not-null="#notNull#" #indexName#/>' . "\n"
                         . '        </property>'
                     );
                 }
