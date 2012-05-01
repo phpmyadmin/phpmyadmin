@@ -20,14 +20,30 @@ if (isset($plugin_list)) {
         'mime_type' => 'application/vnd.oasis.opendocument.spreadsheet',
         'force_file' => true,
         'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
-            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:')),
-            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
-            array('type' => 'hidden', 'name' => 'structure_or_data'),
-            array('type' => 'end_group'),
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
             ),
+            array(
+                'type' => 'text',
+                'name' => 'null',
+                'text' => __('Replace NULL with:')
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'columns',
+                'text' => __('Put columns names in the first row')
+            ),
+            array(
+                'type' => 'hidden',
+                'name' => 'structure_or_data'
+            ),
+            array(
+                'type' => 'end_group'
+            ),
+        ),
         'options_text' => __('Options'),
-        );
+    );
 } else {
 
     $GLOBALS['ods_buffer'] = '';
@@ -45,7 +61,12 @@ if (isset($plugin_list)) {
         $GLOBALS['ods_buffer'] .= '</office:spreadsheet>'
             . '</office:body>'
             . '</office:document-content>';
-        if (! PMA_exportOutputHandler(PMA_createOpenDocument('application/vnd.oasis.opendocument.spreadsheet', $GLOBALS['ods_buffer']))) {
+        if (! PMA_exportOutputHandler(
+            PMA_createOpenDocument(
+                'application/vnd.oasis.opendocument.spreadsheet',
+                $GLOBALS['ods_buffer'])
+            )
+        ) {
             return false;
         }
         return true;
@@ -61,9 +82,11 @@ if (isset($plugin_list)) {
     function PMA_exportHeader()
     {
         $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
-            . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
+            . '<office:document-content '
+                . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
             . '<office:automatic-styles>'
-                . '<number:date-style style:name="N37" number:automatic-order="true">'
+                . '<number:date-style style:name="N37"'
+                    .' number:automatic-order="true">'
                 . '<number:month number:style="long"/>'
                 . '<number:text>/</number:text>'
                 . '<number:day number:style="long"/>'
@@ -79,7 +102,9 @@ if (isset($plugin_list)) {
                 . '<number:text> </number:text>'
                 . '<number:am-pm/>'
               . '</number:time-style>'
-              . '<number:date-style style:name="N50" number:automatic-order="true" number:format-source="language">'
+              . '<number:date-style style:name="N50"'
+                    . ' number:automatic-order="true"'
+                    . ' number:format-source="language">'
                 . '<number:month/>'
                 . '<number:text>/</number:text>'
                 . '<number:day/>'
@@ -92,9 +117,12 @@ if (isset($plugin_list)) {
                 . '<number:text> </number:text>'
                 . '<number:am-pm/>'
               . '</number:date-style>'
-              . '<style:style style:name="DateCell" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N37"/>'
-              . '<style:style style:name="TimeCell" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N43"/>'
-              . '<style:style style:name="DateTimeCell" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N50"/>'
+              . '<style:style style:name="DateCell" style:family="table-cell"'
+                . ' style:parent-style-name="Default" style:data-style-name="N37"/>'
+              . '<style:style style:name="TimeCell" style:family="table-cell"'
+                . ' style:parent-style-name="Default" style:data-style-name="N43"/>'
+              . '<style:style style:name="DateTimeCell" style:family="table-cell"'
+                . ' style:parent-style-name="Default" style:data-style-name="N50"/>'
             . '</office:automatic-styles>'
             . '<office:body>'
             . '<office:spreadsheet>';
@@ -169,14 +197,20 @@ if (isset($plugin_list)) {
             $field_flags[$j] = PMA_DBI_field_flags($result, $j);
         }
 
-        $GLOBALS['ods_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '">';
+        $GLOBALS['ods_buffer'] .= 
+            '<table:table table:name="' . htmlspecialchars($table) . '">';
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$what . '_columns'])) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($i = 0; $i < $fields_cnt; $i++) {
-                $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
-                    . '<text:p>' . htmlspecialchars(stripslashes(PMA_DBI_field_name($result, $i))) . '</text:p>'
+                $GLOBALS['ods_buffer'] .= 
+                    '<table:table-cell office:value-type="string">'
+                    . '<text:p>'
+                    . htmlspecialchars(
+                        stripslashes(PMA_DBI_field_name($result, $i))
+                    )
+                    . '</text:p>'
                     . '</table:table-cell>';
             } // end for
             $GLOBALS['ods_buffer'] .= '</table:table-row>';
@@ -187,34 +221,66 @@ if (isset($plugin_list)) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || is_null($row[$j])) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
-                        . '<text:p>' . htmlspecialchars($GLOBALS[$what . '_null']) . '</text:p>'
+                    $GLOBALS['ods_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
+                        . '<text:p>'
+                        . htmlspecialchars($GLOBALS[$what . '_null'])
+                        . '</text:p>'
                         . '</table:table-cell>';
                 // ignore BLOB
                 } elseif (stristr($field_flags[$j], 'BINARY')
                         && $fields_meta[$j]->blob) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['ods_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 } elseif ($fields_meta[$j]->type == "date") {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="date" office:date-value="' . date("Y-m-d", strtotime($row[$j])) . '" table:style-name="DateCell">'
-                        . '<text:p>' . htmlspecialchars($row[$j]) . '</text:p>'
+                    $GLOBALS['ods_buffer'] .=
+                        '<table:table-cell office:value-type="date"'
+                            . ' office:date-value="'
+                            . date("Y-m-d", strtotime($row[$j]))
+                            . '" table:style-name="DateCell">'
+                        . '<text:p>'
+                        . htmlspecialchars($row[$j])
+                        . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fields_meta[$j]->type == "time") {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="time" office:time-value="' . date("\P\TH\Hi\Ms\S", strtotime($row[$j])) . '" table:style-name="TimeCell">'
-                        . '<text:p>' . htmlspecialchars($row[$j]) . '</text:p>'
+                    $GLOBALS['ods_buffer'] .=
+                        '<table:table-cell office:value-type="time"'
+                            . ' office:time-value="'
+                            . date("\P\TH\Hi\Ms\S", strtotime($row[$j]))
+                            . '" table:style-name="TimeCell">'
+                        . '<text:p>'
+                        . htmlspecialchars($row[$j])
+                        . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fields_meta[$j]->type == "datetime") {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="date" office:date-value="' . date("Y-m-d\TH:i:s", strtotime($row[$j])) . '" table:style-name="DateTimeCell">'
-                        . '<text:p>' . htmlspecialchars($row[$j]) . '</text:p>'
+                    $GLOBALS['ods_buffer'] .=
+                        '<table:table-cell office:value-type="date"'
+                            . ' office:date-value="'
+                            . date("Y-m-d\TH:i:s", strtotime($row[$j]))
+                            . '" table:style-name="DateTimeCell">'
+                        . '<text:p>'
+                        . htmlspecialchars($row[$j])
+                        . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->numeric && $fields_meta[$j]->type != 'timestamp' && ! $fields_meta[$j]->blob) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="float" office:value="' . $row[$j] . '" >'
-                        . '<text:p>' . htmlspecialchars($row[$j]) . '</text:p>'
+                } elseif ($fields_meta[$j]->numeric
+                    && $fields_meta[$j]->type != 'timestamp'
+                    && ! $fields_meta[$j]->blob
+                ) {
+                    $GLOBALS['ods_buffer'] .=
+                        '<table:table-cell office:value-type="float"'
+                            . ' office:value="' . $row[$j] . '" >'
+                        . '<text:p>'
+                        . htmlspecialchars($row[$j])
+                        . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
-                        . '<text:p>' . htmlspecialchars($row[$j]) . '</text:p>'
+                    $GLOBALS['ods_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
+                        . '<text:p>'
+                        . htmlspecialchars($row[$j])
+                        . '</text:p>'
                         . '</table:table-cell>';
                 }
             } // end for
