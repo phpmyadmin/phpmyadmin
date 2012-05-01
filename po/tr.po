@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-27 13:04-0400\n"
-"PO-Revision-Date: 2012-04-27 18:39+0200\n"
+"POT-Creation-Date: 2012-05-01 17:54+0200\n"
+"PO-Revision-Date: 2012-04-28 11:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -608,8 +608,8 @@ msgstr "İzleme aktif değil."
 #: db_structure.php:525 libraries/display_tbl.lib.php:2363
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
@@ -924,8 +924,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınıra çözüm yolu "
 "bulmak için %sbelgeden%s yararlanın."
@@ -1408,8 +1408,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log etkinleştirildi ama sunucu sadece %d saniyeden daha uzun "
-"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak 0-"
-"2 saniyeye ayarlanması tavsiye edilir."
+"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak "
+"0-2 saniyeye ayarlanması tavsiye edilir."
 
 #: js/messages.php:150
 #, php-format
@@ -2053,8 +2053,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm %"
-"s, %s tarihinde yayınlandı."
+"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm "
+"%s, %s tarihinde yayınlandı."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:376
@@ -2333,21 +2333,17 @@ msgstr "'%s' kuralı için önkoşul değerlendirmesi başarısız"
 #: libraries/Advisor.class.php:100
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "'%s' kuralı için değer hesaplaması başarısız"
 
 #: libraries/Advisor.class.php:116
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "'%s' kuralı için çalıştırılan deneme başarısız"
 
 #: libraries/Advisor.class.php:193
-#, fuzzy, php-format
-#| msgid ""
-#| "Failed formatting string for rule '%s'. PHP threw following error: %s"
+#, php-format
 msgid "Failed formatting string for rule '%s'"
-msgstr ""
-"'%s' kuralı için dizgi biçimlendirme başarısız. PHP aşağıdaki hatayı "
-"yöneltti: %s"
+msgstr "'%s' kuralı için dizgi biçimlendirme başarısız"
 
 #: libraries/Advisor.class.php:365 server_status.php:963
 msgid "per second"
@@ -2683,20 +2679,20 @@ msgstr ""
 
 #: libraries/Types.class.php:295
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Küçük kayan noktalı bir sayı, izin verilebilir değerler -3.402823466E+38'den "
 "-1.175494351E-38'e, 0 ve 1.175494351E-38'den 3.402823466E+38'e kadardır"
 
 #: libraries/Types.class.php:297
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler -"
-"1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
+"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler "
+"-1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
 "2.2250738585072014E-308'den 1.7976931348623157E+308'e kadardır"
 
 #: libraries/Types.class.php:299
@@ -2740,17 +2736,12 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Bir tarih ve saat birleşimi, desteklenen aralık '%s' ile '%s' arası"
 
 #: libraries/Types.class.php:311
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' "
-#| "UTC, stored as the number of seconds since the epoch ('1970-01-01 "
-#| "00:00:00' UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Bir zaman damgası, aralığı '1970-01-01 00:00:01' UTC ile '2038-01-09 "
-"03:14:07' UTC arası, devirden ('1970-01-01 00:00:00' UTC) bu yana saniye "
+"Bir zaman damgası, aralığı \"1970-01-01 00:00:01\" UTC ile \"2038-01-09 "
+"03:14:07\" UTC arası, devirden (\"1970-01-01 00:00:00\" UTC) bu yana saniye "
 "sayısı olarak saklanır"
 
 #: libraries/Types.class.php:313
@@ -2773,6 +2764,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Saklandığında belirlenmiş uzunluğa sağdan takviyeli boşluklu sabit uzunluk "
+"(0-255, varsayılan 1) dizgisi"
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:724
 #, php-format
@@ -2780,24 +2773,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Değişken uzunluk (%s) dizgisi, en fazla satır boyutu etkili en fazla uzunluk "
+"konusudur"
 
 #: libraries/Types.class.php:321
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En fazla 255 (2^8 - 1) karakter uzunluğunda bir TEXT sütunu, bayt'larda "
+"değerin uzunluğunu gösteren bir-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:323 libraries/Types.class.php:726
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En fazla 65,535 (2^16 - 1) karakter uzunluğunda bir TEXT sütunu, bayt'larda "
+"değerin uzunluğunu gösteren iki-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:325
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En fazla 16,777,215 (2^24 - 1) karakter uzunluğunda bir TEXT sütunu, "
+"bayt'larda değerin uzunluğunu gösteren üç-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:327
 msgid ""
@@ -2805,130 +2806,143 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"En fazla 4,294,967,295 veya 4GiB (2^32 - 1) karakter uzunluğunda bir TEXT "
+"sütunu, bayt'larda değerin uzunluğunu gösteren dört-bayt'lık bir ön ek ile "
+"saklanır"
 
 #: libraries/Types.class.php:329
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"CHAR türü benzeridir ama binari olmayan karakter dizgileri yerine binari "
+"bayt dizgilerini saklar"
 
 #: libraries/Types.class.php:331
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"VARCHAR türü benzeridir ama binari olmayan karakter dizgileri yerine binari "
+"bayt dizgilerini saklar"
 
 #: libraries/Types.class.php:333
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 255 (2^8 - 1) bayt uzunluğunda bir BLOB sütunu, değerin uzunluğunu "
+"gösteren bir-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:335
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 16,777,215 (2^24 - 1) bayt uzunluğunda bir BLOB sütunu, değerin "
+"uzunluğunu gösteren üç-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:337
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 65,535 (2^16 - 1) bayt uzunluğunda bir BLOB sütunu, değerin "
+"uzunluğunu gösteren iki-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 4,294,967,295 veya 4GiB (2^32 - 1) bayt uzunluğunda bir BLOB "
+"sütunu, değerin uzunluğunu gösteren dört-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:341
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Bir numaralandırma, 65,535 değerine kadar olan listeden seçilir ya da özel "
+"\" hata değeridir"
 
 #: libraries/Types.class.php:343
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "64 üyeye kadar olan bir gruptan seçilen tek bir değerdir"
 
 #: libraries/Types.class.php:345
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Herhangi bir türün geometrisini saklayabilen bir tür"
 
 #: libraries/Types.class.php:347
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "2-boyutlu uzayda bir nokta"
 
 #: libraries/Types.class.php:349
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Noktalar arasındaki doğrusal eklentili bir eğri"
 
 #: libraries/Types.class.php:351
-#, fuzzy
-#| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Poligon ekle"
+msgstr "Poligon"
 
 #: libraries/Types.class.php:353
 msgid "A collection of points"
-msgstr ""
+msgstr "Noktalar topluluğu"
 
 #: libraries/Types.class.php:355
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Noktalar arasındaki doğrusal eklentili bir eğri topluluğu"
 
 #: libraries/Types.class.php:357
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Poligonlar topluluğu"
 
 #: libraries/Types.class.php:359
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Herhangi bir türün geometri nesneleri topluluğu"
 
 #: libraries/Types.class.php:702
-#, fuzzy
-#| msgid ""
-#| "A normal-size integer. The signed range is -2,147,483,648 to "
-#| "2,147,483,647. The unsigned range is 0 to 4,294,967,295."
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
 msgstr ""
-"Normal boyutta bir tamsayı. İşaretli aralığı -2,147,483,648'den "
-"2,147,483,647'ye dir. İşaretsiz aralığı 0'dan 4,294,967,295'e dir."
+"4-bayt'lık bir tamsayı, aralığı -2,147,483,648'den 2,147,483,647'ye kadardır"
 
 #: libraries/Types.class.php:704
-#, fuzzy
-#| msgid ""
-#| "A large integer. The signed range is -9,223,372,036,854,775,808 to "
-#| "9,223,372,036,854,775,807. The unsigned range is 0 to "
-#| "18,446,744,073,709,551,615."
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
-"Büyük bir tamsayı. İşaretli aralığı -9,223,372,036,854,775,808'den "
-"9,223,372,036,854,775,807'ye dir. İşaretsiz aralığı 0'dan "
-"18,446,744,073,709,551,615'e dir."
+"8-bayt'lık bir tamsayı, aralığı -9,223,372,036,854,775,808'den "
+"9,223,372,036,854,775,807'ye kadardır"
 
 #: libraries/Types.class.php:708
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Sistemin varsayılan çift duyarlıklı kayan noktalı bir sayısı"
 
 #: libraries/Types.class.php:710
-#, fuzzy
-#| msgid "True or false."
 msgid "True or false"
-msgstr "True veya false."
+msgstr "True veya false"
 
 #: libraries/Types.class.php:712
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "BIGINT NOT NULL AUTO_INCREMENT UNIQUE için bir kod adı"
 
 #: libraries/Types.class.php:714
-#, fuzzy
-#| msgid "Stores Universally Unique Identifiers (UUID)."
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr "Evrensel Depolanan Benzersiz Tanımlayıcı (UUID)."
+msgstr "Evrensel Benzersiz Tanımlayıcıyı (UUID) saklar"
+
+#: libraries/Types.class.php:716
+#, fuzzy, php-format
+#| msgid "A date, supported range is '%s' to '%s'"
+msgid "A date, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
+msgstr "Bir tarih, desteklenen aralık '%s' ile '%s' arası"
+
+#: libraries/Types.class.php:718
+#, fuzzy, php-format
+#| msgid "A date and time combination, supported range is '%s' to '%s'"
+msgid ""
+"A date and time combination, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
+msgstr "Bir tarih ve saat birleşimi, desteklenen aralık '%s' ile '%s' arası"
 
 #: libraries/Types.class.php:716
 #, fuzzy, php-format
@@ -2948,6 +2962,13 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Bir zaman damgası, aralığı \"0001-01-01 00:00:00\" UTC ile \"9999-12-31 "
+"23:59:59\" UTC arası; TIMESTAMP(6) mikro saniyeleri saklayabilir"
+
+#: libraries/Types.class.php:722
+#, php-format
+msgid "A time, range is \"%1$s\" to \"%2$s\""
+msgstr "Bir saat, aralığı \"%1$s\" ile \"%2$s\" arası"
 
 #: libraries/Types.class.php:722
 #, fuzzy, php-format
@@ -2960,16 +2981,20 @@ msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Değişken uzunlukta bir (0-65,535) dizgi, tüm karşılaştırmalar için binari "
+"karşılaştırma kullanır"
 
 #: libraries/Types.class.php:730
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"En fazla 65,535 (2^16 - 1) bayt uzunluğunda bir BLOB sütunu, değerin "
+"uzunluğunu gösteren dört-bayt'lık bir ön ek ile saklanır"
 
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Bir numaralandırma, tanımlanmış değerlerin listesinden seçilir"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -2984,8 +3009,8 @@ msgstr "%s'e Hoş Geldiniz"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
 "tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
@@ -6095,8 +6120,8 @@ msgstr ", @TABLE@ tablo adı olacaktır"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
@@ -6777,8 +6802,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "%sPrimeBase XT Ana Sayfasında%s PBXT hakkında belge ve daha fazla bilgi "
 "bulunabilir."
@@ -8585,7 +8610,7 @@ msgstr "Tam metin"
 
 #: libraries/tbl_properties.inc.php:537
 msgid "first"
-msgstr ""
+msgstr "ilk"
 
 #: libraries/tbl_properties.inc.php:543
 #, php-format
@@ -8961,8 +8986,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
-"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya%"
-"s tıklayın."
+"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya"
+"%s tıklayın."
 
 #: main.php:358
 #, php-format
@@ -9219,8 +9244,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. %"
-"sKur programcığı%s kullanarak."
+"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. "
+"%sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:308
 msgid "Save to browser's storage"
@@ -9710,8 +9735,8 @@ msgstr "Kullanıcılarla aynı isimlerde olan veritabanlarını kaldır."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
@@ -11526,9 +11551,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- %"
-"sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi%s. "
-"Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
+"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- "
+"%sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi"
+"%s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir."
 
 #: setup/lib/index.lib.php:300
@@ -11543,8 +11568,8 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması türünü ayarladınız ve buna "
 "otomatik oturum açma için kullanıcı adı ve parola dahildir, canlı "
 "anamakineler için istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya "
-"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %"
-"sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
+"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. "
+"%sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
 "kbd] olarak ayarlayın."
 
 #: setup/lib/index.lib.php:302
@@ -12093,7 +12118,7 @@ msgstr "Sütunları taşı"
 
 #: tbl_structure.php:583
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Sütunları yukarı ve aşağı sürükleyerek taşıyın."
 
 #: tbl_structure.php:616
 msgid "Edit view"
@@ -12345,6 +12370,16 @@ msgstr "GÖRÜNÜM adı"
 msgid "Rename view to"
 msgstr "Görünümü yeniden şuna adlandır"
 
+#~| msgid "A date, supported range is '%s' to '%s'"
+#~ msgid "A date, supported range is \"%1$s\" to \"%2$s\""
+#~ msgstr "Bir tarih, desteklenen aralık \"%1$s\" ile \"%2$s\" arası"
+
+#~| msgid "A date and time combination, supported range is '%s' to '%s'"
+#~ msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
+#~ msgstr ""
+#~ "Bir tarih ve saat birleşimi, desteklenen aralık \"%1$s\" ile \"%2$s\" "
+#~ "arası"
+
 #~ msgid ""
 #~ "Show affected rows of each statement on multiple-statement queries. See "
 #~ "libraries/import.lib.php for defaults on how many queries a statement may "
@@ -12453,12 +12488,12 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ "Eğer D işlenirse, varsayılan 0'dır. Eğer M işlenirse, varsayılan 10'dur."
 
 #~ msgid ""
-#~ "A small (single-precision) floating-point number. Allowable values are -"
-#~ "3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
+#~ "A small (single-precision) floating-point number. Allowable values are "
+#~ "-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
 #~ "3.402823466E+38."
 #~ msgstr ""
-#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler -"
-#~ "3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
+#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler "
+#~ "-3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
 #~ "3.402823466E+38'e."
 
 #~ msgid ""
@@ -13375,8 +13410,8 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ "innodblogfilesize-proper-way.html\">this blog entry</a>"
 #~ msgstr ""
 #~ "Özellikle InnoDB tablolarına çok fazla yazmalı bir sistemde, "
-#~ "innodb_log_file_size değerini {innodb_buffer_pool_size} değerinin %%"
-#~ "25'ine ayarlamalısınız. Ancak bu değeri daha büyütmek, veritabanı "
+#~ "innodb_log_file_size değerini {innodb_buffer_pool_size} değerinin %"
+#~ "%25'ine ayarlamalısınız. Ancak bu değeri daha büyütmek, veritabanı "
 #~ "çökmelerinde kurtarma zamanı daha uzun olacaktır, bu yüzden bu değer 256 "
 #~ "MiB'tan çok daha yükseğe ayarlanmamalıdır. Lütfen unutmayın yine de "
 #~ "bununla birlikte bu değişkenin değerini basitçe değiştiremezsiniz. "
@@ -13391,8 +13426,8 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool "
 #~ "size, it should not be below 20%%"
 #~ msgstr ""
-#~ "InnoDB arabellek havuzu boyutuyla ilgili olan InnoDB günlük boyutunuz %%%"
-#~ "s, bu %%20'nin altında olmamalıdır"
+#~ "InnoDB arabellek havuzu boyutuyla ilgili olan InnoDB günlük boyutunuz %%"
+#~ "%s, bu %%20'nin altında olmamalıdır"
 
 #~ msgid "Max InnoDB log size"
 #~ msgstr "En fazla InnoDB günlük boyutu"
@@ -13446,8 +13481,8 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ "InnoDB arabellek havuzu InnoDB tabloları için performansta derin etki "
 #~ "yapar. Tüm kalan belleğinizi bu arabelleğe atayın. Veritabanı sunucuları "
 #~ "için depolama motoru olarak sadece InnoDB kullanın ve başka çalışan "
-#~ "hizmetler (örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %%"
-#~ "80'nine kadar ayarlayabilirsiniz. Eğer durum bu değilse, diğer "
+#~ "hizmetler (örn. web sunucusu) olmasın, bunu kullanılabilir belleğin %"
+#~ "%80'nine kadar ayarlayabilirsiniz. Eğer durum bu değilse, diğer "
 #~ "hizmetlerinizin ve InnoDB-Tabloları olmayanların bellek tüketimini "
 #~ "dikkatlice değerlendirmeniz ve dolayısıyla bu değişkeni ayarlamanız "
 #~ "gerekir. Eğer çok yükseğe ayarlanırsa, sisteminiz önemli derecede "

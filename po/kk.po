@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-27 13:04-0400\n"
-"PO-Revision-Date: 2012-04-24 15:00+0200\n"
-"Last-Translator: Abdurahman Taskibaev <tas362@mail.ru>\n"
+"POT-Creation-Date: 2012-05-01 17:54+0200\n"
+"PO-Revision-Date: 2012-05-01 13:09+0200\n"
+"Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
+"Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: kk\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -295,9 +295,8 @@ msgid "Copy database to"
 msgstr "Дерекқорының көшірілуі"
 
 #: db_operations.php:523 tbl_operations.php:563 tbl_tracking.php:447
-#, fuzzy
 msgid "Structure only"
-msgstr "Тек қана құрылым"
+msgstr "Тек құрылымы ғана"
 
 #: db_operations.php:524 tbl_operations.php:564 tbl_tracking.php:449
 #, fuzzy
@@ -343,7 +342,7 @@ msgid "Collation"
 msgstr "Салыстыру"
 
 #: db_operations.php:599
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
@@ -417,7 +416,7 @@ msgstr "Сұраныс орындалуы үшін, көрсетілімдегі
 #: db_qbe.php:189
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "%sСұраныстарды көз мөлшерiмен құрастырушыға%s ауысып қосылу"
 
 #: db_qbe.php:225 libraries/db_structure.lib.php:106
 #: libraries/display_tbl.lib.php:1014
@@ -505,11 +504,11 @@ msgstr "Рұқсат жоқ"
 
 #: db_search.php:43 db_search.php:301
 msgid "at least one of the words"
-msgstr "Кез-келген сөз"
+msgstr "кез-келген сөз"
 
 #: db_search.php:44 db_search.php:302
 msgid "all words"
-msgstr "Барлық сөздер"
+msgstr "барлық сөздер"
 
 #: db_search.php:45 db_search.php:303
 msgid "the exact phrase"
@@ -517,7 +516,7 @@ msgstr "дәл сәйкестiк"
 
 #: db_search.php:46 db_search.php:304
 msgid "as regular expression"
-msgstr ""
+msgstr "жүйелі түрде айтылу"
 
 #: db_search.php:216
 #, php-format
@@ -528,8 +527,8 @@ msgstr "\"<i>%s</i>\" %s іздеу нәтижесі:"
 #, php-format
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s кестедегi сәйкестiк <i>%2$s</i>"
+msgstr[1] "%1$s кестедегi сәйкестiктер <i>%2$s</i>"
 
 #: db_search.php:247 libraries/common.lib.php:3164
 #: libraries/common.lib.php:3394 libraries/common.lib.php:3395
@@ -540,7 +539,7 @@ msgstr "Шолу"
 #: db_search.php:252
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr ""
+msgstr "Кесте %s үшін сәйкестіктерді өшіреміз бе?"
 
 #: db_search.php:252 libraries/display_tbl.lib.php:1439
 #: libraries/display_tbl.lib.php:2480
@@ -558,8 +557,8 @@ msgstr "Жою"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Барлығы:</b> <i>%s</i> сәйкестік"
+msgstr[1] "<b>Барлығы:</b> <i>%s</i> сәйкестіктер"
 
 #: db_search.php:289
 msgid "Search in database"
@@ -601,18 +600,18 @@ msgid "Table %s has been emptied"
 msgstr "%s кестесі аластанды"
 
 #: db_structure.php:384 tbl_operations.php:738
-#, php-format
+#, fuzzy, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "%s көрсетілімі жойылған"
 
 #: db_structure.php:384 tbl_operations.php:738
 #, php-format
 msgid "Table %s has been dropped"
-msgstr ""
+msgstr "%s кестесі жойылған болатын"
 
 #: db_structure.php:394 tbl_create.php:285
 msgid "Tracking is active."
-msgstr ""
+msgstr "Бақылау қосулы"
 
 #: db_structure.php:399 tbl_create.php:288
 msgid "Tracking is not active."
@@ -621,14 +620,14 @@ msgstr "Бақылауды белсендендірілу"
 #: db_structure.php:525 libraries/display_tbl.lib.php:2363
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: db_structure.php:543 db_structure.php:577 libraries/header.inc.php:169
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:211
 msgid "View"
-msgstr ""
+msgstr "Түр"
 
 #: db_structure.php:620 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:92 server_replication.php:31
@@ -641,9 +640,9 @@ msgid "Sum"
 msgstr "Барлығы"
 
 #: db_structure.php:631 libraries/StorageEngine.class.php:341
-#, php-format
+#, fuzzy, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s - MySQL сервері кестесінің мәліметтердіі үнсіз орнату."
+msgstr "%s - келісім бойынша орнатылған MySQL серверінің кесте типі"
 
 #: db_structure.php:679 db_structure.php:696 db_structure.php:697
 #: libraries/display_tbl.lib.php:2505 libraries/display_tbl.lib.php:2510
@@ -651,13 +650,13 @@ msgstr "%s - MySQL сервері кестесінің мәліметтерді�
 #: server_databases.php:301 server_privileges.php:1917
 #: server_privileges.php:1925 tbl_structure.php:548 tbl_structure.php:557
 msgid "With selected:"
-msgstr ""
+msgstr "Белгi соғылғандарды:"
 
 #: db_structure.php:682 libraries/display_tbl.lib.php:2500
 #: server_databases.php:298 server_privileges.php:781
 #: server_privileges.php:1920 tbl_structure.php:551
 msgid "Check All"
-msgstr ""
+msgstr "Барлығын белгілеу"
 
 #: db_structure.php:686 libraries/display_tbl.lib.php:2501
 #: libraries/replication_gui.lib.php:35 server_databases.php:300
@@ -667,7 +666,7 @@ msgstr "Барлық белгілерді алып тастау"
 
 #: db_structure.php:691
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "Ықшамдауды қажет ететіндерді белгілеу"
 
 #: db_structure.php:699 libraries/common.lib.php:3407
 #: libraries/common.lib.php:3408 libraries/config/messages.inc.php:168
@@ -682,19 +681,19 @@ msgstr "Экспорт"
 #: db_structure.php:701 db_structure.php:749
 #: libraries/display_tbl.lib.php:2613 tbl_structure.php:622
 msgid "Print view"
-msgstr ""
+msgstr "Баспаға шығару түрі"
 
 #: db_structure.php:705 libraries/common.lib.php:3403
 #: libraries/common.lib.php:3404
 msgid "Empty"
-msgstr ""
+msgstr "Тазарту"
 
 #: db_structure.php:707 db_tracking.php:106 libraries/Index.class.php:507
 #: libraries/common.lib.php:3401 libraries/common.lib.php:3402
 #: server_databases.php:302 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:564
 msgid "Drop"
-msgstr ""
+msgstr "Жою"
 
 #: db_structure.php:709 tbl_operations.php:622
 msgid "Check table"
@@ -702,15 +701,15 @@ msgstr "Кестені тексеру"
 
 #: db_structure.php:712 tbl_operations.php:679 tbl_structure.php:831
 msgid "Optimize table"
-msgstr ""
+msgstr "Кестені тиімді ету"
 
 #: db_structure.php:714 tbl_operations.php:664
 msgid "Repair table"
-msgstr ""
+msgstr "Кестені калпына келтіру"
 
 #: db_structure.php:717 tbl_operations.php:649
 msgid "Analyze table"
-msgstr ""
+msgstr "Кестенiң талдауы"
 
 #: db_structure.php:719
 msgid "Add prefix to table"
@@ -722,11 +721,11 @@ msgstr "Кестениң префиксін ауыстыру"
 
 #: db_structure.php:723 libraries/mult_submits.inc.php:278
 msgid "Copy table with prefix"
-msgstr ""
+msgstr "Кестені префикс пен бірге көшіру"
 
 #: db_structure.php:752 libraries/schema/User_Schema.class.php:426
 msgid "Data Dictionary"
-msgstr ""
+msgstr "Мәлiметтердiң сөздiгi"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
@@ -747,21 +746,21 @@ msgstr "Дерекқор"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "Соңғы нұсқа"
 
 #: db_tracking.php:87 tbl_tracking.php:678
 msgid "Created"
-msgstr ""
+msgstr "Құрылған"
 
 #: db_tracking.php:88 tbl_tracking.php:679
 msgid "Updated"
-msgstr ""
+msgstr "Жаңартылған"
 
 #: db_tracking.php:89 js/messages.php:185 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:78 libraries/server_links.inc.php:51
 #: server_status.php:1264 sql.php:956 tbl_tracking.php:680
 msgid "Status"
-msgstr ""
+msgstr "Күй"
 
 #: db_tracking.php:90 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
@@ -769,7 +768,7 @@ msgstr ""
 #: server_databases.php:227 server_privileges.php:1854
 #: server_privileges.php:2072 server_privileges.php:2419 tbl_structure.php:221
 msgid "Action"
-msgstr ""
+msgstr "Әрекет"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
@@ -777,63 +776,65 @@ msgstr ""
 
 #: db_tracking.php:123 tbl_tracking.php:632 tbl_tracking.php:690
 msgid "active"
-msgstr ""
+msgstr "қосулы"
 
 #: db_tracking.php:125 tbl_tracking.php:634 tbl_tracking.php:692
 msgid "not active"
-msgstr ""
+msgstr "өшірулі"
 
 #: db_tracking.php:140
 msgid "Versions"
-msgstr ""
+msgstr "Нұсқа"
 
 #: db_tracking.php:141 tbl_tracking.php:438 tbl_tracking.php:710
 msgid "Tracking report"
-msgstr ""
+msgstr "Бақылаудың есептемесі"
 
 #: db_tracking.php:142 tbl_tracking.php:256 tbl_tracking.php:712
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Құрылым түсірілімі"
 
 #: db_tracking.php:188
 msgid "Untracked tables"
-msgstr ""
+msgstr "Бақылауға болмайтын кестелер"
 
 #: db_tracking.php:207 tbl_structure.php:648
 msgid "Track table"
-msgstr ""
+msgstr "Кестені бақылау"
 
 #: db_tracking.php:233
 msgid "Database Log"
-msgstr ""
+msgstr "Дерекқор журналы"
 
 #: export.php:39
 msgid "Bad type!"
-msgstr ""
+msgstr "Типі дұрыс емес!"
 
 #: export.php:87
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Таңдалынған экспорт типі, файлда сақталуы тиіс!"
 
 #: export.php:116
 msgid "Bad parameters!"
-msgstr ""
+msgstr "Параметрлері қате!"
 
 #: export.php:177 export.php:202 export.php:673
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "Файлды сақтау үшін %s дисктегі бос орын жеткіліксіз."
 
 #: export.php:327
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"Файл %s қазірдің өзінде серверде қолданыста бар, атын өзгертіңіз немесе "
+"қайта жазу параметрін қосыңыз."
 
 #: export.php:331 export.php:335
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "%s файлын веб-серверге сақтау үшін құқық жеткіліксіз."
 
 #: export.php:675
 #, php-format
@@ -842,12 +843,12 @@ msgstr ""
 
 #: file_echo.php:21
 msgid "Invalid export type"
-msgstr ""
+msgstr "Экспорт типі қате"
 
 #: gis_data_editor.php:85
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" баған мәні"
 
 #: gis_data_editor.php:114 tbl_gis_visualization.php:165
 msgid "Use OpenStreetMaps as Base Layer"
@@ -864,32 +865,32 @@ msgstr ""
 
 #: gis_data_editor.php:171 js/messages.php:325
 msgid "Point"
-msgstr ""
+msgstr "Нүкте"
 
 #: gis_data_editor.php:172 gis_data_editor.php:196 gis_data_editor.php:244
 #: gis_data_editor.php:296 js/messages.php:323
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:174 gis_data_editor.php:198 gis_data_editor.php:246
 #: gis_data_editor.php:298 js/messages.php:324
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:194 gis_data_editor.php:242 gis_data_editor.php:294
 #: js/messages.php:326
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Нүкте %d"
 
 #: gis_data_editor.php:203 gis_data_editor.php:249 gis_data_editor.php:301
 #: js/messages.php:332
 msgid "Add a point"
-msgstr ""
+msgstr "Нүкте қосу"
 
 #: gis_data_editor.php:219 js/messages.php:327
 msgid "Linestring"
-msgstr ""
+msgstr "Сызық"
 
 #: gis_data_editor.php:222 gis_data_editor.php:278 js/messages.php:331
 msgid "Outer Ring"
@@ -932,8 +933,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:216 import.php:443
@@ -2606,14 +2607,14 @@ msgstr ""
 
 #: libraries/Types.class.php:295
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:297
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -2859,8 +2860,8 @@ msgstr "%s-ге қош келдіңіз"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:112
@@ -5738,8 +5739,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:285
@@ -6355,8 +6356,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:130
@@ -9107,8 +9108,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:2029
