@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 18:03+0200\n"
-"PO-Revision-Date: 2012-04-28 11:31+0200\n"
+"PO-Revision-Date: 2012-05-01 19:26+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2338,10 +2338,10 @@ msgid "Failed running test for rule '%s'"
 msgstr "'%s' kuralı için çalıştırılan deneme başarısız"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid "Failed formatting string for rule '%s'"
 msgid "Failed formatting string for rule '%s'."
-msgstr "'%s' kuralı için dizgi biçimlendirme başarısız"
+msgstr "'%s' kuralı için dizgi biçimlendirme başarısız."
 
 #: libraries/Advisor.class.php:383 server_status.php:963
 msgid "per second"
@@ -2722,16 +2722,16 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE için bir kod adı"
 
 #: libraries/Types.class.php:307
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date, supported range is '%s' to '%s'"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Bir tarih, desteklenen aralık '%s' ile '%s' arası"
+msgstr "Bir tarih, desteklenen aralık %1$s ile %2$s arası"
 
 #: libraries/Types.class.php:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date and time combination, supported range is '%s' to '%s'"
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Bir tarih ve saat birleşimi, desteklenen aralık '%s' ile '%s' arası"
+msgstr "Bir tarih ve saat birleşimi, desteklenen aralık %1$s ile %2$s arası"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -2743,10 +2743,10 @@ msgstr ""
 "sayısı olarak saklanır"
 
 #: libraries/Types.class.php:313
-#, fuzzy, php-format
+#, php-format
 #| msgid "A time, range is '%s' to '%s'"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Bir saat, aralığı '%s' ile '%s' arası"
+msgstr "Bir saat, aralığı %1$s ile %2$s arası"
 
 #: libraries/Types.class.php:315
 msgid ""
@@ -2930,17 +2930,18 @@ msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr "Evrensel Benzersiz Tanımlayıcıyı (UUID) saklar"
 
 #: libraries/Types.class.php:716
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date, supported range is '%s' to '%s'"
 msgid "A date, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
-msgstr "Bir tarih, desteklenen aralık '%s' ile '%s' arası"
+msgstr "Bir tarih, desteklenen aralık \\\"%1$s\\\" ile \\\"%2$s\\\" arası"
 
 #: libraries/Types.class.php:718
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date and time combination, supported range is '%s' to '%s'"
 msgid ""
 "A date and time combination, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
-msgstr "Bir tarih ve saat birleşimi, desteklenen aralık '%s' ile '%s' arası"
+msgstr ""
+"Bir tarih ve saat birleşimi, desteklenen aralık \\\"%1$s\\\" ile \\\"%2$s\\\" arası"
 
 #: libraries/Types.class.php:720
 msgid ""
@@ -7249,10 +7250,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Bu eklenti sıkıştırılmış içe aktarım dosyalarını desteklemez!"
 
 #: libraries/import/mediawiki.php:246
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "%d. satırında CSV girdisinin geçersiz biçimi."
+msgstr "Medyaviki girdisinin biçimi geçersiz olan satır: <br />%s."
 
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
