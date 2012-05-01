@@ -20,14 +20,32 @@ if (isset($plugin_list)) {
         'mime_type' => 'application/pdf',
         'force_file' => true,
         'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
-            array('type' => 'message_only', 'name' => 'explanation', 'text' => __('(Generates a report containing the data of a single table)')),
-            array('type' => 'text', 'name' => 'report_title', 'text' => __('Report title:')),
-            array('type' => 'hidden', 'name' => 'structure_or_data'),
-            array('type' => 'end_group')
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
             ),
+            array(
+                'type' => 'message_only',
+                'name' => 'explanation',
+                'text' => __(
+                    '(Generates a report containing the data of a single table)'
+                )
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'report_title',
+                'text' => __('Report title:')
+            ),
+            array(
+                'type' => 'hidden',
+                'name' => 'structure_or_data'
+            ),
+            array(
+                'type' => 'end_group'
+            )
+        ),
         'options_text' => __('Options'),
-        );
+    );
 } else {
 
     include_once './libraries/PDF.class.php';
@@ -48,7 +66,10 @@ if (isset($plugin_list)) {
                 $y = $this->y;
             }
             $current_page = $this->page;
-            if ((($y + $h) > $this->PageBreakTrigger) AND (! $this->InFooter) AND ($this->AcceptPageBreak())) {
+            if ((($y + $h) > $this->PageBreakTrigger)
+                AND (! $this->InFooter)
+                AND ($this->AcceptPageBreak())
+            ) {
                 if ($addpage) {
                     //Automatic page break
                     $x = $this->x;
@@ -56,14 +77,22 @@ if (isset($plugin_list)) {
                     $this->y = $this->dataY;
                     $oldpage = $this->page - 1;
                     if ($this->rtl) {
-                        if ($this->pagedim[$this->page]['orm'] != $this->pagedim[$oldpage]['orm']) {
-                            $this->x = $x - ($this->pagedim[$this->page]['orm'] - $this->pagedim[$oldpage]['orm']);
+                        if ($this->pagedim[$this->page]['orm']
+                            != $this->pagedim[$oldpage]['orm']
+                        ) {
+                            $this->x = $x
+                                - ($this->pagedim[$this->page]['orm']
+                                - $this->pagedim[$oldpage]['orm']);
                         } else {
                             $this->x = $x;
                         }
                     } else {
-                        if ($this->pagedim[$this->page]['olm'] != $this->pagedim[$oldpage]['olm']) {
-                            $this->x = $x + ($this->pagedim[$this->page]['olm'] - $this->pagedim[$oldpage]['olm']);
+                        if ($this->pagedim[$this->page]['olm']
+                            != $this->pagedim[$oldpage]['olm']
+                        ) {
+                            $this->x = $x
+                                + ($this->pagedim[$this->page]['olm']
+                                - $this->pagedim[$oldpage]['olm']);
                         } else {
                             $this->x = $x;
                         }
@@ -89,19 +118,31 @@ if (isset($plugin_list)) {
                 }
                 $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 5);
                 $this->cellFontSize = $this->FontSizePt ;
-                $this->SetFont(PMA_PDF_FONT, '', ($this->titleFontSize ? $this->titleFontSize : $this->FontSizePt));
+                $this->SetFont(
+                    PMA_PDF_FONT,
+                    '',
+                    ($this->titleFontSize
+                    ? $this->titleFontSize
+                    : $this->FontSizePt)
+                );
                 $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
                 $this->SetFont(PMA_PDF_FONT, '', $this->cellFontSize);
                 $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 2.5);
                 $this->Cell(
-                    0, $this->FontSizePt,
-                    __('Database') . ': ' . $this->currentDb . ',  ' . __('Table') . ': ' . $this->currentTable,
+                    0,
+                    $this->FontSizePt,
+                    __('Database') . ': ' . $this->currentDb . ',  '
+                        . __('Table') . ': ' . $this->currentTable,
                     0, 1, 'L'
                 );
                 $l = ($this->lMargin);
                 foreach ($this->colTitles as $col => $txt) {
                     $this->SetXY($l, ($this->tMargin));
-                    $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt);
+                    $this->MultiCell(
+                        $this->tablewidths[$col],
+                        $this->FontSizePt,
+                        $txt
+                    );
                     $l += $this->tablewidths[$col] ;
                     $maxY = ($maxY < $this->getY()) ? $this->getY() : $maxY ;
                 }
@@ -110,9 +151,23 @@ if (isset($plugin_list)) {
                 $l = ($this->lMargin);
                 foreach ($this->colTitles as $col => $txt) {
                     $this->SetXY($l, $this->tMargin);
-                    $this->cell($this->tablewidths[$col], $maxY-($this->tMargin), '', 1, 0, 'L', 1);
+                    $this->cell(
+                        $this->tablewidths[$col],
+                        $maxY-($this->tMargin),
+                        '',
+                        1,
+                        0,
+                        'L',
+                        1
+                    );
                     $this->SetXY($l, $this->tMargin);
-                    $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt, 0, 'C');
+                    $this->MultiCell(
+                        $this->tablewidths[$col],
+                        $this->FontSizePt,
+                        $txt,
+                        0,
+                        'C'
+                    );
                     $l += $this->tablewidths[$col];
                 }
                 $this->setFillColor(255, 255, 255);
@@ -150,7 +205,13 @@ if (isset($plugin_list)) {
                     $this->page = $currpage;
                     $this->SetXY($l, $h);
                     if ($this->tablewidths[$col] > 0) {
-                        $this->MultiCell($this->tablewidths[$col], $lineheight, $txt, 0, $this->colAlign[$col]);
+                        $this->MultiCell(
+                            $this->tablewidths[$col],
+                            $lineheight,
+                            $txt,
+                            0,
+                            $this->colAlign[$col]
+                        );
                         $l += $this->tablewidths[$col];
                     }
 
@@ -228,8 +289,10 @@ if (isset($plugin_list)) {
             $this->sColWidth = $availableWidth / $this->numFields;
             $totalTitleWidth = 0;
 
-            // loop through results header and set initial col widths/ titles/ alignment
-            // if a col title is less than the starting col width, reduce that column size
+            // loop through results header and set initial
+            // col widths/ titles/ alignment
+            // if a col title is less than the starting col width,
+            // reduce that column size
             $colFits = array();
             for ($i = 0; $i < $this->numFields; $i++) {
                 $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
@@ -237,7 +300,8 @@ if (isset($plugin_list)) {
                 $titleWidth[$i] = $stringWidth;
                 $totalTitleWidth += $stringWidth;
 
-                // set any column titles less than the start width to the column title width
+                // set any column titles less than the start width to
+                // the column title width
                 if ($stringWidth < $this->sColWidth) {
                     $colFits[$i] = $stringWidth ;
                 }
@@ -295,7 +359,9 @@ if (isset($plugin_list)) {
                         // if data's width is bigger than the current column width,
                         // enlarge the column (but avoid enlarging it if the
                         // data's width is very big)
-                        if ($stringWidth > $val && $stringWidth < ($this->sColWidth * 3)) {
+                        if ($stringWidth > $val
+                            && $stringWidth < ($this->sColWidth * 3)
+                        ) {
                             $colFits[$key] = $stringWidth ;
                         }
                     }
