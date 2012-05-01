@@ -19,17 +19,46 @@ if (isset($plugin_list)) {
         'extension' => 'txt',
         'mime_type' => 'text/plain',
         'options' => array(
-        /* what to dump (structure/data/both) */
-        array('type' => 'begin_group', 'text' => __('Dump table'), 'name' => 'general_opts'),
-        array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data'))),
-        array('type' => 'end_group'),
-        array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure'),
-        array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL by')),
-        array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
-        array('type' => 'end_group'),
+            /* what to dump (structure/data/both) */
+            array(
+                'type' => 'begin_group',
+                'text' => __('Dump table'),
+                'name' => 'general_opts'
+            ),
+            array(
+                'type' => 'radio',
+                'name' => 'structure_or_data',
+                'values' => array(
+                    'structure' => __('structure'),
+                    'data' => __('data'),
+                    'structure_and_data' => __('structure and data')
+                )
+            ),
+            array(
+                'type' => 'end_group'
+            ),
+            array(
+                'type' => 'begin_group', 
+                'name' => 'data',
+                'text' => __('Data dump options'),
+                'force' => 'structure'
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'null',
+                'text' => __('Replace NULL by')
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'columns',
+                'text' => __('Put columns names in the first row')
+            ),
+            array(
+                'type' => 'end_group'
+            ),
         ),
         'options_text' => __('Options'),
-        );
+    );
 } else {
 
     /**
@@ -67,7 +96,9 @@ if (isset($plugin_list)) {
      */
     function PMA_exportDBHeader($db)
     {
-        return PMA_exportOutputHandler('===' . __('Database') . ' ' . $db . "\n\n");
+        return PMA_exportOutputHandler(
+            '===' . __('Database') . ' ' . $db . "\n\n"
+        );
     }
 
     /**
@@ -115,7 +146,9 @@ if (isset($plugin_list)) {
     {
         global $what;
 
-        if (! PMA_exportOutputHandler('== ' . __('Dumping data for table') . ' ' . $table . "\n\n")) {
+        if (! PMA_exportOutputHandler(
+            '== ' . __('Dumping data for table') . ' ' . $table . "\n\n")
+        ) {
             return false;
         }
 
@@ -127,7 +160,10 @@ if (isset($plugin_list)) {
         if (isset($GLOBALS[$what . '_columns'])) {
             $text_output = "|------\n";
             for ($i = 0; $i < $fields_cnt; $i++) {
-                $text_output .= '|' . htmlspecialchars(stripslashes(PMA_DBI_field_name($result, $i)));
+                $text_output .= '|'
+                    . htmlspecialchars(
+                        stripslashes(PMA_DBI_field_name($result, $i))
+                    );
             } // end for
             $text_output .= "\n|------\n";
             if (! PMA_exportOutputHandler($text_output)) {
@@ -146,7 +182,10 @@ if (isset($plugin_list)) {
                 } else {
                     $value = ' ';
                 }
-                $text_output .= '|' . str_replace('|', '&#124;', htmlspecialchars($value));
+                $text_output .= '|'
+                    . str_replace(
+                        '|', '&#124;', htmlspecialchars($value)
+                    );
             } // end for
             $text_output .= "\n";
             if (! PMA_exportOutputHandler($text_output)) {
@@ -219,22 +258,34 @@ if (isset($plugin_list)) {
      * @param string $crlf          the end of line sequence
      * @param string $error_url     the url to go back in case of error
      * @param bool   $do_relation   whether to include relation comments
-     * @param bool   $do_comments   whether to include the pmadb-style column comments
-     *                                as comments in the structure; this is deprecated
-     *                                but the parameter is left here because export.php
-     *                                calls PMA_exportStructure() also for other export
-     *                                types which use this parameter
+     * @param bool   $do_comments   whether to include the pmadb-style column
+     *                                comments as comments in the structure; 
+     *                                this is deprecated but the parameter is
+     *                                left here because export.php calls
+     *                                PMA_exportStructure() also for other
+     *                                export types which use this parameter
      * @param bool   $do_mime       whether to include mime comments
      * @param bool   $show_dates    whether to include creation/update/check dates
-     * @param bool   $add_semicolon whether to add semicolon and end-of-line at the end
+     * @param bool   $add_semicolon whether to add semicolon and end-of-line
+     *                              at the end
      * @param bool   $view          whether we're handling a view
      *
      * @return string resulting schema
      *
      * @access public
      */
-    function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $show_dates = false, $add_semicolon = true, $view = false)
-    {
+    function PMA_getTableDef(
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $do_relation,
+        $do_comments,
+        $do_mime,
+        $show_dates = false,
+        $add_semicolon = true,
+        $view = false
+    ) {
         global $cfgRelation;
 
         $text_output = '';
@@ -309,13 +360,26 @@ if (isset($plugin_list)) {
             $field_name = $column['Field'];
 
             if ($do_relation && $have_rel) {
-                $text_output .= '|' . (isset($res_rel[$field_name]) ? htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' (' . $res_rel[$field_name]['foreign_field'] . ')') : '');
+                $text_output .= '|'
+                    . (isset($res_rel[$field_name])
+                    ? htmlspecialchars(
+                        $res_rel[$field_name]['foreign_table']
+                        . ' (' . $res_rel[$field_name]['foreign_field'] . ')'
+                    )
+                    : '');
             }
             if ($do_comments && $cfgRelation['commwork']) {
-                $text_output .= '|' . (isset($comments[$field_name]) ? htmlspecialchars($comments[$field_name]) : '');
+                $text_output .= '|'
+                    . (isset($comments[$field_name])
+                    ? htmlspecialchars($comments[$field_name]) : '');
             }
             if ($do_mime && $cfgRelation['mimework']) {
-                $text_output .= '|' . (isset($mime_map[$field_name]) ? htmlspecialchars(str_replace('_', '/', $mime_map[$field_name]['mimetype'])) : '');
+                $text_output .= '|'
+                    . (isset($mime_map[$field_name])
+                    ? htmlspecialchars(
+                        str_replace('_', '/', $mime_map[$field_name]['mimetype'])
+                    )
+                    : '');
             }
 
             $text_output .= "\n";
@@ -351,7 +415,12 @@ if (isset($plugin_list)) {
             $dump .= '|' . $trigger['name'];
             $dump .= '|' . $trigger['action_timing'];
             $dump .= '|' . $trigger['event_manipulation'];
-            $dump .= '|' . str_replace('|', '&#124;', htmlspecialchars($trigger['definition']));
+            $dump .= '|' .
+                str_replace(
+                    '|',
+                    '&#124;',
+                    htmlspecialchars($trigger['definition'])
+                );
             $dump .= "\n";
         }
 
@@ -366,28 +435,43 @@ if (isset($plugin_list)) {
      * @param string  $crlf         the end of line sequence
      * @param string  $error_url    the url to go back in case of error
      * @param bool    $do_relation  whether to include relation comments
-     * @param bool    $do_comments  whether to include the pmadb-style column comments
-     *                                as comments in the structure; this is deprecated
-     *                                but the parameter is left here because export.php
-     *                                calls PMA_exportStructure() also for other export
-     *                                types which use this parameter
+     * @param bool    $do_comments  whether to include the pmadb-style column
+     *                                comments as comments in the structure;
+     *                                this is deprecated but the parameter is
+     *                                left here because export.php calls
+     *                                PMA_exportStructure() also for other
+     *                                export types which use this parameter
      * @param bool    $do_mime      whether to include mime comments
      * @param bool    $dates        whether to include creation/update/check dates
-     * @param string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
+     * @param string  $export_mode  'create_table', 'triggers', 'create_view',
+     *                              'stand_in'
      * @param string  $export_type  'server', 'database', 'table'
      *
      * @return bool      Whether it succeeded
      *
      * @access  public
      */
-    function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
-    {
+    function PMA_exportStructure(
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $do_relation = false,
+        $do_comments = false,
+        $do_mime = false,
+        $dates = false,
+        $export_mode,
+        $export_type
+    ) {
         $dump = '';
 
         switch($export_mode) {
         case 'create_table':
             $dump .= '== ' . __('Table structure for table') . ' ' .$table . "\n\n";
-            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $dates);
+            $dump .= PMA_getTableDef(
+                $db, $table, $crlf, $error_url, $do_relation, $do_comments,
+                $do_mime, $dates
+            );
             break;
         case 'triggers':
             $dump = '';
@@ -399,10 +483,14 @@ if (isset($plugin_list)) {
             break;
         case 'create_view':
             $dump .= '== ' . __('Structure for view') . ' ' .$table . "\n\n";
-            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $dates, true, true);
+            $dump .= PMA_getTableDef(
+                $db, $table, $crlf, $error_url, $do_relation, $do_comments,
+                $do_mime, $dates, true, true
+            );
             break;
         case 'stand_in':
-            $dump .=  '== ' . __('Stand-in structure for view') . ' ' .$table . "\n\n";
+            $dump .=  '== ' . __('Stand-in structure for view')
+                . ' ' .$table . "\n\n";
             // export a stand-in definition to resolve view dependencies
             $dump .= PMA_getTableDefStandIn($db, $table, $crlf);
         } // end switch
@@ -445,10 +533,16 @@ if (isset($plugin_list)) {
             $fmt_pre = '//' . $fmt_pre;
             $fmt_post = $fmt_post . '//';
         }
-        $definition = '|' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
+        $definition = '|'
+            . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
         $definition .= '|' . htmlspecialchars($type);
-        $definition .= '|' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
-        $definition .= '|' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '');
+        $definition .= '|'
+            . (($column['Null'] == '' || $column['Null'] == 'NO')
+            ? __('No') : __('Yes'));
+        $definition .= '|'
+            . htmlspecialchars(
+                isset($column['Default']) ? $column['Default'] : ''
+            );
         return $definition;
     }
 }
