@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-04-30 20:34+0200\n"
+"PO-Revision-Date: 2012-05-01 12:12+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -642,7 +642,7 @@ msgstr "Барлығы"
 #: db_structure.php:631 libraries/StorageEngine.class.php:341
 #, fuzzy, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s - MySQL сервері кестесінің мәліметтерді үнсіз орнату."
+msgstr "%s - келісім бойынша орнатылған MySQL серверінің кесте типі"
 
 #: db_structure.php:679 db_structure.php:696 db_structure.php:697
 #: libraries/display_tbl.lib.php:2505 libraries/display_tbl.lib.php:2510
@@ -650,13 +650,13 @@ msgstr "%s - MySQL сервері кестесінің мәліметтерді 
 #: server_databases.php:301 server_privileges.php:1917
 #: server_privileges.php:1925 tbl_structure.php:548 tbl_structure.php:557
 msgid "With selected:"
-msgstr ""
+msgstr "Белгi соғылғандарды:"
 
 #: db_structure.php:682 libraries/display_tbl.lib.php:2500
 #: server_databases.php:298 server_privileges.php:781
 #: server_privileges.php:1920 tbl_structure.php:551
 msgid "Check All"
-msgstr ""
+msgstr "Барлығын белгілеу"
 
 #: db_structure.php:686 libraries/display_tbl.lib.php:2501
 #: libraries/replication_gui.lib.php:35 server_databases.php:300
@@ -666,7 +666,7 @@ msgstr "Барлық белгілерді алып тастау"
 
 #: db_structure.php:691
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "Ықшамдауды қажет ететіндерді белгілеу"
 
 #: db_structure.php:699 libraries/common.lib.php:3407
 #: libraries/common.lib.php:3408 libraries/config/messages.inc.php:168
@@ -681,19 +681,19 @@ msgstr "Экспорт"
 #: db_structure.php:701 db_structure.php:749
 #: libraries/display_tbl.lib.php:2613 tbl_structure.php:622
 msgid "Print view"
-msgstr ""
+msgstr "Баспаға шығару түрі"
 
 #: db_structure.php:705 libraries/common.lib.php:3403
 #: libraries/common.lib.php:3404
 msgid "Empty"
-msgstr ""
+msgstr "Тазарту"
 
 #: db_structure.php:707 db_tracking.php:106 libraries/Index.class.php:507
 #: libraries/common.lib.php:3401 libraries/common.lib.php:3402
 #: server_databases.php:302 tbl_structure.php:151 tbl_structure.php:152
 #: tbl_structure.php:564
 msgid "Drop"
-msgstr ""
+msgstr "Жою"
 
 #: db_structure.php:709 tbl_operations.php:622
 msgid "Check table"
@@ -701,15 +701,15 @@ msgstr "Кестені тексеру"
 
 #: db_structure.php:712 tbl_operations.php:679 tbl_structure.php:831
 msgid "Optimize table"
-msgstr ""
+msgstr "Кестені тиімді ету"
 
 #: db_structure.php:714 tbl_operations.php:664
 msgid "Repair table"
-msgstr ""
+msgstr "Кестені калпына келтіру"
 
 #: db_structure.php:717 tbl_operations.php:649
 msgid "Analyze table"
-msgstr ""
+msgstr "Кестенiң талдауы"
 
 #: db_structure.php:719
 msgid "Add prefix to table"
@@ -721,11 +721,11 @@ msgstr "Кестениң префиксін ауыстыру"
 
 #: db_structure.php:723 libraries/mult_submits.inc.php:278
 msgid "Copy table with prefix"
-msgstr ""
+msgstr "Кестені префикс пен бірге көшіру"
 
 #: db_structure.php:752 libraries/schema/User_Schema.class.php:426
 msgid "Data Dictionary"
-msgstr ""
+msgstr "Мәлiметтердiң сөздiгi"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
@@ -746,21 +746,21 @@ msgstr "Дерекқор"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "Соңғы нұсқа"
 
 #: db_tracking.php:87 tbl_tracking.php:678
 msgid "Created"
-msgstr ""
+msgstr "Құрылған"
 
 #: db_tracking.php:88 tbl_tracking.php:679
 msgid "Updated"
-msgstr ""
+msgstr "Жаңартылған"
 
 #: db_tracking.php:89 js/messages.php:185 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:78 libraries/server_links.inc.php:51
 #: server_status.php:1264 sql.php:956 tbl_tracking.php:680
 msgid "Status"
-msgstr ""
+msgstr "Күй"
 
 #: db_tracking.php:90 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
@@ -768,7 +768,7 @@ msgstr ""
 #: server_databases.php:227 server_privileges.php:1854
 #: server_privileges.php:2072 server_privileges.php:2419 tbl_structure.php:221
 msgid "Action"
-msgstr ""
+msgstr "Әрекет"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
@@ -776,11 +776,11 @@ msgstr ""
 
 #: db_tracking.php:123 tbl_tracking.php:632 tbl_tracking.php:690
 msgid "active"
-msgstr ""
+msgstr "қосулы"
 
 #: db_tracking.php:125 tbl_tracking.php:634 tbl_tracking.php:692
 msgid "not active"
-msgstr ""
+msgstr "өшірулі"
 
 #: db_tracking.php:140
 msgid "Versions"
