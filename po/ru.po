@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-27 13:04-0400\n"
+"POT-Creation-Date: 2012-05-01 17:54+0200\n"
 "PO-Revision-Date: 2012-04-27 20:54+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
@@ -616,8 +616,8 @@ msgstr "Слежение выключено."
 #: db_structure.php:525 libraries/display_tbl.lib.php:2363
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
@@ -933,8 +933,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
@@ -1502,7 +1502,6 @@ msgid "From general log"
 msgstr "Из основного журнала"
 
 #: js/messages.php:172
-#| msgid "Loading logs"
 msgid "Analysing logs"
 msgstr "Анализ журналов"
 
@@ -1545,7 +1544,6 @@ msgid "Jump to Log table"
 msgstr "Перейти к таблице журнала"
 
 #: js/messages.php:180
-#| msgid "No data"
 msgid "No data found"
 msgstr "Нет данных"
 
@@ -1586,12 +1584,10 @@ msgid "Chart"
 msgstr "График"
 
 #: js/messages.php:191
-#| msgid "Add chart"
 msgid "Edit chart"
 msgstr "Редактировать график"
 
 #: js/messages.php:192
-#| msgid "Series:"
 msgid "Series"
 msgstr "Серии"
 
@@ -2358,8 +2354,6 @@ msgstr "Не удалось запустить проверку правила '
 
 #: libraries/Advisor.class.php:193
 #, php-format
-#| msgid ""
-#| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'"
 msgstr "Не удалось форматировать строку для правила '%s'"
 
@@ -2707,16 +2701,16 @@ msgstr ""
 
 #: libraries/Types.class.php:295
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Малое число с плавающей точкой, допустимые значения от -3.402823466E+38 до "
 "-1.175494351E-38, 0, и от 1.175494351E-38 до 3.402823466E+38"
 
 #: libraries/Types.class.php:297
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Число с плавающей точкой удвоенной точности, допустимые значения от "
@@ -2750,11 +2744,6 @@ msgstr ""
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Псевдоним для BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: libraries/Types.class.php:307 libraries/Types.class.php:716
-#, php-format
-msgid "A date, supported range is \"%1$s\" to \"%2$s\""
-msgstr "Дата, поддерживаемый диапазон от \"%1$s\" до \"%2$s\""
-
 #: libraries/Types.class.php:307
 #, fuzzy, php-format
 #| msgid "authored on %1$s by %2$s"
@@ -2762,9 +2751,11 @@ msgid "A date, supported range is %1$s to %2$s"
 msgstr "создано %1$s, %2$s"
 
 #: libraries/Types.class.php:309
-#, php-format
-msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
-msgstr "Совмещение даты и времени, поддерживаемый диапазон от \"%1$s\" до \"%2$s\""
+#, fuzzy, php-format
+#| msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
+msgid "A date and time combination, supported range is %1$s to %2$s"
+msgstr ""
+"Совмещение даты и времени, поддерживаемый диапазон от \"%1$s\" до \"%2$s\""
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -2772,13 +2763,8 @@ msgid ""
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Временная метка, диапазон от \"1970-01-01 00:00:01\" UTC до \"2038-01-09 "
-"03:14:07\" UTC, содержит количество секунд прошедших со времени (\"1970-01-01 "
-"00:00:00\" UTC)"
-
-#: libraries/Types.class.php:313 libraries/Types.class.php:722
-#, php-format
-msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr "Время, диапазон от \"%1$s\" до \"%2$s\""
+"03:14:07\" UTC, содержит количество секунд прошедших со времени "
+"(\"1970-01-01 00:00:00\" UTC)"
 
 #: libraries/Types.class.php:313
 #, fuzzy, php-format
@@ -2918,7 +2904,6 @@ msgid "A curve with linear interpolation between points"
 msgstr "Кривая с линейной интерполяцией между точек"
 
 #: libraries/Types.class.php:351
-#| msgid "Add a polygon"
 msgid "A polygon"
 msgstr "Многоугольник"
 
@@ -2990,7 +2975,7 @@ msgstr ""
 #: libraries/Types.class.php:722
 #, php-format
 msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr ""
+msgstr "Время, диапазон от \"%1$s\" до \"%2$s\""
 
 #: libraries/Types.class.php:728
 msgid ""
@@ -3025,8 +3010,8 @@ msgstr "Добро пожаловать в %s"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Возможная причина - отсутствие файла конфигурации. Для его создания вы "
 "можете воспользоваться %1$sсценарием установки%2$s."
@@ -6142,8 +6127,8 @@ msgstr ", @TABLE@ будет замещено именем таблицы"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
 "вставка текущей даты и времени. Дополнительно могут быть использованы "
@@ -6824,8 +6809,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацию и дальнейшую информацию по PBXT смотрите на %sдомашней странице "
 "PrimeBase XT%s."
@@ -8577,7 +8562,6 @@ msgid "Index"
 msgstr "Индекс"
 
 #: libraries/tbl_properties.inc.php:124
-#| msgid "Remove column(s)"
 msgid "Move column"
 msgstr "Переместить поле"
 
@@ -8639,7 +8623,6 @@ msgstr "первый"
 
 #: libraries/tbl_properties.inc.php:543
 #, php-format
-#| msgid "After %s"
 msgid "after %s"
 msgstr "после %s"
 
@@ -9765,8 +9748,8 @@ msgstr "Удалить базы данных, имена которых совп
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Примечание: phpMyAdmin получает информацию о пользовательских привилегиях "
 "непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может "
@@ -11620,8 +11603,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"При необходимости используйте дополнительные настройки безопасности - %"
-"sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
+"При необходимости используйте дополнительные настройки безопасности - "
+"%sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
 "защита по IP может быть ненадежной, если ваш IP не является выделенным и "
 "кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
@@ -11733,7 +11716,6 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Таблица %1$s была успешно изменена"
 
 #: tbl_alter.php:130
-#| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Поля были успешно перемещены."
 
@@ -12186,7 +12168,6 @@ msgid "Show more actions"
 msgstr "Показать больше операций"
 
 #: tbl_structure.php:582 tbl_structure.php:654
-#| msgid "Remove column(s)"
 msgid "Move columns"
 msgstr "Переместить поля"
 
@@ -12443,6 +12424,9 @@ msgstr "VIEW название"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Переименовать представление в"
+
+#~ msgid "A date, supported range is \"%1$s\" to \"%2$s\""
+#~ msgstr "Дата, поддерживаемый диапазон от \"%1$s\" до \"%2$s\""
 
 #~ msgid ""
 #~ "Show affected rows of each statement on multiple-statement queries. See "
