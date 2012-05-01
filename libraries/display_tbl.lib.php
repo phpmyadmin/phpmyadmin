@@ -3254,7 +3254,9 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
     }
     $result .= ']';
 
-    if (strpos($transform_function, 'octetstream')) {
+    if (strpos($transform_function, 'octetstream')
+        || strpos($transform_function, '_text_')
+    ) {
         $result = $content;
     }
     if ($size > 0) {
