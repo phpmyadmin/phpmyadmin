@@ -212,7 +212,8 @@ if (isset($plugin_list)) {
                         __('Add %s statement'),
                         '<code>CREATE PROCEDURE / FUNCTION'
                         . (PMA_MYSQL_INT_VERSION > 50100
-                        ? ' / EVENT</code>' : '</code>'))
+                        ? ' / EVENT</code>' : '</code>')
+                    )
                 );
             }
 
@@ -872,7 +873,7 @@ if (isset($plugin_list)) {
         // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
         $result = PMA_DBI_query(
             'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \''
-                . PMA_sqlAddSlashes($table, true) . '\'',
+            . PMA_sqlAddSlashes($table, true) . '\'',
             null,
             PMA_DBI_QUERY_STORE
         );
@@ -1177,8 +1178,7 @@ if (isset($plugin_list)) {
         $crlf,
         $do_relation = false,
         $do_mime = false
-    )
-    {
+    ) {
         global $cfgRelation;
         global $sql_backquotes;
         global $sql_constraints;
@@ -1327,17 +1327,20 @@ if (isset($plugin_list)) {
             }
             break;
         case 'create_view':
-            $dump .= PMA_exportComment(__('Structure for view')
-                . ' '
-                . $formatted_table_name)
+            $dump .=
+                PMA_exportComment(
+                    __('Structure for view')
+                    . ' '
+                    . $formatted_table_name
+                )
                 . PMA_exportComment();
             // delete the stand-in table previously created (if any)
             if ($export_type != 'table') {
                 $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table)
                     . ';' . $crlf;
             }
-            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates,
-                true, true
+            $dump .= PMA_getTableDef(
+                $db, $table, $crlf, $error_url, $dates, true, true
             );
             break;
         case 'stand_in':
@@ -1540,23 +1543,25 @@ if (isset($plugin_list)) {
                     // NULL
                     if (! isset($row[$j]) || is_null($row[$j])) {
                         $values[] = 'NULL';
-                    // a number
-                    // timestamp is numeric on some MySQL 4.1, BLOBs are sometimes
-                    // numeric
                     } elseif ($fields_meta[$j]->numeric
                         && $fields_meta[$j]->type != 'timestamp'
                         && ! $fields_meta[$j]->blob
                     ) {
+                        // a number
+                        // timestamp is numeric on some MySQL 4.1, BLOBs are
+                        // sometimes numeric
                         $values[] = $row[$j];
-                    // a true BLOB
-                    // - mysqldump only generates hex data when the --hex-blob
-                    //   option is used, for fields having the binary attribute
-                    //   no hex is generated
-                    // - a TEXT field returns type blob but a real blob
-                    //   returns also the 'binary' flag
                     } elseif (stristr($field_flags[$j], 'BINARY')
-                            && $fields_meta[$j]->blob
-                            && isset($GLOBALS['sql_hex_for_blob'])) {
+                        && $fields_meta[$j]->blob
+                        && isset($GLOBALS['sql_hex_for_blob'])
+                    ) {
+                        // a true BLOB
+                        // - mysqldump only generates hex data when the --hex-blob
+                        //   option is used, for fields having the binary attribute
+                        //   no hex is generated
+                        // - a TEXT field returns type blob but a real blob
+                        //   returns also the 'binary' flag
+
                         // empty blobs need to be different, but '0' is also empty
                         // :-(
                         if (empty($row[$j]) && $row[$j] != '0') {
@@ -1564,16 +1569,16 @@ if (isset($plugin_list)) {
                         } else {
                             $values[] = '0x' . bin2hex($row[$j]);
                         }
-                    // detection of 'bit' works only on mysqli extension
                     } elseif ($fields_meta[$j]->type == 'bit') {
+                        // detection of 'bit' works only on mysqli extension
                         $values[] = "b'" . PMA_sqlAddSlashes(
                             PMA_printable_bit_value(
                                 $row[$j], $fields_meta[$j]->length
                             )
                         )
                             . "'";
-                    // something else -> treat as a string
                     } else {
+                        // something else -> treat as a string
                         $values[] = '\''
                             . str_replace(
                                 $search, $replace, PMA_sqlAddSlashes($row[$j])
@@ -1599,8 +1604,8 @@ if (isset($plugin_list)) {
                         $insert_line .= $field_set[$i] . ' = ' . $values[$i];
                     }
 
-                    list($tmp_unique_condition, $tmp_clause_is_unique) =
-                        PMA_getUniqueCondition(
+                    list($tmp_unique_condition, $tmp_clause_is_unique)
+                        = PMA_getUniqueCondition(
                             $result,
                             $fields_cnt,
                             $fields_meta,
@@ -1620,10 +1625,10 @@ if (isset($plugin_list)) {
                                 . implode(', ', $values) . ')';
                         } else {
                             $insert_line  = '(' . implode(', ', $values) . ')';
-                            if (isset($GLOBALS['sql_max_query_size'])
-                                && $GLOBALS['sql_max_query_size'] > 0
-                                && $query_size + strlen($insert_line)
-                                > $GLOBALS['sql_max_query_size']
+                            $sql_max_size = $GLOBALS['sql_max_query_size'];
+                            if (isset($sql_max_size)
+                                && $sql_max_size > 0
+                                && $query_size + strlen($insert_line) > $sql_max_size
                             ) {
                                 if (! PMA_exportOutputHandler(';' . $crlf)) {
                                     return false;
@@ -1643,8 +1648,9 @@ if (isset($plugin_list)) {
                 unset($values);
 
                 if (! PMA_exportOutputHandler(
-                    ($current_row == 1 ? '' : $separator . $crlf) . $insert_line)
-                ) {
+                    ($current_row == 1 ? '' : $separator . $crlf)
+                    . $insert_line
+                )) {
                     return false;
                 }
 
