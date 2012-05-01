@@ -222,7 +222,8 @@ if (isset($plugin_list)) {
                 $head .= '            </pma:' . $type . '>' . $crlf;
 
                 if (isset($GLOBALS['xml_export_triggers'])
-                    && $GLOBALS['xml_export_triggers']) {
+                    && $GLOBALS['xml_export_triggers']
+                ) {
                     // Export triggers
                     $triggers = PMA_DBI_get_triggers($db, $table);
                     if ($triggers) {
@@ -314,7 +315,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -341,7 +342,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -363,7 +364,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -377,11 +378,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table in XML format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
      *
@@ -389,7 +390,6 @@ if (isset($plugin_list)) {
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
         ) {
