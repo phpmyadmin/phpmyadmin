@@ -416,9 +416,9 @@ if (isset($plugin_list)) {
     /**
      * Finalize the pdf.
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {
@@ -435,9 +435,9 @@ if (isset($plugin_list)) {
     /**
      * Initialize the pdf to export data.
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportHeader()
     {

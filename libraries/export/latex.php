@@ -161,7 +161,7 @@ if (isset($plugin_list)) {
      *
      * @return string      the converted string with escape codes
      *
-     * @access  private
+     * @access private
      */
     function PMA_texEscape($string)
     {
@@ -176,9 +176,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {

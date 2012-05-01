@@ -66,9 +66,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {
@@ -78,9 +78,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportHeader()
     {
@@ -92,9 +92,9 @@ if (isset($plugin_list)) {
      *
      * @param string  $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBHeader($db)
     {
@@ -108,9 +108,9 @@ if (isset($plugin_list)) {
      *
      * @param string  $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBFooter($db)
     {
@@ -122,9 +122,9 @@ if (isset($plugin_list)) {
      *
      * @param string  $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBCreate($db)
     {
@@ -140,9 +140,9 @@ if (isset($plugin_list)) {
      * @param string  $error_url  the url to go back in case of error
      * @param string  $sql_query  SQL query for obtaining data
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
@@ -451,7 +451,7 @@ if (isset($plugin_list)) {
      *
      * @return bool      Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportStructure(
         $db,

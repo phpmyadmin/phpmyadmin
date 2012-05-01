@@ -102,9 +102,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {
@@ -114,9 +114,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportHeader()
     {
@@ -130,7 +130,7 @@ if (isset($plugin_list)) {
      *
      * @return bool     Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBHeader($db)
     {
@@ -144,7 +144,7 @@ if (isset($plugin_list)) {
      *
      * @return bool     Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBFooter($db)
     {
@@ -158,7 +158,7 @@ if (isset($plugin_list)) {
      *
      * @return bool     Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBCreate($db)
     {
@@ -273,7 +273,7 @@ if (isset($plugin_list)) {
      *
      * @return bool             Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportData(
         $db,
