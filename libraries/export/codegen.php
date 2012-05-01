@@ -21,8 +21,14 @@ if (! defined('CG_FORMAT_NHIBERNATE_CS')) {
     define("CG_HANDLER_NHIBERNATE_XML_BODY", "handleNHibernateXMLBody");
 }
 
-$CG_FORMATS = array(CG_FORMAT_NHIBERNATE_CS, CG_FORMAT_NHIBERNATE_XML);
-$CG_HANDLERS = array(CG_HANDLER_NHIBERNATE_CS_BODY, CG_HANDLER_NHIBERNATE_XML_BODY);
+$CG_FORMATS = array(
+    CG_FORMAT_NHIBERNATE_CS,
+    CG_FORMAT_NHIBERNATE_XML
+);
+$CG_HANDLERS = array(
+    CG_HANDLER_NHIBERNATE_CS_BODY,
+    CG_HANDLER_NHIBERNATE_XML_BODY
+);
 
 /**
  *
@@ -33,13 +39,25 @@ if (isset($plugin_list)) {
         'extension' => 'cs',
         'mime_type' => 'text/cs',
         'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
-            array('type' => 'hidden', 'name' => 'structure_or_data'),
-            array('type' => 'select', 'name' => 'format', 'text' => __('Format:'), 'values' => $CG_FORMATS),
-            array('type' => 'end_group')
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
             ),
+            array(
+                'type' => 'hidden',
+                'name' => 'structure_or_data'
+            ),
+            array('type' => 'select',
+                'name' => 'format',
+                'text' => __('Format:'),
+                'values' => $CG_FORMATS
+            ),
+            array(
+                'type' => 'end_group'
+            )
+        ),
         'options_text' => __('Options'),
-        );
+    );
 } else {
 
     /**
@@ -130,7 +148,9 @@ if (isset($plugin_list)) {
         global $CG_FORMATS, $CG_HANDLERS, $what;
         $format = $GLOBALS[$what . '_format'];
         if (isset($CG_FORMATS[$format])) {
-            return PMA_exportOutputHandler($CG_HANDLERS[$format]($db, $table, $crlf));
+            return PMA_exportOutputHandler(
+                $CG_HANDLERS[$format]($db, $table, $crlf)
+            );
         }
         return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
     }
@@ -232,7 +252,9 @@ if (isset($plugin_list)) {
         function getIndexName()
         {
             if (strlen($this->key) > 0) {
-                return "index=\"" . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8') . "\"";
+                return "index=\""
+                    . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8')
+                    . "\"";
             }
             return "";
         }
@@ -242,23 +264,59 @@ if (isset($plugin_list)) {
         }
         function formatCs($text)
         {
-            $text = str_replace("#name#", cgMakeIdentifier($this->name, false), $text);
+            $text = str_replace(
+                "#name#",
+                cgMakeIdentifier($this->name, false),
+                $text
+            );
             return $this->format($text);
         }
         function formatXml($text)
         {
-            $text = str_replace("#name#", htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'), $text);
-            $text = str_replace("#indexName#", $this->getIndexName(), $text);
+            $text = str_replace(
+                "#name#",
+                htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'),
+                $text
+            );
+            $text = str_replace(
+                "#indexName#",
+                $this->getIndexName(),
+                $text
+            );
             return $this->format($text);
         }
         function format($text)
         {
-            $text = str_replace("#ucfirstName#", cgMakeIdentifier($this->name), $text);
-            $text = str_replace("#dotNetPrimitiveType#", $this->getDotNetPrimitiveType(), $text);
-            $text = str_replace("#dotNetObjectType#", $this->getDotNetObjectType(), $text);
-            $text = str_replace("#type#", $this->getPureType(), $text);
-            $text = str_replace("#notNull#", $this->isNotNull(), $text);
-            $text = str_replace("#unique#", $this->isUnique(), $text);
+            $text = str_replace(
+                "#ucfirstName#",
+                cgMakeIdentifier($this->name),
+                $text
+            );
+            $text = str_replace(
+                "#dotNetPrimitiveType#",
+                $this->getDotNetPrimitiveType(),
+                $text
+            );
+            $text = str_replace(
+                "#dotNetObjectType#",
+                $this->getDotNetObjectType(),
+                $text
+            );
+            $text = str_replace(
+                "#type#",
+                $this->getPureType(),
+                $text
+            );
+            $text = str_replace(
+                "#notNull#",
+                $this->isNotNull(),
+                $text
+            );
+            $text = str_replace(
+                "#unique#",
+                $this->isUnique(),
+                $text
+            );
             return $text;
         }
     }
@@ -280,7 +338,9 @@ if (isset($plugin_list)) {
     function handleNHibernateCSBody($db, $table, $crlf)
     {
         $lines = array();
-        $result = PMA_DBI_query(sprintf('DESC %s.%s', PMA_backquote($db), PMA_backquote($table)));
+        $result = PMA_DBI_query(
+            sprintf('DESC %s.%s', PMA_backquote($db), PMA_backquote($table))
+        );
         if ($result) {
             $tableProperties = array();
             while ($row = PMA_DBI_fetch_row($result)) {
@@ -298,7 +358,9 @@ if (isset($plugin_list)) {
             $lines[] = '    {';
             $lines[] = '        #region Member Variables';
             foreach ($tableProperties as $tableProperty) {
-                $lines[] = $tableProperty->formatCs('        protected #dotNetPrimitiveType# _#name#;');
+                $lines[] = $tableProperty->formatCs(
+                    '        protected #dotNetPrimitiveType# _#name#;'
+                );
             }
             $lines[] = '        #endregion';
             $lines[] = '        #region Constructors';
@@ -306,14 +368,22 @@ if (isset($plugin_list)) {
             $temp = array();
             foreach ($tableProperties as $tableProperty) {
                 if (! $tableProperty->isPK()) {
-                    $temp[] = $tableProperty->formatCs('#dotNetPrimitiveType# #name#');
+                    $temp[] = $tableProperty->formatCs(
+                        '#dotNetPrimitiveType# #name#'
+                    );
                 }
             }
-            $lines[] = '        public ' . cgMakeIdentifier($table) . '(' . implode(', ', $temp) . ')';
+            $lines[] = '        public '
+                . cgMakeIdentifier($table)
+                . '('
+                . implode(', ', $temp)
+                . ')';
             $lines[] = '        {';
             foreach ($tableProperties as $tableProperty) {
                 if (! $tableProperty->isPK()) {
-                    $lines[] = $tableProperty->formatCs('            this._#name#=#name#;');
+                    $lines[] = $tableProperty->formatCs(
+                        '            this._#name#=#name#;'
+                    );
                 }
             }
             $lines[] = '        }';
@@ -321,7 +391,8 @@ if (isset($plugin_list)) {
             $lines[] = '        #region Public Properties';
             foreach ($tableProperties as $tableProperty) {
                 $lines[] = $tableProperty->formatCs(
-                    '        public virtual #dotNetPrimitiveType# #ucfirstName#' . "\n"
+                    '        public virtual #dotNetPrimitiveType# #ucfirstName#'
+                    . "\n"
                     . '        {' . "\n"
                     . '            get {return _#name#;}' . "\n"
                     . '            set {_#name#=value;}' . "\n"
@@ -346,21 +417,28 @@ if (isset($plugin_list)) {
         $lines[] = '    <class '
             . 'name="' . cgMakeIdentifier($table) . '" '
             . 'table="' . cgMakeIdentifier($table) . '">';
-        $result = PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
+        $result = PMA_DBI_query(
+            sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table))
+        );
         if ($result) {
             while ($row = PMA_DBI_fetch_row($result)) {
                 $tableProperty = new TableProperty($row);
                 if ($tableProperty->isPK()) {
                     $lines[] = $tableProperty->formatXml(
-                        '        <id name="#ucfirstName#" type="#dotNetObjectType#" unsaved-value="0">' . "\n"
-                        . '            <column name="#name#" sql-type="#type#" not-null="#notNull#" unique="#unique#" index="PRIMARY"/>' . "\n"
+                        '        <id name="#ucfirstName#" type="#dotNetObjectType#"'
+                            . ' unsaved-value="0">' . "\n"
+                        . '            <column name="#name#" sql-type="#type#"'
+                            . ' not-null="#notNull#" unique="#unique#"'
+                            . ' index="PRIMARY"/>' . "\n"
                         . '            <generator class="native" />' . "\n"
                         . '        </id>'
                     );
                 } else {
                     $lines[] = $tableProperty->formatXml(
-                        '        <property name="#ucfirstName#" type="#dotNetObjectType#">' . "\n"
-                        . '            <column name="#name#" sql-type="#type#" not-null="#notNull#" #indexName#/>' . "\n"
+                        '        <property name="#ucfirstName#"'
+                            . ' type="#dotNetObjectType#">' . "\n"
+                        . '            <column name="#name#" sql-type="#type#"'
+                            . ' not-null="#notNull#" #indexName#/>' . "\n"
                         . '        </property>'
                     );
                 }
