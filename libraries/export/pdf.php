@@ -268,7 +268,7 @@ if (isset($plugin_list)) {
             $this->tMargin = $topMargin;
         }
 
-        function mysql_report($query)
+        function mysqlReport($query)
         {
             unset($this->tablewidths);
             unset($this->colTitles);
@@ -405,7 +405,7 @@ if (isset($plugin_list)) {
             $this->morepagestable($this->FontSizePt);
             PMA_DBI_free_result($this->results);
 
-        } // end of mysql_report function
+        } // end of mysqlReport function
 
     } // end of PMA_Export_PDF class
 
@@ -512,7 +512,7 @@ if (isset($plugin_list)) {
 
         $attr = array('currentDb' => $db, 'currentTable' => $table);
         $pdf->setAttributes($attr);
-        $pdf->mysql_report($sql_query);
+        $pdf->mysqlReport($sql_query);
 
         return true;
     } // end of the 'PMA_exportData()' function
