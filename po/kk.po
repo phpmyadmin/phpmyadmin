@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-04-27 11:06-0400\n"
-"PO-Revision-Date: 2012-05-01 12:12+0200\n"
+"POT-Creation-Date: 2012-04-27 13:04-0400\n"
+"PO-Revision-Date: 2012-05-01 13:09+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -784,55 +784,57 @@ msgstr "өшірулі"
 
 #: db_tracking.php:140
 msgid "Versions"
-msgstr ""
+msgstr "Нұсқа"
 
 #: db_tracking.php:141 tbl_tracking.php:438 tbl_tracking.php:710
 msgid "Tracking report"
-msgstr ""
+msgstr "Бақылаудың есептемесі"
 
 #: db_tracking.php:142 tbl_tracking.php:256 tbl_tracking.php:712
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Құрылым түсірілімі"
 
 #: db_tracking.php:188
 msgid "Untracked tables"
-msgstr ""
+msgstr "Бақылауға болмайтын кестелер"
 
 #: db_tracking.php:207 tbl_structure.php:648
 msgid "Track table"
-msgstr ""
+msgstr "Кестені бақылау"
 
 #: db_tracking.php:233
 msgid "Database Log"
-msgstr ""
+msgstr "Дерекқор журналы"
 
 #: export.php:39
 msgid "Bad type!"
-msgstr ""
+msgstr "Типі дұрыс емес!"
 
 #: export.php:87
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Таңдалынған экспорт типі, файлда сақталуы тиіс!"
 
 #: export.php:116
 msgid "Bad parameters!"
-msgstr ""
+msgstr "Параметрлері қате!"
 
 #: export.php:177 export.php:202 export.php:673
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "Файлды сақтау үшін %s дисктегі бос орын жеткіліксіз."
 
 #: export.php:327
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"Файл %s қазірдің өзінде серверде қолданыста бар, атын өзгертіңіз немесе "
+"қайта жазу параметрін қосыңыз."
 
 #: export.php:331 export.php:335
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "%s файлын веб-серверге сақтау үшін құқық жеткіліксіз."
 
 #: export.php:675
 #, php-format
@@ -841,12 +843,12 @@ msgstr ""
 
 #: file_echo.php:21
 msgid "Invalid export type"
-msgstr ""
+msgstr "Экспорт типі қате"
 
 #: gis_data_editor.php:85
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" баған мәні"
 
 #: gis_data_editor.php:114 tbl_gis_visualization.php:165
 msgid "Use OpenStreetMaps as Base Layer"
@@ -863,32 +865,32 @@ msgstr ""
 
 #: gis_data_editor.php:171 js/messages.php:325
 msgid "Point"
-msgstr ""
+msgstr "Нүкте"
 
 #: gis_data_editor.php:172 gis_data_editor.php:196 gis_data_editor.php:244
 #: gis_data_editor.php:296 js/messages.php:323
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:174 gis_data_editor.php:198 gis_data_editor.php:246
 #: gis_data_editor.php:298 js/messages.php:324
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:194 gis_data_editor.php:242 gis_data_editor.php:294
 #: js/messages.php:326
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Нүкте %d"
 
 #: gis_data_editor.php:203 gis_data_editor.php:249 gis_data_editor.php:301
 #: js/messages.php:332
 msgid "Add a point"
-msgstr ""
+msgstr "Нүкте қосу"
 
 #: gis_data_editor.php:219 js/messages.php:327
 msgid "Linestring"
-msgstr ""
+msgstr "Сызық"
 
 #: gis_data_editor.php:222 gis_data_editor.php:278 js/messages.php:331
 msgid "Outer Ring"
@@ -2638,26 +2640,25 @@ msgstr ""
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
-#: libraries/Types.class.php:307 libraries/Types.class.php:716
+#: libraries/Types.class.php:307
 #, php-format
-msgid "A date, supported range is \"%1$s\" to \"%2$s\""
+msgid "A date, supported range is %1$s to %2$s"
 msgstr ""
 
-#: libraries/Types.class.php:309 libraries/Types.class.php:718
+#: libraries/Types.class.php:309
 #, php-format
-msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
+msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
 
 #: libraries/Types.class.php:311
 msgid ""
-"A timestamp, range is \"1970-01-01 00:00:01\" UTC to \"2038-01-09 03:14:07\" "
-"UTC, stored as the number of seconds since the epoch (\"1970-01-01 00:00:00"
-"\" UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 
-#: libraries/Types.class.php:313 libraries/Types.class.php:722
+#: libraries/Types.class.php:313
 #, php-format
-msgid "A time, range is \"%1$s\" to \"%2$s\""
+msgid "A time, range is %1$s to %2$s"
 msgstr ""
 
 #: libraries/Types.class.php:315
@@ -2808,10 +2809,26 @@ msgstr ""
 msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr ""
 
+#: libraries/Types.class.php:716
+#, php-format
+msgid "A date, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
+msgstr ""
+
+#: libraries/Types.class.php:718
+#, php-format
+msgid ""
+"A date and time combination, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
+msgstr ""
+
 #: libraries/Types.class.php:720
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
+msgstr ""
+
+#: libraries/Types.class.php:722
+#, php-format
+msgid "A time, range is \"%1$s\" to \"%2$s\""
 msgstr ""
 
 #: libraries/Types.class.php:728
