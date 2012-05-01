@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-21 12:03+0200\n"
+"PO-Revision-Date: 2012-05-01 13:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1020,12 +1020,17 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"විධානාවලිය ක්‍රියාත්මක වීමට ලබා දුන් කාලය අවසන් විය. ඔබට ආනයනය සම්පූර්ණ "
+"කිරීමට අවශ්‍ය නම් එම ආනයන ගොනුවම නැවත ආනයනය සඳහා යොමු කරන්න."
 
 #: import.php:444
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"කෙසේ නමුදු අවසන් වාරයේදී කිසිදු දත්තයක් ලබා ගත නොහැකි විය. මෙයින් අදහස් "
+"වන්නේ ඔබගේ php කාල සීමාව වැඩි කිරීමකින් තොරව phpMyAdmin හට මෙම ආනයනය "
+"සම්පූර්ණ කිරීමට හැකි නොවන බවය."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1205
@@ -1041,7 +1046,7 @@ msgstr "ආපසු"
 
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr ""
+msgstr "<b >frame සහය ඇති</b> බ්‍රව්සර සමග phpMyAdmin වඩා හොඳින් ක්‍රියා කරයි."
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:253
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1500,7 +1505,7 @@ msgstr "ප්‍රස්තාර මාතෘකාව"
 #. l10n: As in differential values
 #: js/messages.php:170
 msgid "Differential"
-msgstr ""
+msgstr "ආන්තර"
 
 #: js/messages.php:171
 #, php-format
