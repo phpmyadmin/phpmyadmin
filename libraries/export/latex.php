@@ -28,58 +28,129 @@ if (isset($plugin_list)) {
         'extension' => 'tex',
         'mime_type' => 'application/x-tex',
         'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
-            array('type' => 'bool', 'name' => 'caption', 'text' => __('Include table caption')),
-            array('type' => 'end_group')
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
             ),
+            array(
+                'type' => 'bool',
+                'name' => 'caption',
+                'text' => __('Include table caption')
+            ),
+            array(
+                'type' => 'end_group'
+            )
+        ),
         'options_text' => __('Options'),
-        );
+    );
 
     /* what to dump (structure/data/both) */
-    $plugin_list['latex']['options'][]
-        = array('type' => 'begin_group', 'name' => 'dump_what', 'text' => __('Dump table'));
-    $plugin_list['latex']['options'][]
-        = array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
-    $plugin_list['latex']['options'][] = array('type' => 'end_group');
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'begin_group',
+        'name' => 'dump_what',
+        'text' => __('Dump table')
+    );
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'radio',
+        'name' => 'structure_or_data',
+        'values' => array(
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data')
+        )
+    );
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'end_group'
+    );
 
     /* Structure options */
     if (! $hide_structure) {
-        $plugin_list['latex']['options'][]
-            = array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
-        $plugin_list['latex']['options'][]
-            = array('type' => 'text', 'name' => 'structure_caption', 'text' => __('Table caption'), 'doc' => 'faq6_27');
-        $plugin_list['latex']['options'][]
-            = array('type' => 'text', 'name' => 'structure_continued_caption', 'text' => __('Table caption (continued)'), 'doc' => 'faq6_27');
-        $plugin_list['latex']['options'][]
-            = array('type' => 'text', 'name' => 'structure_label', 'text' => __('Label key'), 'doc' => 'faq6_27');
+        $plugin_list['latex']['options'][] = array(
+            'type' => 'begin_group',
+            'name' => 'structure',
+            'text' => __('Object creation options'),
+            'force' => 'data'
+        );
+        $plugin_list['latex']['options'][] = array(
+            'type' => 'text',
+            'name' => 'structure_caption',
+            'text' => __('Table caption'),
+            'doc' => 'faq6_27'
+        );
+        $plugin_list['latex']['options'][] = array(
+            'type' => 'text',
+            'name' => 'structure_continued_caption',
+            'text' => __('Table caption (continued)'),
+            'doc' => 'faq6_27'
+        );
+        $plugin_list['latex']['options'][] = array(
+            'type' => 'text',
+            'name' => 'structure_label',
+            'text' => __('Label key'),
+            'doc' => 'faq6_27'
+        );
         if (! empty($GLOBALS['cfgRelation']['relation'])) {
-            $plugin_list['latex']['options'][]
-                = array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
+            $plugin_list['latex']['options'][] = array(
+                'type' => 'bool',
+                'name' => 'relation',
+                'text' => __('Display foreign key relationships')
+            );
         }
-        $plugin_list['latex']['options'][]
-            = array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
+        $plugin_list['latex']['options'][] = array(
+            'type' => 'bool',
+            'name' => 'comments',
+            'text' => __('Display comments')
+        );
         if (! empty($GLOBALS['cfgRelation']['mimework'])) {
-            $plugin_list['latex']['options'][]
-                = array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
+            $plugin_list['latex']['options'][] = array(
+                'type' => 'bool',
+                'name' => 'mime',
+                'text' => __('Display MIME types')
+            );
         }
-        $plugin_list['latex']['options'][]
-            = array('type' => 'end_group');
+        $plugin_list['latex']['options'][] = array(
+            'type' => 'end_group'
+        );
     }
+
     /* Data */
-    $plugin_list['latex']['options'][]
-        = array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
-    $plugin_list['latex']['options'][]
-        = array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
-    $plugin_list['latex']['options'][]
-        = array('type' => 'text', 'name' => 'data_caption', 'text' => __('Table caption'), 'doc' => 'faq6_27');
-    $plugin_list['latex']['options'][]
-        = array('type' => 'text', 'name' => 'data_continued_caption', 'text' => __('Table caption (continued)'), 'doc' => 'faq6_27');
-    $plugin_list['latex']['options'][]
-        = array('type' => 'text', 'name' => 'data_label', 'text' => __('Label key'), 'doc' => 'faq6_27');
-    $plugin_list['latex']['options'][]
-        = array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
-    $plugin_list['latex']['options'][]
-        = array('type' => 'end_group');
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'begin_group',
+        'name' => 'data',
+        'text' => __('Data dump options'),
+        'force' => 'structure'
+    );
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'bool',
+        'name' => 'columns',
+        'text' => __('Put columns names in the first row')
+    );
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'text',
+        'name' => 'data_caption',
+        'text' => __('Table caption'),
+        'doc' => 'faq6_27'
+    );
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'text',
+        'name' => 'data_continued_caption',
+        'text' => __('Table caption (continued)'),
+        'doc' => 'faq6_27'
+    );
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'text',
+        'name' => 'data_label',
+        'text' => __('Label key'),
+        'doc' => 'faq6_27'
+    );
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'text',
+        'name' => 'null',
+        'text' => __('Replace NULL with:')
+    );
+    $plugin_list['latex']['options'][] = array(
+        'type' => 'end_group'
+    );
 } else {
 
     /**
@@ -277,10 +348,13 @@ if (isset($plugin_list)) {
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if (isset($record[$columns[$i]])
-                    && (! function_exists('is_null') || ! is_null($record[$columns[$i]]))
+                if ((! function_exists('is_null')
+                    || ! is_null($record[$columns[$i]]))
+                    && isset($record[$columns[$i]])
                 ) {
-                    $column_value = PMA_texEscape(stripslashes($record[$columns[$i]]));
+                    $column_value = PMA_texEscape(
+                        stripslashes($record[$columns[$i]])
+                    );
                 } else {
                     $column_value = $GLOBALS['latex_null'];
                 }
@@ -316,21 +390,33 @@ if (isset($plugin_list)) {
      * @param string $crlf        the end of line sequence
      * @param string $error_url   the url to go back in case of error
      * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column comments
-     *                            as comments in the structure; this is deprecated
-     *                            but the parameter is left here because export.php
-     *                            calls PMA_exportStructure() also for other export
-     *                            types which use this parameter
+     * @param bool   $do_comments whether to include the pmadb-style column
+     *                                comments as comments in the structure;
+     *                                this is deprecated but the parameter is
+     *                                left here because export.php calls
+     *                                PMA_exportStructure() also for other
+     *                                export types which use this parameter
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
-     * @param string $export_mode 'create_table', 'triggers', 'create_view', 'stand_in'
+     * @param string $export_mode 'create_table', 'triggers', 'create_view',
+     *                            'stand_in'
      * @param string $export_type 'server', 'database', 'table'
      *
      * @return bool Whether it succeeded
      *
      * @access public
      */
-    function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
+    function PMA_exportStructure(
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $do_relation = false,
+        $do_comments = false,
+        $do_mime = false,
+        $dates = false,
+        $export_mode,
+        $export_type)
     {
         global $cfgRelation;
 
@@ -423,7 +509,8 @@ if (isset($plugin_list)) {
                 )
                 . '} \\\\' . $crlf;
         }
-        $buffer .= $header . ' \\\\ \\hline \\hline' . $crlf . '\\endfirsthead' . $crlf;
+        $buffer .= $header . ' \\\\ \\hline \\hline' . $crlf
+            . '\\endfirsthead' . $crlf;
         // Table caption on next pages
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
@@ -457,7 +544,8 @@ if (isset($plugin_list)) {
             $field_name = $row['Field'];
 
             $local_buffer = $field_name . "\000" . $type . "\000"
-                . (($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes'))
+                . (($row['Null'] == '' || $row['Null'] == 'NO')
+                    ? __('No') : __('Yes'))
                 . "\000" . (isset($row['Default']) ? $row['Default'] : '');
 
             if ($do_relation && $have_rel) {
@@ -476,17 +564,27 @@ if (isset($plugin_list)) {
             if ($do_mime && $cfgRelation['mimework']) {
                 $local_buffer .= "\000";
                 if (isset($mime_map[$field_name])) {
-                    $local_buffer .= str_replace('_', '/', $mime_map[$field_name]['mimetype']);
+                    $local_buffer .= str_replace(
+                        '_',
+                        '/',
+                        $mime_map[$field_name]['mimetype']
+                    );
                 }
             }
             $local_buffer = PMA_texEscape($local_buffer);
             if ($row['Key']=='PRI') {
                 $pos=strpos($local_buffer, "\000");
-                $local_buffer = '\\textit{' . substr($local_buffer, 0, $pos) . '}' . substr($local_buffer, $pos);
+                $local_buffer = '\\textit{'
+                    . substr(
+                        $local_buffer, 0, $pos) . '}' . substr($local_buffer, $pos
+                    );
             }
             if (in_array($field_name, $unique_keys)) {
                 $pos=strpos($local_buffer, "\000");
-                $local_buffer = '\\textbf{' . substr($local_buffer, 0, $pos) . '}' . substr($local_buffer, $pos);
+                $local_buffer = '\\textbf{'
+                    . substr(
+                        $local_buffer, 0, $pos) . '}' . substr($local_buffer, $pos
+                    );
             }
             $buffer = str_replace("\000", ' & ', $local_buffer);
             $buffer .= ' \\\\ \\hline ' . $crlf;
