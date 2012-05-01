@@ -119,9 +119,10 @@ if (isset($plugin_list)) {
             . '</office:document-content>';
         if (! PMA_exportOutputHandler(
             PMA_createOpenDocument(
-                'application/vnd.oasis.opendocument.text', $GLOBALS['odt_buffer'])
+                'application/vnd.oasis.opendocument.text',
+                $GLOBALS['odt_buffer']
             )
-        ) {
+        )) {
             return false;
         }
         return true;
@@ -256,9 +257,10 @@ if (isset($plugin_list)) {
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                // ignore BLOB
                 } elseif (stristr($field_flags[$j], 'BINARY')
-                        && $fields_meta[$j]->blob) {
+                    && $fields_meta[$j]->blob
+                ) {
+                    // ignore BLOB
                     $GLOBALS['odt_buffer'] .=
                         '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
@@ -512,8 +514,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs triggers
      *
-     * @param string $db     database name
-     * @param string $table  table name
+     * @param string $db    database name
+     * @param string $table table name
+     *
      * @return bool true
      *
      * @access public
@@ -603,8 +606,8 @@ if (isset($plugin_list)) {
         $do_mime = false,
         $dates = false,
         $export_mode,
-        $export_type)
-    {
+        $export_type
+    ) {
         switch($export_mode) {
         case 'create_table':
             $GLOBALS['odt_buffer'] .=
@@ -613,8 +616,9 @@ if (isset($plugin_list)) {
                 . __('Table structure for table') . ' ' .
                 htmlspecialchars($table)
                 . '</text:h>';
-            PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation,
-                $do_comments, $do_mime, $dates
+            PMA_getTableDef(
+                $db, $table, $crlf, $error_url, $do_relation, $do_comments,
+                $do_mime, $dates
             );
             break;
         case 'triggers':
@@ -636,8 +640,9 @@ if (isset($plugin_list)) {
                 . __('Structure for view') . ' '
                 . htmlspecialchars($table)
                 . '</text:h>';
-            PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation,
-                $do_comments, $do_mime, $dates, true, true
+            PMA_getTableDef(
+                $db, $table, $crlf, $error_url, $do_relation, $do_comments,
+                $do_mime, $dates, true, true
             );
             break;
         case 'stand_in':
@@ -657,15 +662,14 @@ if (isset($plugin_list)) {
     /**
      * Formats the definition for one column 
      *
-     * @param array $column  info about this column 
+     * @param array $column info about this column 
      *
-     * @return string        Formatted column definition
+     * @return string Formatted column definition
      *
      * @access public
      */
-    function PMA_formatOneColumnDefinition(
-        $column
-    ) {
+    function PMA_formatOneColumnDefinition($column)
+    {
         $field_name = $column['Field'];
         $definition =  '<table:table-row>';
         $definition .= '<table:table-cell office:value-type="string">'
