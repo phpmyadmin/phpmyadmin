@@ -3,7 +3,7 @@
 /**
  * Set of functions used to export a set of queries to a MS Word document
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage HTMLWord
  */
 if (! defined('PHPMYADMIN')) {

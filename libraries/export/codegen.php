@@ -3,7 +3,7 @@
 /**
  * Set of functions used to build NHibernate dumps of tables
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage Codegen
  */
 if (! defined('PHPMYADMIN')) {

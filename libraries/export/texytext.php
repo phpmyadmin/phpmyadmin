@@ -3,7 +3,7 @@
 /**
  * Export to Texy! text.
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage Texy
  */
 if (! defined('PHPMYADMIN')) {

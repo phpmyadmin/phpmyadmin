@@ -3,7 +3,7 @@
 /**
  * CSV export code
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage CSV
  */
 if (! defined('PHPMYADMIN')) {

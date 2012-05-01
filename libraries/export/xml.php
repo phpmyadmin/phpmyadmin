@@ -3,7 +3,7 @@
 /**
  * Set of functions used to build XML dumps of tables
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage XML
  */
 if (! defined('PHPMYADMIN')) {
