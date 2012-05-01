@@ -3,7 +3,7 @@
 /**
  *  Set of functions used to build MediaWiki dumps of tables
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage MediaWiki
  */
 if (! defined('PHPMYADMIN')) {
@@ -15,53 +15,55 @@ if (isset($plugin_list)) {
         'text' => __('MediaWiki Table'),
         'extension' => 'mediawiki',
         'mime_type' => 'text/plain',
-        'options' => array(
-            ),
-        'options_text' => __('Options'),
-        );
+        'options' => array(),
+        'options_text' => __('Options')
+    );
 
-        // general options
-        $plugin_list['mediawiki']['options'][] = array(
-            'type' => 'begin_group',
-            'name' => 'general_opts');
+    // general options
+    $plugin_list['mediawiki']['options'][] = array(
+        'type' => 'begin_group',
+        'name' => 'general_opts'
+    );
 
-        // what to dump (structure/data/both)
-        $plugin_list['mediawiki']['options'][] = array(
-            'type' => 'begin_subgroup',
-            'subgroup_header' => array(
-                'type' => 'message_only',
-                'text' => __('Dump table')
-            ));
-        $plugin_list['mediawiki']['options'][] = array(
-            'type' => 'radio',
-            'name' => 'structure_or_data',
-            'values' => array(
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            ));
-        $plugin_list['mediawiki']['options'][] = array(
-            'type' => 'end_subgroup'
-            );
+    // what to dump (structure/data/both)
+    $plugin_list['mediawiki']['options'][] = array(
+        'type' => 'begin_subgroup',
+        'subgroup_header' => array(
+            'type' => 'message_only',
+            'text' => __('Dump table')
+        )
+    );
+    $plugin_list['mediawiki']['options'][] = array(
+        'type' => 'radio',
+        'name' => 'structure_or_data',
+        'values' => array(
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data')
+        )
+    );
+    $plugin_list['mediawiki']['options'][] = array(
+        'type' => 'end_subgroup'
+    );
 
-        // export table name
-        $plugin_list['mediawiki']['options'][] = array(
-            'type' => 'bool',
-            'name' => 'caption',
-            'text' => __('Export table names')
-            );
+    // export table name
+    $plugin_list['mediawiki']['options'][] = array(
+        'type' => 'bool',
+        'name' => 'caption',
+        'text' => __('Export table names')
+    );
 
-        // export table headers
-        $plugin_list['mediawiki']['options'][] = array(
-            'type' => 'bool',
-            'name' => 'headers',
-            'text' => __('Export table headers')
-            );
+    // export table headers
+    $plugin_list['mediawiki']['options'][] = array(
+        'type' => 'bool',
+        'name' => 'headers',
+        'text' => __('Export table headers')
+    );
 
-        // end general options
-        $plugin_list['mediawiki']['options'][] = array(
-            'type' => 'end_group'
-            );
+    // end general options
+    $plugin_list['mediawiki']['options'][] = array(
+        'type' => 'end_group'
+    );
 } else {
 
     /**
@@ -100,9 +102,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {
@@ -112,9 +114,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportHeader()
     {
@@ -128,7 +130,7 @@ if (isset($plugin_list)) {
      *
      * @return bool     Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBHeader($db)
     {
@@ -142,7 +144,7 @@ if (isset($plugin_list)) {
      *
      * @return bool     Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBFooter($db)
     {
@@ -156,7 +158,7 @@ if (isset($plugin_list)) {
      *
      * @return bool     Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBCreate($db)
     {
@@ -170,17 +172,17 @@ if (isset($plugin_list)) {
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
      * @param string $error_url   the url to go back in case of error
-     *
-     * @param bool   $relation    whether to include relation comments
-     * @param bool   $comments    whether to include the pmadb-style column comments
+     * @param string $export_mode 'create_table','triggers','create_view',
+     *                            'stand_in'
+     * @param string $export_type 'server', 'database', 'table'
+     * @param bool   $do_relation whether to include relation comments
+     * @param bool   $do_comments whether to include the pmadb-style column comments
      *                            as comments in the structure; this is deprecated
      *                            but the parameter is left here because export.php
      *                            calls PMA_exportStructure() also for other export
      *                            types which use this parameter
-     * @param bool   $mime        whether to include mime comments
+     * @param bool   $do_mime     whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
-     * @param string $export_mode 'create_table','triggers','create_view','stand_in'
-     * @param string $export_type 'server', 'database', 'table'
      *
      * @return bool               Whether it succeeded
      *
@@ -191,12 +193,12 @@ if (isset($plugin_list)) {
         $table,
         $crlf,
         $error_url,
-        $relation = false,
-        $comments = false,
-        $mime = false,
-        $dates = false,
         $export_mode,
-        $export_type
+        $export_type,
+        $do_relation = false,
+        $do_comments = false,
+        $do_mime = false,
+        $dates = false
     ) {
         switch($export_mode) {
         case 'create_table':
@@ -271,7 +273,7 @@ if (isset($plugin_list)) {
      *
      * @return bool             Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportData(
         $db,
