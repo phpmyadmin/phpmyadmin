@@ -19,12 +19,17 @@ if (isset($plugin_list)) {
         'extension' => 'json',
         'mime_type' => 'text/plain',
         'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
+            ),
             array(
                 'type' => 'hidden',
                 'name' => 'structure_or_data',
             ),
-            array('type' => 'end_group')
+            array(
+                'type' => 'end_group'
+            )
         ),
         'options_text' => __('Options'),
     );
@@ -155,11 +160,20 @@ if (isset($plugin_list)) {
                 $column = $columns[$i];
 
                 if (is_null($record[$i])) {
-                    $buffer .= '"' . addslashes($column) . '": null' . (! $isLastLine ? ',' : '');
+                    $buffer .= '"' . addslashes($column)
+                        . '": null'
+                        . (! $isLastLine ? ',' : '');
                 } elseif ($fields_meta[$i]->numeric) {
-                    $buffer .= '"' . addslashes($column) . '": ' . $record[$i] . (! $isLastLine ? ',' : '');
+                    $buffer .= '"' . addslashes($column)
+                        . '": '
+                        . $record[$i]
+                        . (! $isLastLine ? ',' : '');
                 } else {
-                    $buffer .= '"' . addslashes($column) . '": "' . addslashes($record[$i]) . '"' . (! $isLastLine ? ',' : '');
+                    $buffer .= '"' . addslashes($column)
+                        . '": "'
+                        . addslashes($record[$i])
+                        . '"'
+                        . (! $isLastLine ? ',' : '');
                 }
             }
 
