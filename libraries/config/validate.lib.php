@@ -478,9 +478,16 @@ function test_number($path, $values, $allow_neg, $allow_zero, $max_value,
  */
 function validate_port_number($path, $values)
 {
-    return array($path => test_number(
-        $path, $values, false, false, 65535, __('Not a valid port number')
-    ));
+    return array(
+        $path => test_number(
+            $path,
+            $values,
+            false,
+            false,
+            65535,
+            __('Not a valid port number')
+        )
+    );
 }
 
 /**
@@ -493,9 +500,16 @@ function validate_port_number($path, $values)
  */
 function validate_positive_number($path, $values)
 {
-    return array($path => test_number(
-        $path, $values, false, false, PHP_INT_MAX, __('Not a positive number')
-    ));
+    return array(
+        $path => test_number(
+            $path,
+            $values,
+            false,
+            false,
+            PHP_INT_MAX,
+            __('Not a positive number')
+        )
+    );
 }
 
 /**
@@ -508,10 +522,16 @@ function validate_positive_number($path, $values)
  */
 function validate_non_negative_number($path, $values)
 {
-    return array($path => test_number(
-        $path, $values, false, true,
-        PHP_INT_MAX, __('Not a non-negative number')
-    ));
+    return array(
+        $path => test_number(
+            $path,
+            $values,
+            false,
+            true,
+            PHP_INT_MAX,
+            __('Not a non-negative number')
+        )
+    );
 }
 
 /**
