@@ -159,7 +159,7 @@ if (isset($plugin_list)) {
      *
      * @param string $string the string to convert
      *
-     * @return string      the converted string with escape codes
+     * @return string the converted string with escape codes
      *
      * @access private
      */
@@ -417,8 +417,8 @@ if (isset($plugin_list)) {
         $do_mime = false,
         $dates = false,
         $export_mode,
-        $export_type)
-    {
+        $export_type
+    ) {
         global $cfgRelation;
 
         /**
@@ -576,16 +576,14 @@ if (isset($plugin_list)) {
             if ($row['Key']=='PRI') {
                 $pos=strpos($local_buffer, "\000");
                 $local_buffer = '\\textit{'
-                    . substr(
-                        $local_buffer, 0, $pos) . '}' . substr($local_buffer, $pos
-                    );
+                    . substr($local_buffer, 0, $pos)
+                    . '}' . substr($local_buffer, $pos);
             }
             if (in_array($field_name, $unique_keys)) {
                 $pos=strpos($local_buffer, "\000");
                 $local_buffer = '\\textbf{'
-                    . substr(
-                        $local_buffer, 0, $pos) . '}' . substr($local_buffer, $pos
-                    );
+                    . substr($local_buffer, 0, $pos)
+                    . '}' . substr($local_buffer, $pos);
             }
             $buffer = str_replace("\000", ' & ', $local_buffer);
             $buffer .= ' \\\\ \\hline ' . $crlf;
