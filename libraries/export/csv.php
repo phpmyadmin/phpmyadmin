@@ -176,7 +176,7 @@ if (isset($plugin_list)) {
                 $schema_insert     .= $csv_separator;
             } // end for
             $schema_insert  =trim(substr($schema_insert, 0, -1));
-            if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
+            if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end if
@@ -185,7 +185,7 @@ if (isset($plugin_list)) {
         while ($row = PMA_DBI_fetch_row($result)) {
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || is_null($row[$j])) {
                     $schema_insert .= $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     // always enclose fields
@@ -219,7 +219,7 @@ if (isset($plugin_list)) {
                 }
             } // end for
 
-            if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
+            if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end while

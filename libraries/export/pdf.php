@@ -154,7 +154,7 @@ if (isset($plugin_list)) {
                         $l += $this->tablewidths[$col];
                     }
 
-                    if (!isset($tmpheight[$row.'-'.$this->page])) {
+                    if (! isset($tmpheight[$row.'-'.$this->page])) {
                         $tmpheight[$row.'-'.$this->page] = 0;
                     }
                     if ($tmpheight[$row.'-'.$this->page] < $this->GetY()) {
@@ -318,7 +318,7 @@ if (isset($plugin_list)) {
             }
 
             for ($i=0; $i < $this->numFields; $i++) {
-                if (!in_array($i, array_keys($colFits))) {
+                if (! in_array($i, array_keys($colFits))) {
                     $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
                 }
                 if ($this->display_column[$i] == false) {
@@ -357,7 +357,7 @@ if (isset($plugin_list)) {
         global $pdf;
 
         // instead of $pdf->Output():
-        if (!PMA_exportOutputHandler($pdf->getPDFData())) {
+        if (! PMA_exportOutputHandler($pdf->getPDFData())) {
             return false;
         }
 

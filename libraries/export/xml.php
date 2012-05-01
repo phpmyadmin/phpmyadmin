@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-if (!strlen($GLOBALS['db'])) { /* Can't do server export */
+if (! strlen($GLOBALS['db'])) { /* Can't do server export */
     return;
 }
 
@@ -33,7 +33,7 @@ if (isset($plugin_list)) {
         'name' => 'structure',
         'text' => __('Object creation options (all are recommended)')
         );
-    if (!PMA_DRIZZLE) {
+    if (! PMA_DRIZZLE) {
         $plugin_list['xml']['options'][] = array(
             'type' => 'bool',
             'name' => 'export_functions',
@@ -50,7 +50,7 @@ if (isset($plugin_list)) {
         'name' => 'export_tables',
         'text' => __('Tables')
         );
-    if (!PMA_DRIZZLE) {
+    if (! PMA_DRIZZLE) {
         $plugin_list['xml']['options'][] = array(
             'type' => 'bool',
             'name' => 'export_triggers',
@@ -129,7 +129,7 @@ if (isset($plugin_list)) {
                .  '- http://www.phpmyadmin.net' . $crlf
                .  '-' . $crlf
                .  '- ' . __('Host') . ': ' . $cfg['Server']['host'];
-        if (!empty($cfg['Server']['port'])) {
+        if (! empty($cfg['Server']['port'])) {
              $head .= ':' . $cfg['Server']['port'];
         }
         $head .= $crlf
@@ -362,7 +362,7 @@ if (isset($plugin_list)) {
             unset($i);
 
             $buffer      = '        <!-- ' . __('Table') . ' ' . $table . ' -->' . $crlf;
-            if (!PMA_exportOutputHandler($buffer)) {
+            if (! PMA_exportOutputHandler($buffer)) {
                 return false;
             }
 
@@ -370,7 +370,7 @@ if (isset($plugin_list)) {
                 $buffer         = '        <table name="' . htmlspecialchars($table) . '">' . $crlf;
                 for ($i = 0; $i < $columns_cnt; $i++) {
                     // If a cell is NULL, still export it to preserve the XML structure
-                    if (!isset($record[$i]) || is_null($record[$i])) {
+                    if (! isset($record[$i]) || is_null($record[$i])) {
                         $record[$i] = 'NULL';
                     }
                     $buffer .= '            <column name="' . htmlspecialchars($columns[$i]) . '">' . htmlspecialchars((string)$record[$i])
@@ -378,7 +378,7 @@ if (isset($plugin_list)) {
                 }
                 $buffer         .= '        </table>' . $crlf;
 
-                if (!PMA_exportOutputHandler($buffer)) {
+                if (! PMA_exportOutputHandler($buffer)) {
                     return false;
                 }
             }

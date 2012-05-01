@@ -45,7 +45,7 @@ if (isset($plugin_list)) {
         $GLOBALS['ods_buffer'] .= '</office:spreadsheet>'
             . '</office:body>'
             . '</office:document-content>';
-        if (!PMA_exportOutputHandler(PMA_createOpenDocument('application/vnd.oasis.opendocument.spreadsheet', $GLOBALS['ods_buffer']))) {
+        if (! PMA_exportOutputHandler(PMA_createOpenDocument('application/vnd.oasis.opendocument.spreadsheet', $GLOBALS['ods_buffer']))) {
             return false;
         }
         return true;
@@ -186,7 +186,7 @@ if (isset($plugin_list)) {
         while ($row = PMA_DBI_fetch_row($result)) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || is_null($row[$j])) {
                     $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>' . htmlspecialchars($GLOBALS[$what . '_null']) . '</text:p>'
                         . '</table:table-cell>';

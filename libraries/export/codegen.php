@@ -268,7 +268,7 @@ if (isset($plugin_list)) {
         // remove unsafe characters
         $str = preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
         // make sure first character is a letter or _
-        if (!preg_match('/^\pL/u', $str)) {
+        if (! preg_match('/^\pL/u', $str)) {
             $str = '_' . $str;
         }
         if ($ucfirst) {

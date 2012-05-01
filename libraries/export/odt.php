@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $hide_structure = false;
-    if ($plugin_param['export_type'] == 'table' && !$plugin_param['single_table']) {
+    if ($plugin_param['export_type'] == 'table' && ! $plugin_param['single_table']) {
         $hide_structure = true;
     }
     $plugin_list['odt'] = array(
@@ -35,16 +35,16 @@ if (isset($plugin_list)) {
     $plugin_list['odt']['options'][] = array('type' => 'end_group');
 
     /* Structure options */
-    if (!$hide_structure) {
+    if (! $hide_structure) {
         $plugin_list['odt']['options'][]
             = array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
-        if (!empty($GLOBALS['cfgRelation']['relation'])) {
+        if (! empty($GLOBALS['cfgRelation']['relation'])) {
             $plugin_list['odt']['options'][]
                 = array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
         }
         $plugin_list['odt']['options'][]
             = array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
-        if (!empty($GLOBALS['cfgRelation']['mimework'])) {
+        if (! empty($GLOBALS['cfgRelation']['mimework'])) {
             $plugin_list['odt']['options'][]
                 = array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
         }
@@ -189,7 +189,7 @@ if (isset($plugin_list)) {
         while ($row = PMA_DBI_fetch_row($result)) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || is_null($row[$j])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>' . htmlspecialchars($GLOBALS[$what . '_null']) . '</text:p>'
                         . '</table:table-cell>';
@@ -300,7 +300,7 @@ if (isset($plugin_list)) {
         PMA_DBI_select_db($db);
 
         // Check if we can use Relations
-        if ($do_relation && !empty($cfgRelation['relation'])) {
+        if ($do_relation && ! empty($cfgRelation['relation'])) {
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = PMA_getForeigners($db, $table);

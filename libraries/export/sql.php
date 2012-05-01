@@ -16,11 +16,11 @@ if (! defined('PHPMYADMIN')) {
 if (isset($plugin_list)) {
     $hide_sql       = false;
     $hide_structure = false;
-    if ($plugin_param['export_type'] == 'table' && !$plugin_param['single_table']) {
+    if ($plugin_param['export_type'] == 'table' && ! $plugin_param['single_table']) {
         $hide_structure = true;
         $hide_sql       = true;
     }
-    if (!$hide_sql) {
+    if (! $hide_sql) {
         $plugin_list['sql'] = array(
             'text' => __('SQL'),
             'extension' => 'sql',
@@ -49,14 +49,14 @@ if (isset($plugin_list)) {
             'name' => 'dates',
             'text' => __('Include a timestamp of when databases were created, last updated, and last checked')
             );
-        if (!empty($GLOBALS['cfgRelation']['relation'])) {
+        if (! empty($GLOBALS['cfgRelation']['relation'])) {
             $plugin_list['sql']['options'][] = array(
                 'type' => 'bool',
                 'name' => 'relation',
                 'text' => __('Display foreign key relationships')
                 );
         }
-        if (!empty($GLOBALS['cfgRelation']['mimework'])) {
+        if (! empty($GLOBALS['cfgRelation']['mimework'])) {
             $plugin_list['sql']['options'][] = array(
                 'type' => 'bool',
                 'name' => 'mime',
@@ -135,7 +135,7 @@ if (isset($plugin_list)) {
         $plugin_list['sql']['options'][] = array('type' => 'end_group');
 
         /* begin Structure options */
-        if (!$hide_structure) {
+        if (! $hide_structure) {
             $plugin_list['sql']['options'][] = array(
                 'type' => 'begin_group',
                 'name' => 'structure',
@@ -173,7 +173,7 @@ if (isset($plugin_list)) {
                 'text' => sprintf(__('Add %s statement'), $drop_clause)
                 );
             // Drizzle doesn't support procedures and functions
-            if (!PMA_DRIZZLE) {
+            if (! PMA_DRIZZLE) {
                 $plugin_list['sql']['options'][] = array(
                     'type' => 'bool',
                     'name' => 'procedure_function',
@@ -232,7 +232,7 @@ if (isset($plugin_list)) {
                 'text' => __('Instead of <code>INSERT</code> statements, use:')
             ));
         // Not supported in Drizzle
-        if (!PMA_DRIZZLE) {
+        if (! PMA_DRIZZLE) {
             $plugin_list['sql']['options'][] = array(
                 'type' => 'bool',
                 'name' => 'delayed',
@@ -294,7 +294,7 @@ if (isset($plugin_list)) {
             );
 
         // Drizzle works only with UTC timezone
-        if (!PMA_DRIZZLE) {
+        if (! PMA_DRIZZLE) {
             /* Dump time in UTC */
             $plugin_list['sql']['options'][] = array(
                 'type' => 'bool',
@@ -443,7 +443,7 @@ if (isset($plugin_list)) {
 
         // restore connection settings
         $charset_of_file = isset($GLOBALS['charset_of_file']) ? $GLOBALS['charset_of_file'] : '';
-        if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file]) && !PMA_DRIZZLE) {
+        if (! empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file]) && !PMA_DRIZZLE) {
             $foot .=  $crlf
                     . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;' . $crlf
                     . '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;' . $crlf
@@ -484,7 +484,7 @@ if (isset($plugin_list)) {
                .  PMA_exportComment('http://www.phpmyadmin.net')
                .  PMA_exportComment();
         $host_string = __('Host') . ': ' .  $cfg['Server']['host'];
-        if (!empty($cfg['Server']['port'])) {
+        if (! empty($cfg['Server']['port'])) {
             $host_string .= ':' . $cfg['Server']['port'];
         }
         $head .= PMA_exportComment($host_string);
@@ -493,7 +493,7 @@ if (isset($plugin_list)) {
               .  PMA_exportComment(__('PHP Version') . ': ' . phpversion())
               .  PMA_possibleCRLF();
 
-        if (isset($GLOBALS['sql_header_comment']) && !empty($GLOBALS['sql_header_comment'])) {
+        if (isset($GLOBALS['sql_header_comment']) && ! empty($GLOBALS['sql_header_comment'])) {
             // '\n' is not a newline (like "\n" would be), it's the characters
             // backslash and n, as explained on the export interface
             $lines = explode('\n', $GLOBALS['sql_header_comment']);
@@ -509,8 +509,8 @@ if (isset($plugin_list)) {
         }
 
         /* We want exported AUTO_INCREMENT columns to have still same value, do this only for recent MySQL exports */
-        if ((!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE')
-            && !PMA_DRIZZLE
+        if ((! isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE')
+            && ! PMA_DRIZZLE
         ) {
             $head .= 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
         }
@@ -530,7 +530,7 @@ if (isset($plugin_list)) {
 
         $head .= PMA_possibleCRLF();
 
-        if (! empty($GLOBALS['asfile']) && !PMA_DRIZZLE) {
+        if (! empty($GLOBALS['asfile']) && ! PMA_DRIZZLE) {
             // we are saving as file, therefore we provide charset information
             // so that a utility like the mysql client can interpret
             // the file correctly
@@ -564,7 +564,7 @@ if (isset($plugin_list)) {
     {
         global $crlf;
         if (isset($GLOBALS['sql_drop_database'])) {
-            if (!PMA_exportOutputHandler('DROP DATABASE ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db) . ';' . $crlf)) {
+            if (! PMA_exportOutputHandler('DROP DATABASE ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db) . ';' . $crlf)) {
                 return false;
             }
         }
@@ -580,7 +580,7 @@ if (isset($plugin_list)) {
             }
         }
         $create_query .= ';' . $crlf;
-        if (!PMA_exportOutputHandler($create_query)) {
+        if (! PMA_exportOutputHandler($create_query)) {
             return false;
         }
         if (isset($GLOBALS['sql_backquotes'])
@@ -750,21 +750,21 @@ if (isset($plugin_list)) {
                 // in SHOW CREATE TABLE so we'll remove it below
                 // It's required for Drizzle because SHOW CREATE TABLE uses
                 // the value from table's creation time
-                if (isset($GLOBALS['sql_auto_increment']) && !empty($tmpres['Auto_increment'])) {
+                if (isset($GLOBALS['sql_auto_increment']) && ! empty($tmpres['Auto_increment'])) {
                     $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
                 }
 
-                if ($show_dates && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
+                if ($show_dates && isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
                     $schema_create .= PMA_exportComment(__('Creation') . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])));
                     $new_crlf = PMA_exportComment() . $crlf;
                 }
 
-                if ($show_dates && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
+                if ($show_dates && isset($tmpres['Update_time']) && ! empty($tmpres['Update_time'])) {
                     $schema_create .= PMA_exportComment(__('Last update') . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])));
                     $new_crlf = PMA_exportComment() . $crlf;
                 }
 
-                if ($show_dates && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
+                if ($show_dates && isset($tmpres['Check_time']) && ! empty($tmpres['Check_time'])) {
                     $schema_create .= PMA_exportComment(__('Last check') . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])));
                     $new_crlf = PMA_exportComment() . $crlf;
                 }
@@ -782,7 +782,7 @@ if (isset($plugin_list)) {
         // Complete table dump,
         // Whether to quote table and column names or not
         // Drizzle always quotes names
-        if (!PMA_DRIZZLE) {
+        if (! PMA_DRIZZLE) {
             if ($sql_backquotes) {
                 PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 1');
             } else {
@@ -861,7 +861,7 @@ if (isset($plugin_list)) {
                     $sql_lines[$i - 1] = preg_replace('@,$@', '', $sql_lines[$i - 1]);
 
                     // prepare variable for constraints
-                    if (!isset($sql_constraints)) {
+                    if (! isset($sql_constraints)) {
                         if (isset($GLOBALS['no_constraints_comments'])) {
                             $sql_constraints = '';
                         } else {
@@ -873,7 +873,7 @@ if (isset($plugin_list)) {
                     }
 
                     // comments for current table
-                    if (!isset($GLOBALS['no_constraints_comments'])) {
+                    if (! isset($GLOBALS['no_constraints_comments'])) {
                         $sql_constraints .= $crlf
                                           . PMA_exportComment()
                                           . PMA_exportComment(__('Constraints for table') . ' ' . PMA_backquote($table))
@@ -888,7 +888,7 @@ if (isset($plugin_list)) {
                     $first = true;
                     for ($j = $i; $j < $sql_count; $j++) {
                         if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $sql_lines[$j])) {
-                            if (!$first) {
+                            if (! $first) {
                                 $sql_constraints .= $crlf;
                             }
                             if (strpos($sql_lines[$j], 'CONSTRAINT') === false) {
@@ -953,7 +953,7 @@ if (isset($plugin_list)) {
         $schema_create = '';
 
         // Check if we can use Relations
-        if ($do_relation && !empty($cfgRelation['relation'])) {
+        if ($do_relation && ! empty($cfgRelation['relation'])) {
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = PMA_getForeigners($db, $table);
@@ -968,7 +968,7 @@ if (isset($plugin_list)) {
         } // end if
 
         if ($do_mime && $cfgRelation['mimework']) {
-            if (!($mime_map = PMA_getMIME($db, $table, true))) {
+            if (! ($mime_map = PMA_getMIME($db, $table, true))) {
                 unset($mime_map);
             }
         }
@@ -1206,7 +1206,7 @@ if (isset($plugin_list)) {
             $replace     = array('\0', '\n', '\r', '\Z');
             $current_row = 0;
             $query_size  = 0;
-            if (($GLOBALS['sql_insert_syntax'] == 'extended' || $GLOBALS['sql_insert_syntax'] == 'both') && (!isset($GLOBALS['sql_type']) || $GLOBALS['sql_type'] != 'UPDATE')) {
+            if (($GLOBALS['sql_insert_syntax'] == 'extended' || $GLOBALS['sql_insert_syntax'] == 'both') && (! isset($GLOBALS['sql_type']) || $GLOBALS['sql_type'] != 'UPDATE')) {
                 $separator    = ',';
                 $schema_insert .= $crlf;
             } else {
@@ -1227,7 +1227,7 @@ if (isset($plugin_list)) {
                 $current_row++;
                 for ($j = 0; $j < $fields_cnt; $j++) {
                     // NULL
-                    if (!isset($row[$j]) || is_null($row[$j])) {
+                    if (! isset($row[$j]) || is_null($row[$j])) {
                         $values[] = 'NULL';
                     // a number
                     // timestamp is numeric on some MySQL 4.1, BLOBs are sometimes numeric
@@ -1286,7 +1286,7 @@ if (isset($plugin_list)) {
                         } else {
                             $insert_line  = '(' . implode(', ', $values) . ')';
                             if (isset($GLOBALS['sql_max_query_size']) && $GLOBALS['sql_max_query_size'] > 0 && $query_size + strlen($insert_line) > $GLOBALS['sql_max_query_size']) {
-                                if (!PMA_exportOutputHandler(';' . $crlf)) {
+                                if (! PMA_exportOutputHandler(';' . $crlf)) {
                                     return false;
                                 }
                                 $query_size = 0;
@@ -1302,13 +1302,13 @@ if (isset($plugin_list)) {
                 }
                 unset($values);
 
-                if (!PMA_exportOutputHandler(($current_row == 1 ? '' : $separator . $crlf) . $insert_line)) {
+                if (! PMA_exportOutputHandler(($current_row == 1 ? '' : $separator . $crlf) . $insert_line)) {
                     return false;
                 }
 
             } // end while
             if ($current_row > 0) {
-                if (!PMA_exportOutputHandler(';' . $crlf)) {
+                if (! PMA_exportOutputHandler(';' . $crlf)) {
                     return false;
                 }
             }
