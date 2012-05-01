@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-$GLOBALS['is_superuser']       = PMA_isSuperuser();
+$GLOBALS['is_superuser'] = PMA_isSuperuser();
 
 /**
  * sets privilege information extracted from SHOW GRANTS result
@@ -113,13 +113,19 @@ function PMA_analyseShowGrant()
                      * Do not handle the underscore wildcard
                      * (this case must be rare anyway)
                      */
-                    $GLOBALS['db_to_create'] = preg_replace('/' . $re0 . '%/',     '\\1...', $show_grants_dbname);
-                    $GLOBALS['db_to_create'] = preg_replace('/' . $re1 . '(%|_)/', '\\1\\3', $GLOBALS['db_to_create']);
+                    $GLOBALS['db_to_create'] = preg_replace(
+                        '/' . $re0 . '%/',     '\\1...',
+                        $show_grants_dbname
+                    );
+                    $GLOBALS['db_to_create'] = preg_replace(
+                        '/' . $re1 . '(%|_)/', '\\1\\3',
+                        $GLOBALS['db_to_create']
+                    );
                     $GLOBALS['is_create_db_priv'] = true;
 
                     /**
-                     * @todo collect $GLOBALS['db_to_create'] into an array, to display a
-                     * drop-down in the "Create database" dialog
+                     * @todo collect $GLOBALS['db_to_create'] into an array,
+                     * to display a drop-down in the "Create database" dialog
                      */
                      // we don't break, we want all possible databases
                      //break;
@@ -135,13 +141,18 @@ function PMA_analyseShowGrant()
     PMA_cacheSet('is_process_priv', $GLOBALS['is_process_priv'], true);
     PMA_cacheSet('is_reload_priv', $GLOBALS['is_reload_priv'], true);
     PMA_cacheSet('db_to_create', $GLOBALS['db_to_create'], true);
-    PMA_cacheSet('dbs_where_create_table_allowed', $GLOBALS['dbs_where_create_table_allowed'], true);
+    PMA_cacheSet(
+        'dbs_where_create_table_allowed',
+        $GLOBALS['dbs_where_create_table_allowed'],
+        true
+    );
 } // end function
 
 if (!PMA_DRIZZLE) {
     PMA_analyseShowGrant();
 } else {
-    // todo: for simple_user_policy only database with user's login can be created (unless logged in as root)
+    // todo: for simple_user_policy only database with user's login can be created
+    // (unless logged in as root)
     $GLOBALS['is_create_db_priv'] = $GLOBALS['is_superuser'];
     $GLOBALS['is_process_priv']   = false;
     $GLOBALS['is_reload_priv']    = false;

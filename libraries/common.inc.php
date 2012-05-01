@@ -288,7 +288,7 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
 date_default_timezone_set(@date_default_timezone_get());
 
 /******************************************************************************/
-/* parsing configuration file                         LABEL_parsing_config_file      */
+/* parsing configuration file                  LABEL_parsing_config_file      */
 
 /**
  * We really need this one!
@@ -320,7 +320,8 @@ $GLOBALS['PMA_Config']->enableBc();
  */
 $pma_cookie_version = 4;
 if (isset($_COOKIE)
-    && (isset($_COOKIE['pmaCookieVer']) && $_COOKIE['pmaCookieVer'] < $pma_cookie_version)
+    && (isset($_COOKIE['pmaCookieVer'])
+    && $_COOKIE['pmaCookieVer'] < $pma_cookie_version)
 ) {
     // delete all cookies
     foreach ($_COOKIE as $cookie_name => $tmp) {
@@ -472,7 +473,9 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, collation_connection in PMA_Config
  */
-if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+if (! PMA_isValid($_REQUEST['token'])
+    || $_SESSION[' PMA_token '] != $_REQUEST['token']
+) {
     /**
      *  List of parameters which are allowed from unsafe source
      */
@@ -608,10 +611,10 @@ require './libraries/select_lang.lib.php';
  * this check is done here after loading language files to present errors in locale
  */
 if ($GLOBALS['PMA_Config']->error_config_file) {
-    $error = '[strong]' . __('Failed to read configuration file') . '[/strong][br][br]'
+    $error = '[strong]' . __('Failed to read configuration file') . '[/strong]'
+        . '[br][br]'
         . _('This usually means there is a syntax error in it, please check any errors shown below.')
-        . '[br]'
-        . '[br]'
+        . '[br][br]'
         . '[conferr]';
     trigger_error($error, E_USER_ERROR);
 }
@@ -623,7 +626,10 @@ if ($GLOBALS['PMA_Config']->error_config_default_file) {
     trigger_error($error, E_USER_ERROR);
 }
 if ($GLOBALS['PMA_Config']->error_pma_uri) {
-    trigger_error(__('The [code]$cfg[\'PmaAbsoluteUri\'][/code] directive MUST be set in your configuration file!'), E_USER_ERROR);
+    trigger_error(
+        __('The [code]$cfg[\'PmaAbsoluteUri\'][/code] directive MUST be set in your configuration file!'),
+        E_USER_ERROR
+    );
 }
 
 
@@ -653,14 +659,23 @@ if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 
         // Detect wrong configuration
         if (!is_int($server_index) || $server_index < 1) {
-            trigger_error(sprintf(__('Invalid server index: %s'), $server_index), E_USER_ERROR);
+            trigger_error(
+                sprintf(__('Invalid server index: %s'), $server_index),
+                E_USER_ERROR
+            );
         }
 
         $each_server = array_merge($default_server, $each_server);
 
         // Don't use servers with no hostname
         if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
-            trigger_error(sprintf(__('Invalid hostname for server %1$s. Please review your configuration.'), $server_index), E_USER_ERROR);
+            trigger_error(
+                sprintf(
+                    __('Invalid hostname for server %1$s. Please review your configuration.'),
+                    $server_index
+                ),
+                E_USER_ERROR
+            );
         }
 
         // Final solution to bug #582890
@@ -668,7 +683,10 @@ if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
         // and there is nothing in the verbose server name
         // or the host field, then generate a name for the server
         // in the form of "Server 2", localized of course!
-        if ($each_server['connect_type'] == 'socket' && empty($each_server['host']) && empty($each_server['verbose'])) {
+        if ($each_server['connect_type'] == 'socket'
+            && empty($each_server['host'])
+            && empty($each_server['verbose'])
+        ) {
             $each_server['verbose'] = __('Server') . $server_index;
         }
 
@@ -793,7 +811,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * and '$cfg['ServerDefault'] = 0' is set.
      */
 
-    if (isset($_REQUEST['server']) && (is_string($_REQUEST['server']) || is_numeric($_REQUEST['server'])) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
+    if (isset($_REQUEST['server'])
+        && (is_string($_REQUEST['server']) || is_numeric($_REQUEST['server']))
+        && ! empty($_REQUEST['server'])
+        && ! empty($cfg['Servers'][$_REQUEST['server']])
+    ) {
         $GLOBALS['server'] = $_REQUEST['server'];
         $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
     } else {
@@ -840,8 +862,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         include_once './libraries/logging.lib.php';
 
         // get LoginCookieValidity from preferences cache
-        // no generic solution for loading preferences from cache as some settings need to be kept
-        // for processing in PMA_Config::loadUserPreferences()
+        // no generic solution for loading preferences from cache as some settings
+        // need to be kept for processing in PMA_Config::loadUserPreferences()
         $cache_key = 'server_' . $GLOBALS['server'];
         if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])) {
             $value = $_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'];
@@ -857,7 +879,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // to allow HTTP or http
         $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
         if (! file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
-            PMA_fatalError(__('Invalid authentication method set in configuration:') . ' ' . $cfg['Server']['auth_type']);
+            PMA_fatalError(
+                __('Invalid authentication method set in configuration:') . ' ' . $cfg['Server']['auth_type']
+            );
         }
         /**
          * the required auth type plugin
@@ -947,12 +971,15 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             if (! empty($cfg['Server']['controlhost'])) {
                 $controllink = PMA_DBI_connect(
                     $cfg['Server']['controluser'],
-                    $cfg['Server']['controlpass'], true,
+                    $cfg['Server']['controlpass'],
+                    true,
                     array('host' => $cfg['Server']['controlhost'])
                 );
             } else {
                 $controllink = PMA_DBI_connect(
-                    $cfg['Server']['controluser'], $cfg['Server']['controlpass'], true
+                    $cfg['Server']['controluser'],
+                    $cfg['Server']['controlpass'],
+                    true
                 );
             }
         }
@@ -975,7 +1002,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          *  - > 5.0.15
          */
         if (PMA_MYSQL_INT_VERSION < 50015) {
-            PMA_fatalError(__('You should upgrade to %s %s or later.'), array('MySQL', '5.0.15'));
+            PMA_fatalError(
+                __('You should upgrade to %s %s or later.'),
+                array('MySQL', '5.0.15')
+            );
         }
 
         /**
@@ -1016,7 +1046,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * some resetting has to be done when switching servers
          */
-        if (isset($_SESSION['tmp_user_values']['previous_server']) && $_SESSION['tmp_user_values']['previous_server'] != $GLOBALS['server']) {
+        if (isset($_SESSION['tmp_user_values']['previous_server'])
+            && $_SESSION['tmp_user_values']['previous_server'] != $GLOBALS['server']
+        ) {
             unset($_SESSION['tmp_user_values']['navi_limit_offset']);
         }
         $_SESSION['tmp_user_values']['previous_server'] = $GLOBALS['server'];

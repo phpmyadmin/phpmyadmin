@@ -226,8 +226,9 @@ function PMA_generateHiddenMaxFileSize($max_size)
  *
  * @access  public
  */
-function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php_code = false)
-{
+function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false,
+    $php_code = false
+) {
     if ($is_like) {
         $a_string = str_replace('\\', '\\\\\\\\', $a_string);
     } else {
@@ -416,8 +417,9 @@ function PMA_showDocLink($link, $target = 'documentation')
  *
  * @access  public
  */
-function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $just_open = false)
-{
+function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '',
+    $just_open = false
+) {
     global $cfg;
 
     if ($cfg['MySQLManualType'] == 'none' || empty($cfg['MySQLManualBase'])) {
@@ -564,8 +566,11 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
     }
 
     // footnotemarker used in js/tooltip.js
-    return '<sup class="footnotemarker">' . $nr . '</sup>' .
-           PMA_getImage('b_help.png', '', array('class' => 'footnotemarker footnote_' . $nr));
+    return '<sup class="footnotemarker">' . $nr . '</sup>'
+        . PMA_getImage(
+            'b_help.png', '',
+            array('class' => 'footnotemarker footnote_' . $nr)
+        );
 }
 
 /**
@@ -576,6 +581,8 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
  * @param bool   $is_modify_link whether to show a "modify" link or not
  * @param string $back_url       the "back" link url (full path is not required)
  * @param bool   $exit           EXIT the page?
+ *
+ * @return void
  *
  * @global  string    the curent table
  * @global  string    the current db
@@ -609,14 +616,18 @@ function PMA_mysqlDie(
         $formatted_sql = '';
     } else {
         if (strlen($the_query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-            $formatted_sql = htmlspecialchars(substr($the_query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
+            $formatted_sql = htmlspecialchars(
+                substr($the_query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])
+            )
+            . '[...]';
         } else {
             $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
         }
     }
     // ---
     $error_msg_output .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
-    $error_msg_output .= '    <div class="error"><h1>' . __('Error') . '</h1>' . "\n";
+    $error_msg_output .= '    <div class="error"><h1>' . __('Error')
+        . '</h1>' . "\n";
     // if the config password is wrong, or the MySQL server does not
     // respond, do not show the query that would reveal the
     // username/password
@@ -641,12 +652,15 @@ function PMA_mysqlDie(
             if (strlen($table)) {
                 $_url_params['db'] = $db;
                 $_url_params['table'] = $table;
-                $doedit_goto = '<a href="tbl_sql.php' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="tbl_sql.php'
+                    . PMA_generate_common_url($_url_params) . '">';
             } elseif (strlen($db)) {
                 $_url_params['db'] = $db;
-                $doedit_goto = '<a href="db_sql.php' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="db_sql.php'
+                    . PMA_generate_common_url($_url_params) . '">';
             } else {
-                $doedit_goto = '<a href="server_sql.php' . PMA_generate_common_url($_url_params) . '">';
+                $doedit_goto = '<a href="server_sql.php'
+                    . PMA_generate_common_url($_url_params) . '">';
             }
 
             $error_msg_output .= $doedit_goto
@@ -735,12 +749,15 @@ function PMA_mysqlDie(
  *
  * @return array    (recursive) grouped table list
  */
-function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count = false)
-{
+function PMA_getTableList($db, $tables = null, $limit_offset = 0,
+    $limit_count = false
+) {
     $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
 
     if (null === $tables) {
-        $tables = PMA_DBI_get_tables_full($db, false, false, null, $limit_offset, $limit_count);
+        $tables = PMA_DBI_get_tables_full(
+            $db, false, false, null, $limit_offset, $limit_count
+        );
         if ($GLOBALS['cfg']['NaturalOrder']) {
             uksort($tables, 'strnatcasecmp');
         }
@@ -1000,15 +1017,16 @@ if (typeof(window.parent) != 'undefined'
  *
  * @access  public
  */
-function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
-{
+function PMA_showMessage($message, $sql_query = null, $type = 'notice',
+    $is_view = false
+) {
     /*
      * PMA_ajaxResponse uses this function to collect the string of HTML generated
      * for showing the message.  Use output buffering to collect it and return it
      * in a string.  In some special cases on sql.php, buffering has to be disabled
      * and hence we check with $GLOBALS['buffer_message']
      */
-    if ( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
+    if ($GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message'])) {
         ob_start();
     }
     global $cfg;
@@ -1016,7 +1034,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     if (null === $sql_query) {
         if (! empty($GLOBALS['display_query'])) {
             $sql_query = $GLOBALS['display_query'];
-        } elseif ($cfg['SQP']['fmtType'] == 'none' && ! empty($GLOBALS['unparsed_sql'])) {
+        } elseif ($cfg['SQP']['fmtType'] == 'none'
+            && ! empty($GLOBALS['unparsed_sql'])
+        ) {
             $sql_query = $GLOBALS['unparsed_sql'];
         } elseif (! empty($GLOBALS['sql_query'])) {
             $sql_query = $GLOBALS['sql_query'];
@@ -1050,7 +1070,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     if (strlen($GLOBALS['table'])
         && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])
     ) {
-        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024 && ! PMA_DRIZZLE) {
+        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024
+            && ! PMA_DRIZZLE
+        ) {
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
     }
@@ -1059,7 +1081,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
     // check for it's presence before using it
     echo '<div id="result_query"'
-        . ( isset($GLOBALS['cell_align_left']) ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"' : '' )
+        . ( isset($GLOBALS['cell_align_left'])
+            ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
+            : '' )
         . '>' . "\n";
 
     if ($message instanceof PMA_Message) {
@@ -1088,7 +1112,9 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             $new_line = '\\n"<br />' . "\n"
                 . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
             $query_base = htmlspecialchars(addslashes($sql_query));
-            $query_base = preg_replace('/((\015\012)|(\015)|(\012))/', $new_line, $query_base);
+            $query_base = preg_replace(
+                '/((\015\012)|(\015)|(\012))/', $new_line, $query_base
+            );
         } else {
             $query_base = $sql_query;
         }
@@ -1231,7 +1257,11 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
             }
 
             $edit_link .= PMA_generate_common_url($url_params) . '#querybox';
-            $edit_link = ' [' . PMA_linkOrButton($edit_link, __('Edit'), array('onclick' => $onclick)) . ']';
+            $edit_link = ' ['
+                . PMA_linkOrButton(
+                    $edit_link, __('Edit'), array('onclick' => $onclick)
+                )
+                . ']';
         } else {
             $edit_link = '';
         }
@@ -1397,6 +1427,8 @@ function PMA_profilingSupported()
  * Displays a form with the Profiling checkbox
  *
  * @param string $sql_query sql query
+ *
+ * @return void
  *
  * @access  public
  */
@@ -1821,9 +1853,11 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
  *
  * @return string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params, $base_dir = '', $menu_id = 'topmenu')
-{
-    $tab_navigation = '<div id="' . htmlentities($menu_id) . 'container" class="menucontainer">'
+function PMA_generate_html_tabs($tabs, $url_params, $base_dir = '',
+    $menu_id = 'topmenu'
+) {
+    $tab_navigation = '<div id="' . htmlentities($menu_id)
+        . 'container" class="menucontainer">'
         .'<ul id="' . htmlentities($menu_id) . '">';
 
     foreach ($tabs as $tab) {
@@ -1869,7 +1903,8 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         $tmp = $tag_params;
         $tag_params = array();
         if (! empty($tmp)) {
-            $tag_params['onclick'] = 'return confirmLink(this, \'' . PMA_escapeJsString($tmp) . '\')';
+            $tag_params['onclick'] = 'return confirmLink(this, \''
+                . PMA_escapeJsString($tmp) . '\')';
         }
         unset($tmp);
     }
@@ -2131,8 +2166,9 @@ function PMA_checkParameters($params, $request = true)
  *
  * @return array     the calculated condition and whether condition is unique
  */
-function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique = false)
-{
+function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
+    $force_unique = false
+) {
     $primary_key          = '';
     $unique_key           = '';
     $nonprimary_condition = '';
@@ -2280,6 +2316,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
  * @param string $text         text to display
  * @param string $image        image to display
  * @param string $value        value
+ *
+ * @return void
  *
  * @access  public
  */
@@ -2461,6 +2499,8 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
  * @param string $frame       target frame
  * @param int    $max_count   maximum number of elements to display from the list
  *
+ * @return void
+ *
  * @access  public
  *
  * @todo    use $pos from $_url_params
@@ -2597,6 +2637,8 @@ function PMA_getDbLink($database = null)
  * @param string $component       'mysql' (eventually, 'php')
  * @param string $minimum_version of this component
  * @param string $bugref          bug reference for this component
+ *
+ * @return void
  */
 function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 {
@@ -2619,7 +2661,7 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
  * @param boolean $checked         is it initially checked?
  * @param boolean $onclick         should it submit the form on click?
  *
- * @return the HTML for the checkbox
+ * @return void
  */
 function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
 {
@@ -2640,7 +2682,7 @@ function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
  * @param boolean $escape_label    whether to use htmlspecialchars() on label
  * @param string  $class           enclose each choice with a div of this class
  *
- * @return the HTML for the tadio buttons
+ * @return void
  */
 function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '',
     $line_break = true, $escape_label = true, $class=''
@@ -3662,7 +3704,8 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
  *
  * @global   array    $cfg            PMA configuration
  * @global   array    $analyzed_sql   Analyzed SQL query
- * @global   mixed    $data           data of currently edited row (used to detect whether to choose defaults)
+ * @global   mixed    $data           data of currently edited row
+ *                                    (used to detect whether to choose defaults)
  *
  * @return string   An HTML snippet of a dropdown list with function
  *                    names appropriate for the requested column.
@@ -3738,9 +3781,9 @@ function PMA_getFunctionsForField($field, $insert_mode)
         ) {
             // Is current function defined as default?
             $selected = ($field['first_timestamp'] && $functions[$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                        || (! $field['first_timestamp'] && $functions[$j] == $default_function)
-                      ? ' selected="selected"'
-                      : '';
+                || (! $field['first_timestamp'] && $functions[$j] == $default_function)
+                    ? ' selected="selected"'
+                    : '';
             if ($op_spacing_needed == true) {
                 $retval .= '                ';
                 $retval .= '<option value="">--------</option>' . "\n";

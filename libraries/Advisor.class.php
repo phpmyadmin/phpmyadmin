@@ -55,8 +55,10 @@ class Advisor
     /**
      * Stores current error in run results.
      *
-     * @param $description string Description of an error.
-     * @param $exception   object Exception raised
+     * @param string $description description of an error.
+     * @param object $exception   exception raised
+     *
+     * @return void
      */
     function storeError($description, $exception)
     {
@@ -83,7 +85,10 @@ class Advisor
                      $precond = $this->ruleExprEvaluate($rule['precondition']);
                 } catch (Exception $e) {
                     $this->storeError(
-                        sprintf(__('Failed evaluating precondition for rule \'%s\''), $rule['name']),
+                        sprintf(
+                            __('Failed evaluating precondition for rule \'%s\''),
+                            $rule['name']
+                        ),
                         $e
                     );
                     continue;
@@ -97,7 +102,10 @@ class Advisor
                     $value = $this->ruleExprEvaluate($rule['formula']);
                 } catch(Exception $e) {
                     $this->storeError(
-                        sprintf(__('Failed calculating value for rule \'%s\''), $rule['name']),
+                        sprintf(
+                            __('Failed calculating value for rule \'%s\''),
+                            $rule['name']
+                        ),
                         $e
                     );
                     continue;
@@ -113,7 +121,10 @@ class Advisor
                     }
                 }  catch(Exception $e) {
                     $this->storeError(
-                        sprintf(__('Failed running test for rule \'%s\''), $rule['name']),
+                        sprintf(
+                            __('Failed running test for rule \'%s\''),
+                            $rule['name']
+                        ),
                         $e
                     );
                 }
@@ -138,8 +149,8 @@ class Advisor
     /**
      * Wrapper function for translating.
      *
-     * @param string $str
-     * @param mixed  $param
+     * @param string $str   the string
+     * @param mixed  $param the parameters
      *
      * @return string
      */
@@ -159,7 +170,7 @@ class Advisor
     /**
      * Splits justification to text and formula.
      *
-     * @param string $rule
+     * @param string $rule the rule
      *
      * @return array
      */
@@ -175,8 +186,10 @@ class Advisor
     /**
      * Adds a rule to the result list
      *
-     * @param $type string type of rule
-     * @param $rule array  rule itslef
+     * @param string $type type of rule
+     * @param array  $rule rule itslef
+     *
+     * @return void
      */
     function addRule($type, $rule)
     {
@@ -190,7 +203,10 @@ class Advisor
                     $str = $this->translate($jst[0], $jst[1]);
                 } catch (Exception $e) {
                     $this->storeError(
-                        sprintf(__('Failed formatting string for rule \'%s\'.'), $rule['name']),
+                        sprintf(
+                            __('Failed formatting string for rule \'%s\'.'),
+                            $rule['name']
+                        ),
                         $e
                     );
                     return;
@@ -243,8 +259,8 @@ class Advisor
      * Runs a code expression, replacing variable names with their respective
      * values
      *
-     * @param $expr        string expressoin to evaluate
-     * @param $ignoreUntil int    if > 0, it doesn't replace any variables until that string
+     * @param string $expr        expressoin to evaluate
+     * @param int    $ignoreUntil if > 0, it doesn't replace any variables until that string
      *                            position, but still evaluates the whole expr
      *
      * @return result of evaluated expression
@@ -293,7 +309,9 @@ class Advisor
         $errors = array();
         $rules = array();
         $lines = array();
-        $ruleSyntax = array('name', 'formula', 'test', 'issue', 'recommendation', 'justification');
+        $ruleSyntax = array(
+            'name', 'formula', 'test', 'issue', 'recommendation', 'justification'
+        );
         $numRules = count($ruleSyntax);
         $numLines = count($file);
         $j = -1;

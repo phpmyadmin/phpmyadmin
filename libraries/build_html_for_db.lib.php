@@ -79,7 +79,9 @@ function PMA_buildHtmlForDb(
     $out = '';
     if ($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) {
         $out .= '<td class="tool">';
-        $out .= '<input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ';
+        $out .= '<input type="checkbox" name="selected_dbs[]" '
+            . 'title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" '
+            . 'value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ';
 
         if (!PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
             $out .= (empty($checkall) ? '' : 'checked="checked" ') . '/>';
@@ -90,10 +92,14 @@ function PMA_buildHtmlForDb(
     }
     $out .= '<td class="name">'
            . '        <a onclick="'
-           . 'if (window.parent.openDb &amp;&amp; window.parent.openDb(\'' . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\')) return false;'
+           . 'if (window.parent.openDb &amp;&amp; window.parent.openDb(\''
+           . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\')) return false;'
            . '" href="index.php?' . $url_query . '&amp;db='
            . urlencode($current['SCHEMA_NAME']) . '" title="'
-           . sprintf(__('Jump to database'), htmlspecialchars($current['SCHEMA_NAME']))
+           . sprintf(
+               __('Jump to database'),
+               htmlspecialchars($current['SCHEMA_NAME'])
+           )
            . '" target="_parent">'
            . ' ' . htmlspecialchars($current['SCHEMA_NAME'])
            . '</a>'
@@ -113,7 +119,8 @@ function PMA_buildHtmlForDb(
             }
             $out .= '<td class="value">';
             if (isset($stat['description_function'])) {
-                $out .= '<dfn title="' . $stat['description_function']($current[$stat_name]) . '">';
+                $out .= '<dfn title="'
+                    . $stat['description_function']($current[$stat_name]) . '">';
             }
             $out .= $value;
             if (isset($stat['description_function'])) {
@@ -129,12 +136,21 @@ function PMA_buildHtmlForDb(
         if ($replication_info[$type]['status']) {
             $out .= '<td class="tool" style="text-align: center;">';
 
-            if (strlen(array_search($current["SCHEMA_NAME"], $replication_info[$type]['Ignore_DB'])) > 0) {
+            $key = array_search(
+                $current["SCHEMA_NAME"],
+                $replication_info[$type]['Ignore_DB']
+            );
+            if (strlen($key) > 0) {
                 $out .= PMA_getIcon('s_cancel.png',  __('Not replicated'));
             } else {
-                $key = array_search($current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']);
+                $key = array_search(
+                    $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
+                );
 
-                if (strlen($key) > 0 || ($replication_info[$type]['Do_DB'][0] == "" && count($replication_info[$type]['Do_DB']) == 1)) {
+                if (strlen($key) > 0
+                    || ($replication_info[$type]['Do_DB'][0] == ""
+                    && count($replication_info[$type]['Do_DB']) == 1)
+                ) {
                     // if ($key != null) did not work for index "0"
                     $out .= PMA_getIcon('s_success.png', __('Replicated'));
                 }
@@ -147,10 +163,15 @@ function PMA_buildHtmlForDb(
     if ($is_superuser && !PMA_DRIZZLE) {
         $out .= '<td class="tool">'
                . '<a onclick="'
-               . 'if (window.parent.setDb) window.parent.setDb(\'' . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'
+               . 'if (window.parent.setDb) window.parent.setDb(\''
+               . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'
                . '" href="server_privileges.php?' . $url_query
                . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME'])
-               . '" title="' . sprintf(__('Check privileges for database &quot;%s&quot;.'), htmlspecialchars($current['SCHEMA_NAME']))
+               . '" title="'
+               . sprintf(
+                   __('Check privileges for database &quot;%s&quot;.'),
+                   htmlspecialchars($current['SCHEMA_NAME'])
+               )
                . '">'
                . ' '
                . PMA_getIcon('s_rights.png', __('Check Privileges'))

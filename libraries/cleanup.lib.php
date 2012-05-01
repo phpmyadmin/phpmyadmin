@@ -22,7 +22,9 @@ function PMA_remove_request_vars(&$whitelist)
     // do not check only $_REQUEST because it could have been overwritten
     // and use type casting because the variables could have become
     // strings
-    $keys = array_keys(array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE));
+    $keys = array_keys(
+        array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE)
+    );
 
     foreach ($keys as $key) {
         if (! in_array($key, $whitelist)) {

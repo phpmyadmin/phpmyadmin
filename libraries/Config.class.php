@@ -219,9 +219,7 @@ class PMA_Config
         } elseif (preg_match('@rv:1.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
-        } elseif (
-            preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)
-        ) {
+        } elseif (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         } else {
@@ -411,10 +409,13 @@ class PMA_Config
 
         // check if commit exists in Github
         $is_remote_commit = false;
-        if ($commit !== false && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])) {
+        if ($commit !== false
+            && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
+        ) {
             $is_remote_commit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
         } else {
-            $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/' . $hash;
+            $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
+                . $hash;
             $is_found = $this->checkHTTP($link, !$commit);
             switch($is_found) {
             case false:
@@ -820,8 +821,9 @@ class PMA_Config
      *
      * @return void
      */
-    function setUserValue($cookie_name, $cfg_path, $new_cfg_value, $default_value = null)
-    {
+    function setUserValue($cookie_name, $cfg_path, $new_cfg_value,
+        $default_value = null
+    ) {
         // use permanent user preferences if possible
         $prefs_type = $this->get('user_preferences');
         if ($prefs_type) {
@@ -1349,11 +1351,15 @@ class PMA_Config
             // Scheme
             if (PMA_getenv('HTTP_SCHEME')) {
                 $url['scheme'] = PMA_getenv('HTTP_SCHEME');
-            } elseif (PMA_getenv('HTTPS') && strtolower(PMA_getenv('HTTPS')) == 'on') {
+            } elseif (PMA_getenv('HTTPS')
+                && strtolower(PMA_getenv('HTTPS')) == 'on'
+            ) {
                 $url['scheme'] = 'https';
             } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
                 $url['scheme'] = strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));
-            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS') && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on') {
+            } elseif (PMA_getenv('HTTP_FRONT_END_HTTPS')
+                && strtolower(PMA_getenv('HTTP_FRONT_END_HTTPS')) == 'on'
+            ) {
                 $url['scheme'] = 'https';
             } else {
                 $url['scheme'] = 'http';
@@ -1597,8 +1603,9 @@ class PMA_Config
      *
      * @return boolean result of setcookie()
      */
-    function setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
-    {
+    function setCookie($cookie, $value, $default = null, $validity = null,
+        $httponly = true
+    ) {
         if ($validity == null) {
             $validity = 2592000;
         }
