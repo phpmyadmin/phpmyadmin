@@ -128,7 +128,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -142,7 +142,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -156,7 +156,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -170,11 +170,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table in CSV format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
      *
@@ -201,10 +201,10 @@ if (isset($plugin_list)) {
                 } else {
                     $schema_insert .= $csv_enclosed
                         . str_replace(
-                              $csv_enclosed,
-                              $csv_escaped . $csv_enclosed,
-                              stripslashes(PMA_DBI_field_name($result, $i))
-                          )
+                            $csv_enclosed,
+                            $csv_escaped . $csv_enclosed,
+                            stripslashes(PMA_DBI_field_name($result, $i))
+                        )
                         .  $csv_enclosed;
                 }
                 $schema_insert .= $csv_separator;
@@ -247,14 +247,14 @@ if (isset($plugin_list)) {
                         if ($csv_escaped != $csv_enclosed) {
                             $schema_insert .= $csv_enclosed
                                 . str_replace(
-                                      $csv_enclosed,
-                                      $csv_escaped . $csv_enclosed,
-                                      str_replace(
-                                          $csv_escaped,
-                                          $csv_escaped . $csv_escaped,
-                                          $row[$j]
-                                      )
-                                  )
+                                    $csv_enclosed,
+                                    $csv_escaped . $csv_enclosed,
+                                    str_replace(
+                                        $csv_escaped,
+                                        $csv_escaped . $csv_escaped,
+                                        $row[$j]
+                                    )
+                                )
                                 . $csv_enclosed;
                         } else {
                             // avoid a problem when escape string equals enclose
