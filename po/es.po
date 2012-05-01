@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 18:03+0200\n"
-"PO-Revision-Date: 2012-05-01 21:30+0200\n"
+"PO-Revision-Date: 2012-05-01 21:56+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2752,7 +2752,7 @@ msgstr "Un sinónimo de BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 #: libraries/Types.class.php:307 libraries/Types.class.php:716
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Una fecha, el rango válido es de «%s» a «%s»"
+msgstr "Una fecha, el rango válido es de «%1$s» a «%2$s»"
 
 #: libraries/Types.class.php:309 libraries/Types.class.php:718
 #, php-format
