@@ -66,9 +66,9 @@ if (isset($plugin_list)) {
         if (! PMA_exportOutputHandler(
             PMA_createOpenDocument(
                 'application/vnd.oasis.opendocument.spreadsheet',
-                $GLOBALS['ods_buffer'])
+                $GLOBALS['ods_buffer']
             )
-        ) {
+        )) {
             return false;
         }
         return true;
@@ -134,7 +134,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -148,7 +148,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -162,7 +162,7 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
      * @return bool Whether it succeeded
      *
@@ -176,11 +176,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table in ODS format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
      *
@@ -229,9 +229,10 @@ if (isset($plugin_list)) {
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                // ignore BLOB
                 } elseif (stristr($field_flags[$j], 'BINARY')
-                        && $fields_meta[$j]->blob) {
+                    && $fields_meta[$j]->blob
+                ) {
+                    // ignore BLOB
                     $GLOBALS['ods_buffer'] .=
                         '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
