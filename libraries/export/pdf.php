@@ -54,6 +54,7 @@ if (isset($plugin_list)) {
 
     /**
      * Adapted from a LGPL script by Philip Clarke
+     *
      * @package    PhpMyAdmin-Export
      * @subpackage PDF
      */
@@ -78,23 +79,20 @@ if (isset($plugin_list)) {
                     $this->AddPage($this->CurOrientation);
                     $this->y = $this->dataY;
                     $oldpage = $this->page - 1;
+
+                    $this_page_orm = $this->pagedim[$this->page]['orm'];
+                    $old_page_orm = $this->pagedim[$oldpage]['orm'];
+                    $this_page_olm = $this->pagedim[$this->page]['olm'];
+                    $old_page_olm = $this->pagedim[$oldpage]['olm'];
                     if ($this->rtl) {
-                        if ($this->pagedim[$this->page]['orm']
-                            != $this->pagedim[$oldpage]['orm']
-                        ) {
-                            $this->x = $x
-                                - ($this->pagedim[$this->page]['orm']
-                                - $this->pagedim[$oldpage]['orm']);
+                        if ($this_page_orm!= $old_page_orm) {
+                            $this->x = $x - ($this_page_orm - $old_page_orm);
                         } else {
                             $this->x = $x;
                         }
                     } else {
-                        if ($this->pagedim[$this->page]['olm']
-                            != $this->pagedim[$oldpage]['olm']
-                        ) {
-                            $this->x = $x
-                                + ($this->pagedim[$this->page]['olm']
-                                - $this->pagedim[$oldpage]['olm']);
+                        if ($this_page_olm != $old_page_olm) {
+                            $this->x = $x + ($this_page_olm - $old_page_olm);
                         } else {
                             $this->x = $x;
                         }
@@ -134,7 +132,7 @@ if (isset($plugin_list)) {
                     0,
                     $this->FontSizePt,
                     __('Database') . ': ' . $this->currentDb . ',  '
-                        . __('Table') . ': ' . $this->currentTable,
+                    . __('Table') . ': ' . $this->currentTable,
                     0, 1, 'L'
                 );
                 $l = ($this->lMargin);
