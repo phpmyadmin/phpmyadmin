@@ -208,6 +208,8 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                         } // end if
                     }
                 }
+                echo '<div class="clearfloat"></div>';
+                echo '</div>';
             }
         }
         echo '<div class="clearfloat"></div>';
