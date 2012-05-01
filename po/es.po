@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 18:03+0200\n"
-"PO-Revision-Date: 2012-05-01 20:02+0200\n"
+"PO-Revision-Date: 2012-05-01 20:27+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2973,12 +2973,13 @@ msgid "A date, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
 msgstr "Una fecha, el rango válido es de «%1$s» a «%2$s»"
 
 #: libraries/Types.class.php:718
-#, fuzzy, php-format
+#, php-format
 #| msgid "A date and time combination, supported range is '%s' to '%s'"
 msgid ""
 "A date and time combination, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
 msgstr ""
-"Una combinación de fecha y marca temporal, el rango válido es de «%s» a «%s»"
+"Una combinación de fecha y marca temporal, el rango válido es de «%1$s» a «%"
+"2$s»"
 
 #: libraries/Types.class.php:720
 msgid ""
