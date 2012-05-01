@@ -19,12 +19,15 @@ if (isset($plugin_list)) {
         'extension' => 'php',
         'mime_type' => 'text/plain',
         'options' => array(
-        array('type' => 'begin_group', 'name' => 'general_opts'),
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
+            ),
             array(
                 'type' => 'hidden',
                 'name' => 'structure_or_data',
             ),
-        array('type' => 'end_group')
+            array('type' => 'end_group')
         ),
         'options_text' => __('Options'),
     );
@@ -76,7 +79,11 @@ if (isset($plugin_list)) {
      */
     function PMA_exportDBHeader($db)
     {
-        PMA_exportOutputHandler('//' . $GLOBALS['crlf'] . '// Database ' . PMA_backquote($db) . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']);
+        PMA_exportOutputHandler(
+            '//' . $GLOBALS['crlf']
+            . '// Database ' . PMA_backquote($db) . $GLOBALS['crlf']
+            . '//' . $GLOBALS['crlf']
+        );
         return true;
     }
 
@@ -131,8 +138,13 @@ if (isset($plugin_list)) {
         }
         unset($i);
 
-        // fix variable names (based on http://www.php.net/manual/language.variables.basics.php)
-        if (preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $table) == false) {
+        // fix variable names (based on 
+        // http://www.php.net/manual/language.variables.basics.php)
+        if (preg_match(
+            '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
+            $table
+        ) == false
+        ) {
             // fix invalid chars in variable names by replacing them with underscores
             $tablefixed = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/', '_', $table);
 
@@ -152,7 +164,8 @@ if (isset($plugin_list)) {
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt == 1) {
-                $buffer .= $crlf . '// ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $crlf;
+                $buffer .= $crlf . '// '. PMA_backquote($db) . '.'
+                    . PMA_backquote($table) . $crlf;
                 $buffer .= '$' . $tablefixed . ' = array(' . $crlf;
                 $buffer .= '  array(';
             } else {
@@ -160,7 +173,9 @@ if (isset($plugin_list)) {
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                $buffer .= var_export($columns[$i], true) . " => " . var_export($record[$i], true) . (($i + 1 >= $columns_cnt) ? '' : ',');
+                $buffer .= var_export($columns[$i], true)
+                    . " => " . var_export($record[$i], true)
+                    . (($i + 1 >= $columns_cnt) ? '' : ',');
             }
 
             $buffer .= ')';
