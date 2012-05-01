@@ -20,12 +20,17 @@ if (isset($plugin_list)) {
         'mime_type' => 'text/yaml',
         'force_file' => true,
         'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
+            ),
             array(
                 'type' => 'hidden',
                 'name' => 'structure_or_data',
             ),
-            array('type' => 'end_group')
+            array(
+                'type' => 'end_group'
+            )
         ),
         'options_text'  => __('Options'),
     );
@@ -57,7 +62,9 @@ if (isset($plugin_list)) {
      */
     function PMA_exportHeader()
     {
-        PMA_exportOutputHandler('%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']);
+        PMA_exportOutputHandler(
+            '%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']
+        );
         return true;
     }
 
@@ -156,7 +163,11 @@ if (isset($plugin_list)) {
                     continue;
                 }
 
-                $record[$i] = str_replace(array('\\', '"', "\n", "\r"), array('\\\\', '\"', '\n', '\r'), $record[$i]);
+                $record[$i] = str_replace(
+                    array('\\', '"', "\n", "\r"),
+                    array('\\\\', '\"', '\n', '\r'),
+                    $record[$i]
+                );
                 $buffer .= '  ' . $column . ': "' . $record[$i] . '"' . $crlf;
             }
 
