@@ -317,7 +317,7 @@ if (isset($plugin_list)) {
                 $surplusToAdd = 0;
             }
 
-            for ($i=0; $i < $this->numFields; $i++) {
+            for ($i = 0; $i < $this->numFields; $i++) {
                 if (! in_array($i, array_keys($colFits))) {
                     $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
                 }
@@ -444,7 +444,7 @@ if (isset($plugin_list)) {
     {
         global $pdf;
 
-        $attr=array('currentDb' => $db, 'currentTable' => $table);
+        $attr = array('currentDb' => $db, 'currentTable' => $table);
         $pdf->setAttributes($attr);
         $pdf->mysql_report($sql_query);
 

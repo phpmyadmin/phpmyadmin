@@ -15,10 +15,10 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['json'] = array(
-        'text'          => 'JSON',
-        'extension'     => 'json',
-        'mime_type'     => 'text/plain',
-        'options'       => array(
+        'text' => 'JSON',
+        'extension' => 'json',
+        'mime_type' => 'text/plain',
+        'options' => array(
             array('type' => 'begin_group', 'name' => 'general_opts'),
             array(
                 'type' => 'hidden',
@@ -26,7 +26,7 @@ if (isset($plugin_list)) {
             ),
             array('type' => 'end_group')
         ),
-        'options_text'  => __('Options'),
+        'options_text' => __('Options'),
     );
 } else {
 

@@ -734,7 +734,7 @@ if (isset($plugin_list)) {
         );
         if ($result != false) {
             if (PMA_DBI_num_rows($result) > 0) {
-                $tmpres        = PMA_DBI_fetch_assoc($result);
+                $tmpres = PMA_DBI_fetch_assoc($result);
                 if (PMA_DRIZZLE && $show_dates) {
                     // Drizzle doesn't give Create_time and Update_time in SHOW TABLE STATUS, add it
                     $sql ="SELECT
@@ -832,7 +832,7 @@ if (isset($plugin_list)) {
 
             // Should we use IF NOT EXISTS?
             if (isset($GLOBALS['sql_if_not_exists'])) {
-                $create_query     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $create_query);
+                $create_query = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $create_query);
             }
 
             // Drizzle (checked on 2011.03.13) returns ROW_FORMAT surrounded with quotes, which is not accepted by parser
@@ -1207,10 +1207,10 @@ if (isset($plugin_list)) {
             $current_row = 0;
             $query_size  = 0;
             if (($GLOBALS['sql_insert_syntax'] == 'extended' || $GLOBALS['sql_insert_syntax'] == 'both') && (! isset($GLOBALS['sql_type']) || $GLOBALS['sql_type'] != 'UPDATE')) {
-                $separator    = ',';
+                $separator      = ',';
                 $schema_insert .= $crlf;
             } else {
-                $separator    = ';';
+                $separator      = ';';
             }
 
             while ($row = PMA_DBI_fetch_row($result)) {
@@ -1289,7 +1289,7 @@ if (isset($plugin_list)) {
                                 if (! PMA_exportOutputHandler(';' . $crlf)) {
                                     return false;
                                 }
-                                $query_size = 0;
+                                $query_size  = 0;
                                 $current_row = 1;
                                 $insert_line = $schema_insert . $insert_line;
                             }

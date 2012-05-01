@@ -95,7 +95,7 @@ if (isset($plugin_list)) {
     {
         $escape = array('$', '%', '{', '}',  '&',  '#', '_', '^');
         $cnt_escape = count($escape);
-        for ($k=0; $k < $cnt_escape; $k++) {
+        for ($k = 0; $k < $cnt_escape; $k++) {
             $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
         }
         return $string;
@@ -445,7 +445,7 @@ if (isset($plugin_list)) {
             $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
             $type = $extracted_columnspec['print_type'];
             if (empty($type)) {
-                $type     = ' ';
+                $type = ' ';
             }
 
             if (! isset($row['Default'])) {

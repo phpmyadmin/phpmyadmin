@@ -527,7 +527,7 @@ if (isset($plugin_list)) {
         $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         if (empty($type)) {
-            $type     = '&nbsp;';
+            $type = '&nbsp;';
         }
 
         $definition .= '<table:table-cell office:value-type="string">'

@@ -361,13 +361,13 @@ if (isset($plugin_list)) {
             }
             unset($i);
 
-            $buffer      = '        <!-- ' . __('Table') . ' ' . $table . ' -->' . $crlf;
+            $buffer = '        <!-- ' . __('Table') . ' ' . $table . ' -->' . $crlf;
             if (! PMA_exportOutputHandler($buffer)) {
                 return false;
             }
 
             while ($record = PMA_DBI_fetch_row($result)) {
-                $buffer         = '        <table name="' . htmlspecialchars($table) . '">' . $crlf;
+                $buffer      = '        <table name="' . htmlspecialchars($table) . '">' . $crlf;
                 for ($i = 0; $i < $columns_cnt; $i++) {
                     // If a cell is NULL, still export it to preserve the XML structure
                     if (! isset($record[$i]) || is_null($record[$i])) {
@@ -376,7 +376,7 @@ if (isset($plugin_list)) {
                     $buffer .= '            <column name="' . htmlspecialchars($columns[$i]) . '">' . htmlspecialchars((string)$record[$i])
                             .  '</column>' . $crlf;
                 }
-                $buffer         .= '        </table>' . $crlf;
+                $buffer     .= '        </table>' . $crlf;
 
                 if (! PMA_exportOutputHandler($buffer)) {
                     return false;

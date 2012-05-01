@@ -137,8 +137,8 @@ if (isset($plugin_list)) {
         }
 
         // Gets the data from the database
-        $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt  = PMA_DBI_num_fields($result);
+        $result     = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $fields_cnt = PMA_DBI_num_fields($result);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['htmlword_columns'])) {

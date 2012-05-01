@@ -15,11 +15,11 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['yaml'] = array(
-        'text'          => 'YAML',
-        'extension'     => 'yml',
-        'mime_type'     => 'text/yaml',
-        'force_file'    => true,
-        'options'       => array(
+        'text' => 'YAML',
+        'extension' => 'yml',
+        'mime_type' => 'text/yaml',
+        'force_file' => true,
+        'options' => array(
             array('type' => 'begin_group', 'name' => 'general_opts'),
             array(
                 'type' => 'hidden',

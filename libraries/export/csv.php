@@ -77,20 +77,20 @@ if (isset($plugin_list)) {
                 $csv_separator = ',';
                 break;
             }
-            $csv_enclosed           = '"';
-            $csv_escaped            = '"';
+            $csv_enclosed = '"';
+            $csv_escaped  = '"';
             if (isset($GLOBALS['excel_columns'])) {
                 $GLOBALS['csv_columns'] = 'yes';
             }
         } else {
             if (empty($csv_terminated) || strtolower($csv_terminated) == 'auto') {
-                $csv_terminated  = $GLOBALS['crlf'];
+                $csv_terminated = $GLOBALS['crlf'];
             } else {
-                $csv_terminated  = str_replace('\\r', "\015", $csv_terminated);
-                $csv_terminated  = str_replace('\\n', "\012", $csv_terminated);
-                $csv_terminated  = str_replace('\\t', "\011", $csv_terminated);
+                $csv_terminated = str_replace('\\r', "\015", $csv_terminated);
+                $csv_terminated = str_replace('\\n', "\012", $csv_terminated);
+                $csv_terminated = str_replace('\\t', "\011", $csv_terminated);
             } // end if
-            $csv_separator          = str_replace('\\t', "\011", $csv_separator);
+            $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
         return true;
     }
@@ -159,8 +159,8 @@ if (isset($plugin_list)) {
         global $csv_escaped;
 
         // Gets the data from the database
-        $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt  = PMA_DBI_num_fields($result);
+        $result     = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $fields_cnt = PMA_DBI_num_fields($result);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['csv_columns'])) {
@@ -175,7 +175,7 @@ if (isset($plugin_list)) {
                 }
                 $schema_insert     .= $csv_separator;
             } // end for
-            $schema_insert  =trim(substr($schema_insert, 0, -1));
+            $schema_insert = trim(substr($schema_insert, 0, -1));
             if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
@@ -190,7 +190,7 @@ if (isset($plugin_list)) {
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     // always enclose fields
                     if ($what == 'excel') {
-                        $row[$j]       = preg_replace("/\015(\012)?/", "\012", $row[$j]);
+                        $row[$j] = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                     }
                     // remove CRLF characters within field
                     if (isset($GLOBALS[$what . '_removeCRLF']) && $GLOBALS[$what . '_removeCRLF']) {

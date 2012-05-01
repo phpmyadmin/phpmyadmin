@@ -242,23 +242,23 @@ if (isset($plugin_list)) {
         }
         function formatCs($text)
         {
-            $text=str_replace("#name#", cgMakeIdentifier($this->name, false), $text);
+            $text = str_replace("#name#", cgMakeIdentifier($this->name, false), $text);
             return $this->format($text);
         }
         function formatXml($text)
         {
-            $text=str_replace("#name#", htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'), $text);
-            $text=str_replace("#indexName#", $this->getIndexName(), $text);
+            $text = str_replace("#name#", htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'), $text);
+            $text = str_replace("#indexName#", $this->getIndexName(), $text);
             return $this->format($text);
         }
         function format($text)
         {
-            $text=str_replace("#ucfirstName#", cgMakeIdentifier($this->name), $text);
-            $text=str_replace("#dotNetPrimitiveType#", $this->getDotNetPrimitiveType(), $text);
-            $text=str_replace("#dotNetObjectType#", $this->getDotNetObjectType(), $text);
-            $text=str_replace("#type#", $this->getPureType(), $text);
-            $text=str_replace("#notNull#", $this->isNotNull(), $text);
-            $text=str_replace("#unique#", $this->isUnique(), $text);
+            $text = str_replace("#ucfirstName#", cgMakeIdentifier($this->name), $text);
+            $text = str_replace("#dotNetPrimitiveType#", $this->getDotNetPrimitiveType(), $text);
+            $text = str_replace("#dotNetObjectType#", $this->getDotNetObjectType(), $text);
+            $text = str_replace("#type#", $this->getPureType(), $text);
+            $text = str_replace("#notNull#", $this->isNotNull(), $text);
+            $text = str_replace("#unique#", $this->isUnique(), $text);
             return $text;
         }
     }
