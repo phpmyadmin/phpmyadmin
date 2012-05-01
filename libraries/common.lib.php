@@ -3638,6 +3638,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
         && empty($field['Default'])
         && empty($data)
         && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])
+        && $analyzed_sql[0]['create_table_fields'][$field['Field']]['default_value'] != 'NULL'
     ) {
         $default_function = $cfg['DefaultFunctions']['first_timestamp'];
     }
