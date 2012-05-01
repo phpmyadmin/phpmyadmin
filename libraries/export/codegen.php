@@ -159,7 +159,7 @@ if (isset($plugin_list)) {
 
     /**
      * TableProperty class
-     * 
+     *
      * @package    PhpMyAdmin-Export
      * @subpackage Codegen
      */

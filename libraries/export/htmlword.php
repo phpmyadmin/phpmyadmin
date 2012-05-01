@@ -557,8 +557,8 @@ if (isset($plugin_list)) {
     /**
      * Formats the definition for one column 
      *
-     * @param array $column      info about this column 
-     * @param array $unique_keys unique keys of the table 
+     * @param array $column      info about this column
+     * @param array $unique_keys unique keys of the table
      *
      * @return string Formatted column definition
      *
@@ -602,9 +602,9 @@ if (isset($plugin_list)) {
         $definition .= '<td class="print">' 
             . htmlspecialchars(
                 isset($column['Default'])
-                ? $column['Default'] 
+                ? $column['Default']
                 : ''
-            ) 
+            )
             . '</td>';
 
         return $definition;

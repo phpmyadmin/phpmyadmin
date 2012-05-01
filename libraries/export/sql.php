@@ -611,7 +611,7 @@ if (isset($plugin_list)) {
             $head .= 'SET FOREIGN_KEY_CHECKS=0;' . $crlf;
         }
 
-        // We want exported AUTO_INCREMENT columns to have still same value, 
+        // We want exported AUTO_INCREMENT columns to have still same value,
         // do this only for recent MySQL exports
         if ((! isset($GLOBALS['sql_compatibility'])
             || $GLOBALS['sql_compatibility'] == 'NONE')
@@ -881,7 +881,7 @@ if (isset($plugin_list)) {
             if (PMA_DBI_num_rows($result) > 0) {
                 $tmpres = PMA_DBI_fetch_assoc($result);
                 if (PMA_DRIZZLE && $show_dates) {
-                    // Drizzle doesn't give Create_time and Update_time in 
+                    // Drizzle doesn't give Create_time and Update_time in
                     // SHOW TABLE STATUS, add it
                     $sql ="SELECT
                             TABLE_CREATION_TIME AS Create_time,
@@ -962,7 +962,7 @@ if (isset($plugin_list)) {
         // because SHOW CREATE TABLE returns only one row, and we free the
         // results below. Nonetheless, we got 2 user reports about this
         // (see bug 1562533) so I removed the unbuffered mode.
-        // $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) 
+        // $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db)
         // . '.' . PMA_backquote($table), null, PMA_DBI_QUERY_UNBUFFERED);
         //
         // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
@@ -1028,7 +1028,7 @@ if (isset($plugin_list)) {
             // are there any constraints to cut out?
             if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $create_query)) {
 
-                // Split the query into lines, so we can easily handle it. 
+                // Split the query into lines, so we can easily handle it.
                 // We know lines are separated by $crlf (done few lines above).
                 $sql_lines = explode($crlf, $create_query);
                 $sql_count = count($sql_lines);
@@ -1080,12 +1080,13 @@ if (isset($plugin_list)) {
                     }
 
                     // let's do the work
-                    $sql_constraints_query .= 'ALTER TABLE ' . PMA_backquote($table)
-                        . $crlf;
-                    $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table)
-                        . $crlf;
-                    $sql_drop_foreign_keys .= 'ALTER TABLE ' . PMA_backquote($db)
-                        . '.' . PMA_backquote($table) . $crlf;
+                    $sql_constraints_query .= 'ALTER TABLE '
+                        . PMA_backquote($table) . $crlf;
+                    $sql_constraints .= 'ALTER TABLE '
+                        . PMA_backquote($table) . $crlf;
+                    $sql_drop_foreign_keys .= 'ALTER TABLE '
+                        . PMA_backquote($db) . '.'
+                        . PMA_backquote($table) . $crlf;
 
                     $first = true;
                     for ($j = $i; $j < $sql_count; $j++) {
@@ -1131,12 +1132,16 @@ if (isset($plugin_list)) {
                     $sql_constraints .= ';' . $crlf;
                     $sql_constraints_query .= ';';
 
-                    $create_query = implode($crlf, array_slice($sql_lines, 0, $i))
-                    . $crlf
-                    . implode(
-                        $crlf,
-                        array_slice($sql_lines, $j, $sql_count - 1)
-                    );
+                    $create_query
+                        = implode(
+                            $crlf,
+                            array_slice($sql_lines, 0, $i)
+                        )
+                        . $crlf
+                        . implode(
+                            $crlf,
+                            array_slice($sql_lines, $j, $sql_count - 1)
+                        );
                     unset($sql_lines);
                 }
             }
@@ -1237,7 +1242,7 @@ if (isset($plugin_list)) {
                     . ':'
                 );
             foreach ($res_rel AS $rel_field => $rel) {
-                $schema_create .= 
+                $schema_create .=
                     PMA_exportComment(
                         '  '
                         . PMA_backquote($rel_field, $sql_backquotes)
@@ -1337,8 +1342,8 @@ if (isset($plugin_list)) {
                 . PMA_exportComment();
             // delete the stand-in table previously created (if any)
             if ($export_type != 'table') {
-                $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table)
-                    . ';' . $crlf;
+                $dump .= 'DROP TABLE IF EXISTS '
+                    . PMA_backquote($table) . ';' . $crlf;
             }
             $dump .= PMA_getTableDef(
                 $db, $table, $crlf, $error_url, $dates, true, true
@@ -1643,7 +1648,9 @@ if (isset($plugin_list)) {
                         // Other inserts case
                     } else {
                         $insert_line = $schema_insert
-                            . '(' . implode(', ', $values) . ')';
+                            . '('
+                            . implode(', ', $values)
+                            . ')';
                     }
                 }
                 unset($values);

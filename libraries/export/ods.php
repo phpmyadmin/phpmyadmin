@@ -199,14 +199,14 @@ if (isset($plugin_list)) {
             $field_flags[$j] = PMA_DBI_field_flags($result, $j);
         }
 
-        $GLOBALS['ods_buffer'] .= 
+        $GLOBALS['ods_buffer'] .=
             '<table:table table:name="' . htmlspecialchars($table) . '">';
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$what . '_columns'])) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($i = 0; $i < $fields_cnt; $i++) {
-                $GLOBALS['ods_buffer'] .= 
+                $GLOBALS['ods_buffer'] .=
                     '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                     . htmlspecialchars(

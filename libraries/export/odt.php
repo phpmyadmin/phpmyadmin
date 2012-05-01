@@ -319,7 +319,7 @@ if (isset($plugin_list)) {
             '<table:table table:name="'
             . htmlspecialchars($table) . '_data">';
         $columns_cnt = 4;
-        $GLOBALS['odt_buffer'] .= 
+        $GLOBALS['odt_buffer'] .=
             '<table:table-column'
             . ' table:number-columns-repeated="' . $columns_cnt . '"/>';
         /* Header */
@@ -363,7 +363,7 @@ if (isset($plugin_list)) {
      *                                PMA_exportStructure() also for other
      * @param bool   $do_mime       whether to include mime comments
      * @param bool   $show_dates    whether to include creation/update/check dates
-     * @param bool   $add_semicolon whether to add semicolon and end-of-line at 
+     * @param bool   $add_semicolon whether to add semicolon and end-of-line at
      *                              the end
      * @param bool   $view          whether we're handling a view
      *
@@ -662,7 +662,7 @@ if (isset($plugin_list)) {
     /**
      * Formats the definition for one column 
      *
-     * @param array $column info about this column 
+     * @param array $column info about this column
      *
      * @return string Formatted column definition
      *

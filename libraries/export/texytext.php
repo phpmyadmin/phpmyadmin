@@ -42,7 +42,7 @@ if (isset($plugin_list)) {
             'type' => 'end_group'
         ),
         array(
-            'type' => 'begin_group', 
+            'type' => 'begin_group',
             'name' => 'data',
             'text' => __('Data dump options'),
             'force' => 'structure'
@@ -261,7 +261,7 @@ if (isset($plugin_list)) {
      * @param string $error_url     the url to go back in case of error
      * @param bool   $do_relation   whether to include relation comments
      * @param bool   $do_comments   whether to include the pmadb-style column
-     *                                comments as comments in the structure; 
+     *                                comments as comments in the structure;
      *                                this is deprecated but the parameter is
      *                                left here because export.php calls
      *                                PMA_exportStructure() also for other
@@ -373,7 +373,8 @@ if (isset($plugin_list)) {
             if ($do_comments && $cfgRelation['commwork']) {
                 $text_output .= '|'
                     . (isset($comments[$field_name])
-                    ? htmlspecialchars($comments[$field_name]) : '');
+                    ? htmlspecialchars($comments[$field_name])
+                    : '');
             }
             if ($do_mime && $cfgRelation['mimework']) {
                 $text_output .= '|'
@@ -503,8 +504,8 @@ if (isset($plugin_list)) {
     /**
      * Formats the definition for one column 
      *
-     * @param array $column      info about this column 
-     * @param array $unique_keys unique keys for this table 
+     * @param array $column      info about this column
+     * @param array $unique_keys unique keys for this table
      *
      * @return string Formatted column definition
      *

@@ -172,7 +172,7 @@ if (isset($plugin_list)) {
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
      * @param string $error_url   the url to go back in case of error
-     * @param string $export_mode 'create_table','triggers','create_view', 
+     * @param string $export_mode 'create_table','triggers','create_view',
      *                            'stand_in'
      * @param string $export_type 'server', 'database', 'table'
      * @param bool   $do_relation whether to include relation comments
