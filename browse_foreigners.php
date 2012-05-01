@@ -245,29 +245,32 @@ if (is_array($foreignData['disp_row'])) {
         $val_ordered_current_row++;
 
         if (PMA_strlen($val_ordered_current_val) <= $cfg['LimitChars']) {
-            $val_ordered_current_val
-                = htmlspecialchars($val_ordered_current_val);
+            $val_ordered_current_val = htmlspecialchars(
+                $val_ordered_current_val
+            );
             $val_ordered_current_val_title = '';
         } else {
-            $val_ordered_current_val_title
-                = htmlspecialchars($val_ordered_current_val);
+            $val_ordered_current_val_title = htmlspecialchars(
+                $val_ordered_current_val
+            );
             $val_ordered_current_val = htmlspecialchars(
                 PMA_substr($val_ordered_current_val, 0, $cfg['LimitChars'])
                 . '...'
             );
         }
         if (PMA_strlen($key_ordered_current_val) <= $cfg['LimitChars']) {
-            $key_ordered_current_val
-                = htmlspecialchars($key_ordered_current_val);
+            $key_ordered_current_val = htmlspecialchars(
+                $key_ordered_current_val
+            );
             $key_ordered_current_val_title = '';
         } else {
-            $key_ordered_current_val_title
-                = htmlspecialchars($key_ordered_current_val);
-            $key_ordered_current_val
-                = htmlspecialchars(
-                    PMA_substr($key_ordered_current_val, 0, $cfg['LimitChars'])
-                    . '...'
-                );
+            $key_ordered_current_val_title = htmlspecialchars(
+                $key_ordered_current_val
+            );
+            $key_ordered_current_val = htmlspecialchars(
+                PMA_substr($key_ordered_current_val, 0, $cfg['LimitChars'])
+                . '...'
+            );
         }
 
         if (! empty($data)) {
