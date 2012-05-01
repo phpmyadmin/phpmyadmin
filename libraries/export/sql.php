@@ -1132,16 +1132,15 @@ if (isset($plugin_list)) {
                     $sql_constraints .= ';' . $crlf;
                     $sql_constraints_query .= ';';
 
-                    $create_query
-                        = implode(
-                            $crlf,
-                            array_slice($sql_lines, 0, $i)
-                        )
-                        . $crlf
-                        . implode(
-                            $crlf,
-                            array_slice($sql_lines, $j, $sql_count - 1)
-                        );
+                    $create_query = implode(
+                        $crlf,
+                        array_slice($sql_lines, 0, $i)
+                    )
+                    . $crlf
+                    . implode(
+                        $crlf,
+                        array_slice($sql_lines, $j, $sql_count - 1)
+                    );
                     unset($sql_lines);
                 }
             }

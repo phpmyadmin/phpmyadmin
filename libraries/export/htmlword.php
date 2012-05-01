@@ -23,7 +23,7 @@ if (isset($plugin_list)) {
         'options_text' => __('Options')
     );
 
-    $plugin_list['htmlword']['options'][] = array(
+    $plugin_list['htmlword']['options'] = array(
         /* what to dump (structure/data/both) */
         array(
             'type' => 'begin_group',
@@ -459,17 +459,17 @@ if (isset($plugin_list)) {
             $dump .= '<tr class="print-category">';
             $dump .= '<td class="print">'
                 . htmlspecialchars($trigger['name'])
-                . '</td>';
-            $dump .= '<td class="print">'
+                . '</td>'
+                . '<td class="print">'
                 . htmlspecialchars($trigger['action_timing'])
-                . '</td>';
-            $dump .= '<td class="print">'
+                . '</td>'
+                . '<td class="print">'
                 . htmlspecialchars($trigger['event_manipulation'])
-                . '</td>';
-            $dump .= '<td class="print">'
+                . '</td>'
+                . '<td class="print">'
                 . htmlspecialchars($trigger['definition'])
-                . '</td>';
-            $dump .= '</tr>';
+                . '</td>'
+                . '</tr>';
         }
 
         $dump .= '</table>';

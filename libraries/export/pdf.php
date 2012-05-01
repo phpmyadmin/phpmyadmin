@@ -23,7 +23,7 @@ if (isset($plugin_list)) {
         'options_text' => __('Options')
     );
 
-    $plugin_list['pdf']['options'][] = array(
+    $plugin_list['pdf']['options'] = array(
         array(
             'type' => 'begin_group',
             'name' => 'general_opts'

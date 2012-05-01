@@ -22,7 +22,7 @@ if (isset($plugin_list)) {
         'options_text' => __('Options')
     );
 
-    $plugin_list['excel']['options'][] = array(
+    $plugin_list['excel']['options'] = array(
         array(
             'type' => 'begin_group',
             'name' => 'general_opts'

@@ -22,7 +22,7 @@ if (isset($plugin_list)) {
         'options_text' => __('Options')
     );
 
-    $plugin_list['texytext']['options'][] = array(
+    $plugin_list['texytext']['options'] = array(
         /* what to dump (structure/data/both) */
         array(
             'type' => 'begin_group',

@@ -23,45 +23,55 @@ if (isset($plugin_list)) {
         'options_text' => __('Options')
     );
 
-    $plugin_list['csv']['options'][] = array(
+    $plugin_list['csv']['options'] = array(
             array(
                 'type' => 'begin_group',
                 'name' => 'general_opts'
             ),
-            array('type' => 'text',
+            array(
+                'type' => 'text',
                 'name' => 'separator',
                 'text' => __('Columns separated with:')
             ),
-            array('type' => 'text',
+            array(
+                'type' => 'text',
                 'name' => 'enclosed',
                 'text' => __('Columns enclosed with:')
             ),
-            array('type' => 'text',
+            array(
+                'type' => 'text',
                 'name' => 'escaped',
                 'text' => __('Columns escaped with:')
             ),
-            array('type' => 'text',
+            array(
+                'type' => 'text',
                 'name' => 'terminated',
                 'text' => __('Lines terminated with:')
             ),
-            array('type' => 'text',
+            array(
+                'type' => 'text',
                 'name' => 'null',
                 'text' => __('Replace NULL with:')
             ),
-            array('type' => 'bool',
+            array(
+                'type' => 'bool',
                 'name' => 'removeCRLF',
                 'text' => __(
                     'Remove carriage return/line feed characters within columns'
                 )
             ),
-            array('type' => 'bool',
+            array(
+                'type' => 'bool',
                 'name' => 'columns',
                 'text' => __('Put columns names in the first row')
             ),
-            array('type' => 'hidden',
+            array(
+                'type' => 'hidden',
                 'name' => 'structure_or_data'
             ),
-            array('type' => 'end_group')
+            array(
+                'type' => 'end_group'
+            )
     );
 } else {
 
