@@ -713,9 +713,9 @@ class PMA_Types_Drizzle extends PMA_Types
         case 'UUID':
             return __('Stores a Universally Unique Identifier (UUID)');
         case 'DATE':
-            return sprintf(__('A date, supported range is \"%1$s\" to \"%2$s\"'), '0001-01-01', '9999-12-31');
+            return sprintf(__('A date, supported range is %1$s to %2$s'), '0001-01-01', '9999-12-31');
         case 'DATETIME':
-            return sprintf(__('A date and time combination, supported range is \"%1$s\" to \"%2$s\"'), '0001-01-01 00:00:0', '9999-12-31 23:59:59');
+            return sprintf(__('A date and time combination, supported range is %1$s to %2$s'), '0001-01-01 00:00:0', '9999-12-31 23:59:59');
         case 'TIMESTAMP':
             return __("A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' UTC; TIMESTAMP(6) can store microseconds");
         case 'TIME':
