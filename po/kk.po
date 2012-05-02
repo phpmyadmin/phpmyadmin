@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-02 15:20+0200\n"
+"PO-Revision-Date: 2012-05-02 16:30+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1195,7 +1195,7 @@ msgstr "Сұраныстардың статистикасы"
 
 #: js/messages.php:90
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "Локальды монитордың баптауы үйлеспеуде"
 
 #: js/messages.php:91
 msgid ""
@@ -1223,23 +1223,23 @@ msgstr ""
 
 #: js/messages.php:98
 msgid "System memory"
-msgstr ""
+msgstr "Жүйелiк жад"
 
 #: js/messages.php:99
 msgid "System swap"
-msgstr ""
+msgstr "Үстемелеу жүйесі"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1433
 #: server_status.php:1712
 msgid "MiB"
-msgstr ""
+msgstr "МБ"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1431
 #: server_status.php:1712
 msgid "KiB"
-msgstr ""
+msgstr "КБ"
 
 #: js/messages.php:103
 msgid "Average load"
@@ -1259,11 +1259,11 @@ msgstr ""
 
 #: js/messages.php:107
 msgid "Free memory"
-msgstr ""
+msgstr "Бос жад"
 
 #: js/messages.php:108
 msgid "Used memory"
-msgstr ""
+msgstr "Қолданылудағы жад"
 
 #: js/messages.php:110
 msgid "Total Swap"
@@ -1286,8 +1286,9 @@ msgid "Bytes sent"
 msgstr ""
 
 #: js/messages.php:116
+#, fuzzy
 msgid "Bytes received"
-msgstr ""
+msgstr "Байт қабылданды"
 
 #: js/messages.php:117 server_status.php:1162
 msgid "Connections"
@@ -1296,50 +1297,50 @@ msgstr ""
 #. l10n: shortcuts for Byte
 #: js/messages.php:121 libraries/common.lib.php:1429
 msgid "B"
-msgstr ""
+msgstr "Байт"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:124 libraries/common.lib.php:1435
 msgid "GiB"
-msgstr ""
+msgstr "ГБ"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:125 libraries/common.lib.php:1437
 msgid "TiB"
-msgstr ""
+msgstr "ТБ"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:126 libraries/common.lib.php:1439
 msgid "PiB"
-msgstr ""
+msgstr "ПБ"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:127 libraries/common.lib.php:1441
 msgid "EiB"
-msgstr ""
+msgstr "ЭБ"
 
 #: js/messages.php:128
 #, php-format
 msgid "%d table(s)"
-msgstr ""
+msgstr "%d Кесте(лер)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:131
 msgid "Questions"
-msgstr ""
+msgstr "Сұрақтар"
 
 #: js/messages.php:132 server_status.php:1111
 msgid "Traffic"
-msgstr ""
+msgstr "Трафик"
 
 #: js/messages.php:133 libraries/server_links.inc.php:73
 #: server_status.php:1587
 msgid "Settings"
-msgstr ""
+msgstr "Баптау"
 
 #: js/messages.php:134
 msgid "Remove chart"
-msgstr ""
+msgstr "Графикті жою"
 
 #: js/messages.php:135
 msgid "Edit title and labels"
