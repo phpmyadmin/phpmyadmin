@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-02 10:13+0200\n"
+"PO-Revision-Date: 2012-05-02 10:16+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -577,9 +577,8 @@ msgid "Inside tables:"
 msgstr "Кесте бойынша:"
 
 #: db_search.php:345
-#, fuzzy
 msgid "Inside column:"
-msgstr "Бағана іші"
+msgstr "Бағана бойынша"
 
 #: db_structure.php:84
 msgid "No tables found in database"
