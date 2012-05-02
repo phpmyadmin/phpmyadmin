@@ -289,16 +289,27 @@ $(document).ready(function() {
          */
         var $form = $(this).parent("form");
 
-        PMA_prepareForAjaxRequest($form);
+        if (checkFormElementInRange(
+                $form[0], 
+                'session_max_rows', 
+                PMA_messages['strNotValidRowNumber'], 1)
+            &&
+            checkFormElementInRange(
+                $form[0], 
+                'pos', 
+                PMA_messages['strNotValidRowNumber'], 0)) {
 
-        $.post($form.attr('action'), $form.serialize(), function(data) {
-            $("#sqlqueryresults")
-             .html(data)
-             .trigger('makegrid');
-            PMA_init_slider();
+            PMA_prepareForAjaxRequest($form);
 
-            PMA_ajaxRemoveMessage($msgbox);
-        }); // end $.post()
+            $.post($form.attr('action'), $form.serialize(), function(data) {
+                $("#sqlqueryresults")
+                 .html(data)
+                 .trigger('makegrid');
+                PMA_init_slider();
+
+                PMA_ajaxRemoveMessage($msgbox);
+            }); // end $.post()
+        }
     }); // end Paginate results table
 
     /**
