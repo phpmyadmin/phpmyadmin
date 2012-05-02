@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-01 21:56+0200\n"
+"PO-Revision-Date: 2012-05-02 15:27+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2582,16 +2582,16 @@ msgid "unknown table status: "
 msgstr "estado de tabla desconocido: "
 
 #: libraries/Table.class.php:750
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Base de datos de origen"
+msgstr "¡No se encontró la base de datos de origen «%s»!"
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "¡No se halló el tema %s!"
+msgstr "¡No se encontró la base de datos de destino «%s»!"
 
 #: libraries/Table.class.php:1174
 msgid "Invalid database"
