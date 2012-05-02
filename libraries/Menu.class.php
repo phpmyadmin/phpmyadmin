@@ -11,6 +11,7 @@ class Menu {
         $this->table = $table;
 
         if (! $GLOBALS['is_ajax_request']) {
+            echo $this->getBreadcrumbs();
             echo $this->getMenu();
             if (! empty($GLOBALS['message'])) {
                 PMA_showMessage($GLOBALS['message']);
@@ -34,6 +35,129 @@ class Menu {
             $tabs = $this->getServerTabs();
         }
         return PMA_generate_html_tabs($tabs, $url_params);
+    }
+
+    private function getBreadcrumbs()
+    {
+        $retval = '';
+        $tbl_is_view = PMA_Table::isView($this->db, $this->table);
+        $server_info = ! empty($GLOBALS['cfg']['Server']['verbose'])
+            ? $GLOBALS['cfg']['Server']['verbose']
+            : $GLOBALS['cfg']['Server']['host'];
+        $server_info .= empty($GLOBALS['cfg']['Server']['port'])
+            ? ''
+            : ':' . $GLOBALS['cfg']['Server']['port'];
+
+        $separator = "<span class='separator item'>&nbsp;»</span>\n";
+        $item = '<a href="%1$s?%2$s" class="item">';
+
+        if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
+            $item .= '%4$s: ';
+        }
+        $item .= '%3$s</a>' . "\n";
+        $retval .= "<div id='floating_menubar'></div>\n";
+        $retval .= "<div id='serverinfo'>\n";
+        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+            $retval .= PMA_getImage(
+                's_host.png',
+                '',
+                array('class' => 'item')
+            );
+        }
+        $retval .= sprintf(
+            $item,
+            $GLOBALS['cfg']['DefaultTabServer'],
+            PMA_generate_common_url(),
+            htmlspecialchars($server_info),
+            __('Server')
+        );
+
+        if (strlen($this->db)) {
+            $retval .= $separator;
+            if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                $retval .= PMA_getImage(
+                    's_db.png',
+                    '',
+                    array('class' => 'item')
+                );
+            }
+            $retval .= sprintf(
+                $item,
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                PMA_generate_common_url($this->db),
+                htmlspecialchars($this->db),
+                __('Database')
+            );
+            // if the table is being dropped, $_REQUEST['purge'] is set to '1'
+            // so do not display the table name in upper div
+            if (
+                strlen($this->table)
+                &&
+                ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
+            ) {
+                include_once './libraries/tbl_info.inc.php';
+
+                $retval .= $separator;
+                if ($GLOBALS['cfg']['NavigationBarIconic']) {
+                    $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
+                    $retval .= PMA_getImage(
+                        $icon,
+                        '',
+                        array('class' => 'item')
+                    );
+                }
+                $retval .= sprintf(
+                    $item,
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    PMA_generate_common_url($this->db, $this->table),
+                    str_replace(' ', '&nbsp;', htmlspecialchars($this->table)),
+                    $tbl_is_view ? __('View') : __('Table')
+                );
+
+                /**
+                 * Displays table comment
+                 */
+                if (! empty($show_comment)
+                    && ! isset($GLOBALS['avoid_show_comment'])
+                ) {
+                    if (strstr($show_comment, '; InnoDB free')) {
+                        $show_comment = preg_replace(
+                            '@; InnoDB free:.*?$@',
+                            '',
+                            $show_comment
+                        );
+                    }
+                    $retval .= '<span class="table_comment" id="span_table_comment">';
+                    $retval .= '&quot;' . htmlspecialchars($show_comment);
+                    $retval .= '&quot;</span>' . "\n";
+                } // end if
+            } else {
+                // no table selected, display database comment if present
+                /**
+                 * Settings for relations stuff
+                 */
+                include_once './libraries/relation.lib.php';
+                $cfgRelation = PMA_getRelationsParam();
+
+                // Get additional information about tables for tooltip is done
+                // in libraries/db_info.inc.php only once
+                if ($cfgRelation['commwork']) {
+                    $comment = PMA_getDbComment($this->db);
+                    /**
+                     * Displays table comment
+                     */
+                    if (! empty($comment)) {
+                        $retval .= '<span class="table_comment"'
+                            . ' id="span_table_comment">&quot;'
+                            . htmlspecialchars($comment)
+                            . '&quot;</span>' . "\n";
+                    } // end if
+                }
+            }
+        }
+        $retval .= '<div class="clearfloat"></div>';
+        $retval .= '</div>';
+        return $retval;
     }
 
     private function getTableTabs()
