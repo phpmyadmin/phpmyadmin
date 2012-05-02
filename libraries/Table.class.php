@@ -298,7 +298,13 @@ class PMA_Table
             );
         }
 
-        return (! empty($engine) && ((strtoupper($engine) == 'MERGE') || (strtoupper($engine) == 'MRG_MYISAM')));
+        // did we get engine?
+        if (empty($engine) {
+            return false;
+        }
+
+        // any of known merge engines?
+        return in_array(strtoupper($engine), array('MERGE', 'MRG_MYISAM'));
     }
 
     static public function sGetToolTip($db, $table)
@@ -740,14 +746,16 @@ class PMA_Table
         // Ensure the target is valid
         if (! $GLOBALS['pma']->databases->exists($source_db, $target_db)) {
             if (! $GLOBALS['pma']->databases->exists($source_db)) {
-                $GLOBALS['message'] = PMA_Message::rawError(
-                    'source database `' . htmlspecialchars($source_db) . '` not found'
-                );
+                $GLOBALS['message'] = PMA_Message::rawError(sprintf(
+                    __('Source database `%s` was not found!'),
+                    htmlspecialchars($source_db)
+                ));
             }
             if (! $GLOBALS['pma']->databases->exists($target_db)) {
-                $GLOBALS['message'] = PMA_Message::rawError(
-                    'target database `' . htmlspecialchars($target_db) . '` not found'
-                );
+                $GLOBALS['message'] = PMA_Message::rawError(sprintf(
+                    __('Target database `%s` was not found!'),
+                    htmlspecialchars($target_db)
+                ));
             }
             return false;
         }
