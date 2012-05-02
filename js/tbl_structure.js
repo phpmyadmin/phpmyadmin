@@ -798,13 +798,16 @@ function moreOptsMenuResize() {
     // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
     // positioning an iframe directly on top of it
     var $after_field = $("select[name='after_field']");
-    $("iframe[class='IE_hack']")
-        .width($after_field.width())
-        .height($after_field.height())
-        .offset({
-            top: $after_field.offset().top,
-            left: $after_field.offset().left
-        });
+    // This dropdown is only present for a table, not for a view
+    if ($after_field.length) {
+        $("iframe[class='IE_hack']")
+            .width($after_field.width())
+            .height($after_field.height())
+            .offset({
+                top: $after_field.offset().top,
+                left: $after_field.offset().left
+            });
+    }
 
     // When "more" is hovered over, show the hidden actions
     $table.find("td.more_opts")
