@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2011-11-04 13:00+0200\n"
-"Last-Translator: karrikas <karrikas@gmail.com>\n"
+"PO-Revision-Date: 2012-05-02 12:41+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1825
@@ -29,14 +29,15 @@ msgid "Page number:"
 msgstr "Orri zenbakia:"
 
 #: browse_foreigners.php:150
+#, fuzzy
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
 "The target browser window could not be updated. Maybe you have closed the "
-"parent window or your browser is blocking cross-window updates of your "
-"security settings"
+"parent window, or your browser's security settings are configured to block "
+"cross-window updates."
 
 #: browse_foreigners.php:172 libraries/common.lib.php:3161
 #: libraries/common.lib.php:3168 libraries/common.lib.php:3395
@@ -286,7 +287,7 @@ msgstr "Datu-basea ezabatu (DROP)"
 
 #: db_operations.php:516
 msgid "Copy database to"
-msgstr "Datu-basea kopiatu "
+msgstr "Datu-basea kopiatu"
 
 #: db_operations.php:523 tbl_operations.php:567 tbl_tracking.php:486
 msgid "Structure only"
@@ -302,7 +303,7 @@ msgstr "Datuak soilik"
 
 #: db_operations.php:533
 msgid "CREATE DATABASE before copying"
-msgstr "DATU-BASEA SORTU kopiatu aurretik "
+msgstr "DATU-BASEA SORTU kopiatu aurretik"
 
 #: db_operations.php:536 libraries/config/messages.inc.php:130
 #: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:133
@@ -322,7 +323,7 @@ msgstr "Murrizketak gehitu"
 
 #: db_operations.php:559
 msgid "Switch to copied database"
-msgstr "Kopiatutako datu-basea hautatu "
+msgstr "Kopiatutako datu-basea hautatu"
 
 #: db_operations.php:582 libraries/Index.class.php:463
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
@@ -404,7 +405,7 @@ msgstr[1] "%s taulak"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu."
+msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu"
 
 #: db_qbe.php:189
 #, php-format
@@ -784,7 +785,7 @@ msgstr "Bertsioak"
 
 #: db_tracking.php:141 tbl_tracking.php:477 tbl_tracking.php:749
 msgid "Tracking report"
-msgstr "Jarraipen informea "
+msgstr "Jarraipen informea"
 
 #: db_tracking.php:142 tbl_tracking.php:285 tbl_tracking.php:751
 msgid "Structure snapshot"
@@ -3995,7 +3996,7 @@ msgstr "Honetan bukatutako lerroak: "
 #: libraries/config/messages.inc.php:84 libraries/config/messages.inc.php:248
 #: libraries/import/csv.php:140 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "Honetan bukatutako lerroak: "
+msgstr "Honetan bukatutako lerroak"
 
 #: libraries/config/messages.inc.php:86
 #, fuzzy
@@ -4532,7 +4533,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/import/csv.php:36 libraries/import/ldi.php:39
 msgid "Replace table data with file"
-msgstr "Taularen datuak fitxategiarekin ordezkatu "
+msgstr "Taularen datuak fitxategiarekin ordezkatu"
 
 #: libraries/config/messages.inc.php:254
 msgid ""
@@ -6822,7 +6823,7 @@ msgstr "Deskribapena"
 #: libraries/export/htmlword.php:402 libraries/export/odt.php:483
 #: libraries/export/sql.php:1040 libraries/export/texytext.php:389
 msgid "Table structure for table"
-msgstr "Taularen egitura taula honentzat: "
+msgstr "Taularen egitura taula honentzat"
 
 #: libraries/export/htmlword.php:414 libraries/export/odt.php:496
 #: libraries/export/sql.php:1063 libraries/export/texytext.php:401
@@ -7322,7 +7323,7 @@ msgstr "Karaktere-jokoa"
 #: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:415
 #: tbl_change.php:618
 msgid "Binary"
-msgstr "Binarioa "
+msgstr "Binarioa"
 
 #: libraries/mysql_charsets.lib.php:226
 msgid "Bulgarian"
@@ -8433,7 +8434,7 @@ msgstr "Kontsulta hau gogokoetan gorde"
 
 #: libraries/sql_query_form.lib.php:313 sql.php:1069
 msgid "Let every user access this bookmark"
-msgstr "Gogokoen erregistro hau edozein erabiltzailearentzat erabilgarri "
+msgstr "Gogokoen erregistro hau edozein erabiltzailearentzat erabilgarri"
 
 #: libraries/sql_query_form.lib.php:319
 msgid "Replace existing bookmark of same name"
@@ -8715,7 +8716,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 "Miniatura klikagarri bat erakusten du; aukerak: luzera,altuera pixeletan "
-"(jatorrizko erlazioa mantentzen du)"
+"(jatorrizko erlazioa mantentzen du)."
 
 #: libraries/transformations/image_jpeg__link.inc.php:13
 msgid "Displays a link to download this image."
@@ -9860,7 +9861,7 @@ msgstr ""
 
 #: server_privileges.php:2298
 msgid "Add privileges on the following table"
-msgstr "Pribilegioak gehitu taula honetan "
+msgstr "Pribilegioak gehitu taula honetan"
 
 #: server_privileges.php:2355
 msgid "Change Login Information / Copy User"
@@ -11595,7 +11596,7 @@ msgstr "Bere luzeragatik,<br /> eremu hau ez da editagarria "
 
 #: tbl_change.php:866
 msgid "Binary - do not edit"
-msgstr "Binarioa - ez editatu! "
+msgstr "Binarioa - ez editatu"
 
 #: tbl_change.php:1071
 msgid "Insert as new row"
@@ -11849,7 +11850,7 @@ msgstr "Taularen hobespenak"
 
 #: tbl_operations.php:368
 msgid "Rename table to"
-msgstr "Taula berrizendatu izen honetara: "
+msgstr "Taula berrizendatu izen honetara"
 
 #: tbl_operations.php:550
 msgid "Copy table to (database<b>.</b>table):"
@@ -11969,7 +11970,7 @@ msgstr "Errenkadaren luzera"
 
 #: tbl_printview.php:401 tbl_structure.php:977
 msgid "Row size"
-msgstr "Errenkadaren tamaina "
+msgstr "Errenkadaren tamaina"
 
 #: tbl_printview.php:411 tbl_structure.php:985
 msgid "Next autoindex"
@@ -12097,7 +12098,7 @@ msgstr "Erlazioen ikuspegia"
 
 #: tbl_structure.php:678
 msgid "Propose table structure"
-msgstr "Taularen egituraren proposamena "
+msgstr "Taularen egituraren proposamena"
 
 #: tbl_structure.php:700
 #, fuzzy
