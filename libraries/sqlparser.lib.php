@@ -740,7 +740,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $t_suffix = '_columnType';
 
                     /**
-                     * Temporary fix for BUG #621357 and #2027720
+                     * Temporary fix for bugs #621357 and #2027720
                      *
                      * @todo FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
                      */
