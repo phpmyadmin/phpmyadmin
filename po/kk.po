@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-02 14:46+0200\n"
+"PO-Revision-Date: 2012-05-02 15:20+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1122,15 +1122,15 @@ msgstr "Трафиктің графикалық қорытындысы"
 
 #: js/messages.php:63 server_status.php:817
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Қосылыстар мен процесстердің графикалық құрытындысы"
 
 #: js/messages.php:64 server_status.php:835
 msgid "Live query chart"
-msgstr ""
+msgstr "Сұраныстардың графикалық қорытындысы"
 
 #: js/messages.php:66
 msgid "Static data"
-msgstr ""
+msgstr "Статикалық мәлiметтер"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
@@ -1138,42 +1138,43 @@ msgstr ""
 #: server_status.php:1139 server_status.php:1208 tbl_printview.php:334
 #: tbl_structure.php:883
 msgid "Total"
-msgstr ""
+msgstr "Барлығы"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:70 server_status.php:616 server_status.php:1033
 msgid "Other"
-msgstr ""
+msgstr "Басқа"
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/common.lib.php:1483
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/common.lib.php:1485
 msgid "."
-msgstr ""
+msgstr "."
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB соңғы жаңартылған сәттен бастап жіберілді."
 
 #: js/messages.php:77
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB соңғы жаңартылған сәттен бастап қабылданды."
 
 #: js/messages.php:78
 msgid "Server traffic (in KiB)"
-msgstr ""
+msgstr "Сервер трафигі (KiB)"
 
 #: js/messages.php:79
+#, fuzzy
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Соңғы жаңартылған сәттен бастап қосылыстар."
 
 #: js/messages.php:80 js/messages.php:118 server_status.php:1257
 msgid "Processes"
-msgstr ""
+msgstr "Процесстер"
 
 #: js/messages.php:81
 msgid "Connections / Processes"
@@ -1182,7 +1183,7 @@ msgstr ""
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Соңғы жаңартылған сәттен басталған сұрақтар."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
@@ -1191,7 +1192,7 @@ msgstr ""
 
 #: js/messages.php:87 server_status.php:796
 msgid "Query statistics"
-msgstr ""
+msgstr "Сұраныстардың статистикасы"
 
 #: js/messages.php:90
 msgid "Local monitor configuration incompatible"
