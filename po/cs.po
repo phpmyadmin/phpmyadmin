@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-19 11:29+0200\n"
+"PO-Revision-Date: 2012-05-02 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -944,11 +944,11 @@ msgstr "Přidat vnitřní obrys"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
-msgstr "Polygon"
+msgstr "Mnohoúhelník"
 
 #: gis_data_editor.php:306 js/messages.php:328
 msgid "Add a polygon"
-msgstr "Přidat polygon"
+msgstr "Přidat mnohoúhelník"
 
 #: gis_data_editor.php:310
 msgid "Add geometry"
