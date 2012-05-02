@@ -284,14 +284,17 @@ $(function() {
          */
         var $form = $(this).parent("form");
 
-        if (checkFormElementInRange(
-                $form[0], 
-                'session_max_rows', 
+        if (($form[0].elements['session_max_rows'] != undefined
+            ? checkFormElementInRange(
+                $form[0],
+                'session_max_rows',
                 PMA_messages['strNotValidRowNumber'], 1)
+            : true
+            )
             &&
             checkFormElementInRange(
-                $form[0], 
-                'pos', 
+                $form[0],
+                'pos',
                 PMA_messages['strNotValidRowNumber'], 0)) {
 
             var $msgbox = PMA_ajaxShowMessage();
