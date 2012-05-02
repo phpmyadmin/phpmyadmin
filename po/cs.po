@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-04-25 14:28+0200\n"
+"PO-Revision-Date: 2012-05-02 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -904,7 +904,7 @@ msgstr "Přidat vnitřní obrys"
 
 #: gis_data_editor.php:265 js/messages.php:328
 msgid "Polygon"
-msgstr "Polygon"
+msgstr "Mnohoúhelník"
 
 #: gis_data_editor.php:305 js/messages.php:334
 msgid "Add a polygon"
@@ -2313,31 +2313,29 @@ msgstr "Sekundy"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP selhalo s chybou: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Selhalo vyhodnocení podmínky pro pravidlo '%s'"
 
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Selhal výpočet hodnoty pro pravidlo '%s'"
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Selhalo spuštění podmínky pro pravidlo '%s'"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Selhalo formátování textu pro pravidlo '%s'. PHP selhalo s následující "
-"chybou: %s"
+msgstr "Selhalo formátování textu pro pravidlo '%s'."
 
 #: libraries/Advisor.class.php:383 server_status.php:963
 msgid "per second"
@@ -2832,15 +2830,15 @@ msgstr "Přidat polygon"
 
 #: libraries/Types.class.php:353
 msgid "A collection of points"
-msgstr ""
+msgstr "Množina bodů"
 
 #: libraries/Types.class.php:355
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Množina křivek s lineární interpolací mezi body"
 
 #: libraries/Types.class.php:357
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Množina mnohoúhelníků"
 
 #: libraries/Types.class.php:359
 msgid "A collection of geometry objects of any type"
