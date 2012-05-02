@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-01 21:32+0200\n"
+"PO-Revision-Date: 2012-05-02 18:46+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
@@ -2566,16 +2566,16 @@ msgid "unknown table status: "
 msgstr "neznano stanje tabele: "
 
 #: libraries/Table.class.php:750
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Izvorna zbirka podatkov"
+msgstr "Izvorne zbirke podatkov `%s` nisem našel!"
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s ni bila najdena!"
+msgstr "Ciljne zbirke podatkov `%s` nisem našel!"
 
 #: libraries/Table.class.php:1174
 msgid "Invalid database"
@@ -2760,6 +2760,8 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Časovni žig; razpon je od 1970-01-01 00:00:01 UTC do 2038-01-09 03:14:07 "
+"UTC, shranjeno kot število sekund od dobe (1970-01-01 00:00:00 UTC)"
 
 #: libraries/Types.class.php:313
 #, php-format
@@ -2796,18 +2798,24 @@ msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Stolpec TEXT, dolg največ 255 (2^8 - 1) znakov, shranjen z enobajtno "
+"predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:323 libraries/Types.class.php:726
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Stolpec TEXT, dolg največ 65.535 (2^16 - 1) znakov, shranjen z dvobajtno "
+"predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:325
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Stolpec TEXT, dolg največ 16.777.215 (2^24 - 1) znakov, shranjen s tribajtno "
+"predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:327
 msgid ""
@@ -2815,48 +2823,64 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Stolpec TEXT, dolg največ 4.294.967.295 ali 4 GiB (2^32 - 1) znakov, "
+"shranjen s štiribajtno predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:329
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Podobno vrsti CHAR, vendar shranjuje dvojiške nize bajtov namesto "
+"nedvojiških nizov znakov"
 
 #: libraries/Types.class.php:331
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Podobno vrsti VARCHAR, vendar shranjuje dvojiške nize bajtov namesto "
+"nedvojiških nizov znakov"
 
 #: libraries/Types.class.php:333
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Stolpec BLOB, dolg največ 255 (2^8 - 1) znakov, shranjen z enobajtno "
+"predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:335
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Stolpec BLOB, dolg največ 16.777.215 (2^24 - 1) znakov, shranjen s tribajtno "
+"predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:337
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Stolpec BLOB, dolg največ 65.535 (2^16 - 1) znakov, shranjen z dvobajtno "
+"predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Stolpec BLOB, dolg največ 4.294.967.295 ali 4 GiB (2^32 - 1) znakov, "
+"shranjen s štiribajtno predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:341
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Naštevanje, izbrano s seznama do 65.535 vrednosti ali posebne vrednosti "
+"napake ''"
 
 #: libraries/Types.class.php:343
 msgid "A single value chosen from a set of up to 64 members"
@@ -2908,7 +2932,7 @@ msgstr ""
 
 #: libraries/Types.class.php:708
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Sistemsko privzeto število z decimalno vejico z natančnostjo double"
 
 #: libraries/Types.class.php:710
 msgid "True or false"
@@ -2921,6 +2945,8 @@ msgstr "Vzdevek za BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 #: libraries/Types.class.php:714
 msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr ""
+"Shrani vsesplošno edinstven označevalnik (Universally Unique Identifier, "
+"UUID)"
 
 #: libraries/Types.class.php:720
 msgid ""
@@ -2948,10 +2974,12 @@ msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"Stolpec BLOB, dolg največ 65.535 (2^16 - 1) znakov, shranjen s štiribajtno "
+"predpono, ki nakazuje dolžino vrednosti v bajtih"
 
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
-msgstr "Vrednost, izbrana s seznama določenih vrednosti"
+msgstr "Naštevanje, izbrano s seznama določenih vrednosti"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
