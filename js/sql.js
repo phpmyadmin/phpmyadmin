@@ -282,8 +282,6 @@ $(document).ready(function() {
         /** @lends jQuery */
         event.preventDefault();
 
-        var $msgbox = PMA_ajaxShowMessage();
-
         /**
          * @var $form    Object referring to the form element that paginates the results table
          */
@@ -299,6 +297,7 @@ $(document).ready(function() {
                 'pos', 
                 PMA_messages['strNotValidRowNumber'], 0)) {
 
+            var $msgbox = PMA_ajaxShowMessage();
             PMA_prepareForAjaxRequest($form);
 
             $.post($form.attr('action'), $form.serialize(), function(data) {
