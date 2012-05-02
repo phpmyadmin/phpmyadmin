@@ -4,7 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"Last-Translator: Jaakko Virtanen <taaateli@hotmail.com>\n"
+"PO-Revision-Date: 2012-05-02 10:21+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -253,16 +254,16 @@ msgid "The database name is empty!"
 msgstr "Tietokannan nimi on tyhjä!"
 
 #: db_operations.php:311
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Tietokannan %s nimi on nyt %s"
+msgstr "Tietokannan %1$s nimi on nyt %2$s"
 
 #: db_operations.php:315
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Tietokanta %s on kopioitu tietokantaan %s"
+msgstr "Tietokanta %1$s on kopioitu tietokantaan %2$s"
 
 #: db_operations.php:443
 msgid "Rename database to"
@@ -514,13 +515,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Tulokset hakusanalla \"<i>%s</i>\" %s:"
 
 #: db_search.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] "%s hakutulosta taulussa <i>%s</i>"
-msgstr[1] "%s hakutulosta taulussa <i>%s</i>"
+msgstr[0] "%1$s hakutulosta taulussa <i>%2$s</i>"
+msgstr[1] "%1$s hakutulosta taulussa <i>%2$s</i>"
 
 #: db_search.php:247 libraries/common.lib.php:3163
 #: libraries/common.lib.php:3393 libraries/common.lib.php:3394
