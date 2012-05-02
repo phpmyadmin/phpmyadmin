@@ -3,7 +3,7 @@
 /**
  * DocSQL import plugin for phpMyAdmin
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
  * @subpackage DocSQL
  */
 if (! defined('PHPMYADMIN')) {

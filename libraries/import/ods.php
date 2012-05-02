@@ -5,7 +5,7 @@
  *
  * @todo    Pretty much everything
  * @todo    Importing of accented characters seems to fail
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
  * @subpackage ODS
  */
 

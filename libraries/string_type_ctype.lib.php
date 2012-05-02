@@ -9,7 +9,7 @@
  *
  * The SQL Parser code relies heavily on these functions.
  *
- * @package PhpMyAdmin-String
+ * @package    PhpMyAdmin-String
  * @subpackage CType
  */
 if (! defined('PHPMYADMIN')) {
