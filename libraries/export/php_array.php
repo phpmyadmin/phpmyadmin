@@ -3,7 +3,7 @@
 /**
  * Set of functions used to build dumps of tables as PHP Arrays
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage PHP
  */
 if (! defined('PHPMYADMIN')) {
@@ -15,18 +15,25 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $plugin_list['php_array'] = array(
-        'text'          => __('PHP array'),
-        'extension'     => 'php',
-        'mime_type'     => 'text/plain',
-        'options'       => array(
-        array('type' => 'begin_group', 'name' => 'general_opts'),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data',
-            ),
-        array('type' => 'end_group')
+        'text' => __('PHP array'),
+        'extension' => 'php',
+        'mime_type' => 'text/plain',
+        'options' => array(),
+        'options_text' => __('Options')
+    );
+
+    $plugin_list['php_array']['options'] = array(
+        array(
+            'type' => 'begin_group',
+            'name' => 'general_opts'
         ),
-        'options_text'  => __('Options'),
+        array(
+            'type' => 'hidden',
+            'name' => 'structure_or_data',
+        ),
+        array(
+            'type' => 'end_group'
+        )
     );
 } else {
 
@@ -37,9 +44,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export footer
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {
@@ -49,9 +56,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportHeader()
     {
@@ -68,26 +75,30 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBHeader($db)
     {
-        PMA_exportOutputHandler('//' . $GLOBALS['crlf'] . '// Database ' . PMA_backquote($db) . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']);
+        PMA_exportOutputHandler(
+            '//' . $GLOBALS['crlf']
+            . '// Database ' . PMA_backquote($db) . $GLOBALS['crlf']
+            . '//' . $GLOBALS['crlf']
+        );
         return true;
     }
 
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBFooter($db)
     {
@@ -97,11 +108,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBCreate($db)
     {
@@ -111,15 +122,15 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table as a fragment of PHP code
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
@@ -131,8 +142,13 @@ if (isset($plugin_list)) {
         }
         unset($i);
 
-        // fix variable names (based on http://www.php.net/manual/language.variables.basics.php)
-        if (preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $table) == false) {
+        // fix variable names (based on
+        // http://www.php.net/manual/language.variables.basics.php)
+        if (preg_match(
+            '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
+            $table
+        ) == false
+        ) {
             // fix invalid chars in variable names by replacing them with underscores
             $tablefixed = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/', '_', $table);
 
@@ -152,7 +168,8 @@ if (isset($plugin_list)) {
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt == 1) {
-                $buffer .= $crlf . '// ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $crlf;
+                $buffer .= $crlf . '// '. PMA_backquote($db) . '.'
+                    . PMA_backquote($table) . $crlf;
                 $buffer .= '$' . $tablefixed . ' = array(' . $crlf;
                 $buffer .= '  array(';
             } else {
@@ -160,7 +177,9 @@ if (isset($plugin_list)) {
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                $buffer .= var_export($columns[$i], true) . " => " . var_export($record[$i], true) . (($i + 1 >= $columns_cnt) ? '' : ',');
+                $buffer .= var_export($columns[$i], true)
+                    . " => " . var_export($record[$i], true)
+                    . (($i + 1 >= $columns_cnt) ? '' : ',');
             }
 
             $buffer .= ')';

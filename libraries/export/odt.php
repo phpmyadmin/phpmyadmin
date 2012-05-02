@@ -3,7 +3,7 @@
 /**
  * Set of functions used to build OpenDocument Text dumps of tables
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage ODT
  */
 if (! defined('PHPMYADMIN')) {
@@ -15,7 +15,9 @@ if (! defined('PHPMYADMIN')) {
  */
 if (isset($plugin_list)) {
     $hide_structure = false;
-    if ($plugin_param['export_type'] == 'table' && !$plugin_param['single_table']) {
+    if ($plugin_param['export_type'] == 'table'
+        && ! $plugin_param['single_table']
+    ) {
         $hide_structure = true;
     }
     $plugin_list['odt'] = array(
@@ -23,43 +25,81 @@ if (isset($plugin_list)) {
         'extension' => 'odt',
         'mime_type' => 'application/vnd.oasis.opendocument.text',
         'force_file' => true,
-        'options' => array(), /* Filled later */
-        'options_text' => __('Options'),
-        );
+        'options' => array(),
+        'options_text' => __('Options')
+    );
 
     /* what to dump (structure/data/both) */
-    $plugin_list['odt']['options'][]
-        = array('type' => 'begin_group', 'text' => __('Dump table') , 'name' => 'general_opts');
-    $plugin_list['odt']['options'][]
-        = array('type' => 'radio', 'name' => 'structure_or_data', 'values' => array('structure' => __('structure'), 'data' => __('data'), 'structure_and_data' => __('structure and data')));
-    $plugin_list['odt']['options'][] = array('type' => 'end_group');
+    $plugin_list['odt']['options'][] = array(
+        'type' => 'begin_group',
+        'text' => __('Dump table'),
+        'name' => 'general_opts'
+    );
+    $plugin_list['odt']['options'][] = array(
+        'type' => 'radio',
+        'name' => 'structure_or_data',
+        'values' => array(
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data')
+        )
+    );
+    $plugin_list['odt']['options'][] = array(
+        'type' => 'end_group'
+    );
 
     /* Structure options */
-    if (!$hide_structure) {
-        $plugin_list['odt']['options'][]
-            = array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options'), 'force' => 'data');
-        if (!empty($GLOBALS['cfgRelation']['relation'])) {
-            $plugin_list['odt']['options'][]
-                = array('type' => 'bool', 'name' => 'relation', 'text' => __('Display foreign key relationships'));
+    if (! $hide_structure) {
+        $plugin_list['odt']['options'][] = array(
+            'type' => 'begin_group',
+            'name' => 'structure',
+            'text' => __('Object creation options'),
+            'force' => 'data'
+        );
+        if (! empty($GLOBALS['cfgRelation']['relation'])) {
+            $plugin_list['odt']['options'][] = array(
+                'type' => 'bool',
+                'name' => 'relation',
+                'text' => __('Display foreign key relationships')
+            );
         }
-        $plugin_list['odt']['options'][]
-            = array('type' => 'bool', 'name' => 'comments', 'text' => __('Display comments'));
-        if (!empty($GLOBALS['cfgRelation']['mimework'])) {
-            $plugin_list['odt']['options'][]
-                = array('type' => 'bool', 'name' => 'mime', 'text' => __('Display MIME types'));
+        $plugin_list['odt']['options'][] = array(
+            'type' => 'bool',
+            'name' => 'comments',
+            'text' => __('Display comments')
+        );
+        if (! empty($GLOBALS['cfgRelation']['mimework'])) {
+            $plugin_list['odt']['options'][] = array(
+                'type' => 'bool',
+                'name' => 'mime',
+                'text' => __('Display MIME types')
+            );
         }
-        $plugin_list['odt']['options'][]
-            = array('type' => 'end_group');
+        $plugin_list['odt']['options'][] = array(
+            'type' => 'end_group'
+        );
     }
+
     /* Data */
-    $plugin_list['odt']['options'][]
-        = array('type' => 'begin_group', 'name' => 'data', 'text' => __('Data dump options'), 'force' => 'structure');
-    $plugin_list['odt']['options'][]
-        = array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row'));
-    $plugin_list['odt']['options'][]
-        = array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:'));
-    $plugin_list['odt']['options'][]
-        = array('type' => 'end_group');
+    $plugin_list['odt']['options'][] = array(
+        'type' => 'begin_group',
+        'name' => 'data',
+        'text' => __('Data dump options'),
+        'force' => 'structure'
+    );
+    $plugin_list['odt']['options'][] = array(
+        'type' => 'bool',
+        'name' => 'columns',
+        'text' => __('Put columns names in the first row')
+    );
+    $plugin_list['odt']['options'][] = array(
+        'type' => 'text',
+        'name' => 'null',
+        'text' => __('Replace NULL with:')
+    );
+    $plugin_list['odt']['options'][] = array(
+        'type' => 'end_group'
+    );
 } else {
 
     $GLOBALS['odt_buffer'] = '';
@@ -77,7 +117,12 @@ if (isset($plugin_list)) {
         $GLOBALS['odt_buffer'] .= '</office:text>'
             . '</office:body>'
             . '</office:document-content>';
-        if (! PMA_exportOutputHandler(PMA_createOpenDocument('application/vnd.oasis.opendocument.text', $GLOBALS['odt_buffer']))) {
+        if (! PMA_exportOutputHandler(
+            PMA_createOpenDocument(
+                'application/vnd.oasis.opendocument.text',
+                $GLOBALS['odt_buffer']
+            )
+        )) {
             return false;
         }
         return true;
@@ -93,7 +138,8 @@ if (isset($plugin_list)) {
     function PMA_exportHeader()
     {
         $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
-            . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
+            . '<office:document-content '
+                . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
             . '<office:body>'
             . '<office:text>';
         return true;
@@ -110,8 +156,11 @@ if (isset($plugin_list)) {
      */
     function PMA_exportDBHeader($db)
     {
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">'
-            . __('Database') . ' ' . htmlspecialchars($db) . '</text:h>';
+        $GLOBALS['odt_buffer'] .=
+            '<text:h text:outline-level="1" text:style-name="Heading_1"'
+                . ' text:is-list-header="true">'
+            . __('Database') . ' ' . htmlspecialchars($db)
+            . '</text:h>';
         return true;
     }
 
@@ -169,17 +218,29 @@ if (isset($plugin_list)) {
             $field_flags[$j] = PMA_DBI_field_flags($result, $j);
         }
 
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
-            . __('Dumping data for table') . ' ' . htmlspecialchars($table) . '</text:h>';
-        $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_structure">';
-        $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="' . $fields_cnt . '"/>';
+        $GLOBALS['odt_buffer'] .=
+            '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                . ' text:is-list-header="true">'
+            . __('Dumping data for table') . ' ' . htmlspecialchars($table)
+            . '</text:h>';
+        $GLOBALS['odt_buffer'] .=
+            '<table:table'
+            . ' table:name="' . htmlspecialchars($table) . '_structure">';
+        $GLOBALS['odt_buffer'] .=
+            '<table:table-column'
+            . ' table:number-columns-repeated="' . $fields_cnt . '"/>';
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$what . '_columns'])) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($i = 0; $i < $fields_cnt; $i++) {
-                $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                    . '<text:p>' . htmlspecialchars(stripslashes(PMA_DBI_field_name($result, $i))) . '</text:p>'
+                $GLOBALS['odt_buffer'] .=
+                    '<table:table-cell office:value-type="string">'
+                    . '<text:p>'
+                        . htmlspecialchars(
+                            stripslashes(PMA_DBI_field_name($result, $i))
+                        )
+                    . '</text:p>'
                     . '</table:table-cell>';
             } // end for
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
@@ -189,23 +250,38 @@ if (isset($plugin_list)) {
         while ($row = PMA_DBI_fetch_row($result)) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                        . '<text:p>' . htmlspecialchars($GLOBALS[$what . '_null']) . '</text:p>'
+                if (! isset($row[$j]) || is_null($row[$j])) {
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
+                        . '<text:p>'
+                        . htmlspecialchars($GLOBALS[$what . '_null'])
+                        . '</text:p>'
                         . '</table:table-cell>';
-                // ignore BLOB
                 } elseif (stristr($field_flags[$j], 'BINARY')
-                        && $fields_meta[$j]->blob) {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                    && $fields_meta[$j]->blob
+                ) {
+                    // ignore BLOB
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->numeric && $fields_meta[$j]->type != 'timestamp' && ! $fields_meta[$j]->blob) {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="float" office:value="' . $row[$j] . '" >'
-                        . '<text:p>' . htmlspecialchars($row[$j]) . '</text:p>'
+                } elseif ($fields_meta[$j]->numeric
+                    && $fields_meta[$j]->type != 'timestamp'
+                    && ! $fields_meta[$j]->blob
+                ) {
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="float"'
+                            . ' office:value="' . $row[$j] . '" >'
+                        . '<text:p>'
+                        . htmlspecialchars($row[$j])
+                        . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                        . '<text:p>' . htmlspecialchars($row[$j]) . '</text:p>'
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
+                        . '<text:p>'
+                        . htmlspecialchars($row[$j])
+                        . '</text:p>'
                         . '</table:table-cell>';
                 }
             } // end for
@@ -239,9 +315,13 @@ if (isset($plugin_list)) {
         /**
          * Displays the table structure
          */
-        $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_data">';
+        $GLOBALS['odt_buffer'] .=
+            '<table:table table:name="'
+            . htmlspecialchars($table) . '_data">';
         $columns_cnt = 4;
-        $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="' . $columns_cnt . '"/>';
+        $GLOBALS['odt_buffer'] .=
+            '<table:table-column'
+            . ' table:number-columns-repeated="' . $columns_cnt . '"/>';
         /* Header */
         $GLOBALS['odt_buffer'] .= '<table:table-row>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
@@ -276,22 +356,33 @@ if (isset($plugin_list)) {
      * @param string $crlf          the end of line sequence
      * @param string $error_url     the url to go back in case of error
      * @param bool   $do_relation   whether to include relation comments
-     * @param bool   $do_comments   whether to include the pmadb-style column comments
-     *                                as comments in the structure; this is deprecated
-     *                                but the parameter is left here because export.php
-     *                                calls PMA_exportStructure() also for other export
-     *                                types which use this parameter
+     * @param bool   $do_comments   whether to include the pmadb-style column
+     *                                comments as comments in the structure;
+     *                                this is deprecated but the parameter is
+     *                                left here because export.php calls
+     *                                PMA_exportStructure() also for other
      * @param bool   $do_mime       whether to include mime comments
      * @param bool   $show_dates    whether to include creation/update/check dates
-     * @param bool   $add_semicolon whether to add semicolon and end-of-line at the end
+     * @param bool   $add_semicolon whether to add semicolon and end-of-line at
+     *                              the end
      * @param bool   $view          whether we're handling a view
      *
      * @return bool true
      *
      * @access public
      */
-    function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $show_dates = false, $add_semicolon = true, $view = false)
-    {
+    function PMA_getTableDef(
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $do_relation,
+        $do_comments,
+        $do_mime,
+        $show_dates = false,
+        $add_semicolon = true,
+        $view = false
+    ) {
         global $cfgRelation;
 
         /**
@@ -300,7 +391,7 @@ if (isset($plugin_list)) {
         PMA_DBI_select_db($db);
 
         // Check if we can use Relations
-        if ($do_relation && !empty($cfgRelation['relation'])) {
+        if ($do_relation && ! empty($cfgRelation['relation'])) {
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = PMA_getForeigners($db, $table);
@@ -317,7 +408,8 @@ if (isset($plugin_list)) {
         /**
          * Displays the table structure
          */
-        $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_structure">';
+        $GLOBALS['odt_buffer'] .= '<table:table table:name="'
+            . htmlspecialchars($table) . '_structure">';
         $columns_cnt = 4;
         if ($do_relation && $have_rel) {
             $columns_cnt++;
@@ -328,7 +420,8 @@ if (isset($plugin_list)) {
         if ($do_mime && $cfgRelation['mimework']) {
             $columns_cnt++;
         }
-        $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="' . $columns_cnt . '"/>';
+        $GLOBALS['odt_buffer'] .= '<table:table-column'
+            . ' table:number-columns-repeated="' . $columns_cnt . '"/>';
         /* Header */
         $GLOBALS['odt_buffer'] .= '<table:table-row>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
@@ -368,29 +461,45 @@ if (isset($plugin_list)) {
 
             if ($do_relation && $have_rel) {
                 if (isset($res_rel[$field_name])) {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                        . '<text:p>' . htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' (' . $res_rel[$field_name]['foreign_field'] . ')') . '</text:p>'
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
+                        . '<text:p>'
+                        . htmlspecialchars(
+                            $res_rel[$field_name]['foreign_table']
+                            . ' (' . $res_rel[$field_name]['foreign_field'] . ')'
+                        )
+                        . '</text:p>'
                         . '</table:table-cell>';
                 }
             }
             if ($do_comments) {
                 if (isset($comments[$field_name])) {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                        . '<text:p>' . htmlspecialchars($comments[$field_name]) . '</text:p>'
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
+                        . '<text:p>'
+                        . htmlspecialchars($comments[$field_name])
+                        . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 }
             }
             if ($do_mime && $cfgRelation['mimework']) {
                 if (isset($mime_map[$field_name])) {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                        . '<text:p>' . htmlspecialchars(str_replace('_', '/', $mime_map[$field_name]['mimetype'])) . '</text:p>'
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
+                        . '<text:p>'
+                        . htmlspecialchars(
+                            str_replace('_', '/', $mime_map[$field_name]['mimetype'])
+                        )
+                        . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .=
+                        '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 }
@@ -405,16 +514,19 @@ if (isset($plugin_list)) {
     /**
      * Outputs triggers
      *
-     * @param string $db     database name
-     * @param string $table  table name
+     * @param string $db    database name
+     * @param string $table table name
+     *
      * @return bool true
      *
      * @access public
      */
     function PMA_getTriggers($db, $table)
     {
-        $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_triggers">';
-        $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="4"/>';
+        $GLOBALS['odt_buffer'] .= '<table:table'
+            . ' table:name="' . htmlspecialchars($table) . '_triggers">';
+        $GLOBALS['odt_buffer'] .= '<table:table-column'
+            . ' table:number-columns-repeated="4"/>';
         $GLOBALS['odt_buffer'] .= '<table:table-row>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Name') . '</text:p>'
@@ -435,16 +547,24 @@ if (isset($plugin_list)) {
         foreach ($triggers as $trigger) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($trigger['name']) . '</text:p>'
+                . '<text:p>'
+                . htmlspecialchars($trigger['name'])
+                . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($trigger['action_timing']) . '</text:p>'
+                . '<text:p>'
+                . htmlspecialchars($trigger['action_timing'])
+                . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($trigger['event_manipulation']) . '</text:p>'
+                . '<text:p>'
+                . htmlspecialchars($trigger['event_manipulation'])
+                . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($trigger['definition']) . '</text:p>'
+                . '<text:p>'
+                . htmlspecialchars($trigger['definition'])
+                . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         }
@@ -460,45 +580,78 @@ if (isset($plugin_list)) {
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
      * @param string $error_url   the url to go back in case of error
+     * @param string $export_mode 'create_table', 'triggers', 'create_view',
+     *                            'stand_in'
+     * @param string $export_type 'server', 'database', 'table'
      * @param bool   $do_relation whether to include relation comments
-     * @param bool   $do_comments whether to include the pmadb-style column comments
-     *                            as comments in the structure; this is deprecated
-     *                            but the parameter is left here because export.php
-     *                            calls PMA_exportStructure() also for other export
-     *                            types which use this parameter
+     * @param bool   $do_comments whether to include the pmadb-style column
+     *                                comments as comments in the structure;
+     *                                this is deprecated but the parameter is
+     *                                left here because export.php calls
+     *                                PMA_exportStructure() also for other
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
-     * @param string $export_mode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
      *
      * @return bool Whether it succeeded
      *
      * @access public
      */
-    function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
-    {
+    function PMA_exportStructure(
+        $db,
+        $table,
+        $crlf,
+        $error_url,
+        $export_mode,
+        $export_type,
+        $do_relation = false,
+        $do_comments = false,
+        $do_mime = false,
+        $dates = false
+    ) {
         switch($export_mode) {
         case 'create_table':
-            $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
-                . __('Table structure for table') . ' ' . htmlspecialchars($table) . '</text:h>';
-            PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $dates);
+            $GLOBALS['odt_buffer'] .=
+                '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                . ' text:is-list-header="true">'
+                . __('Table structure for table') . ' ' .
+                htmlspecialchars($table)
+                . '</text:h>';
+            PMA_getTableDef(
+                $db, $table, $crlf, $error_url, $do_relation, $do_comments,
+                $do_mime, $dates
+            );
             break;
         case 'triggers':
             $triggers = PMA_DBI_get_triggers($db, $table);
             if ($triggers) {
-                $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
-                . __('Triggers') . ' ' . htmlspecialchars($table) . '</text:h>';
+                $GLOBALS['odt_buffer'] .=
+                '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                . ' text:is-list-header="true">'
+                . __('Triggers') . ' '
+                . htmlspecialchars($table)
+                . '</text:h>';
                 PMA_getTriggers($db, $table);
             }
             break;
         case 'create_view':
-            $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
-                . __('Structure for view') . ' ' . htmlspecialchars($table) . '</text:h>';
-            PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation, $do_comments, $do_mime, $dates, true, true);
+            $GLOBALS['odt_buffer'] .=
+                '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                . ' text:is-list-header="true">'
+                . __('Structure for view') . ' '
+                . htmlspecialchars($table)
+                . '</text:h>';
+            PMA_getTableDef(
+                $db, $table, $crlf, $error_url, $do_relation, $do_comments,
+                $do_mime, $dates, true, true
+            );
             break;
         case 'stand_in':
-            $GLOBALS['odt_buffer'] .=  '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
-                . __('Stand-in structure for view') . ' ' . htmlspecialchars($table) . '</text:h>';
+            $GLOBALS['odt_buffer'] .=
+                '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                    . ' text:is-list-header="true">'
+                . __('Stand-in structure for view') . ' '
+                . htmlspecialchars($table)
+                . '</text:h>';
             // export a stand-in definition to resolve view dependencies
             PMA_getTableDefStandIn($db, $table, $crlf);
         } // end switch
@@ -509,15 +662,14 @@ if (isset($plugin_list)) {
     /**
      * Formats the definition for one column 
      *
-     * @param array $column  info about this column 
+     * @param array $column info about this column
      *
-     * @return string        Formatted column definition
+     * @return string Formatted column definition
      *
      * @access public
      */
-    function PMA_formatOneColumnDefinition(
-        $column
-    ) {
+    function PMA_formatOneColumnDefinition($column)
+    {
         $field_name = $column['Field'];
         $definition =  '<table:table-row>';
         $definition .= '<table:table-cell office:value-type="string">'
@@ -527,7 +679,7 @@ if (isset($plugin_list)) {
         $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         if (empty($type)) {
-            $type     = '&nbsp;';
+            $type = '&nbsp;';
         }
 
         $definition .= '<table:table-cell office:value-type="string">'

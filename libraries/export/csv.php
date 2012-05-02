@@ -3,7 +3,7 @@
 /**
  * CSV export code
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
  * @subpackage CSV
  */
 if (! defined('PHPMYADMIN')) {
@@ -19,28 +19,68 @@ if (isset($plugin_list)) {
         'text' => __('CSV'),
         'extension' => 'csv',
         'mime_type' => 'text/comma-separated-values',
-        'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
-            array('type' => 'text', 'name' => 'separator', 'text' => __('Columns separated with:')),
-            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed with:')),
-            array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped with:')),
-            array('type' => 'text', 'name' => 'terminated', 'text' => __('Lines terminated with:')),
-            array('type' => 'text', 'name' => 'null', 'text' => __('Replace NULL with:')),
-            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => __('Remove carriage return/line feed characters within columns')),
-            array('type' => 'bool', 'name' => 'columns', 'text' => __('Put columns names in the first row')),
-            array('type' => 'hidden', 'name' => 'structure_or_data'),
-            array('type' => 'end_group'),
+        'options' => array(),
+        'options_text' => __('Options')
+    );
+
+    $plugin_list['csv']['options'] = array(
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
             ),
-        'options_text' => __('Options'),
-        );
+            array(
+                'type' => 'text',
+                'name' => 'separator',
+                'text' => __('Columns separated with:')
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'enclosed',
+                'text' => __('Columns enclosed with:')
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'escaped',
+                'text' => __('Columns escaped with:')
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'terminated',
+                'text' => __('Lines terminated with:')
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'null',
+                'text' => __('Replace NULL with:')
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'removeCRLF',
+                'text' => __(
+                    'Remove carriage return/line feed characters within columns'
+                )
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'columns',
+                'text' => __('Put columns names in the first row')
+            ),
+            array(
+                'type' => 'hidden',
+                'name' => 'structure_or_data'
+            ),
+            array(
+                'type' => 'end_group'
+            )
+    );
 } else {
 
     /**
      * Outputs export footer
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportFooter()
     {
@@ -50,9 +90,9 @@ if (isset($plugin_list)) {
     /**
      * Outputs export header
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportHeader()
     {
@@ -77,20 +117,20 @@ if (isset($plugin_list)) {
                 $csv_separator = ',';
                 break;
             }
-            $csv_enclosed           = '"';
-            $csv_escaped            = '"';
+            $csv_enclosed = '"';
+            $csv_escaped  = '"';
             if (isset($GLOBALS['excel_columns'])) {
                 $GLOBALS['csv_columns'] = 'yes';
             }
         } else {
             if (empty($csv_terminated) || strtolower($csv_terminated) == 'auto') {
-                $csv_terminated  = $GLOBALS['crlf'];
+                $csv_terminated = $GLOBALS['crlf'];
             } else {
-                $csv_terminated  = str_replace('\\r', "\015", $csv_terminated);
-                $csv_terminated  = str_replace('\\n', "\012", $csv_terminated);
-                $csv_terminated  = str_replace('\\t', "\011", $csv_terminated);
+                $csv_terminated = str_replace('\\r', "\015", $csv_terminated);
+                $csv_terminated = str_replace('\\n', "\012", $csv_terminated);
+                $csv_terminated = str_replace('\\t', "\011", $csv_terminated);
             } // end if
-            $csv_separator          = str_replace('\\t', "\011", $csv_separator);
+            $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
         return true;
     }
@@ -98,11 +138,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs database header
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBHeader($db)
     {
@@ -112,11 +152,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs database footer
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBFooter($db)
     {
@@ -126,11 +166,11 @@ if (isset($plugin_list)) {
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string  $db Database name
+     * @param string $db Database name
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportDBCreate($db)
     {
@@ -140,15 +180,15 @@ if (isset($plugin_list)) {
     /**
      * Outputs the content of a table in CSV format
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $crlf       the end of line sequence
-     * @param string  $error_url  the url to go back in case of error
-     * @param string  $sql_query  SQL query for obtaining data
+     * @param string $db        database name
+     * @param string $table     table name
+     * @param string $crlf      the end of line sequence
+     * @param string $error_url the url to go back in case of error
+     * @param string $sql_query SQL query for obtaining data
      *
-     * @return bool        Whether it succeeded
+     * @return bool Whether it succeeded
      *
-     * @access  public
+     * @access public
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
@@ -159,8 +199,8 @@ if (isset($plugin_list)) {
         global $csv_escaped;
 
         // Gets the data from the database
-        $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt  = PMA_DBI_num_fields($result);
+        $result     = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $fields_cnt = PMA_DBI_num_fields($result);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['csv_columns'])) {
@@ -170,13 +210,17 @@ if (isset($plugin_list)) {
                     $schema_insert .= stripslashes(PMA_DBI_field_name($result, $i));
                 } else {
                     $schema_insert .= $csv_enclosed
-                                   . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, stripslashes(PMA_DBI_field_name($result, $i)))
-                                   . $csv_enclosed;
+                        . str_replace(
+                            $csv_enclosed,
+                            $csv_escaped . $csv_enclosed,
+                            stripslashes(PMA_DBI_field_name($result, $i))
+                        )
+                        .  $csv_enclosed;
                 }
-                $schema_insert     .= $csv_separator;
+                $schema_insert .= $csv_separator;
             } // end for
-            $schema_insert  =trim(substr($schema_insert, 0, -1));
-            if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
+            $schema_insert = trim(substr($schema_insert, 0, -1));
+            if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end if
@@ -185,16 +229,26 @@ if (isset($plugin_list)) {
         while ($row = PMA_DBI_fetch_row($result)) {
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || is_null($row[$j])) {
                     $schema_insert .= $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     // always enclose fields
                     if ($what == 'excel') {
-                        $row[$j]       = preg_replace("/\015(\012)?/", "\012", $row[$j]);
+                        $row[$j] = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                     }
                     // remove CRLF characters within field
-                    if (isset($GLOBALS[$what . '_removeCRLF']) && $GLOBALS[$what . '_removeCRLF']) {
-                        $row[$j] = str_replace("\n", "", str_replace("\r", "", $row[$j]));
+                    if (isset($GLOBALS[$what . '_removeCRLF'])
+                        && $GLOBALS[$what . '_removeCRLF']
+                    ) {
+                        $row[$j] = str_replace(
+                            "\n",
+                            "",
+                            str_replace(
+                                "\r",
+                                "",
+                                $row[$j]
+                            )
+                        );
                     }
                     if ($csv_enclosed == '') {
                         $schema_insert .= $row[$j];
@@ -202,13 +256,25 @@ if (isset($plugin_list)) {
                         // also double the escape string if found in the data
                         if ($csv_escaped != $csv_enclosed) {
                             $schema_insert .= $csv_enclosed
-                                       . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, str_replace($csv_escaped, $csv_escaped . $csv_escaped, $row[$j]))
-                                       . $csv_enclosed;
+                                . str_replace(
+                                    $csv_enclosed,
+                                    $csv_escaped . $csv_enclosed,
+                                    str_replace(
+                                        $csv_escaped,
+                                        $csv_escaped . $csv_escaped,
+                                        $row[$j]
+                                    )
+                                )
+                                . $csv_enclosed;
                         } else {
                             // avoid a problem when escape string equals enclose
                             $schema_insert .= $csv_enclosed
-                                       . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, $row[$j])
-                                       . $csv_enclosed;
+                            . str_replace(
+                                $csv_enclosed,
+                                $csv_escaped . $csv_enclosed,
+                                $row[$j]
+                            )
+                            . $csv_enclosed;
                         }
                     }
                 } else {
@@ -219,7 +285,7 @@ if (isset($plugin_list)) {
                 }
             } // end for
 
-            if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
+            if (! PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end while
