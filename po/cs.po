@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-02 10:15+0200\n"
+"PO-Revision-Date: 2012-05-02 10:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -908,7 +908,7 @@ msgstr "Mnohoúhelník"
 
 #: gis_data_editor.php:305 js/messages.php:334
 msgid "Add a polygon"
-msgstr "Přidat polygon"
+msgstr "Přidat mnohoúhelník"
 
 #: gis_data_editor.php:309
 msgid "Add geometry"
@@ -2698,15 +2698,15 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:716
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %1$s by %2$s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "vytvořil %2$s dne %1$s"
+msgstr "Datum, podporovaný rozsah od %1$s do %2$s"
 
 #: libraries/Types.class.php:309 libraries/Types.class.php:718
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Datum a čas, podporovaný rozsah od %1$s do %2$s"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -2715,10 +2715,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:313
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Chyba při přejmenování tabulky %1$s na %2$s"
+msgstr "Čas, podporovaný rozsah od %1$s do %2$s"
 
 #: libraries/Types.class.php:315
 msgid ""
@@ -2823,10 +2823,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:351
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Přidat polygon"
+msgstr "Mnohoúhelník"
 
 #: libraries/Types.class.php:353
 msgid "A collection of points"
@@ -7109,10 +7108,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Tento plugin nepodporuje komprimované soubory!"
 
 #: libraries/import/mediawiki.php:246
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Chybný formát CSV dat na řádku %d."
+msgstr "Chybný formát mediawiki dat na řádku: <br />%s."
 
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -8390,10 +8389,9 @@ msgid "Index"
 msgstr "Klíč"
 
 #: libraries/tbl_properties.inc.php:121
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Odstranit pole"
+msgstr "Přesunout pole"
 
 #: libraries/tbl_properties.inc.php:130
 #, php-format
@@ -8452,10 +8450,10 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:580
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Po %s"
+msgstr "po %s"
 
 #: libraries/tbl_properties.inc.php:692 tbl_structure.php:702
 #, php-format
@@ -11467,10 +11465,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabulka %1$s byla úspěšně změněna"
 
 #: tbl_alter.php:131
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Vybraní uživatelé byli úspěšně odstraněni."
+msgstr "Vybraná pole byla úspěšně odstraněna."
 
 #: tbl_change.php:751
 msgid "Because of its length,<br /> this column might not be editable"
@@ -11916,10 +11913,9 @@ msgid "Show more actions"
 msgstr "Zobrazit více operací"
 
 #: tbl_structure.php:626 tbl_structure.php:691
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Odstranit pole"
+msgstr "Přesunout pole"
 
 #: tbl_structure.php:627
 msgid "Move the columns by dragging them up and down."
