@@ -512,11 +512,11 @@ if (isset($plugin_list)) {
         if ((!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE')
             && !PMA_DRIZZLE
         ) {
-            $head .= 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
+            $head .= 'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";' . $crlf;
         }
 
         if (isset($GLOBALS['sql_use_transaction'])) {
-            $head .= 'SET AUTOCOMMIT=0;' . $crlf
+            $head .= 'SET AUTOCOMMIT = 0;' . $crlf
                    . 'START TRANSACTION;' . $crlf;
         }
 
