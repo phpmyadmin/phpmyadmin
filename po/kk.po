@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-01 13:09+0200\n"
+"PO-Revision-Date: 2012-05-02 10:13+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -163,7 +163,6 @@ msgstr "Типі"
 #: libraries/tbl_properties.inc.php:92 tbl_change.php:362
 #: tbl_printview.php:139 tbl_structure.php:209 tbl_tracking.php:310
 #: tbl_tracking.php:376 tbl_zoom_select.php:434
-#, fuzzy
 msgid "Null"
 msgstr "Бос/Null"
 
@@ -259,13 +258,13 @@ msgid "The database name is empty!"
 msgstr "Дерекқорының аты көрсетілмеген!"
 
 #: db_operations.php:311
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
 msgstr "%s дерекқорының атауы, мына атауға %s, қайта қойылды"
 
 #: db_operations.php:315
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
 msgstr "%s дерекқоры, мына жерге %s көшірілді."
