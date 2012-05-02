@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-02 14:26+0200\n"
+"PO-Revision-Date: 2012-05-02 14:46+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1099,16 +1099,16 @@ msgstr "Қолданушыны қосу"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
-msgstr ""
+msgstr "Артықшылықтардың қайта қосылуы"
 
 #: js/messages.php:57
 msgid "Removing Selected Users"
-msgstr ""
+msgstr "Таңдалынған қолдаушыларды жою"
 
 #: js/messages.php:58 js/messages.php:137 tbl_tracking.php:285
 #: tbl_tracking.php:477
 msgid "Close"
-msgstr ""
+msgstr "Жабу"
 
 #: js/messages.php:61 js/messages.php:284 libraries/Index.class.php:485
 #: libraries/common.lib.php:667 libraries/common.lib.php:1225
@@ -1116,11 +1116,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:489 libraries/display_tbl.lib.php:1622
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
-msgstr ""
+msgstr "Өзгерту"
 
 #: js/messages.php:62 server_status.php:814
 msgid "Live traffic chart"
-msgstr ""
+msgstr "Трафиктің графикалық қорытындысы"
 
 #: js/messages.php:63 server_status.php:817
 msgid "Live conn./process chart"
