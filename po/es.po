@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-02 15:27+0200\n"
+"PO-Revision-Date: 2012-05-02 15:29+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2638,7 +2638,7 @@ msgstr ""
 #: libraries/Theme.class.php:149
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "¡No se halló la ruta de imágenes para el tema %s!"
+msgstr "¡No se encontró la ruta de imágenes para el tema %s!"
 
 #: libraries/Theme.class.php:359
 msgid "No preview available."
@@ -2651,17 +2651,17 @@ msgstr "tómelo"
 #: libraries/Theme_Manager.class.php:114
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "¡No se halló el tema predeterminado %s!"
+msgstr "¡No se encontró el tema predeterminado %s!"
 
 #: libraries/Theme_Manager.class.php:157
 #, php-format
 msgid "Theme %s not found!"
-msgstr "¡No se halló el tema %s!"
+msgstr "¡No se encontró el tema %s!"
 
 #: libraries/Theme_Manager.class.php:229
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "¡No se halló la ruta del tema %s!"
+msgstr "¡No se encontró la ruta del tema %s!"
 
 #: libraries/Theme_Manager.class.php:313 themes.php:20 themes.php:27
 msgid "Theme"
@@ -9018,7 +9018,7 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"No se halló la extensión PHP mbstring y al parecer usted está usando "
+"No se encontró la extensión PHP mbstring y al parecer usted está usando "
 "tipografía multibyte. phpMyAdmin no puede cortar correctamente las cadenas "
 "de caracteres sin la extensión mbstring y podría dar resultados inesperados."
 
@@ -9840,7 +9840,7 @@ msgstr ""
 
 #: server_privileges.php:2029
 msgid "The selected user was not found in the privilege table."
-msgstr "El usuario que seleccionó no se halló en la tabla de privilegios."
+msgstr "El usuario que seleccionó no se encontró en la tabla de privilegios."
 
 #: server_privileges.php:2071
 msgid "Column-specific privileges"
