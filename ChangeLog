@@ -46,6 +46,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3521313 [core] Call to undefined function __()
 - bug #3521016 [edit] NOW() function incorrectly selected
 - bug [GUI] Invalid HTML code on transformation_overview.php
+- bug #3522930 [browse] Missing validation in Ajax mode
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
