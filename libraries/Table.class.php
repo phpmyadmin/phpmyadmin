@@ -298,7 +298,13 @@ class PMA_Table
             );
         }
 
-        return (! empty($engine) && ((strtoupper($engine) == 'MERGE') || (strtoupper($engine) == 'MRG_MYISAM')));
+        // did we get engine?
+        if (empty($engine) {
+            return false;
+        }
+
+        // any of known merge engines?
+        return in_array(strtoupper($engine), array('MERGE', 'MRG_MYISAM'));
     }
 
     static public function sGetToolTip($db, $table)
