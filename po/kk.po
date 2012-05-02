@@ -1018,7 +1018,6 @@ msgstr "\"DROP DATABASE\" (дерекқорды жою) командасы - ө�
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr ""
-"\n"
 "Сіз шынымен де сұраныстың орындалуын қалайсыз бе \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:309 sql.php:390
