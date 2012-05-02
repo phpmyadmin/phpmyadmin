@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-02 12:13+0200\n"
+"PO-Revision-Date: 2012-05-02 12:28+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1010,6 +1010,7 @@ msgstr "Артқа"
 #: index.php:162
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
+"PhpMyAdmin мен жұмыс істеу үшін, <b>фреймдерді</b> қолдайтын браузер керек."
 
 #: js/messages.php:27 libraries/import.lib.php:105 sql.php:292
 msgid "\"DROP DATABASE\" statements are disabled."
