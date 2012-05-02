@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-02 16:30+0200\n"
+"PO-Revision-Date: 2012-05-02 19:49+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1344,15 +1344,15 @@ msgstr "Графикті жою"
 
 #: js/messages.php:135
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Аты мен қол таңбасын өзгерту"
 
 #: js/messages.php:136
 msgid "Add chart to grid"
-msgstr ""
+msgstr "Торға график қосу"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Тәңiр жарылқасын, ең болмаса топтамаға бiр айнымалы қосыңыз"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:677 libraries/export/sql.php:1396
@@ -1360,7 +1360,7 @@ msgstr ""
 #: server_privileges.php:2221 server_status.php:1290 server_status.php:1729
 #: tbl_zoom_select.php:230 tbl_zoom_select.php:274
 msgid "None"
-msgstr ""
+msgstr "Жоқ"
 
 #: js/messages.php:140
 msgid "Resume monitor"
@@ -1372,27 +1372,27 @@ msgstr ""
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "Айнымалылар general_log және slow_query_log қосулы."
 
 #: js/messages.php:144
 msgid "general_log is enabled."
-msgstr ""
+msgstr "Айнымалы general_log қосулы."
 
 #: js/messages.php:145
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "Айнымалы slow_query_log қосулы."
 
 #: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "Айнымалы slow_query_log және general_log өшірілген."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "Айнымалы log_output кесте үшін орнатылмаған."
 
 #: js/messages.php:148
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "Айнымалы log_output кесте үшін орнатылды."
 
 #: js/messages.php:149
 #, php-format
@@ -1423,19 +1423,19 @@ msgstr ""
 #: js/messages.php:155
 #, php-format
 msgid "Enable %s"
-msgstr ""
+msgstr "Қосу %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:157
 #, php-format
 msgid "Disable %s"
-msgstr ""
+msgstr "Өшіру %s"
 
 #. l10n: %d seconds
 #: js/messages.php:159
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time орнату %d сек"
 
 #: js/messages.php:160
 msgid ""
@@ -1445,15 +1445,15 @@ msgstr ""
 
 #: js/messages.php:161
 msgid "Change settings"
-msgstr ""
+msgstr "Баптауын өзгерту"
 
 #: js/messages.php:162
 msgid "Current settings"
-msgstr ""
+msgstr "Ағымдағы баптау"
 
 #: js/messages.php:164 server_status.php:1677
 msgid "Chart Title"
-msgstr ""
+msgstr "График тақырыбы"
 
 #. l10n: As in differential values
 #: js/messages.php:166
