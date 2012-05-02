@@ -478,7 +478,11 @@ do {
                     if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
                         // for a view, export a stand-in definition of the table
                         // to resolve view dependencies
-                        if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'stand_in' : 'create_table', $export_type)) {
+                        if (! PMA_exportStructure(
+                            $current_db, $table, $crlf, $err_url,
+                            $is_view ? 'stand_in' : 'create_table', $export_type,
+                            $do_relation, $do_comments, $do_mime, $do_dates
+                        )) {
                             break 3;
                         }
                     }
@@ -492,7 +496,11 @@ do {
                     // now export the triggers (needs to be done after the data because
                     // triggers can modify already imported tables)
                     if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-                        if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
+                        if (! PMA_exportStructure(
+                            $current_db, $table, $crlf, $err_url,
+                            'triggers', $export_type,
+                            $do_relation, $do_comments, $do_mime, $do_dates
+                        )) {
                             break 2;
                         }
                     }
@@ -500,7 +508,11 @@ do {
                 foreach ($views as $view) {
                     // no data export for a view
                     if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-                        if (!PMA_exportStructure($current_db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'create_view', $export_type)) {
+                        if (! PMA_exportStructure(
+                            $current_db, $view, $crlf, $err_url,
+                            'create_view', $export_type,
+                            $do_relation, $do_comments, $do_mime, $do_dates
+                        )) {
                             break 3;
                         }
                     }
@@ -532,7 +544,11 @@ do {
             if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
                 // for a view, export a stand-in definition of the table
                 // to resolve view dependencies
-                if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'stand_in' : 'create_table', $export_type)) {
+                if (! PMA_exportStructure(
+                    $db, $table, $crlf, $err_url,
+                    $is_view ? 'stand_in' : 'create_table', $export_type,
+                    $do_relation, $do_comments, $do_mime, $do_dates
+                )) {
                     break 2;
                 }
             }
@@ -546,7 +562,11 @@ do {
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
             if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-                if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
+                if (! PMA_exportStructure(
+                    $db, $table, $crlf, $err_url,
+                    'triggers', $export_type,
+                    $do_relation, $do_comments, $do_mime, $do_dates
+                )) {
                     break 2;
                 }
             }
@@ -554,7 +574,11 @@ do {
         foreach ($views as $view) {
             // no data export for a view
             if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-                if (!PMA_exportStructure($db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'create_view', $export_type)) {
+                if (! PMA_exportStructure(
+                    $db, $view, $crlf, $err_url,
+                    'create_view', $export_type,
+                    $do_relation, $do_comments, $do_mime, $do_dates
+                )) {
                     break 2;
                 }
             }
@@ -579,7 +603,11 @@ do {
 
         $is_view = PMA_Table::isView($db, $table);
         if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-            if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'create_view' : 'create_table', $export_type)) {
+            if (! PMA_exportStructure(
+                $db, $table, $crlf, $err_url,
+                $is_view ? 'create_view' : 'create_table', $export_type,
+                $do_relation, $do_comments, $do_mime, $do_dates
+            )) {
                 break;
             }
         }
@@ -605,7 +633,11 @@ do {
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
         if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-            if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
+            if (! PMA_exportStructure(
+                $db, $table, $crlf, $err_url,
+                'triggers', $export_type,
+                $do_relation, $do_comments, $do_mime, $do_dates
+            )) {
                 break 2;
             }
         }
