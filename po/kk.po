@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-02 10:54+0200\n"
+"PO-Revision-Date: 2012-05-02 12:13+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -924,6 +924,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"\"Функция\" бағанасынан \"GeomFromText\" таңдаңыз және қатар соңына \"мән\" "
+"ретінде қойыңыз"
 
 #: import.php:86
 #, php-format
@@ -931,6 +933,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"Мүмкін, жүктегелі отырған файлдың өлшемі тым үлкен. Осы шектеуді айналып өту "
+"әдістері, %sқұжаттамада%s сипатталған."
 
 #: import.php:216 import.php:443
 msgid "Showing bookmark"
@@ -943,7 +947,7 @@ msgstr ""
 #: import.php:315 import.php:368 libraries/File.class.php:412
 #: libraries/File.class.php:495
 msgid "File could not be read"
-msgstr ""
+msgstr "Файлды оқу мүмкін емес"
 
 #: import.php:323 import.php:332 import.php:351 import.php:360
 #: libraries/File.class.php:556
@@ -996,12 +1000,12 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:237
 #: tbl_relation.php:300 tbl_row_action.php:122 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "SQL-сұранысы сәтті орындалды"
 
 #: import_status.php:117 libraries/common.lib.php:728
 #: libraries/schema/Export_Relation_Schema.class.php:240 user_password.php:210
 msgid "Back"
-msgstr ""
+msgstr "Артқа"
 
 #: index.php:162
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
