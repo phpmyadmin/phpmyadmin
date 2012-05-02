@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-02 19:49+0200\n"
+"PO-Revision-Date: 2012-05-02 20:14+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1467,7 +1467,7 @@ msgstr ""
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "Бiрлiк"
 
 #: js/messages.php:170
 msgid "From slow log"
