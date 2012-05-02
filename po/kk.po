@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-02 12:28+0200\n"
+"PO-Revision-Date: 2012-05-02 14:26+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1014,24 +1014,28 @@ msgstr ""
 
 #: js/messages.php:27 libraries/import.lib.php:105 sql.php:292
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "\"DROP DATABASE\" (дерекқорды жою) командасы - өшірулі"
 
 #: js/messages.php:30
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr ""
+"\n"
+"Сіз шынымен де сұраныстың орындалуын қалайсыз бе \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:309 sql.php:390
+#, fuzzy
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Сіз дерекқорды толығымен ЖОЙҒАЛЫ отырсыз!"
 
 #: js/messages.php:32
+#, fuzzy
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "Сіз кестені толығымен ЖОЙҒАЛЫ отырсыз!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr ""
+msgstr "Сіз кестені мәліметтерден толығымен ТАЗАРТҚАЛЫ отырсыз!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
@@ -1039,11 +1043,11 @@ msgstr ""
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Бірінші кілтті/индексті жою."
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Осы операцияның орындау, ұзақ уақытты алуы мүмкін. Жалғастырамыз ба?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -1051,15 +1055,15 @@ msgstr ""
 
 #: js/messages.php:41
 msgid "This is not a number!"
-msgstr ""
+msgstr "Бұл сан емес!"
 
 #: js/messages.php:42
 msgid "Add Index"
-msgstr ""
+msgstr "Индекс қосу"
 
 #: js/messages.php:43
 msgid "Edit Index"
-msgstr ""
+msgstr "Индексті өзгерту"
 
 #: js/messages.php:44 tbl_indexes.php:314
 #, php-format
@@ -1069,28 +1073,29 @@ msgstr ""
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
 msgid "Total count"
-msgstr ""
+msgstr "Жалпы саны"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
-msgstr ""
+msgstr "Хост аты бос тұр!"
 
 #: js/messages.php:52
+#, fuzzy
 msgid "The user name is empty!"
-msgstr ""
+msgstr "Қолданушы аты бос тұр!"
 
 #: js/messages.php:53 server_privileges.php:1432 user_password.php:103
 msgid "The password is empty!"
-msgstr ""
+msgstr "Құпия сөз бос тұр!"
 
 #: js/messages.php:54 server_privileges.php:1430 user_password.php:106
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "Құпия сөздер бір-біріне ұқсамайды!"
 
 #: js/messages.php:55 server_privileges.php:1944 server_privileges.php:1968
 #: server_privileges.php:2380 server_privileges.php:2574
 msgid "Add user"
-msgstr ""
+msgstr "Қолданушыны қосу"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
