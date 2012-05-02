@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-01 20:40+0200\n"
+"POT-Creation-Date: 2012-05-02 14:49+0200\n"
 "PO-Revision-Date: 2012-04-09 07:19+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -115,10 +115,10 @@ msgid "Table comments"
 msgstr "表注释"
 
 #: db_datadict.php:163 db_qbe.php:199 libraries/Index.class.php:461
-#: libraries/export/htmlword.php:198 libraries/export/htmlword.php:290
-#: libraries/export/latex.php:394 libraries/export/odt.php:248
-#: libraries/export/odt.php:335 libraries/export/texytext.php:199
-#: libraries/export/texytext.php:289 libraries/export/texytext.php:340
+#: libraries/export/htmlword.php:247 libraries/export/htmlword.php:359
+#: libraries/export/latex.php:481 libraries/export/odt.php:328
+#: libraries/export/odt.php:428 libraries/export/texytext.php:240
+#: libraries/export/texytext.php:342 libraries/export/texytext.php:407
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:291 libraries/tbl_select.lib.php:86
@@ -129,10 +129,10 @@ msgid "Column"
 msgstr "字段"
 
 #: db_datadict.php:164 db_printview.php:103 libraries/Index.class.php:458
-#: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:199
-#: libraries/export/htmlword.php:291 libraries/export/latex.php:395
-#: libraries/export/odt.php:251 libraries/export/odt.php:338
-#: libraries/export/texytext.php:200 libraries/export/texytext.php:290
+#: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
+#: libraries/export/htmlword.php:362 libraries/export/latex.php:482
+#: libraries/export/odt.php:331 libraries/export/odt.php:431
+#: libraries/export/texytext.php:241 libraries/export/texytext.php:343
 #: libraries/rte/rte_list.lib.php:54 libraries/rte/rte_list.lib.php:80
 #: libraries/rte/rte_routines.lib.php:837
 #: libraries/rte/rte_routines.lib.php:862
@@ -147,10 +147,10 @@ msgid "Type"
 msgstr "类型"
 
 #: db_datadict.php:166 libraries/Index.class.php:464
-#: libraries/export/htmlword.php:200 libraries/export/htmlword.php:292
-#: libraries/export/latex.php:396 libraries/export/odt.php:254
-#: libraries/export/odt.php:341 libraries/export/texytext.php:201
-#: libraries/export/texytext.php:291
+#: libraries/export/htmlword.php:253 libraries/export/htmlword.php:365
+#: libraries/export/latex.php:483 libraries/export/odt.php:334
+#: libraries/export/odt.php:434 libraries/export/texytext.php:242
+#: libraries/export/texytext.php:344
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_properties.inc.php:92 tbl_change.php:362
@@ -159,10 +159,10 @@ msgstr "类型"
 msgid "Null"
 msgstr "空"
 
-#: db_datadict.php:167 db_structure.php:637 libraries/export/htmlword.php:201
-#: libraries/export/htmlword.php:293 libraries/export/latex.php:397
-#: libraries/export/odt.php:257 libraries/export/odt.php:344
-#: libraries/export/texytext.php:202 libraries/export/texytext.php:292
+#: db_datadict.php:167 db_structure.php:637 libraries/export/htmlword.php:256
+#: libraries/export/htmlword.php:368 libraries/export/latex.php:484
+#: libraries/export/odt.php:337 libraries/export/odt.php:437
+#: libraries/export/texytext.php:243 libraries/export/texytext.php:345
 #: libraries/schema/Pdf_Relation_Schema.class.php:1312
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:89 tbl_printview.php:140
@@ -170,9 +170,9 @@ msgstr "空"
 msgid "Default"
 msgstr "默认"
 
-#: db_datadict.php:171 libraries/export/htmlword.php:295
-#: libraries/export/latex.php:399 libraries/export/odt.php:348
-#: libraries/export/texytext.php:294
+#: db_datadict.php:171 libraries/export/htmlword.php:372
+#: libraries/export/latex.php:486 libraries/export/odt.php:441
+#: libraries/export/texytext.php:347
 #: libraries/schema/Pdf_Relation_Schema.class.php:1314
 #: libraries/schema/Pdf_Relation_Schema.class.php:1335 tbl_printview.php:143
 msgid "Links to"
@@ -180,9 +180,9 @@ msgstr "链接到"
 
 #: db_datadict.php:173 db_printview.php:109
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:113
-#: libraries/config/messages.inc.php:135 libraries/export/htmlword.php:298
-#: libraries/export/latex.php:402 libraries/export/odt.php:353
-#: libraries/export/texytext.php:297
+#: libraries/config/messages.inc.php:135 libraries/export/htmlword.php:377
+#: libraries/export/latex.php:489 libraries/export/odt.php:446
+#: libraries/export/texytext.php:350
 #: libraries/schema/Pdf_Relation_Schema.class.php:1325
 #: libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_properties.inc.php:112 tbl_printview.php:145
@@ -192,9 +192,9 @@ msgstr "注释"
 #: db_datadict.php:235 js/messages.php:251 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/Index.class.php:704
 #: libraries/config.values.php:52 libraries/config.values.php:67
-#: libraries/config/FormDisplay.tpl.php:244 libraries/export/htmlword.php:468
-#: libraries/export/latex.php:460 libraries/export/odt.php:548
-#: libraries/export/texytext.php:450 libraries/mult_submits.inc.php:327
+#: libraries/config/FormDisplay.tpl.php:244 libraries/export/htmlword.php:599
+#: libraries/export/latex.php:549 libraries/export/odt.php:700
+#: libraries/export/texytext.php:544 libraries/mult_submits.inc.php:327
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:287 prefs_manage.php:132
 #: server_privileges.php:1599 server_privileges.php:1609
@@ -209,9 +209,9 @@ msgstr "否"
 #: db_datadict.php:235 js/messages.php:250 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/Index.class.php:704
 #: libraries/config.values.php:51 libraries/config.values.php:66
-#: libraries/config/FormDisplay.tpl.php:244 libraries/export/htmlword.php:469
-#: libraries/export/latex.php:460 libraries/export/odt.php:549
-#: libraries/export/texytext.php:450 libraries/mult_submits.inc.php:68
+#: libraries/config/FormDisplay.tpl.php:244 libraries/export/htmlword.php:600
+#: libraries/export/latex.php:549 libraries/export/odt.php:701
+#: libraries/export/texytext.php:544 libraries/mult_submits.inc.php:68
 #: libraries/mult_submits.inc.php:100 libraries/mult_submits.inc.php:109
 #: libraries/mult_submits.inc.php:114 libraries/mult_submits.inc.php:119
 #: libraries/mult_submits.inc.php:124 libraries/mult_submits.inc.php:289
@@ -341,7 +341,7 @@ msgstr "编辑或导出关系大纲"
 
 #: db_printview.php:101 db_tracking.php:85 db_tracking.php:193
 #: libraries/config/messages.inc.php:513 libraries/db_structure.lib.php:32
-#: libraries/export/pdf.php:98 libraries/export/xml.php:364
+#: libraries/export/pdf.php:135 libraries/export/xml.php:405
 #: libraries/header.inc.php:169 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
 #: libraries/schema/User_Schema.class.php:275 server_privileges.php:2010
@@ -350,7 +350,7 @@ msgstr "编辑或导出关系大纲"
 msgid "Table"
 msgstr "表"
 
-#: db_printview.php:102 libraries/Table.class.php:308
+#: db_printview.php:102 libraries/Table.class.php:314
 #: libraries/build_html_for_db.lib.php:31 libraries/db_structure.lib.php:42
 #: libraries/header_printview.inc.php:65 libraries/import.lib.php:151
 #: navigation.php:594 navigation.php:616 tbl_printview.php:377
@@ -362,26 +362,26 @@ msgstr "行数"
 msgid "Size"
 msgstr "大小"
 
-#: db_printview.php:160 db_structure.php:592 libraries/export/sql.php:806
+#: db_printview.php:160 db_structure.php:592 libraries/export/sql.php:977
 msgid "in use"
 msgstr "使用中"
 
 #: db_printview.php:186 libraries/db_info.inc.php:81
-#: libraries/db_structure.lib.php:60 libraries/export/sql.php:758
+#: libraries/db_structure.lib.php:60 libraries/export/sql.php:911
 #: libraries/schema/Pdf_Relation_Schema.class.php:1287 tbl_printview.php:422
 #: tbl_structure.php:993
 msgid "Creation"
 msgstr "创建时间"
 
 #: db_printview.php:195 libraries/db_info.inc.php:86
-#: libraries/db_structure.lib.php:65 libraries/export/sql.php:763
+#: libraries/db_structure.lib.php:65 libraries/export/sql.php:922
 #: libraries/schema/Pdf_Relation_Schema.class.php:1292 tbl_printview.php:433
 #: tbl_structure.php:1001
 msgid "Last update"
 msgstr "最后更新"
 
 #: db_printview.php:204 libraries/db_info.inc.php:91
-#: libraries/db_structure.lib.php:70 libraries/export/sql.php:768
+#: libraries/db_structure.lib.php:70 libraries/export/sql.php:933
 #: libraries/schema/Pdf_Relation_Schema.class.php:1297 tbl_printview.php:444
 #: tbl_structure.php:1009
 msgid "Last check"
@@ -715,10 +715,10 @@ msgid "Tracked tables"
 msgstr "已追踪的表"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:507
-#: libraries/export/htmlword.php:84 libraries/export/latex.php:156
-#: libraries/export/odt.php:114 libraries/export/pdf.php:98
-#: libraries/export/sql.php:609 libraries/export/texytext.php:70
-#: libraries/export/xml.php:294 libraries/header.inc.php:152
+#: libraries/export/htmlword.php:119 libraries/export/latex.php:228
+#: libraries/export/odt.php:162 libraries/export/pdf.php:134
+#: libraries/export/sql.php:731 libraries/export/texytext.php:102
+#: libraries/export/xml.php:332 libraries/header.inc.php:152
 #: libraries/header_printview.inc.php:59 server_databases.php:192
 #: server_privileges.php:2005 server_privileges.php:2068
 #: server_privileges.php:2331 server_status.php:1261
@@ -801,7 +801,7 @@ msgstr "选择导出文件的类型！"
 msgid "Bad parameters!"
 msgstr "非法参数！"
 
-#: export.php:177 export.php:202 export.php:673
+#: export.php:177 export.php:202 export.php:705
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "没有足够的空间保存文件 %s。"
@@ -817,7 +817,7 @@ msgstr "服务器上已存在文件 %s，请修改文件名或选中覆盖选项
 msgid "The web server does not have permission to save the file %s."
 msgstr "网站服务器没有保存文件 %s 的权限。"
 
-#: export.php:675
+#: export.php:707
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "转存已经保存到文件 %s 中。"
@@ -1349,7 +1349,7 @@ msgid "Please add at least one variable to the series"
 msgstr "请至少添加一个数据"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
-#: libraries/display_tbl.lib.php:677 libraries/export/sql.php:1113
+#: libraries/display_tbl.lib.php:677 libraries/export/sql.php:1396
 #: libraries/tbl_properties.inc.php:617 pmd_general.php:528
 #: server_privileges.php:2221 server_status.php:1290 server_status.php:1729
 #: tbl_zoom_select.php:230 tbl_zoom_select.php:274
@@ -1529,8 +1529,8 @@ msgstr "正在分析。。。"
 msgid "Explain output"
 msgstr "解释 SQL"
 
-#: js/messages.php:186 js/messages.php:519 libraries/export/htmlword.php:354
-#: libraries/export/odt.php:423 libraries/export/texytext.php:343
+#: js/messages.php:186 js/messages.php:519 libraries/export/htmlword.php:451
+#: libraries/export/odt.php:535 libraries/export/texytext.php:410
 #: libraries/rte/rte_list.lib.php:68 server_status.php:1263 sql.php:980
 msgid "Time"
 msgstr "时间"
@@ -2534,34 +2534,46 @@ msgstr "%s 在此 MySQL 服务器上被禁止了。"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "此 MySQL 服务器不支持 %s 存储引擎。"
 
-#: libraries/Table.class.php:347
+#: libraries/Table.class.php:353
 msgid "unknown table status: "
 msgstr "未知表状态: "
 
-#: libraries/Table.class.php:1166
+#: libraries/Table.class.php:750
+#, fuzzy, php-format
+#| msgid "Source database"
+msgid "Source database `%s` was not found!"
+msgstr "源数据库"
+
+#: libraries/Table.class.php:756
+#, fuzzy, php-format
+#| msgid "Theme %s not found!"
+msgid "Target database `%s` was not found!"
+msgstr "未找到主题 %s ！"
+
+#: libraries/Table.class.php:1174
 msgid "Invalid database"
 msgstr "无效的数据库"
 
-#: libraries/Table.class.php:1180 tbl_get_field.php:27
+#: libraries/Table.class.php:1188 tbl_get_field.php:27
 msgid "Invalid table name"
 msgstr "无效的数据表名"
 
-#: libraries/Table.class.php:1211
+#: libraries/Table.class.php:1219
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "将表 %1$s 改名为 %2$s 时发生错误"
 
-#: libraries/Table.class.php:1298
+#: libraries/Table.class.php:1306
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "已将数据表 %s 改名为 %s"
 
-#: libraries/Table.class.php:1442
+#: libraries/Table.class.php:1450
 msgid "Could not save table UI preferences"
 msgstr "无法保存表界面设置"
 
-#: libraries/Table.class.php:1466
+#: libraries/Table.class.php:1474
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -2569,7 +2581,7 @@ msgid ""
 msgstr ""
 "清除表用户界面设置失败（查看$cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
 
-#: libraries/Table.class.php:1598
+#: libraries/Table.class.php:1606
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -2996,7 +3008,7 @@ msgid "shared"
 msgstr "已共享"
 
 #: libraries/build_html_for_db.lib.php:26
-#: libraries/config/messages.inc.php:187 libraries/export/xml.php:51
+#: libraries/config/messages.inc.php:187 libraries/export/xml.php:61
 #: server_status.php:612
 msgid "Tables"
 msgstr "数据表"
@@ -3008,7 +3020,7 @@ msgstr "数据表"
 #: libraries/config/user_preferences.forms.php:239
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/export/latex.php:212 libraries/export/sql.php:1113
+#: libraries/export/latex.php:284 libraries/export/sql.php:1396
 #: server_privileges.php:711 server_replication.php:347 tbl_printview.php:300
 #: tbl_structure.php:852
 msgid "Data"
@@ -3259,7 +3271,7 @@ msgstr "点击切换"
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
 #: libraries/config/user_preferences.forms.php:257
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:371
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:458
 #: libraries/import.lib.php:1146 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:715 pmd_general.php:155
 #: server_privileges.php:711 server_replication.php:346 tbl_tracking.php:303
@@ -3268,7 +3280,7 @@ msgstr "结构"
 
 #: libraries/common.lib.php:3160 libraries/common.lib.php:3167
 #: libraries/config/messages.inc.php:218 libraries/db_links.inc.php:53
-#: libraries/export/sql.php:25 libraries/import/sql.php:18
+#: libraries/export/sql.php:27 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:65
 msgid "SQL"
@@ -3344,24 +3356,24 @@ msgstr "关闭"
 msgid "Disabled"
 msgstr "已禁用"
 
-#: libraries/config.values.php:129 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/mediawiki.php:39
-#: libraries/export/odt.php:34 libraries/export/sql.php:129
-#: libraries/export/texytext.php:24
+#: libraries/config.values.php:129 libraries/export/htmlword.php:37
+#: libraries/export/latex.php:58 libraries/export/mediawiki.php:40
+#: libraries/export/odt.php:42 libraries/export/sql.php:153
+#: libraries/export/texytext.php:36
 msgid "structure"
 msgstr "结构"
 
-#: libraries/config.values.php:130 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/mediawiki.php:40
-#: libraries/export/odt.php:34 libraries/export/sql.php:130
-#: libraries/export/texytext.php:24
+#: libraries/config.values.php:130 libraries/export/htmlword.php:38
+#: libraries/export/latex.php:59 libraries/export/mediawiki.php:41
+#: libraries/export/odt.php:43 libraries/export/sql.php:154
+#: libraries/export/texytext.php:37
 msgid "data"
 msgstr "数据"
 
-#: libraries/config.values.php:131 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/mediawiki.php:41
-#: libraries/export/odt.php:34 libraries/export/sql.php:131
-#: libraries/export/texytext.php:24
+#: libraries/config.values.php:131 libraries/export/htmlword.php:39
+#: libraries/export/latex.php:60 libraries/export/mediawiki.php:42
+#: libraries/export/odt.php:44 libraries/export/sql.php:155
+#: libraries/export/texytext.php:38
 msgid "structure and data"
 msgstr "结构和数据"
 
@@ -3772,10 +3784,10 @@ msgstr "压缩"
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:97
 #: libraries/config/messages.inc.php:110 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:145 libraries/config/messages.inc.php:148
-#: libraries/config/messages.inc.php:150 libraries/export/csv.php:30
-#: libraries/export/excel.php:25 libraries/export/htmlword.php:30
-#: libraries/export/latex.php:72 libraries/export/ods.php:25
-#: libraries/export/odt.php:58 libraries/export/texytext.php:28
+#: libraries/config/messages.inc.php:150 libraries/export/csv.php:66
+#: libraries/export/excel.php:45 libraries/export/htmlword.php:61
+#: libraries/export/latex.php:127 libraries/export/ods.php:39
+#: libraries/export/odt.php:93 libraries/export/texytext.php:58
 msgid "Put columns names in the first row"
 msgstr "首行保存字段名"
 
@@ -3795,7 +3807,7 @@ msgstr "内容转义符"
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:103
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:115
 #: libraries/config/messages.inc.php:146 libraries/config/messages.inc.php:149
-#: libraries/config/messages.inc.php:151 libraries/export/texytext.php:27
+#: libraries/config/messages.inc.php:151 libraries/export/texytext.php:53
 msgid "Replace NULL by"
 msgstr "将 NULL 替换为"
 
@@ -3832,19 +3844,19 @@ msgstr "数据表名模板"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:108
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:141
-#: libraries/config/messages.inc.php:147 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:40 libraries/export/mediawiki.php:33
-#: libraries/export/odt.php:32 libraries/export/sql.php:123
-#: libraries/export/texytext.php:23
+#: libraries/config/messages.inc.php:147 libraries/export/htmlword.php:31
+#: libraries/export/latex.php:52 libraries/export/mediawiki.php:33
+#: libraries/export/odt.php:35 libraries/export/sql.php:146
+#: libraries/export/texytext.php:29
 msgid "Dump table"
 msgstr "转储数据表"
 
-#: libraries/config/messages.inc.php:96 libraries/export/latex.php:32
+#: libraries/config/messages.inc.php:96 libraries/export/latex.php:42
 msgid "Include table caption"
 msgstr "包含表的标题"
 
 #: libraries/config/messages.inc.php:99 libraries/config/messages.inc.php:105
-#: libraries/export/latex.php:50 libraries/export/latex.php:74
+#: libraries/export/latex.php:78 libraries/export/latex.php:132
 msgid "Table caption"
 msgstr "表的标题"
 
@@ -3853,12 +3865,12 @@ msgid "Continued table caption"
 msgstr "延续的表的标题"
 
 #: libraries/config/messages.inc.php:101 libraries/config/messages.inc.php:107
-#: libraries/export/latex.php:54 libraries/export/latex.php:78
+#: libraries/export/latex.php:90 libraries/export/latex.php:144
 msgid "Label key"
 msgstr "关键标签"
 
 #: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
-#: libraries/config/messages.inc.php:138 libraries/export/odt.php:359
+#: libraries/config/messages.inc.php:138 libraries/export/odt.php:452
 #: libraries/tbl_properties.inc.php:137
 msgid "MIME type"
 msgstr "MIME 类型"
@@ -3894,7 +3906,7 @@ msgstr "给数据表名及字段名加上反引号"
 msgid "SQL compatibility mode"
 msgstr "SQL 兼容模式"
 
-#: libraries/config/messages.inc.php:126 libraries/export/sql.php:190
+#: libraries/config/messages.inc.php:126 libraries/export/sql.php:226
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CREATE TABLE</code> 选项："
 
@@ -3906,7 +3918,7 @@ msgstr "创建/更新/检查日期"
 msgid "Use delayed inserts"
 msgstr "使用延迟插入"
 
-#: libraries/config/messages.inc.php:129 libraries/export/sql.php:81
+#: libraries/config/messages.inc.php:129 libraries/export/sql.php:99
 msgid "Disable foreign key checks"
 msgstr "禁止选定不相关的主键"
 
@@ -3922,7 +3934,7 @@ msgstr "使用忽略插入"
 msgid "Syntax to use when inserting data"
 msgstr "在插入数据时使用的语法"
 
-#: libraries/config/messages.inc.php:137 libraries/export/sql.php:286
+#: libraries/config/messages.inc.php:137 libraries/export/sql.php:364
 msgid "Maximal length of created query"
 msgstr "创建查询的最大长度"
 
@@ -3930,7 +3942,7 @@ msgstr "创建查询的最大长度"
 msgid "Export type"
 msgstr "导出类型"
 
-#: libraries/config/messages.inc.php:143 libraries/export/sql.php:73
+#: libraries/config/messages.inc.php:143 libraries/export/sql.php:87
 msgid "Enclose export in a transaction"
 msgstr "处理事务中封装输出"
 
@@ -5575,7 +5587,7 @@ msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:356
-#: libraries/config/user_preferences.forms.php:255 libraries/export/odt.php:22
+#: libraries/config/user_preferences.forms.php:255 libraries/export/odt.php:24
 msgid "Open Document Text"
 msgstr "OpenOffice 文档"
 
@@ -5677,14 +5689,14 @@ msgstr "权限"
 msgid "Routines"
 msgstr "程序"
 
-#: libraries/db_links.inc.php:100 libraries/export/sql.php:649
+#: libraries/db_links.inc.php:100 libraries/export/sql.php:780
 #: libraries/rte/rte_words.lib.php:53
 msgid "Events"
 msgstr "事件"
 
-#: libraries/db_links.inc.php:104 libraries/export/htmlword.php:409
-#: libraries/export/odt.php:490 libraries/export/sql.php:1051
-#: libraries/export/texytext.php:396 libraries/export/xml.php:57
+#: libraries/db_links.inc.php:104 libraries/export/htmlword.php:532
+#: libraries/export/odt.php:630 libraries/export/sql.php:1322
+#: libraries/export/texytext.php:483 libraries/export/xml.php:67
 #: libraries/rte/rte_words.lib.php:41 libraries/tbl_links.inc.php:103
 msgid "Triggers"
 msgstr "触发器"
@@ -5744,8 +5756,8 @@ msgstr "无权限"
 msgid "Create table"
 msgstr "新建数据表"
 
-#: libraries/display_create_table.lib.php:51 libraries/export/htmlword.php:353
-#: libraries/export/odt.php:420 libraries/export/texytext.php:342
+#: libraries/display_create_table.lib.php:51 libraries/export/htmlword.php:450
+#: libraries/export/odt.php:532 libraries/export/texytext.php:409
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:861
 #: libraries/rte/rte_routines.lib.php:1379 libraries/tbl_properties.inc.php:85
@@ -5884,7 +5896,7 @@ msgid "View output as text"
 msgstr "直接显示为文本"
 
 #: libraries/display_export.lib.php:343 libraries/display_import.lib.php:296
-#: libraries/export/codegen.php:38
+#: libraries/export/codegen.php:56
 msgid "Format:"
 msgstr "格式："
 
@@ -6081,14 +6093,14 @@ msgstr "每 %s 行重复表头"
 msgid "Sort by key"
 msgstr "主键排序"
 
-#: libraries/display_tbl.lib.php:737 libraries/export/codegen.php:41
-#: libraries/export/csv.php:34 libraries/export/excel.php:37
-#: libraries/export/htmlword.php:33 libraries/export/json.php:29
-#: libraries/export/latex.php:35 libraries/export/mediawiki.php:20
-#: libraries/export/ods.php:29 libraries/export/odt.php:27
-#: libraries/export/pdf.php:29 libraries/export/php_array.php:29
-#: libraries/export/sql.php:88 libraries/export/texytext.php:31
-#: libraries/export/xml.php:27 libraries/export/yaml.php:30
+#: libraries/display_tbl.lib.php:737 libraries/export/codegen.php:42
+#: libraries/export/csv.php:23 libraries/export/excel.php:22
+#: libraries/export/htmlword.php:23 libraries/export/json.php:22
+#: libraries/export/latex.php:31 libraries/export/mediawiki.php:19
+#: libraries/export/ods.php:23 libraries/export/odt.php:29
+#: libraries/export/pdf.php:23 libraries/export/php_array.php:22
+#: libraries/export/sql.php:31 libraries/export/texytext.php:22
+#: libraries/export/xml.php:23 libraries/export/yaml.php:23
 #: libraries/import.lib.php:1123 libraries/import.lib.php:1146
 #: libraries/import/csv.php:25 libraries/import/docsql.php:36
 #: libraries/import/ldi.php:49 libraries/import/mediawiki.php:24
@@ -6507,72 +6519,72 @@ msgstr "相关链接"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "PrimeBase XT 博客 —— Paul McCullagh 著"
 
-#: libraries/export/csv.php:24 libraries/import/csv.php:46
+#: libraries/export/csv.php:34 libraries/import/csv.php:46
 msgid "Columns separated with:"
 msgstr "字段分隔符："
 
-#: libraries/export/csv.php:25 libraries/import/csv.php:53
+#: libraries/export/csv.php:39 libraries/import/csv.php:53
 msgid "Columns enclosed with:"
 msgstr "内容分隔符："
 
-#: libraries/export/csv.php:26 libraries/import/csv.php:60
+#: libraries/export/csv.php:44 libraries/import/csv.php:60
 msgid "Columns escaped with:"
 msgstr "内容转义符："
 
-#: libraries/export/csv.php:27 libraries/import/csv.php:67
+#: libraries/export/csv.php:49 libraries/import/csv.php:67
 msgid "Lines terminated with:"
 msgstr "换行符："
 
-#: libraries/export/csv.php:28 libraries/export/excel.php:23
-#: libraries/export/htmlword.php:29 libraries/export/latex.php:80
-#: libraries/export/ods.php:24 libraries/export/odt.php:60
+#: libraries/export/csv.php:54 libraries/export/excel.php:33
+#: libraries/export/htmlword.php:56 libraries/export/latex.php:150
+#: libraries/export/ods.php:34 libraries/export/odt.php:98
 msgid "Replace NULL with:"
 msgstr "将 NULL 替换为："
 
-#: libraries/export/csv.php:29 libraries/export/excel.php:24
+#: libraries/export/csv.php:60 libraries/export/excel.php:39
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "删除字段中的回车换行符"
 
-#: libraries/export/excel.php:33
+#: libraries/export/excel.php:54
 msgid "Excel edition:"
 msgstr "Excel 版本"
 
-#: libraries/export/htmlword.php:28 libraries/export/latex.php:70
-#: libraries/export/odt.php:56 libraries/export/sql.php:222
-#: libraries/export/texytext.php:26 libraries/export/xml.php:73
+#: libraries/export/htmlword.php:50 libraries/export/latex.php:121
+#: libraries/export/odt.php:87 libraries/export/sql.php:269
+#: libraries/export/texytext.php:47 libraries/export/xml.php:83
 msgid "Data dump options"
 msgstr "数据转储选项"
 
-#: libraries/export/htmlword.php:132 libraries/export/odt.php:173
-#: libraries/export/sql.php:1220 libraries/export/texytext.php:118
+#: libraries/export/htmlword.php:170 libraries/export/odt.php:224
+#: libraries/export/sql.php:1537 libraries/export/texytext.php:152
 msgid "Dumping data for table"
 msgstr "转存表中的数据"
 
-#: libraries/export/htmlword.php:355 libraries/export/odt.php:426
-#: libraries/export/texytext.php:344 libraries/rte/rte_list.lib.php:69
+#: libraries/export/htmlword.php:452 libraries/export/odt.php:538
+#: libraries/export/texytext.php:411 libraries/rte/rte_list.lib.php:69
 #: libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
 msgstr "事件"
 
-#: libraries/export/htmlword.php:356 libraries/export/odt.php:429
-#: libraries/export/texytext.php:345 libraries/rte/rte_events.lib.php:465
+#: libraries/export/htmlword.php:453 libraries/export/odt.php:541
+#: libraries/export/texytext.php:412 libraries/rte/rte_events.lib.php:465
 #: libraries/rte/rte_routines.lib.php:924
 #: libraries/rte/rte_triggers.lib.php:354
 msgid "Definition"
 msgstr "定义"
 
-#: libraries/export/htmlword.php:402 libraries/export/odt.php:483
-#: libraries/export/sql.php:1040 libraries/export/texytext.php:389
+#: libraries/export/htmlword.php:520 libraries/export/odt.php:616
+#: libraries/export/sql.php:1309 libraries/export/texytext.php:473
 msgid "Table structure for table"
 msgstr "表的结构"
 
-#: libraries/export/htmlword.php:414 libraries/export/odt.php:496
-#: libraries/export/sql.php:1063 libraries/export/texytext.php:401
+#: libraries/export/htmlword.php:539 libraries/export/odt.php:640
+#: libraries/export/sql.php:1337 libraries/export/texytext.php:488
 msgid "Structure for view"
 msgstr "视图结构"
 
-#: libraries/export/htmlword.php:418 libraries/export/odt.php:501
-#: libraries/export/sql.php:1072 libraries/export/texytext.php:405
+#: libraries/export/htmlword.php:548 libraries/export/odt.php:652
+#: libraries/export/sql.php:1354 libraries/export/texytext.php:495
 msgid "Stand-in structure for view"
 msgstr "替换视图以便查看"
 
@@ -6588,31 +6600,31 @@ msgstr "(延续的)"
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ 表的结构"
 
-#: libraries/export/latex.php:48 libraries/export/odt.php:40
-#: libraries/export/sql.php:142
+#: libraries/export/latex.php:72 libraries/export/odt.php:56
+#: libraries/export/sql.php:171
 msgid "Object creation options"
 msgstr "对象创建选项"
 
-#: libraries/export/latex.php:52 libraries/export/latex.php:76
+#: libraries/export/latex.php:84 libraries/export/latex.php:138
 msgid "Table caption (continued)"
 msgstr "表的副标题"
 
-#: libraries/export/latex.php:57 libraries/export/odt.php:43
-#: libraries/export/sql.php:56
+#: libraries/export/latex.php:97 libraries/export/odt.php:63
+#: libraries/export/sql.php:68
 msgid "Display foreign key relationships"
 msgstr "显示外键的关系"
 
-#: libraries/export/latex.php:60 libraries/export/odt.php:46
+#: libraries/export/latex.php:103 libraries/export/odt.php:69
 msgid "Display comments"
 msgstr "显示注释"
 
-#: libraries/export/latex.php:63 libraries/export/odt.php:49
-#: libraries/export/sql.php:63
+#: libraries/export/latex.php:109 libraries/export/odt.php:75
+#: libraries/export/sql.php:75
 msgid "Display MIME types"
 msgstr "显示 MIME 类型"
 
-#: libraries/export/latex.php:132 libraries/export/sql.php:486
-#: libraries/export/xml.php:131 libraries/header_printview.inc.php:58
+#: libraries/export/latex.php:204 libraries/export/sql.php:584
+#: libraries/export/xml.php:143 libraries/header_printview.inc.php:58
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:179
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:914
@@ -6622,18 +6634,18 @@ msgstr "显示 MIME 类型"
 msgid "Host"
 msgstr "主机"
 
-#: libraries/export/latex.php:137 libraries/export/sql.php:491
-#: libraries/export/xml.php:136 libraries/header_printview.inc.php:60
+#: libraries/export/latex.php:209 libraries/export/sql.php:591
+#: libraries/export/xml.php:148 libraries/header_printview.inc.php:60
 msgid "Generation Time"
 msgstr "生成日期"
 
-#: libraries/export/latex.php:138 libraries/export/sql.php:492
-#: libraries/export/xml.php:137
+#: libraries/export/latex.php:210 libraries/export/sql.php:593
+#: libraries/export/xml.php:149
 msgid "Server version"
 msgstr "服务器版本"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:493
-#: libraries/export/xml.php:138
+#: libraries/export/latex.php:211 libraries/export/sql.php:594
+#: libraries/export/xml.php:150
 msgid "PHP Version"
 msgstr "PHP 版本"
 
@@ -6641,13 +6653,13 @@ msgstr "PHP 版本"
 msgid "MediaWiki Table"
 msgstr "MediaWiki 表"
 
-#: libraries/export/mediawiki.php:51
+#: libraries/export/mediawiki.php:53
 #, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
 msgstr "导出内容"
 
-#: libraries/export/mediawiki.php:58
+#: libraries/export/mediawiki.php:60
 #, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
@@ -6657,11 +6669,11 @@ msgstr "水平 (旋转表头)"
 msgid "PDF"
 msgstr "PDF"
 
-#: libraries/export/pdf.php:24
+#: libraries/export/pdf.php:35
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(根据一张表的数据生成报告)"
 
-#: libraries/export/pdf.php:25
+#: libraries/export/pdf.php:41
 msgid "Report title:"
 msgstr "报告标题："
 
@@ -6669,69 +6681,69 @@ msgstr "报告标题："
 msgid "PHP array"
 msgstr "PHP 数组"
 
-#: libraries/export/sql.php:40
+#: libraries/export/sql.php:46
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr "显示注释 <i>(包括导出时间、PHP 版本和服务器版本等信息)</i>"
 
-#: libraries/export/sql.php:45
+#: libraries/export/sql.php:54
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "在文件头添加自定义注释 (\\n 为换行)："
 
-#: libraries/export/sql.php:50
+#: libraries/export/sql.php:60
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr "包含数据库创建、最后更新和最后检查的时间"
 
-#: libraries/export/sql.php:100
+#: libraries/export/sql.php:118
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr "最大程度兼容数据库系统或旧版本的 MySQL 服务器："
 
-#: libraries/export/sql.php:114 libraries/export/sql.php:173
-#: libraries/export/sql.php:180
+#: libraries/export/sql.php:136 libraries/export/sql.php:204
+#: libraries/export/sql.php:212
 #, php-format
 msgid "Add %s statement"
 msgstr "添加 %s 语句"
 
-#: libraries/export/sql.php:152
+#: libraries/export/sql.php:181
 msgid "Add statements:"
 msgstr "添加语句："
 
-#: libraries/export/sql.php:211
+#: libraries/export/sql.php:253
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "给表和字段名加上反引号 <i>(保护名称中含有特殊字符或保留字的字段和表)</i>"
 
-#: libraries/export/sql.php:226 libraries/export/sql.php:1185
+#: libraries/export/sql.php:275 libraries/export/sql.php:1490
 msgid "Truncate table before insert"
 msgstr ""
 
-#: libraries/export/sql.php:232
+#: libraries/export/sql.php:282
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "代替 <code>INSERT (插入)</code> 语句，使用："
 
-#: libraries/export/sql.php:239
+#: libraries/export/sql.php:290
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED (延迟插入)</code> 语句"
 
-#: libraries/export/sql.php:246
+#: libraries/export/sql.php:300
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE (忽略插入)</code> 语句"
 
-#: libraries/export/sql.php:256
+#: libraries/export/sql.php:315
 msgid "Function to use when dumping data:"
 msgstr "转储数据时所使用的函数："
 
-#: libraries/export/sql.php:269
+#: libraries/export/sql.php:328
 msgid "Syntax to use when inserting data:"
 msgstr "插入数据时所使用的语法："
 
-#: libraries/export/sql.php:275
+#: libraries/export/sql.php:336
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -6740,7 +6752,7 @@ msgstr ""
 "给每个 <code>INSERT (插入)</code> 语句加上字段名 <br /> &nbsp; &nbsp; &nbsp; "
 "如：<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:276
+#: libraries/export/sql.php:341
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -6749,7 +6761,7 @@ msgstr ""
 "在每个 <code>INSERT(插入)</code> 语句中插入多行<br /> &nbsp; &nbsp; &nbsp; "
 "如：<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:277
+#: libraries/export/sql.php:346
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -6757,7 +6769,7 @@ msgstr ""
 "以上兼有<br /> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name (col_A,"
 "col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:278
+#: libraries/export/sql.php:351
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6765,13 +6777,13 @@ msgstr ""
 "以上均不<br /> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name VALUES "
 "(1,2,3)</code>"
 
-#: libraries/export/sql.php:293
+#: libraries/export/sql.php:372
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr "转储二进制字段时用十六进制标记 <i>(例如，“abc”将用 0x616263 表示)</i>"
 
-#: libraries/export/sql.php:302
+#: libraries/export/sql.php:384
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -6779,31 +6791,31 @@ msgstr ""
 "转储 TIMESTAMP 字段时用 UTC 时区 <i>(允许在不同时区的服务器间转储和重新载入 "
 "TIMESTAMP 字段)</i>"
 
-#: libraries/export/sql.php:345 libraries/export/xml.php:45
+#: libraries/export/sql.php:432 libraries/export/xml.php:55
 msgid "Procedures"
 msgstr "存储过程"
 
-#: libraries/export/sql.php:362 libraries/export/xml.php:40
+#: libraries/export/sql.php:449 libraries/export/xml.php:50
 msgid "Functions"
 msgstr "函数"
 
-#: libraries/export/sql.php:870
+#: libraries/export/sql.php:1064
 msgid "Constraints for dumped tables"
 msgstr "限制导出的表"
 
-#: libraries/export/sql.php:879
+#: libraries/export/sql.php:1075
 msgid "Constraints for table"
 msgstr "限制表"
 
-#: libraries/export/sql.php:979
+#: libraries/export/sql.php:1217
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME 类型表"
 
-#: libraries/export/sql.php:991
+#: libraries/export/sql.php:1239
 msgid "RELATIONS FOR TABLE"
 msgstr "表的关联"
 
-#: libraries/export/sql.php:1132
+#: libraries/export/sql.php:1417
 msgid "Error reading data:"
 msgstr "读取数据时发生错误:"
 
@@ -6811,15 +6823,15 @@ msgstr "读取数据时发生错误:"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/export/xml.php:34
+#: libraries/export/xml.php:44
 msgid "Object creation options (all are recommended)"
 msgstr "对象创建选项 (推荐全选)"
 
-#: libraries/export/xml.php:62
+#: libraries/export/xml.php:72
 msgid "Views"
 msgstr "视图"
 
-#: libraries/export/xml.php:78
+#: libraries/export/xml.php:88
 msgid "Export contents"
 msgstr "导出内容"
 
