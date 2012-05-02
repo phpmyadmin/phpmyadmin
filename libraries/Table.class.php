@@ -299,7 +299,7 @@ class PMA_Table
         }
 
         // did we get engine?
-        if (empty($engine) {
+        if (empty($engine)) {
             return false;
         }
 
