@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-01 19:26+0200\n"
+"PO-Revision-Date: 2012-05-02 17:15+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2553,16 +2553,16 @@ msgid "unknown table status: "
 msgstr "bilinmeyen tablo durumu: "
 
 #: libraries/Table.class.php:750
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Kaynak veritabanı"
+msgstr "Kaynak veritabanı `%s` bulunamadı!"
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "%s teması bulunamadı!"
+msgstr "Hedef veritabanı `%s` bulunamadı!"
 
 #: libraries/Table.class.php:1174
 msgid "Invalid database"
