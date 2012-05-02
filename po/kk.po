@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-02 20:14+0200\n"
+"PO-Revision-Date: 2012-05-02 20:20+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1479,7 +1479,7 @@ msgstr ""
 
 #: js/messages.php:172
 msgid "Analysing logs"
-msgstr ""
+msgstr "Журналдарды талдау"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1509,11 +1509,11 @@ msgstr ""
 
 #: js/messages.php:179
 msgid "Jump to Log table"
-msgstr ""
+msgstr "Журнал кестесіне өту"
 
 #: js/messages.php:180
 msgid "No data found"
-msgstr ""
+msgstr "Мәліметтер жоқ"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1531,11 +1531,11 @@ msgstr ""
 #: libraries/export/odt.php:535 libraries/export/texytext.php:410
 #: libraries/rte/rte_list.lib.php:68 server_status.php:1263 sql.php:980
 msgid "Time"
-msgstr ""
+msgstr "Уақыт"
 
 #: js/messages.php:187
 msgid "Total time:"
-msgstr ""
+msgstr "Толық уақыт:"
 
 #: js/messages.php:188
 msgid "Profiling results"
