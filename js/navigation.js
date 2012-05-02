@@ -160,6 +160,9 @@ function PMA_setCookie(name, value, expires, path, domain, secure)
 function fast_filter(value)
 {
     var lowercase_value = value.toLowerCase();
+    var matches = 0;
+    var db = $('#lightm_db').val();
+    $('li.ajax_table').hide();
     $("#subel0 a[class!='tableicon']").each(function(idx, elem) {
         var $elem = $(elem);
         // .indexOf is case sensitive so convert to lowercase to compare
@@ -167,9 +170,27 @@ function fast_filter(value)
             $elem.parent().hide();
         } else {
             $elem.parents('li').show();
+            matches = matches + 1;
         }
     });
+   
+    if (matches === 0) {  //If no local matches search in all tables
+        if (fast_filter.ajax_semaphore) { //If is true another request is running
+            return;
+        }
+        fast_filter.ajax_semaphore = true;
+        $.get('db_tables_search.php?db=' + db +'&table=' + lowercase_value, function(data) {
+                var tables = data.tables;
+                var l = tables.length;        
+                for(var i = 0; i < l; i++) {          
+                    $('#subel0').append(tables[i].line);
+                }
+                fast_filter.ajax_semaphore = false;
+        });
+    }
 }
+
+fast_filter.ajax_semaphore = false; //If is true an Ajax request is running
 
 /**
  * Clears fast filter.
@@ -223,8 +244,11 @@ $(function(){
         $('#fast_filter').focus();
     });
 
-    $('#fast_filter').keyup(function(evt) {
+    $('#fast_filter').keyup(function(evt) {        
         fast_filter($(this).val());
+        if ($(this).val() == '') { //Hides added tables by search
+          $('li.ajax_table').hide();
+        }
     });
 
     /* Jump to recent table */
