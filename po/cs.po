@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-02 10:18+0200\n"
+"PO-Revision-Date: 2012-05-02 14:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2631,30 +2631,40 @@ msgstr "Vzhled"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Jednobajtové číslo, se znaménkem v rozsahu -128 až 127, bez znaménka 0 až "
+"255"
 
 #: libraries/Types.class.php:285
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Dvoubajtové číslo, se znaménkem v rozsahu -32768 až 32767, bez znaménka 0 až "
+"65535"
 
 #: libraries/Types.class.php:287
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Tříbajtové číslo, se znaménkem v rozsahu -8388608 až 8388607, bez znaménka 0 "
+"až 16777215"
 
 #: libraries/Types.class.php:289
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
+"Čtyřbajtové číslo, se znaménkem v rozsahu -2147483648 až 2147483647, bez "
+"znaménka 0 až 4294967295."
 
 #: libraries/Types.class.php:291
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Osmibajtové číslo, se znaménkem v rozsahu -9223372036854775808 až "
+"9223372036854775807, bez znaménka 0 až 18446744073709551615"
 
 #: libraries/Types.class.php:293 libraries/Types.class.php:706
 msgid ""
