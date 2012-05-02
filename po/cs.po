@@ -11467,7 +11467,7 @@ msgstr "Tabulka %1$s byla úspěšně změněna"
 #: tbl_alter.php:131
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Vybraná pole byla úspěšně odstraněna."
+msgstr "Vybraná pole byla úspěšně přesunuta."
 
 #: tbl_change.php:751
 msgid "Because of its length,<br /> this column might not be editable"
