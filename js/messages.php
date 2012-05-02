@@ -285,6 +285,7 @@ $js_messages['strEdit'] = __('Edit');
 $js_messages['strNoRowSelected'] = __('No rows selected');
 $js_messages['strChangeTbl'] = __('Change');
 $js_messages['strQueryExecutionTime'] = __('Query execution time');
+$js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 
 /* For server_variables.js */
 $js_messages['strSave'] = __('Save');
