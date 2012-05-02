@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-01 20:40+0200\n"
-"PO-Revision-Date: 2012-05-02 10:16+0200\n"
+"PO-Revision-Date: 2012-05-02 10:54+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -834,7 +834,7 @@ msgstr "%s файлын веб-серверге сақтау үшін құқық
 #: export.php:675
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "%s файлына дамп сақталынды"
 
 #: file_echo.php:21
 msgid "Invalid export type"
@@ -847,16 +847,16 @@ msgstr "\"%s\" баған мәні"
 
 #: gis_data_editor.php:114 tbl_gis_visualization.php:165
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "OpenStreetMaps негізгі қабат ретінде қолданыңыз"
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:329
 #: libraries/display_tbl.lib.php:825
 msgid "Geometry"
-msgstr ""
+msgstr "Геометрия"
 
 #: gis_data_editor.php:171 js/messages.php:325
 msgid "Point"
@@ -889,15 +889,15 @@ msgstr "Сызық"
 
 #: gis_data_editor.php:222 gis_data_editor.php:278 js/messages.php:331
 msgid "Outer Ring"
-msgstr ""
+msgstr "Сыртқы пішін"
 
 #: gis_data_editor.php:224 gis_data_editor.php:280 js/messages.php:330
 msgid "Inner Ring"
-msgstr ""
+msgstr "Ішкі пішін"
 
 #: gis_data_editor.php:251
 msgid "Add a linestring"
-msgstr ""
+msgstr "Сызықты қосу"
 
 #: gis_data_editor.php:251 gis_data_editor.php:303 js/messages.php:333
 msgid "Add an inner ring"
@@ -905,19 +905,19 @@ msgstr ""
 
 #: gis_data_editor.php:265 js/messages.php:328
 msgid "Polygon"
-msgstr ""
+msgstr "Көпбұрыш"
 
 #: gis_data_editor.php:305 js/messages.php:334
 msgid "Add a polygon"
-msgstr ""
+msgstr "Көпбұрышты қосу"
 
 #: gis_data_editor.php:309
 msgid "Add geometry"
-msgstr ""
+msgstr "Геометрияны қосу"
 
 #: gis_data_editor.php:316
 msgid "Output"
-msgstr ""
+msgstr "Қорытынды"
 
 #: gis_data_editor.php:317
 msgid ""
