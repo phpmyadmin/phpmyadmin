@@ -3,7 +3,7 @@
 /**
  * Selenium TestCase for privilege related tests
  *
- * @package PhpMyAdmin-test
+ * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
 require_once 'PmaSeleniumTestCase.php';

@@ -3,7 +3,7 @@
 /**
  * Set of functions used to run config authentication (ie no authentication).
  *
- * @package PhpMyAdmin-Auth
+ * @package    PhpMyAdmin-Auth
  * @subpackage Config
  */
 

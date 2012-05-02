@@ -3,7 +3,7 @@
 /**
  * CSV import plugin for phpMyAdmin using LOAD DATA
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
  * @subpackage LDI
  */
 if (! defined('PHPMYADMIN')) {

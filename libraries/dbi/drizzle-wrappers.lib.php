@@ -7,7 +7,7 @@
  * This wrapper is not complete and hides a lot of original functionality, but allows for easy usage
  * of the drizzle PHP extension.
  *
- * @package PhpMyAdmin-DBI
+ * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
 if (! defined('PHPMYADMIN')) {
@@ -78,7 +78,7 @@ function _dlog($end = false)
 /**
  * Wrapper for Drizzle class
  *
- * @package PhpMyAdmin-DBI
+ * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
 class PMA_Drizzle extends Drizzle
@@ -157,7 +157,7 @@ class PMA_Drizzle extends Drizzle
  * Wrapper around DrizzleCon class
  *
  * Its main task is to wrap results with PMA_DrizzleResult class
- * @package PhpMyAdmin-DBI
+ * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
 class PMA_DrizzleCon
@@ -245,7 +245,7 @@ class PMA_DrizzleCon
  *
  * Allows for reading result rows as an associative array and hides complexity
  * behind buffering.
- * @package PhpMyAdmin-DBI
+ * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
 class PMA_DrizzleResult

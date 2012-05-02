@@ -3,7 +3,7 @@
 /**
  * Selenium parent class for TestCases
  *
- * @package PhpMyAdmin-test
+ * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
 

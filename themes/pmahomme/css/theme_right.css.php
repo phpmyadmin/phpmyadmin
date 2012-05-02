@@ -3,7 +3,7 @@
 /**
  * main css file from theme pmahomme
  *
- * @package PhpMyAdmin-theme
+ * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
 
