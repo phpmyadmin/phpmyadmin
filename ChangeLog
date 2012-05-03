@@ -8,7 +8,7 @@ phpMyAdmin - ChangeLog
 - bug [GUI] Invalid HTML code on transformation_overview.php
 - bug #3522930 [browse] Missing validation in Ajax mode
 
-3.5.1.0 (not yet released)
+3.5.1.0 (2012-05-03)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
 - bug #3511471 [interface] View name not seen in navi panel (MySQL 5.1)
 - bug #3512916 [display] Right frame reloads after displaying SQL result(zero rows)
