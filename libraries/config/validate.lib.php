@@ -190,8 +190,15 @@ function test_php_errormsg($start = true)
  *
  * @return bool|array
  */
-function test_db_connection($extension, $connect_type, $host, $port, $socket,
-    $user, $pass = null, $error_key = 'Server'
+function test_db_connection(
+    $extension,
+    $connect_type,
+    $host,
+    $port,
+    $socket,
+    $user,
+    $pass = null,
+    $error_key = 'Server'
 ) {
     //    test_php_errormsg();
     $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
@@ -450,7 +457,12 @@ function validate_trusted_proxies($path, $values)
  *
  * @return string  empty string if test is successful
  */
-function test_number($path, $values, $allow_neg, $allow_zero, $max_value,
+function test_number(
+    $path,
+    $values,
+    $allow_neg,
+    $allow_zero,
+    $max_value,
     $error_string
 ) {
     if ($values[$path] === '') {
