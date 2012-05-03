@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 11:34+0200\n"
-"PO-Revision-Date: 2012-05-02 15:29+0200\n"
+"PO-Revision-Date: 2012-05-03 13:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2374,22 +2374,26 @@ msgstr "No se pudo dar formato a una cadena para la regla '%s'."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Declaración de regla inválida en la línea %1$s, se esperaba la línea %2$s de "
+"la regla anterior"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "El formato de los datos CSV en la línea %d no es válido."
+msgstr "Declaración de regla inválida en la línea %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Caracter inesperado en la línea %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
+"Caracter inesperado en la línea %1$s. Se esperaba una tabulación pero se "
+"encontró «%2$s»"
 
 #: libraries/Advisor.class.php:425 server_status.php:963
 msgid "per second"
