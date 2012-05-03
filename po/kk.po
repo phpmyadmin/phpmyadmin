@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 11:34+0200\n"
-"PO-Revision-Date: 2012-05-03 12:50+0200\n"
+"PO-Revision-Date: 2012-05-03 13:24+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1999,7 +1999,7 @@ msgstr ""
 
 #: js/messages.php:368 libraries/replication_gui.lib.php:369
 msgid "Generate"
-msgstr ""
+msgstr "Шығару"
 
 #: js/messages.php:369
 msgid "Change Password"
@@ -2007,7 +2007,7 @@ msgstr ""
 
 #: js/messages.php:372 tbl_structure.php:472
 msgid "More"
-msgstr ""
+msgstr "Тағы"
 
 #: js/messages.php:375 setup/lib/index.lib.php:176
 #, php-format
@@ -2019,7 +2019,7 @@ msgstr ""
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:377
 msgid ", latest stable version:"
-msgstr ""
+msgstr "Соңғы тұрақты болжам:"
 
 #: js/messages.php:378
 msgid "up to date"
@@ -2028,70 +2028,70 @@ msgstr ""
 #. l10n: Display text for calendar close link
 #: js/messages.php:397
 msgid "Done"
-msgstr ""
+msgstr "Дайын"
 
 #: js/messages.php:401
 msgctxt "Previous month"
 msgid "Prev"
-msgstr ""
+msgstr "Алдыңғы"
 
 #: js/messages.php:406
 msgctxt "Next month"
 msgid "Next"
-msgstr ""
+msgstr "Келесі"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:409
 msgid "Today"
-msgstr ""
+msgstr "Бүгін"
 
 #: js/messages.php:413
 msgid "January"
-msgstr ""
+msgstr "Қаңтар"
 
 #: js/messages.php:414
 msgid "February"
-msgstr ""
+msgstr "Ақпан"
 
 #: js/messages.php:415
 msgid "March"
-msgstr ""
+msgstr "Наурыз"
 
 #: js/messages.php:416
 msgid "April"
-msgstr ""
+msgstr "Сәуір"
 
 #: js/messages.php:417
 msgid "May"
-msgstr ""
+msgstr "Мамыр"
 
 #: js/messages.php:418
 msgid "June"
-msgstr ""
+msgstr "Маусым"
 
 #: js/messages.php:419
 msgid "July"
-msgstr ""
+msgstr "Шілде"
 
 #: js/messages.php:420
 msgid "August"
-msgstr ""
+msgstr "Тамыз"
 
 #: js/messages.php:421
 msgid "September"
-msgstr ""
+msgstr "Қыркүйек"
 
 #: js/messages.php:422
 msgid "October"
-msgstr ""
+msgstr "Қазан"
 
 #: js/messages.php:423
 msgid "November"
-msgstr ""
+msgstr "Қараша"
 
 #: js/messages.php:424
 msgid "December"
-msgstr ""
+msgstr "Желтоқсан"
 
 #. l10n: Short month name
 #: js/messages.php:431 libraries/common.lib.php:1641
