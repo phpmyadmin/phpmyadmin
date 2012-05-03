@@ -243,7 +243,7 @@ class Advisor
     /**
      * Callback for evaluating fired() condition.
      *
-     * @param $matches array List of matched elements form preg_replace_callback
+     * @param array $matches List of matched elements form preg_replace_callback
      *
      * @return Replacement value
      */
@@ -267,7 +267,7 @@ class Advisor
     /**
      * Callback for evaluating variables in expression.
      *
-     * @param $matches array List of matched elements form preg_replace_callback
+     * @param array $matches List of matched elements form preg_replace_callback
      *
      * @return Replacement value
      */
