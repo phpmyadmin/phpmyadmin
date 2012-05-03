@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 11:34+0200\n"
-"PO-Revision-Date: 2012-05-03 11:27+0200\n"
+"PO-Revision-Date: 2012-05-03 12:50+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1859,7 +1859,7 @@ msgstr ""
 
 #: js/messages.php:304
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr ""
+msgstr "Аумақты үлкейту мен кішірейтуге үшін тышқан доңғалағын қолданыңыз."
 
 #: js/messages.php:306
 msgid "Click and drag the mouse to navigate the plot."
@@ -1891,7 +1891,7 @@ msgstr ""
 
 #: js/messages.php:318
 msgid "Query results"
-msgstr ""
+msgstr "Сұраныс нәтижелері"
 
 #: js/messages.php:319
 msgid "Data point content"
@@ -1900,15 +1900,15 @@ msgstr ""
 #: js/messages.php:322 tbl_change.php:329 tbl_indexes.php:240
 #: tbl_indexes.php:275
 msgid "Ignore"
-msgstr ""
+msgstr "Елемеу"
 
 #: js/messages.php:323 libraries/display_tbl.lib.php:1623
 msgid "Copy"
-msgstr ""
+msgstr "Көшіру"
 
 #: js/messages.php:338
 msgid "Add columns"
-msgstr ""
+msgstr "Бағаналар қосу"
 
 #: js/messages.php:341
 msgid "Select referenced key"
@@ -1916,7 +1916,7 @@ msgstr ""
 
 #: js/messages.php:342
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Сыртқы кілтті таңдаңыз"
 
 #: js/messages.php:343
 msgid "Please select the primary key or a unique key"
@@ -1952,15 +1952,15 @@ msgstr ""
 
 #: js/messages.php:354
 msgid "Click to sort"
-msgstr ""
+msgstr "Сұрыптау үшін шертіңіз"
 
 #: js/messages.php:355
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Белгіні алу/орнату үшін шертіңіз"
 
 #: js/messages.php:356
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Атын көшіру үшін өріске тышқанмен екі рет шерту жасаңыз"
 
 #: js/messages.php:357
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1979,11 +1979,11 @@ msgstr ""
 
 #: js/messages.php:361
 msgid "Go to link"
-msgstr ""
+msgstr "Сілтемеге өту"
 
 #: js/messages.php:362
 msgid "Copy column name"
-msgstr ""
+msgstr "Баған атын көшіру"
 
 #: js/messages.php:363
 msgid "Right-click the column name to copy it to your clipboard."
@@ -1991,7 +1991,7 @@ msgstr ""
 
 #: js/messages.php:364
 msgid "Show data row(s)"
-msgstr ""
+msgstr "Мәліметтер қатарын(ларын) көрсету"
 
 #: js/messages.php:367
 msgid "Generate password"
