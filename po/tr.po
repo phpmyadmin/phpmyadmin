@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-02 17:15+0200\n"
+"PO-Revision-Date: 2012-05-03 18:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -2353,22 +2353,23 @@ msgstr "'%s' kuralı için dizgi biçimlendirme başarısız."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"%1$s. satırda geçersiz kural bildirimi, önceki kuralın beklenen satırı %2$s"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "%d. satırında CSV girdisinin geçersiz biçimi."
+msgstr "%s. satırda geçersiz kural bildirimi"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "%s. satırda beklenmedik karakterler"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "%1$s. satırda beklenmedik karakter. Beklenen sekme, ama bulunan \"%2$s\""
 
 #: libraries/Advisor.class.php:425 server_status.php:963
 msgid "per second"
@@ -7234,7 +7235,7 @@ msgstr ""
 #: libraries/import/csv.php:256 libraries/import/csv.php:525
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr "%d. satırında CSV girdisinin geçersiz biçimi."
+msgstr "%d. satırda CSV girdisinin geçersiz biçimi."
 
 #: libraries/import/csv.php:410
 #, php-format
@@ -12374,10 +12375,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Sorular"
+msgstr "1,000'nin altındaki sorular"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
