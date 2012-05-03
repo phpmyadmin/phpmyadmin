@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-03 08:50+0200\n"
+"PO-Revision-Date: 2012-05-03 11:25+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1692,7 +1692,7 @@ msgstr ""
 
 #: js/messages.php:239
 msgid "Dropping Column"
-msgstr ""
+msgstr "Бағананың жойылуы"
 
 #: js/messages.php:240
 msgid "Adding Primary Key"
@@ -1702,7 +1702,7 @@ msgstr ""
 #: pmd_general.php:609 pmd_general.php:685 pmd_general.php:739
 #: pmd_general.php:802
 msgid "OK"
-msgstr ""
+msgstr "Жарайды"
 
 #: js/messages.php:242
 msgid "Click to dismiss this notification"
@@ -1714,11 +1714,11 @@ msgstr ""
 
 #: js/messages.php:246
 msgid "Reload Database"
-msgstr ""
+msgstr "Дерекқорының қайта қосылуы"
 
 #: js/messages.php:247
 msgid "Copying Database"
-msgstr ""
+msgstr "Дерекқорының көшірілуі"
 
 #: js/messages.php:248
 msgid "Changing Charset"
@@ -1730,47 +1730,47 @@ msgstr ""
 
 #: js/messages.php:254
 msgid "Insert Table"
-msgstr ""
+msgstr "Кестені қою"
 
 #: js/messages.php:255
 msgid "Hide indexes"
-msgstr ""
+msgstr "Индекстерді жасыру"
 
 #: js/messages.php:256
 msgid "Show indexes"
-msgstr ""
+msgstr "Индекстерді көрсету"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:319
 msgid "Foreign key check:"
-msgstr ""
+msgstr "Сыртқы кілттерді тексерілісі:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:323
 msgid "(Enabled)"
-msgstr ""
+msgstr "(Қосулы)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:323
 msgid "(Disabled)"
-msgstr ""
+msgstr "(Өшірулі)"
 
 #: js/messages.php:262
 msgid "Searching"
-msgstr ""
+msgstr "Іздеу"
 
 #: js/messages.php:263
 msgid "Hide search results"
-msgstr ""
+msgstr "Іздеу нәтижелерін жасыру"
 
 #: js/messages.php:264
 msgid "Show search results"
-msgstr ""
+msgstr "Іздеу нәтижелерін көрсету"
 
 #: js/messages.php:265
 msgid "Browsing"
-msgstr ""
+msgstr "Көру"
 
 #: js/messages.php:266
 msgid "Deleting"
-msgstr ""
+msgstr "Жою"
 
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -1783,20 +1783,20 @@ msgstr ""
 #: js/messages.php:273
 #, php-format
 msgid "Values for column %s"
-msgstr ""
+msgstr "%s баған мәні"
 
 #: js/messages.php:274
 msgid "Values for a new column"
-msgstr ""
+msgstr "Жаңа баған мәні"
 
 #: js/messages.php:275
 msgid "Enter each value in a separate field"
-msgstr ""
+msgstr "Әрбір мәнді жеке өріске енгізіңіз"
 
 #: js/messages.php:276
 #, php-format
 msgid "Add %d value(s)"
-msgstr ""
+msgstr "%d мән(ін)(дерін) қосу"
 
 #: js/messages.php:279
 msgid ""
@@ -1805,24 +1805,24 @@ msgstr ""
 
 #: js/messages.php:282
 msgid "Hide query box"
-msgstr ""
+msgstr "Сұраныс өрісін жасыру"
 
 #: js/messages.php:283
 msgid "Show query box"
-msgstr ""
+msgstr "Сұраныс өрісін көрсету"
 
 #: js/messages.php:285 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr ""
+msgstr "Бірде-бір қатар таңдалынбады"
 
 #: js/messages.php:286 libraries/display_tbl.lib.php:3007 querywindow.php:88
 #: tbl_structure.php:150 tbl_structure.php:584
 msgid "Change"
-msgstr ""
+msgstr "Өзгерту"
 
 #: js/messages.php:287
 msgid "Query execution time"
-msgstr ""
+msgstr "Сұраныстың орындалу уақыты"
 
 #: js/messages.php:290 libraries/config/FormDisplay.tpl.php:372
 #: libraries/schema/User_Schema.class.php:355
@@ -1830,15 +1830,15 @@ msgstr ""
 #: setup/frames/index.inc.php:243 tbl_change.php:1067
 #: tbl_gis_visualization.php:186 tbl_indexes.php:301 tbl_relation.php:579
 msgid "Save"
-msgstr ""
+msgstr "Сақтау"
 
 #: js/messages.php:293
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Іздеу параметрлерiн жасыру"
 
 #: js/messages.php:294
 msgid "Show search criteria"
-msgstr ""
+msgstr "Іздеу параметрлерiн көрсету"
 
 #: js/messages.php:297 libraries/tbl_select.lib.php:113
 msgid "Zoom Search"
