@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-03 13:28+0200\n"
+"PO-Revision-Date: 2012-05-03 13:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -2334,12 +2334,12 @@ msgstr "Selhal výpočet hodnoty pro pravidlo '%s'"
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr "Selhalo spuštění podmínky pro pravidlo '%s'"
+msgstr "Selhalo spuštění podmínky pro pravidlo „%s“"
 
 #: libraries/Advisor.class.php:207
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "Selhalo formátování textu pro pravidlo '%s'."
+msgstr "Selhalo formátování textu pro pravidlo „%s“."
 
 #: libraries/Advisor.class.php:361
 #, php-format
@@ -2363,7 +2363,7 @@ msgstr "Neočekávané znaky na řádku %s"
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "Neočekávaný znak na řádku %1$s. Očekáván tabelátor, ale nalezeno „%2$s“"
 
 #: libraries/Advisor.class.php:425 server_status.php:963
 msgid "per second"
