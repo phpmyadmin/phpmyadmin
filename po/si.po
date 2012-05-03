@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-01 13:34+0200\n"
+"PO-Revision-Date: 2012-05-02 20:24+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -7813,7 +7813,7 @@ msgstr "වෙනස"
 
 #: libraries/server_synchronize.lib.php:1309 server_synchronize.php:1188
 msgid "Target database"
-msgstr "ඉලක්කගත දත්ත ගබඩාව"
+msgstr "ඉලක්කගත දත්තගබඩාව"
 
 #: libraries/server_synchronize.lib.php:1344
 #: libraries/server_synchronize.lib.php:1353
