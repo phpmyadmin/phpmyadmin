@@ -384,7 +384,7 @@ class Advisor
                 // Non tabbed lines are not
                 if ($line[0] != "\t") {
                     $errors[] = sprintf(
-                        __('Unexpected character on line %1$s. Expected tab, but found "%2$s"',
+                        __('Unexpected character on line %1$s. Expected tab, but found "%2$s"'),
                         $i + 1,
                         $line[0]
                     );
