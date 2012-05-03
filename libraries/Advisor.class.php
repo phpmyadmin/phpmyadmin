@@ -216,6 +216,7 @@ class Advisor
             } else {
                 $rule['justification'] = $this->translate($rule['justification']);
             }
+            $rule['id'] = $rule['name'];
             $rule['name'] = $this->translate($rule['name']);
             $rule['issue'] = $this->translate($rule['issue']);
 
@@ -248,7 +249,19 @@ class Advisor
      */
     private function ruleExprEvaluate_fired($matches)
     {
-        return '1'; //isset($this->runResult[\'fired\']
+        // No list of fired rules
+        if (!isset($this->runResult['fired'])) {
+            return '0';
+        }
+
+        // Did matching rule fire?
+        foreach ($this->runResult['fired'] as $rule) {
+            if ($rule['id'] == $matches[2]) {
+                return '1';
+            }
+        }
+
+        return '0';
     }
 
     /**
