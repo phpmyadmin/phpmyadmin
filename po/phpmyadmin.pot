@@ -8,11 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-03 11:34+0200\n"
+"POT-Creation-Date: 2012-05-03 07:28-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,7 +48,7 @@ msgstr ""
 #: browse_foreigners.php:175 db_operations.php:409 db_operations.php:449
 #: db_operations.php:562 db_operations.php:591 db_search.php:352
 #: gis_data_editor.php:314 js/messages.php:231
-#: libraries/auth/cookie.auth.lib.php:264 libraries/core.lib.php:534
+#: libraries/auth/cookie.auth.lib.php:256 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:364 libraries/display_import.lib.php:319
@@ -483,7 +482,7 @@ msgstr ""
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
-#: libraries/auth/cookie.auth.lib.php:609 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:601 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr ""
@@ -605,8 +604,8 @@ msgstr ""
 #: db_structure.php:525 libraries/display_tbl.lib.php:2829
 #, possible-php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:543 db_structure.php:577 libraries/header.inc.php:169
@@ -916,8 +915,8 @@ msgstr ""
 #: import.php:86
 #, possible-php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:216 import.php:443
@@ -2627,14 +2626,14 @@ msgstr ""
 
 #: libraries/Types.class.php:295
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:297
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -2676,7 +2675,7 @@ msgid ""
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 
-#: libraries/Types.class.php:313
+#: libraries/Types.class.php:313 libraries/Types.class.php:722
 #, possible-php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr ""
@@ -2835,11 +2834,6 @@ msgid ""
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
 
-#: libraries/Types.class.php:722
-#, possible-php-format
-msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr ""
-
 #: libraries/Types.class.php:728
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
@@ -2861,7 +2855,7 @@ msgid "Cannot connect: invalid settings."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:88
-#: libraries/auth/cookie.auth.lib.php:191 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:183 libraries/auth/http.auth.lib.php:65
 #, possible-php-format
 msgid "Welcome to %s"
 msgstr ""
@@ -2869,8 +2863,8 @@ msgstr ""
 #: libraries/auth/config.auth.lib.php:103
 #, possible-php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:112
@@ -2885,53 +2879,53 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:204 libraries/header.inc.php:90
+#: libraries/auth/cookie.auth.lib.php:196 libraries/header.inc.php:90
 msgid "Javascript must be enabled past this point"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:215
 msgid "Log in"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:230
-#: libraries/auth/cookie.auth.lib.php:231
+#: libraries/auth/cookie.auth.lib.php:222
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:222
 msgid "Server:"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:227
 msgid "Username:"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "Password:"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:246
+#: libraries/auth/cookie.auth.lib.php:238
 msgid "Server Choice"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:292 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:284 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:607
+#: libraries/auth/cookie.auth.lib.php:599
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:611
+#: libraries/auth/cookie.auth.lib.php:603
 #: libraries/auth/signon.auth.lib.php:240
 #, possible-php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:621
-#: libraries/auth/cookie.auth.lib.php:623
+#: libraries/auth/cookie.auth.lib.php:613
+#: libraries/auth/cookie.auth.lib.php:615
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr ""
@@ -5734,8 +5728,8 @@ msgstr ""
 #, possible-php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:285
@@ -6347,8 +6341,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, possible-php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:130
@@ -9103,8 +9097,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:2029

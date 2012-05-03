@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-03 11:34+0200\n"
+"POT-Creation-Date: 2012-05-03 07:28-0400\n"
 "PO-Revision-Date: 2012-05-03 13:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -48,7 +48,7 @@ msgstr "Buscar"
 #: browse_foreigners.php:175 db_operations.php:409 db_operations.php:449
 #: db_operations.php:562 db_operations.php:591 db_search.php:352
 #: gis_data_editor.php:314 js/messages.php:231
-#: libraries/auth/cookie.auth.lib.php:264 libraries/core.lib.php:534
+#: libraries/auth/cookie.auth.lib.php:256 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:364 libraries/display_import.lib.php:319
@@ -488,7 +488,7 @@ msgstr "Ejecutar la consulta"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
-#: libraries/auth/cookie.auth.lib.php:609 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:601 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "Acceso denegado"
@@ -612,11 +612,11 @@ msgstr "El seguimiento no está activo."
 #: db_structure.php:525 libraries/display_tbl.lib.php:2829
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Por favor refiérase a la "
-"%sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Por favor refiérase a la %"
+"sdocumentation%s."
 
 #: db_structure.php:543 db_structure.php:577 libraries/header.inc.php:169
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:213
@@ -926,14 +926,14 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena "
-"ubicada debajo en el campo \"Valor\""
+"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena ubicada "
+"debajo en el campo \"Valor\""
 
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Usted probablemente intentó cargar un archivo demasiado grande. Por favor, "
 "refiérase a %sla documentation%s para hallar modos de superar esta "
@@ -2747,16 +2747,16 @@ msgstr ""
 
 #: libraries/Types.class.php:295
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Un número de coma flotante pequeño; los valores posibles son de -3.402823466E"
 "+38 a -1.175494351E-38, 0 y de 1.175494351E-38 a 3.402823466E+38"
 
 #: libraries/Types.class.php:297
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Un número de coma flotante de precisión doble; los valores permitidos son de "
@@ -2800,8 +2800,8 @@ msgstr "Una fecha, el rango válido es de «%1$s» a «%2$s»"
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
-"Una combinación de fecha y marca temporal, el rango válido es de «%1$s» a "
-"«%2$s»"
+"Una combinación de fecha y marca temporal, el rango válido es de «%1$s» a «%2"
+"$s»"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -2812,7 +2812,7 @@ msgstr ""
 "03:14:07» UTC almacenados como la cantidad de segundos desde el «epoch» («01-"
 "Ene-1970 00:00:00» UTC)"
 
-#: libraries/Types.class.php:313
+#: libraries/Types.class.php:313 libraries/Types.class.php:722
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Una marca temporal, el rango es de «%1$s» a «%2$s»"
@@ -2901,8 +2901,8 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"Una columna de bloque de texto («BLOB») con una longitud máxima de 255 (2^8 "
-"- 1) bytes. Cada valor TINYBLOB es almacenado con un prefijo de 1 byte que "
+"Una columna de bloque de texto («BLOB») con una longitud máxima de 255 (2^8 - "
+"1) bytes. Cada valor TINYBLOB es almacenado con un prefijo de 1 byte que "
 "indica la cantidad de bytes en el valor"
 
 #: libraries/Types.class.php:335
@@ -2928,9 +2928,9 @@ msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Una columna de bloque de texto («BLOB») con una longitud máxima de "
-"4294967295 (2^32 - 1) bytes (4GB), almacenado con un prefijo de 4 bytes que "
-"indica la longitud del valor"
+"Una columna de bloque de texto («BLOB») con una longitud máxima de 4294967295 "
+"(2^32 - 1) bytes (4GB), almacenado con un prefijo de 4 bytes que indica la "
+"longitud del valor"
 
 #: libraries/Types.class.php:341
 msgid ""
@@ -3013,11 +3013,6 @@ msgstr ""
 "Una marca temporal, el rango es de «01-Ene-0001 00:00:00» UTC a «31-Dic-9999 "
 "23:59:59» UTC; TIMESTAMP(6) puede almacena microsegundos"
 
-#: libraries/Types.class.php:722
-#, php-format
-msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr "Una marca temporal, el rango es de «%1$s» a «%2$s»"
-
 #: libraries/Types.class.php:728
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
@@ -3044,7 +3039,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "No se estableció la conexión: los parámetros están incorrectos."
 
 #: libraries/auth/config.auth.lib.php:88
-#: libraries/auth/cookie.auth.lib.php:191 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:183 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Bienvenido a %s"
@@ -3052,8 +3047,8 @@ msgstr "Bienvenido a %s"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no haya creado un archivo de "
 "configuración. Utilice el %1$sscript de configuración%2$s para crear uno."
@@ -3074,42 +3069,42 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "¡No se pudo utilizar Blowfish de la biblioteca mcrypt!"
 
-#: libraries/auth/cookie.auth.lib.php:204 libraries/header.inc.php:90
+#: libraries/auth/cookie.auth.lib.php:196 libraries/header.inc.php:90
 msgid "Javascript must be enabled past this point"
 msgstr "Pasado este punto, debe tener Javascript activado"
 
-#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:215
 msgid "Log in"
 msgstr "Iniciar sesión"
 
-#: libraries/auth/cookie.auth.lib.php:230
-#: libraries/auth/cookie.auth.lib.php:231
+#: libraries/auth/cookie.auth.lib.php:222
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Puede escribir el nombre del proveedor de servicios/dirección IP y el "
 "puerto, separado por un espacio."
 
-#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:222
 msgid "Server:"
 msgstr "Servidor:"
 
-#: libraries/auth/cookie.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:227
 msgid "Username:"
 msgstr "Usuario:"
 
-#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: libraries/auth/cookie.auth.lib.php:246
+#: libraries/auth/cookie.auth.lib.php:238
 msgid "Server Choice"
 msgstr "Elección del servidor"
 
-#: libraries/auth/cookie.auth.lib.php:292 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:284 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Las cookies deben estar activadas."
 
-#: libraries/auth/cookie.auth.lib.php:607
+#: libraries/auth/cookie.auth.lib.php:599
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -3117,7 +3112,7 @@ msgstr ""
 "El inicio de sesión sin contraseña está prohibido por la configuración (ver "
 "AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:611
+#: libraries/auth/cookie.auth.lib.php:603
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -3125,8 +3120,8 @@ msgstr ""
 "No ha habido actividad desde hace %s o más segundos, por favor reingrese al "
 "sitio"
 
-#: libraries/auth/cookie.auth.lib.php:621
-#: libraries/auth/cookie.auth.lib.php:623
+#: libraries/auth/cookie.auth.lib.php:613
+#: libraries/auth/cookie.auth.lib.php:615
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "El servidor MySQL no autorizó su ingreso"
@@ -6187,8 +6182,8 @@ msgstr ", @TABLE@ se convertirá en el nombre de la tabla"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s por lo que se pueden usar "
 "cadenas para formatear el tiempo. Además sucederán las siguientes "
@@ -6878,8 +6873,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Se puede encontrar documentación y más información sobre PBXT en la %spágina "
 "inicial de PrimeBase XT%s."
@@ -9091,8 +9086,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
-"configurado, algunas funcionalidades extendidas fueron deshabilitadas. "
-"%sPulsa aquí para averiguar por qué%s."
+"configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
+"sPulsa aquí para averiguar por qué%s."
 
 #: main.php:358
 #, php-format
@@ -9854,8 +9849,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -11169,9 +11164,8 @@ msgstr ""
 "El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que "
-"«general_log» produce mucha información y aumenta la carga en el servidor "
-"hasta en un 15%"
+"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
+"produce mucha información y aumenta la carga en el servidor hasta en un 15%"
 
 #: server_status.php:1642
 msgid ""
@@ -12604,8 +12598,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen "
-"en el registro de consultas lentas"
+"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen en "
+"el registro de consultas lentas"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
@@ -12672,8 +12666,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Active el registro de consultas lenta configurando «log_slow_queries» a "
-"'ON'. Esto ayudará a analizar consultas con mala performance."
+"Active el registro de consultas lenta configurando «log_slow_queries» a 'ON'. "
+"Esto ayudará a analizar consultas con mala performance."
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -12818,8 +12812,8 @@ msgid ""
 msgstr ""
 "Se sabe que el caché de consultas puede mejorar la performance enormemente "
 "si está correctamente configurado. Actívelo definiendo «query_cache_size» a "
-"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. "
-"<b>Notar que: </b> si está utilizando memcached ignore esta recomendación."
+"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. <b>Notar "
+"que: </b> si está utilizando memcached ignore esta recomendación."
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12896,8 +12890,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "La tasa actual de memoria libre del caché de consultas respecto del tamaño "
 "total es %s%%. Debería ser mayor al 80%%"
@@ -13055,8 +13049,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% de todas las ordenaciones causan tablas temporales, este valor debería "
 "de ser menor a 10%%."
@@ -13119,8 +13113,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor "
-"a 1 por hora"
+"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor a "
+"1 por hora"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of reading first index entry"
@@ -13228,8 +13222,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:260
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
-"Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
+msgstr "Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
 
 #: libraries/advisory_rules.txt:262
 msgid "Percentage of temp tables on disk"
@@ -13253,14 +13246,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
-"embargo, algunas tablas temporales son siempre escritas a disco "
-"independientemente del valor de estas variables. Para eliminarlas deberá re-"
-"escribir las consultas para evitar estas condiciones (en una tabla temporal: "
-"la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
-"mayor a 512 bytes) como se menciona al comienzo del <a href=\"http://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artículo de "
-"Pythian Group</a>"
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
+"algunas tablas temporales son siempre escritas a disco independientemente "
+"del valor de estas variables. Para eliminarlas deberá re-escribir las "
+"consultas para evitar estas condiciones (en una tabla temporal: la presencia "
+"de una columna «BLOB» o «TEXT», o la presencia de una columna mayor a 512 "
+"bytes) como se menciona al comienzo del <a href=\"http://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">artículo de Pythian Group</a>"
 
 #: libraries/advisory_rules.txt:267
 #, php-format
@@ -13285,8 +13277,8 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
-"embargo, algunas tablas temporales son siempre a disco permanentemente "
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
+"algunas tablas temporales son siempre a disco permanentemente "
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT» o la presencia de una columna "
@@ -13317,8 +13309,8 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M "
-"es un buen comienzo."
+"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M es "
+"un buen comienzo."
 
 #: libraries/advisory_rules.txt:294
 msgid "key_buffer_size is 0"
@@ -13495,8 +13487,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:359
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
-"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
-"0."
+"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a 0."
 
 #: libraries/advisory_rules.txt:360
 msgid "The thread cache is set to 0"
@@ -13583,10 +13574,10 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
-"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones "
-"que no liberan los manejadores de base de datos apropiadamente sean "
-"eliminadas más rápido. Asegúrese que su código cierre los manejadores de "
-"base de datos apropiadamente."
+"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones que "
+"no liberan los manejadores de base de datos apropiadamente sean eliminadas "
+"más rápido. Asegúrese que su código cierre los manejadores de base de datos "
+"apropiadamente."
 
 #: libraries/advisory_rules.txt:390
 #, php-format
@@ -13657,8 +13648,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% de todos los clientes son abandonados. Este valor debería ser menor a "
-"2%%"
+"%s%% de todos los clientes son abandonados. Este valor debería ser menor a 2%"
+"%"
 
 #: libraries/advisory_rules.txt:413
 msgid "Rate of aborted clients"
@@ -13840,6 +13831,9 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
 
+#~ msgid "A time, range is \"%1$s\" to \"%2$s\""
+#~ msgstr "Una marca temporal, el rango es de «%1$s» a «%2$s»"
+
 #~| msgid "A date, supported range is '%s' to '%s'"
 #~ msgid "A date, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
 #~ msgstr "Una fecha, el rango válido es de «%1$s» a «%2$s»"
@@ -13850,8 +13844,7 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "A date and time combination, supported range is \\\"%1$s\\\" to \\\"%2$s\\"
 #~ "\""
 #~ msgstr ""
-#~ "Una combinación de fecha y marca temporal, el rango válido es de «%s» a "
-#~ "«%s»"
+#~ "Una combinación de fecha y marca temporal, el rango válido es de «%s» a «%s»"
 
 #~ msgid "Show help button instead of Documentation text"
 #~ msgstr "Mostrar botón de ayuda en lugar de texto de documentación"
@@ -13937,11 +13930,10 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "HH:MM:SS' format, but allows assignment of values to DATETIME columns "
 #~ "using either strings or numbers."
 #~ msgstr ""
-#~ "Una combinación de fecha y marca temporal. El rango soportado es desde "
-#~ "«01-Ene-1000 00:00:00» hasta «31-Dec-9999 23:59:59». MySQL muestra los "
-#~ "valores DATETIME en el formato YYY-MM-DD HH:MM:SS, pero permite la "
-#~ "asignación de valores a columnas DATETIME utilizando tanto cadenas como "
-#~ "números."
+#~ "Una combinación de fecha y marca temporal. El rango soportado es desde «01-"
+#~ "Ene-1000 00:00:00» hasta «31-Dec-9999 23:59:59». MySQL muestra los valores "
+#~ "DATETIME en el formato YYY-MM-DD HH:MM:SS, pero permite la asignación de "
+#~ "valores a columnas DATETIME utilizando tanto cadenas como números."
 
 #~ msgid ""
 #~ "A time. The range is '-838:59:59' to '838:59:59'. MySQL displays TIME "
@@ -14033,8 +14025,8 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "any argument is not a WKB LineString, the return value is NULL."
 #~ msgstr ""
 #~ "Construye un valor de cadenas de líneas múltiples WKB («MultiLineString») "
-#~ "de «LineString» WKB provistos. Si cualquier parámetro no es un "
-#~ "«LineString» WKB, el valor devuelto es NULL."
+#~ "de «LineString» WKB provistos. Si cualquier parámetro no es un «LineString» "
+#~ "WKB, el valor devuelto es NULL."
 
 #~ msgid ""
 #~ "Constructs a WKB MultiPolygon value from a set of WKB Polygon arguments. "
@@ -14257,8 +14249,8 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "Documentation and further information about PBMS can be found on %sThe "
 #~ "PrimeBase Media Streaming home page%s."
 #~ msgstr ""
-#~ "La documentación y más información sobre PBMS puede encontrarse la "
-#~ "%spaǵina inicial de The PrimeBase Media Streaming%s."
+#~ "La documentación y más información sobre PBMS puede encontrarse la %"
+#~ "spaǵina inicial de The PrimeBase Media Streaming%s."
 
 #~ msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
 #~ msgstr "Blog de The PrimeBase Media Streaming por Barry Leslie"
