@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-03 11:34+0200\n"
+"POT-Creation-Date: 2012-05-03 07:28-0400\n"
 "PO-Revision-Date: 2012-03-29 16:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: danish <da@li.org>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.8\n"
 
@@ -48,7 +48,7 @@ msgstr "Søg"
 #: browse_foreigners.php:175 db_operations.php:409 db_operations.php:449
 #: db_operations.php:562 db_operations.php:591 db_search.php:352
 #: gis_data_editor.php:314 js/messages.php:231
-#: libraries/auth/cookie.auth.lib.php:264 libraries/core.lib.php:534
+#: libraries/auth/cookie.auth.lib.php:256 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:364 libraries/display_import.lib.php:319
@@ -486,7 +486,7 @@ msgstr "Send forespørgsel"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
-#: libraries/auth/cookie.auth.lib.php:609 libraries/auth/http.auth.lib.php:52
+#: libraries/auth/cookie.auth.lib.php:601 libraries/auth/http.auth.lib.php:52
 #: libraries/auth/signon.auth.lib.php:238
 msgid "Access denied"
 msgstr "Adgang nægtet"
@@ -610,8 +610,8 @@ msgstr "Sporing er ikke aktiv."
 #: db_structure.php:525 libraries/display_tbl.lib.php:2829
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
@@ -928,11 +928,11 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst "
-"%sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
+"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst %"
+"sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
 "begrænsning."
 
 #: import.php:216 import.php:443
@@ -2777,14 +2777,14 @@ msgstr ""
 
 #: libraries/Types.class.php:295
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:297
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -2827,7 +2827,7 @@ msgid ""
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 
-#: libraries/Types.class.php:313
+#: libraries/Types.class.php:313 libraries/Types.class.php:722
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
@@ -2989,11 +2989,6 @@ msgid ""
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
 
-#: libraries/Types.class.php:722
-#, php-format
-msgid "A time, range is \"%1$s\" to \"%2$s\""
-msgstr ""
-
 #: libraries/Types.class.php:728
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
@@ -3015,7 +3010,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Kan ikke forbinde: ugyldige indstillinger."
 
 #: libraries/auth/config.auth.lib.php:88
-#: libraries/auth/cookie.auth.lib.php:191 libraries/auth/http.auth.lib.php:65
+#: libraries/auth/cookie.auth.lib.php:183 libraries/auth/http.auth.lib.php:65
 #, php-format
 msgid "Welcome to %s"
 msgstr "Velkommen til %s"
@@ -3023,8 +3018,8 @@ msgstr "Velkommen til %s"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -3045,44 +3040,44 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Kunne ikke bruge Blowfish fra mcrypt!"
 
-#: libraries/auth/cookie.auth.lib.php:204 libraries/header.inc.php:90
+#: libraries/auth/cookie.auth.lib.php:196 libraries/header.inc.php:90
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
 msgstr "Herefter skal cookies være slået til."
 
-#: libraries/auth/cookie.auth.lib.php:223
+#: libraries/auth/cookie.auth.lib.php:215
 msgid "Log in"
 msgstr "Login"
 
-#: libraries/auth/cookie.auth.lib.php:230
-#: libraries/auth/cookie.auth.lib.php:231
+#: libraries/auth/cookie.auth.lib.php:222
+#: libraries/auth/cookie.auth.lib.php:223
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Du kan angive værtsnavn/IP adresse og port ved at adskille dem med et "
 "mellemrum."
 
-#: libraries/auth/cookie.auth.lib.php:230
+#: libraries/auth/cookie.auth.lib.php:222
 msgid "Server:"
 msgstr "Server:"
 
-#: libraries/auth/cookie.auth.lib.php:235
+#: libraries/auth/cookie.auth.lib.php:227
 msgid "Username:"
 msgstr "Brugernavn:"
 
-#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:231
 msgid "Password:"
 msgstr "Adgangskode:"
 
-#: libraries/auth/cookie.auth.lib.php:246
+#: libraries/auth/cookie.auth.lib.php:238
 msgid "Server Choice"
 msgstr "Servervalg"
 
-#: libraries/auth/cookie.auth.lib.php:292 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:284 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Herefter skal cookies være slået til."
 
-#: libraries/auth/cookie.auth.lib.php:607
+#: libraries/auth/cookie.auth.lib.php:599
 #: libraries/auth/signon.auth.lib.php:236
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -3090,15 +3085,15 @@ msgstr ""
 "Det er ifølge konfigurationen ikke tilladt at logge ind uden en adgangskode "
 "(se AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:611
+#: libraries/auth/cookie.auth.lib.php:603
 #: libraries/auth/signon.auth.lib.php:240
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "Ingen aktivitet i de seneste %s sekunder eller mere, log venligst ind igen"
 
-#: libraries/auth/cookie.auth.lib.php:621
-#: libraries/auth/cookie.auth.lib.php:623
+#: libraries/auth/cookie.auth.lib.php:613
+#: libraries/auth/cookie.auth.lib.php:615
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Kan ikke logge ind på MySQL-serveren"
@@ -6105,8 +6100,8 @@ msgstr ", @TABLE@ vil blive tabelnavnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -6783,8 +6778,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation og yderliger information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s"
@@ -8990,8 +8985,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin configuration storage er ikke fuldstændigt konfigureret; nogle "
-"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik "
-"%sher%s."
+"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik %"
+"sher%s."
 
 #: main.php:358
 #, php-format
@@ -9744,14 +9739,14 @@ msgstr "Drop databaser der har samme navne som brugernes."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
-"%s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
+"s før du fortsætter."
 
 #: server_privileges.php:2029
 msgid "The selected user was not found in the privilege table."
@@ -11567,10 +11562,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-" Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  "
-"%sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-"
-"baseret beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en "
-"udbyder med mange tusinde brugere."
+" Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  %"
+"sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-baseret "
+"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
+"mange tusinde brugere."
 
 #: setup/lib/index.lib.php:300
 #, php-format
@@ -11584,8 +11579,8 @@ msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
 "produktionssystemer. Enhver som kender eller gætter din phpMyAdmin URL kan "
-"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt "
-"%sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt %"
+"sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:302
 #, php-format
@@ -12759,8 +12754,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Det aktuelle forhold mellem ledig og total forespørgselsmellemlager er %s%%. "
 "Det bør være over 80%% "
@@ -12917,8 +12912,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% af alle sorteringer bruger midlertidige tabeller. Denne værdi bør være "
 "mindre end 10%%."
