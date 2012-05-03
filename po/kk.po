@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-03 08:40+0200\n"
+"PO-Revision-Date: 2012-05-03 08:50+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1649,9 +1649,8 @@ msgid "Issue"
 msgstr "Мәселе"
 
 #: js/messages.php:223
-#, fuzzy
 msgid "Recommendation"
-msgstr "Ұсыну"
+msgstr "Ұсыныс"
 
 #: js/messages.php:224
 msgid "Rule details"
@@ -1677,7 +1676,7 @@ msgstr ""
 
 #: js/messages.php:235
 msgid "Loading"
-msgstr ""
+msgstr "Жүктелуде"
 
 #: js/messages.php:236
 msgid "Processing Request"
