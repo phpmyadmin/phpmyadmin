@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 11:34+0200\n"
-"PO-Revision-Date: 2012-05-03 08:55+0200\n"
+"PO-Revision-Date: 2012-05-03 13:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2346,17 +2346,19 @@ msgstr "Selhalo formátování textu pro pravidlo '%s'."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Neplatná definice pravidla na řádku %1$s, očekáván řádek %2$s z předchozího "
+"pravidla"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Chybný formát CSV dat na řádku %d."
+msgstr "Chybná definice pravidla na řádku %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Neočekávané znaky na řádku %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
