@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-25 21:37+0200\n"
+"PO-Revision-Date: 2012-05-03 18:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6904,7 +6904,7 @@ msgstr ""
 #: libraries/import/csv.php:191 libraries/import/csv.php:451
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr "%d. satırında CSV girdisinin geçersiz biçimi."
+msgstr "%d. satırda CSV girdisinin geçersiz biçimi."
 
 #: libraries/import/csv.php:337
 #, php-format
@@ -11992,7 +11992,7 @@ msgstr "Çalışma zamanı sadece %s"
 
 #: po/advisory_rules.php:10
 msgid "Questions below 1,000"
-msgstr "1,000'in altındaki sorular"
+msgstr "1,000'nin altındaki sorular"
 
 #: po/advisory_rules.php:11
 msgid ""
