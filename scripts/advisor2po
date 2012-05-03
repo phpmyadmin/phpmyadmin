@@ -46,6 +46,7 @@ function print_message($idx) {
     echo "\n";
 }
 
+define('PHPMYADMIN', 1);
 if (!file_exists('./libraries/Advisor.class.php')) {
     chdir('..');
 }
