@@ -216,6 +216,7 @@ class Advisor
             } else {
                 $rule['justification'] = $this->translate($rule['justification']);
             }
+            $rule['id'] = $rule['name'];
             $rule['name'] = $this->translate($rule['name']);
             $rule['issue'] = $this->translate($rule['issue']);
 
@@ -239,15 +240,39 @@ class Advisor
         $this->runResult[$type][] = $rule;
     }
 
-    private function ruleExprEvaluate_var1($matches)
+    /**
+     * Callback for evaluating fired() condition.
+     *
+     * @param $matches array List of matched elements form preg_replace_callback
+     *
+     * @return Replacement value
+     */
+    private function ruleExprEvaluate_fired($matches)
     {
-        // '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie'
-        return '1'; //isset($this->runResult[\'fired\']
+        // No list of fired rules
+        if (!isset($this->runResult['fired'])) {
+            return '0';
+        }
+
+        // Did matching rule fire?
+        foreach ($this->runResult['fired'] as $rule) {
+            if ($rule['id'] == $matches[2]) {
+                return '1';
+            }
+        }
+
+        return '0';
     }
 
-    private function ruleExprEvaluate_var2($matches)
+    /**
+     * Callback for evaluating variables in expression.
+     *
+     * @param $matches array List of matched elements form preg_replace_callback
+     *
+     * @return Replacement value
+     */
+    private function ruleExprEvaluate_variable($matches)
     {
-        // '/\b(\w+)\b/e'
         return isset($this->variables[$matches[1]])
             ? (is_numeric($this->variables[$matches[1]])
                 ? $this->variables[$matches[1]]
@@ -259,9 +284,10 @@ class Advisor
      * Runs a code expression, replacing variable names with their respective
      * values
      *
-     * @param string $expr        expressoin to evaluate
-     * @param int    $ignoreUntil if > 0, it doesn't replace any variables until that string
-     *                            position, but still evaluates the whole expr
+     * @param string $expr        expression to evaluate
+     * @param int    $ignoreUntil if > 0, it doesn't replace any variables until
+     *                            that string position, but still evaluates the
+     *                            whole expr
      *
      * @return result of evaluated expression
      */
@@ -271,14 +297,16 @@ class Advisor
             $exprIgnore = substr($expr, 0, $ignoreUntil);
             $expr = substr($expr, $ignoreUntil);
         }
+        // Evaluate fired() conditions
         $expr = preg_replace_callback(
             '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui',
-            array($this, 'ruleExprEvaluate_var1'),
+            array($this, 'ruleExprEvaluate_fired'),
             $expr
         );
+        // Evaluate variables
         $expr = preg_replace_callback(
             '/\b(\w+)\b/',
-            array($this, 'ruleExprEvaluate_var2'),
+            array($this, 'ruleExprEvaluate_variable'),
             $expr
         );
         if ($ignoreUntil > 0) {
@@ -287,10 +315,13 @@ class Advisor
         $value = 0;
         $err = 0;
 
+        // Actually evaluate the code
         ob_start();
         eval('$value = '.$expr.';');
         $err = ob_get_contents();
         ob_end_clean();
+
+        // Error handling
         if ($err) {
             throw new Exception(
                 strip_tags($err) . '<br />Executed code: $value = ' . $expr . ';'
@@ -314,10 +345,10 @@ class Advisor
         );
         $numRules = count($ruleSyntax);
         $numLines = count($file);
-        $j = -1;
+        $ruleNo = -1;
         $ruleLine = -1;
 
-        for ($i = 0; $i<$numLines; $i++) {
+        for ($i = 0; $i < $numLines; $i++) {
             $line = $file[$i];
             if ($line[0] == '#' || $line[0] == "\n") {
                 continue;
@@ -326,27 +357,35 @@ class Advisor
             // Reading new rule
             if (substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
-                    $errors[] = 'Invalid rule declaration on line ' . ($i+1)
-                        . ', expected line ' . $ruleSyntax[$ruleLine++]
-                        . ' of previous rule' ;
+                    $errors[] = sprintf(
+                        __('Invalid rule declaration on line %1$s, expected line %2$s of previous rule'),
+                        $i + 1,
+                        $ruleSyntax[$ruleLine++]
+                    );
                     continue;
                 }
                 if (preg_match("/rule\s'(.*)'( \[(.*)\])?$/", $line, $match)) {
                     $ruleLine = 1;
-                    $j++;
-                    $rules[$j] = array( 'name' => $match[1]);
-                    $lines[$j] = array( 'name' => $i + 1);
+                    $ruleNo++;
+                    $rules[$ruleNo] = array('name' => $match[1]);
+                    $lines[$ruleNo] = array('name' => $i + 1);
                     if (isset($match[3])) {
-                        $rules[$j]['precondition'] = $match[3];
-                        $lines[$j]['precondition'] = $i + 1;
+                        $rules[$ruleNo]['precondition'] = $match[3];
+                        $lines[$ruleNo]['precondition'] = $i + 1;
                     }
                 } else {
-                    $errors[] = 'Invalid rule declaration on line '.($i+1);
+                    $errors[] = sprintf(
+                        __('Invalid rule declaration on line %s'),
+                        $i + 1
+                    );
                 }
                 continue;
             } else {
                 if ($ruleLine == -1) {
-                    $errors[] = 'Unexpected characters on line '.($i+1);
+                    $errors[] = sprintf(
+                        __('Unexpected characters on line %s'),
+                        $i + 1
+                    );
                 }
             }
 
@@ -357,12 +396,15 @@ class Advisor
                 }
                 // Non tabbed lines are not
                 if ($line[0] != "\t") {
-                    $errors[] = 'Unexpected character on line '.($i+1).'
-                        . Expected tab, but found \''.$line[0].'\'';
+                    $errors[] = sprintf(
+                        __('Unexpected character on line %1$s. Expected tab, but found "%2$s"'),
+                        $i + 1,
+                        $line[0]
+                    );
                     continue;
                 }
-                $rules[$j][$ruleSyntax[$ruleLine]] = chop(substr($line, 1));
-                $lines[$j][$ruleSyntax[$ruleLine]] = $i + 1;
+                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = chop(substr($line, 1));
+                $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
                 $ruleLine += 1;
             }
 
