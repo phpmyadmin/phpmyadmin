@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-02 14:32+0200\n"
+"PO-Revision-Date: 2012-05-03 08:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2553,16 +2553,16 @@ msgid "unknown table status: "
 msgstr "neznámý stav tabulky: "
 
 #: libraries/Table.class.php:750
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Zdrojová databáze"
+msgstr "Zdrojová databáze „%s“ nebyla nalezena!"
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Vzhled %s nebyl nalezen!"
+msgstr "Cílová databáze „%s“ nebyla nalezena!"
 
 #: libraries/Table.class.php:1174
 msgid "Invalid database"
