@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-03 11:26+0200\n"
+"POT-Creation-Date: 2012-05-03 11:34+0200\n"
 "PO-Revision-Date: 2012-04-05 12:40+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -12475,6 +12475,1308 @@ msgstr "Nome VISTA"
 msgid "Rename view to"
 msgstr "Rinomina la vista in"
 
+#: libraries/advisory_rules.txt:49
+msgid "Uptime below one day"
+msgstr "Uptime inferiore ad un giorno"
+
+#: libraries/advisory_rules.txt:52
+msgid "Uptime is less than 1 day, performance tuning may not be accurate."
+msgstr ""
+"Il server è stato in esecuzione per un periodo inferiore ad 1 giorno, i "
+"suggerimenti per migliorarne l'efficienza potrebbero non essere accurati."
+
+#: libraries/advisory_rules.txt:53
+msgid ""
+"To have more accurate averages it is recommended to let the server run for "
+"longer than a day before running this analyzer"
+msgstr ""
+"Per ottenere valori medi più realistici si raccomanda di lasciare il server "
+"in esecuzione per più di un giorno prima di lanciare questo analizzatore"
+
+#: libraries/advisory_rules.txt:54
+#, php-format
+msgid "The uptime is only %s"
+msgstr "L'uptime è solo %s"
+
+#: libraries/advisory_rules.txt:56
+msgid "Questions below 1,000"
+msgstr "Question al di sotto di 1.000"
+
+#: libraries/advisory_rules.txt:59
+msgid ""
+"Fewer than 1,000 questions have been run against this server. The "
+"recommendations may not be accurate."
+msgstr ""
+"Sono stati lanciate meno di 1.000 question su questo server. Le "
+"raccomandazioni potrebbero non essere precise."
+
+#: libraries/advisory_rules.txt:60
+msgid ""
+"Let the server run for a longer time until it has executed a greater amount "
+"of queries."
+msgstr ""
+"Lasciate attivo il server per un periodo maggiore finché non abbia eseguito "
+"un numero più grande di query."
+
+#: libraries/advisory_rules.txt:61
+#, php-format
+msgid "Current amount of Questions: %s"
+msgstr "Quantità corrente di Question: %s"
+
+#: libraries/advisory_rules.txt:63
+msgid "Percentage of slow queries"
+msgstr "Percentuale di query lente"
+
+#: libraries/advisory_rules.txt:66
+msgid ""
+"There is a lot of slow queries compared to the overall amount of Queries."
+msgstr "Ci sono molte query lente rispetto al numero totale di query."
+
+#: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
+msgid ""
+"You might want to increase {long_query_time} or optimize the queries listed "
+"in the slow query log"
+msgstr ""
+"Potreste voler incrementare {long_query_time} oppure ottimizzare le query "
+"elencate nel log delle quey lente"
+
+#: libraries/advisory_rules.txt:68
+#, php-format
+msgid "The slow query rate should be below 5%%, your value is %s%%."
+msgstr ""
+"Il tasso di query lente dovrebbe essere al di sotto di w 5%%, il tuo valore "
+"è %s%%."
+
+#: libraries/advisory_rules.txt:70
+msgid "Slow query rate"
+msgstr "Tasso di query lente"
+
+#: libraries/advisory_rules.txt:73
+msgid ""
+"There is a high percentage of slow queries compared to the server uptime."
+msgstr ""
+"Si riscontra un'alta percentuale di query lente rispetto all'uptime del "
+"server."
+
+#: libraries/advisory_rules.txt:75
+#, php-format
+msgid ""
+"You have a slow query rate of %s per hour, you should have less than 1%% per "
+"hour."
+msgstr ""
+"Si rileva un tasso di query lente di %s all'ora, mentre dovreste averne meno "
+"dell'1%% all'ora."
+
+#: libraries/advisory_rules.txt:77
+msgid "Long query time"
+msgstr "Tempo di query lunghe"
+
+#: libraries/advisory_rules.txt:80
+msgid ""
+"long_query_time is set to 10 seconds or more, thus only slow queries that "
+"take above 10 seconds are logged."
+msgstr ""
+"long_query_time è impostato a 10 secondi o più, quindi solo le query lente "
+"che richiedono più di 10 secondi vengono registrate nel log."
+
+#: libraries/advisory_rules.txt:81
+msgid ""
+"It is suggested to set {long_query_time} to a lower value, depending on your "
+"environment. Usually a value of 1-5 seconds is suggested."
+msgstr ""
+"Si suggerisce di impostare {long_query_time} a un valore inferiore, a "
+"seconda del vostro ambiente. Di solito si suggerisce un valore di 1-5 "
+"secondi."
+
+#: libraries/advisory_rules.txt:82
+#, php-format
+msgid "long_query_time is currently set to %ds."
+msgstr "long_query_time è impostato a %d secondi."
+
+#: libraries/advisory_rules.txt:84
+msgid "Slow query logging"
+msgstr "Log delle quey lente"
+
+#: libraries/advisory_rules.txt:87
+msgid "The slow query log is disabled."
+msgstr "Lo slow_query_log è disabilitato."
+
+#: libraries/advisory_rules.txt:88
+msgid ""
+"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
+"help troubleshooting badly performing queries."
+msgstr ""
+"Abilitate il log delle query lente impostando {log_slow_queries} a 'ON'. "
+"Questo aiuterà nella risoluzione dei problemi per le query con prestazioni "
+"non buone."
+
+#: libraries/advisory_rules.txt:89
+msgid "log_slow_queries is set to 'OFF'"
+msgstr "log_slow_queries è impostato a  'OFF'"
+
+#: libraries/advisory_rules.txt:93
+msgid "Release Series"
+msgstr "Cancella la serie"
+
+#: libraries/advisory_rules.txt:96
+msgid "The MySQL server version less than 5.1."
+msgstr "La versione del server MySQL è inferiore a 5.1."
+
+#: libraries/advisory_rules.txt:97
+msgid ""
+"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
+"even more so."
+msgstr ""
+"E' consigliabile effettuare un aggiornamento poiché MySQL 5.1 ha migliorato "
+"le prestazioni e MySQL 5.5. ancora di più."
+
+#: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
+#: libraries/advisory_rules.txt:112
+#, php-format
+msgid "Current version: %s"
+msgstr "Versione corrente: %s"
+
+#: libraries/advisory_rules.txt:100 libraries/advisory_rules.txt:107
+msgid "Minor Version"
+msgstr "Versione minore"
+
+#: libraries/advisory_rules.txt:103
+msgid "Version less than 5.1.30 (the first GA release of 5.1)."
+msgstr "Versione inferiore a 5.1.30 (la prima release GA della 5.1)."
+
+#: libraries/advisory_rules.txt:104
+msgid ""
+"You should upgrade, as recent versions of MySQL 5.1 have improved "
+"performance and MySQL 5.5 even more so."
+msgstr ""
+"E' consigliabile effettuare un aggiornamento poiché le recenti versioni "
+"MySQL 5.1 hanno migliorato le prestazioni e MySQL 5.5. ancora di più."
+
+#: libraries/advisory_rules.txt:110
+msgid "Version less than 5.5.8 (the first GA release of 5.5)."
+msgstr "Versione inferiore a 5.5.8 (la prima release GA della 5.5)."
+
+#: libraries/advisory_rules.txt:111
+msgid "You should upgrade, to a stable version of MySQL 5.5"
+msgstr ""
+"Dovresti effettuare l'aggiornamento ad una versione stabile di MySQL 5.5"
+
+#: libraries/advisory_rules.txt:114 libraries/advisory_rules.txt:121
+#: libraries/advisory_rules.txt:128
+msgid "Distribution"
+msgstr "Distribuzione"
+
+#: libraries/advisory_rules.txt:117
+msgid "Version is compiled from source, not a MySQL official binary."
+msgstr ""
+"Questa versione è stata compilata dal sorgente, non è un eseguibile "
+"ufficiale di MySQL."
+
+#: libraries/advisory_rules.txt:118
+msgid ""
+"If you did not compile from source, you may be using a package modified by a "
+"distribution. The MySQL manual only is accurate for official MySQL binaries, "
+"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
+msgstr ""
+"Se non avete compilato dal sorgente, potete usare un pacchetto modificato da "
+"una distribuzione. Il manuale MySQL risulta accurato solo per gli eseguibili "
+"ufficiali MySQL, non per tutti i pacchetti delle distribuzioni (come RedHat, "
+"Debian/Ubuntu ecc.)."
+
+#: libraries/advisory_rules.txt:119
+msgid "'source' found in version_comment"
+msgstr "'source' trovato nel version_comment"
+
+#: libraries/advisory_rules.txt:124 libraries/advisory_rules.txt:131
+msgid "The MySQL manual only is accurate for official MySQL binaries."
+msgstr "Il manuale MySQL è accurato solo per gli eseguibili ufficiali MySQL."
+
+#: libraries/advisory_rules.txt:125
+msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
+msgstr ""
+"La documentazione Percona si trova su http://www.percona.com/docs/wiki/"
+
+#: libraries/advisory_rules.txt:126
+msgid "'percona' found in version_comment"
+msgstr "'percona' trovato nel version_comment"
+
+#: libraries/advisory_rules.txt:132
+msgid "Drizzle documentation is at http://docs.drizzle.org/"
+msgstr "La documentazione Drizzle si trova su http://docs.drizzle.org/"
+
+#: libraries/advisory_rules.txt:133
+#, php-format
+msgid "Version string (%s) matches Drizzle versioning scheme"
+msgstr ""
+"La stringa di versione (%s) combacia con lo schema di versione di Drizzle"
+
+#: libraries/advisory_rules.txt:135
+msgid "MySQL Architecture"
+msgstr "Architettura MySQL"
+
+#: libraries/advisory_rules.txt:138
+msgid "MySQL is not compiled as a 64-bit package."
+msgstr "MySQL non è compilato come pacchetto a 64-bit."
+
+#: libraries/advisory_rules.txt:139
+msgid ""
+"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
+"so MySQL might not be able to access all of your memory. You might want to "
+"consider installing the 64-bit version of MySQL."
+msgstr ""
+"La memoria disponibile è superiore a 3GiB (supponendo che il server sia in "
+"localhost), quindi MySQL potrebbe non riuscire ad accedere a tutta la "
+"memoria disponibile. Si consiglia di installare la versione a 64-bit di "
+"MySQL."
+
+#: libraries/advisory_rules.txt:140
+#, php-format
+msgid "Available memory on this host: %s"
+msgstr "Memoria disponibile su questo host: %s"
+
+#: libraries/advisory_rules.txt:146
+msgid "Query cache disabled"
+msgstr "Cache della query disabilitata"
+
+#: libraries/advisory_rules.txt:149
+msgid "The query cache is not enabled."
+msgstr "La cache delle query non è abilitata."
+
+#: libraries/advisory_rules.txt:150
+msgid ""
+"The query cache is known to greatly improve performance if configured "
+"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
+"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
+"memcached, ignore this recommendation."
+msgstr ""
+"E' noto che la cache delle query può migliorare notevolmente le prestazioni "
+"se configurata correttamente. Abilitatela impostando {query_cache_size} a un "
+"valore in MiB di due cifre e impostando {query_cache_type} a 'ON'. <b>Nota:</"
+"b> Se state usando memcached, ignorate questo suggerimento."
+
+#: libraries/advisory_rules.txt:151
+msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
+msgstr ""
+"query_cache_size è impostato a 0 or query_cache_type è impostato a 'OFF'"
+
+#: libraries/advisory_rules.txt:153
+msgid "Query caching method"
+msgstr "Metodo di caching della query"
+
+#: libraries/advisory_rules.txt:156
+msgid "Suboptimal caching method."
+msgstr "Metodo di caching subottimale."
+
+#: libraries/advisory_rules.txt:157
+msgid ""
+"You are using the MySQL Query cache with a fairly high traffic database. It "
+"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple slaves."
+msgstr ""
+"State usando la cache delle query MySQL con un traffico di database "
+"piuttosto alto. Potrebbe essere utile prendere in considerazione <a href="
+"\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> "
+"invece della cache delle query MySQL, soprattutto se avete slave multipli."
+
+#: libraries/advisory_rules.txt:158
+#, php-format
+msgid ""
+"The query cache is enabled and the server receives %d queries per second. "
+"This rule fires if there is more than 100 queries per second."
+msgstr ""
+"La cache delle query è abilitata e il server riceve %d query al secondo. "
+"Questa regola si attiva se ci sono più di 100 query al secondo."
+
+#: libraries/advisory_rules.txt:160
+#, php-format
+msgid "Query cache efficiency (%%)"
+msgstr "Efficienza della cache delle query (%%)"
+
+#: libraries/advisory_rules.txt:163
+msgid "Query cache not running efficiently, it has a low hit rate."
+msgstr ""
+"La cache delle query non sta lavorando in maniera efficiente, risulta una "
+"frequenza bassa di hit."
+
+#: libraries/advisory_rules.txt:164
+msgid "Consider increasing {query_cache_limit}."
+msgstr "Provate a incrementare {query_cache_limit}."
+
+#: libraries/advisory_rules.txt:165
+#, php-format
+msgid "The current query cache hit rate of %s%% is below 20%%"
+msgstr ""
+"Il tasso corrente di %s%% delle hit nella cache delle query è al di sotto "
+"del 20%%"
+
+#: libraries/advisory_rules.txt:167
+msgid "Query Cache usage"
+msgstr "Utilizzo della cache della query"
+
+#: libraries/advisory_rules.txt:170
+#, php-format
+msgid "Less than 80%% of the query cache is being utilized."
+msgstr "Verrà utilizzato meno dell'80%% della cache delle query."
+
+#: libraries/advisory_rules.txt:171
+msgid ""
+"This might be caused by {query_cache_limit} being too low. Flushing the "
+"query cache might help as well."
+msgstr ""
+"Questo potrebbe essere causato dal valore troppo basso di "
+"{query_cache_limit}. Effettuare il flush della cache potrebbe risolvere il "
+"problema."
+
+#: libraries/advisory_rules.txt:172
+#, php-format
+msgid ""
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
+msgstr ""
+"Il rapporto corrente tra la memoria libera nella cache delle query e la "
+"dimensione totale della cache delle query è %s%%. Dovrebbe essere sopra "
+"l'80%%"
+
+#: libraries/advisory_rules.txt:174
+msgid "Query cache fragmentation"
+msgstr "Frammentazione della cache della query"
+
+#: libraries/advisory_rules.txt:177
+msgid "The query cache is considerably fragmented."
+msgstr "La cache delle query risulta essere considerevolmente frammentata."
+
+#: libraries/advisory_rules.txt:178
+msgid ""
+"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
+"This might be caused by many Query cache low memory prunes due to "
+"{query_cache_size} being too small. For a immediate but short lived fix you "
+"can flush the query cache (might lock the query cache for a long time). "
+"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
+"too, e.g. you can set it to the average size of your queries in the cache "
+"using this formula: (query_cache_size - qcache_free_memory) / "
+"qcache_queries_in_cache"
+msgstr ""
+"Un'alta frammentazione potrebbe (in seguito) incrementare "
+"Qcache_lowmem_prunes. Questo potrebbe essere causato da troppe riduzioni per "
+"mancanza di memoria della cache delle query, dovute a {query_cache_size} "
+"troppo piccolo. Per una risoluzione veloce ma non duratura, potete fare il "
+"flush della cache delle query (potrebbe bloccare la cache delle query per un "
+"lungo periodo). Impostare con attenzione {query_cache_min_res_unit} a un "
+"valore più basso potrebbe risolvere, ad esempio potete impostarlo alla "
+"dimensione media delle vostre query nella cache utilizzando la formula: "
+"(query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
+
+#: libraries/advisory_rules.txt:179
+#, php-format
+msgid ""
+"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
+"that the query cache is an alternating pattern of free and used blocks. This "
+"value should be below 20%%."
+msgstr ""
+"La cache è attualmente frammentata al %s%%, una frammentazione del 100%% "
+"indica che la cache delle query presenta uno schema alternato di blocchi "
+"liberi e usati. Questo valore dovrebbe essere inferiore al 20%%."
+
+#: libraries/advisory_rules.txt:181
+msgid "Query cache low memory prunes"
+msgstr "Riduzioni della cache delle query per mancanza di memoria"
+
+#: libraries/advisory_rules.txt:184
+msgid ""
+"Cached queries are removed due to low query cache memory from the query "
+"cache."
+msgstr ""
+"Le query in cache sono state rimosse per mancanza di memoria nella cache "
+"delle query."
+
+#: libraries/advisory_rules.txt:185
+msgid ""
+"You might want to increase {query_cache_size}, however keep in mind that the "
+"overhead of maintaining the cache is likely to increase with its size, so do "
+"this in small increments and monitor the results."
+msgstr ""
+"Potreste voler incrementare {query_cache_size}, comunque considerate che "
+"l'overhead per mantenere la cache cresce in proporzione alla sua dimensione, "
+"quindi fatelo con piccoli incrementi e monitorate i risultati."
+
+#: libraries/advisory_rules.txt:186
+#, php-format
+msgid ""
+"The ratio of removed queries to inserted queries is %s%%. The lower this "
+"value is, the better (This rules firing limit: 0.1%%)"
+msgstr ""
+"Il rapporto tra le query rimosse e quelle inserite è %s%%. Più basso è "
+"questo valore, meglio è (Limite per l'attivazione di questa regola: 0.1%%)"
+
+#: libraries/advisory_rules.txt:188
+msgid "Query cache max size"
+msgstr "Dimensione massima della cache delle query"
+
+#: libraries/advisory_rules.txt:191
+msgid ""
+"The query cache size is above 128 MiB. Big query caches may cause "
+"significant overhead that is required to maintain the cache."
+msgstr ""
+"La dimensione della cache delle query è superiore a 128 MiB. Le cache per "
+"query grandi possono causare un overhead significativo per il mantenimento "
+"della cache stessa."
+
+#: libraries/advisory_rules.txt:192
+msgid ""
+"Depending on your environment, it might be performance increasing to reduce "
+"this value."
+msgstr ""
+"A seconda del vostro ambiente, la riduzione di questo valore potrebbe "
+"aumentare le prestazioni."
+
+#: libraries/advisory_rules.txt:193
+#, php-format
+msgid "Current query cache size: %s"
+msgstr "La dimensione attuale della cache delle delle query è: %s"
+
+#: libraries/advisory_rules.txt:195
+msgid "Query cache min result size"
+msgstr "Dimensione minima del risultato della cache delle query"
+
+#: libraries/advisory_rules.txt:198
+msgid ""
+"The max size of the result set in the query cache is the default of 1 MiB."
+msgstr ""
+"La dimensione massima del result set nella cache delle query è per default "
+"di 1 MiB."
+
+#: libraries/advisory_rules.txt:199
+msgid ""
+"Changing {query_cache_limit} (usually by increasing) may increase "
+"efficiency. This variable determines the maximum size a query result may "
+"have to be inserted into the query cache. If there are many query results "
+"above 1 MiB that are well cacheable (many reads, little writes) then "
+"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
+"of many query results being above 1 MiB that are not very well cacheable "
+"(often invalidated due to table updates) increasing {query_cache_limit} "
+"might reduce efficiency."
+msgstr ""
+"Cambiare {query_cache_limit} (di solito incrementandolo) potrebbe migliorare "
+"l'efficienza. Questa variabile determina la dimensione massima per la quale "
+"il risultato di una query può essere inserito nella cache delle query. Se ci "
+"sono troppi risultati di query con dimensione superiore a 1 MiB che sono "
+"facilmente memorizzabili nella cache (molte letture, poche scritture) allora "
+"aumentare {query_cache_limit} incrementa l'efficienza. Laddove molti "
+"risultati di query siano più grandi di 1 MiB e non possono essere "
+"memorizzati nella cache (spesso invalidati a causa di aggiornamenti delle "
+"tabelle) aumentare {query_cache_limit} potrebbe ridurre l'efficienza."
+
+#: libraries/advisory_rules.txt:200
+msgid "query_cache_limit is set to 1 MiB"
+msgstr "query_cache_limit impostsato a 1 MiB"
+
+#: libraries/advisory_rules.txt:204
+msgid "Percentage of sorts that cause temporary tables"
+msgstr "Percentuale di ordinamenti che producono tabelle temporanee"
+
+#: libraries/advisory_rules.txt:207 libraries/advisory_rules.txt:214
+msgid "Too many sorts are causing temporary tables."
+msgstr "Troppi ordinamenti stanno creando tabelle temporanee."
+
+#: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
+msgid ""
+"Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
+"on your system memory limits"
+msgstr ""
+"Incrementate sort_buffer_size e/o read_rnd_buffer_size, a seconda dei limiti "
+"di memoria del vostro sistema"
+
+#: libraries/advisory_rules.txt:209
+#, php-format
+msgid ""
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
+msgstr ""
+"%s%% di tutti gli ordinamenti causano la creazione di tabelle temporanee, "
+"questo valore dovrebbe essere inferiore al 10%%."
+
+#: libraries/advisory_rules.txt:211
+msgid "Rate of sorts that cause temporary tables"
+msgstr "Frequenza di ordinamenti che producono tabelle temporanee"
+
+#: libraries/advisory_rules.txt:216
+#, php-format
+msgid ""
+"Temporary tables average: %s, this value should be less than 1 per hour."
+msgstr ""
+"Media di tabelle temporanee: %s, questo valore dovrebbe essere inferiore a 1 "
+"all'ora."
+
+#: libraries/advisory_rules.txt:218
+msgid "Sort rows"
+msgstr "Oridna le righe"
+
+#: libraries/advisory_rules.txt:221
+msgid "There are lots of rows being sorted."
+msgstr "Ci sono molte righe da ordinare."
+
+#: libraries/advisory_rules.txt:222
+msgid ""
+"While there is nothing wrong with a high amount of row sorting, you might "
+"want to make sure that the queries which require a lot of sorting use "
+"indexed columns in the ORDER BY clause, as this will result in much faster "
+"sorting"
+msgstr ""
+"Sebbene non ci sia nulla di sbagliato nell'avere un'alto numero di righe da "
+"ordinare, potreste voler essere sicuri che le query che richiedono molti "
+"ordinamenti usino campi indicizzati nella clausola ORDER BY, poiché questo "
+"risulterebbe in un ordinamento molto più veloce"
+
+#: libraries/advisory_rules.txt:223
+#, php-format
+msgid "Sorted rows average: %s"
+msgstr "Media di righe ordinate: %s"
+
+#: libraries/advisory_rules.txt:226
+msgid "Rate of joins without indexes"
+msgstr "Frequenza di join senza indici"
+
+#: libraries/advisory_rules.txt:229
+msgid "There are too many joins without indexes."
+msgstr "Ci sono troppe join prive di indici."
+
+#: libraries/advisory_rules.txt:230
+msgid ""
+"This means that joins are doing full table scans. Adding indexes for the "
+"columns being used in the join conditions will greatly speed up table joins"
+msgstr ""
+"Significa che alcune join sono elaborate per mezzo di full table scan. "
+"Aggiungendo indici alle colonne utilizzate nelle condizioni di join si "
+"otterranno notevoli riduzioni dei tempi di esecuzione"
+
+#: libraries/advisory_rules.txt:231
+#, php-format
+msgid "Table joins average: %s, this value should be less than 1 per hour"
+msgstr ""
+"Media di join di tabella: %s, questo valore dovrebbe essere inferiore a 1 "
+"all'ora"
+
+#: libraries/advisory_rules.txt:233
+msgid "Rate of reading first index entry"
+msgstr "Tasso di lettura della prima voce nell'indice"
+
+#: libraries/advisory_rules.txt:236
+msgid "The rate of reading the first index entry is high."
+msgstr "Il tasso di lettura della prima voce nell'indice è alto."
+
+#: libraries/advisory_rules.txt:237
+msgid ""
+"This usually indicates frequent full index scans. Full index scans are "
+"faster than table scans but require lots of CPU cycles in big tables, if "
+"those tables that have or had high volumes of UPDATEs and DELETEs, running "
+"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
+"scans. Other than that full index scans can only be reduced by rewriting "
+"queries."
+msgstr ""
+"Questo indica solitamente frequenti scansioni complete dell'indice. "
+"Scansioni complete dell'indice sono più veloci delle scansioni di tabella, "
+"ma richiedono molto utilizzo della CPU in grandi tabelle, se tali tabelle "
+"hanno o hanno avuto un volume elevato di UPDATE e DELETE query, l'esecuzione "
+"di 'OPTIMIZE TABLE' potrebbe ridurre la quantità delle e/o velocizzare le "
+"scansioni complete dell'indice. Oltre a questo scansioni complete "
+"dell'indice possono essere ridotte solo riscrivendo le query."
+
+#: libraries/advisory_rules.txt:238
+#, php-format
+msgid "Index scans average: %s, this value should be less than 1 per hour"
+msgstr ""
+"Media di scansioni dell'indice: %s, questo valore dovrebbe essere inferiore "
+"a 1 all'ora"
+
+#: libraries/advisory_rules.txt:240
+msgid "Rate of reading fixed position"
+msgstr "Tasso di lettura in posizione fissa"
+
+#: libraries/advisory_rules.txt:243
+msgid "The rate of reading data from a fixed position is high."
+msgstr "Il tasso di lettura dei dati da una posizione fissa è alto."
+
+#: libraries/advisory_rules.txt:244
+msgid ""
+"This indicates that many queries need to sort results and/or do a full table "
+"scan, including join queries that do not use indexes. Add indexes where "
+"applicable."
+msgstr ""
+"Questo indica che molte query richiedono l'ordinamento dei risultati e/o la "
+"scansione completa della tabella, includendo query con join che non usa gli "
+"indici. Aggiungete gli indici ove possibile."
+
+#: libraries/advisory_rules.txt:245
+#, php-format
+msgid ""
+"Rate of reading fixed position average: %s, this value should be less than 1 "
+"per hour"
+msgstr ""
+"Tasso medio di lettura su posizione fissa: %s, questo valore dovrebbe essere "
+"inferiore a 1 all'ora"
+
+#: libraries/advisory_rules.txt:247
+msgid "Rate of reading next table row"
+msgstr "Frequenza di lettura della riga nella prossima tabella"
+
+#: libraries/advisory_rules.txt:250
+msgid "The rate of reading the next table row is high."
+msgstr "La frequenza di lettura della riga nella prossima tabella è alta."
+
+#: libraries/advisory_rules.txt:251
+msgid ""
+"This indicates that many queries are doing full table scans. Add indexes "
+"where applicable."
+msgstr ""
+"Questo indica che molte query stanno facendo scansioni complete su tabella. "
+"Aggiungete degli indici ove possibile."
+
+#: libraries/advisory_rules.txt:252
+#, php-format
+msgid ""
+"Rate of reading next table row: %s, this value should be less than 1 per hour"
+msgstr ""
+"Tasso di lettura della riga successiva nella tabella: %s, questo valore "
+"dovrebbe essere inferiore a 1 all'ora"
+
+#: libraries/advisory_rules.txt:255
+msgid "tmp_table_size vs. max_heap_table_size"
+msgstr "tmp_table_size vs. max_heap_table_size"
+
+#: libraries/advisory_rules.txt:258
+msgid "tmp_table_size and max_heap_table_size are not the same."
+msgstr "tmp_table_size e max_heap_table_size non coincidono."
+
+#: libraries/advisory_rules.txt:259
+msgid ""
+"If you have deliberately changed one of either: The server uses the lower "
+"value of either to determine the maximum size of in-memory tables. So if you "
+"wish to increase the in-memory table limit you will have to increase the "
+"other value as well."
+msgstr ""
+"Se avete modificato intenzionalmente una delle due: Il server utilizza il "
+"valore più basso di entrambe per determinare la dimensione massima delle "
+"tabelle in-memory. Quindi, se volete aumentare il limite della tabella in-"
+"memory, dovete incrementare anche l'altro valore."
+
+#: libraries/advisory_rules.txt:260
+#, php-format
+msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
+msgstr "I valori attuali di tmp_table_size sono: %s, max_heap_table_size: %s"
+
+#: libraries/advisory_rules.txt:262
+msgid "Percentage of temp tables on disk"
+msgstr "Percentuale di tabelle temporanee su disco"
+
+#: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
+msgid ""
+"Many temporary tables are being written to disk instead of being kept in "
+"memory."
+msgstr ""
+"Molte tabelle temporanee vengono scritte nel disco invece di essere "
+"mantenute in memoria."
+
+#: libraries/advisory_rules.txt:266
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
+msgstr ""
+"Incrementare {max_heap_table_size} e {tmp_table_size} potrebbe risolvere il "
+"problema. Tuttavia alcune tabelle temporanee vengono sempre scritte sul "
+"disco, indipendentemente dal valore di queste variabili. Per eliminarle "
+"dovrete riscrivere le query per evitare queste condizioni (All'interno delle "
+"tabelle temporanee: Presenza di un campo BLOB o di un TEXT o presenza di un "
+"campo più grande di 512 byte) come menzionato all'inizio di un <a href="
+"\"http://www.facebook.com/note.php?note_id=10150111255065841&comments"
+"\">Articolo del Pythian Group</a>"
+
+#: libraries/advisory_rules.txt:267
+#, php-format
+msgid ""
+"%s%% of all temporary tables are being written to disk, this value should be "
+"below 25%%"
+msgstr ""
+"Il %s%% di tutte le tabelle temporanee verrà scritto su disco, questo valore "
+"dovrebbe essere inferiore al 25%%"
+
+#: libraries/advisory_rules.txt:269
+msgid "Temp disk rate"
+msgstr "Frequenza disco temporaneo"
+
+#: libraries/advisory_rules.txt:273
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"temporary-tables.html\">MySQL Documentation</a>"
+msgstr ""
+"Incrementare {max_heap_table_size} e {tmp_table_size} potrebbe risolvere il "
+"problema. Tuttavia alcune tabelle temporanee vengono sempre scritte sul "
+"disco, indipendentemente dal valore di queste variabili. Per eliminarle "
+"dovrete riscrivere le query per evitare queste condizioni (All'interno delle "
+"tabelle temporanee: Presenza di un campo BLOB o di un TEXT o presenza di un "
+"campo più grande di 512 byte) come menzionato nella <a href=\"http://dev."
+"mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\">Documentazione "
+"MySQL</a>"
+
+#: libraries/advisory_rules.txt:274
+#, php-format
+msgid ""
+"Rate of temporary tables being written to disk: %s, this value should be "
+"less than 1 per hour"
+msgstr ""
+"Tasso di tabelle temporanee che verranno scritte su disco: %s, questo valore "
+"dovrebbe essere inferiore a 1 all'ora"
+
+#: libraries/advisory_rules.txt:289
+msgid "MyISAM key buffer size"
+msgstr "Dimensione del key buffer MyISAM"
+
+#: libraries/advisory_rules.txt:292
+msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
+msgstr ""
+"Key buffer non inizializzato. Nessun indice MyISAM verrà memorizzato in "
+"cache."
+
+#: libraries/advisory_rules.txt:293
+msgid ""
+"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
+"good start."
+msgstr ""
+"Impostare {key_buffer_size} a seconda della dimensione dei vostri indici "
+"MyISAM. 64M è un buon inizio."
+
+#: libraries/advisory_rules.txt:294
+msgid "key_buffer_size is 0"
+msgstr "key_buffer_size è uguale a 0"
+
+#: libraries/advisory_rules.txt:296
+#, php-format
+msgid "Max %% MyISAM key buffer ever used"
+msgstr "Massima %% di utilizzo del key buffer MyISAM"
+
+#: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
+#, php-format
+msgid "MyISAM key buffer (index cache) %% used is low."
+msgstr ""
+"Bassa percentuale di utilizzo del buffer delle chiavi MyISAM (cache degli "
+"indici)."
+
+#: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
+msgid ""
+"You may need to decrease the size of {key_buffer_size}, re-examine your "
+"tables to see if indexes have been removed, or examine queries and "
+"expectations about what indexes are being used."
+msgstr ""
+"Potrebbe essere necessario diminuire la dimensione di {key_buffer_size}, "
+"ricontrollare le tabelle per verificare se gli indici sono stati rimossi, "
+"oppure esaminare le query e controllare che siano utilizzati gli indici che "
+"ci si aspetta."
+
+#: libraries/advisory_rules.txt:301
+#, php-format
+msgid ""
+"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+msgstr ""
+"Masisma %% MyISAM key buffer mai usata: %s%%, questo valore dovrebbe essere "
+"sopra il 95%%"
+
+#: libraries/advisory_rules.txt:304
+msgid "Percentage of MyISAM key buffer used"
+msgstr "Percentuale di utilizzo del buffer key MyISAM"
+
+#: libraries/advisory_rules.txt:309
+#, php-format
+msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
+msgstr ""
+"%% di key buffer MyISAM utilizzato: %s%%, questo valore dovrebbe essere "
+"superiore al 95%%"
+
+#: libraries/advisory_rules.txt:311
+msgid "Percentage of index reads from memory"
+msgstr "Percentuale di letture degli indici dalla memoria"
+
+#: libraries/advisory_rules.txt:314
+#, php-format
+msgid "The %% of indexes that use the MyISAM key buffer is low."
+msgstr "La percentuale di indici che usa il buffer MyISAM è bassa."
+
+#: libraries/advisory_rules.txt:315
+msgid "You may need to increase {key_buffer_size}."
+msgstr "Potrebbe essere necessario aumentare {key_buffer_size}."
+
+#: libraries/advisory_rules.txt:316
+#, php-format
+msgid "Index reads from memory: %s%%, this value should be above 95%%"
+msgstr ""
+"Letture degli indici dalla memoria: %s%%, questo valore dovrebbe essere "
+"superiore al 95%%"
+
+#: libraries/advisory_rules.txt:320
+msgid "Rate of table open"
+msgstr "Frequenza di tabelle aperte"
+
+#: libraries/advisory_rules.txt:323
+msgid "The rate of opening tables is high."
+msgstr "La frequenza di apertura di tabelle è alta."
+
+#: libraries/advisory_rules.txt:324
+msgid ""
+"Opening tables requires disk I/O which is costly. Increasing "
+"{table_open_cache} might avoid this."
+msgstr ""
+"Aprire tabelle richiede I/O su disco che è un'operazione costosa. Aumentare "
+"{table_open_cache} potrebbe evitarlo."
+
+#: libraries/advisory_rules.txt:325
+#, php-format
+msgid "Opened table rate: %s, this value should be less than 10 per hour"
+msgstr ""
+"Tasso di apertura delle tabelle: %s, questo valore dovrebbe essere inferiore "
+"a 10 all'ora"
+
+#: libraries/advisory_rules.txt:327
+msgid "Percentage of used open files limit"
+msgstr "Limite percentuale di file aperti utilizzati"
+
+#: libraries/advisory_rules.txt:330
+msgid ""
+"The number of open files is approaching the max number of open files.  You "
+"may get a \"Too many open files\" error."
+msgstr ""
+"Il numero di file aperti si sta avvicinando al massimo numero di file "
+"aperti. Potrebbe ricevere un errore \"Troppi file aperti\"."
+
+#: libraries/advisory_rules.txt:331 libraries/advisory_rules.txt:338
+msgid ""
+"Consider increasing {open_files_limit}, and check the error log when "
+"restarting after changing open_files_limit."
+msgstr ""
+"Incrementate {open_files_limit} e controllate il log degli errori quando "
+"riavviate dopo avere cambiato open_files_limit."
+
+#: libraries/advisory_rules.txt:332
+#, php-format
+msgid ""
+"The number of opened files is at %s%% of the limit. It should be below 85%%"
+msgstr ""
+"Il numero di file aperti è al %s%% del limite. Dovrebbe essere al di sotto "
+"dell'85%%"
+
+#: libraries/advisory_rules.txt:334
+msgid "Rate of open files"
+msgstr "Frequenza di file aperti"
+
+#: libraries/advisory_rules.txt:337
+msgid "The rate of opening files is high."
+msgstr "La frequenza di apertura di file è alta."
+
+#: libraries/advisory_rules.txt:339
+#, php-format
+msgid "Opened files rate: %s, this value should be less than 5 per hour"
+msgstr ""
+"Tasso di file aperti: %s, questo valore dovrebbe essere inferiore a 5 all'ora"
+
+#: libraries/advisory_rules.txt:341
+#, php-format
+msgid "Immediate table locks %%"
+msgstr "%% di lock immediati delle tabelle"
+
+#: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
+msgid "Too many table locks were not granted immediately."
+msgstr "Troppi lock delle tabelle non sono stati assegnati immediatamente."
+
+#: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
+msgid "Optimize queries and/or use InnoDB to reduce lock wait."
+msgstr ""
+"Ottimizzate le query e/o utilizzate InnoDB per ridurre i ritardi dovuti al "
+"lock."
+
+#: libraries/advisory_rules.txt:346
+#, php-format
+msgid "Immediate table locks: %s%%, this value should be above 95%%"
+msgstr ""
+"Lock di tabelle immediato: %s%%, questo valore dovrebbe essere al di sopra "
+"del 95%%"
+
+#: libraries/advisory_rules.txt:348
+msgid "Table lock wait rate"
+msgstr "Tasso di lock delle tabelle in attesa"
+
+#: libraries/advisory_rules.txt:353
+#, php-format
+msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
+msgstr ""
+"Tasso di lock di tabelle in attesa: %s, questo valore dovrebbe essere "
+"inferiore a 1 all'ora"
+
+#: libraries/advisory_rules.txt:355
+msgid "Thread cache"
+msgstr "Cache del thread"
+
+#: libraries/advisory_rules.txt:358
+msgid ""
+"Thread cache is disabled, resulting in more overhead from new connections to "
+"MySQL."
+msgstr ""
+"La chace dei thread è disabilitata: questo causa un overhead maggiore delle "
+"nuove connessioni verso MySQL."
+
+#: libraries/advisory_rules.txt:359
+msgid "Enable the thread cache by setting {thread_cache_size} > 0."
+msgstr "Abilitate la cache dei thread impostando {thread_cache_size} > 0."
+
+#: libraries/advisory_rules.txt:360
+msgid "The thread cache is set to 0"
+msgstr "La cache dei thread è impostata a 0"
+
+#: libraries/advisory_rules.txt:362
+#, php-format
+msgid "Thread cache hit rate %%"
+msgstr "Percentuale hit nella cache del thread"
+
+#: libraries/advisory_rules.txt:365
+msgid "Thread cache is not efficient."
+msgstr "La cache dei thread non è efficiente."
+
+#: libraries/advisory_rules.txt:366
+msgid "Increase {thread_cache_size}."
+msgstr "Aumenta {thread_cache_size}."
+
+#: libraries/advisory_rules.txt:367
+#, php-format
+msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
+msgstr ""
+"Frequenza hit nella cache dei thread: %s%%, questo valore dovrebbe essere "
+"superiore all'80%%"
+
+#: libraries/advisory_rules.txt:369
+msgid "Threads that are slow to launch"
+msgstr "Thread che sono lenti da avviarsi"
+
+#: libraries/advisory_rules.txt:372
+msgid "There are too many threads that are slow to launch."
+msgstr "Ci sono troppi thread lenti da avviare."
+
+#: libraries/advisory_rules.txt:373
+msgid ""
+"This generally happens in case of general system overload as it is pretty "
+"simple operations. You might want to monitor your system load carefully."
+msgstr ""
+"Questo di solito succede quando si verifica un sovraccarico del sistema "
+"anche per operazioni piuttosto semplici. Sarebbe opportuno monitorare "
+"attentamente il carico del sistema."
+
+#: libraries/advisory_rules.txt:374
+#, php-format
+msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
+msgstr ""
+"%s thread hanno richiesto più di %s secondi per partire, dovrebbe essere 0"
+
+#: libraries/advisory_rules.txt:376
+msgid "Slow launch time"
+msgstr "Tempo di avvio lento"
+
+#: libraries/advisory_rules.txt:379
+msgid "Slow_launch_threads is above 2s"
+msgstr "Slow_launch_threads è superiore a 2 secondi"
+
+#: libraries/advisory_rules.txt:380
+msgid ""
+"Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
+"launch"
+msgstr ""
+"Impostate slow_launch_time a 1 secondo o 2 secondi per contare correttamente "
+"i thread che sono lenti all'avvio"
+
+#: libraries/advisory_rules.txt:381
+#, php-format
+msgid "slow_launch_time is set to %s"
+msgstr "slow_launch_time é impostato a %s"
+
+#: libraries/advisory_rules.txt:385
+msgid "Percentage of used connections"
+msgstr "Percentuale di connessioni utilizzate"
+
+#: libraries/advisory_rules.txt:388
+msgid ""
+"The maximum amount of used connections is getting close to the value of "
+"max_connections."
+msgstr ""
+"Il numero massimo di connessioni utilizzate si sta avvicinando al valore "
+"max_connections."
+
+#: libraries/advisory_rules.txt:389
+msgid ""
+"Increase max_connections, or decrease wait_timeout so that connections that "
+"do not close database handlers properly get killed sooner. Make sure the "
+"code closes database handlers properly."
+msgstr ""
+"Aumentate max_connections, o diminuite wait_timeout affinché le connessioni "
+"che non chiudono i database handler possano essere cancellate al più presto. "
+"Controllate che nel codice gli handler al database vengano chiusi "
+"correttamente."
+
+#: libraries/advisory_rules.txt:390
+#, php-format
+msgid ""
+"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
+msgstr ""
+"Max_used_connections è al %s%% di max_connections, dovrebbe essere inferiore "
+"all'80%%"
+
+#: libraries/advisory_rules.txt:392
+msgid "Percentage of aborted connections"
+msgstr "Percentuale di connessioni abortite"
+
+#: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
+msgid "Too many connections are aborted."
+msgstr "Sono state interrotte troppe connessioni."
+
+#: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
+msgid ""
+"Connections are usually aborted when they cannot be authorized. <a href="
+"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">This article</a> might help you track down the "
+"source."
+msgstr ""
+"Le connessioni vengono di solito interrotte quando non possono essere "
+"autorizzate. <a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-"
+"track-down-the-source-of-aborted_connects/\">Questo articolo</a> potrebbe "
+"essere d'aiuto per tracciare il sorgente."
+
+#: libraries/advisory_rules.txt:397
+#, php-format
+msgid "%s%% of all connections are aborted. This value should be below 1%%"
+msgstr ""
+"Il %s%% di tutte le connessioni è stato interrotto. Questo valore dovrebbe "
+"essere inferiore all'1%%"
+
+#: libraries/advisory_rules.txt:399
+msgid "Rate of aborted connections"
+msgstr "Frequenza di connessioni abortite"
+
+#: libraries/advisory_rules.txt:404
+#, php-format
+msgid ""
+"Aborted connections rate is at %s, this value should be less than 1 per hour"
+msgstr ""
+"Il tasso di connessioni interrotte è %s, questo valore dovrebbe essere "
+"inferiore a 1 all'ora"
+
+#: libraries/advisory_rules.txt:406
+msgid "Percentage of aborted clients"
+msgstr "Percentuale di client abortiti"
+
+#: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
+msgid "Too many clients are aborted."
+msgstr "Sono state interrotti troppi client."
+
+#: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
+msgid ""
+"Clients are usually aborted when they did not close their connection to "
+"MySQL properly. This can be due to network issues or code not closing a "
+"database handler properly. Check your network and code."
+msgstr ""
+"Le connessioni dei client sono solitamente terminate quando questi non "
+"terminano correttamente le loro connessioni a MySQL. Questo potrebbe essere "
+"causato da problemi di rete o da codice che non termina correttamente le "
+"connessioni. Controllare rete e codice."
+
+#: libraries/advisory_rules.txt:411
+#, php-format
+msgid "%s%% of all clients are aborted. This value should be below 2%%"
+msgstr ""
+"Il server termina il %s%% delle connessioni dei client. Questo valore "
+"dovrebbe essere inferiore al 2%%"
+
+#: libraries/advisory_rules.txt:413
+msgid "Rate of aborted clients"
+msgstr "Frequenza di connessioni client terminate"
+
+#: libraries/advisory_rules.txt:418
+#, php-format
+msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
+msgstr ""
+"La frequenza di interruzione di connessioni dei client è %s, questo valore "
+"dovrebbe essere inferiore ad 1 per ora"
+
+#: libraries/advisory_rules.txt:422
+msgid "Is InnoDB disabled?"
+msgstr "InnoDB è disabilitato?"
+
+#: libraries/advisory_rules.txt:425
+msgid "You do not have InnoDB enabled."
+msgstr "InnoDB non è abilitato."
+
+#: libraries/advisory_rules.txt:426
+msgid "InnoDB is usually the better choice for table engines."
+msgstr "InnoDB è solitamente la miglior scelta tra i motori di archiviazione."
+
+#: libraries/advisory_rules.txt:427
+msgid "have_innodb is set to 'value'"
+msgstr "have_innodb è impostato a 'value'"
+
+#: libraries/advisory_rules.txt:429
+msgid "InnoDB log size"
+msgstr "Dimensione log InnoDB"
+
+#: libraries/advisory_rules.txt:432
+msgid ""
+"The InnoDB log file size is not an appropriate size, in relation to the "
+"InnoDB buffer pool."
+msgstr ""
+"La dimensione del file di log InnoDB non è appropriata, in relazione alla "
+"dimensione del buffer pool InnoDB."
+
+#: libraries/advisory_rules.txt:433
+#, php-format
+msgid ""
+"Especially on a system with a lot of writes to InnoDB tables you should set "
+"innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
+"bigger this value, the longer the recovery time will be when database "
+"crashes, so this value should not be set much higher than 256 MiB. Please "
+"note however that you cannot simply change the value of this variable. You "
+"need to shutdown the server, remove the InnoDB log files, set the new value "
+"in my.cnf, start the server, then check the error logs if everything went "
+"fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgstr ""
+"Si dovrebbe impostare innodb_log_file_size al 25%% di "
+"{innodb_buffer_pool_size}, soprattutto in sistemi che processano numerose "
+"scritture in tabelle InnoDB. Tuttavia più questo valore è alto maggiore sarà "
+"il tempo necessario per recuperare i database in seguito a crash, quindi "
+"sarebbe opportuno non andare molto oltre 256 MiB. È necessario tener conto "
+"che non è possibile una veloce modifica di questo parametro. Occorre fermare "
+"il server, rimuovere i file log InnoDB, impostare il nuovo valore in my.cnf, "
+"avviare il server, quindi assicurarsi dell'assenza di errori nei log. Vedi "
+"anche <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
+"increase-innodblogfilesize-proper-way.html\">questo articolo di blog</a>"
+
+#: libraries/advisory_rules.txt:434
+#, php-format
+msgid ""
+"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
+"it should not be below 20%%"
+msgstr ""
+"La dimensione del log InnoDB è %s%% in relazione alla dimensione del buffer "
+"pool InnoDB, dovrebbe essere non inferiore al 20%%"
+
+#: libraries/advisory_rules.txt:436
+msgid "Max InnoDB log size"
+msgstr "Dimensione massima log InnoDB"
+
+#: libraries/advisory_rules.txt:439
+msgid "The InnoDB log file size is inadequately large."
+msgstr "La dimensione del file di log InnoDB è eccessivamente grande."
+
+#: libraries/advisory_rules.txt:440
+#, php-format
+msgid ""
+"It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
+"recovery time after a database crash considerably. See also <a href=\"http://"
+"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
+"files, set the new value in my.cnf, start the server, then check the error "
+"logs if everything went fine. See also <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">this blog entry</a>"
+msgstr ""
+"Solitamente è sufficiente impostare innodb_log_file_size al 25%% della "
+"dimensione di {innodb_buffer_pool_size}. Un innodb_log_file_size molto "
+"grande rallenta considerevolmente il tempo di ripristino in seguito ad un "
+"crash del database. Vedere anche <a href=\"http://www.mysqlperformanceblog."
+"com/2006/07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. "
+"È necessario fermare il server, rimuovere i file log InnoDB, impostare il "
+"nuovo valore in my.cnf, avviare il server, quindi controllare nei log degli "
+"errori se tutto è andato correttamente. Consultare anche <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">questo articolo di blog</a>"
+
+#: libraries/advisory_rules.txt:441
+#, php-format
+msgid "Your absolute InnoDB log size is %s MiB"
+msgstr "La vostra dimensione assoluta del log InnoDB è %s MiB"
+
+#: libraries/advisory_rules.txt:443
+msgid "InnoDB buffer pool size"
+msgstr "Dimensione del buffer pool InnoDB"
+
+#: libraries/advisory_rules.txt:446
+msgid "Your InnoDB buffer pool is fairly small."
+msgstr "Il vostro buffer pool InnoDB è abbastanza piccolo."
+
+#: libraries/advisory_rules.txt:447
+#, php-format
+msgid ""
+"The InnoDB buffer pool has a profound impact on performance for InnoDB "
+"tables. Assign all your remaining memory to this buffer. For database "
+"servers that use solely InnoDB as storage engine and have no other services "
+"(e.g. a web server) running, you may set this as high as 80%% of your "
+"available memory. If that is not the case, you need to carefully assess the "
+"memory consumption of your other services and non-InnoDB-Tables and set this "
+"variable accordingly. If it is set too high, your system will start "
+"swapping, which decreases performance significantly. See also <a href="
+"\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">this article</a>"
+msgstr ""
+"Il buffer pool InnoDB ha un impatto notevole sulla prestazione delle tabelle "
+"InnoDB. Assegnate tutta la memoria restante a questo buffer. Per server di "
+"database che utilizzano esclusivamente InnoDB come motore di memorizzazione "
+"e non ci sono altri servizi (come un server web) attivi, potreste impostare "
+"questo valore fino all'80%% della memoria disponibile. Se questo non è il "
+"caso, dovreste sistemare con attenzione il consumo di memoria degli altri "
+"servizi e delle tabelle non-InnoDB e impostare questa variabile di "
+"conseguenza. Se viene impostata a un valore troppo alto, il sistema inizierà "
+"a fare swapping, diminuendo le prestazioni in maniera significativa. V. "
+"anche <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">questo articolo</a>"
+
+#: libraries/advisory_rules.txt:448
+#, php-format
+msgid ""
+"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
+"rule fires if you are assigning less than 60%%, however this might be "
+"perfectly adequate for your system if you don't have much InnoDB tables or "
+"other services running on the same machine."
+msgstr ""
+"State utilizzando il %s%% della vostra memoria per il buffer pool InnoDB. "
+"Questa regola si attiva se state assegnando meno del 60%%, in ogni caso "
+"potrebbe essere perfettamente adeguato al vostro sistema se non avete troppe "
+"tabelle InnoDB o servizi attivi sulla stessa macchina."
+
+#: libraries/advisory_rules.txt:452
+msgid "MyISAM concurrent inserts"
+msgstr "Inserimenti MyISAM contemporanei"
+
+#: libraries/advisory_rules.txt:455
+msgid "Enable concurrent_insert by setting it to 1"
+msgstr "Abilitate concurrent_insert impostandolo a 1"
+
+#: libraries/advisory_rules.txt:456
+msgid ""
+"Setting {concurrent_insert} to 1 reduces contention between readers and "
+"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
+msgstr ""
+"Impostare {concurrent_insert} a 1 riduce i conflitti tra letture e scritture "
+"su una data tabella. V. anche la <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">Documentazione MySQL</a>"
+
+#: libraries/advisory_rules.txt:457
+msgid "concurrent_insert is set to 0"
+msgstr "concurrent_insert è impostato a 0"
+
 #~ msgid "Show help button instead of Documentation text"
 #~ msgstr ""
 #~ "Mostra il pulsante della guida invece del testo della Documentazione"
@@ -12536,1077 +13838,6 @@ msgstr "Rinomina la vista in"
 
 #~ msgid "Verbose check"
 #~ msgstr "Controllo dettagliato"
-
-#~ msgid "Uptime below one day"
-#~ msgstr "Uptime inferiore ad un giorno"
-
-#~ msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-#~ msgstr ""
-#~ "Il server è stato in esecuzione per un periodo inferiore ad 1 giorno, i "
-#~ "suggerimenti per migliorarne l'efficienza potrebbero non essere accurati."
-
-#~ msgid ""
-#~ "To have more accurate averages it is recommended to let the server run "
-#~ "for longer than a day before running this analyzer"
-#~ msgstr ""
-#~ "Per ottenere valori medi più realistici si raccomanda di lasciare il "
-#~ "server in esecuzione per più di un giorno prima di lanciare questo "
-#~ "analizzatore"
-
-#~ msgid "The uptime is only %s"
-#~ msgstr "L'uptime è solo %s"
-
-#~ msgid "Questions below 1,000"
-#~ msgstr "Question al di sotto di 1.000"
-
-#~ msgid ""
-#~ "Fewer than 1,000 questions have been run against this server. The "
-#~ "recommendations may not be accurate."
-#~ msgstr ""
-#~ "Sono stati lanciate meno di 1.000 question su questo server. Le "
-#~ "raccomandazioni potrebbero non essere precise."
-
-#~ msgid ""
-#~ "Let the server run for a longer time until it has executed a greater "
-#~ "amount of queries."
-#~ msgstr ""
-#~ "Lasciate attivo il server per un periodo maggiore finché non abbia "
-#~ "eseguito un numero più grande di query."
-
-#~ msgid "Current amount of Questions: %s"
-#~ msgstr "Quantità corrente di Question: %s"
-
-#~ msgid "Percentage of slow queries"
-#~ msgstr "Percentuale di query lente"
-
-#~ msgid ""
-#~ "There is a lot of slow queries compared to the overall amount of Queries."
-#~ msgstr "Ci sono molte query lente rispetto al numero totale di query."
-
-#~ msgid ""
-#~ "You might want to increase {long_query_time} or optimize the queries "
-#~ "listed in the slow query log"
-#~ msgstr ""
-#~ "Potreste voler incrementare {long_query_time} oppure ottimizzare le query "
-#~ "elencate nel log delle quey lente"
-
-#~ msgid "The slow query rate should be below 5%%, your value is %s%%."
-#~ msgstr ""
-#~ "Il tasso di query lente dovrebbe essere al di sotto di w 5%%, il tuo "
-#~ "valore è %s%%."
-
-#~ msgid "Slow query rate"
-#~ msgstr "Tasso di query lente"
-
-#~ msgid ""
-#~ "There is a high percentage of slow queries compared to the server uptime."
-#~ msgstr ""
-#~ "Si riscontra un'alta percentuale di query lente rispetto all'uptime del "
-#~ "server."
-
-#~ msgid ""
-#~ "You have a slow query rate of %s per hour, you should have less than 1%% "
-#~ "per hour."
-#~ msgstr ""
-#~ "Si rileva un tasso di query lente di %s all'ora, mentre dovreste averne "
-#~ "meno dell'1%% all'ora."
-
-#~ msgid "Long query time"
-#~ msgstr "Tempo di query lunghe"
-
-#~ msgid ""
-#~ "long_query_time is set to 10 seconds or more, thus only slow queries that "
-#~ "take above 10 seconds are logged."
-#~ msgstr ""
-#~ "long_query_time è impostato a 10 secondi o più, quindi solo le query "
-#~ "lente che richiedono più di 10 secondi vengono registrate nel log."
-
-#~ msgid ""
-#~ "It is suggested to set {long_query_time} to a lower value, depending on "
-#~ "your environment. Usually a value of 1-5 seconds is suggested."
-#~ msgstr ""
-#~ "Si suggerisce di impostare {long_query_time} a un valore inferiore, a "
-#~ "seconda del vostro ambiente. Di solito si suggerisce un valore di 1-5 "
-#~ "secondi."
-
-#~ msgid "long_query_time is currently set to %ds."
-#~ msgstr "long_query_time è impostato a %d secondi."
-
-#~ msgid "Slow query logging"
-#~ msgstr "Log delle quey lente"
-
-#~ msgid "The slow query log is disabled."
-#~ msgstr "Lo slow_query_log è disabilitato."
-
-#~ msgid ""
-#~ "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
-#~ "will help troubleshooting badly performing queries."
-#~ msgstr ""
-#~ "Abilitate il log delle query lente impostando {log_slow_queries} a 'ON'. "
-#~ "Questo aiuterà nella risoluzione dei problemi per le query con "
-#~ "prestazioni non buone."
-
-#~ msgid "log_slow_queries is set to 'OFF'"
-#~ msgstr "log_slow_queries è impostato a  'OFF'"
-
-#~ msgid "Release Series"
-#~ msgstr "Cancella la serie"
-
-#~ msgid "The MySQL server version less than 5.1."
-#~ msgstr "La versione del server MySQL è inferiore a 5.1."
-
-#~ msgid ""
-#~ "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
-#~ "even more so."
-#~ msgstr ""
-#~ "E' consigliabile effettuare un aggiornamento poiché MySQL 5.1 ha "
-#~ "migliorato le prestazioni e MySQL 5.5. ancora di più."
-
-#~ msgid "Current version: %s"
-#~ msgstr "Versione corrente: %s"
-
-#~ msgid "Minor Version"
-#~ msgstr "Versione minore"
-
-#~ msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-#~ msgstr "Versione inferiore a 5.1.30 (la prima release GA della 5.1)."
-
-#~ msgid ""
-#~ "You should upgrade, as recent versions of MySQL 5.1 have improved "
-#~ "performance and MySQL 5.5 even more so."
-#~ msgstr ""
-#~ "E' consigliabile effettuare un aggiornamento poiché le recenti versioni "
-#~ "MySQL 5.1 hanno migliorato le prestazioni e MySQL 5.5. ancora di più."
-
-#~ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-#~ msgstr "Versione inferiore a 5.5.8 (la prima release GA della 5.5)."
-
-#~ msgid "You should upgrade, to a stable version of MySQL 5.5"
-#~ msgstr ""
-#~ "Dovresti effettuare l'aggiornamento ad una versione stabile di MySQL 5.5"
-
-#~ msgid "Distribution"
-#~ msgstr "Distribuzione"
-
-#~ msgid "Version is compiled from source, not a MySQL official binary."
-#~ msgstr ""
-#~ "Questa versione è stata compilata dal sorgente, non è un eseguibile "
-#~ "ufficiale di MySQL."
-
-#~ msgid ""
-#~ "If you did not compile from source, you may be using a package modified "
-#~ "by a distribution. The MySQL manual only is accurate for official MySQL "
-#~ "binaries, not any package distributions (such as RedHat, Debian/Ubuntu "
-#~ "etc)."
-#~ msgstr ""
-#~ "Se non avete compilato dal sorgente, potete usare un pacchetto modificato "
-#~ "da una distribuzione. Il manuale MySQL risulta accurato solo per gli "
-#~ "eseguibili ufficiali MySQL, non per tutti i pacchetti delle distribuzioni "
-#~ "(come RedHat, Debian/Ubuntu ecc.)."
-
-#~ msgid "'source' found in version_comment"
-#~ msgstr "'source' trovato nel version_comment"
-
-#~ msgid "The MySQL manual only is accurate for official MySQL binaries."
-#~ msgstr ""
-#~ "Il manuale MySQL è accurato solo per gli eseguibili ufficiali MySQL."
-
-#~ msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-#~ msgstr ""
-#~ "La documentazione Percona si trova su http://www.percona.com/docs/wiki/"
-
-#~ msgid "'percona' found in version_comment"
-#~ msgstr "'percona' trovato nel version_comment"
-
-#~ msgid "Drizzle documentation is at http://docs.drizzle.org/"
-#~ msgstr "La documentazione Drizzle si trova su http://docs.drizzle.org/"
-
-#~ msgid "Version string (%s) matches Drizzle versioning scheme"
-#~ msgstr ""
-#~ "La stringa di versione (%s) combacia con lo schema di versione di Drizzle"
-
-#~ msgid "MySQL Architecture"
-#~ msgstr "Architettura MySQL"
-
-#~ msgid "MySQL is not compiled as a 64-bit package."
-#~ msgstr "MySQL non è compilato come pacchetto a 64-bit."
-
-#~ msgid ""
-#~ "Your memory capacity is above 3 GiB (assuming the Server is on "
-#~ "localhost), so MySQL might not be able to access all of your memory. You "
-#~ "might want to consider installing the 64-bit version of MySQL."
-#~ msgstr ""
-#~ "La memoria disponibile è superiore a 3GiB (supponendo che il server sia "
-#~ "in localhost), quindi MySQL potrebbe non riuscire ad accedere a tutta la "
-#~ "memoria disponibile. Si consiglia di installare la versione a 64-bit di "
-#~ "MySQL."
-
-#~ msgid "Available memory on this host: %s"
-#~ msgstr "Memoria disponibile su questo host: %s"
-
-#~ msgid "Query cache disabled"
-#~ msgstr "Cache della query disabilitata"
-
-#~ msgid "The query cache is not enabled."
-#~ msgstr "La cache delle query non è abilitata."
-
-#~ msgid ""
-#~ "The query cache is known to greatly improve performance if configured "
-#~ "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
-#~ "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
-#~ "memcached, ignore this recommendation."
-#~ msgstr ""
-#~ "E' noto che la cache delle query può migliorare notevolmente le "
-#~ "prestazioni se configurata correttamente. Abilitatela impostando "
-#~ "{query_cache_size} a un valore in MiB di due cifre e impostando "
-#~ "{query_cache_type} a 'ON'. <b>Nota:</b> Se state usando memcached, "
-#~ "ignorate questo suggerimento."
-
-#~ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-#~ msgstr ""
-#~ "query_cache_size è impostato a 0 or query_cache_type è impostato a 'OFF'"
-
-#~ msgid "Query caching method"
-#~ msgstr "Metodo di caching della query"
-
-#~ msgid "Suboptimal caching method."
-#~ msgstr "Metodo di caching subottimale."
-
-#~ msgid ""
-#~ "You are using the MySQL Query cache with a fairly high traffic database. "
-#~ "It might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
-#~ "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#~ "Query cache, especially if you have multiple slaves."
-#~ msgstr ""
-#~ "State usando la cache delle query MySQL con un traffico di database "
-#~ "piuttosto alto. Potrebbe essere utile prendere in considerazione <a href="
-#~ "\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</"
-#~ "a> invece della cache delle query MySQL, soprattutto se avete slave "
-#~ "multipli."
-
-#~ msgid ""
-#~ "The query cache is enabled and the server receives %d queries per second. "
-#~ "This rule fires if there is more than 100 queries per second."
-#~ msgstr ""
-#~ "La cache delle query è abilitata e il server riceve %d query al secondo. "
-#~ "Questa regola si attiva se ci sono più di 100 query al secondo."
-
-#~ msgid "Query cache efficiency (%%)"
-#~ msgstr "Efficienza della cache delle query (%%)"
-
-#~ msgid "Query cache not running efficiently, it has a low hit rate."
-#~ msgstr ""
-#~ "La cache delle query non sta lavorando in maniera efficiente, risulta una "
-#~ "frequenza bassa di hit."
-
-#~ msgid "Consider increasing {query_cache_limit}."
-#~ msgstr "Provate a incrementare {query_cache_limit}."
-
-#~ msgid "The current query cache hit rate of %s%% is below 20%%"
-#~ msgstr ""
-#~ "Il tasso corrente di %s%% delle hit nella cache delle query è al di sotto "
-#~ "del 20%%"
-
-#~ msgid "Query Cache usage"
-#~ msgstr "Utilizzo della cache della query"
-
-#~ msgid "Less than 80%% of the query cache is being utilized."
-#~ msgstr "Verrà utilizzato meno dell'80%% della cache delle query."
-
-#~ msgid ""
-#~ "This might be caused by {query_cache_limit} being too low. Flushing the "
-#~ "query cache might help as well."
-#~ msgstr ""
-#~ "Questo potrebbe essere causato dal valore troppo basso di "
-#~ "{query_cache_limit}. Effettuare il flush della cache potrebbe risolvere "
-#~ "il problema."
-
-#~ msgid ""
-#~ "The current ratio of free query cache memory to total query cache size is "
-#~ "%s%%. It should be above 80%%"
-#~ msgstr ""
-#~ "Il rapporto corrente tra la memoria libera nella cache delle query e la "
-#~ "dimensione totale della cache delle query è %s%%. Dovrebbe essere sopra "
-#~ "l'80%%"
-
-#~ msgid "Query cache fragmentation"
-#~ msgstr "Frammentazione della cache della query"
-
-#~ msgid "The query cache is considerably fragmented."
-#~ msgstr "La cache delle query risulta essere considerevolmente frammentata."
-
-#~ msgid ""
-#~ "Severe fragmentation is likely to (further) increase "
-#~ "Qcache_lowmem_prunes. This might be caused by many Query cache low memory "
-#~ "prunes due to {query_cache_size} being too small. For a immediate but "
-#~ "short lived fix you can flush the query cache (might lock the query cache "
-#~ "for a long time). Carefully adjusting {query_cache_min_res_unit} to a "
-#~ "lower value might help too, e.g. you can set it to the average size of "
-#~ "your queries in the cache using this formula: (query_cache_size - "
-#~ "qcache_free_memory) / qcache_queries_in_cache"
-#~ msgstr ""
-#~ "Un'alta frammentazione potrebbe (in seguito) incrementare "
-#~ "Qcache_lowmem_prunes. Questo potrebbe essere causato da troppe riduzioni "
-#~ "per mancanza di memoria della cache delle query, dovute a "
-#~ "{query_cache_size} troppo piccolo. Per una risoluzione veloce ma non "
-#~ "duratura, potete fare il flush della cache delle query (potrebbe bloccare "
-#~ "la cache delle query per un lungo periodo). Impostare con attenzione "
-#~ "{query_cache_min_res_unit} a un valore più basso potrebbe risolvere, ad "
-#~ "esempio potete impostarlo alla dimensione media delle vostre query nella "
-#~ "cache utilizzando la formula: (query_cache_size - qcache_free_memory) / "
-#~ "qcache_queries_in_cache"
-
-#~ msgid ""
-#~ "The cache is currently fragmented by %s%% , with 100%% fragmentation "
-#~ "meaning that the query cache is an alternating pattern of free and used "
-#~ "blocks. This value should be below 20%%."
-#~ msgstr ""
-#~ "La cache è attualmente frammentata al %s%%, una frammentazione del 100%% "
-#~ "indica che la cache delle query presenta uno schema alternato di blocchi "
-#~ "liberi e usati. Questo valore dovrebbe essere inferiore al 20%%."
-
-#~ msgid "Query cache low memory prunes"
-#~ msgstr "Riduzioni della cache delle query per mancanza di memoria"
-
-#~ msgid ""
-#~ "Cached queries are removed due to low query cache memory from the query "
-#~ "cache."
-#~ msgstr ""
-#~ "Le query in cache sono state rimosse per mancanza di memoria nella cache "
-#~ "delle query."
-
-#~ msgid ""
-#~ "You might want to increase {query_cache_size}, however keep in mind that "
-#~ "the overhead of maintaining the cache is likely to increase with its "
-#~ "size, so do this in small increments and monitor the results."
-#~ msgstr ""
-#~ "Potreste voler incrementare {query_cache_size}, comunque considerate che "
-#~ "l'overhead per mantenere la cache cresce in proporzione alla sua "
-#~ "dimensione, quindi fatelo con piccoli incrementi e monitorate i risultati."
-
-#~ msgid ""
-#~ "The ratio of removed queries to inserted queries is %s%%. The lower this "
-#~ "value is, the better (This rules firing limit: 0.1%%)"
-#~ msgstr ""
-#~ "Il rapporto tra le query rimosse e quelle inserite è %s%%. Più basso è "
-#~ "questo valore, meglio è (Limite per l'attivazione di questa regola: 0.1%%)"
-
-#~ msgid "Query cache max size"
-#~ msgstr "Dimensione massima della cache delle query"
-
-#~ msgid ""
-#~ "The query cache size is above 128 MiB. Big query caches may cause "
-#~ "significant overhead that is required to maintain the cache."
-#~ msgstr ""
-#~ "La dimensione della cache delle query è superiore a 128 MiB. Le cache per "
-#~ "query grandi possono causare un overhead significativo per il "
-#~ "mantenimento della cache stessa."
-
-#~ msgid ""
-#~ "Depending on your environment, it might be performance increasing to "
-#~ "reduce this value."
-#~ msgstr ""
-#~ "A seconda del vostro ambiente, la riduzione di questo valore potrebbe "
-#~ "aumentare le prestazioni."
-
-#~ msgid "Current query cache size: %s"
-#~ msgstr "La dimensione attuale della cache delle delle query è: %s"
-
-#~ msgid "Query cache min result size"
-#~ msgstr "Dimensione minima del risultato della cache delle query"
-
-#~ msgid ""
-#~ "The max size of the result set in the query cache is the default of 1 MiB."
-#~ msgstr ""
-#~ "La dimensione massima del result set nella cache delle query è per "
-#~ "default di 1 MiB."
-
-#~ msgid ""
-#~ "Changing {query_cache_limit} (usually by increasing) may increase "
-#~ "efficiency. This variable determines the maximum size a query result may "
-#~ "have to be inserted into the query cache. If there are many query results "
-#~ "above 1 MiB that are well cacheable (many reads, little writes) then "
-#~ "increasing {query_cache_limit} will increase efficiency. Whereas in the "
-#~ "case of many query results being above 1 MiB that are not very well "
-#~ "cacheable (often invalidated due to table updates) increasing "
-#~ "{query_cache_limit} might reduce efficiency."
-#~ msgstr ""
-#~ "Cambiare {query_cache_limit} (di solito incrementandolo) potrebbe "
-#~ "migliorare l'efficienza. Questa variabile determina la dimensione massima "
-#~ "per la quale il risultato di una query può essere inserito nella cache "
-#~ "delle query. Se ci sono troppi risultati di query con dimensione "
-#~ "superiore a 1 MiB che sono facilmente memorizzabili nella cache (molte "
-#~ "letture, poche scritture) allora aumentare {query_cache_limit} incrementa "
-#~ "l'efficienza. Laddove molti risultati di query siano più grandi di 1 MiB "
-#~ "e non possono essere memorizzati nella cache (spesso invalidati a causa "
-#~ "di aggiornamenti delle tabelle) aumentare {query_cache_limit} potrebbe "
-#~ "ridurre l'efficienza."
-
-#~ msgid "query_cache_limit is set to 1 MiB"
-#~ msgstr "query_cache_limit impostsato a 1 MiB"
-
-#~ msgid "Percentage of sorts that cause temporary tables"
-#~ msgstr "Percentuale di ordinamenti che producono tabelle temporanee"
-
-#~ msgid "Too many sorts are causing temporary tables."
-#~ msgstr "Troppi ordinamenti stanno creando tabelle temporanee."
-
-#~ msgid ""
-#~ "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
-#~ "depending on your system memory limits"
-#~ msgstr ""
-#~ "Incrementate sort_buffer_size e/o read_rnd_buffer_size, a seconda dei "
-#~ "limiti di memoria del vostro sistema"
-
-#~ msgid ""
-#~ "%s%% of all sorts cause temporary tables, this value should be lower than "
-#~ "10%%."
-#~ msgstr ""
-#~ "%s%% di tutti gli ordinamenti causano la creazione di tabelle temporanee, "
-#~ "questo valore dovrebbe essere inferiore al 10%%."
-
-#~ msgid "Rate of sorts that cause temporary tables"
-#~ msgstr "Frequenza di ordinamenti che producono tabelle temporanee"
-
-#~ msgid ""
-#~ "Temporary tables average: %s, this value should be less than 1 per hour."
-#~ msgstr ""
-#~ "Media di tabelle temporanee: %s, questo valore dovrebbe essere inferiore "
-#~ "a 1 all'ora."
-
-#~ msgid "Sort rows"
-#~ msgstr "Oridna le righe"
-
-#~ msgid "There are lots of rows being sorted."
-#~ msgstr "Ci sono molte righe da ordinare."
-
-#~ msgid ""
-#~ "While there is nothing wrong with a high amount of row sorting, you might "
-#~ "want to make sure that the queries which require a lot of sorting use "
-#~ "indexed columns in the ORDER BY clause, as this will result in much "
-#~ "faster sorting"
-#~ msgstr ""
-#~ "Sebbene non ci sia nulla di sbagliato nell'avere un'alto numero di righe "
-#~ "da ordinare, potreste voler essere sicuri che le query che richiedono "
-#~ "molti ordinamenti usino campi indicizzati nella clausola ORDER BY, poiché "
-#~ "questo risulterebbe in un ordinamento molto più veloce"
-
-#~ msgid "Sorted rows average: %s"
-#~ msgstr "Media di righe ordinate: %s"
-
-#~ msgid "Rate of joins without indexes"
-#~ msgstr "Frequenza di join senza indici"
-
-#~ msgid "There are too many joins without indexes."
-#~ msgstr "Ci sono troppe join prive di indici."
-
-#~ msgid ""
-#~ "This means that joins are doing full table scans. Adding indexes for the "
-#~ "columns being used in the join conditions will greatly speed up table "
-#~ "joins"
-#~ msgstr ""
-#~ "Significa che alcune join sono elaborate per mezzo di full table scan. "
-#~ "Aggiungendo indici alle colonne utilizzate nelle condizioni di join si "
-#~ "otterranno notevoli riduzioni dei tempi di esecuzione"
-
-#~ msgid "Table joins average: %s, this value should be less than 1 per hour"
-#~ msgstr ""
-#~ "Media di join di tabella: %s, questo valore dovrebbe essere inferiore a 1 "
-#~ "all'ora"
-
-#~ msgid "Rate of reading first index entry"
-#~ msgstr "Tasso di lettura della prima voce nell'indice"
-
-#~ msgid "The rate of reading the first index entry is high."
-#~ msgstr "Il tasso di lettura della prima voce nell'indice è alto."
-
-#~ msgid ""
-#~ "This usually indicates frequent full index scans. Full index scans are "
-#~ "faster than table scans but require lots of CPU cycles in big tables, if "
-#~ "those tables that have or had high volumes of UPDATEs and DELETEs, "
-#~ "running 'OPTIMIZE TABLE' might reduce the amount of and/or speed up full "
-#~ "index scans. Other than that full index scans can only be reduced by "
-#~ "rewriting queries."
-#~ msgstr ""
-#~ "Questo indica solitamente frequenti scansioni complete dell'indice. "
-#~ "Scansioni complete dell'indice sono più veloci delle scansioni di "
-#~ "tabella, ma richiedono molto utilizzo della CPU in grandi tabelle, se "
-#~ "tali tabelle hanno o hanno avuto un volume elevato di UPDATE e DELETE "
-#~ "query, l'esecuzione di 'OPTIMIZE TABLE' potrebbe ridurre la quantità "
-#~ "delle e/o velocizzare le scansioni complete dell'indice. Oltre a questo "
-#~ "scansioni complete dell'indice possono essere ridotte solo riscrivendo le "
-#~ "query."
-
-#~ msgid "Index scans average: %s, this value should be less than 1 per hour"
-#~ msgstr ""
-#~ "Media di scansioni dell'indice: %s, questo valore dovrebbe essere "
-#~ "inferiore a 1 all'ora"
-
-#~ msgid "Rate of reading fixed position"
-#~ msgstr "Tasso di lettura in posizione fissa"
-
-#~ msgid "The rate of reading data from a fixed position is high."
-#~ msgstr "Il tasso di lettura dei dati da una posizione fissa è alto."
-
-#~ msgid ""
-#~ "This indicates that many queries need to sort results and/or do a full "
-#~ "table scan, including join queries that do not use indexes. Add indexes "
-#~ "where applicable."
-#~ msgstr ""
-#~ "Questo indica che molte query richiedono l'ordinamento dei risultati e/o "
-#~ "la scansione completa della tabella, includendo query con join che non "
-#~ "usa gli indici. Aggiungete gli indici ove possibile."
-
-#~ msgid ""
-#~ "Rate of reading fixed position average: %s, this value should be less "
-#~ "than 1 per hour"
-#~ msgstr ""
-#~ "Tasso medio di lettura su posizione fissa: %s, questo valore dovrebbe "
-#~ "essere inferiore a 1 all'ora"
-
-#~ msgid "Rate of reading next table row"
-#~ msgstr "Frequenza di lettura della riga nella prossima tabella"
-
-#~ msgid "The rate of reading the next table row is high."
-#~ msgstr "La frequenza di lettura della riga nella prossima tabella è alta."
-
-#~ msgid ""
-#~ "This indicates that many queries are doing full table scans. Add indexes "
-#~ "where applicable."
-#~ msgstr ""
-#~ "Questo indica che molte query stanno facendo scansioni complete su "
-#~ "tabella. Aggiungete degli indici ove possibile."
-
-#~ msgid ""
-#~ "Rate of reading next table row: %s, this value should be less than 1 per "
-#~ "hour"
-#~ msgstr ""
-#~ "Tasso di lettura della riga successiva nella tabella: %s, questo valore "
-#~ "dovrebbe essere inferiore a 1 all'ora"
-
-#~ msgid "tmp_table_size vs. max_heap_table_size"
-#~ msgstr "tmp_table_size vs. max_heap_table_size"
-
-#~ msgid "tmp_table_size and max_heap_table_size are not the same."
-#~ msgstr "tmp_table_size e max_heap_table_size non coincidono."
-
-#~ msgid ""
-#~ "If you have deliberately changed one of either: The server uses the lower "
-#~ "value of either to determine the maximum size of in-memory tables. So if "
-#~ "you wish to increase the in-memory table limit you will have to increase "
-#~ "the other value as well."
-#~ msgstr ""
-#~ "Se avete modificato intenzionalmente una delle due: Il server utilizza il "
-#~ "valore più basso di entrambe per determinare la dimensione massima delle "
-#~ "tabelle in-memory. Quindi, se volete aumentare il limite della tabella in-"
-#~ "memory, dovete incrementare anche l'altro valore."
-
-#~ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-#~ msgstr ""
-#~ "I valori attuali di tmp_table_size sono: %s, max_heap_table_size: %s"
-
-#~ msgid "Percentage of temp tables on disk"
-#~ msgstr "Percentuale di tabelle temporanee su disco"
-
-#~ msgid ""
-#~ "Many temporary tables are being written to disk instead of being kept in "
-#~ "memory."
-#~ msgstr ""
-#~ "Molte tabelle temporanee vengono scritte nel disco invece di essere "
-#~ "mantenute in memoria."
-
-#~ msgid ""
-#~ "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#~ "some temporary tables are always being written to disk, independent of "
-#~ "the value of these variables. To eliminate these you will have to rewrite "
-#~ "your queries to avoid those conditions (Within a temporary table: "
-#~ "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#~ "bytes) as mentioned in the beginning of an <a href=\"http://www.facebook."
-#~ "com/note.php?note_id=10150111255065841&comments\">Article by the Pythian "
-#~ "Group</a>"
-#~ msgstr ""
-#~ "Incrementare {max_heap_table_size} e {tmp_table_size} potrebbe risolvere "
-#~ "il problema. Tuttavia alcune tabelle temporanee vengono sempre scritte "
-#~ "sul disco, indipendentemente dal valore di queste variabili. Per "
-#~ "eliminarle dovrete riscrivere le query per evitare queste condizioni "
-#~ "(All'interno delle tabelle temporanee: Presenza di un campo BLOB o di un "
-#~ "TEXT o presenza di un campo più grande di 512 byte) come menzionato "
-#~ "all'inizio di un <a href=\"http://www.facebook.com/note.php?"
-#~ "note_id=10150111255065841&comments\">Articolo del Pythian Group</a>"
-
-#~ msgid ""
-#~ "%s%% of all temporary tables are being written to disk, this value should "
-#~ "be below 25%%"
-#~ msgstr ""
-#~ "Il %s%% di tutte le tabelle temporanee verrà scritto su disco, questo "
-#~ "valore dovrebbe essere inferiore al 25%%"
-
-#~ msgid "Temp disk rate"
-#~ msgstr "Frequenza disco temporaneo"
-
-#~ msgid ""
-#~ "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#~ "some temporary tables are always being written to disk, independent of "
-#~ "the value of these variables. To eliminate these you will have to rewrite "
-#~ "your queries to avoid those conditions (Within a temporary table: "
-#~ "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#~ "bytes) as mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/"
-#~ "en/internal-temporary-tables.html\">MySQL Documentation</a>"
-#~ msgstr ""
-#~ "Incrementare {max_heap_table_size} e {tmp_table_size} potrebbe risolvere "
-#~ "il problema. Tuttavia alcune tabelle temporanee vengono sempre scritte "
-#~ "sul disco, indipendentemente dal valore di queste variabili. Per "
-#~ "eliminarle dovrete riscrivere le query per evitare queste condizioni "
-#~ "(All'interno delle tabelle temporanee: Presenza di un campo BLOB o di un "
-#~ "TEXT o presenza di un campo più grande di 512 byte) come menzionato nella "
-#~ "<a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
-#~ "tables.html\">Documentazione MySQL</a>"
-
-#~ msgid ""
-#~ "Rate of temporary tables being written to disk: %s, this value should be "
-#~ "less than 1 per hour"
-#~ msgstr ""
-#~ "Tasso di tabelle temporanee che verranno scritte su disco: %s, questo "
-#~ "valore dovrebbe essere inferiore a 1 all'ora"
-
-#~ msgid "MyISAM key buffer size"
-#~ msgstr "Dimensione del key buffer MyISAM"
-
-#~ msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-#~ msgstr ""
-#~ "Key buffer non inizializzato. Nessun indice MyISAM verrà memorizzato in "
-#~ "cache."
-
-#~ msgid ""
-#~ "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M "
-#~ "is a good start."
-#~ msgstr ""
-#~ "Impostare {key_buffer_size} a seconda della dimensione dei vostri indici "
-#~ "MyISAM. 64M è un buon inizio."
-
-#~ msgid "key_buffer_size is 0"
-#~ msgstr "key_buffer_size è uguale a 0"
-
-#~ msgid "Max %% MyISAM key buffer ever used"
-#~ msgstr "Massima %% di utilizzo del key buffer MyISAM"
-
-#~ msgid "MyISAM key buffer (index cache) %% used is low."
-#~ msgstr ""
-#~ "Bassa percentuale di utilizzo del buffer delle chiavi MyISAM (cache degli "
-#~ "indici)."
-
-#~ msgid ""
-#~ "You may need to decrease the size of {key_buffer_size}, re-examine your "
-#~ "tables to see if indexes have been removed, or examine queries and "
-#~ "expectations about what indexes are being used."
-#~ msgstr ""
-#~ "Potrebbe essere necessario diminuire la dimensione di {key_buffer_size}, "
-#~ "ricontrollare le tabelle per verificare se gli indici sono stati rimossi, "
-#~ "oppure esaminare le query e controllare che siano utilizzati gli indici "
-#~ "che ci si aspetta."
-
-#~ msgid ""
-#~ "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "Masisma %% MyISAM key buffer mai usata: %s%%, questo valore dovrebbe "
-#~ "essere sopra il 95%%"
-
-#~ msgid "Percentage of MyISAM key buffer used"
-#~ msgstr "Percentuale di utilizzo del buffer key MyISAM"
-
-#~ msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "%% di key buffer MyISAM utilizzato: %s%%, questo valore dovrebbe essere "
-#~ "superiore al 95%%"
-
-#~ msgid "Percentage of index reads from memory"
-#~ msgstr "Percentuale di letture degli indici dalla memoria"
-
-#~ msgid "The %% of indexes that use the MyISAM key buffer is low."
-#~ msgstr "La percentuale di indici che usa il buffer MyISAM è bassa."
-
-#~ msgid "You may need to increase {key_buffer_size}."
-#~ msgstr "Potrebbe essere necessario aumentare {key_buffer_size}."
-
-#~ msgid "Index reads from memory: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "Letture degli indici dalla memoria: %s%%, questo valore dovrebbe essere "
-#~ "superiore al 95%%"
-
-#~ msgid "Rate of table open"
-#~ msgstr "Frequenza di tabelle aperte"
-
-#~ msgid "The rate of opening tables is high."
-#~ msgstr "La frequenza di apertura di tabelle è alta."
-
-#~ msgid ""
-#~ "Opening tables requires disk I/O which is costly. Increasing "
-#~ "{table_open_cache} might avoid this."
-#~ msgstr ""
-#~ "Aprire tabelle richiede I/O su disco che è un'operazione costosa. "
-#~ "Aumentare {table_open_cache} potrebbe evitarlo."
-
-#~ msgid "Opened table rate: %s, this value should be less than 10 per hour"
-#~ msgstr ""
-#~ "Tasso di apertura delle tabelle: %s, questo valore dovrebbe essere "
-#~ "inferiore a 10 all'ora"
-
-#~ msgid "Percentage of used open files limit"
-#~ msgstr "Limite percentuale di file aperti utilizzati"
-
-#~ msgid ""
-#~ "The number of open files is approaching the max number of open files.  "
-#~ "You may get a \"Too many open files\" error."
-#~ msgstr ""
-#~ "Il numero di file aperti si sta avvicinando al massimo numero di file "
-#~ "aperti. Potrebbe ricevere un errore \"Troppi file aperti\"."
-
-#~ msgid ""
-#~ "Consider increasing {open_files_limit}, and check the error log when "
-#~ "restarting after changing open_files_limit."
-#~ msgstr ""
-#~ "Incrementate {open_files_limit} e controllate il log degli errori quando "
-#~ "riavviate dopo avere cambiato open_files_limit."
-
-#~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
-#~ "%"
-#~ msgstr ""
-#~ "Il numero di file aperti è al %s%% del limite. Dovrebbe essere al di "
-#~ "sotto dell'85%%"
-
-#~ msgid "Rate of open files"
-#~ msgstr "Frequenza di file aperti"
-
-#~ msgid "The rate of opening files is high."
-#~ msgstr "La frequenza di apertura di file è alta."
-
-#~ msgid "Opened files rate: %s, this value should be less than 5 per hour"
-#~ msgstr ""
-#~ "Tasso di file aperti: %s, questo valore dovrebbe essere inferiore a 5 "
-#~ "all'ora"
-
-#~ msgid "Immediate table locks %%"
-#~ msgstr "%% di lock immediati delle tabelle"
-
-#~ msgid "Too many table locks were not granted immediately."
-#~ msgstr "Troppi lock delle tabelle non sono stati assegnati immediatamente."
-
-#~ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-#~ msgstr ""
-#~ "Ottimizzate le query e/o utilizzate InnoDB per ridurre i ritardi dovuti "
-#~ "al lock."
-
-#~ msgid "Immediate table locks: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "Lock di tabelle immediato: %s%%, questo valore dovrebbe essere al di "
-#~ "sopra del 95%%"
-
-#~ msgid "Table lock wait rate"
-#~ msgstr "Tasso di lock delle tabelle in attesa"
-
-#~ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-#~ msgstr ""
-#~ "Tasso di lock di tabelle in attesa: %s, questo valore dovrebbe essere "
-#~ "inferiore a 1 all'ora"
-
-#~ msgid "Thread cache"
-#~ msgstr "Cache del thread"
-
-#~ msgid ""
-#~ "Thread cache is disabled, resulting in more overhead from new connections "
-#~ "to MySQL."
-#~ msgstr ""
-#~ "La chace dei thread è disabilitata: questo causa un overhead maggiore "
-#~ "delle nuove connessioni verso MySQL."
-
-#~ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-#~ msgstr "Abilitate la cache dei thread impostando {thread_cache_size} > 0."
-
-#~ msgid "The thread cache is set to 0"
-#~ msgstr "La cache dei thread è impostata a 0"
-
-#~ msgid "Thread cache hit rate %%"
-#~ msgstr "Percentuale hit nella cache del thread"
-
-#~ msgid "Thread cache is not efficient."
-#~ msgstr "La cache dei thread non è efficiente."
-
-#~ msgid "Increase {thread_cache_size}."
-#~ msgstr "Aumenta {thread_cache_size}."
-
-#~ msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-#~ msgstr ""
-#~ "Frequenza hit nella cache dei thread: %s%%, questo valore dovrebbe essere "
-#~ "superiore all'80%%"
-
-#~ msgid "Threads that are slow to launch"
-#~ msgstr "Thread che sono lenti da avviarsi"
-
-#~ msgid "There are too many threads that are slow to launch."
-#~ msgstr "Ci sono troppi thread lenti da avviare."
-
-#~ msgid ""
-#~ "This generally happens in case of general system overload as it is pretty "
-#~ "simple operations. You might want to monitor your system load carefully."
-#~ msgstr ""
-#~ "Questo di solito succede quando si verifica un sovraccarico del sistema "
-#~ "anche per operazioni piuttosto semplici. Sarebbe opportuno monitorare "
-#~ "attentamente il carico del sistema."
-
-#~ msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-#~ msgstr ""
-#~ "%s thread hanno richiesto più di %s secondi per partire, dovrebbe essere 0"
-
-#~ msgid "Slow launch time"
-#~ msgstr "Tempo di avvio lento"
-
-#~ msgid "Slow_launch_threads is above 2s"
-#~ msgstr "Slow_launch_threads è superiore a 2 secondi"
-
-#~ msgid ""
-#~ "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
-#~ "to launch"
-#~ msgstr ""
-#~ "Impostate slow_launch_time a 1 secondo o 2 secondi per contare "
-#~ "correttamente i thread che sono lenti all'avvio"
-
-#~ msgid "slow_launch_time is set to %s"
-#~ msgstr "slow_launch_time é impostato a %s"
-
-#~ msgid "Percentage of used connections"
-#~ msgstr "Percentuale di connessioni utilizzate"
-
-#~ msgid ""
-#~ "The maximum amount of used connections is getting close to the value of "
-#~ "max_connections."
-#~ msgstr ""
-#~ "Il numero massimo di connessioni utilizzate si sta avvicinando al valore "
-#~ "max_connections."
-
-#~ msgid ""
-#~ "Increase max_connections, or decrease wait_timeout so that connections "
-#~ "that do not close database handlers properly get killed sooner. Make sure "
-#~ "the code closes database handlers properly."
-#~ msgstr ""
-#~ "Aumentate max_connections, o diminuite wait_timeout affinché le "
-#~ "connessioni che non chiudono i database handler possano essere cancellate "
-#~ "al più presto. Controllate che nel codice gli handler al database vengano "
-#~ "chiusi correttamente."
-
-#~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
-#~ "%"
-#~ msgstr ""
-#~ "Max_used_connections è al %s%% di max_connections, dovrebbe essere "
-#~ "inferiore all'80%%"
-
-#~ msgid "Percentage of aborted connections"
-#~ msgstr "Percentuale di connessioni abortite"
-
-#~ msgid "Too many connections are aborted."
-#~ msgstr "Sono state interrotte troppe connessioni."
-
-#~ msgid ""
-#~ "Connections are usually aborted when they cannot be authorized. <a href="
-#~ "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-#~ "source-of-aborted_connects/\">This article</a> might help you track down "
-#~ "the source."
-#~ msgstr ""
-#~ "Le connessioni vengono di solito interrotte quando non possono essere "
-#~ "autorizzate. <a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-"
-#~ "to-track-down-the-source-of-aborted_connects/\">Questo articolo</a> "
-#~ "potrebbe essere d'aiuto per tracciare il sorgente."
-
-#~ msgid "%s%% of all connections are aborted. This value should be below 1%%"
-#~ msgstr ""
-#~ "Il %s%% di tutte le connessioni è stato interrotto. Questo valore "
-#~ "dovrebbe essere inferiore all'1%%"
-
-#~ msgid "Rate of aborted connections"
-#~ msgstr "Frequenza di connessioni abortite"
-
-#~ msgid ""
-#~ "Aborted connections rate is at %s, this value should be less than 1 per "
-#~ "hour"
-#~ msgstr ""
-#~ "Il tasso di connessioni interrotte è %s, questo valore dovrebbe essere "
-#~ "inferiore a 1 all'ora"
-
-#~ msgid "Percentage of aborted clients"
-#~ msgstr "Percentuale di client abortiti"
-
-#~ msgid "Too many clients are aborted."
-#~ msgstr "Sono state interrotti troppi client."
-
-#~ msgid ""
-#~ "Clients are usually aborted when they did not close their connection to "
-#~ "MySQL properly. This can be due to network issues or code not closing a "
-#~ "database handler properly. Check your network and code."
-#~ msgstr ""
-#~ "Le connessioni dei client sono solitamente terminate quando questi non "
-#~ "terminano correttamente le loro connessioni a MySQL. Questo potrebbe "
-#~ "essere causato da problemi di rete o da codice che non termina "
-#~ "correttamente le connessioni. Controllare rete e codice."
-
-#~ msgid "%s%% of all clients are aborted. This value should be below 2%%"
-#~ msgstr ""
-#~ "Il server termina il %s%% delle connessioni dei client. Questo valore "
-#~ "dovrebbe essere inferiore al 2%%"
-
-#~ msgid "Rate of aborted clients"
-#~ msgstr "Frequenza di connessioni client terminate"
-
-#~ msgid ""
-#~ "Aborted client rate is at %s, this value should be less than 1 per hour"
-#~ msgstr ""
-#~ "La frequenza di interruzione di connessioni dei client è %s, questo "
-#~ "valore dovrebbe essere inferiore ad 1 per ora"
-
-#~ msgid "Is InnoDB disabled?"
-#~ msgstr "InnoDB è disabilitato?"
-
-#~ msgid "You do not have InnoDB enabled."
-#~ msgstr "InnoDB non è abilitato."
-
-#~ msgid "InnoDB is usually the better choice for table engines."
-#~ msgstr ""
-#~ "InnoDB è solitamente la miglior scelta tra i motori di archiviazione."
-
-#~ msgid "have_innodb is set to 'value'"
-#~ msgstr "have_innodb è impostato a 'value'"
-
-#~ msgid "InnoDB log size"
-#~ msgstr "Dimensione log InnoDB"
-
-#~ msgid ""
-#~ "The InnoDB log file size is not an appropriate size, in relation to the "
-#~ "InnoDB buffer pool."
-#~ msgstr ""
-#~ "La dimensione del file di log InnoDB non è appropriata, in relazione alla "
-#~ "dimensione del buffer pool InnoDB."
-
-#~ msgid ""
-#~ "Especially on a system with a lot of writes to InnoDB tables you should "
-#~ "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
-#~ "the bigger this value, the longer the recovery time will be when database "
-#~ "crashes, so this value should not be set much higher than 256 MiB. Please "
-#~ "note however that you cannot simply change the value of this variable. "
-#~ "You need to shutdown the server, remove the InnoDB log files, set the new "
-#~ "value in my.cnf, start the server, then check the error logs if "
-#~ "everything went fine. See also <a href=\"http://"
-#~ "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#~ "innodblogfilesize-proper-way.html\">this blog entry</a>"
-#~ msgstr ""
-#~ "Si dovrebbe impostare innodb_log_file_size al 25%% di "
-#~ "{innodb_buffer_pool_size}, soprattutto in sistemi che processano numerose "
-#~ "scritture in tabelle InnoDB. Tuttavia più questo valore è alto maggiore "
-#~ "sarà il tempo necessario per recuperare i database in seguito a crash, "
-#~ "quindi sarebbe opportuno non andare molto oltre 256 MiB. È necessario "
-#~ "tener conto che non è possibile una veloce modifica di questo parametro. "
-#~ "Occorre fermare il server, rimuovere i file log InnoDB, impostare il "
-#~ "nuovo valore in my.cnf, avviare il server, quindi assicurarsi "
-#~ "dell'assenza di errori nei log. Vedi anche <a href=\"http://"
-#~ "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#~ "innodblogfilesize-proper-way.html\">questo articolo di blog</a>"
-
-#~ msgid ""
-#~ "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool "
-#~ "size, it should not be below 20%%"
-#~ msgstr ""
-#~ "La dimensione del log InnoDB è %s%% in relazione alla dimensione del "
-#~ "buffer pool InnoDB, dovrebbe essere non inferiore al 20%%"
-
-#~ msgid "Max InnoDB log size"
-#~ msgstr "Dimensione massima log InnoDB"
-
-#~ msgid "The InnoDB log file size is inadequately large."
-#~ msgstr "La dimensione del file di log InnoDB è eccessivamente grande."
-
-#~ msgid ""
-#~ "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
-#~ "of {innodb_buffer_pool_size}. A very big innodb_log_file_size slows down "
-#~ "the recovery time after a database crash considerably. See also <a href="
-#~ "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-#~ "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#~ "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#~ "the server, then check the error logs if everything went fine. See also "
-#~ "<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-#~ "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
-#~ msgstr ""
-#~ "Solitamente è sufficiente impostare innodb_log_file_size al 25%% della "
-#~ "dimensione di {innodb_buffer_pool_size}. Un innodb_log_file_size molto "
-#~ "grande rallenta considerevolmente il tempo di ripristino in seguito ad un "
-#~ "crash del database. Vedere anche <a href=\"http://www."
-#~ "mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
-#~ "\">questo articolo</a>. È necessario fermare il server, rimuovere i file "
-#~ "log InnoDB, impostare il nuovo valore in my.cnf, avviare il server, "
-#~ "quindi controllare nei log degli errori se tutto è andato correttamente. "
-#~ "Consultare anche <a href=\"http://mysqldatabaseadministration.blogspot."
-#~ "com/2007/01/increase-innodblogfilesize-proper-way.html\">questo articolo "
-#~ "di blog</a>"
-
-#~ msgid "Your absolute InnoDB log size is %s MiB"
-#~ msgstr "La vostra dimensione assoluta del log InnoDB è %s MiB"
-
-#~ msgid "InnoDB buffer pool size"
-#~ msgstr "Dimensione del buffer pool InnoDB"
-
-#~ msgid "Your InnoDB buffer pool is fairly small."
-#~ msgstr "Il vostro buffer pool InnoDB è abbastanza piccolo."
-
-#~ msgid ""
-#~ "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#~ "tables. Assign all your remaining memory to this buffer. For database "
-#~ "servers that use solely InnoDB as storage engine and have no other "
-#~ "services (e.g. a web server) running, you may set this as high as 80%% of "
-#~ "your available memory. If that is not the case, you need to carefully "
-#~ "assess the memory consumption of your other services and non-InnoDB-"
-#~ "Tables and set this variable accordingly. If it is set too high, your "
-#~ "system will start swapping, which decreases performance significantly. "
-#~ "See also <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-#~ "choosing-innodb_buffer_pool_size/\">this article</a>"
-#~ msgstr ""
-#~ "Il buffer pool InnoDB ha un impatto notevole sulla prestazione delle "
-#~ "tabelle InnoDB. Assegnate tutta la memoria restante a questo buffer. Per "
-#~ "server di database che utilizzano esclusivamente InnoDB come motore di "
-#~ "memorizzazione e non ci sono altri servizi (come un server web) attivi, "
-#~ "potreste impostare questo valore fino all'80%% della memoria disponibile. "
-#~ "Se questo non è il caso, dovreste sistemare con attenzione il consumo di "
-#~ "memoria degli altri servizi e delle tabelle non-InnoDB e impostare questa "
-#~ "variabile di conseguenza. Se viene impostata a un valore troppo alto, il "
-#~ "sistema inizierà a fare swapping, diminuendo le prestazioni in maniera "
-#~ "significativa. V. anche <a href=\"http://www.mysqlperformanceblog."
-#~ "com/2007/11/03/choosing-innodb_buffer_pool_size/\">questo articolo</a>"
-
-#~ msgid ""
-#~ "You are currently using %s%% of your memory for the InnoDB buffer pool. "
-#~ "This rule fires if you are assigning less than 60%%, however this might "
-#~ "be perfectly adequate for your system if you don't have much InnoDB "
-#~ "tables or other services running on the same machine."
-#~ msgstr ""
-#~ "State utilizzando il %s%% della vostra memoria per il buffer pool InnoDB. "
-#~ "Questa regola si attiva se state assegnando meno del 60%%, in ogni caso "
-#~ "potrebbe essere perfettamente adeguato al vostro sistema se non avete "
-#~ "troppe tabelle InnoDB o servizi attivi sulla stessa macchina."
-
-#~ msgid "MyISAM concurrent inserts"
-#~ msgstr "Inserimenti MyISAM contemporanei"
-
-#~ msgid "Enable concurrent_insert by setting it to 1"
-#~ msgstr "Abilitate concurrent_insert impostandolo a 1"
-
-#~ msgid ""
-#~ "Setting {concurrent_insert} to 1 reduces contention between readers and "
-#~ "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
-#~ "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
-#~ msgstr ""
-#~ "Impostare {concurrent_insert} a 1 riduce i conflitti tra letture e "
-#~ "scritture su una data tabella. V. anche la <a href=\"http://dev.mysql.com/"
-#~ "doc/refman/5.5/en/concurrent-inserts.html\">Documentazione MySQL</a>"
-
-#~ msgid "concurrent_insert is set to 0"
-#~ msgstr "concurrent_insert è impostato a 0"
 
 #~ msgid ""
 #~ "Javascript support is missing or disabled in your browser, some "
