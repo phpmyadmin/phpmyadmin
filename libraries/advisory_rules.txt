@@ -1,8 +1,12 @@
 # phpMyAdmin Advisory rules file
+#
 # Use only UNIX style newlines
-# This file is being parsed by Advisor.class.php, which should handle syntax errors correctly.
-# However, PHP Warnings and the like are being consumed by the phpMyAdmin error handler, so those won't show up
-# E.g.: Justification line is empty because you used an unescape percent sign, sprintf() returns an empty string and no warning/error is shown
+#
+# This file is being parsed by Advisor.class.php, which should handle syntax
+# errors correctly. However, PHP Warnings and the like are being consumed by
+# the phpMyAdmin error handler, so those won't show up E.g.: Justification line
+# is empty because you used an unescape percent sign, sprintf() returns an
+# empty string and no warning/error is shown
 #
 # Rule Syntax:
 # 'rule' identifier[the name of the rule] eexpr [an optional precondition]
@@ -16,14 +20,26 @@
 # eexpr: [expr]		- expr enclosed in []
 # expr: a php code literal with extras:
 #       - variable names are replaced with their respective values
-#       - fired('name of rule') is replaced with true/false when given rule has been fired. Note however that this is a very simple rules engine. Rules are only checked in sequential order as they are written down here. If given rule has not been checked yet, fired() will always evaluate to false
-#       - 'value' is replaced with the calculated value. If it is a string, it will be put within single quotes
-#       - other than that you may use any php function, initialized variable or constant
+#       - fired('name of rule') is replaced with true/false when given rule has
+#         been fired. Note however that this is a very simple rules engine.
+#         Rules are only checked in sequential order as they are written down
+#         here. If given rule has not been checked yet, fired() will always
+#         evaluate to false
+#       - 'value' is replaced with the calculated value. If it is a string, it
+#         will be put within single quotes
+#       - other than that you may use any php function, initialized variable or
+#         constant
 #
 # identifier: A string enclosed in single quotes
-# string: A quoteless string, may contain HTML. Variable names enclosed in curly braces are replaced with links to directly edit this variable. e.g. {tmp_table_size}
-# formatted-string: You may use classic php sprintf() string formatting here, the arguments must be appended after a trailing pipe (|) as mentioned in above syntax
-#                   percent signs (%) are automatically escaped (%%) in the following cases: When followed by a space, dot or comma and at the end of the line)
+# string: A quoteless string, may contain HTML. Variable names enclosed in
+#         curly braces are replaced with links to directly edit this variable.
+#         e.g. {tmp_table_size}
+# formatted-string: You may use classic php sprintf() string formatting here,
+#                   the arguments must be appended after a trailing pipe (|) as
+#                   mentioned in above syntax percent signs (%) are
+#                   automatically escaped (%%) in the following cases: When
+#                   followed by a space, dot or comma and at the end of the
+#                   line)
 #
 # Comments start with #
 #
