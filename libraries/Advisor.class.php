@@ -314,10 +314,10 @@ class Advisor
         );
         $numRules = count($ruleSyntax);
         $numLines = count($file);
-        $j = -1;
+        $ruleNo = -1;
         $ruleLine = -1;
 
-        for ($i = 0; $i<$numLines; $i++) {
+        for ($i = 0; $i < $numLines; $i++) {
             $line = $file[$i];
             if ($line[0] == '#' || $line[0] == "\n") {
                 continue;
@@ -326,27 +326,35 @@ class Advisor
             // Reading new rule
             if (substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
-                    $errors[] = 'Invalid rule declaration on line ' . ($i+1)
-                        . ', expected line ' . $ruleSyntax[$ruleLine++]
-                        . ' of previous rule' ;
+                    $errors[] = sprintf(
+                        __('Invalid rule declaration on line %1$s, expected line %2$s of previous rule'),
+                        $i + 1,
+                        $ruleSyntax[$ruleLine++]
+                    );
                     continue;
                 }
                 if (preg_match("/rule\s'(.*)'( \[(.*)\])?$/", $line, $match)) {
                     $ruleLine = 1;
-                    $j++;
-                    $rules[$j] = array( 'name' => $match[1]);
-                    $lines[$j] = array( 'name' => $i + 1);
+                    $ruleNo++;
+                    $rules[$ruleNo] = array('name' => $match[1]);
+                    $lines[$ruleNo] = array('name' => $i + 1);
                     if (isset($match[3])) {
-                        $rules[$j]['precondition'] = $match[3];
-                        $lines[$j]['precondition'] = $i + 1;
+                        $rules[$ruleNo]['precondition'] = $match[3];
+                        $lines[$ruleNo]['precondition'] = $i + 1;
                     }
                 } else {
-                    $errors[] = 'Invalid rule declaration on line '.($i+1);
+                    $errors[] = sprintf(
+                        __('Invalid rule declaration on line %s'),
+                        $i + 1
+                    );
                 }
                 continue;
             } else {
                 if ($ruleLine == -1) {
-                    $errors[] = 'Unexpected characters on line '.($i+1);
+                    $errors[] = sprintf(
+                        __('Unexpected characters on line %s'),
+                        $i + 1
+                    );
                 }
             }
 
@@ -357,12 +365,15 @@ class Advisor
                 }
                 // Non tabbed lines are not
                 if ($line[0] != "\t") {
-                    $errors[] = 'Unexpected character on line '.($i+1).'
-                        . Expected tab, but found \''.$line[0].'\'';
+                    $errors[] = sprintf(
+                        __('Unexpected character on line %1$s. Expected tab, but found "%2$s"',
+                        $i + 1,
+                        $line[0]
+                    );
                     continue;
                 }
-                $rules[$j][$ruleSyntax[$ruleLine]] = chop(substr($line, 1));
-                $lines[$j][$ruleSyntax[$ruleLine]] = $i + 1;
+                $rules[$ruleNo][$ruleSyntax[$ruleLine]] = chop(substr($line, 1));
+                $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
                 $ruleLine += 1;
             }
 
