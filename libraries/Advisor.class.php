@@ -247,7 +247,7 @@ class Advisor
      *
      * @return Replacement value
      */
-    private function ruleExprEvaluate_fired($matches)
+    private function _ruleExprEvaluateFired($matches)
     {
         // No list of fired rules
         if (!isset($this->runResult['fired'])) {
@@ -271,7 +271,7 @@ class Advisor
      *
      * @return Replacement value
      */
-    private function ruleExprEvaluate_variable($matches)
+    private function _ruleExprEvaluateVariable($matches)
     {
         return isset($this->variables[$matches[1]])
             ? (is_numeric($this->variables[$matches[1]])
@@ -300,13 +300,13 @@ class Advisor
         // Evaluate fired() conditions
         $expr = preg_replace_callback(
             '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui',
-            array($this, 'ruleExprEvaluate_fired'),
+            array($this, '_ruleExprEvaluateFired'),
             $expr
         );
         // Evaluate variables
         $expr = preg_replace_callback(
             '/\b(\w+)\b/',
-            array($this, 'ruleExprEvaluate_variable'),
+            array($this, '_ruleExprEvaluateVariable'),
             $expr
         );
         if ($ignoreUntil > 0) {
