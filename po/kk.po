@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-03 15:34+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-05-03 16:49+0200\n"
+"Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -2255,35 +2255,35 @@ msgstr "Сн"
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:507
 msgid "Wk"
-msgstr ""
+msgstr "Апт"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:510
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:512
 msgctxt "Year suffix"
 msgid "none"
-msgstr ""
+msgstr "none"
 
 #: js/messages.php:521
 msgid "Hour"
-msgstr ""
+msgstr "Сағат"
 
 #: js/messages.php:522
 msgid "Minute"
-msgstr ""
+msgstr "Минут"
 
 #: js/messages.php:523
 msgid "Second"
-msgstr ""
+msgstr "Секунд"
 
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP келесі қатені қайтарды: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
@@ -2328,24 +2328,24 @@ msgstr ""
 
 #: libraries/Advisor.class.php:425 server_status.php:963
 msgid "per second"
-msgstr ""
+msgstr "секундке"
 
 #: libraries/Advisor.class.php:428 server_status.php:958
 msgid "per minute"
-msgstr ""
+msgstr "Минутқа"
 
 #: libraries/Advisor.class.php:431 server_status.php:954 server_status.php:990
 #: server_status.php:1112 server_status.php:1163
 msgid "per hour"
-msgstr ""
+msgstr "сағатқа"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "күнге"
 
 #: libraries/Config.class.php:892
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "PhpMyAdmin-ды қолданбастан бұрын, алдымен \"./config\" папкасын жойыңыз!"
 
 #: libraries/Config.class.php:928
 #, php-format
@@ -2357,8 +2357,9 @@ msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
 #: libraries/Config.class.php:1539
+#, fuzzy
 msgid "Font size"
-msgstr ""
+msgstr "Қарiп өлшемi"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
@@ -2392,11 +2393,11 @@ msgstr ""
 
 #: libraries/File.class.php:283
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Файлды жүктеу, оның кеңейтілім салдарынан тоқтатылды."
 
 #: libraries/File.class.php:286
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Файлды жүктеу кезіндегі белгісіз қате."
 
 #: libraries/File.class.php:451
 msgid ""
@@ -2406,31 +2407,31 @@ msgstr ""
 
 #: libraries/File.class.php:463
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Жүктелген файлды ауыстыру кезіндегі қате."
 
 #: libraries/File.class.php:471
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Жүктелген файлды оқу(ауыстыру) мүмкін емес."
 
 #: libraries/Index.class.php:430 tbl_relation.php:542
 msgid "No index defined!"
-msgstr ""
+msgstr "Индексі анықталмаған!"
 
 #: libraries/Index.class.php:435 libraries/Index.class.php:445
 #: libraries/build_html_for_db.lib.php:41 tbl_structure.php:746
 #: tbl_tracking.php:365
 msgid "Indexes"
-msgstr ""
+msgstr "Индекстер"
 
 #: libraries/Index.class.php:459 libraries/tbl_properties.inc.php:506
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:597
 #: tbl_tracking.php:371
 msgid "Unique"
-msgstr ""
+msgstr "Бірегей"
 
 #: libraries/Index.class.php:460 tbl_tracking.php:372
 msgid "Packed"
-msgstr ""
+msgstr "Қапталған"
 
 #: libraries/Index.class.php:462 tbl_tracking.php:374
 msgid "Cardinality"
@@ -2440,7 +2441,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:958 tbl_tracking.php:313
 #: tbl_tracking.php:377
 msgid "Comment"
-msgstr "түсініктеме қалдыру"
+msgstr "Пікірлеу"
 
 #: libraries/Index.class.php:491
 msgid "The primary key has been dropped"
@@ -2449,7 +2450,7 @@ msgstr ""
 #: libraries/Index.class.php:495
 #, php-format
 msgid "Index %s has been dropped"
-msgstr ""
+msgstr "Индекс %s жойылған болатын"
 
 #: libraries/Index.class.php:598
 #, php-format
@@ -2462,13 +2463,13 @@ msgstr ""
 #: libraries/server_links.inc.php:43 server_databases.php:134
 #: server_privileges.php:2005
 msgid "Databases"
-msgstr "Мәлімет қорлары"
+msgstr "Дерекқоры"
 
 #: libraries/Message.class.php:196 libraries/common.lib.php:629
 #: libraries/core.lib.php:217 libraries/import.lib.php:141 tbl_change.php:938
 #: tbl_operations.php:237 tbl_relation.php:298 view_operations.php:60
 msgid "Error"
-msgstr ""
+msgstr "Қате"
 
 #: libraries/Message.class.php:249
 #, php-format
