@@ -3832,3 +3832,10 @@ function formatBytes(bytes, subdecimals, pointchar) {
 $(function () {
     $("a._blank").prop("target", "_blank");
 });
+
+/**
+ * Reveal the login form to users with JS enabled
+ */
+$(function () {
+    $('.js-show').show();
+});

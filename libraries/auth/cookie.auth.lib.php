@@ -157,14 +157,6 @@ function PMA_auth()
     // if $page_title is set, this script uses it as the title:
     include './libraries/header_scripts.inc.php';
     ?>
-<script type="text/javascript">
-//<![CDATA[
-// reveal the login form to users with JS enabled
-$(function () {
-    $('.hide').show();
-});
-//]]>
-</script>
 </head>
 
 <body class="loginform">
@@ -204,7 +196,7 @@ $(function () {
     PMA_message::error(__("Javascript must be enabled past this point"))->display();
     echo "</noscript>\n";
 
-    echo "<div class='hide'>";
+    echo "<div class='hide js-show'>";
     // Displays the languages form
     if (empty($GLOBALS['cfg']['Lang'])) {
         include_once './libraries/display_select_lang.lib.php';
@@ -216,7 +208,7 @@ $(function () {
     ?>
 <br />
 <!-- Login form -->
-<form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login hide">
+<form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login hide js-show">
     <fieldset>
     <legend>
 <?php
