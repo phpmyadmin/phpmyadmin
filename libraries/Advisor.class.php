@@ -239,15 +239,27 @@ class Advisor
         $this->runResult[$type][] = $rule;
     }
 
+    /**
+     * Callback for evaluating fired() condition.
+     *
+     * @param $matches array List of matched elements form preg_replace_callback
+     *
+     * @return Replacement value
+     */
     private function ruleExprEvaluate_var1($matches)
     {
-        // '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie'
         return '1'; //isset($this->runResult[\'fired\']
     }
 
+    /**
+     * Callback for evaluating variables in expression.
+     *
+     * @param $matches array List of matched elements form preg_replace_callback
+     *
+     * @return Replacement value
+     */
     private function ruleExprEvaluate_var2($matches)
     {
-        // '/\b(\w+)\b/e'
         return isset($this->variables[$matches[1]])
             ? (is_numeric($this->variables[$matches[1]])
                 ? $this->variables[$matches[1]]
@@ -272,11 +284,13 @@ class Advisor
             $exprIgnore = substr($expr, 0, $ignoreUntil);
             $expr = substr($expr, $ignoreUntil);
         }
+        // Evaluate fired() conditions
         $expr = preg_replace_callback(
             '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui',
             array($this, 'ruleExprEvaluate_var1'),
             $expr
         );
+        // Evaluate variables
         $expr = preg_replace_callback(
             '/\b(\w+)\b/',
             array($this, 'ruleExprEvaluate_var2'),
@@ -288,10 +302,13 @@ class Advisor
         $value = 0;
         $err = 0;
 
+        // Actually evaluate the code
         ob_start();
         eval('$value = '.$expr.';');
         $err = ob_get_contents();
         ob_end_clean();
+
+        // Error handling
         if ($err) {
             throw new Exception(
                 strip_tags($err) . '<br />Executed code: $value = ' . $expr . ';'
