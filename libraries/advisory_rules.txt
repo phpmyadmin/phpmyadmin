@@ -285,7 +285,7 @@ rule 'Max % MyISAM key buffer ever used' [!PMA_DRIZZLE && key_buffer_size > 0]
 	max % MyISAM key buffer ever used: %s%, this value should be above 95% | round(value,1)
 
 # Don't fire if above rule fired - we don't need the same advice twice
-rule 'Percentage of MyISAM key buffer used' [!PMA_DRIZZLE && key_buffer_size > 0 && !fired('max % MyISAM key buffer ever used')]
+rule 'Percentage of MyISAM key buffer used' [!PMA_DRIZZLE && key_buffer_size > 0 && !fired('Max % MyISAM key buffer ever used')]
 	( 1 - Key_blocks_unused * key_cache_block_size / key_buffer_size) * 100
 	value < 95
 	MyISAM key buffer (index cache) % used is low.
