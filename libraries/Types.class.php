@@ -719,7 +719,7 @@ class PMA_Types_Drizzle extends PMA_Types
         case 'TIMESTAMP':
             return __("A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' UTC; TIMESTAMP(6) can store microseconds");
         case 'TIME':
-            return sprintf(__('A time, range is "%1$s" to "%2$s"'), '00:00:00', '23:59:59');
+            return sprintf(__('A time, range is %1$s to %2$s'), '00:00:00', '23:59:59');
         case 'VARCHAR':
             return sprintf(__('A variable-length (%s) string, the effective maximum length is subject to the maximum row size'), '0-16,383');
         case 'TEXT':
