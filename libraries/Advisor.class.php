@@ -259,9 +259,10 @@ class Advisor
      * Runs a code expression, replacing variable names with their respective
      * values
      *
-     * @param string $expr        expressoin to evaluate
-     * @param int    $ignoreUntil if > 0, it doesn't replace any variables until that string
-     *                            position, but still evaluates the whole expr
+     * @param string $expr        expression to evaluate
+     * @param int    $ignoreUntil if > 0, it doesn't replace any variables until
+     *                            that string position, but still evaluates the
+     *                            whole expr
      *
      * @return result of evaluated expression
      */
