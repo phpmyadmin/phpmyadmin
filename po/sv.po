@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-04-29 10:18+0200\n"
+"PO-Revision-Date: 2012-05-02 21:55+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2332,10 +2332,10 @@ msgid "Failed running test for rule '%s'"
 msgstr "Lyckades inte köra test för regeln '%s'"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid "Failed formatting string for rule '%s'"
 msgid "Failed formatting string for rule '%s'."
-msgstr "Formateringen av strängen misslyckades för regeln '%s'"
+msgstr "Misslyckades med formateringen av strängen för regel '%s'."
 
 #: libraries/Advisor.class.php:383 server_status.php:963
 msgid "per second"
@@ -2551,16 +2551,16 @@ msgid "unknown table status: "
 msgstr "Okänd tabellstatus: "
 
 #: libraries/Table.class.php:750
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Källdatabas"
+msgstr "Källdatabas `%s` hittades inte!"
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s hittades inte!"
+msgstr "Måldatabas `%s` hittades inte!"
 
 #: libraries/Table.class.php:1174
 msgid "Invalid database"
@@ -2715,27 +2715,30 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"En bit-fälttyp (M), lagrar M bitar per värde default är 1, maximalt är 64)"
 
 #: libraries/Types.class.php:303
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"En synonym för TINYINT (1), ett värde på noll betraktas som falskt, värden "
+"skilda från noll anses sanna"
 
 #: libraries/Types.class.php:305
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Ett alias för BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:716
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %1$s by %2$s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Skriven den %1$s av %2$s"
+msgstr "Ett datum, supportat område är %1$s till %2$s"
 
 #: libraries/Types.class.php:309 libraries/Types.class.php:718
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "En datum och tidskombination, supportat område är %1$s till %2$s"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -2744,10 +2747,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:313
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Fel vid namnbyte av tabell %1$s till %2$s"
+msgstr "En tid, området är %1$s till %2$s"
 
 #: libraries/Types.class.php:315
 msgid ""
@@ -7152,10 +7155,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Detta tillägg stöder inte komprimerade importer!"
 
 #: libraries/import/mediawiki.php:246
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Ogiltigt format i CSV-indata på rad %d."
+msgstr "Ogiltigt format på mediawiki datat vid rad:<br />%s."
 
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
