@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-01 14:37+0200\n"
+"PO-Revision-Date: 2012-05-02 21:11+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2313,10 +2313,10 @@ msgid "Failed running test for rule '%s'"
 msgstr "'%s' රීතිය සඳහා පරීක්ෂණය සිදු කිරීම අසමත් විය"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid "Failed formatting string for rule '%s'"
 msgid "Failed formatting string for rule '%s'."
-msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසමත් විය"
+msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසමත් විය."
 
 #: libraries/Advisor.class.php:383 server_status.php:963
 msgid "per second"
@@ -2526,16 +2526,16 @@ msgid "unknown table status: "
 msgstr "වගු තත්වය සඳහා නොහඳුනන අගයක්: "
 
 #: libraries/Table.class.php:750
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "මූලාශ්‍ර දත්ත ගබඩාව"
+msgstr "`%s` මූලාශ්‍ර දත්තගබඩාව හමු නොවිණි!"
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "%s තේමාව හමු නොවිණි!"
+msgstr "`%s` ඉලක්කගත දත්තගබඩාව හමු නොවිණි!"
 
 #: libraries/Table.class.php:1174
 msgid "Invalid database"
@@ -2701,39 +2701,45 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE සඳහා අන්වර්ථ නාමයකි"
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:716
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %1$s by %2$s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "%1$s %2$s විසින් රචිත"
+msgstr "දිනයකි, සහයැති පරාසය %1$s සිට %2$s"
 
 #: libraries/Types.class.php:309 libraries/Types.class.php:718
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "දිනය සහ වේලාවේ සංයුක්තයකි, සහයැති පරාසය %1$s සිට %2$s"
 
 #: libraries/Types.class.php:311
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"කාල මුද්‍රාවකි, පරාසය 1970-01-01 00:00:01 UTC සිට 2038-01-09 03:14:07 UTC, "
+"කාලරම්භයේ (1970-01-01 00:00:00 UTC) සිට ගත වූ තත්පර ගණන ලෙස ගබඩා කර ඇත"
 
 #: libraries/Types.class.php:313
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "%1$s සිට %2$s දක්වා වගුවේ නම් වෙනස් කිරීමේ දෝෂයක් ඇත"
+msgstr "වේලාවකි, පරාසය %1$s සිට %2$s"
 
 #: libraries/Types.class.php:315
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"අංක හතරකින් (4, පෙරනිමි) හෝ අංක දෙකකින් (2) දැක්වෙන වර්ෂයකි, ගත හැකි අගයන් "
+"වන්නේ 70 (1970) සිට 69 (2069) හෝ 1901 සිට 2155 සහ 0000"
 
 #: libraries/Types.class.php:317
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"ස්ථිර-දිගැති පෙළකි (0-255, පෙරනිමි 1), සෑම විටම නියමිත දිග ලැබෙන තුරු දකුණු "
+"පසින් හිස් අවකාශ එක් කෙරේ"
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:724
 #, php-format
@@ -2741,24 +2747,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"විචල්‍ය-දිගැති පෙළකි (%s), පෙළෙහි උපරිම දිග, පේළියේ උපරිම ප්‍රමාණය මත තීරණය "
+"වේ"
 
 #: libraries/Types.class.php:321
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"සලකුණු 255 (2^8 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, "
+"අන්තර්ගතයේ දිග සඳහන් කෙරෙන එක් බයිටයක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:323 libraries/Types.class.php:726
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"සලකුණු 65,535 (2^16 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, "
+"අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට දෙකක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:325
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"සලකුණු 16,777,215 (2^24 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, "
+"අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට තුනක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:327
 msgid ""
@@ -2766,6 +2780,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"සලකුණු 4,294,967,295 නැතිනම් 4GiB (2^32 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, "
+"ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට හතරක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:329
 msgid ""
@@ -2784,24 +2800,32 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"බයිට 255(2^8 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, "
+"අන්තර්ගතයේ දිග සඳහන් කෙරෙන එක් බයිටයක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:335
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"බයිට 16,777,215 (2^24 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් "
+"යෙදු, අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට තුනක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:337
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"බයිට 65,535 (2^16 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, "
+"අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට දෙකක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"බයිට 4,294,967,295 නැතිනම් 4GiB (2^32 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් "
+"තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට හතරක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:341
 msgid ""
@@ -8084,7 +8108,7 @@ msgstr "වෙනස"
 
 #: libraries/server_synchronize.lib.php:1346 server_synchronize.php:1357
 msgid "Target database"
-msgstr "ඉලක්කගත දත්ත ගබඩාව"
+msgstr "ඉලක්කගත දත්තගබඩාව"
 
 #: libraries/server_synchronize.lib.php:1381
 #: libraries/server_synchronize.lib.php:1390
