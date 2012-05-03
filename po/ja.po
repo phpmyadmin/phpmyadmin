@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-27 11:32+0200\n"
+"PO-Revision-Date: 2012-05-03 04:18+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4918,7 +4918,7 @@ msgstr "編集／挿入モードで種別項目を表示するかどうか定義
 
 #: libraries/config/messages.inc.php:463
 msgid "Show field types"
-msgstr "種別項目の表示"
+msgstr "種別項目を表示する"
 
 #: libraries/config/messages.inc.php:464
 msgid "Display the function fields in edit/insert mode"
@@ -4926,7 +4926,7 @@ msgstr "編集／挿入モードで関数項目を表示します。"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show function fields"
-msgstr "関数項目の表示"
+msgstr "関数項目を表示する"
 
 #: libraries/config/messages.inc.php:466
 msgid "Whether to show hint or not"
@@ -4957,7 +4957,7 @@ msgstr "phpMyAdmin によって生成される SQL クエリを表示するか�
 
 #: libraries/config/messages.inc.php:472
 msgid "Show SQL queries"
-msgstr "SQL クエリの表示"
+msgstr "SQL クエリを表示する"
 
 #: libraries/config/messages.inc.php:473
 msgid ""
@@ -6291,16 +6291,16 @@ msgstr "テーブルのキャプション (続き)"
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
 msgid "Display foreign key relationships"
-msgstr "外部キーリレーションシップの表示"
+msgstr "外部キーリレーションシップを表示する"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
 msgid "Display comments"
-msgstr "コメントの表示"
+msgstr "コメントを表示する"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:63
 msgid "Display MIME types"
-msgstr "MIME タイプの表示"
+msgstr "MIME タイプを表示する"
 
 #: libraries/export/latex.php:132 libraries/export/sql.php:482
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:59
@@ -6356,7 +6356,7 @@ msgstr "コメントの表示<i>（エクスポート日時、PHP や サーバ 
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "ヘッダにカスタムコメントを追加 (¥n で改行):"
+msgstr "ヘッダに追加する独自コメント (\\n で改行):"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -6373,7 +6373,7 @@ msgstr "他のデータベースシステムまたは古い MySQL サーバと�
 #: libraries/export/sql.php:180
 #, php-format
 msgid "Add %s statement"
-msgstr "%s コマンドの追加"
+msgstr "%s コマンドを追加する"
 
 #: libraries/export/sql.php:152
 msgid "Add statements:"
@@ -6411,7 +6411,7 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"全ての <code>INSERT</code> 文にカラム名を含める <br /> &nbsp; &nbsp; &nbsp; 例: "
+"すべての <code>INSERT</code> 文にカラム名を含める <br /> &nbsp; &nbsp; &nbsp; 例: "
 "<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:275
@@ -6420,7 +6420,7 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"全ての <code>INSERT</code> 文を複数行挿入で行う<br /> &nbsp; &nbsp; &nbsp; 例: "
+"すべての <code>INSERT</code> 文を複数行挿入で行う<br /> &nbsp; &nbsp; &nbsp; 例: "
 "<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:276
@@ -6443,7 +6443,7 @@ msgstr ""
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
-msgstr "16 進表記でバイナリカラムをダンプする<i>(例：\"abc\" を 0x616263)</i>"
+msgstr "16 進表記でバイナリカラムをダンプする <i>(例：\"abc\" を 0x616263)</i>"
 
 #: libraries/export/sql.php:301
 msgid ""
@@ -9799,7 +9799,7 @@ msgstr "現在待機中の行ロックの数。"
 
 #: server_status.php:1361
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "行ロック取得に要する平均時間 (単位:ミリ秒)。"
+msgstr "行ロック取得に要した平均時間 (単位:ミリ秒)。"
 
 #: server_status.php:1362
 msgid "The total time spent in acquiring row locks, in milliseconds."
