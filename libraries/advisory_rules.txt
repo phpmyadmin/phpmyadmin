@@ -250,7 +250,7 @@ rule 'Percentage of temp tables on disk' [Created_tmp_tables + Created_tmp_disk_
 	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the beginning of an <a href="http://www.facebook.com/note.php?note_id=10150111255065841&comments">Article by the Pythian Group</a>
 	%s% of all temporary tables are being written to disk, this value should be below 25% | round(value,1)
 
-rule 'Temp disk rate'
+rule 'Temp disk rate' [!fired('Percentage of temp tables on disk')]
 	Created_tmp_disk_tables / Uptime
 	value * 60 * 60 > 1
 	Many temporary tables are being written to disk instead of being kept in memory.
