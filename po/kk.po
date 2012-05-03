@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-02 14:49+0200\n"
-"PO-Revision-Date: 2012-05-02 20:20+0200\n"
+"PO-Revision-Date: 2012-05-03 08:40+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
@@ -1544,19 +1544,19 @@ msgstr ""
 #: js/messages.php:189
 msgctxt "Display format"
 msgid "Table"
-msgstr ""
+msgstr "Кесте"
 
 #: js/messages.php:190
 msgid "Chart"
-msgstr ""
+msgstr "График"
 
 #: js/messages.php:191
 msgid "Edit chart"
-msgstr ""
+msgstr "Графикті өңдеу"
 
 #: js/messages.php:192
 msgid "Series"
-msgstr ""
+msgstr "Топтама"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1566,7 +1566,7 @@ msgstr ""
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
 msgid "Filter"
-msgstr ""
+msgstr "Сүзгі"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
@@ -1578,15 +1578,15 @@ msgstr ""
 
 #: js/messages.php:200
 msgid "Sum of grouped rows:"
-msgstr ""
+msgstr "Топтасқан қатарлар сомасы"
 
 #: js/messages.php:201
 msgid "Total:"
-msgstr ""
+msgstr "Барлығы:"
 
 #: js/messages.php:203
 msgid "Loading logs"
-msgstr ""
+msgstr "Журналдардың жүктелуі"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
@@ -1622,7 +1622,7 @@ msgstr ""
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:237 server_status.php:1632 setup/frames/menu.inc.php:21
 msgid "Import"
-msgstr ""
+msgstr "Импорт"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
@@ -1646,11 +1646,12 @@ msgstr ""
 
 #: js/messages.php:222
 msgid "Issue"
-msgstr ""
+msgstr "Мәселе"
 
 #: js/messages.php:223
+#, fuzzy
 msgid "Recommendation"
-msgstr ""
+msgstr "Ұсыну"
 
 #: js/messages.php:224
 msgid "Rule details"
@@ -1658,15 +1659,15 @@ msgstr ""
 
 #: js/messages.php:225
 msgid "Justification"
-msgstr ""
+msgstr "Дәлелдеу"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Қолданған айнымалы / формула"
 
 #: js/messages.php:227
 msgid "Test"
-msgstr ""
+msgstr "Тест"
 
 #: js/messages.php:232 pmd_general.php:406 pmd_general.php:443
 #: pmd_general.php:563 pmd_general.php:611 pmd_general.php:687
