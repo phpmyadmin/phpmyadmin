@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-02 14:49+0200\n"
+"POT-Creation-Date: 2012-05-03 11:26+0200\n"
 "PO-Revision-Date: 2012-03-27 16:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.8\n"
 
-#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:357
+#: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1825
 msgid "Show all"
 msgstr "Hamısını göster"
@@ -889,49 +889,49 @@ msgstr ""
 msgid "SRID"
 msgstr ""
 
-#: gis_data_editor.php:151 js/messages.php:329
+#: gis_data_editor.php:151 js/messages.php:330
 #: libraries/display_tbl.lib.php:825
 msgid "Geometry"
 msgstr ""
 
-#: gis_data_editor.php:171 js/messages.php:325
+#: gis_data_editor.php:171 js/messages.php:326
 msgid "Point"
 msgstr ""
 
 #: gis_data_editor.php:172 gis_data_editor.php:196 gis_data_editor.php:244
-#: gis_data_editor.php:296 js/messages.php:323
+#: gis_data_editor.php:296 js/messages.php:324
 msgid "X"
 msgstr ""
 
 #: gis_data_editor.php:174 gis_data_editor.php:198 gis_data_editor.php:246
-#: gis_data_editor.php:298 js/messages.php:324
+#: gis_data_editor.php:298 js/messages.php:325
 msgid "Y"
 msgstr ""
 
 #: gis_data_editor.php:194 gis_data_editor.php:242 gis_data_editor.php:294
-#: js/messages.php:326
+#: js/messages.php:327
 #, php-format
 msgid "Point %d"
 msgstr ""
 
 #: gis_data_editor.php:203 gis_data_editor.php:249 gis_data_editor.php:301
-#: js/messages.php:332
+#: js/messages.php:333
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add a point"
 msgstr "Yeni sahe elave et"
 
-#: gis_data_editor.php:219 js/messages.php:327
+#: gis_data_editor.php:219 js/messages.php:328
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Setir leğvedicisi (Lines terminated by)"
 
-#: gis_data_editor.php:222 gis_data_editor.php:278 js/messages.php:331
+#: gis_data_editor.php:222 gis_data_editor.php:278 js/messages.php:332
 msgid "Outer Ring"
 msgstr ""
 
-#: gis_data_editor.php:224 gis_data_editor.php:280 js/messages.php:330
+#: gis_data_editor.php:224 gis_data_editor.php:280 js/messages.php:331
 msgid "Inner Ring"
 msgstr ""
 
@@ -941,17 +941,17 @@ msgstr ""
 msgid "Add a linestring"
 msgstr "Yeni İstifadeçi elave Et"
 
-#: gis_data_editor.php:251 gis_data_editor.php:303 js/messages.php:333
+#: gis_data_editor.php:251 gis_data_editor.php:303 js/messages.php:334
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Yeni İstifadeçi elave Et"
 
-#: gis_data_editor.php:265 js/messages.php:328
+#: gis_data_editor.php:265 js/messages.php:329
 msgid "Polygon"
 msgstr ""
 
-#: gis_data_editor.php:305 js/messages.php:334
+#: gis_data_editor.php:305 js/messages.php:335
 #, fuzzy
 msgid "Add a polygon"
 msgstr "Yeni sahe elave et"
@@ -1621,7 +1621,7 @@ msgstr ""
 msgid "Explain output"
 msgstr "SQL-i İzah Et"
 
-#: js/messages.php:186 js/messages.php:519 libraries/export/htmlword.php:451
+#: js/messages.php:186 js/messages.php:520 libraries/export/htmlword.php:451
 #: libraries/export/odt.php:535 libraries/export/texytext.php:410
 #: libraries/rte/rte_list.lib.php:68 server_status.php:1263 sql.php:980
 msgid "Time"
@@ -1974,7 +1974,13 @@ msgstr "Deyişdir"
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:290 libraries/config/FormDisplay.tpl.php:372
+#: js/messages.php:288 libraries/display_tbl.lib.php:472
+#: libraries/display_tbl.lib.php:474
+#, php-format
+msgid "%d is not valid row number."
+msgstr ""
+
+#: js/messages.php:291 libraries/config/FormDisplay.tpl.php:372
 #: libraries/schema/User_Schema.class.php:355
 #: libraries/tbl_properties.inc.php:855 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:243 tbl_change.php:1067
@@ -1982,203 +1988,203 @@ msgstr ""
 msgid "Save"
 msgstr "Qeyd Et"
 
-#: js/messages.php:293
+#: js/messages.php:294
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL sorğusu"
 
-#: js/messages.php:294
+#: js/messages.php:295
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL sorğusu"
 
-#: js/messages.php:297 libraries/tbl_select.lib.php:113
+#: js/messages.php:298 libraries/tbl_select.lib.php:113
 #, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "Axtarış"
 
-#: js/messages.php:299
+#: js/messages.php:300
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:301
+#: js/messages.php:302
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:303
+#: js/messages.php:304
 msgid "Use mousewheel to zoom in or out of the plot."
 msgstr ""
 
-#: js/messages.php:305
+#: js/messages.php:306
 msgid "Click and drag the mouse to navigate the plot."
 msgstr ""
 
-#: js/messages.php:307
+#: js/messages.php:308
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
 
-#: js/messages.php:309
+#: js/messages.php:310
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:311
+#: js/messages.php:312
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:313
+#: js/messages.php:314
 msgid "Strings are converted into integer for plotting"
 msgstr ""
 
-#: js/messages.php:315
+#: js/messages.php:316
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "Sahe Sütunlarını Elave Et/Sil"
 
-#: js/messages.php:316
+#: js/messages.php:317
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:317
+#: js/messages.php:318
 #, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
 msgstr "SQL result"
 
-#: js/messages.php:318
+#: js/messages.php:319
 #, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
 msgstr "İçindekiler Cedveli"
 
-#: js/messages.php:321 tbl_change.php:329 tbl_indexes.php:240
+#: js/messages.php:322 tbl_change.php:329 tbl_indexes.php:240
 #: tbl_indexes.php:275
 msgid "Ignore"
 msgstr "Diqqete Alma"
 
-#: js/messages.php:322 libraries/display_tbl.lib.php:1623
+#: js/messages.php:323 libraries/display_tbl.lib.php:1623
 msgid "Copy"
 msgstr ""
 
-#: js/messages.php:337
+#: js/messages.php:338
 #, fuzzy
 msgid "Add columns"
 msgstr "Yeni sahe elave et"
 
-#: js/messages.php:340
+#: js/messages.php:341
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:342
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:343
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:343 pmd_general.php:92 tbl_relation.php:561
+#: js/messages.php:344 pmd_general.php:92 tbl_relation.php:561
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Gösterilecek Saheni Seç"
 
-#: js/messages.php:344
+#: js/messages.php:345
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:347
+#: js/messages.php:348
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:350
+#: js/messages.php:351
 msgid "Press escape to cancel editing"
 msgstr ""
 
-#: js/messages.php:351
+#: js/messages.php:352
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:352
+#: js/messages.php:353
 msgid "Drag to reorder"
 msgstr ""
 
-#: js/messages.php:353
+#: js/messages.php:354
 msgid "Click to sort"
 msgstr ""
 
-#: js/messages.php:354
+#: js/messages.php:355
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: js/messages.php:355
+#: js/messages.php:356
 msgid "Double-click to copy column name"
 msgstr ""
 
-#: js/messages.php:356
+#: js/messages.php:357
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:358
+#: js/messages.php:359
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:359
+#: js/messages.php:360
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:360
+#: js/messages.php:361
 msgid "Go to link"
 msgstr ""
 
-#: js/messages.php:361
+#: js/messages.php:362
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
 msgstr "Sütun adları"
 
-#: js/messages.php:362
+#: js/messages.php:363
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:363
+#: js/messages.php:364
 #, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)"
 msgstr "Gösterilen setirler"
 
-#: js/messages.php:366
+#: js/messages.php:367
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Parolu Deyişdir"
 
-#: js/messages.php:367 libraries/replication_gui.lib.php:369
+#: js/messages.php:368 libraries/replication_gui.lib.php:369
 #, fuzzy
 msgid "Generate"
 msgstr "Qurucu"
 
-#: js/messages.php:368
+#: js/messages.php:369
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Parolu Deyişdir"
 
-#: js/messages.php:371 tbl_structure.php:472
+#: js/messages.php:372 tbl_structure.php:472
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Baz Ert"
 
-#: js/messages.php:374 setup/lib/index.lib.php:176
+#: js/messages.php:375 setup/lib/index.lib.php:176
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2186,30 +2192,30 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:376
+#: js/messages.php:377
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:377
+#: js/messages.php:378
 #, fuzzy
 msgid "up to date"
 msgstr "Baza seçilmemişdir ve ya mövcud deyildir."
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:396
+#: js/messages.php:397
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Heç biri"
 
-#: js/messages.php:400
+#: js/messages.php:401
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Evvelki"
 
-#: js/messages.php:405
+#: js/messages.php:406
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2217,96 +2223,96 @@ msgid "Next"
 msgstr "Sonrakı"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:408
+#: js/messages.php:409
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Cemi"
 
-#: js/messages.php:412
+#: js/messages.php:413
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binary"
 
-#: js/messages.php:413
+#: js/messages.php:414
 msgid "February"
 msgstr ""
 
-#: js/messages.php:414
+#: js/messages.php:415
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:415
+#: js/messages.php:416
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:416
+#: js/messages.php:417
 msgid "May"
 msgstr "May"
 
-#: js/messages.php:417
+#: js/messages.php:418
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "İyun"
 
-#: js/messages.php:418
+#: js/messages.php:419
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "İyul"
 
-#: js/messages.php:419
+#: js/messages.php:420
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Avq"
 
-#: js/messages.php:420
+#: js/messages.php:421
 msgid "September"
 msgstr ""
 
-#: js/messages.php:421
+#: js/messages.php:422
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:422
+#: js/messages.php:423
 msgid "November"
 msgstr ""
 
-#: js/messages.php:423
+#: js/messages.php:424
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:430 libraries/common.lib.php:1641
+#: js/messages.php:431 libraries/common.lib.php:1641
 msgid "Jan"
 msgstr "Yan"
 
 #. l10n: Short month name
-#: js/messages.php:432 libraries/common.lib.php:1643
+#: js/messages.php:433 libraries/common.lib.php:1643
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:434 libraries/common.lib.php:1645
+#: js/messages.php:435 libraries/common.lib.php:1645
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/common.lib.php:1647
+#: js/messages.php:437 libraries/common.lib.php:1647
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/common.lib.php:1649
+#: js/messages.php:439 libraries/common.lib.php:1649
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2314,78 +2320,78 @@ msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:440 libraries/common.lib.php:1651
+#: js/messages.php:441 libraries/common.lib.php:1651
 msgid "Jun"
 msgstr "İyun"
 
 #. l10n: Short month name
-#: js/messages.php:442 libraries/common.lib.php:1653
+#: js/messages.php:443 libraries/common.lib.php:1653
 msgid "Jul"
 msgstr "İyul"
 
 #. l10n: Short month name
-#: js/messages.php:444 libraries/common.lib.php:1655
+#: js/messages.php:445 libraries/common.lib.php:1655
 msgid "Aug"
 msgstr "Avq"
 
 #. l10n: Short month name
-#: js/messages.php:446 libraries/common.lib.php:1657
+#: js/messages.php:447 libraries/common.lib.php:1657
 msgid "Sep"
 msgstr "Sent"
 
 #. l10n: Short month name
-#: js/messages.php:448 libraries/common.lib.php:1659
+#: js/messages.php:449 libraries/common.lib.php:1659
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:450 libraries/common.lib.php:1661
+#: js/messages.php:451 libraries/common.lib.php:1661
 msgid "Nov"
 msgstr "Noy"
 
 #. l10n: Short month name
-#: js/messages.php:452 libraries/common.lib.php:1663
+#: js/messages.php:453 libraries/common.lib.php:1663
 msgid "Dec"
 msgstr "Dek"
 
-#: js/messages.php:458
+#: js/messages.php:459
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Baz"
 
-#: js/messages.php:459
+#: js/messages.php:460
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Baz Ert"
 
-#: js/messages.php:460
+#: js/messages.php:461
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Çerş Axş"
 
-#: js/messages.php:461
+#: js/messages.php:462
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:462
+#: js/messages.php:463
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:463
+#: js/messages.php:464
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Cüme"
 
-#: js/messages.php:464
+#: js/messages.php:465
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:471
+#: js/messages.php:472
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2393,113 +2399,113 @@ msgid "Sun"
 msgstr "Baz"
 
 #. l10n: Short week day name
-#: js/messages.php:473 libraries/common.lib.php:1668
+#: js/messages.php:474 libraries/common.lib.php:1668
 msgid "Mon"
 msgstr "Baz Ert"
 
 #. l10n: Short week day name
-#: js/messages.php:475 libraries/common.lib.php:1670
+#: js/messages.php:476 libraries/common.lib.php:1670
 msgid "Tue"
 msgstr "Çerş Axş"
 
 #. l10n: Short week day name
-#: js/messages.php:477 libraries/common.lib.php:1672
+#: js/messages.php:478 libraries/common.lib.php:1672
 msgid "Wed"
 msgstr "Çerş"
 
 #. l10n: Short week day name
-#: js/messages.php:479 libraries/common.lib.php:1674
+#: js/messages.php:480 libraries/common.lib.php:1674
 msgid "Thu"
 msgstr "Cüme Axş"
 
 #. l10n: Short week day name
-#: js/messages.php:481 libraries/common.lib.php:1676
+#: js/messages.php:482 libraries/common.lib.php:1676
 msgid "Fri"
 msgstr "Cüme"
 
 #. l10n: Short week day name
-#: js/messages.php:483 libraries/common.lib.php:1678
+#: js/messages.php:484 libraries/common.lib.php:1678
 msgid "Sat"
 msgstr "Şen"
 
 #. l10n: Minimal week day name
-#: js/messages.php:490
+#: js/messages.php:491
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Baz"
 
 #. l10n: Minimal week day name
-#: js/messages.php:492
+#: js/messages.php:493
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Baz Ert"
 
 #. l10n: Minimal week day name
-#: js/messages.php:494
+#: js/messages.php:495
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Çerş Axş"
 
 #. l10n: Minimal week day name
-#: js/messages.php:496
+#: js/messages.php:497
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Çerş"
 
 #. l10n: Minimal week day name
-#: js/messages.php:498
+#: js/messages.php:499
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Cüme Axş"
 
 #. l10n: Minimal week day name
-#: js/messages.php:500
+#: js/messages.php:501
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Cüme"
 
 #. l10n: Minimal week day name
-#: js/messages.php:502
+#: js/messages.php:503
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Şen"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:506
+#: js/messages.php:507
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:509
+#: js/messages.php:510
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:511
+#: js/messages.php:512
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Heç biri"
 
-#: js/messages.php:520
+#: js/messages.php:521
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:521
+#: js/messages.php:522
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "istifadede"
 
-#: js/messages.php:522
+#: js/messages.php:523
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2530,20 +2536,41 @@ msgstr ""
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
-#: libraries/Advisor.class.php:383 server_status.php:963
+#: libraries/Advisor.class.php:361
+#, php-format
+msgid ""
+"Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
+msgstr ""
+
+#: libraries/Advisor.class.php:378
+#, php-format
+msgid "Invalid rule declaration on line %s"
+msgstr ""
+
+#: libraries/Advisor.class.php:386
+#, php-format
+msgid "Unexpected characters on line %s"
+msgstr ""
+
+#: libraries/Advisor.class.php:400
+#, php-format
+msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
+msgstr ""
+
+#: libraries/Advisor.class.php:425 server_status.php:963
 msgid "per second"
 msgstr "saniyede"
 
-#: libraries/Advisor.class.php:386 server_status.php:958
+#: libraries/Advisor.class.php:428 server_status.php:958
 msgid "per minute"
 msgstr "deqiqede"
 
-#: libraries/Advisor.class.php:389 server_status.php:954 server_status.php:990
+#: libraries/Advisor.class.php:431 server_status.php:954 server_status.php:990
 #: server_status.php:1112 server_status.php:1163
 msgid "per hour"
 msgstr "saatda"
 
-#: libraries/Advisor.class.php:392
+#: libraries/Advisor.class.php:434
 msgid "per day"
 msgstr ""
 
@@ -6347,11 +6374,6 @@ msgstr ""
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
 msgstr "Sahe Sütunlarını Elave Et/Sil"
-
-#: libraries/display_tbl.lib.php:472 libraries/display_tbl.lib.php:474
-#, php-format
-msgid "%d is not valid row number."
-msgstr ""
 
 #: libraries/display_tbl.lib.php:483
 #, fuzzy
