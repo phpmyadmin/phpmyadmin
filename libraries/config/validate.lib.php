@@ -28,9 +28,10 @@ function PMA_config_get_validators()
         $cf = ConfigFile::getInstance();
         $validators = $cf->getDbEntry('_validators', array());
         if (!defined('PMA_SETUP')) {
-            // not in setup script: load additional validators for user preferences
-            // we need oryginal config values not overwritten by user preferences, creating a new PMA_Config
-            // instance is a better idea than hacking into its code
+            // not in setup script: load additional validators for user
+            // preferences we need oryginal config values not overwritten
+            // by user preferences, creating a new PMA_Config instance is a
+            // better idea than hacking into its code
             $org_cfg = $cf->getOrgConfigObj();
             $uvs = $cf->getDbEntry('_userValidators', array());
             foreach ($uvs as $field => $uv_list) {
@@ -41,7 +42,9 @@ function PMA_config_get_validators()
                     }
                     for ($i = 1; $i < count($uv); $i++) {
                         if (substr($uv[$i], 0, 6) == 'value:') {
-                            $uv[$i] = PMA_array_read(substr($uv[$i], 6), $org_cfg->settings);
+                            $uv[$i] = PMA_array_read(
+                                substr($uv[$i], 6), $org_cfg->settings
+                            );
                         }
                     }
                 }
@@ -187,8 +190,16 @@ function test_php_errormsg($start = true)
  *
  * @return bool|array
  */
-function test_db_connection($extension, $connect_type, $host, $port, $socket, $user, $pass = null, $error_key = 'Server')
-{
+function test_db_connection(
+    $extension,
+    $connect_type,
+    $host,
+    $port,
+    $socket,
+    $user,
+    $pass = null,
+    $error_key = 'Server'
+) {
     //    test_php_errormsg();
     $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
     $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
@@ -202,13 +213,16 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
             }
             $conn = $socket
                 ? @drizzle_con_add_uds($socket, $user, $pass, null, 0)
-                : @drizzle_con_add_tcp($drizzle, $host, $port, $user, $pass, null, 0);
+                : @drizzle_con_add_tcp(
+                    $drizzle, $host, $port, $user, $pass, null, 0
+                );
             if (!$conn) {
                 $error = __('Could not connect to Drizzle server');
                 drizzle_free($drizzle);
                 break;
             }
-            // connection object is set up but we have to send some query to actually connect
+            // connection object is set up but we have to send some query
+            // to actually connect
             $res = @drizzle_query($conn, 'SELECT 1');
             if (!$res) {
                 $error = __('Could not connect to Drizzle server');
@@ -251,24 +265,50 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
  */
 function validate_server($path, $values)
 {
-    $result = array('Server' => '', 'Servers/1/user' => '', 'Servers/1/SignonSession' => '', 'Servers/1/SignonURL' => '');
+    $result = array(
+        'Server' => '',
+        'Servers/1/user' => '',
+        'Servers/1/SignonSession' => '',
+        'Servers/1/SignonURL' => ''
+    );
     $error = false;
-    if ($values['Servers/1/auth_type'] == 'config' && empty($values['Servers/1/user'])) {
-        $result['Servers/1/user'] = __('Empty username while using config authentication method');
+    if ($values['Servers/1/auth_type'] == 'config'
+        && empty($values['Servers/1/user'])
+    ) {
+        $result['Servers/1/user']
+            = __('Empty username while using config authentication method');
         $error = true;
     }
-    if ($values['Servers/1/auth_type'] == 'signon' && empty($values['Servers/1/SignonSession'])) {
-        $result['Servers/1/SignonSession'] = __('Empty signon session name while using signon authentication method');
+    if ($values['Servers/1/auth_type'] == 'signon'
+        && empty($values['Servers/1/SignonSession'])
+    ) {
+        $result['Servers/1/SignonSession'] = __(
+            'Empty signon session name '
+            . 'while using signon authentication method'
+        );
         $error = true;
     }
-    if ($values['Servers/1/auth_type'] == 'signon' && empty($values['Servers/1/SignonURL'])) {
-        $result['Servers/1/SignonURL'] = __('Empty signon URL while using signon authentication method');
+    if ($values['Servers/1/auth_type'] == 'signon'
+        && empty($values['Servers/1/SignonURL'])
+    ) {
+        $result['Servers/1/SignonURL']
+            = __('Empty signon URL while using signon authentication method');
         $error = true;
     }
 
     if (!$error && $values['Servers/1/auth_type'] == 'config') {
-        $password = $values['Servers/1/nopassword'] ? null : $values['Servers/1/password'];
-        $test = test_db_connection($values['Servers/1/extension'], $values['Servers/1/connect_type'], $values['Servers/1/host'], $values['Servers/1/port'], $values['Servers/1/socket'], $values['Servers/1/user'], $password, 'Server');
+        $password = $values['Servers/1/nopassword'] ? null
+            : $values['Servers/1/password'];
+        $test = test_db_connection(
+            $values['Servers/1/extension'],
+            $values['Servers/1/connect_type'],
+            $values['Servers/1/host'],
+            $values['Servers/1/port'],
+            $values['Servers/1/socket'],
+            $values['Servers/1/user'],
+            $password,
+            'Server'
+        );
         if ($test !== true) {
             $result = array_merge($result, $test);
         }
@@ -286,8 +326,11 @@ function validate_server($path, $values)
  */
 function validate_pmadb($path, $values)
 {
-    //$tables = array('Servers/1/bookmarktable', 'Servers/1/relation', 'Servers/1/table_info', 'Servers/1/table_coords', 'Servers/1/pdf_pages', 'Servers/1/column_info', 'Servers/1/history', 'Servers/1/designer_coords');
-    $result = array('Server_pmadb' => '', 'Servers/1/controluser' => '', 'Servers/1/controlpass' => '');
+    $result = array(
+        'Server_pmadb' => '',
+        'Servers/1/controluser' => '',
+        'Servers/1/controlpass' => ''
+    );
     $error = false;
 
     if ($values['Servers/1/pmadb'] == '') {
@@ -296,18 +339,21 @@ function validate_pmadb($path, $values)
 
     $result = array();
     if ($values['Servers/1/controluser'] == '') {
-        $result['Servers/1/controluser'] = __('Empty phpMyAdmin control user while using pmadb');
+        $result['Servers/1/controluser']
+            = __('Empty phpMyAdmin control user while using pmadb');
         $error = true;
     }
     if ($values['Servers/1/controlpass'] == '') {
-        $result['Servers/1/controlpass'] = __('Empty phpMyAdmin control user password while using pmadb');
+        $result['Servers/1/controlpass']
+            = __('Empty phpMyAdmin control user password while using pmadb');
         $error = true;
     }
     if (!$error) {
         $test = test_db_connection(
             $values['Servers/1/extension'], $values['Servers/1/connect_type'],
-            $values['Servers/1/host'], $values['Servers/1/port'], $values['Servers/1/socket'],
-            $values['Servers/1/controluser'], $values['Servers/1/controlpass'], 'Server_pmadb'
+            $values['Servers/1/host'], $values['Servers/1/port'],
+            $values['Servers/1/socket'], $values['Servers/1/controluser'],
+            $values['Servers/1/controlpass'], 'Server_pmadb'
         );
         if ($test !== true) {
             $result = array_merge($result, $test);
@@ -411,13 +457,23 @@ function validate_trusted_proxies($path, $values)
  *
  * @return string  empty string if test is successful
  */
-function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error_string)
-{
+function test_number(
+    $path,
+    $values,
+    $allow_neg,
+    $allow_zero,
+    $max_value,
+    $error_string
+) {
     if ($values[$path] === '') {
         return '';
     }
 
-    if (intval($values[$path]) != $values[$path] || (!$allow_neg && $values[$path] < 0) || (!$allow_zero && $values[$path] == 0) || $values[$path] > $max_value) {
+    if (intval($values[$path]) != $values[$path]
+        || (!$allow_neg && $values[$path] < 0)
+        || (!$allow_zero && $values[$path] == 0)
+        || $values[$path] > $max_value
+    ) {
         return $error_string;
     }
 
@@ -434,7 +490,16 @@ function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error
  */
 function validate_port_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, false, 65535, __('Not a valid port number')));
+    return array(
+        $path => test_number(
+            $path,
+            $values,
+            false,
+            false,
+            65535,
+            __('Not a valid port number')
+        )
+    );
 }
 
 /**
@@ -447,7 +512,16 @@ function validate_port_number($path, $values)
  */
 function validate_positive_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, false, PHP_INT_MAX, __('Not a positive number')));
+    return array(
+        $path => test_number(
+            $path,
+            $values,
+            false,
+            false,
+            PHP_INT_MAX,
+            __('Not a positive number')
+        )
+    );
 }
 
 /**
@@ -460,7 +534,16 @@ function validate_positive_number($path, $values)
  */
 function validate_non_negative_number($path, $values)
 {
-    return array($path => test_number($path, $values, false, true, PHP_INT_MAX, __('Not a non-negative number')));
+    return array(
+        $path => test_number(
+            $path,
+            $values,
+            false,
+            true,
+            PHP_INT_MAX,
+            __('Not a non-negative number')
+        )
+    );
 }
 
 /**
@@ -491,6 +574,7 @@ function validate_by_regex($path, $values, $regex)
 function validate_upper_bound($path, $values, $max_value)
 {
     $result = $values[$path] <= $max_value;
-    return array($path => ($result ? '' : sprintf(__('Value must be equal or lower than %s'), $max_value)));
+    return array($path => ($result ? ''
+        : sprintf(__('Value must be equal or lower than %s'), $max_value)));
 }
 ?>
