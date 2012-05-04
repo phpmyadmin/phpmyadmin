@@ -340,7 +340,7 @@ if (isset($plugin_list)) {
         foreach ($columns as $column) {
             $GLOBALS['odt_buffer'] .= PMA_formatOneColumnDefinition($column);
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
-        } // end foreach 
+        } // end foreach
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
         return true;
@@ -504,7 +504,7 @@ if (isset($plugin_list)) {
                 }
             }
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
-        } // end foreach 
+        } // end foreach
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
         return true;
@@ -659,7 +659,7 @@ if (isset($plugin_list)) {
     } // end of the 'PMA_exportStructure' function
 
     /**
-     * Formats the definition for one column 
+     * Formats the definition for one column
      *
      * @param array $column info about this column
      *
@@ -694,10 +694,10 @@ if (isset($plugin_list)) {
             $column['Default'] = $column['Default'];
         }
         $definition .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' 
-            . (($column['Null'] == '' || $column['Null'] == 'NO') 
-                ? __('No') 
-                : __('Yes')) 
+            . '<text:p>'
+            . (($column['Null'] == '' || $column['Null'] == 'NO')
+                ? __('No')
+                : __('Yes'))
             . '</text:p>'
             . '</table:table-cell>';
         $definition .= '<table:table-cell office:value-type="string">'
