@@ -72,27 +72,27 @@ class Advisor_test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 array('justification' => 'foo', 'name' => 'Basic', 'issue' => 'issue', 'recommendation' => 'Recommend'),
-                array('justification' => 'foo', 'name' => 'Basic', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+                array('justification' => 'foo', 'id' => 'Basic', 'name' => 'Basic', 'issue' => 'issue', 'recommendation' => 'Recommend'),
                 null,
             ),
             array(
                 array('justification' => 'foo', 'name' => 'Variable', 'issue' => 'issue', 'recommendation' => 'Recommend {status_var}'),
-                array('justification' => 'foo', 'name' => 'Variable', 'issue' => 'issue', 'recommendation' => 'Recommend <a href="server_variables.php?lang=en&amp;token=token#filter=status_var">status_var</a>'),
+                array('justification' => 'foo', 'id' => 'Variable', 'name' => 'Variable', 'issue' => 'issue', 'recommendation' => 'Recommend <a href="server_variables.php?lang=en&amp;token=token#filter=status_var">status_var</a>'),
                 null,
             ),
             array(
                 array('justification' => '%s foo | value', 'name' => 'Format', 'issue' => 'issue', 'recommendation' => 'Recommend'),
-                array('justification' => '0 foo', 'name' => 'Format', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+                array('justification' => '0 foo', 'id' => 'Format', 'name' => 'Format', 'issue' => 'issue', 'recommendation' => 'Recommend'),
                 null,
             ),
             array(
                 array('justification' => '%s% foo | value', 'name' => 'Percent', 'issue' => 'issue', 'recommendation' => 'Recommend'),
-                array('justification' => '0% foo', 'name' => 'Percent', 'issue' => 'issue', 'recommendation' => 'Recommend'),
+                array('justification' => '0% foo', 'id' => 'Percent', 'name' => 'Percent', 'issue' => 'issue', 'recommendation' => 'Recommend'),
                 null,
             ),
             array(
                 array('justification' => '"\'foo', 'name' => 'Quotes', 'issue' => 'issue', 'recommendation' => 'Recommend"\''),
-                array('justification' => '"\'foo', 'name' => 'Quotes', 'issue' => 'issue', 'recommendation' => 'Recommend"\''),
+                array('justification' => '"\'foo', 'id' => 'Quotes', 'name' => 'Quotes', 'issue' => 'issue', 'recommendation' => 'Recommend"\''),
                 null,
             ),
             array(
