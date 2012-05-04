@@ -655,7 +655,7 @@ if (isset($plugin_list)) {
             PMA_getTableDefStandIn($db, $table, $crlf);
         } // end switch
 
-        return PMA_exportOutputHandler($dump);
+        return true;
     } // end of the 'PMA_exportStructure' function
 
     /**
