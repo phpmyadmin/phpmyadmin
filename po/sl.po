@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-03 17:36+0200\n"
+"PO-Revision-Date: 2012-05-03 23:49+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7543,7 +7543,7 @@ msgstr "Dokumentacija phpMyAdmin"
 #: libraries/navigation_header.inc.php:92
 #: libraries/navigation_header.inc.php:93
 msgid "Reload navigation frame"
-msgstr "Osveži okvir navigacije"
+msgstr "Osveži navigacijski okvir"
 
 #: libraries/plugin_interface.lib.php:284
 msgid "This format has no options"
@@ -7627,8 +7627,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Omogočite napredne funkcije v konfiguracijski datoteki (<code>config.inc."
-"php</code>), za primer začnite z <code>config.sample.inc.php</code>."
+"Omogočite napredne funkcije v konfiguracijski datoteki "
+"(<code>config.inc.php</code>); začnite na primer s "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:295
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
