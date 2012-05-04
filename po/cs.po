@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-03 13:31+0200\n"
+"PO-Revision-Date: 2012-05-04 15:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -8479,7 +8479,7 @@ msgstr "Fulltext"
 
 #: libraries/tbl_properties.inc.php:571
 msgid "first"
-msgstr ""
+msgstr "první"
 
 #: libraries/tbl_properties.inc.php:580
 #, php-format
@@ -11948,7 +11948,7 @@ msgstr "Přesunout pole"
 
 #: tbl_structure.php:627
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Přesuňte sloupce tažením nahoru nebo dolů."
 
 #: tbl_structure.php:653
 msgid "Edit view"
