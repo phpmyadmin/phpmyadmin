@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-03 07:59+0200\n"
+"PO-Revision-Date: 2012-05-04 11:25+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -8448,10 +8448,9 @@ msgid "Index"
 msgstr "インデックス"
 
 #: libraries/tbl_properties.inc.php:121
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "カラムの削除"
+msgstr "カラムを移動させる"
 
 #: libraries/tbl_properties.inc.php:130
 #, php-format
@@ -8506,13 +8505,13 @@ msgstr "全文"
 
 #: libraries/tbl_properties.inc.php:571
 msgid "first"
-msgstr ""
+msgstr "最初へ"
 
 #: libraries/tbl_properties.inc.php:580
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "指定カラムの後に %s"
+msgstr "%s の後へ"
 
 #: libraries/tbl_properties.inc.php:692 tbl_structure.php:702
 #, php-format
@@ -12703,14 +12702,11 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
-"{query_cache_limit} を変更し (一般的に増加させ) たほうが、効率がよくなること"
-"が多いです。この変数は、クエリキャッシュにされるであろうクエリ結果の上限サイ"
-"ズに直接影響します。(読み込みが多く、書き込みが少しといった) キャッシュに依存"
-"しやすく 1 MiB を超えているクエリの結果が多くあるのであれば、"
-"{query_cache_limit} を増加させることで効率性は増すでしょう。(度々テーブルが更"
-"新されることで無効化され) キャッシュにほとんど依存できない 1 MiB を超えている"
-"クエリの結果が多くあるのであれば、{query_cache_limit} を増加させるで効率が悪"
-"くかもしれません。"
+"{query_cache_limit} を変更 (一般的に増加) "
+"したほうが、効率がよくなることが多いです。この変数は、キャッシュされるクエリ結果の上限サイズに直接影響します。(読み込みが多く、書き込みが少しといった) "
+"キャッシュに依存しやすく 1 MiB を超えているクエリの結果が多くあるのであれば、{query_cache_limit} "
+"を増加させることで効率性は増すでしょう。(度々テーブルが更新されることで無効化され) キャッシュにほとんど依存できない 1 MiB "
+"を超えているクエリの結果が多くあるのであれば、{query_cache_limit} を増加させることで効率が悪くかもしれません。"
 
 #: libraries/advisory_rules.txt:200
 msgid "query_cache_limit is set to 1 MiB"
