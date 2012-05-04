@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-03 18:33+0200\n"
+"PO-Revision-Date: 2012-05-04 06:54+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -11971,24 +11971,25 @@ msgstr "Görünümü yeniden şuna adlandır"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"
-msgstr "Bir günün altındaki çalışma zamanı"
+msgstr "Bir günün üzerinde çalışma süresi"
 
 #: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "Çalışma zamanı 1 günden az, performans ayarlaması kesin olmayabilir."
+msgstr "Bir günden az çalışma süresi, performans ayarlaması doğru olmayabilir."
 
 #: po/advisory_rules.php:7
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Daha kesin ortalamalara sahip olmak için bu çözümleyiciyi çalıştırmadan önce "
-"sunucunun bir günden daha fazla çalıştırılmasına izin vermek önerilir"
+"Daha fazla doğru ortalamalara sahip olmak için bu çözümleyiciyi "
+"çalıştırmadan önce sunucunun bir günden daha uzun çalışmasına izin verilmesi "
+"önerilir"
 
 #: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
-msgstr "Çalışma zamanı sadece %s"
+msgstr "Çalışma süresi sadece %s"
 
 #: po/advisory_rules.php:10
 msgid "Questions below 1,000"
@@ -11999,7 +12000,7 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
-"1,000 sorudan daha azı bu sunucuya karşı çalışır. Tavsiyeler kesin "
+"1,000 sorudan azı bu sunucuya karşı çalıştırılmıştır. Öneriler doğru "
 "olmayabilir."
 
 #: po/advisory_rules.php:12
