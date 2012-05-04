@@ -222,12 +222,10 @@ if (isset($plugin_list)) {
             '<text:h text:outline-level="2" text:style-name="Heading_2"'
                 . ' text:is-list-header="true">'
             . __('Dumping data for table') . ' ' . htmlspecialchars($table)
-            . '</text:h>';
-        $GLOBALS['odt_buffer'] .=
-            '<table:table'
-            . ' table:name="' . htmlspecialchars($table) . '_structure">';
-        $GLOBALS['odt_buffer'] .=
-            '<table:table-column'
+            . '</text:h>'
+            . '<table:table'
+            . ' table:name="' . htmlspecialchars($table) . '_structure">'
+            . '<table:table-column'
             . ' table:number-columns-repeated="' . $fields_cnt . '"/>';
 
         // If required, get fields name at the first line
@@ -323,26 +321,26 @@ if (isset($plugin_list)) {
             '<table:table-column'
             . ' table:number-columns-repeated="' . $columns_cnt . '"/>';
         /* Header */
-        $GLOBALS['odt_buffer'] .= '<table:table-row>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+        $GLOBALS['odt_buffer'] .= '<table:table-row>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Column') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Type') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Null') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Default') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '</table:table-row>';
+            . '</table:table-cell>'
+            . '</table:table-row>';
 
         $columns = PMA_DBI_get_columns($db, $view);
         foreach ($columns as $column) {
             $GLOBALS['odt_buffer'] .= PMA_formatOneColumnDefinition($column);
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
-        } // end foreach 
+        } // end foreach
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
         return true;
@@ -423,17 +421,17 @@ if (isset($plugin_list)) {
         $GLOBALS['odt_buffer'] .= '<table:table-column'
             . ' table:number-columns-repeated="' . $columns_cnt . '"/>';
         /* Header */
-        $GLOBALS['odt_buffer'] .= '<table:table-row>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+        $GLOBALS['odt_buffer'] .= '<table:table-row>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Column') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Type') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Null') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Default') . '</text:p>'
             . '</table:table-cell>';
         if ($do_relation && $have_rel) {
@@ -457,6 +455,7 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
+            $field_name = $column['Field'];
             $GLOBALS['odt_buffer'] .= PMA_formatOneColumnDefinition($column);
 
             if ($do_relation && $have_rel) {
@@ -505,7 +504,7 @@ if (isset($plugin_list)) {
                 }
             }
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
-        } // end foreach 
+        } // end foreach
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
         return true;
@@ -524,23 +523,23 @@ if (isset($plugin_list)) {
     function PMA_getTriggers($db, $table)
     {
         $GLOBALS['odt_buffer'] .= '<table:table'
-            . ' table:name="' . htmlspecialchars($table) . '_triggers">';
-        $GLOBALS['odt_buffer'] .= '<table:table-column'
-            . ' table:number-columns-repeated="4"/>';
-        $GLOBALS['odt_buffer'] .= '<table:table-row>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . ' table:name="' . htmlspecialchars($table) . '_triggers">'
+            . '<table:table-column'
+            . ' table:number-columns-repeated="4"/>'
+            . '<table:table-row>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Name') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Time') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Event') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
+            . '</table:table-cell>'
+            . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Definition') . '</text:p>'
-            . '</table:table-cell>';
-        $GLOBALS['odt_buffer'] .= '</table:table-row>';
+            . '</table:table-cell>'
+            . '</table:table-row>';
 
         $triggers = PMA_DBI_get_triggers($db, $table);
 
@@ -625,12 +624,12 @@ if (isset($plugin_list)) {
             $triggers = PMA_DBI_get_triggers($db, $table);
             if ($triggers) {
                 $GLOBALS['odt_buffer'] .=
-                '<text:h text:outline-level="2" text:style-name="Heading_2"'
-                . ' text:is-list-header="true">'
-                . __('Triggers') . ' '
-                . htmlspecialchars($table)
-                . '</text:h>';
-                PMA_getTriggers($db, $table);
+                    '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                    . ' text:is-list-header="true">'
+                    . __('Triggers') . ' '
+                    . htmlspecialchars($table)
+                    . '</text:h>';
+                    PMA_getTriggers($db, $table);
             }
             break;
         case 'create_view':
@@ -656,11 +655,11 @@ if (isset($plugin_list)) {
             PMA_getTableDefStandIn($db, $table, $crlf);
         } // end switch
 
-        return PMA_exportOutputHandler($dump);
+        return true;
     } // end of the 'PMA_exportStructure' function
 
     /**
-     * Formats the definition for one column 
+     * Formats the definition for one column
      *
      * @param array $column info about this column
      *
@@ -683,8 +682,8 @@ if (isset($plugin_list)) {
         }
 
         $definition .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($type) . '</text:p>'
-                . '</table:table-cell>';
+            . '<text:p>' . htmlspecialchars($type) . '</text:p>'
+            . '</table:table-cell>';
         if (! isset($column['Default'])) {
             if ($column['Null'] != 'NO') {
                 $column['Default'] = 'NULL';
@@ -695,10 +694,10 @@ if (isset($plugin_list)) {
             $column['Default'] = $column['Default'];
         }
         $definition .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' 
-            . (($column['Null'] == '' || $column['Null'] == 'NO') 
-                ? __('No') 
-                : __('Yes')) 
+            . '<text:p>'
+            . (($column['Null'] == '' || $column['Null'] == 'NO')
+                ? __('No')
+                : __('Yes'))
             . '</text:p>'
             . '</table:table-cell>';
         $definition .= '<table:table-cell office:value-type="string">'
