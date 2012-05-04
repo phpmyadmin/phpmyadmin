@@ -282,10 +282,10 @@ function validate_server($path, $values)
     if ($values['Servers/1/auth_type'] == 'signon'
         && empty($values['Servers/1/SignonSession'])
     ) {
-        $message = 'Empty signon session name while using signon '
-                 . 'authentication method';
-        $result['Servers/1/SignonSession'] = __($message);
-        unset($message);
+        $result['Servers/1/SignonSession'] = __(
+            'Empty signon session name '
+            . 'while using signon authentication method'
+        );
         $error = true;
     }
     if ($values['Servers/1/auth_type'] == 'signon'

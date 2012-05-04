@@ -268,8 +268,9 @@ if (is_array($foreignData['disp_row'])) {
                 $key_ordered_current_val
             );
             $key_ordered_current_val = htmlspecialchars(
-                PMA_substr($key_ordered_current_val, 0, $cfg['LimitChars'])
-                . '...'
+                PMA_substr(
+                    $key_ordered_current_val, 0, $cfg['LimitChars']
+                ) . '...'
             );
         }
 
