@@ -455,6 +455,7 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
+            $field_name = $column['Field'];
             $GLOBALS['odt_buffer'] .= PMA_formatOneColumnDefinition($column);
 
             if ($do_relation && $have_rel) {
