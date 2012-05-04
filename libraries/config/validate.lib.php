@@ -29,7 +29,7 @@ function PMA_config_get_validators()
         $validators = $cf->getDbEntry('_validators', array());
         if (!defined('PMA_SETUP')) {
             // not in setup script: load additional validators for user
-            // preferences we need oryginal config values not overwritten
+            // preferences we need original config values not overwritten
             // by user preferences, creating a new PMA_Config instance is a
             // better idea than hacking into its code
             $org_cfg = $cf->getOrgConfigObj();
