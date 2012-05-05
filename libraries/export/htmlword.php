@@ -240,8 +240,6 @@ if (isset($plugin_list)) {
     function PMA_getTableDefStandIn($db, $view, $crlf)
     {
         $schema_insert = '<table class="width100" cellspacing="1">';
-
-        $columns_cnt = 4;
         $schema_insert .= '<tr class="print-category">';
         $schema_insert .= '<th class="print">'
             . __('Column')

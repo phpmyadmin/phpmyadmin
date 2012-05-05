@@ -234,8 +234,6 @@ if (isset($plugin_list)) {
          * Displays the table structure
          */
 
-        $columns_cnt = 4;
-
         $text_output .= "|------\n";
         $text_output .= '|' . __('Column');
         $text_output .= '|' . __('Type');

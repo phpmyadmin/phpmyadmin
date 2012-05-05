@@ -224,7 +224,6 @@ class PMA_Export_Relation_Schema
      */
     function dieSchema($pageNumber, $type = '', $error_message = '')
     {
-        global $cfg;
         global $db;
 
         include_once './libraries/header.inc.php';

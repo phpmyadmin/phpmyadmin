@@ -984,7 +984,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
  */
 function PMA_RTN_getQueryFromRequest()
 {
-    global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_directions;
+    global $_REQUEST, $errors, $param_sqldataaccess, $param_directions;
 
     $_REQUEST['item_type'] = isset($_REQUEST['item_type']) ? $_REQUEST['item_type'] : '';
     $column_types = $GLOBALS['PMA_Types']->getColumns();
@@ -1134,7 +1134,7 @@ function PMA_RTN_getQueryFromRequest()
  */
 function PMA_RTN_handleExecute()
 {
-    global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $cfg;
+    global $_GET, $_POST, $_REQUEST, $GLOBALS, $db;
 
     /**
      * Handle all user requests other than the default of listing routines
