@@ -8,7 +8,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/common.inc.php';
 require_once './libraries/RecentTable.class.php';
 require_once 'libraries/Menu.class.php';
 
