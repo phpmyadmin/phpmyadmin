@@ -14,11 +14,37 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin
  */
-class PMA_Menu {
-    private $server;
-    private $db;
-    private $table;
-    private static $instance;
+class PMA_Menu
+{
+    /**
+     * Server id
+     *
+     * @access private
+     * @var string
+     */
+    private $_server;
+    /**
+     * Database name
+     *
+     * @access private
+     * @var string
+     */
+    private $_db;
+    /**
+     * Table name
+     *
+     * @access private
+     * @var string
+     */
+    private $_table;
+    /**
+     * PMA_Menu instance
+     *
+     * @access private
+     * @static
+     * @var object
+     */
+    private static $_instance;
 
     /**
      * Private constructor disables direct object creation
@@ -31,9 +57,9 @@ class PMA_Menu {
      */
     private function __construct($server, $db, $table)
     {
-        $this->server = $server;
-        $this->db = $db;
-        $this->table = $table;
+        $this->_server = $server;
+        $this->_db = $db;
+        $this->_table = $table;
     }
 
     /**
@@ -43,14 +69,14 @@ class PMA_Menu {
      */
     public static function getInstance()
     {
-        if (empty(self::$instance)) {
-            self::$instance = new PMA_Menu(
+        if (empty(self::$_instance)) {
+            self::$_instance = new PMA_Menu(
                 $GLOBALS['server'],
                 $GLOBALS['db'],
                 $GLOBALS['table']
             );
         }
-        return self::$instance;
+        return self::$_instance;
     }
 
     /**
@@ -76,11 +102,11 @@ class PMA_Menu {
     private function _getMenu()
     {
         $tabs = '';
-        $url_params = array('db' => $this->db);
-        if (strlen($this->table)) {
+        $url_params = array('db' => $this->_db);
+        if (strlen($this->_table)) {
             $tabs = $this->_getTableTabs();
-            $url_params['table'] = $this->table;
-        } else if (strlen($this->db)) {
+            $url_params['table'] = $this->_table;
+        } else if (strlen($this->_db)) {
             $tabs = $this->_getDbTabs();
         } else {
             $tabs = $this->_getServerTabs();
@@ -96,7 +122,7 @@ class PMA_Menu {
     private function _getBreadcrumbs()
     {
         $retval = '';
-        $tbl_is_view = PMA_Table::isView($this->db, $this->table);
+        $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
         $server_info = ! empty($GLOBALS['cfg']['Server']['verbose'])
             ? $GLOBALS['cfg']['Server']['verbose']
             : $GLOBALS['cfg']['Server']['host'];
@@ -128,7 +154,7 @@ class PMA_Menu {
             __('Server')
         );
 
-        if (strlen($this->db)) {
+        if (strlen($this->_db)) {
             $retval .= $separator;
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $retval .= PMA_getImage(
@@ -140,16 +166,14 @@ class PMA_Menu {
             $retval .= sprintf(
                 $item,
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                PMA_generate_common_url($this->db),
-                htmlspecialchars($this->db),
+                PMA_generate_common_url($this->_db),
+                htmlspecialchars($this->_db),
                 __('Database')
             );
             // if the table is being dropped, $_REQUEST['purge'] is set to '1'
             // so do not display the table name in upper div
-            if (
-                strlen($this->table)
-                &&
-                ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
+            if (strlen($this->_table)
+                && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
                 include_once './libraries/tbl_info.inc.php';
 
@@ -165,8 +189,8 @@ class PMA_Menu {
                 $retval .= sprintf(
                     $item,
                     $GLOBALS['cfg']['DefaultTabTable'],
-                    PMA_generate_common_url($this->db, $this->table),
-                    str_replace(' ', '&nbsp;', htmlspecialchars($this->table)),
+                    PMA_generate_common_url($this->_db, $this->_table),
+                    str_replace(' ', '&nbsp;', htmlspecialchars($this->_table)),
                     $tbl_is_view ? __('View') : __('Table')
                 );
 
@@ -199,7 +223,7 @@ class PMA_Menu {
                 // Get additional information about tables for tooltip is done
                 // in libraries/db_info.inc.php only once
                 if ($cfgRelation['commwork']) {
-                    $comment = PMA_getDbComment($this->db);
+                    $comment = PMA_getDbComment($this->_db);
                     /**
                      * Displays table comment
                      */
@@ -224,10 +248,10 @@ class PMA_Menu {
      */
     private function _getTableTabs()
     {
-        $db_is_information_schema = PMA_is_system_schema($this->db);
-        $tbl_is_view = PMA_Table::isView($this->db, $this->table);
+        $db_is_information_schema = PMA_is_system_schema($this->_db);
+        $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
 
-        $table_status = PMA_Table::sGetStatusInfo($this->db, $this->table);
+        $table_status = PMA_Table::sGetStatusInfo($this->_db, $this->_table);
         $table_info_num_rows = 0;
         if (isset($table_status['Rows'])) {
             $table_info_num_rows = $table_status['Rows'];
@@ -283,7 +307,7 @@ class PMA_Menu {
         }
         if (! $db_is_information_schema
             && ! PMA_DRIZZLE
-            && PMA_currentUserHasPrivilege('TRIGGER', $this->db, $this->table)
+            && PMA_currentUserHasPrivilege('TRIGGER', $this->_db, $this->_table)
             && ! $tbl_is_view
         ) {
             $tabs['triggers']['link'] = 'tbl_triggers.php';
@@ -314,8 +338,8 @@ class PMA_Menu {
      */
     private function _getDbTabs()
     {
-        $db_is_information_schema = PMA_is_system_schema($this->db);
-        $num_tables = count(PMA_DBI_get_tables($this->db));
+        $db_is_information_schema = PMA_is_system_schema($this->_db);
+        $num_tables = count(PMA_DBI_get_tables($this->_db));
         $is_superuser = PMA_isSuperuser();
 
         /**
@@ -366,7 +390,7 @@ class PMA_Menu {
 
             if ($is_superuser && ! PMA_DRIZZLE) {
                 $tabs['privileges']['link'] = 'server_privileges.php';
-                $tabs['privileges']['args']['checkprivs'] = $this->db;
+                $tabs['privileges']['args']['checkprivs'] = $this->_db;
                 // stay on database view
                 $tabs['privileges']['args']['viewing_mode'] = 'db';
                 $tabs['privileges']['text'] = __('Privileges');
@@ -379,14 +403,14 @@ class PMA_Menu {
             }
             if (PMA_MYSQL_INT_VERSION >= 50106
                 && ! PMA_DRIZZLE
-                && PMA_currentUserHasPrivilege('EVENT', $this->db)
+                && PMA_currentUserHasPrivilege('EVENT', $this->_db)
             ) {
                 $tabs['events']['link'] = 'db_events.php';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events.png';
             }
             if (! PMA_DRIZZLE
-                && PMA_currentUserHasPrivilege('TRIGGER', $this->db)
+                && PMA_currentUserHasPrivilege('TRIGGER', $this->_db)
             ) {
                 $tabs['triggers']['link'] = 'db_triggers.php';
                 $tabs['triggers']['text'] = __('Triggers');
@@ -418,7 +442,7 @@ class PMA_Menu {
     {
         $is_superuser = PMA_isSuperuser();
         $binary_logs = null;
-        if (! PMA_DRIZZLE){
+        if (! PMA_DRIZZLE) {
             $binary_logs = PMA_DBI_fetch_result(
                 'SHOW MASTER LOGS',
                 'Log_name',
