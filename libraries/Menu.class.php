@@ -1,43 +1,81 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Generates and renders the top menu
+ *
+ * @package PhpMyAdmin
+ */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
+/**
+ * Generates and renders the top menu
+ *
+ * @package PhpMyAdmin
+ */
 class PMA_Menu {
     private $server;
     private $db;
     private $table;
 
-    public function __construct($server, $db, $table){
+    /**
+     * Constructor
+     *
+     * @param int    $server Server id
+     * @param string $db     Database name
+     * @param string $table  Table name
+     *
+     * @return New PMA_Table
+     */
+    public function __construct($server, $db, $table)
+    {
         $this->server = $server;
         $this->db = $db;
         $this->table = $table;
+    }
 
-        if (! $GLOBALS['is_ajax_request']) {
-            echo $this->getBreadcrumbs();
-            echo $this->getMenu();
-            if (! empty($GLOBALS['message'])) {
-                PMA_showMessage($GLOBALS['message']);
-                unset($GLOBALS['message']);
-            }
-        } else {
-            // nothing for now
+    /**
+     * Prints the menu and the breadcrumbs
+     *
+     * @return void
+     */
+    public function display()
+    {
+        echo $this->_getBreadcrumbs();
+        echo $this->_getMenu();
+        if (! empty($GLOBALS['message'])) {
+            PMA_showMessage($GLOBALS['message']);
+            unset($GLOBALS['message']);
         }
     }
 
-    private function getMenu()
+    /**
+     * Returns the menu as HTML
+     *
+     * @return string HTML formatted menubar
+     */
+    private function _getMenu()
     {
         $tabs = '';
         $url_params = array('db' => $this->db);
         if (strlen($this->table)) {
-            $tabs = $this->getTableTabs();
+            $tabs = $this->_getTableTabs();
             $url_params['table'] = $this->table;
         } else if (strlen($this->db)) {
-            $tabs = $this->getDbTabs();
+            $tabs = $this->_getDbTabs();
         } else {
-            $tabs = $this->getServerTabs();
+            $tabs = $this->_getServerTabs();
         }
         return PMA_generate_html_tabs($tabs, $url_params);
     }
 
-    private function getBreadcrumbs()
+    /**
+     * Returns the breadcrumbs as HTML
+     *
+     * @return string HTML formatted breadcrumbs
+     */
+    private function _getBreadcrumbs()
     {
         $retval = '';
         $tbl_is_view = PMA_Table::isView($this->db, $this->table);
@@ -160,7 +198,12 @@ class PMA_Menu {
         return $retval;
     }
 
-    private function getTableTabs()
+    /**
+     * Returns the table tabs as an array
+     *
+     * @return array Data for generating table tabs
+     */
+    private function _getTableTabs()
     {
         $db_is_information_schema = PMA_is_system_schema($this->db);
         $tbl_is_view = PMA_Table::isView($this->db, $this->table);
@@ -239,7 +282,12 @@ class PMA_Menu {
         return $tabs;
     }
 
-    private function getDbTabs()
+    /**
+     * Returns the db tabs as an array
+     *
+     * @return array Data for generating db tabs
+     */
+    private function _getDbTabs()
     {
         $db_is_information_schema = PMA_is_system_schema($this->db);
         $num_tables = count(PMA_DBI_get_tables($this->db));
@@ -336,7 +384,12 @@ class PMA_Menu {
         return $tabs;
     }
 
-    private function getServerTabs()
+    /**
+     * Returns the server tabs as an array
+     *
+     * @return array Data for generating server tabs
+     */
+    private function _getServerTabs()
     {
         $is_superuser = PMA_isSuperuser();
         $binary_logs = PMA_DRIZZLE
