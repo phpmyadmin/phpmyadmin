@@ -213,7 +213,7 @@ class ConfigFile
         // value
         if (!isset($this->persistKeys[$canonical_path])) {
             $default_value = $this->getDefault($canonical_path);
-            // we need oryginal config values not overwritten by user
+            // we need original config values not overwritten by user
             // preferences to allow for overwriting options set in
             // config.inc.php with default values
             $instance_default_value = PMA_array_read(
