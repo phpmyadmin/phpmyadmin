@@ -317,7 +317,7 @@ function PMA_setTableName(&$table_name)
  */
 function PMA_setTableHeaders(&$table_headers, $table_row)
 {
-    if ( empty($table_headers) ) {
+    if (empty($table_headers)) {
         // The first table row should contain the number of columns
         // If they are not set, generic names will be given (COL 1, COL 2, etc)
         $num_cols = count($table_row);
