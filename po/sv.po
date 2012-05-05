@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-03 23:06+0200\n"
+"PO-Revision-Date: 2012-05-04 20:13+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2347,6 +2347,8 @@ msgstr "Misslyckades med formateringen av strängen för regel '%s'."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Ogiltig regeldeklaration på rad %1$s, förväntad rad %2$s av den tidigare "
+"regeln"
 
 #: libraries/Advisor.class.php:378
 #, php-format
@@ -2357,12 +2359,12 @@ msgstr "Ogiltig regeldeklaration på rad %s"
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Oväntade tecken på rad %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "Oväntat tecken på rad %1$s. Förväntad tab, men fann \"%2$s\""
 
 #: libraries/Advisor.class.php:425 server_status.php:963
 msgid "per second"
