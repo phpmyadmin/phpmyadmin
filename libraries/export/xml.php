@@ -267,7 +267,6 @@ if (isset($plugin_list)) {
                         $head .= '            </pma:function>' . $crlf;
                     }
 
-                    unset($create_func);
                     unset($function);
                     unset($functions);
                 }
@@ -293,7 +292,6 @@ if (isset($plugin_list)) {
                         $head .= '            </pma:procedure>' . $crlf;
                     }
 
-                    unset($create_proc);
                     unset($procedure);
                     unset($procedures);
                 }

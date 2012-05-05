@@ -93,7 +93,7 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
         }
         fclose($pipes[1]);
         // we don't currently use the return value
-        $return_value = proc_close($process);
+        proc_close($process);
     }
 
     if ($options[2] == 1 || $options[2] == '2') {

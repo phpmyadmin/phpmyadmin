@@ -1185,7 +1185,6 @@ if (isset($plugin_list)) {
     ) {
         global $cfgRelation;
         global $sql_backquotes;
-        global $sql_constraints;
 
         $schema_create = '';
 
