@@ -116,7 +116,8 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
          * Display heading if needed. Design can be set in css file.
          */
         if (PMA_DISPLAY_HEADING && $GLOBALS['server'] > 0) {
-            new PMA_Menu($GLOBALS['server'], $GLOBALS['db'], $GLOBALS['table']);
+            $menu = new PMA_Menu($GLOBALS['server'], $GLOBALS['db'], $GLOBALS['table']);
+            $menu->display();
         }
     }
 
