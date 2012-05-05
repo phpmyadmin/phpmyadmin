@@ -40,6 +40,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + rfe #3517835 [structure] Move columns easily
 + Ajaxified "Create View" functionality
 + [import] New plugin: import mediawiki
++ Add Ajax support to Fast filter in order to search the term in all database tables
 
 3.5.2.0 (not yet released)
 - bug #3521416 [interface] JS error when editing index
