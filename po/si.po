@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-02 20:24+0200\n"
+"PO-Revision-Date: 2012-05-05 09:00+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -3257,7 +3257,7 @@ msgstr "පේළි සලකුණු කරණය"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr "Mouse cursor එල්ල වී ඇති පේළිය ඉස්මතු කරන්න"
+msgstr "කර්සරය එල්ල වී ඇති පේළිය ඉස්මතු කරන්න"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
@@ -4038,7 +4038,7 @@ msgstr "LOCAL මූල පදය භාවිතා කරන්න"
 #: libraries/config/messages.inc.php:256 libraries/config/messages.inc.php:264
 #: libraries/config/messages.inc.php:265
 msgid "Column names in first row"
-msgstr "පළමු පේලියේ තීරු නම්"
+msgstr "පළමු පේළියේ තීරු නම්"
 
 #: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
@@ -5515,7 +5515,7 @@ msgstr "\"%s\" දත්තගබඩාවෙන් වගු අපනයනය
 #: libraries/display_export.lib.php:86
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "\"%s\" වගුවෙන් තීරු අපනයනය කිරීම"
+msgstr "\"%s\" වගුවෙන් පේළි අපනයනය කිරීම"
 
 #: libraries/display_export.lib.php:92
 msgid "Export Method:"
@@ -5730,7 +5730,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "පළමු තීරැවේ සිට අත්හළ යුතු තීරු ගණන:"
+msgstr "පළමු පේළියේ සිට අත්හළ යුතු පේළි ගණන:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
@@ -5842,7 +5842,7 @@ msgstr "Well Known Binary"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
-msgstr "පෙළ ඉවත් කරන ලදි"
+msgstr "පේළිය ඉවත් කරන ලදි"
 
 #: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2473
 #: server_status.php:1264
@@ -6663,7 +6663,7 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
-"ගොනුවේ එක් එක් තීරුවේ අඩංගු දත්ත දත්තගබඩාවේ අනුපිළිවල හා නොගැලපේ නම්, අදාල "
+"ගොනුවේ එක් එක් පේළියේ අඩංගු දත්ත දත්තගබඩාවේ අනුපිළිවල හා නොගැලපේ නම්, අදාල "
 "තීර අනුපිළිවල මෙහි සඳහන් කරන්න. තීර නම් උධෘත මගින් ඇහිරිය යුතු අතර කොමා "
 "සලකුණු වලින් වෙන් කල යුතුය."
 
@@ -10853,7 +10853,7 @@ msgstr "මෙම පිටුව වෙත ආපසු යන්න"
 
 #: tbl_change.php:1059
 msgid "Edit next row"
-msgstr "මීලඟ පේළිය එක් කරන්න"
+msgstr "මීලඟ පේළිය සංස්කරණය කරන්න"
 
 #: tbl_change.php:1070
 msgid ""
@@ -11267,7 +11267,7 @@ msgstr "දසුන සංස්කරණය කරන්න"
 
 #: tbl_structure.php:624
 msgid "Relation view"
-msgstr ""
+msgstr "වගු සබඳතා දර්ශනය"
 
 #: tbl_structure.php:632
 msgid "Propose table structure"
