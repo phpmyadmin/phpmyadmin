@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-05 09:00+0200\n"
+"PO-Revision-Date: 2012-05-05 19:02+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -5433,6 +5433,10 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
+"මෙය [kbd]nested[/kbd] වෙත සිටවූ විට, වගුවේ අන්වර්ථ නාමය යොදා ගැනෙනුයේ "
+"$cfg['LeftFrameTableSeparator'] අගය අනුව වගු වෙන්කිරීමට/කාණ්ඩගත කිරීමට පමණි. "
+"එම නිසා කාණ්ඩය පමණක් අන්වර්ථ නාමයෙන් හැඳින්වෙන අතර, වගු නාමයන් නොවෙනස්ව "
+"පවතී"
 
 #: libraries/config/messages.inc.php:485
 msgid "Display table comment instead of its name"
@@ -6310,6 +6314,7 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"තම වගු වල දත්ත සහ සුචි කෑෂ්ගත කිරීමට InnoDB භාවිතා කරන මතක බෆරයේ ප්‍රමාණය."
 
 #: libraries/engines/innodb.lib.php:133
 msgid "Buffer Pool"
@@ -8932,7 +8937,7 @@ msgstr ""
 
 #: prefs_manage.php:269
 msgid "Merge with current configuration"
-msgstr "වත්මන් වින්‍යාස සමග ඒකාබද්ද කරන්න"
+msgstr "වත්මන් වින්‍යාස සමග ඒකාබද්ධ කරන්න"
 
 #: prefs_manage.php:283
 #, php-format
