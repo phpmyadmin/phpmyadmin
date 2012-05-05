@@ -49,8 +49,17 @@ require_once './libraries/db_table_exists.lib.php';
  */
 require_once './libraries/header.inc.php';
 
-if (PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])) {
-    $msg = PMA_Message::notice('<a href="tbl_tracking.php?'.$url_query.'">'.sprintf(__('Tracking of %s is activated.'), htmlspecialchars($GLOBALS["db"] . '.' . $GLOBALS["table"])).'</a>');
+if (PMA_Tracker::isActive()
+    && PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
+) {
+    $temp_msg = '<a href="tbl_tracking.php?' . $url_query . '">';
+    $temp_msg .= sprintf(
+        __('Tracking of %s is activated.'),
+        htmlspecialchars($GLOBALS["db"] . '.' . $GLOBALS["table"])
+    );
+    $temp_msg .= '</a>';
+
+    $msg = PMA_Message::notice($temp_msg);
     $msg->display();
 }
 
