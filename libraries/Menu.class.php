@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Generates and renders the top menu
+ * Singleton class for generating the top menu
  *
  * @package PhpMyAdmin
  */
@@ -18,9 +18,10 @@ class PMA_Menu {
     private $server;
     private $db;
     private $table;
+    private static $instance;
 
     /**
-     * Constructor
+     * Private constructor disables direct object creation
      *
      * @param int    $server Server id
      * @param string $db     Database name
@@ -28,11 +29,28 @@ class PMA_Menu {
      *
      * @return New PMA_Table
      */
-    public function __construct($server, $db, $table)
+    private function __construct($server, $db, $table)
     {
         $this->server = $server;
         $this->db = $db;
         $this->table = $table;
+    }
+
+    /**
+     * Prints the menu and the breadcrumbs
+     *
+     * @return void
+     */
+    public static function getInstance()
+    {
+        if (empty(self::$instance)) {
+            self::$instance = new PMA_Menu(
+                $GLOBALS['server'],
+                $GLOBALS['db'],
+                $GLOBALS['table']
+            );
+        }
+        return self::$instance;
     }
 
     /**
