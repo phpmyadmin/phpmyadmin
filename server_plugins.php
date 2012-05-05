@@ -22,12 +22,6 @@ $GLOBALS['js_include'][] = 'server_plugins.js';
  */
 require 'libraries/server_common.inc.php';
 
-
-/**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
-
 /**
  * Displays the sub-page heading
  */

@@ -121,12 +121,6 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
 }
 
 /**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
-
-
-/**
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"

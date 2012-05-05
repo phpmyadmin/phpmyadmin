@@ -173,7 +173,7 @@ if (isset($dbname)) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    include 'libraries/server_links.inc.php';
+    include 'libraries/header.inc.php';
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usrlist.png')
        . __('Privileges') . "\n"
@@ -1656,7 +1656,10 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
     include 'libraries/db_info.inc.php';
     echo "\n";
 } else {
-    include 'libraries/server_links.inc.php';
+    if (! empty($GLOBALS['message'])) {
+        PMA_showMessage($GLOBALS['message']);
+        unset($GLOBALS['message']);
+    }
 }
 
 

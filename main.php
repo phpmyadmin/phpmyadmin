@@ -41,7 +41,6 @@ $common_url_query =  PMA_generate_common_url('', '');
 if ($server > 0) {
     include 'libraries/server_common.inc.php';
     include 'libraries/StorageEngine.class.php';
-    include 'libraries/server_links.inc.php';
 
     // Use the verbose name of the server instead of the hostname
     // if a value is set

@@ -138,18 +138,13 @@ $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
  */
 
 // Gets some core libraries
-require_once './libraries/tbl_common.php';
+require_once './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
 /**
  * Gets tables informations
  */
 require_once './libraries/tbl_info.inc.php';
-
-/**
- * Displays top menu links
- */
-require_once './libraries/tbl_links.inc.php';
 
 if (! isset($goto)) {
     $goto = $GLOBALS['cfg']['DefaultTabTable'];

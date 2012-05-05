@@ -27,9 +27,8 @@ $GLOBALS['js_include'][] = 'canvg/canvg.js';
 if (strlen($GLOBALS['table'])) {
     $url_params['goto'] = $cfg['DefaultTabTable'];
     $url_params['back'] = 'tbl_sql.php';
-    include 'libraries/tbl_common.php';
+    include 'libraries/tbl_common.inc.php';
     include 'libraries/tbl_info.inc.php';
-    include 'libraries/tbl_links.inc.php';
 } elseif (strlen($GLOBALS['db'])) {
     $url_params['goto'] = $cfg['DefaultTabDatabase'];
     $url_params['back'] = 'sql.php';
@@ -39,7 +38,6 @@ if (strlen($GLOBALS['table'])) {
     $url_params['goto'] = $cfg['DefaultTabServer'];
     $url_params['back'] = 'sql.php';
     include 'libraries/server_common.inc.php';
-    include 'libraries/server_links.inc.php';
 }
 
 /*

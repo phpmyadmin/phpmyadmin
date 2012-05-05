@@ -57,11 +57,6 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 
 // ---------------------------------------------------------------------------
 
-/*
- * Display top menu links
- */
-require_once 'libraries/db_links.inc.php';
-
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
              PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .

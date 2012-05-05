@@ -15,7 +15,7 @@ $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 /**
  * Runs common work
  */
-require './libraries/tbl_common.php';
+require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 
@@ -46,11 +46,6 @@ if (isset($_REQUEST['submitoptions'])) {
         }
     }
 }
-
-/**
- * Displays top menu links
- */
-require_once './libraries/tbl_links.inc.php';
 
 if (isset($result)) {
     // set to success by default, because result set could be empty

@@ -17,12 +17,6 @@ require_once 'libraries/common.inc.php';
 require 'libraries/server_common.inc.php';
 require 'libraries/StorageEngine.class.php';
 
-
-/**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
-
 /**
  * Did the user request information about a certain storage engine?
  */
