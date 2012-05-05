@@ -10,7 +10,7 @@
  */
 require_once 'libraries/common.inc.php';
 
-require 'libraries/tbl_common.php';
+require 'libraries/tbl_common.inc.php';
 
 /**
  * Gets the variables sent or posted to this script, then displays headers

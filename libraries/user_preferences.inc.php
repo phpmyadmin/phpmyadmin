@@ -8,10 +8,6 @@
 if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-// show server tabs
-require './libraries/server_links.inc.php';
-
 // build user preferences menu
 
 $form_param = filter_input(INPUT_GET, 'form');

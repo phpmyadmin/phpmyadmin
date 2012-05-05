@@ -137,12 +137,6 @@ if (! empty($disp_message)) {
 }
 
 /**
- * Displays top menu links
- */
-require_once 'libraries/tbl_links.inc.php';
-
-
-/**
  * Get the analysis of SHOW CREATE TABLE for this table
  * @todo should be handled by class Table
  */

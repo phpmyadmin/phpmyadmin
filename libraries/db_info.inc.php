@@ -283,10 +283,10 @@ if (! isset($total_num_tables)) {
 unset($each_table, $tbl_group_sql, $db_info_result);
 
 /**
- * Displays top menu links
- * If in an Ajax request, we do not need to show this
+ * If coming from a Show MySQL link on the home page,
+ * put something in $sub_part
  */
-if ($GLOBALS['is_ajax_request'] != true) {
-    include './libraries/db_links.inc.php';
+if (empty($sub_part)) {
+    $sub_part = '_structure';
 }
 ?>

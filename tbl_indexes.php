@@ -11,7 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Index.class.php';
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 
 // Get fields and stores their name/type
 $fields = array();
@@ -131,9 +131,6 @@ if (isset($_REQUEST['do_save_data'])) {
 // Displays headers (if needed)
 $GLOBALS['js_include'][] = 'indexes.js';
 require_once 'libraries/tbl_info.inc.php';
-if ($GLOBALS['is_ajax_request'] != true) {
-    include_once 'libraries/tbl_links.inc.php';
-}
 
 if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
     // coming already from form

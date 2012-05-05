@@ -17,12 +17,6 @@ require 'libraries/server_common.inc.php';
 
 
 /**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
-
-
-/**
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"

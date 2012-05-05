@@ -920,16 +920,14 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         if (! $GLOBALS['is_ajax_request'] || ! $GLOBALS['cfg']['AjaxEnable']) {
             if (strlen($table)) {
-                include 'libraries/tbl_common.php';
+                include 'libraries/tbl_common.inc.php';
                 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
                 include 'libraries/tbl_info.inc.php';
-                include 'libraries/tbl_links.inc.php';
             } elseif (strlen($db)) {
                 include 'libraries/db_common.inc.php';
                 include 'libraries/db_info.inc.php';
             } else {
                 include 'libraries/server_common.inc.php';
-                include 'libraries/server_links.inc.php';
             }
         } else {
             include_once 'libraries/header.inc.php';

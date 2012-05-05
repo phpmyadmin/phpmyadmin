@@ -772,13 +772,6 @@ PMA_AddJSVar(
  */
 require 'libraries/server_common.inc.php';
 
-
-
-/**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
-
 ?>
 <div id="serverstatus">
     <h2><?php

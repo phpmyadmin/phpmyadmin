@@ -70,7 +70,6 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         $action = 'tbl_structure.php';
         include 'libraries/mult_submits.inc.php';
         //require_once 'libraries/header.inc.php';
-        //require_once 'libraries/tbl_links.inc.php';
 
         if (empty($message)) {
             $message = PMA_Message::success();
@@ -86,7 +85,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Runs common work
  */
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
@@ -101,10 +100,6 @@ $url_params['back'] = 'tbl_structure.php';
  */
 require_once 'libraries/tbl_info.inc.php';
 
-/**
- * Displays top menu links
- */
-require_once 'libraries/tbl_links.inc.php';
 require_once 'libraries/Index.class.php';
 
 // 2. Gets table keys and retains them
@@ -726,14 +721,6 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 <div id="index_div" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> >
     <?php
 }
-
-/**
- * If there are more than 20 rows, displays browse/select/insert/empty/drop
- * links again
- */
-if (count($fields) > 20) {
-    include 'libraries/tbl_links.inc.php';
-} // end if (count($fields) > 20)
 
 /**
  * Displays indexes

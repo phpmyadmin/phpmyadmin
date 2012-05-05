@@ -26,7 +26,7 @@ PMA_checkParameters(array('db', 'table'));
 /**
  * Gets tables informations
  */
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 require_once 'libraries/tbl_info.inc.php';
 
 $active_page = 'tbl_structure.php';
@@ -279,10 +279,6 @@ if (isset($_REQUEST['do_save_data'])) {
  * $selected comes from multi_submits.inc.php
  */
 if ($abort == false) {
-    if (!isset($_REQUEST['ajax_request']) || $_REQUEST['ajax_request'] != true) {
-        include_once 'libraries/tbl_links.inc.php';
-    }
-
     if (! isset($selected)) {
         PMA_checkParameters(array('field'));
         $selected[]   = $_REQUEST['field'];

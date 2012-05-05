@@ -17,12 +17,6 @@ $GLOBALS['js_include'][] = 'import.js';
  */
 require 'libraries/server_common.inc.php';
 
-
-/**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
-
 $import_type = 'server';
 require 'libraries/display_import.lib.php';
 /**
