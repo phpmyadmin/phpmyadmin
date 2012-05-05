@@ -1,6 +1,6 @@
 <?php
 
-class Menu {
+class PMA_Menu {
     private $server;
     private $db;
     private $table;
