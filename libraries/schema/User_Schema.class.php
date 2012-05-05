@@ -284,7 +284,7 @@ class PMA_User_Schema
 
             $i = 0;
             $odd_row = true;
-            foreach ($array_sh_page as $dummy_sh_page => $sh_page) {
+            foreach ($array_sh_page as $sh_page) {
                 $_mtab            =  $sh_page['table_name'];
                 $tabExist[$_mtab] =  false;
                 echo "\n" . '    <tr class="noclick ';
@@ -372,7 +372,7 @@ class PMA_User_Schema
 
     public function displaySchemaGenerationOptions()
     {
-        global $cfg,$pmaThemeImage,$db,$test_rs,$chpage;
+        global $cfg,$db,$test_rs,$chpage;
         ?>
         <form method="post" action="schema_export.php">
             <fieldset>
@@ -434,7 +434,7 @@ class PMA_User_Schema
             <br />
             <select name="paper" id="paper_opt" onchange="refreshDragOption('pdflayout');">
                 <?php
-                foreach ($cfg['PDFPageSizes'] as $key => $val) {
+                foreach ($cfg['PDFPageSizes'] as $val) {
                         echo '<option value="' . $val . '"';
                         if ($val == $cfg['PDFDefaultPageSize']) {
                             echo ' selected="selected"';
@@ -465,7 +465,6 @@ class PMA_User_Schema
     */
     private function _deleteTables($db, $chpage, $tabExist)
     {
-        global $table;
         $_strtrans  = '';
         $_strname   = '';
         $shoot      = false;
@@ -516,7 +515,7 @@ class PMA_User_Schema
         $draginit2 = '';
         $reset_draginit = '';
         $i = 0;
-        foreach ($array_sh_page as $key => $temp_sh_page) {
+        foreach ($array_sh_page as $temp_sh_page) {
             $drag_x = $temp_sh_page['x'];
             $drag_y = $temp_sh_page['y'];
 
@@ -617,7 +616,7 @@ class PMA_User_Schema
         PMA_DBI_select_db($db);
 
         include "libraries/schema/" . ucfirst($export_type) . "_Relation_Schema.class.php";
-        $obj_schema = eval("new PMA_" . ucfirst($export_type) . "_Relation_Schema();");
+        eval("new PMA_" . ucfirst($export_type) . "_Relation_Schema();");
     }
 
     /**

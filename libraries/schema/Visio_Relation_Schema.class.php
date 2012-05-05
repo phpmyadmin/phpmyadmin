@@ -315,10 +315,10 @@ class Table_Stats
      *
      * @return void
      * @see PMA_VISIO
+     * @todo function does nothing, what should it do?
      */
     private function _setWidthTable($font,$fontSize)
     {
-        global $visio;
     }
 
     /**
@@ -348,7 +348,6 @@ class Table_Stats
      */
     public function tableDraw($showColor)
     {
-        global $visio;
         //echo $this->_tableName.'<br />';
 
         foreach ($this->fields as $field) {
@@ -473,8 +472,6 @@ class Relation_Stats
      */
     public function relationDraw($changeColor)
     {
-        global $visio;
-
         if ($changeColor) {
             $listOfColors = array(
                 'red',
