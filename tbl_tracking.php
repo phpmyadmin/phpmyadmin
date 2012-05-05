@@ -9,7 +9,7 @@
 require_once './libraries/common.inc.php';
 
 define('TABLE_MAY_BE_ABSENT', true);
-require './libraries/tbl_common.php';
+require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';;
 $url_params['back'] = 'tbl_tracking.php';
@@ -146,10 +146,6 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfil
  * Gets tables informations
  */
 
-/**
- * Displays top menu links
- */
-require_once './libraries/tbl_links.inc.php';
 echo '<br />';
 
 /**

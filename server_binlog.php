@@ -16,11 +16,6 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/server_common.inc.php';
 
-/**
- * Displays the links
- */
-require_once 'libraries/server_links.inc.php';
-
 $url_params = array();
 
 /**

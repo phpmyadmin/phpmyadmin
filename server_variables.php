@@ -97,12 +97,6 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 }
 
 /**
- * Displays the links
- */
-require 'libraries/server_links.inc.php';
-
-
-/**
  * Displays the sub-page heading
  */
 echo '<h2>' . PMA_getImage('s_vars.png')

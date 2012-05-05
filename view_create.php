@@ -93,14 +93,6 @@ if (PMA_isValid($_REQUEST['view'], 'array')) {
     $view = array_merge($view, $_REQUEST['view']);
 }
 
-/**
- * Displays top menu links
- * We use db links because a VIEW is not necessarily on a single table
- */
-$num_tables = 0;
-if ($GLOBALS['is_ajax_request'] != true) {
-    include_once './libraries/db_links.inc.php';
-}
 $url_params['db'] = $GLOBALS['db'];
 $url_params['reload'] = 1;
 

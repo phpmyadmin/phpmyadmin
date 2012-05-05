@@ -15,7 +15,7 @@ $GLOBALS['js_include'][] = 'export.js';
 /**
  * Gets tables informations and displays top links
  */
-require_once 'libraries/tbl_common.php';
+require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_export.php&amp;back=tbl_export.php';
 require_once 'libraries/tbl_info.inc.php';
 
@@ -76,13 +76,8 @@ if (! empty($sql_query)) {
         // Just crop LIMIT clause
         $sql_query = $analyzed_sql[0]['section_before_limit'] . $analyzed_sql[0]['section_after_limit'];
     }
-    $message = PMA_Message::success();
+    PMA_showMessage(PMA_Message::success());
 }
-
-/**
- * Displays top menu links
- */
-require 'libraries/tbl_links.inc.php';
 
 $export_type = 'table';
 require_once 'libraries/display_export.lib.php';

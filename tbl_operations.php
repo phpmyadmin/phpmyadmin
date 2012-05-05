@@ -15,7 +15,7 @@ $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 /**
  * Runs common work
  */
-require 'libraries/tbl_common.php';
+require 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_operations.php&amp;back=tbl_operations.php';
 $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 
@@ -223,12 +223,6 @@ if ($reread_info) {
 }
 unset($reread_info);
 
-/**
- * Displays top menu links in non ajax requests
- */
-if (!isset($_REQUEST['ajax_request'])) {
-    include_once 'libraries/tbl_links.inc.php';
-}
 if (isset($result) && empty($message_to_show)) {
     // set to success by default, because result set could be empty
     // (for example, a table rename)
