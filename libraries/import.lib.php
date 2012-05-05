@@ -1129,7 +1129,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                                 $tbl_struct_url,
                                 sprintf(__('Structure of %s'), htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME]))),
                                 $tbl_ops_url,
-                                sprintf(__('Edit settings for %s'), htmlspecialchars(PMA_backquote($db_name))));
+                                sprintf(__('Edit settings for %s'), htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME]))));
         } else {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a></li>',
                                 $tbl_url,
