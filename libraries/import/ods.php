@@ -29,13 +29,32 @@ if (isset($plugin_list)) {
         'text' => __('Open Document Spreadsheet'),
         'extension' => 'ods',
         'options' => array(
-                array('type' => 'begin_group', 'name' => 'general_opts'),
-                array('type' => 'bool', 'name' => 'col_names', 'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>')),
-                array('type' => 'bool', 'name' => 'empty_rows', 'text' => __('Do not import empty rows')),
-                array('type' => 'bool', 'name' => 'recognize_percentages', 'text' => __('Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>')),
-                array('type' => 'bool', 'name' => 'recognize_currency', 'text' => __('Import currencies <i>(ex. $5.00 to 5.00)</i>')),
-                array('type' => 'end_group')
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
             ),
+            array(
+                'type' => 'bool',
+                'name' => 'col_names',
+                'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>')
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'empty_rows',
+                'text' => __('Do not import empty rows')
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'recognize_percentages',
+                'text' => __('Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>')
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'recognize_currency',
+                'text' => __('Import currencies <i>(ex. $5.00 to 5.00)</i>')
+            ),
+            array('type' => 'end_group')
+        ),
         'options_text' => __('Options'),
         );
     /* We do not define function when plugin is just queried for information above */
@@ -122,9 +141,13 @@ foreach ($sheets as $sheet) {
                     $num_iterations = $num_repeat ? $num_repeat : 1;
 
                     for ($k = 0; $k < $num_iterations; $k++) {
-                        if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
+                        if ($_REQUEST['ods_recognize_percentages']
+                            && ! strcmp('percentage', $cell_attrs['value-type'])
+                        ) {
                             $value = (double)$cell_attrs['value'];
-                        } elseif ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
+                        } elseif ($_REQUEST['ods_recognize_currency']
+                            && !strcmp('currency', $cell_attrs['value-type'])
+                        ) {
                             $value = (double)$cell_attrs['value'];
                         } else {
                             /* We need to concatenate all paragraphs */
