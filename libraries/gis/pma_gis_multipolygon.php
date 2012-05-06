@@ -89,8 +89,9 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
      * @return object the modified image object
      * @access public
      */
-    public function prepareRowAsPng($spatial, $label, $fill_color, $scale_data, $image)
-    {
+    public function prepareRowAsPng($spatial, $label, $fill_color,
+        $scale_data, $image
+    ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($fill_color, 1, 2));
@@ -118,7 +119,8 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
 
                 foreach ($inner as $inner_poly) {
                     $points_arr = array_merge(
-                        $points_arr, $this->extractPoints($inner_poly, $scale_data, true)
+                        $points_arr,
+                        $this->extractPoints($inner_poly, $scale_data, true)
                     );
                 }
             }
@@ -132,7 +134,9 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         }
         // print label if applicable
         if (isset($label_point)) {
-            imagestring($image, 1, $points_arr[2], $points_arr[3], trim($label), $black);
+            imagestring(
+                $image, 1, $points_arr[2], $points_arr[3], trim($label), $black
+            );
         }
         return $image;
     }
@@ -388,7 +392,8 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         // correctly classify inner rings to their respective outer rings.
         include_once './libraries/gis/pma_gis_polygon.php';
         foreach ($row_data['parts'] as $i => $ring) {
-            $row_data['parts'][$i]['isOuter'] = PMA_GIS_Polygon::isOuterRing($ring['points']);
+            $row_data['parts'][$i]['isOuter']
+                = PMA_GIS_Polygon::isOuterRing($ring['points']);
         }
 
         // Find points on surface for inner rings

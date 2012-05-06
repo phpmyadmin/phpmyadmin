@@ -81,8 +81,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @return object the modified image object
      * @access public
      */
-    public function prepareRowAsPng($spatial, $label, $fill_color, $scale_data, $image)
-    {
+    public function prepareRowAsPng($spatial, $label, $fill_color,
+        $scale_data, $image
+    ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($fill_color, 1, 2));
@@ -115,7 +116,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         imagefilledpolygon($image, $points_arr, sizeof($points_arr) / 2, $color);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
-            imagestring($image, 1, $points_arr[2], $points_arr[3], trim($label), $black);
+            imagestring(
+                $image, 1, $points_arr[2], $points_arr[3], trim($label), $black
+            );
         }
         return $image;
     }

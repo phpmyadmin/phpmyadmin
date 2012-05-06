@@ -72,8 +72,9 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      * @return object the modified image object
      * @access public
      */
-    public function prepareRowAsPng($spatial, $label, $point_color, $scale_data, $image)
-    {
+    public function prepareRowAsPng($spatial, $label, $point_color,
+        $scale_data, $image
+    ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($point_color, 1, 2));
@@ -87,10 +88,15 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
 
         // draw a small circle to mark the point
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            imagearc($image, $points_arr[0][0], $points_arr[0][1], 7, 7, 0, 360, $color);
+            imagearc(
+                $image, $points_arr[0][0], $points_arr[0][1], 7, 7, 0, 360, $color
+            );
             // print label if applicable
             if (isset($label) && trim($label) != '') {
-                imagestring($image, 1, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
+                imagestring(
+                    $image, 1, $points_arr[0][0],
+                    $points_arr[0][1], trim($label), $black
+                );
             }
         }
         return $image;
@@ -108,8 +114,9 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      * @return object the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf)
-    {
+    public function prepareRowAsPdf($spatial, $label, $point_color,
+        $scale_data, $pdf
+    ) {
         // allocate colors
         $red   = hexdec(substr($point_color, 1, 2));
         $green = hexdec(substr($point_color, 3, 2));
@@ -122,7 +129,9 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
 
         // draw a small circle to mark the point
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            $pdf->Circle($points_arr[0][0], $points_arr[0][1], 2, 0, 360, 'D', $line);
+            $pdf->Circle(
+                $points_arr[0][0], $points_arr[0][1], 2, 0, 360, 'D', $line
+            );
             // print label if applicable
             if (isset($label) && trim($label) != '') {
                 $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
@@ -161,7 +170,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
 
         $row = '';
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            $row .= '<circle cx="' . $points_arr[0][0] . '" cy="' . $points_arr[0][1] . '" r="3"';
+            $row .= '<circle cx="' . $points_arr[0][0]
+                . '" cy="' . $points_arr[0][1] . '" r="3"';
             foreach ($point_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim($val) . '"';
             }
@@ -184,8 +194,9 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      * @return string JavaScript related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $point_color, $scale_data)
-    {
+    public function prepareRowAsOl($spatial, $srid, $label,
+        $point_color, $scale_data
+    ) {
         $style_options = array(
             'pointRadius'  => 3,
             'fillColor'    => '#ffffff',
@@ -225,9 +236,12 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     public function generateWkt($gis_data, $index, $empty = '')
     {
          return 'POINT('
-             . ((isset($gis_data[$index]['POINT']['x']) && trim($gis_data[$index]['POINT']['x']) != '')
-             ? $gis_data[$index]['POINT']['x'] : '') . ' '
-             . ((isset($gis_data[$index]['POINT']['y']) && trim($gis_data[$index]['POINT']['y']) != '')
+             . ((isset($gis_data[$index]['POINT']['x'])
+                 && trim($gis_data[$index]['POINT']['x']) != '')
+             ? $gis_data[$index]['POINT']['x'] : '')
+             . ' '
+             . ((isset($gis_data[$index]['POINT']['y'])
+                 && trim($gis_data[$index]['POINT']['y']) != '')
              ? $gis_data[$index]['POINT']['y'] : '') . ')';
     }
 

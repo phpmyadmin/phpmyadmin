@@ -106,7 +106,10 @@ class PMA_GIS_Visualization
     private function _handleOptions()
     {
         if (! is_null($this->_userSpecifiedSettings)) {
-            $this->_settings = array_merge($this->_settings, $this->_userSpecifiedSettings);
+            $this->_settings = array_merge(
+                $this->_settings,
+                $this->_userSpecifiedSettings
+            );
         }
     }
 
@@ -126,7 +129,9 @@ class PMA_GIS_Visualization
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
         $extension_start_pos = strlen($file_name) - strlen($ext) - 1;
-        $user_extension = substr($file_name, $extension_start_pos, strlen($file_name));
+        $user_extension = substr(
+            $file_name, $extension_start_pos, strlen($file_name)
+        );
         $required_extension = "." . $ext;
         if (strtolower($user_extension) != $required_extension) {
             $file_name  .= $required_extension;
@@ -165,7 +170,8 @@ class PMA_GIS_Visualization
 
         $output   = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . "\n";
         $output  .= '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
-            . ' xmlns="http://www.w3.org/2000/svg" width="' . $this->_settings['width'] . '"'
+            . ' xmlns="http://www.w3.org/2000/svg"'
+            . ' width="' . $this->_settings['width'] . '"'
             . ' height="' . $this->_settings['height'] . '">';
         $output .= '<g id="groupPanel">';
 
@@ -216,7 +222,10 @@ class PMA_GIS_Visualization
         $this->init();
 
         // create image
-        $image = imagecreatetruecolor($this->_settings['width'], $this->_settings['height']);
+        $image = imagecreatetruecolor(
+            $this->_settings['width'],
+            $this->_settings['height']
+        );
 
         // fill the background
         $bg = imagecolorallocate($image, 229, 229, 229);
@@ -324,7 +333,9 @@ class PMA_GIS_Visualization
         include_once './libraries/tcpdf/tcpdf.php';
 
         // create pdf
-        $pdf = new TCPDF('', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false);
+        $pdf = new TCPDF(
+            '', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false
+        );
 
         // disable header and footer
         $pdf->setPrintHeader(false);
@@ -373,7 +384,9 @@ class PMA_GIS_Visualization
             if (! $gis_obj) {
                 continue;
             }
-            $scale_data = $gis_obj->scaleRow($row[$this->_settings['spatialColumn']]);
+            $scale_data = $gis_obj->scaleRow(
+                $row[$this->_settings['spatialColumn']]
+            );
 
             // Upadate minimum/maximum values for x and y cordinates.
             $c_maxX = (float) $scale_data['maxX'];

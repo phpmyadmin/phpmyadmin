@@ -81,8 +81,9 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
      * @return object the modified image object
      * @access public
      */
-    public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
-    {
+    public function prepareRowAsPng($spatial, $label, $line_color,
+        $scale_data, $image
+    ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($line_color, 1, 2));
@@ -103,14 +104,20 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
                     $temp_point = $point;
                 } else {
                     // draw line section
-                    imageline($image, $temp_point[0], $temp_point[1], $point[0], $point[1], $color);
+                    imageline(
+                        $image, $temp_point[0], $temp_point[1],
+                        $point[0], $point[1], $color
+                    );
                     $temp_point = $point;
                 }
             }
             unset($temp_point);
             // print label if applicable
             if (isset($label) && trim($label) != '' && $first_line) {
-                imagestring($image, 1, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
+                imagestring(
+                    $image, 1, $points_arr[1][0],
+                    $points_arr[1][1], trim($label), $black
+                );
             }
             $first_line = false;
         }
@@ -150,7 +157,9 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
                     $temp_point = $point;
                 } else {
                     // draw line section
-                    $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
+                    $pdf->Line(
+                        $temp_point[0], $temp_point[1], $point[0], $point[1], $line
+                    );
                     $temp_point = $point;
                 }
             }

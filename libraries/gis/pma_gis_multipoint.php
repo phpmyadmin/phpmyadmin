@@ -72,8 +72,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
      * @return object the modified image object
      * @access public
      */
-    public function prepareRowAsPng($spatial, $label, $point_color, $scale_data, $image)
-    {
+    public function prepareRowAsPng($spatial, $label, $point_color,
+        $scale_data, $image
+    ) {
         // allocate colors
         $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($point_color, 1, 2));
@@ -95,7 +96,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         if ((isset($label) && trim($label) != '')
             && ($points_arr[0][0] != '' && $points_arr[0][1] != '')
         ) {
-            imagestring($image, 1, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
+            imagestring(
+                $image, 1, $points_arr[0][0], $points_arr[0][1], trim($label), $black
+            );
         }
         return $image;
     }
@@ -112,8 +115,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
      * @return object the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf)
-    {
+    public function prepareRowAsPdf($spatial, $label, $point_color,
+        $scale_data, $pdf
+    ) {
         // allocate colors
         $red   = hexdec(substr($point_color, 1, 2));
         $green = hexdec(substr($point_color, 3, 2));
@@ -169,7 +173,8 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         $row = '';
         foreach ($points_arr as $point) {
             if ($point[0] != '' && $point[1] != '') {
-                $row .= '<circle cx="' . $point[0] . '" cy="' . $point[1] . '" r="3"';
+                $row .= '<circle cx="' . $point[0] . '" cy="'
+                    . $point[1] . '" r="3"';
                 $point_options['id'] = $label . rand();
                 foreach ($point_options as $option => $val) {
                     $row .= ' ' . $option . '="' . trim($val) . '"';
@@ -194,8 +199,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
      * @return string JavaScript related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $point_color, $scale_data)
-    {
+    public function prepareRowAsOl($spatial, $srid, $label,
+        $point_color, $scale_data
+    ) {
         $style_options = array(
             'pointRadius'  => 3,
             'fillColor'    => '#ffffff',
@@ -264,7 +270,8 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     {
         $wkt = 'MULTIPOINT(';
         for ($i = 0; $i < $row_data['numpoints']; $i++) {
-            $wkt .= $row_data['points'][$i]['x'] . ' ' . $row_data['points'][$i]['y'] . ',';
+            $wkt .= $row_data['points'][$i]['x'] . ' '
+                . $row_data['points'][$i]['y'] . ',';
         }
         $wkt = substr($wkt, 0, strlen($wkt) - 1);
         $wkt .= ')';
