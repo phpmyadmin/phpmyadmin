@@ -31,7 +31,9 @@ if (isset($plugin_list)) {
 
 
     // Append the bfShapeFiles directory to the include path variable
-    set_include_path(get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/bfShapeFiles/');
+    set_include_path(
+        get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/bfShapeFiles/'
+    );
     include_once './libraries/bfShapeFiles/ShapeFile.lib.php';
 
     $GLOBALS['finished'] = false;
@@ -64,14 +66,31 @@ if (isset($plugin_list)) {
      * 2) To use PMA_importGetNextChunk() functionality to read data, rather than
      *    reading directly from a file. Using readFromBuffer() in place of fread().
      *    This makes it possible to use compressions.
+     *
+     * @package    PhpMyAdmin-Import
+     * @subpackage ESRI_Shape
      */
     class PMA_ShapeFile extends ShapeFile
     {
+        /**
+         * Returns whether the 'dbase' extension is loaded
+         *
+         * @return whether the 'dbase' extension is loaded
+         */
         function _isDbaseLoaded()
         {
             return extension_loaded('dbase');
         }
 
+        /**
+         * Loads ESRI shape data from the imported file
+         *
+         * @param string $FileName not used, it's here only to match the method
+         *                         signature of the method being overidden
+         *
+         * @return void
+         * @see ShapeFile::loadFromFile()
+         */
         function loadFromFile($FileName)
         {
             $this->_loadHeaders();
@@ -81,6 +100,12 @@ if (isset($plugin_list)) {
             }
         }
 
+        /**
+         * Loads metadata from the ESRI shape file header
+         *
+         * @return void
+         * @see ShapeFile::_loadHeaders()
+         */
         function _loadHeaders()
         {
             readFromBuffer(24);
@@ -100,6 +125,12 @@ if (isset($plugin_list)) {
             }
         }
 
+        /**
+         * Loads geometry data from the ESRI shape file
+         *
+         * @return void
+         * @see ShapeFile::_loadRecords()
+         */
         function _loadRecords()
         {
             global $eof;
@@ -126,9 +157,21 @@ if (isset($plugin_list)) {
      * 2) To use PMA_importGetNextChunk() functionality to read data, rather than
      *    reading directly from a file. Using readFromBuffer() in place of fread().
      *    This makes it possible to use compressions.
+     *
+     * @package    PhpMyAdmin-Import
+     * @subpackage ESRI_Shape
      */
     class PMA_ShapeRecord extends ShapeRecord
     {
+        /**
+         * Loads a geometry data record from the file
+         *
+         * @param object &$SHPFile .shp file
+         * @param object &$DBFFile .dbf file
+         *
+         * @return void
+         * @see ShapeRecord::loadFromFile()
+         */
         function loadFromFile(&$SHPFile, &$DBFFile)
         {
             $this->DBFFile = $DBFFile;
@@ -151,7 +194,12 @@ if (isset($plugin_list)) {
                 $this->_loadMultiPointRecord();
                 break;
             default:
-                $this->setError(sprintf("The Shape Type '%s' is not supported.", $this->shapeType));
+                $this->setError(
+                    sprintf(
+                        __("Geometry type '%s' is not supported by MySQL."),
+                        $this->shapeType
+                    )
+                );
                 break;
             }
             if (extension_loaded('dbase') && isset($this->DBFFile)) {
@@ -159,14 +207,25 @@ if (isset($plugin_list)) {
             }
         }
 
+        /**
+         * Loads metadata from the ESRI shape record header
+         *
+         * @return void
+         * @see ShapeRecord::_loadHeaders()
+         */
         function _loadHeaders()
         {
             $this->recordNumber = loadData("N", readFromBuffer(4));
-            //We read the length of the record
-            $tmp = loadData("N", readFromBuffer(4));
+            readFromBuffer(4);
             $this->shapeType = loadData("V", readFromBuffer(4));
         }
 
+        /**
+         * Loads data from a point record
+         *
+         * @return void
+         * @see ShapeRecord::_loadPoint()
+         */
         function _loadPoint()
         {
             $data = array();
@@ -177,6 +236,12 @@ if (isset($plugin_list)) {
             return $data;
         }
 
+        /**
+         * Loads data from a multipoint record
+         *
+         * @return void
+         * @see ShapeRecord::_loadMultiPointRecord()
+         */
         function _loadMultiPointRecord()
         {
             $this->SHPData = array();
@@ -192,6 +257,12 @@ if (isset($plugin_list)) {
             }
         }
 
+        /**
+         * Loads data from a polyline record
+         *
+         * @return void
+         * @see ShapeRecord::_loadPolyLineRecord()
+         */
         function _loadPolyLineRecord()
         {
             $this->SHPData = array();
@@ -219,7 +290,8 @@ if (isset($plugin_list)) {
                 while (! in_array($readPoints, $this->SHPData["parts"])
                 && ($readPoints < ($this->SHPData["numpoints"]))
                 ) {
-                    $this->SHPData["parts"][$partIndex]["points"][] = $this->_loadPoint();
+                    $this->SHPData["parts"][$partIndex]["points"][]
+                        = $this->_loadPoint();
                     $readPoints++;
                 }
             }
@@ -229,7 +301,9 @@ if (isset($plugin_list)) {
     $shp = new PMA_ShapeFile(1);
     // If the zip archive has more than one file,
     // get the correct content to the buffer from .shp file.
-    if ($compression == 'application/zip' && PMA_getNoOfFilesInZip($import_file) > 1) {
+    if ($compression == 'application/zip'
+        && PMA_getNoOfFilesInZip($import_file) > 1
+    ) {
         $zip_content =  PMA_getZipContents($import_file, '/^.*\.shp$/i');
         $GLOBALS['import_text'] = $zip_content['data'];
     }
@@ -243,7 +317,9 @@ if (isset($plugin_list)) {
             && ! empty($cfg['TempDir'])
             && is_writable($cfg['TempDir'])
         ) {
-            $dbf_file_name = PMA_findFileFromZipArchive('/^.*\.dbf$/i', $import_file);
+            $dbf_file_name = PMA_findFileFromZipArchive(
+                '/^.*\.dbf$/i', $import_file
+            );
             // If the corresponding .dbf file is in the zip archive
             if ($dbf_file_name) {
                 // Extract the .dbf file and point to it.
@@ -256,8 +332,11 @@ if (isset($plugin_list)) {
                     $dbf_file_path = realpath($cfg['TempDir'])
                         . (PMA_IS_WINDOWS ? '\\' : '/') . $dbf_file_name;
                     $temp_dbf_file = true;
-                    // Replace the .dbf with .*, as required by the bsShapeFiles library.
-                    $file_name = substr($dbf_file_path, 0, strlen($dbf_file_path) - 4) . '.*';
+                    // Replace the .dbf with .*, as required
+                    // by the bsShapeFiles library.
+                    $file_name = substr(
+                        $dbf_file_path, 0, strlen($dbf_file_path) - 4
+                    ) . '.*';
                     $shp->FileName = $file_name;
                 }
             }
@@ -354,7 +433,8 @@ if (isset($plugin_list)) {
             if ($gis_obj == null) {
                 $tempRow[] = null;
             } else {
-                $tempRow[] = "GeomFromText('" . $gis_obj->getShape($record->SHPData) . "')";
+                $tempRow[] = "GeomFromText('"
+                    . $gis_obj->getShape($record->SHPData) . "')";
             }
 
             if (isset($shp->DBFHeader)) {
