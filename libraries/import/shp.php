@@ -70,11 +70,25 @@ if (isset($plugin_list)) {
      */
     class PMA_ShapeFile extends ShapeFile
     {
+        /**
+         * Returns whether the 'dbase' is loaded
+         *
+         * @return whether the 'dbase' is loaded
+         */
         function _isDbaseLoaded()
         {
             return extension_loaded('dbase');
         }
 
+        /**
+         * Loads ESRI shape data from the imported file
+         *
+         * @param string $FileName not used, it's here only to match the method
+         *                         signature of the method being overidden
+         *
+         * @return void
+         * @see ShapeFile::loadFromFile()
+         */
         function loadFromFile($FileName)
         {
             $this->_loadHeaders();
@@ -84,6 +98,12 @@ if (isset($plugin_list)) {
             }
         }
 
+        /**
+         * Loads metadata from the ESRI shape file header
+         *
+         * @return void
+         * @see ShapeFile::_loadHeaders()
+         */
         function _loadHeaders()
         {
             readFromBuffer(24);
@@ -103,6 +123,12 @@ if (isset($plugin_list)) {
             }
         }
 
+        /**
+         * Loads geometry data from the ESRI shape file
+         *
+         * @return void
+         * @see ShapeFile::_loadRecords()
+         */
         function _loadRecords()
         {
             global $eof;
@@ -135,6 +161,15 @@ if (isset($plugin_list)) {
      */
     class PMA_ShapeRecord extends ShapeRecord
     {
+        /**
+         * Loads a geometry data record from the file
+         *
+         * @param object &$SHPFile .shp file
+         * @param object &$DBFFile .dbf file
+         *
+         * @return void
+         * @see ShapeRecord::loadFromFile()
+         */
         function loadFromFile(&$SHPFile, &$DBFFile)
         {
             $this->DBFFile = $DBFFile;
@@ -165,6 +200,12 @@ if (isset($plugin_list)) {
             }
         }
 
+        /**
+         * Loads metadata from the ESRI shape record header
+         *
+         * @return void
+         * @see ShapeRecord::_loadHeaders()
+         */
         function _loadHeaders()
         {
             $this->recordNumber = loadData("N", readFromBuffer(4));
@@ -172,6 +213,12 @@ if (isset($plugin_list)) {
             $this->shapeType = loadData("V", readFromBuffer(4));
         }
 
+        /**
+         * Loads data from a point reocrd
+         *
+         * @return void
+         * @see ShapeRecord::_loadPoint()
+         */
         function _loadPoint()
         {
             $data = array();
@@ -182,6 +229,12 @@ if (isset($plugin_list)) {
             return $data;
         }
 
+        /**
+         * Loads data from a multipoint record
+         *
+         * @return void
+         * @see ShapeRecord::_loadMultiPointRecord()
+         */
         function _loadMultiPointRecord()
         {
             $this->SHPData = array();
@@ -197,6 +250,12 @@ if (isset($plugin_list)) {
             }
         }
 
+        /**
+         * Loads data from a polyline record
+         *
+         * @return void
+         * @see ShapeRecord::_loadPolyLineRecord()
+         */
         function _loadPolyLineRecord()
         {
             $this->SHPData = array();
