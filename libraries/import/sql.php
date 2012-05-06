@@ -74,7 +74,9 @@ if (isset($_POST['sql_delimiter'])) {
 
 // Handle compatibility options
 $sql_modes = array();
-if (isset($_REQUEST['sql_compatibility']) && 'NONE' != $_REQUEST['sql_compatibility']) {
+if (isset($_REQUEST['sql_compatibility'])
+    && 'NONE' != $_REQUEST['sql_compatibility']
+) {
     $sql_modes[] = $_REQUEST['sql_compatibility'];
 }
 if (isset($_REQUEST['sql_no_auto_value_on_zero'])) {
@@ -92,7 +94,7 @@ unset($sql_modes);
  */
 $GLOBALS['finished'] = false;
 
-while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
+while (! ($GLOBALS['finished'] && $i >= $len) && ! $error && ! $timeout_passed) {
     $data = PMA_importGetNextChunk();
     if ($data === false) {
         // subtract data we didn't handle yet and stop processing
@@ -106,7 +108,9 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
         // free memory
         unset($data);
         // Do not parse string when we're not at the end and don't have ; inside
-        if ((strpos($buffer, $sql_delimiter, $i) === false) && !$GLOBALS['finished']) {
+        if ((strpos($buffer, $sql_delimiter, $i) === false)
+            && ! $GLOBALS['finished']
+        ) {
             continue;
         }
     }
@@ -120,7 +124,14 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
         $old_i = $i;
         // this is about 7 times faster that looking for each sequence i
         // one by one with strpos()
-        if (preg_match('/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])' . $delimiter_keyword . ')/', $buffer, $matches, PREG_OFFSET_CAPTURE, $i)) {
+        $match = preg_match(
+            '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])' . $delimiter_keyword . ')/',
+            $buffer,
+            $matches,
+            PREG_OFFSET_CAPTURE,
+            $i
+        );
+        if ($match) {
             // in $matches, index 0 contains the match for the complete
             // expression but we don't use it
             $first_position = $matches[1][1];
@@ -139,7 +150,8 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
             $found_delimiter = true;
         }
 
-        // set $i to the position of the first quote, comment.start or delimiter found
+        // set $i to the position of the first quote,
+        // comment.start or delimiter found
         $i = min($first_position, $first_sql_delimiter);
 
         if ($i == $big_value) {
@@ -181,9 +193,9 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
                  */
                 if ($pos === false && $quote == '`' && $found_delimiter) {
                     $pos = $first_sql_delimiter - 1;
-                // No quote? Too short string
-                } elseif ($pos === false) {
-                    // We hit end of string => unclosed quote, but we handle it as end of query
+                } elseif ($pos === false) { // No quote? Too short string
+                    // We hit end of string => unclosed quote,
+                    // but we handle it as end of query
                     if ($GLOBALS['finished']) {
                         $endq = true;
                         $i = $len - 1;
@@ -269,19 +281,24 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
         }
         // Change delimiter, if redefined, and skip it (don't send to server!)
         if (strtoupper(substr($buffer, $i, $length_of_delimiter_keyword)) == $delimiter_keyword
-         && ($i + $length_of_delimiter_keyword < $len)) {
+            && ($i + $length_of_delimiter_keyword < $len)
+        ) {
              // look for EOL on the character immediately after 'DELIMITER '
              // (see previous comment about PHP_EOL)
-           $new_line_pos = strpos($buffer, "\n", $i + $length_of_delimiter_keyword);
-           // it might happen that there is no EOL
-           if (false === $new_line_pos) {
-               $new_line_pos = $len;
-           }
-           $sql_delimiter = substr($buffer, $i + $length_of_delimiter_keyword, $new_line_pos - $i - $length_of_delimiter_keyword);
-           $i = $new_line_pos + 1;
-           // Next query part will start here
-           $start_pos = $i;
-           continue;
+            $new_line_pos = strpos($buffer, "\n", $i + $length_of_delimiter_keyword);
+            // it might happen that there is no EOL
+            if (false === $new_line_pos) {
+                $new_line_pos = $len;
+            }
+            $sql_delimiter = substr(
+                $buffer,
+                $i + $length_of_delimiter_keyword,
+                $new_line_pos - $i - $length_of_delimiter_keyword
+            );
+            $i = $new_line_pos + 1;
+            // Next query part will start here
+            $start_pos = $i;
+            continue;
         }
 
         // End of SQL
@@ -299,7 +316,10 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
             // Do not try to execute empty SQL
             if (! preg_match('/^([\s]*;)*$/', trim($tmp_sql))) {
                 $sql = $tmp_sql;
-                PMA_importRunQuery($sql, substr($buffer, 0, $i + strlen($sql_delimiter)));
+                PMA_importRunQuery(
+                    $sql,
+                    substr($buffer, 0, $i + strlen($sql_delimiter))
+                );
                 $buffer = substr($buffer, $i + strlen($sql_delimiter));
                 // Reset parser:
                 $len = strlen($buffer);
@@ -308,7 +328,9 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
                 $start_pos = 0;
                 // Any chance we will get a complete query?
                 //if ((strpos($buffer, ';') === false) && !$GLOBALS['finished']) {
-                if ((strpos($buffer, $sql_delimiter) === false) && !$GLOBALS['finished']) {
+                if (strpos($buffer, $sql_delimiter) === false
+                    && ! $GLOBALS['finished']
+                ) {
                     break;
                 }
             } else {

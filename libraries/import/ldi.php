@@ -33,21 +33,66 @@ if (isset($plugin_list)) {
     }
     $plugin_list['ldi'] = array(
         'text' => __('CSV using LOAD DATA'),
-        'extension' => 'ldi', // This is nonsense, however we want to default to our parser for csv
+        // Following is nonsense, however we want to default to our parser for csv
+        'extension' => 'ldi',
         'options' => array(
-            array('type' => 'begin_group', 'name' => 'general_opts'),
-            array('type' => 'bool', 'name' => 'replace', 'text' => __('Replace table data with file')),
-            array('type' => 'bool', 'name' => 'ignore', 'text' => __('Do not abort on INSERT error')),
-            array('type' => 'text', 'name' => 'terminated', 'text' => __('Columns terminated by'), 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'enclosed', 'text' => __('Columns enclosed by'), 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'escaped', 'text' => __('Columns escaped by'), 'size' => 2, 'len' => 2),
-            array('type' => 'text', 'name' => 'new_line', 'text' => __('Lines terminated by'), 'size' => 2),
-            array('type' => 'text', 'name' => 'columns', 'text' => __('Column names')),
-            array('type' => 'bool', 'name' => 'local_option', 'text' => __('Use LOCAL keyword')),
-            array('type' => 'end_group')
+            array(
+                'type' => 'begin_group',
+                'name' => 'general_opts'
             ),
+            array(
+                'type' => 'bool',
+                'name' => 'replace',
+                'text' => __('Replace table data with file')
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'ignore',
+                'text' => __('Do not abort on INSERT error')
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'terminated',
+                'text' => __('Columns terminated by'),
+                'size' => 2,
+                'len'  => 2
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'enclosed',
+                'text' => __('Columns enclosed by'),
+                'size' => 2,
+                'len'  => 2
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'escaped',
+                'text' => __('Columns escaped by'),
+                'size' => 2,
+                'len'  => 2
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'new_line',
+                'text' => __('Lines terminated by'),
+                'size' => 2
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'columns',
+                'text' => __('Column names')
+            ),
+            array(
+                'type' => 'bool',
+                'name' => 'local_option',
+                'text' => __('Use LOCAL keyword')
+            ),
+            array(
+                'type' => 'end_group'
+            )
+        ),
         'options_text' => __('Options'),
-        );
+    );
     /* We do not define function when plugin is just queried for information above */
     return;
 }
