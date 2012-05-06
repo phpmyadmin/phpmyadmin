@@ -194,7 +194,12 @@ if (isset($plugin_list)) {
                 $this->_loadMultiPointRecord();
                 break;
             default:
-                $this->setError(sprintf("The Shape Type '%s' is not supported.", $this->shapeType));
+                $this->setError(
+                    sprintf(
+                        __("Geometry type '%s' is not supported by MySQL."),
+                        $this->shapeType
+                    )
+                );
                 break;
             }
             if (extension_loaded('dbase') && isset($this->DBFFile)) {
