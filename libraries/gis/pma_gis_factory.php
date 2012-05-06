@@ -35,7 +35,7 @@ class PMA_GIS_Factory
             return false;
         }
         if (include_once './libraries/gis/pma_gis_' . $type_lower . '.php') {
-            switch($type) {
+            switch(strtoupper($type)) {
             case 'MULTIPOLYGON' :
                 return PMA_GIS_Multipolygon::singleton();
             case 'POLYGON' :

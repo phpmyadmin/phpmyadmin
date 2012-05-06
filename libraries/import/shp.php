@@ -384,31 +384,25 @@ if (isset($plugin_list)) {
         31 => 'MultiPatch',
     );
 
-    include_once './libraries/gis/pma_gis_geometry.php';
     switch ($shp->shapeType) {
     // ESRI Null Shape
     case 0:
-        $gis_obj = null;
         break;
     // ESRI Point
     case 1:
-        include_once './libraries/gis/pma_gis_point.php';
-        $gis_obj = PMA_GIS_Point::singleton();
+        $gis_type = 'point';
         break;
     // ESRI PolyLine
     case 3:
-        include_once './libraries/gis/pma_gis_multilinestring.php';
-        $gis_obj = PMA_GIS_Multilinestring::singleton();
+        $gis_type = 'multilinestring';
         break;
     // ESRI Polygon
     case 5:
-        include_once './libraries/gis/pma_gis_multipolygon.php';
-        $gis_obj = PMA_GIS_Multipolygon::singleton();
+        $gis_type = 'multipolygon';
         break;
     // ESRI MultiPoint
     case 8:
-        include_once './libraries/gis/pma_gis_multipoint.php';
-        $gis_obj = PMA_GIS_Multipoint::singleton();
+        $gis_type = 'multipoint';
         break;
     default:
         $error = true;
@@ -419,6 +413,13 @@ if (isset($plugin_list)) {
             $message->addParam($param);
         }
         return;
+    }
+
+    if (isset($gis_type)) {
+        include_once './libraries/gis/pma_gis_factory.php';
+        $gis_obj =  PMA_GIS_Factory::factory($gis_type);
+    } else {
+        $gis_obj = null;
     }
 
     $num_rows = count($shp->records);
