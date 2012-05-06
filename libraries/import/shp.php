@@ -73,9 +73,9 @@ if (isset($plugin_list)) {
     class PMA_ShapeFile extends ShapeFile
     {
         /**
-         * Returns whether the 'dbase' is loaded
+         * Returns whether the 'dbase' extension is loaded
          *
-         * @return whether the 'dbase' is loaded
+         * @return whether the 'dbase' extension is loaded
          */
         function _isDbaseLoaded()
         {
