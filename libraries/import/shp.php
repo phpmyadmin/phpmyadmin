@@ -162,8 +162,7 @@ if (isset($plugin_list)) {
         function _loadHeaders()
         {
             $this->recordNumber = loadData("N", readFromBuffer(4));
-            //We read the length of the record
-            $tmp = loadData("N", readFromBuffer(4));
+            readFromBuffer(4);
             $this->shapeType = loadData("V", readFromBuffer(4));
         }
 
