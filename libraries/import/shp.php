@@ -221,7 +221,7 @@ if (isset($plugin_list)) {
         }
 
         /**
-         * Loads data from a point reocrd
+         * Loads data from a point record
          *
          * @return void
          * @see ShapeRecord::_loadPoint()
