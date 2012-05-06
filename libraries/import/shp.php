@@ -64,6 +64,9 @@ if (isset($plugin_list)) {
      * 2) To use PMA_importGetNextChunk() functionality to read data, rather than
      *    reading directly from a file. Using readFromBuffer() in place of fread().
      *    This makes it possible to use compressions.
+     *
+     * @package    PhpMyAdmin-Import
+     * @subpackage ESRI_Shape
      */
     class PMA_ShapeFile extends ShapeFile
     {
@@ -126,6 +129,9 @@ if (isset($plugin_list)) {
      * 2) To use PMA_importGetNextChunk() functionality to read data, rather than
      *    reading directly from a file. Using readFromBuffer() in place of fread().
      *    This makes it possible to use compressions.
+     *
+     * @package    PhpMyAdmin-Import
+     * @subpackage ESRI_Shape
      */
     class PMA_ShapeRecord extends ShapeRecord
     {
