@@ -1,11 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Handles actions related to GIS MULTILINESTRING objects
+ *
+ * @package PhpMyAdmin-GIS
+ */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the visualization of GIS MULTILINESTRING objects.
+ * Handles actions related to GIS MULTILINESTRING objects
  *
  * @package PhpMyAdmin-GIS
  */

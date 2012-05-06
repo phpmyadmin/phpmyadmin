@@ -1,11 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Handles visualization of GIS data
+ *
+ * @package PhpMyAdmin-GIS
+ */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Generates the JavaScripts needed to visualize GIS data.
+ * Handles visualization of GIS data
  *
  * @package PhpMyAdmin-GIS
  */

@@ -1,11 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Handles actions related to GIS POINT objects
+ *
+ * @package PhpMyAdmin-GIS
+ */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the visualization of GIS POINT objects.
+ * Handles actions related to GIS POINT objects
  *
  * @package PhpMyAdmin-GIS
  */
