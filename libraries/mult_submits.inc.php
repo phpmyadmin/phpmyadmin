@@ -276,10 +276,10 @@ if (!empty($submit_mult) && !empty($what)) {
                 <legend><?php echo ($what == 'replace_prefix_tbl' ? __('Replace table prefix') : __('Copy table with prefix')) ?>:</legend>
                 <table>
                 <tr>
-                <td><?php echo __('From'); ?></td><td><input type="text" name="from_prefix" id="initialPrefix"</td>
+                <td><?php echo __('From'); ?></td><td><input type="text" name="from_prefix" id="initialPrefix" /></td>
                 </tr>
                 <tr>
-                <td><?php echo __('To'); ?> </td><td><input type="text" name="to_prefix" id="newPrefix"</td>
+                <td><?php echo __('To'); ?> </td><td><input type="text" name="to_prefix" id="newPrefix" /></td>
                 </tr>
                 </table>
         </fieldset>
@@ -292,7 +292,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 <legend><?php echo __('Add table prefix') ?>:</legend>
                 <table>
                 <tr>
-                <td><?php echo __('Add prefix'); ?></td>     <td><input type="text" name="add_prefix" id="txtPrefix"</td>
+                <td><?php echo __('Add prefix'); ?></td>     <td><input type="text" name="add_prefix" id="txtPrefix" /></td>
                 </tr>
                 </table>
         </fieldset>
