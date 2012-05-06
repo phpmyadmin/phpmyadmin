@@ -31,7 +31,9 @@ if (isset($plugin_list)) {
 
 
     // Append the bfShapeFiles directory to the include path variable
-    set_include_path(get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/bfShapeFiles/');
+    set_include_path(
+        get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/bfShapeFiles/'
+    );
     include_once './libraries/bfShapeFiles/ShapeFile.lib.php';
 
     $GLOBALS['finished'] = false;
@@ -283,7 +285,8 @@ if (isset($plugin_list)) {
                 while (! in_array($readPoints, $this->SHPData["parts"])
                 && ($readPoints < ($this->SHPData["numpoints"]))
                 ) {
-                    $this->SHPData["parts"][$partIndex]["points"][] = $this->_loadPoint();
+                    $this->SHPData["parts"][$partIndex]["points"][]
+                        = $this->_loadPoint();
                     $readPoints++;
                 }
             }
@@ -293,7 +296,9 @@ if (isset($plugin_list)) {
     $shp = new PMA_ShapeFile(1);
     // If the zip archive has more than one file,
     // get the correct content to the buffer from .shp file.
-    if ($compression == 'application/zip' && PMA_getNoOfFilesInZip($import_file) > 1) {
+    if ($compression == 'application/zip'
+        && PMA_getNoOfFilesInZip($import_file) > 1
+    ) {
         $zip_content =  PMA_getZipContents($import_file, '/^.*\.shp$/i');
         $GLOBALS['import_text'] = $zip_content['data'];
     }
@@ -307,7 +312,9 @@ if (isset($plugin_list)) {
             && ! empty($cfg['TempDir'])
             && is_writable($cfg['TempDir'])
         ) {
-            $dbf_file_name = PMA_findFileFromZipArchive('/^.*\.dbf$/i', $import_file);
+            $dbf_file_name = PMA_findFileFromZipArchive(
+                '/^.*\.dbf$/i', $import_file
+            );
             // If the corresponding .dbf file is in the zip archive
             if ($dbf_file_name) {
                 // Extract the .dbf file and point to it.
@@ -320,8 +327,11 @@ if (isset($plugin_list)) {
                     $dbf_file_path = realpath($cfg['TempDir'])
                         . (PMA_IS_WINDOWS ? '\\' : '/') . $dbf_file_name;
                     $temp_dbf_file = true;
-                    // Replace the .dbf with .*, as required by the bsShapeFiles library.
-                    $file_name = substr($dbf_file_path, 0, strlen($dbf_file_path) - 4) . '.*';
+                    // Replace the .dbf with .*, as required
+                    // by the bsShapeFiles library.
+                    $file_name = substr(
+                        $dbf_file_path, 0, strlen($dbf_file_path) - 4
+                    ) . '.*';
                     $shp->FileName = $file_name;
                 }
             }
@@ -418,7 +428,8 @@ if (isset($plugin_list)) {
             if ($gis_obj == null) {
                 $tempRow[] = null;
             } else {
-                $tempRow[] = "GeomFromText('" . $gis_obj->getShape($record->SHPData) . "')";
+                $tempRow[] = "GeomFromText('"
+                    . $gis_obj->getShape($record->SHPData) . "')";
             }
 
             if (isset($shp->DBFHeader)) {
