@@ -1,11 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Handles actions related to GIS GEOMETRYCOLLECTION objects
+ *
+ * @package PhpMyAdmin-GIS
+ */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- * Handles the visualization of GIS GEOMETRYCOLLECTION objects.
+ * Handles actions related to GIS GEOMETRYCOLLECTION objects
  *
  * @package PhpMyAdmin-GIS
  */
@@ -118,7 +124,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             if (! $gis_obj) {
                 continue;
             }
-            $image = $gis_obj->prepareRowAsPng($sub_part, $label, $color, $scale_data, $image);
+            $image = $gis_obj->prepareRowAsPng(
+                $sub_part, $label, $color, $scale_data, $image
+            );
         }
         return $image;
     }
@@ -150,7 +158,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             if (! $gis_obj) {
                 continue;
             }
-            $pdf = $gis_obj->prepareRowAsPdf($sub_part, $label, $color, $scale_data, $pdf);
+            $pdf = $gis_obj->prepareRowAsPdf(
+                $sub_part, $label, $color, $scale_data, $pdf
+            );
         }
         return $pdf;
     }
@@ -183,7 +193,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             if (! $gis_obj) {
                 continue;
             }
-            $row .= $gis_obj->prepareRowAsSvg($sub_part, $label, $color, $scale_data);
+            $row .= $gis_obj->prepareRowAsSvg(
+                $sub_part, $label, $color, $scale_data
+            );
         }
         return $row;
     }
@@ -218,7 +230,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             if (! $gis_obj) {
                 continue;
             }
-            $row .= $gis_obj->prepareRowAsOl($sub_part, $srid, $label, $color, $scale_data);
+            $row .= $gis_obj->prepareRowAsOl(
+                $sub_part, $srid, $label, $color, $scale_data
+            );
         }
         return $row;
     }

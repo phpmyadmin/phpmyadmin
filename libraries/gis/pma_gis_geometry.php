@@ -1,5 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Base class for all GIS data type classes
+ *
+ * @package PhpMyAdmin-GIS
+ */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -36,7 +42,9 @@ abstract class PMA_GIS_Geometry
      * @return object the modified image object
      * @access public
      */
-    public abstract function prepareRowAsPng($spatial, $label, $color, $scale_data, $image);
+    public abstract function prepareRowAsPng($spatial, $label, $color,
+        $scale_data, $image
+    );
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
@@ -50,7 +58,9 @@ abstract class PMA_GIS_Geometry
      * @return object the modified TCPDF instance
      * @access public
      */
-    public abstract function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+    public abstract function prepareRowAsPdf($spatial, $label, $color,
+        $scale_data, $pdf
+    );
 
     /**
      * Prepares the JavaScript related to a row in the GIS dataset
@@ -65,7 +75,9 @@ abstract class PMA_GIS_Geometry
      * @return string the JavaScript related to a row in the GIS dataset
      * @access public
      */
-    public abstract function prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+    public abstract function prepareRowAsOl($spatial, $srid, $label,
+        $color, $scale_data
+    );
 
     /**
      * Scales each row.
@@ -160,7 +172,8 @@ abstract class PMA_GIS_Geometry
      */
     protected function generateParams($value)
     {
-        $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
+        $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING'
+            . '|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         $srid = 0;
         $wkt = '';
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
@@ -199,7 +212,8 @@ abstract class PMA_GIS_Geometry
             ) {
                 if ($scale_data != null) {
                     $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
-                    $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
+                    $y = $scale_data['height']
+                        - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
                 } else {
                     $x = trim($cordinates[0]);
                     $y = trim($cordinates[1]);
@@ -271,12 +285,16 @@ abstract class PMA_GIS_Geometry
      *                or LineRing to OpenLayers
      * @access protected
      */
-    protected function getLineArrayForOpenLayers($lines, $srid, $is_line_string = true)
-    {
+    protected function getLineArrayForOpenLayers($lines, $srid,
+        $is_line_string = true
+    ) {
         $ol_array = 'new Array(';
         foreach ($lines as $line) {
             $points_arr = $this->extractPoints($line, null);
-            $ol_array .= $this->getLineForOpenLayers($points_arr, $srid, $is_line_string) . ', ';
+            $ol_array .= $this->getLineForOpenLayers(
+                $points_arr, $srid, $is_line_string
+            );
+            $ol_array .= ', ';
         }
         $ol_array = substr($ol_array, 0, strlen($ol_array) - 2);
         $ol_array .= ')';
@@ -294,8 +312,9 @@ abstract class PMA_GIS_Geometry
      * @return string JavaScript for adding a LineString or LineRing to OpenLayers
      * @access protected
      */
-    protected function getLineForOpenLayers($points_arr, $srid, $is_line_string = true)
-    {
+    protected function getLineForOpenLayers($points_arr, $srid,
+        $is_line_string = true
+    ) {
         return 'new OpenLayers.Geometry.'
             . ($is_line_string ? 'LineString' : 'LinearRing') . '('
             . $this->getPointsArrayForOpenLayers($points_arr, $srid)
@@ -334,8 +353,9 @@ abstract class PMA_GIS_Geometry
      */
     protected function getPointForOpenLayers($point, $srid)
     {
-        return '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-            . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject())';
+        return '(new OpenLayers.Geometry.Point(' . $point[0] . ',' . $point[1] . '))'
+            . '.transform(new OpenLayers.Projection("EPSG:'
+            . $srid . '"), map.getProjectionObject())';
     }
 }
 ?>

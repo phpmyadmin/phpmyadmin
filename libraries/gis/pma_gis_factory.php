@@ -1,5 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Contains the factory class that handles the creation of geometric objects
+ *
+ * @package PhpMyAdmin-GIS
+ */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -29,7 +35,7 @@ class PMA_GIS_Factory
             return false;
         }
         if (include_once './libraries/gis/pma_gis_' . $type_lower . '.php') {
-            switch($type) {
+            switch(strtoupper($type)) {
             case 'MULTIPOLYGON' :
                 return PMA_GIS_Multipolygon::singleton();
             case 'POLYGON' :
