@@ -75,7 +75,7 @@ if (isset($plugin_list)) {
         /**
          * Returns whether the 'dbase' extension is loaded
          *
-         * @return whether the 'dbase' extension is loaded
+         * @return boolean whether the 'dbase' extension is loaded
          */
         function _isDbaseLoaded()
         {
