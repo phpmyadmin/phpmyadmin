@@ -155,11 +155,8 @@ $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 $rows               = array();
 
 $found_unique_key   = false;
-$insertMode_whereClauses_result = PMA_edit_and_insert($where_clause, $rows, $table, $db, $cfg, $found_unique_key);
-$insert_mode = $insertMode_whereClauses_result['insertMode'];
-$where_clauses = $insertMode_whereClauses_result['whereClauses'];
-$result = $insertMode_whereClauses_result['result'];
-$rows = $insertMode_whereClauses_result['rows'];
+$paramArray = array($rows, $table, $db, $cfg);
+list($insert_mode, $where_clauses, $result, $rows) = PMA_edit_and_insert($where_clause, $paramArray, $found_unique_key);
 $where_clause_array = PMA_where_clause_array($where_clause);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
@@ -169,7 +166,6 @@ if (isset($default_action) && $default_action === 'insert') {
 
 // retrieve keys into foreign fields, if any
 $foreigners  = PMA_getForeigners($db, $table);
-
 
 /**
  * Displays the form
@@ -1116,21 +1112,20 @@ require 'libraries/footer.inc.php';
  * phpmyadmin edit row or insert
  * 
  * @param array $where_clause
- * @param array $rows
- * @param string $table
- * @param string $db
- * @param array $cfg
+ * @param array $paramArray
+ * @param boolean $found_unique_key 
  * @return type array
  */
-function PMA_edit_and_insert($where_clause, $rows, $table, $db, $cfg, $found_unique_key)
+function PMA_edit_and_insert($where_clause, $paramArray, $found_unique_key)
 {
+    list($rows, $table, $db, $cfg) = $paramArray;
     if (isset($where_clause)) {
         $where_clause_array = PMA_where_clause_array($where_clause);
-        $where_clauses_and_result = PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db, $found_unique_key);
-        return array('insertMode' => false, 'whereClauses' => $where_clauses_and_result['whereClauses'], 'result' =>$where_clauses_and_result['result'], 'rows' => $where_clauses_and_result['rows']);
+        list($whereClauses, $resultArray, $rowsArray) = PMA_edit_load_all_selected_row($where_clause_array, $paramArray, $found_unique_key);
+        return array(false, $whereClauses, $resultArray, $rowsArray);
     } else {
-        $result = PMA_edit_load_first_row($table, $db, $rows, $cfg);
-        return array('insertMode' => true, 'result' => $result['result'], 'rows' => $result['rows']);
+        list($results, $row) = PMA_edit_load_first_row($paramArray);
+        return array(true, null, $results, $row);
     }
 }
 
@@ -1152,13 +1147,13 @@ function PMA_where_clause_array($where_clause)
  * When in edit mode load all selected rows from table
  * 
  * @param array $where_clause_array
- * @param array $rows
- * @param string $table
- * @param string $db
+ * @param array $paramArray
+ * @param boolean $found_unique_key 
  * @return array 
  */
-function PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db, $found_unique_key)
+function PMA_edit_load_all_selected_row($where_clause_array, $paramArray, $found_unique_key)
 {
+    list($rows, $table, $db, $cfg) = $paramArray;
     $result             = array();
     $where_clauses      = array();
     foreach ($where_clause_array as $key_id => $where_clause) {
@@ -1169,7 +1164,7 @@ function PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db,
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
         PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key);
     }
-    return array('whereClauses' => $where_clauses, 'result' => $result, 'rows' => $rows);
+    return array($where_clauses, $result, $rows);
 }
 
 /**
@@ -1203,21 +1198,19 @@ function PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_quer
 /**
  * No primary key given, just load first row
  * 
- * @param string $table
- * @param string $db
- * @param array $rows
- * @param array $cfg
+ * @param array $paramArray
  * @return array 
  */
-function PMA_edit_load_first_row($table, $db, $rows, $cfg )
+function PMA_edit_load_first_row($paramArray )
 {
+    list($rows, $table, $db, $cfg) = $paramArray;
     $result = PMA_DBI_query(
         'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;',
         null,
         PMA_DBI_QUERY_STORE
     );
     $rows = array_fill(0, $cfg['InsertRows'], false);
-    return array('result' => $result, 'rows' => $rows);
+    return array($result, $rows);
 }
 
 ?>
