@@ -217,57 +217,57 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     <td>
     <?php
     switch ($type) {
-        case 'text':
-            echo '<input type="text" size="60" ' . $name_id . $field_class
-                . ' value="' . htmlspecialchars($value) . '" />';
-          break;
-        case 'short_text':
-            echo '<input type="text" size="25" ' . $name_id . $field_class
-                . ' value="' . htmlspecialchars($value) . '" />';
-          break;
-        case 'number_text':
-            echo '<input type="text" size="15" ' . $name_id . $field_class
-                . ' value="' . htmlspecialchars($value) . '" />';
-          break;
-        case 'checkbox':
-            echo '<span' . $field_class . '><input type="checkbox" ' . $name_id
-              . ($value ? ' checked="checked"' : '') . ' /></span>';
-          break;
-        case 'select':
-            echo '<select ' . $name_id . $field_class . '>';
-            $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
-            $values_disabled = isset($opts['values_disabled'])
-                ? array_flip($opts['values_disabled']) : array();
-            foreach ($opts['values'] as $opt_value_key => $opt_value) {
-                // set names for boolean values
-                if (is_bool($opt_value)) {
-                    $opt_value = strtolower($opt_value ? __('Yes') : __('No'));
-                }
-                // escape if necessary
-                if ($escape) {
-                    $display = htmlspecialchars($opt_value);
-                    $display_value = htmlspecialchars($opt_value_key);
-                } else {
-                    $display = $opt_value;
-                    $display_value = $opt_value_key;
-                }
-                // compare with selected value
-                // boolean values are cast to integers when used as array keys
-                $selected = is_bool($value)
-                    ? (int) $value === $opt_value_key
-                    : $opt_value_key === $value;
-                echo '<option value="' . $display_value . '"'
-                    . ($selected ? ' selected="selected"' : '')
-                    . (isset($values_disabled[$opt_value_key]) ? ' disabled="disabled"' : '')
-                    . '>' . $display . '</option>';
+    case 'text':
+        echo '<input type="text" size="60" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
+    case 'short_text':
+        echo '<input type="text" size="25" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
+    case 'number_text':
+        echo '<input type="text" size="15" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
+    case 'checkbox':
+        echo '<span' . $field_class . '><input type="checkbox" ' . $name_id
+          . ($value ? ' checked="checked"' : '') . ' /></span>';
+        break;
+    case 'select':
+        echo '<select ' . $name_id . $field_class . '>';
+        $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
+        $values_disabled = isset($opts['values_disabled'])
+            ? array_flip($opts['values_disabled']) : array();
+        foreach ($opts['values'] as $opt_value_key => $opt_value) {
+            // set names for boolean values
+            if (is_bool($opt_value)) {
+                $opt_value = strtolower($opt_value ? __('Yes') : __('No'));
             }
-            echo '</select>';
-            break;
-        case 'list':
-            echo '<textarea cols="40" rows="5" ' . $name_id . $field_class . '>'
-                . htmlspecialchars(implode("\n", $value))
-                . '</textarea>';
-            break;
+            // escape if necessary
+            if ($escape) {
+                $display = htmlspecialchars($opt_value);
+                $display_value = htmlspecialchars($opt_value_key);
+            } else {
+                $display = $opt_value;
+                $display_value = $opt_value_key;
+            }
+            // compare with selected value
+            // boolean values are cast to integers when used as array keys
+            $selected = is_bool($value)
+                ? (int) $value === $opt_value_key
+                : $opt_value_key === $value;
+            echo '<option value="' . $display_value . '"'
+                . ($selected ? ' selected="selected"' : '')
+                . (isset($values_disabled[$opt_value_key]) ? ' disabled="disabled"' : '')
+                . '>' . $display . '</option>';
+        }
+        echo '</select>';
+        break;
+    case 'list':
+        echo '<textarea cols="40" rows="5" ' . $name_id . $field_class . '>'
+            . htmlspecialchars(implode("\n", $value))
+            . '</textarea>';
+        break;
     }
     if (isset($opts['comment']) && $opts['comment']) {
         $class = 'field-comment-mark';
