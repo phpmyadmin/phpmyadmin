@@ -112,10 +112,11 @@ class FormDisplay
     /**
      * Processes forms, returns true on successful save
      *
-     * @param bool  $allow_partial_save  allows for partial form saving on failed validation
-     * @param bool  $check_form_submit   whether check for $_POST['submit_save']
+     * @param bool $allow_partial_save allows for partial form saving
+     *                                 on failed validation
+     * @param bool $check_form_submit  whether check for $_POST['submit_save']
      *
-     * @return boolean
+     * @return boolean whether processing was successful
      */
     public function process($allow_partial_save = true, $check_form_submit = true)
     {
@@ -133,6 +134,7 @@ class FormDisplay
     /**
      * Runs validation for all registered forms
      *
+     * @return void
      */
     private function _validate()
     {
@@ -177,7 +179,9 @@ class FormDisplay
      * Outputs HTML for forms
      *
      * @param bool $tabbed_form
-     * @param bool   $show_restore_default  whether show "restore default" button besides the input field
+     * @param bool $show_restore_default whether show "restore default" button
+     *                                   besides the input field
+     * @return void
      */
     public function display($tabbed_form = false, $show_restore_default = false)
     {
@@ -279,14 +283,20 @@ class FormDisplay
      * Prepares data for input field display and outputs HTML code
      *
      * @param Form   $form
-     * @param string $field                 field name as it appears in $form
-     * @param string $system_path           field path, eg. Servers/1/verbose
-     * @param string $work_path             work path, eg. Servers/4/verbose
-     * @param string $translated_path       work path changed so that it can be used as XHTML id
-     * @param bool   $show_restore_default  whether show "restore default" button besides the input field
-     * @param mixed  $userprefs_allow       whether user preferences are enabled for this field
-     *                                      (null - no support, true/false - enabled/disabled)
-     * @param array  &$js_default           array which stores JavaScript code to be displayed
+     * @param string $field                field name as it appears in $form
+     * @param string $system_path          field path, eg. Servers/1/verbose
+     * @param string $work_path            work path, eg. Servers/4/verbose
+     * @param string $translated_path      work path changed so that it can be
+     *                                     used as XHTML id
+     * @param bool   $show_restore_default whether show "restore default" button
+     *                                     besides the input field
+     * @param mixed  $userprefs_allow      whether user preferences are enabled
+     *                                     for this field (null - no support,
+     *                                     true/false - enabled/disabled)
+     * @param array  &$js_default          array which stores JavaScript code
+     *                                     to be displayed
+     *
+     * @return void
      */
     private function _displayFieldInput(
         Form $form, $field, $system_path, $work_path,
@@ -341,7 +351,8 @@ class FormDisplay
             $value_default = (array) $value_default;
             break;
         case 'group':
-            if (substr($field, 7, 4) != 'end:') { // :group:end is changed to :group:end:{unique id} in Form class
+            // :group:end is changed to :group:end:{unique id} in Form class
+            if (substr($field, 7, 4) != 'end:') {
                 display_group_header(substr($field, 7));
             } else {
                 display_group_footer();
@@ -380,7 +391,8 @@ class FormDisplay
             $js_line .= '[\'' . PMA_escapeJsString($value_default_js) . '\']';
             break;
         case 'list':
-            $js_line .= '\'' . PMA_escapeJsString(implode("\n", $value_default)) . '\'';
+            $js_line .= '\'' . PMA_escapeJsString(implode("\n", $value_default))
+                . '\'';
             break;
         }
         $js_default[] = $js_line;
@@ -394,6 +406,7 @@ class FormDisplay
     /**
      * Displays errors
      *
+     * @return void
      */
     public function displayErrors()
     {
@@ -416,7 +429,7 @@ class FormDisplay
     /**
      * Reverts erroneous fields to their default values
      *
-     *
+     * @return void
      */
     public function fixErrors()
     {
@@ -438,8 +451,8 @@ class FormDisplay
     /**
      * Validates select field and casts $value to correct type
      *
-     * @param string  $value
-     * @param array   $allowed
+     * @param string $value
+     * @param array  $allowed
      *
      * @return bool
      */
@@ -450,7 +463,8 @@ class FormDisplay
             : $value;
         foreach ($allowed as $vk => $v) {
             // equality comparison only if both values are numeric or not numeric
-            // (allows to skip 0 == 'string' equalling to true) or identity (for string-string)
+            // (allows to skip 0 == 'string' equalling to true)
+            // or identity (for string-string)
             if (($vk == $value && !(is_numeric($value_cmp) xor is_numeric($vk)))
                 || $vk === $value
             ) {
@@ -467,10 +481,11 @@ class FormDisplay
     /**
      * Validates and saves form data to session
      *
-     * @param array|string  $forms               array of form names
-     * @param bool          $allow_partial_save  allows for partial form saving on failed validation
+     * @param array|string $forms              array of form names
+     * @param bool         $allow_partial_save allows for partial form saving on
+     *                                         failed validation
      *
-     * @return boolean  true on success (no errors and all saved)
+     * @return boolean true on success (no errors and all saved)
      */
     public function save($forms, $allow_partial_save = true)
     {
@@ -547,12 +562,18 @@ class FormDisplay
                     break;
                 case 'select':
                     // special treatment for NavigationBarIconic and PropertiesIconic
-                    if ($key === 'NavigationBarIconic' || $key === 'PropertiesIconic') {
+                    if ($key === 'NavigationBarIconic'
+                        || $key === 'PropertiesIconic'
+                    ) {
                         if ($_POST[$key] !== 'both') {
                             settype($_POST[$key], 'boolean');
                         }
                     }
-                    if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
+                    $successfully_validated = $this->_validateSelect(
+                        $_POST[$key],
+                        $form->getOptionValueList($system_path)
+                    );
+                    if (! $successfully_validated) {
                         $this->errors[$work_path][] = __('Incorrect value');
                         $result = false;
                         continue;
@@ -598,7 +619,10 @@ class FormDisplay
                     $i = 0;
                     foreach ($values[$path] as $value) {
                         $matches = array();
-                        if (preg_match("/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches)) {
+                        $match = preg_match(
+                            "/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches
+                        );
+                        if ($match) {
                             // correct 'IP: HTTP header' pair
                             $ip = trim($matches[1]);
                             $proxies[$ip] = trim($matches[2]);
@@ -694,6 +718,7 @@ class FormDisplay
     /**
      * Fills out {@link userprefs_keys} and {@link userprefs_disallow}
      *
+     * @return void
      */
     private function _loadUserprefsInfo()
     {
@@ -712,6 +737,8 @@ class FormDisplay
      *
      * @param string $system_path
      * @param array  $opts
+     *
+     * @return void
      */
     private function _setComments($system_path, array &$opts)
     {
@@ -720,7 +747,9 @@ class FormDisplay
             $comment = '';
             if (!function_exists('iconv')) {
                 $opts['values']['iconv'] .= ' (' . __('unavailable') . ')';
-                $comment = sprintf(__('"%s" requires %s extension'), 'iconv', 'iconv');
+                $comment = sprintf(
+                    __('"%s" requires %s extension'), 'iconv', 'iconv'
+                );
             }
             if (!function_exists('recode_string')) {
                 $opts['values']['recode'] .= ' (' . __('unavailable') . ')';
@@ -733,7 +762,10 @@ class FormDisplay
             $opts['comment_warning'] = true;
         }
         // ZipDump, GZipDump, BZipDump - check function availability
-        if ($system_path == 'ZipDump' || $system_path == 'GZipDump' || $system_path == 'BZipDump') {
+        if ($system_path == 'ZipDump'
+            || $system_path == 'GZipDump'
+            || $system_path == 'BZipDump'
+        ) {
             $comment = '';
             $funcs = array(
                 'ZipDump'  => array('zip_open', 'gzcompress'),
@@ -754,7 +786,9 @@ class FormDisplay
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
         }
-        if ($system_path == 'SQLQuery/Validate' && !$GLOBALS['cfg']['SQLValidator']['use']) {
+        if ($system_path == 'SQLQuery/Validate'
+            && ! $GLOBALS['cfg']['SQLValidator']['use']
+        ) {
             $opts['comment'] = __('SQL Validator is disabled');
             $opts['comment_warning'] = true;
         }
@@ -771,7 +805,9 @@ class FormDisplay
             if (($system_path == 'MaxDbList' || $system_path == 'MaxTableList'
                 || $system_path == 'QueryHistoryMax')
             ) {
-                $opts['comment'] = sprintf(__('maximum %s'), $GLOBALS['cfg'][$system_path]);
+                $opts['comment'] = sprintf(
+                    __('maximum %s'), $GLOBALS['cfg'][$system_path]
+                );
             }
         }
     }
