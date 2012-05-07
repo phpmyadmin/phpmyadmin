@@ -2,6 +2,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * TCPDF wrapper class.
+ *
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -16,6 +18,8 @@ define('PMA_PDF_FONT', 'DejaVuSans');
 
 /**
  * PDF export base class providing basic configuration.
+ *
+ * @package PhpMyAdmin
  */
 class PMA_PDF extends TCPDF
 {

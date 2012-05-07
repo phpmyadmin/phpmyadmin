@@ -1,7 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Enter description here...
+ * phpMyAdmin main Controller
+ *
  * @package PhpMyAdmin
  *
  */
@@ -13,8 +14,6 @@ require_once './libraries/List_Database.class.php';
 
 /**
  * phpMyAdmin main Controller
- *
- *
  *
  * @package PhpMyAdmin
  */
@@ -44,7 +43,7 @@ class PMA
     /**
      * magic access to protected/inaccessible members/properties
      *
-     * @param string $param
+     * @param string $param parameter name
      *
      * @return mixed
      * @see http://php.net/language.oop5.overloading
@@ -69,8 +68,8 @@ class PMA
     /**
      * magic access to protected/inaccessible members/properties
      *
-     * @param string $param
-     * @param mixed  $value
+     * @param string $param parameter name
+     * @param mixed  $value value to set
      *
      * @return void
      * @see http://php.net/language.oop5.overloading
@@ -95,7 +94,10 @@ class PMA
     public function getDatabaseList()
     {
         if (null === $this->databases) {
-            $this->databases = new PMA_List_Database($this->userlink, $this->controllink);
+            $this->databases = new PMA_List_Database(
+                $this->userlink,
+                $this->controllink
+            );
         }
 
         return $this->databases;

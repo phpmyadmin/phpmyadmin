@@ -24,7 +24,9 @@ function PMA_auth()
     unset($_SESSION['LAST_SIGNON_URL']);
     if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
         PMA_fatalError('You must set SignonURL!');
-    } elseif (!empty($_REQUEST['old_usr']) && !empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
+    } elseif (! empty($_REQUEST['old_usr'])
+        && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
+    ) {
         /* Perform logout to custom URL */
         PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
     } else {
@@ -58,7 +60,9 @@ function PMA_auth_check()
     global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
     /* Check if we're using same sigon server */
-    if (isset($_SESSION['LAST_SIGNON_URL']) && $_SESSION['LAST_SIGNON_URL'] != $GLOBALS['cfg']['Server']['SignonURL']) {
+    if (isset($_SESSION['LAST_SIGNON_URL'])
+        && $_SESSION['LAST_SIGNON_URL'] != $GLOBALS['cfg']['Server']['SignonURL']
+    ) {
         return false;
     }
 
@@ -86,14 +90,16 @@ function PMA_auth_check()
     /* Handle script based auth */
     if (!empty($script_name)) {
         if (! file_exists($script_name)) {
-            PMA_fatalError(__('Can not find signon authentication script:') . ' ' . $script_name);
+            PMA_fatalError(
+                __('Can not find signon authentication script:') . ' ' . $script_name
+            );
         }
         include $script_name;
 
-        list ($PHP_AUTH_USER, $PHP_AUTH_PW) = get_login_credentials($cfg['Server']['user']);
+        list ($PHP_AUTH_USER, $PHP_AUTH_PW)
+            = get_login_credentials($cfg['Server']['user']);
 
-    /* Does session exist? */
-    } elseif (isset($_COOKIE[$session_name])) {
+    } elseif (isset($_COOKIE[$session_name])) { /* Does session exist? */
         /* End current session */
         $old_session = session_name();
         $old_id = session_id();
@@ -158,7 +164,10 @@ function PMA_auth_check()
         $GLOBALS['cfg']['Server']['port'] = $single_signon_port;
 
         /* Configuration update */
-        $GLOBALS['cfg']['Server'] = array_merge($GLOBALS['cfg']['Server'], $single_signon_cfgupdate);
+        $GLOBALS['cfg']['Server'] = array_merge(
+            $GLOBALS['cfg']['Server'],
+            $single_signon_cfgupdate
+        );
 
         /* Restore our token */
         if (!empty($pma_token)) {
