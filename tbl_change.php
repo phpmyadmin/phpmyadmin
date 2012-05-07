@@ -154,30 +154,32 @@ PMA_DBI_select_db($db);
 $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 $rows               = array();
 
-$insertMode_whereClauses_reult = PMA_insert_mode($where_clause, $rows, $table, $db, $cfg);
-$insert_mode = $insertMode_whereClauses_reult['insertMode'];
-$where_clauses = $insertMode_whereClauses_reult['whereClauses'];
-$result = $insertMode_whereClauses_reult['result'];
-$rows = $insertMode_whereClauses_reult['rows'];
+$found_unique_key   = false;
+$insertMode_whereClauses_result = PMA_edit_and_insert($where_clause, $rows, $table, $db, $cfg, $found_unique_key);
+$insert_mode = $insertMode_whereClauses_result['insertMode'];
+$where_clauses = $insertMode_whereClauses_result['whereClauses'];
+$result = $insertMode_whereClauses_result['result'];
+$rows = $insertMode_whereClauses_result['rows'];
+$where_clause_array = PMA_where_clause_array($where_clause);
 
 /**
- *
+ * phpmyadmin edit row or insert
+ * 
  * @param array $where_clause
  * @param array $rows
- * @param srting $table
- * @param sring $db
+ * @param string $table
+ * @param string $db
  * @param array $cfg
  * @return type array
  */
-function PMA_insert_mode($where_clause, $rows, $table, $db, $cfg)
+function PMA_edit_and_insert($where_clause, $rows, $table, $db, $cfg, $found_unique_key)
 {
     if (isset($where_clause)) {
-        // when in edit mode load all selected rows from table
         $where_clause_array = PMA_where_clause_array($where_clause);
-        $where_clauses_and_result = PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db);
-        return array('insertMode' => false, 'whereClauses' => $where_clauses_and_result['where_clauses'], 'result' =>$where_clauses_and_result['result'], 'rows' => $where_clauses_and_result['rows']);
+        $where_clauses_and_result = PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db, $found_unique_key);
+        return array('insertMode' => false, 'whereClauses' => $where_clauses_and_result['whereClauses'], 'result' =>$where_clauses_and_result['result'], 'rows' => $where_clauses_and_result['rows']);
     } else {
-        $result = PMA_edit_load_first_raw($table, $db, $rows, $cfg);
+        $result = PMA_edit_load_first_row($table, $db, $rows, $cfg);
         return array('insertMode' => true, 'result' => $result['result'], 'rows' => $result['rows']);
     }
 }
@@ -197,17 +199,17 @@ function PMA_where_clause_array($where_clause)
 }
 
 /**
- *
+ * When in edit mode load all selected rows from table
+ * 
  * @param array $where_clause_array
  * @param array $rows
  * @param string $table
  * @param string $db
  * @return array 
  */
-function PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db)
+function PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db, $found_unique_key)
 {
     $result             = array();
-    $found_unique_key   = false;
     $where_clauses      = array();
     foreach ($where_clause_array as $key_id => $where_clause) {
         $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
@@ -215,9 +217,9 @@ function PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db)
         $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
-        PMA_edit_no_raw_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key);
+        PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key);
     }
-    return array('whereClauses' => $where_clauses, 'resullt' => $result, 'rows' => $rows);
+    return array('whereClauses' => $where_clauses, 'result' => $result, 'rows' => $rows);
 }
 
 /**
@@ -229,7 +231,7 @@ function PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db)
  * @param array $result
  * @param boolean $found_unique_key 
  */
-function PMA_edit_no_raw_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key)
+function PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key)
 {
     // No row returned
     if (! $rows[$key_id]) {
@@ -247,15 +249,17 @@ function PMA_edit_no_raw_return($rows, $key_id, $where_clause_array, $local_quer
         unset($unique_condition, $tmp_clause_is_unique);
     }
 }
+
 /**
- *
+ * No primary key given, just load first row
+ * 
  * @param string $table
  * @param string $db
  * @param array $rows
  * @param array $cfg
  * @return array 
  */
-function PMA_edit_load_first_raw($table, $db, $rows, $cfg )
+function PMA_edit_load_first_row($table, $db, $rows, $cfg )
 {
     $result = PMA_DBI_query(
         'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;',
