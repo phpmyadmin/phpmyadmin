@@ -232,37 +232,19 @@ $biggest_max_file_size = 0;
 // (currently does not work for multi-edits)
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-if (isset($where_clause)) {
-    $url_params['where_clause'] = trim($where_clause);
-}
-if (! empty($sql_query)) {
-    $url_params['sql_query'] = $sql_query;
-}
+$url_params = PMA_edit_url_params($url_params, $where_clause, $sql_query);
 
 if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
     echo __('Show');
 }
+
 if (! $cfg['ShowFunctionFields']) {
-    $this_url_params = array_merge(
-        $url_params,
-        array(
-            'ShowFunctionFields' => 1,
-            'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'],
-            'goto' => 'sql.php'
-        )
-    );
-    echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . __('Function') . '</a>' . "\n";
+        list($this_url_params, $common_url) = PMA_edit_show_function_fields($url_params);
+        echo $common_url;
 }
+
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    $this_other_url_params = array_merge(
-        $url_params,
-        array(
-            'ShowFieldTypesInDataEditView' => 1,
-            'ShowFunctionFields' => $cfg['ShowFunctionFields'],
-            'goto' => 'sql.php'
-        )
-    );
-    echo ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . __('Type') . '</a>' . "\n";
+    echo PMA_Show_field_types_in_data_edit_view($url_params);
 }
 
 foreach ($rows as $row_id => $vrow) {
@@ -1211,6 +1193,56 @@ function PMA_edit_load_first_row($paramArray )
     );
     $rows = array_fill(0, $cfg['InsertRows'], false);
     return array($result, $rows);
+}
+
+/**
+ * Add some url parameters
+ * 
+ * @param array $url_params
+ * @param array $where_clause
+ * @param array $sql_query
+ * @return array 
+ */
+function PMA_edit_url_params($url_params, $where_clause, $sql_query) 
+{
+    if (isset($where_clause)) {
+        $url_params['where_clause'] = trim($where_clause);
+    }
+    if (! empty($sql_query)) {
+        $url_params['sql_query'] = $sql_query;
+    }
+    return $url_params;
+}
+
+/**
+ *
+ * @param array $url_params
+ * @return string 
+ */
+function PMA_edit_show_function_fields($url_params)
+{
+    $params = array(
+            'ShowFunctionFields' => 1,
+            'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'],
+            'goto' => 'sql.php');
+    $this_url_params = array_merge($url_params, $params);
+    $return_value = ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . __('Function') . '</a>' . "\n";
+    return array($this_url_params, $return_value);
+}
+
+/**
+ *
+ * @param array $url_params
+ * @return stirng 
+ */
+function PMA_Show_field_types_in_data_edit_view($url_params)
+{
+    $params = array(
+            'ShowFieldTypesInDataEditView' => 1,
+            'ShowFunctionFields' => $cfg['ShowFunctionFields'],
+            'goto' => 'sql.php');
+    $this_other_url_params = array_merge($url_params, $params);
+    return ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . __('Type') . '</a>' . "\n";
 }
 
 ?>
