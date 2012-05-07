@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-07 15:49+0200\n"
+"PO-Revision-Date: 2012-05-07 19:45+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1187,7 +1187,7 @@ msgstr "Процеси"
 
 #: js/messages.php:81
 msgid "Connections / Processes"
-msgstr "Конекции / Процеси"
+msgstr "Връзки / Процеси"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
@@ -1215,6 +1215,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Настройките с подредбата на диаграми в локалното хранилище на браузъра са "
+"несъвместими с новата версия на диалога за проследяване. Много вероятно е те "
+"да не работят вече. Моля нулирайте настройките до тези по подразбиране в "
+"меню <i>Настройки</i>."
 
 #: js/messages.php:93
 msgid "Query cache efficiency"
@@ -1376,35 +1380,35 @@ msgstr "Няма"
 
 #: js/messages.php:140
 msgid "Resume monitor"
-msgstr ""
+msgstr "проследяване"
 
 #: js/messages.php:141
 msgid "Pause monitor"
-msgstr ""
+msgstr "проследяване"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log и slow_query_log са разрешени."
 
 #: js/messages.php:144
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log е разрешен."
 
 #: js/messages.php:145
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log е разрешен."
 
 #: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log и general_log са забранени."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "на log_output не е зададено TABLE."
 
 #: js/messages.php:148
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "на log_output е зададено TABLE."
 
 #: js/messages.php:149
 #, php-format
@@ -1417,13 +1421,15 @@ msgstr ""
 #: js/messages.php:150
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time е зададено на %d секунда(и)."
 
 #: js/messages.php:151
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Следните настройки ще бъдат приложени глобално и ще бъдат върнати по "
+"подразбиране след рестарт на сървъра:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
@@ -1482,7 +1488,7 @@ msgstr "Разделени с %s"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "Единица"
 
 #: js/messages.php:170
 msgid "From slow log"
@@ -1530,7 +1536,7 @@ msgstr "Данните заредени. Заявки изпълнени в то
 #: js/messages.php:179
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr ""
+msgstr "Към таблицата-дневник"
 
 #: js/messages.php:180
 #| msgid "No data"
@@ -1601,7 +1607,7 @@ msgstr "Филтър"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Филтриране заявки по дума/регулярен израз:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1645,7 +1651,7 @@ msgstr "Засегнати редове:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
+msgstr "Грешка в конфигурационен файл. Изглежда не е валиден JSON код."
 
 #: js/messages.php:211
 msgid ""
@@ -1663,7 +1669,7 @@ msgstr "Импорт"
 #: js/messages.php:213
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr ""
+msgstr "проследяване"
 
 #: js/messages.php:214
 #| msgid "Please select the primary key or a unique key"
@@ -1693,11 +1699,11 @@ msgstr "Препоръка"
 #: js/messages.php:224
 #| msgid "Details"
 msgid "Rule details"
-msgstr ""
+msgstr "Детайли за правило"
 
 #: js/messages.php:225
 msgid "Justification"
-msgstr ""
+msgstr "Подравняване"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
@@ -3361,7 +3367,7 @@ msgstr "Избор от директорията за качване <b>%s</b>:"
 #: libraries/common.lib.php:3371 libraries/sql_query_form.lib.php:451
 #: tbl_change.php:939
 msgid "The directory you set for upload work cannot be reached"
-msgstr "Директорията която сте указали за upload не може да бъде достигната"
+msgstr "Папката, която сте указали за качване е недостъпна"
 
 #: libraries/common.lib.php:3380
 msgid "There are no files to upload"
@@ -4086,7 +4092,7 @@ msgstr "Общи"
 
 #: libraries/config/messages.inc.php:173
 msgid "Set some commonly used options"
-msgstr "Настройки на някои често използвани опции"
+msgstr "Настройки, на някои често използвани опции"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import defaults"
@@ -4692,11 +4698,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Use persistent connections to MySQL databases"
-msgstr ""
+msgstr "Използване на постоянни връзки към MySQL БД"
 
 #: libraries/config/messages.inc.php:335
 msgid "Persistent connections"
-msgstr ""
+msgstr "Постоянни връзки"
 
 #: libraries/config/messages.inc.php:336
 msgid ""
@@ -9106,7 +9112,7 @@ msgstr "Позволява заключване на таблици за тек�
 #: server_privileges.php:827
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
-"Ограничава броя на новите конекции, които потребителя може да отвори на час."
+"Ограничава броя на новите връзки, които потребителя може да отвори за час."
 
 #: server_privileges.php:112 server_privileges.php:813
 #: server_privileges.php:815
@@ -9184,7 +9190,7 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-"Позволява връзка, дори ако е достигнат максималния брой на връзка; Изисква "
+"Позволява връзка, дори ако е достигнат максималния брой на връзки; Изисква "
 "се за повечето административни операции, като установяване на глобални "
 "променливи или спиране на нишка на други потребители."
 
@@ -9847,6 +9853,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Броят връзки, които са прекратени, защото клиентът е изчезнал без правилно "
+"да затвори връзките."
 
 #: server_status.php:1325
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -10235,6 +10243,8 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Максималният брой едновременно използвани връзки от като е стартиран "
+"сървърът."
 
 #: server_status.php:1403
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -12467,16 +12477,15 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy, php-format
+#, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Максимално използван %% от буфера за ключове на MyISAM"
+msgstr "Прочетени от паметта индекси: %s%%, стойността трябва да е над 95%%"
 
 #: libraries/advisory_rules.txt:320
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Създаване таблица"
+msgstr "Стойност отваряне на таблици"
 
 #: libraries/advisory_rules.txt:323
 msgid "The rate of opening tables is high."
@@ -12494,10 +12503,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: libraries/advisory_rules.txt:327
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Формат на импортирания файл"
+msgstr "Процент от лимита на отворени файлове"
 
 #: libraries/advisory_rules.txt:330
 msgid ""
@@ -12518,16 +12526,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Формат на импортирания файл"
+msgstr "Стойност на отворени файлове"
 
 #: libraries/advisory_rules.txt:337
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "The rate of opening files is high."
-msgstr "Формат на импортирания файл"
+msgstr "Стойността на отворени файлове е висока."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -12548,10 +12554,10 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules.txt:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Максимално използван %% от буфера за ключове на MyISAM"
+msgstr ""
 
 #: libraries/advisory_rules.txt:348
 msgid "Table lock wait rate"
@@ -12563,10 +12569,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: libraries/advisory_rules.txt:355
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Буфер за ключове"
+msgstr "Буфер за нишки"
 
 #: libraries/advisory_rules.txt:358
 msgid ""
@@ -12579,44 +12584,40 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/advisory_rules.txt:360
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "Проследяването е неактивно."
+msgstr "Буферът за нишки е 0"
 
 #: libraries/advisory_rules.txt:362
-#, fuzzy, php-format
+#, php-format
 #| msgid "Key cache"
 msgid "Thread cache hit rate %%"
-msgstr "Буфер за ключове"
+msgstr ""
 
 #: libraries/advisory_rules.txt:365
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Проследяването е неактивно."
+msgstr "Буферът за нишки е неефективен."
 
 #: libraries/advisory_rules.txt:366
 msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:367
-#, fuzzy, php-format
+#, php-format
 #| msgid "Max %% MyISAM key buffer ever used"
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Максимално използван %% от буфера за ключове на MyISAM"
+msgstr ""
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "Threads that are slow to launch"
-msgstr "Броят на нишките, които не са спящи."
+msgstr "Бавни за пускане нишки"
 
 #: libraries/advisory_rules.txt:372
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "Броят на нишките, които не са спящи."
+msgstr "Има много бавни за пускане нишки."
 
 #: libraries/advisory_rules.txt:373
 msgid ""
@@ -12638,12 +12639,13 @@ msgid "Slow_launch_threads is above 2s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:380
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
-msgstr "Броят на нишките, които не са спящи."
+msgstr ""
+"Задайте на slow_launch_time 1s или 2s, за да бъдат отчетени правилно бавните "
+"за пускане нишки"
 
 #: libraries/advisory_rules.txt:381
 #, php-format
@@ -12651,10 +12653,9 @@ msgid "slow_launch_time is set to %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:385
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Percentage of used connections"
-msgstr "максимален брой едновременни връзки"
+msgstr "Процент използвни връзки"
 
 #: libraries/advisory_rules.txt:388
 msgid ""
@@ -12676,10 +12677,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Percentage of aborted connections"
-msgstr "максимален брой едновременни връзки"
+msgstr "Процент прекратени връзки"
 
 #: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
 msgid "Too many connections are aborted."
@@ -12699,10 +12699,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Rate of aborted connections"
-msgstr "максимален брой едновременни връзки"
+msgstr "Стойност прекратени връзки"
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -12711,16 +12710,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Формат на импортирания файл"
+msgstr "Процент отказани клиенти"
 
 #: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Позволява създаването на временни таблици."
+msgstr "Твърде много отказани клиенти."
 
 #: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
 msgid ""
@@ -12735,10 +12732,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Формат на импортирания файл"
+msgstr "Стойност отказани клиенти"
 
 #: libraries/advisory_rules.txt:418
 #, php-format
@@ -12762,10 +12758,9 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:429
-#, fuzzy
 #| msgid "Log buffer size"
 msgid "InnoDB log size"
-msgstr "Размер на буфера на дневника"
+msgstr "Размер на дневника на InnoDB"
 
 #: libraries/advisory_rules.txt:432
 msgid ""
@@ -12795,10 +12790,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 #| msgid "Log buffer size"
 msgid "Max InnoDB log size"
-msgstr "Размер на буфера на дневника"
+msgstr "Максимален размер на дневника на InnoDB"
 
 #: libraries/advisory_rules.txt:439
 msgid "The InnoDB log file size is inadequately large."
@@ -12824,16 +12818,14 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:443
-#, fuzzy
 #| msgid "Log buffer size"
 msgid "InnoDB buffer pool size"
-msgstr "Размер на буфера на дневника"
+msgstr ""
 
 #: libraries/advisory_rules.txt:446
-#, fuzzy
 #| msgid "Log buffer size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Размер на буфера на дневника"
+msgstr ""
 
 #: libraries/advisory_rules.txt:447
 #, php-format
@@ -12860,14 +12852,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:452
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "максимален брой едновременни връзки"
+msgstr "MyISAM едновременни вмъквания"
 
 #: libraries/advisory_rules.txt:455
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "Включване на concurrent_insert като го настроите на 1"
 
 #: libraries/advisory_rules.txt:456
 msgid ""
@@ -12877,10 +12868,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:457
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "максимален брой едновременни връзки"
+msgstr "concurrent_insert e 0"
 
 #~ msgid "The remaining columns"
 #~ msgstr "Оставащите колони"
