@@ -35,9 +35,6 @@ if (isset($_SESSION['edit_next'])) {
     unset($_SESSION['edit_next']);
     $after_insert = 'edit_next';
 }
-if (isset($_REQUEST['sql_query'])) {
-    $sql_query = $_REQUEST['sql_query'];
-}
 if (isset($_REQUEST['ShowFunctionFields'])) {
     $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
 }
@@ -74,7 +71,7 @@ if (empty($GLOBALS['goto'])) {
  */
 $_url_params = array(
     'db'        => $db,
-    'sql_query' => $sql_query
+    'sql_query' => $_REQUEST['sql_query']
 );
 
 if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
@@ -155,9 +152,8 @@ $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 $rows               = array();
 
 $found_unique_key   = false;
-$paramArray = array($rows, $table, $db, $cfg);
-list($insert_mode, $where_clauses, $result, $rows) = PMA_edit_and_insert($where_clause, $paramArray, $found_unique_key);
-$where_clause_array = PMA_where_clause_array($where_clause);
+$paramArray = array($rows, $table, $db);
+list($insert_mode, $where_clauses, $result, $rows, $where_clause_array) = PMA_loadAllSelectedRowInEditMode($paramArray, $found_unique_key);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($default_action) && $default_action === 'insert') {
@@ -194,7 +190,7 @@ $_form_params = array(
     'table'     => $table,
     'goto'      => $GLOBALS['goto'],
     'err_url'   => $err_url,
-    'sql_query' => $sql_query,
+    'sql_query' => $_REQUEST['sql_query'],
 );
 if (isset($where_clauses)) {
     foreach ($where_clause_array as $key_id => $where_clause) {
@@ -232,19 +228,18 @@ $biggest_max_file_size = 0;
 // (currently does not work for multi-edits)
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-$url_params = PMA_edit_url_params($url_params, $where_clause, $sql_query);
+$url_params = PMA_urlParamsInEditMode($url_params, $cfg);
 
 if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
     echo __('Show');
 }
 
 if (! $cfg['ShowFunctionFields']) {
-        list($this_url_params, $common_url) = PMA_edit_show_function_fields($url_params);
-        echo $common_url;
+    echo PMA_showFunctionFieldsInEditMode($url_params, $cfg);
 }
 
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    echo PMA_Show_field_types_in_data_edit_view($url_params);
+    echo PMA_showFieldTypesInDataEditView($url_params, $cfg);
 }
 
 foreach ($rows as $row_id => $vrow) {
@@ -267,31 +262,14 @@ foreach ($rows as $row_id => $vrow) {
         <tr>
             <th><?php echo __('Column'); ?></th>
 
- <?php
-    if ($cfg['ShowFieldTypesInDataEditView']) {
-        $this_url_params = array_merge(
-            $url_params,
-            array(
-                'ShowFieldTypesInDataEditView' => 0,
-                'ShowFunctionFields' => $cfg['ShowFunctionFields'],
-                'goto' => 'sql.php'
-            )
-        );
-        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
-    }
-
-    if ($cfg['ShowFunctionFields']) {
-        $this_url_params = array_merge(
-            $url_params,
-            array(
-                'ShowFunctionFields' => 0,
-                'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'],
-                'goto' => 'sql.php'
-            )
-        );
-        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Function') . '</a></th>' . "\n";
-    }
-?>
+            <?php
+            if ($cfg['ShowFieldTypesInDataEditView']) {
+                echo PMA_fieldTypesInDataEditView($url_params, $cfg);
+            }
+            if ($cfg['ShowFunctionFields']) {
+                echo PMA_functionFfiledsInEditView($url_params, $cfg);
+            }
+            ?>
             <th><?php echo __('Null'); ?></th>
             <th><?php echo __('Value'); ?></th>
         </tr>
@@ -1063,7 +1041,7 @@ if ($insert_mode) {
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo htmlspecialchars($GLOBALS['goto']); ?>" />
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
-    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($_REQUEST['sql_query']); ?>" />
 <?php
     if (isset($where_clauses)) {
         foreach ($where_clause_array as $key_id => $where_clause) {
@@ -1093,35 +1071,35 @@ require 'libraries/footer.inc.php';
 /**
  * phpmyadmin edit row or insert
  * 
- * @param array $where_clause
  * @param array $paramArray
  * @param boolean $found_unique_key 
- * @return type array
+ * @return array
  */
-function PMA_edit_and_insert($where_clause, $paramArray, $found_unique_key)
+function PMA_loadAllSelectedRowInEditMode($paramArray, $found_unique_key)
 {
-    list($rows, $table, $db, $cfg) = $paramArray;
-    if (isset($where_clause)) {
-        $where_clause_array = PMA_where_clause_array($where_clause);
-        list($whereClauses, $resultArray, $rowsArray) = PMA_edit_load_all_selected_row($where_clause_array, $paramArray, $found_unique_key);
-        return array(false, $whereClauses, $resultArray, $rowsArray);
+    list($rows, $table, $db) = $paramArray;
+    if (isset($_REQUEST['where_clause'])) {
+        $where_clause_array = PMA_getWhereClauseArray();
+        list($whereClauses, $resultArray, $rowsArray) = PMA_whereClausesAnalyses($where_clause_array, $paramArray, $found_unique_key);
+        return array(false, $whereClauses, $resultArray, $rowsArray, $where_clause_array);
     } else {
-        list($results, $row) = PMA_edit_load_first_row($paramArray);
-        return array(true, null, $results, $row);
+        list($results, $row) = PMA_loadFirstRowInEditMode($paramArray);
+        return array(true, null, $results, $row, null);
     }
 }
 
 /**
  *
- * @param array $where_clause
- * @return array 
+ * @return whereClauseArray 
  */
-function PMA_where_clause_array($where_clause)
+function PMA_getWhereClauseArray()
 {
-    if (is_array($where_clause)) {
-        return $where_clause;
-    } else {
-        return array(0 => $where_clause);
+    if(isset ($_REQUEST['where_clause'])) {
+        if (is_array($_REQUEST['where_clause'])) {
+            return $_REQUEST['where_clause'];
+        } else {
+            return array(0 => $_REQUEST['where_clause']);
+        }
     }
 }
 
@@ -1131,11 +1109,11 @@ function PMA_where_clause_array($where_clause)
  * @param array $where_clause_array
  * @param array $paramArray
  * @param boolean $found_unique_key 
- * @return array 
+ * @return array $where_clauses, $result, $rows
  */
-function PMA_edit_load_all_selected_row($where_clause_array, $paramArray, $found_unique_key)
+function PMA_whereClausesAnalyses($where_clause_array, $paramArray, $found_unique_key)
 {
-    list($rows, $table, $db, $cfg) = $paramArray;
+    list($rows, $table, $db) = $paramArray;
     $result             = array();
     $where_clauses      = array();
     foreach ($where_clause_array as $key_id => $where_clause) {
@@ -1144,7 +1122,7 @@ function PMA_edit_load_all_selected_row($where_clause_array, $paramArray, $found
         $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
-        PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key);
+        PMA_noRowReturnInEditMode($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key);
     }
     return array($where_clauses, $result, $rows);
 }
@@ -1158,7 +1136,7 @@ function PMA_edit_load_all_selected_row($where_clause_array, $paramArray, $found
  * @param array $result
  * @param boolean $found_unique_key 
  */
-function PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key)
+function PMA_noRowReturnInEditMode($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key)
 {
     // No row returned
     if (! $rows[$key_id]) {
@@ -1183,15 +1161,15 @@ function PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_quer
  * @param array $paramArray
  * @return array 
  */
-function PMA_edit_load_first_row($paramArray )
+function PMA_loadFirstRowInEditMode($paramArray )
 {
-    list($rows, $table, $db, $cfg) = $paramArray;
+    list($rows, $table, $db) = $paramArray;
     $result = PMA_DBI_query(
         'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;',
         null,
         PMA_DBI_QUERY_STORE
     );
-    $rows = array_fill(0, $cfg['InsertRows'], false);
+    $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
     return array($result, $rows);
 }
 
@@ -1199,17 +1177,15 @@ function PMA_edit_load_first_row($paramArray )
  * Add some url parameters
  * 
  * @param array $url_params
- * @param array $where_clause
- * @param array $sql_query
  * @return array 
  */
-function PMA_edit_url_params($url_params, $where_clause, $sql_query) 
+function PMA_urlParamsInEditMode($url_params) 
 {
-    if (isset($where_clause)) {
-        $url_params['where_clause'] = trim($where_clause);
+    if (isset($_REQUEST['where_clause'])) {
+        $url_params['where_clause'] = trim($_REQUEST['where_clause']);
     }
-    if (! empty($sql_query)) {
-        $url_params['sql_query'] = $sql_query;
+    if (! empty($_REQUEST['sql_query'])) {
+        $url_params['sql_query'] = $_REQUEST['sql_query'];
     }
     return $url_params;
 }
@@ -1219,15 +1195,14 @@ function PMA_edit_url_params($url_params, $where_clause, $sql_query)
  * @param array $url_params
  * @return string 
  */
-function PMA_edit_show_function_fields($url_params)
+function PMA_showFunctionFieldsInEditMode($url_params)
 {
     $params = array(
             'ShowFunctionFields' => 1,
-            'ShowFieldTypesInDataEditView' => $cfg['ShowFieldTypesInDataEditView'],
+            'ShowFieldTypesInDataEditView' => $GLOBALS['cfg']['ShowFieldTypesInDataEditView'],
             'goto' => 'sql.php');
     $this_url_params = array_merge($url_params, $params);
-    $return_value = ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . __('Function') . '</a>' . "\n";
-    return array($this_url_params, $return_value);
+    return ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . __('Function') . '</a>' . "\n";
 }
 
 /**
@@ -1235,14 +1210,45 @@ function PMA_edit_show_function_fields($url_params)
  * @param array $url_params
  * @return stirng 
  */
-function PMA_Show_field_types_in_data_edit_view($url_params)
+function PMA_showFieldTypesInDataEditView($url_params)
 {
     $params = array(
             'ShowFieldTypesInDataEditView' => 1,
-            'ShowFunctionFields' => $cfg['ShowFunctionFields'],
+            'ShowFunctionFields' => $GLOBALS['cfg']['ShowFunctionFields'],
             'goto' => 'sql.php');
     $this_other_url_params = array_merge($url_params, $params);
     return ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . __('Type') . '</a>' . "\n";
 }
-
+ 
+ /**
+  *
+  * @param array $url_params
+  * @return string 
+  */
+ function PMA_fieldTypesInDataEditView($url_params)
+ {
+     $params = array(
+                'ShowFieldTypesInDataEditView' => 0,
+                'ShowFunctionFields' => $GLOBALS['cfg']['ShowFunctionFields'],
+                'goto' => 'sql.php'
+                );
+     $this_url_params = array_merge($url_params, $params);
+     return '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
+ }
+ 
+ /**
+  *
+  * @param array $url_params
+  * @return string 
+  */
+ function PMA_functionFfiledsInEditView($url_params)
+ {
+     $params = array(
+                'ShowFieldTypesInDataEditView' => 0,
+                'ShowFunctionFields' => $GLOBALS['cfg']['ShowFunctionFields'],
+                'goto' => 'sql.php'
+                );
+     $this_url_params = array_merge($url_params, $params);
+     return '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
+ }
 ?>
