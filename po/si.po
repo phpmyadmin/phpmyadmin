@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-05 19:02+0200\n"
+"PO-Revision-Date: 2012-05-07 10:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -11571,7 +11571,7 @@ msgstr "දර්ශනය කිරීමේ අනුපිළිවෙල:"
 
 #: tbl_structure.php:156 tbl_structure.php:161 tbl_structure.php:608
 msgid "Spatial"
-msgstr ""
+msgstr "ජ්‍යාමිතික"
 
 #: tbl_structure.php:163 tbl_structure.php:167
 #| msgid "Browse distinct values"
