@@ -162,114 +162,6 @@ $result = $insertMode_whereClauses_result['result'];
 $rows = $insertMode_whereClauses_result['rows'];
 $where_clause_array = PMA_where_clause_array($where_clause);
 
-/**
- * phpmyadmin edit row or insert
- * 
- * @param array $where_clause
- * @param array $rows
- * @param string $table
- * @param string $db
- * @param array $cfg
- * @return type array
- */
-function PMA_edit_and_insert($where_clause, $rows, $table, $db, $cfg, $found_unique_key)
-{
-    if (isset($where_clause)) {
-        $where_clause_array = PMA_where_clause_array($where_clause);
-        $where_clauses_and_result = PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db, $found_unique_key);
-        return array('insertMode' => false, 'whereClauses' => $where_clauses_and_result['whereClauses'], 'result' =>$where_clauses_and_result['result'], 'rows' => $where_clauses_and_result['rows']);
-    } else {
-        $result = PMA_edit_load_first_row($table, $db, $rows, $cfg);
-        return array('insertMode' => true, 'result' => $result['result'], 'rows' => $result['rows']);
-    }
-}
-
-/**
- *
- * @param array $where_clause
- * @return array 
- */
-function PMA_where_clause_array($where_clause)
-{
-    if (is_array($where_clause)) {
-        return $where_clause;
-    } else {
-        return array(0 => $where_clause);
-    }
-}
-
-/**
- * When in edit mode load all selected rows from table
- * 
- * @param array $where_clause_array
- * @param array $rows
- * @param string $table
- * @param string $db
- * @return array 
- */
-function PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db, $found_unique_key)
-{
-    $result             = array();
-    $where_clauses      = array();
-    foreach ($where_clause_array as $key_id => $where_clause) {
-        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
-                                 . ' WHERE ' . $where_clause . ';';
-        $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
-        $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
-        $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
-        PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key);
-    }
-    return array('whereClauses' => $where_clauses, 'result' => $result, 'rows' => $rows);
-}
-
-/**
- *
- * @param array $rows
- * @param string $key_id
- * @param array $where_clause_array
- * @param string $local_query
- * @param array $result
- * @param boolean $found_unique_key 
- */
-function PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key)
-{
-    // No row returned
-    if (! $rows[$key_id]) {
-        unset($rows[$key_id], $where_clause_array[$key_id]);
-        PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
-        echo "\n";
-        include 'libraries/footer.inc.php';
-    } else {// end if (no row returned) 
-        $meta = PMA_DBI_get_fields_meta($result[$key_id]);
-        list($unique_condition, $tmp_clause_is_unique)
-            = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
-        if (! empty($unique_condition)) {
-            $found_unique_key = true;
-        }
-        unset($unique_condition, $tmp_clause_is_unique);
-    }
-}
-
-/**
- * No primary key given, just load first row
- * 
- * @param string $table
- * @param string $db
- * @param array $rows
- * @param array $cfg
- * @return array 
- */
-function PMA_edit_load_first_row($table, $db, $rows, $cfg )
-{
-    $result = PMA_DBI_query(
-        'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;',
-        null,
-        PMA_DBI_QUERY_STORE
-    );
-    $rows = array_fill(0, $cfg['InsertRows'], false);
-    return array('result' => $result, 'rows' => $rows);
-}
-
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($default_action) && $default_action === 'insert') {
     unset($where_clause, $where_clauses);
@@ -1219,4 +1111,113 @@ if ($insert_mode) {
  * Displays the footer
  */
 require 'libraries/footer.inc.php';
+
+/**
+ * phpmyadmin edit row or insert
+ * 
+ * @param array $where_clause
+ * @param array $rows
+ * @param string $table
+ * @param string $db
+ * @param array $cfg
+ * @return type array
+ */
+function PMA_edit_and_insert($where_clause, $rows, $table, $db, $cfg, $found_unique_key)
+{
+    if (isset($where_clause)) {
+        $where_clause_array = PMA_where_clause_array($where_clause);
+        $where_clauses_and_result = PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db, $found_unique_key);
+        return array('insertMode' => false, 'whereClauses' => $where_clauses_and_result['whereClauses'], 'result' =>$where_clauses_and_result['result'], 'rows' => $where_clauses_and_result['rows']);
+    } else {
+        $result = PMA_edit_load_first_row($table, $db, $rows, $cfg);
+        return array('insertMode' => true, 'result' => $result['result'], 'rows' => $result['rows']);
+    }
+}
+
+/**
+ *
+ * @param array $where_clause
+ * @return array 
+ */
+function PMA_where_clause_array($where_clause)
+{
+    if (is_array($where_clause)) {
+        return $where_clause;
+    } else {
+        return array(0 => $where_clause);
+    }
+}
+
+/**
+ * When in edit mode load all selected rows from table
+ * 
+ * @param array $where_clause_array
+ * @param array $rows
+ * @param string $table
+ * @param string $db
+ * @return array 
+ */
+function PMA_edit_load_all_selected_row($where_clause_array, $rows, $table, $db, $found_unique_key)
+{
+    $result             = array();
+    $where_clauses      = array();
+    foreach ($where_clause_array as $key_id => $where_clause) {
+        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+                                 . ' WHERE ' . $where_clause . ';';
+        $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
+        $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
+        $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
+        PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key);
+    }
+    return array('whereClauses' => $where_clauses, 'result' => $result, 'rows' => $rows);
+}
+
+/**
+ *
+ * @param array $rows
+ * @param string $key_id
+ * @param array $where_clause_array
+ * @param string $local_query
+ * @param array $result
+ * @param boolean $found_unique_key 
+ */
+function PMA_edit_no_row_return($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key)
+{
+    // No row returned
+    if (! $rows[$key_id]) {
+        unset($rows[$key_id], $where_clause_array[$key_id]);
+        PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
+        echo "\n";
+        include 'libraries/footer.inc.php';
+    } else {// end if (no row returned) 
+        $meta = PMA_DBI_get_fields_meta($result[$key_id]);
+        list($unique_condition, $tmp_clause_is_unique)
+            = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
+        if (! empty($unique_condition)) {
+            $found_unique_key = true;
+        }
+        unset($unique_condition, $tmp_clause_is_unique);
+    }
+}
+
+/**
+ * No primary key given, just load first row
+ * 
+ * @param string $table
+ * @param string $db
+ * @param array $rows
+ * @param array $cfg
+ * @return array 
+ */
+function PMA_edit_load_first_row($table, $db, $rows, $cfg )
+{
+    $result = PMA_DBI_query(
+        'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;',
+        null,
+        PMA_DBI_QUERY_STORE
+    );
+    $rows = array_fill(0, $cfg['InsertRows'], false);
+    return array('result' => $result, 'rows' => $rows);
+}
+
 ?>
