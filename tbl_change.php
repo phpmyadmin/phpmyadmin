@@ -158,7 +158,8 @@ $rows               = array();
 
 $found_unique_key   = false;
 $paramArray = array($rows, $table, $db);
-list($insert_mode, $where_clauses, $result, $rows, $where_clause_array) = PMA_loadAllSelectedRowInEditMode($paramArray, $found_unique_key);
+list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key) 
+        = PMA_getValuesForEditMode($paramArray, $found_unique_key);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($default_action) && $default_action === 'insert') {
@@ -233,18 +234,18 @@ $biggest_max_file_size = 0;
 // (currently does not work for multi-edits)
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-$url_params = PMA_urlParamsInEditMode($url_params, $cfg);
+$url_params = PMA_urlParamsInEditMode($url_params);
 
 if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
     echo __('Show');
 }
 
 if (! $cfg['ShowFunctionFields']) {
-    echo PMA_showFunctionFieldsInEditMode($url_params, $cfg);
+    echo PMA_showFunctionFieldsInEditMode($url_params, true);
 }
 
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    echo PMA_showFieldTypesInDataEditView($url_params, $cfg);
+    echo PMA_showFieldTypesInDataEditView($url_params, true);
 }
 
 foreach ($rows as $row_id => $vrow) {
@@ -269,10 +270,10 @@ foreach ($rows as $row_id => $vrow) {
 
             <?php
             if ($cfg['ShowFieldTypesInDataEditView']) {
-                echo PMA_fieldTypesInDataEditView($url_params, $cfg);
+                echo PMA_showFieldTypesInDataEditView($url_params, false);
             }
             if ($cfg['ShowFunctionFields']) {
-                echo PMA_functionFfiledsInEditView($url_params, $cfg);
+                echo PMA_showFunctionFieldsInEditMode($url_params, false);
             }
             ?>
             <th><?php echo __('Null'); ?></th>
@@ -300,32 +301,10 @@ foreach ($rows as $row_id => $vrow) {
             $table_fields[$i]['Field_md5']  = md5($table_fields[$i]['Field']);
             // True_Type contains only the type (stops at first bracket)
             $table_fields[$i]['True_Type']  = preg_replace('@\(.*@s', '', $table_fields[$i]['Type']);
+            
+            PMA_getDefaultForDatetime($table_fields[$i]);
 
-            // d a t e t i m e
-            //
-            // Current date should not be set as default if the field is NULL
-            // for the current row, but do not put here the current datetime
-            // if there is a default value (the real default value will be set
-            // in the Default value logic below)
-
-            // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
-            // $field['Default'] is not set if it contains NULL:
-            // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime)
-            // but, look what we get if we switch to iso: (Default is NULL)
-            // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime)
-            // so I force a NULL into it (I don't think it's possible
-            // to have an empty default value for DATETIME)
-            // then, the "if" after this one will work
-            if ($table_fields[$i]['Type'] == 'datetime'
-                && ! isset($table_fields[$i]['Default'])
-                && isset($table_fields[$i]['Null'])
-                && $table_fields[$i]['Null'] == 'YES'
-            ) {
-                $table_fields[$i]['Default'] = null;
-            }
-
-            $table_fields[$i]['len']
-                = preg_match('@float|double@', $table_fields[$i]['Type']) ? 100 : -1;
+            $table_fields[$i]['len'] = preg_match('@float|double@', $table_fields[$i]['Type']) ? 100 : -1;
 
 
             if (isset($comments_map[$table_fields[$i]['Field']])) {
