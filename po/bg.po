@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-07 19:45+0200\n"
+"PO-Revision-Date: 2012-05-07 22:11+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1206,7 +1206,7 @@ msgstr "Статистика за заявките"
 #: js/messages.php:90
 #| msgid "Failed to read configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "Локалната настройка на наблюдателя е несъвместима"
 
 #: js/messages.php:91
 msgid ""
@@ -1380,11 +1380,11 @@ msgstr "Няма"
 
 #: js/messages.php:140
 msgid "Resume monitor"
-msgstr "проследяване"
+msgstr "Подновяване на наблюдателя"
 
 #: js/messages.php:141
 msgid "Pause monitor"
-msgstr "проследяване"
+msgstr "Bременно спиране на наблюдателя"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1669,7 +1669,7 @@ msgstr "Импорт"
 #: js/messages.php:213
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "проследяване"
+msgstr "Импорт настройки на наблюдателя"
 
 #: js/messages.php:214
 #| msgid "Please select the primary key or a unique key"
@@ -1707,7 +1707,7 @@ msgstr "Подравняване"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Използвана променлива / формула"
 
 #: js/messages.php:227
 msgid "Test"
@@ -1919,6 +1919,8 @@ msgstr "Кликнете и влачете мишката за да навиги
 #: js/messages.php:308
 msgid "Click reset zoom link to come back to original state."
 msgstr ""
+"Щракнете върху връзката за възстановяване на мащабирането, за да се върнете "
+"в първоначално състояние."
 
 #: js/messages.php:310
 msgid "Click a data point to view and possibly edit the data row."
@@ -1926,11 +1928,11 @@ msgstr ""
 
 #: js/messages.php:312
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "Плотът може да се преоразмерява, като го дръпнете за долния десен ъгъл."
 
 #: js/messages.php:314
 msgid "Strings are converted into integer for plotting"
-msgstr ""
+msgstr "Низовете са преобразувани в числа, за да бъдат изобразени"
 
 #: js/messages.php:316
 msgid "Select two columns"
@@ -1938,7 +1940,7 @@ msgstr "Изберете две колони"
 
 #: js/messages.php:317
 msgid "Select two different columns"
-msgstr ""
+msgstr "Изберете две различни колони"
 
 #: js/messages.php:318
 #| msgid "Query results operations"
@@ -1993,13 +1995,15 @@ msgstr "Добавяне опция към колона "
 
 #: js/messages.php:351
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Натиснете Esc за отмяна на редакцията"
 
 #: js/messages.php:352
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Редактирали сте данни и те не са запазени. Наистина ли искате да напуснете "
+"страницата преди запазването им?"
 
 #: js/messages.php:353
 msgid "Drag to reorder"
@@ -2015,7 +2019,7 @@ msgstr "Щракване за маркиране/отмаркиране"
 
 #: js/messages.php:356
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Щракнете двукратно за копиране името на колона"
 
 #: js/messages.php:357
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2026,15 +2030,20 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Тази таблица не съдържа уникална колона. Функциите, свързани с мрежата за "
+"редакция, отметката, връзките редактиране, копиране и изтриване може да не "
+"работят след запазване."
 
 #: js/messages.php:360
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Можете също да редактирате повечето колони<br/>като щракнете директно върху "
+"тяхното съдържание."
 
 #: js/messages.php:361
 msgid "Go to link"
-msgstr ""
+msgstr "Към връзка"
 
 #: js/messages.php:362
 #| msgid "Column names"
@@ -2044,6 +2053,7 @@ msgstr "Копиране името на колоната"
 #: js/messages.php:363
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"С десния бутон върху името на колоната, за да го копирате в системния буфер."
 
 #: js/messages.php:364
 #| msgid "Update row(s)"
@@ -2319,7 +2329,7 @@ msgstr "Сед"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:510
 msgid "calendar-month-year"
-msgstr ""
+msgstr "календар-месец-година"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:512
@@ -2343,33 +2353,35 @@ msgstr "секунда"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP върна следната грешка: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Неуспешно оценяване условието за правилото '%s'"
 
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Неуспешно изчисляване стойността за правилото '%s'"
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Неуспешно пускане на тест за правилото '%s'"
 
 #: libraries/Advisor.class.php:207
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "Неуспешно форматиране низ за правилото '%s'."
 
 #: libraries/Advisor.class.php:361
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Невалидна декларация на правило на ред %1$s, очакван ред %2$s от предишно "
+"правило"
 
 #: libraries/Advisor.class.php:378
 #, php-format
@@ -2380,12 +2392,12 @@ msgstr "Невалидна декларация на правило на ред 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Неочаквани знаци на ред %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "Неочакван знак на ред %1$s. Очакван табулатор, но намерен \"%2$s\""
 
 #: libraries/Advisor.class.php:425 server_status.php:963
 msgid "per second"
@@ -2402,20 +2414,22 @@ msgstr "на час"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "на ден"
 
 #: libraries/Config.class.php:892
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr ""
+msgstr "Премахнете папка \"./config\" преди да използвате phpMyAdmin!"
 
 #: libraries/Config.class.php:928
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Текущия файл с настройки (%s) е недостъпен."
 
 #: libraries/Config.class.php:956
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Неподходящи права на файлът с настройки, в него не трябва да може да пише "
+"всеки!"
 
 #: libraries/Config.class.php:1539
 msgid "Font size"
@@ -2423,11 +2437,11 @@ msgstr "Размер шрифт"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Твърде много съобщения за грешки, някои не са показани."
 
 #: libraries/File.class.php:234
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Файлът не е бил качен."
 
 #: libraries/File.class.php:268
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2470,7 +2484,7 @@ msgstr ""
 
 #: libraries/File.class.php:463
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Грешка при преместване на качения файл."
 
 #: libraries/File.class.php:471
 msgid "Cannot read (moved) upload file."
@@ -2494,7 +2508,7 @@ msgstr "Уникално"
 
 #: libraries/Index.class.php:460 tbl_tracking.php:372
 msgid "Packed"
-msgstr ""
+msgstr "Опаковани"
 
 #: libraries/Index.class.php:462 tbl_tracking.php:374
 msgid "Cardinality"
@@ -2595,7 +2609,7 @@ msgstr "Този MySQL сървър не поддържа хранилището
 
 #: libraries/Table.class.php:353
 msgid "unknown table status: "
-msgstr ""
+msgstr "неизвестно състояние на таблица: "
 
 #: libraries/Table.class.php:750
 #, php-format
@@ -2758,7 +2772,7 @@ msgstr "Дата, поддържан диапазон е %1$s до %2$s"
 #: libraries/Types.class.php:309 libraries/Types.class.php:718
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Комбинация от дата и час, поддържаният диапазон е %1$s до %2$s"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -2860,7 +2874,7 @@ msgstr ""
 
 #: libraries/Types.class.php:343
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Една стойност, избрана от набор от до 64 възможни"
 
 #: libraries/Types.class.php:345
 msgid "A type that can store a geometry of any type"
@@ -2976,7 +2990,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:44
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Не може да се използва Blowfish от mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:196 libraries/header.inc.php:90
 #| msgid "Cookies must be enabled past this point."
@@ -3656,6 +3670,8 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Определя минималният размер на текстови полета, генерирани за CHAR и VARCHAR "
+"колони"
 
 #: libraries/config/messages.inc.php:37
 #| msgid "Customize text input fields"
@@ -3667,6 +3683,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Определя максималния размер на текстови полета, генерирани за CHAR и VARCHAR "
+"колони"
 
 #: libraries/config/messages.inc.php:39
 #| msgid "Maximum size for temporary sort files"
@@ -3701,7 +3719,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:46
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Компресиране в движение"
 
 #: libraries/config/messages.inc.php:47 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:175
@@ -3769,15 +3787,15 @@ msgstr "Показване на двоичните данни в шестнад�
 
 #: libraries/config/messages.inc.php:62
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "Показване на БД като списък вместо на падащо меню"
 
 #: libraries/config/messages.inc.php:63
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Показване БД като списък"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "Показване сървърите като списък вместо падащо меню"
 
 #: libraries/config/messages.inc.php:65
 msgid "Display servers as a list"
@@ -3819,7 +3837,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:73
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Максимално време за изпълнение"
 
 #: libraries/config/messages.inc.php:74 prefs_manage.php:305
 msgid "Save as file"
@@ -4006,7 +4024,7 @@ msgstr "Изолиране на експорта в транзакция"
 
 #: libraries/config/messages.inc.php:144
 msgid "Export time in UTC"
-msgstr ""
+msgstr "Експортиране на време в UTC"
 
 #: libraries/config/messages.inc.php:152
 msgid "Force secured connection while using phpMyAdmin"
@@ -4028,7 +4046,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:156
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Да се използва падащо меню при малко елементи"
 
 #: libraries/config/messages.inc.php:157
 msgid "Foreign key limit"
@@ -10466,7 +10484,7 @@ msgstr "Стойност по подразбиране"
 
 #: server_status.php:1636
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "Инструкции на наблюдателя"
 
 #: server_status.php:1637
 msgid ""
@@ -10476,6 +10494,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
+"Наблюдателят на phpMyAdmin може да ви помогне при оптимизиране на "
+"конфигурацията на сървъра и да проследи времеемките заявки. За последното ще "
+"трябва да настроите log_output на 'TABLE' и да разрешите slow_query_log или "
+"general_log. Отбележете обаче, че general_log генерира много данни и "
+"натоварването на сървъра се увеличава с до 15%"
 
 #: server_status.php:1642
 msgid ""
@@ -10487,7 +10510,7 @@ msgstr ""
 
 #: server_status.php:1655
 msgid "Using the monitor:"
-msgstr ""
+msgstr "Използване наблюдател:"
 
 #: server_status.php:1657
 msgid ""
