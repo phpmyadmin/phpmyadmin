@@ -1402,7 +1402,7 @@ function PMA_profilingCheckbox($sql_query)
         echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
         echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-        PMA_display_html_checkbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
+        echo PMA_display_html_checkbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
         echo ' </form>' . "\n";
     }
 }
@@ -2624,15 +2624,15 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
  * @param boolean $checked         is it initially checked?
  * @param boolean $onclick         should it submit the form on click?
  *
- * @return void
+ * @return string                  html content
  */
 function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
 {
 
-    echo '<input type="checkbox" name="' . $html_field_name . '" id="'
-        . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
-        . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
-        . $html_field_name . '">' . $label . '</label>';
+    return '<input type="checkbox" name="' . $html_field_name . '" id="'
+           . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
+           . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
+           . $html_field_name . '">' . $label . '</label>';
 }
 
 /**
@@ -2645,33 +2645,39 @@ function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
  * @param boolean $escape_label    whether to use htmlspecialchars() on label
  * @param string  $class           enclose each choice with a div of this class
  *
- * @return void
+ * @return string                  html content
  */
 function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '',
     $line_break = true, $escape_label = true, $class=''
 ) {
+    
+    $radio_html = '';
+    
     foreach ($choices as $choice_value => $choice_label) {
         if (! empty($class)) {
-            echo '<div class="' . $class . '">';
+            $radio_html .= '<div class="' . $class . '">';
         }
         $html_field_id = $html_field_name . '_' . $choice_value;
-        echo '<input type="radio" name="' . $html_field_name . '" id="'
-            . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+        $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
+                    . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
         if ($choice_value == $checked_choice) {
-            echo ' checked="checked"';
+            $radio_html .= ' checked="checked"';
         }
-        echo ' />' . "\n";
-        echo '<label for="' . $html_field_id . '">'
-            . ($escape_label ? htmlspecialchars($choice_label)  : $choice_label)
-            . '</label>';
+        $radio_html .= ' />' . "\n"
+                    . '<label for="' . $html_field_id . '">'
+                    . ($escape_label ? htmlspecialchars($choice_label)  : $choice_label)
+                    . '</label>';
         if ($line_break) {
-            echo '<br />';
+            $radio_html .= '<br />';
         }
         if (! empty($class)) {
-            echo '</div>';
+            $radio_html .= '</div>';
         }
-        echo "\n";
+        $radio_html .= "\n";
     }
+    
+    return $radio_html;
+    
 }
 
 /**
@@ -2711,12 +2717,14 @@ function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
  *
  * @param string $id      the id of the <div> on which to apply the effect
  * @param string $message the message to show as a link
+ * 
+ * @return string         html content
+ * 
  */
-function PMA_generate_slider_effect($id, $message)
+function PMA_getDivForSliderEffect($id, $message)
 {
     if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
-        echo '<div id="' . $id . '">';
-        return;
+        return '<div id="' . $id . '">';
     }
     /**
      * Bad hack on the next line. document.write() conflicts with jQuery,
@@ -2726,9 +2734,11 @@ function PMA_generate_slider_effect($id, $message)
      * method maybe by using an additional param, the id of the div to
      * append to
      */
-    ?>
-<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?> class="pma_auto_slider" title="<?php echo htmlspecialchars($message); ?>">
-    <?php
+    
+    return '<div id="' . $id . '"'
+           . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed') ? ' style="display: none; overflow:auto;"' : '')
+           . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
+    
 }
 
 /**

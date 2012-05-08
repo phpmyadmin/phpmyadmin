@@ -710,7 +710,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         'first' => __('At Beginning of Table'),
         'after' => sprintf(__('After %s'), '')
     );
-    PMA_display_html_radio('field_where', $choices, 'last', false);
+    echo PMA_display_html_radio('field_where', $choices, 'last', false);
     echo $column_selector;
     unset($column_selector, $choices);
     ?>
@@ -730,7 +730,7 @@ if (! $tbl_is_view
     && ! $db_is_information_schema
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
-    PMA_generate_slider_effect('indexes', __('Indexes'));
+    echo PMA_getDivForSliderEffect('indexes', __('Indexes'));
     /**
      * Display indexes
      */

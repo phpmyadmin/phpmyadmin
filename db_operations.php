@@ -523,7 +523,7 @@ echo __('Remove database');
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
             'dataonly'  => __('Data only'));
-        PMA_display_html_radio('what', $choices, 'data', true);
+        echo PMA_display_html_radio('what', $choices, 'data', true);
         unset($choices);
 ?>
         <input type="checkbox" name="create_database_before_copying" value="1"

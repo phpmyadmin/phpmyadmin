@@ -306,7 +306,7 @@ $choices = array(
 // 4th parameter set to true to add line breaks
 // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
 //  since we have some HTML in some labels
-PMA_display_html_radio('search_option', $choices, $search_option, true, false);
+echo PMA_display_html_radio('search_option', $choices, $search_option, true, false);
 unset($choices);
             ?>
             </td>
