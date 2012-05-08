@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-07 22:11+0200\n"
+"PO-Revision-Date: 2012-05-08 18:23+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1417,6 +1417,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log е разрешено, но сървъра вписва в дневника само заявки, "
+"отнемащи повече от %d секунди. Препоръчително е да зададете на "
+"long_query_time 0-2 секунди, в зависимост от вашата система."
 
 #: js/messages.php:150
 #, php-format
@@ -1528,6 +1531,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Тъй като е избрано групиране на заявки за вмъкване, такива към същата "
+"таблица също ще са групирани заедно, без оглед на вмъкваните данни."
 
 #: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
