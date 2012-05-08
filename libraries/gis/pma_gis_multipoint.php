@@ -313,5 +313,31 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         return $params;
     }
+
+    /**
+     * Overidden to make sure that only the points having valid values
+     * for x and y coordinates are added.
+     *
+     * @param array  $points_arr x and y coordinates for each point
+     * @param string $srid       spatial reference id
+     *
+     * @return string JavaScript for adding an array of points to OpenLayers
+     * @access protected
+     */
+    protected function getPointsArrayForOpenLayers($points_arr, $srid)
+    {
+        $ol_array = 'new Array(';
+        foreach ($points_arr as $point) {
+            if ($point[0] != '' && $point[1] != '') {
+                $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
+            }
+        }
+        if (substr($ol_array, strlen($ol_array) - 2) == ', ') {
+            $ol_array = substr($ol_array, 0, strlen($ol_array) - 2);
+        }
+        $ol_array .= ')';
+
+        return $ol_array;
+    }
 }
 ?>
