@@ -16,11 +16,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * requirements
- */
-require_once './libraries/common.inc.php';
-
-/**
  * limits for table list
  */
 if (! isset($_SESSION['tmp_user_values']['table_limit_offset'])
