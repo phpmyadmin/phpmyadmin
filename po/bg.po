@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-08 19:19+0200\n"
+"PO-Revision-Date: 2012-05-08 19:38+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2925,6 +2925,8 @@ msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Цяло 8-байтово число с диапазон от -9 223 372 036 854 775 808 до 9 223 372 "
+"036 854 775 807"
 
 #: libraries/Types.class.php:708
 msgid "A system's default double-precision floating-point number"
@@ -2932,15 +2934,15 @@ msgstr ""
 
 #: libraries/Types.class.php:710
 msgid "True or false"
-msgstr ""
+msgstr "Истина или неистина"
 
 #: libraries/Types.class.php:712
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Синоним на BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:714
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Съхранява универсално уникален идентификатор (UUID)"
 
 #: libraries/Types.class.php:720
 msgid ""
@@ -2962,11 +2964,11 @@ msgstr ""
 
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Изброяване, избор от списък на определените стойности"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
-msgstr "Връзката не може да бъде осъществена: невалидни настройки."
+msgstr "Връзката неосъществима: невалидни настройки."
 
 #: libraries/auth/config.auth.lib.php:88
 #: libraries/auth/cookie.auth.lib.php:183 libraries/auth/http.auth.lib.php:65
@@ -3190,7 +3192,7 @@ msgstr "Осъвременете до %s %s или по-нова."
 #: libraries/common.lib.php:195
 #, php-format
 msgid "Max: %s%s"
-msgstr "Максимален размер: %s%s"
+msgstr "Максимум: %s%s"
 
 #: libraries/common.lib.php:403 libraries/common.lib.php:493
 #: libraries/config/FormDisplay.tpl.php:140
@@ -3672,10 +3674,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Използване на удобен за потребителя редактор за писане на SQL заявките "
+"([a@http://codemirror.net/]CodeMirror[/a]) със синтактично оцветяване и "
+"номер на редовете"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Включване на CodeMirror"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3688,7 +3693,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:37
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Минимален размер на текстовите полета"
+msgstr "Минимален размер на текстово поле"
 
 #: libraries/config/messages.inc.php:38
 msgid ""
@@ -11192,7 +11197,7 @@ msgstr "Пита"
 
 #: tbl_chart.php:95
 msgid "Stacked"
-msgstr ""
+msgstr "Припокриващи се"
 
 #: tbl_chart.php:98
 msgid "Chart title"
@@ -11200,11 +11205,11 @@ msgstr "Заглавие на диаграмата"
 
 #: tbl_chart.php:105
 msgid "X-Axis:"
-msgstr ""
+msgstr "Ос X:"
 
 #: tbl_chart.php:120
 msgid "Series:"
-msgstr ""
+msgstr "Поредици:"
 
 #: tbl_chart.php:140
 msgid "X-Axis label:"
@@ -11258,11 +11263,11 @@ msgstr "-- без --"
 
 #: tbl_gis_visualization.php:144
 msgid "Spatial column"
-msgstr ""
+msgstr "Пространствена колона"
 
 #: tbl_gis_visualization.php:168
 msgid "Redraw"
-msgstr ""
+msgstr "Изчертаване наново"
 
 #: tbl_gis_visualization.php:170
 msgid "Save to file"
@@ -11278,7 +11283,7 @@ msgstr "Името на първичния ключ трябва да е \"PRIMA
 
 #: tbl_indexes.php:79
 msgid "Can't rename index to PRIMARY!"
-msgstr "Не мога да преименувам индекса на PRIMARY!"
+msgstr "Индексът не може да бъде преименуван на PRIMARY!"
 
 #: tbl_indexes.php:95
 msgid "No index parts defined!"
@@ -11295,18 +11300,17 @@ msgstr "Редактиране"
 
 #: tbl_indexes.php:197
 msgid "Index name:"
-msgstr "Име на индекса&nbsp;:"
+msgstr "Име на индекс:"
 
 #: tbl_indexes.php:199
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
-"(\"PRIMARY\" <b>трябва</b> да е името на <b>и единствено на</b> главния "
-"ключ!)"
+"(\"PRIMARY\" <b>трябва</b> да е името на <b>и единствено на</b> главен ключ!)"
 
 #: tbl_indexes.php:211
 msgid "Index type:"
-msgstr "Тип на индекса&nbsp;:"
+msgstr "Тип на индекса:"
 
 #: tbl_indexes.php:306
 #, php-format
