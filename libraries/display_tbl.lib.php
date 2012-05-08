@@ -792,17 +792,17 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         }
 
         echo '<div class="formelement">';
-        PMA_display_html_checkbox(
+        echo PMA_getCheckbox(
             'display_binary', __('Show binary contents'),
             ! empty($_SESSION['tmp_user_values']['display_binary']), false
         );
         echo '<br />';
-        PMA_display_html_checkbox(
+        echo PMA_getCheckbox(
             'display_blob', __('Show BLOB contents'),
             ! empty($_SESSION['tmp_user_values']['display_blob']), false
         );
         echo '<br />';
-        PMA_display_html_checkbox(
+        echo PMA_getCheckbox(
             'display_binary_as_hex', __('Show binary contents as HEX'),
             ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
         );
@@ -813,7 +813,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         echo '<div class="formelement">';
-        PMA_display_html_checkbox(
+        echo PMA_getCheckbox(
             'hide_transformation', __('Hide browser transformation'),
             ! empty($_SESSION['tmp_user_values']['hide_transformation']), false
         );

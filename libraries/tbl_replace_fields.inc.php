@@ -24,7 +24,6 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
 require_once './libraries/File.class.php';
 
 $file_to_insert = new PMA_File();

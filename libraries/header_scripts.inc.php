@@ -8,12 +8,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
-require_once './libraries/common.inc.php';
-
-
 // Cross-framing protection
 if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
     echo PMA_includeJS('cross_framing_protection.js');

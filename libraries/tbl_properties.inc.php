@@ -13,7 +13,6 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Check parameters
  */
-require_once './libraries/common.inc.php';
 require_once './libraries/common.lib.php';
 PMA_checkParameters(array('db', 'table', 'action', 'num_fields'));
 

@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-04-05 12:40+0200\n"
+"PO-Revision-Date: 2012-05-07 14:32+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 0.10\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1825
@@ -1030,10 +1030,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "I comandi \"DROP DATABASE\" sono disabilitati."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Sei sicuro di voler eseguire la seguente query?"
+msgstr "Sei sicuro di voler eseguire \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:309 sql.php:390
 msgid "You are about to DESTROY a complete database!"
@@ -1500,10 +1500,9 @@ msgid "From general log"
 msgstr "Dal log generale"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Caricamento dei log in corso"
+msgstr "Analisi dei log in corso"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1593,10 +1592,9 @@ msgid "Edit chart"
 msgstr "Aggiungi grafico"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Serie:"
+msgstr "Serie"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1795,19 +1793,17 @@ msgstr "Mostra gli indici"
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Disabilita i controlli sulle chiavi straniere"
+msgstr "Controllo delle chiavi straniere:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:323
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Abilitata"
+msgstr "(Abilitato)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:323
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Disabilitata"
+msgstr "(Disabilitato)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -2059,10 +2055,9 @@ msgid "Go to link"
 msgstr "Vai al link"
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Nomi dei campi"
+msgstr "Copia il nome del campo"
 
 #: js/messages.php:363
 msgid "Right-click the column name to copy it to your clipboard."
@@ -2384,13 +2379,11 @@ msgid "Failed running test for rule '%s'"
 msgstr ""
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Formattazione della stringa non riuscita per regola '%s'. PHP ha prodotto il "
-"seguente errore: %s"
+msgstr "Formattazione della stringa non riuscita per regola '%s'."
 
 #: libraries/Advisor.class.php:361
 #, php-format
@@ -2629,16 +2622,16 @@ msgid "unknown table status: "
 msgstr "stato della tabella sconosciuto: "
 
 #: libraries/Table.class.php:750
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Database di origine"
+msgstr "Database di origine `%s` non é stato trovato!"
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s non trovato!"
+msgstr "Tema `%s` non é stato trovato!"
 
 #: libraries/Table.class.php:1174
 msgid "Invalid database"
@@ -3017,10 +3010,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Non riesco ad utilizzare Blowfish da mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:196 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Da questo punto in poi, i cookie devono essere abilitati."
+msgstr "Da questo punto in poi, JavaScript deve essere abilitato"
 
 #: libraries/auth/cookie.auth.lib.php:215
 msgid "Log in"
@@ -3149,7 +3141,7 @@ msgstr "Controlla i privilegi"
 
 #: libraries/common.inc.php:156
 msgid "possible exploit"
-msgstr "possibili exploit"
+msgstr "possibile exploit"
 
 #: libraries/common.inc.php:165
 msgid "numeric key detected"
@@ -3173,7 +3165,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Non posso caricare la configurazione predefinita da: %1$s"
 
 #: libraries/common.inc.php:630
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3181,7 +3172,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"La direttiva <code>$cfg['PmaAbsoluteUri']</code> DEVE essere impostata nel "
+"La direttiva [code]$cfg['PmaAbsoluteUri'][/code] DEVE essere impostata nel "
 "file di configurazione!"
 
 #: libraries/common.inc.php:663
@@ -6965,10 +6956,9 @@ msgid "MediaWiki Table"
 msgstr "Tabella MediaWiki"
 
 #: libraries/export/mediawiki.php:53
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "Esporta contenuti"
+msgstr "Esporta nomi delle tabelle"
 
 #: libraries/export/mediawiki.php:60
 #, fuzzy
@@ -7018,7 +7008,7 @@ msgstr ""
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Sistema di database o server MySQL un pó vecchio per massimizzare la "
+"Sistema di database o server MySQL un po' vecchio per massimizzare la "
 "compatibilitá con:"
 
 #: libraries/export/sql.php:136 libraries/export/sql.php:204
@@ -7387,7 +7377,6 @@ msgid "Add prefix"
 msgstr "Aggiungi prefisso"
 
 #: libraries/mult_submits.inc.php:311
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
 msgstr "Sei sicuro di voler eseguire la seguente query?"
@@ -7943,7 +7932,6 @@ msgid "Returns"
 msgstr "Ritorna"
 
 #: libraries/rte/rte_routines.lib.php:65
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -7954,10 +7942,10 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Stai utilizzanto la vecchia estenzione 'mysql' di PHP che non é in grado di "
-"eseguire multi query. <b>L'esecuzione di alcune routine memorizzate potrebbe "
-"fallire!</b> É consigliato di utilizzare l'estensione 'mysqli' per evitare "
-"eventuali problemi."
+"Stai utilizzanto la vecchia estensione 'mysql' di PHP che non é in grado di "
+"eseguire multi query. [strong]L'esecuzione di alcune routine memorizzate "
+"potrebbe fallire![/strong] É consigliato di utilizzare l'estensione 'mysqli' "
+"per evitare eventuali problemi."
 
 #: libraries/rte/rte_routines.lib.php:247
 #: libraries/rte/rte_routines.lib.php:1007
@@ -8662,10 +8650,10 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:580
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Dopo %s"
+msgstr "dopo %s"
 
 #: libraries/tbl_properties.inc.php:692 tbl_structure.php:702
 #, php-format
@@ -12163,10 +12151,9 @@ msgid "Spatial"
 msgstr "Spatial"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Naviga tra i valori distinti"
+msgstr "Valori distinti"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add primary key"

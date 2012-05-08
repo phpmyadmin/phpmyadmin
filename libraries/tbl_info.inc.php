@@ -12,11 +12,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * requirements
- */
-require_once './libraries/common.inc.php';
-
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
 
