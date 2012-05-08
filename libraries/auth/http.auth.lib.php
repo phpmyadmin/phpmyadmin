@@ -23,7 +23,9 @@
 function PMA_auth()
 {
     /* Perform logout to custom URL */
-    if (!empty($_REQUEST['old_usr']) && !empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
+    if (! empty($_REQUEST['old_usr'])
+        && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
+    ) {
         PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
         exit;
     }
@@ -119,7 +121,9 @@ function PMA_auth_check()
         } elseif (PMA_getenv('AUTH_USER')) {
             // WebSite Professional
             $PHP_AUTH_USER = PMA_getenv('AUTH_USER');
-        } elseif (PMA_getenv('HTTP_AUTHORIZATION') && false === strpos(PMA_getenv('HTTP_AUTHORIZATION'), '<')) {
+        } elseif (PMA_getenv('HTTP_AUTHORIZATION')
+            && false === strpos(PMA_getenv('HTTP_AUTHORIZATION'), '<')
+        ) {
             // IIS, might be encoded, see below; also prevent XSS
             $PHP_AUTH_USER = PMA_getenv('HTTP_AUTHORIZATION');
         } elseif (PMA_getenv('Authorization')) {

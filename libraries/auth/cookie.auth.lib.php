@@ -37,7 +37,9 @@ if (function_exists('mcrypt_encrypt')) {
      * further decryption. I don't think necessary to have one iv
      * per server so I don't put the server number in the cookie name.
      */
-    if (empty($_COOKIE['pma_mcrypt_iv']) || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))) {
+    if (empty($_COOKIE['pma_mcrypt_iv'])
+        || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))
+    ) {
         srand((double) microtime() * 1000000);
         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
         if ($td === false) {
@@ -50,8 +52,8 @@ if (function_exists('mcrypt_encrypt')) {
     /**
      * Encryption using blowfish algorithm (mcrypt)
      *
-     * @param string  original data
-     * @param string  the secret
+     * @param string $data   original data
+     * @param string $secret the secret
      *
      * @return string  the encrypted result
      *
@@ -61,14 +63,16 @@ if (function_exists('mcrypt_encrypt')) {
     function PMA_blowfish_encrypt($data, $secret)
     {
         global $iv;
-        return base64_encode(mcrypt_encrypt(MCRYPT_BLOWFISH, $secret, $data, MCRYPT_MODE_CBC, $iv));
+        return base64_encode(
+            mcrypt_encrypt(MCRYPT_BLOWFISH, $secret, $data, MCRYPT_MODE_CBC, $iv)
+        );
     }
 
     /**
      * Decryption using blowfish algorithm (mcrypt)
      *
-     * @param string  encrypted data
-     * @param string  the secret
+     * @param string $encdata encrypted data
+     * @param string $secret  the secret
      *
      * @return string  original data
      *
@@ -135,7 +139,9 @@ function PMA_auth()
     }
 
     /* No recall if blowfish secret is not configured as it would produce garbage */
-    if ($GLOBALS['cfg']['LoginCookieRecall'] && !empty($GLOBALS['cfg']['blowfish_secret'])) {
+    if ($GLOBALS['cfg']['LoginCookieRecall']
+        && ! empty($GLOBALS['cfg']['blowfish_secret'])
+    ) {
         $default_user   = $GLOBALS['PHP_AUTH_USER'];
         $default_server = $GLOBALS['pma_auth_server'];
         $autocomplete   = '';
@@ -171,10 +177,12 @@ function PMA_auth()
 <a href="<?php echo PMA_linkURL('http://www.phpmyadmin.net/'); ?>" target="_blank" class="logo"><?php
     $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
     if (@file_exists($logo_image)) {
-        echo '<img src="' . $logo_image . '" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />';
+        echo '<img src="' . $logo_image
+            . '" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />';
     } else {
-        echo '<img name="imLogo" id="imLogo" src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo.png' . '" '
-           . 'border="0" width="88" height="31" alt="phpMyAdmin" />';
+        echo '<img name="imLogo" id="imLogo" src="'
+            . $GLOBALS['pmaThemeImage'] . 'pma_logo.png' . '" '
+            . 'border="0" width="88" height="31" alt="phpMyAdmin" />';
     }
     ?></a>
 <h1>
@@ -388,8 +396,12 @@ function PMA_auth_check()
     if (! empty($_REQUEST['pma_username'])) {
         // The user just logged in
         $GLOBALS['PHP_AUTH_USER'] = $_REQUEST['pma_username'];
-        $GLOBALS['PHP_AUTH_PW']   = empty($_REQUEST['pma_password']) ? '' : $_REQUEST['pma_password'];
-        if ($GLOBALS['cfg']['AllowArbitraryServer'] && isset($_REQUEST['pma_servername'])) {
+        $GLOBALS['PHP_AUTH_PW']   = empty($_REQUEST['pma_password'])
+            ? ''
+            : $_REQUEST['pma_password'];
+        if ($GLOBALS['cfg']['AllowArbitraryServer']
+            && isset($_REQUEST['pma_servername'])
+        ) {
             $GLOBALS['pma_auth_server'] = $_REQUEST['pma_servername'];
         }
         return true;
@@ -536,10 +548,15 @@ function PMA_auth_set_user()
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             if (! empty($GLOBALS['pma_auth_server'])) {
                 // Duration = one month for servername
-                $GLOBALS['PMA_Config']->setCookie('pmaServer-' . $GLOBALS['server'], $cfg['Server']['host']);
+                $GLOBALS['PMA_Config']->setCookie(
+                    'pmaServer-' . $GLOBALS['server'],
+                    $cfg['Server']['host']
+                );
             } else {
                 // Delete servername cookie
-                $GLOBALS['PMA_Config']->removeCookie('pmaServer-' . $GLOBALS['server']);
+                $GLOBALS['PMA_Config']->removeCookie(
+                    'pmaServer-' . $GLOBALS['server']
+                );
             }
         }
 
@@ -569,7 +586,9 @@ function PMA_auth_set_user()
          */
         PMA_clearUserCache();
 
-        PMA_sendHeaderLocation($redirect_url . PMA_generate_common_url($url_params, '&'));
+        PMA_sendHeaderLocation(
+            $redirect_url . PMA_generate_common_url($url_params, '&')
+        );
         exit();
     } // end if
 
@@ -610,7 +629,8 @@ function PMA_auth_fails()
             }
         }
     } elseif (PMA_DBI_getError()) {
-        $conn_error = '#' . $GLOBALS['errno'] . ' ' . __('Cannot log in to the MySQL server');
+        $conn_error = '#' . $GLOBALS['errno'] . ' '
+            . __('Cannot log in to the MySQL server');
     } else {
         $conn_error = __('Cannot log in to the MySQL server');
     }

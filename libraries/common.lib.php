@@ -980,19 +980,14 @@ if (typeof(window.parent) != 'undefined'
  *
  * @access  public
  */
-function PMA_showMessage($message, $sql_query = null, $type = 'notice',
+function PMA_showMessage(
+    $message,
+    $sql_query = null,
+    $type = 'notice',
     $is_view = false
 ) {
-    /*
-     * PMA_ajaxResponse uses this function to collect the string of HTML generated
-     * for showing the message.  Use output buffering to collect it and return it
-     * in a string.  In some special cases on sql.php, buffering has to be disabled
-     * and hence we check with $GLOBALS['buffer_message']
-     */
-    if ($GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message'])) {
-        ob_start();
-    }
     global $cfg;
+    $retval = '';
 
     if (null === $sql_query) {
         if (! empty($GLOBALS['display_query'])) {
@@ -1009,7 +1004,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
     }
 
     if (isset($GLOBALS['using_bookmark_message'])) {
-        $GLOBALS['using_bookmark_message']->display();
+        $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
         unset($GLOBALS['using_bookmark_message']);
     }
 
@@ -1018,13 +1013,13 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
     if (! $is_view && strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
         $tooltip = PMA_Table::sGetToolTip($GLOBALS['db'], $GLOBALS['table']);
         $uni_tbl = PMA_jsFormat($GLOBALS['db'] . '.' . $GLOBALS['table'], false);
-        echo "\n";
-        echo '<script type="text/javascript">' . "\n";
-        echo '//<![CDATA[' . "\n";
-        echo "if (window.parent.updateTableTitle) window.parent.updateTableTitle('"
+        $retval .= "\n";
+        $retval .= '<script type="text/javascript">' . "\n";
+        $retval .= '//<![CDATA[' . "\n";
+        $retval .= "if (window.parent.updateTableTitle) window.parent.updateTableTitle('"
             . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
-        echo '//]]>' . "\n";
-        echo '</script>' . "\n";
+        $retval .= '//]]>' . "\n";
+        $retval .= '</script>' . "\n";
     } // end if ... elseif
 
     // Checks if the table needs to be repaired after a TRUNCATE query.
@@ -1043,7 +1038,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
 
     // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
     // check for it's presence before using it
-    echo '<div id="result_query"'
+    $retval .= '<div id="result_query"'
         . ( isset($GLOBALS['cell_align_left'])
             ? ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
             : '' )
@@ -1054,16 +1049,15 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
             $message->addMessage($GLOBALS['special_message']);
             unset($GLOBALS['special_message']);
         }
-        $message->display();
-        $type = $message->getLevel();
+        $retval .= $message->getDisplay();
     } else {
-        echo '<div class="' . $type . '">';
-        echo PMA_sanitize($message);
+        $retval .= '<div class="' . $type . '">';
+        $retval .= PMA_sanitize($message);
         if (isset($GLOBALS['special_message'])) {
-            echo PMA_sanitize($GLOBALS['special_message']);
+            $retval .= PMA_sanitize($GLOBALS['special_message']);
             unset($GLOBALS['special_message']);
         }
-        echo '</div>';
+        $retval .= '</div>';
     }
 
     if ($cfg['ShowSQL'] == true && ! empty($sql_query)) {
@@ -1153,7 +1147,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
             try {
                 $query_base = PMA_validateSQL($query_base);
             } catch (Exception $e) {
-                PMA_Message::error(__('Failed to connect to SQL validator!'))->display();
+                $retval .= PMA_Message::error(__('Failed to connect to SQL validator!'))->getDisplay();
             }
         } elseif (isset($parsed_sql)) {
             $query_base = PMA_formatSql($parsed_sql, $query_base);
@@ -1283,41 +1277,41 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
         } //validator
 
         if (! empty($GLOBALS['validatequery'])) {
-            echo '<div class="sqlvalidate">';
+            $retval .= '<div class="sqlvalidate">';
         } else {
-            echo '<code class="sql">';
+            $retval .= '<code class="sql">';
         }
         if ($query_too_big) {
-            echo $shortened_query_base;
+            $retval .= $shortened_query_base;
         } else {
-            echo $query_base;
+            $retval .= $query_base;
         }
 
         //Clean up the end of the PHP
         if (! empty($GLOBALS['show_as_php'])) {
-            echo '";';
+            $retval .= '";';
         }
         if (! empty($GLOBALS['validatequery'])) {
-            echo '</div>';
+            $retval .= '</div>';
         } else {
-            echo '</code>';
+            $retval .= '</code>';
         }
 
-        echo '<div class="tools">';
+        $retval .= '<div class="tools">';
         // avoid displaying a Profiling checkbox that could
         // be checked, which would reexecute an INSERT, for example
         if (! empty($refresh_link)) {
-            PMA_profilingCheckbox($sql_query);
+            $retval .= PMA_getProfilingForm($sql_query);
         }
         // if needed, generate an invisible form that contains controls for the
         // Inline link; this way, the behavior of the Inline link does not
         // depend on the profiling support or on the refresh link
         if (empty($refresh_link) || ! PMA_profilingSupported()) {
-            echo '<form action="sql.php" method="post">';
-            echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
-            echo '<input type="hidden" name="sql_query" value="'
+            $retval .= '<form action="sql.php" method="post">';
+            $retval .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+            $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '" />';
-            echo '</form>';
+            $retval .= '</form>';
         }
 
         // in the tools div, only display the Inline link when not in ajax
@@ -1329,7 +1323,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
         ) {
             // see in js/functions.js the jQuery code attached to id inline_edit
             // document.write conflicts with jQuery, hence used $().append()
-            echo "<script type=\"text/javascript\">\n" .
+            $retval .= "<script type=\"text/javascript\">\n" .
                 "//<![CDATA[\n" .
                 "$('.tools form').last().after('[ <a href=\"#\" title=\"" .
                 PMA_escapeJsString(__('Inline edit of this query')) .
@@ -1339,12 +1333,12 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
                 "//]]>\n" .
                 "</script>";
         }
-        echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
-        echo '</div>';
+        $retval .= $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
+        $retval .= '</div>';
     }
-    echo '</div>';
+    $retval .= '</div>';
     if ($GLOBALS['is_ajax_request'] === false) {
-        echo '<br class="clearfloat" />';
+        $retval .= '<br class="clearfloat" />';
     }
 
     // If we are in an Ajax request, we have most probably been called in
@@ -1353,11 +1347,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
     if ($GLOBALS['is_ajax_request'] == true
         && ! isset($GLOBALS['buffer_message'])
     ) {
-        $buffer_contents =  ob_get_contents();
-        ob_end_clean();
-        return $buffer_contents;
+        return $retval;
+    } else {
+        echo $retval;
     }
-    return null;
 } // end of the 'PMA_showMessage()' function
 
 /**
@@ -1395,16 +1388,20 @@ function PMA_profilingSupported()
  *
  * @access  public
  */
-function PMA_profilingCheckbox($sql_query)
+function PMA_getProfilingForm($sql_query)
 {
+    $retval = '';
     if (PMA_profilingSupported()) {
-        echo '<form action="sql.php" method="post">' . "\n";
-        echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
-        echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
-        echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-        echo PMA_display_html_checkbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
-        echo ' </form>' . "\n";
+
+        $retval .= '<form action="sql.php" method="post">' . "\n";
+        $retval .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+        $retval .= '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
+        $retval .= '<input type="hidden" name="profiling_form" value="1" />' . "\n";
+        $retval .= PMA_getCheckbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
+        $retval .= ' </form>' . "\n";
+
     }
+    return $retval;
 }
 
 /**
@@ -2617,26 +2614,27 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 }
 
 /**
- * Generates and echoes an HTML checkbox
+ * Generates a HTML checkbox
  *
  * @param string  $html_field_name the checkbox HTML field
  * @param string  $label           label for checkbox
  * @param boolean $checked         is it initially checked?
  * @param boolean $onclick         should it submit the form on click?
  *
- * @return string                  html content
+ * @return string                  html check box
  */
-function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
+function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
 {
 
     return '<input type="checkbox" name="' . $html_field_name . '" id="'
            . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
            . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
            . $html_field_name . '">' . $label . '</label>';
+
 }
 
 /**
- * Generates and echoes a set of radio HTML fields
+ * Generates a set of radio HTML fields
  *
  * @param string  $html_field_name the radio HTML field
  * @param array   $choices         the choices values and labels
@@ -2645,9 +2643,9 @@ function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
  * @param boolean $escape_label    whether to use htmlspecialchars() on label
  * @param string  $class           enclose each choice with a div of this class
  *
- * @return string                  html content
+ * @return string                  set of html radio fiels
  */
-function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '',
+function PMA_getRadioFields($html_field_name, $choices, $checked_choice = '',
     $line_break = true, $escape_label = true, $class=''
 ) {
     
@@ -2718,7 +2716,7 @@ function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
  * @param string $id      the id of the <div> on which to apply the effect
  * @param string $message the message to show as a link
  * 
- * @return string         html content
+ * @return string         html div element
  * 
  */
 function PMA_getDivForSliderEffect($id, $message)

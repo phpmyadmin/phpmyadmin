@@ -123,7 +123,7 @@ if (1 == count($choices)) {
     echo $choices['create_export'];
     echo '<input type="hidden" name="mode" value="create_export" />';
 } else {
-    echo PMA_display_html_radio('mode', $choices, $checked_choice = '', $line_break = true, $escape_label = false, $class = '');
+    echo PMA_getRadioFields('mode', $choices, $checked_choice = '', $line_break = true, $escape_label = false, $class = '');
 }
 echo '<br />';
 echo '<label for="newpage">' . __('New page name: ') . '</label>';

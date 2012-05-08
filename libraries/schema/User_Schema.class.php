@@ -199,7 +199,7 @@ class PMA_User_Schema
                  '0' => __('Edit'),
                  '1' => __('Delete')
             );
-            echo PMA_display_html_radio('action_choose', $choices, '0', false);
+            echo PMA_getRadioFields('action_choose', $choices, '0', false);
             unset($choices);
             ?>
             </fieldset>

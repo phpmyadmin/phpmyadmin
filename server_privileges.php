@@ -2364,7 +2364,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 '1' => __('... delete the old one from the user tables.'),
                 '2' => __('... revoke all active privileges from the old one and delete it afterwards.'),
                 '3' => __('... delete the old one from the user tables and reload the privileges afterwards.'));
-            echo PMA_display_html_radio('mode', $choices, '4', true);
+            echo PMA_getRadioFields('mode', $choices, '4', true);
             unset($choices);
 
             echo '    </fieldset>' . "\n"
@@ -2388,13 +2388,13 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     echo '<fieldset id="fieldset_add_user_database">' . "\n"
         . '<legend>' . __('Database for user') . '</legend>' . "\n";
 
-    echo PMA_display_html_checkbox('createdb-1', __('Create database with same name and grant all privileges'), false, false);
+    echo PMA_getCheckbox('createdb-1', __('Create database with same name and grant all privileges'), false, false);
     echo '<br />' . "\n";
-    echo PMA_display_html_checkbox('createdb-2', __('Grant all privileges on wildcard name (username\\_%)'), false, false);
+    echo PMA_getCheckbox('createdb-2', __('Grant all privileges on wildcard name (username\\_%)'), false, false);
     echo '<br />' . "\n";
 
     if (! empty($dbname) ) {
-        echo PMA_display_html_checkbox('createdb-3', sprintf(__('Grant all privileges on database &quot;%s&quot;'), htmlspecialchars($dbname)), true, false);
+        echo PMA_getCheckbox('createdb-3', sprintf(__('Grant all privileges on database &quot;%s&quot;'), htmlspecialchars($dbname)), true, false);
         echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
         echo '<br />' . "\n";
     }

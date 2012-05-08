@@ -9,9 +9,11 @@
 /**
  * Displays top part of the form
  *
- * @param string $action         default: $_SERVER['REQUEST_URI']
- * @param string $method         'post' or 'get'
- * @param array  $hidden_fields  array of form hidden fields (key: field name)
+ * @param string $action        default: $_SERVER['REQUEST_URI']
+ * @param string $method        'post' or 'get'
+ * @param array  $hidden_fields array of form hidden fields (key: field name)
+ *
+ * @return void
  */
 function display_form_top($action = null, $method = 'post', $hidden_fields = null)
 {
@@ -42,7 +44,9 @@ function display_form_top($action = null, $method = 'post', $hidden_fields = nul
  * Displays form tabs which are given by an array indexed by fieldset id
  * ({@link display_fieldset_top}), with values being tab titles.
  *
- * @param array $tabs
+ * @param array $tabs tab names
+ *
+ * @return void
  */
 function display_tabs_top($tabs)
 {
@@ -66,8 +70,9 @@ function display_tabs_top($tabs)
  * @param array  $errors
  * @param array  $attributes
  */
-function display_fieldset_top($title = '', $description = '', $errors = null, $attributes = array())
-{
+function display_fieldset_top($title = '', $description = '', $errors = null,
+    $attributes = array()
+) {
     global $_FormDisplayGroup;
 
     $_FormDisplayGroup = 0;
@@ -103,11 +108,12 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * o errors - error array
  * o setvalue - (string) shows button allowing to set poredefined value
  * o show_restore_default - (boolean) whether show "restore default" button
- * o userprefs_allow - whether user preferences are enabled for this field (null - no support,
- *                     true/false - enabled/disabled)
+ * o userprefs_allow - whether user preferences are enabled for this field
+ *                    (null - no support, true/false - enabled/disabled)
  * o userprefs_comment - (string) field comment
  * o values - key - value paris for <select> fields
- * o values_escaped - (boolean) tells whether values array is already escaped (defaults to false)
+ * o values_escaped - (boolean) tells whether values array is already escaped
+ *                    (defaults to false)
  * o values_disabled -  (array)list of disabled values (keys from values)
  * o comment - (string) tooltip comment
  * o comment_warning - (bool) whether this comments warns about something
@@ -121,8 +127,9 @@ function display_fieldset_top($title = '', $description = '', $errors = null, $a
  * @param bool   $value_is_default
  * @param array  $opts
  */
-function display_input($path, $name, $description = '', $type, $value, $value_is_default = true, $opts = null)
-{
+function display_input($path, $name, $description = '', $type, $value,
+    $value_is_default = true, $opts = null
+) {
     global $_FormDisplayGroup;
     static $base_dir; // Relative path to the root phpMyAdmin folder
     static $icons;    // An array of IMG tags used further below in the function
@@ -166,11 +173,14 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         }
     }
     $has_errors = isset($opts['errors']) && !empty($opts['errors']);
-    $option_is_disabled = !$is_setup_script && isset($opts['userprefs_allow']) && !$opts['userprefs_allow'];
-    $name_id = 'name="' . htmlspecialchars($path) . '" id="' . htmlspecialchars($path) . '"';
+    $option_is_disabled = ! $is_setup_script && isset($opts['userprefs_allow'])
+        && ! $opts['userprefs_allow'];
+    $name_id = 'name="' . htmlspecialchars($path) . '" id="'
+        . htmlspecialchars($path) . '"';
     $field_class = $type == 'checkbox' ? 'checkbox' : '';
-    if (!$value_is_default) {
-        $field_class .= ($field_class == '' ? '' : ' ') . ($has_errors ? 'custom field-error' : 'custom');
+    if (! $value_is_default) {
+        $field_class .= ($field_class == '' ? '' : ' ')
+            . ($has_errors ? 'custom field-error' : 'custom');
     }
     $field_class = $field_class ? ' class="' . $field_class . '"' : '';
     $tr_class = $_FormDisplayGroup > 0
@@ -217,57 +227,57 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     <td>
     <?php
     switch ($type) {
-        case 'text':
-            echo '<input type="text" size="60" ' . $name_id . $field_class
-                . ' value="' . htmlspecialchars($value) . '" />';
-          break;
-        case 'short_text':
-            echo '<input type="text" size="25" ' . $name_id . $field_class
-                . ' value="' . htmlspecialchars($value) . '" />';
-          break;
-        case 'number_text':
-            echo '<input type="text" size="15" ' . $name_id . $field_class
-                . ' value="' . htmlspecialchars($value) . '" />';
-          break;
-        case 'checkbox':
-            echo '<span' . $field_class . '><input type="checkbox" ' . $name_id
-              . ($value ? ' checked="checked"' : '') . ' /></span>';
-          break;
-        case 'select':
-            echo '<select ' . $name_id . $field_class . '>';
-            $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
-            $values_disabled = isset($opts['values_disabled'])
-                ? array_flip($opts['values_disabled']) : array();
-            foreach ($opts['values'] as $opt_value_key => $opt_value) {
-                // set names for boolean values
-                if (is_bool($opt_value)) {
-                    $opt_value = strtolower($opt_value ? __('Yes') : __('No'));
-                }
-                // escape if necessary
-                if ($escape) {
-                    $display = htmlspecialchars($opt_value);
-                    $display_value = htmlspecialchars($opt_value_key);
-                } else {
-                    $display = $opt_value;
-                    $display_value = $opt_value_key;
-                }
-                // compare with selected value
-                // boolean values are cast to integers when used as array keys
-                $selected = is_bool($value)
-                    ? (int) $value === $opt_value_key
-                    : $opt_value_key === $value;
-                echo '<option value="' . $display_value . '"'
-                    . ($selected ? ' selected="selected"' : '')
-                    . (isset($values_disabled[$opt_value_key]) ? ' disabled="disabled"' : '')
-                    . '>' . $display . '</option>';
+    case 'text':
+        echo '<input type="text" size="60" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
+    case 'short_text':
+        echo '<input type="text" size="25" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
+    case 'number_text':
+        echo '<input type="text" size="15" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
+    case 'checkbox':
+        echo '<span' . $field_class . '><input type="checkbox" ' . $name_id
+          . ($value ? ' checked="checked"' : '') . ' /></span>';
+        break;
+    case 'select':
+        echo '<select ' . $name_id . $field_class . '>';
+        $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
+        $values_disabled = isset($opts['values_disabled'])
+            ? array_flip($opts['values_disabled']) : array();
+        foreach ($opts['values'] as $opt_value_key => $opt_value) {
+            // set names for boolean values
+            if (is_bool($opt_value)) {
+                $opt_value = strtolower($opt_value ? __('Yes') : __('No'));
             }
-            echo '</select>';
-            break;
-        case 'list':
-            echo '<textarea cols="40" rows="5" ' . $name_id . $field_class . '>'
-                . htmlspecialchars(implode("\n", $value))
-                . '</textarea>';
-            break;
+            // escape if necessary
+            if ($escape) {
+                $display = htmlspecialchars($opt_value);
+                $display_value = htmlspecialchars($opt_value_key);
+            } else {
+                $display = $opt_value;
+                $display_value = $opt_value_key;
+            }
+            // compare with selected value
+            // boolean values are cast to integers when used as array keys
+            $selected = is_bool($value)
+                ? (int) $value === $opt_value_key
+                : $opt_value_key === $value;
+            echo '<option value="' . $display_value . '"'
+                . ($selected ? ' selected="selected"' : '')
+                . (isset($values_disabled[$opt_value_key]) ? ' disabled="disabled"' : '')
+                . '>' . $display . '</option>';
+        }
+        echo '</select>';
+        break;
+    case 'list':
+        echo '<textarea cols="40" rows="5" ' . $name_id . $field_class . '>'
+            . htmlspecialchars(implode("\n", $value))
+            . '</textarea>';
+        break;
     }
     if (isset($opts['comment']) && $opts['comment']) {
         $class = 'field-comment-mark';
@@ -278,7 +288,10 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         <span class="<?php echo $class ?>" title="<?php echo htmlspecialchars($opts['comment']) ?>">i</span>
         <?php
     }
-    if ($is_setup_script && isset($opts['userprefs_comment']) && $opts['userprefs_comment']) {
+    if ($is_setup_script
+        && isset($opts['userprefs_comment'])
+        && $opts['userprefs_comment']
+    ) {
         ?>
         <a class="userprefs-comment" title="<?php echo htmlspecialchars($opts['userprefs_comment']) ?>"><?php echo $icons['tblops']; ?></a>
         <?php

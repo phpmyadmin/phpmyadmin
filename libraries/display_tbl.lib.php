@@ -744,7 +744,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             'P'   => __('Partial texts'),
             'F'   => __('Full texts')
         );
-        $table_headers_html .= PMA_display_html_radio(
+        $table_headers_html .= PMA_getRadioFields(
                                    'display_text', $choices,
                                    $_SESSION['tmp_user_values']['display_text']
                                )
@@ -786,7 +786,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'K'   => __('Relational key'),
                 'D'   => __('Relational display column')
             );
-            $table_headers_html .= PMA_display_html_radio(
+            $table_headers_html .= PMA_getRadioFields(
                                        'relational_display', $choices,
                                        $_SESSION['tmp_user_values']['relational_display']
                                    )
@@ -794,17 +794,17 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         }
 
         $table_headers_html .= '<div class="formelement">'
-                            . PMA_display_html_checkbox(
+                            . PMA_getCheckbox(
                                   'display_binary', __('Show binary contents'),
                                   ! empty($_SESSION['tmp_user_values']['display_binary']), false
                               )
                             . '<br />'
-                            . PMA_display_html_checkbox(
+                            . PMA_getCheckbox(
                                   'display_blob', __('Show BLOB contents'),
                                   ! empty($_SESSION['tmp_user_values']['display_blob']), false
                               )
                             . '<br />'
-                            . PMA_display_html_checkbox(
+                            . PMA_getCheckbox(
                                   'display_binary_as_hex', __('Show binary contents as HEX'),
                                   ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
                               )
@@ -815,7 +815,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         $table_headers_html .= '<div class="formelement">'
-                            . PMA_display_html_checkbox(
+                            . PMA_getCheckbox(
                                   'hide_transformation', __('Hide browser transformation'),
                                   ! empty($_SESSION['tmp_user_values']['hide_transformation']), false
                               )
@@ -828,7 +828,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'WKT'   => __('Well Known Text'),
                 'WKB'   => __('Well Known Binary')
             );
-            $table_headers_html .= PMA_display_html_radio(
+            $table_headers_html .= PMA_getRadioFields(
                                        'geometry_display', $choices,
                                        $_SESSION['tmp_user_values']['geometry_display']
                                    )
