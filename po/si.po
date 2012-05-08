@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-02 21:11+0200\n"
+"PO-Revision-Date: 2012-05-07 10:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 0.10\n"
 
@@ -2809,12 +2809,16 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"CHAR වර්ගයට සමාන මුත් ද්වීමය නොවන සලකුණු පෙළක් වෙනුවට ද්වීමය බයිට පෙළක් ගබඩා "
+"කරයි"
 
 #: libraries/Types.class.php:331
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"VARCHAR වර්ගයට සමාන මුත් ද්වීමය නොවන සලකුණු පෙළක් වෙනුවට ද්වීමය බයිට පෙළක් "
+"ගබඩා කරයි"
 
 #: libraries/Types.class.php:333
 msgid ""
@@ -2853,76 +2857,81 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"අගයන් 65535 ක් දක්වා ඇතුලත් කල හැකි ලැයිස්තුවකින් තෝරාගන්නා අගයක් හෝ විශේෂ "
+"දෝෂ අගය වන '' හෝ වේ"
 
 #: libraries/Types.class.php:343
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "අගයන් 64 ක් දක්වා අඩංගු විය හැකි කුලකයකින් තෝරාගන්නා අගයකි"
 
 #: libraries/Types.class.php:345
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතියක් ගබඩා කල හැකි වර්ගයකි"
 
 #: libraries/Types.class.php:347
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "ද්වීමාන අවකාශයේ ලක්ෂ්‍යයකි"
 
 #: libraries/Types.class.php:349
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "ලක්ෂ්‍ය අතර සරල රේඛා අඩංගු වක්‍රයකි"
 
 #: libraries/Types.class.php:351
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "බහු අස්‍රයක් එක් කරන්න"
+msgstr "බහු අස්‍රයකි"
 
 #: libraries/Types.class.php:353
 msgid "A collection of points"
-msgstr ""
+msgstr "ලක්ෂ්‍ය එකතුවකි"
 
 #: libraries/Types.class.php:355
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "ලක්ෂ්‍ය අතර සරල රේඛා අඩංගු වක්‍ර එකතුවකි"
 
 #: libraries/Types.class.php:357
 msgid "A collection of polygons"
-msgstr ""
+msgstr "බහු අස්‍ර එකතුවකි"
 
 #: libraries/Types.class.php:359
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතීන් එකතුවකි"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "සිවු බයිට නිඛිලයකි, පරාසය -2,147,483,648 සිට 2,147,483,647"
 
 #: libraries/Types.class.php:704
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"අෂ්ට බයිට නිඛිලයකි, පරාසය -9,223,372,036,854,775,808 සිට "
+"9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:708
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "පද්ධතියේ පෙරනිමි ද්වී-නියත දශම සංඛ්‍යාවකි"
 
 #: libraries/Types.class.php:710
 msgid "True or false"
-msgstr ""
+msgstr "සත්‍ය හෝ අසත්‍ය"
 
 #: libraries/Types.class.php:712
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "BIGINT NOT NULL AUTO_INCREMENT UNIQUE සඳහා අන්වර්ථ නාමයකි"
 
 #: libraries/Types.class.php:714
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "විශ්වීය අනන්‍ය හැඳුනුමක් (UUID) ගබඩා කරයි"
 
 #: libraries/Types.class.php:720
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"කාල මුද්‍රාවකි, පරාසය '0001-01-01 00:00:00' UTC සිට '9999-12-31 23:59:59' "
+"UTC; TIMESTAMP(6) හට මයික්‍රෝ තත්පර ගබඩා කල හැක"
 
 #: libraries/Types.class.php:728
 msgid ""
@@ -2935,10 +2944,12 @@ msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"බයිට 65,535 (2^16 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, "
+"අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට හතරක් සමඟ ගබඩා කෙරේ"
 
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "අර්ථදක්වන ලද අගයන් අඩංගු ලැයිස්තුවකින් තෝරාගන්නා අගයකි"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -3600,7 +3611,7 @@ msgstr "පේළි සලකුණු කරණය"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr "Mouse cursor එල්ල වී ඇති පේළිය ඉස්මතු කරන්න"
+msgstr "කර්සරය එල්ල වී ඇති පේළිය ඉස්මතු කරන්න"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
@@ -4409,7 +4420,7 @@ msgstr "LOCAL මූල පදය භාවිතා කරන්න"
 #: libraries/config/messages.inc.php:262 libraries/config/messages.inc.php:270
 #: libraries/config/messages.inc.php:271
 msgid "Column names in first row"
-msgstr "පළමු පේලියේ තීරු නම්"
+msgstr "පළමු පේළියේ තීරු නම්"
 
 #: libraries/config/messages.inc.php:263 libraries/import/ods.php:34
 msgid "Do not import empty rows"
@@ -5422,6 +5433,10 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
+"මෙය [kbd]nested[/kbd] වෙත සිටවූ විට, වගුවේ අන්වර්ථ නාමය යොදා ගැනෙනුයේ "
+"$cfg['LeftFrameTableSeparator'] අගය අනුව වගු වෙන්කිරීමට/කාණ්ඩගත කිරීමට පමණි. "
+"එම නිසා කාණ්ඩය පමණක් අන්වර්ථ නාමයෙන් හැඳින්වෙන අතර, වගු නාමයන් නොවෙනස්ව "
+"පවතී"
 
 #: libraries/config/messages.inc.php:485
 msgid "Display table comment instead of its name"
@@ -5850,7 +5865,7 @@ msgstr "\"%s\" දත්තගබඩාවෙන් වගු අපනයනය
 #: libraries/display_export.lib.php:89
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "\"%s\" වගුවෙන් තීරු අපනයනය කිරීම"
+msgstr "\"%s\" වගුවෙන් පේළි අපනයනය කිරීම"
 
 #: libraries/display_export.lib.php:95
 msgid "Export Method:"
@@ -6108,7 +6123,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:280
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "පළමු තීරැවේ සිට අත්හළ යුතු තීරු ගණන:"
+msgstr "පළමු පේළියේ සිට අත්හළ යුතු පේළි ගණන:"
 
 #: libraries/display_import.lib.php:302
 msgid "Format-Specific Options:"
@@ -6216,7 +6231,7 @@ msgstr "Well Known Binary"
 
 #: libraries/display_tbl.lib.php:1638 libraries/display_tbl.lib.php:1654
 msgid "The row has been deleted"
-msgstr "පෙළ ඉවත් කරන ලදි"
+msgstr "පේළිය ඉවත් කරන ලදි"
 
 #: libraries/display_tbl.lib.php:1684 libraries/display_tbl.lib.php:2964
 #: server_status.php:1286
@@ -6299,6 +6314,7 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"තම වගු වල දත්ත සහ සුචි කෑෂ්ගත කිරීමට InnoDB භාවිතා කරන මතක බෆරයේ ප්‍රමාණය."
 
 #: libraries/engines/innodb.lib.php:133
 msgid "Buffer Pool"
@@ -6969,8 +6985,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
-"ගොනුවේ එක් එක් තීරුවේ අඩංගු දත්ත දත්තගබඩාවේ අනුපිළිවල හා නොගැලපේ නම්, අදාල තීර අනුපිළිවල මෙහි "
-"සඳහන් කරන්න. තීර නම් උධෘත මගින් ඇහිරිය යුතු අතර කොමා සලකුණු වලින් වෙන් කල යුතුය."
+"ගොනුවේ එක් එක් පේළියේ අඩංගු දත්ත දත්තගබඩාවේ අනුපිළිවල හා නොගැලපේ නම්, අදාල "
+"තීර අනුපිළිවල මෙහි සඳහන් කරන්න. තීර නම් උධෘත මගින් ඇහිරිය යුතු අතර කොමා "
+"සලකුණු වලින් වෙන් කල යුතුය."
 
 #: libraries/import/csv.php:94
 msgid "Column names: "
@@ -8920,7 +8937,7 @@ msgstr ""
 
 #: prefs_manage.php:269
 msgid "Merge with current configuration"
-msgstr "වත්මන් වින්‍යාස සමග ඒකාබද්ද කරන්න"
+msgstr "වත්මන් වින්‍යාස සමග ඒකාබද්ධ කරන්න"
 
 #: prefs_manage.php:283
 #, php-format
@@ -11198,7 +11215,7 @@ msgstr "මෙම පිටුව වෙත ආපසු යන්න"
 
 #: tbl_change.php:1101
 msgid "Edit next row"
-msgstr "මීලඟ පේළිය එක් කරන්න"
+msgstr "මීලඟ පේළිය සංස්කරණය කරන්න"
 
 #: tbl_change.php:1112
 msgid ""
@@ -11554,13 +11571,12 @@ msgstr "දර්ශනය කිරීමේ අනුපිළිවෙල:"
 
 #: tbl_structure.php:156 tbl_structure.php:161 tbl_structure.php:608
 msgid "Spatial"
-msgstr ""
+msgstr "ජ්‍යාමිතික"
 
 #: tbl_structure.php:163 tbl_structure.php:167
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "එකිනෙකට වෙනස් අගයන් පිරික්සන්න"
+msgstr "එකිනෙකට වෙනස් අගයන්"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add primary key"
@@ -11605,10 +11621,9 @@ msgid "Show more actions"
 msgstr "තවත් ක්‍රියාවන් පෙන්වන්න"
 
 #: tbl_structure.php:626 tbl_structure.php:691
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "පේළි(යක්) ඉවත් කරන්න"
+msgstr "තීර අනුපිළිවල සකසන්න"
 
 #: tbl_structure.php:627
 msgid "Move the columns by dragging them up and down."
@@ -11620,7 +11635,7 @@ msgstr "දසුන සංස්කරණය කරන්න"
 
 #: tbl_structure.php:670
 msgid "Relation view"
-msgstr ""
+msgstr "වගු සබඳතා දර්ශනය"
 
 #: tbl_structure.php:678
 msgid "Propose table structure"
