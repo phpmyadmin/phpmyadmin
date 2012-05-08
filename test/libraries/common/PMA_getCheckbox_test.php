@@ -22,7 +22,7 @@ class PMA_display_html_checkbox_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             PMA_getCheckbox($name, $label, false, false),
             '<input type="checkbox" name="' . $name . '" id="' . $name . '" /><label for="' . $name . '">' . $label . '</label>'
-        )
+        );
     }
 
     function testGetCheckboxChecked()
