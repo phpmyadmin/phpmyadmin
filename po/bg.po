@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-08 18:23+0200\n"
+"PO-Revision-Date: 2012-05-08 19:19+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1603,7 +1603,7 @@ msgstr "Серии"
 #. l10n: A collection of available filters
 #: js/messages.php:195
 msgid "Log table filter options"
-msgstr ""
+msgstr "Опции за филтриране на таблица-дневник"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
@@ -2493,7 +2493,7 @@ msgstr "Грешка при преместване на качения файл.
 
 #: libraries/File.class.php:471
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Не може да бъде прочетен (преместен) качен файл."
 
 #: libraries/Index.class.php:430 tbl_relation.php:542
 msgid "No index defined!"
@@ -2876,22 +2876,24 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Изброяване, избор от списък с до 65535 стойности или специалната стойност за "
+"грешка ''"
 
 #: libraries/Types.class.php:343
 msgid "A single value chosen from a set of up to 64 members"
-msgstr "Една стойност, избрана от набор от до 64 възможни"
+msgstr "Единична стойност, избрана от списък с до 64 възможни"
 
 #: libraries/Types.class.php:345
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Тип, който може да съхранява геометрия от всякакъв вид"
 
 #: libraries/Types.class.php:347
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Точка в 2-мерното пространство"
 
 #: libraries/Types.class.php:349
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Крива с линейна интерполация между точки"
 
 #: libraries/Types.class.php:351
 #| msgid "Add a polygon"
@@ -2900,23 +2902,23 @@ msgstr "Многоъгълник"
 
 #: libraries/Types.class.php:353
 msgid "A collection of points"
-msgstr ""
+msgstr "Набор от точки"
 
 #: libraries/Types.class.php:355
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Колекция от криви с линейна интерполация между точки"
 
 #: libraries/Types.class.php:357
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Набор от многоъгълници"
 
 #: libraries/Types.class.php:359
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Набор от геометрични обекти от всякакъв вид"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Цяло 4-байтово число с диапазон от -2 147 483 648 до 2 147 483 647"
 
 #: libraries/Types.class.php:704
 msgid ""
@@ -3126,11 +3128,11 @@ msgstr "Проверка на правата"
 
 #: libraries/common.inc.php:156
 msgid "possible exploit"
-msgstr ""
+msgstr "възможен пробив в сигурността"
 
 #: libraries/common.inc.php:165
 msgid "numeric key detected"
-msgstr ""
+msgstr "цифров ключ открит"
 
 #: libraries/common.inc.php:614
 msgid "Failed to read configuration file"
@@ -3599,6 +3601,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Позволявайки това разрешавате на страница, намираща се на друг домейн да "
+"зареди phpMyAdmin в рамка и възможна [strong]дупка в сигурността[/strong] "
+"може да позволи междурамкова скрипт атака"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -3641,6 +3646,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Включване на [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] компресия при "
+"импорт и ескпорт"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
@@ -3721,6 +3728,9 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Компресиране в gzip/bzip2 експортите в движение без нуждата от много памет; "
+"Ако срещнете проблеми със създадените gzip/bzip2 файлове, забраните тази "
+"функция"
 
 #: libraries/config/messages.inc.php:46
 msgid "Compress on the fly"
@@ -3736,6 +3746,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Дали да бъде показано предупреждение (&quot;На истина ли искате...&quot;), "
+"когато сте на път да загубите данни"
 
 #: libraries/config/messages.inc.php:49
 msgid "Confirm DROP queries"
@@ -3839,6 +3851,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Задайте брой секунди, за които скрипт може да върви ([kbd]0[/kbd] за без "
+"лимит)"
 
 #: libraries/config/messages.inc.php:73
 msgid "Maximum execution time"
@@ -3894,7 +3908,7 @@ msgstr "Заменяй NULL с"
 
 #: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:88
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Премахване CRLF знаци от колони"
 
 #: libraries/config/messages.inc.php:83 libraries/config/messages.inc.php:253
 #: libraries/config/messages.inc.php:261 libraries/import/csv.php:117
@@ -3989,7 +4003,7 @@ msgstr "Режим на съвместимост на SQL"
 
 #: libraries/config/messages.inc.php:126 libraries/export/sql.php:226
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Опции за <code>Създаване таблица</code>:"
 
 #: libraries/config/messages.inc.php:127
 msgid "Creation/Update/Check dates"
@@ -4013,7 +4027,7 @@ msgstr "Използване на INSERT IGNORE"
 
 #: libraries/config/messages.inc.php:136
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Използван синтаксис при вмъкване на данни"
 
 #: libraries/config/messages.inc.php:137 libraries/export/sql.php:364
 msgid "Maximal length of created query"
@@ -4033,21 +4047,21 @@ msgstr "Експортиране на време в UTC"
 
 #: libraries/config/messages.inc.php:152
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Налагане на защитена връзка, докато използвате phpMyAdmin"
 
 #: libraries/config/messages.inc.php:153
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Налагане на SSL връзка"
 
 #: libraries/config/messages.inc.php:154
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
-msgstr ""
+msgstr "външен ключ"
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "външен ключ"
 
 #: libraries/config/messages.inc.php:156
 msgid "A dropdown will be used if fewer items are present"
@@ -4055,7 +4069,7 @@ msgstr "Да се използва падащо меню при малко ел�
 
 #: libraries/config/messages.inc.php:157
 msgid "Foreign key limit"
-msgstr ""
+msgstr "външен ключ"
 
 #: libraries/config/messages.inc.php:158
 msgid "Browse mode"
@@ -4070,7 +4084,7 @@ msgstr "Персонализиране на преглеждането"
 #: libraries/config/messages.inc.php:193 libraries/config/messages.inc.php:221
 #: libraries/config/messages.inc.php:237
 msgid "Customize default options"
-msgstr ""
+msgstr "Персонализиране настройките по подразбиране"
 
 #: libraries/config/messages.inc.php:162 libraries/config/setup.forms.php:242
 #: libraries/config/setup.forms.php:315
@@ -4098,11 +4112,11 @@ msgstr "Персонализиране на редактирането"
 
 #: libraries/config/messages.inc.php:169
 msgid "Export defaults"
-msgstr ""
+msgstr "Настройки по подразбиране на експорта"
 
 #: libraries/config/messages.inc.php:170
 msgid "Customize default export options"
-msgstr ""
+msgstr "Персонализиране настройките по подразбиране на експорта"
 
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:213
 #: setup/frames/menu.inc.php:17
@@ -4119,11 +4133,11 @@ msgstr "Настройки, на някои често използвани оп
 
 #: libraries/config/messages.inc.php:175
 msgid "Import defaults"
-msgstr ""
+msgstr "Настройки по подразбиране на импорта"
 
 #: libraries/config/messages.inc.php:176
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Персонализиране настройките по подразбиране на ипорта"
 
 #: libraries/config/messages.inc.php:177
 msgid "Import / export"
@@ -6605,8 +6619,9 @@ msgstr "Заглавие на таблицата (продължение)"
 
 #: libraries/export/latex.php:97 libraries/export/odt.php:63
 #: libraries/export/sql.php:68
+#, fuzzy
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "външен ключ"
 
 #: libraries/export/latex.php:103 libraries/export/odt.php:69
 msgid "Display comments"
@@ -7918,7 +7933,7 @@ msgstr "Вътрешни релации"
 
 #: libraries/schema/User_Schema.class.php:142
 msgid "FOREIGN KEY"
-msgstr "FOREIGN KEY"
+msgstr "ВЪНШЕН КЛЮЧ"
 
 #: libraries/schema/User_Schema.class.php:176
 msgid "Please choose a page to edit"
@@ -11457,7 +11472,7 @@ msgstr ""
 #: tbl_relation.php:287
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
+msgstr "Грешка при създаването на външен ключ върху %1$s (проверете типа данни)"
 
 #: tbl_relation.php:414
 msgid "Internal relation"
@@ -11468,10 +11483,11 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
+"Вътрешна връзка не е необходима, при наличието на съответен ВЪНШЕН КЛЮЧ."
 
 #: tbl_relation.php:422
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "Ограничение за външен ключ"
 
 #: tbl_select.php:109
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -12771,7 +12787,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:422
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB забранен ли е?"
 
 #: libraries/advisory_rules.txt:425
 msgid "You do not have InnoDB enabled."
