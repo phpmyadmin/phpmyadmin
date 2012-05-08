@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-04 20:13+0200\n"
+"PO-Revision-Date: 2012-05-08 19:29+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2771,6 +2771,8 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"En tidsstämpel, intervallet är 1970-01-01 00:00:01 UTC till 2038-01-09 "
+"03:14:07 UTC, lagrad som antalet sekunder sedan 1970-01-01 00:00:00 UTC"
 
 #: libraries/Types.class.php:313 libraries/Types.class.php:722
 #, php-format
@@ -2782,6 +2784,8 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Ett år i fyr-siffrigt (4, default) eller 2-siffrigt (2) format, tillåtna "
+"värden är: 70 (1970) till 69 (2069) eller 1901 till 2155 och 0000"
 
 #: libraries/Types.class.php:317
 msgid ""
