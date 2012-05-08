@@ -1307,7 +1307,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice',
         // avoid displaying a Profiling checkbox that could
         // be checked, which would reexecute an INSERT, for example
         if (! empty($refresh_link)) {
-            PMA_profilingCheckbox($sql_query);
+            echo PMA_getProfilingForm($sql_query);
         }
         // if needed, generate an invisible form that contains controls for the
         // Inline link; this way, the behavior of the Inline link does not
@@ -1395,16 +1395,18 @@ function PMA_profilingSupported()
  *
  * @access  public
  */
-function PMA_profilingCheckbox($sql_query)
+function PMA_getProfilingForm($sql_query)
 {
+    $retval = '';
     if (PMA_profilingSupported()) {
-        echo '<form action="sql.php" method="post">' . "\n";
-        echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
-        echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
-        echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-        PMA_display_html_checkbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
-        echo ' </form>' . "\n";
+        $retval .= '<form action="sql.php" method="post">' . "\n";
+        $retval .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+        $retval .= '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
+        $retval .= '<input type="hidden" name="profiling_form" value="1" />' . "\n";
+        $retval .= PMA_getCheckbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
+        $retval .= ' </form>' . "\n";
     }
+    return $retval;
 }
 
 /**
@@ -2626,10 +2628,10 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
  *
  * @return void
  */
-function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
+function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
 {
 
-    echo '<input type="checkbox" name="' . $html_field_name . '" id="'
+    return '<input type="checkbox" name="' . $html_field_name . '" id="'
         . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
         . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
         . $html_field_name . '">' . $label . '</label>';
