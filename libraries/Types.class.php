@@ -616,7 +616,7 @@ class PMA_Types_MySQL extends PMA_Types
             'DATE',
 
             // numeric
-            __('NUMERIC') => array(
+            __('Numeric') => array(
                 'TINYINT',
                 'SMALLINT',
                 'MEDIUMINT',
@@ -635,7 +635,7 @@ class PMA_Types_MySQL extends PMA_Types
 
 
             // Date/Time
-            __('DATE and TIME') => array(
+            __('Date and time') => array(
                 'DATE',
                 'DATETIME',
                 'TIMESTAMP',
@@ -644,7 +644,7 @@ class PMA_Types_MySQL extends PMA_Types
             ),
 
             // Text
-            __('STRING') => array(
+            __('String') => array(
                 'CHAR',
                 'VARCHAR',
                 '-',
@@ -665,7 +665,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'SET',
             ),
 
-            __('SPATIAL') => array(
+            __('Spatial') => array(
                 'GEOMETRY',
                 'POINT',
                 'LINESTRING',
@@ -942,7 +942,7 @@ class PMA_Types_Drizzle extends PMA_Types
             'DATE',
 
             // numeric
-            __('NUMERIC') => array(
+            __('Numeric') => array(
                 'INTEGER',
                 'BIGINT',
                 '-',
@@ -956,7 +956,7 @@ class PMA_Types_Drizzle extends PMA_Types
 
 
             // Date/Time
-            __('DATE and TIME') => array(
+            __('Date and time') => array(
                 'DATE',
                 'DATETIME',
                 'TIMESTAMP',
@@ -964,7 +964,7 @@ class PMA_Types_Drizzle extends PMA_Types
             ),
 
             // Text
-            __('STRING') => array(
+            __('String') => array(
                 'VARCHAR',
                 'TEXT',
                 '-',
@@ -975,8 +975,8 @@ class PMA_Types_Drizzle extends PMA_Types
             ),
         );
         if (PMA_MYSQL_INT_VERSION >= 20120130) {
-            $ret['STRING'][] = '-';
-            $ret['STRING'][] = 'IPV6';
+            $ret[__('String')][] = '-';
+            $ret[__('String')][] = 'IPV6';
         }
         return $ret;
     }
