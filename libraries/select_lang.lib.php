@@ -488,7 +488,7 @@ _textdomain('phpmyadmin');
  */
 
 if (! function_exists('__')) {
-    die('Bad invocation!');
+    PMA_fatalError('Bad invocation!');
 }
 
 /* l10n: Text direction, use either ltr or rtl */

@@ -427,7 +427,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
     static $recursive_counter = 0;
     if (++$recursive_counter > 1000) {
-        die(__('possible deep recursion attack'));
+        PMA_fatalError(__('possible deep recursion attack'));
     }
     foreach ($array as $key => $value) {
         if (is_array($value)) {
