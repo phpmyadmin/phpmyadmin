@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-09 11:57+0200\n"
+"PO-Revision-Date: 2012-05-09 12:08+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -11522,7 +11522,7 @@ msgstr "選択したユーザを正しく削除しました。"
 
 #: tbl_change.php:751
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "長さによってはこのカラムを<br /> 修正できなくなる場合もあります。"
+msgstr "長さによってはこのカラムを<br />編集できなくなる場合もあります。"
 
 #: tbl_change.php:866
 msgid "Binary - do not edit"
@@ -11717,7 +11717,7 @@ msgstr "インデックスの種類:"
 #: tbl_indexes.php:306
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "インデックスに&nbsp;%s&nbsp;個のカラムを追加する"
+msgstr "%s&nbsp;個のインデックスカラムを追加する"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
