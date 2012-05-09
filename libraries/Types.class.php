@@ -934,6 +934,37 @@ class PMA_Types_Drizzle extends PMA_Types
      */
     public function getColumns()
     {
+        $types_num = array(
+            'INTEGER',
+            'BIGINT',
+            '-',
+            'DECIMAL',
+            'DOUBLE',
+            '-',
+            'BOOLEAN',
+            'SERIAL',
+            'UUID',
+        );
+        $types_date = array(
+            'DATE',
+            'DATETIME',
+            'TIMESTAMP',
+            'TIME',
+        );
+        $types_string = array(
+            'VARCHAR',
+            'TEXT',
+            '-',
+            'VARBINARY',
+            'BLOB',
+            '-',
+            'ENUM',
+        );
+        if (PMA_MYSQL_INT_VERSION >= 20120130) {
+            $types_string[] = '-';
+            $types_string[] = 'IPV6';
+        }
+
         $ret = array(
             // most used
             'INTEGER',
@@ -942,42 +973,14 @@ class PMA_Types_Drizzle extends PMA_Types
             'DATE',
 
             // numeric
-            _pgettext('numeric types', 'Numeric') => array(
-                'INTEGER',
-                'BIGINT',
-                '-',
-                'DECIMAL',
-                'DOUBLE',
-                '-',
-                'BOOLEAN',
-                'SERIAL',
-                'UUID',
-            ),
-
+            _pgettext('numeric types', 'Numeric') => $types_num,
 
             // Date/Time
-            _pgettext('date and time types', 'Date and time') => array(
-                'DATE',
-                'DATETIME',
-                'TIMESTAMP',
-                'TIME',
-            ),
+            _pgettext('date and time types', 'Date and time') => $types_date,
 
             // Text
-            _pgettext('string types', 'String') => array(
-                'VARCHAR',
-                'TEXT',
-                '-',
-                'VARBINARY',
-                'BLOB',
-                '-',
-                'ENUM',
-            ),
+            _pgettext('string types', 'String') => $types_string,
         );
-        if (PMA_MYSQL_INT_VERSION >= 20120130) {
-            $ret[__('String')][] = '-';
-            $ret[__('String')][] = 'IPV6';
-        }
         return $ret;
     }
 }
