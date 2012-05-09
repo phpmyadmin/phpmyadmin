@@ -3226,7 +3226,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
             if (! is_null($escape)) {
                 $column_names[] = $escape($column['Field']);
             } else {
-                $column_names[] = $field['Field'];
+                $column_names[] = $column['Field'];
             }
         }
 
