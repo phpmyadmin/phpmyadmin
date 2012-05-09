@@ -776,9 +776,6 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0,
 
     $table_groups = array();
 
-    // load PMA configuration
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
     foreach ($tables as $table_name => $table) {
         // check for correct row count
         if (null === $table['Rows']) {
@@ -1034,7 +1031,6 @@ function PMA_showMessage(
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
     }
-    unset($tbl_status);
 
     // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
     // check for it's presence before using it
@@ -1222,8 +1218,6 @@ function PMA_showMessage(
         } else {
             $edit_link = '';
         }
-
-        $url_qpart = PMA_generate_common_url($url_params);
 
         // Also we would like to get the SQL formed in some nice
         // php-code
