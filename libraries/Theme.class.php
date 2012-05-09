@@ -12,9 +12,11 @@ if (! defined('PHPMYADMIN')) {
 /**
  * handles theme
  *
- * @todo add the possibility to make a theme depend on another theme and by default on original
+ * @todo add the possibility to make a theme depend on another theme
+ * and by default on original
  * @todo make all components optional - get missing components from 'parent' theme
- * @todo make css optionally replacing 'parent' css or extending it (by appending at the end)
+ * @todo make css optionally replacing 'parent' css or extending it
+ * (by appending at the end)
  * @todo add an optional global css file - which will be used for both frames
  *
  * @package PhpMyAdmin
@@ -72,8 +74,10 @@ class PMA_Theme
     var $filesize_info = 0;
 
     /**
+     * Loads theme information
+     *
+     * @return boolean whether loading them info was successful or not     *
      * @access  public
-     * @return boolean     whether loading them info was successful or not
      */
     function loadInfo()
     {
@@ -109,11 +113,11 @@ class PMA_Theme
      * returns theme object loaded from given folder
      * or false if theme is invalid
      *
-     * @static
-     * @access  public
-     * @param string  $folder path to theme
+     * @param string $folder path to theme
      *
-     * @return object  PMA_Theme
+     * @return object PMA_Theme
+     * @static
+     * @access public
      */
     static public function load($folder)
     {
@@ -146,7 +150,10 @@ class PMA_Theme
             return true;
         } else {
             trigger_error(
-                sprintf(__('No valid image path for theme %s found!'), $this->getName()),
+                sprintf(
+                    __('No valid image path for theme %s found!'),
+                    $this->getName()
+                ),
                 E_USER_ERROR
             );
             return false;
@@ -178,8 +185,10 @@ class PMA_Theme
     /**
      * set path to theme
      *
-     * @access  public
-     * @param string  $path   path to theme
+     * @param string $path path to theme
+     *
+     * @return void
+     * @access public
      */
     function setPath($path)
     {
@@ -189,8 +198,10 @@ class PMA_Theme
     /**
      * sets version
      *
-     * @access  public
-     * @param string new version
+     * @param string $version version to set
+     *
+     * @return void
+     * @access public
      */
     function setVersion($version)
     {
@@ -200,8 +211,8 @@ class PMA_Theme
     /**
      * returns version
      *
+     * @return string version
      * @access  public
-     * @return string  version
      */
     function getVersion()
     {
@@ -212,10 +223,10 @@ class PMA_Theme
      * checks theme version agaisnt $version
      * returns true if theme version is equal or higher to $version
      *
-     * @access  public
-     * @param string  $version    version to compare to
+     * @param string $version version to compare to
      *
-     * @return boolean
+     * @return boolean true if theme version is equal or higher to $version
+     * @access public
      */
     function checkVersion($version)
     {
@@ -225,8 +236,10 @@ class PMA_Theme
     /**
      * sets name
      *
-     * @access  public
-     * @param string  $name   new name
+     * @param string $name name to set
+     *
+     * @return void
+     * @access public
      */
     function setName($name)
     {
@@ -247,8 +260,10 @@ class PMA_Theme
     /**
      * sets id
      *
-     * @access  public
-     * @param string  $id   new id
+     * @param string $id new id
+     *
+     * @return void
+     * @access public
      */
     function setId($id)
     {
@@ -258,8 +273,8 @@ class PMA_Theme
     /**
      * returns id
      *
-     * @access  public
-     * @return string  id
+     * @return string id
+     * @access public
      */
     function getId()
     {
@@ -267,8 +282,12 @@ class PMA_Theme
     }
 
     /**
-     * @access  public
-     * @param string  path to images for this theme
+     * Sets path to images for the theme
+     *
+     * @param string $path path to images for this theme
+     *
+     * @return void
+     * @access public
      */
     function setImgPath($path)
     {
@@ -276,7 +295,9 @@ class PMA_Theme
     }
 
     /**
-     * @access  public
+     * Returns the path to images for the theme
+     *
+     * @access public
      * @return string image path for this theme
      */
     function getImgPath()
@@ -287,10 +308,10 @@ class PMA_Theme
     /**
      * load css (send to stdout, normally the browser)
      *
-     * @access  public
-     * @param string  $type   left, right or print
+     * @param string &$type left, right or print
      *
      * @return bool
+     * @access  public
      */
     function loadCss(&$type)
     {
@@ -322,8 +343,10 @@ class PMA_Theme
         if ($type != 'print') {
             $_sprites_data_file = $this->getPath() . '/sprites.lib.php';
             $_sprites_css_file = './themes/sprites.css.php';
-            if (   (file_exists($_sprites_data_file)  && is_readable($_sprites_data_file))
-                && (file_exists($_sprites_css_file) && is_readable($_sprites_css_file))
+            if (file_exists($_sprites_data_file)
+                && is_readable($_sprites_data_file)
+                && file_exists($_sprites_css_file)
+                && is_readable($_sprites_css_file)
             ) {
                 include $_sprites_data_file;
                 include $_sprites_css_file;
@@ -336,7 +359,8 @@ class PMA_Theme
     /**
      * prints out the preview for this theme
      *
-     * @access  public
+     * @return void
+     * @access public
      */
     function printPreview()
     {
@@ -371,7 +395,9 @@ class PMA_Theme
      */
     function getCssIEClearFilter()
     {
-        return PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8
+        return PMA_USR_BROWSER_AGENT == 'IE'
+            && PMA_USR_BROWSER_VER >= 6
+            && PMA_USR_BROWSER_VER <= 8
             ? 'filter: none'
             : '';
     }

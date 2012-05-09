@@ -38,9 +38,9 @@ if (@extension_loaded('ctype')) {
 /**
  * Checks if a given character position in the string is escaped or not
  *
- * @param string   string to check for
- * @param integer  the character to check for
- * @param integer  starting position in the string
+ * @param string  $string string to check for
+ * @param integer $pos    the character to check for
+ * @param integer $start  starting position in the string
  *
  * @return boolean  whether the character is escaped or not
  */
@@ -70,9 +70,9 @@ function PMA_STR_charIsEscaped($string, $pos, $start = 0)
 /**
  * Checks if a number is in a range
  *
- * @param integer  number to check for
- * @param integer  lower bound
- * @param integer  upper bound
+ * @param integer $num   number to check for
+ * @param integer $lower lower bound
+ * @param integer $upper upper bound
  *
  * @return boolean  whether the number is in the range or not
  */
@@ -84,8 +84,8 @@ function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
 /**
  * Checks if a character is an SQL identifier
  *
- * @param string   character to check for
- * @param boolean  whether the dot character is valid or not
+ * @param string  $c            character to check for
+ * @param boolean $dot_is_valid whether the dot character is valid or not
  *
  * @return boolean  whether the character is an SQL identifier or not
  */

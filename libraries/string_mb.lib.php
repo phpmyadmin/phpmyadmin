@@ -19,9 +19,9 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns length of string depending on current charset.
  *
- * @param string   string to count
+ * @param string $string string to count
  *
- * @return int      string length
+ * @return int string length
  */
 function PMA_strlen($string)
 {
@@ -31,11 +31,11 @@ function PMA_strlen($string)
 /**
  * Returns substring from string, works depending on current charset.
  *
- * @param string $string  string to count
- * @param int    $start   start of substring
- * @param int    $length  length of substring
+ * @param string $string string to count
+ * @param int    $start  start of substring
+ * @param int    $length length of substring
  *
- * @return string
+ * @return string the sub string
  */
 function PMA_substr($string, $start, $length = 2147483647)
 {
@@ -45,9 +45,9 @@ function PMA_substr($string, $start, $length = 2147483647)
 /**
  * Returns postion of $needle in $haystack or false if not found
  *
- * @param string  $haystack
- * @param string  $needle
- * @param int     $offset
+ * @param string $haystack the string being checked
+ * @param string $needle   the string to find in haystack
+ * @param int    $offset   the search offset
  *
  * @return integer position of $needle in $haystack or false
  */
@@ -59,9 +59,9 @@ function PMA_strpos($haystack, $needle, $offset = 0)
 /**
  * Make a string lowercase
  *
- * @param string  $string
+ * @param string $string the string being lowercased
  *
- * @return string
+ * @return string the lower case string
  */
 function PMA_strtolower($string)
 {
