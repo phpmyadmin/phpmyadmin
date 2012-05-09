@@ -776,9 +776,6 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0,
 
     $table_groups = array();
 
-    // load PMA configuration
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
     foreach ($tables as $table_name => $table) {
         // check for correct row count
         if (null === $table['Rows']) {
@@ -1034,7 +1031,6 @@ function PMA_showMessage(
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
     }
-    unset($tbl_status);
 
     // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
     // check for it's presence before using it
@@ -1222,8 +1218,6 @@ function PMA_showMessage(
         } else {
             $edit_link = '';
         }
-
-        $url_qpart = PMA_generate_common_url($url_params);
 
         // Also we would like to get the SQL formed in some nice
         // php-code
@@ -3232,7 +3226,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
             if (! is_null($escape)) {
                 $column_names[] = $escape($column['Field']);
             } else {
-                $column_names[] = $field['Field'];
+                $column_names[] = $column['Field'];
             }
         }
 
@@ -3340,7 +3334,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
         )
         . '</label>';
     $extensions = '';
-    foreach ($import_list as $key => $val) {
+    foreach ($import_list as $val) {
         if (! empty($extensions)) {
             $extensions .= '|';
         }
@@ -3349,7 +3343,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
     $matcher = '@\.(' . $extensions . ')(\.('
         . PMA_supportedDecompressions() . '))?$@';
 
-    $active = (isset($timeout_passed) && $timeout_passed && isset($local_import_file))
+    $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($local_import_file))
         ? $local_import_file
         : '';
     $files = PMA_getFileSelectOptions(
@@ -3414,8 +3408,6 @@ function PMA_buildActionTitles()
  */
 function PMA_getSupportedDatatypes($html = false, $selected = '')
 {
-    global $cfg;
-
     if ($html) {
         // NOTE: the SELECT tag in not included in this snippet.
         $retval = '';
@@ -3831,7 +3823,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
         // need to escape wildcards in db and table names, see bug #3518484
         $tbl = str_replace(array('%', '_'), array('\%', '\_'), $tbl);
         $query .= " AND TABLE_NAME='%s'";
-        if ($retval = PMA_DBI_fetch_value(
+        if (PMA_DBI_fetch_value(
             sprintf(
                 $query,
                 'TABLE_PRIVILEGES',

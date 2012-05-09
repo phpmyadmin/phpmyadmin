@@ -15,7 +15,7 @@ define('PMA_SETUP', true);
 chdir('..');
 
 if (!file_exists('./libraries/common.inc.php')) {
-    die('Bad invocation!');
+    PMA_fatalError('Bad invocation!');
 }
 
 require_once './libraries/common.inc.php';

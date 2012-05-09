@@ -881,19 +881,6 @@ class PMA_Config
     }
 
     /**
-     * checks if the config folder still exists and terminates app if true
-     *
-     * @return void
-     */
-    function checkConfigFolder()
-    {
-        // Refuse to work while there still might be some world writable dir:
-        if (is_dir('./config')) {
-            die(__('Remove "./config" directory before using phpMyAdmin!'));
-        }
-    }
-
-    /**
      * check config source
      *
      * @return boolean whether source is valid or not
@@ -953,7 +940,13 @@ class PMA_Config
                 $this->checkWebServerOs();
                 if ($this->get('PMA_IS_WINDOWS') == 0) {
                     $this->source_mtime = 0;
-                    die(__('Wrong permissions on configuration file, should not be world writable!'));
+                    /* Gettext is possibly still not loaded */
+                    if (function_exists('__')) {
+                        $msg = __('Wrong permissions on configuration file, should not be world writable!');
+                    } else {
+                        $msg = 'Wrong permissions on configuration file, should not be world writable!';
+                    }
+                    PMA_fatalError($msg);
                 }
             }
         }
