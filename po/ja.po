@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-03 07:28-0400\n"
-"PO-Revision-Date: 2012-05-04 11:25+0200\n"
+"PO-Revision-Date: 2012-05-09 11:57+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -147,7 +147,7 @@ msgstr "カラム"
 #: tbl_printview.php:138 tbl_printview.php:296 tbl_structure.php:206
 #: tbl_structure.php:846 tbl_tracking.php:308 tbl_tracking.php:370
 msgid "Type"
-msgstr "種別"
+msgstr "データ型"
 
 #: db_datadict.php:166 libraries/Index.class.php:464
 #: libraries/export/htmlword.php:253 libraries/export/htmlword.php:365
@@ -4876,7 +4876,7 @@ msgstr "カラム名の差し込み間隔"
 
 #: libraries/config/messages.inc.php:360
 msgid "Save all edited cells at once"
-msgstr "修正したセルを一度にすべて保存する"
+msgstr "編集したセルを一度にすべて保存する"
 
 #: libraries/config/messages.inc.php:361
 msgid "Directory where exports can be saved on server"
@@ -5427,11 +5427,11 @@ msgstr "表示方向を表示する"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr "編集／挿入モードで種別項目を表示するかどうか定義します。"
+msgstr "編集／挿入モードでデータ型項目を表示するかどうか定義します。"
 
 #: libraries/config/messages.inc.php:468
 msgid "Show field types"
-msgstr "種別項目を表示する"
+msgstr "データ型項目を表示する"
 
 #: libraries/config/messages.inc.php:469
 msgid "Display the function fields in edit/insert mode"
@@ -7913,7 +7913,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1070
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "ルーチンの各パラメータに対して、名前と種別は必須です。"
+msgstr "ルーチンの各パラメータに対して、名前とデータ型は必須です。"
 
 #: libraries/rte/rte_routines.lib.php:1080
 msgid "You must provide a valid return type for the routine."
@@ -8429,9 +8429,8 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"カラム種別が「enum」ないし「set」の場合の値の書式: 'a','b','c'...<br />バック"
-"スラッシュ(\"\\\")やシングルクォート(\"'\")を含める必要がある場合は ( \\"
-"\\xyz や a\\'b のように) その前にバックスラッシュを付けてください。"
+"カラムのデータ型が「enum」ないし「set」の場合の値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") "
+"やシングルクォート (\"'\") を含める必要がある場合は (\\\\xyz や a\\'b のように) その前にバックスラッシュを付けてください。"
 
 #: libraries/tbl_properties.inc.php:89
 msgid ""
@@ -11969,14 +11968,13 @@ msgid "Show more actions"
 msgstr "他の操作を表示します"
 
 #: tbl_structure.php:626 tbl_structure.php:691
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "カラムの削除"
+msgstr "カラムを移動させる"
 
 #: tbl_structure.php:627
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "ドラックして上下させ、カラムを移動させてください。"
 
 #: tbl_structure.php:653
 msgid "Edit view"
