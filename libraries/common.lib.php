@@ -3408,8 +3408,6 @@ function PMA_buildActionTitles()
  */
 function PMA_getSupportedDatatypes($html = false, $selected = '')
 {
-    global $cfg;
-
     if ($html) {
         // NOTE: the SELECT tag in not included in this snippet.
         $retval = '';
