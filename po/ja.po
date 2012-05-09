@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-04 11:22+0200\n"
+"PO-Revision-Date: 2012-05-09 12:08+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -158,7 +158,7 @@ msgstr "カラム"
 #: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:202
 #: tbl_structure.php:767 tbl_tracking.php:258 tbl_tracking.php:320
 msgid "Type"
-msgstr "種別"
+msgstr "データ型"
 
 #: db_datadict.php:165 libraries/Index.class.php:447
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:396
@@ -4416,7 +4416,7 @@ msgstr "ヘルプボタンの表示"
 
 #: libraries/config/messages.inc.php:359
 msgid "Save all edited cells at once"
-msgstr "修正したセルを一度にすべて保存する"
+msgstr "編集したセルを一度にすべて保存する"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
@@ -4914,11 +4914,11 @@ msgstr "表示方向を表示する"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr "編集／挿入モードで種別項目を表示するかどうか定義します。"
+msgstr "編集／挿入モードでデータ型項目を表示するかどうか定義します。"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show field types"
-msgstr "種別項目を表示する"
+msgstr "データ型項目を表示する"
 
 #: libraries/config/messages.inc.php:464
 msgid "Display the function fields in edit/insert mode"
@@ -7351,7 +7351,7 @@ msgstr "ルーチンパラメータが ENUM、SET、VARCHAR、VARBINARY の場�
 
 #: libraries/rte/rte_routines.lib.php:1066
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "ルーチンの各パラメータに対して、名前と種別は必須です。"
+msgstr "ルーチンの各パラメータに対して、名前とデータ型は必須です。"
 
 #: libraries/rte/rte_routines.lib.php:1076
 msgid "You must provide a valid return type for the routine."
@@ -7857,9 +7857,8 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"カラム種別が「enum」ないし「set」の場合の値の書式: 'a','b','c'...<br "
-"/>バックスラッシュ(\"\\\")やシングルクォート(\"'\")を含める必要がある場合は ( \\\\xyz や a\\'b のように) "
-"その前にバックスラッシュを付けてください。"
+"カラムのデータ型が「enum」ないし「set」の場合の値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") "
+"やシングルクォート (\"'\") を含める必要がある場合は (\\\\xyz や a\\'b のように) その前にバックスラッシュを付けてください。"
 
 #: libraries/tbl_properties.inc.php:99
 msgid ""
@@ -10735,7 +10734,7 @@ msgstr "テーブル %1$s を変更しました"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "長さによってはこのカラムを<br /> 修正できなくなる場合もあります。"
+msgstr "長さによってはこのカラムを<br />編集できなくなる場合もあります。"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
@@ -10940,7 +10939,7 @@ msgstr "インデックスの種類:"
 #: tbl_indexes.php:285
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "インデックスに&nbsp;%s&nbsp;個のカラムを追加する"
+msgstr "%s&nbsp;個のインデックスカラムを追加する"
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
