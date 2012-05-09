@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Common includes for the table level views
  *
  * @package PhpMyAdmin
  */
@@ -34,7 +35,8 @@ $url_params['table'] = $table;
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = $cfg['DefaultTabDatabase'] . PMA_generate_common_url(array('db' => $db,));
+$err_url_0 = $cfg['DefaultTabDatabase']
+    . PMA_generate_common_url(array('db' => $db,));
 $err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url($url_params);
 
 

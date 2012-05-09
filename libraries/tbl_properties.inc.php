@@ -1,9 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Display form for changing/adding table fields/columns
+ * Display form for changing/adding table fields/columns.
+ * Included by tbl_addfield.php, -_alter.php, -_create.php
  *
- * included by tbl_addfield.php, -_alter.php, -_create.php
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -83,8 +83,9 @@ $content_cells = array();
 
 $header_cells[] = __('Name');
 $header_cells[] = __('Type')
-     . PMA_showMySQLDocu('SQL-Syntax', 'data-types');
-$header_cells[] = __('Length/Values') . PMA_showHint(__('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'));
+    . PMA_showMySQLDocu('SQL-Syntax', 'data-types');
+$header_cells[] = __('Length/Values')
+    . PMA_showHint(__('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'));
 $header_cells[] = __('Default') . PMA_showHint(__('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'));
 $header_cells[] = __('Collation');
 $header_cells[] = __('Attributes');
@@ -153,26 +154,46 @@ for ($i = 0; $i < $num_fields; $i++) {
         // An error happened with previous inputs, so we will restore the data
         // to embed it once again in this form.
 
-        $row['Field']     = (isset($_REQUEST['field_name'][$i]) ? $_REQUEST['field_name'][$i] : false);
-        $row['Type']      = (isset($_REQUEST['field_type'][$i]) ? $_REQUEST['field_type'][$i] : false);
-        $row['Collation'] = (isset($_REQUEST['field_collation'][$i]) ? $_REQUEST['field_collation'][$i] : '');
-        $row['Null']      = (isset($_REQUEST['field_null'][$i]) ? $_REQUEST['field_null'][$i] : '');
+        $row['Field'] = isset($_REQUEST['field_name'][$i])
+            ? $_REQUEST['field_name'][$i]
+            : false;
+        $row['Type'] = isset($_REQUEST['field_type'][$i])
+            ? $_REQUEST['field_type'][$i]
+            : false;
+        $row['Collation'] = isset($_REQUEST['field_collation'][$i])
+            ? $_REQUEST['field_collation'][$i]
+            : '';
+        $row['Null'] = isset($_REQUEST['field_null'][$i])
+            ? $_REQUEST['field_null'][$i]
+            : '';
 
-        if (isset($_REQUEST['field_key'][$i]) && $_REQUEST['field_key'][$i] == 'primary_' . $i) {
+        if (isset($_REQUEST['field_key'][$i])
+            && $_REQUEST['field_key'][$i] == 'primary_' . $i
+        ) {
             $row['Key'] = 'PRI';
-        } elseif (isset($_REQUEST['field_key'][$i]) && $_REQUEST['field_key'][$i] == 'index_' . $i) {
+        } elseif (isset($_REQUEST['field_key'][$i])
+            && $_REQUEST['field_key'][$i] == 'index_' . $i
+        ) {
             $row['Key'] = 'MUL';
-        } elseif (isset($_REQUEST['field_key'][$i]) && $_REQUEST['field_key'][$i] == 'unique_' . $i) {
+        } elseif (isset($_REQUEST['field_key'][$i])
+            && $_REQUEST['field_key'][$i] == 'unique_' . $i
+        ) {
             $row['Key'] = 'UNI';
-        } elseif (isset($_REQUEST['field_key'][$i]) && $_REQUEST['field_key'][$i] == 'fulltext_' . $i) {
+        } elseif (isset($_REQUEST['field_key'][$i])
+            && $_REQUEST['field_key'][$i] == 'fulltext_' . $i
+        ) {
             $row['Key'] = 'FULLTEXT';
         } else {
             $row['Key'] = '';
         }
 
         // put None in the drop-down for Default, when someone adds a field
-        $row['DefaultType']  = (isset($_REQUEST['field_default_type'][$i]) ? $_REQUEST['field_default_type'][$i] : 'NONE');
-        $row['DefaultValue'] = (isset($_REQUEST['field_default_value'][$i]) ? $_REQUEST['field_default_value'][$i] : '');
+        $row['DefaultType'] = isset($_REQUEST['field_default_type'][$i])
+            ? $_REQUEST['field_default_type'][$i]
+            : 'NONE';
+        $row['DefaultValue'] = isset($_REQUEST['field_default_value'][$i])
+            ? $_REQUEST['field_default_value'][$i]
+            : '';
 
         switch ($row['DefaultType']) {
         case 'NONE' :
@@ -221,12 +242,12 @@ for ($i = 0; $i < $num_fields; $i++) {
 
         if (isset($_REQUEST['field_transformation'][$i])) {
             $mime_map[$row['Field']]['transformation']
-            = $_REQUEST['field_transformation'][$i];
+                = $_REQUEST['field_transformation'][$i];
         }
 
         if (isset($_REQUEST['field_transformation_options'][$i])) {
             $mime_map[$row['Field']]['transformation_options']
-            = $_REQUEST['field_transformation_options'][$i];
+                = $_REQUEST['field_transformation_options'][$i];
         }
 
     } elseif (isset($fields_meta[$i])) {
@@ -340,7 +361,8 @@ for ($i = 0; $i < $num_fields; $i++) {
         . '"' . ' type="text" name="field_length[' . $i . ']" size="'
         . $length_values_input_size . '"' . ' value="' . htmlspecialchars(
             $length_to_display
-            ) . '"'
+        )
+        . '"'
         . ' class="textfield" />'
         . '<p class="enum_notice" id="enum_notice_' . $i . '_' . ($ci - $ci_offset)
         . '">';
@@ -370,8 +392,8 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     // for a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
     if ($type_upper == 'TIMESTAMP'
-       && ! empty($default_current_timestamp)
-       && isset($row['Default'])
+        && ! empty($default_current_timestamp)
+        && isset($row['Default'])
     ) {
         $row['Default'] = '';
     }
@@ -433,10 +455,8 @@ for ($i = 0; $i < $num_fields; $i++) {
     if (PMA_MYSQL_INT_VERSION < 50025
         && isset($row['Field'])
         && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
-        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type']
-            == 'TIMESTAMP'
-        && $analyzed_sql[0]['create_table_fields'][$row['Field']]
-            ['timestamp_not_null'] == true
+        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
+        && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true
     ) {
         $row['Null'] = '';
     }
@@ -444,16 +464,14 @@ for ($i = 0; $i < $num_fields; $i++) {
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
     if (isset($row['Field'])
-        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]
-            ['on_update_current_timestamp'])
+        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])
     ) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
     if ((isset($row['Field'])
-        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]
-            ['default_current_timestamp']))
+        && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
         || (isset($submit_default_current_timestamp)
-            && $submit_default_current_timestamp)
+        && $submit_default_current_timestamp)
     ) {
         $default_current_timestamp = true;
     } else {
@@ -480,7 +498,8 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     if (! empty($row['Null'])
         && $row['Null'] != 'NO'
-        && $row['Null'] != 'NOT NULL') {
+        && $row['Null'] != 'NOT NULL'
+    ) {
         $content_cells[$i][$ci] .= ' checked="checked"';
     }
 
@@ -575,10 +594,12 @@ for ($i = 0; $i < $num_fields; $i++) {
                 . (($current_index == $mi || $current_index == $mi + 1)
                     ? ' disabled="disabled"'
                     : '')
-                .'>' . sprintf(
+                .'>'
+                . sprintf(
                     __('after %s'),
                     PMA_backquote($move_columns[$mi]->name)
-                    ) . '</option>';
+                )
+                . '</option>';
         }
 
         $content_cells[$i][$ci] .= '</select>';
@@ -588,7 +609,8 @@ for ($i = 0; $i < $num_fields; $i++) {
     // column MIME-types
     if ($cfgRelation['mimework']
         && $cfg['BrowseMIME']
-        && $cfgRelation['commwork']) {
+        && $cfgRelation['commwork']
+    ) {
         $content_cells[$i][$ci] = '<select id="field_' . $i . '_'
             . ($ci - $ci_offset) . '" size="1" name="field_mimetype[' . $i . ']">';
         $content_cells[$i][$ci] .= '    <option value="">&nbsp;</option>';
@@ -617,16 +639,21 @@ for ($i = 0; $i < $num_fields; $i++) {
             . '"></option>';
         if (is_array($available_mime['transformation'])) {
             foreach ($available_mime['transformation'] as $mimekey => $transform) {
-                $checked = (isset($row['Field'])
-                    && isset($mime_map[$row['Field']]['transformation'])
-                    && (preg_match('@' . preg_quote(
+                $match = preg_match(
+                    '@' . preg_quote(
                         $available_mime['transformation_file'][$mimekey]
-                        ) . '3?@i', $mime_map[$row['Field']]['transformation']))
+                    )
+                    . '3?@i',
+                    $mime_map[$row['Field']]['transformation']
+                );
+                $checked = isset($row['Field'])
+                    && isset($mime_map[$row['Field']]['transformation'])
+                    && $match
                     ? 'selected '
-                    : '');
+                    : '';
                 $tooltip = PMA_getTransformationDescription(
                     $available_mime['transformation_file'][$mimekey], false
-                    );
+                );
                 $content_cells[$i][$ci] .= '<option value="'
                     . $available_mime['transformation_file'][$mimekey] . '" '
                     . $checked . ' title="' . htmlspecialchars($tooltip) . '">'
@@ -637,15 +664,15 @@ for ($i = 0; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] .= '</select>';
         $ci++;
 
+        $val = isset($row['Field'])
+            && isset($mime_map[$row['Field']]['transformation_options'])
+            ? htmlspecialchars($mime_map[$row['Field']]['transformation_options'])
+            : '';
         $content_cells[$i][$ci] = '<input id="field_' . $i . '_'
             . ($ci - $ci_offset) . '"' . ' type="text" '
             . 'name="field_transformation_options[' . $i . ']"'
             . ' size="16" class="textfield"'
-            . ' value="' . (isset($row['Field'])
-                && isset($mime_map[$row['Field']]['transformation_options'])
-                ? htmlspecialchars($mime_map[$row['Field']]
-                    ['transformation_options'])
-                : '') . '"'
+            . ' value="' . $val . '"'
             . ' />';
         //$ci++;
     }
@@ -686,19 +713,24 @@ if ($action == 'tbl_create.php') {
             <td>
                 <?php
                 if ($action == 'tbl_create.php'
-                    || $action == 'tbl_addfield.php') { ?>
-                <?php echo sprintf(
-                    __('Add %s column(s)'), '<input type="text" id="added_fields" '
-                    . 'name="added_fields" size="2" value="1" onfocus="this.select'
-                    . '()" />'); ?>
-                <input type="submit" name="submit_num_fields" value="<?php
-                    echo __('Go'); ?>"
+                    || $action == 'tbl_addfield.php'
+                ) {
+                    echo sprintf(
+                        __('Add %s column(s)'), '<input type="text" id="added_fields" '
+                        . 'name="added_fields" size="2" value="1" onfocus="this.select'
+                        . '()" />'
+                    ); ?>
+                <input type="submit" name="submit_num_fields"
+                    value="<?php echo __('Go'); ?>"
                     onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php
-                    echo str_replace('\'', '\\\'', __(
-                        'You have to add at least one column.'
-                    )); ?>', 1)"
+                    echo str_replace(
+                        '\'', '\\\'', __('You have to add at least one column.')
+                    );
+                    ?>', 1)"
                 />
-                <?php } ?>
+                <?php
+                }
+                ?>
             </td>
         </tr>
     </table>
