@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 12:53+0200\n"
-"PO-Revision-Date: 2012-05-04 15:58+0200\n"
+"PO-Revision-Date: 2012-05-09 13:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2997,20 +2997,18 @@ msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
 msgid "Numeric"
-msgstr ""
+msgstr "Čísla"
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-#, fuzzy
 #| msgid "Create an index"
 msgid "Date and time"
-msgstr "Vytvořit klíč"
+msgstr "Datum a čas"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
 #: libraries/Types.class.php:978 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Linestring"
 msgid "String"
-msgstr "Linka"
+msgstr "Řetězce"
 
 #: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
 #: tbl_structure.php:603
@@ -3033,7 +3031,7 @@ msgstr ""
 
 #: libraries/Types.class.php:710
 msgid "True or false"
-msgstr ""
+msgstr "True nebo false"
 
 #: libraries/Types.class.php:712
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
