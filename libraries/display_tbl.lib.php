@@ -626,9 +626,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 }
 
                 $table_headers_html .= '<form action="sql.php" method="post">' . "\n"
-                                  . PMA_generate_common_hidden_inputs($db, $table)
-                                  . __('Sort by key')
-                                  . ': <select name="sql_query" class="autosubmit">' . "\n";
+                    . PMA_generate_common_hidden_inputs($db, $table)
+                    . __('Sort by key')
+                    . ': <select name="sql_query" class="autosubmit">' . "\n";
                 $used_index = false;
                 $local_order = (isset($sort_expression) ? $sort_expression : '');
                 foreach ($indexes as $index) {
@@ -652,34 +652,36 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                         $unsorted_sql_query_first_part = $unsorted_sql_query;
                         $unsorted_sql_query_second_part = '';
                     }
+                    
                     $table_headers_html .= '<option value="'
-                                      . htmlspecialchars(
-                                          $unsorted_sql_query_first_part  . "\n"
-                                          . ' ORDER BY ' . $asc_sort
-                                          . $unsorted_sql_query_second_part
-                                      )
-                                      . '"' . ($local_order == $asc_sort
-                                          ? ' selected="selected"'
-                                          : '')
-                                      . '>' . htmlspecialchars($index->getName()) . ' ('
-                                      . __('Ascending') . ')</option>';
+                        . htmlspecialchars(
+                            $unsorted_sql_query_first_part  . "\n"
+                            . ' ORDER BY ' . $asc_sort
+                            . $unsorted_sql_query_second_part
+                        )
+                        . '"' . ($local_order == $asc_sort
+                            ? ' selected="selected"'
+                            : '')
+                        . '>' . htmlspecialchars($index->getName()) . ' ('
+                        . __('Ascending') . ')</option>';
+                    
                     $table_headers_html .= '<option value="'
-                                      . htmlspecialchars(
-                                          $unsorted_sql_query_first_part . "\n"
-                                          . ' ORDER BY ' . $desc_sort
-                                          . $unsorted_sql_query_second_part
-                                      )
-                                      . '"' . ($local_order == $desc_sort
-                                          ? ' selected="selected"'
-                                          : '')
-                                      . '>' . htmlspecialchars($index->getName()) . ' ('
-                                      . __('Descending') . ')</option>';
+                        . htmlspecialchars(
+                            $unsorted_sql_query_first_part . "\n"
+                            . ' ORDER BY ' . $desc_sort
+                            . $unsorted_sql_query_second_part
+                        )
+                        . '"' . ($local_order == $desc_sort
+                            ? ' selected="selected"'
+                            : '')
+                        . '>' . htmlspecialchars($index->getName()) . ' ('
+                        . __('Descending') . ')</option>';
                 }
                 $table_headers_html .= '<option value="' . htmlspecialchars($unsorted_sql_query) . '"'
-                                  . ($used_index ? '' : ' selected="selected"') . '>' . __('None')
-                                  . '</option>'
-                                  . '</select>' . "\n"
-                                  . '</form>' . "\n";
+                    . ($used_index ? '' : ' selected="selected"') . '>' . __('None')
+                    . '</option>'
+                    . '</select>' . "\n"
+                    . '</form>' . "\n";
             }
         }
     }
@@ -687,10 +689,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 
     // Output data needed for grid editing
     $table_headers_html .= '<input id="save_cells_at_once" type="hidden" value="'
-                      . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
-                      . '<div class="common_hidden_inputs">'
-                      . PMA_generate_common_hidden_inputs($db, $table)
-                      . '</div>';
+        . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
+        . '<div class="common_hidden_inputs">'
+        . PMA_generate_common_hidden_inputs($db, $table)
+        . '</div>';
     // Output data needed for column reordering and show/hide column
     if (PMA_isSelect()) {
         // generate the column order, if it is set
@@ -698,19 +700,19 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
         if ($col_order) {
             $table_headers_html .= '<input id="col_order" type="hidden" value="'
-                              . implode(',', $col_order) . '" />';
+                . implode(',', $col_order) . '" />';
         }
         $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
         if ($col_visib) {
             $table_headers_html .= '<input id="col_visib" type="hidden" value="'
-                              . implode(',', $col_visib) . '" />';
+                . implode(',', $col_visib) . '" />';
         }
         // generate table create time
         if (! PMA_Table::isView($GLOBALS['table'], $GLOBALS['db'])) {
             $table_headers_html .= '<input id="table_create_time" type="hidden" value="'
-                              . PMA_Table::sGetStatusInfo(
-                                    $GLOBALS['db'], $GLOBALS['table'], 'Create_time'
-                                ) . '" />';
+                . PMA_Table::sGetStatusInfo(
+                    $GLOBALS['db'], $GLOBALS['table'], 'Create_time'
+                ) . '" />';
         }
     }
 
@@ -722,7 +724,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     // Display options (if we are not in print view)
     if (! (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1')) {
         $table_headers_html .= '<form method="post" action="sql.php" name="displayOptionsForm" '
-                          . 'id="displayOptionsForm"';
+            . 'id="displayOptionsForm"';
         if ($GLOBALS['cfg']['AjaxEnable']) {
             $table_headers_html .= ' class="ajax" ';
         }
@@ -735,9 +737,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             'display_options_form' => 1
         );
         $table_headers_html .= PMA_generate_common_hidden_inputs($url_params)
-                          . '<br />'
-                          . PMA_getDivForSliderEffect('displayoptions', __('Options'))
-                          . '<fieldset>';
+            . '<br />'
+            . PMA_getDivForSliderEffect('displayoptions', __('Options'))
+            . '<fieldset>';
 
         $table_headers_html .= '<div class="formelement">';
         $choices = array(
@@ -745,10 +747,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             'F'   => __('Full texts')
         );
         $table_headers_html .= PMA_getRadioFields(
-                                   'display_text', $choices,
-                                   $_SESSION['tmp_user_values']['display_text']
-                               )
-                            . '</div>';
+                'display_text', $choices,
+                $_SESSION['tmp_user_values']['display_text']
+            )
+            . '</div>';
 
         // prepare full/partial text button or link
         $url_params_full_text = array(
@@ -787,39 +789,39 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'D'   => __('Relational display column')
             );
             $table_headers_html .= PMA_getRadioFields(
-                                       'relational_display', $choices,
-                                       $_SESSION['tmp_user_values']['relational_display']
-                                   )
-                                . '</div>';
+                    'relational_display', $choices,
+                    $_SESSION['tmp_user_values']['relational_display']
+                )
+                . '</div>';
         }
 
         $table_headers_html .= '<div class="formelement">'
-                            . PMA_getCheckbox(
-                                  'display_binary', __('Show binary contents'),
-                                  ! empty($_SESSION['tmp_user_values']['display_binary']), false
-                              )
-                            . '<br />'
-                            . PMA_getCheckbox(
-                                  'display_blob', __('Show BLOB contents'),
-                                  ! empty($_SESSION['tmp_user_values']['display_blob']), false
-                              )
-                            . '<br />'
-                            . PMA_getCheckbox(
-                                  'display_binary_as_hex', __('Show binary contents as HEX'),
-                                  ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
-                              )
-                            . '</div>';
+            . PMA_getCheckbox(
+                'display_binary', __('Show binary contents'),
+                ! empty($_SESSION['tmp_user_values']['display_binary']), false
+            )
+            . '<br />'
+            . PMA_getCheckbox(
+                'display_blob', __('Show BLOB contents'),
+                ! empty($_SESSION['tmp_user_values']['display_blob']), false
+            )
+            . '<br />'
+            . PMA_getCheckbox(
+                'display_binary_as_hex', __('Show binary contents as HEX'),
+                ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
+              )
+            . '</div>';
 
         // I would have preferred to name this "display_transformation".
         // This is the only way I found to be able to keep this setting sticky
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         $table_headers_html .= '<div class="formelement">'
-                            . PMA_getCheckbox(
-                                  'hide_transformation', __('Hide browser transformation'),
-                                  ! empty($_SESSION['tmp_user_values']['hide_transformation']), false
-                              )
-                            . '</div>';
+            . PMA_getCheckbox(
+                'hide_transformation', __('Hide browser transformation'),
+                ! empty($_SESSION['tmp_user_values']['hide_transformation']), false
+            )
+            . '</div>';
 
         if (! PMA_DRIZZLE) {
             $table_headers_html .= '<div class="formelement">';
@@ -829,33 +831,33 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'WKB'   => __('Well Known Binary')
             );
             $table_headers_html .= PMA_getRadioFields(
-                                       'geometry_display', $choices,
-                                       $_SESSION['tmp_user_values']['geometry_display']
-                                   )
-                                . '</div>';
+                    'geometry_display', $choices,
+                    $_SESSION['tmp_user_values']['geometry_display']
+                )
+                . '</div>';
         }
 
         $table_headers_html .= '<div class="clearfloat"></div>'
-                          . '</fieldset>';
+            . '</fieldset>';
 
         $table_headers_html .= '<fieldset class="tblFooters">'
-                          . '<input type="submit" value="' . __('Go') . '" />'
-                          . '</fieldset>'
-                          . '</div>'
-                          . '</form>';
+            . '<input type="submit" value="' . __('Go') . '" />'
+            . '</fieldset>'
+            . '</div>'
+            . '</form>';
     }
 
     // Start of form for multi-rows edit/delete/export
 
     if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
         $table_headers_html .= '<form method="post" action="tbl_row_action.php" name="resultsForm" '
-                          . 'id="resultsForm"';
+            . 'id="resultsForm"';
         if ($GLOBALS['cfg']['AjaxEnable']) {
             $table_headers_html .= ' class="ajax" ';
         }
         $table_headers_html .= '>' . "\n"
-                          . PMA_generate_common_hidden_inputs($db, $table, 1)
-                          . '<input type="hidden" name="goto" value="sql.php" />' . "\n";
+            . PMA_generate_common_hidden_inputs($db, $table, 1)
+            . '<input type="hidden" name="goto" value="sql.php" />' . "\n";
     }
 
     $table_headers_html .= '<table id="table_results" class="data';
@@ -895,16 +897,16 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         ) {
             
             $table_headers_html .= '<th colspan="' . $fields_cnt . '"></th>'
-                                . '</tr>'
-                                . '<tr>';
+                . '</tr>'
+                . '<tr>';
             
             // end horizontal/horizontalflipped mode
         } else {
             
             $table_headers_html .= '<tr>'
-                                . '<th colspan="' . $num_rows + floor($num_rows
-                                / $_SESSION['tmp_user_values']['repeat_cells']) + 1 . '"></th>'
-                                . '</tr>';
+                . '<th colspan="' . $num_rows + floor($num_rows
+                / $_SESSION['tmp_user_values']['repeat_cells']) + 1 . '"></th>'
+                . '</tr>';
             
         } // end vertical mode
 
@@ -922,7 +924,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         ) {
             
             $table_headers_html .= '<th ' . $colspan . '>'
-                                . $full_or_partial_text_link . '</th>';
+                . $full_or_partial_text_link . '</th>';
             
             // end horizontal/horizontalflipped mode
         } else {
@@ -1234,7 +1236,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                     $table_headers_html .= ' vbottom';
                 }
                 $table_headers_html .= '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
-                                    . '">' . $order_link . $comments . '</th>';
+                    . '">' . $order_link . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
                 . 'class="draggable'
@@ -1273,8 +1275,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                     && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'
                 ) {
                     $table_headers_html .= PMA_flipstring(
-                                             htmlspecialchars($fields_meta[$i]->name), '<br />'
-                                         );
+                            htmlspecialchars($fields_meta[$i]->name), '<br />'
+                        );
                 } else {
                     $table_headers_html .= htmlspecialchars($fields_meta[$i]->name);
                 }
@@ -1304,8 +1306,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             || $direction == 'horizontalflipped'
         ) {
             $table_headers_html .= "\n"            
-                                . '<th ' . $colspan . '>' . $full_or_partial_text_link
-                                . '</th>';
+                . '<th ' . $colspan . '>' . $full_or_partial_text_link
+                . '</th>';
             
             // end horizontal/horizontalflipped mode
         } else {
@@ -1331,7 +1333,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             || $direction == 'horizontalflipped'
         ) {
             $table_headers_html .= "\n"            
-                                . '<td ' . $colspan . '></td>';
+                . '<td ' . $colspan . '></td>';
             
             // end horizontal/horizontalflipped mode
         } else {
@@ -1344,7 +1346,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     ) {
         
         $table_headers_html .= '</tr>'
-                            . '</thead>';
+            . '</thead>';
         
     }
     

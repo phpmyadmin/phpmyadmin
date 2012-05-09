@@ -2627,9 +2627,9 @@ function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
 {
 
     return '<input type="checkbox" name="' . $html_field_name . '" id="'
-           . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
-           . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
-           . $html_field_name . '">' . $label . '</label>';
+        . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
+        . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
+        . $html_field_name . '">' . $label . '</label>';
 
 }
 
@@ -2734,8 +2734,8 @@ function PMA_getDivForSliderEffect($id, $message)
      */
     
     return '<div id="' . $id . '"'
-           . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed') ? ' style="display: none; overflow:auto;"' : '')
-           . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
+        . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed') ? ' style="display: none; overflow:auto;"' : '')
+        . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
     
 }
 
