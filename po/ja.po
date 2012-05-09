@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:53+0200\n"
+"POT-Creation-Date: 2012-05-09 13:06+0200\n"
 "PO-Revision-Date: 2012-05-09 12:08+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -3025,24 +3025,28 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
+msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
 #, fuzzy
 #| msgid "Create an index"
+msgctxt "date and time types"
 msgid "Date and time"
 msgstr "インデックスを作成する"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-#: libraries/Types.class.php:978 libraries/Types.class.php:979
 #, fuzzy
 #| msgid "Linestring"
+msgctxt "string types"
 msgid "String"
 msgstr "線分"
 
-#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
-#: tbl_structure.php:603
+#: libraries/Types.class.php:668
+#, fuzzy
+#| msgid "Spatial"
+msgctxt "spatial types"
 msgid "Spatial"
 msgstr "空間"
 
@@ -3095,6 +3099,12 @@ msgstr ""
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
 msgstr ""
+
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Linestring"
+msgid "String"
+msgstr "線分"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -11935,6 +11945,10 @@ msgstr "ページあたりの行数"
 #: tbl_select.php:210
 msgid "Display order:"
 msgstr "表示順:"
+
+#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
+msgid "Spatial"
+msgstr "空間"
 
 #: tbl_structure.php:158 tbl_structure.php:162
 msgid "Distinct values"

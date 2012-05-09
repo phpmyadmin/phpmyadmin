@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:53+0200\n"
+"POT-Creation-Date: 2012-05-09 13:06+0200\n"
 "PO-Revision-Date: 2012-05-09 13:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -2996,22 +2996,30 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
+#, fuzzy
+#| msgid "Numeric"
+msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Čísla"
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-#| msgid "Create an index"
+#, fuzzy
+#| msgid "Date and time"
+msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum a čas"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-#: libraries/Types.class.php:978 libraries/Types.class.php:979
-#| msgid "Linestring"
+#, fuzzy
+#| msgid "String"
+msgctxt "string types"
 msgid "String"
 msgstr "Řetězce"
 
-#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
-#: tbl_structure.php:603
+#: libraries/Types.class.php:668
+#, fuzzy
+#| msgid "Spatial"
+msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Prostorový"
 
@@ -3062,6 +3070,10 @@ msgstr ""
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
 msgstr ""
+
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+msgid "String"
+msgstr "Řetězce"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -11909,6 +11921,10 @@ msgstr "Záznamů na stránku"
 #: tbl_select.php:210
 msgid "Display order:"
 msgstr "Seřadit podle:"
+
+#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
+msgid "Spatial"
+msgstr "Prostorový"
 
 #: tbl_structure.php:158 tbl_structure.php:162
 msgid "Distinct values"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:53+0200\n"
+"POT-Creation-Date: 2012-05-09 13:06+0200\n"
 "PO-Revision-Date: 2011-05-19 21:21+0200\n"
 "Last-Translator: <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
@@ -3161,26 +3161,30 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
+msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
 #, fuzzy
 #| msgid "Create an index"
+msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Crëwch dudalen"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-#: libraries/Types.class.php:978 libraries/Types.class.php:979
 #, fuzzy
 #| msgid "Lines terminated by"
+msgctxt "string types"
 msgid "String"
 msgstr "Terfynwyd llinellau gan"
 
-#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
-#: tbl_structure.php:603
+#: libraries/Types.class.php:668
+#, fuzzy
+#| msgid "Log file count"
+msgctxt "spatial types"
 msgid "Spatial"
-msgstr ""
+msgstr "Cyfrif ffeiliau log"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3229,6 +3233,12 @@ msgstr ""
 #: libraries/Types.class.php:732
 msgid "An enumeration, chosen from the list of defined values"
 msgstr ""
+
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "String"
+msgstr "Terfynwyd llinellau gan"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -11957,6 +11967,10 @@ msgstr ""
 
 #: tbl_select.php:210
 msgid "Display order:"
+msgstr ""
+
+#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
+msgid "Spatial"
 msgstr ""
 
 #: tbl_structure.php:158 tbl_structure.php:162
