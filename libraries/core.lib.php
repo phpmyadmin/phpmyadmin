@@ -222,8 +222,6 @@ function PMA_fatalError($error_message, $message_args = null, $delete_session = 
     // Displays the error message
     $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
     $dir = $GLOBALS['text_dir'];
-    $type = $error_header;
-    $error = $error_message;
 
     // on fatal errors it cannot hurt to always delete the current session
     if ($delete_session
