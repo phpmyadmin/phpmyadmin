@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-05-03 13:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
@@ -3071,20 +3071,26 @@ msgid "A collection of geometry objects of any type"
 msgstr "Une collection d'objets de géométrie de tout type"
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Both date and time."
+msgid "Date and time"
+msgstr "À la fois la date et l'heure."
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Linestring"
+msgid "String"
+msgstr "Ligne"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
-msgstr ""
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
+msgstr "Spatial"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -12140,10 +12146,6 @@ msgstr "Nombre de lignes par page"
 msgid "Display order:"
 msgstr "Ordre d'affichage : "
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr "Spatial"
-
 #: tbl_structure.php:158 tbl_structure.php:162
 msgid "Distinct values"
 msgstr "Valeurs distinctes"
@@ -13788,9 +13790,6 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Seulement les dates."
-
-#~ msgid "Both date and time."
-#~ msgstr "À la fois la date et l'heure."
 
 #~ msgid "Time of day."
 #~ msgstr "Heure du jour."

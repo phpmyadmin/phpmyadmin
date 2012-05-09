@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-05-08 19:38+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
@@ -2984,19 +2984,25 @@ msgid "A collection of geometry objects of any type"
 msgstr "Набор от геометрични обекти от всякакъв вид"
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "Добавяне индекс"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Linestring"
+msgid "String"
+msgstr "Linestring"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
 msgstr ""
 
 #: libraries/Types.class.php:702
@@ -11440,10 +11446,6 @@ msgstr "Брой редове на страница"
 msgid "Display order:"
 msgstr "Подреждане по:"
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr ""
-
 #: tbl_structure.php:158 tbl_structure.php:162
 msgid "Distinct values"
 msgstr "Уникални стойности"
@@ -12883,9 +12885,6 @@ msgstr "concurrent_insert e 0"
 
 #~ msgid "Click to unselect"
 #~ msgstr "Щракване за отмяна на избора"
-
-#~ msgid "Create an index"
-#~ msgstr "Добавяне индекс"
 
 #~ msgid "Modify an index"
 #~ msgstr "Промяна на индекс"

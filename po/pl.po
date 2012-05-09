@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-04-21 16:04+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: iMutrix\n"
@@ -3017,20 +3017,24 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
+msgid "Date and time"
 msgstr ""
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Linestring"
+msgid "String"
+msgstr "Linia ciągu"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
-msgstr ""
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
+msgstr "Przestrzenny"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -12035,10 +12039,6 @@ msgstr "Liczba wierszy na stronie"
 #: tbl_select.php:210
 msgid "Display order:"
 msgstr "Kolejność wyświetlania:"
-
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr "Przestrzenny"
 
 #: tbl_structure.php:158 tbl_structure.php:162
 msgid "Distinct values"

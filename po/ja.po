@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-05-09 12:08+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -3025,20 +3025,26 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "インデックスを作成する"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Linestring"
+msgid "String"
+msgstr "線分"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
-msgstr ""
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
+msgstr "空間"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -11930,10 +11936,6 @@ msgstr "ページあたりの行数"
 msgid "Display order:"
 msgstr "表示順:"
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr "空間"
-
 #: tbl_structure.php:158 tbl_structure.php:162
 msgid "Distinct values"
 msgstr "件数集計"
@@ -13779,9 +13781,6 @@ msgstr "concurrent_insert は 0 に設定されています。"
 
 #~ msgid "Click to unselect"
 #~ msgstr "クリックで選択解除"
-
-#~ msgid "Create an index"
-#~ msgstr "インデックスを作成する"
 
 #~ msgid "Modify an index"
 #~ msgstr "インデックスを修正する"

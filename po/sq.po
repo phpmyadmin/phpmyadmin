@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2010-07-21 14:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: albanian <sq@li.org>\n"
@@ -3178,19 +3178,25 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "Krijo një tregues të ri"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "String"
+msgstr "Rreshta që mbarojnë me"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
 msgstr ""
 
 #: libraries/Types.class.php:702
@@ -12132,10 +12138,6 @@ msgstr "regjistrime për faqe"
 msgid "Display order:"
 msgstr "Mënyra e shfaqjes:"
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr ""
-
 #: tbl_structure.php:158 tbl_structure.php:162
 #, fuzzy
 msgid "Distinct values"
@@ -13603,9 +13605,6 @@ msgstr ""
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Asnjë lloj"
-
-#~ msgid "Create an index"
-#~ msgstr "Krijo një tregues të ri"
 
 #~ msgid "Modify an index"
 #~ msgstr "Ndrysho një tregues"

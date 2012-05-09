@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-02-17 10:54+0200\n"
 "Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -3004,19 +3004,25 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "새 인덱스 만들기"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Linestring"
+msgid "String"
+msgstr "줄(열) 구분자"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
 msgstr ""
 
 #: libraries/Types.class.php:702
@@ -11748,10 +11754,6 @@ msgstr "페이지당 레코드 수"
 msgid "Display order:"
 msgstr "출력 순서:"
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr ""
-
 #: tbl_structure.php:158 tbl_structure.php:162
 #, fuzzy
 #| msgid "Session value"
@@ -13242,9 +13244,6 @@ msgstr ""
 
 #~ msgid "Click to unselect"
 #~ msgstr "선택을 해제하려면 클릭하세요"
-
-#~ msgid "Create an index"
-#~ msgstr "새 인덱스 만들기"
 
 #~ msgid "Modify an index"
 #~ msgstr "인덱스 수정"

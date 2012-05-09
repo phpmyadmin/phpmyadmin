@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-03-29 16:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -3179,19 +3179,25 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "ახალი ინდექსის შექმნა"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "String"
+msgstr "Lines terminated by"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
 msgstr ""
 
 #: libraries/Types.class.php:702
@@ -12391,10 +12397,6 @@ msgstr ""
 msgid "Display order:"
 msgstr ""
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr ""
-
 #: tbl_structure.php:158 tbl_structure.php:162
 #, fuzzy
 #| msgid "Session value"
@@ -13999,9 +14001,6 @@ msgstr "max. concurrent connections"
 
 #~ msgid "Maximum number of records saved in \"table_uiprefs\" table"
 #~ msgstr "Maximum number of tables displayed in table list"
-
-#~ msgid "Create an index"
-#~ msgstr "ახალი ინდექსის შექმნა"
 
 #~ msgid "Modify an index"
 #~ msgstr "ინდექსის შეცვლა"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-05-04 21:42+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -3033,20 +3033,26 @@ msgid "A collection of geometry objects of any type"
 msgstr "Igat tüüpi geomeetriliste objektide kogum"
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "Loo indeks"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Linestring"
+msgid "String"
+msgstr "Rea sõne"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
-msgstr ""
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
+msgstr "Ruumiline"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -11944,10 +11950,6 @@ msgstr "Ridade hulk lehe kohta"
 msgid "Display order:"
 msgstr "Näitamise järjekord:"
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr "Ruumiline"
-
 #: tbl_structure.php:158 tbl_structure.php:162
 msgid "Distinct values"
 msgstr "Erista väärtusi"
@@ -13760,9 +13762,6 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 
 #~ msgid "Click to unselect"
 #~ msgstr "Mittevalimiseks kliki"
-
-#~ msgid "Create an index"
-#~ msgstr "Loo indeks"
 
 #~ msgid "Modify an index"
 #~ msgstr "Muuda indeksit"

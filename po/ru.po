@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-05-03 21:52+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -3067,20 +3067,26 @@ msgid "A collection of geometry objects of any type"
 msgstr "Набор геометрических объектов любого типа"
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "Создать индекс"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Linestring"
+msgid "String"
+msgstr "Линия"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
-msgstr ""
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
+msgstr "Пространственный"
 
 #: libraries/Types.class.php:702
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -12139,10 +12145,6 @@ msgstr "Количество строк на странице"
 msgid "Display order:"
 msgstr "Сортировка:"
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr "Пространственный"
-
 #: tbl_structure.php:158 tbl_structure.php:162
 msgid "Distinct values"
 msgstr "Уникальные значения"
@@ -14008,9 +14010,6 @@ msgstr "concurrent_insert установлен в 0"
 
 #~ msgid "Click to unselect"
 #~ msgstr "Снятие выделения"
-
-#~ msgid "Create an index"
-#~ msgstr "Создать индекс"
 
 #~ msgid "Modify an index"
 #~ msgstr "Изменить индекс"

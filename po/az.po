@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-03-27 16:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -3173,19 +3173,25 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "Yeni indeks qur"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
-msgstr ""
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "String"
+msgstr "Setir leğvedicisi (Lines terminated by)"
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
 msgstr ""
 
 #: libraries/Types.class.php:702
@@ -12084,10 +12090,6 @@ msgstr "Sehife başına düşen setir sayı"
 msgid "Display order:"
 msgstr "Sıralama şekli:"
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr ""
-
 #: tbl_structure.php:158 tbl_structure.php:162
 #, fuzzy
 #| msgid "Session value"
@@ -13561,9 +13563,6 @@ msgstr ""
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "Heç biri"
-
-#~ msgid "Create an index"
-#~ msgstr "Yeni indeks qur"
 
 #~ msgid "Modify an index"
 #~ msgstr "Modify an index"

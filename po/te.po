@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-09 12:47+0200\n"
+"POT-Creation-Date: 2012-05-09 12:53+0200\n"
 "PO-Revision-Date: 2012-03-09 02:43+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -3094,19 +3094,23 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:945
-msgid "NUMERIC"
+msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:959
-msgid "DATE and TIME"
-msgstr ""
+#, fuzzy
+#| msgid "Create an index"
+msgid "Date and time"
+msgstr "పుటని సృష్టించు"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:967
-msgid "STRING"
+#: libraries/Types.class.php:978 libraries/Types.class.php:979
+msgid "String"
 msgstr ""
 
-#: libraries/Types.class.php:668
-msgid "SPATIAL"
+#: libraries/Types.class.php:668 tbl_structure.php:151 tbl_structure.php:156
+#: tbl_structure.php:603
+msgid "Spatial"
 msgstr ""
 
 #: libraries/Types.class.php:702
@@ -11681,10 +11685,6 @@ msgstr ""
 msgid "Display order:"
 msgstr ""
 
-#: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
-msgid "Spatial"
-msgstr ""
-
 #: tbl_structure.php:158 tbl_structure.php:162
 #, fuzzy
 #| msgid "Use this value"
@@ -13135,9 +13135,6 @@ msgstr ""
 #~ msgctxt "Create none database for user"
 #~ msgid "None"
 #~ msgstr "కాదు"
-
-#~ msgid "Create an index"
-#~ msgstr "పుటని సృష్టించు"
 
 #~ msgid "Create Table"
 #~ msgstr "పుటని సృష్టించు"
