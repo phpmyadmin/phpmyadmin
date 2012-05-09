@@ -616,7 +616,7 @@ class PMA_Types_MySQL extends PMA_Types
             'DATE',
 
             // numeric
-            __('Numeric') => array(
+            _pgettext('Numeric', 'numeric types') => array(
                 'TINYINT',
                 'SMALLINT',
                 'MEDIUMINT',
@@ -635,7 +635,7 @@ class PMA_Types_MySQL extends PMA_Types
 
 
             // Date/Time
-            __('Date and time') => array(
+            _pgettext('Date and time', 'date and time types') => array(
                 'DATE',
                 'DATETIME',
                 'TIMESTAMP',
@@ -644,7 +644,7 @@ class PMA_Types_MySQL extends PMA_Types
             ),
 
             // Text
-            __('String') => array(
+            _pgettext('String', 'string types') => array(
                 'CHAR',
                 'VARCHAR',
                 '-',
@@ -665,7 +665,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'SET',
             ),
 
-            __('Spatial') => array(
+            _pgettext('Spatial', 'spatial types') => array(
                 'GEOMETRY',
                 'POINT',
                 'LINESTRING',
@@ -942,7 +942,7 @@ class PMA_Types_Drizzle extends PMA_Types
             'DATE',
 
             // numeric
-            __('Numeric') => array(
+            _pgettext('Numeric', 'numeric types') => array(
                 'INTEGER',
                 'BIGINT',
                 '-',
@@ -956,7 +956,7 @@ class PMA_Types_Drizzle extends PMA_Types
 
 
             // Date/Time
-            __('Date and time') => array(
+            _pgettext('Date and time', 'date and time types') => array(
                 'DATE',
                 'DATETIME',
                 'TIMESTAMP',
@@ -964,7 +964,7 @@ class PMA_Types_Drizzle extends PMA_Types
             ),
 
             // Text
-            __('String') => array(
+            _pgettext('String', 'string types') => array(
                 'VARCHAR',
                 'TEXT',
                 '-',
