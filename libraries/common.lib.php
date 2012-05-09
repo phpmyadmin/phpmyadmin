@@ -3823,7 +3823,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
         // need to escape wildcards in db and table names, see bug #3518484
         $tbl = str_replace(array('%', '_'), array('\%', '\_'), $tbl);
         $query .= " AND TABLE_NAME='%s'";
-        if ($retval = PMA_DBI_fetch_value(
+        if (PMA_DBI_fetch_value(
             sprintf(
                 $query,
                 'TABLE_PRIVILEGES',
