@@ -256,7 +256,13 @@ class PMA_Types
      */
     public function getColumns()
     {
-        return array();
+        // most used types
+        return array(
+            'INT',
+            'VARCHAR',
+            'TEXT',
+            'DATE',
+        );
     }
 }
 
@@ -608,74 +614,69 @@ class PMA_Types_MySQL extends PMA_Types
      */
     public function getColumns()
     {
-        return array(
-            // most used
+        $ret = parent::getColumns();
+        // numeric
+        $ret[_pgettext('numeric types', 'Numeric')] = array(
+            'TINYINT',
+            'SMALLINT',
+            'MEDIUMINT',
             'INT',
-            'VARCHAR',
-            'TEXT',
-            'DATE',
-
-            // numeric
-            _pgettext('numeric types', 'Numeric') => array(
-                'TINYINT',
-                'SMALLINT',
-                'MEDIUMINT',
-                'INT',
-                'BIGINT',
-                '-',
-                'DECIMAL',
-                'FLOAT',
-                'DOUBLE',
-                'REAL',
-                '-',
-                'BIT',
-                'BOOLEAN',
-                'SERIAL',
-            ),
-
-
-            // Date/Time
-            _pgettext('date and time types', 'Date and time') => array(
-                'DATE',
-                'DATETIME',
-                'TIMESTAMP',
-                'TIME',
-                'YEAR',
-            ),
-
-            // Text
-            _pgettext('string types', 'String') => array(
-                'CHAR',
-                'VARCHAR',
-                '-',
-                'TINYTEXT',
-                'TEXT',
-                'MEDIUMTEXT',
-                'LONGTEXT',
-                '-',
-                'BINARY',
-                'VARBINARY',
-                '-',
-                'TINYBLOB',
-                'MEDIUMBLOB',
-                'BLOB',
-                'LONGBLOB',
-                '-',
-                'ENUM',
-                'SET',
-            ),
-
-            _pgettext('spatial types', 'Spatial') => array(
-                'GEOMETRY',
-                'POINT',
-                'LINESTRING',
-                'POLYGON',
-                'MULTIPOINT',
-                'MULTILINESTRING',
-                'MULTIPOLYGON',
-                'GEOMETRYCOLLECTION',
-            ),
+            'BIGINT',
+            '-',
+            'DECIMAL',
+            'FLOAT',
+            'DOUBLE',
+            'REAL',
+            '-',
+            'BIT',
+            'BOOLEAN',
+            'SERIAL',
         );
+
+
+        // Date/Time
+        $ret[_pgettext('date and time types', 'Date and time')] = array(
+            'DATE',
+            'DATETIME',
+            'TIMESTAMP',
+            'TIME',
+            'YEAR',
+        );
+
+        // Text
+        $ret[_pgettext('string types', 'String')] = array(
+            'CHAR',
+            'VARCHAR',
+            '-',
+            'TINYTEXT',
+            'TEXT',
+            'MEDIUMTEXT',
+            'LONGTEXT',
+            '-',
+            'BINARY',
+            'VARBINARY',
+            '-',
+            'TINYBLOB',
+            'MEDIUMBLOB',
+            'BLOB',
+            'LONGBLOB',
+            '-',
+            'ENUM',
+            'SET',
+        );
+
+        $ret[_pgettext('spatial types', 'Spatial')] = array(
+            'GEOMETRY',
+            'POINT',
+            'LINESTRING',
+            'POLYGON',
+            'MULTIPOINT',
+            'MULTILINESTRING',
+            'MULTIPOLYGON',
+            'GEOMETRYCOLLECTION',
+        );
+
+        return $ret;
     }
 }
 
@@ -965,22 +966,16 @@ class PMA_Types_Drizzle extends PMA_Types
             $types_string[] = 'IPV6';
         }
 
-        $ret = array(
-            // most used
-            'INTEGER',
-            'VARCHAR',
-            'TEXT',
-            'DATE',
+        $ret = parent::getColumns();
+        // numeric
+        $ret[_pgettext('numeric types', 'Numeric')] = $types_num;
 
-            // numeric
-            _pgettext('numeric types', 'Numeric') => $types_num,
+        // Date/Time
+        $ret[_pgettext('date and time types', 'Date and time')] = $types_date;
 
-            // Date/Time
-            _pgettext('date and time types', 'Date and time') => $types_date,
+        // Text
+        $ret[_pgettext('string types', 'String')] = $types_string;
 
-            // Text
-            _pgettext('string types', 'String') => $types_string,
-        );
         return $ret;
     }
 }
