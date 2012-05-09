@@ -8,11 +8,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Gets some core libraries
- */
-require_once './libraries/common.inc.php';
-
-/**
  * Handles some variables that may have been sent by the calling script
  * Note: this can be called also from the db panel to get the privileges of
  *       a db, in which case we want to keep displaying the tabs of

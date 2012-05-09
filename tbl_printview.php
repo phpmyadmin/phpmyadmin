@@ -10,8 +10,6 @@
  */
 require_once 'libraries/common.inc.php';
 
-require 'libraries/tbl_common.inc.php';
-
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
@@ -20,6 +18,8 @@ define('PMA_DISPLAY_HEADING', 0);
 if (! isset($selected_tbl)) {
     include_once 'libraries/header.inc.php';
 }
+
+require 'libraries/tbl_common.inc.php';
 
 // Check parameters
 
