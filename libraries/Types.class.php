@@ -616,7 +616,7 @@ class PMA_Types_MySQL extends PMA_Types
             'DATE',
 
             // numeric
-            _pgettext('Numeric', 'numeric types') => array(
+            _pgettext('numeric types', 'Numeric') => array(
                 'TINYINT',
                 'SMALLINT',
                 'MEDIUMINT',
@@ -635,7 +635,7 @@ class PMA_Types_MySQL extends PMA_Types
 
 
             // Date/Time
-            _pgettext('Date and time', 'date and time types') => array(
+            _pgettext('date and time types', 'Date and time') => array(
                 'DATE',
                 'DATETIME',
                 'TIMESTAMP',
@@ -644,7 +644,7 @@ class PMA_Types_MySQL extends PMA_Types
             ),
 
             // Text
-            _pgettext('String', 'string types') => array(
+            _pgettext('string types', 'String') => array(
                 'CHAR',
                 'VARCHAR',
                 '-',
@@ -665,7 +665,7 @@ class PMA_Types_MySQL extends PMA_Types
                 'SET',
             ),
 
-            _pgettext('Spatial', 'spatial types') => array(
+            _pgettext('spatial types', 'Spatial') => array(
                 'GEOMETRY',
                 'POINT',
                 'LINESTRING',
@@ -942,7 +942,7 @@ class PMA_Types_Drizzle extends PMA_Types
             'DATE',
 
             // numeric
-            _pgettext('Numeric', 'numeric types') => array(
+            _pgettext('numeric types', 'Numeric') => array(
                 'INTEGER',
                 'BIGINT',
                 '-',
@@ -956,7 +956,7 @@ class PMA_Types_Drizzle extends PMA_Types
 
 
             // Date/Time
-            _pgettext('Date and time', 'date and time types') => array(
+            _pgettext('date and time types', 'Date and time') => array(
                 'DATE',
                 'DATETIME',
                 'TIMESTAMP',
@@ -964,7 +964,7 @@ class PMA_Types_Drizzle extends PMA_Types
             ),
 
             // Text
-            _pgettext('String', 'string types') => array(
+            _pgettext('string types', 'String') => array(
                 'VARCHAR',
                 'TEXT',
                 '-',
