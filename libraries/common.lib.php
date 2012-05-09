@@ -3334,7 +3334,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
         )
         . '</label>';
     $extensions = '';
-    foreach ($import_list as $key => $val) {
+    foreach ($import_list as $val) {
         if (! empty($extensions)) {
             $extensions .= '|';
         }
