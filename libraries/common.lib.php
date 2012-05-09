@@ -1702,13 +1702,12 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  *
  * @param array  $tab        array with all options
  * @param array  $url_params
- * @param string $base_dir
  *
  * @return string  html code for one tab, a link if valid otherwise a span
  *
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
+function PMA_generate_html_tab($tab, $url_params = array())
 {
     // default values
     $defaults = array(
@@ -1806,20 +1805,17 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
  *
  * @param array  $tabs       one element per tab
  * @param string $url_params
- * @param string $base_dir
  * @param string $menu_id
  *
  * @return string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params, $base_dir = '',
-    $menu_id = 'topmenu'
-) {
+function PMA_generate_html_tabs($tabs, $url_params, $menu_id = 'topmenu') {
     $tab_navigation = '<div id="' . htmlentities($menu_id)
         . 'container" class="menucontainer">'
         .'<ul id="' . htmlentities($menu_id) . '">';
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generate_html_tab($tab, $url_params, $base_dir);
+        $tab_navigation .= PMA_generate_html_tab($tab, $url_params);
     }
 
     $tab_navigation .=
