@@ -43,7 +43,12 @@ $GLOBALS['showtable'] = array();
 // we force reading of the current table status
 // if $reread_info is true (for example, coming from tbl_operations.php
 // and we just changed the table's storage engine)
-$GLOBALS['showtable'] = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], null, (isset($reread_info) && $reread_info ? true : false));
+$GLOBALS['showtable'] = PMA_Table::sGetStatusInfo(
+    $GLOBALS['db'],
+    $GLOBALS['table'],
+    null,
+    (isset($reread_info) && $reread_info ? true : false)
+);
 
 // need this test because when we are creating a table, we get 0 rows
 // from the SHOW TABLE query
@@ -98,7 +103,9 @@ if ($showtable) {
         }
     }
     // we need explicit DEFAULT value here (different from '0')
-    $pack_keys = (! isset($pack_keys) || strlen($pack_keys) == 0) ? 'DEFAULT' : $pack_keys;
+    $pack_keys = (! isset($pack_keys) || strlen($pack_keys) == 0)
+        ? 'DEFAULT'
+        : $pack_keys;
     unset($create_options, $each_create_option);
 } // end if
 ?>
