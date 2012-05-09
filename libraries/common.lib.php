@@ -3343,7 +3343,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
     $matcher = '@\.(' . $extensions . ')(\.('
         . PMA_supportedDecompressions() . '))?$@';
 
-    $active = (isset($timeout_passed) && $timeout_passed && isset($local_import_file))
+    $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($local_import_file))
         ? $local_import_file
         : '';
     $files = PMA_getFileSelectOptions(
