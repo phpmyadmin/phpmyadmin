@@ -3717,6 +3717,13 @@ function PMA_getFunctionsForField($field, $insert_mode)
         $dropdown_built[$each_dropdown] = true;
         $op_spacing_needed = true;
     }
+
+    // Create separator before all functions list
+    if ($op_spacing_needed) {
+        $retval .= '                ';
+        $retval .= '<option value="">--------</option>' . "\n";
+    }
+
     // For compatibility's sake, do not let out all other functions. Instead
     // print a separator (blank) and then show ALL functions which weren't
     // shown yet.
@@ -3729,11 +3736,6 @@ function PMA_getFunctionsForField($field, $insert_mode)
                 || (! $field['first_timestamp'] && $functions[$j] == $default_function)
                     ? ' selected="selected"'
                     : '';
-            if ($op_spacing_needed == true) {
-                $retval .= '                ';
-                $retval .= '<option value="">--------</option>' . "\n";
-                $op_spacing_needed = false;
-            }
 
             $retval .= '                ';
             $retval .= '<option' . $selected . '>' . $functions[$j]
