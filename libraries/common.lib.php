@@ -3685,6 +3685,10 @@ function PMA_getFunctionsForField($field, $insert_mode)
     ) {
         $default_function = $cfg['DefaultFunctions']['first_timestamp'];
     }
+    // Default for first timestamp field
+    if ($field['first_timestamp']) {
+        $default_function = $cfg['DefaultFunctions']['first_timestamp'];
+    }
     // For primary keys of type char(36) or varchar(36) UUID if the default
     // function
     // Only applies to insert mode, as it would silently trash data on updates.
@@ -3726,8 +3730,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
     for ($j = 0; $j < $cnt_functions; $j++) {
         if (! isset($dropdown_built[$functions[$j]])) {
             // Is current function defined as default?
-            $selected = ($field['first_timestamp'] && $functions[$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                || (! $field['first_timestamp'] && $functions[$j] == $default_function)
+            $selected = ($functions[$j] == $default_function)
                     ? ' selected="selected"'
                     : '';
 
