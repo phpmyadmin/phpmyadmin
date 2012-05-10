@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-03 23:49+0200\n"
+"PO-Revision-Date: 2012-05-10 17:02+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
-"X-Generator: Weblate 0.10\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -3057,24 +3057,21 @@ msgstr "Zbirka geometrijskih objektov katere koli vrste"
 #: libraries/Types.class.php:619 libraries/Types.class.php:971
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numerično"
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:974
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Ustvari indeks"
+msgstr "Datum in čas"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Daljica"
+msgstr "Niz"
 
 #: libraries/Types.class.php:668
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -7325,7 +7322,7 @@ msgstr "Datoteka oblik ESRI"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Vrsto geometrije '%s' MySQL ne podpira."
 
 #: libraries/import/shp.php:360
 #, php-format
