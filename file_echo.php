@@ -18,7 +18,7 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
 
     /* Check whether MIME type is allowed */
     if (! isset($allowed[$_REQUEST['type']])) {
-        die(__('Invalid export type'));
+        PMA_fatalError(__('Invalid export type'));
     }
 
     /*

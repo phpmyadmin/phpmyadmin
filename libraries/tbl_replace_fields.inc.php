@@ -80,7 +80,9 @@ if (false !== $possibly_uploaded_val) {
     } elseif ($type == 'bit') {
         $val = preg_replace('/[^01]/', '0', $val);
         $val = "b'" . PMA_sqlAddSlashes($val) . "'";
-    } elseif (! (($type == 'datetime' || $type == 'timestamp') && $val == 'CURRENT_TIMESTAMP')) {
+    } elseif (! ($type == 'datetime' || $type == 'timestamp')
+        || $val != 'CURRENT_TIMESTAMP'
+    ) {
         $val = "'" . PMA_sqlAddSlashes($val) . "'";
     }
 
@@ -92,7 +94,10 @@ if (false !== $possibly_uploaded_val) {
     }
 
     // The Null checkbox was unchecked for this field
-    if (empty($val) && ! empty($me_fields_null_prev[$key]) && ! isset($me_fields_null[$key])) {
+    if (empty($val)
+        && ! empty($me_fields_null_prev[$key])
+        && ! isset($me_fields_null[$key])
+    ) {
         $val = "''";
     }
 }  // end else (field value in the form)
