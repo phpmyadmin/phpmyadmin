@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-09 12:08+0200\n"
+"PO-Revision-Date: 2012-05-10 11:55+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -2843,6 +2843,7 @@ msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"DOUBLE と同義 (例外：REAL を FLOAT として扱うモード (REAL_AS_FLOAT) では、FLOAT と 同義になります)"
 
 #: libraries/Types.class.php:307
 msgid ""
@@ -2854,11 +2855,13 @@ msgstr ""
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
-msgstr "TINYINT(1) の別名、0 が FALSE と見なされ、0 以外が TRUE と見なされます"
+msgstr "TINYINT(1) と同義、0 が FALSE と見なされ、0 以外が TRUE と見なされます"
 
 #: libraries/Types.class.php:311
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
+"BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE の別名 "
+"(BIGINT、符号なし、NULLなし、AUTO_INCREMENT、ユニークキー)"
 
 #: libraries/Types.class.php:313 libraries/Types.class.php:717
 #, php-format
@@ -2888,6 +2891,8 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"年、4 桁 (デフォルト) または 2 桁、有効な値は 2 桁が 70 (1970) から 69 (2069)、4 桁が 1901 から 2155 "
+"および 0000"
 
 #: libraries/Types.class.php:323
 msgid ""
@@ -2998,11 +3003,11 @@ msgstr ""
 
 #: libraries/Types.class.php:353
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "2 次元空間の点"
 
 #: libraries/Types.class.php:355
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "多点間の線形補間による曲線"
 
 #: libraries/Types.class.php:357
 msgid "A polygon"
@@ -3014,7 +3019,7 @@ msgstr "座標の集合"
 
 #: libraries/Types.class.php:361
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "多点間の線形補間による曲線の集合"
 
 #: libraries/Types.class.php:363
 msgid "A collection of polygons"
@@ -3027,28 +3032,25 @@ msgstr ""
 #: libraries/Types.class.php:619 libraries/Types.class.php:971
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "数値"
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:974
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "インデックスを作成する"
+msgstr "日付・時刻"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "線分"
+msgstr "文字列"
 
 #: libraries/Types.class.php:668
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "空間"
+msgstr "空間データ"
 
 #: libraries/Types.class.php:703
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
