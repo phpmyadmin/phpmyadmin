@@ -3662,6 +3662,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
 
     $selected = '';
     $default_function   = '';
+    $dropdown_built = array();
 
     // Can we get field class based values?
     $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
@@ -3670,7 +3671,6 @@ function PMA_getFunctionsForField($field, $insert_mode)
             $default_function   = $cfg['DefaultFunctions']['FUNC_' . $current_class];
         }
     }
-    $dropdown_built = array();
     // what function defined as default?
     // for the first timestamp we don't set the default function
     // if there is a default value for the timestamp
