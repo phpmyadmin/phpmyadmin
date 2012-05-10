@@ -3704,11 +3704,10 @@ function PMA_getFunctionsForField($field, $insert_mode)
     }
 
     // Create the output
-    $retval = '                <option></option>' . "\n";
+    $retval = '<option></option>' . "\n";
     // loop on the dropdown array and print all available options for that
     // field.
     foreach ($dropdown as $each_dropdown) {
-        $retval .= '                ';
         $retval .= '<option';
         if ($default_function === $each_dropdown) {
             $retval .= ' selected="selected"';
@@ -3720,7 +3719,6 @@ function PMA_getFunctionsForField($field, $insert_mode)
 
     // Create separator before all functions list
     if ($op_spacing_needed) {
-        $retval .= '                ';
         $retval .= '<option value="">--------</option>' . "\n";
     }
 
@@ -3737,7 +3735,6 @@ function PMA_getFunctionsForField($field, $insert_mode)
                     ? ' selected="selected"'
                     : '';
 
-            $retval .= '                ';
             $retval .= '<option' . $selected . '>' . $functions[$j]
                 . '</option>' . "\n";
         }
