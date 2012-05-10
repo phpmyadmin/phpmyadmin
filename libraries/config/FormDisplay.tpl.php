@@ -121,13 +121,13 @@ function display_fieldset_top($title = '', $description = '', $errors = null,
  *
  * @param string $path
  * @param string $name
- * @param string $description
  * @param string $type
  * @param mixed  $value
+ * @param string $description
  * @param bool   $value_is_default
  * @param array  $opts
  */
-function display_input($path, $name, $description = '', $type, $value,
+function display_input($path, $name, $type, $value, $description = '',
     $value_is_default = true, $opts = null
 ) {
     global $_FormDisplayGroup;
